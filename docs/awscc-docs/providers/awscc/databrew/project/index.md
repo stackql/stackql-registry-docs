@@ -45,19 +45,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 databrew:DescribeProject,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 ### Update
-<pre>
+```json
 databrew:UpdateProject,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-databrew:DeleteProject</pre>
+```json
+databrew:DeleteProject
+```
 
 
 ## Example

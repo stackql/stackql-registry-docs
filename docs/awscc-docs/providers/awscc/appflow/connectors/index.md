@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connectors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appflow:RegisterConnector,
-lambda:InvokeFunction</pre>
+lambda:InvokeFunction
+```
 
 ### List
-<pre>
-appflow:ListConnectors</pre>
+```json
+appflow:ListConnectors
+```
 
 
 ## Example

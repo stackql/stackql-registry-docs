@@ -50,21 +50,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>transformer</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 b2bi:GetTransformer,
-b2bi:ListTagsForResource</pre>
+b2bi:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 b2bi:TagResource,
 b2bi:UntagResource,
-b2bi:UpdateTransformer</pre>
+b2bi:UpdateTransformer
+```
 
 ### Delete
-<pre>
+```json
 b2bi:DeleteTransformer,
 logs:DeleteLogDelivery,
-logs:ListLogDeliveries</pre>
+logs:ListLogDeliveries
+```
 
 
 ## Example

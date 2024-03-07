@@ -43,17 +43,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>prepared_statement</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-athena:GetPreparedStatement</pre>
+```json
+athena:GetPreparedStatement
+```
 
 ### Update
-<pre>
-athena:UpdatePreparedStatement</pre>
+```json
+athena:UpdatePreparedStatement
+```
 
 ### Delete
-<pre>
+```json
 athena:DeletePreparedStatement,
-athena:GetPreparedStatement</pre>
+athena:GetPreparedStatement
+```
 
 
 ## Example

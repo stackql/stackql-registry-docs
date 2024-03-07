@@ -49,19 +49,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-profile:GetDomain</pre>
+```json
+profile:GetDomain
+```
 
 ### Update
-<pre>
+```json
 profile:GetDomain,
 profile:UpdateDomain,
 profile:UntagResource,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 ### Delete
-<pre>
-profile:DeleteDomain</pre>
+```json
+profile:DeleteDomain
+```
 
 
 ## Example

@@ -53,21 +53,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workflow</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-omics:GetWorkflow</pre>
+```json
+omics:GetWorkflow
+```
 
 ### Update
-<pre>
+```json
 omics:UpdateWorkflow,
 omics:GetWorkflow,
 omics:TagResource,
 omics:ListTagsForResource,
-omics:UntagResource</pre>
+omics:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 omics:DeleteWorkflow,
-omics:GetWorkflow</pre>
+omics:GetWorkflow
+```
 
 
 ## Example

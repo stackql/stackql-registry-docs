@@ -41,21 +41,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ses:GetEmailTemplate,
-ses:GetTemplate</pre>
+ses:GetTemplate
+```
 
 ### Delete
-<pre>
+```json
 ses:DeleteEmailTemplate,
-ses:DeleteTemplate</pre>
+ses:DeleteTemplate
+```
 
 ### Update
-<pre>
+```json
 ses:GetEmailTemplate,
 ses:UpdateEmailTemplate,
 ses:GetTemplate,
-ses:UpdateTemplate</pre>
+ses:UpdateTemplate
+```
 
 
 ## Example

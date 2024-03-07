@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolver_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53resolver:UpdateResolverConfig,
 route53resolver:GetResolverConfig,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### List
-<pre>
+```json
 route53resolver:ListResolverConfigs,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 
 ## Example

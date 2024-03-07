@@ -43,16 +43,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>target_account_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-fis:GetTargetAccountConfiguration</pre>
+```json
+fis:GetTargetAccountConfiguration
+```
 
 ### Update
-<pre>
-fis:UpdateTargetAccountConfiguration</pre>
+```json
+fis:UpdateTargetAccountConfiguration
+```
 
 ### Delete
-<pre>
-fis:DeleteTargetAccountConfiguration</pre>
+```json
+fis:DeleteTargetAccountConfiguration
+```
 
 
 ## Example

@@ -51,23 +51,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>index</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kendra:DescribeIndex,
-kendra:ListTagsForResource</pre>
+kendra:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 kendra:DescribeIndex,
 kendra:UpdateIndex,
 kendra:ListTagsForResource,
 kendra:TagResource,
 kendra:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 kendra:DescribeIndex,
-kendra:DeleteIndex</pre>
+kendra:DeleteIndex
+```
 
 
 ## Example

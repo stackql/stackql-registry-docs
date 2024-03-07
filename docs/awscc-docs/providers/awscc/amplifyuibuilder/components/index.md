@@ -42,16 +42,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>components</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:CreateComponent,
 amplifyuibuilder:GetComponent,
-amplifyuibuilder:TagResource</pre>
+amplifyuibuilder:TagResource
+```
 
 ### List
-<pre>
+```json
 amplify:GetApp,
-amplifyuibuilder:ListComponents</pre>
+amplifyuibuilder:ListComponents
+```
 
 
 ## Example

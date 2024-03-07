@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic_inline_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sns:SetTopicAttributes,
-sns:GetTopicAttributes</pre>
+sns:GetTopicAttributes
+```
 
 
 ## Example

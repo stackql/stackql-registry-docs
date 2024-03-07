@@ -51,21 +51,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>wireless_device</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetWirelessDevice,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotwireless:UpdateWirelessDevice,
 iotwireless:UntagResource,
 iotwireless:ListTagsForResource,
-iotwireless:AssociateWirelessDeviceWithThing</pre>
+iotwireless:AssociateWirelessDeviceWithThing
+```
 
 ### Delete
-<pre>
+```json
 iotwireless:DeleteWirelessDevice,
-iotwireless:DisassociateWirelessDeviceFromThing</pre>
+iotwireless:DisassociateWirelessDeviceFromThing
+```
 
 
 ## Example

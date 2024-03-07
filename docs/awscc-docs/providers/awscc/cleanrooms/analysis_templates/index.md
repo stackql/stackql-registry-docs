@@ -41,16 +41,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>analysis_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cleanrooms:CreateAnalysisTemplate,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:GetAnalysisTemplate,
-cleanrooms:ListAnalysisTemplates</pre>
+cleanrooms:ListAnalysisTemplates
+```
 
 ### List
-<pre>
-cleanrooms:ListAnalysisTemplates</pre>
+```json
+cleanrooms:ListAnalysisTemplates
+```
 
 
 ## Example

@@ -49,22 +49,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>variable</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 frauddetector:GetVariables,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 frauddetector:GetVariables,
 frauddetector:UpdateVariable,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource,
-frauddetector:UntagResource</pre>
+frauddetector:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 frauddetector:GetVariables,
-frauddetector:DeleteVariable</pre>
+frauddetector:DeleteVariable
+```
 
 
 ## Example

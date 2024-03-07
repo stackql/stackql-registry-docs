@@ -41,9 +41,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PutUserPolicy,
-iam:GetUserPolicy</pre>
+iam:GetUserPolicy
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trackers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 geo:CreateTracker,
 geo:DescribeTracker,
 geo:TagResource,
 geo:UntagResource,
 kms:DescribeKey,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
-geo:ListTrackers</pre>
+```json
+geo:ListTrackers
+```
 
 
 ## Example

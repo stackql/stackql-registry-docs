@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>thing</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 iot:DeleteThing,
-iot:DescribeThing</pre>
+iot:DescribeThing
+```
 
 ### Read
-<pre>
-iot:DescribeThing</pre>
+```json
+iot:DescribeThing
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateThing,
-iot:DescribeThing</pre>
+iot:DescribeThing
+```
 
 
 ## Example

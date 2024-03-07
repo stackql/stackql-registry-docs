@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account_aliases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 supportapp:PutAccountAlias,
-supportapp:GetAccountAlias</pre>
+supportapp:GetAccountAlias
+```
 
 ### List
-<pre>
-supportapp:GetAccountAlias</pre>
+```json
+supportapp:GetAccountAlias
+```
 
 
 ## Example

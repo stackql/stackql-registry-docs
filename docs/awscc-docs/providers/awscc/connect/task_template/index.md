@@ -50,20 +50,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:GetTaskTemplate</pre>
+```json
+connect:GetTaskTemplate
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateTaskTemplate,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteTaskTemplate,
 connect:UntagResource,
-connect:GetTaskTemplate</pre>
+connect:GetTaskTemplate
+```
 
 
 ## Example

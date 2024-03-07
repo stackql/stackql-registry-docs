@@ -53,21 +53,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>annotation_store</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-omics:GetAnnotationStore</pre>
+```json
+omics:GetAnnotationStore
+```
 
 ### Update
-<pre>
+```json
 omics:UpdateAnnotationStore,
 omics:TagResource,
 omics:UntagResource,
 omics:GetAnnotationStore,
-omics:ListTagsForResource</pre>
+omics:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 omics:DeleteAnnotationStore,
-omics:ListAnnotationStores</pre>
+omics:ListAnnotationStores
+```
 
 
 ## Example

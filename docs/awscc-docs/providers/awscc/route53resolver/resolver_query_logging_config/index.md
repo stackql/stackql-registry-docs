@@ -49,16 +49,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolver_query_logging_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 resolverquerylogging:GetConfig,
-route53resolver:GetResolverQueryLogConfig</pre>
+route53resolver:GetResolverQueryLogConfig
+```
 
 ### Delete
-<pre>
+```json
 resolverquerylogging:DeleteConfig,
 resolverquerylogging:ListConfig,
 route53resolver:DeleteResolverQueryLogConfig,
-route53resolver:ListResolverQueryLogConfigs</pre>
+route53resolver:ListResolverQueryLogConfigs
+```
 
 
 ## Example

@@ -46,21 +46,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>filter</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-guardduty:GetFilter</pre>
+```json
+guardduty:GetFilter
+```
 
 ### Delete
-<pre>
+```json
 guardduty:ListDetectors,
 guardduty:ListFilters,
 guardduty:GetFilter,
-guardduty:DeleteFilter</pre>
+guardduty:DeleteFilter
+```
 
 ### Update
-<pre>
+```json
 guardduty:UpdateFilter,
 guardduty:GetFilter,
-guardduty:ListFilters</pre>
+guardduty:ListFilters
+```
 
 
 ## Example

@@ -57,24 +57,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_definition</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ecs:DescribeTaskDefinition</pre>
+```json
+ecs:DescribeTaskDefinition
+```
 
 ### Update
-<pre>
+```json
 ecs:TagResource,
 ecs:UntagResource,
 ecs:ListTagsForResource,
 ecs:DescribeTaskDefinition,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 ecs:DeregisterTaskDefinition,
 ecs:DescribeTaskDefinition,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

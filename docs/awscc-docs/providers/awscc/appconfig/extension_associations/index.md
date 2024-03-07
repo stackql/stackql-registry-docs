@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>extension_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appconfig:CreateExtensionAssociation,
-appconfig:TagResource</pre>
+appconfig:TagResource
+```
 
 ### List
-<pre>
-appconfig:ListExtensionAssociations</pre>
+```json
+appconfig:ListExtensionAssociations
+```
 
 
 ## Example

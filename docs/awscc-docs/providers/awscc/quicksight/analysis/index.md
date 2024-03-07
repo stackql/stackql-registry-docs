@@ -56,13 +56,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>analysis</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 quicksight:DescribeAnalysis,
 quicksight:DescribeAnalysisPermissions,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 quicksight:DescribeAnalysis,
 quicksight:DescribeAnalysisPermissions,
 quicksight:UpdateAnalysis,
@@ -72,12 +73,14 @@ quicksight:DescribeTheme,
 quicksight:PassDataSet,
 quicksight:TagResource,
 quicksight:UntagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 quicksight:DescribeAnalysis,
-quicksight:DeleteAnalysis</pre>
+quicksight:DeleteAnalysis
+```
 
 
 ## Example

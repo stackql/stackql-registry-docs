@@ -45,19 +45,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>flow_vpc_interface</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediaconnect:DescribeFlow</pre>
+```json
+mediaconnect:DescribeFlow
+```
 
 ### Update
-<pre>
+```json
 mediaconnect:DescribeFlow,
 mediaconnect:AddFlowVpcInterfaces,
-mediaconnect:RemoveFlowVpcInterface</pre>
+mediaconnect:RemoveFlowVpcInterface
+```
 
 ### Delete
-<pre>
+```json
 mediaconnect:DescribeFlow,
-mediaconnect:RemoveFlowVpcInterface</pre>
+mediaconnect:RemoveFlowVpcInterface
+```
 
 
 ## Example

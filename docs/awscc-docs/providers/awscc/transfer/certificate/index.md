@@ -54,18 +54,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-transfer:DescribeCertificate</pre>
+```json
+transfer:DescribeCertificate
+```
 
 ### Update
-<pre>
+```json
 transfer:UpdateCertificate,
 transfer:UnTagResource,
-transfer:TagResource</pre>
+transfer:TagResource
+```
 
 ### Delete
-<pre>
-transfer:DeleteCertificate</pre>
+```json
+transfer:DeleteCertificate
+```
 
 
 ## Example

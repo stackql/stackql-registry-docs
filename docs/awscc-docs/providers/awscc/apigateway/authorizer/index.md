@@ -50,18 +50,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>authorizer</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 ### Update
-<pre>
+```json
 apigateway:GET,
 apigateway:PATCH,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-apigateway:DELETE</pre>
+```json
+apigateway:DELETE
+```
 
 
 ## Example

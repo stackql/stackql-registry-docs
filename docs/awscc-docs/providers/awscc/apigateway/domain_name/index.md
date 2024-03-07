@@ -51,16 +51,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain_name</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apigateway:*</pre>
+```json
+apigateway:*
+```
 
 ### Update
-<pre>
-apigateway:*</pre>
+```json
+apigateway:*
+```
 
 ### Delete
-<pre>
-apigateway:*</pre>
+```json
+apigateway:*
+```
 
 
 ## Example

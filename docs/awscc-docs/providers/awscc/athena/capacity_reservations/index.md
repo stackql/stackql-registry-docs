@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>capacity_reservations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 athena:CreateCapacityReservation,
 athena:PutCapacityAssignmentConfiguration,
 athena:GetCapacityReservation,
-athena:TagResource</pre>
+athena:TagResource
+```
 
 ### List
-<pre>
+```json
 athena:ListCapacityReservations,
-athena:GetCapacityReservation</pre>
+athena:GetCapacityReservation
+```
 
 
 ## Example

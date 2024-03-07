@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_network</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 vpc-lattice:GetServiceNetwork,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:GetServiceNetwork,
 vpc-lattice:UpdateServiceNetwork,
 vpc-lattice:TagResource,
-vpc-lattice:UntagResource</pre>
+vpc-lattice:UntagResource
+```
 
 ### Delete
-<pre>
-vpc-lattice:DeleteServiceNetwork</pre>
+```json
+vpc-lattice:DeleteServiceNetwork
+```
 
 
 ## Example

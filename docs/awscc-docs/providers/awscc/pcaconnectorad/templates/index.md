@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-pca-connector-ad:CreateTemplate</pre>
+```json
+pca-connector-ad:CreateTemplate
+```
 
 ### List
-<pre>
-pca-connector-ad:ListTemplates</pre>
+```json
+pca-connector-ad:ListTemplates
+```
 
 
 ## Example

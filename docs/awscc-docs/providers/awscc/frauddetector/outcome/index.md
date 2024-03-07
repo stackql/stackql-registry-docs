@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>outcome</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 frauddetector:GetOutcomes,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 frauddetector:GetOutcomes,
 frauddetector:PutOutcome,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource,
-frauddetector:UntagResource</pre>
+frauddetector:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 frauddetector:GetOutcomes,
-frauddetector:DeleteOutcome</pre>
+frauddetector:DeleteOutcome
+```
 
 
 ## Example

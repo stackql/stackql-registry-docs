@@ -48,24 +48,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>capacity_reservation</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 athena:GetCapacityReservation,
 athena:GetCapacityAssignmentConfiguration,
-athena:ListTagsForResource</pre>
+athena:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 athena:UpdateCapacityReservation,
 athena:PutCapacityAssignmentConfiguration,
 athena:GetCapacityReservation,
 athena:TagResource,
-athena:UntagResource</pre>
+athena:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 athena:CancelCapacityReservation,
 athena:GetCapacityReservation,
-athena:DeleteCapacityReservation</pre>
+athena:DeleteCapacityReservation
+```
 
 
 ## Example

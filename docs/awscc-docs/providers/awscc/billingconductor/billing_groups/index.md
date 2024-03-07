@@ -40,19 +40,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>billing_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 billingconductor:CreateBillingGroup,
 billingconductor:AssociateAccounts,
 billingconductor:ListBillingGroups,
 billingconductor:TagResource,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 billingconductor:ListBillingGroups,
 billingconductor:ListAccountAssociations,
 organizations:ListAccounts,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 
 ## Example

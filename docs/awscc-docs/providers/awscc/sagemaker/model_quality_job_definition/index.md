@@ -52,12 +52,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_quality_job_definition</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
-sagemaker:DeleteModelQualityJobDefinition</pre>
+```json
+sagemaker:DeleteModelQualityJobDefinition
+```
 
 ### Read
-<pre>
-sagemaker:DescribeModelQualityJobDefinition</pre>
+```json
+sagemaker:DescribeModelQualityJobDefinition
+```
 
 
 ## Example

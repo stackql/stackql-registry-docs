@@ -46,23 +46,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipeline</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sagemaker:DescribePipeline,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 s3:GetObject,
 sagemaker:UpdatePipeline,
 sagemaker:DescribePipeline,
 sagemaker:AddTags,
 sagemaker:DeleteTags,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Delete
-<pre>
-sagemaker:DeletePipeline</pre>
+```json
+sagemaker:DeletePipeline
+```
 
 
 ## Example

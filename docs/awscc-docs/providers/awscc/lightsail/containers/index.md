@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>containers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:CreateContainerService,
 lightsail:CreateContainerServiceDeployment,
 lightsail:GetContainerServices,
 lightsail:TagResource,
 lightsail:UntagResource,
-lightsail:UpdateContainerService</pre>
+lightsail:UpdateContainerService
+```
 
 ### List
-<pre>
-lightsail:GetContainerServices</pre>
+```json
+lightsail:GetContainerServices
+```
 
 
 ## Example

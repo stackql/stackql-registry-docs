@@ -47,12 +47,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>auto_scaling_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apprunner:DescribeAutoScalingConfiguration</pre>
+```json
+apprunner:DescribeAutoScalingConfiguration
+```
 
 ### Delete
-<pre>
-apprunner:DeleteAutoScalingConfiguration</pre>
+```json
+apprunner:DeleteAutoScalingConfiguration
+```
 
 
 ## Example

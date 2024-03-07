@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 kinesisanalytics:CreateApplication,
 kinesisanalytics:DescribeApplication,
 kinesisanalytics:ListTagsForResource,
-kinesisanalytics:UpdateApplicationMaintenanceConfiguration</pre>
+kinesisanalytics:UpdateApplicationMaintenanceConfiguration
+```
 
 ### List
-<pre>
-kinesisanalytics:ListApplications</pre>
+```json
+kinesisanalytics:ListApplications
+```
 
 
 ## Example

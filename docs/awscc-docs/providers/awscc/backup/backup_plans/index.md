@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>backup_plans</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 backup:GetBackupPlan,
 backup:TagResource,
-backup:CreateBackupPlan</pre>
+backup:CreateBackupPlan
+```
 
 ### List
-<pre>
-backup:ListBackupPlans</pre>
+```json
+backup:ListBackupPlans
+```
 
 
 ## Example

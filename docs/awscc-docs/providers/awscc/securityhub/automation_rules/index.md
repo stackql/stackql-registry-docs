@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>automation_rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 securityhub:CreateAutomationRule,
 securityhub:TagResource,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 securityhub:ListAutomationRules,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 
 ## Example

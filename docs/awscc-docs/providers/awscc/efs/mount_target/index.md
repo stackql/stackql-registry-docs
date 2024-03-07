@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>mount_target</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticfilesystem:DescribeMountTargets,
-elasticfilesystem:DescribeMountTargetSecurityGroups</pre>
+elasticfilesystem:DescribeMountTargetSecurityGroups
+```
 
 ### Update
-<pre>
+```json
 elasticfilesystem:DescribeMountTargets,
 elasticfilesystem:DescribeMountTargetSecurityGroups,
-elasticfilesystem:ModifyMountTargetSecurityGroups</pre>
+elasticfilesystem:ModifyMountTargetSecurityGroups
+```
 
 ### Delete
-<pre>
+```json
 elasticfilesystem:DescribeMountTargets,
-elasticfilesystem:DeleteMountTarget</pre>
+elasticfilesystem:DeleteMountTarget
+```
 
 
 ## Example

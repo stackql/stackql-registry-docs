@@ -54,25 +54,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_connection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 quicksight:DescribeVPCConnection,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 quicksight:DescribeVPCConnection,
 quicksight:UpdateVPCConnection,
 quicksight:TagResource,
 quicksight:UntagResource,
 quicksight:ListTagsForResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 quicksight:DescribeVPCConnection,
 quicksight:DeleteVPCConnection,
 quicksight:ListTagsForResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

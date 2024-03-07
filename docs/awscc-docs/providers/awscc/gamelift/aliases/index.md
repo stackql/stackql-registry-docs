@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>aliases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-gamelift:CreateAlias</pre>
+```json
+gamelift:CreateAlias
+```
 
 ### List
-<pre>
-gamelift:ListAliases</pre>
+```json
+gamelift:ListAliases
+```
 
 
 ## Example

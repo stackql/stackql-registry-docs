@@ -58,14 +58,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>portal</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 workspaces-web:GetPortal,
 workspaces-web:GetPortalServiceProviderMetadata,
 workspaces-web:ListTagsForResource,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Update
-<pre>
+```json
 workspaces-web:GetPortal,
 workspaces-web:GetPortalServiceProviderMetadata,
 workspaces-web:UpdatePortal,
@@ -100,10 +101,11 @@ sso:CreateManagedApplicationInstance,
 sso:DeleteManagedApplicationInstance,
 sso:DescribeRegisteredRegions,
 sso:GetApplicationInstance,
-sso:ListApplicationInstances</pre>
+sso:ListApplicationInstances
+```
 
 ### Delete
-<pre>
+```json
 workspaces-web:GetPortal,
 workspaces-web:DeletePortal,
 workspaces-web:DisassociateBrowserSettings,
@@ -113,7 +115,8 @@ workspaces-web:DisassociateTrustStore,
 workspaces-web:DisassociateUserAccessLoggingSettings,
 workspaces-web:DisassociateUserSettings,
 kms:Decrypt,
-sso:DeleteManagedApplicationInstance</pre>
+sso:DeleteManagedApplicationInstance
+```
 
 
 ## Example

@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>label</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 frauddetector:GetLabels,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 frauddetector:GetLabels,
 frauddetector:PutLabel,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource,
-frauddetector:UntagResource</pre>
+frauddetector:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 frauddetector:GetLabels,
-frauddetector:DeleteLabel</pre>
+frauddetector:DeleteLabel
+```
 
 
 ## Example

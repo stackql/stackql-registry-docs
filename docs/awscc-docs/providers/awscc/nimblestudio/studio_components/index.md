@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>studio_components</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 nimble:CreateStudioComponent,
 nimble:GetStudioComponent,
@@ -49,11 +49,13 @@ nimble:TagResource,
 ds:AuthorizeApplication,
 ec2:DescribeSecurityGroups,
 fsx:DescribeFilesystems,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 ### List
-<pre>
-nimble:ListStudioComponents</pre>
+```json
+nimble:ListStudioComponents
+```
 
 
 ## Example

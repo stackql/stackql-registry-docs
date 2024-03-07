@@ -46,21 +46,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduled_audit</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeScheduledAudit,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateScheduledAudit,
 iot:ListTagsForResource,
 iot:UntagResource,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DescribeScheduledAudit,
-iot:DeleteScheduledAudit</pre>
+iot:DeleteScheduledAudit
+```
 
 
 ## Example

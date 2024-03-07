@@ -48,21 +48,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>wireless_gateway</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetWirelessGateway,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotwireless:UpdateWirelessGateway,
 iotwireless:UntagResource,
 iotwireless:ListTagsForResource,
-iotwireless:AssociateWirelessGatewayWithThing</pre>
+iotwireless:AssociateWirelessGatewayWithThing
+```
 
 ### Delete
-<pre>
+```json
 iotwireless:DeleteWirelessGateway,
-iotwireless:DisassociateWirelessGatewayFromThing</pre>
+iotwireless:DisassociateWirelessGatewayFromThing
+```
 
 
 ## Example

@@ -46,24 +46,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dashboard</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotsitewise:DescribeDashboard,
-iotsitewise:ListTagsForResource</pre>
+iotsitewise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotsitewise:DescribeDashboard,
 iotsitewise:UpdateDashboard,
 iotsitewise:TagResource,
 iotsitewise:UntagResource,
 iotsitewise:ListTagsForResource,
 iotsitewise:DescribeAsset,
-iotsitewise:DescribeAssetModel</pre>
+iotsitewise:DescribeAssetModel
+```
 
 ### Delete
-<pre>
+```json
 iotsitewise:DescribeDashboard,
-iotsitewise:DeleteDashboard</pre>
+iotsitewise:DeleteDashboard
+```
 
 
 ## Example

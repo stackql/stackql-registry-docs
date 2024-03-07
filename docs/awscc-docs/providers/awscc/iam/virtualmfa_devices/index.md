@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>virtualmfa_devices</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateVirtualMFADevice,
 iam:EnableMFADevice,
-iam:ListVirtualMFADevices</pre>
+iam:ListVirtualMFADevices
+```
 
 ### List
-<pre>
-iam:ListVirtualMFADevices</pre>
+```json
+iam:ListVirtualMFADevices
+```
 
 
 ## Example

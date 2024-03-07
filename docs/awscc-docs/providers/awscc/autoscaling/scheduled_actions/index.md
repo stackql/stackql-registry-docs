@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduled_actions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 autoscaling:PutScheduledUpdateGroupAction,
-autoscaling:DescribeScheduledActions</pre>
+autoscaling:DescribeScheduledActions
+```
 
 ### List
-<pre>
-autoscaling:DescribeScheduledActions</pre>
+```json
+autoscaling:DescribeScheduledActions
+```
 
 
 ## Example

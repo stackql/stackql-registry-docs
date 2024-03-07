@@ -57,14 +57,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_data_store</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 CloudTrail:GetEventDataStore,
 CloudTrail:ListEventDataStores,
 CloudTrail:GetInsightSelectors,
-CloudTrail:ListTags</pre>
+CloudTrail:ListTags
+```
 
 ### Update
-<pre>
+```json
 CloudTrail:UpdateEventDataStore,
 CloudTrail:RestoreEventDataStore,
 CloudTrail:AddTags,
@@ -87,15 +88,17 @@ glue:PassConnection,
 lakeformation:RegisterResource,
 glue:DeleteTable,
 lakeformation:DeregisterResource,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Delete
-<pre>
+```json
 CloudTrail:DeleteEventDataStore,
 CloudTrail:GetEventDataStore,
 CloudTrail:DisableFederation,
 glue:DeleteTable,
-lakeformation:DeregisterResource</pre>
+lakeformation:DeregisterResource
+```
 
 
 ## Example

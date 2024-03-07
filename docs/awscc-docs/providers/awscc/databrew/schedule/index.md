@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schedule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 databrew:DescribeSchedule,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 ### Update
-<pre>
-databrew:UpdateSchedule</pre>
+```json
+databrew:UpdateSchedule
+```
 
 ### Delete
-<pre>
-databrew:DeleteSchedule</pre>
+```json
+databrew:DeleteSchedule
+```
 
 
 ## Example

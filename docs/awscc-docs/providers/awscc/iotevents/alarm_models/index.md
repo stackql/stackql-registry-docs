@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alarm_models</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotevents:CreateAlarmModel,
 iotevents:UpdateInputRouting,
 iotevents:DescribeAlarmModel,
 iotevents:ListTagsForResource,
 iotevents:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-iotevents:ListAlarmModels</pre>
+```json
+iotevents:ListAlarmModels
+```
 
 
 ## Example

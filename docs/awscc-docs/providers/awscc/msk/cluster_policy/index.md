@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-kafka:GetClusterPolicy</pre>
+```json
+kafka:GetClusterPolicy
+```
 
 ### Update
-<pre>
+```json
 kafka:PutClusterPolicy,
-kafka:GetClusterPolicy</pre>
+kafka:GetClusterPolicy
+```
 
 ### Delete
-<pre>
+```json
 kafka:DeleteClusterPolicy,
-kafka:GetClusterPolicy</pre>
+kafka:GetClusterPolicy
+```
 
 
 ## Example

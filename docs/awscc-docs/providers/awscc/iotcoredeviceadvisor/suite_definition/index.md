@@ -44,12 +44,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>suite_definition</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotdeviceadvisor:GetSuiteDefinition,
-iotdeviceadvisor:TagResource</pre>
+iotdeviceadvisor:TagResource
+```
 
 ### Update
-<pre>
+```json
 iot:DescribeCertificate,
 iot:DescribeThing,
 iot:GetPolicy,
@@ -63,12 +64,14 @@ iotdeviceadvisor:UpdateSuiteDefinition,
 iotdeviceadvisor:GetSuiteDefinition,
 iotdeviceadvisor:UntagResource,
 iotdeviceadvisor:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 iotdeviceadvisor:GetSuiteDefinition,
-iotdeviceadvisor:DeleteSuiteDefinition</pre>
+iotdeviceadvisor:DeleteSuiteDefinition
+```
 
 
 ## Example

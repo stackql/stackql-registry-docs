@@ -52,25 +52,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>form</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:GetForm,
-amplifyuibuilder:TagResource</pre>
+amplifyuibuilder:TagResource
+```
 
 ### Update
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:GetForm,
 amplifyuibuilder:TagResource,
 amplifyuibuilder:UntagResource,
-amplifyuibuilder:UpdateForm</pre>
+amplifyuibuilder:UpdateForm
+```
 
 ### Delete
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:DeleteForm,
 amplifyuibuilder:TagResource,
-amplifyuibuilder:UntagResource</pre>
+amplifyuibuilder:UntagResource
+```
 
 
 ## Example

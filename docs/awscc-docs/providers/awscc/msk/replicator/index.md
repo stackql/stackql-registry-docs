@@ -47,24 +47,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replicator</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kafka:DescribeReplicator,
-kafka:ListTagsForResource</pre>
+kafka:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 kafka:DescribeReplicator,
 kafka:ListTagsForResource,
 kafka:TagResource,
 kafka:UntagResource,
-kafka:UpdateReplicationInfo</pre>
+kafka:UpdateReplicationInfo
+```
 
 ### Delete
-<pre>
+```json
 kafka:DeleteReplicator,
 kafka:DescribeReplicator,
 kafka:ListTagsForResource,
-kafka:UntagResource</pre>
+kafka:UntagResource
+```
 
 
 ## Example

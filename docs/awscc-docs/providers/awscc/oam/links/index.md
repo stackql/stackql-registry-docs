@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>links</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 oam:CreateLink,
 oam:GetLink,
 cloudwatch:Link,
 logs:Link,
 xray:Link,
-applicationinsights:Link</pre>
+applicationinsights:Link
+```
 
 ### List
-<pre>
-oam:ListLinks</pre>
+```json
+oam:ListLinks
+```
 
 
 ## Example

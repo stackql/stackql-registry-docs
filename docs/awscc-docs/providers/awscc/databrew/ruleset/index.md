@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>ruleset</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 databrew:DescribeRuleset,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 ### Update
-<pre>
-databrew:UpdateRuleset</pre>
+```json
+databrew:UpdateRuleset
+```
 
 ### Delete
-<pre>
-databrew:DeleteRuleset</pre>
+```json
+databrew:DeleteRuleset
+```
 
 
 ## Example

@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multiplexes</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 medialive:CreateMultiplex,
 medialive:DescribeMultiplex,
-medialive:CreateTags</pre>
+medialive:CreateTags
+```
 
 ### List
-<pre>
-medialive:ListMultiplexes</pre>
+```json
+medialive:ListMultiplexes
+```
 
 
 ## Example

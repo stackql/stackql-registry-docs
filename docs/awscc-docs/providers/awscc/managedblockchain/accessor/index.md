@@ -47,19 +47,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>accessor</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-managedblockchain:GetAccessor</pre>
+```json
+managedblockchain:GetAccessor
+```
 
 ### Update
-<pre>
+```json
 managedblockchain:GetAccessor,
 managedblockchain:CreateAccessor,
 managedblockchain:TagResource,
-managedblockchain:UntagResource</pre>
+managedblockchain:UntagResource
+```
 
 ### Delete
-<pre>
-managedblockchain:DeleteAccessor</pre>
+```json
+managedblockchain:DeleteAccessor
+```
 
 
 ## Example

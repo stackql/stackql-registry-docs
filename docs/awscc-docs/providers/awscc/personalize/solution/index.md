@@ -47,13 +47,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>solution</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-personalize:DescribeSolution</pre>
+```json
+personalize:DescribeSolution
+```
 
 ### Delete
-<pre>
+```json
 personalize:DeleteSolution,
-personalize:DescribeSolution</pre>
+personalize:DescribeSolution
+```
 
 
 ## Example

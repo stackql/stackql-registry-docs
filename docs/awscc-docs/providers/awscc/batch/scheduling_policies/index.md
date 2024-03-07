@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduling_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 Batch:CreateSchedulingPolicy,
-Batch:TagResource</pre>
+Batch:TagResource
+```
 
 ### List
-<pre>
+```json
 Batch:ListSchedulingPolicies,
-Batch:DescribeSchedulingPolicies</pre>
+Batch:DescribeSchedulingPolicies
+```
 
 
 ## Example

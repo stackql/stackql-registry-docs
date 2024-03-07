@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cloud_front_origin_access_identities</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-cloudfront:CreateCloudFrontOriginAccessIdentity</pre>
+```json
+cloudfront:CreateCloudFrontOriginAccessIdentity
+```
 
 ### List
-<pre>
-cloudfront:ListCloudFrontOriginAccessIdentities</pre>
+```json
+cloudfront:ListCloudFrontOriginAccessIdentities
+```
 
 
 ## Example

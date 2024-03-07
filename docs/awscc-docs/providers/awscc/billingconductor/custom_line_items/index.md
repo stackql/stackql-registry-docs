@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>custom_line_items</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 billingconductor:CreateCustomLineItem,
 billingconductor:BatchAssociateResourcesToCustomLineItem,
 billingconductor:ListCustomLineItems,
 billingconductor:TagResource,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 billingconductor:ListCustomLineItems,
 billingconductor:ListResourcesAssociatedToCustomLineItem,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 
 ## Example

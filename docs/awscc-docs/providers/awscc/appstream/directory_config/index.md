@@ -43,34 +43,37 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>directory_config</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 appstream:CreateDirectoryConfig,
 appstream:DeleteDirectoryConfig,
 appstream:DescribeDirectoryConfig,
 appstream:UpdateDirectoryConfig,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 ### Read
-<pre>
+```json
 appstream:CreateDirectoryConfig,
 appstream:DeleteDirectoryConfig,
 appstream:DescribeDirectoryConfig,
 appstream:UpdateDirectoryConfig,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 ### Delete
-<pre>
+```json
 appstream:CreateDirectoryConfig,
 appstream:DeleteDirectoryConfig,
 appstream:DescribeDirectoryConfig,
 appstream:UpdateDirectoryConfig,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 
 ## Example

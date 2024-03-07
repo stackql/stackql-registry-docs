@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>aggregation_authorizations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 config:DescribeAggregationAuthorizations,
 config:PutAggregationAuthorization,
-config:TagResource</pre>
+config:TagResource
+```
 
 ### List
-<pre>
-config:DescribeAggregationAuthorizations</pre>
+```json
+config:DescribeAggregationAuthorizations
+```
 
 
 ## Example

@@ -48,12 +48,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kinesisanalytics:DescribeApplication,
-kinesisanalytics:ListTagsForResource</pre>
+kinesisanalytics:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 kinesisanalytics:UpdateApplication,
 kinesisanalytics:DescribeApplication,
 kinesisanalytics:TagResource,
@@ -61,12 +62,14 @@ kinesisanalytics:UntagResource,
 kinesisanalytics:AddApplicationVpcConfiguration,
 kinesisanalytics:DeleteApplicationVpcConfiguration,
 kinesisanalytics:UpdateApplicationMaintenanceConfiguration,
-kinesisanalytics:ListTagsForResource</pre>
+kinesisanalytics:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 kinesisanalytics:DescribeApplication,
-kinesisanalytics:DeleteApplication</pre>
+kinesisanalytics:DeleteApplication
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 fms:PutResourceSet,
 fms:BatchAssociateResource,
 fms:ListResourceSetResources,
-fms:TagResource</pre>
+fms:TagResource
+```
 
 ### List
-<pre>
-fms:ListResourceSets</pre>
+```json
+fms:ListResourceSets
+```
 
 
 ## Example

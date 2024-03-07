@@ -49,14 +49,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image_recipe</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-imagebuilder:GetImageRecipe</pre>
+```json
+imagebuilder:GetImageRecipe
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:UnTagResource,
 imagebuilder:GetImageRecipe,
-imagebuilder:DeleteImageRecipe</pre>
+imagebuilder:DeleteImageRecipe
+```
 
 
 ## Example

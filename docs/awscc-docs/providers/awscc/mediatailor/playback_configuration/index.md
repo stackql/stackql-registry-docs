@@ -57,20 +57,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>playback_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediatailor:GetPlaybackConfiguration</pre>
+```json
+mediatailor:GetPlaybackConfiguration
+```
 
 ### Update
-<pre>
+```json
 mediatailor:PutPlaybackConfiguration,
 mediatailor:ConfigureLogsForPlaybackConfiguration,
 iam:CreateServiceLinkedRole,
 mediatailor:UntagResource,
-mediatailor:TagResource</pre>
+mediatailor:TagResource
+```
 
 ### Delete
-<pre>
-mediatailor:DeletePlaybackConfiguration</pre>
+```json
+mediatailor:DeletePlaybackConfiguration
+```
 
 
 ## Example

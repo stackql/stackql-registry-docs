@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>server_certificate</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetServerCertificate</pre>
+```json
+iam:GetServerCertificate
+```
 
 ### Update
-<pre>
+```json
 iam:TagServerCertificate,
 iam:UntagServerCertificate,
 iam:ListServerCertificateTags,
-iam:GetServerCertificate</pre>
+iam:GetServerCertificate
+```
 
 ### Delete
-<pre>
-iam:DeleteServerCertificate</pre>
+```json
+iam:DeleteServerCertificate
+```
 
 
 ## Example

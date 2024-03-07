@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>api_mapping</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 apigateway:PATCH,
 apigateway:GET,
-apigateway:PUT</pre>
+apigateway:PUT
+```
 
 ### Read
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 ### Delete
-<pre>
-apigateway:DELETE</pre>
+```json
+apigateway:DELETE
+```
 
 
 ## Example

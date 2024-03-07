@@ -47,15 +47,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connector_profile</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
-appflow:DeleteConnectorProfile</pre>
+```json
+appflow:DeleteConnectorProfile
+```
 
 ### Read
-<pre>
-appflow:DescribeConnectorProfiles</pre>
+```json
+appflow:DescribeConnectorProfiles
+```
 
 ### Update
-<pre>
+```json
 appflow:UpdateConnectorProfile,
 kms:ListKeys,
 kms:DescribeKey,
@@ -65,7 +67,8 @@ kms:ListGrants,
 iam:PassRole,
 secretsmanager:CreateSecret,
 secretsmanager:GetSecretValue,
-secretsmanager:PutResourcePolicy</pre>
+secretsmanager:PutResourcePolicy
+```
 
 
 ## Example

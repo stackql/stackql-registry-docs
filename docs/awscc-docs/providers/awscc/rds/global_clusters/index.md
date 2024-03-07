@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rds:CreateGlobalCluster,
 rds:DescribeDBClusters,
-rds:DescribeGlobalClusters</pre>
+rds:DescribeGlobalClusters
+```
 
 ### List
-<pre>
-rds:DescribeGlobalClusters</pre>
+```json
+rds:DescribeGlobalClusters
+```
 
 
 ## Example

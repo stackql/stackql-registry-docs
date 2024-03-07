@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>origin_access_control</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteOriginAccessControl,
-cloudfront:GetOriginAccessControl</pre>
+cloudfront:GetOriginAccessControl
+```
 
 ### Read
-<pre>
-cloudfront:GetOriginAccessControl</pre>
+```json
+cloudfront:GetOriginAccessControl
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateOriginAccessControl,
-cloudfront:GetOriginAccessControl</pre>
+cloudfront:GetOriginAccessControl
+```
 
 
 ## Example

@@ -40,20 +40,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_links</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:POST,
 apigateway:GET,
 apigateway:TagResource,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 ### List
-<pre>
+```json
 apigateway:GET,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 
 ## Example

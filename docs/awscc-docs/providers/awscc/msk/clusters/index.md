@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
 ec2:DescribeVpcs,
@@ -63,11 +63,13 @@ logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
 firehose:TagDeliveryStream,
-acm-pca:GetCertificateAuthorityCertificate</pre>
+acm-pca:GetCertificateAuthorityCertificate
+```
 
 ### List
-<pre>
-kafka:ListClusters</pre>
+```json
+kafka:ListClusters
+```
 
 
 ## Example

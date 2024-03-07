@@ -51,20 +51,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>wireless_device_import_task</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetWirelessDeviceImportTask,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotwireless:UpdateWirelessDeviceImportTask,
 iotwireless:UntagResource,
 iotwireless:ListTagsForResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-iotwireless:DeleteWirelessDeviceImportTask</pre>
+```json
+iotwireless:DeleteWirelessDeviceImportTask
+```
 
 
 ## Example

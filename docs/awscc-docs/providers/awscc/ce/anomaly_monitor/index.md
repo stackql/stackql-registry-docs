@@ -49,16 +49,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>anomaly_monitor</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ce:GetAnomalyMonitors</pre>
+```json
+ce:GetAnomalyMonitors
+```
 
 ### Update
-<pre>
-ce:UpdateAnomalyMonitor</pre>
+```json
+ce:UpdateAnomalyMonitor
+```
 
 ### Delete
-<pre>
-ce:DeleteAnomalyMonitor</pre>
+```json
+ce:DeleteAnomalyMonitor
+```
 
 
 ## Example

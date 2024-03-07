@@ -46,16 +46,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>entitlement</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appstream:DescribeEntitlements</pre>
+```json
+appstream:DescribeEntitlements
+```
 
 ### Update
-<pre>
-appstream:UpdateEntitlement</pre>
+```json
+appstream:UpdateEntitlement
+```
 
 ### Delete
-<pre>
-appstream:DeleteEntitlement</pre>
+```json
+appstream:DeleteEntitlement
+```
 
 
 ## Example

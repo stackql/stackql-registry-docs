@@ -49,24 +49,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 organizations:DescribeAccount,
 organizations:ListParents,
-organizations:ListTagsForResource</pre>
+organizations:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 organizations:MoveAccount,
 organizations:TagResource,
 organizations:UntagResource,
 organizations:ListRoots,
 organizations:DescribeAccount,
 organizations:ListParents,
-organizations:ListTagsForResource</pre>
+organizations:ListTagsForResource
+```
 
 ### Delete
-<pre>
-organizations:CloseAccount</pre>
+```json
+organizations:CloseAccount
+```
 
 
 ## Example

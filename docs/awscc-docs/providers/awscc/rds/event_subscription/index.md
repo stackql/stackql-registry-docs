@@ -46,24 +46,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_subscription</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rds:DescribeEventSubscriptions,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rds:ModifyEventSubscription,
 rds:AddSourceIdentifierToSubscription,
 rds:RemoveSourceIdentifierFromSubscription,
 rds:DescribeEventSubscriptions,
 rds:ListTagsForResource,
 rds:AddTagsToResource,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 rds:DeleteEventSubscription,
-rds:DescribeEventSubscriptions</pre>
+rds:DescribeEventSubscriptions
+```
 
 
 ## Example

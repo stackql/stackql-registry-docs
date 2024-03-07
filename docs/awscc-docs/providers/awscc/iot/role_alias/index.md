@@ -44,26 +44,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>role_alias</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iam:GetRole,
 iam:PassRole,
 iot:DescribeRoleAlias,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:GetRole,
 iam:PassRole,
 iot:UpdateRoleAlias,
 iot:DescribeRoleAlias,
 iot:TagResource,
 iot:UntagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DeleteRoleAlias,
-iot:DescribeRoleAlias</pre>
+iot:DescribeRoleAlias
+```
 
 
 ## Example

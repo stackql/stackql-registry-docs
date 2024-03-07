@@ -50,14 +50,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 resiliencehub:DescribeApp,
 resiliencehub:DescribeAppVersionTemplate,
 resiliencehub:ListAppVersionResourceMappings,
-resiliencehub:ListTagsForResource</pre>
+resiliencehub:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 cloudformation:DescribeStacks,
 cloudformation:ListStackResources,
 s3:GetBucketLocation,
@@ -77,13 +78,15 @@ sqs:GetQueueAttributes,
 sns:GetTopicAttributes,
 route53:List*,
 iam:PassRole,
-resiliencehub:*</pre>
+resiliencehub:*
+```
 
 ### Delete
-<pre>
+```json
 resiliencehub:DeleteApp,
 resiliencehub:UntagResource,
-resiliencehub:ListApps</pre>
+resiliencehub:ListApps
+```
 
 
 ## Example

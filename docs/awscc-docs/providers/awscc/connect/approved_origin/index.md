@@ -41,17 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>approved_origin</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:ListApprovedOrigins</pre>
-
-### Update
-<pre>
-</pre>
+```json
+connect:ListApprovedOrigins
+```
 
 ### Delete
-<pre>
+```json
 connect:DisassociateApprovedOrigin,
-connect:ListApprovedOrigins</pre>
+connect:ListApprovedOrigins
+```
 
 
 ## Example

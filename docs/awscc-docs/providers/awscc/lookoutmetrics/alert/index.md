@@ -45,12 +45,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alert</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lookoutmetrics:DescribeAlert</pre>
+```json
+lookoutmetrics:DescribeAlert
+```
 
 ### Delete
-<pre>
-lookoutmetrics:DeleteAlert</pre>
+```json
+lookoutmetrics:DeleteAlert
+```
 
 
 ## Example

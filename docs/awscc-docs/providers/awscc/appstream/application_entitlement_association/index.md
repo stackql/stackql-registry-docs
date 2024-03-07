@@ -42,13 +42,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application_entitlement_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appstream:ListEntitledApplications</pre>
+```json
+appstream:ListEntitledApplications
+```
 
 ### Delete
-<pre>
+```json
 appstream:DisassociateApplicationFromEntitlement,
-appstream:ListEntitledApplications</pre>
+appstream:ListEntitledApplications
+```
 
 
 ## Example

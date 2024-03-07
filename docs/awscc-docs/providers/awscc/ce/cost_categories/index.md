@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cost_categories</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-ce:CreateCostCategoryDefinition</pre>
+```json
+ce:CreateCostCategoryDefinition
+```
 
 ### List
-<pre>
-ce:ListCostCategoryDefinitions</pre>
+```json
+ce:ListCostCategoryDefinitions
+```
 
 
 ## Example

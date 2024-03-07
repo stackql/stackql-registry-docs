@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>memberships</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cleanrooms:CreateMembership,
 logs:CreateLogDelivery,
 logs:GetLogDelivery,
@@ -55,11 +55,13 @@ cleanrooms:GetMembership,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:ListMemberships,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-cleanrooms:ListMemberships</pre>
+```json
+cleanrooms:ListMemberships
+```
 
 
 ## Example

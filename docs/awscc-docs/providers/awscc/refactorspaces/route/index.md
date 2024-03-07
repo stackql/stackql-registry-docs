@@ -49,12 +49,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>route</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 refactor-spaces:GetRoute,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 refactor-spaces:DeleteRoute,
 refactor-spaces:GetRoute,
 refactor-spaces:UntagResource,
@@ -77,10 +78,11 @@ elasticloadbalancing:AddTags,
 elasticloadbalancing:RegisterTargets,
 elasticloadbalancing:DescribeTargetHealth,
 ec2:DescribeSubnets,
-tag:GetResources</pre>
+tag:GetResources
+```
 
 ### Update
-<pre>
+```json
 refactor-spaces:UpdateRoute,
 refactor-spaces:GetRoute,
 refactor-spaces:TagResource,
@@ -105,7 +107,8 @@ elasticloadbalancing:RegisterTargets,
 elasticloadbalancing:DescribeTargetHealth,
 ec2:DescribeSubnets,
 ec2:DescribeSubnets,
-tag:GetResources</pre>
+tag:GetResources
+```
 
 
 ## Example

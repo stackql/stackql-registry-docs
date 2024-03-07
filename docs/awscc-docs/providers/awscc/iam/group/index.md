@@ -44,31 +44,34 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iam:GetGroup,
 iam:ListGroupPolicies,
 iam:GetGroupPolicy,
-iam:ListAttachedGroupPolicies</pre>
+iam:ListAttachedGroupPolicies
+```
 
 ### Update
-<pre>
+```json
 iam:GetGroup,
 iam:UpdateGroup,
 iam:DetachGroupPolicy,
 iam:AttachGroupPolicy,
 iam:DeleteGroupPolicy,
 iam:PutGroupPolicy,
-iam:GetGroupPolicy</pre>
+iam:GetGroupPolicy
+```
 
 ### Delete
-<pre>
+```json
 iam:GetGroup,
 iam:DeleteGroup,
 iam:ListAttachedGroupPolicies,
 iam:ListGroupPolicies,
 iam:DetachGroupPolicy,
 iam:DeleteGroupPolicy,
-iam:GetGroupPolicy</pre>
+iam:GetGroupPolicy
+```
 
 
 ## Example

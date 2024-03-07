@@ -51,20 +51,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ecs:DescribeTaskSets</pre>
+```json
+ecs:DescribeTaskSets
+```
 
 ### Update
-<pre>
+```json
 ecs:DescribeTaskSets,
 ecs:TagResource,
 ecs:UntagResource,
-ecs:UpdateTaskSet</pre>
+ecs:UpdateTaskSet
+```
 
 ### Delete
-<pre>
+```json
 ecs:DeleteTaskSet,
-ecs:DescribeTaskSets</pre>
+ecs:DescribeTaskSets
+```
 
 
 ## Example

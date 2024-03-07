@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotwireless:CreateWirelessGatewayTaskDefinition,
 iotwireless:TagResource,
 iotwireless:ListTagsForResource,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 iotwireless:ListWirelessGatewayTaskDefinitions,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 
 ## Example

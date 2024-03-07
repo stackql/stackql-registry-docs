@@ -46,14 +46,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 To operate on the <code>public_type_version</code> resource, the following permissions are required:
 
-### Delete
-<pre>
-</pre>
-
 ### Read
-<pre>
+```json
 cloudformation:DescribeType,
-cloudformation:DescribePublisher</pre>
+cloudformation:DescribePublisher
+```
 
 
 ## Example

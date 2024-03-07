@@ -47,21 +47,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>site</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetSites</pre>
+```json
+networkmanager:GetSites
+```
 
 ### Update
-<pre>
+```json
 networkmanager:GetSites,
 networkmanager:ListTagsForResource,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-networkmanager:UpdateSite</pre>
+networkmanager:UpdateSite
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:GetSites,
-networkmanager:DeleteSite</pre>
+networkmanager:DeleteSite
+```
 
 
 ## Example

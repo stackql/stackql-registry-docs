@@ -56,23 +56,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-eks:DescribeCluster</pre>
+```json
+eks:DescribeCluster
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 eks:UpdateClusterConfig,
 eks:UpdateClusterVersion,
 eks:DescribeCluster,
 eks:DescribeUpdate,
 eks:TagResource,
-eks:UntagResource</pre>
+eks:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 eks:DeleteCluster,
-eks:DescribeCluster</pre>
+eks:DescribeCluster
+```
 
 
 ## Example

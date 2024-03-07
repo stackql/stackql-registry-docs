@@ -53,31 +53,34 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>firewall_rule_group_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53resolver:*,
 ec2:*,
 logs:*,
 iam:*,
 lambda:*,
-s3:*</pre>
+s3:*
+```
 
 ### Delete
-<pre>
+```json
 route53resolver:*,
 ec2:*,
 logs:*,
 iam:*,
 lambda:*,
-s3:*</pre>
+s3:*
+```
 
 ### Update
-<pre>
+```json
 route53resolver:*,
 ec2:*,
 logs:*,
 iam:*,
 lambda:*,
-s3:*</pre>
+s3:*
+```
 
 
 ## Example

@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>streaming_images</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 nimble:CreateStreamingImage,
 nimble:GetStreamingImage,
 nimble:TagResource,
@@ -55,11 +55,13 @@ kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,
 kms:ListGrants,
-kms:GenerateDataKey</pre>
+kms:GenerateDataKey
+```
 
 ### List
-<pre>
-nimble:ListStreamingImages</pre>
+```json
+nimble:ListStreamingImages
+```
 
 
 ## Example

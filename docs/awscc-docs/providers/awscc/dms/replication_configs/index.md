@@ -40,19 +40,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replication_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 dms:CreateReplicationConfig,
 dms:AddTagsToResource,
 dms:ListTagsForResource,
 iam:CreateServiceLinkedRole,
 iam:AttachRolePolicy,
 iam:PutRolePolicy,
-iam:UpdateRoleDescription</pre>
+iam:UpdateRoleDescription
+```
 
 ### List
-<pre>
+```json
 dms:DescribeReplicationConfigs,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 
 ## Example

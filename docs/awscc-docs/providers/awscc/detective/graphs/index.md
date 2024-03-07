@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>graphs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 detective:CreateGraph,
 detective:UpdateOrganizationConfiguration,
-organizations:DescribeOrganization</pre>
+organizations:DescribeOrganization
+```
 
 ### List
-<pre>
+```json
 detective:ListGraphs,
 detective:ListTagsForResource,
 detective:DescribeOrganizationConfiguration,
-organizations:DescribeOrganization</pre>
+organizations:DescribeOrganization
+```
 
 
 ## Example

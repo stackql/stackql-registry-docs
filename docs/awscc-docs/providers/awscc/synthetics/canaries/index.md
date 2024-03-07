@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>canaries</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 synthetics:CreateCanary,
 synthetics:StartCanary,
 synthetics:GetCanary,
@@ -62,11 +62,13 @@ lambda:PublishLayerVersion,
 ec2:DescribeVpcs,
 ec2:DescribeSubnets,
 ec2:DescribeSecurityGroups,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-synthetics:DescribeCanaries</pre>
+```json
+synthetics:DescribeCanaries
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate_authorities</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 acm-pca:CreateCertificateAuthority,
 acm-pca:DescribeCertificateAuthority,
-acm-pca:GetCertificateAuthorityCsr</pre>
+acm-pca:GetCertificateAuthorityCsr
+```
 
 ### List
-<pre>
+```json
 acm-pca:DescribeCertificateAuthority,
 acm-pca:GetCertificateAuthorityCsr,
 acm-pca:ListCertificateAuthorities,
-acm-pca:ListTags</pre>
+acm-pca:ListTags
+```
 
 
 ## Example

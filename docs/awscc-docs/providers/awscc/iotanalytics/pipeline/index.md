@@ -43,19 +43,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipeline</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotanalytics:DescribePipeline,
-iotanalytics:ListTagsForResource</pre>
+iotanalytics:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotanalytics:UpdatePipeline,
 iotanalytics:TagResource,
-iotanalytics:UntagResource</pre>
+iotanalytics:UntagResource
+```
 
 ### Delete
-<pre>
-iotanalytics:DeletePipeline</pre>
+```json
+iotanalytics:DeletePipeline
+```
 
 
 ## Example

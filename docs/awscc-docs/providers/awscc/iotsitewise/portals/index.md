@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>portals</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotsitewise:CreatePortal,
 iotsitewise:DescribePortal,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
 iam:PassRole,
 sso:CreateManagedApplicationInstance,
-sso:DescribeRegisteredRegions</pre>
+sso:DescribeRegisteredRegions
+```
 
 ### List
-<pre>
-iotsitewise:ListPortals</pre>
+```json
+iotsitewise:ListPortals
+```
 
 
 ## Example

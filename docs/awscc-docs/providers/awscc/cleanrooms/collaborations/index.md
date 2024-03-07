@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>collaborations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cleanrooms:CreateCollaboration,
 cleanrooms:GetCollaboration,
 cleanrooms:ListMembers,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:GetCollaboration,
-cleanrooms:ListCollaborations</pre>
+cleanrooms:ListCollaborations
+```
 
 ### List
-<pre>
-cleanrooms:ListCollaborations</pre>
+```json
+cleanrooms:ListCollaborations
+```
 
 
 ## Example

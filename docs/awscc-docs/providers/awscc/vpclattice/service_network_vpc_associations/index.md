@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_network_vpc_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 vpc-lattice:CreateServiceNetworkVpcAssociation,
 vpc-lattice:GetServiceNetworkVpcAssociation,
 vpc-lattice:ListServiceNetworkVpcAssociations,
 vpc-lattice:ListTagsForResource,
 ec2:DescribeSecurityGroups,
 ec2:DescribeVpcs,
-vpc-lattice:TagResource</pre>
+vpc-lattice:TagResource
+```
 
 ### List
-<pre>
-vpc-lattice:ListServiceNetworkVpcAssociations</pre>
+```json
+vpc-lattice:ListServiceNetworkVpcAssociations
+```
 
 
 ## Example

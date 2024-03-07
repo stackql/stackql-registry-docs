@@ -46,16 +46,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assistant_association</code> resource, the following permissions are required:
 
 ### Update
-<pre>
-wisdom:GetAssistantAssociation</pre>
+```json
+wisdom:GetAssistantAssociation
+```
 
 ### Read
-<pre>
-wisdom:GetAssistantAssociation</pre>
+```json
+wisdom:GetAssistantAssociation
+```
 
 ### Delete
-<pre>
-wisdom:DeleteAssistantAssociation</pre>
+```json
+wisdom:DeleteAssistantAssociation
+```
 
 
 ## Example

@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>addons</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 eks:CreateAddon,
 eks:DescribeAddon,
 eks:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-eks:ListAddons</pre>
+```json
+eks:ListAddons
+```
 
 
 ## Example

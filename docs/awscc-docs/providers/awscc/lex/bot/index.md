@@ -52,12 +52,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bot</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lex:DescribeBot,
-lex:ListTagsForResource</pre>
+lex:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 lex:DescribeBot,
 lex:CreateUploadUrl,
@@ -88,10 +89,11 @@ lex:CreateCustomVocabulary,
 lex:UpdateCustomVocabulary,
 lex:DeleteCustomVocabulary,
 s3:GetObject,
-lex:UpdateBotAlias</pre>
+lex:UpdateBotAlias
+```
 
 ### Delete
-<pre>
+```json
 lex:DeleteBot,
 lex:DescribeBot,
 lex:DeleteBotLocale,
@@ -101,7 +103,8 @@ lex:DeleteSlot,
 lex:DeleteBotVersion,
 lex:DeleteBotChannel,
 lex:DeleteBotAlias,
-lex:DeleteCustomVocabulary</pre>
+lex:DeleteCustomVocabulary
+```
 
 
 ## Example

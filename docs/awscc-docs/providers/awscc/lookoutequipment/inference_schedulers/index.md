@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>inference_schedulers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 lookoutequipment:CreateInferenceScheduler,
-lookoutequipment:DescribeInferenceScheduler</pre>
+lookoutequipment:DescribeInferenceScheduler
+```
 
 ### List
-<pre>
-lookoutequipment:ListInferenceSchedulers</pre>
+```json
+lookoutequipment:ListInferenceSchedulers
+```
 
 
 ## Example

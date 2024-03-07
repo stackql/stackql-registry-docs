@@ -57,22 +57,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>matchmaking_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 gamelift:DescribeMatchmakingConfigurations,
-gamelift:ListTagsForResource</pre>
+gamelift:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 gamelift:DescribeMatchmakingConfigurations,
-gamelift:DeleteMatchmakingConfiguration</pre>
+gamelift:DeleteMatchmakingConfiguration
+```
 
 ### Update
-<pre>
+```json
 gamelift:DescribeMatchmakingConfigurations,
 gamelift:UpdateMatchmakingConfiguration,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
-gamelift:UntagResource</pre>
+gamelift:UntagResource
+```
 
 
 ## Example

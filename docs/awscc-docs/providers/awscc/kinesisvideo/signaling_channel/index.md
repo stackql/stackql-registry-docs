@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>signaling_channel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-kinesisvideo:DescribeSignalingChannel</pre>
+```json
+kinesisvideo:DescribeSignalingChannel
+```
 
 ### Update
-<pre>
+```json
 kinesisvideo:UpdateSignalingChannel,
-kinesisvideo:DescribeSignalingChannel</pre>
+kinesisvideo:DescribeSignalingChannel
+```
 
 ### Delete
-<pre>
+```json
 kinesisvideo:DeleteSignalingChannel,
-kinesisvideo:DescribeSignalingChannel</pre>
+kinesisvideo:DescribeSignalingChannel
+```
 
 
 ## Example

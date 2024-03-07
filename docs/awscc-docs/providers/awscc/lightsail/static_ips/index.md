@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>static_ips</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:AllocateStaticIp,
 lightsail:AttachStaticIp,
 lightsail:DetachStaticIp,
 lightsail:GetInstance,
 lightsail:GetStaticIp,
-lightsail:GetStaticIps</pre>
+lightsail:GetStaticIps
+```
 
 ### List
-<pre>
-lightsail:GetStaticIps</pre>
+```json
+lightsail:GetStaticIps
+```
 
 
 ## Example

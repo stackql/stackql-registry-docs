@@ -42,17 +42,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-xray:ListResourcePolicies</pre>
+```json
+xray:ListResourcePolicies
+```
 
 ### Update
-<pre>
+```json
 xray:PutResourcePolicy,
-xray:ListResourcePolicies</pre>
+xray:ListResourcePolicies
+```
 
 ### Delete
-<pre>
-xray:DeleteResourcePolicy</pre>
+```json
+xray:DeleteResourcePolicy
+```
 
 
 ## Example

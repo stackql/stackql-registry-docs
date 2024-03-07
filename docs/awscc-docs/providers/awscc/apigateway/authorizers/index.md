@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>authorizers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:POST,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

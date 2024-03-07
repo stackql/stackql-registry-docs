@@ -45,23 +45,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>analyzer</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 access-analyzer:ListAnalyzers,
 access-analyzer:GetAnalyzer,
-access-analyzer:ListArchiveRules</pre>
+access-analyzer:ListArchiveRules
+```
 
 ### Update
-<pre>
+```json
 access-analyzer:CreateArchiveRule,
 access-analyzer:DeleteArchiveRule,
 access-analyzer:ListAnalyzers,
 access-analyzer:TagResource,
 access-analyzer:UntagResource,
-access-analyzer:UpdateArchiveRule</pre>
+access-analyzer:UpdateArchiveRule
+```
 
 ### Delete
-<pre>
-access-analyzer:DeleteAnalyzer</pre>
+```json
+access-analyzer:DeleteAnalyzer
+```
 
 
 ## Example

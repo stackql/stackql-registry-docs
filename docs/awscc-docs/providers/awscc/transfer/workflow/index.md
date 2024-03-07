@@ -45,17 +45,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workflow</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-transfer:DescribeWorkflow</pre>
+```json
+transfer:DescribeWorkflow
+```
 
 ### Delete
-<pre>
-transfer:DeleteWorkflow</pre>
+```json
+transfer:DeleteWorkflow
+```
 
 ### Update
-<pre>
+```json
 transfer:UnTagResource,
-transfer:TagResource</pre>
+transfer:TagResource
+```
 
 
 ## Example

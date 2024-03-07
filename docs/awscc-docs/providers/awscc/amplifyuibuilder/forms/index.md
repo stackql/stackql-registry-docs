@@ -42,17 +42,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>forms</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:CreateForm,
 amplifyuibuilder:GetForm,
 amplifyuibuilder:TagResource,
-amplifyuibuilder:UntagResource</pre>
+amplifyuibuilder:UntagResource
+```
 
 ### List
-<pre>
+```json
 amplify:GetApp,
-amplifyuibuilder:ListForms</pre>
+amplifyuibuilder:ListForms
+```
 
 
 ## Example

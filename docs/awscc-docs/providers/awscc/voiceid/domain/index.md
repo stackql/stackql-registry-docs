@@ -44,13 +44,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 voiceid:DescribeDomain,
 voiceid:ListTagsForResource,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Update
-<pre>
+```json
 voiceid:DescribeDomain,
 voiceid:UpdateDomain,
 voiceid:TagResource,
@@ -58,13 +59,15 @@ voiceid:UntagResource,
 voiceid:ListTagsForResource,
 kms:CreateGrant,
 kms:Decrypt,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Delete
-<pre>
+```json
 voiceid:DeleteDomain,
 voiceid:DescribeDomain,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

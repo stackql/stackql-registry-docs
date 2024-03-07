@@ -43,24 +43,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replication_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ssm-incidents:ListReplicationSets,
 ssm-incidents:GetReplicationSet,
-ssm-incidents:ListTagsForResource</pre>
+ssm-incidents:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ssm-incidents:UpdateReplicationSet,
 ssm-incidents:UpdateDeletionProtection,
 ssm-incidents:GetReplicationSet,
 ssm-incidents:TagResource,
 ssm-incidents:UntagResource,
-ssm-incidents:ListTagsForResource</pre>
+ssm-incidents:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 ssm-incidents:DeleteReplicationSet,
-ssm-incidents:GetReplicationSet</pre>
+ssm-incidents:GetReplicationSet
+```
 
 
 ## Example

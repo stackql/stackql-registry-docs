@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>anomaly_monitors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ce:CreateAnomalyMonitor,
-ce:TagResource</pre>
+ce:TagResource
+```
 
 ### List
-<pre>
-ce:GetAnomalyMonitors</pre>
+```json
+ce:GetAnomalyMonitors
+```
 
 
 ## Example

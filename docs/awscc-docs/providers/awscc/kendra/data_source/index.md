@@ -51,23 +51,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_source</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kendra:DescribeDataSource,
-kendra:ListTagsForResource</pre>
+kendra:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 kendra:DescribeDataSource,
-kendra:DeleteDataSource</pre>
+kendra:DeleteDataSource
+```
 
 ### Update
-<pre>
+```json
 kendra:DescribeDataSource,
 kendra:UpdateDataSource,
 kendra:ListTagsForResource,
 kendra:TagResource,
 kendra:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

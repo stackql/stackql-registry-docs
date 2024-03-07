@@ -52,16 +52,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>license</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-license-manager:GetLicense</pre>
+```json
+license-manager:GetLicense
+```
 
 ### Update
-<pre>
-license-manager:CreateLicenseVersion</pre>
+```json
+license-manager:CreateLicenseVersion
+```
 
 ### Delete
-<pre>
-license-manager:DeleteLicense</pre>
+```json
+license-manager:DeleteLicense
+```
 
 
 ## Example

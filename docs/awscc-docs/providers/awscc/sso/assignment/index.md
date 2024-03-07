@@ -45,18 +45,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assignment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sso:ListAccountAssignments,
 iam:GetSAMLProvider,
-iam:ListRolePolicies</pre>
+iam:ListRolePolicies
+```
 
 ### Delete
-<pre>
+```json
 sso:ListAccountAssignments,
 sso:DeleteAccountAssignment,
 sso:DescribeAccountAssignmentDeletionStatus,
 iam:GetSAMLProvider,
-iam:ListRolePolicies</pre>
+iam:ListRolePolicies
+```
 
 
 ## Example

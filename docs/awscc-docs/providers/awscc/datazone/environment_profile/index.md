@@ -54,18 +54,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-datazone:GetEnvironmentProfile</pre>
+```json
+datazone:GetEnvironmentProfile
+```
 
 ### Update
-<pre>
+```json
 datazone:UpdateEnvironmentProfile,
-datazone:GetEnvironmentProfile</pre>
+datazone:GetEnvironmentProfile
+```
 
 ### Delete
-<pre>
+```json
 datazone:DeleteEnvironmentProfile,
-datazone:GetEnvironmentProfile</pre>
+datazone:GetEnvironmentProfile
+```
 
 
 ## Example

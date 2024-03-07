@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>lifecycle_hooks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 autoscaling:PutLifecycleHook,
 autoscaling:DescribeLifecycleHooks,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-autoscaling:DescribeLifecycleHooks</pre>
+```json
+autoscaling:DescribeLifecycleHooks
+```
 
 
 ## Example

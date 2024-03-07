@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resiliency_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 resiliencehub:CreateResiliencyPolicy,
 resiliencehub:DescribeResiliencyPolicy,
-resiliencehub:TagResource</pre>
+resiliencehub:TagResource
+```
 
 ### List
-<pre>
-resiliencehub:ListResiliencyPolicies</pre>
+```json
+resiliencehub:ListResiliencyPolicies
+```
 
 
 ## Example

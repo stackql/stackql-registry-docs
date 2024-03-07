@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cell</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53-recovery-readiness:GetCell,
-route53-recovery-readiness:ListTagsForResources</pre>
+route53-recovery-readiness:ListTagsForResources
+```
 
 ### Update
-<pre>
+```json
 route53-recovery-readiness:GetCell,
 route53-recovery-readiness:ListTagsForResources,
 route53-recovery-readiness:TagResource,
 route53-recovery-readiness:UntagResource,
-route53-recovery-readiness:UpdateCell</pre>
+route53-recovery-readiness:UpdateCell
+```
 
 ### Delete
-<pre>
+```json
 route53-recovery-readiness:DeleteCell,
-route53-recovery-readiness:GetCell</pre>
+route53-recovery-readiness:GetCell
+```
 
 
 ## Example

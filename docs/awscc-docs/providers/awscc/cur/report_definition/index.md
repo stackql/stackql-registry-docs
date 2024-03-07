@@ -51,18 +51,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>report_definition</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cur:DescribeReportDefinitions</pre>
+```json
+cur:DescribeReportDefinitions
+```
 
 ### Update
-<pre>
+```json
 cur:DescribeReportDefinitions,
-cur:ModifyReportDefinition</pre>
+cur:ModifyReportDefinition
+```
 
 ### Delete
-<pre>
+```json
 cur:DescribeReportDefinitions,
-cur:DeleteReportDefinition</pre>
+cur:DeleteReportDefinition
+```
 
 
 ## Example

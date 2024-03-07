@@ -47,19 +47,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>integration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-rds:DescribeIntegrations</pre>
+```json
+rds:DescribeIntegrations
+```
 
 ### Update
-<pre>
+```json
 rds:DescribeIntegrations,
 rds:AddTagsToResource,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 rds:DeleteIntegration,
-rds:DescribeIntegrations</pre>
+rds:DescribeIntegrations
+```
 
 
 ## Example

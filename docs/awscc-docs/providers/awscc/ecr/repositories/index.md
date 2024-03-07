@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repositories</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecr:CreateRepository,
 ecr:PutLifecyclePolicy,
 ecr:SetRepositoryPolicy,
 ecr:TagResource,
 kms:DescribeKey,
 kms:CreateGrant,
-kms:RetireGrant</pre>
+kms:RetireGrant
+```
 
 ### List
-<pre>
-ecr:DescribeRepositories</pre>
+```json
+ecr:DescribeRepositories
+```
 
 
 ## Example

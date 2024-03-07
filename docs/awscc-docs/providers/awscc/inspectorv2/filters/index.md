@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>filters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 inspector2:CreateFilter,
-inspector2:ListFilters</pre>
+inspector2:ListFilters
+```
 
 ### List
-<pre>
-inspector2:ListFilters</pre>
+```json
+inspector2:ListFilters
+```
 
 
 ## Example

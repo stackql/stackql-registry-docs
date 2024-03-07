@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>lifecycle_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 imagebuilder:CreateLifecyclePolicy,
 imagebuilder:GetLifecyclePolicy,
-imagebuilder:TagResource</pre>
+imagebuilder:TagResource
+```
 
 ### List
-<pre>
-imagebuilder:ListLifecyclePolicies</pre>
+```json
+imagebuilder:ListLifecyclePolicies
+```
 
 
 ## Example

@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataset</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotanalytics:DescribeDataset,
-iotanalytics:ListTagsForResource</pre>
+iotanalytics:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotanalytics:UpdateDataset,
 iotanalytics:TagResource,
-iotanalytics:UntagResource</pre>
+iotanalytics:UntagResource
+```
 
 ### Delete
-<pre>
-iotanalytics:DeleteDataset</pre>
+```json
+iotanalytics:DeleteDataset
+```
 
 
 ## Example

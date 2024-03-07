@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>slack_channel_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 supportapp:CreateSlackChannelConfiguration,
-supportapp:ListSlackChannelConfigurations</pre>
+supportapp:ListSlackChannelConfigurations
+```
 
 ### List
-<pre>
-supportapp:ListSlackChannelConfigurations</pre>
+```json
+supportapp:ListSlackChannelConfigurations
+```
 
 
 ## Example

@@ -49,7 +49,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>id_mapping_workflow</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 entityresolution:GetIdMappingWorkflow,
 entityresolution:UpdateIdMappingWorkflow,
 entityresolution:ListTagsForResource,
@@ -57,18 +57,21 @@ entityresolution:TagResource,
 entityresolution:UntagResource,
 iam:PassRole,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Read
-<pre>
+```json
 entityresolution:GetIdMappingWorkflow,
-entityresolution:ListTagsForResource</pre>
+entityresolution:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 entityresolution:DeleteIdMappingWorkflow,
 entityresolution:GetIdMappingWorkflow,
-entityresolution:UntagResource</pre>
+entityresolution:UntagResource
+```
 
 
 ## Example

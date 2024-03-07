@@ -48,16 +48,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>membership</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cleanrooms:GetMembership,
 cleanrooms:ListTagsForResource,
 logs:ListLogDeliveries,
 logs:DescribeLogGroups,
 logs:DescribeResourcePolicies,
-logs:GetLogDelivery</pre>
+logs:GetLogDelivery
+```
 
 ### Update
-<pre>
+```json
 cleanrooms:UpdateMembership,
 cleanrooms:GetMembership,
 logs:CreateLogDelivery,
@@ -72,10 +73,11 @@ logs:CreateLogGroup,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 cleanrooms:DeleteMembership,
 cleanrooms:GetMembership,
 cleanrooms:ListMemberships,
@@ -83,7 +85,8 @@ cleanrooms:ListTagsForResource,
 logs:ListLogDeliveries,
 logs:DescribeLogGroups,
 logs:DescribeResourcePolicies,
-logs:GetLogDelivery</pre>
+logs:GetLogDelivery
+```
 
 
 ## Example

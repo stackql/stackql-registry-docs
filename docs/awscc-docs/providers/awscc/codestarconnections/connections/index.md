@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codestar-connections:CreateConnection,
-codestar-connections:TagResource</pre>
+codestar-connections:TagResource
+```
 
 ### List
-<pre>
+```json
 codestar-connections:ListConnections,
-codestar-connections:ListTagsForResource</pre>
+codestar-connections:ListTagsForResource
+```
 
 
 ## Example

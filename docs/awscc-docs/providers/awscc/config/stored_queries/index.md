@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stored_queries</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 config:PutStoredQuery,
 config:GetStoredQuery,
-config:TagResource</pre>
+config:TagResource
+```
 
 ### List
-<pre>
-config:ListStoredQueries</pre>
+```json
+config:ListStoredQueries
+```
 
 
 ## Example

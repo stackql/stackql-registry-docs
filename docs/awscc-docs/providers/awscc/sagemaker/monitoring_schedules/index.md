@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>monitoring_schedules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateMonitoringSchedule,
 sagemaker:DescribeMonitoringSchedule,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-sagemaker:ListMonitoringSchedule</pre>
+```json
+sagemaker:ListMonitoringSchedule
+```
 
 
 ## Example

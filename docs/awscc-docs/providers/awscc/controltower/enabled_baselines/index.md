@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>enabled_baselines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 controltower:EnableBaseline,
 controltower:TagResource,
 controltower:GetBaselineOperation,
@@ -67,11 +67,13 @@ servicecatalog:SearchProductsAsAdmin,
 servicecatalog:UpdatePortfolio,
 servicecatalog:UpdateProvisioningArtifact,
 servicecatalog:ListPrincipalsForPortfolio,
-servicecatalog:DeleteProvisioningArtifact</pre>
+servicecatalog:DeleteProvisioningArtifact
+```
 
 ### List
-<pre>
-controltower:ListEnabledBaselines</pre>
+```json
+controltower:ListEnabledBaselines
+```
 
 
 ## Example

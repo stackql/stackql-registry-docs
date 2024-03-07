@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subscription_filter</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:DescribeSubscriptionFilters</pre>
+```json
+logs:DescribeSubscriptionFilters
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 logs:PutSubscriptionFilter,
-logs:DescribeSubscriptionFilters</pre>
+logs:DescribeSubscriptionFilters
+```
 
 ### Delete
-<pre>
-logs:DeleteSubscriptionFilter</pre>
+```json
+logs:DeleteSubscriptionFilter
+```
 
 
 ## Example

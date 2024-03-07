@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>component_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 greengrass:DescribeComponent,
-greengrass:ListTagsForResource</pre>
+greengrass:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 greengrass:DescribeComponent,
 greengrass:ListTagsForResource,
 greengrass:TagResource,
-greengrass:UntagResource</pre>
+greengrass:UntagResource
+```
 
 ### Delete
-<pre>
-greengrass:DeleteComponent</pre>
+```json
+greengrass:DeleteComponent
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_providers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 workspaces-web:CreateIdentityProvider,
 workspaces-web:GetIdentityProvider,
 workspaces-web:ListTagsForResource,
-workspaces-web:TagResource</pre>
+workspaces-web:TagResource
+```
 
 ### List
-<pre>
-workspaces-web:ListIdentityProviders</pre>
+```json
+workspaces-web:ListIdentityProviders
+```
 
 
 ## Example

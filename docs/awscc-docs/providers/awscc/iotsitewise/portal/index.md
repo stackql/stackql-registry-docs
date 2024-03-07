@@ -51,12 +51,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>portal</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotsitewise:DescribePortal,
-iotsitewise:ListTagsForResource</pre>
+iotsitewise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotsitewise:DescribePortal,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
@@ -64,13 +65,15 @@ iotsitewise:UpdatePortal,
 iotsitewise:UntagResource,
 iam:PassRole,
 sso:GetManagedApplicationInstance,
-sso:UpdateApplicationInstanceDisplayData</pre>
+sso:UpdateApplicationInstanceDisplayData
+```
 
 ### Delete
-<pre>
+```json
 iotsitewise:DescribePortal,
 iotsitewise:DeletePortal,
-sso:DeleteManagedApplicationInstance</pre>
+sso:DeleteManagedApplicationInstance
+```
 
 
 ## Example

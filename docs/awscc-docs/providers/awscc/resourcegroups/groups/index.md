@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 resource-groups:CreateGroup,
 resource-groups:Tag,
 cloudformation:DescribeStacks,
 cloudformation:ListStackResources,
 resource-groups:ListGroupResources,
-resource-groups:GroupResources</pre>
+resource-groups:GroupResources
+```
 
 ### List
-<pre>
-resource-groups:ListGroups</pre>
+```json
+resource-groups:ListGroups
+```
 
 
 ## Example

@@ -44,13 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>deployment_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-codedeploy:GetDeploymentConfig</pre>
+```json
+codedeploy:GetDeploymentConfig
+```
 
 ### Delete
-<pre>
+```json
 codedeploy:GetDeploymentConfig,
-codedeploy:DeleteDeploymentConfig</pre>
+codedeploy:DeleteDeploymentConfig
+```
 
 
 ## Example

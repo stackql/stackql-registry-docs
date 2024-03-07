@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_buses</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 events:CreateEventBus,
 events:DescribeEventBus,
 events:PutPermission,
 events:ListTagsForResource,
-events:TagResource</pre>
+events:TagResource
+```
 
 ### List
-<pre>
+```json
 events:ListEventBuses,
-events:ListTagsForResource</pre>
+events:ListTagsForResource
+```
 
 
 ## Example

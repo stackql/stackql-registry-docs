@@ -44,28 +44,31 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policy_store</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 verifiedpermissions:CreatePolicyStore,
 verifiedpermissions:GetPolicyStore,
 verifiedpermissions:UpdatePolicyStore,
 verifiedpermissions:DeletePolicyStore,
-verifiedpermissions:GetSchema</pre>
+verifiedpermissions:GetSchema
+```
 
 ### Update
-<pre>
+```json
 verifiedpermissions:CreatePolicyStore,
 verifiedpermissions:GetPolicyStore,
 verifiedpermissions:UpdatePolicyStore,
 verifiedpermissions:DeletePolicyStore,
 verifiedpermissions:GetSchema,
-verifiedpermissions:PutSchema</pre>
+verifiedpermissions:PutSchema
+```
 
 ### Delete
-<pre>
+```json
 verifiedpermissions:CreatePolicyStore,
 verifiedpermissions:GetPolicyStore,
 verifiedpermissions:UpdatePolicyStore,
-verifiedpermissions:DeletePolicyStore</pre>
+verifiedpermissions:DeletePolicyStore
+```
 
 
 ## Example

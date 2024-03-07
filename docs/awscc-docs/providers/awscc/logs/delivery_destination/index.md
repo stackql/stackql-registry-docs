@@ -45,13 +45,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>delivery_destination</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 logs:GetDeliveryDestination,
 logs:ListTagsForResource,
-logs:GetDeliveryDestinationPolicy</pre>
+logs:GetDeliveryDestinationPolicy
+```
 
 ### Update
-<pre>
+```json
 logs:PutDeliveryDestination,
 logs:GetDeliveryDestination,
 logs:ListTagsForResource,
@@ -59,12 +60,14 @@ logs:TagResource,
 logs:UntagResource,
 logs:DeleteDeliveryDestinationPolicy,
 logs:PutDeliveryDestinationPolicy,
-logs:GetDeliveryDestinationPolicy</pre>
+logs:GetDeliveryDestinationPolicy
+```
 
 ### Delete
-<pre>
+```json
 logs:DeleteDeliveryDestination,
-logs:DeleteDeliveryDestinationPolicy</pre>
+logs:DeleteDeliveryDestinationPolicy
+```
 
 
 ## Example

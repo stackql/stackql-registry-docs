@@ -43,25 +43,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>distribution</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteDistribution,
 cloudfront:GetDistribution,
-cloudfront:GetDistributionConfig</pre>
+cloudfront:GetDistributionConfig
+```
 
 ### Read
-<pre>
+```json
 cloudfront:GetDistribution,
-cloudfront:GetDistributionConfig</pre>
+cloudfront:GetDistributionConfig
+```
 
 ### Update
-<pre>
+```json
 cloudfront:GetDistribution,
 cloudfront:GetDistributionConfig,
 cloudfront:UpdateDistribution,
 cloudfront:UpdateDistributionWithStagingConfig,
 cloudfront:ListTagsForResource,
 cloudfront:TagResource,
-cloudfront:UntagResource</pre>
+cloudfront:UntagResource
+```
 
 
 ## Example

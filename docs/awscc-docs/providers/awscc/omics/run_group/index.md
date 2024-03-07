@@ -48,21 +48,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>run_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-omics:GetRunGroup</pre>
+```json
+omics:GetRunGroup
+```
 
 ### Update
-<pre>
+```json
 omics:UpdateRunGroup,
 omics:TagResource,
 omics:GetRunGroup,
 omics:ListTagsForResource,
-omics:UntagResource</pre>
+omics:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 omics:DeleteRunGroup,
-omics:GetRunGroup</pre>
+omics:GetRunGroup
+```
 
 
 ## Example

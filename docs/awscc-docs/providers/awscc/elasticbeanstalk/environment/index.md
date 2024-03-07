@@ -52,24 +52,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticbeanstalk:DescribeEnvironments,
 elasticbeanstalk:DescribeConfigurationSettings,
-elasticbeanstalk:ListTagsForResource</pre>
+elasticbeanstalk:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 elasticbeanstalk:DescribeEnvironments,
 elasticbeanstalk:UpdateEnvironment,
 elasticbeanstalk:UpdateTagsForResource,
 elasticbeanstalk:AssociateEnvironmentOperationsRole,
 elasticbeanstalk:DisassociateEnvironmentOperationsRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 elasticbeanstalk:DescribeEnvironments,
-elasticbeanstalk:TerminateEnvironment</pre>
+elasticbeanstalk:TerminateEnvironment
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>location_s3s</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datasync:CreateLocationS3,
 datasync:DescribeLocationS3,
 datasync:ListTagsForResource,
@@ -48,11 +48,13 @@ datasync:TagResource,
 s3:ListAllMyBuckets,
 s3:ListBucket,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-datasync:ListLocations</pre>
+```json
+datasync:ListLocations
+```
 
 
 ## Example

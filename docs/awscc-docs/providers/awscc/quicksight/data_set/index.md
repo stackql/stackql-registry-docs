@@ -61,14 +61,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 quicksight:DescribeDataSet,
 quicksight:DescribeDataSetPermissions,
 quicksight:ListTagsForResource,
-quicksight:DescribeDataSetRefreshProperties</pre>
+quicksight:DescribeDataSetRefreshProperties
+```
 
 ### Update
-<pre>
+```json
 quicksight:DescribeDataSet,
 quicksight:DescribeDataSetPermissions,
 quicksight:PassDataSource,
@@ -83,16 +84,18 @@ quicksight:UntagResource,
 quicksight:ListTagsForResource,
 quicksight:PutDataSetRefreshProperties,
 quicksight:DescribeDataSetRefreshProperties,
-quicksight:DeleteDataSetRefreshProperties</pre>
+quicksight:DeleteDataSetRefreshProperties
+```
 
 ### Delete
-<pre>
+```json
 quicksight:DescribeDataSet,
 quicksight:DeleteDataSet,
 quicksight:ListTagsForResource,
 quicksight:DescribeIngestion,
 quicksight:DeleteDataSetRefreshProperties,
-quicksight:DescribeDataSetRefreshProperties</pre>
+quicksight:DescribeDataSetRefreshProperties
+```
 
 
 ## Example

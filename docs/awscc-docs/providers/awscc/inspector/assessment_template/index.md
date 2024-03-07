@@ -45,12 +45,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assessment_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-inspector:DescribeAssessmentTemplates</pre>
+```json
+inspector:DescribeAssessmentTemplates
+```
 
 ### Delete
-<pre>
-inspector:DeleteAssessmentTemplate</pre>
+```json
+inspector:DeleteAssessmentTemplate
+```
 
 
 ## Example

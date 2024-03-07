@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>simulations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 simspaceweaver:StartSimulation,
 simspaceweaver:DescribeSimulation,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-simspaceweaver:ListSimulations</pre>
+```json
+simspaceweaver:ListSimulations
+```
 
 
 ## Example

@@ -46,19 +46,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repository_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 codeguru-reviewer:DescribeRepositoryAssociation,
-codeguru-reviewer:ListTagsForResource</pre>
+codeguru-reviewer:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 codeguru-reviewer:DescribeRepositoryAssociation,
 codeguru-reviewer:DisassociateRepository,
 codecommit:UntagResource,
 events:DeleteRule,
 events:RemoveTargets,
 codestar-connections:UntagResource,
-codestar-connections:ListTagsForResource</pre>
+codestar-connections:ListTagsForResource
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 organizations:CreatePolicy,
 organizations:DescribePolicy,
 organizations:AttachPolicy,
 organizations:ListTagsForResource,
 organizations:ListTargetsForPolicy,
-organizations:TagResource</pre>
+organizations:TagResource
+```
 
 ### List
-<pre>
-organizations:ListPolicies</pre>
+```json
+organizations:ListPolicies
+```
 
 
 ## Example

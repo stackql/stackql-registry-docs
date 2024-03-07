@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 xray:PutResourcePolicy,
-xray:ListResourcePolicies</pre>
+xray:ListResourcePolicies
+```
 
 ### List
-<pre>
-xray:ListResourcePolicies</pre>
+```json
+xray:ListResourcePolicies
+```
 
 
 ## Example

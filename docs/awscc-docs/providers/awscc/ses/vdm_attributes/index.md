@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vdm_attributes</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ses:GetAccount</pre>
+```json
+ses:GetAccount
+```
 
 ### Update
-<pre>
+```json
 ses:PutAccountVdmAttributes,
-ses:GetAccount</pre>
+ses:GetAccount
+```
 
 ### Delete
-<pre>
+```json
 ses:PutAccountVdmAttributes,
-ses:GetAccount</pre>
+ses:GetAccount
+```
 
 
 ## Example

@@ -43,20 +43,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 appconfig:GetApplication,
-appconfig:ListTagsForResource</pre>
+appconfig:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 appconfig:UpdateApplication,
 appconfig:TagResource,
-appconfig:UntagResource</pre>
+appconfig:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 appconfig:GetApplication,
-appconfig:DeleteApplication</pre>
+appconfig:DeleteApplication
+```
 
 
 ## Example

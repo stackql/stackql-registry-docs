@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 eks:CreateCluster,
 eks:DescribeCluster,
 eks:TagResource,
@@ -57,11 +57,13 @@ iam:RemoveRoleFromInstanceProfile,
 ec2:DescribeSubnets,
 ec2:DescribeVpcs,
 kms:DescribeKey,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
-eks:ListClusters</pre>
+```json
+eks:ListClusters
+```
 
 
 ## Example

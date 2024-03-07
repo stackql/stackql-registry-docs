@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>documents</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm:CreateDocument,
 ssm:GetDocument,
 ssm:AddTagsToResource,
 ssm:ListTagsForResource,
 s3:GetObject,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-ssm:ListDocuments</pre>
+```json
+ssm:ListDocuments
+```
 
 
 ## Example

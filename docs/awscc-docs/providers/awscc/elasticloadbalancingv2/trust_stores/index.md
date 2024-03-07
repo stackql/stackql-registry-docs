@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trust_stores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticloadbalancing:CreateTrustStore,
 elasticloadbalancing:DescribeTrustStores,
 elasticloadbalancing:AddTags,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### List
-<pre>
+```json
 elasticloadbalancing:DescribeTrustStores,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 
 ## Example

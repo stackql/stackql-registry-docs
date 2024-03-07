@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 identitystore:CreateGroup,
-identitystore:DescribeGroup</pre>
+identitystore:DescribeGroup
+```
 
 ### List
-<pre>
-identitystore:ListGroups</pre>
+```json
+identitystore:ListGroups
+```
 
 
 ## Example

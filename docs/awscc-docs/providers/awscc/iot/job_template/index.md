@@ -53,12 +53,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>job_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iot:DescribeJobTemplate</pre>
+```json
+iot:DescribeJobTemplate
+```
 
 ### Delete
-<pre>
-iot:DeleteJobTemplate</pre>
+```json
+iot:DeleteJobTemplate
+```
 
 
 ## Example

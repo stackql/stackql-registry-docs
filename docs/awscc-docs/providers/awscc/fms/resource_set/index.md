@@ -45,7 +45,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_set</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 fms:PutResourceSet,
 fms:BatchAssociateResource,
 fms:BatchDisassociateResource,
@@ -53,17 +53,20 @@ fms:GetResourceSet,
 fms:ListResourceSetResources,
 fms:TagResource,
 fms:UntagResource,
-fms:ListTagsForResource</pre>
+fms:ListTagsForResource
+```
 
 ### Read
-<pre>
+```json
 fms:GetResourceSet,
 fms:ListResourceSetResources,
-fms:ListTagsForResource</pre>
+fms:ListTagsForResource
+```
 
 ### Delete
-<pre>
-fms:DeleteResourceSet</pre>
+```json
+fms:DeleteResourceSet
+```
 
 
 ## Example

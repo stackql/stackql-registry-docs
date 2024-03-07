@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>api_destinations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 events:CreateApiDestination,
-events:DescribeApiDestination</pre>
+events:DescribeApiDestination
+```
 
 ### List
-<pre>
-events:ListApiDestinations</pre>
+```json
+events:ListApiDestinations
+```
 
 
 ## Example

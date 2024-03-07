@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>solutions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 personalize:CreateSolution,
-personalize:DescribeSolution</pre>
+personalize:DescribeSolution
+```
 
 ### List
-<pre>
-personalize:ListSolutions</pre>
+```json
+personalize:ListSolutions
+```
 
 
 ## Example

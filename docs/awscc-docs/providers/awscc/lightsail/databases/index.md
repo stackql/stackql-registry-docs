@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>databases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:CreateRelationalDatabase,
 lightsail:GetRelationalDatabase,
 lightsail:GetRelationalDatabases,
@@ -48,11 +48,13 @@ lightsail:GetRegions,
 lightsail:TagResource,
 lightsail:UntagResource,
 lightsail:UpdateRelationalDatabase,
-lightsail:UpdateRelationalDatabaseParameters</pre>
+lightsail:UpdateRelationalDatabaseParameters
+```
 
 ### List
-<pre>
-lightsail:GetRelationalDatabases</pre>
+```json
+lightsail:GetRelationalDatabases
+```
 
 
 ## Example

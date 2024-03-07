@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_actions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 servicecatalog:CreateServiceAction,
 ssm:DescribeDocument,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 ### List
-<pre>
-servicecatalog:ListServiceActions</pre>
+```json
+servicecatalog:ListServiceActions
+```
 
 
 ## Example

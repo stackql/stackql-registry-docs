@@ -51,7 +51,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>detector</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 frauddetector:GetDetectors,
 frauddetector:GetDetectorVersion,
 frauddetector:PutDetector,
@@ -81,10 +81,11 @@ frauddetector:DeleteLabel,
 frauddetector:DeleteEntityType,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource,
-frauddetector:UntagResource</pre>
+frauddetector:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 frauddetector:GetDetectors,
 frauddetector:GetDetectorVersion,
 frauddetector:DescribeDetector,
@@ -102,10 +103,11 @@ frauddetector:DeleteVariable,
 frauddetector:DeleteLabel,
 frauddetector:DeleteOutcome,
 frauddetector:DeleteEntityType,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 ### Read
-<pre>
+```json
 frauddetector:GetDetectors,
 frauddetector:GetDetectorVersion,
 frauddetector:DescribeDetector,
@@ -117,7 +119,8 @@ frauddetector:GetModelVersion,
 frauddetector:GetLabels,
 frauddetector:GetOutcomes,
 frauddetector:GetEntityTypes,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 
 ## Example

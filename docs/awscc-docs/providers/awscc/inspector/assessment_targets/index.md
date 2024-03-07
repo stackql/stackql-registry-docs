@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assessment_targets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 inspector:CreateAssessmentTarget,
 inspector:ListAssessmentTargets,
-inspector:DescribeAssessmentTargets</pre>
+inspector:DescribeAssessmentTargets
+```
 
 ### List
-<pre>
-inspector:ListAssessmentTargets</pre>
+```json
+inspector:ListAssessmentTargets
+```
 
 
 ## Example

@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_integration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 app-integrations:GetEventIntegration,
-app-integrations:ListTagsForResource</pre>
+app-integrations:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 app-integrations:GetEventIntegration,
 app-integrations:UpdateEventIntegration,
 app-integrations:TagResource,
-app-integrations:UntagResource</pre>
+app-integrations:UntagResource
+```
 
 ### Delete
-<pre>
-app-integrations:DeleteEventIntegration</pre>
+```json
+app-integrations:DeleteEventIntegration
+```
 
 
 ## Example

@@ -43,24 +43,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>group</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 synthetics:AssociateResource,
 synthetics:DisassociateResource,
 synthetics:TagResource,
 synthetics:UntagResource,
 synthetics:GetGroup,
-synthetics:ListGroupResources</pre>
+synthetics:ListGroupResources
+```
 
 ### Read
-<pre>
+```json
 synthetics:GetGroup,
 synthetics:ListTagsForResource,
-synthetics:ListGroupResources</pre>
+synthetics:ListGroupResources
+```
 
 ### Delete
-<pre>
+```json
 synthetics:DeleteGroup,
-synthetics:GetGroup</pre>
+synthetics:GetGroup
+```
 
 
 ## Example

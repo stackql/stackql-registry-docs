@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_proxies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rds:CreateDBProxy,
 rds:DescribeDBProxies,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-rds:DescribeDBProxies</pre>
+```json
+rds:DescribeDBProxies
+```
 
 
 ## Example

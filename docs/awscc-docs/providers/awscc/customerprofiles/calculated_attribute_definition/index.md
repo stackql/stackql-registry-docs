@@ -49,19 +49,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>calculated_attribute_definition</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-profile:GetCalculatedAttributeDefinition</pre>
+```json
+profile:GetCalculatedAttributeDefinition
+```
 
 ### Update
-<pre>
+```json
 profile:GetCalculatedAttributeDefinition,
 profile:UpdateCalculatedAttributeDefinition,
 profile:UntagResource,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 ### Delete
-<pre>
-profile:DeleteCalculatedAttributeDefinition</pre>
+```json
+profile:DeleteCalculatedAttributeDefinition
+```
 
 
 ## Example

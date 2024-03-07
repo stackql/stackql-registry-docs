@@ -46,23 +46,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>robot_application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-robomaker:DescribeRobotApplication</pre>
+```json
+robomaker:DescribeRobotApplication
+```
 
 ### Update
-<pre>
+```json
 robomaker:TagResource,
 robomaker:UntagResource,
 robomaker:UpdateRobotApplication,
 ecr:BatchGetImage,
 ecr:GetAuthorizationToken,
 ecr:BatchCheckLayerAvailability,
-ecr-public:GetAuthorizationToken</pre>
+ecr-public:GetAuthorizationToken
+```
 
 ### Delete
-<pre>
+```json
 robomaker:DescribeRobotApplication,
-robomaker:DeleteRobotApplication</pre>
+robomaker:DeleteRobotApplication
+```
 
 
 ## Example

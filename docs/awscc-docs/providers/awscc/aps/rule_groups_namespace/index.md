@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule_groups_namespace</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 aps:DescribeRuleGroupsNamespace,
-aps:ListTagsForResource</pre>
+aps:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 aps:PutRuleGroupsNamespace,
 aps:DescribeRuleGroupsNamespace,
 aps:TagResource,
 aps:UntagResource,
-aps:ListTagsForResource</pre>
+aps:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 aps:DeleteRuleGroupsNamespace,
-aps:DescribeRuleGroupsNamespace</pre>
+aps:DescribeRuleGroupsNamespace
+```
 
 
 ## Example

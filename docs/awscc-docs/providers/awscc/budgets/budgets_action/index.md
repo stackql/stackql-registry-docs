@@ -48,17 +48,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>budgets_action</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-budgets:DescribeBudgetAction</pre>
+```json
+budgets:DescribeBudgetAction
+```
 
 ### Update
-<pre>
+```json
 budgets:UpdateBudgetAction,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-budgets:DeleteBudgetAction</pre>
+```json
+budgets:DeleteBudgetAction
+```
 
 
 ## Example

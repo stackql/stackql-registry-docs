@@ -43,16 +43,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alias</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-gamelift:DescribeAlias</pre>
+```json
+gamelift:DescribeAlias
+```
 
 ### Update
-<pre>
-gamelift:UpdateAlias</pre>
+```json
+gamelift:UpdateAlias
+```
 
 ### Delete
-<pre>
-gamelift:DeleteAlias</pre>
+```json
+gamelift:DeleteAlias
+```
 
 
 ## Example

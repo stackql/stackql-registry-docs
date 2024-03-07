@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>inference_experiments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateInferenceExperiment,
 sagemaker:DescribeInferenceExperiment,
 sagemaker:AddTags,
 sagemaker:ListTags,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-sagemaker:ListInferenceExperiments</pre>
+```json
+sagemaker:ListInferenceExperiments
+```
 
 
 ## Example

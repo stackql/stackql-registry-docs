@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment_account_connections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 proton:CreateEnvironmentAccountConnection,
 proton:TagResource,
 iam:PassRole,
 proton:ListTagsForResource,
-proton:GetEnvironmentAccountConnection</pre>
+proton:GetEnvironmentAccountConnection
+```
 
 ### List
-<pre>
-proton:ListEnvironmentAccountConnections</pre>
+```json
+proton:ListEnvironmentAccountConnections
+```
 
 
 ## Example

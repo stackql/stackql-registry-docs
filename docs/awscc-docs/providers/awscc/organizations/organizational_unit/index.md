@@ -44,23 +44,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>organizational_unit</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 organizations:DescribeOrganizationalUnit,
 organizations:ListParents,
-organizations:ListTagsForResource</pre>
+organizations:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 organizations:DescribeOrganizationalUnit,
 organizations:ListParents,
 organizations:ListTagsForResource,
 organizations:TagResource,
 organizations:UntagResource,
-organizations:UpdateOrganizationalUnit</pre>
+organizations:UpdateOrganizationalUnit
+```
 
 ### Delete
-<pre>
-organizations:DeleteOrganizationalUnit</pre>
+```json
+organizations:DeleteOrganizationalUnit
+```
 
 
 ## Example

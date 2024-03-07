@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>delivery_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 logs:PutDeliverySource,
 logs:GetDeliverySource,
 logs:ListTagsForResource,
@@ -48,11 +48,13 @@ logs:TagResource,
 logs:AllowVendedLogDeliveryForResource,
 codewhisperer:AllowVendedLogDeliveryForResource,
 autoloop:AllowVendedLogDeliveryForResource,
-workmail:AllowVendedLogDeliveryForResource</pre>
+workmail:AllowVendedLogDeliveryForResource
+```
 
 ### List
-<pre>
-logs:DescribeDeliverySources</pre>
+```json
+logs:DescribeDeliverySources
+```
 
 
 ## Example

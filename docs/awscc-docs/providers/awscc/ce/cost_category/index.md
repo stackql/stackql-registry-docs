@@ -46,16 +46,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cost_category</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ce:DescribeCostCategoryDefinition</pre>
+```json
+ce:DescribeCostCategoryDefinition
+```
 
 ### Update
-<pre>
-ce:UpdateCostCategoryDefinition</pre>
+```json
+ce:UpdateCostCategoryDefinition
+```
 
 ### Delete
-<pre>
-ce:DeleteCostCategoryDefinition</pre>
+```json
+ce:DeleteCostCategoryDefinition
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>locations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 gamelift:CreateLocation,
 gamelift:ListLocations,
 gamelift:ListTagsForResource,
-gamelift:TagResource</pre>
+gamelift:TagResource
+```
 
 ### List
-<pre>
-gamelift:ListLocations</pre>
+```json
+gamelift:ListLocations
+```
 
 
 ## Example

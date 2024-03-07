@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 appconfig:GetEnvironment,
-appconfig:ListTagsForResource</pre>
+appconfig:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 appconfig:UpdateEnvironment,
 appconfig:TagResource,
 appconfig:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 appconfig:GetEnvironment,
-appconfig:DeleteEnvironment</pre>
+appconfig:DeleteEnvironment
+```
 
 
 ## Example

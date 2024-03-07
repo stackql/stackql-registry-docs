@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>keys</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kms:CreateKey,
 kms:EnableKeyRotation,
 kms:DisableKey,
 kms:TagResource,
-kms:PutKeyPolicy</pre>
+kms:PutKeyPolicy
+```
 
 ### List
-<pre>
+```json
 kms:ListKeys,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 
 ## Example

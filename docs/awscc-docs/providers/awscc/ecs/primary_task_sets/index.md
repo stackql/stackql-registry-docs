@@ -41,9 +41,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>primary_task_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecs:DescribeTaskSets,
-ecs:UpdateServicePrimaryTaskSet</pre>
+ecs:UpdateServicePrimaryTaskSet
+```
 
 
 ## Example

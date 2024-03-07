@@ -45,12 +45,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>logging_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ivschat:GetLoggingConfiguration,
-ivschat:ListTagsForResource</pre>
+ivschat:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ivschat:UpdateLoggingConfiguration,
 ivschat:GetLoggingConfiguration,
 ivschat:TagResource,
@@ -67,16 +68,18 @@ logs:DescribeLogGroups,
 s3:PutBucketPolicy,
 s3:GetBucketPolicy,
 iam:CreateServiceLinkedRole,
-firehose:TagDeliveryStream</pre>
+firehose:TagDeliveryStream
+```
 
 ### Delete
-<pre>
+```json
 ivschat:DeleteLoggingConfiguration,
 ivschat:GetLoggingConfiguration,
 logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 ivschat:UntagResource,
-logs:GetLogDelivery</pre>
+logs:GetLogDelivery
+```
 
 
 ## Example

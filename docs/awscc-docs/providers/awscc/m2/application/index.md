@@ -48,27 +48,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 m2:GetApplication,
-m2:ListTagsForResource</pre>
+m2:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 m2:UpdateApplication,
 m2:GetApplication,
 m2:ListTagsForResource,
 m2:TagResource,
 m2:UntagResource,
 s3:GetObject,
-s3:ListBucket</pre>
+s3:ListBucket
+```
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DeleteListener,
 elasticloadbalancing:DeleteTargetGroup,
 logs:DeleteLogDelivery,
 m2:GetApplication,
-m2:DeleteApplication</pre>
+m2:DeleteApplication
+```
 
 
 ## Example

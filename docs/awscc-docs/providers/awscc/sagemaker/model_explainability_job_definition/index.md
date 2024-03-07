@@ -52,12 +52,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_explainability_job_definition</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
-sagemaker:DeleteModelExplainabilityJobDefinition</pre>
+```json
+sagemaker:DeleteModelExplainabilityJobDefinition
+```
 
 ### Read
-<pre>
-sagemaker:DescribeModelExplainabilityJobDefinition</pre>
+```json
+sagemaker:DescribeModelExplainabilityJobDefinition
+```
 
 
 ## Example

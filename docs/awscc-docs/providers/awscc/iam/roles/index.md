@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>roles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateRole,
 iam:PutRolePolicy,
 iam:AttachRolePolicy,
 iam:GetRolePolicy,
 iam:TagRole,
 iam:UntagRole,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 ### List
-<pre>
-iam:ListRoles</pre>
+```json
+iam:ListRoles
+```
 
 
 ## Example

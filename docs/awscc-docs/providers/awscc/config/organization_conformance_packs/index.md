@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>organization_conformance_packs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 config:PutOrganizationConformancePack,
 config:DescribeOrganizationConformancePackStatuses,
 config:GetOrganizationConformancePackDetailedStatus,
@@ -50,11 +50,13 @@ s3:GetBucketAcl,
 iam:CreateServiceLinkedRole,
 iam:PassRole,
 organizations:ListDelegatedAdministrators,
-organizations:EnableAWSServiceAccess</pre>
+organizations:EnableAWSServiceAccess
+```
 
 ### List
-<pre>
-config:DescribeOrganizationConformancePacks</pre>
+```json
+config:DescribeOrganizationConformancePacks
+```
 
 
 ## Example

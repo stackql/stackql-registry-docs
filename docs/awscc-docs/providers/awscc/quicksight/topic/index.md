@@ -46,18 +46,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-quicksight:DescribeTopic</pre>
+```json
+quicksight:DescribeTopic
+```
 
 ### Update
-<pre>
+```json
 quicksight:UpdateTopic,
 quicksight:PassDataSet,
-quicksight:DescribeTopicRefresh</pre>
+quicksight:DescribeTopicRefresh
+```
 
 ### Delete
-<pre>
-quicksight:DeleteTopic</pre>
+```json
+quicksight:DeleteTopic
+```
 
 
 ## Example

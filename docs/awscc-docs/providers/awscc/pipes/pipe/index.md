@@ -56,11 +56,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipe</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-pipes:DescribePipe</pre>
+```json
+pipes:DescribePipe
+```
 
 ### Update
-<pre>
+```json
 pipes:UpdatePipe,
 pipes:TagResource,
 pipes:UntagResource,
@@ -77,17 +78,19 @@ logs:GetLogDelivery,
 logs:ListLogDeliveries,
 s3:PutBucketPolicy,
 s3:GetBucketPolicy,
-firehose:TagDeliveryStream</pre>
+firehose:TagDeliveryStream
+```
 
 ### Delete
-<pre>
+```json
 pipes:DeletePipe,
 pipes:DescribePipe,
 logs:CreateLogDelivery,
 logs:UpdateLogDelivery,
 logs:DeleteLogDelivery,
 logs:GetLogDelivery,
-logs:ListLogDeliveries</pre>
+logs:ListLogDeliveries
+```
 
 
 ## Example

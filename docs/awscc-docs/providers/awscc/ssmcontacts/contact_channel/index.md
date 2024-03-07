@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>contact_channel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ssm-contacts:GetContactChannel</pre>
+```json
+ssm-contacts:GetContactChannel
+```
 
 ### Update
-<pre>
+```json
 ssm-contacts:UpdateContactChannel,
-ssm-contacts:GetContactChannel</pre>
+ssm-contacts:GetContactChannel
+```
 
 ### Delete
-<pre>
+```json
 ssm-contacts:DeleteContactChannel,
-ssm-contacts:GetContactChannel</pre>
+ssm-contacts:GetContactChannel
+```
 
 
 ## Example

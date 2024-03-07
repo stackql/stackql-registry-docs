@@ -47,17 +47,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-elasticbeanstalk:DescribeConfigurationSettings</pre>
+```json
+elasticbeanstalk:DescribeConfigurationSettings
+```
 
 ### Update
-<pre>
-elasticbeanstalk:UpdateConfigurationTemplate</pre>
+```json
+elasticbeanstalk:UpdateConfigurationTemplate
+```
 
 ### Delete
-<pre>
+```json
 elasticbeanstalk:DeleteConfigurationTemplate,
-elasticbeanstalk:DescribeConfigurationSettings</pre>
+elasticbeanstalk:DescribeConfigurationSettings
+```
 
 
 ## Example

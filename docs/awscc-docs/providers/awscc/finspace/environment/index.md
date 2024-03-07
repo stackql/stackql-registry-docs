@@ -54,17 +54,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-finspace:GetEnvironment</pre>
+```json
+finspace:GetEnvironment
+```
 
 ### Update
-<pre>
-finspace:UpdateEnvironment</pre>
+```json
+finspace:UpdateEnvironment
+```
 
 ### Delete
-<pre>
+```json
 finspace:DeleteEnvironment,
-finspace:GetEnvironment</pre>
+finspace:GetEnvironment
+```
 
 
 ## Example

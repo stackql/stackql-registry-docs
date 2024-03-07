@@ -51,24 +51,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>outpost_resolver</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53resolver:GetOutpostResolver,
-route53resolver:ListTagsForResource</pre>
+route53resolver:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 route53resolver:UpdateOutpostResolver,
 route53resolver:GetOutpostResolver,
 route53resolver:UntagResource,
 route53resolver:TagResource,
-route53resolver:ListTagsForResource</pre>
+route53resolver:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 route53resolver:DeleteOutpostResolver,
 route53resolver:GetOutpostResolver,
 route53resolver:ListOutpostResolvers,
-route53resolver:ListResolverEndpoints</pre>
+route53resolver:ListResolverEndpoints
+```
 
 
 ## Example

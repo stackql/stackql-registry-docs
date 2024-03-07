@@ -64,21 +64,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ecs:DescribeServices</pre>
+```json
+ecs:DescribeServices
+```
 
 ### Update
-<pre>
+```json
 ecs:DescribeServices,
 ecs:ListTagsForResource,
 ecs:TagResource,
 ecs:UntagResource,
-ecs:UpdateService</pre>
+ecs:UpdateService
+```
 
 ### Delete
-<pre>
+```json
 ecs:DeleteService,
-ecs:DescribeServices</pre>
+ecs:DescribeServices
+```
 
 
 ## Example

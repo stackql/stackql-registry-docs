@@ -43,7 +43,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster_subnet_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 redshift:DescribeClusterSubnetGroups,
 redshift:DescribeTags,
 ec2:AllocateAddress,
@@ -55,10 +55,11 @@ ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### Update
-<pre>
+```json
 redshift:ModifyClusterSubnetGroup,
 redshift:DescribeClusterSubnetGroups,
 redshift:DescribeTags,
@@ -73,10 +74,11 @@ ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### Delete
-<pre>
+```json
 redshift:DeleteClusterSubnetGroup,
 redshift:DescribeClusterSubnetGroups,
 redshift:DescribeTags,
@@ -89,7 +91,8 @@ ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 
 ## Example

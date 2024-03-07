@@ -52,7 +52,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>table</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cassandra:Select,
 cassandra:SelectMultiRegionResource,
 application-autoscaling:DescribeScalableTargets,
@@ -63,10 +63,11 @@ application-autoscaling:PutScalingPolicy,
 cloudwatch:DeleteAlarms,
 cloudwatch:DescribeAlarms,
 cloudwatch:GetMetricData,
-cloudwatch:PutMetricAlarm</pre>
+cloudwatch:PutMetricAlarm
+```
 
 ### Update
-<pre>
+```json
 cassandra:Alter,
 cassandra:AlterMultiRegionResource,
 cassandra:Select,
@@ -87,10 +88,11 @@ application-autoscaling:PutScalingPolicy,
 cloudwatch:DeleteAlarms,
 cloudwatch:DescribeAlarms,
 cloudwatch:GetMetricData,
-cloudwatch:PutMetricAlarm</pre>
+cloudwatch:PutMetricAlarm
+```
 
 ### Delete
-<pre>
+```json
 cassandra:Drop,
 cassandra:DropMultiRegionResource,
 cassandra:Select,
@@ -103,7 +105,8 @@ application-autoscaling:PutScalingPolicy,
 cloudwatch:DeleteAlarms,
 cloudwatch:DescribeAlarms,
 cloudwatch:GetMetricData,
-cloudwatch:PutMetricAlarm</pre>
+cloudwatch:PutMetricAlarm
+```
 
 
 ## Example

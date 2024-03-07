@@ -42,12 +42,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>keyspace</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cassandra:Select,
-cassandra:SelectMultiRegionResource</pre>
+cassandra:SelectMultiRegionResource
+```
 
 ### Update
-<pre>
+```json
 cassandra:Alter,
 cassandra:AlterMultiRegionResource,
 cassandra:Select,
@@ -55,14 +56,16 @@ cassandra:SelectMultiRegionResource,
 cassandra:TagResource,
 cassandra:TagMultiRegionResource,
 cassandra:UntagResource,
-cassandra:UntagMultiRegionResource</pre>
+cassandra:UntagMultiRegionResource
+```
 
 ### Delete
-<pre>
+```json
 cassandra:Drop,
 cassandra:DropMultiRegionResource,
 cassandra:Select,
-cassandra:SelectMultiRegionResource</pre>
+cassandra:SelectMultiRegionResource
+```
 
 
 ## Example

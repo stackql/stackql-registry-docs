@@ -44,17 +44,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appflow:DescribeConnector</pre>
+```json
+appflow:DescribeConnector
+```
 
 ### Delete
-<pre>
-appflow:UnRegisterConnector</pre>
+```json
+appflow:UnRegisterConnector
+```
 
 ### Update
-<pre>
+```json
 appflow:UpdateConnectorRegistration,
-lambda:InvokeFunction</pre>
+lambda:InvokeFunction
+```
 
 
 ## Example

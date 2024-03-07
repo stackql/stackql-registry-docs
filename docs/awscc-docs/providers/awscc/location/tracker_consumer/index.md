@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tracker_consumer</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 geo:DisassociateTrackerConsumer,
-geo:ListTrackerConsumers</pre>
+geo:ListTrackerConsumers
+```
 
 ### Read
-<pre>
-geo:ListTrackerConsumers</pre>
+```json
+geo:ListTrackerConsumers
+```
 
 
 ## Example

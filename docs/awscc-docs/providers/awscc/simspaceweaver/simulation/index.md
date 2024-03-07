@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>simulation</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-simspaceweaver:DescribeSimulation</pre>
+```json
+simspaceweaver:DescribeSimulation
+```
 
 ### Update
-<pre>
+```json
 simspaceweaver:StartSimulation,
 simspaceweaver:StopSimulation,
 simspaceweaver:DeleteSimulation,
-simspaceweaver:DescribeSimulation</pre>
+simspaceweaver:DescribeSimulation
+```
 
 ### Delete
-<pre>
+```json
 simspaceweaver:StopSimulation,
 simspaceweaver:DeleteSimulation,
-simspaceweaver:DescribeSimulation</pre>
+simspaceweaver:DescribeSimulation
+```
 
 
 ## Example

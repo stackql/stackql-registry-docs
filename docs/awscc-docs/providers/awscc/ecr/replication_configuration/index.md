@@ -41,20 +41,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replication_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ecr:DescribeRegistry</pre>
+```json
+ecr:DescribeRegistry
+```
 
 ### Update
-<pre>
+```json
 ecr:DescribeRegistry,
 ecr:PutReplicationConfiguration,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### Delete
-<pre>
+```json
 ecr:DescribeRegistry,
 ecr:PutReplicationConfiguration,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 
 ## Example

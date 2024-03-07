@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 kafka:DeleteConfiguration,
-kafka:DescribeConfiguration</pre>
+kafka:DescribeConfiguration
+```
 
 ### Read
-<pre>
-kafka:DescribeConfiguration</pre>
+```json
+kafka:DescribeConfiguration
+```
 
 ### Update
-<pre>
+```json
 kafka:UpdateConfiguration,
-kafka:DescribeConfiguration</pre>
+kafka:DescribeConfiguration
+```
 
 
 ## Example

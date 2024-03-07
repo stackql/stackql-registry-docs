@@ -63,18 +63,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_source_mapping</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 lambda:DeleteEventSourceMapping,
-lambda:GetEventSourceMapping</pre>
+lambda:GetEventSourceMapping
+```
 
 ### Read
-<pre>
-lambda:GetEventSourceMapping</pre>
+```json
+lambda:GetEventSourceMapping
+```
 
 ### Update
-<pre>
+```json
 lambda:UpdateEventSourceMapping,
-lambda:GetEventSourceMapping</pre>
+lambda:GetEventSourceMapping
+```
 
 
 ## Example

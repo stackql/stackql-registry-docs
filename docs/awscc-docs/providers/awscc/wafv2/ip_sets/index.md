@@ -42,14 +42,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>ip_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 wafv2:CreateIPSet,
 wafv2:GetIPSet,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### List
-<pre>
-wafv2:listIPSets</pre>
+```json
+wafv2:listIPSets
+```
 
 
 ## Example

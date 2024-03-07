@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>detectors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 frauddetector:PutDetector,
 frauddetector:CreateDetectorVersion,
 frauddetector:UpdateDetectorVersionStatus,
@@ -61,10 +61,11 @@ frauddetector:GetModelVersion,
 frauddetector:GetLabels,
 frauddetector:GetOutcomes,
 frauddetector:GetEntityTypes,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 frauddetector:GetDetectors,
 frauddetector:GetDetectorVersion,
 frauddetector:DescribeDetector,
@@ -76,7 +77,8 @@ frauddetector:GetModelVersion,
 frauddetector:GetLabels,
 frauddetector:GetOutcomes,
 frauddetector:GetEntityTypes,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 
 ## Example

@@ -45,17 +45,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>browser_settings</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 workspaces-web:GetBrowserSettings,
 workspaces-web:ListBrowserSettings,
 workspaces-web:ListTagsForResource,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Update
-<pre>
+```json
 workspaces-web:UpdateBrowserSettings,
 workspaces-web:TagResource,
 workspaces-web:UntagResource,
@@ -65,16 +66,18 @@ workspaces-web:ListTagsForResource,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Delete
-<pre>
+```json
 workspaces-web:GetBrowserSettings,
 workspaces-web:DeleteBrowserSettings,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

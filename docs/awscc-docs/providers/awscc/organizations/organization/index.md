@@ -46,18 +46,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>organization</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 organizations:DescribeOrganization,
-organizations:ListRoots</pre>
+organizations:ListRoots
+```
 
 ### Delete
-<pre>
+```json
 organizations:DeleteOrganization,
-organizations:DescribeOrganization</pre>
-
-### Update
-<pre>
-</pre>
+organizations:DescribeOrganization
+```
 
 
 ## Example

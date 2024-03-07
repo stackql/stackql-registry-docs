@@ -44,17 +44,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>request_validator</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 apigateway:PATCH,
-apigateway:GET</pre>
+apigateway:GET
+```
 
 ### Delete
-<pre>
-apigateway:DELETE</pre>
+```json
+apigateway:DELETE
+```
 
 ### Read
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

@@ -63,13 +63,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workspace</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 grafana:DescribeWorkspace,
 grafana:DescribeWorkspaceAuthentication,
-grafana:DescribeWorkspaceConfiguration</pre>
+grafana:DescribeWorkspaceConfiguration
+```
 
 ### Update
-<pre>
+```json
 grafana:DescribeWorkspace,
 grafana:DescribeWorkspaceAuthentication,
 grafana:DescribeWorkspaceConfiguration,
@@ -85,16 +86,18 @@ ec2:DescribeSubnets,
 ec2:DescribeVpcs,
 iam:CreateServiceLinkedRole,
 sso:ListApplicationInstances,
-sso:GetApplicationInstance</pre>
+sso:GetApplicationInstance
+```
 
 ### Delete
-<pre>
+```json
 grafana:DeleteWorkspace,
 grafana:DescribeWorkspace,
 grafana:DescribeWorkspaceAuthentication,
 grafana:DescribeWorkspaceConfiguration,
 sso:DeleteManagedApplicationInstance,
-sso:DescribeRegisteredRegions</pre>
+sso:DescribeRegisteredRegions
+```
 
 
 ## Example

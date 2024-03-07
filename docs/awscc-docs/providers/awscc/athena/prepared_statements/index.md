@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>prepared_statements</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 athena:CreatePreparedStatement,
-athena:GetPreparedStatement</pre>
+athena:GetPreparedStatement
+```
 
 ### List
-<pre>
-athena:ListPreparedStatements</pre>
+```json
+athena:ListPreparedStatements
+```
 
 
 ## Example

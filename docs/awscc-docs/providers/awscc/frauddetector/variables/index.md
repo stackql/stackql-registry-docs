@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>variables</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 frauddetector:GetVariables,
 frauddetector:CreateVariable,
 frauddetector:ListTagsForResource,
-frauddetector:TagResource</pre>
+frauddetector:TagResource
+```
 
 ### List
-<pre>
+```json
 frauddetector:GetVariables,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 
 ## Example

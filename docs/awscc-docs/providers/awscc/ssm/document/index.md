@@ -49,12 +49,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>document</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ssm:GetDocument,
-ssm:ListTagsForResource</pre>
+ssm:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ssm:UpdateDocument,
 s3:GetObject,
 ssm:AddTagsToResource,
@@ -62,12 +63,14 @@ ssm:RemoveTagsFromResource,
 ssm:ListTagsForResource,
 iam:PassRole,
 ssm:UpdateDocumentDefaultVersion,
-ssm:DescribeDocument</pre>
+ssm:DescribeDocument
+```
 
 ### Delete
-<pre>
+```json
 ssm:DeleteDocument,
-ssm:GetDocument</pre>
+ssm:GetDocument
+```
 
 
 ## Example

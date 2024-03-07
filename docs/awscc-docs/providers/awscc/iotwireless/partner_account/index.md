@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>partner_account</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetPartnerAccount,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotwireless:UpdatePartnerAccount,
 iotwireless:UntagResource,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Delete
-<pre>
-iotwireless:DisassociateAwsAccountFromPartnerAccount</pre>
+```json
+iotwireless:DisassociateAwsAccountFromPartnerAccount
+```
 
 
 ## Example

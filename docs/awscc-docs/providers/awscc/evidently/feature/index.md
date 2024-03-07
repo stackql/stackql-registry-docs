@@ -48,23 +48,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>feature</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 evidently:GetFeature,
-evidently:ListTagsForResource</pre>
+evidently:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 evidently:UpdateFeature,
 evidently:ListTagsForResource,
 evidently:TagResource,
 evidently:UntagResource,
-evidently:GetFeature</pre>
+evidently:GetFeature
+```
 
 ### Delete
-<pre>
+```json
 evidently:DeleteFeature,
 evidently:UntagResource,
-evidently:GetFeature</pre>
+evidently:GetFeature
+```
 
 
 ## Example

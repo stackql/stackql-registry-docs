@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>contact_lists</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-ses:CreateContactList</pre>
+```json
+ses:CreateContactList
+```
 
 ### List
-<pre>
-ses:ListContactLists</pre>
+```json
+ses:ListContactLists
+```
 
 
 ## Example

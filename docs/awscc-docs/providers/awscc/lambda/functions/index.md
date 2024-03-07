@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>functions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lambda:CreateFunction,
 lambda:GetFunction,
 lambda:PutFunctionConcurrency,
@@ -65,11 +65,13 @@ lambda:GetPolicy,
 lambda:AddPermission,
 lambda:RemovePermission,
 lambda:GetResourcePolicy,
-lambda:PutResourcePolicy</pre>
+lambda:PutResourcePolicy
+```
 
 ### List
-<pre>
-lambda:ListFunctions</pre>
+```json
+lambda:ListFunctions
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>software_packages</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreatePackage,
 iot:GetPackage,
 iot:TagResource,
-iot:GetIndexingConfiguration</pre>
+iot:GetIndexingConfiguration
+```
 
 ### List
-<pre>
-iot:ListPackages</pre>
+```json
+iot:ListPackages
+```
 
 
 ## Example

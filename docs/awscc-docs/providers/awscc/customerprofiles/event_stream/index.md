@@ -47,21 +47,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_stream</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 profile:GetEventStream,
-kinesis:DescribeStreamSummary</pre>
+kinesis:DescribeStreamSummary
+```
 
 ### Update
-<pre>
+```json
 kinesis:DescribeStreamSummary,
 profile:GetEventStream,
 profile:UntagResource,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 ### Delete
-<pre>
+```json
 profile:DeleteEventStream,
-iam:DeleteRolePolicy</pre>
+iam:DeleteRolePolicy
+```
 
 
 ## Example

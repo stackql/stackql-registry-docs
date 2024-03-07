@@ -52,17 +52,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>entity</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iottwinmaker:GetComponentType,
 iottwinmaker:GetEntity,
 iottwinmaker:ListComponents,
 iottwinmaker:ListProperties,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListEntities,
-iottwinmaker:ListTagsForResource</pre>
+iottwinmaker:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iottwinmaker:GetComponentType,
 iottwinmaker:GetEntity,
 iottwinmaker:ListComponents,
@@ -72,13 +73,15 @@ iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource,
 iottwinmaker:UntagResource,
 iottwinmaker:UpdateEntity,
-iottwinmaker:UpdateComponentType</pre>
+iottwinmaker:UpdateComponentType
+```
 
 ### Delete
-<pre>
+```json
 iottwinmaker:GetEntity,
 iottwinmaker:GetWorkspace,
-iottwinmaker:DeleteEntity</pre>
+iottwinmaker:DeleteEntity
+```
 
 
 ## Example

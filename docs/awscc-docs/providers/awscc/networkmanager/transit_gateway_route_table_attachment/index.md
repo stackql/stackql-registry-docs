@@ -55,22 +55,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>transit_gateway_route_table_attachment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetTransitGatewayRouteTableAttachment</pre>
+```json
+networkmanager:GetTransitGatewayRouteTableAttachment
+```
 
 ### Update
-<pre>
+```json
 networkmanager:GetTransitGatewayRouteTableAttachment,
 networkmanager:ListTagsForResource,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:GetTransitGatewayRouteTableAttachment,
 networkmanager:DeleteAttachment,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 
 ## Example

@@ -55,13 +55,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stack_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cloudformation:DescribeStackSet,
 cloudformation:ListStackInstances,
-cloudformation:DescribeStackInstance</pre>
+cloudformation:DescribeStackInstance
+```
 
 ### Update
-<pre>
+```json
 cloudformation:GetTemplateSummary,
 cloudformation:UpdateStackSet,
 cloudformation:CreateStackInstances,
@@ -72,16 +73,18 @@ cloudformation:DescribeStackSetOperation,
 cloudformation:ListStackSetOperationResults,
 cloudformation:TagResource,
 cloudformation:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 cloudformation:DeleteStackSet,
 cloudformation:DeleteStackInstances,
 cloudformation:DescribeStackSet,
 cloudformation:DescribeStackSetOperation,
 cloudformation:ListStackSetOperationResults,
-cloudformation:UntagResource</pre>
+cloudformation:UntagResource
+```
 
 
 ## Example

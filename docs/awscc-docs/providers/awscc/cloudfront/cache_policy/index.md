@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cache_policy</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteCachePolicy,
-cloudfront:GetCachePolicy</pre>
+cloudfront:GetCachePolicy
+```
 
 ### Read
-<pre>
-cloudfront:GetCachePolicy</pre>
+```json
+cloudfront:GetCachePolicy
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateCachePolicy,
-cloudfront:GetCachePolicy</pre>
+cloudfront:GetCachePolicy
+```
 
 
 ## Example

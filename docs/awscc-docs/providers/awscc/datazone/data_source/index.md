@@ -61,19 +61,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_source</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-datazone:GetDataSource</pre>
+```json
+datazone:GetDataSource
+```
 
 ### Update
-<pre>
+```json
 datazone:UpdateDataSource,
 datazone:GetDataSource,
-datazone:DeleteDataSource</pre>
+datazone:DeleteDataSource
+```
 
 ### Delete
-<pre>
+```json
 datazone:DeleteDataSource,
-datazone:GetDataSource</pre>
+datazone:GetDataSource
+```
 
 
 ## Example

@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolver_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53resolver:GetResolverRule,
-route53resolver:ListTagsForResource</pre>
+route53resolver:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 route53resolver:UpdateResolverRule,
 route53resolver:GetResolverRule,
 route53resolver:ListTagsForResource,
 route53resolver:TagResource,
-route53resolver:UntagResource</pre>
+route53resolver:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 route53resolver:DeleteResolverRule,
-route53resolver:GetResolverRule</pre>
+route53resolver:GetResolverRule
+```
 
 
 ## Example

@@ -54,22 +54,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>site_to_site_vpn_attachment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetSiteToSiteVpnAttachment</pre>
+```json
+networkmanager:GetSiteToSiteVpnAttachment
+```
 
 ### Update
-<pre>
+```json
 networkmanager:GetSiteToSiteVpnAttachment,
 networkmanager:ListTagsForResource,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:GetSiteToSiteVpnAttachment,
 networkmanager:DeleteAttachment,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 
 ## Example

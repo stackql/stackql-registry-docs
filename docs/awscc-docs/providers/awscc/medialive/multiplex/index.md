@@ -49,20 +49,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multiplex</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-medialive:DescribeMultiplex</pre>
+```json
+medialive:DescribeMultiplex
+```
 
 ### Update
-<pre>
+```json
 medialive:UpdateMultiplex,
 medialive:DescribeMultiplex,
 medialive:CreateTags,
-medialive:DeleteTags</pre>
+medialive:DeleteTags
+```
 
 ### Delete
-<pre>
+```json
 medialive:DeleteMultiplex,
-medialive:DescribeMultiplex</pre>
+medialive:DescribeMultiplex
+```
 
 
 ## Example

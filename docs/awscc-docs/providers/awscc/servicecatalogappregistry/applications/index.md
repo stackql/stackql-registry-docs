@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 servicecatalog:CreateApplication,
 servicecatalog:TagResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-servicecatalog:ListApplications</pre>
+```json
+servicecatalog:ListApplications
+```
 
 
 ## Example

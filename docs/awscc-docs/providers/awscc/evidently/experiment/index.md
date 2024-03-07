@@ -52,24 +52,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>experiment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 evidently:GetExperiment,
-evidently:ListTagsForResource</pre>
+evidently:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 evidently:UpdateExperiment,
 evidently:TagResource,
 evidently:UntagResource,
 evidently:GetExperiment,
 evidently:StartExperiment,
-evidently:StopExperiment</pre>
+evidently:StopExperiment
+```
 
 ### Delete
-<pre>
+```json
 evidently:DeleteExperiment,
 evidently:UntagResource,
-evidently:GetExperiment</pre>
+evidently:GetExperiment
+```
 
 
 ## Example

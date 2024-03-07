@@ -43,20 +43,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>saml_provider</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetSAMLProvider</pre>
+```json
+iam:GetSAMLProvider
+```
 
 ### Update
-<pre>
+```json
 iam:UpdateSAMLProvider,
 iam:GetSAMLProvider,
 iam:TagSAMLProvider,
 iam:ListSAMLProviderTags,
-iam:UntagSAMLProvider</pre>
+iam:UntagSAMLProvider
+```
 
 ### Delete
-<pre>
-iam:DeleteSAMLProvider</pre>
+```json
+iam:DeleteSAMLProvider
+```
 
 
 ## Example

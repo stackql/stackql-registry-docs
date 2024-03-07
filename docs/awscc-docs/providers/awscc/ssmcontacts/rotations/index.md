@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rotations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm-contacts:CreateRotation,
 ssm-contacts:GetRotation,
 ssm-contacts:TagResource,
 ssm-contacts:ListTagsForResource,
-ssm-contacts:UntagResource</pre>
+ssm-contacts:UntagResource
+```
 
 ### List
-<pre>
+```json
 ssm-contacts:ListRotations,
 ssm-contacts:GetRotation,
-ssm-contacts:ListTagsForResource</pre>
+ssm-contacts:ListTagsForResource
+```
 
 
 ## Example

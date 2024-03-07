@@ -46,12 +46,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>kinesis_stream</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kinesis:DescribeStreamSummary,
-kinesis:ListTagsForStream</pre>
+kinesis:ListTagsForStream
+```
 
 ### Update
-<pre>
+```json
 kinesis:EnableEnhancedMonitoring,
 kinesis:DisableEnhancedMonitoring,
 kinesis:DescribeStreamSummary,
@@ -63,13 +64,15 @@ kinesis:StartStreamEncryption,
 kinesis:StopStreamEncryption,
 kinesis:AddTagsToStream,
 kinesis:RemoveTagsFromStream,
-kinesis:ListTagsForStream</pre>
+kinesis:ListTagsForStream
+```
 
 ### Delete
-<pre>
+```json
 kinesis:DescribeStreamSummary,
 kinesis:DeleteStream,
-kinesis:RemoveTagsFromStream</pre>
+kinesis:RemoveTagsFromStream
+```
 
 
 ## Example

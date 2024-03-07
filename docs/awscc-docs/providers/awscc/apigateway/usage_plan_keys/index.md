@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>usage_plan_keys</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:POST,
-apigateway:GET</pre>
+apigateway:GET
+```
 
 ### List
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

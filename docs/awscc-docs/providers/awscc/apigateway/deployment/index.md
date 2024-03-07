@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>deployment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 ### Update
-<pre>
+```json
 apigateway:PATCH,
 apigateway:GET,
 apigateway:PUT,
-apigateway:DELETE</pre>
+apigateway:DELETE
+```
 
 ### Delete
-<pre>
+```json
 apigateway:GET,
-apigateway:DELETE</pre>
+apigateway:DELETE
+```
 
 
 ## Example

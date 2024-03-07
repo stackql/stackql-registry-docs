@@ -52,11 +52,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app_block_builder</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appstream:DescribeAppBlockBuilders</pre>
+```json
+appstream:DescribeAppBlockBuilders
+```
 
 ### Update
-<pre>
+```json
 appstream:UpdateAppBlockBuilder,
 appstream:DescribeAppBlockBuilders,
 appstream:StartAppBlockBuilder,
@@ -67,14 +68,16 @@ appstream:DescribeAppBlockBuilderAppBlockAssociations,
 appstream:ListTagsForResource,
 appstream:TagResource,
 appstream:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 appstream:DescribeAppBlockBuilders,
 appstream:DeleteAppBlockBuilder,
 appstream:DisassociateAppBlockBuilderAppBlock,
-appstream:DescribeAppBlockBuilderAppBlockAssociations</pre>
+appstream:DescribeAppBlockBuilderAppBlockAssociations
+```
 
 
 ## Example

@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 memorydb:DescribeUsers,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### Update
-<pre>
+```json
 memorydb:UpdateUser,
 memorydb:DescribeUsers,
 memorydb:ListTags,
 memorydb:TagResource,
-memorydb:UntagResource</pre>
+memorydb:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 memorydb:DeleteUser,
-memorydb:DescribeUsers</pre>
+memorydb:DescribeUsers
+```
 
 
 ## Example

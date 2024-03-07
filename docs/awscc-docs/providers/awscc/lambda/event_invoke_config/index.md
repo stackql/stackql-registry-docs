@@ -44,16 +44,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_invoke_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lambda:GetFunctionEventInvokeConfig</pre>
+```json
+lambda:GetFunctionEventInvokeConfig
+```
 
 ### Update
-<pre>
-lambda:UpdateFunctionEventInvokeConfig</pre>
+```json
+lambda:UpdateFunctionEventInvokeConfig
+```
 
 ### Delete
-<pre>
-lambda:DeleteFunctionEventInvokeConfig</pre>
+```json
+lambda:DeleteFunctionEventInvokeConfig
+```
 
 
 ## Example

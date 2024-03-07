@@ -43,12 +43,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>permission</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-acm-pca:ListPermissions</pre>
+```json
+acm-pca:ListPermissions
+```
 
 ### Delete
-<pre>
-acm-pca:DeletePermission</pre>
+```json
+acm-pca:DeletePermission
+```
 
 
 ## Example

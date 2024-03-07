@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>log_anomaly_detectors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-logs:CreateLogAnomalyDetector</pre>
+```json
+logs:CreateLogAnomalyDetector
+```
 
 ### List
-<pre>
-logs:ListLogAnomalyDetectors</pre>
+```json
+logs:ListLogAnomalyDetectors
+```
 
 
 ## Example

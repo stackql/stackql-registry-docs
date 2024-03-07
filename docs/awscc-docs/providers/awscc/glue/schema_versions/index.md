@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schema_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 glue:RegisterSchemaVersion,
 glue:GetSchemaVersion,
-glue:GetSchemaByDefinition</pre>
+glue:GetSchemaByDefinition
+```
 
 ### List
-<pre>
-glue:ListSchemaVersions</pre>
+```json
+glue:ListSchemaVersions
+```
 
 
 ## Example

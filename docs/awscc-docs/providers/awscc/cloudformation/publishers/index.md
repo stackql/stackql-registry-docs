@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>publishers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:RegisterPublisher,
 cloudformation:DescribePublisher,
 codestar-connections:GetConnection,
-codestar-connections:UseConnection</pre>
+codestar-connections:UseConnection
+```
 
 ### List
-<pre>
-cloudformation:DescribePublisher</pre>
+```json
+cloudformation:DescribePublisher
+```
 
 
 ## Example

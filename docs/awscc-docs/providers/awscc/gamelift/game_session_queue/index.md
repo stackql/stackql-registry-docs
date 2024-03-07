@@ -49,21 +49,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>game_session_queue</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 gamelift:DescribeGameSessionQueues,
-gamelift:ListTagsForResource</pre>
+gamelift:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 gamelift:DescribeGameSessionQueues,
-gamelift:DeleteGameSessionQueue</pre>
+gamelift:DeleteGameSessionQueue
+```
 
 ### Update
-<pre>
+```json
 gamelift:UpdateGameSessionQueue,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
-gamelift:UntagResource</pre>
+gamelift:UntagResource
+```
 
 
 ## Example

@@ -41,16 +41,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>faqs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kendra:CreateFaq,
 kendra:DescribeFaq,
 iam:PassRole,
 kendra:ListTagsForResource,
-kendra:TagResource</pre>
+kendra:TagResource
+```
 
 ### List
-<pre>
-kendra:ListFaqs</pre>
+```json
+kendra:ListFaqs
+```
 
 
 ## Example

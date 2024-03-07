@@ -43,16 +43,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_grants_instance</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-s3:GetAccessGrantsInstance</pre>
+```json
+s3:GetAccessGrantsInstance
+```
 
 ### Delete
-<pre>
-s3:DeleteAccessGrantsInstance</pre>
+```json
+s3:DeleteAccessGrantsInstance
+```
 
 ### Update
-<pre>
-s3:TagResource</pre>
+```json
+s3:TagResource
+```
 
 
 ## Example

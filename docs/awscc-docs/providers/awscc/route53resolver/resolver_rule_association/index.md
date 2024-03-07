@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolver_rule_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-route53resolver:GetResolverRuleAssociation</pre>
+```json
+route53resolver:GetResolverRuleAssociation
+```
 
 ### Delete
-<pre>
+```json
 route53resolver:DisassociateResolverRule,
-route53resolver:GetResolverRuleAssociation</pre>
+route53resolver:GetResolverRuleAssociation
+```
 
 
 ## Example

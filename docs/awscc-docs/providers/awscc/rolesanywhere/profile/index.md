@@ -49,12 +49,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rolesanywhere:GetProfile,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:GetRole,
 iam:GetPolicy,
 iam:PassRole,
@@ -63,11 +64,13 @@ rolesanywhere:EnableProfile,
 rolesanywhere:DisableProfile,
 rolesanywhere:TagResource,
 rolesanywhere:UntagResource,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 ### Delete
-<pre>
-rolesanywhere:DeleteProfile</pre>
+```json
+rolesanywhere:DeleteProfile
+```
 
 
 ## Example

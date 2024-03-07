@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instances</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreateInstance,
 connect:DescribeInstance,
 connect:UpdateInstanceAttribute,
@@ -54,13 +54,15 @@ ds:CreateDirectory,
 ds:DescribeDirectories,
 iam:CreateServiceLinkedRole,
 iam:PutRolePolicy,
-logs:CreateLogGroup</pre>
+logs:CreateLogGroup
+```
 
 ### List
-<pre>
+```json
 connect:ListInstances,
 connect:ListInstanceAttributes,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 
 ## Example

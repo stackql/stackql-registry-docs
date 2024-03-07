@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_subscriptions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 redshift:CreateEventSubscription,
 redshift:CreateTags,
 redshift:DescribeTags,
-redshift:DescribeEventSubscriptions</pre>
+redshift:DescribeEventSubscriptions
+```
 
 ### List
-<pre>
+```json
 redshift:DescribeTags,
-redshift:DescribeEventSubscriptions</pre>
+redshift:DescribeEventSubscriptions
+```
 
 
 ## Example

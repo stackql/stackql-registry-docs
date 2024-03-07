@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>accessors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 managedblockchain:CreateAccessor,
 managedblockchain:TagResource,
-managedblockchain:GetAccessor</pre>
+managedblockchain:GetAccessor
+```
 
 ### List
-<pre>
-managedblockchain:ListAccessors</pre>
+```json
+managedblockchain:ListAccessors
+```
 
 
 ## Example

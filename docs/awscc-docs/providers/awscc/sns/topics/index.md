@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topics</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sns:CreateTopic,
 sns:TagResource,
 sns:Subscribe,
 sns:GetTopicAttributes,
 sns:PutDataProtectionPolicy,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-sns:ListTopics</pre>
+```json
+sns:ListTopics
+```
 
 
 ## Example

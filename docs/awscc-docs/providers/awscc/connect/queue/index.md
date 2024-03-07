@@ -50,17 +50,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>queue</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:DescribeQueue,
-connect:ListQueueQuickConnects</pre>
+connect:ListQueueQuickConnects
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteQueue,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateQueueHoursOfOperation,
 connect:UpdateQueueMaxContacts,
 connect:UpdateQueueName,
@@ -69,7 +71,8 @@ connect:UpdateQueueStatus,
 connect:AssociateQueueQuickConnects,
 connect:DisassociateQueueQuickConnects,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>state_machine_aliases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 states:CreateStateMachineAlias,
-states:DescribeStateMachineAlias</pre>
+states:DescribeStateMachineAlias
+```
 
 ### List
-<pre>
-states:ListStateMachineAliases</pre>
+```json
+states:ListStateMachineAliases
+```
 
 
 ## Example

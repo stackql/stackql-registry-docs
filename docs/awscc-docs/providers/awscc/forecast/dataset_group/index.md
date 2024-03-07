@@ -44,16 +44,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataset_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-forecast:DescribeDatasetGroup</pre>
+```json
+forecast:DescribeDatasetGroup
+```
 
 ### Update
-<pre>
-forecast:UpdateDatasetGroup</pre>
+```json
+forecast:UpdateDatasetGroup
+```
 
 ### Delete
-<pre>
-forecast:DeleteDatasetGroup</pre>
+```json
+forecast:DeleteDatasetGroup
+```
 
 
 ## Example

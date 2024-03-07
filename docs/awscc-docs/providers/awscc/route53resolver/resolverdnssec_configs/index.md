@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolverdnssec_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 resolverdnssec:CreateConfig,
 route53resolver:UpdateResolverDnssecConfig,
 route53resolver:GetResolverDnssecConfig,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### List
-<pre>
+```json
 resolverdnssec:ListConfig,
-route53resolver:ListResolverDnssecConfigs</pre>
+route53resolver:ListResolverDnssecConfigs
+```
 
 
 ## Example

@@ -52,25 +52,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>analysis_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cleanrooms:GetAnalysisTemplate,
-cleanrooms:ListTagsForResource</pre>
+cleanrooms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 cleanrooms:UpdateAnalysisTemplate,
 cleanrooms:GetAnalysisTemplate,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:UntagResource</pre>
+cleanrooms:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 cleanrooms:DeleteAnalysisTemplate,
 cleanrooms:GetAnalysisTemplate,
 cleanrooms:ListAnalysisTemplates,
 cleanrooms:ListTagsForResource,
-cleanrooms:UntagResource</pre>
+cleanrooms:UntagResource
+```
 
 
 ## Example

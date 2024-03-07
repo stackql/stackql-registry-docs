@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lambda:PublishVersion,
 lambda:GetFunctionConfiguration,
 lambda:PutProvisionedConcurrencyConfig,
 lambda:GetProvisionedConcurrencyConfig,
 lambda:PutRuntimeManagementConfig,
-lambda:GetRuntimeManagementConfig</pre>
+lambda:GetRuntimeManagementConfig
+```
 
 ### List
-<pre>
-lambda:ListVersionsByFunction</pre>
+```json
+lambda:ListVersionsByFunction
+```
 
 
 ## Example

@@ -48,23 +48,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>theme</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 amplify:GetApp,
-amplifyuibuilder:GetTheme</pre>
+amplifyuibuilder:GetTheme
+```
 
 ### Update
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:GetTheme,
 amplifyuibuilder:TagResource,
 amplifyuibuilder:UntagResource,
-amplifyuibuilder:UpdateTheme</pre>
+amplifyuibuilder:UpdateTheme
+```
 
 ### Delete
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:DeleteTheme,
-amplifyuibuilder:UntagResource</pre>
+amplifyuibuilder:UntagResource
+```
 
 
 ## Example

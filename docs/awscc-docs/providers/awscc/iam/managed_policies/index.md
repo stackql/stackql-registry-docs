@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>managed_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreatePolicy,
 iam:AttachGroupPolicy,
 iam:AttachUserPolicy,
-iam:AttachRolePolicy</pre>
+iam:AttachRolePolicy
+```
 
 ### List
-<pre>
-iam:ListPolicies</pre>
+```json
+iam:ListPolicies
+```
 
 
 ## Example

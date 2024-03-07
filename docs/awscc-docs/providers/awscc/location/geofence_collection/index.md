@@ -49,24 +49,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>geofence_collection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 geo:DescribeGeofenceCollection,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Update
-<pre>
+```json
 geo:CreateGeofenceCollection,
 geo:DescribeGeofenceCollection,
 geo:TagResource,
 geo:UntagResource,
 kms:DescribeKey,
 kms:CreateGrant,
-geo:UpdateGeofenceCollection</pre>
+geo:UpdateGeofenceCollection
+```
 
 ### Delete
-<pre>
+```json
 geo:DeleteGeofenceCollection,
-geo:DescribeGeofenceCollection</pre>
+geo:DescribeGeofenceCollection
+```
 
 
 ## Example

@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>public_key</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeletePublicKey,
-cloudfront:GetPublicKey</pre>
+cloudfront:GetPublicKey
+```
 
 ### Read
-<pre>
-cloudfront:GetPublicKey</pre>
+```json
+cloudfront:GetPublicKey
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdatePublicKey,
-cloudfront:GetPublicKey</pre>
+cloudfront:GetPublicKey
+```
 
 
 ## Example

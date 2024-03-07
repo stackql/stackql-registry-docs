@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>jobs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 databrew:CreateProfileJob,
 databrew:CreateRecipeJob,
 databrew:TagResource,
 databrew:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 databrew:ListJobs,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 
 ## Example

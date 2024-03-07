@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tasks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datasync:CreateTask,
 datasync:DescribeTask,
 datasync:ListTagsForResource,
@@ -59,11 +59,13 @@ elasticfilesystem:DescribeMountTargets,
 logs:DescribeLogGroups,
 iam:GetRole,
 iam:PassRole,
-iam:AssumeRole</pre>
+iam:AssumeRole
+```
 
 ### List
-<pre>
-datasync:ListTasks</pre>
+```json
+datasync:ListTasks
+```
 
 
 ## Example

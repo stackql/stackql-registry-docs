@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediatailor:PutChannelPolicy,
-mediatailor:GetChannelPolicy</pre>
+mediatailor:GetChannelPolicy
+```
 
 
 ## Example

@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_principal_name</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-pca-connector-ad:GetServicePrincipalName</pre>
+```json
+pca-connector-ad:GetServicePrincipalName
+```
 
 ### Delete
-<pre>
+```json
 ds:UpdateAuthorizedApplication,
 pca-connector-ad:GetServicePrincipalName,
-pca-connector-ad:DeleteServicePrincipalName</pre>
+pca-connector-ad:DeleteServicePrincipalName
+```
 
 
 ## Example

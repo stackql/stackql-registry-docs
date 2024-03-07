@@ -49,25 +49,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>ca_certificate</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeCACertificate,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:GetRole,
 iam:PassRole,
 iot:UpdateCACertificate,
 iot:DescribeCACertificate,
 iot:TagResource,
 iot:UntagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iot:UpdateCACertificate,
 iot:DeleteCACertificate,
-iot:DescribeCACertificate</pre>
+iot:DescribeCACertificate
+```
 
 
 ## Example

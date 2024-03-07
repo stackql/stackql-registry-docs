@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_collection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-devops-guru:GetResourceCollection</pre>
+```json
+devops-guru:GetResourceCollection
+```
 
 ### Delete
-<pre>
+```json
 devops-guru:UpdateResourceCollection,
-devops-guru:GetResourceCollection</pre>
+devops-guru:GetResourceCollection
+```
 
 ### Update
-<pre>
+```json
 devops-guru:UpdateResourceCollection,
-devops-guru:GetResourceCollection</pre>
+devops-guru:GetResourceCollection
+```
 
 
 ## Example

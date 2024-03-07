@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>state_machines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 states:CreateStateMachine,
 states:DescribeStateMachine,
 states:TagResource,
 iam:PassRole,
-s3:GetObject</pre>
+s3:GetObject
+```
 
 ### List
-<pre>
-states:ListStateMachines</pre>
+```json
+states:ListStateMachines
+```
 
 
 ## Example

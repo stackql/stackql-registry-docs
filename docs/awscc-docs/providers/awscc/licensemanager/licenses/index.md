@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>licenses</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-license-manager:CreateLicense</pre>
+```json
+license-manager:CreateLicense
+```
 
 ### List
-<pre>
-license-manager:ListLicenses</pre>
+```json
+license-manager:ListLicenses
+```
 
 
 ## Example

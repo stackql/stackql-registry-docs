@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>inference_components</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:AddTags,
 sagemaker:ListTags,
 sagemaker:CreateInferenceComponent,
-sagemaker:DescribeInferenceComponent</pre>
+sagemaker:DescribeInferenceComponent
+```
 
 ### List
-<pre>
+```json
 sagemaker:ListInferenceComponents,
 sagemaker:DescribeInferenceComponent,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 
 ## Example

@@ -41,16 +41,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kendra:CreateDataSource,
 kendra:DescribeDataSource,
 kendra:ListTagsForResource,
 iam:PassRole,
-kendra:TagResource</pre>
+kendra:TagResource
+```
 
 ### List
-<pre>
-kendra:ListDataSources</pre>
+```json
+kendra:ListDataSources
+```
 
 
 ## Example

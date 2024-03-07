@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>routing_controls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53-recovery-control-config:CreateRoutingControl,
 route53-recovery-control-config:DescribeRoutingControl,
 route53-recovery-control-config:DescribeControlPanel,
-route53-recovery-control-config:DescribeCluster</pre>
+route53-recovery-control-config:DescribeCluster
+```
 
 ### List
-<pre>
-route53-recovery-control-config:ListRoutingControls</pre>
+```json
+route53-recovery-control-config:ListRoutingControls
+```
 
 
 ## Example

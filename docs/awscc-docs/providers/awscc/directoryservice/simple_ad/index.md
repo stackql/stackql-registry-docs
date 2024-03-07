@@ -50,17 +50,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>simple_ad</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ds:DescribeDirectories</pre>
+```json
+ds:DescribeDirectories
+```
 
 ### Update
-<pre>
+```json
 ds:EnableSso,
 ds:DisableSso,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 ### Delete
-<pre>
+```json
 ds:DeleteDirectory,
 ds:DescribeDirectories,
 ec2:DescribeNetworkInterfaces,
@@ -68,7 +70,8 @@ ec2:DeleteSecurityGroup,
 ec2:DeleteNetworkInterface,
 ec2:RevokeSecurityGroupIngress,
 ec2:RevokeSecurityGroupEgress,
-ec2:DeleteTags</pre>
+ec2:DeleteTags
+```
 
 
 ## Example

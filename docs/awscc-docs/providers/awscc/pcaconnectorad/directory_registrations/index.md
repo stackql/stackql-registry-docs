@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>directory_registrations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 pca-connector-ad:GetDirectoryRegistration,
 pca-connector-ad:CreateDirectoryRegistration,
 ds:AuthorizeApplication,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 ### List
-<pre>
-pca-connector-ad:ListDirectoryRegistrations</pre>
+```json
+pca-connector-ad:ListDirectoryRegistrations
+```
 
 
 ## Example

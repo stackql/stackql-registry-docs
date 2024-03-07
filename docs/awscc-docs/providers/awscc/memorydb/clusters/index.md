@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 memorydb:CreateCluster,
 memorydb:DescribeClusters,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### List
-<pre>
-memorydb:DescribeClusters</pre>
+```json
+memorydb:DescribeClusters
+```
 
 
 ## Example

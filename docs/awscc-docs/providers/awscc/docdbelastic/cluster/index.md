@@ -52,12 +52,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 docdb-elastic:GetCluster,
-docdb-elastic:ListTagsForResource</pre>
+docdb-elastic:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 docdb-elastic:UpdateCluster,
 docdb-elastic:TagResource,
 docdb-elastic:UntagResource,
@@ -78,10 +79,11 @@ secretsmanager:GetResourcePolicy,
 kms:DescribeKey,
 kms:CreateGrant,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Delete
-<pre>
+```json
 docdb-elastic:DeleteCluster,
 ec2:DescribeVpcEndpoints,
 ec2:DeleteVpcEndpoints,
@@ -90,7 +92,8 @@ ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
 ec2:DescribeVpcAttribute,
 ec2:DescribeVpcs,
-ec2:DescribeAvailabilityZones</pre>
+ec2:DescribeAvailabilityZones
+```
 
 
 ## Example

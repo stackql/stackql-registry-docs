@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate_provider</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeCertificateProvider,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateCertificateProvider,
 iot:DescribeCertificateProvider,
 iot:TagResource,
 iot:UntagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DeleteCertificateProvider,
-iot:DescribeCertificateProvider</pre>
+iot:DescribeCertificateProvider
+```
 
 
 ## Example

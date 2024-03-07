@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>origin_access_controls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-cloudfront:CreateOriginAccessControl</pre>
+```json
+cloudfront:CreateOriginAccessControl
+```
 
 ### List
-<pre>
-cloudfront:ListOriginAccessControls</pre>
+```json
+cloudfront:ListOriginAccessControls
+```
 
 
 ## Example

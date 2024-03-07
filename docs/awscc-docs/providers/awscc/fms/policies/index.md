@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 fms:PutPolicy,
 fms:TagResource,
 waf-regional:ListRuleGroups,
@@ -53,12 +53,14 @@ network-firewall:DescribeRuleGroupMetadata,
 route53resolver:ListFirewallRuleGroups,
 ec2:DescribeAvailabilityZones,
 s3:PutBucketPolicy,
-s3:GetBucketPolicy</pre>
+s3:GetBucketPolicy
+```
 
 ### List
-<pre>
+```json
 fms:ListPolicies,
-fms:ListTagsForResource</pre>
+fms:ListTagsForResource
+```
 
 
 ## Example

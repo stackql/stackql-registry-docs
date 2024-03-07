@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>masters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 guardduty:ListInvitations,
 guardduty:AcceptInvitation,
-guardduty:GetMasterAccount</pre>
+guardduty:GetMasterAccount
+```
 
 ### List
-<pre>
-guardduty:GetMasterAccount</pre>
+```json
+guardduty:GetMasterAccount
+```
 
 
 ## Example

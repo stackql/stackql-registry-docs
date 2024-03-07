@@ -56,18 +56,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subscription_target</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-datazone:GetSubscriptionTarget</pre>
+```json
+datazone:GetSubscriptionTarget
+```
 
 ### Update
-<pre>
+```json
 datazone:UpdateSubscriptionTarget,
 datazone:GetSubscriptionTarget,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-datazone:DeleteSubscriptionTarget</pre>
+```json
+datazone:DeleteSubscriptionTarget
+```
 
 
 ## Example

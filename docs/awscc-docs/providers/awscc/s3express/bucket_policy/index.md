@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bucket_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-s3express:GetBucketPolicy</pre>
+```json
+s3express:GetBucketPolicy
+```
 
 ### Update
-<pre>
+```json
 s3express:GetBucketPolicy,
-s3express:PutBucketPolicy</pre>
+s3express:PutBucketPolicy
+```
 
 ### Delete
-<pre>
+```json
 s3express:GetBucketPolicy,
-s3express:DeleteBucketPolicy</pre>
+s3express:DeleteBucketPolicy
+```
 
 
 ## Example

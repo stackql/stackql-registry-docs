@@ -50,25 +50,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scene</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iottwinmaker:GetWorkspace,
 iottwinmaker:GetScene,
-iottwinmaker:ListTagsForResource</pre>
+iottwinmaker:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iottwinmaker:GetScene,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource,
 iottwinmaker:UntagResource,
-iottwinmaker:UpdateScene</pre>
+iottwinmaker:UpdateScene
+```
 
 ### Delete
-<pre>
+```json
 iottwinmaker:DeleteScene,
 iottwinmaker:GetScene,
-iottwinmaker:GetWorkspace</pre>
+iottwinmaker:GetWorkspace
+```
 
 
 ## Example

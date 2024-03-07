@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>delivery_streams</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 firehose:CreateDeliveryStream,
 firehose:DescribeDeliveryStream,
 iam:GetRole,
 iam:PassRole,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### List
-<pre>
-firehose:ListDeliveryStreams</pre>
+```json
+firehose:ListDeliveryStreams
+```
 
 
 ## Example

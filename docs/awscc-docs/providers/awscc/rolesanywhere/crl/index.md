@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>crl</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rolesanywhere:GetCrl,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rolesanywhere:EnableCrl,
 rolesanywhere:DisableCrl,
 rolesanywhere:UpdateCrl,
 rolesanywhere:TagResource,
 rolesanywhere:UntagResource,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 ### Delete
-<pre>
-rolesanywhere:DeleteCrl</pre>
+```json
+rolesanywhere:DeleteCrl
+```
 
 
 ## Example

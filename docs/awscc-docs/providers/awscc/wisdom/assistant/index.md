@@ -46,16 +46,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assistant</code> resource, the following permissions are required:
 
 ### Update
-<pre>
-wisdom:GetAssistant</pre>
+```json
+wisdom:GetAssistant
+```
 
 ### Read
-<pre>
-wisdom:GetAssistant</pre>
+```json
+wisdom:GetAssistant
+```
 
 ### Delete
-<pre>
-wisdom:DeleteAssistant</pre>
+```json
+wisdom:DeleteAssistant
+```
 
 
 ## Example

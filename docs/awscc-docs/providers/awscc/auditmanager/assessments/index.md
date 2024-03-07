@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assessments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 auditmanager:CreateAssessment,
 auditmanager:TagResource,
 auditmanager:ListTagsForResource,
 auditmanager:BatchCreateDelegationByAssessment,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-auditmanager:ListAssessments</pre>
+```json
+auditmanager:ListAssessments
+```
 
 
 ## Example

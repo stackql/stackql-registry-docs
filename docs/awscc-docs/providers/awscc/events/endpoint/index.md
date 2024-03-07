@@ -50,20 +50,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoint</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-events:DescribeEndpoint</pre>
+```json
+events:DescribeEndpoint
+```
 
 ### Update
-<pre>
+```json
 events:DescribeEndpoint,
 events:UpdateEndpoint,
 route53:GetHealthCheck,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 events:DeleteEndpoint,
-events:DescribeEndpoint</pre>
+events:DescribeEndpoint
+```
 
 
 ## Example

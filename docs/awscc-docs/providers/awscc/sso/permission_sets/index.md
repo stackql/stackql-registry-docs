@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>permission_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sso:CreatePermissionSet,
 sso:PutInlinePolicyToPermissionSet,
 sso:AttachManagedPolicyToPermissionSet,
@@ -53,11 +53,13 @@ sso:ListTagsForResource,
 sso:ListManagedPoliciesInPermissionSet,
 sso:ListCustomerManagedPolicyReferencesInPermissionSet,
 sso:GetInlinePolicyForPermissionSet,
-sso:GetPermissionsBoundaryForPermissionSet</pre>
+sso:GetPermissionsBoundaryForPermissionSet
+```
 
 ### List
-<pre>
-sso:DescribePermissionSet</pre>
+```json
+sso:DescribePermissionSet
+```
 
 
 ## Example

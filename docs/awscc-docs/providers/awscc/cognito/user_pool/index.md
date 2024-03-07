@@ -67,11 +67,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cognito-idp:DescribeUserPool</pre>
+```json
+cognito-idp:DescribeUserPool
+```
 
 ### Update
-<pre>
+```json
 cognito-idp:UpdateUserPool,
 cognito-idp:ListTagsForResource,
 cognito-idp:UntagResource,
@@ -79,11 +80,13 @@ cognito-idp:TagResource,
 cognito-idp:SetUserPoolMfaConfig,
 cognito-idp:AddCustomAttributes,
 cognito-idp:DescribeUserPool,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-cognito-idp:DeleteUserPool</pre>
+```json
+cognito-idp:DeleteUserPool
+```
 
 
 ## Example

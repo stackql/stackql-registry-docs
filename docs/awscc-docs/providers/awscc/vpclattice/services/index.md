@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>services</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 vpc-lattice:CreateService,
 vpc-lattice:GetService,
 vpc-lattice:ListTagsForResource,
 vpc-lattice:TagResource,
 acm:DescribeCertificate,
 acm:ListCertificates,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-vpc-lattice:ListServices</pre>
+```json
+vpc-lattice:ListServices
+```
 
 
 ## Example

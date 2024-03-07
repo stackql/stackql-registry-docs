@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scaling_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 autoscaling:DescribePolicies,
 autoscaling:PutScalingPolicy,
-cloudwatch:GetMetricData</pre>
+cloudwatch:GetMetricData
+```
 
 ### List
-<pre>
-autoscaling:DescribePolicies</pre>
+```json
+autoscaling:DescribePolicies
+```
 
 
 ## Example

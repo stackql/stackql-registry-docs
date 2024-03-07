@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipelines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 osis:CreatePipeline,
 osis:GetPipeline,
 osis:TagResource,
@@ -48,11 +48,13 @@ osis:ListTagsForResource,
 iam:PassRole,
 iam:CreateServiceLinkedRole,
 logs:CreateLogDelivery,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### List
-<pre>
-osis:ListPipelines</pre>
+```json
+osis:ListPipelines
+```
 
 
 ## Example

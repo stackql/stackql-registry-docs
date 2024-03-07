@@ -44,19 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:GetPolicy,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DeletePolicy,
 iot:GetPolicy,
 iot:ListPolicyVersions,
-iot:DeletePolicyVersion</pre>
+iot:DeletePolicyVersion
+```
 
 ### Update
-<pre>
+```json
 iot:GetPolicy,
 iot:ListPolicyVersions,
 iot:CreatePolicyVersion,
@@ -64,7 +66,8 @@ iot:DeletePolicyVersion,
 iot:SetDefaultPolicyVersion,
 iot:TagResource,
 iot:UntagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 
 ## Example

@@ -47,21 +47,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-servicecatalog:GetApplication</pre>
+```json
+servicecatalog:GetApplication
+```
 
 ### Update
-<pre>
+```json
 servicecatalog:GetApplication,
 servicecatalog:ListTagsForResource,
 servicecatalog:TagResource,
 servicecatalog:UntagResource,
 servicecatalog:UpdateApplication,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### Delete
-<pre>
-servicecatalog:DeleteApplication</pre>
+```json
+servicecatalog:DeleteApplication
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_connectors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 apprunner:CreateVpcConnector,
 apprunner:DescribeVpcConnector,
 apprunner:TagResource,
 ec2:DescribeSubnets,
-ec2:DescribeSecurityGroups</pre>
+ec2:DescribeSecurityGroups
+```
 
 ### List
-<pre>
-apprunner:ListVpcConnectors</pre>
+```json
+apprunner:ListVpcConnectors
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>log_delivery_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-idp:GetLogDeliveryConfiguration,
 cognito-idp:SetLogDeliveryConfiguration,
 logs:CreateLogDelivery,
@@ -50,7 +50,8 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DescribeLogGroups</pre>
+logs:DescribeLogGroups
+```
 
 
 ## Example

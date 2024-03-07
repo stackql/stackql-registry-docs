@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 refactor-spaces:GetApplication,
 refactor-spaces:CreateApplication,
 refactor-spaces:TagResource,
@@ -67,12 +67,14 @@ elasticloadbalancing:CreateLoadBalancer,
 elasticloadbalancing:DescribeLoadBalancers,
 elasticloadbalancing:DescribeTags,
 elasticloadbalancing:AddTags,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
+```json
 refactor-spaces:ListApplications,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 
 ## Example

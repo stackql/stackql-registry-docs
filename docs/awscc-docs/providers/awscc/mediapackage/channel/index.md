@@ -46,18 +46,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackage:DescribeChannel</pre>
+```json
+mediapackage:DescribeChannel
+```
 
 ### Update
-<pre>
+```json
 mediapackage:UpdateChannel,
 mediapackage:ConfigureLogs,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### Delete
-<pre>
-mediapackage:DeleteChannel</pre>
+```json
+mediapackage:DeleteChannel
+```
 
 
 ## Example

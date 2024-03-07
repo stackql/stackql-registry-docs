@@ -48,13 +48,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 organizations:DescribePolicy,
 organizations:ListTargetsForPolicy,
-organizations:ListTagsForResource</pre>
+organizations:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 organizations:AttachPolicy,
 organizations:DetachPolicy,
 organizations:UpdatePolicy,
@@ -62,12 +63,14 @@ organizations:ListTagsForResource,
 organizations:ListTargetsForPolicy,
 organizations:TagResource,
 organizations:UntagResource,
-organizations:DescribePolicy</pre>
+organizations:DescribePolicy
+```
 
 ### Delete
-<pre>
+```json
 organizations:DetachPolicy,
-organizations:DeletePolicy</pre>
+organizations:DeletePolicy
+```
 
 
 ## Example

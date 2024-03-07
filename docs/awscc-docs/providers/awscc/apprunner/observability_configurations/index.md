@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>observability_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apprunner:CreateObservabilityConfiguration,
 apprunner:DescribeObservabilityConfiguration,
-apprunner:TagResource</pre>
+apprunner:TagResource
+```
 
 ### List
-<pre>
-apprunner:ListObservabilityConfigurations</pre>
+```json
+apprunner:ListObservabilityConfigurations
+```
 
 
 ## Example

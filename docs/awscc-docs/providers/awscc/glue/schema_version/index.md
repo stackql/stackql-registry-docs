@@ -42,13 +42,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schema_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-glue:GetSchemaVersion</pre>
+```json
+glue:GetSchemaVersion
+```
 
 ### Delete
-<pre>
+```json
 glue:DeleteSchemaVersions,
-glue:GetSchemaVersion</pre>
+glue:GetSchemaVersion
+```
 
 
 ## Example

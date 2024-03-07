@@ -45,23 +45,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeImage,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateImage,
 sagemaker:DescribeImage,
 sagemaker:ListTags,
 sagemaker:AddTags,
 sagemaker:DeleteTags,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteImage,
-sagemaker:DescribeImage</pre>
+sagemaker:DescribeImage
+```
 
 
 ## Example

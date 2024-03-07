@@ -61,18 +61,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alarm</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 cloudwatch:PutMetricAlarm,
-cloudwatch:DescribeAlarms</pre>
+cloudwatch:DescribeAlarms
+```
 
 ### Delete
-<pre>
+```json
 cloudwatch:DeleteAlarms,
-cloudwatch:DescribeAlarms</pre>
+cloudwatch:DescribeAlarms
+```
 
 ### Read
-<pre>
-cloudwatch:DescribeAlarms</pre>
+```json
+cloudwatch:DescribeAlarms
+```
 
 
 ## Example

@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>key_value_store</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteKeyValueStore,
-cloudfront:DescribeKeyValueStore</pre>
+cloudfront:DescribeKeyValueStore
+```
 
 ### Read
-<pre>
-cloudfront:DescribeKeyValueStore</pre>
+```json
+cloudfront:DescribeKeyValueStore
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateKeyValueStore,
-cloudfront:DescribeKeyValueStore</pre>
+cloudfront:DescribeKeyValueStore
+```
 
 
 ## Example

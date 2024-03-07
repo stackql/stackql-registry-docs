@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 pca-connector-ad:GetTemplate,
-pca-connector-ad:ListTagsForResource</pre>
+pca-connector-ad:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 pca-connector-ad:ListTagsForResource,
 pca-connector-ad:TagResource,
 pca-connector-ad:UntagResource,
-pca-connector-ad:UpdateTemplate</pre>
+pca-connector-ad:UpdateTemplate
+```
 
 ### Delete
-<pre>
+```json
 pca-connector-ad:GetTemplate,
-pca-connector-ad:DeleteTemplate</pre>
+pca-connector-ad:DeleteTemplate
+```
 
 
 ## Example

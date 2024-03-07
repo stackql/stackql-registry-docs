@@ -69,12 +69,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>auto_scaling_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 autoscaling:*,
-managed-fleets:GetAutoScalingGroup</pre>
+managed-fleets:GetAutoScalingGroup
+```
 
 ### Update
-<pre>
+```json
 autoscaling:*,
 cloudwatch:PutMetricAlarm,
 ec2:Describe*,
@@ -88,13 +89,15 @@ managed-fleets:GetAutoScalingGroup,
 managed-fleets:RegisterAutoScalingGroup,
 managed-fleets:DeregisterAutoScalingGroup,
 managed-fleets:UpdateAutoScalingGroup,
-ssm:GetParameters</pre>
+ssm:GetParameters
+```
 
 ### Delete
-<pre>
+```json
 autoscaling:*,
 managed-fleets:GetAutoScalingGroup,
-managed-fleets:DeleteAutoScalingGroup</pre>
+managed-fleets:DeleteAutoScalingGroup
+```
 
 
 ## Example

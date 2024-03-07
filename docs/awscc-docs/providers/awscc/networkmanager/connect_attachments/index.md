@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connect_attachments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:GetConnectAttachment,
 networkmanager:CreateConnectAttachment,
 networkmanager:TagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### List
-<pre>
-networkmanager:ListAttachments</pre>
+```json
+networkmanager:ListAttachments
+```
 
 
 ## Example

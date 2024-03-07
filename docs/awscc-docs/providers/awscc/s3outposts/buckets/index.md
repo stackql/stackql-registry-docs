@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>buckets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3-outposts:CreateBucket,
 s3-outposts:PutBucketTagging,
-s3-outposts:PutLifecycleConfiguration</pre>
+s3-outposts:PutLifecycleConfiguration
+```
 
 ### List
-<pre>
-s3-outposts:ListRegionalBuckets</pre>
+```json
+s3-outposts:ListRegionalBuckets
+```
 
 
 ## Example

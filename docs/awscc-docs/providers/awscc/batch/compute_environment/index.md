@@ -50,25 +50,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>compute_environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-Batch:DescribeComputeEnvironments</pre>
+```json
+Batch:DescribeComputeEnvironments
+```
 
 ### Update
-<pre>
+```json
 Batch:UpdateComputeEnvironment,
 Batch:DescribeComputeEnvironments,
 Batch:TagResource,
 Batch:UnTagResource,
 Iam:PassRole,
-Eks:DescribeCluster</pre>
+Eks:DescribeCluster
+```
 
 ### Delete
-<pre>
+```json
 Batch:DeleteComputeEnvironment,
 Batch:DescribeComputeEnvironments,
 Batch:UpdateComputeEnvironment,
 Iam:PassRole,
-Eks:DescribeCluster</pre>
+Eks:DescribeCluster
+```
 
 
 ## Example

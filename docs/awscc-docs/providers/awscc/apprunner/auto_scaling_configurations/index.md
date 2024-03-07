@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>auto_scaling_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apprunner:CreateAutoScalingConfiguration,
 apprunner:DescribeAutoScalingConfiguration,
-apprunner:TagResource</pre>
+apprunner:TagResource
+```
 
 ### List
-<pre>
-apprunner:ListAutoScalingConfiguration</pre>
+```json
+apprunner:ListAutoScalingConfiguration
+```
 
 
 ## Example

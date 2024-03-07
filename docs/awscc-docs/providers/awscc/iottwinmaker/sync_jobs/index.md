@@ -41,19 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sync_jobs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 iottwinmaker:CreateSyncJob,
 iottwinmaker:GetSyncJob,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
-iottwinmaker:TagResource</pre>
+iottwinmaker:TagResource
+```
 
 ### List
-<pre>
+```json
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListSyncJobs,
-iottwinmaker:ListTagsForResource</pre>
+iottwinmaker:ListTagsForResource
+```
 
 
 ## Example

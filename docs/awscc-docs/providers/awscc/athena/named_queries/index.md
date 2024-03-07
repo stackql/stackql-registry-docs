@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>named_queries</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-athena:CreateNamedQuery</pre>
+```json
+athena:CreateNamedQuery
+```
 
 ### List
-<pre>
-athena:ListNamedQueries</pre>
+```json
+athena:ListNamedQueries
+```
 
 
 ## Example

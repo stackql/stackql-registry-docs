@@ -52,12 +52,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_bias_job_definition</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
-sagemaker:DeleteModelBiasJobDefinition</pre>
+```json
+sagemaker:DeleteModelBiasJobDefinition
+```
 
 ### Read
-<pre>
-sagemaker:DescribeModelBiasJobDefinition</pre>
+```json
+sagemaker:DescribeModelBiasJobDefinition
+```
 
 
 ## Example

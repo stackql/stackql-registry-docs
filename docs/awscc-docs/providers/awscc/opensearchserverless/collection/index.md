@@ -48,18 +48,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>collection</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 aoss:DeleteCollection,
-aoss:BatchGetCollection</pre>
+aoss:BatchGetCollection
+```
 
 ### Read
-<pre>
-aoss:BatchGetCollection</pre>
+```json
+aoss:BatchGetCollection
+```
 
 ### Update
-<pre>
+```json
 aoss:UpdateCollection,
-aoss:BatchGetCollection</pre>
+aoss:BatchGetCollection
+```
 
 
 ## Example

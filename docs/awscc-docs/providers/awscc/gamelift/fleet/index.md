@@ -67,7 +67,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fleet</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 gamelift:DescribeFleetAttributes,
 gamelift:DescribeFleetLocationAttributes,
 gamelift:DescribeFleetCapacity,
@@ -76,10 +76,11 @@ gamelift:DescribeFleetUtilization,
 gamelift:DescribeRuntimeConfiguration,
 gamelift:DescribeEC2InstanceLimits,
 gamelift:DescribeFleetEvents,
-gamelift:DescribeScalingPolicies</pre>
+gamelift:DescribeScalingPolicies
+```
 
 ### Update
-<pre>
+```json
 gamelift:UpdateFleetAttributes,
 gamelift:CreateFleetLocations,
 gamelift:DeleteFleetLocations,
@@ -91,14 +92,16 @@ gamelift:DescribeFleetPortSettings,
 gamelift:DescribeFleetLocationAttributes,
 gamelift:PutScalingPolicy,
 gamelift:DescribeScalingPolicies,
-gamelift:DeleteScalingPolicy</pre>
+gamelift:DeleteScalingPolicy
+```
 
 ### Delete
-<pre>
+```json
 gamelift:DeleteFleet,
 gamelift:DescribeFleetLocationCapacity,
 gamelift:DescribeScalingPolicies,
-gamelift:DeleteScalingPolicy</pre>
+gamelift:DeleteScalingPolicy
+```
 
 
 ## Example

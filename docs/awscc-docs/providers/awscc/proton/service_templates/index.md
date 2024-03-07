@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 proton:CreateServiceTemplate,
 proton:TagResource,
 kms:*,
-proton:GetServiceTemplate</pre>
+proton:GetServiceTemplate
+```
 
 ### List
-<pre>
-proton:ListServiceTemplates</pre>
+```json
+proton:ListServiceTemplates
+```
 
 
 ## Example

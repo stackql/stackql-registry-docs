@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>function</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteFunction,
-cloudfront:DescribeFunction</pre>
+cloudfront:DescribeFunction
+```
 
 ### Read
-<pre>
+```json
 cloudfront:DescribeFunction,
-cloudfront:GetFunction</pre>
+cloudfront:GetFunction
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateFunction,
 cloudfront:PublishFunction,
-cloudfront:DescribeFunction</pre>
+cloudfront:DescribeFunction
+```
 
 
 ## Example

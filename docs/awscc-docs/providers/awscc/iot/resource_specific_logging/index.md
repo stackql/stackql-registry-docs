@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_specific_logging</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iot:ListV2LoggingLevels</pre>
+```json
+iot:ListV2LoggingLevels
+```
 
 ### Update
-<pre>
+```json
 iot:ListV2LoggingLevels,
-iot:SetV2LoggingLevel</pre>
+iot:SetV2LoggingLevel
+```
 
 ### Delete
-<pre>
+```json
 iot:ListV2LoggingLevels,
-iot:DeleteV2LoggingLevel</pre>
+iot:DeleteV2LoggingLevel
+```
 
 
 ## Example

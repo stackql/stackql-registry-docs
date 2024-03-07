@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trust_store_revocations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticloadbalancing:AddTrustStoreRevocations,
 elasticloadbalancing:DescribeTrustStoreRevocations,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### List
-<pre>
-elasticloadbalancing:DescribeTrustStoreRevocations</pre>
+```json
+elasticloadbalancing:DescribeTrustStoreRevocations
+```
 
 
 ## Example

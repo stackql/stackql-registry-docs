@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>notification_channel</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 devops-guru:RemoveNotificationChannel,
-devops-guru:ListNotificationChannels</pre>
+devops-guru:ListNotificationChannels
+```
 
 ### Read
-<pre>
-devops-guru:ListNotificationChannels</pre>
+```json
+devops-guru:ListNotificationChannels
+```
 
 
 ## Example

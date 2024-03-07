@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecs:RegisterTaskDefinition,
 ecs:DescribeTaskDefinition,
 ecs:TagResource,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 ecs:ListTaskDefinitions,
-ecs:DescribeTaskDefinition</pre>
+ecs:DescribeTaskDefinition
+```
 
 
 ## Example

@@ -47,14 +47,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>asset</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotsitewise:DescribeAsset,
 iotsitewise:DescribeAssetModel,
 iotsitewise:ListAssociatedAssets,
-iotsitewise:ListTagsForResource</pre>
+iotsitewise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotsitewise:AssociateAssets,
 iotsitewise:DescribeAsset,
 iotsitewise:DescribeAssetModel,
@@ -64,16 +65,18 @@ iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
 iotsitewise:UpdateAsset,
 iotsitewise:UpdateAssetProperty,
-iotsitewise:UntagResource</pre>
+iotsitewise:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 iotsitewise:DeleteAsset,
 iotsitewise:DescribeAsset,
 iotsitewise:DescribeAssetModel,
 iotsitewise:DisassociateAssets,
 iotsitewise:ListAssociatedAssets,
-iotsitewise:ListTagsForResource</pre>
+iotsitewise:ListTagsForResource
+```
 
 
 ## Example

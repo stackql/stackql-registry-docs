@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>indices</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 resource-explorer-2:CreateIndex,
 resource-explorer-2:GetIndex,
 resource-explorer-2:TagResource,
 resource-explorer-2:UpdateIndexType,
 resource-explorer-2:DeleteIndex,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-resource-explorer-2:ListIndexes</pre>
+```json
+resource-explorer-2:ListIndexes
+```
 
 
 ## Example

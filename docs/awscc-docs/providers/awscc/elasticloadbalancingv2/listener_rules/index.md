@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listener_rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticloadbalancing:CreateRule,
 elasticloadbalancing:DescribeRules,
-cognito-idp:DescribeUserPoolClient</pre>
+cognito-idp:DescribeUserPoolClient
+```
 
 ### List
-<pre>
-elasticloadbalancing:DescribeRules</pre>
+```json
+elasticloadbalancing:DescribeRules
+```
 
 
 ## Example

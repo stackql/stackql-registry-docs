@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>mitigation_actions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateMitigationAction,
 iot:DescribeMitigationAction,
 iot:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-iot:ListMitigationActions</pre>
+```json
+iot:ListMitigationActions
+```
 
 
 ## Example

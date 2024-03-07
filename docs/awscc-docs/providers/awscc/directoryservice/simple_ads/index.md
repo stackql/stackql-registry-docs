@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>simple_ads</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ds:CreateDirectory,
 ds:CreateAlias,
 ds:EnableSso,
@@ -52,11 +52,13 @@ ec2:CreateNetworkInterface,
 ec2:DescribeNetworkInterfaces,
 ec2:AuthorizeSecurityGroupIngress,
 ec2:AuthorizeSecurityGroupEgress,
-ec2:CreateTags</pre>
+ec2:CreateTags
+```
 
 ### List
-<pre>
-ds:DescribeDirectories</pre>
+```json
+ds:DescribeDirectories
+```
 
 
 ## Example

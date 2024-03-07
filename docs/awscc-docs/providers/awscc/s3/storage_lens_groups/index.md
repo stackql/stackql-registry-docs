@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>storage_lens_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:CreateStorageLensGroup,
 s3:GetStorageLensGroup,
 s3:TagResource,
-s3:ListTagsForResource</pre>
+s3:ListTagsForResource
+```
 
 ### List
-<pre>
-s3:ListStorageLensGroups</pre>
+```json
+s3:ListStorageLensGroups
+```
 
 
 ## Example

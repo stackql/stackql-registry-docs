@@ -40,10 +40,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>plans</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm-contacts:UpdateContact,
 ssm-contacts:GetContact,
-ssm-contacts:AssociateContact</pre>
+ssm-contacts:AssociateContact
+```
 
 
 ## Example

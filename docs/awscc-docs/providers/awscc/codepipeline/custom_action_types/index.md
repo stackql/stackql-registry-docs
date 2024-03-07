@@ -42,14 +42,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>custom_action_types</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codepipeline:CreateCustomActionType,
 codepipeline:TagResource,
-codepipeline:ListActionTypes</pre>
+codepipeline:ListActionTypes
+```
 
 ### List
-<pre>
-codepipeline:ListActionTypes</pre>
+```json
+codepipeline:ListActionTypes
+```
 
 
 ## Example

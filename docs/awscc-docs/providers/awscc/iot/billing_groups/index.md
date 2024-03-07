@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>billing_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:DescribeBillingGroup,
 iot:ListTagsForResource,
 iot:CreateBillingGroup,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### List
-<pre>
+```json
 iot:ListBillingGroups,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 
 ## Example

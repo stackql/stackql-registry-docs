@@ -44,23 +44,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>static_ip</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lightsail:GetStaticIp,
-lightsail:GetStaticIps</pre>
+lightsail:GetStaticIps
+```
 
 ### Update
-<pre>
+```json
 lightsail:AttachStaticIp,
 lightsail:DetachStaticIp,
 lightsail:GetInstance,
 lightsail:GetStaticIp,
-lightsail:GetStaticIps</pre>
+lightsail:GetStaticIps
+```
 
 ### Delete
-<pre>
+```json
 lightsail:GetStaticIp,
 lightsail:GetStaticIps,
-lightsail:ReleaseStaticIp</pre>
+lightsail:ReleaseStaticIp
+```
 
 
 ## Example

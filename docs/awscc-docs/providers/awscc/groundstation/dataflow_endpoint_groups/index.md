@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataflow_endpoint_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 groundstation:CreateDataflowEndpointGroup,
 groundstation:GetDataflowEndpointGroup,
 groundstation:TagResource,
 iam:PassRole,
 ec2:describeAddresses,
 ec2:describeNetworkInterfaces,
-iam:createServiceLinkedRole</pre>
+iam:createServiceLinkedRole
+```
 
 ### List
-<pre>
-groundstation:ListDataflowEndpointGroups</pre>
+```json
+groundstation:ListDataflowEndpointGroups
+```
 
 
 ## Example

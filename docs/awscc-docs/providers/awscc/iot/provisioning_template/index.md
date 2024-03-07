@@ -48,12 +48,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>provisioning_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeProvisioningTemplate,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:GetRole,
 iam:PassRole,
 iot:UpdateProvisioningTemplate,
@@ -63,12 +64,14 @@ iot:DeleteProvisioningTemplateVersion,
 iot:DescribeProvisioningTemplate,
 iot:TagResource,
 iot:UntagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DeleteProvisioningTemplate,
-iot:DescribeProvisioningTemplate</pre>
+iot:DescribeProvisioningTemplate
+```
 
 
 ## Example

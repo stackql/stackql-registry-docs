@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multicast_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotwireless:CreateMulticastGroup,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 iotwireless:ListMulticastGroups,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 
 ## Example

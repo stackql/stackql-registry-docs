@@ -51,15 +51,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_card</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeModelCard,
 sagemaker:DescribeModelPackageGroup,
 sagemaker:DescribeModelPackage,
 kms:Decrypt,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateModelCard,
 sagemaker:DescribeModelCard,
 kms:GenerateDataKey,
@@ -68,10 +69,11 @@ sagemaker:DescribeModelPackageGroup,
 sagemaker:DescribeModelPackage,
 sagemaker:ListTags,
 sagemaker:AddTags,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DescribeModelCard,
 sagemaker:DeleteModelCard,
 sagemaker:DescribeModelPackageGroup,
@@ -79,7 +81,8 @@ sagemaker:DescribeModelPackage,
 kms:RetireGrant,
 kms:Decrypt,
 sagemaker:ListTags,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 
 ## Example

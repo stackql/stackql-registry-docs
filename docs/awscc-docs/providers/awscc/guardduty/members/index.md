@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>members</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 guardduty:CreateMembers,
-guardduty:GetMembers</pre>
+guardduty:GetMembers
+```
 
 ### List
-<pre>
-guardduty:ListMembers</pre>
+```json
+guardduty:ListMembers
+```
 
 
 ## Example

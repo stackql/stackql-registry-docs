@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_package_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateModelPackageGroup,
 sagemaker:DescribeModelPackageGroup,
 sagemaker:GetModelPackageGroupPolicy,
 sagemaker:PutModelPackageGroupPolicy,
 sagemaker:ListTags,
-sagemaker:AddTags</pre>
+sagemaker:AddTags
+```
 
 ### List
-<pre>
-sagemaker:ListModelPackageGroups</pre>
+```json
+sagemaker:ListModelPackageGroups
+```
 
 
 ## Example

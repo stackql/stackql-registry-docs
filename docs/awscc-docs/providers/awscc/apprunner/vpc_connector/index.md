@@ -45,12 +45,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_connector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apprunner:DescribeVpcConnector</pre>
+```json
+apprunner:DescribeVpcConnector
+```
 
 ### Delete
-<pre>
-apprunner:DeleteVpcConnector</pre>
+```json
+apprunner:DeleteVpcConnector
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_data_stores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 CloudTrail:CreateEventDataStore,
 CloudTrail:AddTags,
 CloudTrail:PutInsightSelectors,
@@ -56,14 +56,16 @@ kms:Decrypt,
 glue:CreateDatabase,
 glue:CreateTable,
 glue:PassConnection,
-lakeformation:RegisterResource</pre>
+lakeformation:RegisterResource
+```
 
 ### List
-<pre>
+```json
 CloudTrail:ListEventDataStores,
 CloudTrail:GetEventDataStore,
 CloudTrail:GetInsightSelectors,
-CloudTrail:ListTags</pre>
+CloudTrail:ListTags
+```
 
 
 ## Example

@@ -51,22 +51,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 dms:ListInstanceProfiles,
 dms:DescribeInstanceProfiles,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 dms:UpdateInstanceProfile,
 dms:ModifyInstanceProfile,
 dms:AddTagsToResource,
 dms:RemoveTagsToResource,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### Delete
-<pre>
-dms:DeleteInstanceProfile</pre>
+```json
+dms:DeleteInstanceProfile
+```
 
 
 ## Example

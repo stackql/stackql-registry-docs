@@ -118,7 +118,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_instance</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
@@ -126,10 +126,11 @@ ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
 ec2:DescribeVpcAttribute,
 ec2:DescribeVpcs,
-rds:DescribeDBInstances</pre>
+rds:DescribeDBInstances
+```
 
 ### Update
-<pre>
+```json
 ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
@@ -158,13 +159,15 @@ rds:RemoveTagsFromResource,
 rds:StartDBInstanceAutomatedBackupsReplication,
 rds:StopDBInstanceAutomatedBackupsReplication,
 secretsmanager:CreateSecret,
-secretsmanager:TagResource</pre>
+secretsmanager:TagResource
+```
 
 ### Delete
-<pre>
+```json
 rds:CreateDBSnapshot,
 rds:DeleteDBInstance,
-rds:DescribeDBInstances</pre>
+rds:DescribeDBInstances
+```
 
 
 ## Example

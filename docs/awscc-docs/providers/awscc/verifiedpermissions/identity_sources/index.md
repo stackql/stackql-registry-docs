@@ -41,24 +41,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 verifiedpermissions:CreateIdentitySource,
 verifiedpermissions:GetIdentitySource,
 verifiedpermissions:UpdateIdentitySource,
 verifiedpermissions:DeleteIdentitySource,
 verifiedpermissions:ListIdentitySources,
 cognito-idp:DescribeUserPool,
-cognito-idp:ListUserPoolClients</pre>
+cognito-idp:ListUserPoolClients
+```
 
 ### List
-<pre>
+```json
 verifiedpermissions:CreateIdentitySource,
 verifiedpermissions:GetIdentitySource,
 verifiedpermissions:UpdateIdentitySource,
 verifiedpermissions:DeleteIdentitySource,
 verifiedpermissions:ListIdentitySources,
 cognito-idp:DescribeUserPool,
-cognito-idp:ListUserPoolClients</pre>
+cognito-idp:ListUserPoolClients
+```
 
 
 ## Example

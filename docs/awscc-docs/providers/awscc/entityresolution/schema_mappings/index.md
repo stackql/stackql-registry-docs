@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schema_mappings</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 entityresolution:CreateSchemaMapping,
 entityresolution:GetSchemaMapping,
-entityresolution:TagResource</pre>
+entityresolution:TagResource
+```
 
 ### List
-<pre>
-entityresolution:ListSchemaMappings</pre>
+```json
+entityresolution:ListSchemaMappings
+```
 
 
 ## Example

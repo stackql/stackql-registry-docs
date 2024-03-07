@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataset</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 databrew:DescribeDataset,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 ### Update
-<pre>
+```json
 databrew:UpdateDataset,
 glue:GetConnection,
-glue:GetTable</pre>
+glue:GetTable
+```
 
 ### Delete
-<pre>
-databrew:DeleteDataset</pre>
+```json
+databrew:DeleteDataset
+```
 
 
 ## Example

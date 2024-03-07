@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>projects</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 evidently:CreateProject,
 evidently:GetProject,
 logs:CreateLogDelivery,
@@ -56,7 +56,8 @@ appconfig:CreateHostedConfigurationVersion,
 appconfig:CreateExtensionAssociation,
 appconfig:TagResource,
 iam:GetRole,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 
 ## Example

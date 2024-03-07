@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>drt_accesses</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 shield:DescribeDRTAccess,
 shield:AssociateDRTLogBucket,
 shield:AssociateDRTRole,
@@ -48,11 +48,8 @@ iam:PassRole,
 iam:GetRole,
 iam:ListAttachedRolePolicies,
 s3:GetBucketPolicy,
-s3:PutBucketPolicy</pre>
-
-### List
-<pre>
-</pre>
+s3:PutBucketPolicy
+```
 
 
 ## Example

@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>config_rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 config:PutConfigRule,
-config:DescribeConfigRules</pre>
+config:DescribeConfigRules
+```
 
 ### List
-<pre>
-config:DescribeConfigRules</pre>
+```json
+config:DescribeConfigRules
+```
 
 
 ## Example

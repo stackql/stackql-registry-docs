@@ -44,26 +44,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>gateway</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotsitewise:DescribeGateway,
 iotsitewise:DescribeGatewayCapabilityConfiguration,
-iotsitewise:ListTagsForResource</pre>
+iotsitewise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotsitewise:UpdateGateway,
 iotsitewise:UpdateGatewayCapabilityConfiguration,
 iotsitewise:TagResource,
 iotsitewise:UntagResource,
 iotsitewise:DescribeGateway,
 iotsitewise:DescribeGatewayCapabilityConfiguration,
-iotsitewise:ListTagsForResource</pre>
+iotsitewise:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iotsitewise:DescribeGateway,
 iotsitewise:DescribeGatewayCapabilityConfiguration,
-iotsitewise:DeleteGateway</pre>
+iotsitewise:DeleteGateway
+```
 
 
 ## Example

@@ -67,22 +67,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 memorydb:DescribeClusters,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### Update
-<pre>
+```json
 memorydb:UpdateCluster,
 memorydb:DescribeClusters,
 memorydb:ListTags,
 memorydb:TagResource,
-memorydb:UntagResource</pre>
+memorydb:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 memorydb:DeleteCluster,
-memorydb:DescribeClusters</pre>
+memorydb:DescribeClusters
+```
 
 
 ## Example

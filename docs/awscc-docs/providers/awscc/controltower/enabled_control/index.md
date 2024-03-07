@@ -43,7 +43,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>enabled_control</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 controltower:ListEnabledControls,
 controltower:GetEnabledControl,
 controltower:GetControlOperation,
@@ -56,10 +56,11 @@ organizations:AttachPolicy,
 organizations:DetachPolicy,
 organizations:ListPoliciesForTarget,
 organizations:ListTargetsForPolicy,
-organizations:DescribePolicy</pre>
+organizations:DescribePolicy
+```
 
 ### Delete
-<pre>
+```json
 controltower:GetControlOperation,
 controltower:DisableControl,
 organizations:UpdatePolicy,
@@ -69,13 +70,15 @@ organizations:AttachPolicy,
 organizations:DetachPolicy,
 organizations:ListPoliciesForTarget,
 organizations:ListTargetsForPolicy,
-organizations:DescribePolicy</pre>
+organizations:DescribePolicy
+```
 
 ### Read
-<pre>
+```json
 controltower:ListEnabledControls,
 controltower:GetEnabledControl,
-controltower:ListTagsForResource</pre>
+controltower:ListTagsForResource
+```
 
 
 ## Example

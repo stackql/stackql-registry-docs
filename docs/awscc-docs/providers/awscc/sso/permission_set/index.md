@@ -50,16 +50,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>permission_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sso:DescribePermissionSet,
 sso:ListTagsForResource,
 sso:ListManagedPoliciesInPermissionSet,
 sso:ListCustomerManagedPolicyReferencesInPermissionSet,
 sso:GetInlinePolicyForPermissionSet,
-sso:GetPermissionsBoundaryForPermissionSet</pre>
+sso:GetPermissionsBoundaryForPermissionSet
+```
 
 ### Update
-<pre>
+```json
 sso:UpdatePermissionSet,
 sso:TagResource,
 sso:UntagResource,
@@ -78,11 +79,13 @@ sso:DeleteInlinePolicyFromPermissionSet,
 sso:ProvisionPermissionSet,
 sso:DescribePermissionSet,
 sso:GetInlinePolicyForPermissionSet,
-sso:DescribePermissionSetProvisioningStatus</pre>
+sso:DescribePermissionSetProvisioningStatus
+```
 
 ### Delete
-<pre>
-sso:DeletePermissionSet</pre>
+```json
+sso:DeletePermissionSet
+```
 
 
 ## Example

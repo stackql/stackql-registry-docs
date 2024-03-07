@@ -46,26 +46,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>discoverer</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-schemas:DescribeDiscoverer</pre>
+```json
+schemas:DescribeDiscoverer
+```
 
 ### Update
-<pre>
+```json
 schemas:DescribeDiscoverer,
 schemas:UpdateDiscoverer,
 schemas:TagResource,
 schemas:UntagResource,
 schemas:ListTagsForResource,
 events:PutTargets,
-events:PutRule</pre>
+events:PutRule
+```
 
 ### Delete
-<pre>
+```json
 schemas:DescribeDiscoverer,
 schemas:DeleteDiscoverer,
 events:DeleteRule,
 events:DisableRule,
-events:RemoveTargets</pre>
+events:RemoveTargets
+```
 
 
 ## Example

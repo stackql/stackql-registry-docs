@@ -45,15 +45,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>package</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 panorama:DescribePackage,
 panorama:ListTagsForResource,
 s3:ListBucket,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### Update
-<pre>
+```json
 panorama:DescribePackage,
 panorama:ListTagsForResource,
 panorama:TagResource,
@@ -61,10 +62,11 @@ panorama:UntagResource,
 s3:PutObject,
 s3:ListBucket,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### Delete
-<pre>
+```json
 panorama:DeletePackage,
 panorama:DescribePackage,
 s3:DeleteObject,
@@ -74,7 +76,8 @@ s3:ListObjects,
 s3:ListObjectsV2,
 s3:ListBucket,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 
 ## Example

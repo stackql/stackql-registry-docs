@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>virtual_clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 emr-containers:CreateVirtualCluster,
 emr-containers:TagResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-emr-containers:ListVirtualClusters</pre>
+```json
+emr-containers:ListVirtualClusters
+```
 
 
 ## Example

@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bucket_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3-outposts:PutBucketPolicy,
-s3-outposts:GetBucketPolicy</pre>
+s3-outposts:GetBucketPolicy
+```
 
 
 ## Example

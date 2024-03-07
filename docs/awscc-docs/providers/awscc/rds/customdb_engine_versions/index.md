@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>customdb_engine_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kms:CreateGrant,
 kms:DescribeKey,
 mediaimport:CreateDatabaseBinarySnapshot,
@@ -56,11 +56,13 @@ s3:GetObjectTagging,
 s3:ListBucket,
 s3:PutBucketObjectLockConfiguration,
 s3:PutBucketPolicy,
-s3:PutBucketVersioning</pre>
+s3:PutBucketVersioning
+```
 
 ### List
-<pre>
-rds:DescribeDBEngineVersions</pre>
+```json
+rds:DescribeDBEngineVersions
+```
 
 
 ## Example

@@ -49,16 +49,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_grant</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-s3:GetAccessGrant</pre>
+```json
+s3:GetAccessGrant
+```
 
 ### Delete
-<pre>
-s3:DeleteAccessGrant</pre>
+```json
+s3:DeleteAccessGrant
+```
 
 ### Update
-<pre>
-s3:TagResource</pre>
+```json
+s3:TagResource
+```
 
 
 ## Example

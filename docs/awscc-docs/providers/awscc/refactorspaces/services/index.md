@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>services</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 refactor-spaces:CreateService,
 refactor-spaces:GetService,
 refactor-spaces:TagResource,
@@ -55,12 +55,14 @@ ec2:DescribeTransitGatewayVpcAttachments,
 ec2:CreateSecurityGroup,
 ec2:AuthorizeSecurityGroupIngress,
 ec2:CreateRoute,
-lambda:GetFunctionConfiguration</pre>
+lambda:GetFunctionConfiguration
+```
 
 ### List
-<pre>
+```json
 refactor-spaces:ListServices,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 
 ## Example

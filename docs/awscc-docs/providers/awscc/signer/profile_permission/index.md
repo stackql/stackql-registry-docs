@@ -44,13 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profile_permission</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-signer:ListProfilePermissions</pre>
+```json
+signer:ListProfilePermissions
+```
 
 ### Delete
-<pre>
+```json
 signer:RemoveProfilePermission,
-signer:ListProfilePermissions</pre>
+signer:ListProfilePermissions
+```
 
 
 ## Example

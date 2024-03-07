@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repository_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codeguru-reviewer:DescribeRepositoryAssociation,
 codeguru-reviewer:AssociateRepository,
 codeguru-reviewer:TagResource,
@@ -56,11 +56,13 @@ codestar-connections:ListTagsForResource,
 codestar-connections:PassConnection,
 codestar-connections:TagResource,
 codestar-connections:UseConnection,
-s3:ListBucket</pre>
+s3:ListBucket
+```
 
 ### List
-<pre>
-codeguru-reviewer:ListRepositoryAssociations</pre>
+```json
+codeguru-reviewer:ListRepositoryAssociations
+```
 
 
 ## Example

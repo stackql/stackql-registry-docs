@@ -43,23 +43,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sink</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 oam:DeleteSink,
 oam:GetSinkPolicy,
-oam:GetSink</pre>
+oam:GetSink
+```
 
 ### Read
-<pre>
+```json
 oam:GetSinkPolicy,
-oam:GetSink</pre>
+oam:GetSink
+```
 
 ### Update
-<pre>
+```json
 oam:PutSinkPolicy,
 oam:GetSinkPolicy,
 oam:GetSink,
 oam:TagResource,
-oam:UntagResource</pre>
+oam:UntagResource
+```
 
 
 ## Example

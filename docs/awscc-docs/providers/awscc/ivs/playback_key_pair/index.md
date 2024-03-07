@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>playback_key_pair</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ivs:GetPlaybackKeyPair</pre>
+```json
+ivs:GetPlaybackKeyPair
+```
 
 ### Update
-<pre>
+```json
 ivs:GetPlaybackKeyPair,
 ivs:ListTagsForResource,
 ivs:UntagResource,
-ivs:TagResource</pre>
+ivs:TagResource
+```
 
 ### Delete
-<pre>
+```json
 ivs:DeletePlaybackKeyPair,
-ivs:UntagResource</pre>
+ivs:UntagResource
+```
 
 
 ## Example

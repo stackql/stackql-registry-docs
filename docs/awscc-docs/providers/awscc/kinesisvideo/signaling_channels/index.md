@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>signaling_channels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kinesisvideo:CreateSignalingChannel,
-kinesisvideo:DescribeSignalingChannel</pre>
+kinesisvideo:DescribeSignalingChannel
+```
 
 
 ## Example

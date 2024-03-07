@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>route_calculators</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 geo:CreateRouteCalculator,
 geo:DescribeRouteCalculator,
 geo:TagResource,
-geo:UntagResource</pre>
+geo:UntagResource
+```
 
 ### List
-<pre>
-geo:ListRouteCalculators</pre>
+```json
+geo:ListRouteCalculators
+```
 
 
 ## Example

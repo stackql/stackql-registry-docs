@@ -44,14 +44,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multi_region_access_point</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-s3:GetMultiRegionAccessPoint</pre>
+```json
+s3:GetMultiRegionAccessPoint
+```
 
 ### Delete
-<pre>
+```json
 s3:DeleteMultiRegionAccessPoint,
 s3:DescribeMultiRegionAccessPointOperation,
-s3:GetMultiRegionAccessPoint</pre>
+s3:GetMultiRegionAccessPoint
+```
 
 
 ## Example

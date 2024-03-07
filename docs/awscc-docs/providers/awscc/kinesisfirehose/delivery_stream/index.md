@@ -55,12 +55,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>delivery_stream</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 firehose:DescribeDeliveryStream,
-firehose:ListTagsForDeliveryStream</pre>
+firehose:ListTagsForDeliveryStream
+```
 
 ### Update
-<pre>
+```json
 firehose:UpdateDestination,
 firehose:DescribeDeliveryStream,
 firehose:StartDeliveryStreamEncryption,
@@ -70,14 +71,16 @@ firehose:TagDeliveryStream,
 firehose:UntagDeliveryStream,
 kms:CreateGrant,
 kms:RevokeGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Delete
-<pre>
+```json
 firehose:DeleteDeliveryStream,
 firehose:DescribeDeliveryStream,
 kms:RevokeGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 
 ## Example

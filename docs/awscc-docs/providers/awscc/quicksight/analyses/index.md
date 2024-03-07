@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>analyses</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 quicksight:DescribeAnalysis,
 quicksight:DescribeAnalysisPermissions,
 quicksight:CreateAnalysis,
@@ -50,11 +50,13 @@ quicksight:DescribeTheme,
 quicksight:PassDataSet,
 quicksight:TagResource,
 quicksight:UntagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### List
-<pre>
-quicksight:ListAnalyses</pre>
+```json
+quicksight:ListAnalyses
+```
 
 
 ## Example

@@ -48,18 +48,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>space</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sagemaker:DescribeSpace</pre>
+```json
+sagemaker:DescribeSpace
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateSpace,
-sagemaker:DescribeSpace</pre>
+sagemaker:DescribeSpace
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteSpace,
-sagemaker:DescribeSpace</pre>
+sagemaker:DescribeSpace
+```
 
 
 ## Example

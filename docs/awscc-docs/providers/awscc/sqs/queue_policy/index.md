@@ -42,12 +42,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>queue_policy</code> resource, the following permissions are required:
 
 ### Update
-<pre>
-sqs:SetQueueAttributes</pre>
+```json
+sqs:SetQueueAttributes
+```
 
 ### Delete
-<pre>
-sqs:SetQueueAttributes</pre>
+```json
+sqs:SetQueueAttributes
+```
 
 
 ## Example

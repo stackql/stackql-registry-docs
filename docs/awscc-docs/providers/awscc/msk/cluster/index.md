@@ -53,7 +53,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 kafka:UpdateMonitoring,
 kafka:UpdateClusterKafkaVersion,
 kafka:UpdateClusterConfiguration,
@@ -85,16 +85,19 @@ logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
 firehose:TagDeliveryStream,
-acm-pca:GetCertificateAuthorityCertificate</pre>
+acm-pca:GetCertificateAuthorityCertificate
+```
 
 ### Delete
-<pre>
+```json
 kafka:DeleteCluster,
-kafka:DescribeCluster</pre>
+kafka:DescribeCluster
+```
 
 ### Read
-<pre>
-kafka:DescribeCluster</pre>
+```json
+kafka:DescribeCluster
+```
 
 
 ## Example

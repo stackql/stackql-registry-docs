@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>allow_lists</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 macie2:CreateAllowList,
 macie2:GetAllowList,
-macie2:TagResource</pre>
+macie2:TagResource
+```
 
 ### List
-<pre>
-macie2:ListAllowLists</pre>
+```json
+macie2:ListAllowLists
+```
 
 
 ## Example

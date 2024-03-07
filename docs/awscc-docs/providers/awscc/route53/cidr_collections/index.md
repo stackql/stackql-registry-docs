@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cidr_collections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53:CreateCidrCollection,
-route53:ChangeCidrCollection</pre>
+route53:ChangeCidrCollection
+```
 
 ### List
-<pre>
+```json
 route53:ListCidrCollections,
-route53:ListCidrBlocks</pre>
+route53:ListCidrBlocks
+```
 
 
 ## Example

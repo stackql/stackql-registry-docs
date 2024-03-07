@@ -47,24 +47,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>frauddetector_list</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 frauddetector:GetListElements,
 frauddetector:GetListsMetadata,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 frauddetector:GetListElements,
 frauddetector:GetListsMetadata,
 frauddetector:ListTagsForResource,
 frauddetector:UntagResource,
 frauddetector:UpdateList,
-frauddetector:TagResource</pre>
+frauddetector:TagResource
+```
 
 ### Delete
-<pre>
+```json
 frauddetector:DeleteList,
-frauddetector:GetListsMetadata</pre>
+frauddetector:GetListsMetadata
+```
 
 
 ## Example

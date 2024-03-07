@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>signal_catalogs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotfleetwise:GetSignalCatalog,
 iotfleetwise:CreateSignalCatalog,
 iotfleetwise:ListSignalCatalogNodes,
 iotfleetwise:ListTagsForResource,
-iotfleetwise:TagResource</pre>
+iotfleetwise:TagResource
+```
 
 ### List
-<pre>
-iotfleetwise:ListSignalCatalogs</pre>
+```json
+iotfleetwise:ListSignalCatalogs
+```
 
 
 ## Example

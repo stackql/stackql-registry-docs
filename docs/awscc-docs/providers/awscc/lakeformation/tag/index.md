@@ -42,16 +42,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tag</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lakeformation:GetLFTag</pre>
+```json
+lakeformation:GetLFTag
+```
 
 ### Update
-<pre>
-lakeformation:UpdateLFTag</pre>
+```json
+lakeformation:UpdateLFTag
+```
 
 ### Delete
-<pre>
-lakeformation:DeleteLFTag</pre>
+```json
+lakeformation:DeleteLFTag
+```
 
 
 ## Example

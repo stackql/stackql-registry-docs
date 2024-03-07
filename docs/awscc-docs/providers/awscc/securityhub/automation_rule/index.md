@@ -51,22 +51,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>automation_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 securityhub:ListAutomationRules,
 securityhub:BatchGetAutomationRules,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 securityhub:BatchUpdateAutomationRules,
 securityhub:TagResource,
 securityhub:UntagResource,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 securityhub:BatchDeleteAutomationRules,
-securityhub:BatchGetAutomationRules</pre>
+securityhub:BatchGetAutomationRules
+```
 
 
 ## Example

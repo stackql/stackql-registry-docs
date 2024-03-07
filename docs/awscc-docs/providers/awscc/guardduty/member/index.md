@@ -45,23 +45,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>member</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-guardduty:GetMembers</pre>
+```json
+guardduty:GetMembers
+```
 
 ### Delete
-<pre>
+```json
 guardduty:GetMembers,
 guardduty:DisassociateMembers,
-guardduty:DeleteMembers</pre>
+guardduty:DeleteMembers
+```
 
 ### Update
-<pre>
+```json
 guardduty:GetMembers,
 guardduty:CreateMembers,
 guardduty:DisassociateMembers,
 guardduty:StartMonitoringMembers,
 guardduty:StopMonitoringMembers,
-guardduty:InviteMembers</pre>
+guardduty:InviteMembers
+```
 
 
 ## Example

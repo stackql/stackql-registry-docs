@@ -42,20 +42,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>location</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 gamelift:ListLocations,
-gamelift:ListTagsForResource</pre>
+gamelift:ListTagsForResource
+```
 
 ### Delete
-<pre>
-gamelift:DeleteLocation</pre>
+```json
+gamelift:DeleteLocation
+```
 
 ### Update
-<pre>
+```json
 gamelift:ListLocations,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
-gamelift:UntagResource</pre>
+gamelift:UntagResource
+```
 
 
 ## Example

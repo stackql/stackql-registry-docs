@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>file_systems</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticfilesystem:CreateFileSystem,
 elasticfilesystem:DescribeReplicationConfigurations,
 elasticfilesystem:TagResource,
@@ -52,15 +52,17 @@ elasticfilesystem:PutLifecycleConfiguration,
 elasticfilesystem:UpdateFileSystemProtection,
 kms:DescribeKey,
 kms:GenerateDataKeyWithoutPlaintext,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
+```json
 elasticfilesystem:DescribeBackupPolicy,
 elasticfilesystem:DescribeFileSystemPolicy,
 elasticfilesystem:DescribeFileSystems,
 elasticfilesystem:DescribeLifecycleConfiguration,
-elasticfilesystem:DescribeReplicationConfigurations</pre>
+elasticfilesystem:DescribeReplicationConfigurations
+```
 
 
 ## Example

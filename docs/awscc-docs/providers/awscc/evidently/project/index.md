@@ -45,17 +45,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 evidently:GetProject,
 logs:GetLogDelivery,
 logs:ListLogDeliveries,
 s3:GetBucketPolicy,
 logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
-evidently:ListTagsForResource</pre>
+evidently:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 evidently:UpdateProject,
 evidently:UpdateProjectDataDelivery,
 logs:GetLogDelivery,
@@ -77,10 +78,11 @@ appconfig:CreateHostedConfigurationVersion,
 appconfig:CreateExtensionAssociation,
 appconfig:TagResource,
 iam:GetRole,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### Delete
-<pre>
+```json
 evidently:DeleteProject,
 evidently:GetProject,
 logs:CreateLogDelivery,
@@ -93,7 +95,8 @@ logs:DescribeLogGroups,
 evidently:UntagResource,
 appconfig:DeleteHostedConfigurationVersion,
 appconfig:DeleteExtensionAssociation,
-appconfig:DeleteConfigurationProfile</pre>
+appconfig:DeleteConfigurationProfile
+```
 
 
 ## Example

@@ -48,11 +48,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_repository_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-fsx:DescribeDataRepositoryAssociations</pre>
+```json
+fsx:DescribeDataRepositoryAssociations
+```
 
 ### Update
-<pre>
+```json
 fsx:DescribeDataRepositoryAssociations,
 fsx:UpdateDataRepositoryAssociation,
 fsx:TagResource,
@@ -61,12 +62,14 @@ s3:ListBucket,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 iam:CreateServiceLinkedRole,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 ### Delete
-<pre>
+```json
 fsx:DescribeDataRepositoryAssociations,
-fsx:DeleteDataRepositoryAssociation</pre>
+fsx:DeleteDataRepositoryAssociation
+```
 
 
 ## Example

@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>extension</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appconfig:GetExtension</pre>
+```json
+appconfig:GetExtension
+```
 
 ### Update
-<pre>
+```json
 appconfig:UpdateExtension,
 appconfig:TagResource,
-appconfig:UntagResource</pre>
+appconfig:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 appconfig:DeleteExtension,
-appconfig:UntagResource</pre>
+appconfig:UntagResource
+```
 
 
 ## Example

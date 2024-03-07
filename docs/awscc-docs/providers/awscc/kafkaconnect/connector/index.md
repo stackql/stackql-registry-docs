@@ -52,19 +52,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-kafkaconnect:DescribeConnector</pre>
+```json
+kafkaconnect:DescribeConnector
+```
 
 ### Delete
-<pre>
+```json
 kafkaconnect:DeleteConnector,
 kafkaconnect:DescribeConnector,
 logs:DeleteLogDelivery,
 logs:GetLogDelivery,
-logs:ListLogDeliveries</pre>
+logs:ListLogDeliveries
+```
 
 ### Update
-<pre>
+```json
 kafkaconnect:UpdateConnector,
 kafkaconnect:DescribeConnector,
 iam:CreateServiceLinkedRole,
@@ -76,7 +78,8 @@ logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy,
-firehose:TagDeliveryStream</pre>
+firehose:TagDeliveryStream
+```
 
 
 ## Example

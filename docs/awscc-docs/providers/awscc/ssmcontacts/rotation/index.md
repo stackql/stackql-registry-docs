@@ -46,26 +46,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rotation</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ssm-contacts:GetRotation,
 ssm-contacts:TagResource,
 ssm-contacts:ListTagsForResource,
-ssm-contacts:UntagResource</pre>
+ssm-contacts:UntagResource
+```
 
 ### Update
-<pre>
+```json
 ssm-contacts:UpdateRotation,
 ssm-contacts:GetRotation,
 ssm-contacts:TagResource,
 ssm-contacts:ListTagsForResource,
-ssm-contacts:UntagResource</pre>
+ssm-contacts:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 ssm-contacts:DeleteRotation,
 ssm-contacts:GetRotation,
 ssm-contacts:ListTagsForResource,
-ssm-contacts:UntagResource</pre>
+ssm-contacts:UntagResource
+```
 
 
 ## Example

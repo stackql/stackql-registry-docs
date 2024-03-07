@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>thing_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:DescribeThingGroup,
 iot:ListTagsForResource,
 iot:CreateThingGroup,
 iot:CreateDynamicThingGroup,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### List
-<pre>
+```json
 iot:ListThingGroups,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 
 ## Example

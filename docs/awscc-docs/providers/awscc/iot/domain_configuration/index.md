@@ -52,23 +52,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeDomainConfiguration,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateDomainConfiguration,
 iot:DescribeDomainConfiguration,
 iot:ListTagsForResource,
 iot:TagResource,
-iot:UntagResource</pre>
+iot:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DescribeDomainConfiguration,
 iot:DeleteDomainConfiguration,
-iot:UpdateDomainConfiguration</pre>
+iot:UpdateDomainConfiguration
+```
 
 
 ## Example

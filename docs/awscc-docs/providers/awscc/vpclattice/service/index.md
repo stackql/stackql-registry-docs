@@ -50,22 +50,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 vpc-lattice:GetService,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:UpdateService,
 vpc-lattice:TagResource,
 vpc-lattice:UntagResource,
 vpc-lattice:GetService,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 vpc-lattice:DeleteService,
-vpc-lattice:GetService</pre>
+vpc-lattice:GetService
+```
 
 
 ## Example

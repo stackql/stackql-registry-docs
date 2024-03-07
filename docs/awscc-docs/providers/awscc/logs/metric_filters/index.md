@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>metric_filters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 logs:PutMetricFilter,
-logs:DescribeMetricFilters</pre>
+logs:DescribeMetricFilters
+```
 
 ### List
-<pre>
-logs:DescribeMetricFilters</pre>
+```json
+logs:DescribeMetricFilters
+```
 
 
 ## Example

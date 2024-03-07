@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>regex_pattern_set</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 wafv2:DeleteRegexPatternSet,
-wafv2:GetRegexPatternSet</pre>
+wafv2:GetRegexPatternSet
+```
 
 ### Read
-<pre>
+```json
 wafv2:GetRegexPatternSet,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 wafv2:UpdateRegexPatternSet,
 wafv2:GetRegexPatternSet,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 
 ## Example

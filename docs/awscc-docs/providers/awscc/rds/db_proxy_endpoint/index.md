@@ -49,20 +49,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_proxy_endpoint</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rds:DescribeDBProxyEndpoints,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rds:ModifyDBProxyEndpoint,
 rds:AddTagsToResource,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 rds:DescribeDBProxyEndpoints,
-rds:DeleteDBProxyEndpoint</pre>
+rds:DeleteDBProxyEndpoint
+```
 
 
 ## Example

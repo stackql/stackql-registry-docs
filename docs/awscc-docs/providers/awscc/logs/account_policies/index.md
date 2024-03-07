@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 logs:PutAccountPolicy,
 logs:PutDataProtectionPolicy,
 logs:DescribeAccountPolicies,
@@ -51,11 +51,13 @@ s3:REST.PUT.OBJECT,
 firehose:TagDeliveryStream,
 logs:PutSubscriptionFilter,
 logs:DeleteSubscriptionFilter,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-logs:DescribeAccountPolicies</pre>
+```json
+logs:DescribeAccountPolicies
+```
 
 
 ## Example

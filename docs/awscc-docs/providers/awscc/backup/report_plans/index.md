@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>report_plans</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 backup:CreateReportPlan,
 backup:DescribeReportPlan,
 backup:ListTags,
 backup:TagResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-backup:ListReportPlans</pre>
+```json
+backup:ListReportPlans
+```
 
 
 ## Example

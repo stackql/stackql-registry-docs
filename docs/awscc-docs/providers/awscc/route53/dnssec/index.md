@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dnssec</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-route53:GetDNSSEC</pre>
+```json
+route53:GetDNSSEC
+```
 
 ### Delete
-<pre>
+```json
 route53:GetDNSSEC,
 route53:DisableHostedZoneDNSSEC,
 kms:DescribeKey,
 kms:GetPublicKey,
 kms:Sign,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 
 ## Example

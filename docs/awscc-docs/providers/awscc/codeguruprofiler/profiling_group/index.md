@@ -45,12 +45,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profiling_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 codeguru-profiler:DescribeProfilingGroup,
-codeguru-profiler:ListTagsForResource</pre>
+codeguru-profiler:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 sns:Publish,
 codeguru-profiler:AddNotificationChannels,
 codeguru-profiler:GetNotificationConfiguration,
@@ -60,11 +61,13 @@ codeguru-profiler:RemovePermission,
 codeguru-profiler:GetPolicy,
 codeguru-profiler:TagResource,
 codeguru-profiler:UntagResource,
-codeguru-profiler:ListTagsForResource</pre>
+codeguru-profiler:ListTagsForResource
+```
 
 ### Delete
-<pre>
-codeguru-profiler:DeleteProfilingGroup</pre>
+```json
+codeguru-profiler:DeleteProfilingGroup
+```
 
 
 ## Example

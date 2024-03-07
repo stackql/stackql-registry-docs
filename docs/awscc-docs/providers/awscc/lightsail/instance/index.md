@@ -59,18 +59,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lightsail:GetInstances,
-lightsail:GetInstance</pre>
+lightsail:GetInstance
+```
 
 ### Delete
-<pre>
+```json
 lightsail:GetInstances,
 lightsail:GetInstance,
-lightsail:DeleteInstance</pre>
+lightsail:DeleteInstance
+```
 
 ### Update
-<pre>
+```json
 lightsail:GetInstances,
 lightsail:GetInstance,
 lightsail:DeleteInstance,
@@ -83,7 +85,8 @@ lightsail:StartInstance,
 lightsail:StopInstance,
 lightsail:GetDisk,
 lightsail:TagResource,
-lightsail:UntagResource</pre>
+lightsail:UntagResource
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>origin_endpoints</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediapackage:CreateOriginEndpoint,
 mediapackage:DescribeOriginEndpoint,
 mediapackage:DescribeChannel,
 mediapackage:TagResource,
 iam:PassRole,
-acm:DescribeCertificate</pre>
+acm:DescribeCertificate
+```
 
 ### List
-<pre>
-mediapackage:ListOriginEndpoints</pre>
+```json
+mediapackage:ListOriginEndpoints
+```
 
 
 ## Example

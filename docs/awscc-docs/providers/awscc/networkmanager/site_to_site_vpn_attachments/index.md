@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>site_to_site_vpn_attachments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:GetSiteToSiteVpnAttachment,
 networkmanager:CreateSiteToSiteVpnAttachment,
 ec2:DescribeRegions,
-networkmanager:TagResource</pre>
+networkmanager:TagResource
+```
 
 ### List
-<pre>
-networkmanager:ListAttachments</pre>
+```json
+networkmanager:ListAttachments
+```
 
 
 ## Example

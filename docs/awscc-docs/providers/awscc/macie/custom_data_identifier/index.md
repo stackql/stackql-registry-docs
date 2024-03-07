@@ -48,17 +48,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>custom_data_identifier</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-macie2:GetCustomDataIdentifier</pre>
+```json
+macie2:GetCustomDataIdentifier
+```
 
 ### Delete
-<pre>
-macie2:DeleteCustomDataIdentifier</pre>
+```json
+macie2:DeleteCustomDataIdentifier
+```
 
 ### Update
-<pre>
+```json
 macie2:TagResource,
-macie2:UntagResource</pre>
+macie2:UntagResource
+```
 
 
 ## Example

@@ -47,13 +47,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_definition</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetWirelessGatewayTaskDefinition,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Delete
-<pre>
-iotwireless:DeleteWirelessGatewayTaskDefinition</pre>
+```json
+iotwireless:DeleteWirelessGatewayTaskDefinition
+```
 
 
 ## Example

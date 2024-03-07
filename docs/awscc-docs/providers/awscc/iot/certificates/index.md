@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateCertificateFromCsr,
 iot:RegisterCertificate,
 iot:RegisterCertificateWithoutCA,
-iot:DescribeCertificate</pre>
+iot:DescribeCertificate
+```
 
 ### List
-<pre>
-iot:ListCertificates</pre>
+```json
+iot:ListCertificates
+```
 
 
 ## Example

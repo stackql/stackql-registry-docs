@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rooms</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ivschat:CreateRoom,
-ivschat:TagResource</pre>
+ivschat:TagResource
+```
 
 ### List
-<pre>
+```json
 ivschat:ListRooms,
-ivschat:ListTagsForResource</pre>
+ivschat:ListTagsForResource
+```
 
 
 ## Example

@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multi_region_access_points</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:CreateMultiRegionAccessPoint,
 s3:DescribeMultiRegionAccessPointOperation,
-s3:GetMultiRegionAccessPoint</pre>
+s3:GetMultiRegionAccessPoint
+```
 
 ### List
-<pre>
-s3:ListMultiRegionAccessPoints</pre>
+```json
+s3:ListMultiRegionAccessPoints
+```
 
 
 ## Example

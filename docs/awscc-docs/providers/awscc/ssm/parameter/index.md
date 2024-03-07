@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>parameter</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ssm:GetParameters</pre>
+```json
+ssm:GetParameters
+```
 
 ### Update
-<pre>
+```json
 ssm:PutParameter,
 ssm:AddTagsToResource,
 ssm:RemoveTagsFromResource,
-ssm:GetParameters</pre>
+ssm:GetParameters
+```
 
 ### Delete
-<pre>
-ssm:DeleteParameter</pre>
+```json
+ssm:DeleteParameter
+```
 
 
 ## Example

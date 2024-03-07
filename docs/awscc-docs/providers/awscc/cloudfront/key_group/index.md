@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>key_group</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteKeyGroup,
-cloudfront:GetKeyGroup</pre>
+cloudfront:GetKeyGroup
+```
 
 ### Read
-<pre>
-cloudfront:GetKeyGroup</pre>
+```json
+cloudfront:GetKeyGroup
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateKeyGroup,
-cloudfront:GetKeyGroup</pre>
+cloudfront:GetKeyGroup
+```
 
 
 ## Example

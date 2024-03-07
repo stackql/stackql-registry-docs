@@ -43,21 +43,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pull_through_cache_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ecr:DescribePullThroughCacheRules</pre>
+```json
+ecr:DescribePullThroughCacheRules
+```
 
 ### Update
-<pre>
+```json
 ecr:DescribePullThroughCacheRules,
 ecr:CreatePullThroughCacheRule,
 ecr:DeletePullThroughCacheRule,
 iam:CreateServiceLinkedRole,
-secretsmanager:GetSecretValue</pre>
+secretsmanager:GetSecretValue
+```
 
 ### Delete
-<pre>
+```json
 ecr:DescribePullThroughCacheRules,
-ecr:DeletePullThroughCacheRule</pre>
+ecr:DeletePullThroughCacheRule
+```
 
 
 ## Example

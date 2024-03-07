@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_attachments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:CreateVpcAttachment,
 networkmanager:GetVpcAttachment,
 networkmanager:TagResource,
 ec2:DescribeRegions,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-networkmanager:ListAttachments</pre>
+```json
+networkmanager:ListAttachments
+```
 
 
 ## Example

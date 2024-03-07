@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topics</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 quicksight:CreateTopic,
 quicksight:PassDataSet,
-quicksight:DescribeTopicRefresh</pre>
+quicksight:DescribeTopicRefresh
+```
 
 ### List
-<pre>
-quicksight:ListTopics</pre>
+```json
+quicksight:ListTopics
+```
 
 
 ## Example

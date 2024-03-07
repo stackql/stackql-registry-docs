@@ -42,13 +42,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 servicecatalog:AssociateResource,
-cloudformation:DescribeStacks</pre>
+cloudformation:DescribeStacks
+```
 
 ### List
-<pre>
-servicecatalog:ListAssociatedResources</pre>
+```json
+servicecatalog:ListAssociatedResources
+```
 
 
 ## Example

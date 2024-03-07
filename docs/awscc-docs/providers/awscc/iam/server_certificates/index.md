@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>server_certificates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:UploadServerCertificate,
 iam:TagServerCertificate,
-iam:GetServerCertificate</pre>
+iam:GetServerCertificate
+```
 
 ### List
-<pre>
+```json
 iam:ListServerCertificates,
-iam:GetServerCertificate</pre>
+iam:GetServerCertificate
+```
 
 
 ## Example

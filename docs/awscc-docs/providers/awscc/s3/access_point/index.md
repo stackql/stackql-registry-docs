@@ -48,22 +48,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_point</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 s3:GetAccessPoint,
-s3:GetAccessPointPolicy</pre>
+s3:GetAccessPointPolicy
+```
 
 ### Update
-<pre>
+```json
 s3:PutAccessPointPolicy,
 s3:PutAccessPointPublicAccessBlock,
 s3:DeleteAccessPointPolicy,
 s3:GetAccessPoint,
-s3:GetAccessPointPolicy</pre>
+s3:GetAccessPointPolicy
+```
 
 ### Delete
-<pre>
+```json
 s3:DeleteAccessPointPolicy,
-s3:DeleteAccessPoint</pre>
+s3:DeleteAccessPoint
+```
 
 
 ## Example

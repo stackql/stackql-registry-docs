@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 events:CreateConnection,
 events:DescribeConnection,
 secretsmanager:CreateSecret,
 secretsmanager:GetSecretValue,
 secretsmanager:PutSecretValue,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-events:ListConnections</pre>
+```json
+events:ListConnections
+```
 
 
 ## Example

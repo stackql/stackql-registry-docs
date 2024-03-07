@@ -44,12 +44,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_endpoint</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 aoss:BatchGetVpcEndpoint,
-ec2:DescribeVpcEndpoints</pre>
+ec2:DescribeVpcEndpoints
+```
 
 ### Update
-<pre>
+```json
 aoss:BatchGetVpcEndpoint,
 aoss:UpdateVpcEndpoint,
 ec2:CreateVpcEndpoint,
@@ -67,10 +68,11 @@ route53:ListResourceRecordSets,
 route53:ListHostedZonesByName,
 route53:CreateHostedZone,
 route53:ListHostedZonesByVPC,
-route53:AssociateVPCWithHostedZone</pre>
+route53:AssociateVPCWithHostedZone
+```
 
 ### Delete
-<pre>
+```json
 aoss:BatchGetVpcEndpoint,
 aoss:DeleteVpcEndpoint,
 ec2:DeleteVpcEndPoints,
@@ -87,7 +89,8 @@ route53:GetHostedZone,
 route53:ListResourceRecordSets,
 route53:ListHostedZonesByName,
 route53:ListHostedZonesByVPC,
-route53:AssociateVPCWithHostedZone</pre>
+route53:AssociateVPCWithHostedZone
+```
 
 
 ## Example

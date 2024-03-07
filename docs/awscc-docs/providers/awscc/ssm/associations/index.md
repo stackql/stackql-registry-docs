@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ec2:DescribeInstanceStatus,
 iam:PassRole,
 iam:CreateServiceLinkedRole,
 ssm:CreateAssociation,
 ssm:DescribeAssociation,
-ssm:GetCalendarState</pre>
+ssm:GetCalendarState
+```
 
 ### List
-<pre>
-ssm:ListAssociations</pre>
+```json
+ssm:ListAssociations
+```
 
 
 ## Example

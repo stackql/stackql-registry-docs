@@ -43,17 +43,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>metric_filter</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:DescribeMetricFilters</pre>
+```json
+logs:DescribeMetricFilters
+```
 
 ### Update
-<pre>
+```json
 logs:PutMetricFilter,
-logs:DescribeMetricFilters</pre>
+logs:DescribeMetricFilters
+```
 
 ### Delete
-<pre>
-logs:DeleteMetricFilter</pre>
+```json
+logs:DeleteMetricFilter
+```
 
 
 ## Example

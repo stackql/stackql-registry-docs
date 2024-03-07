@@ -42,16 +42,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>themes</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:CreateTheme,
 amplifyuibuilder:GetTheme,
-amplifyuibuilder:TagResource</pre>
+amplifyuibuilder:TagResource
+```
 
 ### List
-<pre>
+```json
 amplify:GetApp,
-amplifyuibuilder:ListThemes</pre>
+amplifyuibuilder:ListThemes
+```
 
 
 ## Example

@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>attribute_group_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-servicecatalog:AssociateAttributeGroup</pre>
+```json
+servicecatalog:AssociateAttributeGroup
+```
 
 ### List
-<pre>
-servicecatalog:ListAttributeGroupsForApplication</pre>
+```json
+servicecatalog:ListAttributeGroupsForApplication
+```
 
 
 ## Example

@@ -41,19 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>component_types</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iottwinmaker:CreateComponentType,
 iottwinmaker:GetComponentType,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
-iottwinmaker:TagResource</pre>
+iottwinmaker:TagResource
+```
 
 ### List
-<pre>
+```json
 iottwinmaker:GetComponentType,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListComponentTypes,
-iottwinmaker:ListTagsForResource</pre>
+iottwinmaker:ListTagsForResource
+```
 
 
 ## Example

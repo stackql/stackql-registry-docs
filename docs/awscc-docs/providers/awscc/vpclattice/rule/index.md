@@ -48,20 +48,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 vpc-lattice:GetRule,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:UpdateRule,
 vpc-lattice:GetRule,
 vpc-lattice:TagResource,
-vpc-lattice:UntagResource</pre>
+vpc-lattice:UntagResource
+```
 
 ### Delete
-<pre>
-vpc-lattice:DeleteRule</pre>
+```json
+vpc-lattice:DeleteRule
+```
 
 
 ## Example

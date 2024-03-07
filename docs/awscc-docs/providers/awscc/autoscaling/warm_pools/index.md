@@ -40,10 +40,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>warm_pools</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 autoscaling:PutWarmPool,
 autoscaling:DescribeWarmPool,
-autoscaling:DescribeAutoScalingGroups</pre>
+autoscaling:DescribeAutoScalingGroups
+```
 
 
 ## Example

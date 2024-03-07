@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-identitystore:DescribeGroup</pre>
+```json
+identitystore:DescribeGroup
+```
 
 ### Update
-<pre>
+```json
 identitystore:DescribeGroup,
-identitystore:UpdateGroup</pre>
+identitystore:UpdateGroup
+```
 
 ### Delete
-<pre>
+```json
 identitystore:DescribeGroup,
-identitystore:DeleteGroup</pre>
+identitystore:DeleteGroup
+```
 
 
 ## Example

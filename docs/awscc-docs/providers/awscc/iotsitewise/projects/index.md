@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>projects</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotsitewise:CreateProject,
 iotsitewise:DescribeProject,
 iotsitewise:ListProjectAssets,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
-iotsitewise:BatchAssociateProjectAssets</pre>
+iotsitewise:BatchAssociateProjectAssets
+```
 
 ### List
-<pre>
-iotsitewise:ListProjects</pre>
+```json
+iotsitewise:ListProjects
+```
 
 
 ## Example

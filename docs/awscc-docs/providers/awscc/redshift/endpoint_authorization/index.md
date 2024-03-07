@@ -51,17 +51,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoint_authorization</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-redshift:DescribeEndpointAuthorization</pre>
+```json
+redshift:DescribeEndpointAuthorization
+```
 
 ### Update
-<pre>
+```json
 redshift:AuthorizeEndpointAccess,
 redshift:DescribeEndpointAuthorization,
-redshift:RevokeEndpointAccess</pre>
+redshift:RevokeEndpointAccess
+```
 
 ### Delete
-<pre>
+```json
 redshift:RevokeEndpointAccess,
 redshift:DeleteEndpointAccess,
 redshift:DescribeEndpointAuthorization,
@@ -70,7 +72,8 @@ ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
-ec2:DescribeSubnets</pre>
+ec2:DescribeSubnets
+```
 
 
 ## Example

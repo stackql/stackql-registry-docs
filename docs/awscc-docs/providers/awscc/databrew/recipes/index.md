@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>recipes</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 databrew:CreateRecipe,
 databrew:TagResource,
 databrew:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 databrew:ListRecipes,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 
 ## Example

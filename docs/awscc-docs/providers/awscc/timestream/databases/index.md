@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>databases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 timestream:CreateDatabase,
 timestream:DescribeEndpoints,
 timestream:TagResource,
 kms:CreateGrant,
 kms:DescribeKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### List
-<pre>
+```json
 timestream:ListDatabases,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 
 ## Example

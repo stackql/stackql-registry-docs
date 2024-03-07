@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tls_inspection_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 network-firewall:DescribeTLSInspectionConfiguration,
-network-firewall:ListTagsForResources</pre>
+network-firewall:ListTagsForResources
+```
 
 ### Update
-<pre>
+```json
 network-firewall:UpdateTLSInspectionConfiguration,
 network-firewall:DescribeTLSInspectionConfiguration,
 network-firewall:TagResource,
-network-firewall:UntagResource</pre>
+network-firewall:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 network-firewall:DeleteTLSInspectionConfiguration,
 network-firewall:DescribeTLSInspectionConfiguration,
-network-firewall:UntagResource</pre>
+network-firewall:UntagResource
+```
 
 
 ## Example

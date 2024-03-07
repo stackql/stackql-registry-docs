@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 codestar-connections:GetConnection,
-codestar-connections:ListTagsForResource</pre>
+codestar-connections:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 codestar-connections:ListTagsForResource,
 codestar-connections:TagResource,
-codestar-connections:UntagResource</pre>
+codestar-connections:UntagResource
+```
 
 ### Delete
-<pre>
-codestar-connections:DeleteConnection</pre>
+```json
+codestar-connections:DeleteConnection
+```
 
 
 ## Example

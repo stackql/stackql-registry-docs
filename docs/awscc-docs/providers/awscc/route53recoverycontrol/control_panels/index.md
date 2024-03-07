@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>control_panels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53-recovery-control-config:CreateControlPanel,
 route53-recovery-control-config:DescribeCluster,
 route53-recovery-control-config:DescribeControlPanel,
 route53-recovery-control-config:ListTagsForResource,
-route53-recovery-control-config:TagResource</pre>
+route53-recovery-control-config:TagResource
+```
 
 ### List
-<pre>
-route53-recovery-control-config:ListControlPanels</pre>
+```json
+route53-recovery-control-config:ListControlPanels
+```
 
 
 ## Example

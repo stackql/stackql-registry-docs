@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackagev2:GetChannelPolicy</pre>
+```json
+mediapackagev2:GetChannelPolicy
+```
 
 ### Update
-<pre>
+```json
 mediapackagev2:GetChannelPolicy,
-mediapackagev2:PutChannelPolicy</pre>
+mediapackagev2:PutChannelPolicy
+```
 
 ### Delete
-<pre>
+```json
 mediapackagev2:GetChannelPolicy,
-mediapackagev2:DeleteChannelPolicy</pre>
+mediapackagev2:DeleteChannelPolicy
+```
 
 
 ## Example

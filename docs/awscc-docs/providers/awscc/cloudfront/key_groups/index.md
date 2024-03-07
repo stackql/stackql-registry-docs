@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>key_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-cloudfront:CreateKeyGroup</pre>
+```json
+cloudfront:CreateKeyGroup
+```
 
 ### List
-<pre>
-cloudfront:ListKeyGroups</pre>
+```json
+cloudfront:ListKeyGroups
+```
 
 
 ## Example

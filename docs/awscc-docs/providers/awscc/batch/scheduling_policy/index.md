@@ -43,19 +43,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduling_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-Batch:DescribeSchedulingPolicies</pre>
+```json
+Batch:DescribeSchedulingPolicies
+```
 
 ### Update
-<pre>
+```json
 Batch:UpdateSchedulingPolicy,
 Batch:TagResource,
-Batch:UnTagResource</pre>
+Batch:UnTagResource
+```
 
 ### Delete
-<pre>
+```json
 Batch:DescribeSchedulingPolicies,
-Batch:DeleteSchedulingPolicy</pre>
+Batch:DeleteSchedulingPolicy
+```
 
 
 ## Example

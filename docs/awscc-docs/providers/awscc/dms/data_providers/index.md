@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_providers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 dms:CreateDataProvider,
 dms:ListDataProviders,
 dms:DescribeDataProviders,
 dms:AddTagsToResource,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 dms:ListDataProviders,
 dms:DescribeDataProviders,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 
 ## Example

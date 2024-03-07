@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>filter</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-inspector2:ListFilters</pre>
+```json
+inspector2:ListFilters
+```
 
 ### Update
-<pre>
+```json
 inspector2:ListFilters,
-inspector2:UpdateFilter</pre>
+inspector2:UpdateFilter
+```
 
 ### Delete
-<pre>
+```json
 inspector2:DeleteFilter,
-inspector2:ListFilters</pre>
+inspector2:ListFilters
+```
 
 
 ## Example

@@ -45,13 +45,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>enabled_baseline</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 controltower:GetEnabledBaseline,
 controltower:ListEnabledBaselines,
-controltower:ListTagsForResource</pre>
+controltower:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 controltower:UpdateEnabledBaseline,
 controltower:GetBaselineOperation,
 organizations:CreateOrganizationalUnit,
@@ -78,10 +79,11 @@ servicecatalog:ListPrincipalsForPortfolio,
 servicecatalog:DeleteProvisioningArtifact,
 controltower:TagResource,
 controltower:ListTagsForResource,
-controltower:GetEnabledBaseline</pre>
+controltower:GetEnabledBaseline
+```
 
 ### Delete
-<pre>
+```json
 controltower:DisableBaseline,
 controltower:GetBaselineOperation,
 organizations:CreateOrganizationalUnit,
@@ -105,7 +107,8 @@ servicecatalog:SearchProductsAsAdmin,
 servicecatalog:UpdatePortfolio,
 servicecatalog:UpdateProvisioningArtifact,
 servicecatalog:ListPrincipalsForPortfolio,
-servicecatalog:DeleteProvisioningArtifact</pre>
+servicecatalog:DeleteProvisioningArtifact
+```
 
 
 ## Example

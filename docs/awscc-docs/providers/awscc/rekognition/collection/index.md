@@ -42,20 +42,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>collection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rekognition:DescribeCollection,
-rekognition:ListTagsForResource</pre>
+rekognition:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rekognition:TagResource,
 rekognition:UntagResource,
 rekognition:DescribeCollection,
-rekognition:ListTagsForResource</pre>
+rekognition:ListTagsForResource
+```
 
 ### Delete
-<pre>
-rekognition:DeleteCollection</pre>
+```json
+rekognition:DeleteCollection
+```
 
 
 ## Example

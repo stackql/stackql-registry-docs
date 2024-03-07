@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>deployment_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-codedeploy:CreateDeploymentConfig</pre>
+```json
+codedeploy:CreateDeploymentConfig
+```
 
 ### List
-<pre>
-codedeploy:ListDeploymentConfigs</pre>
+```json
+codedeploy:ListDeploymentConfigs
+```
 
 
 ## Example

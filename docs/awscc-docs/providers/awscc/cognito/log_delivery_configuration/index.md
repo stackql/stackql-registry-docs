@@ -42,11 +42,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>log_delivery_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cognito-idp:GetLogDeliveryConfiguration</pre>
+```json
+cognito-idp:GetLogDeliveryConfiguration
+```
 
 ### Update
-<pre>
+```json
 cognito-idp:GetLogDeliveryConfiguration,
 cognito-idp:SetLogDeliveryConfiguration,
 logs:CreateLogDelivery,
@@ -56,10 +57,11 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DescribeLogGroups</pre>
+logs:DescribeLogGroups
+```
 
 ### Delete
-<pre>
+```json
 cognito-idp:GetLogDeliveryConfiguration,
 cognito-idp:SetLogDeliveryConfiguration,
 logs:CreateLogDelivery,
@@ -69,7 +71,8 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DescribeLogGroups</pre>
+logs:DescribeLogGroups
+```
 
 
 ## Example

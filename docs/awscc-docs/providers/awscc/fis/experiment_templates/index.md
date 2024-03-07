@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>experiment_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 fis:CreateExperimentTemplate,
 fis:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 fis:ListExperimentTemplates,
-fis:ListTagsForResource</pre>
+fis:ListTagsForResource
+```
 
 
 ## Example

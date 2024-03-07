@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>notification_channels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 fms:PutNotificationChannel,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-fms:GetNotificationChannel</pre>
+```json
+fms:GetNotificationChannel
+```
 
 
 ## Example

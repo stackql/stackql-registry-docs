@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dedicated_ip_pools</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ses:CreateDedicatedIpPool,
 ses:GetDedicatedIpPool,
-ses:GetDedicatedIps</pre>
+ses:GetDedicatedIps
+```
 
 ### List
-<pre>
-ses:ListDedicatedIpPools</pre>
+```json
+ses:ListDedicatedIpPools
+```
 
 
 ## Example

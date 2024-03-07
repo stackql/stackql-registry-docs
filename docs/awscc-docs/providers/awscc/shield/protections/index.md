@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>protections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 shield:CreateProtection,
 shield:DeleteProtection,
 shield:DescribeProtection,
@@ -54,11 +54,13 @@ route53:GetHealthCheck,
 iam:GetRole,
 iam:CreateServiceLinkedRole,
 wafv2:GetWebACLForResource,
-wafv2:GetWebACL</pre>
+wafv2:GetWebACL
+```
 
 ### List
-<pre>
-shield:ListProtections</pre>
+```json
+shield:ListProtections
+```
 
 
 ## Example

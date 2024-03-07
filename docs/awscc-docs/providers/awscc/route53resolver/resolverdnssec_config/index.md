@@ -43,16 +43,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolverdnssec_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 resolverdnssec:GetConfig,
-route53resolver:ListResolverDnssecConfigs</pre>
+route53resolver:ListResolverDnssecConfigs
+```
 
 ### Delete
-<pre>
+```json
 resolverdnssec:DeleteConfig,
 route53resolver:UpdateResolverDnssecConfig,
 route53resolver:ListResolverDnssecConfigs,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 
 ## Example

@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>realtime_log_config</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteRealtimeLogConfig,
-cloudfront:GetRealtimeLogConfig</pre>
+cloudfront:GetRealtimeLogConfig
+```
 
 ### Read
-<pre>
-cloudfront:GetRealtimeLogConfig</pre>
+```json
+cloudfront:GetRealtimeLogConfig
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateRealtimeLogConfig,
 cloudfront:GetRealtimeLogConfig,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

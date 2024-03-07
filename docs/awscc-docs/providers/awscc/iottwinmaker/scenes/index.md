@@ -41,18 +41,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scenes</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iottwinmaker:CreateScene,
 iottwinmaker:GetScene,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
-iottwinmaker:TagResource</pre>
+iottwinmaker:TagResource
+```
 
 ### List
-<pre>
+```json
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
-iottwinmaker:ListScenes</pre>
+iottwinmaker:ListScenes
+```
 
 
 ## Example

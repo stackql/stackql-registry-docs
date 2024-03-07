@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>distributions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudfront:CreateDistribution,
 cloudfront:CreateDistributionWithTags,
 cloudfront:GetDistribution,
 cloudfront:GetDistributionConfig,
-cloudfront:TagResource</pre>
+cloudfront:TagResource
+```
 
 ### List
-<pre>
-cloudfront:ListDistributions</pre>
+```json
+cloudfront:ListDistributions
+```
 
 
 ## Example

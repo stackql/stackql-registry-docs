@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>accounts</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 organizations:CreateAccount,
 organizations:DescribeCreateAccountStatus,
 organizations:MoveAccount,
 organizations:ListParents,
 organizations:TagResource,
 organizations:DescribeAccount,
-organizations:ListTagsForResource</pre>
+organizations:ListTagsForResource
+```
 
 ### List
-<pre>
-organizations:ListAccounts</pre>
+```json
+organizations:ListAccounts
+```
 
 
 ## Example

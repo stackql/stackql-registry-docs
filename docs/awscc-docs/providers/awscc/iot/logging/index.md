@@ -42,19 +42,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>logging</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iot:GetV2LoggingOptions</pre>
+```json
+iot:GetV2LoggingOptions
+```
 
 ### Update
-<pre>
+```json
 iot:SetV2LoggingOptions,
 iot:GetV2LoggingOptions,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 iot:SetV2LoggingOptions,
-iot:GetV2LoggingOptions</pre>
+iot:GetV2LoggingOptions
+```
 
 
 ## Example

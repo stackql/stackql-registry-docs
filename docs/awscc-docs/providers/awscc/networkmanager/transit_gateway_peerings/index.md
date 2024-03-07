@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>transit_gateway_peerings</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:CreateTransitGatewayPeering,
 networkmanager:TagResource,
 networkmanager:GetTransitGatewayPeering,
 iam:CreateServiceLinkedRole,
 ec2:CreateTransitGatewayPeeringAttachment,
 ec2:AcceptTransitGatewayPeeringAttachment,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### List
-<pre>
-networkmanager:ListPeerings</pre>
+```json
+networkmanager:ListPeerings
+```
 
 
 ## Example

@@ -48,13 +48,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configured_table</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cleanrooms:GetConfiguredTable,
 cleanrooms:GetConfiguredTableAnalysisRule,
-cleanrooms:ListTagsForResource</pre>
+cleanrooms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 cleanrooms:UpdateConfiguredTable,
 cleanrooms:GetConfiguredTable,
 cleanrooms:CreateConfiguredTableAnalysisRule,
@@ -71,10 +72,11 @@ glue:GetTables,
 glue:GetPartition,
 glue:GetPartitions,
 glue:BatchGetPartition,
-glue:GetSchemaVersion</pre>
+glue:GetSchemaVersion
+```
 
 ### Delete
-<pre>
+```json
 cleanrooms:DeleteConfiguredTable,
 cleanrooms:GetConfiguredTable,
 cleanrooms:ListConfiguredTables,
@@ -89,7 +91,8 @@ glue:GetTables,
 glue:GetPartition,
 glue:GetPartitions,
 glue:BatchGetPartition,
-glue:GetSchemaVersion</pre>
+glue:GetSchemaVersion
+```
 
 
 ## Example

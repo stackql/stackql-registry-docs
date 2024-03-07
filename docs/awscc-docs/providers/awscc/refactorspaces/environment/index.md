@@ -46,12 +46,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 refactor-spaces:GetEnvironment,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 refactor-spaces:GetEnvironment,
 refactor-spaces:DeleteEnvironment,
 refactor-spaces:UntagResource,
@@ -61,7 +62,8 @@ ec2:DeleteTransitGateway,
 ec2:DeleteTransitGatewayVpcAttachment,
 ec2:DeleteTags,
 ram:GetResourceShareAssociations,
-ram:DeleteResourceShare</pre>
+ram:DeleteResourceShare
+```
 
 
 ## Example

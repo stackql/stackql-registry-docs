@@ -43,16 +43,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-elasticbeanstalk:DescribeApplicationVersions</pre>
+```json
+elasticbeanstalk:DescribeApplicationVersions
+```
 
 ### Update
-<pre>
-elasticbeanstalk:UpdateApplicationVersion</pre>
+```json
+elasticbeanstalk:UpdateApplicationVersion
+```
 
 ### Delete
-<pre>
-elasticbeanstalk:DeleteApplicationVersion</pre>
+```json
+elasticbeanstalk:DeleteApplicationVersion
+```
 
 
 ## Example

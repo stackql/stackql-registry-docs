@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>integration_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:DescribeInstance,
 ds:DescribeDirectories,
 app-integrations:CreateEventIntegrationAssociation,
@@ -71,13 +71,15 @@ app-integrations:GetApplication,
 iam:AttachRolePolicy,
 iam:CreateServiceLinkedRole,
 iam:GetRolePolicy,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 ### List
-<pre>
+```json
 connect:ListBots,
 connect:ListLambdaFunctions,
-connect:ListIntegrationAssociations</pre>
+connect:ListIntegrationAssociations
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateDomainConfiguration,
 iot:UpdateDomainConfiguration,
 iot:DescribeDomainConfiguration,
 iot:TagResource,
 iot:ListTagsForResource,
-acm:GetCertificate</pre>
+acm:GetCertificate
+```
 
 ### List
-<pre>
-iot:ListDomainConfigurations</pre>
+```json
+iot:ListDomainConfigurations
+```
 
 
 ## Example

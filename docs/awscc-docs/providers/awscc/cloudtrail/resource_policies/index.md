@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 CloudTrail:PutResourcePolicy,
-CloudTrail:GetResourcePolicy</pre>
+CloudTrail:GetResourcePolicy
+```
 
 
 ## Example

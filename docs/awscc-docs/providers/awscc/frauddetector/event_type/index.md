@@ -48,7 +48,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_type</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 frauddetector:BatchCreateVariable,
 frauddetector:BatchGetVariable,
 frauddetector:CreateVariable,
@@ -66,10 +66,11 @@ frauddetector:DeleteLabel,
 frauddetector:DeleteEntityType,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource,
-frauddetector:UntagResource</pre>
+frauddetector:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 frauddetector:BatchGetVariable,
 frauddetector:GetVariables,
 frauddetector:GetEventTypes,
@@ -79,16 +80,18 @@ frauddetector:DeleteEventType,
 frauddetector:DeleteVariable,
 frauddetector:DeleteLabel,
 frauddetector:DeleteEntityType,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 ### Read
-<pre>
+```json
 frauddetector:BatchGetVariable,
 frauddetector:GetVariables,
 frauddetector:GetEventTypes,
 frauddetector:GetLabels,
 frauddetector:GetEntityTypes,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 
 ## Example

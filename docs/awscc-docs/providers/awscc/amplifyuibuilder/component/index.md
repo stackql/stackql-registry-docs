@@ -56,24 +56,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>component</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 amplify:GetApp,
-amplifyuibuilder:GetComponent</pre>
+amplifyuibuilder:GetComponent
+```
 
 ### Update
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:GetComponent,
 amplifyuibuilder:TagResource,
 amplifyuibuilder:UntagResource,
-amplifyuibuilder:UpdateComponent</pre>
+amplifyuibuilder:UpdateComponent
+```
 
 ### Delete
-<pre>
+```json
 amplify:GetApp,
 amplifyuibuilder:DeleteComponent,
 amplifyuibuilder:GetComponent,
-amplifyuibuilder:UntagResource</pre>
+amplifyuibuilder:UntagResource
+```
 
 
 ## Example

@@ -58,19 +58,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-datazone:GetEnvironment</pre>
+```json
+datazone:GetEnvironment
+```
 
 ### Update
-<pre>
+```json
 datazone:UpdateEnvironment,
 datazone:GetEnvironment,
-datazone:DeleteEnvironment</pre>
+datazone:DeleteEnvironment
+```
 
 ### Delete
-<pre>
+```json
 datazone:DeleteEnvironment,
-datazone:GetEnvironment</pre>
+datazone:GetEnvironment
+```
 
 
 ## Example

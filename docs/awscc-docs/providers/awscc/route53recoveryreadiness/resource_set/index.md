@@ -44,24 +44,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53-recovery-readiness:GetResourceSet,
-route53-recovery-readiness:ListTagsForResources</pre>
+route53-recovery-readiness:ListTagsForResources
+```
 
 ### Update
-<pre>
+```json
 route53-recovery-readiness:UpdateResourceSet,
 route53-recovery-readiness:GetResourceSet,
 route53-recovery-readiness:GetRecoveryGroup,
 route53-recovery-readiness:GetCell,
 route53-recovery-readiness:ListTagsForResources,
 route53-recovery-readiness:TagResource,
-route53-recovery-readiness:UntagResource</pre>
+route53-recovery-readiness:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 route53-recovery-readiness:DeleteResourceSet,
-route53-recovery-readiness:GetResourceSet</pre>
+route53-recovery-readiness:GetResourceSet
+```
 
 
 ## Example

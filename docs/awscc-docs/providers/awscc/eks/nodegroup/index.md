@@ -59,16 +59,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>nodegroup</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-eks:DescribeNodegroup</pre>
+```json
+eks:DescribeNodegroup
+```
 
 ### Delete
-<pre>
+```json
 eks:DeleteNodegroup,
-eks:DescribeNodegroup</pre>
+eks:DescribeNodegroup
+```
 
 ### Update
-<pre>
+```json
 iam:GetRole,
 iam:PassRole,
 eks:DescribeNodegroup,
@@ -77,7 +79,8 @@ eks:ListUpdates,
 eks:TagResource,
 eks:UntagResource,
 eks:UpdateNodegroupConfig,
-eks:UpdateNodegroupVersion</pre>
+eks:UpdateNodegroupVersion
+```
 
 
 ## Example

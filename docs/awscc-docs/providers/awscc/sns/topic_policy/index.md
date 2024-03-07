@@ -42,12 +42,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic_policy</code> resource, the following permissions are required:
 
 ### Update
-<pre>
-sns:SetTopicAttributes</pre>
+```json
+sns:SetTopicAttributes
+```
 
 ### Delete
-<pre>
-sns:SetTopicAttributes</pre>
+```json
+sns:SetTopicAttributes
+```
 
 
 ## Example

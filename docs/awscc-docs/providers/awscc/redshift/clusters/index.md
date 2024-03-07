@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 iam:CreateServiceLinkedRole,
 redshift:DescribeClusters,
@@ -72,12 +72,14 @@ ec2:DescribeSecurityGroupRules,
 ec2:DescribeAvailabilityZones,
 ec2:DescribeNetworkAcls,
 ec2:DescribeRouteTables,
-cloudwatch:PutMetricData</pre>
+cloudwatch:PutMetricData
+```
 
 ### List
-<pre>
+```json
 redshift:DescribeTags,
-redshift:DescribeClusters</pre>
+redshift:DescribeClusters
+```
 
 
 ## Example

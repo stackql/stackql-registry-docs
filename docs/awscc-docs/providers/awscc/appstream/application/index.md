@@ -53,17 +53,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appstream:DescribeApplications</pre>
+```json
+appstream:DescribeApplications
+```
 
 ### Update
-<pre>
+```json
 appstream:UpdateApplication,
-s3:GetObject</pre>
+s3:GetObject
+```
 
 ### Delete
-<pre>
-appstream:DeleteApplication</pre>
+```json
+appstream:DeleteApplication
+```
 
 
 ## Example

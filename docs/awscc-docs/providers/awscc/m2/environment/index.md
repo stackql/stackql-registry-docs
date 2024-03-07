@@ -54,23 +54,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 m2:ListTagsForResource,
-m2:GetEnvironment</pre>
+m2:GetEnvironment
+```
 
 ### Update
-<pre>
+```json
 m2:TagResource,
 m2:UntagResource,
 m2:ListTagsForResource,
 m2:GetEnvironment,
-m2:UpdateEnvironment</pre>
+m2:UpdateEnvironment
+```
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DeleteLoadBalancer,
 m2:DeleteEnvironment,
-m2:GetEnvironment</pre>
+m2:GetEnvironment
+```
 
 
 ## Example

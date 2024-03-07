@@ -59,20 +59,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>job</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 databrew:DescribeJob,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 ### Update
-<pre>
+```json
 databrew:UpdateProfileJob,
 databrew:UpdateRecipeJob,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-databrew:DeleteJob</pre>
+```json
+databrew:DeleteJob
+```
 
 
 ## Example

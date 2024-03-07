@@ -52,23 +52,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>migration_project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 dms:DescribeMigrationProjects,
 dms:ListMigrationProjects,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 dms:UpdateMigrationProject,
 dms:ModifyMigrationProject,
 dms:AddTagsToResource,
 dms:RemoveTagsToResource,
 dms:ListTagsForResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-dms:DeleteMigrationProject</pre>
+```json
+dms:DeleteMigrationProject
+```
 
 
 ## Example

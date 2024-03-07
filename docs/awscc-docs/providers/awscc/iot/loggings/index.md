@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>loggings</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:SetV2LoggingOptions,
 iot:GetV2LoggingOptions,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-iot:GetV2LoggingOptions</pre>
+```json
+iot:GetV2LoggingOptions
+```
 
 
 ## Example

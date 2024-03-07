@@ -52,22 +52,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>source_api_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 appsync:GetSourceApiAssociation,
-appsync:ListSourceApiAssociations</pre>
+appsync:ListSourceApiAssociations
+```
 
 ### Update
-<pre>
+```json
 appsync:GetSourceApiAssociation,
 appsync:UpdateSourceApiAssociation,
-appsync:GetSourceApiAssociation</pre>
+appsync:GetSourceApiAssociation
+```
 
 ### Delete
-<pre>
+```json
 appsync:GetSourceApiAssociation,
 appsync:DisassociateSourceGraphqlApi,
 appsync:DisassociateMergedGraphqlApi,
-appsync:ListSourceApiAssociations</pre>
+appsync:ListSourceApiAssociations
+```
 
 
 ## Example

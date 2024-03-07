@@ -56,7 +56,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>canary</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 synthetics:UpdateCanary,
 synthetics:StartCanary,
 synthetics:StopCanary,
@@ -75,21 +75,24 @@ lambda:GetFunctionConfiguration,
 lambda:GetLayerVersionByArn,
 lambda:GetLayerVersion,
 lambda:PublishLayerVersion,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Read
-<pre>
+```json
 synthetics:GetCanary,
 synthetics:DescribeCanaries,
 synthetics:ListTagsForResource,
 iam:ListRoles,
 s3:ListAllMyBuckets,
-s3:GetBucketLocation</pre>
+s3:GetBucketLocation
+```
 
 ### Delete
-<pre>
+```json
 synthetics:DeleteCanary,
-synthetics:GetCanary</pre>
+synthetics:GetCanary
+```
 
 
 ## Example

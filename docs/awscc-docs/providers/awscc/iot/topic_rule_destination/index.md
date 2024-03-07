@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic_rule_destination</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iot:GetTopicRuleDestination</pre>
+```json
+iot:GetTopicRuleDestination
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 iot:GetTopicRuleDestination,
-iot:UpdateTopicRuleDestination</pre>
+iot:UpdateTopicRuleDestination
+```
 
 ### Delete
-<pre>
+```json
 iot:GetTopicRuleDestination,
-iot:DeleteTopicRuleDestination</pre>
+iot:DeleteTopicRuleDestination
+```
 
 
 ## Example

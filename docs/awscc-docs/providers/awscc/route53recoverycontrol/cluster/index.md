@@ -44,14 +44,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53-recovery-control-config:DescribeCluster,
-route53-recovery-control-config:ListTagsForResource</pre>
+route53-recovery-control-config:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 route53-recovery-control-config:DescribeCluster,
-route53-recovery-control-config:DeleteCluster</pre>
+route53-recovery-control-config:DeleteCluster
+```
 
 
 ## Example

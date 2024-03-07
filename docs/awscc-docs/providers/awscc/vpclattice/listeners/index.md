@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listeners</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 vpc-lattice:CreateListener,
 vpc-lattice:TagResource,
 vpc-lattice:GetListener,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### List
-<pre>
-vpc-lattice:ListListeners</pre>
+```json
+vpc-lattice:ListListeners
+```
 
 
 ## Example

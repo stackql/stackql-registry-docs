@@ -43,20 +43,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>plan</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ssm-contacts:GetContact</pre>
+```json
+ssm-contacts:GetContact
+```
 
 ### Update
-<pre>
+```json
 ssm-contacts:UpdateContact,
 ssm-contacts:GetContact,
-ssm-contacts:AssociateContact</pre>
+ssm-contacts:AssociateContact
+```
 
 ### Delete
-<pre>
+```json
 ssm-contacts:UpdateContact,
 ssm-contacts:GetContact,
-ssm-contacts:AssociateContact</pre>
+ssm-contacts:AssociateContact
+```
 
 
 ## Example

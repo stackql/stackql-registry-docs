@@ -43,23 +43,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_subnet_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rds:DescribeDBSubnetGroups,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rds:ModifyDBSubnetGroup,
 rds:DescribeDBSubnetGroups,
 rds:AddTagsToResource,
 rds:RemoveTagsFromResource,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 rds:DeleteDBSubnetGroup,
 rds:DescribeDBSubnetGroups,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 
 ## Example

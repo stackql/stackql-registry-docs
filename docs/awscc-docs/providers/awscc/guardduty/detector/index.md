@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>detector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-guardduty:GetDetector</pre>
+```json
+guardduty:GetDetector
+```
 
 ### Delete
-<pre>
+```json
 guardduty:ListDetectors,
 guardduty:DeleteDetector,
-guardduty:GetDetector</pre>
+guardduty:GetDetector
+```
 
 ### Update
-<pre>
+```json
 guardduty:UpdateDetector,
 guardduty:GetDetector,
 guardduty:ListDetectors,
 iam:CreateServiceLinkedRole,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 
 ## Example

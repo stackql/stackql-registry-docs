@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alerts</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lookoutmetrics:CreateAlert,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-lookoutmetrics:ListAlerts</pre>
+```json
+lookoutmetrics:ListAlerts
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cells</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53-recovery-readiness:CreateCell,
 route53-recovery-readiness:GetCell,
 route53-recovery-readiness:ListTagsForResources,
-route53-recovery-readiness:TagResource</pre>
+route53-recovery-readiness:TagResource
+```
 
 ### List
-<pre>
-route53-recovery-readiness:ListCells</pre>
+```json
+route53-recovery-readiness:ListCells
+```
 
 
 ## Example

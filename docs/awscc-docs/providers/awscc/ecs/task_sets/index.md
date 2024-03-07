@@ -42,10 +42,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecs:CreateTaskSet,
 ecs:DescribeTaskSets,
-ecs:TagResource</pre>
+ecs:TagResource
+```
 
 
 ## Example

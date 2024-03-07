@@ -43,21 +43,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>storage_lens_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 s3:GetStorageLensGroup,
-s3:ListTagsForResource</pre>
+s3:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 s3:GetStorageLensGroup,
 s3:UpdateStorageLensGroup,
 s3:TagResource,
 s3:UntagResource,
-s3:ListTagsForResource</pre>
+s3:ListTagsForResource
+```
 
 ### Delete
-<pre>
-s3:DeleteStorageLensGroup</pre>
+```json
+s3:DeleteStorageLensGroup
+```
 
 
 ## Example

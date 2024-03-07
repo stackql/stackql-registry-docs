@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_types</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 frauddetector:BatchCreateVariable,
 frauddetector:BatchGetVariable,
 frauddetector:CreateVariable,
@@ -52,16 +52,18 @@ frauddetector:GetEventTypes,
 frauddetector:GetLabels,
 frauddetector:GetEntityTypes,
 frauddetector:ListTagsForResource,
-frauddetector:TagResource</pre>
+frauddetector:TagResource
+```
 
 ### List
-<pre>
+```json
 frauddetector:BatchGetVariable,
 frauddetector:GetVariables,
 frauddetector:GetEventTypes,
 frauddetector:GetLabels,
 frauddetector:GetEntityTypes,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 
 ## Example

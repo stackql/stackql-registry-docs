@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>load_balancers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticloadbalancing:CreateLoadBalancer,
 elasticloadbalancing:DescribeLoadBalancers,
 elasticloadbalancing:ModifyLoadBalancerAttributes,
-elasticloadbalancing:AddTags</pre>
+elasticloadbalancing:AddTags
+```
 
 ### List
-<pre>
-elasticloadbalancing:DescribeLoadBalancers</pre>
+```json
+elasticloadbalancing:DescribeLoadBalancers
+```
 
 
 ## Example

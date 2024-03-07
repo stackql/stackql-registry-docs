@@ -42,14 +42,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subscription_targets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datazone:CreateSubscriptionTarget,
 datazone:GetSubscriptionTarget,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-datazone:ListSubscriptionTargets</pre>
+```json
+datazone:ListSubscriptionTargets
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>location_azure_blobs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datasync:CreateLocationAzureBlob,
 datasync:DescribeLocationAzureBlob,
 datasync:TagResource,
-datasync:ListTagsForResource</pre>
+datasync:ListTagsForResource
+```
 
 ### List
-<pre>
-datasync:ListLocations</pre>
+```json
+datasync:ListLocations
+```
 
 
 ## Example

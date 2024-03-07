@@ -44,17 +44,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>device_fleet</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sagemaker:DescribeDeviceFleet</pre>
+```json
+sagemaker:DescribeDeviceFleet
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateDeviceFleet,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-sagemaker:DeleteDeviceFleet</pre>
+```json
+sagemaker:DeleteDeviceFleet
+```
 
 
 ## Example

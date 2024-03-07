@@ -56,14 +56,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>namespace</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iam:PassRole,
 redshift-serverless:GetNamespace,
 redshift:GetResourcePolicy,
-redshift-serverless:ListSnapshotCopyConfigurations</pre>
+redshift-serverless:ListSnapshotCopyConfigurations
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 kms:TagResource,
 kms:UntagResource,
@@ -92,17 +93,19 @@ secretsmanager:TagResource,
 secretsmanager:RotateSecret,
 secretsmanager:DescribeSecret,
 secretsmanager:UpdateSecret,
-secretsmanager:DeleteSecret</pre>
+secretsmanager:DeleteSecret
+```
 
 ### Delete
-<pre>
+```json
 iam:PassRole,
 redshift-serverless:DeleteNamespace,
 redshift-serverless:GetNamespace,
 kms:RetireGrant,
 secretsmanager:DescribeSecret,
 secretsmanager:DeleteSecret,
-redshift:DeleteResourcePolicy</pre>
+redshift:DeleteResourcePolicy
+```
 
 
 ## Example

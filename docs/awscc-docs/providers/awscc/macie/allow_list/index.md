@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>allow_list</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-macie2:GetAllowList</pre>
+```json
+macie2:GetAllowList
+```
 
 ### Update
-<pre>
+```json
 macie2:UpdateAllowList,
 macie2:GetAllowList,
 macie2:TagResource,
-macie2:UntagResource</pre>
+macie2:UntagResource
+```
 
 ### Delete
-<pre>
-macie2:DeleteAllowList</pre>
+```json
+macie2:DeleteAllowList
+```
 
 
 ## Example

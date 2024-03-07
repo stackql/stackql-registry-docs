@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>matchmaking_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 gamelift:CreateMatchmakingConfiguration,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
-gamelift:DescribeMatchmakingConfigurations</pre>
+gamelift:DescribeMatchmakingConfigurations
+```
 
 ### List
-<pre>
-gamelift:DescribeMatchmakingConfigurations</pre>
+```json
+gamelift:DescribeMatchmakingConfigurations
+```
 
 
 ## Example

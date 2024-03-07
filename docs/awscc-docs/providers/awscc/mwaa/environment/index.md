@@ -67,18 +67,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-airflow:GetEnvironment</pre>
+```json
+airflow:GetEnvironment
+```
 
 ### Update
-<pre>
+```json
 airflow:UpdateEnvironment,
 airflow:TagResource,
-airflow:UntagResource</pre>
+airflow:UntagResource
+```
 
 ### Delete
-<pre>
-airflow:DeleteEnvironment</pre>
+```json
+airflow:DeleteEnvironment
+```
 
 
 ## Example

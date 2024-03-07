@@ -58,16 +58,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>table</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 dynamodb:DescribeTable,
 dynamodb:DescribeContinuousBackups,
 dynamodb:DescribeContributorInsights,
 dynamodb:DescribeKinesisStreamingDestination,
 dynamodb:ListTagsOfResource,
-dynamodb:GetResourcePolicy</pre>
+dynamodb:GetResourcePolicy
+```
 
 ### Update
-<pre>
+```json
 dynamodb:UpdateTable,
 dynamodb:DescribeTable,
 dynamodb:DescribeTimeToLive,
@@ -92,12 +93,14 @@ iam:CreateServiceLinkedRole,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:ListAliases,
-kms:RevokeGrant</pre>
+kms:RevokeGrant
+```
 
 ### Delete
-<pre>
+```json
 dynamodb:DeleteTable,
-dynamodb:DescribeTable</pre>
+dynamodb:DescribeTable
+```
 
 
 ## Example

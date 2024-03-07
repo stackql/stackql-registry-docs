@@ -49,25 +49,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>launch</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 evidently:GetLaunch,
-evidently:ListTagsForResource</pre>
+evidently:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 evidently:UpdateLaunch,
 evidently:ListTagsForResource,
 evidently:TagResource,
 evidently:UntagResource,
 evidently:GetLaunch,
 evidently:StartLaunch,
-evidently:StopLaunch</pre>
+evidently:StopLaunch
+```
 
 ### Delete
-<pre>
+```json
 evidently:DeleteLaunch,
 evidently:UntagResource,
-evidently:GetLaunch</pre>
+evidently:GetLaunch
+```
 
 
 ## Example

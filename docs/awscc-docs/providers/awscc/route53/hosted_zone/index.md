@@ -46,13 +46,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hosted_zone</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53:GetHostedZone,
 route53:ListTagsForResource,
-route53:ListQueryLoggingConfigs</pre>
+route53:ListQueryLoggingConfigs
+```
 
 ### Update
-<pre>
+```json
 route53:GetChange,
 route53:ListTagsForResource,
 route53:UpdateHostedZoneComment,
@@ -61,14 +62,16 @@ route53:AssociateVPCWithHostedZone,
 route53:DisassociateVPCFromHostedZone,
 route53:CreateQueryLoggingConfig,
 route53:DeleteQueryLoggingConfig,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### Delete
-<pre>
+```json
 route53:DeleteHostedZone,
 route53:DeleteQueryLoggingConfig,
 route53:ListQueryLoggingConfigs,
-route53:GetChange</pre>
+route53:GetChange
+```
 
 
 ## Example

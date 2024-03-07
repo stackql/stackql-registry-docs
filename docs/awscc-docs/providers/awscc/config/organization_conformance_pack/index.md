@@ -46,18 +46,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>organization_conformance_pack</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-config:DescribeOrganizationConformancePacks</pre>
+```json
+config:DescribeOrganizationConformancePacks
+```
 
 ### Delete
-<pre>
+```json
 config:DeleteOrganizationConformancePack,
 config:DescribeOrganizationConformancePackStatuses,
 config:GetOrganizationConformancePackDetailedStatus,
-organizations:ListDelegatedAdministrators</pre>
+organizations:ListDelegatedAdministrators
+```
 
 ### Update
-<pre>
+```json
 config:PutOrganizationConformancePack,
 config:DescribeOrganizationConformancePackStatuses,
 config:GetOrganizationConformancePackDetailedStatus,
@@ -66,7 +68,8 @@ s3:GetBucketAcl,
 iam:CreateServiceLinkedRole,
 iam:PassRole,
 organizations:ListDelegatedAdministrators,
-organizations:EnableAWSServiceAccess</pre>
+organizations:EnableAWSServiceAccess
+```
 
 
 ## Example

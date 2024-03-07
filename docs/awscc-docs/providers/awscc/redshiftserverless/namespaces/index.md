@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>namespaces</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 kms:TagResource,
 kms:UntagResource,
@@ -64,12 +64,14 @@ redshift:PutResourcePolicy,
 secretsmanager:CreateSecret,
 secretsmanager:TagResource,
 secretsmanager:RotateSecret,
-secretsmanager:DescribeSecret</pre>
+secretsmanager:DescribeSecret
+```
 
 ### List
-<pre>
+```json
 iam:PassRole,
-redshift-serverless:ListNamespaces</pre>
+redshift-serverless:ListNamespaces
+```
 
 
 ## Example

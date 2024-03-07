@@ -44,17 +44,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-aoss:GetSecurityConfig</pre>
+```json
+aoss:GetSecurityConfig
+```
 
 ### Update
-<pre>
+```json
 aoss:GetSecurityConfig,
-aoss:UpdateSecurityConfig</pre>
+aoss:UpdateSecurityConfig
+```
 
 ### Delete
-<pre>
-aoss:DeleteSecurityConfig</pre>
+```json
+aoss:DeleteSecurityConfig
+```
 
 
 ## Example

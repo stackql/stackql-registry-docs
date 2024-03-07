@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>users</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreateUser,
 connect:TagResource,
-connect:AssociateUserProficiencies</pre>
+connect:AssociateUserProficiencies
+```
 
 ### List
-<pre>
-connect:ListUsers</pre>
+```json
+connect:ListUsers
+```
 
 
 ## Example

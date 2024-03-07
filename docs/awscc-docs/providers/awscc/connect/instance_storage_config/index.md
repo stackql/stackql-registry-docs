@@ -47,16 +47,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_storage_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:DescribeInstanceStorageConfig,
 connect:ListInstanceStorageConfigs,
 connect:DescribeInstance,
 ds:DescribeDirectories,
 s3:GetBucketAcl,
-s3:GetBucketLocation</pre>
+s3:GetBucketLocation
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateInstanceStorageConfig,
 ds:DescribeDirectories,
 s3:GetBucketAcl,
@@ -66,15 +67,17 @@ iam:PutRolePolicy,
 kms:DescribeKey,
 kms:CreateGrant,
 kms:RetireGrant,
-firehose:DescribeDeliveryStream</pre>
+firehose:DescribeDeliveryStream
+```
 
 ### Delete
-<pre>
+```json
 connect:DisassociateInstanceStorageConfig,
 connect:DescribeInstance,
 s3:GetBucketAcl,
 s3:GetBucketLocation,
-kms:RetireGrant</pre>
+kms:RetireGrant
+```
 
 
 ## Example

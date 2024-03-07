@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_integrations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 app-integrations:CreateDataIntegration,
 app-integrations:TagResource,
 appflow:DescribeConnectorProfiles,
@@ -57,11 +57,13 @@ kms:ListGrants,
 kms:ListKeys,
 s3:GetBucketNotification,
 s3:PutBucketNotification,
-s3:GetEncryptionConfiguration</pre>
+s3:GetEncryptionConfiguration
+```
 
 ### List
-<pre>
-app-integrations:ListDataIntegrations</pre>
+```json
+app-integrations:ListDataIntegrations
+```
 
 
 ## Example

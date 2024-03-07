@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-rds:DescribeGlobalClusters</pre>
+```json
+rds:DescribeGlobalClusters
+```
 
 ### Update
-<pre>
+```json
 rds:ModifyGlobalCluster,
-rds:DescribeGlobalClusters</pre>
+rds:DescribeGlobalClusters
+```
 
 ### Delete
-<pre>
+```json
 rds:DescribeGlobalClusters,
 rds:DeleteGlobalCluster,
 rds:RemoveFromGlobalCluster,
-rds:DescribeDBClusters</pre>
+rds:DescribeDBClusters
+```
 
 
 ## Example

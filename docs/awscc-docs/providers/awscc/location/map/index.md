@@ -48,21 +48,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>map</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-geo:DescribeMap</pre>
+```json
+geo:DescribeMap
+```
 
 ### Update
-<pre>
+```json
 geo:CreateMap,
 geo:DescribeMap,
 geo:TagResource,
 geo:UntagResource,
-geo:UpdateMap</pre>
+geo:UpdateMap
+```
 
 ### Delete
-<pre>
+```json
 geo:DeleteMap,
-geo:DescribeMap</pre>
+geo:DescribeMap
+```
 
 
 ## Example

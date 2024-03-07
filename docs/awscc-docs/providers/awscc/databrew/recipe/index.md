@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>recipe</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 databrew:DescribeRecipe,
 databrew:ListTagsForResource,
-iam:ListRoles</pre>
+iam:ListRoles
+```
 
 ### Delete
-<pre>
-databrew:DeleteRecipeVersion</pre>
+```json
+databrew:DeleteRecipeVersion
+```
 
 ### Update
-<pre>
-databrew:UpdateRecipe</pre>
+```json
+databrew:UpdateRecipe
+```
 
 
 ## Example

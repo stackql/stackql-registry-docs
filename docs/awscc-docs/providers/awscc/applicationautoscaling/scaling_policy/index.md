@@ -48,18 +48,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scaling_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-application-autoscaling:DescribeScalingPolicies</pre>
+```json
+application-autoscaling:DescribeScalingPolicies
+```
 
 ### Update
-<pre>
+```json
 application-autoscaling:DescribeScalingPolicies,
-application-autoscaling:PutScalingPolicy</pre>
+application-autoscaling:PutScalingPolicy
+```
 
 ### Delete
-<pre>
+```json
 application-autoscaling:DescribeScalingPolicies,
-application-autoscaling:DeleteScalingPolicy</pre>
+application-autoscaling:DeleteScalingPolicy
+```
 
 
 ## Example

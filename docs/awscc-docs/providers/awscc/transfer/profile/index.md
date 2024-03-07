@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-transfer:DescribeProfile</pre>
+```json
+transfer:DescribeProfile
+```
 
 ### Update
-<pre>
+```json
 transfer:UpdateProfile,
 transfer:UnTagResource,
-transfer:TagResource</pre>
+transfer:TagResource
+```
 
 ### Delete
-<pre>
-transfer:DeleteProfile</pre>
+```json
+transfer:DeleteProfile
+```
 
 
 ## Example

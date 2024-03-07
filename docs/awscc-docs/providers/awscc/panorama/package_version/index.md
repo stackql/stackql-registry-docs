@@ -51,23 +51,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>package_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 panorama:DescribePackageVersion,
 s3:ListBucket,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### Update
-<pre>
+```json
 panorama:DescribePackageVersion,
 panorama:RegisterPackageVersion,
 s3:ListBucket,
 s3:PutObject,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### Delete
-<pre>
+```json
 panorama:DeregisterPackageVersion,
 panorama:DescribePackageVersion,
 s3:DeleteObject,
@@ -75,7 +77,8 @@ s3:DeleteObjectVersion,
 s3:DeleteObjectVersionTagging,
 s3:ListBucket,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 
 ## Example

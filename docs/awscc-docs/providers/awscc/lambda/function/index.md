@@ -66,12 +66,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>function</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lambda:GetFunction,
-lambda:GetFunctionCodeSigningConfig</pre>
+lambda:GetFunctionCodeSigningConfig
+```
 
 ### Update
-<pre>
+```json
 lambda:DeleteFunctionConcurrency,
 lambda:GetFunction,
 lambda:PutFunctionConcurrency,
@@ -101,13 +102,15 @@ lambda:AddPermission,
 lambda:RemovePermission,
 lambda:GetResourcePolicy,
 lambda:PutResourcePolicy,
-lambda:DeleteResourcePolicy</pre>
+lambda:DeleteResourcePolicy
+```
 
 ### Delete
-<pre>
+```json
 lambda:DeleteFunction,
 lambda:GetFunction,
-ec2:DescribeNetworkInterfaces</pre>
+ec2:DescribeNetworkInterfaces
+```
 
 
 ## Example

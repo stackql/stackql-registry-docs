@@ -48,23 +48,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>flywheel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 comprehend:DescribeFlywheel,
-comprehend:ListTagsForResource</pre>
+comprehend:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 comprehend:DescribeFlywheel,
 comprehend:UpdateFlywheel,
 comprehend:ListTagsForResource,
 comprehend:TagResource,
-comprehend:UntagResource</pre>
+comprehend:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 comprehend:DeleteFlywheel,
-comprehend:DescribeFlywheel</pre>
+comprehend:DescribeFlywheel
+```
 
 
 ## Example

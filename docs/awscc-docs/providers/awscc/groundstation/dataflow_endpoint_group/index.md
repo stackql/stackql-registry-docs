@@ -45,14 +45,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataflow_endpoint_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 groundstation:GetDataflowEndpointGroup,
-groundstation:ListTagsForResource</pre>
+groundstation:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 groundstation:DeleteDataflowEndpointGroup,
-groundstation:GetDataflowEndpointGroup</pre>
+groundstation:GetDataflowEndpointGroup
+```
 
 
 ## Example

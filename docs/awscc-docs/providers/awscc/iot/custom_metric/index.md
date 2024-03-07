@@ -44,21 +44,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>custom_metric</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeCustomMetric,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateCustomMetric,
 iot:ListTagsForResource,
 iot:UntagResource,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DescribeCustomMetric,
-iot:DeleteCustomMetric</pre>
+iot:DeleteCustomMetric
+```
 
 
 ## Example

@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>warm_pool</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 autoscaling:DeleteWarmPool,
-autoscaling:DescribeWarmPool</pre>
+autoscaling:DescribeWarmPool
+```
 
 ### Read
-<pre>
-autoscaling:DescribeWarmPool</pre>
+```json
+autoscaling:DescribeWarmPool
+```
 
 ### Update
-<pre>
+```json
 autoscaling:PutWarmPool,
 autoscaling:DescribeWarmPool,
-autoscaling:DescribeAutoScalingGroups</pre>
+autoscaling:DescribeAutoScalingGroups
+```
 
 
 ## Example

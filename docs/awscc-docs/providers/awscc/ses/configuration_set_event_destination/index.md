@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration_set_event_destination</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 ses:UpdateConfigurationSetEventDestination,
-ses:GetConfigurationSetEventDestinations</pre>
+ses:GetConfigurationSetEventDestinations
+```
 
 ### Delete
-<pre>
-ses:DeleteConfigurationSetEventDestination</pre>
+```json
+ses:DeleteConfigurationSetEventDestination
+```
 
 ### Read
-<pre>
+```json
 ses:GetConfigurationSetEventDestinations,
-ses:DescribeConfigurationSet</pre>
+ses:DescribeConfigurationSet
+```
 
 
 ## Example

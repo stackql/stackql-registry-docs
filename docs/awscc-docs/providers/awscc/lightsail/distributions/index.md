@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>distributions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:AttachCertificateToDistribution,
 lightsail:CreateDistribution,
 lightsail:DetachCertificateFromDistribution,
@@ -50,11 +50,13 @@ lightsail:GetDistributions,
 lightsail:TagResource,
 lightsail:UntagResource,
 lightsail:UpdateDistribution,
-lightsail:UpdateDistributionBundle</pre>
+lightsail:UpdateDistributionBundle
+```
 
 ### List
-<pre>
-lightsail:GetDistributions</pre>
+```json
+lightsail:GetDistributions
+```
 
 
 ## Example

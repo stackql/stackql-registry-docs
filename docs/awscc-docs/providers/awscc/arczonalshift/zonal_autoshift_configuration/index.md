@@ -42,21 +42,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>zonal_autoshift_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-arc-zonal-shift:GetManagedResource</pre>
+```json
+arc-zonal-shift:GetManagedResource
+```
 
 ### Update
-<pre>
+```json
 arc-zonal-shift:GetManagedResource,
 arc-zonal-shift:UpdatePracticeRunConfiguration,
 arc-zonal-shift:UpdateZonalAutoshiftConfiguration,
-cloudwatch:DescribeAlarms</pre>
+cloudwatch:DescribeAlarms
+```
 
 ### Delete
-<pre>
+```json
 arc-zonal-shift:DeletePracticeRunConfiguration,
 arc-zonal-shift:GetManagedResource,
-arc-zonal-shift:UpdateZonalAutoshiftConfiguration</pre>
+arc-zonal-shift:UpdateZonalAutoshiftConfiguration
+```
 
 
 ## Example

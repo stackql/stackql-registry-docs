@@ -53,19 +53,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stage</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 ### Update
-<pre>
+```json
 apigateway:GET,
 apigateway:PATCH,
 apigateway:PUT,
-apigateway:DELETE</pre>
+apigateway:DELETE
+```
 
 ### Delete
-<pre>
-apigateway:DELETE</pre>
+```json
+apigateway:DELETE
+```
 
 
 ## Example

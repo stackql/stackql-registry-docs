@@ -44,23 +44,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>public_repository</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ecr-public:DescribeRepositories,
 ecr-public:GetRepositoryPolicy,
 ecr-public:GetRepositoryCatalogData,
-ecr-public:ListTagsForResource</pre>
+ecr-public:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ecr-public:SetRepositoryPolicy,
 ecr-public:DeleteRepositoryPolicy,
 ecr-public:PutRepositoryCatalogData,
 ecr-public:TagResource,
-ecr-public:UntagResource</pre>
+ecr-public:UntagResource
+```
 
 ### Delete
-<pre>
-ecr-public:DeleteRepository</pre>
+```json
+ecr-public:DeleteRepository
+```
 
 
 ## Example

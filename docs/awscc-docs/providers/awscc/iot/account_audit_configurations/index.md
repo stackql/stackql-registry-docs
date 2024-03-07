@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account_audit_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:UpdateAccountAuditConfiguration,
 iot:DescribeAccountAuditConfiguration,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-iot:DescribeAccountAuditConfiguration</pre>
+```json
+iot:DescribeAccountAuditConfiguration
+```
 
 
 ## Example

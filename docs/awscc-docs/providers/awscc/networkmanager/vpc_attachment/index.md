@@ -56,24 +56,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_attachment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetVpcAttachment</pre>
+```json
+networkmanager:GetVpcAttachment
+```
 
 ### Update
-<pre>
+```json
 networkmanager:UpdateVpcAttachment,
 networkmanager:GetVpcAttachment,
 networkmanager:ListTagsForResource,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:DeleteAttachment,
 networkmanager:GetVpcAttachment,
 networkmanager:UntagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 
 ## Example

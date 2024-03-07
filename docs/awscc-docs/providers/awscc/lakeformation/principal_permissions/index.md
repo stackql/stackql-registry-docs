@@ -46,17 +46,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>principal_permissions</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lakeformation:ListPermissions,
 glue:GetTable,
-glue:GetDatabase</pre>
+glue:GetDatabase
+```
 
 ### Delete
-<pre>
+```json
 lakeformation:RevokePermissions,
 lakeformation:ListPermissions,
 glue:GetTable,
-glue:GetDatabase</pre>
+glue:GetDatabase
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateInstanceProfile,
 iam:PassRole,
 iam:AddRoleToInstanceProfile,
-iam:GetInstanceProfile</pre>
+iam:GetInstanceProfile
+```
 
 ### List
-<pre>
-iam:ListInstanceProfiles</pre>
+```json
+iam:ListInstanceProfiles
+```
 
 
 ## Example

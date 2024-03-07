@@ -41,27 +41,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>batch_scram_secret</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 kafka:BatchDisassociateScramSecret,
 kafka:ListScramSecrets,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Read
-<pre>
+```json
 kafka:ListScramSecrets,
 kms:CreateGrant,
 kms:DescribeKey,
-secretsmanager:GetSecretValue</pre>
+secretsmanager:GetSecretValue
+```
 
 ### Update
-<pre>
+```json
 kafka:BatchAssociateScramSecret,
 kafka:BatchDisassociateScramSecret,
 kafka:ListScramSecrets,
 kms:CreateGrant,
 kms:DescribeKey,
-secretsmanager:GetSecretValue</pre>
+secretsmanager:GetSecretValue
+```
 
 
 ## Example

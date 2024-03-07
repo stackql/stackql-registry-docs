@@ -40,10 +40,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>features</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 evidently:CreateFeature,
 evidently:TagResource,
-evidently:GetFeature</pre>
+evidently:GetFeature
+```
 
 
 ## Example

@@ -45,11 +45,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>link</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-oam:GetLink</pre>
+```json
+oam:GetLink
+```
 
 ### Update
-<pre>
+```json
 oam:GetLink,
 oam:UpdateLink,
 cloudwatch:Link,
@@ -57,12 +58,14 @@ logs:Link,
 xray:Link,
 applicationinsights:Link,
 oam:TagResource,
-oam:UntagResource</pre>
+oam:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 oam:DeleteLink,
-oam:GetLink</pre>
+oam:GetLink
+```
 
 
 ## Example

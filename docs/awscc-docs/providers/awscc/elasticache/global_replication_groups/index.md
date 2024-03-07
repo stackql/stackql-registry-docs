@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_replication_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticache:CreateGlobalReplicationGroup,
-elasticache:DescribeGlobalReplicationGroups</pre>
+elasticache:DescribeGlobalReplicationGroups
+```
 
 ### List
-<pre>
-elasticache:DescribeGlobalReplicationGroups</pre>
+```json
+elasticache:DescribeGlobalReplicationGroups
+```
 
 
 ## Example

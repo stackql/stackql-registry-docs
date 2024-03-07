@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_specific_loggings</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:ListV2LoggingLevels,
-iot:SetV2LoggingLevel</pre>
+iot:SetV2LoggingLevel
+```
 
 ### List
-<pre>
-iot:ListV2LoggingLevels</pre>
+```json
+iot:ListV2LoggingLevels
+```
 
 
 ## Example

@@ -49,21 +49,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>inference_scheduler</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lookoutequipment:DescribeInferenceScheduler</pre>
+```json
+lookoutequipment:DescribeInferenceScheduler
+```
 
 ### Delete
-<pre>
+```json
 lookoutequipment:DeleteInferenceScheduler,
 lookoutequipment:StopInferenceScheduler,
-lookoutequipment:DescribeInferenceScheduler</pre>
+lookoutequipment:DescribeInferenceScheduler
+```
 
 ### Update
-<pre>
+```json
 lookoutequipment:UpdateInferenceScheduler,
 lookoutequipment:DescribeInferenceScheduler,
 lookoutequipment:StopInferenceScheduler,
-lookoutequipment:StartInferenceScheduler</pre>
+lookoutequipment:StartInferenceScheduler
+```
 
 
 ## Example

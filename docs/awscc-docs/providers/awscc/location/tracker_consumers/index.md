@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tracker_consumers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 geo:AssociateTrackerConsumer,
-geo:ListTrackerConsumers</pre>
+geo:ListTrackerConsumers
+```
 
 ### List
-<pre>
-geo:ListTrackerConsumers</pre>
+```json
+geo:ListTrackerConsumers
+```
 
 
 ## Example

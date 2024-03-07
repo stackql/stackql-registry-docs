@@ -49,19 +49,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>config_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 config:DescribeConfigRules,
-config:DescribeComplianceByConfigRule</pre>
+config:DescribeComplianceByConfigRule
+```
 
 ### Delete
-<pre>
+```json
 config:DeleteConfigRule,
-config:DescribeConfigRules</pre>
+config:DescribeConfigRules
+```
 
 ### Update
-<pre>
+```json
 config:PutConfigRule,
-config:DescribeConfigRules</pre>
+config:DescribeConfigRules
+```
 
 
 ## Example

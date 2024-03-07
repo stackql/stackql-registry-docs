@@ -64,7 +64,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bucket</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 s3:GetAccelerateConfiguration,
 s3:GetLifecycleConfiguration,
 s3:GetBucketPublicAccessBlock,
@@ -83,10 +83,11 @@ s3:GetBucketObjectLockConfiguration,
 s3:GetBucketTagging,
 s3:GetBucketOwnershipControls,
 s3:GetIntelligentTieringConfiguration,
-s3:ListBucket</pre>
+s3:ListBucket
+```
 
 ### Update
-<pre>
+```json
 s3:PutBucketAcl,
 s3:PutBucketTagging,
 s3:PutAnalyticsConfiguration,
@@ -115,12 +116,14 @@ s3:DeleteBucketEncryption,
 s3:DeleteBucketLifecycle,
 s3:DeleteBucketReplication,
 iam:PassRole,
-s3:ListBucket</pre>
+s3:ListBucket
+```
 
 ### Delete
-<pre>
+```json
 s3:DeleteBucket,
-s3:ListBucket</pre>
+s3:ListBucket
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>source_locations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediatailor:CreateSourceLocation,
 mediatailor:DescribeSourceLocation,
 mediatailor:TagResource,
 secretsmanager:DescribeSecret,
 secretsmanager:GetSecretValue,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
-mediatailor:ListSourceLocations</pre>
+```json
+mediatailor:ListSourceLocations
+```
 
 
 ## Example

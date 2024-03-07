@@ -51,21 +51,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>email_identity</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ses:GetEmailIdentity</pre>
+```json
+ses:GetEmailIdentity
+```
 
 ### Update
-<pre>
+```json
 ses:PutEmailIdentityMailFromAttributes,
 ses:PutEmailIdentityFeedbackAttributes,
 ses:PutEmailIdentityConfigurationSetAttributes,
 ses:PutEmailIdentityDkimSigningAttributes,
 ses:PutEmailIdentityDkimAttributes,
-ses:GetEmailIdentity</pre>
+ses:GetEmailIdentity
+```
 
 ### Delete
-<pre>
-ses:DeleteEmailIdentity</pre>
+```json
+ses:DeleteEmailIdentity
+```
 
 
 ## Example

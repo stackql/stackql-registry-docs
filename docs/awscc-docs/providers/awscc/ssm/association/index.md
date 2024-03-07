@@ -57,21 +57,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>association</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
-ssm:DeleteAssociation</pre>
+```json
+ssm:DeleteAssociation
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 ssm:UpdateAssociation,
-ssm:GetCalendarState</pre>
+ssm:GetCalendarState
+```
 
 ### Read
-<pre>
+```json
 ssm:DescribeAssociation,
 resource-groups:GetGroupQuery,
 resource-groups:ListGroups,
-resource-groups:ListGroupResources</pre>
+resource-groups:ListGroupResources
+```
 
 
 ## Example

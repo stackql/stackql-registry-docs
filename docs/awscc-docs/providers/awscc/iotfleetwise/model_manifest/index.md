@@ -48,24 +48,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_manifest</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotfleetwise:GetModelManifest,
 iotfleetwise:ListModelManifestNodes,
-iotfleetwise:ListTagsForResource</pre>
+iotfleetwise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotfleetwise:UpdateModelManifest,
 iotfleetwise:GetModelManifest,
 iotfleetwise:ListModelManifestNodes,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:TagResource,
-iotfleetwise:UntagResource</pre>
+iotfleetwise:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 iotfleetwise:DeleteModelManifest,
-iotfleetwise:GetModelManifest</pre>
+iotfleetwise:GetModelManifest
+```
 
 
 ## Example

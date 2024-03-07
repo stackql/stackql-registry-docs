@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sampling_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 xray:GetSamplingRules,
-xray:ListTagsForResource</pre>
+xray:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 xray:UpdateSamplingRule,
 xray:TagResource,
 xray:UntagResource,
-xray:ListTagsForResource</pre>
+xray:ListTagsForResource
+```
 
 ### Delete
-<pre>
-xray:DeleteSamplingRule</pre>
+```json
+xray:DeleteSamplingRule
+```
 
 
 ## Example

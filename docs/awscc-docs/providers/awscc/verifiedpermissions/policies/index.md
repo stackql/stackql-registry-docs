@@ -41,18 +41,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 verifiedpermissions:CreatePolicy,
 verifiedpermissions:GetPolicy,
 verifiedpermissions:UpdatePolicy,
-verifiedpermissions:DeletePolicy</pre>
+verifiedpermissions:DeletePolicy
+```
 
 ### List
-<pre>
+```json
 verifiedpermissions:CreatePolicy,
 verifiedpermissions:GetPolicy,
 verifiedpermissions:UpdatePolicy,
-verifiedpermissions:DeletePolicy</pre>
+verifiedpermissions:DeletePolicy
+```
 
 
 ## Example

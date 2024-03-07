@@ -44,21 +44,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>matchmaking_rule_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 gamelift:DescribeMatchmakingRuleSets,
 gamelift:ValidateMatchmakingRuleSet,
-gamelift:ListTagsForResource</pre>
+gamelift:ListTagsForResource
+```
 
 ### Delete
-<pre>
-gamelift:DeleteMatchmakingRuleSet</pre>
+```json
+gamelift:DeleteMatchmakingRuleSet
+```
 
 ### Update
-<pre>
+```json
 gamelift:DescribeMatchmakingRuleSets,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
-gamelift:UntagResource</pre>
+gamelift:UntagResource
+```
 
 
 ## Example

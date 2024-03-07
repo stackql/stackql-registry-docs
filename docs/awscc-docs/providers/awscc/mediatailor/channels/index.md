@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediatailor:CreateChannel,
 mediatailor:TagResource,
 mediatailor:ConfigureLogsForChannel,
 iam:CreateServiceLinkedRole,
-mediatailor:DescribeChannel</pre>
+mediatailor:DescribeChannel
+```
 
 ### List
-<pre>
-mediatailor:ListChannels</pre>
+```json
+mediatailor:ListChannels
+```
 
 
 ## Example

@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>live_source</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediatailor:DescribeLiveSource</pre>
+```json
+mediatailor:DescribeLiveSource
+```
 
 ### Update
-<pre>
+```json
 mediatailor:UpdateLiveSource,
 mediatailor:DescribeLiveSource,
 mediatailor:TagResource,
-mediatailor:UntagResource</pre>
+mediatailor:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 mediatailor:DeleteLiveSource,
-mediatailor:DescribeLiveSource</pre>
+mediatailor:DescribeLiveSource
+```
 
 
 ## Example

@@ -40,8 +40,9 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connection_aliases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-workspaces:CreateConnectionAlias</pre>
+```json
+workspaces:CreateConnectionAlias
+```
 
 
 ## Example

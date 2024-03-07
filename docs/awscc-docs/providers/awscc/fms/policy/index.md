@@ -55,7 +55,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policy</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 fms:PutPolicy,
 fms:GetPolicy,
 fms:TagResource,
@@ -71,16 +71,19 @@ network-firewall:DescribeRuleGroupMetadata,
 route53resolver:ListFirewallRuleGroups,
 ec2:DescribeAvailabilityZones,
 s3:PutBucketPolicy,
-s3:GetBucketPolicy</pre>
+s3:GetBucketPolicy
+```
 
 ### Read
-<pre>
+```json
 fms:GetPolicy,
-fms:ListTagsForResource</pre>
+fms:ListTagsForResource
+```
 
 ### Delete
-<pre>
-fms:DeletePolicy</pre>
+```json
+fms:DeletePolicy
+```
 
 
 ## Example

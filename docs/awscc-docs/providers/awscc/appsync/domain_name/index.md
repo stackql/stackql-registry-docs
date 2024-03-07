@@ -44,17 +44,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain_name</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 appsync:GetDomainName,
-appsync:DeleteDomainName</pre>
+appsync:DeleteDomainName
+```
 
 ### Update
-<pre>
-appsync:UpdateDomainName</pre>
+```json
+appsync:UpdateDomainName
+```
 
 ### Read
-<pre>
-appsync:GetDomainName</pre>
+```json
+appsync:GetDomainName
+```
 
 
 ## Example

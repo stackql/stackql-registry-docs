@@ -42,19 +42,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>activity</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 states:DescribeActivity,
-states:ListTagsForResource</pre>
+states:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 states:ListTagsForResource,
 states:TagResource,
-states:UntagResource</pre>
+states:UntagResource
+```
 
 ### Delete
-<pre>
-states:DeleteActivity</pre>
+```json
+states:DeleteActivity
+```
 
 
 ## Example

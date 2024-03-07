@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>api_keys</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 geo:CreateKey,
 geo:DescribeKey,
 geo:TagResource,
@@ -54,11 +54,13 @@ geo:SearchPlaceIndexForPosition,
 geo:SearchPlaceIndexForSuggestions,
 geo:GetPlace,
 geo:CalculateRoute,
-geo:CalculateRouteMatrix</pre>
+geo:CalculateRouteMatrix
+```
 
 ### List
-<pre>
-geo:ListKeys</pre>
+```json
+geo:ListKeys
+```
 
 
 ## Example

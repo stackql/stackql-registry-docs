@@ -46,21 +46,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>delivery_source</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 logs:GetDeliverySource,
-logs:ListTagsForResource</pre>
+logs:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 logs:PutDeliverySource,
 logs:GetDeliverySource,
 logs:ListTagsForResource,
 logs:TagResource,
-logs:UntagResource</pre>
+logs:UntagResource
+```
 
 ### Delete
-<pre>
-logs:DeleteDeliverySource</pre>
+```json
+logs:DeleteDeliverySource
+```
 
 
 ## Example

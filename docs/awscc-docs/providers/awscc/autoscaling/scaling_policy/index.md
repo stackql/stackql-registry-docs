@@ -52,19 +52,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scaling_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-autoscaling:DescribePolicies</pre>
+```json
+autoscaling:DescribePolicies
+```
 
 ### Update
-<pre>
+```json
 autoscaling:DescribePolicies,
 autoscaling:PutScalingPolicy,
-cloudwatch:GetMetricData</pre>
+cloudwatch:GetMetricData
+```
 
 ### Delete
-<pre>
+```json
 autoscaling:DeletePolicy,
-autoscaling:DescribePolicies</pre>
+autoscaling:DescribePolicies
+```
 
 
 ## Example

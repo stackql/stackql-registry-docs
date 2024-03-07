@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bridges</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediaconnect:CreateBridge,
-mediaconnect:DescribeBridge</pre>
+mediaconnect:DescribeBridge
+```
 
 ### List
-<pre>
-mediaconnect:ListBridges</pre>
+```json
+mediaconnect:ListBridges
+```
 
 
 ## Example

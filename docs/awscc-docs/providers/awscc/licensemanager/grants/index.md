@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>grants</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-license-manager:CreateGrant</pre>
+```json
+license-manager:CreateGrant
+```
 
 ### List
-<pre>
-license-manager:ListDistributedGrants</pre>
+```json
+license-manager:ListDistributedGrants
+```
 
 
 ## Example

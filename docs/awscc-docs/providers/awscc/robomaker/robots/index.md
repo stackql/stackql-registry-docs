@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>robots</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 robomaker:CreateRobot,
-robomaker:RegisterRobot</pre>
+robomaker:RegisterRobot
+```
 
 ### List
-<pre>
-robomaker:ListRobots</pre>
+```json
+robomaker:ListRobots
+```
 
 
 ## Example

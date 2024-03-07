@@ -53,22 +53,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fleet_metric</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeFleetMetric,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateFleetMetric,
 iot:DescribeFleetMetric,
 iot:ListTagsForResource,
 iot:UntagResource,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DeleteFleetMetric,
-iot:DescribeFleetMetric</pre>
+iot:DescribeFleetMetric
+```
 
 
 ## Example

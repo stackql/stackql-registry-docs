@@ -46,22 +46,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ses:GetConfigurationSet,
-ses:DescribeConfigurationSet</pre>
+ses:DescribeConfigurationSet
+```
 
 ### Update
-<pre>
+```json
 ses:PutConfigurationSetTrackingOptions,
 ses:PutConfigurationSetDeliveryOptions,
 ses:PutConfigurationSetReputationOptions,
 ses:PutConfigurationSetSendingOptions,
 ses:PutConfigurationSetSuppressionOptions,
-ses:PutConfigurationSetVdmOptions</pre>
+ses:PutConfigurationSetVdmOptions
+```
 
 ### Delete
-<pre>
-ses:DeleteConfigurationSet</pre>
+```json
+ses:DeleteConfigurationSet
+```
 
 
 ## Example

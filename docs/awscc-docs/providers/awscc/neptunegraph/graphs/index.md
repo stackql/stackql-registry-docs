@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>graphs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 neptune-graph:CreateGraph,
 neptune-graph:GetGraph,
@@ -49,15 +49,17 @@ neptune-graph:TagResource,
 kms:DescribeKey,
 kms:CreateGrant,
 kms:Decrypt,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
+```json
 neptune-graph:GetGraph,
 neptune-graph:ListGraphs,
 kms:DescribeKey,
 kms:CreateGrant,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

@@ -45,23 +45,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>network_settings</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 workspaces-web:GetNetworkSettings,
-workspaces-web:ListTagsForResource</pre>
+workspaces-web:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 workspaces-web:UpdateNetworkSettings,
 workspaces-web:UpdateResource,
 workspaces-web:TagResource,
 workspaces-web:UntagResource,
 workspaces-web:GetNetworkSettings,
-workspaces-web:ListTagsForResource</pre>
+workspaces-web:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 workspaces-web:GetNetworkSettings,
-workspaces-web:DeleteNetworkSettings</pre>
+workspaces-web:DeleteNetworkSettings
+```
 
 
 ## Example

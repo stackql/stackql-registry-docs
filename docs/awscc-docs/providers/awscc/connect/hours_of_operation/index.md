@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hours_of_operation</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeHoursOfOperation</pre>
+```json
+connect:DescribeHoursOfOperation
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteHoursOfOperation,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateHoursOfOperation,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

@@ -44,29 +44,32 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_link</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 apigateway:PATCH,
 apigateway:GET,
 apigateway:TagResource,
 apigateway:unTagResource,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 ### Read
-<pre>
+```json
 apigateway:GET,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 ### Delete
-<pre>
+```json
 apigateway:GET,
 apigateway:DELETE,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 
 ## Example

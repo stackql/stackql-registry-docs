@@ -59,22 +59,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>studio</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticmapreduce:DescribeStudio,
-sso:GetManagedApplicationInstance</pre>
+sso:GetManagedApplicationInstance
+```
 
 ### Update
-<pre>
+```json
 elasticmapreduce:UpdateStudio,
 elasticmapreduce:DescribeStudio,
 elasticmapreduce:AddTags,
-elasticmapreduce:RemoveTags</pre>
+elasticmapreduce:RemoveTags
+```
 
 ### Delete
-<pre>
+```json
 elasticmapreduce:DeleteStudio,
 elasticmapreduce:DescribeStudio,
-sso:DeleteManagedApplicationInstance</pre>
+sso:DeleteManagedApplicationInstance
+```
 
 
 ## Example

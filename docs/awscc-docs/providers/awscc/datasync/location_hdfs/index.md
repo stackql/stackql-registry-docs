@@ -54,21 +54,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>location_hdfs</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 datasync:DescribeLocationHdfs,
-datasync:ListTagsForResource</pre>
+datasync:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 datasync:UpdateLocationHdfs,
 datasync:DescribeLocationHdfs,
 datasync:ListTagsForResource,
 datasync:TagResource,
-datasync:UntagResource</pre>
+datasync:UntagResource
+```
 
 ### Delete
-<pre>
-datasync:DeleteLocation</pre>
+```json
+datasync:DeleteLocation
+```
 
 
 ## Example

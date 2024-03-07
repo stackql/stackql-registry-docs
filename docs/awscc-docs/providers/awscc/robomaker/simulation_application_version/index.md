@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>simulation_application_version</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 robomaker:DeleteSimulationApplication,
-robomaker:DescribeSimulationApplication</pre>
+robomaker:DescribeSimulationApplication
+```
 
 ### Read
-<pre>
-robomaker:DescribeSimulationApplication</pre>
+```json
+robomaker:DescribeSimulationApplication
+```
 
 
 ## Example

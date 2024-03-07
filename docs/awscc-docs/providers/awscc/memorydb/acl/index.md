@@ -44,23 +44,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>acl</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 memorydb:DescribeACLs,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### Update
-<pre>
+```json
 memorydb:UpdateACL,
 memorydb:DescribeACLs,
 memorydb:ListTags,
 memorydb:TagResource,
-memorydb:UntagResource</pre>
+memorydb:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 memorydb:ModifyReplicationGroup,
 memorydb:DeleteACL,
-memorydb:DescribeACLs</pre>
+memorydb:DescribeACLs
+```
 
 
 ## Example

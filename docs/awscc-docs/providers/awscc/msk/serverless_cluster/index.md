@@ -44,14 +44,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>serverless_cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-kafka:DescribeClusterV2</pre>
+```json
+kafka:DescribeClusterV2
+```
 
 ### Delete
-<pre>
+```json
 kafka:DeleteCluster,
 kafka:DescribeClusterV2,
-ec2:DeleteVpcEndpoints</pre>
+ec2:DeleteVpcEndpoints
+```
 
 
 ## Example

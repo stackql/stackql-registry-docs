@@ -48,24 +48,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alarm_model</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotevents:DescribeAlarmModel,
-iotevents:ListTagsForResource</pre>
+iotevents:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotevents:UpdateAlarmModel,
 iotevents:UpdateInputRouting,
 iotevents:DescribeAlarmModel,
 iotevents:ListTagsForResource,
 iotevents:UntagResource,
 iotevents:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 iotevents:DeleteAlarmModel,
-iotevents:DescribeAlarmModel</pre>
+iotevents:DescribeAlarmModel
+```
 
 
 ## Example

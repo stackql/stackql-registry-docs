@@ -45,24 +45,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>firewall_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 network-firewall:DescribeFirewallPolicy,
-network-firewall:ListTagsForResources</pre>
+network-firewall:ListTagsForResources
+```
 
 ### Update
-<pre>
+```json
 network-firewall:UpdateFirewallPolicy,
 network-firewall:DescribeFirewallPolicy,
 network-firewall:TagResource,
 network-firewall:UntagResource,
 network-firewall:ListRuleGroups,
-network-firewall:ListTLSInspectionConfigurations</pre>
+network-firewall:ListTLSInspectionConfigurations
+```
 
 ### Delete
-<pre>
+```json
 network-firewall:DeleteFirewallPolicy,
 network-firewall:DescribeFirewallPolicy,
-network-firewall:UntagResource</pre>
+network-firewall:UntagResource
+```
 
 
 ## Example

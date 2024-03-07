@@ -57,16 +57,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trail</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 CloudTrail:GetTrail,
 CloudTrail:GetTrailStatus,
 CloudTrail:ListTags,
 CloudTrail:GetEventSelectors,
 CloudTrail:GetInsightSelectors,
-CloudTrail:DescribeTrails</pre>
+CloudTrail:DescribeTrails
+```
 
 ### Update
-<pre>
+```json
 CloudTrail:UpdateTrail,
 CloudTrail:StartLogging,
 CloudTrail:StopLogging,
@@ -80,11 +81,13 @@ iam:CreateServiceLinkedRole,
 organizations:DescribeOrganization,
 organizations:ListAWSServiceAccessForOrganization,
 CloudTrail:GetTrail,
-CloudTrail:DescribeTrails</pre>
+CloudTrail:DescribeTrails
+```
 
 ### Delete
-<pre>
-CloudTrail:DeleteTrail</pre>
+```json
+CloudTrail:DeleteTrail
+```
 
 
 ## Example

@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>users</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 memorydb:CreateUser,
 memorydb:DescribeUsers,
 memorydb:TagResource,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### List
-<pre>
+```json
 memorydb:DescribeUsers,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 
 ## Example

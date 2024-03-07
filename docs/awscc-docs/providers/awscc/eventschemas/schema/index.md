@@ -49,22 +49,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schema</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-schemas:DescribeSchema</pre>
+```json
+schemas:DescribeSchema
+```
 
 ### Update
-<pre>
+```json
 schemas:DescribeSchema,
 schemas:UpdateSchema,
 schemas:TagResource,
 schemas:UntagResource,
-schemas:ListTagsForResource</pre>
+schemas:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 schemas:DescribeSchema,
 schemas:DeleteSchema,
-schemas:DeleteSchemaVersion</pre>
+schemas:DeleteSchemaVersion
+```
 
 
 ## Example

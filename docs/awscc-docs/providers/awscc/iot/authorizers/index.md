@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>authorizers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateAuthorizer,
 iot:DescribeAuthorizer,
 iot:TagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### List
-<pre>
-iot:ListAuthorizers</pre>
+```json
+iot:ListAuthorizers
+```
 
 
 ## Example

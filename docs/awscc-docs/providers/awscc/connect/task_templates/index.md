@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreateTaskTemplate,
-connect:TagResource</pre>
+connect:TagResource
+```
 
 ### List
-<pre>
-connect:ListTaskTemplates</pre>
+```json
+connect:ListTaskTemplates
+```
 
 
 ## Example

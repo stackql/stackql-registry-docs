@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subscription_filters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 logs:PutSubscriptionFilter,
-logs:DescribeSubscriptionFilters</pre>
+logs:DescribeSubscriptionFilters
+```
 
 ### List
-<pre>
-logs:DescribeSubscriptionFilters</pre>
+```json
+logs:DescribeSubscriptionFilters
+```
 
 
 ## Example

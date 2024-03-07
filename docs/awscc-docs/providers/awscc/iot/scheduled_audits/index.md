@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduled_audits</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateScheduledAudit,
 iot:DescribeScheduledAudit,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### List
-<pre>
-iot:ListScheduledAudits</pre>
+```json
+iot:ListScheduledAudits
+```
 
 
 ## Example

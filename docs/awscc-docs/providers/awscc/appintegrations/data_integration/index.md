@@ -49,12 +49,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_integration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 app-integrations:GetDataIntegration,
-app-integrations:ListTagsForResource</pre>
+app-integrations:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 app-integrations:GetDataIntegration,
 app-integrations:UpdateDataIntegration,
 app-integrations:TagResource,
@@ -69,10 +70,11 @@ kms:CreateGrant,
 kms:DescribeKey,
 kms:ListAliases,
 kms:ListGrants,
-kms:ListKeys</pre>
+kms:ListKeys
+```
 
 ### Delete
-<pre>
+```json
 app-integrations:DeleteDataIntegration,
 app-integrations:UntagResource,
 appflow:CreateFlow,
@@ -85,7 +87,8 @@ kms:CreateGrant,
 kms:DescribeKey,
 kms:ListAliases,
 kms:ListGrants,
-kms:ListKeys</pre>
+kms:ListKeys
+```
 
 
 ## Example

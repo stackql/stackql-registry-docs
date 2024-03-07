@@ -43,16 +43,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tag_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lakeformation:GetResourceLFTags,
 glue:GetDatabase,
-glue:GetTable</pre>
+glue:GetTable
+```
 
 ### Delete
-<pre>
+```json
 lakeformation:RemoveLFTagsFromResource,
 glue:GetDatabase,
-glue:GetTable</pre>
+glue:GetTable
+```
 
 
 ## Example

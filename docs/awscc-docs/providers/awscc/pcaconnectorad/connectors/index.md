@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connectors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 acm-pca:DescribeCertificateAuthority,
 acm-pca:GetCertificateAuthorityCertificate,
 acm-pca:GetCertificate,
@@ -50,11 +50,13 @@ ec2:CreateTags,
 ec2:CreateVpcEndpoint,
 ec2:DescribeVpcEndpoints,
 pca-connector-ad:CreateConnector,
-pca-connector-ad:GetConnector</pre>
+pca-connector-ad:GetConnector
+```
 
 ### List
-<pre>
-pca-connector-ad:ListConnectors</pre>
+```json
+pca-connector-ad:ListConnectors
+```
 
 
 ## Example

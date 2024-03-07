@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schedule_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 scheduler:GetScheduleGroup,
-scheduler:ListTagsForResource</pre>
+scheduler:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 scheduler:TagResource,
 scheduler:UntagResource,
 scheduler:ListTagsForResource,
-scheduler:GetScheduleGroup</pre>
+scheduler:GetScheduleGroup
+```
 
 ### Delete
-<pre>
+```json
 scheduler:DeleteScheduleGroup,
 scheduler:GetScheduleGroup,
-scheduler:DeleteSchedule</pre>
+scheduler:DeleteSchedule
+```
 
 
 ## Example

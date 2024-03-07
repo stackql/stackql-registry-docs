@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster_parameter_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 redshift:CreateClusterParameterGroup,
 redshift:ModifyClusterParameterGroup,
 redshift:DescribeClusterParameterGroups,
@@ -56,14 +56,16 @@ ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### List
-<pre>
+```json
 redshift:DescribeTags,
 redshift:DescribeClusterParameterGroups,
 redshift:DescribeClusterParameters,
-initech:ListReports</pre>
+initech:ListReports
+```
 
 
 ## Example

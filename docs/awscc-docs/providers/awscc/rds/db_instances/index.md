@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_instances</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
@@ -70,11 +70,13 @@ rds:RestoreDBInstanceFromDBSnapshot,
 rds:RestoreDBInstanceToPointInTime,
 rds:StartDBInstanceAutomatedBackupsReplication,
 secretsmanager:CreateSecret,
-secretsmanager:TagResource</pre>
+secretsmanager:TagResource
+```
 
 ### List
-<pre>
-rds:DescribeDBInstances</pre>
+```json
+rds:DescribeDBInstances
+```
 
 
 ## Example

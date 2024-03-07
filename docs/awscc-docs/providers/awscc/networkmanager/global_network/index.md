@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_network</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:DescribeGlobalNetworks</pre>
+```json
+networkmanager:DescribeGlobalNetworks
+```
 
 ### Update
-<pre>
+```json
 networkmanager:UpdateGlobalNetwork,
 networkmanager:DescribeGlobalNetworks,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-networkmanager:ListTagsForResource</pre>
+networkmanager:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:DeleteGlobalNetwork,
-networkmanager:DescribeGlobalNetworks</pre>
+networkmanager:DescribeGlobalNetworks
+```
 
 
 ## Example

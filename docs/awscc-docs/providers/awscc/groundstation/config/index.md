@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 groundstation:GetConfig,
-groundstation:ListTagsForResource</pre>
+groundstation:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 groundstation:UpdateConfig,
 groundstation:ListTagsForResource,
 groundstation:TagResource,
 groundstation:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-groundstation:DeleteConfig</pre>
+```json
+groundstation:DeleteConfig
+```
 
 
 ## Example

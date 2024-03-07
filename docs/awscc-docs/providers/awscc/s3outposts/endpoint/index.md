@@ -51,12 +51,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoint</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-s3-outposts:ListEndpoints</pre>
+```json
+s3-outposts:ListEndpoints
+```
 
 ### Delete
-<pre>
-s3-outposts:DeleteEndpoint</pre>
+```json
+s3-outposts:DeleteEndpoint
+```
 
 
 ## Example

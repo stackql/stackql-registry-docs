@@ -49,14 +49,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workflow</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-imagebuilder:GetWorkflow</pre>
+```json
+imagebuilder:GetWorkflow
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:GetWorkflow,
 imagebuilder:UnTagResource,
-imagebuilder:DeleteWorkflow</pre>
+imagebuilder:DeleteWorkflow
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>variant_stores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 omics:CreateVariantStore,
 omics:TagResource,
 kms:DescribeKey,
@@ -48,11 +48,13 @@ kms:GenerateDataKey,
 kms:CreateGrant,
 ram:AcceptResourceShareInvitation,
 ram:GetResourceShareInvitations,
-omics:GetVariantStore</pre>
+omics:GetVariantStore
+```
 
 ### List
-<pre>
-omics:ListVariantStores</pre>
+```json
+omics:ListVariantStores
+```
 
 
 ## Example

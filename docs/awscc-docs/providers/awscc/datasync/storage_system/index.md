@@ -49,27 +49,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>storage_system</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 datasync:DescribeStorageSystem,
 datasync:ListTagsForResource,
-secretsmanager:DescribeSecret</pre>
+secretsmanager:DescribeSecret
+```
 
 ### Update
-<pre>
+```json
 datasync:UpdateStorageSystem,
 datasync:DescribeStorageSystem,
 datasync:ListTagsForResource,
 datasync:TagResource,
 datasync:UntagResource,
 secretsmanager:DescribeSecret,
-secretsmanager:PutSecretValue</pre>
+secretsmanager:PutSecretValue
+```
 
 ### Delete
-<pre>
+```json
 datasync:DescribeStorageSystem,
 datasync:RemoveStorageSystem,
 secretsmanager:DescribeSecret,
-secretsmanager:DeleteSecret</pre>
+secretsmanager:DeleteSecret
+```
 
 
 ## Example

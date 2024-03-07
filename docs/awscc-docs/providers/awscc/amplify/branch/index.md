@@ -54,26 +54,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>branch</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 amplify:GetBranch,
 amplify:DeleteBranch,
 codecommit:GetRepository,
 codecommit:GetRepositoryTriggers,
 sns:Unsubscribe,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Read
-<pre>
+```json
 amplify:GetBranch,
 amplify:ListTagsForResource,
 codecommit:GetRepository,
 codecommit:GetRepositoryTriggers,
 s3:GetObject,
 s3:GetObjectAcl,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Update
-<pre>
+```json
 amplify:GetBranch,
 amplify:UpdateBranch,
 amplify:ListTagsForResource,
@@ -89,7 +91,8 @@ s3:PutObjectAcl,
 sns:CreateTopic,
 sns:Subscribe,
 sns:Unsubscribe,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

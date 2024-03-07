@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>infrastructure_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 iam:GetRole,
 iam:GetInstanceProfile,
@@ -48,11 +48,13 @@ iam:CreateServiceLinkedRole,
 sns:Publish,
 imagebuilder:TagResource,
 imagebuilder:GetInfrastructureConfiguration,
-imagebuilder:CreateInfrastructureConfiguration</pre>
+imagebuilder:CreateInfrastructureConfiguration
+```
 
 ### List
-<pre>
-imagebuilder:ListInfrastructureConfigurations</pre>
+```json
+imagebuilder:ListInfrastructureConfigurations
+```
 
 
 ## Example

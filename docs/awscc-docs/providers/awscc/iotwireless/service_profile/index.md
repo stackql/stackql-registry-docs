@@ -44,13 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetServiceProfile,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Delete
-<pre>
-iotwireless:DeleteServiceProfile</pre>
+```json
+iotwireless:DeleteServiceProfile
+```
 
 
 ## Example

@@ -44,21 +44,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_point</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 s3-outposts:GetAccessPoint,
-s3-outposts:GetAccessPointPolicy</pre>
+s3-outposts:GetAccessPointPolicy
+```
 
 ### Update
-<pre>
+```json
 s3-outposts:GetAccessPoint,
 s3-outposts:PutAccessPointPolicy,
 s3-outposts:GetAccessPointPolicy,
-s3-outposts:DeleteAccessPointPolicy</pre>
+s3-outposts:DeleteAccessPointPolicy
+```
 
 ### Delete
-<pre>
+```json
 s3-outposts:DeleteAccessPoint,
-s3-outposts:DeleteAccessPointPolicy</pre>
+s3-outposts:DeleteAccessPointPolicy
+```
 
 
 ## Example

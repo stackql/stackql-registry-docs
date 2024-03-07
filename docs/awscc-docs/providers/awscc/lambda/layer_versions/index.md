@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>layer_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lambda:PublishLayerVersion,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### List
-<pre>
-lambda:ListLayerVersions</pre>
+```json
+lambda:ListLayerVersions
+```
 
 
 ## Example

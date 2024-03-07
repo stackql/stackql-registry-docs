@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateImageVersion,
-sagemaker:DescribeImageVersion</pre>
+sagemaker:DescribeImageVersion
+```
 
 ### List
-<pre>
-sagemaker:ListImageVersions</pre>
+```json
+sagemaker:ListImageVersions
+```
 
 
 ## Example

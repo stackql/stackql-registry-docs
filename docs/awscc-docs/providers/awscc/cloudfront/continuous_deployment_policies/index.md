@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>continuous_deployment_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-cloudfront:CreateContinuousDeploymentPolicy</pre>
+```json
+cloudfront:CreateContinuousDeploymentPolicy
+```
 
 ### List
-<pre>
-cloudfront:ListContinuousDeploymentPolicies</pre>
+```json
+cloudfront:ListContinuousDeploymentPolicies
+```
 
 
 ## Example

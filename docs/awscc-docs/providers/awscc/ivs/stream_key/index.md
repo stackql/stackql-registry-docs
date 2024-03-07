@@ -43,21 +43,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stream_key</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ivs:GetStreamKey,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ivs:GetStreamKey,
 ivs:TagResource,
 ivs:UntagResource,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 ivs:DeleteStreamKey,
-ivs:UntagResource</pre>
+ivs:UntagResource
+```
 
 
 ## Example

@@ -52,23 +52,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-datazone:GetDomain</pre>
+```json
+datazone:GetDomain
+```
 
 ### Update
-<pre>
+```json
 datazone:UpdateDomain,
 datazone:GetDomain,
 datazone:TagResource,
 datazone:UntagResource,
 sso:CreateManagedApplicationInstance,
 sso:DeleteManagedApplicationInstance,
-sso:PutApplicationAssignmentConfiguration</pre>
+sso:PutApplicationAssignmentConfiguration
+```
 
 ### Delete
-<pre>
+```json
 datazone:DeleteDomain,
-datazone:GetDomain</pre>
+datazone:GetDomain
+```
 
 
 ## Example

@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-idp:CreateGroup,
 iam:PassRole,
 iam:PutRolePolicy,
-cognito-idp:GetGroup</pre>
+cognito-idp:GetGroup
+```
 
 ### List
-<pre>
-cognito-idp:ListGroups</pre>
+```json
+cognito-idp:ListGroups
+```
 
 
 ## Example

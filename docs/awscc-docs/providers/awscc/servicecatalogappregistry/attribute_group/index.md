@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>attribute_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-servicecatalog:GetAttributeGroup</pre>
+```json
+servicecatalog:GetAttributeGroup
+```
 
 ### Update
-<pre>
+```json
 servicecatalog:GetAttributeGroup,
 servicecatalog:UpdateAttributeGroup,
 servicecatalog:ListTagsForResource,
 servicecatalog:TagResource,
-servicecatalog:UntagResource</pre>
+servicecatalog:UntagResource
+```
 
 ### Delete
-<pre>
-servicecatalog:DeleteAttributeGroup</pre>
+```json
+servicecatalog:DeleteAttributeGroup
+```
 
 
 ## Example

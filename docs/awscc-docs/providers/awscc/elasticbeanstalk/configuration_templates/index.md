@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-elasticbeanstalk:CreateConfigurationTemplate</pre>
+```json
+elasticbeanstalk:CreateConfigurationTemplate
+```
 
 ### List
-<pre>
-elasticbeanstalk:DescribeApplications</pre>
+```json
+elasticbeanstalk:DescribeApplications
+```
 
 
 ## Example

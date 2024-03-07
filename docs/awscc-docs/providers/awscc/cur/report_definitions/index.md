@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>report_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-cur:PutReportDefinition</pre>
+```json
+cur:PutReportDefinition
+```
 
 ### List
-<pre>
-cur:DescribeReportDefinitions</pre>
+```json
+cur:DescribeReportDefinitions
+```
 
 
 ## Example

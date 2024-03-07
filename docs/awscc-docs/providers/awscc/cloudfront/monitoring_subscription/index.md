@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>monitoring_subscription</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
-cloudfront:DeleteMonitoringSubscription</pre>
+```json
+cloudfront:DeleteMonitoringSubscription
+```
 
 ### Read
-<pre>
-cloudfront:GetMonitoringSubscription</pre>
+```json
+cloudfront:GetMonitoringSubscription
+```
 
 
 ## Example

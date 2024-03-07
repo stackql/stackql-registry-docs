@@ -45,24 +45,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>option_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rds:DescribeOptionGroups,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rds:AddTagsToResource,
 rds:DescribeOptionGroups,
 rds:ListTagsForResource,
 rds:ModifyOptionGroup,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 rds:DeleteOptionGroup,
 rds:DescribeOptionGroups,
 rds:ListTagsForResource,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 
 ## Example

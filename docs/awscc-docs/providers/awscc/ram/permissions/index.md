@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>permissions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ram:CreatePermission,
-ram:TagResource</pre>
+ram:TagResource
+```
 
 ### List
-<pre>
+```json
 ram:ListPermissions,
-ram:ListPermissionVersions</pre>
+ram:ListPermissionVersions
+```
 
 
 ## Example

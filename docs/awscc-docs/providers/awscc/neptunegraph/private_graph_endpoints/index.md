@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>private_graph_endpoints</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ec2:CreateVpcEndpoint,
 ec2:DescribeVpcEndpoints,
 ec2:DescribeSecurityGroups,
@@ -53,12 +53,14 @@ route53:AssociateVPCWithHostedZone,
 iam:PassRole,
 neptune-graph:CreatePrivateGraphEndpoint,
 neptune-graph:GetPrivateGraphEndpoint,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
+```json
 neptune-graph:GetPrivateGraphEndpoint,
-neptune-graph:ListPrivateGraphEndpoints</pre>
+neptune-graph:ListPrivateGraphEndpoints
+```
 
 
 ## Example

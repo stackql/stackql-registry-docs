@@ -44,16 +44,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>view_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeView</pre>
-
-### Update
-<pre>
-</pre>
+```json
+connect:DescribeView
+```
 
 ### Delete
-<pre>
-connect:DeleteViewVersion</pre>
+```json
+connect:DeleteViewVersion
+```
 
 
 ## Example

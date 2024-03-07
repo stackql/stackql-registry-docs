@@ -47,25 +47,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>secret</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 secretsmanager:DeleteSecret,
 secretsmanager:DescribeSecret,
-secretsmanager:RemoveRegionsFromReplication</pre>
+secretsmanager:RemoveRegionsFromReplication
+```
 
 ### Read
-<pre>
+```json
 secretsmanager:DescribeSecret,
-secretsmanager:GetSecretValue</pre>
+secretsmanager:GetSecretValue
+```
 
 ### Update
-<pre>
+```json
 secretsmanager:UpdateSecret,
 secretsmanager:TagResource,
 secretsmanager:UntagResource,
 secretsmanager:GetRandomPassword,
 secretsmanager:GetSecretValue,
 secretsmanager:ReplicateSecretToRegions,
-secretsmanager:RemoveRegionsFromReplication</pre>
+secretsmanager:RemoveRegionsFromReplication
+```
 
 
 ## Example

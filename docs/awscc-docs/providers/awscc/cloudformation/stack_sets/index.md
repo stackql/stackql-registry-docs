@@ -40,21 +40,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stack_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:GetTemplateSummary,
 cloudformation:CreateStackSet,
 cloudformation:CreateStackInstances,
 cloudformation:DescribeStackSetOperation,
 cloudformation:ListStackSetOperationResults,
 cloudformation:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 cloudformation:ListStackSets,
 cloudformation:DescribeStackSet,
 cloudformation:ListStackInstances,
-cloudformation:DescribeStackInstance</pre>
+cloudformation:DescribeStackInstance
+```
 
 
 ## Example

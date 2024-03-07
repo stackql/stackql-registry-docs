@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>projects</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:AddTags,
 sagemaker:CreateProject,
 sagemaker:DescribeProject,
@@ -49,11 +49,13 @@ servicecatalog:DescribeProduct,
 servicecatalog:DescribeProvisioningArtifact,
 servicecatalog:ProvisionProduct,
 servicecatalog:DescribeProvisionedProduct,
-servicecatalog:TerminateProvisionedProduct</pre>
+servicecatalog:TerminateProvisionedProduct
+```
 
 ### List
-<pre>
-sagemaker:ListProjects</pre>
+```json
+sagemaker:ListProjects
+```
 
 
 ## Example

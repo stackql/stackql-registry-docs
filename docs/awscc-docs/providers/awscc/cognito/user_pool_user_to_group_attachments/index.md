@@ -42,9 +42,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_user_to_group_attachments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-idp:AdminAddUserToGroup,
-cognito-idp:AdminListGroupsForUser</pre>
+cognito-idp:AdminListGroupsForUser
+```
 
 
 ## Example

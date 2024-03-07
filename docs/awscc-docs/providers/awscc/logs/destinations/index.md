@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>destinations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 logs:PutDestination,
 logs:PutDestinationPolicy,
 logs:DescribeDestinations,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-logs:DescribeDestinations</pre>
+```json
+logs:DescribeDestinations
+```
 
 
 ## Example

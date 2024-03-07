@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>load_balancer_tls_certificate</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lightsail:GetLoadBalancerTlsCertificates,
-lightsail:GetLoadBalancer</pre>
+lightsail:GetLoadBalancer
+```
 
 ### Update
-<pre>
+```json
 lightsail:AttachLoadBalancerTlsCertificate,
 lightsail:GetLoadBalancerTlsCertificates,
 lightsail:GetLoadBalancer,
-lightsail:UpdateLoadBalancerAttribute</pre>
+lightsail:UpdateLoadBalancerAttribute
+```
 
 ### Delete
-<pre>
+```json
 lightsail:DeleteLoadBalancerTlsCertificate,
 lightsail:GetLoadBalancerTlsCertificates,
-lightsail:GetLoadBalancer</pre>
+lightsail:GetLoadBalancer
+```
 
 
 ## Example

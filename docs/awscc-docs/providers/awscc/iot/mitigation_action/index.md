@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>mitigation_action</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeMitigationAction,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateMitigationAction,
 iot:ListTagsForResource,
 iot:UntagResource,
 iot:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 iot:DescribeMitigationAction,
-iot:DeleteMitigationAction</pre>
+iot:DeleteMitigationAction
+```
 
 
 ## Example

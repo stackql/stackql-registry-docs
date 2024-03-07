@@ -44,13 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>layer_version_permission</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lambda:GetLayerVersionPolicy</pre>
+```json
+lambda:GetLayerVersionPolicy
+```
 
 ### Delete
-<pre>
+```json
 lambda:GetLayerVersionPolicy,
-lambda:RemoveLayerVersionPermission</pre>
+lambda:RemoveLayerVersionPermission
+```
 
 
 ## Example

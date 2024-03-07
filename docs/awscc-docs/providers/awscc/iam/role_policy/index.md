@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>role_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetRolePolicy</pre>
+```json
+iam:GetRolePolicy
+```
 
 ### Update
-<pre>
+```json
 iam:PutRolePolicy,
-iam:GetRolePolicy</pre>
+iam:GetRolePolicy
+```
 
 ### Delete
-<pre>
+```json
 iam:DeleteRolePolicy,
-iam:GetRolePolicy</pre>
+iam:GetRolePolicy
+```
 
 
 ## Example

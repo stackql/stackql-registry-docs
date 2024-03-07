@@ -52,14 +52,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>component</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-imagebuilder:GetComponent</pre>
+```json
+imagebuilder:GetComponent
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:GetComponent,
 imagebuilder:UnTagResource,
-imagebuilder:DeleteComponent</pre>
+imagebuilder:DeleteComponent
+```
 
 
 ## Example

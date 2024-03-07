@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateGroup,
 iam:PutGroupPolicy,
 iam:AttachGroupPolicy,
 iam:GetGroupPolicy,
-iam:GetGroup</pre>
+iam:GetGroup
+```
 
 ### List
-<pre>
-iam:ListGroups</pre>
+```json
+iam:ListGroups
+```
 
 
 ## Example

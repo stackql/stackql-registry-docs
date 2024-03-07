@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>discoverers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 schemas:CreateDiscoverer,
 schemas:DescribeDiscoverer,
 schemas:TagResource,
@@ -48,11 +48,13 @@ events:PutRule,
 events:PutTargets,
 events:EnableRule,
 events:ListTargetsByRule,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-schemas:ListDiscoverers</pre>
+```json
+schemas:ListDiscoverers
+```
 
 
 ## Example

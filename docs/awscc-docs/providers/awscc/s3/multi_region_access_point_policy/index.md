@@ -42,19 +42,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multi_region_access_point_policy</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 s3:PutMultiRegionAccessPointPolicy,
-s3:DescribeMultiRegionAccessPointOperation</pre>
+s3:DescribeMultiRegionAccessPointOperation
+```
 
 ### Read
-<pre>
+```json
 s3:GetMultiRegionAccessPointPolicy,
-s3:GetMultiRegionAccessPointPolicyStatus</pre>
+s3:GetMultiRegionAccessPointPolicyStatus
+```
 
 ### Delete
-<pre>
+```json
 s3:GetMultiRegionAccessPointPolicy,
-s3:GetMultiRegionAccessPoint</pre>
+s3:GetMultiRegionAccessPoint
+```
 
 
 ## Example

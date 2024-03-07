@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fargate_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-eks:DescribeFargateProfile</pre>
+```json
+eks:DescribeFargateProfile
+```
 
 ### Delete
-<pre>
+```json
 eks:DeleteFargateProfile,
-eks:DescribeFargateProfile</pre>
+eks:DescribeFargateProfile
+```
 
 ### Update
-<pre>
+```json
 eks:DescribeFargateProfile,
 eks:ListTagsForResource,
 eks:TagResource,
-eks:UntagResource</pre>
+eks:UntagResource
+```
 
 
 ## Example

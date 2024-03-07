@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 docdb-elastic:CreateCluster,
 ec2:CreateVpcEndpoint,
 ec2:DescribeVpcEndpoints,
@@ -60,11 +60,13 @@ kms:DescribeKey,
 kms:CreateGrant,
 kms:GenerateDataKey,
 kms:Decrypt,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-docdb-elastic:ListClusters</pre>
+```json
+docdb-elastic:ListClusters
+```
 
 
 ## Example

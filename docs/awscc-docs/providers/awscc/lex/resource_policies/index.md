@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lex:CreateResourcePolicy,
-lex:DescribeResourcePolicy</pre>
+lex:DescribeResourcePolicy
+```
 
 ### List
-<pre>
-lex:DescribeResourcePolicy</pre>
+```json
+lex:DescribeResourcePolicy
+```
 
 
 ## Example

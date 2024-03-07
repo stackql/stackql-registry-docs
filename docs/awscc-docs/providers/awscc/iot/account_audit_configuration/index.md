@@ -43,19 +43,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account_audit_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iot:DescribeAccountAuditConfiguration</pre>
+```json
+iot:DescribeAccountAuditConfiguration
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateAccountAuditConfiguration,
 iot:DescribeAccountAuditConfiguration,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 iot:DescribeAccountAuditConfiguration,
-iot:DeleteAccountAuditConfiguration</pre>
+iot:DeleteAccountAuditConfiguration
+```
 
 
 ## Example

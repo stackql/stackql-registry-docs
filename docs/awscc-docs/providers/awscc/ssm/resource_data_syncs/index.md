@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_data_syncs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm:CreateResourceDataSync,
-ssm:ListResourceDataSync</pre>
+ssm:ListResourceDataSync
+```
 
 ### List
-<pre>
-ssm:ListResourceDataSync</pre>
+```json
+ssm:ListResourceDataSync
+```
 
 
 ## Example

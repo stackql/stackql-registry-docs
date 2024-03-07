@@ -49,12 +49,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app_block</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appstream:DescribeAppBlocks</pre>
+```json
+appstream:DescribeAppBlocks
+```
 
 ### Delete
-<pre>
-appstream:DeleteAppBlock</pre>
+```json
+appstream:DeleteAppBlock
+```
 
 
 ## Example

@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-elasticmapreduce:DescribeSecurityConfiguration</pre>
+```json
+elasticmapreduce:DescribeSecurityConfiguration
+```
 
 ### Delete
-<pre>
-elasticmapreduce:DeleteSecurityConfiguration</pre>
+```json
+elasticmapreduce:DeleteSecurityConfiguration
+```
 
 
 ## Example

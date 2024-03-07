@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alarms</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:PutAlarm,
-lightsail:GetAlarms</pre>
+lightsail:GetAlarms
+```
 
 ### List
-<pre>
-lightsail:GetAlarms</pre>
+```json
+lightsail:GetAlarms
+```
 
 
 ## Example

@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>studio_session_mappings</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticmapreduce:CreateStudioSessionMapping,
 sso-directory:SearchUsers,
 sso-directory:SearchGroups,
@@ -51,11 +51,13 @@ sso-directory:DescribeGroup,
 sso:ListDirectoryAssociations,
 sso:GetProfile,
 sso:ListProfiles,
-sso:AssociateProfile</pre>
+sso:AssociateProfile
+```
 
 ### List
-<pre>
-elasticmapreduce:ListStudioSessionMappings</pre>
+```json
+elasticmapreduce:ListStudioSessionMappings
+```
 
 
 ## Example

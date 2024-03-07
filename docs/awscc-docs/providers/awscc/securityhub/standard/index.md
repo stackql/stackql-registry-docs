@@ -42,19 +42,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>standard</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 securityhub:GetEnabledStandards,
-securityhub:DescribeStandardsControls</pre>
+securityhub:DescribeStandardsControls
+```
 
 ### Update
-<pre>
+```json
 securityhub:GetEnabledStandards,
-securityhub:UpdateStandardsControl</pre>
+securityhub:UpdateStandardsControl
+```
 
 ### Delete
-<pre>
+```json
 securityhub:GetEnabledStandards,
-securityhub:BatchDisableStandards</pre>
+securityhub:BatchDisableStandards
+```
 
 
 ## Example

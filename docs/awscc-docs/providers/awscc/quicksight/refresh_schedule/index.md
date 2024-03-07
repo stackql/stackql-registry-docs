@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>refresh_schedule</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 quicksight:UpdateRefreshSchedule,
-quicksight:DescribeRefreshSchedule</pre>
+quicksight:DescribeRefreshSchedule
+```
 
 ### Delete
-<pre>
+```json
 quicksight:DeleteRefreshSchedule,
-quicksight:DescribeRefreshSchedule</pre>
+quicksight:DescribeRefreshSchedule
+```
 
 ### Read
-<pre>
-quicksight:DescribeRefreshSchedule</pre>
+```json
+quicksight:DescribeRefreshSchedule
+```
 
 
 ## Example

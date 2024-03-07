@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>wal_workspace</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-emrwal:ListTagsForResource</pre>
+```json
+emrwal:ListTagsForResource
+```
 
 ### Delete
-<pre>
-emrwal:DeleteWorkspace</pre>
+```json
+emrwal:DeleteWorkspace
+```
 
 ### Update
-<pre>
+```json
 emrwal:TagResource,
 emrwal:UntagResource,
-emrwal:ListTagsForResource</pre>
+emrwal:ListTagsForResource
+```
 
 
 ## Example

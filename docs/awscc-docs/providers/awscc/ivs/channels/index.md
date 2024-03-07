@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ivs:CreateChannel,
-ivs:TagResource</pre>
+ivs:TagResource
+```
 
 ### List
-<pre>
+```json
 ivs:ListChannels,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 
 ## Example

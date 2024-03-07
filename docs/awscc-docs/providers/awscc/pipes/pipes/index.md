@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipes</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 pipes:CreatePipe,
 pipes:DescribePipe,
 pipes:TagResource,
@@ -54,11 +54,13 @@ logs:GetLogDelivery,
 logs:ListLogDeliveries,
 s3:PutBucketPolicy,
 s3:GetBucketPolicy,
-firehose:TagDeliveryStream</pre>
+firehose:TagDeliveryStream
+```
 
 ### List
-<pre>
-pipes:ListPipes</pre>
+```json
+pipes:ListPipes
+```
 
 
 ## Example

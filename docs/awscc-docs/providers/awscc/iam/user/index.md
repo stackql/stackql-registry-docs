@@ -48,16 +48,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iam:GetUserPolicy,
 iam:ListGroupsForUser,
 iam:ListAttachedUserPolicies,
 iam:ListUserPolicies,
 iam:GetUser,
-iam:GetLoginProfile</pre>
+iam:GetLoginProfile
+```
 
 ### Update
-<pre>
+```json
 iam:UpdateLoginProfile,
 iam:UpdateUser,
 iam:PutUserPermissionsBoundary,
@@ -74,10 +75,11 @@ iam:DetachUserPolicy,
 iam:GetLoginProfile,
 iam:DeleteLoginProfile,
 iam:GetUser,
-iam:ListUserTags</pre>
+iam:ListUserTags
+```
 
 ### Delete
-<pre>
+```json
 iam:DeleteAccessKey,
 iam:RemoveUserFromGroup,
 iam:DeleteUserPolicy,
@@ -90,7 +92,8 @@ iam:ListGroupsForUser,
 iam:ListAttachedUserPolicies,
 iam:ListUserPolicies,
 iam:GetUser,
-iam:GetLoginProfile</pre>
+iam:GetLoginProfile
+```
 
 
 ## Example

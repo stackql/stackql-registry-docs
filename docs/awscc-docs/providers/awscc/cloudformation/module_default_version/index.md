@@ -41,13 +41,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 To operate on the <code>module_default_version</code> resource, the following permissions are required:
 
-### Delete
-<pre>
-</pre>
-
 ### Read
-<pre>
-cloudformation:DescribeType</pre>
+```json
+cloudformation:DescribeType
+```
 
 
 ## Example

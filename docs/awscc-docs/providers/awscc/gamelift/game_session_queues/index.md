@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>game_session_queues</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 gamelift:CreateGameSessionQueue,
 gamelift:ListTagsForResource,
-gamelift:TagResource</pre>
+gamelift:TagResource
+```
 
 ### List
-<pre>
-gamelift:DescribeGameSessionQueues</pre>
+```json
+gamelift:DescribeGameSessionQueues
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>organizations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 organizations:CreateOrganization,
 organizations:DescribeOrganization,
 iam:CreateServiceLinkedRole,
-organizations:ListRoots</pre>
+organizations:ListRoots
+```
 
 ### List
-<pre>
-organizations:DescribeOrganization</pre>
+```json
+organizations:DescribeOrganization
+```
 
 
 ## Example

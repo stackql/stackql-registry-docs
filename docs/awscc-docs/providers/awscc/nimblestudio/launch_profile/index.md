@@ -48,23 +48,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>launch_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-nimble:GetLaunchProfile</pre>
+```json
+nimble:GetLaunchProfile
+```
 
 ### Update
-<pre>
+```json
 nimble:UpdateLaunchProfile,
 nimble:GetLaunchProfile,
 ec2:CreateNetworkInterface,
 ec2:CreateNetworkInterfacePermission,
 ec2:DescribeSubnets,
-ec2:RunInstances</pre>
+ec2:RunInstances
+```
 
 ### Delete
-<pre>
+```json
 nimble:DeleteLaunchProfile,
 nimble:GetLaunchProfile,
-nimble:UntagResource</pre>
+nimble:UntagResource
+```
 
 
 ## Example

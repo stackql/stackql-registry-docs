@@ -41,8 +41,9 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>entitlements</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-appstream:CreateEntitlement</pre>
+```json
+appstream:CreateEntitlement
+```
 
 
 ## Example

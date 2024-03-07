@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dnssecs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53:GetDNSSEC,
 route53:EnableHostedZoneDNSSEC,
 kms:DescribeKey,
 kms:GetPublicKey,
 kms:Sign,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
+```json
 route53:GetDNSSEC,
-route53:ListHostedZones</pre>
+route53:ListHostedZones
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 iam:PassRole,
 rds:AddRoleToDBCluster,
@@ -54,11 +54,13 @@ rds:ModifyDBCluster,
 rds:RestoreDBClusterFromSnapshot,
 rds:RestoreDBClusterToPointInTime,
 secretsmanager:CreateSecret,
-secretsmanager:TagResource</pre>
+secretsmanager:TagResource
+```
 
 ### List
-<pre>
-rds:DescribeDBClusters</pre>
+```json
+rds:DescribeDBClusters
+```
 
 
 ## Example

@@ -48,23 +48,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>simulation_application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-robomaker:DescribeSimulationApplication</pre>
+```json
+robomaker:DescribeSimulationApplication
+```
 
 ### Update
-<pre>
+```json
 robomaker:TagResource,
 robomaker:UntagResource,
 robomaker:UpdateSimulationApplication,
 ecr:BatchGetImage,
 ecr:GetAuthorizationToken,
 ecr:BatchCheckLayerAvailability,
-ecr-public:GetAuthorizationToken</pre>
+ecr-public:GetAuthorizationToken
+```
 
 ### Delete
-<pre>
+```json
 robomaker:DescribeSimulationApplication,
-robomaker:DeleteSimulationApplication</pre>
+robomaker:DeleteSimulationApplication
+```
 
 
 ## Example

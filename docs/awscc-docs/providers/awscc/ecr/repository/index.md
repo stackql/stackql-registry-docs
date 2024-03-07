@@ -49,14 +49,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repository</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ecr:DescribeRepositories,
 ecr:GetLifecyclePolicy,
 ecr:GetRepositoryPolicy,
-ecr:ListTagsForResource</pre>
+ecr:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ecr:DescribeRepositories,
 ecr:PutLifecyclePolicy,
 ecr:SetRepositoryPolicy,
@@ -69,12 +70,14 @@ ecr:PutImageScanningConfiguration,
 ecr:PutImageTagMutability,
 kms:DescribeKey,
 kms:CreateGrant,
-kms:RetireGrant</pre>
+kms:RetireGrant
+```
 
 ### Delete
-<pre>
+```json
 ecr:DeleteRepository,
-kms:RetireGrant</pre>
+kms:RetireGrant
+```
 
 
 ## Example

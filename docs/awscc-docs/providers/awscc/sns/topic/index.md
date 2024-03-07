@@ -52,14 +52,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sns:GetTopicAttributes,
 sns:ListTagsForResource,
 sns:ListSubscriptionsByTopic,
-sns:GetDataProtectionPolicy</pre>
+sns:GetDataProtectionPolicy
+```
 
 ### Update
-<pre>
+```json
 sns:SetTopicAttributes,
 sns:TagResource,
 sns:UntagResource,
@@ -71,12 +72,14 @@ sns:ListSubscriptionsByTopic,
 sns:GetDataProtectionPolicy,
 sns:PutDataProtectionPolicy,
 iam:GetRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 sns:GetTopicAttributes,
-sns:DeleteTopic</pre>
+sns:DeleteTopic
+```
 
 
 ## Example

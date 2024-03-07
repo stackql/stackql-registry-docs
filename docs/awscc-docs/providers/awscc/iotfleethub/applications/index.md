@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotfleethub:CreateApplication,
 iotfleethub:TagResource,
 iam:PassRole,
 sso:CreateManagedApplicationInstance,
-sso:DescribeRegisteredRegions</pre>
+sso:DescribeRegisteredRegions
+```
 
 ### List
-<pre>
-iotfleethub:ListApplications</pre>
+```json
+iotfleethub:ListApplications
+```
 
 
 ## Example

@@ -50,12 +50,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>flow</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 appflow:DescribeFlow,
-appflow:ListTagsForResource</pre>
+appflow:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 appflow:UpdateFlow,
 appflow:StartFlow,
 appflow:StopFlow,
@@ -69,11 +70,13 @@ s3:GetBucketLocation,
 s3:GetBucketPolicy,
 kms:ListGrants,
 secretsmanager:CreateSecret,
-secretsmanager:PutResourcePolicy</pre>
+secretsmanager:PutResourcePolicy
+```
 
 ### Delete
-<pre>
-appflow:DeleteFlow</pre>
+```json
+appflow:DeleteFlow
+```
 
 
 ## Example

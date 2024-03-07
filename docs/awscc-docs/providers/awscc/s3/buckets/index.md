@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>buckets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:CreateBucket,
 s3:PutBucketTagging,
 s3:PutAnalyticsConfiguration,
@@ -65,11 +65,13 @@ s3:PutBucketLogging,
 s3:PutBucketVersioning,
 s3:PutObjectLockConfiguration,
 s3:PutBucketOwnershipControls,
-s3:PutIntelligentTieringConfiguration</pre>
+s3:PutIntelligentTieringConfiguration
+```
 
 ### List
-<pre>
-s3:ListAllMyBuckets</pre>
+```json
+s3:ListAllMyBuckets
+```
 
 
 ## Example

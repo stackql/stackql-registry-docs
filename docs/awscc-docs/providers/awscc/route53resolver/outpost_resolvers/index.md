@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>outpost_resolvers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53resolver:CreateOutpostResolver,
 route53resolver:GetOutpostResolver,
 route53resolver:ListTagsForResource,
-outposts:GetOutpost</pre>
+outposts:GetOutpost
+```
 
 ### List
-<pre>
+```json
 route53resolver:ListOutpostResolvers,
-route53resolver:ListTagsForResource</pre>
+route53resolver:ListTagsForResource
+```
 
 
 ## Example

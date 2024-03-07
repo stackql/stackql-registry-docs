@@ -41,17 +41,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>registry_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ecr:GetRegistryPolicy</pre>
+```json
+ecr:GetRegistryPolicy
+```
 
 ### Update
-<pre>
+```json
 ecr:GetRegistryPolicy,
-ecr:PutRegistryPolicy</pre>
+ecr:PutRegistryPolicy
+```
 
 ### Delete
-<pre>
-ecr:DeleteRegistryPolicy</pre>
+```json
+ecr:DeleteRegistryPolicy
+```
 
 
 ## Example

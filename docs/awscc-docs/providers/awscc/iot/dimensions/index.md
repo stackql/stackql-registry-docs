@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dimensions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateDimension,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### List
-<pre>
-iot:ListDimensions</pre>
+```json
+iot:ListDimensions
+```
 
 
 ## Example

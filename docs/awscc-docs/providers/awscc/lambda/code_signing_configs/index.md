@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>code_signing_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-lambda:CreateCodeSigningConfig</pre>
+```json
+lambda:CreateCodeSigningConfig
+```
 
 ### List
-<pre>
-lambda:ListCodeSigningConfigs</pre>
+```json
+lambda:ListCodeSigningConfigs
+```
 
 
 ## Example

@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>partnerships</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 b2bi:CreatePartnership,
 b2bi:TagResource,
-s3:PutObject</pre>
+s3:PutObject
+```
 
 ### List
-<pre>
-b2bi:ListPartnerships</pre>
+```json
+b2bi:ListPartnerships
+```
 
 
 ## Example

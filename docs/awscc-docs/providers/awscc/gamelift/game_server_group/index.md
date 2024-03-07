@@ -53,20 +53,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>game_server_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-gamelift:DescribeGameServerGroup</pre>
+```json
+gamelift:DescribeGameServerGroup
+```
 
 ### Update
-<pre>
+```json
 gamelift:UpdateGameServerGroup,
 iam:assumeRole,
 iam:PassRole,
 autoscaling:DescribeAutoScalingGroups,
 autoscaling:UpdateAutoScalingGroup,
-autoscaling:SetInstanceProtection</pre>
+autoscaling:SetInstanceProtection
+```
 
 ### Delete
-<pre>
+```json
 gamelift:DeleteGameServerGroup,
 gamelift:DescribeGameServerGroup,
 iam:assumeRole,
@@ -87,7 +89,8 @@ autoscaling:SetInstanceProtection,
 autoscaling:UpdateAutoScalingGroup,
 autoscaling:DeleteAutoScalingGroup,
 events:PutRule,
-events:PutTargets</pre>
+events:PutTargets
+```
 
 
 ## Example

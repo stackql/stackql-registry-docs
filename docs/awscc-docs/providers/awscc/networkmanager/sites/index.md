@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sites</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:CreateSite,
 networkmanager:GetSites,
-networkmanager:TagResource</pre>
+networkmanager:TagResource
+```
 
 ### List
-<pre>
-networkmanager:GetSites</pre>
+```json
+networkmanager:GetSites
+```
 
 
 ## Example

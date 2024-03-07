@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_networks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:CreateGlobalNetwork,
 networkmanager:DescribeGlobalNetworks,
 networkmanager:TagResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-networkmanager:DescribeGlobalNetworks</pre>
+```json
+networkmanager:DescribeGlobalNetworks
+```
 
 
 ## Example

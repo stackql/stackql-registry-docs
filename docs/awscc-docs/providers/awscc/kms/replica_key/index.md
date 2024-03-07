@@ -47,25 +47,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replica_key</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kms:DescribeKey,
 kms:GetKeyPolicy,
-kms:ListResourceTags</pre>
+kms:ListResourceTags
+```
 
 ### Update
-<pre>
+```json
 kms:DescribeKey,
 kms:DisableKey,
 kms:EnableKey,
 kms:PutKeyPolicy,
 kms:TagResource,
 kms:UntagResource,
-kms:UpdateKeyDescription</pre>
+kms:UpdateKeyDescription
+```
 
 ### Delete
-<pre>
+```json
 kms:DescribeKey,
-kms:ScheduleKeyDeletion</pre>
+kms:ScheduleKeyDeletion
+```
 
 
 ## Example

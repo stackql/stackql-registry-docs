@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>monitors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 internetmonitor:CreateMonitor,
 internetmonitor:GetMonitor,
 internetmonitor:TagResource,
@@ -50,13 +50,15 @@ logs:GetLogDelivery,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 s3:ListBucket,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 internetmonitor:ListMonitors,
 internetmonitor:GetMonitor,
-logs:GetLogDelivery</pre>
+logs:GetLogDelivery
+```
 
 
 ## Example

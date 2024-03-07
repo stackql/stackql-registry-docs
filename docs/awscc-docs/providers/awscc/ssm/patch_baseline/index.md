@@ -54,26 +54,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>patch_baseline</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 ssm:DeletePatchBaseline,
 ssm:GetPatchBaseline,
-ssm:DeregisterPatchBaselineForPatchGroup</pre>
+ssm:DeregisterPatchBaselineForPatchGroup
+```
 
 ### Read
-<pre>
+```json
 ssm:GetDefaultPatchBaseline,
 ssm:GetPatchBaseline,
-ssm:ListTagsForResource</pre>
+ssm:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ssm:UpdatePatchBaseline,
 ssm:DeregisterPatchBaselineForPatchGroup,
 ssm:AddTagsToResource,
 ssm:RemoveTagsFromResource,
 ssm:ListTagsForResource,
 ssm:GetDefaultPatchBaseline,
-ssm:RegisterDefaultPatchBaseline</pre>
+ssm:RegisterDefaultPatchBaseline
+```
 
 
 ## Example

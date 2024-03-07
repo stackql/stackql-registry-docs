@@ -50,19 +50,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>type_activation</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 cloudformation:ActivateType,
 cloudformation:DescribeType,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Read
-<pre>
-cloudformation:DescribeType</pre>
+```json
+cloudformation:DescribeType
+```
 
 ### Delete
-<pre>
+```json
 cloudformation:DeactivateType,
-cloudformation:DescribeType</pre>
+cloudformation:DescribeType
+```
 
 
 ## Example

@@ -49,21 +49,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>streaming_image</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-nimble:GetStreamingImage</pre>
+```json
+nimble:GetStreamingImage
+```
 
 ### Update
-<pre>
+```json
 nimble:UpdateStreamingImage,
 nimble:GetStreamingImage,
 kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,
 kms:ListGrants,
-kms:GenerateDataKey</pre>
+kms:GenerateDataKey
+```
 
 ### Delete
-<pre>
+```json
 nimble:DeleteStreamingImage,
 nimble:GetStreamingImage,
 nimble:UntagResource,
@@ -72,7 +74,8 @@ ec2:ModifySnapshotAttribute,
 ec2:DeregisterImage,
 ec2:DeleteSnapshot,
 kms:ListGrants,
-kms:RetireGrant</pre>
+kms:RetireGrant
+```
 
 
 ## Example

@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_cells_filters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lakeformation:CreateDataCellsFilter,
-glue:GetTable</pre>
+glue:GetTable
+```
 
 ### List
-<pre>
-lakeformation:ListDataCellsFilter</pre>
+```json
+lakeformation:ListDataCellsFilter
+```
 
 
 ## Example

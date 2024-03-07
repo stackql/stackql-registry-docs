@@ -52,25 +52,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>theme</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 quicksight:DescribeTheme,
 quicksight:DescribeThemePermissions,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 quicksight:DescribeTheme,
 quicksight:DescribeThemePermissions,
 quicksight:UpdateTheme,
 quicksight:UpdateThemePermissions,
 quicksight:TagResource,
 quicksight:UntagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 quicksight:DescribeTheme,
-quicksight:DeleteTheme</pre>
+quicksight:DeleteTheme
+```
 
 
 ## Example

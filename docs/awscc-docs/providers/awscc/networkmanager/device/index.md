@@ -53,21 +53,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>device</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetDevices</pre>
+```json
+networkmanager:GetDevices
+```
 
 ### Update
-<pre>
+```json
 networkmanager:UpdateDevice,
 networkmanager:ListTagsForResource,
 networkmanager:GetDevices,
 networkmanager:TagResource,
-networkmanager:UntagResource</pre>
+networkmanager:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:GetDevices,
-networkmanager:DeleteDevice</pre>
+networkmanager:DeleteDevice
+```
 
 
 ## Example

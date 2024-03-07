@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoints</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-s3-outposts:CreateEndpoint</pre>
+```json
+s3-outposts:CreateEndpoint
+```
 
 ### List
-<pre>
-s3-outposts:ListEndpoints</pre>
+```json
+s3-outposts:ListEndpoints
+```
 
 
 ## Example

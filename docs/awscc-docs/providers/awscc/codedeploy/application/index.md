@@ -42,19 +42,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 codedeploy:GetApplication,
-codedeploy:ListTagsForResource</pre>
+codedeploy:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 codedeploy:GetApplication,
-codedeploy:DeleteApplication</pre>
+codedeploy:DeleteApplication
+```
 
 ### Update
-<pre>
+```json
 codedeploy:TagResource,
-codedeploy:UntagResource</pre>
+codedeploy:UntagResource
+```
 
 
 ## Example
