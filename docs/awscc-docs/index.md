@@ -19,7 +19,7 @@ slug: /providers/awscc
 ---
 Cloud services from AWS using the Cloud Control API.
 
-:::info Provider Summary (v24.03.00206)
+:::info Provider Summary (v24.03.00208)
 
 <div class="row">
 <div class="providerDocColumn">
