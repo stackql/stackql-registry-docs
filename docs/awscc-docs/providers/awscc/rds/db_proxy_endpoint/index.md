@@ -27,9 +27,9 @@ Gets an individual <code>db_proxy_endpoint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>d_bproxy_endpoint_name</code></td><td><code>string</code></td><td>The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.</td></tr>
-<tr><td><code>d_bproxy_endpoint_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the DB proxy endpoint.</td></tr>
-<tr><td><code>d_bproxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><code>db_proxy_endpoint_name</code></td><td><code>string</code></td><td>The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><code>db_proxy_endpoint_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the DB proxy endpoint.</td></tr>
+<tr><td><code>db_proxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
 <tr><td><code>vpc_id</code></td><td><code>string</code></td><td>VPC ID to associate with the new DB proxy endpoint.</td></tr>
 <tr><td><code>vpc_security_group_ids</code></td><td><code>array</code></td><td>VPC security group IDs to associate with the new DB proxy endpoint.</td></tr>
 <tr><td><code>vpc_subnet_ids</code></td><td><code>array</code></td><td>VPC subnet IDs to associate with the new DB proxy endpoint.</td></tr>

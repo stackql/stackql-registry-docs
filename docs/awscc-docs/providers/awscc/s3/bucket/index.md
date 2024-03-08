@@ -51,7 +51,7 @@ Gets an individual <code>bucket</code> resource
 <tr><td><code>domain_name</code></td><td><code>string</code></td><td>The IPv4 DNS name of the specified bucket.</td></tr>
 <tr><td><code>dual_stack_domain_name</code></td><td><code>string</code></td><td>The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see &#91;Using Amazon S3 Dual-Stack Endpoints&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;dev&#x2F;dual-stack-endpoints.html).</td></tr>
 <tr><td><code>regional_domain_name</code></td><td><code>string</code></td><td>Returns the regional domain name of the specified bucket.</td></tr>
-<tr><td><code>website_ur_l</code></td><td><code>string</code></td><td>The Amazon S3 website endpoint for the specified bucket.</td></tr>
+<tr><td><code>website_url</code></td><td><code>string</code></td><td>The Amazon S3 website endpoint for the specified bucket.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

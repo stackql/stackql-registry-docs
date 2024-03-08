@@ -30,7 +30,7 @@ Gets an individual <code>domain</code> resource
 <tr><td><code>app_id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>auto_sub_domain_creation_patterns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>auto_sub_domain_ia_mrole</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>auto_sub_domain_iam_role</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>certificate_record</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>certificate</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>certificate_settings</code></td><td><code>object</code></td><td></td></tr>

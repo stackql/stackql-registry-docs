@@ -30,7 +30,7 @@ Gets an individual <code>task_definition</code> resource
 <tr><td><code>name</code></td><td><code>string</code></td><td>The name of the new resource.</td></tr>
 <tr><td><code>auto_create_tasks</code></td><td><code>boolean</code></td><td>Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.</td></tr>
 <tr><td><code>update</code></td><td><code>object</code></td><td>Information about the gateways to update.</td></tr>
-<tr><td><code>lo_ra_wa_nupdate_gateway_task_entry</code></td><td><code>object</code></td><td>The list of task definitions.</td></tr>
+<tr><td><code>lo_ra_wan_update_gateway_task_entry</code></td><td><code>object</code></td><td>The list of task definitions.</td></tr>
 <tr><td><code>id</code></td><td><code>string</code></td><td>The ID of the new wireless gateway task definition</td></tr>
 <tr><td><code>task_definition_type</code></td><td><code>string</code></td><td>A filter to list only the wireless gateway task definitions that use this task definition type</td></tr>
 <tr><td><code>arn</code></td><td><code>string</code></td><td>TaskDefinition arn. Returned after successful create.</td></tr>

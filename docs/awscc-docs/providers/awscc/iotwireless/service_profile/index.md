@@ -28,7 +28,7 @@ Gets an individual <code>service_profile</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>name</code></td><td><code>string</code></td><td>Name of service profile</td></tr>
-<tr><td><code>lo_ra_wa_n</code></td><td><code>object</code></td><td>LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation</td></tr>
+<tr><td><code>lo_ra_wan</code></td><td><code>object</code></td><td>LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the service profile.</td></tr>
 <tr><td><code>arn</code></td><td><code>string</code></td><td>Service profile Arn. Returned after successful create.</td></tr>
 <tr><td><code>id</code></td><td><code>string</code></td><td>Service profile Id. Returned after successful create.</td></tr>

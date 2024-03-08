@@ -30,7 +30,7 @@ Gets an individual <code>flow</code> resource
 <tr><td><code>flow_arn</code></td><td><code>string</code></td><td>ARN identifier of the flow.</td></tr>
 <tr><td><code>flow_name</code></td><td><code>string</code></td><td>Name of the flow.</td></tr>
 <tr><td><code>description</code></td><td><code>string</code></td><td>Description of the flow.</td></tr>
-<tr><td><code>k_ms_arn</code></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
+<tr><td><code>kms_arn</code></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
 <tr><td><code>trigger_config</code></td><td><code>object</code></td><td>Trigger settings of the flow.</td></tr>
 <tr><td><code>flow_status</code></td><td><code>string</code></td><td>Flow activation status for Scheduled- and Event-triggered flows</td></tr>
 <tr><td><code>source_flow_config</code></td><td><code>object</code></td><td>Configurations of Source connector of the flow.</td></tr>

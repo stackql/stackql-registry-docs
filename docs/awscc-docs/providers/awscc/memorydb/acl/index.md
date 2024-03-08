@@ -28,7 +28,7 @@ Gets an individual <code>acl</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>status</code></td><td><code>string</code></td><td>Indicates acl status. Can be "creating", "active", "modifying", "deleting".</td></tr>
-<tr><td><code>a_cl_name</code></td><td><code>string</code></td><td>The name of the acl.</td></tr>
+<tr><td><code>acl_name</code></td><td><code>string</code></td><td>The name of the acl.</td></tr>
 <tr><td><code>user_names</code></td><td><code>array</code></td><td>List of users associated to this acl.</td></tr>
 <tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the acl.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this cluster.</td></tr>

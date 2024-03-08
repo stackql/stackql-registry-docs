@@ -32,7 +32,7 @@ Gets an individual <code>solution</code> resource
 <tr><td><code>event_type</code></td><td><code>string</code></td><td>When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.</td></tr>
 <tr><td><code>dataset_group_arn</code></td><td><code>string</code></td><td>The ARN of the dataset group that provides the training data.</td></tr>
 <tr><td><code>perform_auto_ml</code></td><td><code>boolean</code></td><td>Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.</td></tr>
-<tr><td><code>perform_hp_o</code></td><td><code>boolean</code></td><td>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.</td></tr>
+<tr><td><code>perform_hpo</code></td><td><code>boolean</code></td><td>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.</td></tr>
 <tr><td><code>recipe_arn</code></td><td><code>string</code></td><td>The ARN of the recipe to use for model training. Only specified when performAutoML is false.</td></tr>
 <tr><td><code>solution_config</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>

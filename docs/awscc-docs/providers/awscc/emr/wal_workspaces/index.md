@@ -27,7 +27,7 @@ Retrieves a list of <code>wal_workspaces</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>w_al_workspace_name</code></td><td><code>string</code></td><td>The name of the emrwal container</td></tr>
+<tr><td><code>wal_workspace_name</code></td><td><code>string</code></td><td>The name of the emrwal container</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

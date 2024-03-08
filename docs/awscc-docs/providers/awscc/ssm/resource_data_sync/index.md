@@ -28,7 +28,7 @@ Gets an individual <code>resource_data_sync</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>s3_destination</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>k_ms_key_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>kms_key_arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>sync_source</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>bucket_name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>bucket_region</code></td><td><code>string</code></td><td></td></tr>

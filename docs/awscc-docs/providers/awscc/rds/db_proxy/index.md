@@ -28,13 +28,13 @@ Gets an individual <code>db_proxy</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>auth</code></td><td><code>array</code></td><td>The authorization mechanism that the proxy uses.</td></tr>
-<tr><td><code>d_bproxy_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the proxy.</td></tr>
-<tr><td><code>d_bproxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><code>db_proxy_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the proxy.</td></tr>
+<tr><td><code>db_proxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
 <tr><td><code>debug_logging</code></td><td><code>boolean</code></td><td>Whether the proxy includes detailed information about SQL statements in its logs.</td></tr>
 <tr><td><code>endpoint</code></td><td><code>string</code></td><td>The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.</td></tr>
 <tr><td><code>engine_family</code></td><td><code>string</code></td><td>The kinds of databases that the proxy can connect to.</td></tr>
 <tr><td><code>idle_client_timeout</code></td><td><code>integer</code></td><td>The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.</td></tr>
-<tr><td><code>require_tl_s</code></td><td><code>boolean</code></td><td>A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.</td></tr>
+<tr><td><code>require_tls</code></td><td><code>boolean</code></td><td>A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.</td></tr>
 <tr><td><code>role_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.</td></tr>
 <tr><td><code>vpc_id</code></td><td><code>string</code></td><td>VPC ID to associate with the new DB proxy.</td></tr>

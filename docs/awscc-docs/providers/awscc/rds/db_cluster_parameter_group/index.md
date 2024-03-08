@@ -30,7 +30,7 @@ Gets an individual <code>db_cluster_parameter_group</code> resource
 <tr><td><code>description</code></td><td><code>string</code></td><td>A friendly description for this DB cluster parameter group.</td></tr>
 <tr><td><code>family</code></td><td><code>string</code></td><td>The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.</td></tr>
 <tr><td><code>parameters</code></td><td><code>object</code></td><td>An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.</td></tr>
-<tr><td><code>d_bcluster_parameter_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>db_cluster_parameter_group_name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>The list of tags for the cluster parameter group.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 

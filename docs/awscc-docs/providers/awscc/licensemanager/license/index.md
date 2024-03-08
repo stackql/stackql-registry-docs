@@ -27,7 +27,7 @@ Gets an individual <code>license</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>product_sk_u</code></td><td><code>string</code></td><td>ProductSKU of the license.</td></tr>
+<tr><td><code>product_sku</code></td><td><code>string</code></td><td>ProductSKU of the license.</td></tr>
 <tr><td><code>issuer</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>license_name</code></td><td><code>string</code></td><td>Name for the created license.</td></tr>
 <tr><td><code>product_name</code></td><td><code>string</code></td><td>Product name for the created license.</td></tr>

@@ -31,7 +31,7 @@ Gets an individual <code>subnet_group</code> resource
 <tr><td><code>description</code></td><td><code>string</code></td><td>An optional description of the subnet group.</td></tr>
 <tr><td><code>subnet_ids</code></td><td><code>array</code></td><td>A list of VPC subnet IDs for the subnet group.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this subnet group.</td></tr>
-<tr><td><code>a_rn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the subnet group.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the subnet group.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

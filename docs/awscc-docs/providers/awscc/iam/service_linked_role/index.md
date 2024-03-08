@@ -30,7 +30,7 @@ Gets an individual <code>service_linked_role</code> resource
 <tr><td><code>role_name</code></td><td><code>string</code></td><td>The name of the role.</td></tr>
 <tr><td><code>custom_suffix</code></td><td><code>string</code></td><td>A string that you provide, which is combined with the service-provided prefix to form the complete role name.</td></tr>
 <tr><td><code>description</code></td><td><code>string</code></td><td>The description of the role.</td></tr>
-<tr><td><code>a_ws_service_name</code></td><td><code>string</code></td><td>The service principal for the AWS service to which this role is attached.</td></tr>
+<tr><td><code>aws_service_name</code></td><td><code>string</code></td><td>The service principal for the AWS service to which this role is attached.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

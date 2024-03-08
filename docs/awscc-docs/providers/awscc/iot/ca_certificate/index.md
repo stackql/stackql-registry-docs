@@ -27,7 +27,7 @@ Gets an individual <code>ca_certificate</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>c_acertificate_pem</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ca_certificate_pem</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>verification_certificate_pem</code></td><td><code>string</code></td><td>The private key verification certificate.</td></tr>
 <tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>certificate_mode</code></td><td><code>string</code></td><td></td></tr>

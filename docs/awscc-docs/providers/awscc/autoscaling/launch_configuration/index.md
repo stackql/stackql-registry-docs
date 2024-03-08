@@ -29,8 +29,8 @@ Gets an individual <code>launch_configuration</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>associate_public_ip_address</code></td><td><code>boolean</code></td><td>For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.</td></tr>
 <tr><td><code>block_device_mappings</code></td><td><code>array</code></td><td>Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.</td></tr>
-<tr><td><code>classic_link_vp_cid</code></td><td><code>string</code></td><td>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</td></tr>
-<tr><td><code>classic_link_vp_csecurity_groups</code></td><td><code>array</code></td><td>The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.</td></tr>
+<tr><td><code>classic_link_vpc_id</code></td><td><code>string</code></td><td>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</td></tr>
+<tr><td><code>classic_link_vpc_security_groups</code></td><td><code>array</code></td><td>The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.</td></tr>
 <tr><td><code>ebs_optimized</code></td><td><code>boolean</code></td><td>Specifies whether the launch configuration is optimized for EBS I&#x2F;O (true) or not (false).</td></tr>
 <tr><td><code>iam_instance_profile</code></td><td><code>string</code></td><td>Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.</td></tr>
 <tr><td><code>image_id</code></td><td><code>string</code></td><td>Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.</td></tr>

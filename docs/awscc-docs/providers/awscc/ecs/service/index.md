@@ -33,7 +33,7 @@ Gets an individual <code>service</code> resource
 <tr><td><code>deployment_configuration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>deployment_controller</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>desired_count</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>enable_ec_smanaged_tags</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>enable_ecs_managed_tags</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>enable_execute_command</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>health_check_grace_period_seconds</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>launch_type</code></td><td><code>string</code></td><td></td></tr>

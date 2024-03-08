@@ -28,7 +28,7 @@ Gets an individual <code>tag_association</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>resource</code></td><td><code>object</code></td><td>Resource to tag with the Lake Formation Tags</td></tr>
-<tr><td><code>l_ftags</code></td><td><code>array</code></td><td>List of Lake Formation Tags to associate with the Lake Formation Resource</td></tr>
+<tr><td><code>lf_tags</code></td><td><code>array</code></td><td>List of Lake Formation Tags to associate with the Lake Formation Resource</td></tr>
 <tr><td><code>resource_identifier</code></td><td><code>string</code></td><td>Unique string identifying the resource. Used as primary identifier, which ideally should be a string</td></tr>
 <tr><td><code>tags_identifier</code></td><td><code>string</code></td><td>Unique string identifying the resource's tags. Used as primary identifier, which ideally should be a string</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>

@@ -28,7 +28,7 @@ Gets an individual <code>function</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>auto_publish</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>function_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>function_code</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>function_config</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>function_metadata</code></td><td><code>object</code></td><td></td></tr>
