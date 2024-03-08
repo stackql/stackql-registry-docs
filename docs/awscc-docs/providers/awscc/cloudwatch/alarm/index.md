@@ -37,7 +37,7 @@ Gets an individual <code>alarm</code> resource
 <tr><td><code>evaluation_periods</code></td><td><code>integer</code></td><td>The number of periods over which data is compared to the specified threshold.</td></tr>
 <tr><td><code>unit</code></td><td><code>string</code></td><td>The unit of the metric associated with the alarm.</td></tr>
 <tr><td><code>namespace</code></td><td><code>string</code></td><td>The namespace of the metric associated with the alarm.</td></tr>
-<tr><td><code>o_kactions</code></td><td><code>array</code></td><td>The actions to execute when this alarm transitions to the OK state from any other state.</td></tr>
+<tr><td><code>ok_actions</code></td><td><code>array</code></td><td>The actions to execute when this alarm transitions to the OK state from any other state.</td></tr>
 <tr><td><code>alarm_actions</code></td><td><code>array</code></td><td>The list of actions to execute when this alarm transitions into an ALARM state from any other state.</td></tr>
 <tr><td><code>metric_name</code></td><td><code>string</code></td><td>The name of the metric associated with the alarm.</td></tr>
 <tr><td><code>actions_enabled</code></td><td><code>boolean</code></td><td>Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.</td></tr>

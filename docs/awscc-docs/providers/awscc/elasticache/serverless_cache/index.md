@@ -45,7 +45,7 @@ Gets an individual <code>serverless_cache</code> resource
 <tr><td><code>status</code></td><td><code>string</code></td><td>The status of the Serverless Cache.</td></tr>
 <tr><td><code>endpoint</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>reader_endpoint</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>a_rn</code></td><td><code>string</code></td><td>The ARN of the Serverless Cache.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the Serverless Cache.</td></tr>
 <tr><td><code>final_snapshot_name</code></td><td><code>string</code></td><td>The final snapshot name which is taken before Serverless Cache is deleted.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 

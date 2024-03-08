@@ -28,7 +28,7 @@ Gets an individual <code>global_table</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>table_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>s_se_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>sse_specification</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>stream_specification</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>replicas</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>write_provisioned_throughput_settings</code></td><td><code>object</code></td><td></td></tr>

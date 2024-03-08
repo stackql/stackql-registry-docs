@@ -32,7 +32,7 @@ Gets an individual <code>device</code> resource
 <tr><td><code>description</code></td><td><code>string</code></td><td>The description of the device.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>The tags for the device.</td></tr>
 <tr><td><code>global_network_id</code></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
-<tr><td><code>a_ws_location</code></td><td><code>object</code></td><td>The Amazon Web Services location of the device, if applicable.</td></tr>
+<tr><td><code>aws_location</code></td><td><code>object</code></td><td>The Amazon Web Services location of the device, if applicable.</td></tr>
 <tr><td><code>location</code></td><td><code>object</code></td><td>The site location.</td></tr>
 <tr><td><code>model</code></td><td><code>string</code></td><td>The device model</td></tr>
 <tr><td><code>serial_number</code></td><td><code>string</code></td><td>The device serial number.</td></tr>

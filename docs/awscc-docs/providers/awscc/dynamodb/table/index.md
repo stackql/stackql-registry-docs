@@ -27,7 +27,7 @@ Gets an individual <code>table</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>s_se_specification</code></td><td><code>object</code></td><td>Specifies the settings to enable server-side encryption.</td></tr>
+<tr><td><code>sse_specification</code></td><td><code>object</code></td><td>Specifies the settings to enable server-side encryption.</td></tr>
 <tr><td><code>kinesis_stream_specification</code></td><td><code>object</code></td><td>The Kinesis Data Streams configuration for the specified table.</td></tr>
 <tr><td><code>stream_specification</code></td><td><code>object</code></td><td>The settings for the DDB table stream, which capture changes to items stored in the table.</td></tr>
 <tr><td><code>contributor_insights_specification</code></td><td><code>object</code></td><td>The settings used to enable or disable CloudWatch Contributor Insights for the specified table.</td></tr>

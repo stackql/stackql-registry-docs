@@ -33,7 +33,7 @@ Gets an individual <code>bot</code> resource
 <tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>data_privacy</code></td><td><code>object</code></td><td>Data privacy setting of the Bot.</td></tr>
-<tr><td><code>idle_session_tt_lin_seconds</code></td><td><code>integer</code></td><td>IdleSessionTTLInSeconds of the resource</td></tr>
+<tr><td><code>idle_session_ttl_in_seconds</code></td><td><code>integer</code></td><td>IdleSessionTTLInSeconds of the resource</td></tr>
 <tr><td><code>bot_locales</code></td><td><code>array</code></td><td>List of bot locales</td></tr>
 <tr><td><code>bot_file_s3_location</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>bot_tags</code></td><td><code>array</code></td><td>A list of tags to add to the bot, which can only be added at bot creation.</td></tr>

@@ -28,7 +28,7 @@ Retrieves a list of <code>vpc_connections</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>aws_account_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>v_pc_connection_id</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>vpc_connection_id</code></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

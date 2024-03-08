@@ -37,8 +37,8 @@ Gets an individual <code>identity_pool</code> resource
 <tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>identity_pool_name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>allow_unauthenticated_identities</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>saml_provider_ar_ns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>open_id_connect_provider_ar_ns</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>saml_provider_arns</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>open_id_connect_provider_arns</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>allow_classic_flow</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 

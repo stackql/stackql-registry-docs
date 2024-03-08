@@ -33,8 +33,8 @@ Gets an individual <code>endpoint_authorization</code> resource
 <tr><td><code>authorize_time</code></td><td><code>string</code></td><td>The time (UTC) when the authorization was created.</td></tr>
 <tr><td><code>cluster_status</code></td><td><code>string</code></td><td>The status of the cluster.</td></tr>
 <tr><td><code>status</code></td><td><code>string</code></td><td>The status of the authorization action.</td></tr>
-<tr><td><code>allowed_all_vp_cs</code></td><td><code>boolean</code></td><td>Indicates whether all VPCs in the grantee account are allowed access to the cluster.</td></tr>
-<tr><td><code>allowed_vp_cs</code></td><td><code>array</code></td><td>The VPCs allowed access to the cluster.</td></tr>
+<tr><td><code>allowed_all_vpcs</code></td><td><code>boolean</code></td><td>Indicates whether all VPCs in the grantee account are allowed access to the cluster.</td></tr>
+<tr><td><code>allowed_vpcs</code></td><td><code>array</code></td><td>The VPCs allowed access to the cluster.</td></tr>
 <tr><td><code>endpoint_count</code></td><td><code>integer</code></td><td>The number of Redshift-managed VPC endpoints created for the authorization.</td></tr>
 <tr><td><code>account</code></td><td><code>string</code></td><td>The target AWS account ID to grant or revoke access for.</td></tr>
 <tr><td><code>vpc_ids</code></td><td><code>array</code></td><td>The virtual private cloud (VPC) identifiers to grant or revoke access to.</td></tr>

@@ -34,11 +34,11 @@ Gets an individual <code>environment</code> resource
 <tr><td><code>operations_role</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.</td></tr>
 <tr><td><code>tier</code></td><td><code>object</code></td><td>Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.</td></tr>
 <tr><td><code>version_label</code></td><td><code>string</code></td><td>The name of the application version to deploy.</td></tr>
-<tr><td><code>endpoint_ur_l</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>endpoint_url</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>option_settings</code></td><td><code>array</code></td><td>Key-value pairs defining configuration options for this environment, such as the instance type.</td></tr>
 <tr><td><code>template_name</code></td><td><code>string</code></td><td>The name of the Elastic Beanstalk configuration template to use with the environment.</td></tr>
 <tr><td><code>solution_stack_name</code></td><td><code>string</code></td><td>The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.</td></tr>
-<tr><td><code>c_na_me_prefix</code></td><td><code>string</code></td><td>If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.</td></tr>
+<tr><td><code>cname_prefix</code></td><td><code>string</code></td><td>If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>Specifies the tags applied to resources in the environment.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 

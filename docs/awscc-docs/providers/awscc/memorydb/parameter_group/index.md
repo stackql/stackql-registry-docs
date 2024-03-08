@@ -32,7 +32,7 @@ Gets an individual <code>parameter_group</code> resource
 <tr><td><code>description</code></td><td><code>string</code></td><td>A description of the parameter group.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this parameter group.</td></tr>
 <tr><td><code>parameters</code></td><td><code>object</code></td><td>An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.</td></tr>
-<tr><td><code>a_rn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the parameter group.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the parameter group.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

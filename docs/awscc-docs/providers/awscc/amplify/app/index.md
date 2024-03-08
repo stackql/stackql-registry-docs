@@ -40,7 +40,7 @@ Gets an individual <code>app</code> resource
 <tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>enable_branch_auto_deletion</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>environment_variables</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>i_am_service_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>iam_service_role</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>oauth_token</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>platform</code></td><td><code>string</code></td><td></td></tr>

@@ -33,7 +33,7 @@ Gets an individual <code>data_integration</code> resource
 <tr><td><code>name</code></td><td><code>string</code></td><td>The name of the data integration.</td></tr>
 <tr><td><code>kms_key</code></td><td><code>string</code></td><td>The KMS key of the data integration.</td></tr>
 <tr><td><code>schedule_config</code></td><td><code>object</code></td><td>The name of the data and how often it should be pulled from the source.</td></tr>
-<tr><td><code>source_ur_i</code></td><td><code>string</code></td><td>The URI of the data source.</td></tr>
+<tr><td><code>source_uri</code></td><td><code>string</code></td><td>The URI of the data source.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the data integration.</td></tr>
 <tr><td><code>file_configuration</code></td><td><code>object</code></td><td>The configuration for what files should be pulled from the source.</td></tr>
 <tr><td><code>object_configuration</code></td><td><code>object</code></td><td>The configuration for what data should be pulled from the source.</td></tr>

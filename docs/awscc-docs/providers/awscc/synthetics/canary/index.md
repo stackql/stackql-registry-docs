@@ -39,7 +39,7 @@ Gets an individual <code>canary</code> resource
 <tr><td><code>success_retention_period</code></td><td><code>integer</code></td><td>Retention period of successful canary runs represented in number of days</td></tr>
 <tr><td><code>failure_retention_period</code></td><td><code>integer</code></td><td>Retention period of failed canary runs represented in number of days</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>v_pc_config</code></td><td><code>object</code></td><td>Provide VPC Configuration if enabled.</td></tr>
+<tr><td><code>vpc_config</code></td><td><code>object</code></td><td>Provide VPC Configuration if enabled.</td></tr>
 <tr><td><code>run_config</code></td><td><code>object</code></td><td>Provide canary run configuration</td></tr>
 <tr><td><code>start_canary_after_creation</code></td><td><code>boolean</code></td><td>Runs canary if set to True. Default is False</td></tr>
 <tr><td><code>visual_reference</code></td><td><code>object</code></td><td>Visual reference configuration for visual testing</td></tr>

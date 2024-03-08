@@ -29,7 +29,7 @@ Gets an individual <code>fuota_task</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>name</code></td><td><code>string</code></td><td>Name of FUOTA task</td></tr>
 <tr><td><code>description</code></td><td><code>string</code></td><td>FUOTA task description</td></tr>
-<tr><td><code>lo_ra_wa_n</code></td><td><code>object</code></td><td>FUOTA task LoRaWAN</td></tr>
+<tr><td><code>lo_ra_wan</code></td><td><code>object</code></td><td>FUOTA task LoRaWAN</td></tr>
 <tr><td><code>firmware_update_image</code></td><td><code>string</code></td><td>FUOTA task firmware update image binary S3 link</td></tr>
 <tr><td><code>firmware_update_role</code></td><td><code>string</code></td><td>FUOTA task firmware IAM role for reading S3</td></tr>
 <tr><td><code>arn</code></td><td><code>string</code></td><td>FUOTA task arn. Returned after successful create.</td></tr>

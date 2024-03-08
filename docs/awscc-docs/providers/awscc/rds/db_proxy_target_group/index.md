@@ -27,12 +27,12 @@ Gets an individual <code>db_proxy_target_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>d_bproxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy.</td></tr>
+<tr><td><code>db_proxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy.</td></tr>
 <tr><td><code>target_group_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) representing the target group.</td></tr>
 <tr><td><code>target_group_name</code></td><td><code>string</code></td><td>The identifier for the DBProxyTargetGroup</td></tr>
 <tr><td><code>connection_pool_configuration_info</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>d_binstance_identifiers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>d_bcluster_identifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>db_instance_identifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>db_cluster_identifiers</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

@@ -27,7 +27,7 @@ Gets an individual <code>resolver_rule_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>v_pc_id</code></td><td><code>string</code></td><td>The ID of the VPC that you associated the Resolver rule with.</td></tr>
+<tr><td><code>vpc_id</code></td><td><code>string</code></td><td>The ID of the VPC that you associated the Resolver rule with.</td></tr>
 <tr><td><code>resolver_rule_id</code></td><td><code>string</code></td><td>The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.</td></tr>
 <tr><td><code>resolver_rule_association_id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>name</code></td><td><code>string</code></td><td>The name of an association between a Resolver rule and a VPC.</td></tr>

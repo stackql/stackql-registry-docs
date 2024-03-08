@@ -30,8 +30,8 @@ Gets an individual <code>vpc_connection</code> resource
 <tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>aws_account_id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>v_pc_connection_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>v_pc_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>vpc_connection_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>vpc_id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>subnet_ids</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>dns_resolvers</code></td><td><code>array</code></td><td></td></tr>

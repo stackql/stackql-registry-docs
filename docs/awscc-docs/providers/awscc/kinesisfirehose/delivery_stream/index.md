@@ -36,7 +36,7 @@ Gets an individual <code>delivery_stream</code> resource
 <tr><td><code>amazon_open_search_serverless_destination_configuration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>extended_s3_destination_configuration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>kinesis_stream_source_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>m_sk_source_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>msk_source_configuration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>redshift_destination_configuration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>s3_destination_configuration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>splunk_destination_configuration</code></td><td><code>object</code></td><td></td></tr>

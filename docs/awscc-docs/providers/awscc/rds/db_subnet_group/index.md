@@ -27,8 +27,8 @@ Gets an individual <code>db_subnet_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>d_bsubnet_group_description</code></td><td><code>string</code></td><td>The description for the DB subnet group.</td></tr>
-<tr><td><code>d_bsubnet_group_name</code></td><td><code>string</code></td><td>The name for the DB subnet group. This value is stored as a lowercase string.&lt;br&#x2F;&gt; Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".&lt;br&#x2F;&gt; Example: ``mysubnetgroup``</td></tr>
+<tr><td><code>db_subnet_group_description</code></td><td><code>string</code></td><td>The description for the DB subnet group.</td></tr>
+<tr><td><code>db_subnet_group_name</code></td><td><code>string</code></td><td>The name for the DB subnet group. This value is stored as a lowercase string.&lt;br&#x2F;&gt; Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".&lt;br&#x2F;&gt; Example: ``mysubnetgroup``</td></tr>
 <tr><td><code>subnet_ids</code></td><td><code>array</code></td><td>The EC2 Subnet IDs for the DB subnet group.</td></tr>
 <tr><td><code>tags</code></td><td><code>array</code></td><td>An optional array of key-value pairs to apply to this DB subnet group.</td></tr>
 <tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>

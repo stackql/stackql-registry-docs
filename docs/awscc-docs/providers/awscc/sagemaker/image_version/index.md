@@ -37,7 +37,7 @@ Gets an individual <code>image_version</code> resource
 <tr><td><code>aliases</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>vendor_guidance</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>job_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>m_lframework</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ml_framework</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>programming_lang</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>processor</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>horovod</code></td><td><code>boolean</code></td><td></td></tr>

@@ -30,12 +30,12 @@ Gets an individual <code>domain</code> resource
 <tr><td><code>cluster_config</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>access_policies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>i_paddress_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ip_address_type</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>engine_version</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>advanced_options</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>log_publishing_options</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>snapshot_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>v_pc_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>vpc_options</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>node_to_node_encryption_options</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>domain_endpoint_options</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>cognito_options</code></td><td><code>object</code></td><td></td></tr>
@@ -43,7 +43,7 @@ Gets an individual <code>domain</code> resource
 <tr><td><code>domain_endpoint</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>domain_endpoint_v2</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>domain_endpoints</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>e_bs_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ebs_options</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>domain_arn</code></td><td><code>string</code></td><td></td></tr>
