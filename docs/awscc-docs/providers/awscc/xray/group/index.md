@@ -45,7 +45,7 @@ SELECT
 region,
 filter_expression,
 group_name,
-group_ar_n,
+group_arn,
 insights_configuration,
 tags
 FROM awscc.xray.group

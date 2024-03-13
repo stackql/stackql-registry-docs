@@ -39,7 +39,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-rule_ar_n
+rule_arn
 FROM awscc.xray.sampling_rules
 WHERE region = 'us-east-1'
 ```

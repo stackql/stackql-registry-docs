@@ -44,7 +44,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-a_rn,
+arn,
 enable_default_standards,
 control_finding_generator,
 auto_enable_controls,

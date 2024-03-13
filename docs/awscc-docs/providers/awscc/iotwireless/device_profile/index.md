@@ -44,7 +44,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 name,
-lo_ra_wa_n,
+lo_ra_wan,
 tags,
 arn,
 id

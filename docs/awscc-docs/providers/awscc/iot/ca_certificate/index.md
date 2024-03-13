@@ -48,7 +48,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-c_acertificate_pem,
+ca_certificate_pem,
 verification_certificate_pem,
 status,
 certificate_mode,

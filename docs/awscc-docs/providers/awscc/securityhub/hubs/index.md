@@ -39,7 +39,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-a_rn
+arn
 FROM awscc.securityhub.hubs
 WHERE region = 'us-east-1'
 ```

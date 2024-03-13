@@ -39,7 +39,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-t_ls_inspection_configuration_arn
+tls_inspection_configuration_arn
 FROM awscc.networkfirewall.tls_inspection_configurations
 WHERE region = 'us-east-1'
 ```

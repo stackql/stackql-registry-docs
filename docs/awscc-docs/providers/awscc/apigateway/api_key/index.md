@@ -47,7 +47,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-a_pi_key_id,
+api_key_id,
 customer_id,
 description,
 enabled,

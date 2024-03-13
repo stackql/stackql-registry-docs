@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 aws_account_id,
-v_pc_connection_id
+vpc_connection_id
 FROM awscc.quicksight.vpc_connections
 WHERE region = 'us-east-1'
 ```

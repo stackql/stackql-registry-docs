@@ -44,10 +44,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-t_ls_inspection_configuration_name,
-t_ls_inspection_configuration_arn,
-t_ls_inspection_configuration,
-t_ls_inspection_configuration_id,
+tls_inspection_configuration_name,
+tls_inspection_configuration_arn,
+tls_inspection_configuration,
+tls_inspection_configuration_id,
 description,
 tags
 FROM awscc.networkfirewall.tls_inspection_configuration

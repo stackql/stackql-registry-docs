@@ -53,7 +53,7 @@ SELECT
 region,
 name,
 description,
-lo_ra_wa_n,
+lo_ra_wan,
 firmware_update_image,
 firmware_update_role,
 arn,

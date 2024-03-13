@@ -45,7 +45,7 @@ region,
 role_name,
 custom_suffix,
 description,
-a_ws_service_name
+aws_service_name
 FROM awscc.iam.service_linked_role
 WHERE data__Identifier = '{RoleName}';
 ```

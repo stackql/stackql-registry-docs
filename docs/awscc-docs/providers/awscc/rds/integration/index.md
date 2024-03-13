@@ -51,7 +51,7 @@ tags,
 source_arn,
 target_arn,
 integration_arn,
-k_ms_key_id,
+kms_key_id,
 additional_encryption_context,
 create_time
 FROM awscc.rds.integration

@@ -47,7 +47,7 @@ region,
 sampling_rule,
 sampling_rule_record,
 sampling_rule_update,
-rule_ar_n,
+rule_arn,
 rule_name,
 tags
 FROM awscc.xray.sampling_rule

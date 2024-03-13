@@ -48,7 +48,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 s3_destination,
-k_ms_key_arn,
+kms_key_arn,
 sync_source,
 bucket_name,
 bucket_region,

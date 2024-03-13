@@ -39,7 +39,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-d_bproxy_name
+db_proxy_name
 FROM awscc.rds.db_proxies
 WHERE region = 'us-east-1'
 ```

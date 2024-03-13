@@ -91,7 +91,7 @@ user_pool_tags,
 verification_message_template,
 user_pool_add_ons,
 provider_name,
-provider_ur_l,
+provider_url,
 arn,
 user_pool_id
 FROM awscc.cognito.user_pool

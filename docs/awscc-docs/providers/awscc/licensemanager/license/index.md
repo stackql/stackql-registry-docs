@@ -51,7 +51,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-product_sk_u,
+product_sku,
 issuer,
 license_name,
 product_name,

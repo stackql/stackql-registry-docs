@@ -53,7 +53,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 table_id,
-s_se_specification,
+sse_specification,
 stream_specification,
 replicas,
 write_provisioned_throughput_settings,

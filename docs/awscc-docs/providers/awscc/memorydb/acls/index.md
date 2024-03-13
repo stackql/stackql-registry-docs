@@ -39,7 +39,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-a_cl_name
+acl_name
 FROM awscc.memorydb.acls
 WHERE region = 'us-east-1'
 ```

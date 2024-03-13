@@ -51,7 +51,7 @@ description,
 name,
 id,
 scope,
-i_paddress_version,
+ip_address_version,
 addresses,
 tags
 FROM awscc.wafv2.ip_set

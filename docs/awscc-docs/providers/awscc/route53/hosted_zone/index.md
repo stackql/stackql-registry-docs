@@ -50,7 +50,7 @@ hosted_zone_config,
 hosted_zone_tags,
 name,
 query_logging_config,
-v_pcs,
+vpcs,
 name_servers
 FROM awscc.route53.hosted_zone
 WHERE data__Identifier = '{Id}';
