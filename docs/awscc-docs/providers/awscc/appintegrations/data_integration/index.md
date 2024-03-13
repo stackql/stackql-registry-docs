@@ -54,7 +54,7 @@ data_integration_arn,
 name,
 kms_key,
 schedule_config,
-source_ur_i,
+source_uri,
 tags,
 file_configuration,
 object_configuration

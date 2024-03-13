@@ -49,7 +49,7 @@ SELECT
 region,
 name,
 description,
-lo_ra_wa_n,
+lo_ra_wan,
 arn,
 id,
 tags,

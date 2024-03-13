@@ -56,7 +56,7 @@ SELECT
 region,
 stack_set_name,
 stack_set_id,
-administration_role_ar_n,
+administration_role_arn,
 auto_deployment,
 capabilities,
 description,
@@ -67,7 +67,7 @@ parameters,
 permission_model,
 tags,
 template_body,
-template_ur_l,
+template_url,
 call_as,
 managed_execution
 FROM awscc.cloudformation.stack_set

@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-v_pc_id,
+vpc_id,
 resolver_rule_id,
 resolver_rule_association_id,
 name

@@ -39,7 +39,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-function_ar_n
+function_arn
 FROM awscc.cloudfront.functions
 
 ```

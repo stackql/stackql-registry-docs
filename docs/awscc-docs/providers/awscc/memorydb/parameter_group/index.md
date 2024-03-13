@@ -49,7 +49,7 @@ family,
 description,
 tags,
 parameters,
-a_rn
+arn
 FROM awscc.memorydb.parameter_group
 WHERE region = 'us-east-1'
 AND data__Identifier = '{ParameterGroupName}';

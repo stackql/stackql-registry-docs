@@ -43,7 +43,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-d_bparameter_group_name,
+db_parameter_group_name,
 description,
 family,
 parameters,

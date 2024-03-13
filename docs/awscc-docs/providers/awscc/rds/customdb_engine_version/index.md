@@ -53,9 +53,9 @@ database_installation_files_s3_prefix,
 description,
 engine,
 engine_version,
-k_ms_key_id,
+kms_key_id,
 manifest,
-d_bengine_version_arn,
+db_engine_version_arn,
 status,
 tags
 FROM awscc.rds.customdb_engine_version

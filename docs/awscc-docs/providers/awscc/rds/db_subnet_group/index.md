@@ -42,8 +42,8 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-d_bsubnet_group_description,
-d_bsubnet_group_name,
+db_subnet_group_description,
+db_subnet_group_name,
 subnet_ids,
 tags
 FROM awscc.rds.db_subnet_group

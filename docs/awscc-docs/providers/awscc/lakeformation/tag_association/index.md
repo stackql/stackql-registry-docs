@@ -43,7 +43,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 resource,
-l_ftags,
+lf_tags,
 resource_identifier,
 tags_identifier
 FROM awscc.lakeformation.tag_association

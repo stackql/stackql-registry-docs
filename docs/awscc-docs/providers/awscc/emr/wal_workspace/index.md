@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-w_al_workspace_name,
+wal_workspace_name,
 tags
 FROM awscc.emr.wal_workspace
 WHERE region = 'us-east-1'

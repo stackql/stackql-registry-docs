@@ -51,7 +51,7 @@ solution_arn,
 event_type,
 dataset_group_arn,
 perform_auto_ml,
-perform_hp_o,
+perform_hpo,
 recipe_arn,
 solution_config
 FROM awscc.personalize.solution

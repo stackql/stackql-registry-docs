@@ -56,12 +56,12 @@ dkim_signing_attributes,
 dkim_attributes,
 mail_from_attributes,
 feedback_attributes,
-dkim_dn_stoken_name1,
-dkim_dn_stoken_name2,
-dkim_dn_stoken_name3,
-dkim_dn_stoken_value1,
-dkim_dn_stoken_value2,
-dkim_dn_stoken_value3
+dkim_dns_token_name1,
+dkim_dns_token_name2,
+dkim_dns_token_name3,
+dkim_dns_token_value1,
+dkim_dns_token_value2,
+dkim_dns_token_value3
 FROM awscc.ses.email_identity
 WHERE region = 'us-east-1'
 AND data__Identifier = '{EmailIdentity}';

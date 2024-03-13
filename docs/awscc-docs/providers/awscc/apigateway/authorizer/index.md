@@ -58,7 +58,7 @@ authorizer_uri,
 identity_source,
 identity_validation_expression,
 name,
-provider_ar_ns,
+provider_arns,
 type
 FROM awscc.apigateway.authorizer
 WHERE region = 'us-east-1'

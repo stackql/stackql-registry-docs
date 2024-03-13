@@ -46,7 +46,7 @@ region,
 description,
 family,
 parameters,
-d_bcluster_parameter_group_name,
+db_cluster_parameter_group_name,
 tags
 FROM awscc.rds.db_cluster_parameter_group
 WHERE region = 'us-east-1'

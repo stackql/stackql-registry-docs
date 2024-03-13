@@ -46,7 +46,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 auto_publish,
-function_ar_n,
+function_arn,
 function_code,
 function_config,
 function_metadata,

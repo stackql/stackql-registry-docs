@@ -48,9 +48,9 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-d_bproxy_endpoint_name,
-d_bproxy_endpoint_arn,
-d_bproxy_name,
+db_proxy_endpoint_name,
+db_proxy_endpoint_arn,
+db_proxy_name,
 vpc_id,
 vpc_security_group_ids,
 vpc_subnet_ids,

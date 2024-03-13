@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 resource_arn,
-web_ac_larn
+web_acl_arn
 FROM awscc.wafv2.webacl_associations
 
 ```

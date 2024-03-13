@@ -50,10 +50,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 resource_group_name,
-application_ar_n,
-c_we_monitor_enabled,
+application_arn,
+cwe_monitor_enabled,
 ops_center_enabled,
-ops_item_sn_stopic_arn,
+ops_item_sns_topic_arn,
 tags,
 custom_components,
 log_pattern_sets,

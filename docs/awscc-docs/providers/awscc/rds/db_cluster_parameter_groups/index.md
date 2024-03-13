@@ -39,7 +39,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-d_bcluster_parameter_group_name
+db_cluster_parameter_group_name
 FROM awscc.rds.db_cluster_parameter_groups
 WHERE region = 'us-east-1'
 ```

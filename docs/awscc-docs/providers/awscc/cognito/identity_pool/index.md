@@ -61,8 +61,8 @@ cognito_events,
 id,
 identity_pool_name,
 allow_unauthenticated_identities,
-saml_provider_ar_ns,
-open_id_connect_provider_ar_ns,
+saml_provider_arns,
+open_id_connect_provider_arns,
 allow_classic_flow
 FROM awscc.cognito.identity_pool
 WHERE region = 'us-east-1'

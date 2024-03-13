@@ -57,7 +57,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 ```sql
 SELECT
 region,
-s_se_specification,
+sse_specification,
 kinesis_stream_specification,
 stream_specification,
 contributor_insights_specification,

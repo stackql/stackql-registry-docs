@@ -50,7 +50,7 @@ delivery_s3_bucket,
 delivery_s3_key_prefix,
 template_body,
 template_s3_uri,
-template_ss_mdocument_details,
+template_ssm_document_details,
 conformance_pack_input_parameters
 FROM awscc.config.conformance_pack
 WHERE region = 'us-east-1'

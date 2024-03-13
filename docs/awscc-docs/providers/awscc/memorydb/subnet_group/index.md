@@ -47,7 +47,7 @@ subnet_group_name,
 description,
 subnet_ids,
 tags,
-a_rn
+arn
 FROM awscc.memorydb.subnet_group
 WHERE region = 'us-east-1'
 AND data__Identifier = '{SubnetGroupName}';

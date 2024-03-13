@@ -76,7 +76,7 @@ create_time,
 status,
 endpoint,
 reader_endpoint,
-a_rn,
+arn,
 final_snapshot_name
 FROM awscc.elasticache.serverless_cache
 WHERE region = 'us-east-1'

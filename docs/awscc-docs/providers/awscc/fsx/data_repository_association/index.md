@@ -48,7 +48,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 SELECT
 region,
 association_id,
-resource_ar_n,
+resource_arn,
 file_system_id,
 file_system_path,
 data_repository_path,

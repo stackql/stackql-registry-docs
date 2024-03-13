@@ -52,8 +52,8 @@ heartbeat_timeout,
 lifecycle_hook_name,
 lifecycle_transition,
 notification_metadata,
-notification_target_ar_n,
-role_ar_n
+notification_target_arn,
+role_arn
 FROM awscc.autoscaling.lifecycle_hook
 WHERE region = 'us-east-1'
 AND data__Identifier = '{AutoScalingGroupName}';

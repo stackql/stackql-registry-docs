@@ -58,11 +58,11 @@ environment_name,
 operations_role,
 tier,
 version_label,
-endpoint_ur_l,
+endpoint_url,
 option_settings,
 template_name,
 solution_stack_name,
-c_na_me_prefix,
+cname_prefix,
 tags
 FROM awscc.elasticbeanstalk.environment
 WHERE region = 'us-east-1'
