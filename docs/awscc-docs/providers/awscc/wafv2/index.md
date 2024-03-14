@@ -20,9 +20,9 @@ The wafv2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -43,7 +43,6 @@ The wafv2 service documentation.
 <a href="/providers/awscc/wafv2/rule_groups/">rule_groups</a><br />
 <a href="/providers/awscc/wafv2/web_acl/">web_acl</a><br />
 <a href="/providers/awscc/wafv2/web_acls/">web_acls</a><br />
-<a href="/providers/awscc/wafv2/webacl_association/">webacl_association</a><br />
-<a href="/providers/awscc/wafv2/webacl_associations/">webacl_associations</a>
+<a href="/providers/awscc/wafv2/webacl_association/">webacl_association</a>
 </div>
 </div>

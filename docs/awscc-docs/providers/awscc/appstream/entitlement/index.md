@@ -53,9 +53,7 @@ attributes,
 created_time,
 last_modified_time
 FROM awscc.appstream.entitlement
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StackName}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<StackName>|<Name>';
 ```
 
 ## Permissions

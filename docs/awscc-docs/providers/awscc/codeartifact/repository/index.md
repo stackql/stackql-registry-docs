@@ -59,8 +59,7 @@ upstreams,
 permissions_policy_document,
 tags
 FROM awscc.codeartifact.repository
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

@@ -47,7 +47,7 @@ saml_metadata_document,
 arn,
 tags
 FROM awscc.iam.saml_provider
-WHERE data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

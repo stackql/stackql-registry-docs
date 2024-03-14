@@ -49,9 +49,7 @@ source_location_name,
 tags,
 vod_source_name
 FROM awscc.mediatailor.vod_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SourceLocationName}';
-AND data__Identifier = '{VodSourceName}';
+WHERE data__Identifier = '<SourceLocationName>|<VodSourceName>';
 ```
 
 ## Permissions

@@ -59,8 +59,7 @@ role_arns,
 session_policy,
 tags
 FROM awscc.rolesanywhere.profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProfileId}';
+WHERE data__Identifier = '<ProfileId>';
 ```
 
 ## Permissions

@@ -49,7 +49,7 @@ redacted_fields,
 managed_by_firewall_manager,
 logging_filter
 FROM awscc.wafv2.logging_configuration
-WHERE data__Identifier = '{ResourceArn}';
+WHERE data__Identifier = '<ResourceArn>';
 ```
 
 ## Permissions

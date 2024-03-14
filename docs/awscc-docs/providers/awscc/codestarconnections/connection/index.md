@@ -53,8 +53,7 @@ provider_type,
 host_arn,
 tags
 FROM awscc.codestarconnections.connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectionArn}';
+WHERE data__Identifier = '<ConnectionArn>';
 ```
 
 ## Permissions

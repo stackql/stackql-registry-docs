@@ -47,8 +47,7 @@ name,
 routing_strategy,
 alias_id
 FROM awscc.gamelift.alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AliasId}';
+WHERE data__Identifier = '<AliasId>';
 ```
 
 ## Permissions

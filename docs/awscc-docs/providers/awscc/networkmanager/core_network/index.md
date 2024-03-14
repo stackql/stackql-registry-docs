@@ -61,8 +61,7 @@ edges,
 owner_account,
 tags
 FROM awscc.networkmanager.core_network
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CoreNetworkId}';
+WHERE data__Identifier = '<CoreNetworkId>';
 ```
 
 ## Permissions

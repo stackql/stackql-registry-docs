@@ -65,8 +65,7 @@ vpc_id,
 vpc_security_group_ids,
 vpc_subnet_ids
 FROM awscc.rds.db_proxy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DBProxyName}';
+WHERE data__Identifier = '<DBProxyName>';
 ```
 
 ## Permissions

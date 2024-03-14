@@ -53,7 +53,7 @@ query_logging_config,
 vpcs,
 name_servers
 FROM awscc.route53.hosted_zone
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

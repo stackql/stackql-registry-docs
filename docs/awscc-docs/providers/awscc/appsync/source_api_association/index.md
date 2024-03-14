@@ -65,8 +65,7 @@ source_api_association_status,
 source_api_association_status_detail,
 last_successful_merge_date
 FROM awscc.appsync.source_api_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssociationArn}';
+WHERE data__Identifier = '<AssociationArn>';
 ```
 
 ## Permissions

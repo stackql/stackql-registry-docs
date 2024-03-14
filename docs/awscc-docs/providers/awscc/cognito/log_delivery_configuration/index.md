@@ -45,8 +45,7 @@ id,
 user_pool_id,
 log_configurations
 FROM awscc.cognito.log_delivery_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

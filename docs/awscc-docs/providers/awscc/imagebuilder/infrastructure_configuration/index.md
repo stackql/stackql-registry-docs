@@ -67,8 +67,7 @@ sns_topic_arn,
 resource_tags,
 tags
 FROM awscc.imagebuilder.infrastructure_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

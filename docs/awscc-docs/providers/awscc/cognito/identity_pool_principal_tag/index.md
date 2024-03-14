@@ -47,9 +47,7 @@ identity_provider_name,
 use_defaults,
 principal_tags
 FROM awscc.cognito.identity_pool_principal_tag
-WHERE region = 'us-east-1'
-AND data__Identifier = '{IdentityPoolId}';
-AND data__Identifier = '{IdentityProviderName}';
+WHERE data__Identifier = '<IdentityPoolId>|<IdentityProviderName>';
 ```
 
 ## Permissions

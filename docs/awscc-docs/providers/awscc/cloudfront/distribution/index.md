@@ -47,7 +47,7 @@ domain_name,
 id,
 tags
 FROM awscc.cloudfront.distribution
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

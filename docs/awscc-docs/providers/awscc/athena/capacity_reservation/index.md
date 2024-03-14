@@ -57,8 +57,7 @@ creation_time,
 last_successful_allocation_time,
 tags
 FROM awscc.athena.capacity_reservation
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

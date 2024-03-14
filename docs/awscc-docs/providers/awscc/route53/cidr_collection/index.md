@@ -47,7 +47,7 @@ name,
 arn,
 locations
 FROM awscc.route53.cidr_collection
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

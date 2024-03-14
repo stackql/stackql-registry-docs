@@ -57,8 +57,7 @@ alarm_event_actions,
 alarm_capabilities,
 tags
 FROM awscc.iotevents.alarm_model
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AlarmModelName}';
+WHERE data__Identifier = '<AlarmModelName>';
 ```
 
 ## Permissions

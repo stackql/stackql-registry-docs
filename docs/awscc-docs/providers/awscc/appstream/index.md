@@ -20,9 +20,9 @@ The appstream service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
-<span>total selectable resources:&nbsp;<b>16</b></span><br />
-<span>total methods:&nbsp;<b>16</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -34,19 +34,14 @@ The appstream service documentation.
 <a href="/providers/awscc/appstream/app_block/">app_block</a><br />
 <a href="/providers/awscc/appstream/app_block_builder/">app_block_builder</a><br />
 <a href="/providers/awscc/appstream/app_block_builders/">app_block_builders</a><br />
-<a href="/providers/awscc/appstream/app_blocks/">app_blocks</a><br />
 <a href="/providers/awscc/appstream/application/">application</a><br />
 <a href="/providers/awscc/appstream/application_entitlement_association/">application_entitlement_association</a><br />
-<a href="/providers/awscc/appstream/application_entitlement_associations/">application_entitlement_associations</a><br />
 <a href="/providers/awscc/appstream/application_fleet_association/">application_fleet_association</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/appstream/application_fleet_associations/">application_fleet_associations</a><br />
-<a href="/providers/awscc/appstream/applications/">applications</a><br />
 <a href="/providers/awscc/appstream/directory_config/">directory_config</a><br />
 <a href="/providers/awscc/appstream/directory_configs/">directory_configs</a><br />
 <a href="/providers/awscc/appstream/entitlement/">entitlement</a><br />
-<a href="/providers/awscc/appstream/entitlements/">entitlements</a><br />
 <a href="/providers/awscc/appstream/image_builder/">image_builder</a><br />
 <a href="/providers/awscc/appstream/image_builders/">image_builders</a>
 </div>

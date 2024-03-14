@@ -61,8 +61,7 @@ quick_connect_arns,
 tags,
 type
 FROM awscc.connect.queue
-WHERE region = 'us-east-1'
-AND data__Identifier = '{QueueArn}';
+WHERE data__Identifier = '<QueueArn>';
 ```
 
 ## Permissions

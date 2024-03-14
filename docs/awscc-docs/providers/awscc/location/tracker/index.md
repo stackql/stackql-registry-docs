@@ -65,8 +65,7 @@ tracker_name,
 update_time,
 arn
 FROM awscc.location.tracker
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TrackerName}';
+WHERE data__Identifier = '<TrackerName>';
 ```
 
 ## Permissions

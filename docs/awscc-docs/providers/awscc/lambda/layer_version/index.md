@@ -53,8 +53,7 @@ content,
 layer_version_arn,
 compatible_architectures
 FROM awscc.lambda.layer_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LayerVersionArn}';
+WHERE data__Identifier = '<LayerVersionArn>';
 ```
 
 ## Permissions

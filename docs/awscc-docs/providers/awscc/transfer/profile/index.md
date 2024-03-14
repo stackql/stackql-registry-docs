@@ -51,8 +51,7 @@ certificate_ids,
 arn,
 profile_id
 FROM awscc.transfer.profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProfileId}';
+WHERE data__Identifier = '<ProfileId>';
 ```
 
 ## Permissions

@@ -51,8 +51,7 @@ tags,
 name,
 capacity_units
 FROM awscc.kendraranking.execution_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

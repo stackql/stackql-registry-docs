@@ -59,9 +59,7 @@ streaming_image_id,
 studio_id,
 tags
 FROM awscc.nimblestudio.streaming_image
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StudioId}';
-AND data__Identifier = '{StreamingImageId}';
+WHERE data__Identifier = '<StudioId>|<StreamingImageId>';
 ```
 
 ## Permissions

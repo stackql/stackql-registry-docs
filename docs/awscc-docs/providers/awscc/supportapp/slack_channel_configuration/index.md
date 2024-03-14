@@ -55,9 +55,7 @@ notify_on_resolve_case,
 notify_on_case_severity,
 channel_role_arn
 FROM awscc.supportapp.slack_channel_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TeamId}';
-AND data__Identifier = '{ChannelId}';
+WHERE data__Identifier = '<TeamId>|<ChannelId>';
 ```
 
 ## Permissions

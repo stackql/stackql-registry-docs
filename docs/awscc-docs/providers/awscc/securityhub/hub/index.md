@@ -51,8 +51,7 @@ auto_enable_controls,
 tags,
 subscribed_at
 FROM awscc.securityhub.hub
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ARN}';
+WHERE data__Identifier = '<ARN>';
 ```
 
 ## Permissions

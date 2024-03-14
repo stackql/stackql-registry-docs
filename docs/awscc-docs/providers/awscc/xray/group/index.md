@@ -49,8 +49,7 @@ group_arn,
 insights_configuration,
 tags
 FROM awscc.xray.group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GroupARN}';
+WHERE data__Identifier = '<GroupARN>';
 ```
 
 ## Permissions

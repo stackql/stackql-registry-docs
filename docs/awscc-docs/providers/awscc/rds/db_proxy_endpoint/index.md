@@ -59,8 +59,7 @@ target_role,
 is_default,
 tags
 FROM awscc.rds.db_proxy_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DBProxyEndpointName}';
+WHERE data__Identifier = '<DBProxyEndpointName>';
 ```
 
 ## Permissions

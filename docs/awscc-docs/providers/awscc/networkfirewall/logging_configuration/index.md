@@ -45,8 +45,7 @@ firewall_name,
 firewall_arn,
 logging_configuration
 FROM awscc.networkfirewall.logging_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FirewallArn}';
+WHERE data__Identifier = '<FirewallArn>';
 ```
 
 ## Permissions

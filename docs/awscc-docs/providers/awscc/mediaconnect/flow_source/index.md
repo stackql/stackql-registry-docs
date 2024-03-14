@@ -81,8 +81,7 @@ source_listener_port,
 vpc_interface_name,
 whitelist_cidr
 FROM awscc.mediaconnect.flow_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SourceArn}';
+WHERE data__Identifier = '<SourceArn>';
 ```
 
 ## Permissions

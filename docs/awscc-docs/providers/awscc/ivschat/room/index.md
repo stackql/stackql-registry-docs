@@ -55,8 +55,7 @@ maximum_message_rate_per_second,
 message_review_handler,
 tags
 FROM awscc.ivschat.room
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

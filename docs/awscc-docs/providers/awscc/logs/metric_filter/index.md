@@ -47,9 +47,7 @@ filter_pattern,
 log_group_name,
 metric_transformations
 FROM awscc.logs.metric_filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LogGroupName}';
-AND data__Identifier = '{FilterName}';
+WHERE data__Identifier = '<LogGroupName>|<FilterName>';
 ```
 
 ## Permissions

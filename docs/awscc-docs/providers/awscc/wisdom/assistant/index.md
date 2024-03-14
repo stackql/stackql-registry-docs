@@ -53,8 +53,7 @@ server_side_encryption_configuration,
 tags,
 name
 FROM awscc.wisdom.assistant
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssistantId}';
+WHERE data__Identifier = '<AssistantId>';
 ```
 
 ## Permissions

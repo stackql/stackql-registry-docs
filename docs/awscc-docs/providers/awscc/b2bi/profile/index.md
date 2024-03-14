@@ -61,8 +61,7 @@ profile_arn,
 profile_id,
 tags
 FROM awscc.b2bi.profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProfileId}';
+WHERE data__Identifier = '<ProfileId>';
 ```
 
 ## Permissions

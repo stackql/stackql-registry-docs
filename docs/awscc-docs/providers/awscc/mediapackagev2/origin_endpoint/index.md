@@ -65,8 +65,7 @@ segment,
 startover_window_seconds,
 tags
 FROM awscc.mediapackagev2.origin_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

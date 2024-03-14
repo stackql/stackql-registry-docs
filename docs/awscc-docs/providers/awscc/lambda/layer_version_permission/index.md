@@ -49,8 +49,7 @@ layer_version_arn,
 organization_id,
 principal
 FROM awscc.lambda.layer_version_permission
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

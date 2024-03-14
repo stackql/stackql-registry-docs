@@ -57,8 +57,7 @@ actions,
 view_content_sha256,
 tags
 FROM awscc.connect.view
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ViewArn}';
+WHERE data__Identifier = '<ViewArn>';
 ```
 
 ## Permissions

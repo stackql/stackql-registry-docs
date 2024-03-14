@@ -20,9 +20,9 @@ The mediatailor service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -32,14 +32,13 @@ The mediatailor service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/awscc/mediatailor/channel/">channel</a><br />
-<a href="/providers/awscc/mediatailor/channel_policies/">channel_policies</a><br />
 <a href="/providers/awscc/mediatailor/channel_policy/">channel_policy</a><br />
 <a href="/providers/awscc/mediatailor/channels/">channels</a><br />
 <a href="/providers/awscc/mediatailor/live_source/">live_source</a><br />
-<a href="/providers/awscc/mediatailor/live_sources/">live_sources</a>
+<a href="/providers/awscc/mediatailor/live_sources/">live_sources</a><br />
+<a href="/providers/awscc/mediatailor/playback_configuration/">playback_configuration</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/mediatailor/playback_configuration/">playback_configuration</a><br />
 <a href="/providers/awscc/mediatailor/playback_configurations/">playback_configurations</a><br />
 <a href="/providers/awscc/mediatailor/source_location/">source_location</a><br />
 <a href="/providers/awscc/mediatailor/source_locations/">source_locations</a><br />

@@ -57,9 +57,7 @@ configuration_values,
 arn,
 tags
 FROM awscc.eks.addon
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterName}';
-AND data__Identifier = '{AddonName}';
+WHERE data__Identifier = '<ClusterName>|<AddonName>';
 ```
 
 ## Permissions

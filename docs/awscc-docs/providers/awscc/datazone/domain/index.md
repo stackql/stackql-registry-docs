@@ -65,8 +65,7 @@ single_sign_on,
 status,
 tags
 FROM awscc.datazone.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

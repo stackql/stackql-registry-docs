@@ -49,7 +49,7 @@ port_ranges,
 protocol,
 client_affinity
 FROM awscc.globalaccelerator.listener
-WHERE data__Identifier = '{ListenerArn}';
+WHERE data__Identifier = '<ListenerArn>';
 ```
 
 ## Permissions

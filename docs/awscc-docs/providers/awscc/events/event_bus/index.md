@@ -49,8 +49,7 @@ tags,
 policy,
 arn
 FROM awscc.events.event_bus
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

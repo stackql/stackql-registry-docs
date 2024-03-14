@@ -59,9 +59,7 @@ created_at,
 last_updated_at,
 tags
 FROM awscc.customerprofiles.calculated_attribute_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
-AND data__Identifier = '{CalculatedAttributeName}';
+WHERE data__Identifier = '<DomainName>|<CalculatedAttributeName>';
 ```
 
 ## Permissions

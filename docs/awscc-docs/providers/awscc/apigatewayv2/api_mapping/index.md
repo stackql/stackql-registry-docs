@@ -49,9 +49,7 @@ stage,
 api_mapping_key,
 api_id
 FROM awscc.apigatewayv2.api_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiMappingId}';
-AND data__Identifier = '{DomainName}';
+WHERE data__Identifier = '<ApiMappingId>|<DomainName>';
 ```
 
 ## Permissions

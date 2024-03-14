@@ -69,8 +69,7 @@ load_balancer_arn,
 subnet_mappings,
 enforce_security_group_inbound_rules_on_private_link_traffic
 FROM awscc.elasticloadbalancingv2.load_balancer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LoadBalancerArn}';
+WHERE data__Identifier = '<LoadBalancerArn>';
 ```
 
 ## Permissions

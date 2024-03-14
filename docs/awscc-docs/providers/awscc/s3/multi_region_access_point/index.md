@@ -49,8 +49,7 @@ created_at,
 public_access_block_configuration,
 regions
 FROM awscc.s3.multi_region_access_point
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

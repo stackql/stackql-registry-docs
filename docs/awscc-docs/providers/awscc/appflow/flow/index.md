@@ -61,8 +61,7 @@ tasks,
 tags,
 metadata_catalog_config
 FROM awscc.appflow.flow
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FlowName}';
+WHERE data__Identifier = '<FlowName>';
 ```
 
 ## Permissions

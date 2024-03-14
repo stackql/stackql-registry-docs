@@ -71,8 +71,7 @@ rotate_master_user_password,
 relational_database_parameters,
 tags
 FROM awscc.lightsail.database
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RelationalDatabaseName}';
+WHERE data__Identifier = '<RelationalDatabaseName>';
 ```
 
 ## Permissions

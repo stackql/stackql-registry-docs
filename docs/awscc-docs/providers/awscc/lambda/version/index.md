@@ -53,8 +53,7 @@ function_name,
 provisioned_concurrency_config,
 runtime_policy
 FROM awscc.lambda.version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FunctionArn}';
+WHERE data__Identifier = '<FunctionArn>';
 ```
 
 ## Permissions

@@ -63,8 +63,7 @@ sso_client_id,
 error_message,
 tags
 FROM awscc.iotfleethub.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationId}';
+WHERE data__Identifier = '<ApplicationId>';
 ```
 
 ## Permissions

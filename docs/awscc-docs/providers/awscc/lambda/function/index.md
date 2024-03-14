@@ -93,8 +93,7 @@ arn,
 ephemeral_storage,
 architectures
 FROM awscc.lambda.function
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FunctionName}';
+WHERE data__Identifier = '<FunctionName>';
 ```
 
 ## Permissions

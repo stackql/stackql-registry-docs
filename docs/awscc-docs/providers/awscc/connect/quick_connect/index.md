@@ -53,8 +53,7 @@ quick_connect_arn,
 tags,
 quick_connect_type
 FROM awscc.connect.quick_connect
-WHERE region = 'us-east-1'
-AND data__Identifier = '{QuickConnectArn}';
+WHERE data__Identifier = '<QuickConnectArn>';
 ```
 
 ## Permissions

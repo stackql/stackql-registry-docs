@@ -69,8 +69,7 @@ pull_request_environment_name,
 stage,
 tags
 FROM awscc.amplify.branch
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

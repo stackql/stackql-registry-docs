@@ -63,8 +63,7 @@ port,
 tags,
 workgroup
 FROM awscc.redshiftserverless.workgroup
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WorkgroupName}';
+WHERE data__Identifier = '<WorkgroupName>';
 ```
 
 ## Permissions

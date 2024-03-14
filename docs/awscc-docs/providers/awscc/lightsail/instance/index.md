@@ -79,8 +79,7 @@ key_pair_name,
 tags,
 instance_arn
 FROM awscc.lightsail.instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceName}';
+WHERE data__Identifier = '<InstanceName>';
 ```
 
 ## Permissions

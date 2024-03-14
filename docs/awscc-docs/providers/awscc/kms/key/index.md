@@ -65,8 +65,7 @@ arn,
 key_id,
 bypass_policy_lockout_safety_check
 FROM awscc.kms.key
-WHERE region = 'us-east-1'
-AND data__Identifier = '{KeyId}';
+WHERE data__Identifier = '<KeyId>';
 ```
 
 ## Permissions

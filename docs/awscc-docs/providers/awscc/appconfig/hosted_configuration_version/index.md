@@ -55,10 +55,7 @@ content_type,
 latest_version_number,
 version_label
 FROM awscc.appconfig.hosted_configuration_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationId}';
-AND data__Identifier = '{ConfigurationProfileId}';
-AND data__Identifier = '{VersionNumber}';
+WHERE data__Identifier = '<ApplicationId>|<ConfigurationProfileId>|<VersionNumber>';
 ```
 
 ## Permissions

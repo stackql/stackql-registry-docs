@@ -53,8 +53,7 @@ reference_store_id,
 sse_config,
 tags
 FROM awscc.omics.reference_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ReferenceStoreId}';
+WHERE data__Identifier = '<ReferenceStoreId>';
 ```
 
 ## Permissions

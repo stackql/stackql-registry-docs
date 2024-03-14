@@ -45,9 +45,7 @@ description,
 documentation_version,
 rest_api_id
 FROM awscc.apigateway.documentation_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DocumentationVersion}';
-AND data__Identifier = '{RestApiId}';
+WHERE data__Identifier = '<DocumentationVersion>|<RestApiId>';
 ```
 
 ## Permissions

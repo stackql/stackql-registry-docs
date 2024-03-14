@@ -59,8 +59,7 @@ image_tag_mutability,
 image_scanning_configuration,
 encryption_configuration
 FROM awscc.ecr.repository
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RepositoryName}';
+WHERE data__Identifier = '<RepositoryName>';
 ```
 
 ## Permissions

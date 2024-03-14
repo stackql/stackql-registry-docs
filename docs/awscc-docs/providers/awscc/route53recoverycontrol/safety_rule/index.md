@@ -55,8 +55,7 @@ status,
 rule_config,
 tags
 FROM awscc.route53recoverycontrol.safety_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SafetyRuleArn}';
+WHERE data__Identifier = '<SafetyRuleArn>';
 ```
 
 ## Permissions

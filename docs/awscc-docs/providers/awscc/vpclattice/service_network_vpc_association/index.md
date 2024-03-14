@@ -63,8 +63,7 @@ vpc_id,
 vpc_identifier,
 tags
 FROM awscc.vpclattice.service_network_vpc_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

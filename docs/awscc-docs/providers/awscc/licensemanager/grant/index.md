@@ -55,8 +55,7 @@ allowed_operations,
 principals,
 status
 FROM awscc.licensemanager.grant
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GrantArn}';
+WHERE data__Identifier = '<GrantArn>';
 ```
 
 ## Permissions

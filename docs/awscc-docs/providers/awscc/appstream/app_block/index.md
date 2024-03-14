@@ -59,8 +59,7 @@ created_time,
 packaging_type,
 post_setup_script_details
 FROM awscc.appstream.app_block
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

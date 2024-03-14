@@ -45,8 +45,7 @@ application_name,
 description,
 resource_lifecycle_config
 FROM awscc.elasticbeanstalk.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationName}';
+WHERE data__Identifier = '<ApplicationName>';
 ```
 
 ## Permissions

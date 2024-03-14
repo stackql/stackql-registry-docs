@@ -63,8 +63,7 @@ user_arn,
 tags,
 user_proficiencies
 FROM awscc.connect.user
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserArn}';
+WHERE data__Identifier = '<UserArn>';
 ```
 
 ## Permissions

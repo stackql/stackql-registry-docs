@@ -57,8 +57,7 @@ listener_arn,
 alpn_policy,
 mutual_authentication
 FROM awscc.elasticloadbalancingv2.listener
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ListenerArn}';
+WHERE data__Identifier = '<ListenerArn>';
 ```
 
 ## Permissions

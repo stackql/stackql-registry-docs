@@ -47,8 +47,7 @@ arn,
 attribute_payload,
 thing_name
 FROM awscc.iot.thing
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ThingName}';
+WHERE data__Identifier = '<ThingName>';
 ```
 
 ## Permissions

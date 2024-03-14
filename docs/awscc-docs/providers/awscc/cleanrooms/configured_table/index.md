@@ -57,8 +57,7 @@ name,
 analysis_rules,
 table_reference
 FROM awscc.cleanrooms.configured_table
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConfiguredTableIdentifier}';
+WHERE data__Identifier = '<ConfiguredTableIdentifier>';
 ```
 
 ## Permissions

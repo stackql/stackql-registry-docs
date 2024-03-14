@@ -65,9 +65,7 @@ type,
 version,
 version_description
 FROM awscc.quicksight.theme
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ThemeId}';
-AND data__Identifier = '{AwsAccountId}';
+WHERE data__Identifier = '<ThemeId>|<AwsAccountId>';
 ```
 
 ## Permissions

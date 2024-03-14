@@ -43,7 +43,7 @@ region,
 distribution_id,
 monitoring_subscription
 FROM awscc.cloudfront.monitoring_subscription
-WHERE data__Identifier = '{DistributionId}';
+WHERE data__Identifier = '<DistributionId>';
 ```
 
 ## Permissions

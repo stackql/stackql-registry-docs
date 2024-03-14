@@ -57,8 +57,7 @@ integrations,
 tags,
 incident_template
 FROM awscc.ssmincidents.response_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

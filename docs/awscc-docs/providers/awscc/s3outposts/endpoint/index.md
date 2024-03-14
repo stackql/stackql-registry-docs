@@ -63,8 +63,7 @@ access_type,
 customer_owned_ipv4_pool,
 failed_reason
 FROM awscc.s3outposts.endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

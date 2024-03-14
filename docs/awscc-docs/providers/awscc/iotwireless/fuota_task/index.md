@@ -65,8 +65,7 @@ disassociate_wireless_device,
 associate_multicast_group,
 disassociate_multicast_group
 FROM awscc.iotwireless.fuota_task
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

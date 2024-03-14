@@ -45,8 +45,7 @@ arn,
 tags,
 auto_enable_members
 FROM awscc.detective.graph
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

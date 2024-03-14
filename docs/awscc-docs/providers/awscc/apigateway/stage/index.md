@@ -67,9 +67,7 @@ tags,
 tracing_enabled,
 variables
 FROM awscc.apigateway.stage
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestApiId}';
-AND data__Identifier = '{StageName}';
+WHERE data__Identifier = '<RestApiId>|<StageName>';
 ```
 
 ## Permissions

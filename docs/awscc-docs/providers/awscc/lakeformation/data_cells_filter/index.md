@@ -53,11 +53,7 @@ row_filter,
 column_names,
 column_wildcard
 FROM awscc.lakeformation.data_cells_filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TableCatalogId}';
-AND data__Identifier = '{DatabaseName}';
-AND data__Identifier = '{TableName}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<TableCatalogId>|<DatabaseName>|<TableName>|<Name>';
 ```
 
 ## Permissions

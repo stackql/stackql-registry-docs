@@ -55,8 +55,7 @@ created_at,
 updated_at,
 tags
 FROM awscc.healthimaging.datastore
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DatastoreId}';
+WHERE data__Identifier = '<DatastoreId>';
 ```
 
 ## Permissions

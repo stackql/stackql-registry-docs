@@ -59,8 +59,7 @@ studio_url,
 tags,
 user_role_arn
 FROM awscc.nimblestudio.studio
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StudioId}';
+WHERE data__Identifier = '<StudioId>';
 ```
 
 ## Permissions

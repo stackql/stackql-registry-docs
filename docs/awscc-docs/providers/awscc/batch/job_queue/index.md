@@ -53,8 +53,7 @@ state,
 scheduling_policy_arn,
 tags
 FROM awscc.batch.job_queue
-WHERE region = 'us-east-1'
-AND data__Identifier = '{JobQueueArn}';
+WHERE data__Identifier = '<JobQueueArn>';
 ```
 
 ## Permissions

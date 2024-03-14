@@ -45,7 +45,7 @@ account_id,
 proactive_engagement_status,
 emergency_contact_list
 FROM awscc.shield.proactive_engagement
-WHERE data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

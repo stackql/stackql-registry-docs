@@ -65,8 +65,7 @@ segment,
 remove_segment,
 tags
 FROM awscc.evidently.experiment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

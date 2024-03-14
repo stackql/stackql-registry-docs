@@ -47,8 +47,7 @@ roles,
 id,
 role_mappings
 FROM awscc.cognito.identity_pool_role_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

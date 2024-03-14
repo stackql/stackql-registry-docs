@@ -65,8 +65,7 @@ modification_time,
 firewall_rules,
 tags
 FROM awscc.route53resolver.firewall_rule_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

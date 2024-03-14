@@ -51,7 +51,7 @@ name,
 comment,
 import_source
 FROM awscc.cloudfront.key_value_store
-WHERE data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

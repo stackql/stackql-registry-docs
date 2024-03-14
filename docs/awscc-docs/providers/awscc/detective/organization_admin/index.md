@@ -43,8 +43,7 @@ region,
 account_id,
 graph_arn
 FROM awscc.detective.organization_admin
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

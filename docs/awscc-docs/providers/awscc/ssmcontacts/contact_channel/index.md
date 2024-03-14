@@ -51,8 +51,7 @@ defer_activation,
 channel_address,
 arn
 FROM awscc.ssmcontacts.contact_channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

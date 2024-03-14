@@ -55,9 +55,7 @@ last_updated_at,
 tags,
 object_type_names
 FROM awscc.customerprofiles.integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
-AND data__Identifier = '{Uri}';
+WHERE data__Identifier = '<DomainName>|<Uri>';
 ```
 
 ## Permissions

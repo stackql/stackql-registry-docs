@@ -45,8 +45,7 @@ vdm_attributes_resource_id,
 dashboard_attributes,
 guardian_attributes
 FROM awscc.ses.vdm_attributes
-WHERE region = 'us-east-1'
-AND data__Identifier = '{VdmAttributesResourceId}';
+WHERE data__Identifier = '<VdmAttributesResourceId>';
 ```
 
 ## Permissions

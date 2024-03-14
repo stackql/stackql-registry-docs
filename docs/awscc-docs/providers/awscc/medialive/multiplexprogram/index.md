@@ -53,9 +53,7 @@ packet_identifiers_map,
 pipeline_details,
 program_name
 FROM awscc.medialive.multiplexprogram
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProgramName}';
-AND data__Identifier = '{MultiplexId}';
+WHERE data__Identifier = '<ProgramName>|<MultiplexId>';
 ```
 
 ## Permissions

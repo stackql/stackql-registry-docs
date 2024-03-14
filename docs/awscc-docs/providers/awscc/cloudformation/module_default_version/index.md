@@ -45,8 +45,7 @@ arn,
 module_name,
 version_id
 FROM awscc.cloudformation.module_default_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

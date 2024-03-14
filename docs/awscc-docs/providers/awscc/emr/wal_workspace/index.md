@@ -43,8 +43,7 @@ region,
 wal_workspace_name,
 tags
 FROM awscc.emr.wal_workspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WALWorkspaceName}';
+WHERE data__Identifier = '<WALWorkspaceName>';
 ```
 
 ## Permissions

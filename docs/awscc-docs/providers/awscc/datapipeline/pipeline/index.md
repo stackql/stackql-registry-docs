@@ -55,8 +55,7 @@ pipeline_objects,
 pipeline_tags,
 pipeline_id
 FROM awscc.datapipeline.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PipelineId}';
+WHERE data__Identifier = '<PipelineId>';
 ```
 
 ## Permissions

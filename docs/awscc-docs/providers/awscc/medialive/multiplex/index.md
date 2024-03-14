@@ -59,8 +59,7 @@ program_count,
 state,
 tags
 FROM awscc.medialive.multiplex
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

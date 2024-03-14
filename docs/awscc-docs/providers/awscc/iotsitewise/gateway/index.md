@@ -49,8 +49,7 @@ tags,
 gateway_id,
 gateway_capability_summaries
 FROM awscc.iotsitewise.gateway
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GatewayId}';
+WHERE data__Identifier = '<GatewayId>';
 ```
 
 ## Permissions

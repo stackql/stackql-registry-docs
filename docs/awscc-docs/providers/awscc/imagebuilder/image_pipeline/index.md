@@ -69,8 +69,7 @@ image_scanning_configuration,
 execution_role,
 tags
 FROM awscc.imagebuilder.image_pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

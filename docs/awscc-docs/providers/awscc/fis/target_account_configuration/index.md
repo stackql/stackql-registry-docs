@@ -47,9 +47,7 @@ account_id,
 role_arn,
 description
 FROM awscc.fis.target_account_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ExperimentTemplateId}';
-AND data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<ExperimentTemplateId>|<AccountId>';
 ```
 
 ## Permissions

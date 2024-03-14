@@ -47,8 +47,7 @@ channel_arn,
 tags,
 value
 FROM awscc.ivs.stream_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

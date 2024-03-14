@@ -61,10 +61,7 @@ url_endpoint,
 vpc_id,
 tags
 FROM awscc.refactorspaces.service
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnvironmentIdentifier}';
-AND data__Identifier = '{ApplicationIdentifier}';
-AND data__Identifier = '{ServiceIdentifier}';
+WHERE data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>|<ServiceIdentifier>';
 ```
 
 ## Permissions

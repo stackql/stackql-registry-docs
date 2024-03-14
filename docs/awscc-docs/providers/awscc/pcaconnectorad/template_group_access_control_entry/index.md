@@ -47,9 +47,7 @@ group_display_name,
 group_security_identifier,
 template_arn
 FROM awscc.pcaconnectorad.template_group_access_control_entry
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GroupSecurityIdentifier}';
-AND data__Identifier = '{TemplateArn}';
+WHERE data__Identifier = '<GroupSecurityIdentifier>|<TemplateArn>';
 ```
 
 ## Permissions

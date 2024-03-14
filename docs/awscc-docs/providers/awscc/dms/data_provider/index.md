@@ -57,8 +57,7 @@ exact_settings,
 settings,
 tags
 FROM awscc.dms.data_provider
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DataProviderArn}';
+WHERE data__Identifier = '<DataProviderArn>';
 ```
 
 ## Permissions

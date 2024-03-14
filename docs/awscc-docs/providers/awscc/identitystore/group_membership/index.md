@@ -47,9 +47,7 @@ identity_store_id,
 member_id,
 membership_id
 FROM awscc.identitystore.group_membership
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MembershipId}';
-AND data__Identifier = '{IdentityStoreId}';
+WHERE data__Identifier = '<MembershipId>|<IdentityStoreId>';
 ```
 
 ## Permissions

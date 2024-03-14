@@ -53,8 +53,7 @@ security_groups,
 tags,
 vpc_id
 FROM awscc.msk.vpc_connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

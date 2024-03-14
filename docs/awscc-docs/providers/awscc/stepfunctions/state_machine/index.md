@@ -65,8 +65,7 @@ definition_substitutions,
 definition,
 tags
 FROM awscc.stepfunctions.state_machine
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

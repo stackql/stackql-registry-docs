@@ -53,8 +53,7 @@ config,
 hours_of_operation_arn,
 tags
 FROM awscc.connect.hours_of_operation
-WHERE region = 'us-east-1'
-AND data__Identifier = '{HoursOfOperationArn}';
+WHERE data__Identifier = '<HoursOfOperationArn>';
 ```
 
 ## Permissions

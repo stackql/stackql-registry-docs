@@ -41,8 +41,7 @@ SELECT
 region,
 account_id
 FROM awscc.devopsguru.log_anomaly_detection_integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

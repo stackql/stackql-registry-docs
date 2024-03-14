@@ -55,8 +55,7 @@ key_id,
 arn,
 tags
 FROM awscc.kms.replica_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '{KeyId}';
+WHERE data__Identifier = '<KeyId>';
 ```
 
 ## Permissions

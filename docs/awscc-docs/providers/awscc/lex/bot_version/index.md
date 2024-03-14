@@ -47,9 +47,7 @@ bot_version,
 description,
 bot_version_locale_specification
 FROM awscc.lex.bot_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BotId}';
-AND data__Identifier = '{BotVersion}';
+WHERE data__Identifier = '<BotId>|<BotVersion>';
 ```
 
 ## Permissions

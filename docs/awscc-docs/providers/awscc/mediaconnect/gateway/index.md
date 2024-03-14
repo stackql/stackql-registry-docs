@@ -49,8 +49,7 @@ gateway_state,
 egress_cidr_blocks,
 networks
 FROM awscc.mediaconnect.gateway
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GatewayArn}';
+WHERE data__Identifier = '<GatewayArn>';
 ```
 
 ## Permissions

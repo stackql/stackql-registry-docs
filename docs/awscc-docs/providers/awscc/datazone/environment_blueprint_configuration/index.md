@@ -59,9 +59,7 @@ updated_at,
 domain_identifier,
 manage_access_role_arn
 FROM awscc.datazone.environment_blueprint_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainId}';
-AND data__Identifier = '{EnvironmentBlueprintId}';
+WHERE data__Identifier = '<DomainId>|<EnvironmentBlueprintId>';
 ```
 
 ## Permissions

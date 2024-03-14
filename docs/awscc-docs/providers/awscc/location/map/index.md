@@ -57,8 +57,7 @@ tags,
 update_time,
 arn
 FROM awscc.location.map
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MapName}';
+WHERE data__Identifier = '<MapName>';
 ```
 
 ## Permissions

@@ -51,8 +51,7 @@ publisher_status,
 publisher_profile,
 identity_provider
 FROM awscc.cloudformation.publisher
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PublisherId}';
+WHERE data__Identifier = '<PublisherId>';
 ```
 
 ## Permissions

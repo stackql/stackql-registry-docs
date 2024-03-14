@@ -47,8 +47,7 @@ rule_name,
 topic_rule_payload,
 tags
 FROM awscc.iot.topic_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RuleName}';
+WHERE data__Identifier = '<RuleName>';
 ```
 
 ## Permissions

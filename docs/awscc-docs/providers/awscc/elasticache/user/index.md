@@ -59,8 +59,7 @@ arn,
 authentication_mode,
 tags
 FROM awscc.elasticache.user
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserId}';
+WHERE data__Identifier = '<UserId>';
 ```
 
 ## Permissions

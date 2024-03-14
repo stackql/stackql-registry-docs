@@ -59,8 +59,7 @@ uri,
 kms_key_id,
 tags
 FROM awscc.imagebuilder.workflow
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

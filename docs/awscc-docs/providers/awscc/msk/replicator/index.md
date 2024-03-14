@@ -55,8 +55,7 @@ replication_info_list,
 service_execution_role_arn,
 tags
 FROM awscc.msk.replicator
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ReplicatorArn}';
+WHERE data__Identifier = '<ReplicatorArn>';
 ```
 
 ## Permissions

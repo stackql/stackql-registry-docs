@@ -43,8 +43,7 @@ region,
 registry_id,
 policy_text
 FROM awscc.ecr.registry_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RegistryId}';
+WHERE data__Identifier = '<RegistryId>';
 ```
 
 ## Permissions

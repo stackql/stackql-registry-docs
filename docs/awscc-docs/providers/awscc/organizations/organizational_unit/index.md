@@ -49,8 +49,7 @@ name,
 parent_id,
 tags
 FROM awscc.organizations.organizational_unit
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

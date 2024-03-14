@@ -47,8 +47,7 @@ name,
 policy,
 tags
 FROM awscc.oam.sink
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

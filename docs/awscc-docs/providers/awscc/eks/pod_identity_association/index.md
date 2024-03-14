@@ -53,8 +53,7 @@ association_arn,
 association_id,
 tags
 FROM awscc.eks.pod_identity_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssociationArn}';
+WHERE data__Identifier = '<AssociationArn>';
 ```
 
 ## Permissions

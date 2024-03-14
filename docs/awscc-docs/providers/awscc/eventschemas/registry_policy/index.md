@@ -47,8 +47,7 @@ policy,
 registry_name,
 revision_id
 FROM awscc.eventschemas.registry_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

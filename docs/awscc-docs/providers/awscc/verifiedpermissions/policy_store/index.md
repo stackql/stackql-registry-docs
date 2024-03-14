@@ -49,8 +49,7 @@ policy_store_id,
 validation_settings,
 schema
 FROM awscc.verifiedpermissions.policy_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PolicyStoreId}';
+WHERE data__Identifier = '<PolicyStoreId>';
 ```
 
 ## Permissions

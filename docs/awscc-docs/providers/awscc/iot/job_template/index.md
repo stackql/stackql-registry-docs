@@ -67,8 +67,7 @@ maintenance_windows,
 destination_package_versions,
 tags
 FROM awscc.iot.job_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{JobTemplateId}';
+WHERE data__Identifier = '<JobTemplateId>';
 ```
 
 ## Permissions

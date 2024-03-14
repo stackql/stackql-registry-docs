@@ -55,9 +55,7 @@ solution_stack_name,
 source_configuration,
 template_name
 FROM awscc.elasticbeanstalk.configuration_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationName}';
-AND data__Identifier = '{TemplateName}';
+WHERE data__Identifier = '<ApplicationName>|<TemplateName>';
 ```
 
 ## Permissions

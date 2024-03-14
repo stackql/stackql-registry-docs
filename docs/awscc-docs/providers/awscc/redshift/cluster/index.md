@@ -149,8 +149,7 @@ manage_master_password,
 master_password_secret_kms_key_id,
 master_password_secret_arn
 FROM awscc.redshift.cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterIdentifier}';
+WHERE data__Identifier = '<ClusterIdentifier>';
 ```
 
 ## Permissions

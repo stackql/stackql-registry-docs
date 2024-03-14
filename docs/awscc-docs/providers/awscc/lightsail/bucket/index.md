@@ -59,8 +59,7 @@ tags,
 url,
 able_to_update_bundle
 FROM awscc.lightsail.bucket
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BucketName}';
+WHERE data__Identifier = '<BucketName>';
 ```
 
 ## Permissions

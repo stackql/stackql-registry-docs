@@ -47,8 +47,7 @@ kinesis_stream_arn,
 tags,
 user_access_logging_settings_arn
 FROM awscc.workspacesweb.user_access_logging_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserAccessLoggingSettingsArn}';
+WHERE data__Identifier = '<UserAccessLoggingSettingsArn>';
 ```
 
 ## Permissions

@@ -61,9 +61,7 @@ type,
 created_at,
 state
 FROM awscc.networkmanager.link
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalNetworkId}';
-AND data__Identifier = '{LinkId}';
+WHERE data__Identifier = '<GlobalNetworkId>|<LinkId>';
 ```
 
 ## Permissions

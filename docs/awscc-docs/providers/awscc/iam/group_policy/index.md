@@ -45,8 +45,7 @@ policy_document,
 policy_name,
 group_name
 FROM awscc.iam.group_policy
-WHERE data__Identifier = '{PolicyName}';
-AND data__Identifier = '{GroupName}';
+WHERE data__Identifier = '<PolicyName>|<GroupName>';
 ```
 
 ## Permissions

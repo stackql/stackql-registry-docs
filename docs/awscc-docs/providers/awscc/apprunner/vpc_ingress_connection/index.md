@@ -53,8 +53,7 @@ domain_name,
 ingress_vpc_configuration,
 tags
 FROM awscc.apprunner.vpc_ingress_connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{VpcIngressConnectionArn}';
+WHERE data__Identifier = '<VpcIngressConnectionArn>';
 ```
 
 ## Permissions

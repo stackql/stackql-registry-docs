@@ -43,8 +43,7 @@ region,
 policy_document,
 topic_arn
 FROM awscc.sns.topic_inline_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TopicArn}';
+WHERE data__Identifier = '<TopicArn>';
 ```
 
 ## Permissions

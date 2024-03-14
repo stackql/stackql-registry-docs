@@ -55,8 +55,7 @@ created_at,
 updated_at,
 has_workflows
 FROM awscc.entityresolution.schema_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SchemaName}';
+WHERE data__Identifier = '<SchemaName>';
 ```
 
 ## Permissions

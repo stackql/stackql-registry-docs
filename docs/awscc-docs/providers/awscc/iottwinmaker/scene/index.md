@@ -61,9 +61,7 @@ capabilities,
 scene_metadata,
 generated_scene_metadata
 FROM awscc.iottwinmaker.scene
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WorkspaceId}';
-AND data__Identifier = '{SceneId}';
+WHERE data__Identifier = '<WorkspaceId>|<SceneId>';
 ```
 
 ## Permissions

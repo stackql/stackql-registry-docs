@@ -20,9 +20,9 @@ The cognito service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>20</b></span><br />
-<span>total selectable resources:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>20</b></span><br />
+<span>total resources:&nbsp;<b>17</b></span><br />
+<span>total selectable resources:&nbsp;<b>17</b></span><br />
+<span>total methods:&nbsp;<b>17</b></span><br />
 </div>
 </div>
 
@@ -38,7 +38,6 @@ The cognito service documentation.
 <a href="/providers/awscc/cognito/identity_pool_role_attachments/">identity_pool_role_attachments</a><br />
 <a href="/providers/awscc/cognito/identity_pools/">identity_pools</a><br />
 <a href="/providers/awscc/cognito/log_delivery_configuration/">log_delivery_configuration</a><br />
-<a href="/providers/awscc/cognito/log_delivery_configurations/">log_delivery_configurations</a><br />
 <a href="/providers/awscc/cognito/user_pool/">user_pool</a><br />
 <a href="/providers/awscc/cognito/user_pool_client/">user_pool_client</a>
 </div>
@@ -47,10 +46,8 @@ The cognito service documentation.
 <a href="/providers/awscc/cognito/user_pool_group/">user_pool_group</a><br />
 <a href="/providers/awscc/cognito/user_pool_groups/">user_pool_groups</a><br />
 <a href="/providers/awscc/cognito/user_pool_risk_configuration_attachment/">user_pool_risk_configuration_attachment</a><br />
-<a href="/providers/awscc/cognito/user_pool_risk_configuration_attachments/">user_pool_risk_configuration_attachments</a><br />
 <a href="/providers/awscc/cognito/user_pool_user/">user_pool_user</a><br />
 <a href="/providers/awscc/cognito/user_pool_user_to_group_attachment/">user_pool_user_to_group_attachment</a><br />
-<a href="/providers/awscc/cognito/user_pool_user_to_group_attachments/">user_pool_user_to_group_attachments</a><br />
 <a href="/providers/awscc/cognito/user_pool_users/">user_pool_users</a><br />
 <a href="/providers/awscc/cognito/user_pools/">user_pools</a>
 </div>

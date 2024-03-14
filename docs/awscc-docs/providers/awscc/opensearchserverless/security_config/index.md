@@ -49,8 +49,7 @@ name,
 saml_options,
 type
 FROM awscc.opensearchserverless.security_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

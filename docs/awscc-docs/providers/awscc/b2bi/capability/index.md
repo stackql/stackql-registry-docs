@@ -57,8 +57,7 @@ name,
 tags,
 type
 FROM awscc.b2bi.capability
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CapabilityId}';
+WHERE data__Identifier = '<CapabilityId>';
 ```
 
 ## Permissions

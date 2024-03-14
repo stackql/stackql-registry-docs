@@ -75,8 +75,7 @@ runtime_platform,
 ipc_mode,
 tags
 FROM awscc.ecs.task_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TaskDefinitionArn}';
+WHERE data__Identifier = '<TaskDefinitionArn>';
 ```
 
 ## Permissions

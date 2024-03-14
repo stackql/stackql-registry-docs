@@ -47,10 +47,7 @@ identity_type,
 session_policy_arn,
 studio_id
 FROM awscc.emr.studio_session_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StudioId}';
-AND data__Identifier = '{IdentityType}';
-AND data__Identifier = '{IdentityName}';
+WHERE data__Identifier = '<StudioId>|<IdentityType>|<IdentityName>';
 ```
 
 ## Permissions

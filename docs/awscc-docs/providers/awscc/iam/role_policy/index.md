@@ -45,8 +45,7 @@ policy_document,
 policy_name,
 role_name
 FROM awscc.iam.role_policy
-WHERE data__Identifier = '{PolicyName}';
-AND data__Identifier = '{RoleName}';
+WHERE data__Identifier = '<PolicyName>|<RoleName>';
 ```
 
 ## Permissions

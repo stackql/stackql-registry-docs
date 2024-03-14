@@ -55,8 +55,7 @@ sap_instance_number,
 sid,
 tags
 FROM awscc.systemsmanagersap.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

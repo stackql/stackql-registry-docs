@@ -45,8 +45,7 @@ catalog_id,
 tag_key,
 tag_values
 FROM awscc.lakeformation.tag
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TagKey}';
+WHERE data__Identifier = '<TagKey>';
 ```
 
 ## Permissions

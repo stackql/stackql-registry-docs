@@ -49,9 +49,7 @@ action,
 principal,
 statement_id
 FROM awscc.signer.profile_permission
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StatementId}';
-AND data__Identifier = '{ProfileName}';
+WHERE data__Identifier = '<StatementId>|<ProfileName>';
 ```
 
 ## Permissions

@@ -71,9 +71,7 @@ challenge_config,
 token_domains,
 association_config
 FROM awscc.wafv2.web_acl
-WHERE data__Identifier = '{Name}';
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{Scope}';
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
 
 ## Permissions

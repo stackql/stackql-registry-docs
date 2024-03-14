@@ -67,8 +67,7 @@ subscription_creation_time,
 source_ids_list,
 event_categories_list
 FROM awscc.redshift.event_subscription
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SubscriptionName}';
+WHERE data__Identifier = '<SubscriptionName>';
 ```
 
 ## Permissions

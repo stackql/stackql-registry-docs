@@ -53,8 +53,7 @@ delivery_s3_key_prefix,
 conformance_pack_input_parameters,
 excluded_accounts
 FROM awscc.config.organization_conformance_pack
-WHERE region = 'us-east-1'
-AND data__Identifier = '{OrganizationConformancePackName}';
+WHERE data__Identifier = '<OrganizationConformancePackName>';
 ```
 
 ## Permissions

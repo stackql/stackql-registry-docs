@@ -53,8 +53,7 @@ file_system_id,
 posix_user,
 root_directory
 FROM awscc.efs.access_point
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccessPointId}';
+WHERE data__Identifier = '<AccessPointId>';
 ```
 
 ## Permissions

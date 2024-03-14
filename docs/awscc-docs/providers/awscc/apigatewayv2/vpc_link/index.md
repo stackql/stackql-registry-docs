@@ -49,8 +49,7 @@ security_group_ids,
 tags,
 name
 FROM awscc.apigatewayv2.vpc_link
-WHERE region = 'us-east-1'
-AND data__Identifier = '{VpcLinkId}';
+WHERE data__Identifier = '<VpcLinkId>';
 ```
 
 ## Permissions

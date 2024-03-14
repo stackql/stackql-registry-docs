@@ -47,9 +47,7 @@ location,
 properties,
 rest_api_id
 FROM awscc.apigateway.documentation_part
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DocumentationPartId}';
-AND data__Identifier = '{RestApiId}';
+WHERE data__Identifier = '<DocumentationPartId>|<RestApiId>';
 ```
 
 ## Permissions

@@ -61,8 +61,7 @@ permission_model,
 event_subscriptions,
 drift_status
 FROM awscc.resiliencehub.app
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AppArn}';
+WHERE data__Identifier = '<AppArn>';
 ```
 
 ## Permissions

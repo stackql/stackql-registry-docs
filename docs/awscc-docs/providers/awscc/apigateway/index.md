@@ -20,9 +20,9 @@ The apigateway service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>38</b></span><br />
-<span>total selectable resources:&nbsp;<b>38</b></span><br />
-<span>total methods:&nbsp;<b>38</b></span><br />
+<span>total resources:&nbsp;<b>35</b></span><br />
+<span>total selectable resources:&nbsp;<b>35</b></span><br />
+<span>total methods:&nbsp;<b>35</b></span><br />
 </div>
 </div>
 
@@ -32,7 +32,6 @@ The apigateway service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/awscc/apigateway/account/">account</a><br />
-<a href="/providers/awscc/apigateway/accounts/">accounts</a><br />
 <a href="/providers/awscc/apigateway/api_key/">api_key</a><br />
 <a href="/providers/awscc/apigateway/api_keys/">api_keys</a><br />
 <a href="/providers/awscc/apigateway/authorizer/">authorizer</a><br />
@@ -49,12 +48,10 @@ The apigateway service documentation.
 <a href="/providers/awscc/apigateway/documentation_versions/">documentation_versions</a><br />
 <a href="/providers/awscc/apigateway/domain_name/">domain_name</a><br />
 <a href="/providers/awscc/apigateway/domain_names/">domain_names</a><br />
-<a href="/providers/awscc/apigateway/gateway_response/">gateway_response</a>
+<a href="/providers/awscc/apigateway/gateway_responses/">gateway_responses</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/apigateway/gateway_responses/">gateway_responses</a><br />
 <a href="/providers/awscc/apigateway/method/">method</a><br />
-<a href="/providers/awscc/apigateway/methods/">methods</a><br />
 <a href="/providers/awscc/apigateway/model/">model</a><br />
 <a href="/providers/awscc/apigateway/models/">models</a><br />
 <a href="/providers/awscc/apigateway/request_validator/">request_validator</a><br />

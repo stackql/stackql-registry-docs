@@ -47,8 +47,7 @@ application_id,
 tags,
 name
 FROM awscc.appconfig.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationId}';
+WHERE data__Identifier = '<ApplicationId>';
 ```
 
 ## Permissions

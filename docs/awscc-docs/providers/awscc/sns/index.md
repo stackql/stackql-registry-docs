@@ -20,9 +20,9 @@ The sns service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -32,12 +32,9 @@ The sns service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/awscc/sns/topic/">topic</a><br />
-<a href="/providers/awscc/sns/topic_inline_policies/">topic_inline_policies</a><br />
 <a href="/providers/awscc/sns/topic_inline_policy/">topic_inline_policy</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/sns/topic_policies/">topic_policies</a><br />
-<a href="/providers/awscc/sns/topic_policy/">topic_policy</a><br />
 <a href="/providers/awscc/sns/topics/">topics</a>
 </div>
 </div>

@@ -77,9 +77,7 @@ validation_strategy,
 version,
 version_description
 FROM awscc.quicksight.dashboard
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
-AND data__Identifier = '{DashboardId}';
+WHERE data__Identifier = '<AwsAccountId>|<DashboardId>';
 ```
 
 ## Permissions

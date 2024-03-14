@@ -57,9 +57,7 @@ sync_type,
 role_arn,
 repository_link_id
 FROM awscc.codestarconnections.sync_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceName}';
-AND data__Identifier = '{SyncType}';
+WHERE data__Identifier = '<ResourceName>|<SyncType>';
 ```
 
 ## Permissions

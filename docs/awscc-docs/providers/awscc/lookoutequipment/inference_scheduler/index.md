@@ -59,8 +59,7 @@ server_side_kms_key_id,
 tags,
 inference_scheduler_arn
 FROM awscc.lookoutequipment.inference_scheduler
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InferenceSchedulerName}';
+WHERE data__Identifier = '<InferenceSchedulerName>';
 ```
 
 ## Permissions

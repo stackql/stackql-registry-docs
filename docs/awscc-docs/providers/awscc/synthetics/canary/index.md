@@ -73,8 +73,7 @@ start_canary_after_creation,
 visual_reference,
 delete_lambda_resources_on_canary_deletion
 FROM awscc.synthetics.canary
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

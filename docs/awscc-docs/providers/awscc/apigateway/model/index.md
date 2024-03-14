@@ -49,9 +49,7 @@ name,
 rest_api_id,
 schema
 FROM awscc.apigateway.model
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestApiId}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<RestApiId>|<Name>';
 ```
 
 ## Permissions

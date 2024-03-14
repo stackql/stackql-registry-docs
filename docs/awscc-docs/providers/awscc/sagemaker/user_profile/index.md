@@ -53,9 +53,7 @@ user_profile_name,
 user_settings,
 tags
 FROM awscc.sagemaker.user_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserProfileName}';
-AND data__Identifier = '{DomainId}';
+WHERE data__Identifier = '<UserProfileName>|<DomainId>';
 ```
 
 ## Permissions

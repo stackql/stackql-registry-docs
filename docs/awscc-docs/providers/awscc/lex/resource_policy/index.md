@@ -47,8 +47,7 @@ revision_id,
 policy,
 id
 FROM awscc.lex.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

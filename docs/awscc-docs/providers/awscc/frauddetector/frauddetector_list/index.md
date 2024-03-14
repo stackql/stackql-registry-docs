@@ -55,8 +55,7 @@ last_updated_time,
 tags,
 elements
 FROM awscc.frauddetector.frauddetector_list
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

@@ -65,8 +65,7 @@ threshold,
 treat_missing_data,
 state
 FROM awscc.lightsail.alarm
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AlarmName}';
+WHERE data__Identifier = '<AlarmName>';
 ```
 
 ## Permissions

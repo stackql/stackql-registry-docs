@@ -55,8 +55,7 @@ scoring_strategy,
 status,
 tags
 FROM awscc.connect.evaluation_form
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EvaluationFormArn}';
+WHERE data__Identifier = '<EvaluationFormArn>';
 ```
 
 ## Permissions

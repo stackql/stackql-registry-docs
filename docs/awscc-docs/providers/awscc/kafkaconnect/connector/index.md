@@ -65,8 +65,7 @@ plugins,
 service_execution_role_arn,
 worker_configuration
 FROM awscc.kafkaconnect.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectorArn}';
+WHERE data__Identifier = '<ConnectorArn>';
 ```
 
 ## Permissions

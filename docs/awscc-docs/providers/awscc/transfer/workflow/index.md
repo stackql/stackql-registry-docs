@@ -51,8 +51,7 @@ description,
 workflow_id,
 arn
 FROM awscc.transfer.workflow
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WorkflowId}';
+WHERE data__Identifier = '<WorkflowId>';
 ```
 
 ## Permissions

@@ -53,8 +53,7 @@ tags,
 app_monitor_configuration,
 custom_events
 FROM awscc.rum.app_monitor
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

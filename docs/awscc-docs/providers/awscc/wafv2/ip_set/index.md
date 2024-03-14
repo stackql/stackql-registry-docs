@@ -55,9 +55,7 @@ ip_address_version,
 addresses,
 tags
 FROM awscc.wafv2.ip_set
-WHERE data__Identifier = '{Name}';
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{Scope}';
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
 
 ## Permissions

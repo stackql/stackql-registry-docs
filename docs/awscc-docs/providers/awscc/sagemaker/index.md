@@ -20,9 +20,9 @@ The sagemaker service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>42</b></span><br />
-<span>total selectable resources:&nbsp;<b>42</b></span><br />
-<span>total methods:&nbsp;<b>42</b></span><br />
+<span>total resources:&nbsp;<b>40</b></span><br />
+<span>total selectable resources:&nbsp;<b>40</b></span><br />
+<span>total methods:&nbsp;<b>40</b></span><br />
 </div>
 </div>
 
@@ -39,8 +39,6 @@ The sagemaker service documentation.
 <a href="/providers/awscc/sagemaker/data_quality_job_definitions/">data_quality_job_definitions</a><br />
 <a href="/providers/awscc/sagemaker/device/">device</a><br />
 <a href="/providers/awscc/sagemaker/device_fleet/">device_fleet</a><br />
-<a href="/providers/awscc/sagemaker/device_fleets/">device_fleets</a><br />
-<a href="/providers/awscc/sagemaker/devices/">devices</a><br />
 <a href="/providers/awscc/sagemaker/feature_group/">feature_group</a><br />
 <a href="/providers/awscc/sagemaker/feature_groups/">feature_groups</a><br />
 <a href="/providers/awscc/sagemaker/image/">image</a><br />
@@ -51,10 +49,10 @@ The sagemaker service documentation.
 <a href="/providers/awscc/sagemaker/inference_components/">inference_components</a><br />
 <a href="/providers/awscc/sagemaker/inference_experiment/">inference_experiment</a><br />
 <a href="/providers/awscc/sagemaker/inference_experiments/">inference_experiments</a><br />
-<a href="/providers/awscc/sagemaker/model_bias_job_definition/">model_bias_job_definition</a>
+<a href="/providers/awscc/sagemaker/model_bias_job_definition/">model_bias_job_definition</a><br />
+<a href="/providers/awscc/sagemaker/model_bias_job_definitions/">model_bias_job_definitions</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/sagemaker/model_bias_job_definitions/">model_bias_job_definitions</a><br />
 <a href="/providers/awscc/sagemaker/model_card/">model_card</a><br />
 <a href="/providers/awscc/sagemaker/model_cards/">model_cards</a><br />
 <a href="/providers/awscc/sagemaker/model_explainability_job_definition/">model_explainability_job_definition</a><br />

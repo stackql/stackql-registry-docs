@@ -67,8 +67,7 @@ store_size_bytes,
 tags,
 update_time
 FROM awscc.omics.annotation_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

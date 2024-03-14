@@ -65,8 +65,7 @@ observability_configuration,
 auto_scaling_configuration_arn,
 network_configuration
 FROM awscc.apprunner.service
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ServiceArn}';
+WHERE data__Identifier = '<ServiceArn>';
 ```
 
 ## Permissions

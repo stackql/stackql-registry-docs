@@ -47,10 +47,7 @@ instance_id,
 integration_arn,
 integration_type
 FROM awscc.connect.integration_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceId}';
-AND data__Identifier = '{IntegrationType}';
-AND data__Identifier = '{IntegrationArn}';
+WHERE data__Identifier = '<InstanceId>|<IntegrationType>|<IntegrationArn>';
 ```
 
 ## Permissions

@@ -45,9 +45,7 @@ key,
 instance_id,
 association_id
 FROM awscc.connect.security_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceId}';
-AND data__Identifier = '{AssociationId}';
+WHERE data__Identifier = '<InstanceId>|<AssociationId>';
 ```
 
 ## Permissions

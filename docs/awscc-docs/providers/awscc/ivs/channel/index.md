@@ -61,8 +61,7 @@ ingest_endpoint,
 recording_configuration_arn,
 preset
 FROM awscc.ivs.channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

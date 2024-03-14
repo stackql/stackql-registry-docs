@@ -61,8 +61,7 @@ update_policy,
 unmanagedv_cpus,
 eks_configuration
 FROM awscc.batch.compute_environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ComputeEnvironmentArn}';
+WHERE data__Identifier = '<ComputeEnvironmentArn>';
 ```
 
 ## Permissions

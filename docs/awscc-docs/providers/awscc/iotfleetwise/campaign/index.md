@@ -81,8 +81,7 @@ arn,
 collection_scheme,
 tags
 FROM awscc.iotfleetwise.campaign
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

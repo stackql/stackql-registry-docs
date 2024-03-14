@@ -55,8 +55,7 @@ min_size,
 latest,
 tags
 FROM awscc.apprunner.auto_scaling_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AutoScalingConfigurationArn}';
+WHERE data__Identifier = '<AutoScalingConfigurationArn>';
 ```
 
 ## Permissions

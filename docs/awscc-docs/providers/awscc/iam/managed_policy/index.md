@@ -69,7 +69,7 @@ is_attachable,
 permissions_boundary_usage_count,
 policy_id
 FROM awscc.iam.managed_policy
-WHERE data__Identifier = '{PolicyArn}';
+WHERE data__Identifier = '<PolicyArn>';
 ```
 
 ## Permissions

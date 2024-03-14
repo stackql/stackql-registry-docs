@@ -43,8 +43,7 @@ region,
 cluster_arn,
 secret_arn_list
 FROM awscc.msk.batch_scram_secret
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterArn}';
+WHERE data__Identifier = '<ClusterArn>';
 ```
 
 ## Permissions

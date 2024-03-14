@@ -49,8 +49,7 @@ parameters,
 db_cluster_parameter_group_name,
 tags
 FROM awscc.rds.db_cluster_parameter_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DBClusterParameterGroupName}';
+WHERE data__Identifier = '<DBClusterParameterGroupName>';
 ```
 
 ## Permissions

@@ -51,8 +51,7 @@ dataset_group_arn,
 schema_arn,
 dataset_import_job
 FROM awscc.personalize.dataset
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DatasetArn}';
+WHERE data__Identifier = '<DatasetArn>';
 ```
 
 ## Permissions

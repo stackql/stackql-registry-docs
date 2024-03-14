@@ -89,9 +89,7 @@ name,
 client_secret,
 client_id
 FROM awscc.cognito.user_pool_client
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserPoolId}';
-AND data__Identifier = '{ClientId}';
+WHERE data__Identifier = '<UserPoolId>|<ClientId>';
 ```
 
 ## Permissions

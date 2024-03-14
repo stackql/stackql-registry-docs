@@ -49,8 +49,7 @@ kms_key_arn,
 role_arn,
 domain
 FROM awscc.personalize.dataset_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DatasetGroupArn}';
+WHERE data__Identifier = '<DatasetGroupArn>';
 ```
 
 ## Permissions

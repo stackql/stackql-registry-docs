@@ -20,9 +20,9 @@ The cloudfront service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>26</b></span><br />
-<span>total selectable resources:&nbsp;<b>26</b></span><br />
-<span>total methods:&nbsp;<b>26</b></span><br />
+<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total selectable resources:&nbsp;<b>25</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -48,7 +48,6 @@ The cloudfront service documentation.
 <div class="providerDocColumn">
 <a href="/providers/awscc/cloudfront/key_value_stores/">key_value_stores</a><br />
 <a href="/providers/awscc/cloudfront/monitoring_subscription/">monitoring_subscription</a><br />
-<a href="/providers/awscc/cloudfront/monitoring_subscriptions/">monitoring_subscriptions</a><br />
 <a href="/providers/awscc/cloudfront/origin_access_control/">origin_access_control</a><br />
 <a href="/providers/awscc/cloudfront/origin_access_controls/">origin_access_controls</a><br />
 <a href="/providers/awscc/cloudfront/origin_request_policies/">origin_request_policies</a><br />

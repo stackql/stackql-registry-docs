@@ -49,8 +49,7 @@ fingerprint,
 arn,
 tags
 FROM awscc.ivs.playback_key_pair
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

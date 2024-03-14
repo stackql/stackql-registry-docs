@@ -49,8 +49,7 @@ connector_provisioning_type,
 connector_provisioning_config,
 description
 FROM awscc.appflow.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectorLabel}';
+WHERE data__Identifier = '<ConnectorLabel>';
 ```
 
 ## Permissions

@@ -47,8 +47,7 @@ resolver_rule_id,
 resolver_rule_association_id,
 name
 FROM awscc.route53resolver.resolver_rule_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResolverRuleAssociationId}';
+WHERE data__Identifier = '<ResolverRuleAssociationId>';
 ```
 
 ## Permissions

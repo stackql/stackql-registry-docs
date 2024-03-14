@@ -47,8 +47,7 @@ filter,
 storage_lens_group_arn,
 tags
 FROM awscc.s3.storage_lens_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

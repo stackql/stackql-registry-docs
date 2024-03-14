@@ -43,8 +43,7 @@ region,
 resource_collection_filter,
 resource_collection_type
 FROM awscc.devopsguru.resource_collection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceCollectionType}';
+WHERE data__Identifier = '<ResourceCollectionType>';
 ```
 
 ## Permissions

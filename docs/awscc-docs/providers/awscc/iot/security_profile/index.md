@@ -57,8 +57,7 @@ tags,
 target_arns,
 security_profile_arn
 FROM awscc.iot.security_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SecurityProfileName}';
+WHERE data__Identifier = '<SecurityProfileName>';
 ```
 
 ## Permissions

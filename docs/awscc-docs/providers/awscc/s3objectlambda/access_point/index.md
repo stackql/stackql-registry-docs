@@ -53,8 +53,7 @@ public_access_block_configuration,
 policy_status,
 object_lambda_configuration
 FROM awscc.s3objectlambda.access_point
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

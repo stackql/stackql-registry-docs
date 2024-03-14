@@ -95,8 +95,7 @@ cluster_endpoint,
 auto_minor_version_upgrade,
 tags
 FROM awscc.memorydb.cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterName}';
+WHERE data__Identifier = '<ClusterName>';
 ```
 
 ## Permissions

@@ -49,8 +49,7 @@ role_arn,
 credential_duration_seconds,
 tags
 FROM awscc.iot.role_alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RoleAlias}';
+WHERE data__Identifier = '<RoleAlias>';
 ```
 
 ## Permissions

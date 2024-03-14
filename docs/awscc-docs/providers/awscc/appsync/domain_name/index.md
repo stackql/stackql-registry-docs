@@ -49,8 +49,7 @@ certificate_arn,
 app_sync_domain_name,
 hosted_zone_id
 FROM awscc.appsync.domain_name
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
+WHERE data__Identifier = '<DomainName>';
 ```
 
 ## Permissions

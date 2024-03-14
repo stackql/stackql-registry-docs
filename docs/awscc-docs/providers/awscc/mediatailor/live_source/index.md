@@ -49,9 +49,7 @@ live_source_name,
 source_location_name,
 tags
 FROM awscc.mediatailor.live_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LiveSourceName}';
-AND data__Identifier = '{SourceLocationName}';
+WHERE data__Identifier = '<LiveSourceName>|<SourceLocationName>';
 ```
 
 ## Permissions

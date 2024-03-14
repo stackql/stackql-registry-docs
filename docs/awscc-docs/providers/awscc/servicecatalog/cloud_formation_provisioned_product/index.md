@@ -71,8 +71,7 @@ record_id,
 cloudformation_stack_arn,
 outputs
 FROM awscc.servicecatalog.cloud_formation_provisioned_product
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProvisionedProductId}';
+WHERE data__Identifier = '<ProvisionedProductId>';
 ```
 
 ## Permissions

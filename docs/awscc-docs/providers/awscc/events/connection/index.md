@@ -51,8 +51,7 @@ description,
 authorization_type,
 auth_parameters
 FROM awscc.events.connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

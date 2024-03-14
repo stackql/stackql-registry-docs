@@ -51,10 +51,7 @@ oidc,
 tags,
 identity_provider_config_arn
 FROM awscc.eks.identity_provider_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{IdentityProviderConfigName}';
-AND data__Identifier = '{ClusterName}';
-AND data__Identifier = '{Type}';
+WHERE data__Identifier = '<IdentityProviderConfigName>|<ClusterName>|<Type>';
 ```
 
 ## Permissions

@@ -57,9 +57,7 @@ studio_component_ids,
 studio_id,
 tags
 FROM awscc.nimblestudio.launch_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LaunchProfileId}';
-AND data__Identifier = '{StudioId}';
+WHERE data__Identifier = '<LaunchProfileId>|<StudioId>';
 ```
 
 ## Permissions

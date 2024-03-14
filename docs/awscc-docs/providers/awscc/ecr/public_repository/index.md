@@ -49,8 +49,7 @@ arn,
 repository_catalog_data,
 tags
 FROM awscc.ecr.public_repository
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RepositoryName}';
+WHERE data__Identifier = '<RepositoryName>';
 ```
 
 ## Permissions

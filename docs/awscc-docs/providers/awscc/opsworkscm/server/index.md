@@ -85,8 +85,7 @@ instance_type,
 tags,
 engine
 FROM awscc.opsworkscm.server
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ServerName}';
+WHERE data__Identifier = '<ServerName>';
 ```
 
 ## Permissions

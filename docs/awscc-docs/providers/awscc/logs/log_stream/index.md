@@ -43,9 +43,7 @@ region,
 log_group_name,
 log_stream_name
 FROM awscc.logs.log_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LogGroupName}';
-AND data__Identifier = '{LogStreamName}';
+WHERE data__Identifier = '<LogGroupName>|<LogStreamName>';
 ```
 
 ## Permissions

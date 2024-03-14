@@ -49,8 +49,7 @@ code_signing_policies,
 code_signing_config_id,
 code_signing_config_arn
 FROM awscc.lambda.code_signing_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CodeSigningConfigArn}';
+WHERE data__Identifier = '<CodeSigningConfigArn>';
 ```
 
 ## Permissions

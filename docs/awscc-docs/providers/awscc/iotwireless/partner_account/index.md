@@ -57,8 +57,7 @@ fingerprint,
 arn,
 tags
 FROM awscc.iotwireless.partner_account
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PartnerAccountId}';
+WHERE data__Identifier = '<PartnerAccountId>';
 ```
 
 ## Permissions

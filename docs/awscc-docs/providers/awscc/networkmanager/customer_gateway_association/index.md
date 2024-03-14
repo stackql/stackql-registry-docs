@@ -47,9 +47,7 @@ customer_gateway_arn,
 device_id,
 link_id
 FROM awscc.networkmanager.customer_gateway_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalNetworkId}';
-AND data__Identifier = '{CustomerGatewayArn}';
+WHERE data__Identifier = '<GlobalNetworkId>|<CustomerGatewayArn>';
 ```
 
 ## Permissions

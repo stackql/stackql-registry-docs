@@ -51,8 +51,7 @@ assessment_template_name,
 rules_package_arns,
 user_attributes_for_findings
 FROM awscc.inspector.assessment_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

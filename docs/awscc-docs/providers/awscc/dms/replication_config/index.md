@@ -61,8 +61,7 @@ resource_identifier,
 table_mappings,
 tags
 FROM awscc.dms.replication_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ReplicationConfigArn}';
+WHERE data__Identifier = '<ReplicationConfigArn>';
 ```
 
 ## Permissions

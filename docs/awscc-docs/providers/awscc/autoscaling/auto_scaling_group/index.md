@@ -99,8 +99,7 @@ placement_group,
 health_check_type,
 max_instance_lifetime
 FROM awscc.autoscaling.auto_scaling_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AutoScalingGroupName}';
+WHERE data__Identifier = '<AutoScalingGroupName>';
 ```
 
 ## Permissions

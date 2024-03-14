@@ -47,8 +47,7 @@ arn,
 content,
 tags
 FROM awscc.organizations.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

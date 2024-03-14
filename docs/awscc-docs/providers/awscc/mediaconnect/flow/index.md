@@ -51,8 +51,7 @@ flow_availability_zone,
 source,
 source_failover_config
 FROM awscc.mediaconnect.flow
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FlowArn}';
+WHERE data__Identifier = '<FlowArn>';
 ```
 
 ## Permissions

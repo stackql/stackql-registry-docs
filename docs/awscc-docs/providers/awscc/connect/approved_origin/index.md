@@ -43,9 +43,7 @@ region,
 origin,
 instance_id
 FROM awscc.connect.approved_origin
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceId}';
-AND data__Identifier = '{Origin}';
+WHERE data__Identifier = '<InstanceId>|<Origin>';
 ```
 
 ## Permissions

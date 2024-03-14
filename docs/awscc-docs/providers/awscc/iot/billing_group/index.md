@@ -49,8 +49,7 @@ billing_group_name,
 tags,
 billing_group_properties
 FROM awscc.iot.billing_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BillingGroupName}';
+WHERE data__Identifier = '<BillingGroupName>';
 ```
 
 ## Permissions

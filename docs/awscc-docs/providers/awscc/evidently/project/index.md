@@ -51,8 +51,7 @@ data_delivery,
 app_config_resource,
 tags
 FROM awscc.evidently.project
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

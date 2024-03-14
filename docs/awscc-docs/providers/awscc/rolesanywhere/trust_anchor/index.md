@@ -53,8 +53,7 @@ tags,
 trust_anchor_id,
 trust_anchor_arn
 FROM awscc.rolesanywhere.trust_anchor
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TrustAnchorId}';
+WHERE data__Identifier = '<TrustAnchorId>';
 ```
 
 ## Permissions

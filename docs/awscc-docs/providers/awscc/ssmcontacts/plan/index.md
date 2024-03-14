@@ -47,8 +47,7 @@ stages,
 rotation_ids,
 arn
 FROM awscc.ssmcontacts.plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

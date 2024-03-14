@@ -45,9 +45,7 @@ cluster,
 task_set_id,
 service
 FROM awscc.ecs.primary_task_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Cluster}';
-AND data__Identifier = '{Service}';
+WHERE data__Identifier = '<Cluster>|<Service>';
 ```
 
 ## Permissions

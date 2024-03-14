@@ -53,7 +53,7 @@ health_check_arns,
 application_layer_automatic_response_configuration,
 tags
 FROM awscc.shield.protection
-WHERE data__Identifier = '{ProtectionArn}';
+WHERE data__Identifier = '<ProtectionArn>';
 ```
 
 ## Permissions

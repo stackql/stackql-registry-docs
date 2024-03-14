@@ -57,9 +57,7 @@ role_arn,
 tags,
 arn
 FROM awscc.kendra.faq
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{IndexId}';
+WHERE data__Identifier = '<Id>|<IndexId>';
 ```
 
 ## Permissions

@@ -45,9 +45,7 @@ instance_arn,
 name,
 values
 FROM awscc.connect.predefined_attribute
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceArn}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<InstanceArn>|<Name>';
 ```
 
 ## Permissions

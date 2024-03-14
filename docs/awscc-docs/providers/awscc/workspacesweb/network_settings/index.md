@@ -51,8 +51,7 @@ subnet_ids,
 tags,
 vpc_id
 FROM awscc.workspacesweb.network_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '{NetworkSettingsArn}';
+WHERE data__Identifier = '<NetworkSettingsArn>';
 ```
 
 ## Permissions

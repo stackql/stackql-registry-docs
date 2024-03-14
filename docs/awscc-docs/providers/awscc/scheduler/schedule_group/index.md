@@ -51,8 +51,7 @@ name,
 state,
 tags
 FROM awscc.scheduler.schedule_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

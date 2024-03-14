@@ -53,9 +53,7 @@ name,
 location,
 tags
 FROM awscc.guardduty.threat_intel_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{DetectorId}';
+WHERE data__Identifier = '<Id>|<DetectorId>';
 ```
 
 ## Permissions

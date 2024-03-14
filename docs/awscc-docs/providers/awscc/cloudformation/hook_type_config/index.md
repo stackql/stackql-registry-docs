@@ -49,8 +49,7 @@ configuration_arn,
 configuration,
 configuration_alias
 FROM awscc.cloudformation.hook_type_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConfigurationArn}';
+WHERE data__Identifier = '<ConfigurationArn>';
 ```
 
 ## Permissions

@@ -59,8 +59,7 @@ tags,
 created_at,
 last_updated_at
 FROM awscc.customerprofiles.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
+WHERE data__Identifier = '<DomainName>';
 ```
 
 ## Permissions

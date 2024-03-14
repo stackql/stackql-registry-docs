@@ -55,9 +55,7 @@ membership_identifier,
 name,
 role_arn
 FROM awscc.cleanrooms.configured_table_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConfiguredTableAssociationIdentifier}';
-AND data__Identifier = '{MembershipIdentifier}';
+WHERE data__Identifier = '<ConfiguredTableAssociationIdentifier>|<MembershipIdentifier>';
 ```
 
 ## Permissions

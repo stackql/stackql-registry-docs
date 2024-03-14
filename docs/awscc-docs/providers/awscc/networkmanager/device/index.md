@@ -67,9 +67,7 @@ vendor,
 created_at,
 state
 FROM awscc.networkmanager.device
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalNetworkId}';
-AND data__Identifier = '{DeviceId}';
+WHERE data__Identifier = '<GlobalNetworkId>|<DeviceId>';
 ```
 
 ## Permissions

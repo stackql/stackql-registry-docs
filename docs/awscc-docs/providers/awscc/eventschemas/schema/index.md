@@ -59,8 +59,7 @@ last_modified,
 version_created_date,
 tags
 FROM awscc.eventschemas.schema
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SchemaArn}';
+WHERE data__Identifier = '<SchemaArn>';
 ```
 
 ## Permissions

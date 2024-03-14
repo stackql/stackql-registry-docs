@@ -69,8 +69,7 @@ storage_configurations,
 subnet_ids,
 tags
 FROM awscc.m2.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnvironmentArn}';
+WHERE data__Identifier = '<EnvironmentArn>';
 ```
 
 ## Permissions

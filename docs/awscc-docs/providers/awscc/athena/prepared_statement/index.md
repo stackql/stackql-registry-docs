@@ -47,9 +47,7 @@ work_group,
 description,
 query_statement
 FROM awscc.athena.prepared_statement
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StatementName}';
-AND data__Identifier = '{WorkGroup}';
+WHERE data__Identifier = '<StatementName>|<WorkGroup>';
 ```
 
 ## Permissions

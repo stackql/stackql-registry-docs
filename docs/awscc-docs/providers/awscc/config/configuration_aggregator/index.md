@@ -49,8 +49,7 @@ configuration_aggregator_arn,
 organization_aggregation_source,
 tags
 FROM awscc.config.configuration_aggregator
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConfigurationAggregatorName}';
+WHERE data__Identifier = '<ConfigurationAggregatorName>';
 ```
 
 ## Permissions

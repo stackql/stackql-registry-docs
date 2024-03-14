@@ -59,8 +59,7 @@ creator_request_id,
 destination_arn,
 creation_time
 FROM awscc.route53resolver.resolver_query_logging_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

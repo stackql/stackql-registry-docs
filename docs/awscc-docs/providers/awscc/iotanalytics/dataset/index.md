@@ -57,8 +57,7 @@ id,
 retention_period,
 tags
 FROM awscc.iotanalytics.dataset
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DatasetName}';
+WHERE data__Identifier = '<DatasetName>';
 ```
 
 ## Permissions

@@ -20,9 +20,9 @@ The sqs service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -32,12 +32,9 @@ The sqs service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/awscc/sqs/queue/">queue</a><br />
-<a href="/providers/awscc/sqs/queue_inline_policies/">queue_inline_policies</a><br />
 <a href="/providers/awscc/sqs/queue_inline_policy/">queue_inline_policy</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/sqs/queue_policies/">queue_policies</a><br />
-<a href="/providers/awscc/sqs/queue_policy/">queue_policy</a><br />
 <a href="/providers/awscc/sqs/queues/">queues</a>
 </div>
 </div>

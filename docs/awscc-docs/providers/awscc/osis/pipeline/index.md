@@ -63,8 +63,7 @@ vpc_endpoints,
 pipeline_arn,
 ingest_endpoint_urls
 FROM awscc.osis.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PipelineArn}';
+WHERE data__Identifier = '<PipelineArn>';
 ```
 
 ## Permissions

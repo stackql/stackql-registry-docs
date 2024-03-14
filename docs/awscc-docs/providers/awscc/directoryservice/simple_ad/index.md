@@ -61,8 +61,7 @@ short_name,
 size,
 vpc_settings
 FROM awscc.directoryservice.simple_ad
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DirectoryId}';
+WHERE data__Identifier = '<DirectoryId>';
 ```
 
 ## Permissions

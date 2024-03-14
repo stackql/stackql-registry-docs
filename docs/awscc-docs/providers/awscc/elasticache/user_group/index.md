@@ -51,8 +51,7 @@ user_ids,
 arn,
 tags
 FROM awscc.elasticache.user_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserGroupId}';
+WHERE data__Identifier = '<UserGroupId>';
 ```
 
 ## Permissions

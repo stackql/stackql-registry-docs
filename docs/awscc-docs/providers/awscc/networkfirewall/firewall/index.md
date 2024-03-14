@@ -63,8 +63,7 @@ description,
 endpoint_ids,
 tags
 FROM awscc.networkfirewall.firewall
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FirewallArn}';
+WHERE data__Identifier = '<FirewallArn>';
 ```
 
 ## Permissions

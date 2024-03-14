@@ -77,8 +77,7 @@ sq_error_report_configuration,
 sq_kms_key_id,
 tags
 FROM awscc.timestream.scheduled_query
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

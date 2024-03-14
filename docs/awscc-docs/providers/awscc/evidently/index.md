@@ -20,9 +20,9 @@ The evidently service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -32,15 +32,11 @@ The evidently service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/awscc/evidently/experiment/">experiment</a><br />
-<a href="/providers/awscc/evidently/experiments/">experiments</a><br />
 <a href="/providers/awscc/evidently/feature/">feature</a><br />
-<a href="/providers/awscc/evidently/features/">features</a><br />
 <a href="/providers/awscc/evidently/launch/">launch</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/evidently/launches/">launches</a><br />
 <a href="/providers/awscc/evidently/project/">project</a><br />
-<a href="/providers/awscc/evidently/projects/">projects</a><br />
 <a href="/providers/awscc/evidently/segment/">segment</a><br />
 <a href="/providers/awscc/evidently/segments/">segments</a>
 </div>

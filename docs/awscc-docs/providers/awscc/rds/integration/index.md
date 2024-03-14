@@ -55,8 +55,7 @@ kms_key_id,
 additional_encryption_context,
 create_time
 FROM awscc.rds.integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{IntegrationArn}';
+WHERE data__Identifier = '<IntegrationArn>';
 ```
 
 ## Permissions

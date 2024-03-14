@@ -59,8 +59,7 @@ signal_decoders,
 status,
 tags
 FROM awscc.iotfleetwise.decoder_manifest
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

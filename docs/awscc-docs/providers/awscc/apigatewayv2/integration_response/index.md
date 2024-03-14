@@ -55,10 +55,7 @@ integration_id,
 integration_response_key,
 api_id
 FROM awscc.apigatewayv2.integration_response
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiId}';
-AND data__Identifier = '{IntegrationId}';
-AND data__Identifier = '{IntegrationResponseId}';
+WHERE data__Identifier = '<ApiId>|<IntegrationId>|<IntegrationResponseId>';
 ```
 
 ## Permissions

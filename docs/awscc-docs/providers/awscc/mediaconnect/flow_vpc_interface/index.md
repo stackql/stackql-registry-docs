@@ -51,9 +51,7 @@ security_group_ids,
 subnet_id,
 network_interface_ids
 FROM awscc.mediaconnect.flow_vpc_interface
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FlowArn}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<FlowArn>|<Name>';
 ```
 
 ## Permissions

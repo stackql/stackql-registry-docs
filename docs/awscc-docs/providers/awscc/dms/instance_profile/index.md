@@ -63,8 +63,7 @@ subnet_group_identifier,
 vpc_security_groups,
 tags
 FROM awscc.dms.instance_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceProfileArn}';
+WHERE data__Identifier = '<InstanceProfileArn>';
 ```
 
 ## Permissions

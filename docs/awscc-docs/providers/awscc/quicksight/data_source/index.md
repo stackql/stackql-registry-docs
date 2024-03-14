@@ -71,9 +71,7 @@ tags,
 type,
 vpc_connection_properties
 FROM awscc.quicksight.data_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
-AND data__Identifier = '{DataSourceId}';
+WHERE data__Identifier = '<AwsAccountId>|<DataSourceId>';
 ```
 
 ## Permissions

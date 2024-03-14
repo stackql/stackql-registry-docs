@@ -49,8 +49,7 @@ min_size,
 pool_state,
 instance_reuse_policy
 FROM awscc.autoscaling.warm_pool
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AutoScalingGroupName}';
+WHERE data__Identifier = '<AutoScalingGroupName>';
 ```
 
 ## Permissions

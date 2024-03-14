@@ -71,8 +71,7 @@ manifest_payload,
 arn,
 tags
 FROM awscc.panorama.application_instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationInstanceId}';
+WHERE data__Identifier = '<ApplicationInstanceId>';
 ```
 
 ## Permissions

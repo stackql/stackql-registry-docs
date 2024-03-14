@@ -49,8 +49,7 @@ tags,
 target_arns,
 vpc_link_id
 FROM awscc.apigateway.vpc_link
-WHERE region = 'us-east-1'
-AND data__Identifier = '{VpcLinkId}';
+WHERE data__Identifier = '<VpcLinkId>';
 ```
 
 ## Permissions

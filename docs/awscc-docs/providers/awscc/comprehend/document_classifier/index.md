@@ -65,8 +65,7 @@ volume_kms_key_id,
 vpc_config,
 arn
 FROM awscc.comprehend.document_classifier
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

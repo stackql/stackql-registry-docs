@@ -65,8 +65,7 @@ license_arn,
 status,
 version
 FROM awscc.licensemanager.license
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LicenseArn}';
+WHERE data__Identifier = '<LicenseArn>';
 ```
 
 ## Permissions

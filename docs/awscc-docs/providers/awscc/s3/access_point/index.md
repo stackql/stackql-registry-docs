@@ -57,8 +57,7 @@ policy,
 network_origin,
 arn
 FROM awscc.s3.access_point
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

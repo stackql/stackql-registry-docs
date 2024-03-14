@@ -65,8 +65,7 @@ tags,
 upload_allowed,
 user_settings_arn
 FROM awscc.workspacesweb.user_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserSettingsArn}';
+WHERE data__Identifier = '<UserSettingsArn>';
 ```
 
 ## Permissions

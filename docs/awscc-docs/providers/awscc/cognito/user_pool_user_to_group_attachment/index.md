@@ -45,10 +45,7 @@ user_pool_id,
 username,
 group_name
 FROM awscc.cognito.user_pool_user_to_group_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserPoolId}';
-AND data__Identifier = '{GroupName}';
-AND data__Identifier = '{Username}';
+WHERE data__Identifier = '<UserPoolId>|<GroupName>|<Username>';
 ```
 
 ## Permissions

@@ -63,8 +63,7 @@ onboarded_imported_devices_count,
 failed_imported_devices_count,
 tags
 FROM awscc.iotwireless.wireless_device_import_task
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

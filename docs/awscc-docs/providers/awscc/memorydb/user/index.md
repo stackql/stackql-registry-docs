@@ -51,8 +51,7 @@ authentication_mode,
 arn,
 tags
 FROM awscc.memorydb.user
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserName}';
+WHERE data__Identifier = '<UserName>';
 ```
 
 ## Permissions

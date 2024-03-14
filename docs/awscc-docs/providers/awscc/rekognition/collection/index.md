@@ -45,8 +45,7 @@ arn,
 collection_id,
 tags
 FROM awscc.rekognition.collection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CollectionId}';
+WHERE data__Identifier = '<CollectionId>';
 ```
 
 ## Permissions

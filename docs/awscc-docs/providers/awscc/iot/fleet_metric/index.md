@@ -67,8 +67,7 @@ last_modified_date,
 version,
 tags
 FROM awscc.iot.fleet_metric
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MetricName}';
+WHERE data__Identifier = '<MetricName>';
 ```
 
 ## Permissions

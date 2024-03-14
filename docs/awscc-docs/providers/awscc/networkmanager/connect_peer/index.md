@@ -65,8 +65,7 @@ configuration,
 subnet_arn,
 tags
 FROM awscc.networkmanager.connect_peer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectPeerId}';
+WHERE data__Identifier = '<ConnectPeerId>';
 ```
 
 ## Permissions

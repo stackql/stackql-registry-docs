@@ -55,8 +55,7 @@ connection_mode,
 connector_profile_config,
 credentials_arn
 FROM awscc.appflow.connector_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectorProfileName}';
+WHERE data__Identifier = '<ConnectorProfileName>';
 ```
 
 ## Permissions

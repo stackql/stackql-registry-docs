@@ -47,8 +47,7 @@ input_description,
 input_name,
 tags
 FROM awscc.iotevents.input
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InputName}';
+WHERE data__Identifier = '<InputName>';
 ```
 
 ## Permissions

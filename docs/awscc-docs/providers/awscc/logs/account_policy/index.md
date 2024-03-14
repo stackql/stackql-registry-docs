@@ -51,10 +51,7 @@ policy_type,
 scope,
 selection_criteria
 FROM awscc.logs.account_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountId}';
-AND data__Identifier = '{PolicyType}';
-AND data__Identifier = '{PolicyName}';
+WHERE data__Identifier = '<AccountId>|<PolicyType>|<PolicyName>';
 ```
 
 ## Permissions

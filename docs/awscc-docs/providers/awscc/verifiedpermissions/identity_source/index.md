@@ -49,9 +49,7 @@ identity_source_id,
 policy_store_id,
 principal_entity_type
 FROM awscc.verifiedpermissions.identity_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{IdentitySourceId}';
-AND data__Identifier = '{PolicyStoreId}';
+WHERE data__Identifier = '<IdentitySourceId>|<PolicyStoreId>';
 ```
 
 ## Permissions

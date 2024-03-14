@@ -49,8 +49,7 @@ directory_id,
 tags,
 vpc_information
 FROM awscc.pcaconnectorad.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectorArn}';
+WHERE data__Identifier = '<ConnectorArn>';
 ```
 
 ## Permissions

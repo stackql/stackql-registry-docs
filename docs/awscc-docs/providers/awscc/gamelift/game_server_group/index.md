@@ -67,8 +67,7 @@ role_arn,
 tags,
 vpc_subnets
 FROM awscc.gamelift.game_server_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GameServerGroupArn}';
+WHERE data__Identifier = '<GameServerGroupArn>';
 ```
 
 ## Permissions

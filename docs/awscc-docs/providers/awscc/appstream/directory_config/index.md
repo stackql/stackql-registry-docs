@@ -47,8 +47,7 @@ service_account_credentials,
 directory_name,
 certificate_based_auth_properties
 FROM awscc.appstream.directory_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DirectoryName}';
+WHERE data__Identifier = '<DirectoryName>';
 ```
 
 ## Permissions

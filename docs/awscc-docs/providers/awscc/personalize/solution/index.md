@@ -55,8 +55,7 @@ perform_hpo,
 recipe_arn,
 solution_config
 FROM awscc.personalize.solution
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SolutionArn}';
+WHERE data__Identifier = '<SolutionArn>';
 ```
 
 ## Permissions

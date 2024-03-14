@@ -71,8 +71,7 @@ created_at,
 updated_at,
 tags
 FROM awscc.networkmanager.transit_gateway_route_table_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AttachmentId}';
+WHERE data__Identifier = '<AttachmentId>';
 ```
 
 ## Permissions

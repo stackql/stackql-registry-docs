@@ -63,10 +63,7 @@ service_registries,
 tags,
 task_definition
 FROM awscc.ecs.task_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Cluster}';
-AND data__Identifier = '{Service}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Cluster>|<Service>|<Id>';
 ```
 
 ## Permissions

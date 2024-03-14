@@ -49,8 +49,7 @@ kernel_gateway_image_config,
 jupyter_lab_app_image_config,
 tags
 FROM awscc.sagemaker.app_image_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AppImageConfigName}';
+WHERE data__Identifier = '<AppImageConfigName>';
 ```
 
 ## Permissions

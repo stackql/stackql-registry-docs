@@ -45,8 +45,7 @@ policy_document,
 policy_name,
 user_name
 FROM awscc.iam.user_policy
-WHERE data__Identifier = '{PolicyName}';
-AND data__Identifier = '{UserName}';
+WHERE data__Identifier = '<PolicyName>|<UserName>';
 ```
 
 ## Permissions

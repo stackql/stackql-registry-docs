@@ -47,8 +47,7 @@ subnet_ids,
 tags,
 cluster_subnet_group_name
 FROM awscc.redshift.cluster_subnet_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterSubnetGroupName}';
+WHERE data__Identifier = '<ClusterSubnetGroupName>';
 ```
 
 ## Permissions

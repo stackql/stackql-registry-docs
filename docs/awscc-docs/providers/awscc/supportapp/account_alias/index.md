@@ -43,8 +43,7 @@ region,
 account_alias,
 account_alias_resource_id
 FROM awscc.supportapp.account_alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountAliasResourceId}';
+WHERE data__Identifier = '<AccountAliasResourceId>';
 ```
 
 ## Permissions

@@ -57,9 +57,7 @@ principal_org_id,
 source_account,
 source_arn
 FROM awscc.lambda.permission
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FunctionName}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<FunctionName>|<Id>';
 ```
 
 ## Permissions

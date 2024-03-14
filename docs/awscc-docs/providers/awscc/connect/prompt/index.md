@@ -51,8 +51,7 @@ s3_uri,
 prompt_arn,
 tags
 FROM awscc.connect.prompt
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PromptArn}';
+WHERE data__Identifier = '<PromptArn>';
 ```
 
 ## Permissions

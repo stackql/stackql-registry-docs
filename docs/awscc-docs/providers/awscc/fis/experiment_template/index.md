@@ -57,8 +57,7 @@ role_arn,
 tags,
 experiment_options
 FROM awscc.fis.experiment_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

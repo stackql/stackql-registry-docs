@@ -55,8 +55,7 @@ iot_job_configuration,
 deployment_policies,
 tags
 FROM awscc.greengrassv2.deployment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DeploymentId}';
+WHERE data__Identifier = '<DeploymentId>';
 ```
 
 ## Permissions

@@ -59,8 +59,7 @@ endpoint,
 graph_arn,
 graph_id
 FROM awscc.neptunegraph.graph
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GraphId}';
+WHERE data__Identifier = '<GraphId>';
 ```
 
 ## Permissions

@@ -59,8 +59,7 @@ metric_monitors,
 tags,
 execution_status
 FROM awscc.evidently.launch
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

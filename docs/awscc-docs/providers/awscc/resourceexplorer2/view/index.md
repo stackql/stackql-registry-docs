@@ -51,8 +51,7 @@ tags,
 view_arn,
 view_name
 FROM awscc.resourceexplorer2.view
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ViewArn}';
+WHERE data__Identifier = '<ViewArn>';
 ```
 
 ## Permissions

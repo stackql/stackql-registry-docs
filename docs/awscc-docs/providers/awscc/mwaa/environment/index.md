@@ -95,8 +95,7 @@ celery_executor_queue,
 database_vpc_endpoint_service,
 webserver_vpc_endpoint_service
 FROM awscc.mwaa.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

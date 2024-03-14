@@ -55,9 +55,7 @@ status,
 tags,
 version_name
 FROM awscc.iot.software_package_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PackageName}';
-AND data__Identifier = '{VersionName}';
+WHERE data__Identifier = '<PackageName>|<VersionName>';
 ```
 
 ## Permissions

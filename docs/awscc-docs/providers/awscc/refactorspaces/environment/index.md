@@ -53,8 +53,7 @@ arn,
 transit_gateway_id,
 tags
 FROM awscc.refactorspaces.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnvironmentIdentifier}';
+WHERE data__Identifier = '<EnvironmentIdentifier>';
 ```
 
 ## Permissions

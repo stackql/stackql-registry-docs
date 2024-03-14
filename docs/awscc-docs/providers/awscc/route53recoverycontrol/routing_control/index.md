@@ -49,8 +49,7 @@ name,
 status,
 cluster_arn
 FROM awscc.route53recoverycontrol.routing_control
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RoutingControlArn}';
+WHERE data__Identifier = '<RoutingControlArn>';
 ```
 
 ## Permissions

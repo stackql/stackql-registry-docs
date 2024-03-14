@@ -57,8 +57,7 @@ imported_file_chunk_size,
 s3,
 tags
 FROM awscc.fsx.data_repository_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssociationId}';
+WHERE data__Identifier = '<AssociationId>';
 ```
 
 ## Permissions

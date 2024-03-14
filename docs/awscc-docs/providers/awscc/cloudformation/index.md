@@ -20,9 +20,9 @@ The cloudformation service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>24</b></span><br />
-<span>total selectable resources:&nbsp;<b>24</b></span><br />
-<span>total methods:&nbsp;<b>24</b></span><br />
+<span>total resources:&nbsp;<b>23</b></span><br />
+<span>total selectable resources:&nbsp;<b>23</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -40,12 +40,11 @@ The cloudformation service documentation.
 <a href="/providers/awscc/cloudformation/module_default_version/">module_default_version</a><br />
 <a href="/providers/awscc/cloudformation/module_default_versions/">module_default_versions</a><br />
 <a href="/providers/awscc/cloudformation/module_version/">module_version</a><br />
-<a href="/providers/awscc/cloudformation/module_versions/">module_versions</a><br />
 <a href="/providers/awscc/cloudformation/public_type_version/">public_type_version</a><br />
-<a href="/providers/awscc/cloudformation/public_type_versions/">public_type_versions</a>
+<a href="/providers/awscc/cloudformation/public_type_versions/">public_type_versions</a><br />
+<a href="/providers/awscc/cloudformation/publisher/">publisher</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/cloudformation/publisher/">publisher</a><br />
 <a href="/providers/awscc/cloudformation/publishers/">publishers</a><br />
 <a href="/providers/awscc/cloudformation/resource_default_version/">resource_default_version</a><br />
 <a href="/providers/awscc/cloudformation/resource_default_versions/">resource_default_versions</a><br />

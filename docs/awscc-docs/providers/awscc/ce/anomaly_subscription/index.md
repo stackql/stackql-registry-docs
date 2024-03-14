@@ -57,8 +57,7 @@ threshold_expression,
 frequency,
 resource_tags
 FROM awscc.ce.anomaly_subscription
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SubscriptionArn}';
+WHERE data__Identifier = '<SubscriptionArn>';
 ```
 
 ## Permissions

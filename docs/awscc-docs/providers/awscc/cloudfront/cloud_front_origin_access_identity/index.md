@@ -45,7 +45,7 @@ cloud_front_origin_access_identity_config,
 id,
 s3_canonical_user_id
 FROM awscc.cloudfront.cloud_front_origin_access_identity
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

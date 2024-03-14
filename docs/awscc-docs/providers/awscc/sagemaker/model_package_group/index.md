@@ -53,8 +53,7 @@ model_package_group_policy,
 creation_time,
 model_package_group_status
 FROM awscc.sagemaker.model_package_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ModelPackageGroupArn}';
+WHERE data__Identifier = '<ModelPackageGroupArn>';
 ```
 
 ## Permissions

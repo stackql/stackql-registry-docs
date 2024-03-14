@@ -55,9 +55,7 @@ restore_testing_plan_name,
 restore_testing_selection_name,
 validation_window_hours
 FROM awscc.backup.restore_testing_selection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestoreTestingPlanName}';
-AND data__Identifier = '{RestoreTestingSelectionName}';
+WHERE data__Identifier = '<RestoreTestingPlanName>|<RestoreTestingSelectionName>';
 ```
 
 ## Permissions

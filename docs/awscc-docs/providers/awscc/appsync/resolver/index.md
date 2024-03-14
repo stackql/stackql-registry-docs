@@ -75,8 +75,7 @@ sync_config,
 type_name,
 metrics_config
 FROM awscc.appsync.resolver
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResolverArn}';
+WHERE data__Identifier = '<ResolverArn>';
 ```
 
 ## Permissions

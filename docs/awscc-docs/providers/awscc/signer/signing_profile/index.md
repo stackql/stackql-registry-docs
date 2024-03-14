@@ -53,8 +53,7 @@ signature_validity_period,
 platform_id,
 tags
 FROM awscc.signer.signing_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

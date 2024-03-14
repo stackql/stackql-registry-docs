@@ -47,9 +47,7 @@ authorized_aws_region,
 aggregation_authorization_arn,
 tags
 FROM awscc.config.aggregation_authorization
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AuthorizedAccountId}';
-AND data__Identifier = '{AuthorizedAwsRegion}';
+WHERE data__Identifier = '<AuthorizedAccountId>|<AuthorizedAwsRegion>';
 ```
 
 ## Permissions

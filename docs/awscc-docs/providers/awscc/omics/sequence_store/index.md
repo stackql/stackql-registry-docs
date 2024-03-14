@@ -55,8 +55,7 @@ sequence_store_id,
 sse_config,
 tags
 FROM awscc.omics.sequence_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SequenceStoreId}';
+WHERE data__Identifier = '<SequenceStoreId>';
 ```
 
 ## Permissions

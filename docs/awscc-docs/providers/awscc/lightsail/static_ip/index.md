@@ -49,8 +49,7 @@ is_attached,
 ip_address,
 static_ip_arn
 FROM awscc.lightsail.static_ip
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StaticIpName}';
+WHERE data__Identifier = '<StaticIpName>';
 ```
 
 ## Permissions

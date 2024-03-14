@@ -63,8 +63,7 @@ creation_time,
 feature_group_status,
 tags
 FROM awscc.sagemaker.feature_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FeatureGroupName}';
+WHERE data__Identifier = '<FeatureGroupName>';
 ```
 
 ## Permissions

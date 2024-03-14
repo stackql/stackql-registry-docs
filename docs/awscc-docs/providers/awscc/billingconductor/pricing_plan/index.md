@@ -55,8 +55,7 @@ creation_time,
 last_modified_time,
 tags
 FROM awscc.billingconductor.pricing_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

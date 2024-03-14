@@ -55,9 +55,7 @@ schema,
 magnetic_store_write_properties,
 tags
 FROM awscc.timestream.table
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DatabaseName}';
-AND data__Identifier = '{TableName}';
+WHERE data__Identifier = '<DatabaseName>|<TableName>';
 ```
 
 ## Permissions

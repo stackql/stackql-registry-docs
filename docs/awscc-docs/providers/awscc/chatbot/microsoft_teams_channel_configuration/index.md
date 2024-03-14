@@ -59,8 +59,7 @@ arn,
 guardrail_policies,
 user_role_required
 FROM awscc.chatbot.microsoft_teams_channel_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

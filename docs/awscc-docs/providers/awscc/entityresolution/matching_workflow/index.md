@@ -59,8 +59,7 @@ workflow_arn,
 created_at,
 updated_at
 FROM awscc.entityresolution.matching_workflow
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WorkflowName}';
+WHERE data__Identifier = '<WorkflowName>';
 ```
 
 ## Permissions

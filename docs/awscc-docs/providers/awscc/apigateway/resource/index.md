@@ -47,9 +47,7 @@ rest_api_id,
 parent_id,
 path_part
 FROM awscc.apigateway.resource
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestApiId}';
-AND data__Identifier = '{ResourceId}';
+WHERE data__Identifier = '<RestApiId>|<ResourceId>';
 ```
 
 ## Permissions

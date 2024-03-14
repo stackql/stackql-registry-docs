@@ -57,8 +57,7 @@ status,
 associate_wireless_device,
 disassociate_wireless_device
 FROM awscc.iotwireless.multicast_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

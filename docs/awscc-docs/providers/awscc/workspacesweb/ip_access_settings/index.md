@@ -57,8 +57,7 @@ ip_access_settings_arn,
 ip_rules,
 tags
 FROM awscc.workspacesweb.ip_access_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '{IpAccessSettingsArn}';
+WHERE data__Identifier = '<IpAccessSettingsArn>';
 ```
 
 ## Permissions

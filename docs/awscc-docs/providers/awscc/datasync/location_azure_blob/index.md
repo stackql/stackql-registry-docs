@@ -59,8 +59,7 @@ tags,
 location_arn,
 location_uri
 FROM awscc.datasync.location_azure_blob
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LocationArn}';
+WHERE data__Identifier = '<LocationArn>';
 ```
 
 ## Permissions

@@ -45,10 +45,7 @@ global_network_id,
 device_id,
 link_id
 FROM awscc.networkmanager.link_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalNetworkId}';
-AND data__Identifier = '{DeviceId}';
-AND data__Identifier = '{LinkId}';
+WHERE data__Identifier = '<GlobalNetworkId>|<DeviceId>|<LinkId>';
 ```
 
 ## Permissions

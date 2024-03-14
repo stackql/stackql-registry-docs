@@ -59,10 +59,7 @@ default_route,
 uri_path_route,
 tags
 FROM awscc.refactorspaces.route
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnvironmentIdentifier}';
-AND data__Identifier = '{ApplicationIdentifier}';
-AND data__Identifier = '{RouteIdentifier}';
+WHERE data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>|<RouteIdentifier>';
 ```
 
 ## Permissions

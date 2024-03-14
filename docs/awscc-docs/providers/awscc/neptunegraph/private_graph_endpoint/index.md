@@ -51,8 +51,7 @@ vpc_id,
 private_graph_endpoint_identifier,
 vpc_endpoint_id
 FROM awscc.neptunegraph.private_graph_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PrivateGraphEndpointIdentifier}';
+WHERE data__Identifier = '<PrivateGraphEndpointIdentifier>';
 ```
 
 ## Permissions

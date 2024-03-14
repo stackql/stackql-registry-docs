@@ -53,8 +53,7 @@ cross_account,
 state,
 tags
 FROM awscc.eventschemas.discoverer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DiscovererArn}';
+WHERE data__Identifier = '<DiscovererArn>';
 ```
 
 ## Permissions

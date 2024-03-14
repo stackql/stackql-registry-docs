@@ -51,9 +51,7 @@ log_group_name,
 role_arn,
 distribution
 FROM awscc.logs.subscription_filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FilterName}';
-AND data__Identifier = '{LogGroupName}';
+WHERE data__Identifier = '<FilterName>|<LogGroupName>';
 ```
 
 ## Permissions

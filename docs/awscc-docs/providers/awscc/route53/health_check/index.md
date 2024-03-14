@@ -45,7 +45,7 @@ health_check_id,
 health_check_config,
 health_check_tags
 FROM awscc.route53.health_check
-WHERE data__Identifier = '{HealthCheckId}';
+WHERE data__Identifier = '<HealthCheckId>';
 ```
 
 ## Permissions

@@ -57,8 +57,7 @@ type_name,
 version_id,
 visibility
 FROM awscc.cloudformation.hook_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

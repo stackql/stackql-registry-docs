@@ -65,10 +65,7 @@ request_validator_id,
 resource_id,
 rest_api_id
 FROM awscc.apigateway.method
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestApiId}';
-AND data__Identifier = '{ResourceId}';
-AND data__Identifier = '{HttpMethod}';
+WHERE data__Identifier = '<RestApiId>|<ResourceId>|<HttpMethod>';
 ```
 
 ## Permissions

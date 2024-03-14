@@ -53,9 +53,7 @@ name,
 topic_id,
 user_experience_version
 FROM awscc.quicksight.topic
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
-AND data__Identifier = '{TopicId}';
+WHERE data__Identifier = '<AwsAccountId>|<TopicId>';
 ```
 
 ## Permissions

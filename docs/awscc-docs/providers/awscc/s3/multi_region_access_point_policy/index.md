@@ -45,8 +45,7 @@ mrap_name,
 policy,
 policy_status
 FROM awscc.s3.multi_region_access_point_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MrapName}';
+WHERE data__Identifier = '<MrapName>';
 ```
 
 ## Permissions

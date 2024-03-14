@@ -63,9 +63,7 @@ enable_simple_responses,
 authorizer_id,
 name
 FROM awscc.apigatewayv2.authorizer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AuthorizerId}';
-AND data__Identifier = '{ApiId}';
+WHERE data__Identifier = '<AuthorizerId>|<ApiId>';
 ```
 
 ## Permissions

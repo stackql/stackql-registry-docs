@@ -53,7 +53,7 @@ function_metadata,
 name,
 stage
 FROM awscc.cloudfront.function
-WHERE data__Identifier = '{FunctionARN}';
+WHERE data__Identifier = '<FunctionARN>';
 ```
 
 ## Permissions

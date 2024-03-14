@@ -51,9 +51,7 @@ schema,
 api_id,
 name
 FROM awscc.apigatewayv2.model
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiId}';
-AND data__Identifier = '{ModelId}';
+WHERE data__Identifier = '<ApiId>|<ModelId>';
 ```
 
 ## Permissions

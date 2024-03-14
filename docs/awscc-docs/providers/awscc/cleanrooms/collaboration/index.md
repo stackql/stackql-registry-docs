@@ -61,8 +61,7 @@ name,
 query_log_status,
 creator_payment_configuration
 FROM awscc.cleanrooms.collaboration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CollaborationIdentifier}';
+WHERE data__Identifier = '<CollaborationIdentifier>';
 ```
 
 ## Permissions

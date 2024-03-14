@@ -47,8 +47,7 @@ cells,
 recovery_group_arn,
 tags
 FROM awscc.route53recoveryreadiness.recovery_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RecoveryGroupName}';
+WHERE data__Identifier = '<RecoveryGroupName>';
 ```
 
 ## Permissions

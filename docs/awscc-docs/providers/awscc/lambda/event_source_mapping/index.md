@@ -87,8 +87,7 @@ self_managed_kafka_event_source_config,
 scaling_config,
 document_db_event_source_config
 FROM awscc.lambda.event_source_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

@@ -59,7 +59,7 @@ dual_stack_dns_name,
 accelerator_arn,
 tags
 FROM awscc.globalaccelerator.accelerator
-WHERE data__Identifier = '{AcceleratorArn}';
+WHERE data__Identifier = '<AcceleratorArn>';
 ```
 
 ## Permissions

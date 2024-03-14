@@ -47,9 +47,7 @@ policy,
 policy_id,
 policy_hash
 FROM awscc.ssm.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PolicyId}';
-AND data__Identifier = '{ResourceArn}';
+WHERE data__Identifier = '<PolicyId>|<ResourceArn>';
 ```
 
 ## Permissions

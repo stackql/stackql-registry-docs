@@ -47,8 +47,7 @@ readiness_check_name,
 readiness_check_arn,
 tags
 FROM awscc.route53recoveryreadiness.readiness_check
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ReadinessCheckName}';
+WHERE data__Identifier = '<ReadinessCheckName>';
 ```
 
 ## Permissions

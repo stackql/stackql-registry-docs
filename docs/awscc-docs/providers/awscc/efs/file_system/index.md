@@ -69,8 +69,7 @@ backup_policy,
 availability_zone_name,
 replication_configuration
 FROM awscc.efs.file_system
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FileSystemId}';
+WHERE data__Identifier = '<FileSystemId>';
 ```
 
 ## Permissions

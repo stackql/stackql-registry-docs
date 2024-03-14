@@ -55,10 +55,7 @@ kinesis_video_stream_config,
 kinesis_stream_config,
 kinesis_firehose_config
 FROM awscc.connect.instance_storage_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceArn}';
-AND data__Identifier = '{AssociationId}';
-AND data__Identifier = '{ResourceType}';
+WHERE data__Identifier = '<InstanceArn>|<AssociationId>|<ResourceType>';
 ```
 
 ## Permissions

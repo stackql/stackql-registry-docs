@@ -45,8 +45,7 @@ zonal_autoshift_status,
 practice_run_configuration,
 resource_identifier
 FROM awscc.arczonalshift.zonal_autoshift_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceIdentifier}';
+WHERE data__Identifier = '<ResourceIdentifier>';
 ```
 
 ## Permissions

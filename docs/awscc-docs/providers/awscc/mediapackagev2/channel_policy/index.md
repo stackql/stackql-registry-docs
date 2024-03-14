@@ -45,9 +45,7 @@ channel_group_name,
 channel_name,
 policy
 FROM awscc.mediapackagev2.channel_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ChannelGroupName}';
-AND data__Identifier = '{ChannelName}';
+WHERE data__Identifier = '<ChannelGroupName>|<ChannelName>';
 ```
 
 ## Permissions

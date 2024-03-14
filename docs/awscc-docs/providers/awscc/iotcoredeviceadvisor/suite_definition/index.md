@@ -49,8 +49,7 @@ suite_definition_arn,
 suite_definition_version,
 tags
 FROM awscc.iotcoredeviceadvisor.suite_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SuiteDefinitionId}';
+WHERE data__Identifier = '<SuiteDefinitionId>';
 ```
 
 ## Permissions

@@ -51,9 +51,7 @@ rest_api_id,
 stage_description,
 stage_name
 FROM awscc.apigateway.deployment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DeploymentId}';
-AND data__Identifier = '{RestApiId}';
+WHERE data__Identifier = '<DeploymentId>|<RestApiId>';
 ```
 
 ## Permissions

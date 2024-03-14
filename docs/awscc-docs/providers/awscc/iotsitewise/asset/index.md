@@ -55,8 +55,7 @@ asset_properties,
 asset_hierarchies,
 tags
 FROM awscc.iotsitewise.asset
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssetId}';
+WHERE data__Identifier = '<AssetId>';
 ```
 
 ## Permissions

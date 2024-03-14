@@ -63,10 +63,7 @@ status_description,
 registered_time,
 updated_latest_patch_version
 FROM awscc.panorama.package_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PackageId}';
-AND data__Identifier = '{PackageVersion}';
-AND data__Identifier = '{PatchVersion}';
+WHERE data__Identifier = '<PackageId>|<PackageVersion>|<PatchVersion>';
 ```
 
 ## Permissions

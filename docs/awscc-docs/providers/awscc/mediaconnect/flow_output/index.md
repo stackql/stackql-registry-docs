@@ -69,8 +69,7 @@ smoothing_latency,
 stream_id,
 vpc_interface_attachment
 FROM awscc.mediaconnect.flow_output
-WHERE region = 'us-east-1'
-AND data__Identifier = '{OutputArn}';
+WHERE data__Identifier = '<OutputArn>';
 ```
 
 ## Permissions

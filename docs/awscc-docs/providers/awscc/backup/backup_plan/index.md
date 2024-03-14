@@ -49,8 +49,7 @@ backup_plan_arn,
 backup_plan_id,
 version_id
 FROM awscc.backup.backup_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BackupPlanId}';
+WHERE data__Identifier = '<BackupPlanId>';
 ```
 
 ## Permissions

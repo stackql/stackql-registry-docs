@@ -47,8 +47,7 @@ status,
 name,
 key_management_service_arn
 FROM awscc.route53.key_signing_key
-WHERE data__Identifier = '{HostedZoneId}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<HostedZoneId>|<Name>';
 ```
 
 ## Permissions

@@ -75,8 +75,7 @@ insight_selectors,
 insights_destination,
 ingestion_enabled
 FROM awscc.cloudtrail.event_data_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EventDataStoreArn}';
+WHERE data__Identifier = '<EventDataStoreArn>';
 ```
 
 ## Permissions

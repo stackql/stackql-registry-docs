@@ -83,9 +83,7 @@ ingestion_wait_policy,
 data_set_usage_configuration,
 data_set_refresh_properties
 FROM awscc.quicksight.data_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
-AND data__Identifier = '{DataSetId}';
+WHERE data__Identifier = '<AwsAccountId>|<DataSetId>';
 ```
 
 ## Permissions

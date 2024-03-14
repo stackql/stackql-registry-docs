@@ -49,8 +49,7 @@ destination_policy,
 role_arn,
 target_arn
 FROM awscc.logs.destination
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DestinationName}';
+WHERE data__Identifier = '<DestinationName>';
 ```
 
 ## Permissions
