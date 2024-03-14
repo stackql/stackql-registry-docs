@@ -53,8 +53,7 @@ management_account_id,
 management_account_email,
 root_id
 FROM awscc.organizations.organization
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

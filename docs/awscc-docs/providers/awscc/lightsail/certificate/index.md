@@ -51,8 +51,7 @@ certificate_arn,
 status,
 tags
 FROM awscc.lightsail.certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CertificateName}';
+WHERE data__Identifier = '<CertificateName>';
 ```
 
 ## Permissions

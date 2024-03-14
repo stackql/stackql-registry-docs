@@ -65,8 +65,7 @@ estimated_instance_warmup,
 adjustment_type,
 arn
 FROM awscc.autoscaling.scaling_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

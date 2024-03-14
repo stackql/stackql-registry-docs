@@ -49,8 +49,7 @@ target_arn,
 rules,
 tags
 FROM awscc.databrew.ruleset
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

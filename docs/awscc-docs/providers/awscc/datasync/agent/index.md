@@ -55,8 +55,7 @@ endpoint_type,
 tags,
 agent_arn
 FROM awscc.datasync.agent
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AgentArn}';
+WHERE data__Identifier = '<AgentArn>';
 ```
 
 ## Permissions

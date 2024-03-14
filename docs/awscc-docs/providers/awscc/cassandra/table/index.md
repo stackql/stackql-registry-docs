@@ -65,9 +65,7 @@ encryption_specification,
 auto_scaling_specifications,
 replica_specifications
 FROM awscc.cassandra.table
-WHERE region = 'us-east-1'
-AND data__Identifier = '{KeyspaceName}';
-AND data__Identifier = '{TableName}';
+WHERE data__Identifier = '<KeyspaceName>|<TableName>';
 ```
 
 ## Permissions

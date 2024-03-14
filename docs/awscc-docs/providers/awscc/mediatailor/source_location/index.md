@@ -53,8 +53,7 @@ segment_delivery_configurations,
 source_location_name,
 tags
 FROM awscc.mediatailor.source_location
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SourceLocationName}';
+WHERE data__Identifier = '<SourceLocationName>';
 ```
 
 ## Permissions

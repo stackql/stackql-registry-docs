@@ -45,7 +45,7 @@ id,
 last_modified_time,
 response_headers_policy_config
 FROM awscc.cloudfront.response_headers_policy
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

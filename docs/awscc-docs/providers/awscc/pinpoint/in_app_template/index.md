@@ -53,8 +53,7 @@ tags,
 template_description,
 template_name
 FROM awscc.pinpoint.in_app_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TemplateName}';
+WHERE data__Identifier = '<TemplateName>';
 ```
 
 ## Permissions

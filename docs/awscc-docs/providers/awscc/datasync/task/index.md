@@ -67,8 +67,7 @@ status,
 source_network_interface_arns,
 destination_network_interface_arns
 FROM awscc.datasync.task
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TaskArn}';
+WHERE data__Identifier = '<TaskArn>';
 ```
 
 ## Permissions

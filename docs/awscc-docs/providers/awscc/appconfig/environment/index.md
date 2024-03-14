@@ -51,9 +51,7 @@ description,
 monitors,
 tags
 FROM awscc.appconfig.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationId}';
-AND data__Identifier = '{EnvironmentId}';
+WHERE data__Identifier = '<ApplicationId>|<EnvironmentId>';
 ```
 
 ## Permissions

@@ -65,8 +65,7 @@ currency_code,
 account_id,
 tags
 FROM awscc.billingconductor.custom_line_item
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

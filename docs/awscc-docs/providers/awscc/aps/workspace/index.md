@@ -55,8 +55,7 @@ logging_configuration,
 kms_key_arn,
 tags
 FROM awscc.aps.workspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

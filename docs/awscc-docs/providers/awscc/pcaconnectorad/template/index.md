@@ -51,8 +51,7 @@ reenroll_all_certificate_holders,
 tags,
 template_arn
 FROM awscc.pcaconnectorad.template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TemplateArn}';
+WHERE data__Identifier = '<TemplateArn>';
 ```
 
 ## Permissions

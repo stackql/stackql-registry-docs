@@ -47,9 +47,7 @@ description,
 stage_name,
 api_id
 FROM awscc.apigatewayv2.deployment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiId}';
-AND data__Identifier = '{DeploymentId}';
+WHERE data__Identifier = '<ApiId>|<DeploymentId>';
 ```
 
 ## Permissions

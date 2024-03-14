@@ -71,8 +71,7 @@ response_mapping_template_s3_location,
 runtime,
 sync_config
 FROM awscc.appsync.function_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FunctionArn}';
+WHERE data__Identifier = '<FunctionArn>';
 ```
 
 ## Permissions

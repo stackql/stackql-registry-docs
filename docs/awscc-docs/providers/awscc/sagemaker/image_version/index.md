@@ -69,8 +69,7 @@ processor,
 horovod,
 release_notes
 FROM awscc.sagemaker.image_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ImageVersionArn}';
+WHERE data__Identifier = '<ImageVersionArn>';
 ```
 
 ## Permissions

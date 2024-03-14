@@ -51,8 +51,7 @@ connection_pool_configuration_info,
 db_instance_identifiers,
 db_cluster_identifiers
 FROM awscc.rds.db_proxy_target_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TargetGroupArn}';
+WHERE data__Identifier = '<TargetGroupArn>';
 ```
 
 ## Permissions

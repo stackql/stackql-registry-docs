@@ -77,8 +77,7 @@ body,
 tags,
 api_key_selection_expression
 FROM awscc.apigatewayv2.api
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiId}';
+WHERE data__Identifier = '<ApiId>';
 ```
 
 ## Permissions

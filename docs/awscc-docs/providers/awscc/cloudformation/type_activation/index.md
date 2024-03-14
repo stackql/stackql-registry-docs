@@ -61,8 +61,7 @@ major_version,
 type_name,
 type
 FROM awscc.cloudformation.type_activation
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

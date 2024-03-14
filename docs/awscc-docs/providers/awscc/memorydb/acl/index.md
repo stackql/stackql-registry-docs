@@ -49,8 +49,7 @@ user_names,
 arn,
 tags
 FROM awscc.memorydb.acl
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ACLName}';
+WHERE data__Identifier = '<ACLName>';
 ```
 
 ## Permissions

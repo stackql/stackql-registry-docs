@@ -59,8 +59,7 @@ service_id,
 service_identifier,
 tags
 FROM awscc.vpclattice.listener
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

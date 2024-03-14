@@ -65,8 +65,7 @@ source_data_provider_descriptors,
 target_data_provider_descriptors,
 tags
 FROM awscc.dms.migration_project
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MigrationProjectArn}';
+WHERE data__Identifier = '<MigrationProjectArn>';
 ```
 
 ## Permissions

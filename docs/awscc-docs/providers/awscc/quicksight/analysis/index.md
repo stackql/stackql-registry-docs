@@ -73,9 +73,7 @@ tags,
 theme_arn,
 validation_strategy
 FROM awscc.quicksight.analysis
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AnalysisId}';
-AND data__Identifier = '{AwsAccountId}';
+WHERE data__Identifier = '<AnalysisId>|<AwsAccountId>';
 ```
 
 ## Permissions

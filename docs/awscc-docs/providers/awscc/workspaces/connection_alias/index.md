@@ -49,8 +49,7 @@ connection_string,
 connection_alias_state,
 tags
 FROM awscc.workspaces.connection_alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AliasId}';
+WHERE data__Identifier = '<AliasId>';
 ```
 
 ## Permissions

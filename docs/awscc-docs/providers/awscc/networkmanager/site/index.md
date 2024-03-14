@@ -55,9 +55,7 @@ location,
 created_at,
 state
 FROM awscc.networkmanager.site
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalNetworkId}';
-AND data__Identifier = '{SiteId}';
+WHERE data__Identifier = '<GlobalNetworkId>|<SiteId>';
 ```
 
 ## Permissions

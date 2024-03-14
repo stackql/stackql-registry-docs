@@ -73,8 +73,7 @@ updated_at,
 subnet_arns,
 options
 FROM awscc.networkmanager.vpc_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AttachmentId}';
+WHERE data__Identifier = '<AttachmentId>';
 ```
 
 ## Permissions

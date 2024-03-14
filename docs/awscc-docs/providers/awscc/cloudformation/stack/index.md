@@ -85,8 +85,7 @@ timeout_in_minutes,
 last_update_time,
 creation_time
 FROM awscc.cloudformation.stack
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StackId}';
+WHERE data__Identifier = '<StackId>';
 ```
 
 ## Permissions

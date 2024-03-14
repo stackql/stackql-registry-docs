@@ -53,8 +53,7 @@ sns_topic_arn,
 source_ids,
 source_type
 FROM awscc.rds.event_subscription
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SubscriptionName}';
+WHERE data__Identifier = '<SubscriptionName>';
 ```
 
 ## Permissions

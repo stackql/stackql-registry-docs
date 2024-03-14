@@ -45,8 +45,7 @@ keyspace_name,
 tags,
 replication_specification
 FROM awscc.cassandra.keyspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '{KeyspaceName}';
+WHERE data__Identifier = '<KeyspaceName>';
 ```
 
 ## Permissions

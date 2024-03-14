@@ -20,9 +20,9 @@ The mediaconnect service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>18</b></span><br />
-<span>total selectable resources:&nbsp;<b>18</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>16</b></span><br />
+<span>total selectable resources:&nbsp;<b>16</b></span><br />
+<span>total methods:&nbsp;<b>16</b></span><br />
 </div>
 </div>
 
@@ -33,16 +33,14 @@ The mediaconnect service documentation.
 <div class="providerDocColumn">
 <a href="/providers/awscc/mediaconnect/bridge/">bridge</a><br />
 <a href="/providers/awscc/mediaconnect/bridge_output/">bridge_output</a><br />
-<a href="/providers/awscc/mediaconnect/bridge_outputs/">bridge_outputs</a><br />
 <a href="/providers/awscc/mediaconnect/bridge_source/">bridge_source</a><br />
-<a href="/providers/awscc/mediaconnect/bridge_sources/">bridge_sources</a><br />
 <a href="/providers/awscc/mediaconnect/bridges/">bridges</a><br />
 <a href="/providers/awscc/mediaconnect/flow/">flow</a><br />
 <a href="/providers/awscc/mediaconnect/flow_entitlement/">flow_entitlement</a><br />
-<a href="/providers/awscc/mediaconnect/flow_entitlements/">flow_entitlements</a>
+<a href="/providers/awscc/mediaconnect/flow_entitlements/">flow_entitlements</a><br />
+<a href="/providers/awscc/mediaconnect/flow_output/">flow_output</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/mediaconnect/flow_output/">flow_output</a><br />
 <a href="/providers/awscc/mediaconnect/flow_outputs/">flow_outputs</a><br />
 <a href="/providers/awscc/mediaconnect/flow_source/">flow_source</a><br />
 <a href="/providers/awscc/mediaconnect/flow_sources/">flow_sources</a><br />

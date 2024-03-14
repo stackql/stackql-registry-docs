@@ -49,8 +49,7 @@ resource_set_arn,
 resource_set_type,
 tags
 FROM awscc.route53recoveryreadiness.resource_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceSetName}';
+WHERE data__Identifier = '<ResourceSetName>';
 ```
 
 ## Permissions

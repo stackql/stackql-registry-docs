@@ -61,8 +61,7 @@ endpoint_url,
 state,
 state_reason
 FROM awscc.events.endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

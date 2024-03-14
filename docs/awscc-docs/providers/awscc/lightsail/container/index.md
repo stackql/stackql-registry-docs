@@ -61,8 +61,7 @@ url,
 principal_arn,
 tags
 FROM awscc.lightsail.container
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ServiceName}';
+WHERE data__Identifier = '<ServiceName>';
 ```
 
 ## Permissions

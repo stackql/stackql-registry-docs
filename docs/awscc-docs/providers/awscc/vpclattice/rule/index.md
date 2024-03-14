@@ -57,8 +57,7 @@ priority,
 service_identifier,
 tags
 FROM awscc.vpclattice.rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

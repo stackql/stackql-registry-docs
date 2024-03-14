@@ -57,8 +57,7 @@ max_runs,
 name,
 tags
 FROM awscc.omics.run_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

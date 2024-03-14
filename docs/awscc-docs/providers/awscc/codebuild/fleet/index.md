@@ -51,8 +51,7 @@ compute_type,
 tags,
 arn
 FROM awscc.codebuild.fleet
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

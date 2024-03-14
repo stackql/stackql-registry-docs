@@ -57,8 +57,7 @@ sync_name,
 sync_type,
 bucket_prefix
 FROM awscc.ssm.resource_data_sync
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SyncName}';
+WHERE data__Identifier = '<SyncName>';
 ```
 
 ## Permissions

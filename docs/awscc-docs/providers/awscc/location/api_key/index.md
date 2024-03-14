@@ -63,8 +63,7 @@ update_time,
 force_delete,
 arn
 FROM awscc.location.api_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '{KeyName}';
+WHERE data__Identifier = '<KeyName>';
 ```
 
 ## Permissions

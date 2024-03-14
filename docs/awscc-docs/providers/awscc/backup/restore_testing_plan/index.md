@@ -53,8 +53,7 @@ schedule_expression_timezone,
 start_window_hours,
 tags
 FROM awscc.backup.restore_testing_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestoreTestingPlanName}';
+WHERE data__Identifier = '<RestoreTestingPlanName>';
 ```
 
 ## Permissions

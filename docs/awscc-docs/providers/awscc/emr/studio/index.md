@@ -79,8 +79,7 @@ idc_user_assignment,
 idc_instance_arn,
 encryption_key_arn
 FROM awscc.emr.studio
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StudioId}';
+WHERE data__Identifier = '<StudioId>';
 ```
 
 ## Permissions

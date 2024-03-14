@@ -89,9 +89,7 @@ tags,
 task_definition,
 volume_configurations
 FROM awscc.ecs.service
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ServiceArn}';
-AND data__Identifier = '{Cluster}';
+WHERE data__Identifier = '<ServiceArn>|<Cluster>';
 ```
 
 ## Permissions

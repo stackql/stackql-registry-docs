@@ -77,8 +77,7 @@ trust_store_arn,
 user_access_logging_settings_arn,
 user_settings_arn
 FROM awscc.workspacesweb.portal
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PortalArn}';
+WHERE data__Identifier = '<PortalArn>';
 ```
 
 ## Permissions

@@ -49,8 +49,7 @@ name,
 server_side_encryption_configuration,
 tags
 FROM awscc.voiceid.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainId}';
+WHERE data__Identifier = '<DomainId>';
 ```
 
 ## Permissions

@@ -51,8 +51,7 @@ priority,
 conditions,
 is_default
 FROM awscc.elasticloadbalancingv2.listener_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RuleArn}';
+WHERE data__Identifier = '<RuleArn>';
 ```
 
 ## Permissions

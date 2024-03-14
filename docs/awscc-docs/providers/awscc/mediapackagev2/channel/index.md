@@ -55,8 +55,7 @@ ingest_endpoints,
 modified_at,
 tags
 FROM awscc.mediapackagev2.channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

@@ -55,8 +55,7 @@ target_ips,
 arn,
 resolver_rule_id
 FROM awscc.route53resolver.resolver_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResolverRuleId}';
+WHERE data__Identifier = '<ResolverRuleId>';
 ```
 
 ## Permissions

@@ -47,8 +47,7 @@ key_type,
 usage_plan_id,
 id
 FROM awscc.apigateway.usage_plan_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

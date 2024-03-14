@@ -45,8 +45,7 @@ account_id,
 role_arn,
 default_log_level
 FROM awscc.iot.logging
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

@@ -65,9 +65,7 @@ subtype,
 tags,
 type
 FROM awscc.nimblestudio.studio_component
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StudioComponentId}';
-AND data__Identifier = '{StudioId}';
+WHERE data__Identifier = '<StudioComponentId>|<StudioId>';
 ```
 
 ## Permissions

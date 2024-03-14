@@ -55,9 +55,7 @@ is_attached,
 https_redirection_enabled,
 status
 FROM awscc.lightsail.load_balancer_tls_certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CertificateName}';
-AND data__Identifier = '{LoadBalancerName}';
+WHERE data__Identifier = '<CertificateName>|<LoadBalancerName>';
 ```
 
 ## Permissions

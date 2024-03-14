@@ -53,8 +53,7 @@ dashboard_definition,
 dashboard_arn,
 tags
 FROM awscc.iotsitewise.dashboard
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DashboardId}';
+WHERE data__Identifier = '<DashboardId>';
 ```
 
 ## Permissions

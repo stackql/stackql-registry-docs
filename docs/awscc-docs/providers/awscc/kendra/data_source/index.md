@@ -63,9 +63,7 @@ tags,
 custom_document_enrichment_configuration,
 language_code
 FROM awscc.kendra.data_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{IndexId}';
+WHERE data__Identifier = '<Id>|<IndexId>';
 ```
 
 ## Permissions

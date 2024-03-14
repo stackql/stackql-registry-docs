@@ -47,10 +47,7 @@ aws_account_id,
 data_set_id,
 schedule
 FROM awscc.quicksight.refresh_schedule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
-AND data__Identifier = '{DataSetId}';
-AND data__Identifier = '{Schedule/ScheduleId}';
+WHERE data__Identifier = '<AwsAccountId>|<DataSetId>|<Schedule/ScheduleId>';
 ```
 
 ## Permissions

@@ -61,8 +61,7 @@ creation_time_stamp,
 last_modified_time_stamp,
 anomaly_detector_arn
 FROM awscc.logs.log_anomaly_detector
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AnomalyDetectorArn}';
+WHERE data__Identifier = '<AnomalyDetectorArn>';
 ```
 
 ## Permissions

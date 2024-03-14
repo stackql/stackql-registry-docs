@@ -65,9 +65,7 @@ custom_response_bodies,
 available_labels,
 consumed_labels
 FROM awscc.wafv2.rule_group
-WHERE data__Identifier = '{Name}';
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{Scope}';
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
 
 ## Permissions

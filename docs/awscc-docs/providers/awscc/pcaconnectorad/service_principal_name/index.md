@@ -43,9 +43,7 @@ region,
 connector_arn,
 directory_registration_arn
 FROM awscc.pcaconnectorad.service_principal_name
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectorArn}';
-AND data__Identifier = '{DirectoryRegistrationArn}';
+WHERE data__Identifier = '<ConnectorArn>|<DirectoryRegistrationArn>';
 ```
 
 ## Permissions

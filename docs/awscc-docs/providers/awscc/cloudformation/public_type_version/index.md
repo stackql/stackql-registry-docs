@@ -55,8 +55,7 @@ type_name,
 log_delivery_bucket,
 type
 FROM awscc.cloudformation.public_type_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PublicTypeArn}';
+WHERE data__Identifier = '<PublicTypeArn>';
 ```
 
 ## Permissions

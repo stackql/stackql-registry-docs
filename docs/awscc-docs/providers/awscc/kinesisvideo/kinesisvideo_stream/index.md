@@ -53,8 +53,7 @@ kms_key_id,
 media_type,
 tags
 FROM awscc.kinesisvideo.kinesisvideo_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

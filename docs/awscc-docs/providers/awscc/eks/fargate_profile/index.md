@@ -53,9 +53,7 @@ subnets,
 selectors,
 tags
 FROM awscc.eks.fargate_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterName}';
-AND data__Identifier = '{FargateProfileName}';
+WHERE data__Identifier = '<ClusterName>|<FargateProfileName>';
 ```
 
 ## Permissions

@@ -45,8 +45,7 @@ schema,
 schema_definition,
 version_id
 FROM awscc.glue.schema_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{VersionId}';
+WHERE data__Identifier = '<VersionId>';
 ```
 
 ## Permissions

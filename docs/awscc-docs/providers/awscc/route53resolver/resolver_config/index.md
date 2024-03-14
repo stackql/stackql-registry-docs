@@ -49,8 +49,7 @@ resource_id,
 autodefined_reverse,
 autodefined_reverse_flag
 FROM awscc.route53resolver.resolver_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceId}';
+WHERE data__Identifier = '<ResourceId>';
 ```
 
 ## Permissions

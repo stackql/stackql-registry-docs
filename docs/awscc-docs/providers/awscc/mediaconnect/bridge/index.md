@@ -57,8 +57,7 @@ sources,
 ingress_gateway_bridge,
 egress_gateway_bridge
 FROM awscc.mediaconnect.bridge
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BridgeArn}';
+WHERE data__Identifier = '<BridgeArn>';
 ```
 
 ## Permissions

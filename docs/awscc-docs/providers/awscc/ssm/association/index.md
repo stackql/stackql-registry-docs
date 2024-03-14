@@ -75,8 +75,7 @@ apply_only_at_cron_interval,
 calendar_names,
 schedule_offset
 FROM awscc.ssm.association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssociationId}';
+WHERE data__Identifier = '<AssociationId>';
 ```
 
 ## Permissions

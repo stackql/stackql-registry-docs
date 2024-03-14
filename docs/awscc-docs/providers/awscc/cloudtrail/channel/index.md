@@ -49,8 +49,7 @@ destinations,
 channel_arn,
 tags
 FROM awscc.cloudtrail.channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ChannelArn}';
+WHERE data__Identifier = '<ChannelArn>';
 ```
 
 ## Permissions

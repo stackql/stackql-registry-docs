@@ -45,8 +45,7 @@ policy_name,
 policy_document,
 bypass_policy_lockout_check
 FROM awscc.xray.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PolicyName}';
+WHERE data__Identifier = '<PolicyName>';
 ```
 
 ## Permissions

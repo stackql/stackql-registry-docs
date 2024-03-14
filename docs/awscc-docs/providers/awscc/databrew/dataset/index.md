@@ -51,8 +51,7 @@ input,
 path_options,
 tags
 FROM awscc.databrew.dataset
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

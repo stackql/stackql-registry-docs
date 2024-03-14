@@ -63,8 +63,7 @@ thing_name,
 last_uplink_received_at,
 positioning
 FROM awscc.iotwireless.wireless_device
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

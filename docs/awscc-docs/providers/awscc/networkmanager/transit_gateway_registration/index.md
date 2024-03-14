@@ -43,9 +43,7 @@ region,
 global_network_id,
 transit_gateway_arn
 FROM awscc.networkmanager.transit_gateway_registration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalNetworkId}';
-AND data__Identifier = '{TransitGatewayArn}';
+WHERE data__Identifier = '<GlobalNetworkId>|<TransitGatewayArn>';
 ```
 
 ## Permissions

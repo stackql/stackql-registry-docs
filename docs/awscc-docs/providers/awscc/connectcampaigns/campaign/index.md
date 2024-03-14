@@ -51,8 +51,7 @@ name,
 outbound_call_config,
 tags
 FROM awscc.connectcampaigns.campaign
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

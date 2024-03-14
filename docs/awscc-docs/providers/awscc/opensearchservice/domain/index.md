@@ -89,8 +89,7 @@ service_software_options,
 off_peak_window_options,
 software_update_options
 FROM awscc.opensearchservice.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
+WHERE data__Identifier = '<DomainName>';
 ```
 
 ## Permissions

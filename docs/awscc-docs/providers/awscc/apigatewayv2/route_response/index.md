@@ -53,10 +53,7 @@ api_id,
 response_models,
 route_response_id
 FROM awscc.apigatewayv2.route_response
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiId}';
-AND data__Identifier = '{RouteId}';
-AND data__Identifier = '{RouteResponseId}';
+WHERE data__Identifier = '<ApiId>|<RouteId>|<RouteResponseId>';
 ```
 
 ## Permissions

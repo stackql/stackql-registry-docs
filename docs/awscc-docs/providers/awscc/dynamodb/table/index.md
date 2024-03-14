@@ -77,8 +77,7 @@ table_class,
 tags,
 time_to_live_specification
 FROM awscc.dynamodb.table
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TableName}';
+WHERE data__Identifier = '<TableName>';
 ```
 
 ## Permissions

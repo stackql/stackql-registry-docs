@@ -63,8 +63,7 @@ peering_type,
 created_at,
 tags
 FROM awscc.networkmanager.transit_gateway_peering
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PeeringId}';
+WHERE data__Identifier = '<PeeringId>';
 ```
 
 ## Permissions

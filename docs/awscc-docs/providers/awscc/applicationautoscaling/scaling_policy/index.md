@@ -57,9 +57,7 @@ step_scaling_policy_configuration,
 target_tracking_scaling_policy_configuration,
 arn
 FROM awscc.applicationautoscaling.scaling_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
-AND data__Identifier = '{ScalableDimension}';
+WHERE data__Identifier = '<Arn>|<ScalableDimension>';
 ```
 
 ## Permissions

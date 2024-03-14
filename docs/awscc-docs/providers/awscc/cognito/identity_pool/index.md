@@ -65,8 +65,7 @@ saml_provider_arns,
 open_id_connect_provider_arns,
 allow_classic_flow
 FROM awscc.cognito.identity_pool
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

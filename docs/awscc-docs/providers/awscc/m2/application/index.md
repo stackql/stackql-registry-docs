@@ -57,8 +57,7 @@ name,
 role_arn,
 tags
 FROM awscc.m2.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationArn}';
+WHERE data__Identifier = '<ApplicationArn>';
 ```
 
 ## Permissions

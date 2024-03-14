@@ -61,8 +61,7 @@ certificate_arn,
 custom_domain_name,
 tags
 FROM awscc.vpclattice.service
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

@@ -55,8 +55,7 @@ creation_time,
 state,
 recursive_delete_option
 FROM awscc.athena.work_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

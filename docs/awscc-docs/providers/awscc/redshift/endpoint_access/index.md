@@ -61,8 +61,7 @@ port,
 vpc_security_group_ids,
 vpc_endpoint
 FROM awscc.redshift.endpoint_access
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EndpointName}';
+WHERE data__Identifier = '<EndpointName>';
 ```
 
 ## Permissions

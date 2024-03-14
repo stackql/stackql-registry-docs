@@ -51,8 +51,7 @@ tags,
 type,
 analyzer_configuration
 FROM awscc.accessanalyzer.analyzer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

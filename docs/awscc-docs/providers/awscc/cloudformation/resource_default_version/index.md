@@ -47,8 +47,7 @@ type_name,
 arn,
 type_version_arn
 FROM awscc.cloudformation.resource_default_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

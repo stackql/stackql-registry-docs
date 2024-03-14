@@ -55,8 +55,7 @@ creation_date_time,
 update_date_time,
 tags
 FROM awscc.iottwinmaker.workspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WorkspaceId}';
+WHERE data__Identifier = '<WorkspaceId>';
 ```
 
 ## Permissions

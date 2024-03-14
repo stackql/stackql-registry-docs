@@ -49,8 +49,7 @@ domain,
 tags,
 dataset_group_arn
 FROM awscc.forecast.dataset_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DatasetGroupArn}';
+WHERE data__Identifier = '<DatasetGroupArn>';
 ```
 
 ## Permissions

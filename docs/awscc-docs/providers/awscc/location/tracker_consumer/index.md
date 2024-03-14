@@ -43,9 +43,7 @@ region,
 consumer_arn,
 tracker_name
 FROM awscc.location.tracker_consumer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TrackerName}';
-AND data__Identifier = '{ConsumerArn}';
+WHERE data__Identifier = '<TrackerName>|<ConsumerArn>';
 ```
 
 ## Permissions

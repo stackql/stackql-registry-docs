@@ -71,8 +71,7 @@ mss_package,
 cmaf_package,
 tags
 FROM awscc.mediapackage.origin_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

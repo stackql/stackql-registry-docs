@@ -65,8 +65,7 @@ creation_time,
 name,
 description
 FROM awscc.auditmanager.assessment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssessmentId}';
+WHERE data__Identifier = '<AssessmentId>';
 ```
 
 ## Permissions

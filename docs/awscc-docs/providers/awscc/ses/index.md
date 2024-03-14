@@ -20,9 +20,9 @@ The ses service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>13</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>13</b></span><br />
+<span>total resources:&nbsp;<b>12</b></span><br />
+<span>total selectable resources:&nbsp;<b>12</b></span><br />
+<span>total methods:&nbsp;<b>12</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,6 @@ The ses service documentation.
 <div class="providerDocColumn">
 <a href="/providers/awscc/ses/configuration_set/">configuration_set</a><br />
 <a href="/providers/awscc/ses/configuration_set_event_destination/">configuration_set_event_destination</a><br />
-<a href="/providers/awscc/ses/configuration_set_event_destinations/">configuration_set_event_destinations</a><br />
 <a href="/providers/awscc/ses/configuration_sets/">configuration_sets</a><br />
 <a href="/providers/awscc/ses/contact_list/">contact_list</a><br />
 <a href="/providers/awscc/ses/contact_lists/">contact_lists</a><br />

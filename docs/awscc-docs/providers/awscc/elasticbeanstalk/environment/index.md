@@ -65,8 +65,7 @@ solution_stack_name,
 cname_prefix,
 tags
 FROM awscc.elasticbeanstalk.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnvironmentName}';
+WHERE data__Identifier = '<EnvironmentName>';
 ```
 
 ## Permissions

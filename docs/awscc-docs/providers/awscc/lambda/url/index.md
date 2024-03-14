@@ -53,8 +53,7 @@ function_arn,
 function_url,
 cors
 FROM awscc.lambda.url
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FunctionArn}';
+WHERE data__Identifier = '<FunctionArn>';
 ```
 
 ## Permissions

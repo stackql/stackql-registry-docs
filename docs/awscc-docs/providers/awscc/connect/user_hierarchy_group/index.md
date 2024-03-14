@@ -49,8 +49,7 @@ parent_group_arn,
 name,
 tags
 FROM awscc.connect.user_hierarchy_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserHierarchyGroupArn}';
+WHERE data__Identifier = '<UserHierarchyGroupArn>';
 ```
 
 ## Permissions

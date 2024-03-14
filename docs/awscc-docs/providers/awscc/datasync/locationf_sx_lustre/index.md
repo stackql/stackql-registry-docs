@@ -51,8 +51,7 @@ tags,
 location_arn,
 location_uri
 FROM awscc.datasync.locationf_sx_lustre
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LocationArn}';
+WHERE data__Identifier = '<LocationArn>';
 ```
 
 ## Permissions

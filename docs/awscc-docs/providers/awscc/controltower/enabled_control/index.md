@@ -47,9 +47,7 @@ target_identifier,
 parameters,
 tags
 FROM awscc.controltower.enabled_control
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TargetIdentifier}';
-AND data__Identifier = '{ControlIdentifier}';
+WHERE data__Identifier = '<TargetIdentifier>|<ControlIdentifier>';
 ```
 
 ## Permissions

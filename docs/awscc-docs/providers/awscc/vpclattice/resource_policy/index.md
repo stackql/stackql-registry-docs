@@ -43,8 +43,7 @@ region,
 resource_arn,
 policy
 FROM awscc.vpclattice.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceArn}';
+WHERE data__Identifier = '<ResourceArn>';
 ```
 
 ## Permissions

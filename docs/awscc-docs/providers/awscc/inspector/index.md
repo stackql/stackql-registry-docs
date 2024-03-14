@@ -20,9 +20,9 @@ The inspector service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -37,7 +37,6 @@ The inspector service documentation.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/awscc/inspector/assessment_templates/">assessment_templates</a><br />
-<a href="/providers/awscc/inspector/resource_group/">resource_group</a><br />
-<a href="/providers/awscc/inspector/resource_groups/">resource_groups</a>
+<a href="/providers/awscc/inspector/resource_group/">resource_group</a>
 </div>
 </div>

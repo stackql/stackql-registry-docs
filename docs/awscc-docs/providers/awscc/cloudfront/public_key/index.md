@@ -45,7 +45,7 @@ created_time,
 id,
 public_key_config
 FROM awscc.cloudfront.public_key
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

@@ -47,9 +47,7 @@ policy_store_id,
 policy_template_id,
 statement
 FROM awscc.verifiedpermissions.policy_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PolicyStoreId}';
-AND data__Identifier = '{PolicyTemplateId}';
+WHERE data__Identifier = '<PolicyStoreId>|<PolicyTemplateId>';
 ```
 
 ## Permissions

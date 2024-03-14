@@ -47,8 +47,7 @@ location_name,
 data_redundancy,
 arn
 FROM awscc.s3express.directory_bucket
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BucketName}';
+WHERE data__Identifier = '<BucketName>';
 ```
 
 ## Permissions

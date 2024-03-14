@@ -55,8 +55,7 @@ asset_model_composite_models,
 asset_model_hierarchies,
 tags
 FROM awscc.iotsitewise.asset_model
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssetModelId}';
+WHERE data__Identifier = '<AssetModelId>';
 ```
 
 ## Permissions

@@ -49,9 +49,7 @@ rest_api_id,
 validate_request_body,
 validate_request_parameters
 FROM awscc.apigateway.request_validator
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestApiId}';
-AND data__Identifier = '{RequestValidatorId}';
+WHERE data__Identifier = '<RestApiId>|<RequestValidatorId>';
 ```
 
 ## Permissions

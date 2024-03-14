@@ -45,8 +45,7 @@ location_name,
 location_arn,
 tags
 FROM awscc.gamelift.location
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LocationName}';
+WHERE data__Identifier = '<LocationName>';
 ```
 
 ## Permissions

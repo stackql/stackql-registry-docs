@@ -45,8 +45,7 @@ application_name,
 compute_platform,
 tags
 FROM awscc.codedeploy.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationName}';
+WHERE data__Identifier = '<ApplicationName>';
 ```
 
 ## Permissions

@@ -49,8 +49,7 @@ id,
 name,
 tags
 FROM awscc.emrcontainers.virtual_cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

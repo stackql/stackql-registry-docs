@@ -47,8 +47,7 @@ schema_arn,
 schema,
 domain
 FROM awscc.personalize.schema
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SchemaArn}';
+WHERE data__Identifier = '<SchemaArn>';
 ```
 
 ## Permissions

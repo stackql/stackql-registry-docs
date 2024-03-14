@@ -47,8 +47,7 @@ pipeline_name,
 tags,
 pipeline_activities
 FROM awscc.iotanalytics.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PipelineName}';
+WHERE data__Identifier = '<PipelineName>';
 ```
 
 ## Permissions

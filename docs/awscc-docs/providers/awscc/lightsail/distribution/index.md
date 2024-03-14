@@ -65,8 +65,7 @@ is_enabled,
 certificate_name,
 tags
 FROM awscc.lightsail.distribution
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DistributionName}';
+WHERE data__Identifier = '<DistributionName>';
 ```
 
 ## Permissions

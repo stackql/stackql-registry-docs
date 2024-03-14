@@ -43,8 +43,7 @@ region,
 pool_name,
 scaling_mode
 FROM awscc.ses.dedicated_ip_pool
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PoolName}';
+WHERE data__Identifier = '<PoolName>';
 ```
 
 ## Permissions

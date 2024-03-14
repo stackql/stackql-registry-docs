@@ -61,7 +61,7 @@ threshold_count,
 endpoint_group_arn,
 port_overrides
 FROM awscc.globalaccelerator.endpoint_group
-WHERE data__Identifier = '{EndpointGroupArn}';
+WHERE data__Identifier = '<EndpointGroupArn>';
 ```
 
 ## Permissions

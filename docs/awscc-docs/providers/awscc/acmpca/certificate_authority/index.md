@@ -61,8 +61,7 @@ csr_extensions,
 key_storage_security_standard,
 usage_mode
 FROM awscc.acmpca.certificate_authority
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

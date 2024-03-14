@@ -53,11 +53,7 @@ resource_spec,
 tags,
 user_profile_name
 FROM awscc.sagemaker.app
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AppName}';
-AND data__Identifier = '{AppType}';
-AND data__Identifier = '{DomainId}';
-AND data__Identifier = '{UserProfileName}';
+WHERE data__Identifier = '<AppName>|<AppType>|<DomainId>|<UserProfileName>';
 ```
 
 ## Permissions

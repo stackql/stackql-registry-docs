@@ -57,9 +57,7 @@ start_time,
 desired_capacity,
 max_size
 FROM awscc.autoscaling.scheduled_action
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ScheduledActionName}';
-AND data__Identifier = '{AutoScalingGroupName}';
+WHERE data__Identifier = '<ScheduledActionName>|<AutoScalingGroupName>';
 ```
 
 ## Permissions

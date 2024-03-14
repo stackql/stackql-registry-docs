@@ -61,8 +61,7 @@ status,
 client_token,
 tags
 FROM awscc.connect.task_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

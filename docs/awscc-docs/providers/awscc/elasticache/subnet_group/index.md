@@ -47,8 +47,7 @@ subnet_ids,
 cache_subnet_group_name,
 tags
 FROM awscc.elasticache.subnet_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CacheSubnetGroupName}';
+WHERE data__Identifier = '<CacheSubnetGroupName>';
 ```
 
 ## Permissions

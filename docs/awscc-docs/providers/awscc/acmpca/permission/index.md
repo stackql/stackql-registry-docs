@@ -47,9 +47,7 @@ certificate_authority_arn,
 principal,
 source_account
 FROM awscc.acmpca.permission
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CertificateAuthorityArn}';
-AND data__Identifier = '{Principal}';
+WHERE data__Identifier = '<CertificateAuthorityArn>|<Principal>';
 ```
 
 ## Permissions

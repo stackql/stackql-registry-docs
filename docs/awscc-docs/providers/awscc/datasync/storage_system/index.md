@@ -59,8 +59,7 @@ tags,
 storage_system_arn,
 connectivity_status
 FROM awscc.datasync.storage_system
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StorageSystemArn}';
+WHERE data__Identifier = '<StorageSystemArn>';
 ```
 
 ## Permissions

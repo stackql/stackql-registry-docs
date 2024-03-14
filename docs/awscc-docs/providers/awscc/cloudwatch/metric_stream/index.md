@@ -65,8 +65,7 @@ statistics_configurations,
 tags,
 include_linked_accounts_metrics
 FROM awscc.cloudwatch.metric_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

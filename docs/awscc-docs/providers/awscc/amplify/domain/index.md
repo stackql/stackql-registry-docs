@@ -65,8 +65,7 @@ enable_auto_sub_domain,
 status_reason,
 sub_domain_settings
 FROM awscc.amplify.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

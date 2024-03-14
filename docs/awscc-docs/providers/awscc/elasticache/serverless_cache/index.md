@@ -79,8 +79,7 @@ reader_endpoint,
 arn,
 final_snapshot_name
 FROM awscc.elasticache.serverless_cache
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ServerlessCacheName}';
+WHERE data__Identifier = '<ServerlessCacheName>';
 ```
 
 ## Permissions

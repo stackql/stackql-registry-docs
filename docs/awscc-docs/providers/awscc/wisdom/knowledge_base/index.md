@@ -57,8 +57,7 @@ server_side_encryption_configuration,
 source_configuration,
 tags
 FROM awscc.wisdom.knowledge_base
-WHERE region = 'us-east-1'
-AND data__Identifier = '{KnowledgeBaseId}';
+WHERE data__Identifier = '<KnowledgeBaseId>';
 ```
 
 ## Permissions

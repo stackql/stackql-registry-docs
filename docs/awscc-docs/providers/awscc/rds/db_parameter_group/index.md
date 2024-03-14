@@ -49,8 +49,7 @@ family,
 parameters,
 tags
 FROM awscc.rds.db_parameter_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DBParameterGroupName}';
+WHERE data__Identifier = '<DBParameterGroupName>';
 ```
 
 ## Permissions

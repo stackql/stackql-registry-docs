@@ -65,9 +65,7 @@ request_parameters,
 target,
 authorizer_id
 FROM awscc.apigatewayv2.route
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiId}';
-AND data__Identifier = '{RouteId}';
+WHERE data__Identifier = '<ApiId>|<RouteId>';
 ```
 
 ## Permissions

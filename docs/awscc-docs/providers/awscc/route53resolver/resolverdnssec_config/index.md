@@ -47,8 +47,7 @@ owner_id,
 resource_id,
 validation_status
 FROM awscc.route53resolver.resolverdnssec_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

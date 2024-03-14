@@ -71,8 +71,7 @@ http_endpoint_destination_configuration,
 snowflake_destination_configuration,
 tags
 FROM awscc.kinesisfirehose.delivery_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DeliveryStreamName}';
+WHERE data__Identifier = '<DeliveryStreamName>';
 ```
 
 ## Permissions

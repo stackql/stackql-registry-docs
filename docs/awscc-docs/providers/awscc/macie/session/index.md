@@ -47,8 +47,7 @@ status,
 finding_publishing_frequency,
 service_role
 FROM awscc.macie.session
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
+WHERE data__Identifier = '<AwsAccountId>';
 ```
 
 ## Permissions

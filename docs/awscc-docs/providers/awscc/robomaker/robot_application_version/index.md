@@ -47,8 +47,7 @@ current_revision_id,
 application_version,
 arn
 FROM awscc.robomaker.robot_application_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

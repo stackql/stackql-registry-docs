@@ -53,8 +53,7 @@ rules,
 split_charge_rules,
 default_value
 FROM awscc.ce.cost_category
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

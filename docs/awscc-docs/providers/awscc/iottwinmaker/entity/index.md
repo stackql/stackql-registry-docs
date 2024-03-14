@@ -65,9 +65,7 @@ workspace_id,
 components,
 composite_components
 FROM awscc.iottwinmaker.entity
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WorkspaceId}';
-AND data__Identifier = '{EntityId}';
+WHERE data__Identifier = '<WorkspaceId>|<EntityId>';
 ```
 
 ## Permissions

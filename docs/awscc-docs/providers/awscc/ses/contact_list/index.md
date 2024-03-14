@@ -47,8 +47,7 @@ description,
 topics,
 tags
 FROM awscc.ses.contact_list
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ContactListName}';
+WHERE data__Identifier = '<ContactListName>';
 ```
 
 ## Permissions

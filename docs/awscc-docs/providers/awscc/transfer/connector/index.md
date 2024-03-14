@@ -55,8 +55,7 @@ logging_role,
 tags,
 url
 FROM awscc.transfer.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConnectorId}';
+WHERE data__Identifier = '<ConnectorId>';
 ```
 
 ## Permissions

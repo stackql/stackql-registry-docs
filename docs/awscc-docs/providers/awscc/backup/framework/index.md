@@ -55,8 +55,7 @@ framework_controls,
 framework_status,
 framework_tags
 FROM awscc.backup.framework
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FrameworkArn}';
+WHERE data__Identifier = '<FrameworkArn>';
 ```
 
 ## Permissions

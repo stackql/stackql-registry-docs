@@ -53,8 +53,7 @@ connection_arn,
 association_arn,
 tags
 FROM awscc.codegurureviewer.repository_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AssociationArn}';
+WHERE data__Identifier = '<AssociationArn>';
 ```
 
 ## Permissions

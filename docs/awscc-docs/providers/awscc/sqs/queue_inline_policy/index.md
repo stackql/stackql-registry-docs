@@ -43,8 +43,7 @@ region,
 policy_document,
 queue
 FROM awscc.sqs.queue_inline_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Queue}';
+WHERE data__Identifier = '<Queue>';
 ```
 
 ## Permissions

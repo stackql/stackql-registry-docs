@@ -51,8 +51,7 @@ image_display_name,
 image_description,
 tags
 FROM awscc.sagemaker.image
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ImageArn}';
+WHERE data__Identifier = '<ImageArn>';
 ```
 
 ## Permissions

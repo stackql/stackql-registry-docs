@@ -61,8 +61,7 @@ tags,
 name,
 arn
 FROM awscc.codestarnotifications.notification_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

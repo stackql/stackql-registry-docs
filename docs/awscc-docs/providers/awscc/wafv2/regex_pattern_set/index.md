@@ -53,9 +53,7 @@ regular_expression_list,
 scope,
 tags
 FROM awscc.wafv2.regex_pattern_set
-WHERE data__Identifier = '{Name}';
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{Scope}';
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
 
 ## Permissions

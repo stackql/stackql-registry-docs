@@ -65,8 +65,7 @@ kms_key_id,
 tags,
 auth_type
 FROM awscc.docdbelastic.cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterArn}';
+WHERE data__Identifier = '<ClusterArn>';
 ```
 
 ## Permissions

@@ -51,8 +51,7 @@ describe_payload,
 maximum_duration,
 snapshot_s3_location
 FROM awscc.simspaceweaver.simulation
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

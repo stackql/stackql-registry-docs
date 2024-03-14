@@ -59,8 +59,7 @@ working_directory,
 additional_instance_configuration,
 tags
 FROM awscc.imagebuilder.image_recipe
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

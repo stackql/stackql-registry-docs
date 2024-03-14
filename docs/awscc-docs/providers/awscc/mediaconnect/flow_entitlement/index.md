@@ -55,8 +55,7 @@ entitlement_status,
 name,
 subscribers
 FROM awscc.mediaconnect.flow_entitlement
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EntitlementArn}';
+WHERE data__Identifier = '<EntitlementArn>';
 ```
 
 ## Permissions

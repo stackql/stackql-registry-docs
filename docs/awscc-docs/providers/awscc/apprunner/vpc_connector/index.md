@@ -51,8 +51,7 @@ subnets,
 security_groups,
 tags
 FROM awscc.apprunner.vpc_connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '{VpcConnectorArn}';
+WHERE data__Identifier = '<VpcConnectorArn>';
 ```
 
 ## Permissions

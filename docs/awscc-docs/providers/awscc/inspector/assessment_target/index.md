@@ -45,8 +45,7 @@ arn,
 assessment_target_name,
 resource_group_arn
 FROM awscc.inspector.assessment_target
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

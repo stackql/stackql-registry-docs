@@ -57,8 +57,7 @@ thing_arn,
 thing_name,
 last_uplink_received_at
 FROM awscc.iotwireless.wireless_gateway
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

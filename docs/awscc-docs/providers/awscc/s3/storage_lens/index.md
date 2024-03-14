@@ -43,8 +43,7 @@ region,
 storage_lens_configuration,
 tags
 FROM awscc.s3.storage_lens
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StorageLensConfiguration/Id}';
+WHERE data__Identifier = '<StorageLensConfiguration/Id>';
 ```
 
 ## Permissions

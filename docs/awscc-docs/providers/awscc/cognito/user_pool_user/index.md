@@ -55,9 +55,7 @@ user_pool_id,
 validation_data,
 client_metadata
 FROM awscc.cognito.user_pool_user
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserPoolId}';
-AND data__Identifier = '{Username}';
+WHERE data__Identifier = '<UserPoolId>|<Username>';
 ```
 
 ## Permissions

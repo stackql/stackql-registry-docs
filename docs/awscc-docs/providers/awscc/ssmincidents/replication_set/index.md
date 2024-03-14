@@ -47,8 +47,7 @@ regions,
 deletion_protected,
 tags
 FROM awscc.ssmincidents.replication_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

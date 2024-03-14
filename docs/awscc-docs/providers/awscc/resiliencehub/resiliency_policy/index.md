@@ -53,8 +53,7 @@ policy,
 policy_arn,
 tags
 FROM awscc.resiliencehub.resiliency_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PolicyArn}';
+WHERE data__Identifier = '<PolicyArn>';
 ```
 
 ## Permissions

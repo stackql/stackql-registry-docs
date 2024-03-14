@@ -57,8 +57,7 @@ sources,
 environment,
 tags
 FROM awscc.robomaker.simulation_application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

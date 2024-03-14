@@ -53,7 +53,7 @@ members,
 resource_type,
 tags
 FROM awscc.shield.protection_group
-WHERE data__Identifier = '{ProtectionGroupArn}';
+WHERE data__Identifier = '<ProtectionGroupArn>';
 ```
 
 ## Permissions

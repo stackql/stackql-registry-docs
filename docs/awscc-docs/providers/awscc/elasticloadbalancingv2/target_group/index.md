@@ -85,8 +85,7 @@ protocol,
 target_group_name,
 tags
 FROM awscc.elasticloadbalancingv2.target_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TargetGroupArn}';
+WHERE data__Identifier = '<TargetGroupArn>';
 ```
 
 ## Permissions

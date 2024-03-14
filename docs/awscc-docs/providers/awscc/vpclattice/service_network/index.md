@@ -53,8 +53,7 @@ name,
 auth_type,
 tags
 FROM awscc.vpclattice.service_network
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

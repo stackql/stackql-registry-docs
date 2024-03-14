@@ -71,8 +71,7 @@ updated_at,
 transport_attachment_id,
 options
 FROM awscc.networkmanager.connect_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AttachmentId}';
+WHERE data__Identifier = '<AttachmentId>';
 ```
 
 ## Permissions

@@ -51,8 +51,7 @@ rule_arn,
 rule_name,
 tags
 FROM awscc.xray.sampling_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RuleARN}';
+WHERE data__Identifier = '<RuleARN>';
 ```
 
 ## Permissions

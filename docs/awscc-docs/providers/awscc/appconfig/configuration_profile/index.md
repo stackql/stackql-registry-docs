@@ -61,9 +61,7 @@ name,
 kms_key_identifier,
 kms_key_arn
 FROM awscc.appconfig.configuration_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationId}';
-AND data__Identifier = '{ConfigurationProfileId}';
+WHERE data__Identifier = '<ApplicationId>|<ConfigurationProfileId>';
 ```
 
 ## Permissions

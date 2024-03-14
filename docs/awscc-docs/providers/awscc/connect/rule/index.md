@@ -55,8 +55,7 @@ actions,
 publish_status,
 tags
 FROM awscc.connect.rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RuleArn}';
+WHERE data__Identifier = '<RuleArn>';
 ```
 
 ## Permissions

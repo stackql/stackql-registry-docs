@@ -63,9 +63,7 @@ id,
 arn,
 region
 FROM awscc.groundstation.mission_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Id>|<Arn>';
 ```
 
 ## Permissions

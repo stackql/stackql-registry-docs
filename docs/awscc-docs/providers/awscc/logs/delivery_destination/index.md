@@ -51,8 +51,7 @@ tags,
 delivery_destination_type,
 delivery_destination_policy
 FROM awscc.logs.delivery_destination
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

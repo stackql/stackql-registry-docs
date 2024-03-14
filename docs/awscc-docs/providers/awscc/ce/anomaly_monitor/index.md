@@ -59,8 +59,7 @@ monitor_specification,
 dimensional_value_count,
 resource_tags
 FROM awscc.ce.anomaly_monitor
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MonitorArn}';
+WHERE data__Identifier = '<MonitorArn>';
 ```
 
 ## Permissions

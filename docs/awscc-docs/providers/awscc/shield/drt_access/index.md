@@ -45,7 +45,7 @@ account_id,
 log_bucket_list,
 role_arn
 FROM awscc.shield.drt_access
-WHERE data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

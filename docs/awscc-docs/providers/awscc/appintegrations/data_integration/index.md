@@ -59,8 +59,7 @@ tags,
 file_configuration,
 object_configuration
 FROM awscc.appintegrations.data_integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

@@ -49,8 +49,7 @@ iam_role_arn,
 location_scope,
 tags
 FROM awscc.s3.access_grants_location
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccessGrantsLocationId}';
+WHERE data__Identifier = '<AccessGrantsLocationId>';
 ```
 
 ## Permissions

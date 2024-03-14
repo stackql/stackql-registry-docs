@@ -49,10 +49,7 @@ resource_type,
 application_arn,
 resource_arn
 FROM awscc.servicecatalogappregistry.resource_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationArn}';
-AND data__Identifier = '{ResourceArn}';
-AND data__Identifier = '{ResourceType}';
+WHERE data__Identifier = '<ApplicationArn>|<ResourceArn>|<ResourceType>';
 ```
 
 ## Permissions

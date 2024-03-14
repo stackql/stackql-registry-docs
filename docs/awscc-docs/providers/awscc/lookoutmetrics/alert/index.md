@@ -51,8 +51,7 @@ anomaly_detector_arn,
 alert_sensitivity_threshold,
 action
 FROM awscc.lookoutmetrics.alert
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

@@ -47,9 +47,7 @@ application_name,
 description,
 source_bundle
 FROM awscc.elasticbeanstalk.application_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationName}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<ApplicationName>|<Id>';
 ```
 
 ## Permissions

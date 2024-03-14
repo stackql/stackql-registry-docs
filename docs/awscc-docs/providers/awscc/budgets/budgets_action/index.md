@@ -57,9 +57,7 @@ approval_model,
 subscribers,
 definition
 FROM awscc.budgets.budgets_action
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ActionId}';
-AND data__Identifier = '{BudgetName}';
+WHERE data__Identifier = '<ActionId>|<BudgetName>';
 ```
 
 ## Permissions

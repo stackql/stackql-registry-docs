@@ -47,9 +47,7 @@ lf_tags,
 resource_identifier,
 tags_identifier
 FROM awscc.lakeformation.tag_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceIdentifier}';
-AND data__Identifier = '{TagsIdentifier}';
+WHERE data__Identifier = '<ResourceIdentifier>|<TagsIdentifier>';
 ```
 
 ## Permissions

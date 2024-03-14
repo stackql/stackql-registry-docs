@@ -43,8 +43,7 @@ region,
 channel_name,
 policy
 FROM awscc.mediatailor.channel_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ChannelName}';
+WHERE data__Identifier = '<ChannelName>';
 ```
 
 ## Permissions

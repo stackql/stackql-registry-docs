@@ -51,8 +51,7 @@ anomaly_detection_notification_configuration,
 arn,
 tags
 FROM awscc.codeguruprofiler.profiling_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProfilingGroupName}';
+WHERE data__Identifier = '<ProfilingGroupName>';
 ```
 
 ## Permissions

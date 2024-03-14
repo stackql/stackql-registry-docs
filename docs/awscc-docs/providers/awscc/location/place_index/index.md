@@ -59,8 +59,7 @@ tags,
 update_time,
 arn
 FROM awscc.location.place_index
-WHERE region = 'us-east-1'
-AND data__Identifier = '{IndexName}';
+WHERE data__Identifier = '<IndexName>';
 ```
 
 ## Permissions

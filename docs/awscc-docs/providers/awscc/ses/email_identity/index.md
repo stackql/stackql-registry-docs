@@ -63,8 +63,7 @@ dkim_dns_token_value1,
 dkim_dns_token_value2,
 dkim_dns_token_value3
 FROM awscc.ses.email_identity
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EmailIdentity}';
+WHERE data__Identifier = '<EmailIdentity>';
 ```
 
 ## Permissions

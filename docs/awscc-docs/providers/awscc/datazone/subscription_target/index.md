@@ -73,10 +73,7 @@ type,
 updated_at,
 updated_by
 FROM awscc.datazone.subscription_target
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainId}';
-AND data__Identifier = '{EnvironmentId}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<DomainId>|<EnvironmentId>|<Id>';
 ```
 
 ## Permissions

@@ -57,10 +57,7 @@ overrides,
 tags,
 values
 FROM awscc.amplifyuibuilder.theme
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AppId}';
-AND data__Identifier = '{EnvironmentName}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<AppId>|<EnvironmentName>|<Id>';
 ```
 
 ## Permissions

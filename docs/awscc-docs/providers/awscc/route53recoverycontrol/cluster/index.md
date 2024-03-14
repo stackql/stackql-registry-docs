@@ -49,8 +49,7 @@ status,
 cluster_endpoints,
 tags
 FROM awscc.route53recoverycontrol.cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClusterArn}';
+WHERE data__Identifier = '<ClusterArn>';
 ```
 
 ## Permissions

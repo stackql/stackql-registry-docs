@@ -55,8 +55,7 @@ state,
 status,
 tags
 FROM awscc.connect.contact_flow_module
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ContactFlowModuleArn}';
+WHERE data__Identifier = '<ContactFlowModuleArn>';
 ```
 
 ## Permissions

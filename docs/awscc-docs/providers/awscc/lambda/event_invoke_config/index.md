@@ -49,9 +49,7 @@ maximum_event_age_in_seconds,
 maximum_retry_attempts,
 qualifier
 FROM awscc.lambda.event_invoke_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FunctionName}';
-AND data__Identifier = '{Qualifier}';
+WHERE data__Identifier = '<FunctionName>|<Qualifier>';
 ```
 
 ## Permissions

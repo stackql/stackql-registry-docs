@@ -45,8 +45,7 @@ device_fleet_name,
 device,
 tags
 FROM awscc.sagemaker.device
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Device/DeviceName}';
+WHERE data__Identifier = '<Device/DeviceName>';
 ```
 
 ## Permissions

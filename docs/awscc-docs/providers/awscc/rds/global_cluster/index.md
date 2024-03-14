@@ -51,8 +51,7 @@ global_cluster_identifier,
 source_db_cluster_identifier,
 storage_encrypted
 FROM awscc.rds.global_cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalClusterIdentifier}';
+WHERE data__Identifier = '<GlobalClusterIdentifier>';
 ```
 
 ## Permissions

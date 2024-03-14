@@ -45,7 +45,7 @@ continuous_deployment_policy_config,
 id,
 last_modified_time
 FROM awscc.cloudfront.continuous_deployment_policy
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

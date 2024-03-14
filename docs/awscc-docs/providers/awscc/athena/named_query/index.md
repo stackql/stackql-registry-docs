@@ -51,8 +51,7 @@ query_string,
 work_group,
 named_query_id
 FROM awscc.athena.named_query
-WHERE region = 'us-east-1'
-AND data__Identifier = '{NamedQueryId}';
+WHERE data__Identifier = '<NamedQueryId>';
 ```
 
 ## Permissions

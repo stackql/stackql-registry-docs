@@ -51,8 +51,7 @@ inline_recipe,
 lambda_function,
 tags
 FROM awscc.greengrassv2.component_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

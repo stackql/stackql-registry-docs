@@ -20,9 +20,9 @@ The panorama service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -37,7 +37,6 @@ The panorama service documentation.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/awscc/panorama/package_version/">package_version</a><br />
-<a href="/providers/awscc/panorama/package_versions/">package_versions</a><br />
 <a href="/providers/awscc/panorama/packages/">packages</a>
 </div>
 </div>

@@ -59,9 +59,7 @@ db_engine_version_arn,
 status,
 tags
 FROM awscc.rds.customdb_engine_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Engine}';
-AND data__Identifier = '{EngineVersion}';
+WHERE data__Identifier = '<Engine>|<EngineVersion>';
 ```
 
 ## Permissions

@@ -49,8 +49,7 @@ identity_provider_name,
 identity_provider_type,
 portal_arn
 FROM awscc.workspacesweb.identity_provider
-WHERE region = 'us-east-1'
-AND data__Identifier = '{IdentityProviderArn}';
+WHERE data__Identifier = '<IdentityProviderArn>';
 ```
 
 ## Permissions

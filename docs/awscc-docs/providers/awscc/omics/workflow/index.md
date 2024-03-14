@@ -67,8 +67,7 @@ storage_capacity,
 tags,
 type
 FROM awscc.omics.workflow
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

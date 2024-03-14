@@ -67,9 +67,7 @@ stage_name,
 proxy_url,
 tags
 FROM awscc.refactorspaces.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnvironmentIdentifier}';
-AND data__Identifier = '{ApplicationIdentifier}';
+WHERE data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>';
 ```
 
 ## Permissions

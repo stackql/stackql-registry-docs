@@ -65,9 +65,7 @@ source_last_updated_timestamp_format,
 tags,
 template_id
 FROM awscc.customerprofiles.object_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
-AND data__Identifier = '{ObjectTypeName}';
+WHERE data__Identifier = '<DomainName>|<ObjectTypeName>';
 ```
 
 ## Permissions

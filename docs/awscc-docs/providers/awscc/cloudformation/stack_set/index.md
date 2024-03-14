@@ -71,8 +71,7 @@ template_url,
 call_as,
 managed_execution
 FROM awscc.cloudformation.stack_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StackSetId}';
+WHERE data__Identifier = '<StackSetId>';
 ```
 
 ## Permissions

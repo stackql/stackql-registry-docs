@@ -61,8 +61,7 @@ profile_id,
 tags,
 trading_partner_id
 FROM awscc.b2bi.partnership
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PartnershipId}';
+WHERE data__Identifier = '<PartnershipId>';
 ```
 
 ## Permissions

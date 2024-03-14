@@ -43,8 +43,7 @@ region,
 resource_arn,
 web_acl_arn
 FROM awscc.wafv2.webacl_association
-WHERE data__Identifier = '{ResourceArn}';
-AND data__Identifier = '{WebACLArn}';
+WHERE data__Identifier = '<ResourceArn>|<WebACLArn>';
 ```
 
 ## Permissions

@@ -73,8 +73,7 @@ namespace_resource_policy,
 redshift_idc_application_arn,
 snapshot_copy_configurations
 FROM awscc.redshiftserverless.namespace
-WHERE region = 'us-east-1'
-AND data__Identifier = '{NamespaceName}';
+WHERE data__Identifier = '<NamespaceName>';
 ```
 
 ## Permissions

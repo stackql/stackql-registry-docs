@@ -49,8 +49,7 @@ parameter_group_family,
 parameters,
 tags
 FROM awscc.redshift.cluster_parameter_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ParameterGroupName}';
+WHERE data__Identifier = '<ParameterGroupName>';
 ```
 
 ## Permissions

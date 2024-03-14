@@ -71,8 +71,7 @@ parent_image,
 working_directory,
 tags
 FROM awscc.imagebuilder.container_recipe
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

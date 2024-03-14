@@ -51,8 +51,7 @@ storage_location,
 version,
 server_sdk_version
 FROM awscc.gamelift.build
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BuildId}';
+WHERE data__Identifier = '<BuildId>';
 ```
 
 ## Permissions

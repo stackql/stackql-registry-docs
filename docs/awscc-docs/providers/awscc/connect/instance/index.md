@@ -59,8 +59,7 @@ directory_id,
 attributes,
 tags
 FROM awscc.connect.instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

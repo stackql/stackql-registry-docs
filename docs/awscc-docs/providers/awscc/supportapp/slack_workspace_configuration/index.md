@@ -43,8 +43,7 @@ region,
 team_id,
 version_id
 FROM awscc.supportapp.slack_workspace_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TeamId}';
+WHERE data__Identifier = '<TeamId>';
 ```
 
 ## Permissions

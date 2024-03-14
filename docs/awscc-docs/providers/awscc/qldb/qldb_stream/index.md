@@ -57,9 +57,7 @@ tags,
 arn,
 id
 FROM awscc.qldb.qldb_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LedgerName}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<LedgerName>|<Id>';
 ```
 
 ## Permissions

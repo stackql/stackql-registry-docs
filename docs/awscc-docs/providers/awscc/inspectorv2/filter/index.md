@@ -49,8 +49,7 @@ filter_criteria,
 filter_action,
 arn
 FROM awscc.inspectorv2.filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

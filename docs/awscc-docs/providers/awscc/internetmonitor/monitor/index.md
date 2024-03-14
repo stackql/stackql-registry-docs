@@ -69,8 +69,7 @@ traffic_percentage_to_monitor,
 internet_measurements_log_delivery,
 health_events_config
 FROM awscc.internetmonitor.monitor
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MonitorName}';
+WHERE data__Identifier = '<MonitorName>';
 ```
 
 ## Permissions

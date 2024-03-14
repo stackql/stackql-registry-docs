@@ -57,9 +57,7 @@ space_sharing_settings,
 space_display_name,
 url
 FROM awscc.sagemaker.space
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainId}';
-AND data__Identifier = '{SpaceName}';
+WHERE data__Identifier = '<DomainId>|<SpaceName>';
 ```
 
 ## Permissions

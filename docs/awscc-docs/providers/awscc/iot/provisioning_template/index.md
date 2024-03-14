@@ -57,8 +57,7 @@ template_type,
 pre_provisioning_hook,
 tags
 FROM awscc.iot.provisioning_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TemplateName}';
+WHERE data__Identifier = '<TemplateName>';
 ```
 
 ## Permissions

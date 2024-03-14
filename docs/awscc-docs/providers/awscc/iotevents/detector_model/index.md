@@ -53,8 +53,7 @@ key,
 role_arn,
 tags
 FROM awscc.iotevents.detector_model
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DetectorModelName}';
+WHERE data__Identifier = '<DetectorModelName>';
 ```
 
 ## Permissions

@@ -53,8 +53,7 @@ query_string,
 thing_group_properties,
 tags
 FROM awscc.iot.thing_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ThingGroupName}';
+WHERE data__Identifier = '<ThingGroupName>';
 ```
 
 ## Permissions

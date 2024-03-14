@@ -95,8 +95,7 @@ provider_url,
 arn,
 user_pool_id
 FROM awscc.cognito.user_pool
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserPoolId}';
+WHERE data__Identifier = '<UserPoolId>';
 ```
 
 ## Permissions

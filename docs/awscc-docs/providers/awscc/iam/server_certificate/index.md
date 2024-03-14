@@ -53,7 +53,7 @@ private_key,
 arn,
 tags
 FROM awscc.iam.server_certificate
-WHERE data__Identifier = '{ServerCertificateName}';
+WHERE data__Identifier = '<ServerCertificateName>';
 ```
 
 ## Permissions

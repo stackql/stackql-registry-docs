@@ -53,8 +53,7 @@ role_arn,
 tags,
 parallelism_configuration
 FROM awscc.sagemaker.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PipelineName}';
+WHERE data__Identifier = '<PipelineName>';
 ```
 
 ## Permissions

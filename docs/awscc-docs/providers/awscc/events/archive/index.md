@@ -51,8 +51,7 @@ event_pattern,
 arn,
 retention_days
 FROM awscc.events.archive
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ArchiveName}';
+WHERE data__Identifier = '<ArchiveName>';
 ```
 
 ## Permissions

@@ -69,8 +69,7 @@ superuser_parameters,
 data_bundles,
 tags
 FROM awscc.finspace.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnvironmentId}';
+WHERE data__Identifier = '<EnvironmentId>';
 ```
 
 ## Permissions

@@ -65,8 +65,7 @@ tags,
 uri,
 supported_os_versions
 FROM awscc.imagebuilder.component
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

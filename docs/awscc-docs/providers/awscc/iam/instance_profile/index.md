@@ -47,7 +47,7 @@ roles,
 instance_profile_name,
 arn
 FROM awscc.iam.instance_profile
-WHERE data__Identifier = '{InstanceProfileName}';
+WHERE data__Identifier = '<InstanceProfileName>';
 ```
 
 ## Permissions

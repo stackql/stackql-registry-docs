@@ -65,8 +65,7 @@ created_time,
 instance_type,
 app_block_arns
 FROM awscc.appstream.app_block_builder
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

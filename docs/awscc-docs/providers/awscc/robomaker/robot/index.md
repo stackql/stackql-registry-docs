@@ -51,8 +51,7 @@ greengrass_group_id,
 tags,
 name
 FROM awscc.robomaker.robot
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

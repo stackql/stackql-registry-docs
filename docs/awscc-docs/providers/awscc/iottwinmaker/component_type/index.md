@@ -71,9 +71,7 @@ is_abstract,
 is_schema_initialized,
 tags
 FROM awscc.iottwinmaker.component_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '{WorkspaceId}';
-AND data__Identifier = '{ComponentTypeId}';
+WHERE data__Identifier = '<WorkspaceId>|<ComponentTypeId>';
 ```
 
 ## Permissions

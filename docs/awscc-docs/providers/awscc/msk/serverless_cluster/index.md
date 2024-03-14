@@ -49,8 +49,7 @@ vpc_configs,
 client_authentication,
 tags
 FROM awscc.msk.serverless_cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

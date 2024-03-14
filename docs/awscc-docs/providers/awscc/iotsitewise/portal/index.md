@@ -63,8 +63,7 @@ notification_sender_email,
 alarms,
 tags
 FROM awscc.iotsitewise.portal
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PortalId}';
+WHERE data__Identifier = '<PortalId>';
 ```
 
 ## Permissions

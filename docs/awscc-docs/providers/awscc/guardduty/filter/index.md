@@ -53,9 +53,7 @@ rank,
 name,
 tags
 FROM awscc.guardduty.filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DetectorId}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<DetectorId>|<Name>';
 ```
 
 ## Permissions

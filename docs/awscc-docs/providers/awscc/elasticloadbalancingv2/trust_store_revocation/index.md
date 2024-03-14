@@ -47,9 +47,7 @@ trust_store_arn,
 revocation_id,
 trust_store_revocations
 FROM awscc.elasticloadbalancingv2.trust_store_revocation
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RevocationId}';
-AND data__Identifier = '{TrustStoreArn}';
+WHERE data__Identifier = '<RevocationId>|<TrustStoreArn>';
 ```
 
 ## Permissions

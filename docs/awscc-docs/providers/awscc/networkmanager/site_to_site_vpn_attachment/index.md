@@ -69,8 +69,7 @@ created_at,
 updated_at,
 vpn_connection_arn
 FROM awscc.networkmanager.site_to_site_vpn_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AttachmentId}';
+WHERE data__Identifier = '<AttachmentId>';
 ```
 
 ## Permissions

@@ -43,8 +43,7 @@ region,
 policy_name,
 policy_document
 FROM awscc.logs.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PolicyName}';
+WHERE data__Identifier = '<PolicyName>';
 ```
 
 ## Permissions

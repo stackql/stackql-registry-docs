@@ -45,7 +45,7 @@ cache_policy_config,
 id,
 last_modified_time
 FROM awscc.cloudfront.cache_policy
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

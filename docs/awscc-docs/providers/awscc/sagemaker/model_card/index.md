@@ -63,8 +63,7 @@ last_modified_by,
 model_card_processing_status,
 tags
 FROM awscc.sagemaker.model_card
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ModelCardName}';
+WHERE data__Identifier = '<ModelCardName>';
 ```
 
 ## Permissions

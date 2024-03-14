@@ -47,8 +47,7 @@ db_subnet_group_name,
 subnet_ids,
 tags
 FROM awscc.rds.db_subnet_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DBSubnetGroupName}';
+WHERE data__Identifier = '<DBSubnetGroupName>';
 ```
 
 ## Permissions

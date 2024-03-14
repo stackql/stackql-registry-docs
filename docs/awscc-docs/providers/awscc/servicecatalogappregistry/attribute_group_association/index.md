@@ -47,9 +47,7 @@ attribute_group,
 application_arn,
 attribute_group_arn
 FROM awscc.servicecatalogappregistry.attribute_group_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationArn}';
-AND data__Identifier = '{AttributeGroupArn}';
+WHERE data__Identifier = '<ApplicationArn>|<AttributeGroupArn>';
 ```
 
 ## Permissions

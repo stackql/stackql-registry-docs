@@ -43,7 +43,7 @@ region,
 id,
 origin_access_control_config
 FROM awscc.cloudfront.origin_access_control
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

@@ -47,9 +47,7 @@ domain_name,
 rest_api_id,
 stage
 FROM awscc.apigateway.base_path_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
-AND data__Identifier = '{BasePath}';
+WHERE data__Identifier = '<DomainName>|<BasePath>';
 ```
 
 ## Permissions

@@ -87,8 +87,7 @@ organizational_units,
 role_arn,
 plugin_admin_enabled
 FROM awscc.grafana.workspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

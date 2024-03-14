@@ -45,8 +45,7 @@ directory_id,
 directory_registration_arn,
 tags
 FROM awscc.pcaconnectorad.directory_registration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DirectoryRegistrationArn}';
+WHERE data__Identifier = '<DirectoryRegistrationArn>';
 ```
 
 ## Permissions

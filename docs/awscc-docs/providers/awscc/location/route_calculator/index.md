@@ -57,8 +57,7 @@ tags,
 update_time,
 arn
 FROM awscc.location.route_calculator
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CalculatorName}';
+WHERE data__Identifier = '<CalculatorName>';
 ```
 
 ## Permissions

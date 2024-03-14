@@ -61,8 +61,7 @@ members,
 status,
 regional_configurations
 FROM awscc.elasticache.global_replication_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GlobalReplicationGroupId}';
+WHERE data__Identifier = '<GlobalReplicationGroupId>';
 ```
 
 ## Permissions

@@ -61,8 +61,7 @@ tags,
 transformer_arn,
 transformer_id
 FROM awscc.b2bi.transformer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TransformerId}';
+WHERE data__Identifier = '<TransformerId>';
 ```
 
 ## Permissions

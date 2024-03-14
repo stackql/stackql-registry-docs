@@ -57,8 +57,7 @@ run_configuration,
 application_maintenance_configuration,
 tags
 FROM awscc.kinesisanalyticsv2.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationName}';
+WHERE data__Identifier = '<ApplicationName>';
 ```
 
 ## Permissions

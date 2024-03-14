@@ -65,8 +65,7 @@ signature_version,
 tracing_config,
 delivery_status_logging
 FROM awscc.sns.topic
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TopicArn}';
+WHERE data__Identifier = '<TopicArn>';
 ```
 
 ## Permissions

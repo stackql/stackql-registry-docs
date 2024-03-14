@@ -65,8 +65,7 @@ stopping_condition,
 tags,
 creation_time
 FROM awscc.sagemaker.model_bias_job_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '{JobDefinitionArn}';
+WHERE data__Identifier = '<JobDefinitionArn>';
 ```
 
 ## Permissions

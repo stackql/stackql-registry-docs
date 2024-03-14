@@ -59,8 +59,7 @@ access_grant_arn,
 grantee,
 access_grants_location_configuration
 FROM awscc.s3.access_grant
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccessGrantId}';
+WHERE data__Identifier = '<AccessGrantId>';
 ```
 
 ## Permissions

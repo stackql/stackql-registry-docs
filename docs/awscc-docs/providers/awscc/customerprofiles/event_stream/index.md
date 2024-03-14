@@ -55,9 +55,7 @@ created_at,
 state,
 destination_details
 FROM awscc.customerprofiles.event_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
-AND data__Identifier = '{EventStreamName}';
+WHERE data__Identifier = '<DomainName>|<EventStreamName>';
 ```
 
 ## Permissions

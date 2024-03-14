@@ -53,8 +53,7 @@ template_s3_uri,
 template_ssm_document_details,
 conformance_pack_input_parameters
 FROM awscc.config.conformance_pack
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConformancePackName}';
+WHERE data__Identifier = '<ConformancePackName>';
 ```
 
 ## Permissions

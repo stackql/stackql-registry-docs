@@ -61,8 +61,7 @@ sse_configuration,
 identity_provider_configuration,
 tags
 FROM awscc.healthlake.fhir_datastore
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DatastoreId}';
+WHERE data__Identifier = '<DatastoreId>';
 ```
 
 ## Permissions

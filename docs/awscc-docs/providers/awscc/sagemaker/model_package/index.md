@@ -93,8 +93,7 @@ model_package_version,
 additional_inference_specifications_to_add,
 model_package_status_details
 FROM awscc.sagemaker.model_package
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ModelPackageArn}';
+WHERE data__Identifier = '<ModelPackageArn>';
 ```
 
 ## Permissions

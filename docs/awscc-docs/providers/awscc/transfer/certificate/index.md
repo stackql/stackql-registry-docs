@@ -69,8 +69,7 @@ serial,
 not_before_date,
 not_after_date
 FROM awscc.transfer.certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CertificateId}';
+WHERE data__Identifier = '<CertificateId>';
 ```
 
 ## Permissions

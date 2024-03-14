@@ -59,8 +59,7 @@ tags,
 update_time,
 arn
 FROM awscc.location.geofence_collection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CollectionName}';
+WHERE data__Identifier = '<CollectionName>';
 ```
 
 ## Permissions

@@ -45,8 +45,7 @@ resource_identifier,
 policy,
 state
 FROM awscc.vpclattice.auth_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceIdentifier}';
+WHERE data__Identifier = '<ResourceIdentifier>';
 ```
 
 ## Permissions

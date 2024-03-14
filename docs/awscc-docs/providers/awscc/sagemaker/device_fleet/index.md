@@ -49,8 +49,7 @@ output_config,
 role_arn,
 tags
 FROM awscc.sagemaker.device_fleet
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DeviceFleetName}';
+WHERE data__Identifier = '<DeviceFleetName>';
 ```
 
 ## Permissions

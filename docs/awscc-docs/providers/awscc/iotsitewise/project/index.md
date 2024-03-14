@@ -53,8 +53,7 @@ project_arn,
 asset_ids,
 tags
 FROM awscc.iotsitewise.project
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProjectId}';
+WHERE data__Identifier = '<ProjectId>';
 ```
 
 ## Permissions

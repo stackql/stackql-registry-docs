@@ -89,8 +89,7 @@ dual_stack_domain_name,
 regional_domain_name,
 website_url
 FROM awscc.s3.bucket
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BucketName}';
+WHERE data__Identifier = '<BucketName>';
 ```
 
 ## Permissions

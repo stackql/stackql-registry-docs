@@ -49,8 +49,7 @@ account_default_for_operations,
 tags,
 arn
 FROM awscc.iot.certificate_provider
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CertificateProviderName}';
+WHERE data__Identifier = '<CertificateProviderName>';
 ```
 
 ## Permissions

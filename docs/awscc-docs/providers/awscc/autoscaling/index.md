@@ -20,9 +20,9 @@ The autoscaling service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -43,7 +43,6 @@ The autoscaling service documentation.
 <a href="/providers/awscc/autoscaling/scaling_policy/">scaling_policy</a><br />
 <a href="/providers/awscc/autoscaling/scheduled_action/">scheduled_action</a><br />
 <a href="/providers/awscc/autoscaling/scheduled_actions/">scheduled_actions</a><br />
-<a href="/providers/awscc/autoscaling/warm_pool/">warm_pool</a><br />
-<a href="/providers/awscc/autoscaling/warm_pools/">warm_pools</a>
+<a href="/providers/awscc/autoscaling/warm_pool/">warm_pool</a>
 </div>
 </div>

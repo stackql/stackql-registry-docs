@@ -45,9 +45,7 @@ master_id,
 invitation_id,
 detector_id
 FROM awscc.guardduty.master
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DetectorId}';
-AND data__Identifier = '{MasterId}';
+WHERE data__Identifier = '<DetectorId>|<MasterId>';
 ```
 
 ## Permissions

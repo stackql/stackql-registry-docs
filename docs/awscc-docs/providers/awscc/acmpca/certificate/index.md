@@ -57,9 +57,7 @@ validity_not_before,
 certificate,
 arn
 FROM awscc.acmpca.certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
-AND data__Identifier = '{CertificateAuthorityArn}';
+WHERE data__Identifier = '<Arn>|<CertificateAuthorityArn>';
 ```
 
 ## Permissions

@@ -20,9 +20,9 @@ The connect service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>44</b></span><br />
-<span>total selectable resources:&nbsp;<b>44</b></span><br />
-<span>total methods:&nbsp;<b>44</b></span><br />
+<span>total resources:&nbsp;<b>43</b></span><br />
+<span>total selectable resources:&nbsp;<b>43</b></span><br />
+<span>total methods:&nbsp;<b>43</b></span><br />
 </div>
 </div>
 
@@ -60,7 +60,6 @@ The connect service documentation.
 <a href="/providers/awscc/connect/routing_profile/">routing_profile</a><br />
 <a href="/providers/awscc/connect/routing_profiles/">routing_profiles</a><br />
 <a href="/providers/awscc/connect/rule/">rule</a><br />
-<a href="/providers/awscc/connect/rules/">rules</a><br />
 <a href="/providers/awscc/connect/security_key/">security_key</a><br />
 <a href="/providers/awscc/connect/security_keys/">security_keys</a><br />
 <a href="/providers/awscc/connect/security_profile/">security_profile</a><br />

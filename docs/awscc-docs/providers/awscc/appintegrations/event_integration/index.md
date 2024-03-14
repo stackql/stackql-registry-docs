@@ -51,8 +51,7 @@ event_bridge_bus,
 event_filter,
 tags
 FROM awscc.appintegrations.event_integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

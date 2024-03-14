@@ -55,8 +55,7 @@ capacity,
 description,
 tags
 FROM awscc.networkfirewall.rule_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RuleGroupArn}';
+WHERE data__Identifier = '<RuleGroupArn>';
 ```
 
 ## Permissions

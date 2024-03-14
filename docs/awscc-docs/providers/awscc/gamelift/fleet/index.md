@@ -95,8 +95,7 @@ build_id,
 resource_creation_limit_policy,
 e_c2_instance_type
 FROM awscc.gamelift.fleet
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FleetId}';
+WHERE data__Identifier = '<FleetId>';
 ```
 
 ## Permissions

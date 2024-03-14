@@ -71,8 +71,7 @@ arn,
 application_id,
 worker_type_specifications
 FROM awscc.emrserverless.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationId}';
+WHERE data__Identifier = '<ApplicationId>';
 ```
 
 ## Permissions

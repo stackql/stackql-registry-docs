@@ -197,8 +197,7 @@ use_default_processor_features,
 use_latest_restorable_time,
 vpc_security_groups
 FROM awscc.rds.db_instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DBInstanceIdentifier}';
+WHERE data__Identifier = '<DBInstanceIdentifier>';
 ```
 
 ## Permissions

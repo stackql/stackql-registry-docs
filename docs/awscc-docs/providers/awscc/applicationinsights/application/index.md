@@ -61,8 +61,7 @@ auto_configuration_enabled,
 component_monitoring_settings,
 grouping_type
 FROM awscc.applicationinsights.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApplicationARN}';
+WHERE data__Identifier = '<ApplicationARN>';
 ```
 
 ## Permissions

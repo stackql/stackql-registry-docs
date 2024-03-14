@@ -57,10 +57,7 @@ tags,
 version,
 id
 FROM awscc.codepipeline.custom_action_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Category}';
-AND data__Identifier = '{Provider}';
-AND data__Identifier = '{Version}';
+WHERE data__Identifier = '<Category>|<Provider>|<Version>';
 ```
 
 ## Permissions

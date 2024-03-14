@@ -57,8 +57,7 @@ query_log_status,
 default_result_configuration,
 payment_configuration
 FROM awscc.cleanrooms.membership
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MembershipIdentifier}';
+WHERE data__Identifier = '<MembershipIdentifier>';
 ```
 
 ## Permissions

@@ -65,8 +65,7 @@ test_bot_alias_tags,
 auto_build_bot_locales,
 test_bot_alias_settings
 FROM awscc.lex.bot
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

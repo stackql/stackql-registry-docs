@@ -57,8 +57,7 @@ stage_keys,
 tags,
 value
 FROM awscc.apigateway.api_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '{APIKeyId}';
+WHERE data__Identifier = '<APIKeyId>';
 ```
 
 ## Permissions

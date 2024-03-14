@@ -57,8 +57,7 @@ arn,
 role_arn,
 name
 FROM awscc.events.rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

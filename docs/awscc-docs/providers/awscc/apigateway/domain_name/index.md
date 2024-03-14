@@ -63,8 +63,7 @@ ownership_verification_certificate_arn,
 security_policy,
 tags
 FROM awscc.apigateway.domain_name
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainName}';
+WHERE data__Identifier = '<DomainName>';
 ```
 
 ## Permissions

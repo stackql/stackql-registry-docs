@@ -51,8 +51,7 @@ major_engine_version,
 option_configurations,
 tags
 FROM awscc.rds.option_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{OptionGroupName}';
+WHERE data__Identifier = '<OptionGroupName>';
 ```
 
 ## Permissions

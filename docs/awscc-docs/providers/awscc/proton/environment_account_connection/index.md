@@ -59,8 +59,7 @@ role_arn,
 status,
 tags
 FROM awscc.proton.environment_account_connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

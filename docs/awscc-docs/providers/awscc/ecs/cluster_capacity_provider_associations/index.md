@@ -45,8 +45,7 @@ capacity_providers,
 cluster,
 default_capacity_provider_strategy
 FROM awscc.ecs.cluster_capacity_provider_associations
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Cluster}';
+WHERE data__Identifier = '<Cluster>';
 ```
 
 ## Permissions

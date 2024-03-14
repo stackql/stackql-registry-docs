@@ -49,9 +49,7 @@ risk_exception_configuration,
 compromised_credentials_risk_configuration,
 account_takeover_risk_configuration
 FROM awscc.cognito.user_pool_risk_configuration_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{UserPoolId}';
-AND data__Identifier = '{ClientId}';
+WHERE data__Identifier = '<UserPoolId>|<ClientId>';
 ```
 
 ## Permissions

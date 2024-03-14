@@ -53,9 +53,7 @@ permissions_with_grant_option,
 principal_identifier,
 resource_identifier
 FROM awscc.lakeformation.principal_permissions
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PrincipalIdentifier}';
-AND data__Identifier = '{ResourceIdentifier}';
+WHERE data__Identifier = '<PrincipalIdentifier>|<ResourceIdentifier>';
 ```
 
 ## Permissions

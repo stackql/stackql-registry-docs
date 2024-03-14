@@ -71,8 +71,7 @@ delete_all_policy_resources,
 resources_clean_up,
 tags
 FROM awscc.fms.policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

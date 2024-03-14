@@ -49,8 +49,7 @@ type,
 message_ttl_seconds,
 tags
 FROM awscc.kinesisvideo.signaling_channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

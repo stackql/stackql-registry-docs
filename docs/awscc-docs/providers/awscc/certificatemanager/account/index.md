@@ -43,8 +43,7 @@ region,
 expiry_events_configuration,
 account_id
 FROM awscc.certificatemanager.account
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

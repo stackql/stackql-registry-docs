@@ -75,8 +75,7 @@ redrive_policy,
 tags,
 visibility_timeout
 FROM awscc.sqs.queue
-WHERE region = 'us-east-1'
-AND data__Identifier = '{QueueUrl}';
+WHERE data__Identifier = '<QueueUrl>';
 ```
 
 ## Permissions

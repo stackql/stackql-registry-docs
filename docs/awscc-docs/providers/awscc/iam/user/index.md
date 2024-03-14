@@ -57,7 +57,7 @@ login_profile,
 tags,
 permissions_boundary
 FROM awscc.iam.user
-WHERE data__Identifier = '{UserName}';
+WHERE data__Identifier = '<UserName>';
 ```
 
 ## Permissions

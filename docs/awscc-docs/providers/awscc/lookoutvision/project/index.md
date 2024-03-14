@@ -43,8 +43,7 @@ region,
 arn,
 project_name
 FROM awscc.lookoutvision.project
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ProjectName}';
+WHERE data__Identifier = '<ProjectName>';
 ```
 
 ## Permissions

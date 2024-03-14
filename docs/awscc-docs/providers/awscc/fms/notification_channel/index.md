@@ -43,8 +43,7 @@ region,
 sns_role_name,
 sns_topic_arn
 FROM awscc.fms.notification_channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SnsTopicArn}';
+WHERE data__Identifier = '<SnsTopicArn>';
 ```
 
 ## Permissions

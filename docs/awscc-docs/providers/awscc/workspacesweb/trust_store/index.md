@@ -47,8 +47,7 @@ certificate_list,
 tags,
 trust_store_arn
 FROM awscc.workspacesweb.trust_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TrustStoreArn}';
+WHERE data__Identifier = '<TrustStoreArn>';
 ```
 
 ## Permissions

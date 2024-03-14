@@ -57,8 +57,7 @@ token_signing_public_keys,
 enable_caching_for_http,
 tags
 FROM awscc.iot.authorizer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AuthorizerName}';
+WHERE data__Identifier = '<AuthorizerName>';
 ```
 
 ## Permissions

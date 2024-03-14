@@ -49,8 +49,7 @@ version_description,
 view_content_sha256,
 version
 FROM awscc.connect.view_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ViewVersionArn}';
+WHERE data__Identifier = '<ViewVersionArn>';
 ```
 
 ## Permissions

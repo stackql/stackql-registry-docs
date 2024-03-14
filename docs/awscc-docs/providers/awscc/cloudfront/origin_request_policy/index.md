@@ -45,7 +45,7 @@ id,
 last_modified_time,
 origin_request_policy_config
 FROM awscc.cloudfront.origin_request_policy
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

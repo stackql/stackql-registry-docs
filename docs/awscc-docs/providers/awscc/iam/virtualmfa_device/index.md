@@ -49,7 +49,7 @@ serial_number,
 users,
 tags
 FROM awscc.iam.virtualmfa_device
-WHERE data__Identifier = '{SerialNumber}';
+WHERE data__Identifier = '<SerialNumber>';
 ```
 
 ## Permissions

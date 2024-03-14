@@ -47,8 +47,7 @@ audit_check_configurations,
 audit_notification_target_configurations,
 role_arn
 FROM awscc.iot.account_audit_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

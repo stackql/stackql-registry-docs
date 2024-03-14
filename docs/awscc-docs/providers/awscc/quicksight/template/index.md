@@ -65,9 +65,7 @@ validation_strategy,
 version,
 version_description
 FROM awscc.quicksight.template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
-AND data__Identifier = '{TemplateId}';
+WHERE data__Identifier = '<AwsAccountId>|<TemplateId>';
 ```
 
 ## Permissions

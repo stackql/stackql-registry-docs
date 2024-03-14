@@ -59,8 +59,7 @@ joined_method,
 joined_timestamp,
 status
 FROM awscc.organizations.account
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccountId}';
+WHERE data__Identifier = '<AccountId>';
 ```
 
 ## Permissions

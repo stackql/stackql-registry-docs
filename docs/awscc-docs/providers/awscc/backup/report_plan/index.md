@@ -51,8 +51,7 @@ report_plan_tags,
 report_delivery_channel,
 report_setting
 FROM awscc.backup.report_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ReportPlanArn}';
+WHERE data__Identifier = '<ReportPlanArn>';
 ```
 
 ## Permissions

@@ -55,9 +55,7 @@ kubernetes_groups,
 access_policies,
 type
 FROM awscc.eks.access_entry
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PrincipalArn}';
-AND data__Identifier = '{ClusterName}';
+WHERE data__Identifier = '<PrincipalArn>|<ClusterName>';
 ```
 
 ## Permissions

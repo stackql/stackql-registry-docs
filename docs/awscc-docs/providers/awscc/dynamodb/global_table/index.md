@@ -67,8 +67,7 @@ arn,
 stream_arn,
 time_to_live_specification
 FROM awscc.dynamodb.global_table
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TableName}';
+WHERE data__Identifier = '<TableName>';
 ```
 
 ## Permissions

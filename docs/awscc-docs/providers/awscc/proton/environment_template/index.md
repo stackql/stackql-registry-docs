@@ -53,8 +53,7 @@ name,
 provisioning,
 tags
 FROM awscc.proton.environment_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

@@ -75,8 +75,7 @@ arn,
 sns_topic_arn,
 insight_selectors
 FROM awscc.cloudtrail.trail
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TrailName}';
+WHERE data__Identifier = '<TrailName>';
 ```
 
 ## Permissions

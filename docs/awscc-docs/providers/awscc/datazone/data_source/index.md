@@ -83,9 +83,7 @@ status,
 type,
 updated_at
 FROM awscc.datazone.data_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainId}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<DomainId>|<Id>';
 ```
 
 ## Permissions

@@ -45,8 +45,7 @@ client_certificate_id,
 description,
 tags
 FROM awscc.apigateway.client_certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ClientCertificateId}';
+WHERE data__Identifier = '<ClientCertificateId>';
 ```
 
 ## Permissions

@@ -97,8 +97,7 @@ tags,
 use_latest_restorable_time,
 vpc_security_group_ids
 FROM awscc.neptune.db_cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DBClusterIdentifier}';
+WHERE data__Identifier = '<DBClusterIdentifier>';
 ```
 
 ## Permissions

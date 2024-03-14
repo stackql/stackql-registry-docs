@@ -55,8 +55,7 @@ repository_link_id,
 repository_link_arn,
 tags
 FROM awscc.codestarconnections.repository_link
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RepositoryLinkArn}';
+WHERE data__Identifier = '<RepositoryLinkArn>';
 ```
 
 ## Permissions

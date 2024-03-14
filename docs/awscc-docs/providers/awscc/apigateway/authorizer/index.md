@@ -61,9 +61,7 @@ name,
 provider_arns,
 type
 FROM awscc.apigateway.authorizer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RestApiId}';
-AND data__Identifier = '{AuthorizerId}';
+WHERE data__Identifier = '<RestApiId>|<AuthorizerId>';
 ```
 
 ## Permissions

@@ -47,9 +47,7 @@ bridge_arn,
 flow_source,
 network_source
 FROM awscc.mediaconnect.bridge_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BridgeArn}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<BridgeArn>|<Name>';
 ```
 
 ## Permissions

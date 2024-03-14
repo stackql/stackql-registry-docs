@@ -51,8 +51,7 @@ resource_types,
 sink_identifier,
 tags
 FROM awscc.oam.link
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

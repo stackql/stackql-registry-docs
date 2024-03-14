@@ -55,8 +55,7 @@ security_profile_name,
 tag_restricted_resources,
 tags
 FROM awscc.connect.security_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{SecurityProfileArn}';
+WHERE data__Identifier = '<SecurityProfileArn>';
 ```
 
 ## Permissions

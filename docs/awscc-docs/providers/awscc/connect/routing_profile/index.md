@@ -57,8 +57,7 @@ queue_configs,
 tags,
 agent_availability_timer
 FROM awscc.connect.routing_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RoutingProfileArn}';
+WHERE data__Identifier = '<RoutingProfileArn>';
 ```
 
 ## Permissions

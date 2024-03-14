@@ -41,7 +41,7 @@ SELECT
 region,
 hosted_zone_id
 FROM awscc.route53.dnssec
-WHERE data__Identifier = '{HostedZoneId}';
+WHERE data__Identifier = '<HostedZoneId>';
 ```
 
 ## Permissions

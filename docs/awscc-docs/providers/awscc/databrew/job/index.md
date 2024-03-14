@@ -79,8 +79,7 @@ job_sample,
 profile_configuration,
 validation_configurations
 FROM awscc.databrew.job
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

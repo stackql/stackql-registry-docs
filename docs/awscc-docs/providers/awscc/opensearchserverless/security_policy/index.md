@@ -47,9 +47,7 @@ policy,
 name,
 type
 FROM awscc.opensearchserverless.security_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Type}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Type>|<Name>';
 ```
 
 ## Permissions

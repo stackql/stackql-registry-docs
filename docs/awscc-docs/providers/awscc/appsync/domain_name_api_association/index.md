@@ -45,8 +45,7 @@ domain_name,
 api_id,
 api_association_identifier
 FROM awscc.appsync.domain_name_api_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ApiAssociationIdentifier}';
+WHERE data__Identifier = '<ApiAssociationIdentifier>';
 ```
 
 ## Permissions

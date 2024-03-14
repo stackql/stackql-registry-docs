@@ -53,8 +53,7 @@ permissions_policy_document,
 tags,
 arn
 FROM awscc.codeartifact.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

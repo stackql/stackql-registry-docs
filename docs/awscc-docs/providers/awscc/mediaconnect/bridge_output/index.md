@@ -45,9 +45,7 @@ bridge_arn,
 network_output,
 name
 FROM awscc.mediaconnect.bridge_output
-WHERE region = 'us-east-1'
-AND data__Identifier = '{BridgeArn}';
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<BridgeArn>|<Name>';
 ```
 
 ## Permissions

@@ -53,8 +53,7 @@ tags,
 name,
 shard_count
 FROM awscc.kinesis.kinesis_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Name}';
+WHERE data__Identifier = '<Name>';
 ```
 
 ## Permissions

@@ -53,8 +53,7 @@ default_control_panel,
 routing_control_count,
 tags
 FROM awscc.route53recoverycontrol.control_panel
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ControlPanelArn}';
+WHERE data__Identifier = '<ControlPanelArn>';
 ```
 
 ## Permissions

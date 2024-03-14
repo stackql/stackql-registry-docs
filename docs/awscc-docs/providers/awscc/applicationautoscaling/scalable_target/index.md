@@ -57,10 +57,7 @@ scheduled_actions,
 service_namespace,
 suspended_state
 FROM awscc.applicationautoscaling.scalable_target
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ResourceId}';
-AND data__Identifier = '{ScalableDimension}';
-AND data__Identifier = '{ServiceNamespace}';
+WHERE data__Identifier = '<ResourceId>|<ScalableDimension>|<ServiceNamespace>';
 ```
 
 ## Permissions

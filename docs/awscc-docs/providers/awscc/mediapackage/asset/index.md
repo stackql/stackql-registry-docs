@@ -57,8 +57,7 @@ source_arn,
 source_role_arn,
 tags
 FROM awscc.mediapackage.asset
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

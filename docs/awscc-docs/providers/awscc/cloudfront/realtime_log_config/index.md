@@ -49,7 +49,7 @@ fields,
 name,
 sampling_rate
 FROM awscc.cloudfront.realtime_log_config
-WHERE data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

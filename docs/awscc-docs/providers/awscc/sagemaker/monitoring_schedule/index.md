@@ -59,8 +59,7 @@ last_modified_time,
 last_monitoring_execution_summary,
 monitoring_schedule_status
 FROM awscc.sagemaker.monitoring_schedule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{MonitoringScheduleArn}';
+WHERE data__Identifier = '<MonitoringScheduleArn>';
 ```
 
 ## Permissions

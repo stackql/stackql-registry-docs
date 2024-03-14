@@ -59,8 +59,7 @@ source,
 input_parameters,
 evaluation_modes
 FROM awscc.config.config_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ConfigRuleName}';
+WHERE data__Identifier = '<ConfigRuleName>';
 ```
 
 ## Permissions

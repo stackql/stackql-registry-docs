@@ -51,8 +51,7 @@ storage_location,
 created_time,
 tags
 FROM awscc.panorama.package
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PackageId}';
+WHERE data__Identifier = '<PackageId>';
 ```
 
 ## Permissions

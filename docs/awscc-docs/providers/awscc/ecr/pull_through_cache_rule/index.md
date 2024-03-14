@@ -47,8 +47,7 @@ upstream_registry_url,
 credential_arn,
 upstream_registry
 FROM awscc.ecr.pull_through_cache_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EcrRepositoryPrefix}';
+WHERE data__Identifier = '<EcrRepositoryPrefix>';
 ```
 
 ## Permissions

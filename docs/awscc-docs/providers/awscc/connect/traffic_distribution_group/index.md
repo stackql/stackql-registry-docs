@@ -53,8 +53,7 @@ status,
 tags,
 is_default
 FROM awscc.connect.traffic_distribution_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TrafficDistributionGroupArn}';
+WHERE data__Identifier = '<TrafficDistributionGroupArn>';
 ```
 
 ## Permissions

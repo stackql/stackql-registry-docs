@@ -47,8 +47,7 @@ description,
 registry_arn,
 tags
 FROM awscc.eventschemas.eventschemas_registry
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RegistryArn}';
+WHERE data__Identifier = '<RegistryArn>';
 ```
 
 ## Permissions

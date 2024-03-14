@@ -47,7 +47,7 @@ custom_suffix,
 description,
 aws_service_name
 FROM awscc.iam.service_linked_role
-WHERE data__Identifier = '{RoleName}';
+WHERE data__Identifier = '<RoleName>';
 ```
 
 ## Permissions

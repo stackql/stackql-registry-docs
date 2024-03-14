@@ -49,7 +49,7 @@ managed_policy_arns,
 path,
 policies
 FROM awscc.iam.group
-WHERE data__Identifier = '{GroupName}';
+WHERE data__Identifier = '<GroupName>';
 ```
 
 ## Permissions

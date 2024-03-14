@@ -47,8 +47,7 @@ package_arn,
 package_name,
 tags
 FROM awscc.iot.software_package
-WHERE region = 'us-east-1'
-AND data__Identifier = '{PackageName}';
+WHERE data__Identifier = '<PackageName>';
 ```
 
 ## Permissions

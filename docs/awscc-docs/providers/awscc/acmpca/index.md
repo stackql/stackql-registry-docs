@@ -20,9 +20,9 @@ The acmpca service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -33,13 +33,10 @@ The acmpca service documentation.
 <div class="providerDocColumn">
 <a href="/providers/awscc/acmpca/certificate/">certificate</a><br />
 <a href="/providers/awscc/acmpca/certificate_authorities/">certificate_authorities</a><br />
-<a href="/providers/awscc/acmpca/certificate_authority/">certificate_authority</a><br />
-<a href="/providers/awscc/acmpca/certificate_authority_activation/">certificate_authority_activation</a>
+<a href="/providers/awscc/acmpca/certificate_authority/">certificate_authority</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/awscc/acmpca/certificate_authority_activations/">certificate_authority_activations</a><br />
-<a href="/providers/awscc/acmpca/certificates/">certificates</a><br />
-<a href="/providers/awscc/acmpca/permission/">permission</a><br />
-<a href="/providers/awscc/acmpca/permissions/">permissions</a>
+<a href="/providers/awscc/acmpca/certificate_authority_activation/">certificate_authority_activation</a><br />
+<a href="/providers/awscc/acmpca/permission/">permission</a>
 </div>
 </div>

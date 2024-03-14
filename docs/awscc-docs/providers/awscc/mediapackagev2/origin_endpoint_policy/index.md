@@ -47,10 +47,7 @@ channel_name,
 origin_endpoint_name,
 policy
 FROM awscc.mediapackagev2.origin_endpoint_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ChannelGroupName}';
-AND data__Identifier = '{ChannelName}';
-AND data__Identifier = '{OriginEndpointName}';
+WHERE data__Identifier = '<ChannelGroupName>|<ChannelName>|<OriginEndpointName>';
 ```
 
 ## Permissions

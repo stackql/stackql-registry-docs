@@ -51,9 +51,7 @@ message,
 disable_email_notification,
 detector_id
 FROM awscc.guardduty.member
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DetectorId}';
-AND data__Identifier = '{MemberId}';
+WHERE data__Identifier = '<DetectorId>|<MemberId>';
 ```
 
 ## Permissions

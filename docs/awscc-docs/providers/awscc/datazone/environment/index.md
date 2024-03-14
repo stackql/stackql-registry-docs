@@ -77,9 +77,7 @@ status,
 updated_at,
 user_parameters
 FROM awscc.datazone.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DomainId}';
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<DomainId>|<Id>';
 ```
 
 ## Permissions

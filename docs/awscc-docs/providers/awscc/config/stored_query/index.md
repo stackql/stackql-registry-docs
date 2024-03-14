@@ -51,8 +51,7 @@ query_description,
 query_expression,
 tags
 FROM awscc.config.stored_query
-WHERE region = 'us-east-1'
-AND data__Identifier = '{QueryName}';
+WHERE data__Identifier = '<QueryName>';
 ```
 
 ## Permissions

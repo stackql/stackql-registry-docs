@@ -65,9 +65,7 @@ schema,
 source,
 format
 FROM awscc.cleanrooms.analysis_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AnalysisTemplateIdentifier}';
-AND data__Identifier = '{MembershipIdentifier}';
+WHERE data__Identifier = '<AnalysisTemplateIdentifier>|<MembershipIdentifier>';
 ```
 
 ## Permissions

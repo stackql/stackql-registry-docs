@@ -69,9 +69,7 @@ created_time,
 last_updated_time,
 tags
 FROM awscc.quicksight.vpc_connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AwsAccountId}';
-AND data__Identifier = '{VPCConnectionId}';
+WHERE data__Identifier = '<AwsAccountId>|<VPCConnectionId>';
 ```
 
 ## Permissions

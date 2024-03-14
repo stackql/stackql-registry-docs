@@ -51,8 +51,7 @@ deprecate_thing_type,
 thing_type_properties,
 tags
 FROM awscc.iot.thing_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ThingTypeName}';
+WHERE data__Identifier = '<ThingTypeName>';
 ```
 
 ## Permissions

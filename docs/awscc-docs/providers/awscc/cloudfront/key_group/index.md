@@ -45,7 +45,7 @@ id,
 key_group_config,
 last_modified_time
 FROM awscc.cloudfront.key_group
-WHERE data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

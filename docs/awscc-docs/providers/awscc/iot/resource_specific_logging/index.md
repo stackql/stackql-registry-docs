@@ -47,8 +47,7 @@ target_name,
 log_level,
 target_id
 FROM awscc.iot.resource_specific_logging
-WHERE region = 'us-east-1'
-AND data__Identifier = '{TargetId}';
+WHERE data__Identifier = '<TargetId>';
 ```
 
 ## Permissions

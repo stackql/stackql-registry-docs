@@ -51,8 +51,7 @@ targets,
 arn,
 tags
 FROM awscc.inspectorv2.cis_scan_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

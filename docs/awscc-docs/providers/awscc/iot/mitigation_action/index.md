@@ -51,8 +51,7 @@ action_params,
 mitigation_action_arn,
 mitigation_action_id
 FROM awscc.iot.mitigation_action
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ActionName}';
+WHERE data__Identifier = '<ActionName>';
 ```
 
 ## Permissions

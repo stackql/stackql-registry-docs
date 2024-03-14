@@ -63,8 +63,7 @@ actions,
 criteria,
 tags
 FROM awscc.securityhub.automation_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '{RuleArn}';
+WHERE data__Identifier = '<RuleArn>';
 ```
 
 ## Permissions

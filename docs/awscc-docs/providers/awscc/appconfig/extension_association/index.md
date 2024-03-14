@@ -57,8 +57,7 @@ extension_version_number,
 parameters,
 tags
 FROM awscc.appconfig.extension_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Id}';
+WHERE data__Identifier = '<Id>';
 ```
 
 ## Permissions

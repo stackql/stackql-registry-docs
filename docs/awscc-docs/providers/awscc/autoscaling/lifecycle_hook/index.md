@@ -55,9 +55,7 @@ notification_metadata,
 notification_target_arn,
 role_arn
 FROM awscc.autoscaling.lifecycle_hook
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AutoScalingGroupName}';
-AND data__Identifier = '{LifecycleHookName}';
+WHERE data__Identifier = '<AutoScalingGroupName>|<LifecycleHookName>';
 ```
 
 ## Permissions

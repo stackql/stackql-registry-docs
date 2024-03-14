@@ -53,8 +53,7 @@ target_check_names,
 scheduled_audit_arn,
 tags
 FROM awscc.iot.scheduled_audit
-WHERE region = 'us-east-1'
-AND data__Identifier = '{ScheduledAuditName}';
+WHERE data__Identifier = '<ScheduledAuditName>';
 ```
 
 ## Permissions

@@ -47,8 +47,7 @@ identity_center_arn,
 access_grants_instance_id,
 tags
 FROM awscc.s3.access_grants_instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccessGrantsInstanceArn}';
+WHERE data__Identifier = '<AccessGrantsInstanceArn>';
 ```
 
 ## Permissions

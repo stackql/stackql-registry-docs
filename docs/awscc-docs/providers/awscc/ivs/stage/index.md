@@ -47,8 +47,7 @@ name,
 tags,
 active_session_id
 FROM awscc.ivs.stage
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

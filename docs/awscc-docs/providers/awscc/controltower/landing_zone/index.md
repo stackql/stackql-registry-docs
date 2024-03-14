@@ -55,8 +55,7 @@ manifest,
 version,
 tags
 FROM awscc.controltower.landing_zone
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LandingZoneIdentifier}';
+WHERE data__Identifier = '<LandingZoneIdentifier>';
 ```
 
 ## Permissions

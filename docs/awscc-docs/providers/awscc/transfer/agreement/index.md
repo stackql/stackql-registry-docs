@@ -59,9 +59,7 @@ tags,
 agreement_id,
 arn
 FROM awscc.transfer.agreement
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AgreementId}';
-AND data__Identifier = '{ServerId}';
+WHERE data__Identifier = '<AgreementId>|<ServerId>';
 ```
 
 ## Permissions

@@ -61,7 +61,7 @@ role_id,
 role_name,
 tags
 FROM awscc.iam.role
-WHERE data__Identifier = '{RoleName}';
+WHERE data__Identifier = '<RoleName>';
 ```
 
 ## Permissions

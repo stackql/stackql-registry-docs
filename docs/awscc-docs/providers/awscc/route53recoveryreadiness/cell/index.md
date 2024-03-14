@@ -49,8 +49,7 @@ cells,
 parent_readiness_scopes,
 tags
 FROM awscc.route53recoveryreadiness.cell
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CellName}';
+WHERE data__Identifier = '<CellName>';
 ```
 
 ## Permissions

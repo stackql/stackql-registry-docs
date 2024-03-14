@@ -49,8 +49,7 @@ access_policy_identity,
 access_policy_permission,
 access_policy_resource
 FROM awscc.iotsitewise.access_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AccessPolicyId}';
+WHERE data__Identifier = '<AccessPolicyId>';
 ```
 
 ## Permissions

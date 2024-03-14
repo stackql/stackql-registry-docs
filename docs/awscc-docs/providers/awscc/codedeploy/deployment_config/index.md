@@ -49,8 +49,7 @@ minimum_healthy_hosts,
 zonal_config,
 traffic_routing_config
 FROM awscc.codedeploy.deployment_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '{DeploymentConfigName}';
+WHERE data__Identifier = '<DeploymentConfigName>';
 ```
 
 ## Permissions

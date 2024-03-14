@@ -47,8 +47,7 @@ query_string,
 log_group_names,
 query_definition_id
 FROM awscc.logs.query_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '{QueryDefinitionId}';
+WHERE data__Identifier = '<QueryDefinitionId>';
 ```
 
 ## Permissions

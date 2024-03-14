@@ -51,8 +51,7 @@ name,
 trust_anchor_arn,
 tags
 FROM awscc.rolesanywhere.crl
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CrlId}';
+WHERE data__Identifier = '<CrlId>';
 ```
 
 ## Permissions

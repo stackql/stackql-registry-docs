@@ -53,8 +53,7 @@ egress_domain,
 modified_at,
 tags
 FROM awscc.mediapackagev2.channel_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

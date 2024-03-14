@@ -45,8 +45,7 @@ standards_subscription_arn,
 standards_arn,
 disabled_standards_controls
 FROM awscc.securityhub.standard
-WHERE region = 'us-east-1'
-AND data__Identifier = '{StandardsSubscriptionArn}';
+WHERE data__Identifier = '<StandardsSubscriptionArn>';
 ```
 
 ## Permissions

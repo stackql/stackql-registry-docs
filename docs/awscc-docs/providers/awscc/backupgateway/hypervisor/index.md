@@ -55,8 +55,7 @@ password,
 tags,
 username
 FROM awscc.backupgateway.hypervisor
-WHERE region = 'us-east-1'
-AND data__Identifier = '{HypervisorArn}';
+WHERE data__Identifier = '<HypervisorArn>';
 ```
 
 ## Permissions

@@ -53,8 +53,7 @@ resource_id,
 resource_identifier,
 tags
 FROM awscc.vpclattice.access_log_subscription
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

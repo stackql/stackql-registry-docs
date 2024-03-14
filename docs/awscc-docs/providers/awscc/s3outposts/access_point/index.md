@@ -49,8 +49,7 @@ name,
 vpc_configuration,
 policy
 FROM awscc.s3outposts.access_point
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

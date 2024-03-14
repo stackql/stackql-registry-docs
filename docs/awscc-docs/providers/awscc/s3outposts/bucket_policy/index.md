@@ -43,8 +43,7 @@ region,
 bucket,
 policy_document
 FROM awscc.s3outposts.bucket_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Bucket}';
+WHERE data__Identifier = '<Bucket>';
 ```
 
 ## Permissions

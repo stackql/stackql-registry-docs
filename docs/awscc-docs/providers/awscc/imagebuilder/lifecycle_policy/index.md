@@ -57,8 +57,7 @@ policy_details,
 resource_selection,
 tags
 FROM awscc.imagebuilder.lifecycle_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

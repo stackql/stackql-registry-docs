@@ -67,8 +67,7 @@ service_name,
 status,
 tags
 FROM awscc.vpclattice.service_network_service_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

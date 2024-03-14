@@ -63,8 +63,7 @@ created_time,
 last_updated_time,
 associated_models
 FROM awscc.frauddetector.detector
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

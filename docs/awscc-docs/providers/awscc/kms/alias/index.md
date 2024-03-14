@@ -43,8 +43,7 @@ region,
 target_key_id,
 alias_name
 FROM awscc.kms.alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '{AliasName}';
+WHERE data__Identifier = '<AliasName>';
 ```
 
 ## Permissions

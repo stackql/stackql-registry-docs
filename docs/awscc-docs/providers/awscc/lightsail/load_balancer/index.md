@@ -59,8 +59,7 @@ session_stickiness_lb_cookie_duration_seconds,
 tls_policy_name,
 tags
 FROM awscc.lightsail.load_balancer
-WHERE region = 'us-east-1'
-AND data__Identifier = '{LoadBalancerName}';
+WHERE data__Identifier = '<LoadBalancerName>';
 ```
 
 ## Permissions

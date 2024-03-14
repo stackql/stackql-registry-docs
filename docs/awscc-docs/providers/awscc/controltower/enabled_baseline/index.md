@@ -51,8 +51,7 @@ target_identifier,
 parameters,
 tags
 FROM awscc.controltower.enabled_baseline
-WHERE region = 'us-east-1'
-AND data__Identifier = '{EnabledBaselineIdentifier}';
+WHERE data__Identifier = '<EnabledBaselineIdentifier>';
 ```
 
 ## Permissions

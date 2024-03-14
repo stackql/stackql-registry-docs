@@ -55,8 +55,7 @@ encryption_config,
 schema,
 tags
 FROM awscc.forecast.dataset
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

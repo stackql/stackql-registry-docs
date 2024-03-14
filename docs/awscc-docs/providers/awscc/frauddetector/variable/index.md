@@ -59,8 +59,7 @@ arn,
 created_time,
 last_updated_time
 FROM awscc.frauddetector.variable
-WHERE region = 'us-east-1'
-AND data__Identifier = '{Arn}';
+WHERE data__Identifier = '<Arn>';
 ```
 
 ## Permissions

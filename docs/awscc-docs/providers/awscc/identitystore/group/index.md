@@ -47,9 +47,7 @@ display_name,
 group_id,
 identity_store_id
 FROM awscc.identitystore.group
-WHERE region = 'us-east-1'
-AND data__Identifier = '{GroupId}';
-AND data__Identifier = '{IdentityStoreId}';
+WHERE data__Identifier = '<GroupId>|<IdentityStoreId>';
 ```
 
 ## Permissions

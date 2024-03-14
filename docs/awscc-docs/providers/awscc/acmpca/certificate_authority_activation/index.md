@@ -49,8 +49,7 @@ certificate_chain,
 status,
 complete_certificate_chain
 FROM awscc.acmpca.certificate_authority_activation
-WHERE region = 'us-east-1'
-AND data__Identifier = '{CertificateAuthorityArn}';
+WHERE data__Identifier = '<CertificateAuthorityArn>';
 ```
 
 ## Permissions

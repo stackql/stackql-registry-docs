@@ -51,8 +51,7 @@ firewall_policy_id,
 description,
 tags
 FROM awscc.networkfirewall.firewall_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '{FirewallPolicyArn}';
+WHERE data__Identifier = '<FirewallPolicyArn>';
 ```
 
 ## Permissions

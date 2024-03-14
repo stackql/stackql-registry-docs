@@ -51,13 +51,7 @@ permission_set_arn,
 principal_type,
 principal_id
 FROM awscc.sso.assignment
-WHERE region = 'us-east-1'
-AND data__Identifier = '{InstanceArn}';
-AND data__Identifier = '{TargetId}';
-AND data__Identifier = '{TargetType}';
-AND data__Identifier = '{PermissionSetArn}';
-AND data__Identifier = '{PrincipalType}';
-AND data__Identifier = '{PrincipalId}';
+WHERE data__Identifier = '<InstanceArn>|<TargetId>|<TargetType>|<PermissionSetArn>|<PrincipalType>|<PrincipalId>';
 ```
 
 ## Permissions
