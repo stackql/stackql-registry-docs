@@ -53,7 +53,7 @@ module.exports = async ({ github, context, core, pathOutput }) => {
         
         // if(!(diff.startsWith('.github')) || !(diff.startsWith('scripts'))) globalChange = true;
 
-        globalChange = false;
+        globalChange = true;
 
     }).filter(Boolean)
 
