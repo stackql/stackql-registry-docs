@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | Any tags applied to the placement group. |
 | `groupArn` | `string` | The Amazon Resource Name (ARN) of the placement group. |
 | `groupId` | `string` | The ID of the placement group. |
 | `groupName` | `string` | The name of the placement group. |
 | `partitionCount` | `integer` | The number of partitions. Valid only if &lt;b&gt;strategy&lt;/b&gt; is set to &lt;code&gt;partition&lt;/code&gt;. |
 | `state` | `string` | The state of the placement group. |
 | `strategy` | `string` | The placement strategy. |
+| `tagSet` | `array` | Any tags applied to the placement group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

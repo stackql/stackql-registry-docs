@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `state` | `string` | The attachment state. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
+| `association` | `object` | Describes an association. |
 | `creationTime` | `string` | The creation time. |
 | `resourceId` | `string` | The ID of the resource. |
 | `resourceOwnerId` | `string` | The ID of the Amazon Web Services account that owns the resource. |
-| `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
 | `resourceType` | `string` | The resource type. Note that the &lt;code&gt;tgw-peering&lt;/code&gt; resource type has been deprecated. |
-| `transitGatewayOwnerId` | `string` | The ID of the Amazon Web Services account that owns the transit gateway. |
-| `association` | `object` | Describes an association. |
+| `state` | `string` | The attachment state. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
 | `tagSet` | `array` | The tags for the attachment. |
+| `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
 | `transitGatewayId` | `string` | The ID of the transit gateway. |
+| `transitGatewayOwnerId` | `string` | The ID of the Amazon Web Services account that owns the transit gateway. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

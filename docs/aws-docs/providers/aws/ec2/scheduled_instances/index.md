@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceCount` | `integer` | The number of instances. |
-| `termStartDate` | `string` | The start date for the Scheduled Instance. |
-| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
-| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
 | `availabilityZone` | `string` | The Availability Zone. |
-| `termEndDate` | `string` | The end date for the Scheduled Instance. |
+| `createDate` | `string` | The date when the Scheduled Instance was purchased. |
+| `hourlyPrice` | `string` | The hourly price for a single instance. |
+| `instanceCount` | `integer` | The number of instances. |
+| `instanceType` | `string` | The instance type. |
+| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
 | `nextSlotStartTime` | `string` | The time for the next schedule to start. |
 | `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
-| `instanceType` | `string` | The instance type. |
-| `hourlyPrice` | `string` | The hourly price for a single instance. |
 | `previousSlotEndTime` | `string` | The time that the previous schedule ended or will end. |
-| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
+| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
 | `scheduledInstanceId` | `string` | The Scheduled Instance ID. |
-| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
-| `createDate` | `string` | The date when the Scheduled Instance was purchased. |
+| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
+| `termEndDate` | `string` | The end date for the Scheduled Instance. |
+| `termStartDate` | `string` | The start date for the Scheduled Instance. |
+| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

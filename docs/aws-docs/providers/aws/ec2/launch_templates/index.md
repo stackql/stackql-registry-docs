@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `createTime` | `string` | The time launch template was created. |
+| `createdBy` | `string` | The principal that created the launch template.  |
 | `defaultVersionNumber` | `integer` | The version number of the default version of the launch template. |
 | `latestVersionNumber` | `integer` | The version number of the latest version of the launch template. |
 | `launchTemplateId` | `string` | The ID of the launch template. |
 | `launchTemplateName` | `string` | The name of the launch template. |
 | `tagSet` | `array` | The tags for the launch template. |
-| `createTime` | `string` | The time launch template was created. |
-| `createdBy` | `string` | The principal that created the launch template.  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

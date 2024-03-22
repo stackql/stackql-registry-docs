@@ -28,13 +28,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description of the transit gateway. |
-| `transitGatewayArn` | `string` | The Amazon Resource Name (ARN) of the transit gateway. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
 | `creationTime` | `string` | The creation time. |
 | `options` | `object` | Describes the options for a transit gateway. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the transit gateway. |
 | `state` | `string` | The state of the transit gateway. |
 | `tagSet` | `array` | The tags for the transit gateway. |
+| `transitGatewayArn` | `string` | The Amazon Resource Name (ARN) of the transit gateway. |
+| `transitGatewayId` | `string` | The ID of the transit gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

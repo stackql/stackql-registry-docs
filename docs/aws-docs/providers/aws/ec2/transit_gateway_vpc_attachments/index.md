@@ -27,15 +27,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | The tags for the VPC attachment. |
-| `state` | `string` | The state of the VPC attachment. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
-| `subnetIds` | `array` | The IDs of the subnets. |
-| `vpcId` | `string` | The ID of the VPC. |
 | `creationTime` | `string` | The creation time. |
 | `options` | `object` | Describes the VPC attachment options. |
-| `vpcOwnerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
+| `state` | `string` | The state of the VPC attachment. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
+| `subnetIds` | `array` | The IDs of the subnets. |
+| `tagSet` | `array` | The tags for the VPC attachment. |
 | `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
+| `transitGatewayId` | `string` | The ID of the transit gateway. |
+| `vpcId` | `string` | The ID of the VPC. |
+| `vpcOwnerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,15 +27,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
-| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the network load balancers for the service. |
-| `vpcEndpointOwner` | `string` | The ID of the Amazon Web Services account that owns the VPC endpoint. |
-| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
 | `creationTimestamp` | `string` | The date and time that the VPC endpoint was created. |
-| `serviceId` | `string` | The ID of the service to which the endpoint is connected. |
-| `ipAddressType` | `string` | The IP address type for the endpoint. |
-| `vpcEndpointState` | `string` | The state of the VPC endpoint. |
 | `dnsEntrySet` | `array` | The DNS entries for the VPC endpoint. |
+| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
+| `ipAddressType` | `string` | The IP address type for the endpoint. |
+| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the network load balancers for the service. |
+| `serviceId` | `string` | The ID of the service to which the endpoint is connected. |
+| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
+| `vpcEndpointOwner` | `string` | The ID of the Amazon Web Services account that owns the VPC endpoint. |
+| `vpcEndpointState` | `string` | The state of the VPC endpoint. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

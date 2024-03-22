@@ -27,20 +27,20 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `timestamp` | `string` | The current date and time. |
-| `connectionEstablishedTime` | `string` | The date and time the client connection was established. |
-| `egressPackets` | `string` | The number of packets received by the client. |
 | `clientIp` | `string` | The IP address of the client. |
-| `egressBytes` | `string` | The number of bytes received by the client. |
-| `status` | `object` | Describes the status of a client connection. |
-| `ingressPackets` | `string` | The number of packets sent by the client. |
-| `commonName` | `string` | The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name. |
-| `ingressBytes` | `string` | The number of bytes sent by the client. |
-| `connectionId` | `string` | The ID of the client connection. |
-| `connectionEndTime` | `string` | The date and time the client connection was terminated. |
-| `username` | `string` | The username of the client who established the client connection. This information is only provided if Active Directory client authentication is used. |
 | `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint to which the client is connected. |
+| `commonName` | `string` | The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name. |
+| `connectionEndTime` | `string` | The date and time the client connection was terminated. |
+| `connectionEstablishedTime` | `string` | The date and time the client connection was established. |
+| `connectionId` | `string` | The ID of the client connection. |
+| `egressBytes` | `string` | The number of bytes received by the client. |
+| `egressPackets` | `string` | The number of packets received by the client. |
+| `ingressBytes` | `string` | The number of bytes sent by the client. |
+| `ingressPackets` | `string` | The number of packets sent by the client. |
 | `postureComplianceStatusSet` | `array` | The statuses returned by the client connect handler for posture compliance, if applicable. |
+| `status` | `object` | Describes the status of a client connection. |
+| `timestamp` | `string` | The current date and time. |
+| `username` | `string` | The username of the client who established the client connection. This information is only provided if Active Directory client authentication is used. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

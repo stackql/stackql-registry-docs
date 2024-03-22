@@ -27,22 +27,22 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `createTime` | `string` | The time stamp when volume creation was initiated. |
-| `multiAttachEnabled` | `boolean` | Indicates whether Amazon EBS Multi-Attach is enabled. |
-| `throughput` | `integer` | The throughput that the volume supports, in MiB/s. |
-| `kmsKeyId` | `string` | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the volume encryption key for the volume. |
+| `AvailabilityZone` | `string` | The Availability Zone for the volume. |
 | `attachmentSet` | `array` | Information about the volume attachments. |
-| `size` | `integer` | The size of the volume, in GiBs. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
-| `snapshotId` | `string` | The snapshot from which the volume was created, if applicable. |
-| `tagSet` | `array` | Any tags assigned to the volume. |
-| `status` | `string` | The volume state. |
-| `volumeType` | `string` | The volume type. |
+| `createTime` | `string` | The time stamp when volume creation was initiated. |
 | `encrypted` | `boolean` | Indicates whether the volume is encrypted. |
 | `fastRestored` | `boolean` | Indicates whether the volume was created using fast snapshot restore. |
-| `volumeId` | `string` | The ID of the volume. |
 | `iops` | `integer` | The number of I/O operations per second (IOPS). For &lt;code&gt;gp3&lt;/code&gt;, &lt;code&gt;io1&lt;/code&gt;, and &lt;code&gt;io2&lt;/code&gt; volumes, this represents the number of IOPS that are provisioned for the volume. For &lt;code&gt;gp2&lt;/code&gt; volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. |
-| `AvailabilityZone` | `string` | The Availability Zone for the volume. |
+| `kmsKeyId` | `string` | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the volume encryption key for the volume. |
+| `multiAttachEnabled` | `boolean` | Indicates whether Amazon EBS Multi-Attach is enabled. |
+| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
+| `size` | `integer` | The size of the volume, in GiBs. |
+| `snapshotId` | `string` | The snapshot from which the volume was created, if applicable. |
+| `status` | `string` | The volume state. |
+| `tagSet` | `array` | Any tags assigned to the volume. |
+| `throughput` | `integer` | The throughput that the volume supports, in MiB/s. |
+| `volumeId` | `string` | The ID of the volume. |
+| `volumeType` | `string` | The volume type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

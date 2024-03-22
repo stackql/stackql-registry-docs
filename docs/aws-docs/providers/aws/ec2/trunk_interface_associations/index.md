@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `trunkInterfaceId` | `string` | The ID of the trunk network interface. |
-| `vlanId` | `integer` | The ID of the VLAN when you use the VLAN protocol. |
 | `associationId` | `string` | The ID of the association. |
 | `branchInterfaceId` | `string` | The ID of the branch network interface. |
 | `greKey` | `integer` | The application key when you use the GRE protocol. |
 | `interfaceProtocol` | `string` | The interface protocol. Valid values are &lt;code&gt;VLAN&lt;/code&gt; and &lt;code&gt;GRE&lt;/code&gt;. |
 | `tagSet` | `array` | The tags for the trunk interface association. |
+| `trunkInterfaceId` | `string` | The ID of the trunk network interface. |
+| `vlanId` | `integer` | The ID of the VLAN when you use the VLAN protocol. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

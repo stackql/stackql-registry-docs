@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `spotPrice` | `string` | The maximum price per hour that you are willing to pay for a Spot Instance. |
-| `timestamp` | `string` | The date and time the request was created, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
 | `availabilityZone` | `string` | The Availability Zone. |
 | `instanceType` | `string` | The instance type. |
 | `productDescription` | `string` | A general description of the AMI. |
+| `spotPrice` | `string` | The maximum price per hour that you are willing to pay for a Spot Instance. |
+| `timestamp` | `string` | The date and time the request was created, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

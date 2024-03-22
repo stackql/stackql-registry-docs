@@ -28,12 +28,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the resource being exported. |
-| `tagSet` | `array` | The tags for the export task. |
 | `exportTaskId` | `string` | The ID of the export task. |
 | `exportToS3` | `object` | Describes the format and location for the export task. |
 | `instanceExport` | `object` | Describes an instance to export. |
 | `state` | `string` | The state of the export task. |
 | `statusMessage` | `string` | The status message related to the export task. |
+| `tagSet` | `array` | The tags for the export task. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

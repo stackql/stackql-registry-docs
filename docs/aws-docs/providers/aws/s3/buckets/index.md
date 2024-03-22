@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `Name` | `string` | The name of the bucket. |
 | `CreationDate` | `string` | Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy. |
+| `Name` | `string` | The name of the bucket. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

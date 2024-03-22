@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `autoEnableIO` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 | `productCodes` | `array` | A list of product codes. |
 | `volumeId` | `string` | The ID of the volume. |
-| `autoEnableIO` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
