@@ -16,7 +16,7 @@ slug: /providers/aws
 
 ---
 EC2, IAM and S3 core AWS Services.
-:::note
+:::tip
 
 All AWS Services (incl Lambda, DynamoDB, RDS, etc) are supported by the [__`awscc`__](https://awscc.stackql.io/providers/awscc/) (AWS Cloud Control API) provider in StackQL.
 
