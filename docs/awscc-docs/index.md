@@ -19,16 +19,16 @@ slug: /providers/awscc
 ---
 Cloud services from AWS using the Cloud Control API.
 
-:::info Provider Summary (v24.03.00214)
+:::info Provider Summary (v24.03.00216)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>207</b></span><br />
-<span>total methods:&nbsp;<b>1,637</b></span><br />
+<span>total services:&nbsp;<b>208</b></span><br />
+<span>total methods:&nbsp;<b>1,792</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1,633</b></span><br />
-<span>total selectable resources:&nbsp;<b>1,633</b></span><br />
+<span>total resources:&nbsp;<b>1,788</b></span><br />
+<span>total selectable resources:&nbsp;<b>1,788</b></span><br />
 </div>
 </div>
 
@@ -153,6 +153,7 @@ This parameter must be supplied to the `WHERE` clause of each `SELECT` statement
 <a href="/providers/awscc/dms/">dms</a><br />
 <a href="/providers/awscc/docdbelastic/">docdbelastic</a><br />
 <a href="/providers/awscc/dynamodb/">dynamodb</a><br />
+<a href="/providers/awscc/ec2/">ec2</a><br />
 <a href="/providers/awscc/ecr/">ecr</a><br />
 <a href="/providers/awscc/ecs/">ecs</a><br />
 <a href="/providers/awscc/efs/">efs</a><br />
@@ -195,9 +196,9 @@ This parameter must be supplied to the `WHERE` clause of each `SELECT` statement
 <a href="/providers/awscc/iotfleethub/">iotfleethub</a><br />
 <a href="/providers/awscc/iotfleetwise/">iotfleetwise</a><br />
 <a href="/providers/awscc/iotsitewise/">iotsitewise</a><br />
-<a href="/providers/awscc/iottwinmaker/">iottwinmaker</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/awscc/iottwinmaker/">iottwinmaker</a><br />
 <a href="/providers/awscc/iotwireless/">iotwireless</a><br />
 <a href="/providers/awscc/ivs/">ivs</a><br />
 <a href="/providers/awscc/ivschat/">ivschat</a><br />
