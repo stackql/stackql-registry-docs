@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | Any tags assigned to the route table. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
-| `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
 | `creationTime` | `string` | The creation time. |
 | `defaultAssociationRouteTable` | `boolean` | Indicates whether this is the default association route table for the transit gateway. |
 | `defaultPropagationRouteTable` | `boolean` | Indicates whether this is the default propagation route table for the transit gateway. |
 | `state` | `string` | The state of the transit gateway route table. |
+| `tagSet` | `array` | Any tags assigned to the route table. |
+| `transitGatewayId` | `string` | The ID of the transit gateway. |
+| `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

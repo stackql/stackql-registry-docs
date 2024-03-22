@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `reservedInstancesListingId` | `string` | The ID of the Reserved Instance listing. |
-| `instanceCounts` | `array` | The number of instances in this state. |
 | `clientToken` | `string` | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
-| `updateDate` | `string` | The last modified timestamp of the listing. |
 | `createDate` | `string` | The time the listing was created. |
-| `tagSet` | `array` | Any tags assigned to the resource. |
+| `instanceCounts` | `array` | The number of instances in this state. |
 | `priceSchedules` | `array` | The price of the Reserved Instance listing. |
-| `statusMessage` | `string` | The reason for the current status of the Reserved Instance listing. The response can be blank. |
-| `status` | `string` | The status of the Reserved Instance listing. |
 | `reservedInstancesId` | `string` | The ID of the Reserved Instance. |
+| `reservedInstancesListingId` | `string` | The ID of the Reserved Instance listing. |
+| `status` | `string` | The status of the Reserved Instance listing. |
+| `statusMessage` | `string` | The reason for the current status of the Reserved Instance listing. The response can be blank. |
+| `tagSet` | `array` | Any tags assigned to the resource. |
+| `updateDate` | `string` | The last modified timestamp of the listing. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

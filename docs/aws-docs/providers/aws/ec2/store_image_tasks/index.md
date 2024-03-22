@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `storeTaskState` | `string` | The state of the store task (&lt;code&gt;InProgress&lt;/code&gt;, &lt;code&gt;Completed&lt;/code&gt;, or &lt;code&gt;Failed&lt;/code&gt;). |
-| `taskStartTime` | `string` | The time the task started. |
 | `amiId` | `string` | The ID of the AMI that is being stored. |
 | `bucket` | `string` | The name of the Amazon S3 bucket that contains the stored AMI object. |
 | `progressPercentage` | `integer` | The progress of the task as a percentage. |
 | `s3objectKey` | `string` | The name of the stored AMI object in the bucket. |
 | `storeTaskFailureReason` | `string` | If the tasks fails, the reason for the failure is returned. If the task succeeds, &lt;code&gt;null&lt;/code&gt; is returned. |
+| `storeTaskState` | `string` | The state of the store task (&lt;code&gt;InProgress&lt;/code&gt;, &lt;code&gt;Completed&lt;/code&gt;, or &lt;code&gt;Failed&lt;/code&gt;). |
+| `taskStartTime` | `string` | The time the task started. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `vpcId` | `string` | The ID of the VPC. |
 | `classicLinkEnabled` | `boolean` | Indicates whether the VPC is enabled for ClassicLink. |
 | `tagSet` | `array` | Any tags assigned to the VPC. |
+| `vpcId` | `string` | The ID of the VPC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

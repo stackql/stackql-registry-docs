@@ -28,12 +28,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the event window. |
-| `state` | `string` | The current state of the event window. |
-| `tagSet` | `array` | The instance tags associated with the event window. |
-| `timeRangeSet` | `array` | One or more time ranges defined for the event window. |
 | `associationTarget` | `object` | One or more targets associated with the event window. |
 | `cronExpression` | `string` | The cron expression defined for the event window. |
 | `instanceEventWindowId` | `string` | The ID of the event window. |
+| `state` | `string` | The current state of the event window. |
+| `tagSet` | `array` | The instance tags associated with the event window. |
+| `timeRangeSet` | `array` | One or more time ranges defined for the event window. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

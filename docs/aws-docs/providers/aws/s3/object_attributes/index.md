@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `StorageClass` | `string` | &lt;p&gt;Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html"&gt;Storage Classes&lt;/a&gt;.&lt;/p&gt; |
 | `Checksum` | `object` | Contains all the possible checksum or digest values for an object. |
 | `ETag` | `string` | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL. |
 | `ObjectParts` | `object` | A collection of parts associated with a multipart upload. |
 | `ObjectSize` | `integer` | The size of the object in bytes. |
+| `StorageClass` | `string` | &lt;p&gt;Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html"&gt;Storage Classes&lt;/a&gt;.&lt;/p&gt; |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

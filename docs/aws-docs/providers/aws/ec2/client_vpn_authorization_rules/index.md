@@ -28,11 +28,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A brief description of the authorization rule. |
-| `groupId` | `string` | The ID of the Active Directory group to which the authorization rule grants access. |
-| `status` | `object` | Describes the state of an authorization rule. |
 | `accessAll` | `boolean` | Indicates whether the authorization rule grants access to all clients. |
 | `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint with which the authorization rule is associated. |
 | `destinationCidr` | `string` | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies. |
+| `groupId` | `string` | The ID of the Active Directory group to which the authorization rule grants access. |
+| `status` | `object` | Describes the state of an authorization rule. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

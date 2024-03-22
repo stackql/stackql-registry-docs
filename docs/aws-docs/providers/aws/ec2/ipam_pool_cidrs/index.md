@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `state` | `string` | The state of the CIDR. |
 | `cidr` | `string` | The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is &lt;code&gt;10.24.34.0/23&lt;/code&gt;. An IPv6 CIDR example is &lt;code&gt;2001:DB8::/32&lt;/code&gt;. |
 | `failureReason` | `object` | Details related to why an IPAM pool CIDR failed to be provisioned. |
+| `state` | `string` | The state of the CIDR. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

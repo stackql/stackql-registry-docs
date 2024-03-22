@@ -33,7 +33,7 @@ cloud_control
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>cloud_control</td></tr>
 <tr><td><b>Description</b></td><td>cloud_control</td></tr>
-<tr><td><b>Id</b></td><td><code>cloud_control:v23.11.00181</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloud_control:v24.03.00216</code></td></tr>
 </tbody></table>
 
 ## Resources

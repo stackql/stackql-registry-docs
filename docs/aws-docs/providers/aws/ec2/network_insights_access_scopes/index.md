@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `createdDate` | `string` | The creation date. |
+| `networkInsightsAccessScopeArn` | `string` | The Amazon Resource Name (ARN) of the Network Access Scope. |
 | `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
 | `tagSet` | `array` | The tags. |
 | `updatedDate` | `string` | The last updated date. |
-| `createdDate` | `string` | The creation date. |
-| `networkInsightsAccessScopeArn` | `string` | The Amazon Resource Name (ARN) of the Network Access Scope. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

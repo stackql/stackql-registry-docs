@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `string` | The tag value. |
 | `key` | `string` | The tag key. |
 | `resourceId` | `string` | The ID of the resource. |
 | `resourceType` | `string` | The resource type. |
+| `value` | `string` | The tag value. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

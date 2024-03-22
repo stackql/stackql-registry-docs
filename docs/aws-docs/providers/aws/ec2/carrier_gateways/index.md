@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `carrierGatewayId` | `string` | The ID of the carrier gateway. |
+| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the carrier gateway. |
 | `state` | `string` | The state of the carrier gateway. |
 | `tagSet` | `array` | The tags assigned to the carrier gateway. |
 | `vpcId` | `string` | The ID of the VPC associated with the carrier gateway. |
-| `carrierGatewayId` | `string` | The ID of the carrier gateway. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the carrier gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

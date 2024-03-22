@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `principalType` | `string` | The type of principal. |
 | `principal` | `string` | The Amazon Resource Name (ARN) of the principal. |
+| `principalType` | `string` | The type of principal. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

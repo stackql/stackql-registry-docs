@@ -27,14 +27,14 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `groupDescription` | `string` | A description of the security group. |
+| `groupId` | `string` | The ID of the security group. |
+| `groupName` | `string` | The name of the security group. |
 | `ipPermissions` | `array` | The inbound rules associated with the security group. |
 | `ipPermissionsEgress` | `array` | [VPC only] The outbound rules associated with the security group. |
 | `ownerId` | `string` | The Amazon Web Services account ID of the owner of the security group. |
 | `tagSet` | `array` | Any tags assigned to the security group. |
 | `vpcId` | `string` | [VPC only] The ID of the VPC for the security group. |
-| `groupDescription` | `string` | A description of the security group. |
-| `groupId` | `string` | The ID of the security group. |
-| `groupName` | `string` | The name of the security group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

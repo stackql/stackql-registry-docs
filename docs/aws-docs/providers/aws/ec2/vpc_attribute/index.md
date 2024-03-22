@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `enableDnsHostnames` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 | `enableDnsSupport` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 | `vpcId` | `string` | The ID of the VPC. |
-| `enableDnsHostnames` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

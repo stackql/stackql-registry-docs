@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | Any tags assigned to the service. |
-| `serviceName` | `string` | The name of the service. |
 | `acceptanceRequired` | `boolean` | Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted. |
-| `serviceType` | `array` | The type of service. |
-| `serviceId` | `string` | The ID of the service. |
-| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
-| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
 | `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
-| `payerResponsibility` | `string` | The payer responsibility. |
-| `privateDnsNameConfiguration` | `object` | Information about the private DNS name for the service endpoint. |
-| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Network Load Balancers for the service. |
-| `serviceState` | `string` | The service state. |
-| `privateDnsName` | `string` | The private DNS name for the service. |
-| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
+| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
 | `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
+| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
+| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Network Load Balancers for the service. |
+| `payerResponsibility` | `string` | The payer responsibility. |
+| `privateDnsName` | `string` | The private DNS name for the service. |
+| `privateDnsNameConfiguration` | `object` | Information about the private DNS name for the service endpoint. |
+| `serviceId` | `string` | The ID of the service. |
+| `serviceName` | `string` | The name of the service. |
+| `serviceState` | `string` | The service state. |
+| `serviceType` | `array` | The type of service. |
+| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
+| `tagSet` | `array` | Any tags assigned to the service. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

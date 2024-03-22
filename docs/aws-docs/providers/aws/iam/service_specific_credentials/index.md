@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `UserName` | `string` | The name of the IAM user associated with the service-specific credential. |
 | `CreateDate` | `string` | The date and time, in &lt;a href="http://www.iso.org/iso/iso8601"&gt;ISO 8601 date-time format&lt;/a&gt;, when the service-specific credential were created. |
 | `ServiceName` | `string` | The name of the service associated with the service-specific credential. |
 | `ServiceSpecificCredentialId` | `string` | The unique identifier for the service-specific credential. |
 | `ServiceUserName` | `string` | The generated user name for the service-specific credential. |
 | `Status` | `string` | The status of the service-specific credential. &lt;code&gt;Active&lt;/code&gt; means that the key is valid for API calls, while &lt;code&gt;Inactive&lt;/code&gt; means it is not. |
+| `UserName` | `string` | The name of the IAM user associated with the service-specific credential. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

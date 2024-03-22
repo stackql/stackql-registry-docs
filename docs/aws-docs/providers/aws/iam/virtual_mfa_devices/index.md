@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `SerialNumber` | `string` | The serial number associated with &lt;code&gt;VirtualMFADevice&lt;/code&gt;. |
-| `Tags` | `array` | A list of tags that are attached to the virtual MFA device. For more information about tagging, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html"&gt;Tagging IAM resources&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |
-| `User` | `object` | &lt;p&gt;Contains information about an IAM user entity.&lt;/p&gt; &lt;p&gt;This data type is used as a response element in the following operations:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;CreateUser&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;GetUser&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListUsers&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
 | `Base32StringSeed` | `string` |  The base32 seed defined as specified in &lt;a href="https://tools.ietf.org/html/rfc3548.txt"&gt;RFC3548&lt;/a&gt;. The &lt;code&gt;Base32StringSeed&lt;/code&gt; is base64-encoded.  |
 | `EnableDate` | `string` | The date and time on which the virtual MFA device was enabled. |
 | `QRCodePNG` | `string` |  A QR code PNG image that encodes &lt;code&gt;otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String&lt;/code&gt; where &lt;code&gt;$virtualMFADeviceName&lt;/code&gt; is one of the create call arguments. &lt;code&gt;AccountName&lt;/code&gt; is the user name if set (otherwise, the account ID otherwise), and &lt;code&gt;Base32String&lt;/code&gt; is the seed in base32 format. The &lt;code&gt;Base32String&lt;/code&gt; value is base64-encoded.  |
+| `SerialNumber` | `string` | The serial number associated with &lt;code&gt;VirtualMFADevice&lt;/code&gt;. |
+| `Tags` | `array` | A list of tags that are attached to the virtual MFA device. For more information about tagging, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html"&gt;Tagging IAM resources&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |
+| `User` | `object` | &lt;p&gt;Contains information about an IAM user entity.&lt;/p&gt; &lt;p&gt;This data type is used as a response element in the following operations:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;CreateUser&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;GetUser&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListUsers&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

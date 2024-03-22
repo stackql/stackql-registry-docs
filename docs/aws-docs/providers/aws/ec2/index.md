@@ -31,9 +31,9 @@ ec2
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aws.ec2</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>EC2</td></tr>
+<tr><td><b>Title</b></td><td>ec2</td></tr>
 <tr><td><b>Description</b></td><td>ec2</td></tr>
-<tr><td><b>Id</b></td><td><code>ec2:v23.04.00136</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ec2:v24.03.00216</code></td></tr>
 </tbody></table>
 
 ## Resources

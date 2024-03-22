@@ -28,9 +28,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description of the address range. |
-| `statusMessage` | `string` | Upon success, contains the ID of the address pool. Otherwise, contains an error message. |
 | `cidr` | `string` | The address range, in CIDR notation. |
 | `state` | `string` | The state of the address pool. |
+| `statusMessage` | `string` | Upon success, contains the ID of the address pool. Otherwise, contains an error message. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

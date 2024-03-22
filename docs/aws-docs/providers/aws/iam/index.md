@@ -31,9 +31,9 @@ iam
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aws.iam</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>IAM</td></tr>
+<tr><td><b>Title</b></td><td>iam</td></tr>
 <tr><td><b>Description</b></td><td>iam</td></tr>
-<tr><td><b>Id</b></td><td><code>iam:v23.04.00136</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iam:v24.03.00216</code></td></tr>
 </tbody></table>
 
 ## Resources

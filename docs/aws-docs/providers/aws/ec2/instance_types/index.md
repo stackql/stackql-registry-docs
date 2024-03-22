@@ -27,30 +27,30 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceStorageSupported` | `boolean` | Indicates whether instance storage is supported. |
-| `inferenceAcceleratorInfo` | `object` | Describes the Inference accelerators for the instance type. |
-| `memoryInfo` | `object` | Describes the memory for the instance type. |
-| `hypervisor` | `string` | The hypervisor for the instance type. |
 | `autoRecoverySupported` | `boolean` | Indicates whether auto recovery is supported. |
-| `instanceStorageInfo` | `object` | Describes the instance store features that are supported by the instance type. |
-| `instanceType` | `string` | The instance type. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html"&gt;Instance types&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `supportedUsageClasses` | `array` | Indicates whether the instance type is offered for spot or On-Demand. |
-| `processorInfo` | `object` | Describes the processor used by the instance type. |
-| `currentGeneration` | `boolean` | Indicates whether the instance type is current generation. |
-| `placementGroupInfo` | `object` | Describes the placement group support of the instance type. |
-| `gpuInfo` | `object` | Describes the GPU accelerators for the instance type. |
-| `supportedVirtualizationTypes` | `array` | The supported virtualization types. |
-| `supportedRootDeviceTypes` | `array` | The supported root device types. |
-| `fpgaInfo` | `object` | Describes the FPGAs for the instance type. |
-| `freeTierEligible` | `boolean` | Indicates whether the instance type is eligible for the free tier. |
-| `networkInfo` | `object` | Describes the networking features of the instance type. |
-| `hibernationSupported` | `boolean` | Indicates whether On-Demand hibernation is supported. |
-| `vCpuInfo` | `object` | Describes the vCPU configurations for the instance type. |
-| `supportedBootModes` | `array` | The supported boot modes. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html"&gt;Boot modes&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
 | `bareMetal` | `boolean` | Indicates whether the instance is a bare metal instance type. |
 | `burstablePerformanceSupported` | `boolean` | Indicates whether the instance type is a burstable performance instance type. |
-| `ebsInfo` | `object` | Describes the Amazon EBS features supported by the instance type. |
+| `currentGeneration` | `boolean` | Indicates whether the instance type is current generation. |
 | `dedicatedHostsSupported` | `boolean` | Indicates whether Dedicated Hosts are supported on the instance type. |
+| `ebsInfo` | `object` | Describes the Amazon EBS features supported by the instance type. |
+| `fpgaInfo` | `object` | Describes the FPGAs for the instance type. |
+| `freeTierEligible` | `boolean` | Indicates whether the instance type is eligible for the free tier. |
+| `gpuInfo` | `object` | Describes the GPU accelerators for the instance type. |
+| `hibernationSupported` | `boolean` | Indicates whether On-Demand hibernation is supported. |
+| `hypervisor` | `string` | The hypervisor for the instance type. |
+| `inferenceAcceleratorInfo` | `object` | Describes the Inference accelerators for the instance type. |
+| `instanceStorageInfo` | `object` | Describes the instance store features that are supported by the instance type. |
+| `instanceStorageSupported` | `boolean` | Indicates whether instance storage is supported. |
+| `instanceType` | `string` | The instance type. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html"&gt;Instance types&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+| `memoryInfo` | `object` | Describes the memory for the instance type. |
+| `networkInfo` | `object` | Describes the networking features of the instance type. |
+| `placementGroupInfo` | `object` | Describes the placement group support of the instance type. |
+| `processorInfo` | `object` | Describes the processor used by the instance type. |
+| `supportedBootModes` | `array` | The supported boot modes. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html"&gt;Boot modes&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+| `supportedRootDeviceTypes` | `array` | The supported root device types. |
+| `supportedUsageClasses` | `array` | Indicates whether the instance type is offered for spot or On-Demand. |
+| `supportedVirtualizationTypes` | `array` | The supported virtualization types. |
+| `vCpuInfo` | `object` | Describes the vCPU configurations for the instance type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

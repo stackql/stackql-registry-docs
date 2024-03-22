@@ -27,22 +27,22 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceInitiatedShutdownBehavior` | `object` | Describes a value for a resource attribute that is a String. |
-| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
-| `instanceType` | `object` | Describes a value for a resource attribute that is a String. |
 | `blockDeviceMapping` | `array` | The block device mapping of the instance. |
-| `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
 | `disableApiTermination` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `userData` | `object` | Describes a value for a resource attribute that is a String. |
-| `enclaveOptions` | `object` | Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. |
-| `productCodes` | `array` | A list of product codes. |
 | `ebsOptimized` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `rootDeviceName` | `object` | Describes a value for a resource attribute that is a String. |
-| `groupSet` | `array` | The security groups associated with the instance. |
-| `ramdisk` | `object` | Describes a value for a resource attribute that is a String. |
-| `sourceDestCheck` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `instanceId` | `string` | The ID of the instance. |
 | `enaSupport` | `object` | Describes a value for a resource attribute that is a Boolean value. |
+| `enclaveOptions` | `object` | Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. |
+| `groupSet` | `array` | The security groups associated with the instance. |
+| `instanceId` | `string` | The ID of the instance. |
+| `instanceInitiatedShutdownBehavior` | `object` | Describes a value for a resource attribute that is a String. |
+| `instanceType` | `object` | Describes a value for a resource attribute that is a String. |
+| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
+| `productCodes` | `array` | A list of product codes. |
+| `ramdisk` | `object` | Describes a value for a resource attribute that is a String. |
+| `rootDeviceName` | `object` | Describes a value for a resource attribute that is a String. |
+| `sourceDestCheck` | `object` | Describes a value for a resource attribute that is a Boolean value. |
+| `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
+| `userData` | `object` | Describes a value for a resource attribute that is a String. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
