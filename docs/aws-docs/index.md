@@ -23,7 +23,7 @@ All AWS Services (incl Lambda, DynamoDB, RDS, etc) are supported by the [__`awsc
 :::      
         
     
-:::info Provider Summary (v24.03.00216)
+:::info Provider Summary (v24.03.00220)
 
 <div class="row">
 <div class="providerDocColumn">

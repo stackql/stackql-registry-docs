@@ -33,7 +33,7 @@ s3
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>s3</td></tr>
 <tr><td><b>Description</b></td><td>s3</td></tr>
-<tr><td><b>Id</b></td><td><code>s3:v24.03.00216</code></td></tr>
+<tr><td><b>Id</b></td><td><code>s3:v24.03.00220</code></td></tr>
 </tbody></table>
 
 ## Resources
