@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>lifecycle_hook</code> resource
+Gets or operates on an individual <code>lifecycle_hook</code> resource, use <code>lifecycle_hooks</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>wireless_devices</code> in a region
+Used to retrieve a list of <code>wireless_devices</code> in a region or create a <code>wireless_devices</code> resource, use <code>wireless_device</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

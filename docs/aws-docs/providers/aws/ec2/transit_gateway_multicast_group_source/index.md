@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>transit_gateway_multicast_group_source</code> resource
+Gets or operates on an individual <code>transit_gateway_multicast_group_source</code> resource, use <code>transit_gateway_multicast_group_sources</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

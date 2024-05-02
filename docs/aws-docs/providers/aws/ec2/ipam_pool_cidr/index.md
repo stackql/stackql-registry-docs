@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>ipam_pool_cidr</code> resource
+Gets or operates on an individual <code>ipam_pool_cidr</code> resource, use <code>ipam_pool_cidrs</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

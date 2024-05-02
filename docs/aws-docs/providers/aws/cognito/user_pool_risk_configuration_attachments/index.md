@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>user_pool_risk_configuration_attachments</code> in a region
+Used to retrieve a list of <code>user_pool_risk_configuration_attachments</code> in a region or create a <code>user_pool_risk_configuration_attachments</code> resource, use <code>user_pool_risk_configuration_attachment</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>
@@ -45,6 +45,11 @@ Retrieves a list of <code>user_pool_risk_configuration_attachments</code> in a r
     <td><code>create_resource</code></td>
     <td><code>INSERT</code></td>
     <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
   </tr>
 </tbody></table>
 

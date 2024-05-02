@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>game_server_group</code> resource
+Gets or operates on an individual <code>game_server_group</code> resource, use <code>game_server_groups</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

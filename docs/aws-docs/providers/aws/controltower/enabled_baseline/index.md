@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>enabled_baseline</code> resource
+Gets or operates on an individual <code>enabled_baseline</code> resource, use <code>enabled_baselines</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

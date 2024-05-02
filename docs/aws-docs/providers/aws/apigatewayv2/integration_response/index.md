@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>integration_response</code> resource
+Gets or operates on an individual <code>integration_response</code> resource, use <code>integration_responses</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

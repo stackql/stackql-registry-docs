@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>trust_store</code> resource
+Gets or operates on an individual <code>trust_store</code> resource, use <code>trust_stores</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

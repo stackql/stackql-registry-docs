@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>geofence_collections</code> in a region
+Used to retrieve a list of <code>geofence_collections</code> in a region or create a <code>geofence_collections</code> resource, use <code>geofence_collection</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>firewall_domain_list</code> resource
+Gets or operates on an individual <code>firewall_domain_list</code> resource, use <code>firewall_domain_lists</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

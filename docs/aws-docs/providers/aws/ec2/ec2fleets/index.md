@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>ec2fleets</code> in a region
+Used to retrieve a list of <code>ec2fleets</code> in a region or create a <code>ec2fleets</code> resource, use <code>ec2fleet</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

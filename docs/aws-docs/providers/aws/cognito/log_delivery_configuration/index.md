@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>log_delivery_configuration</code> resource
+Gets or operates on an individual <code>log_delivery_configuration</code> resource, use <code>log_delivery_configurations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

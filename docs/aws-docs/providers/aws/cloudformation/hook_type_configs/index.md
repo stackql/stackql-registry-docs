@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>hook_type_configs</code> in a region
+Used to retrieve a list of <code>hook_type_configs</code> in a region or create a <code>hook_type_configs</code> resource, use <code>hook_type_config</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

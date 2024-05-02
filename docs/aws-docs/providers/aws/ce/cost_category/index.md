@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>cost_category</code> resource
+Gets or operates on an individual <code>cost_category</code> resource, use <code>cost_categories</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

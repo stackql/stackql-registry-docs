@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>access_points</code> in a region
+Used to retrieve a list of <code>access_points</code> in a region or create a <code>access_points</code> resource, use <code>access_point</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

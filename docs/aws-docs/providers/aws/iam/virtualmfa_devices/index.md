@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>virtualmfa_devices</code> in a region
+Used to retrieve a list of <code>virtualmfa_devices</code> in a region or create a <code>virtualmfa_devices</code> resource, use <code>virtualmfa_device</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>
