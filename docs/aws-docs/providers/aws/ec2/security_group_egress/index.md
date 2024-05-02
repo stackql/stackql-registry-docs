@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - security_group_egress
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,20 +14,93 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Gets an individual <code>security_group_egress</code> resource
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_group_egress</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Adds the specified outbound (egress) rule to a security group.&lt;br&#x2F;&gt; An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see &#91;Security group rules&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;userguide&#x2F;security-group-rules.html).&lt;br&#x2F;&gt; You must specify exactly one of the following destinations: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.&lt;br&#x2F;&gt; You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP&#x2F;ICMPv6 type and code. To specify all types or all codes, use -1.&lt;br&#x2F;&gt; Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.security_group_egress</code></td></tr>
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>cidr_ip</code></td><td><code>string</code></td><td>The IPv4 address range, in CIDR format.&lt;br&#x2F;&gt; You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.&lt;br&#x2F;&gt; For examples of rules that you can add to security groups for specific access scenarios, see &#91;Security group rules for different use cases&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSEC2&#x2F;latest&#x2F;UserGuide&#x2F;security-group-rules-reference.html) in the *User Guide*.</td></tr>
+<tr><td><code>cidr_ipv6</code></td><td><code>string</code></td><td>The IPv6 address range, in CIDR format.&lt;br&#x2F;&gt; You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.&lt;br&#x2F;&gt; For examples of rules that you can add to security groups for specific access scenarios, see &#91;Security group rules for different use cases&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSEC2&#x2F;latest&#x2F;UserGuide&#x2F;security-group-rules-reference.html) in the *User Guide*.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of an egress (outbound) security group rule.&lt;br&#x2F;&gt; Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:&#x2F;()#,@&#91;&#93;+=;&#123;&#125;!$*</td></tr>
+<tr><td><code>from_port</code></td><td><code>integer</code></td><td>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</td></tr>
+<tr><td><code>to_port</code></td><td><code>integer</code></td><td>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</td></tr>
+<tr><td><code>ip_protocol</code></td><td><code>string</code></td><td>The IP protocol name (``tcp``, ``udp``, ``icmp``, ``icmpv6``) or number (see &#91;Protocol Numbers&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;http:&#x2F;&#x2F;www.iana.org&#x2F;assignments&#x2F;protocol-numbers&#x2F;protocol-numbers.xhtml)).&lt;br&#x2F;&gt; Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp``, ``udp``, ``icmp``, or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp``, ``udp``, and ``icmp``, you must specify a port range. For ``icmpv6``, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.</td></tr>
+<tr><td><code>destination_security_group_id</code></td><td><code>string</code></td><td>The ID of the security group.&lt;br&#x2F;&gt; You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>destination_prefix_list_id</code></td><td><code>string</code></td><td>The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.&lt;br&#x2F;&gt; You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.</td></tr>
+<tr><td><code>group_id</code></td><td><code>string</code></td><td>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `security_group_egress_Authorize` | `EXEC` | `GroupId, region` | &lt;p&gt;[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.&lt;/p&gt; &lt;p&gt;An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups.&lt;/p&gt; &lt;p&gt;You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.&lt;/p&gt; &lt;p&gt;Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.&lt;/p&gt; &lt;p&gt;For information about VPC security group quotas, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html"&gt;Amazon VPC quotas&lt;/a&gt;.&lt;/p&gt; |
-| `security_group_egress_Revoke` | `EXEC` | `GroupId, region` | &lt;p&gt;[VPC only] Removes the specified outbound (egress) rules from a security group for EC2-VPC. This action does not apply to security groups for use in EC2-Classic.&lt;/p&gt; &lt;p&gt;You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and destination (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.&lt;/p&gt; &lt;p&gt;[Default VPC] If the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.&lt;/p&gt; &lt;p&gt;Amazon Web Services recommends that you describe the security group to verify that the rules were removed.&lt;/p&gt; &lt;p&gt;Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.&lt;/p&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>update_resource</code></td>
+    <td><code>UPDATE</code></td>
+    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+  </tr>
+  <tr>
+    <td><code>delete_resource</code></td>
+    <td><code>DELETE</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+  <tr>
+    <td><code>get_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+cidr_ip,
+cidr_ipv6,
+description,
+from_port,
+to_port,
+ip_protocol,
+destination_security_group_id,
+id,
+destination_prefix_list_id,
+group_id
+FROM aws.ec2.security_group_egress
+WHERE data__Identifier = '<Id>';
+```
+
+## Permissions
+
+To operate on the <code>security_group_egress</code> resource, the following permissions are required:
+
+### Read
+```json
+ec2:DescribeSecurityGroupRules
+```
+
+### Update
+```json
+ec2:UpdateSecurityGroupRuleDescriptionsEgress
+```
+
+### Delete
+```json
+ec2:RevokeSecurityGroupEgress,
+ec2:DescribeSecurityGroupRules
+```
+

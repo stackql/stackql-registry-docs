@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - customer_gateways
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,30 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>customer_gateways</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>customer_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a customer gateway.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.customer_gateways</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `bgpAsn` | `string` | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). |
-| `certificateArn` | `string` | The Amazon Resource Name (ARN) for the customer gateway certificate. |
-| `customerGatewayId` | `string` | The ID of the customer gateway. |
-| `deviceName` | `string` | The name of customer gateway device. |
-| `ipAddress` | `string` | The Internet-routable IP address of the customer gateway's outside interface. |
-| `state` | `string` | The current state of the customer gateway (&lt;code&gt;pending \| available \| deleting \| deleted&lt;/code&gt;). |
-| `tagSet` | `array` | Any tags assigned to the customer gateway. |
-| `type` | `string` | The type of VPN connection the customer gateway supports (&lt;code&gt;ipsec.1&lt;/code&gt;). |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>customer_gateway_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `customer_gateways_Describe` | `SELECT` | `region` | &lt;p&gt;Describes one or more of your VPN customer gateways.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html"&gt;Amazon Web Services Site-to-Site VPN&lt;/a&gt; in the &lt;i&gt;Amazon Web Services Site-to-Site VPN User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `customer_gateway_Create` | `INSERT` | `BgpAsn, Type, region` | &lt;p&gt;Provides information to Amazon Web Services about your VPN customer gateway device. The customer gateway is the appliance at your end of the VPN connection. (The device on the Amazon Web Services side of the VPN connection is the virtual private gateway.) You must provide the internet-routable IP address of the customer gateway's external interface. The IP address must be static and can be behind a device performing network address translation (NAT).&lt;/p&gt; &lt;p&gt;For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see &lt;a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html"&gt;Customer gateway options for your Site-to-Site VPN connection&lt;/a&gt; in the &lt;i&gt;Amazon Web Services Site-to-Site VPN User Guide&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.&lt;/p&gt; |
-| `customer_gateway_Delete` | `DELETE` | `CustomerGatewayId, region` | Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+customer_gateway_id
+FROM aws.ec2.customer_gateways
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>customer_gateways</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateCustomerGateway,
+ec2:DescribeCustomerGateways,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeCustomerGateways
+```
+

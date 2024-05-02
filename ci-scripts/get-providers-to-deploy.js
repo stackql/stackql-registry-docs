@@ -8,7 +8,6 @@ const isMatchRegex = (path) => regex.test(path);
 const rootName = 'root'
 const allProviders = [
     'aws', 
-    'awscc',     
     'azure', 
     'azure_extras',
     'azure_isv',

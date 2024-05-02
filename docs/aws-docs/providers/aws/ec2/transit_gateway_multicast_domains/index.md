@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - transit_gateway_multicast_domains
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,32 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>transit_gateway_multicast_domains</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateway_multicast_domains</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::EC2::TransitGatewayMulticastDomain type</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.transit_gateway_multicast_domains</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `creationTime` | `string` | The time the transit gateway multicast domain was created. |
-| `options` | `object` | Describes the options for a transit gateway multicast domain. |
-| `ownerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain. |
-| `state` | `string` | The state of the transit gateway multicast domain. |
-| `tagSet` | `array` | The tags for the transit gateway multicast domain. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
-| `transitGatewayMulticastDomainArn` | `string` | The Amazon Resource Name (ARN) of the transit gateway multicast domain. |
-| `transitGatewayMulticastDomainId` | `string` | The ID of the transit gateway multicast domain. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>transit_gateway_multicast_domain_id</code></td><td><code>string</code></td><td>The ID of the transit gateway multicast domain.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `transit_gateway_multicast_domains_Describe` | `SELECT` | `region` | Describes one or more transit gateway multicast domains. |
-| `transit_gateway_multicast_domain_Create` | `INSERT` | `TransitGatewayId, region` | &lt;p&gt;Creates a multicast domain using the specified transit gateway.&lt;/p&gt; &lt;p&gt;The transit gateway must be in the available state before you create a domain. Use &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html"&gt;DescribeTransitGateways&lt;/a&gt; to see the state of transit gateway.&lt;/p&gt; |
-| `transit_gateway_multicast_domain_Delete` | `DELETE` | `TransitGatewayMulticastDomainId, region` | Deletes the specified transit gateway multicast domain. |
-| `transit_gateway_multicast_domain_Associate` | `EXEC` | `region` | &lt;p&gt;Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.&lt;/p&gt; &lt;p&gt;The transit gateway attachment must be in the available state before you can add a resource. Use &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html"&gt;DescribeTransitGatewayAttachments&lt;/a&gt; to see the state of the attachment.&lt;/p&gt; |
-| `transit_gateway_multicast_domain_Disassociate` | `EXEC` | `region` | Disassociates the specified subnets from the transit gateway multicast domain.  |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+transit_gateway_multicast_domain_id
+FROM aws.ec2.transit_gateway_multicast_domains
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>transit_gateway_multicast_domains</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:DescribeTransitGatewayMulticastDomains,
+ec2:CreateTransitGatewayMulticastDomain,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeTransitGatewayMulticastDomains
+```
+

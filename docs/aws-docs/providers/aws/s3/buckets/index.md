@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - buckets
   - s3
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,24 +14,88 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>buckets</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.&lt;br&#x2F;&gt; To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see &#91;DeletionPolicy Attribute&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-attribute-deletionpolicy.html).&lt;br&#x2F;&gt;  You can only delete empty buckets. Deletion fails for buckets that have contents.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.s3.buckets</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `CreationDate` | `string` | Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy. |
-| `Name` | `string` | The name of the bucket. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>bucket_name</code></td><td><code>string</code></td><td>A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow &#91;Amazon S3 bucket restrictions and limitations&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;dev&#x2F;BucketRestrictions.html). For more information, see &#91;Rules for naming Amazon S3 buckets&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;dev&#x2F;BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. &lt;br&#x2F;&gt;  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `buckets_List` | `SELECT` | `bucket, region` | Returns a list of all buckets owned by the authenticated sender of the request. To use this operation, you must have the &lt;code&gt;s3:ListAllMyBuckets&lt;/code&gt; permission. |
-| `buckets_Create` | `INSERT` | `bucket, region` | &lt;p&gt;Creates a new S3 bucket. To create a bucket, you must register with Amazon S3 and have a valid Amazon Web Services Access Key ID to authenticate requests. Anonymous requests are never allowed to create buckets. By creating the bucket, you become the bucket owner.&lt;/p&gt; &lt;p&gt;Not every string is an acceptable bucket name. For information about bucket naming restrictions, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html"&gt;Bucket naming rules&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;If you want to create an Amazon S3 on Outposts bucket, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html"&gt;Create Bucket&lt;/a&gt;. &lt;/p&gt; &lt;p&gt;By default, the bucket is created in the US East (N. Virginia) Region. You can optionally specify a Region in the request body. You might choose a Region to optimize latency, minimize costs, or address regulatory requirements. For example, if you reside in Europe, you will probably find it advantageous to create buckets in the Europe (Ireland) Region. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro"&gt;Accessing a bucket&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;If you send your create bucket request to the &lt;code&gt;s3.amazonaws.com&lt;/code&gt; endpoint, the request goes to the us-east-1 Region. Accordingly, the signature calculations in Signature Version 4 must use us-east-1 as the Region, even if the location constraint in the request specifies another Region where the bucket is to be created. If you create a bucket in a Region other than US East (N. Virginia), your application must be able to handle 307 redirect. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html"&gt;Virtual hosting of buckets&lt;/a&gt;.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Access control lists (ACLs)&lt;/b&gt; &lt;/p&gt; &lt;p&gt;When creating a bucket using this operation, you can optionally configure the bucket ACL to specify the accounts or groups that should be granted specific permissions on the bucket.&lt;/p&gt; &lt;important&gt; &lt;p&gt;If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and specifies a bucket ACL that provides access to an external Amazon Web Services account, your request fails with a &lt;code&gt;400&lt;/code&gt; error and returns the &lt;code&gt;InvalidBucketAclWithObjectOwnership&lt;/code&gt; error code. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"&gt;Controlling object ownership&lt;/a&gt; in the &lt;i&gt;Amazon S3 User Guide&lt;/i&gt;.&lt;/p&gt; &lt;/important&gt; &lt;p&gt;There are two ways to grant the appropriate permissions using the request headers.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Specify a canned ACL using the &lt;code&gt;x-amz-acl&lt;/code&gt; request header. Amazon S3 supports a set of predefined ACLs, known as &lt;i&gt;canned ACLs&lt;/i&gt;. Each canned ACL has a predefined set of grantees and permissions. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL"&gt;Canned ACL&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Specify access permissions explicitly using the &lt;code&gt;x-amz-grant-read&lt;/code&gt;, &lt;code&gt;x-amz-grant-write&lt;/code&gt;, &lt;code&gt;x-amz-grant-read-acp&lt;/code&gt;, &lt;code&gt;x-amz-grant-write-acp&lt;/code&gt;, and &lt;code&gt;x-amz-grant-full-control&lt;/code&gt; headers. These headers map to the set of permissions Amazon S3 supports in an ACL. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html"&gt;Access control list (ACL) overview&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;You specify each grantee as a type=value pair, where the type is one of the following:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;id&lt;/code&gt; – if the value specified is the canonical user ID of an Amazon Web Services account&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;uri&lt;/code&gt; – if you are granting permissions to a predefined group&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;emailAddress&lt;/code&gt; – if the value specified is the email address of an Amazon Web Services account&lt;/p&gt; &lt;note&gt; &lt;p&gt;Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;US East (N. Virginia)&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;US West (N. California)&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; US West (Oregon)&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; Asia Pacific (Singapore)&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Asia Pacific (Sydney)&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Asia Pacific (Tokyo)&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Europe (Ireland)&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;South America (São Paulo)&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;For a list of all the Amazon S3 supported Regions and endpoints, see &lt;a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region"&gt;Regions and Endpoints&lt;/a&gt; in the Amazon Web Services General Reference.&lt;/p&gt; &lt;/note&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;For example, the following &lt;code&gt;x-amz-grant-read&lt;/code&gt; header grants the Amazon Web Services accounts identified by account IDs permissions to read object data and its metadata:&lt;/p&gt; &lt;p&gt; &lt;code&gt;x-amz-grant-read: id="11112222333", id="444455556666" &lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;note&gt; &lt;p&gt;You can use either a canned ACL or specify access permissions explicitly. You cannot do both.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Permissions&lt;/b&gt; &lt;/p&gt; &lt;p&gt;In addition to &lt;code&gt;s3:CreateBucket&lt;/code&gt;, the following permissions are required when your CreateBucket includes specific headers:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;b&gt;ACLs&lt;/b&gt; - If your &lt;code&gt;CreateBucket&lt;/code&gt; request specifies ACL permissions and the ACL is public-read, public-read-write, authenticated-read, or if you specify access permissions explicitly through any other ACL, both &lt;code&gt;s3:CreateBucket&lt;/code&gt; and &lt;code&gt;s3:PutBucketAcl&lt;/code&gt; permissions are needed. If the ACL the &lt;code&gt;CreateBucket&lt;/code&gt; request is private or doesn't specify any ACLs, only &lt;code&gt;s3:CreateBucket&lt;/code&gt; permission is needed. &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;b&gt;Object Lock&lt;/b&gt; - If &lt;code&gt;ObjectLockEnabledForBucket&lt;/code&gt; is set to true in your &lt;code&gt;CreateBucket&lt;/code&gt; request, &lt;code&gt;s3:PutBucketObjectLockConfiguration&lt;/code&gt; and &lt;code&gt;s3:PutBucketVersioning&lt;/code&gt; permissions are required.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;b&gt;S3 Object Ownership&lt;/b&gt; - If your CreateBucket request includes the the &lt;code&gt;x-amz-object-ownership&lt;/code&gt; header, &lt;code&gt;s3:PutBucketOwnershipControls&lt;/code&gt; permission is required.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;The following operations are related to &lt;code&gt;CreateBucket&lt;/code&gt;:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html"&gt;PutObject&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html"&gt;DeleteBucket&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `buckets_Delete` | `DELETE` | `bucket, region` | &lt;p&gt;Deletes the S3 bucket. All objects (including all object versions and delete markers) in the bucket must be deleted before the bucket itself can be deleted.&lt;/p&gt; &lt;p class="title"&gt; &lt;b&gt;Related Resources&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html"&gt;CreateBucket&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html"&gt;DeleteObject&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+bucket_name
+FROM aws.s3.buckets
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>buckets</code> resource, the following permissions are required:
+
+### Create
+```json
+s3:CreateBucket,
+s3:PutBucketTagging,
+s3:PutAnalyticsConfiguration,
+s3:PutEncryptionConfiguration,
+s3:PutBucketCORS,
+s3:PutInventoryConfiguration,
+s3:PutLifecycleConfiguration,
+s3:PutMetricsConfiguration,
+s3:PutBucketNotification,
+s3:PutBucketReplication,
+s3:PutBucketWebsite,
+s3:PutAccelerateConfiguration,
+s3:PutBucketPublicAccessBlock,
+s3:PutReplicationConfiguration,
+s3:PutObjectAcl,
+s3:PutBucketObjectLockConfiguration,
+s3:GetBucketAcl,
+s3:ListBucket,
+iam:PassRole,
+s3:DeleteObject,
+s3:PutBucketLogging,
+s3:PutBucketVersioning,
+s3:PutObjectLockConfiguration,
+s3:PutBucketOwnershipControls,
+s3:PutIntelligentTieringConfiguration
+```
+
+### List
+```json
+s3:ListAllMyBuckets
+```
+

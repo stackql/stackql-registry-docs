@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - vpc_endpoint_services
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,35 +14,71 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>vpc_endpoint_services</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_endpoint_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::VPCEndpointService</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.vpc_endpoint_services</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `acceptanceRequired` | `boolean` | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner. |
-| `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
-| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
-| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
-| `owner` | `string` | The Amazon Web Services account ID of the service owner. |
-| `payerResponsibility` | `string` | The payer responsibility. |
-| `privateDnsName` | `string` | The private DNS name for the service. |
-| `privateDnsNameSet` | `array` | The private DNS names assigned to the VPC endpoint service.  |
-| `privateDnsNameVerificationState` | `string` | &lt;p&gt;The verification state of the VPC endpoint service.&lt;/p&gt; &lt;p&gt;Consumers of the endpoint service cannot use the private name when the state is not &lt;code&gt;verified&lt;/code&gt;.&lt;/p&gt; |
-| `serviceId` | `string` | The ID of the endpoint service. |
-| `serviceName` | `string` | The Amazon Resource Name (ARN) of the service. |
-| `serviceType` | `array` | The type of service. |
-| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
-| `tagSet` | `array` | Any tags assigned to the service. |
-| `vpcEndpointPolicySupported` | `boolean` | Indicates whether the service supports endpoint policies. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>service_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `vpc_endpoint_services_Describe` | `SELECT` | `region` |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+service_id
+FROM aws.ec2.vpc_endpoint_services
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>vpc_endpoint_services</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateVpcEndpointServiceConfiguration,
+ec2:ModifyVpcEndpointServiceConfiguration,
+ec2:ModifyVpcEndpointServicePayerResponsibility,
+cloudwatch:ListManagedInsightRules,
+cloudwatch:DeleteInsightRules,
+cloudwatch:PutManagedInsightRules,
+ec2:DescribeVpcEndpointServiceConfigurations
+```
+
+### List
+```json
+ec2:DescribeVpcEndpointServiceConfigurations,
+cloudwatch:ListManagedInsightRules
+```
+

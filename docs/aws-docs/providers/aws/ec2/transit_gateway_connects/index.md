@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - transit_gateway_connects
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,29 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>transit_gateway_connects</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateway_connects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::EC2::TransitGatewayConnect type</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.transit_gateway_connects</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `creationTime` | `string` | The creation time. |
-| `options` | `object` | Describes the Connect attachment options. |
-| `state` | `string` | The state of the attachment. |
-| `tagSet` | `array` | The tags for the attachment. |
-| `transitGatewayAttachmentId` | `string` | The ID of the Connect attachment. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
-| `transportTransitGatewayAttachmentId` | `string` | The ID of the attachment from which the Connect attachment was created. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>transit_gateway_attachment_id</code></td><td><code>string</code></td><td>The ID of the Connect attachment.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `transit_gateway_connects_Describe` | `SELECT` | `region` | Describes one or more Connect attachments. |
-| `transit_gateway_connect_Create` | `INSERT` | `Options, TransportTransitGatewayAttachmentId, region` | &lt;p&gt;Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.&lt;/p&gt; &lt;p&gt;A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.&lt;/p&gt; |
-| `transit_gateway_connect_Delete` | `DELETE` | `TransitGatewayAttachmentId, region` | Deletes the specified Connect attachment. You must first delete any Connect peers for the attachment. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+transit_gateway_attachment_id
+FROM aws.ec2.transit_gateway_connects
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>transit_gateway_connects</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateTransitGatewayConnect,
+ec2:DescribeTransitGatewayConnects,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeTransitGatewayConnects
+```
+

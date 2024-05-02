@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - network_insights_analyses
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,34 +14,74 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>network_insights_analyses</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_insights_analyses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource schema for AWS::EC2::NetworkInsightsAnalysis</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.network_insights_analyses</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `alternatePathHintSet` | `array` | Potential intermediate components. |
-| `explanationSet` | `array` | The explanations. For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html"&gt;Reachability Analyzer explanation codes&lt;/a&gt;. |
-| `filterInArnSet` | `array` | The Amazon Resource Names (ARN) of the Amazon Web Services resources that the path must traverse. |
-| `forwardPathComponentSet` | `array` | The components in the path from source to destination. |
-| `networkInsightsAnalysisArn` | `string` | The Amazon Resource Name (ARN) of the network insights analysis. |
-| `networkInsightsAnalysisId` | `string` | The ID of the network insights analysis. |
-| `networkInsightsPathId` | `string` | The ID of the path. |
-| `networkPathFound` | `boolean` | Indicates whether the destination is reachable from the source. |
-| `returnPathComponentSet` | `array` | The components in the path from destination to source. |
-| `startDate` | `string` | The time the analysis started. |
-| `status` | `string` | The status of the network insights analysis. |
-| `statusMessage` | `string` | The status message, if the status is &lt;code&gt;failed&lt;/code&gt;. |
-| `tagSet` | `array` | The tags. |
-| `warningMessage` | `string` | The warning message. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>network_insights_analysis_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `network_insights_analyses_Describe` | `SELECT` | `region` |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+network_insights_analysis_id
+FROM aws.ec2.network_insights_analyses
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>network_insights_analyses</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateTags,
+ec2:StartNetworkInsightsAnalysis,
+ec2:GetTransitGatewayRouteTablePropagations,
+ec2:SearchTransitGatewayRoutes,
+ec2:Describe*,
+ec2:GetManagedPrefixListEntries,
+elasticloadbalancing:Describe*,
+directconnect:Describe*,
+tiros:CreateQuery,
+tiros:GetQueryAnswer,
+tiros:GetQueryExplanation
+```
+
+### List
+```json
+ec2:Describe*
+```
+

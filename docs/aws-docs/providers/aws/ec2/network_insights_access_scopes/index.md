@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - network_insights_access_scopes
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,27 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>network_insights_access_scopes</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_insights_access_scopes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource schema for AWS::EC2::NetworkInsightsAccessScope</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.network_insights_access_scopes</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `createdDate` | `string` | The creation date. |
-| `networkInsightsAccessScopeArn` | `string` | The Amazon Resource Name (ARN) of the Network Access Scope. |
-| `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
-| `tagSet` | `array` | The tags. |
-| `updatedDate` | `string` | The last updated date. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>network_insights_access_scope_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `network_insights_access_scopes_Describe` | `SELECT` | `region` | Describes the specified Network Access Scopes. |
-| `network_insights_access_scope_Create` | `INSERT` | `ClientToken, region` | &lt;p&gt;Creates a Network Access Scope.&lt;/p&gt; &lt;p&gt;Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/"&gt;Amazon Web Services Network Access Analyzer Guide&lt;/a&gt;.&lt;/p&gt; |
-| `network_insights_access_scope_Delete` | `DELETE` | `NetworkInsightsAccessScopeId, region` | Deletes the specified Network Access Scope. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+network_insights_access_scope_id
+FROM aws.ec2.network_insights_access_scopes
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>network_insights_access_scopes</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateNetworkInsightsAccessScope,
+ec2:CreateTags,
+tiros:CreateQuery
+```
+
+### List
+```json
+ec2:DescribeNetworkInsightsAccessScopes
+```
+

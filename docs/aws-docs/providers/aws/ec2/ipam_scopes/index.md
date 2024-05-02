@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - ipam_scopes
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,34 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>ipam_scopes</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ipam_scopes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Schema of AWS::EC2::IPAMScope Type</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.ipam_scopes</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `description` | `string` | The description of the scope. |
-| `ipamArn` | `string` | The ARN of the IPAM. |
-| `ipamRegion` | `string` | The Amazon Web Services Region of the IPAM scope. |
-| `ipamScopeArn` | `string` | The ARN of the scope. |
-| `ipamScopeId` | `string` | The ID of the scope. |
-| `ipamScopeType` | `string` | The type of the scope. |
-| `isDefault` | `boolean` | Defines if the scope is the default scope or not. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the scope. |
-| `poolCount` | `integer` | The number of pools in the scope. |
-| `state` | `string` | The state of the IPAM scope. |
-| `tagSet` | `array` | The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key &lt;code&gt;Owner&lt;/code&gt; and the value &lt;code&gt;TeamA&lt;/code&gt;, specify &lt;code&gt;tag:Owner&lt;/code&gt; for the filter name and &lt;code&gt;TeamA&lt;/code&gt; for the filter value. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>ipam_scope_id</code></td><td><code>string</code></td><td>Id of the IPAM scope.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `ipam_scopes_Describe` | `SELECT` | `region` | Get information about your IPAM scopes. |
-| `ipam_scope_Create` | `INSERT` | `IpamId, region` | &lt;p&gt;Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="/vpc/latest/ipam/add-scope-ipam.html"&gt;Add a scope&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `ipam_scope_Delete` | `DELETE` | `IpamScopeId, region` | &lt;p&gt;Delete the scope for an IPAM. You cannot delete the default scopes.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="/vpc/latest/ipam/delete-scope-ipam.html"&gt;Delete a scope&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. &lt;/p&gt; |
-| `ipam_scope_Modify` | `EXEC` | `IpamScopeId, region` | Modify an IPAM scope. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+ipam_scope_id
+FROM aws.ec2.ipam_scopes
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>ipam_scopes</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateIpamScope,
+ec2:DescribeIpamScopes,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeIpamScopes
+```
+

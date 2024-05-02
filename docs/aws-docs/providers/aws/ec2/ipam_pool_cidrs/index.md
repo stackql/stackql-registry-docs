@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - ipam_pool_cidrs
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,26 +14,67 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>ipam_pool_cidrs</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ipam_pool_cidrs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Schema of AWS::EC2::IPAMPoolCidr Type</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.ipam_pool_cidrs</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `cidr` | `string` | The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is &lt;code&gt;10.24.34.0/23&lt;/code&gt;. An IPv6 CIDR example is &lt;code&gt;2001:DB8::/32&lt;/code&gt;. |
-| `failureReason` | `object` | Details related to why an IPAM pool CIDR failed to be provisioned. |
-| `state` | `string` | The state of the CIDR. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>ipam_pool_id</code></td><td><code>string</code></td><td>Id of the IPAM Pool.</td></tr>
+<tr><td><code>ipam_pool_cidr_id</code></td><td><code>string</code></td><td>Id of the IPAM Pool Cidr.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `ipam_pool_cidrs_Get` | `SELECT` | `IpamPoolId, region` | Get the CIDRs provisioned to an IPAM pool. |
-| `ipam_pool_cidr_Allocate` | `EXEC` | `IpamPoolId, region` | Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see &lt;a href="/vpc/latest/ipam/allocate-cidrs-ipam.html"&gt;Allocate CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
-| `ipam_pool_cidr_Deprovision` | `EXEC` | `IpamPoolId, region` | Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see &lt;a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html"&gt;Deprovision pool CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
-| `ipam_pool_cidr_Provision` | `EXEC` | `IpamPoolId, region` | &lt;p&gt;Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="/vpc/latest/ipam/prov-cidr-ipam.html"&gt;Provision CIDRs to pools&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. &lt;/p&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+ipam_pool_id,
+ipam_pool_cidr_id
+FROM aws.ec2.ipam_pool_cidrs
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>ipam_pool_cidrs</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:ProvisionIpamPoolCidr,
+ec2:GetIpamPoolCidrs
+```
+
+### List
+```json
+ec2:GetIpamPoolCidrs
+```
+

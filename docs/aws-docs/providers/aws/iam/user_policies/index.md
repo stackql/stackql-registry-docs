@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - user_policies
   - iam
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,28 +14,52 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+List of user policies by UserName (requires `aws` provider to be installed)
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>List of user policies by UserName (requires `aws` provider to be installed)</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iam.user_policies</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `PolicyDocument` | `string` | &lt;p&gt;The policy document.&lt;/p&gt; &lt;p&gt;IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.&lt;/p&gt; |
-| `PolicyName` | `string` | The name of the policy. |
-| `UserName` | `string` | The user the policy is associated with. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>user_name</code></td><td><code>string</code></td><td>The IAM user name</td></tr>
+<tr><td><code>member</code></td><td><code>string</code></td><td>The user policy name</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `user_policies_Get` | `SELECT` | `PolicyName, UserName, region` | &lt;p&gt;Retrieves the specified inline policy document that is embedded in the specified IAM user.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Policies returned by this operation are URL-encoded compliant with &lt;a href="https://tools.ietf.org/html/rfc3986"&gt;RFC 3986&lt;/a&gt;. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the &lt;code&gt;decode&lt;/code&gt; method of the &lt;code&gt;java.net.URLDecoder&lt;/code&gt; utility class in the Java SDK. Other languages and SDKs provide similar functionality.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;An IAM user can also have managed policies attached to it. To retrieve a managed policy document that is attached to a user, use &lt;a&gt;GetPolicy&lt;/a&gt; to determine the policy's default version. Then use &lt;a&gt;GetPolicyVersion&lt;/a&gt; to retrieve the policy document.&lt;/p&gt; &lt;p&gt;For more information about policies, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html"&gt;Managed policies and inline policies&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `user_policies_List` | `SELECT` | `UserName, region` | &lt;p&gt;Lists the names of the inline policies embedded in the specified IAM user.&lt;/p&gt; &lt;p&gt;An IAM user can also have managed policies attached to it. To list the managed policies that are attached to a user, use &lt;a&gt;ListAttachedUserPolicies&lt;/a&gt;. For more information about policies, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html"&gt;Managed policies and inline policies&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;You can paginate the results using the &lt;code&gt;MaxItems&lt;/code&gt; and &lt;code&gt;Marker&lt;/code&gt; parameters. If there are no inline policies embedded with the specified user, the operation returns an empty list.&lt;/p&gt; |
-| `user_policies_Delete` | `DELETE` | `PolicyName, UserName, region` | &lt;p&gt;Deletes the specified inline policy that is embedded in the specified IAM user.&lt;/p&gt; &lt;p&gt;A user can also have managed policies attached to it. To detach a managed policy from a user, use &lt;a&gt;DetachUserPolicy&lt;/a&gt;. For more information about policies, refer to &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html"&gt;Managed policies and inline policies&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `user_policies_Attach` | `EXEC` | `PolicyArn, UserName, region` | &lt;p&gt;Attaches the specified managed policy to the specified user.&lt;/p&gt; &lt;p&gt;You use this operation to attach a &lt;i&gt;managed&lt;/i&gt; policy to a user. To embed an inline policy in a user, use &lt;a&gt;PutUserPolicy&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;As a best practice, you can validate your IAM policies. To learn more, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html"&gt;Validating IAM policies&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;For more information about policies, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html"&gt;Managed policies and inline policies&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `user_policies_Detach` | `EXEC` | `PolicyArn, UserName, region` | &lt;p&gt;Removes the specified managed policy from the specified user.&lt;/p&gt; &lt;p&gt;A user can also have inline policies embedded with it. To delete an inline policy, use &lt;a&gt;DeleteUserPolicy&lt;/a&gt;. For information about policies, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html"&gt;Managed policies and inline policies&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `user_policies_Put` | `EXEC` | `PolicyDocument, PolicyName, UserName, region` | &lt;p&gt;Adds or updates an inline policy document that is embedded in the specified IAM user.&lt;/p&gt; &lt;p&gt;An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use &lt;a&gt;AttachUserPolicy&lt;/a&gt;. To create a new managed policy, use &lt;a&gt;CreatePolicy&lt;/a&gt;. For information about policies, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html"&gt;Managed policies and inline policies&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;For information about the maximum number of inline policies that you can embed in a user, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html"&gt;IAM and STS quotas&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Because policy documents can be large, you should use POST rather than GET when calling &lt;code&gt;PutUserPolicy&lt;/code&gt;. For general information about using the Query API with IAM, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html"&gt;Making query requests&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; &lt;/note&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>view</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+user_name,
+member,
+region
+FROM aws.iam.user_policies
+WHERE UserName = '<UserName>';
+```
+
+
+
+

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - transit_gateway_multicast_group_members
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,20 +14,69 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>transit_gateway_multicast_group_members</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateway_multicast_group_members</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.transit_gateway_multicast_group_members</code></td></tr>
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>transit_gateway_multicast_domain_id</code></td><td><code>string</code></td><td>The ID of the transit gateway multicast domain.</td></tr>
+<tr><td><code>group_ip_address</code></td><td><code>string</code></td><td>The IP address assigned to the transit gateway multicast group.</td></tr>
+<tr><td><code>network_interface_id</code></td><td><code>string</code></td><td>The ID of the transit gateway attachment.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `transit_gateway_multicast_group_members_Deregister` | `EXEC` | `region` | Deregisters the specified members (network interfaces) from the transit gateway multicast group. |
-| `transit_gateway_multicast_group_members_Register` | `EXEC` | `region` | &lt;p&gt;Registers members (network interfaces) with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For information about supported instances, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits"&gt;Multicast Consideration&lt;/a&gt; in &lt;i&gt;Amazon VPC Transit Gateways&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;After you add the members, use &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html"&gt;SearchTransitGatewayMulticastGroups&lt;/a&gt; to verify that the members were added to the transit gateway multicast group.&lt;/p&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+transit_gateway_multicast_domain_id,
+group_ip_address,
+network_interface_id
+FROM aws.ec2.transit_gateway_multicast_group_members
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>transit_gateway_multicast_group_members</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:RegisterTransitGatewayMulticastGroupMembers,
+ec2:SearchTransitGatewayMulticastGroups
+```
+
+### List
+```json
+ec2:SearchTransitGatewayMulticastGroups
+```
+

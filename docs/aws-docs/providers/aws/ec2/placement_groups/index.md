@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - placement_groups
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,29 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>placement_groups</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>placement_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::PlacementGroup</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.placement_groups</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `groupArn` | `string` | The Amazon Resource Name (ARN) of the placement group. |
-| `groupId` | `string` | The ID of the placement group. |
-| `groupName` | `string` | The name of the placement group. |
-| `partitionCount` | `integer` | The number of partitions. Valid only if &lt;b&gt;strategy&lt;/b&gt; is set to &lt;code&gt;partition&lt;/code&gt;. |
-| `state` | `string` | The state of the placement group. |
-| `strategy` | `string` | The placement strategy. |
-| `tagSet` | `array` | Any tags applied to the placement group. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>group_name</code></td><td><code>string</code></td><td>The Group Name of Placement Group.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `placement_groups_Describe` | `SELECT` | `region` | Describes the specified placement groups or all of your placement groups. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"&gt;Placement groups&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `placement_group_Create` | `INSERT` | `region` | &lt;p&gt;Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. &lt;/p&gt; &lt;p&gt;A &lt;code&gt;cluster&lt;/code&gt; placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A &lt;code&gt;spread&lt;/code&gt; placement group places instances on distinct hardware. A &lt;code&gt;partition&lt;/code&gt; placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"&gt;Placement groups&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `placement_group_Delete` | `DELETE` | `GroupName, region` | Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"&gt;Placement groups&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+group_name
+FROM aws.ec2.placement_groups
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>placement_groups</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreatePlacementGroup,
+ec2:DescribePlacementGroups,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribePlacementGroups
+```
+

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - capacity_reservation_fleets
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,35 +14,75 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>capacity_reservation_fleets</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>capacity_reservation_fleets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::CapacityReservationFleet</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.capacity_reservation_fleets</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `allocationStrategy` | `string` | The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. For more information, see For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy"&gt; Allocation strategy&lt;/a&gt; in the Amazon EC2 User Guide. |
-| `capacityReservationFleetArn` | `string` | The ARN of the Capacity Reservation Fleet. |
-| `capacityReservationFleetId` | `string` | The ID of the Capacity Reservation Fleet. |
-| `createTime` | `string` | The date and time at which the Capacity Reservation Fleet was created. |
-| `endDate` | `string` | The date and time at which the Capacity Reservation Fleet expires. |
-| `instanceMatchCriteria` | `string` | &lt;p&gt;Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.&lt;/p&gt; &lt;p&gt;Currently, Capacity Reservation Fleets support &lt;code&gt;open&lt;/code&gt; instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.&lt;/p&gt; |
-| `instanceTypeSpecificationSet` | `array` | Information about the instance types for which to reserve the capacity. |
-| `state` | `string` | &lt;p&gt;The state of the Capacity Reservation Fleet. Possible states include:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;submitted&lt;/code&gt; - The Capacity Reservation Fleet request has been submitted and Amazon Elastic Compute Cloud is preparing to create the Capacity Reservations.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;modifying&lt;/code&gt; - The Capacity Reservation Fleet is being modified. The Fleet remains in this state until the modification is complete.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;active&lt;/code&gt; - The Capacity Reservation Fleet has fulfilled its total target capacity and it is attempting to maintain this capacity. The Fleet remains in this state until it is modified or deleted.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;partially_fulfilled&lt;/code&gt; - The Capacity Reservation Fleet has partially fulfilled its total target capacity. There is insufficient Amazon EC2 to fulfill the total target capacity. The Fleet is attempting to asynchronously fulfill its total target capacity.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;expiring&lt;/code&gt; - The Capacity Reservation Fleet has reach its end date and it is in the process of expiring. One or more of its Capacity reservations might still be active.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;expired&lt;/code&gt; - The Capacity Reservation Fleet has reach its end date. The Fleet and its Capacity Reservations are expired. The Fleet can't create new Capacity Reservations.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;cancelling&lt;/code&gt; - The Capacity Reservation Fleet is in the process of being cancelled. One or more of its Capacity reservations might still be active.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;cancelled&lt;/code&gt; - The Capacity Reservation Fleet has been manually cancelled. The Fleet and its Capacity Reservations are cancelled and the Fleet can't create new Capacity Reservations.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failed&lt;/code&gt; - The Capacity Reservation Fleet failed to reserve capacity for the specified instance types.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `tagSet` | `array` | The tags assigned to the Capacity Reservation Fleet. |
-| `tenancy` | `string` | &lt;p&gt;The tenancy of the Capacity Reservation Fleet. Tenancies include:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;default&lt;/code&gt; - The Capacity Reservation Fleet is created on hardware that is shared with other Amazon Web Services accounts.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;dedicated&lt;/code&gt; - The Capacity Reservation Fleet is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `totalFulfilledCapacity` | `number` | The capacity units that have been fulfilled. |
-| `totalTargetCapacity` | `integer` | The total number of capacity units for which the Capacity Reservation Fleet reserves capacity. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity"&gt;Total target capacity&lt;/a&gt; in the Amazon EC2 User Guide. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>capacity_reservation_fleet_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `capacity_reservation_fleets_Describe` | `SELECT` | `region` | Describes one or more Capacity Reservation Fleets. |
-| `capacity_reservation_fleet_Create` | `EXEC` | `InstanceTypeSpecification, TotalTargetCapacity, region` | Creates a Capacity Reservation Fleet. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet"&gt;Create a Capacity Reservation Fleet&lt;/a&gt; in the Amazon EC2 User Guide. |
-| `capacity_reservation_fleet_Modify` | `EXEC` | `CapacityReservationFleetId, region` | &lt;p&gt;Modifies a Capacity Reservation Fleet.&lt;/p&gt; &lt;p&gt;When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for all of the individual Capacity Reservations in the Fleet are updated accordingly.&lt;/p&gt; |
-| `capacity_reservation_fleets_Cancel` | `EXEC` | `CapacityReservationFleetId, region` | &lt;p&gt;Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation Fleet, the following happens:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;The Capacity Reservation Fleet's status changes to &lt;code&gt;cancelled&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;The individual Capacity Reservations in the Fleet are cancelled. Instances running in the Capacity Reservations at the time of cancelling the Fleet continue to run in shared capacity.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;The Fleet stops creating new Capacity Reservations.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+capacity_reservation_fleet_id
+FROM aws.ec2.capacity_reservation_fleets
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>capacity_reservation_fleets</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateCapacityReservationFleet,
+ec2:ModifyCapacityReservationFleet,
+ec2:DescribeCapacityReservationFleets,
+ec2:CancelCapacityReservationFleets,
+ec2:CreateCapacityReservation,
+ec2:DescribeCapacityReservations,
+ec2:CancelCapacityReservation,
+ec2:DescribeInstances,
+ec2:CreateTags,
+iam:CreateServiceLinkedRole
+```
+
+### List
+```json
+ec2:DescribeCapacityReservationFleets,
+ec2:DescribeCapacityReservations,
+ec2:DescribeInstances
+```
+

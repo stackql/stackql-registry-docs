@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - groups
   - iam
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,29 +14,68 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>groups</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Creates a new group.&lt;br&#x2F;&gt;  For information about the number of groups you can create, see &#91;Limitations on Entities&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;UserGuide&#x2F;LimitationsOnEntities.html) in the *User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iam.groups</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `Arn` | `string` | &lt;p&gt;The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.&lt;/p&gt; &lt;p&gt;For more information about ARNs, go to &lt;a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html"&gt;Amazon Resource Names (ARNs)&lt;/a&gt; in the &lt;i&gt;Amazon Web Services General Reference&lt;/i&gt;. &lt;/p&gt; |
-| `CreateDate` | `string` | The date and time, in &lt;a href="http://www.iso.org/iso/iso8601"&gt;ISO 8601 date-time format&lt;/a&gt;, when the group was created. |
-| `GroupId` | `string` |  The stable and unique string identifying the group. For more information about IDs, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html"&gt;IAM identifiers&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.  |
-| `GroupName` | `string` | The friendly name that identifies the group. |
-| `Path` | `string` | The path to the group. For more information about paths, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html"&gt;IAM identifiers&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.  |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>group_name</code></td><td><code>string</code></td><td>The name of the group to create. Do not include the path in this value.&lt;br&#x2F;&gt; The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins". If you don't specify a name, CFN generates a unique physical ID and uses that ID for the group name.&lt;br&#x2F;&gt;  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.&lt;br&#x2F;&gt;  If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see &#91;Acknowledging Resources in Templates&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;using-iam-template.html#using-iam-capabilities).&lt;br&#x2F;&gt;  Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``&#123;"Fn::Join": &#91;"", &#91;&#123;"Ref": "AWS::Region"&#125;, &#123;"Ref": "MyResourceName"&#125;&#93;&#93;&#125;``.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `groups_Get` | `SELECT` | `GroupName, region` |  Returns a list of IAM users that are in the specified IAM group. You can paginate the results using the &lt;code&gt;MaxItems&lt;/code&gt; and &lt;code&gt;Marker&lt;/code&gt; parameters. |
-| `groups_List` | `SELECT` | `region` | &lt;p&gt;Lists the IAM groups that have the specified path prefix.&lt;/p&gt; &lt;p&gt; You can paginate the results using the &lt;code&gt;MaxItems&lt;/code&gt; and &lt;code&gt;Marker&lt;/code&gt; parameters.&lt;/p&gt; |
-| `groups_Create` | `INSERT` | `GroupName, region` | &lt;p&gt;Creates a new group.&lt;/p&gt; &lt;p&gt; For information about the number of groups you can create, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html"&gt;IAM and STS quotas&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `groups_Delete` | `DELETE` | `GroupName, region` | Deletes the specified IAM group. The group must not contain any users or have any attached policies. |
-| `groups_Update` | `EXEC` | `GroupName, region` | &lt;p&gt;Updates the name and/or the path of the specified IAM group.&lt;/p&gt; &lt;important&gt; &lt;p&gt; You should understand the implications of changing a group's path or name. For more information, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html"&gt;Renaming users and groups&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.&lt;/p&gt; &lt;/important&gt; &lt;note&gt; &lt;p&gt;The person making the request (the principal), must have permission to change the role group with the old name and the new name. For example, to change the group named &lt;code&gt;Managers&lt;/code&gt; to &lt;code&gt;MGRs&lt;/code&gt;, the principal must have a policy that allows them to update both groups. If the principal has permission to update the &lt;code&gt;Managers&lt;/code&gt; group, but not the &lt;code&gt;MGRs&lt;/code&gt; group, then the update fails. For more information about permissions, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html"&gt;Access management&lt;/a&gt;. &lt;/p&gt; &lt;/note&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+group_name
+FROM aws.iam.groups
+
+```
+
+## Permissions
+
+To operate on the <code>groups</code> resource, the following permissions are required:
+
+### Create
+```json
+iam:CreateGroup,
+iam:PutGroupPolicy,
+iam:AttachGroupPolicy,
+iam:GetGroupPolicy,
+iam:GetGroup
+```
+
+### List
+```json
+iam:ListGroups
+```
+

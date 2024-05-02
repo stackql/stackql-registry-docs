@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - security_groups
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,30 +14,69 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>security_groups</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::SecurityGroup</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.security_groups</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `groupDescription` | `string` | A description of the security group. |
-| `groupId` | `string` | The ID of the security group. |
-| `groupName` | `string` | The name of the security group. |
-| `ipPermissions` | `array` | The inbound rules associated with the security group. |
-| `ipPermissionsEgress` | `array` | [VPC only] The outbound rules associated with the security group. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the security group. |
-| `tagSet` | `array` | Any tags assigned to the security group. |
-| `vpcId` | `string` | [VPC only] The ID of the VPC for the security group. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>The group name or group ID depending on whether the SG is created in default or specific VPC</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `security_groups_Describe` | `SELECT` | `region` | &lt;p&gt;Describes the specified security groups or all of your security groups.&lt;/p&gt; &lt;p&gt;A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html"&gt;Amazon EC2 security groups&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt; and &lt;a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html"&gt;Security groups for your VPC&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `security_group_Create` | `INSERT` | `GroupDescription, GroupName, region` | &lt;p&gt;Creates a security group.&lt;/p&gt; &lt;p&gt;A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html"&gt;Amazon EC2 security groups&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt; and &lt;a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html"&gt;Security groups for your VPC&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.&lt;/p&gt; &lt;p&gt;You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.&lt;/p&gt; &lt;p&gt;You can add or remove rules from your security groups using &lt;a&gt;AuthorizeSecurityGroupIngress&lt;/a&gt;, &lt;a&gt;AuthorizeSecurityGroupEgress&lt;/a&gt;, &lt;a&gt;RevokeSecurityGroupIngress&lt;/a&gt;, and &lt;a&gt;RevokeSecurityGroupEgress&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;For more information about VPC security group limits, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html"&gt;Amazon VPC Limits&lt;/a&gt;.&lt;/p&gt; |
-| `security_group_Delete` | `DELETE` | `region` | &lt;p&gt;Deletes a security group.&lt;/p&gt; &lt;p&gt;If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with &lt;code&gt;InvalidGroup.InUse&lt;/code&gt; in EC2-Classic or &lt;code&gt;DependencyViolation&lt;/code&gt; in EC2-VPC.&lt;/p&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+id
+FROM aws.ec2.security_groups
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>security_groups</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateSecurityGroup,
+ec2:DescribeSecurityGroups,
+ec2:RevokeSecurityGroupEgress,
+ec2:AuthorizeSecurityGroupEgress,
+ec2:AuthorizeSecurityGroupIngress,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeSecurityGroups
+```
+

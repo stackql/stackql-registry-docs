@@ -78,7 +78,7 @@ jobs:
           if [ $PROVIDER == "root" ]; then
             echo "adding vanity url redirects to _redirects file.."
             touch ./build/_redirects
-            array=( aws awscc azure azure-extras azure-isv azure-stack digitalocean firebase github google googleadmin k8s linode netlify okta sumologic vercel godaddy pagerduty homebrew datadog )
+            array=( aws azure azure-extras azure-isv azure-stack digitalocean firebase github google googleadmin k8s linode netlify okta sumologic vercel godaddy pagerduty homebrew datadog )
             for i in "${array[@]}"
             do
               echo "adding redirects for $i"

@@ -1,0 +1,102 @@
+---
+title: static_ip
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - static_ip
+  - lightsail
+  - aws
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage AWS resources using SQL
+custom_edit_url: null
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
+---
+Gets an individual <code>static_ip</code> resource
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>static_ip</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Lightsail::StaticIp</td></tr>
+<tr><td><b>Id</b></td><td><code>aws.lightsail.static_ip</code></td></tr>
+</tbody></table>
+
+## Fields
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>static_ip_name</code></td><td><code>string</code></td><td>The name of the static IP address.</td></tr>
+<tr><td><code>attached_to</code></td><td><code>string</code></td><td>The instance where the static IP is attached.</td></tr>
+<tr><td><code>is_attached</code></td><td><code>boolean</code></td><td>A Boolean value indicating whether the static IP is attached.</td></tr>
+<tr><td><code>ip_address</code></td><td><code>string</code></td><td>The static IP address.</td></tr>
+<tr><td><code>static_ip_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
+## Methods
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>update_resource</code></td>
+    <td><code>UPDATE</code></td>
+    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+  </tr>
+  <tr>
+    <td><code>delete_resource</code></td>
+    <td><code>DELETE</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+  <tr>
+    <td><code>get_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+static_ip_name,
+attached_to,
+is_attached,
+ip_address,
+static_ip_arn
+FROM aws.lightsail.static_ip
+WHERE data__Identifier = '<StaticIpName>';
+```
+
+## Permissions
+
+To operate on the <code>static_ip</code> resource, the following permissions are required:
+
+### Read
+```json
+lightsail:GetStaticIp,
+lightsail:GetStaticIps
+```
+
+### Update
+```json
+lightsail:AttachStaticIp,
+lightsail:DetachStaticIp,
+lightsail:GetInstance,
+lightsail:GetStaticIp,
+lightsail:GetStaticIps
+```
+
+### Delete
+```json
+lightsail:GetStaticIp,
+lightsail:GetStaticIps,
+lightsail:ReleaseStaticIp
+```
+

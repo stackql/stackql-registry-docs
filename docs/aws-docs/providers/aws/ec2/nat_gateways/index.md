@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - nat_gateways
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,34 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>nat_gateways</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nat_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.&lt;br&#x2F;&gt; With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway. For more information, see &#91;NAT gateways&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;userguide&#x2F;vpc-nat-gateway.html) in the *Amazon VPC User Guide*.&lt;br&#x2F;&gt; If you add a default route (``AWS::EC2::Route`` resource) that points to a NAT gateway, specify the NAT gateway ID for the route's ``NatGatewayId`` property.&lt;br&#x2F;&gt;  When you associate an Elastic IP address or secondary Elastic IP address with a public NAT gateway, the network border group of the Elastic IP address must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. Otherwise, the NAT gateway fails to launch. You can see the network border group for the AZ by viewing the details of the subnet. Similarly, you can view the network border group for the Elastic IP address by viewing its details. For more information, see &#91;Allocate an Elastic IP address&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;userguide&#x2F;vpc-eips.html#allocate-eip) in the *Amazon VPC User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.nat_gateways</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `connectivityType` | `string` | Indicates whether the NAT gateway supports public or private connectivity. |
-| `createTime` | `string` | The date and time the NAT gateway was created. |
-| `deleteTime` | `string` | The date and time the NAT gateway was deleted, if applicable. |
-| `failureCode` | `string` | If the NAT gateway could not be created, specifies the error code for the failure. (&lt;code&gt;InsufficientFreeAddressesInSubnet&lt;/code&gt; \| &lt;code&gt;Gateway.NotAttached&lt;/code&gt; \| &lt;code&gt;InvalidAllocationID.NotFound&lt;/code&gt; \| &lt;code&gt;Resource.AlreadyAssociated&lt;/code&gt; \| &lt;code&gt;InternalError&lt;/code&gt; \| &lt;code&gt;InvalidSubnetID.NotFound&lt;/code&gt;) |
-| `failureMessage` | `string` | &lt;p&gt;If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again."&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `natGatewayAddressSet` | `array` | Information about the IP addresses and network interface associated with the NAT gateway. |
-| `natGatewayId` | `string` | The ID of the NAT gateway. |
-| `provisionedBandwidth` | `object` | Reserved. If you need to sustain traffic greater than the &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"&gt;documented limits&lt;/a&gt;, contact us through the &lt;a href="https://console.aws.amazon.com/support/home?"&gt;Support Center&lt;/a&gt;. |
-| `state` | `string` | &lt;p&gt;The state of the NAT gateway.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;pending&lt;/code&gt;: The NAT gateway is being created and is not ready to process traffic.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failed&lt;/code&gt;: The NAT gateway could not be created. Check the &lt;code&gt;failureCode&lt;/code&gt; and &lt;code&gt;failureMessage&lt;/code&gt; fields for the reason.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;available&lt;/code&gt;: The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;deleting&lt;/code&gt;: The NAT gateway is in the process of being terminated and may still be processing traffic.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;deleted&lt;/code&gt;: The NAT gateway has been terminated and is no longer processing traffic.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `subnetId` | `string` | The ID of the subnet in which the NAT gateway is located. |
-| `tagSet` | `array` | The tags for the NAT gateway. |
-| `vpcId` | `string` | The ID of the VPC in which the NAT gateway is located. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>nat_gateway_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `nat_gateways_Describe` | `SELECT` | `region` | Describes one or more of your NAT gateways. |
-| `nat_gateway_Create` | `INSERT` | `SubnetId, region` | &lt;p&gt;Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.&lt;/p&gt; &lt;p&gt;With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.&lt;/p&gt; &lt;p&gt;With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"&gt;NAT gateways&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `nat_gateway_Delete` | `DELETE` | `NatGatewayId, region` | Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+nat_gateway_id
+FROM aws.ec2.nat_gateways
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>nat_gateways</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateNatGateway,
+ec2:DescribeNatGateways,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeNatGateways
+```
+

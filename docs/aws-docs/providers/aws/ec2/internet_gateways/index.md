@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - internet_gateways
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,28 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>internet_gateways</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>internet_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.internet_gateways</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `attachmentSet` | `array` | Any VPCs attached to the internet gateway. |
-| `internetGatewayId` | `string` | The ID of the internet gateway. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the internet gateway. |
-| `tagSet` | `array` | Any tags assigned to the internet gateway. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>internet_gateway_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `internet_gateways_Describe` | `SELECT` | `region` | Describes one or more of your internet gateways. |
-| `internet_gateway_Create` | `INSERT` | `region` | &lt;p&gt;Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using &lt;a&gt;AttachInternetGateway&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;For more information about your VPC and internet gateway, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/"&gt;Amazon Virtual Private Cloud User Guide&lt;/a&gt;.&lt;/p&gt; |
-| `internet_gateway_Delete` | `DELETE` | `InternetGatewayId, region` | Deletes the specified internet gateway. You must detach the internet gateway from the VPC before you can delete it. |
-| `internet_gateway_Attach` | `EXEC` | `InternetGatewayId, VpcId, region` | Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC. For more information about your VPC and internet gateway, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/"&gt;Amazon Virtual Private Cloud User Guide&lt;/a&gt;. |
-| `internet_gateway_Detach` | `EXEC` | `InternetGatewayId, VpcId, region` | Detaches an internet gateway from a VPC, disabling connectivity between the internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses or public IPv4 addresses. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+internet_gateway_id
+FROM aws.ec2.internet_gateways
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>internet_gateways</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateInternetGateway,
+ec2:CreateTags,
+ec2:DescribeInternetGateways
+```
+
+### List
+```json
+ec2:DescribeInternetGateways
+```
+

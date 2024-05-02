@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - key_pairs
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,21 +14,67 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>key_pairs</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>key_pairs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::EC2::KeyPair creates an SSH key pair</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.key_pairs</code></td></tr>
 </tbody></table>
 
 ## Fields
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>key_name</code></td><td><code>string</code></td><td>The name of the SSH key pair</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `key_pairs_Describe` | `SELECT` | `region` | &lt;p&gt;Describes the specified key pairs or all of your key pairs.&lt;/p&gt; &lt;p&gt;For more information about key pairs, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html"&gt;Amazon EC2 key pairs&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `key_pair_Create` | `INSERT` | `KeyName, region` | &lt;p&gt;Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the specified PEM or PPK format. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#1 private key or an unencrypted PPK formatted private key for use with PuTTY. If a key with the specified name already exists, Amazon EC2 returns an error.&lt;/p&gt; &lt;p&gt;The key pair returned to you is available only in the Amazon Web Services Region in which you create it. If you prefer, you can create your own key pair using a third-party tool and upload it to any Region using &lt;a&gt;ImportKeyPair&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;You can have up to 5,000 key pairs per Amazon Web Services Region.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html"&gt;Amazon EC2 key pairs&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `key_pair_Delete` | `DELETE` | `region` | Deletes the specified key pair, by removing the public key from Amazon EC2. |
-| `key_pair_Import` | `EXEC` | `KeyName, PublicKeyMaterial, region` | &lt;p&gt;Imports the public key from an RSA or ED25519 key pair that you created with a third-party tool. Compare this with &lt;a&gt;CreateKeyPair&lt;/a&gt;, in which Amazon Web Services creates the key pair and gives the keys to you (Amazon Web Services keeps a copy of the public key). With ImportKeyPair, you create the key pair and give Amazon Web Services just the public key. The private key is never transferred between you and Amazon Web Services.&lt;/p&gt; &lt;p&gt;For more information about key pairs, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html"&gt;Amazon EC2 key pairs&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+key_name
+FROM aws.ec2.key_pairs
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>key_pairs</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateKeyPair,
+ec2:ImportKeyPair,
+ec2:CreateTags,
+ssm:PutParameter
+```
+
+### List
+```json
+ec2:DescribeKeyPairs
+```
+

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - vpc_peering_connections
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,30 +14,68 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>vpc_peering_connections</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_peering_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::VPCPeeringConnection</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.vpc_peering_connections</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `accepterVpcInfo` | `object` | Describes a VPC in a VPC peering connection. |
-| `expirationTime` | `string` | The time that an unaccepted VPC peering connection will expire. |
-| `requesterVpcInfo` | `object` | Describes a VPC in a VPC peering connection. |
-| `status` | `object` | Describes the status of a VPC peering connection. |
-| `tagSet` | `array` | Any tags assigned to the resource. |
-| `vpcPeeringConnectionId` | `string` | The ID of the VPC peering connection. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `vpc_peering_connections_Describe` | `SELECT` | `region` | Describes one or more of your VPC peering connections. |
-| `vpc_peering_connection_Create` | `INSERT` | `region` | &lt;p&gt;Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another Amazon Web Services account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Limitations and rules apply to a VPC peering connection. For more information, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations"&gt;limitations&lt;/a&gt; section in the &lt;i&gt;VPC Peering Guide&lt;/i&gt;.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.&lt;/p&gt; &lt;p&gt;If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of &lt;code&gt;failed&lt;/code&gt;.&lt;/p&gt; |
-| `vpc_peering_connection_Delete` | `DELETE` | `VpcPeeringConnectionId, region` | Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the &lt;code&gt;active&lt;/code&gt; state. The owner of the requester VPC can delete a VPC peering connection in the &lt;code&gt;pending-acceptance&lt;/code&gt; state. You cannot delete a VPC peering connection that's in the &lt;code&gt;failed&lt;/code&gt; state. |
-| `vpc_peering_connection_Accept` | `EXEC` | `region` | &lt;p&gt;Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the &lt;code&gt;pending-acceptance&lt;/code&gt; state, and you must be the owner of the peer VPC. Use &lt;a&gt;DescribeVpcPeeringConnections&lt;/a&gt; to view your outstanding VPC peering connection requests.&lt;/p&gt; &lt;p&gt;For an inter-Region VPC peering connection request, you must accept the VPC peering connection in the Region of the accepter VPC.&lt;/p&gt; |
-| `vpc_peering_connection_Reject` | `EXEC` | `VpcPeeringConnectionId, region` | Rejects a VPC peering connection request. The VPC peering connection must be in the &lt;code&gt;pending-acceptance&lt;/code&gt; state. Use the &lt;a&gt;DescribeVpcPeeringConnections&lt;/a&gt; request to view your outstanding VPC peering connection requests. To delete an active VPC peering connection, or to delete a VPC peering connection request that you initiated, use &lt;a&gt;DeleteVpcPeeringConnection&lt;/a&gt;. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+id
+FROM aws.ec2.vpc_peering_connections
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>vpc_peering_connections</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateVpcPeeringConnection,
+ec2:DescribeVpcPeeringConnections,
+ec2:AcceptVpcPeeringConnection,
+ec2:CreateTags,
+sts:AssumeRole
+```
+
+### List
+```json
+ec2:DescribeVpcPeeringConnections
+```
+
