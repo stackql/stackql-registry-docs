@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - transit_gateway_multicast_domain_associations
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,27 +14,69 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>transit_gateway_multicast_domain_associations</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateway_multicast_domain_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::EC2::TransitGatewayMulticastDomainAssociation type</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.transit_gateway_multicast_domain_associations</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `resourceId` | `string` | The ID of the resource. |
-| `resourceOwnerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource. |
-| `resourceType` | `string` | The type of resource, for example a VPC attachment. |
-| `subnet` | `object` | Describes the subnet association with the transit gateway multicast domain. |
-| `transitGatewayAttachmentId` | `string` | The ID of the transit gateway attachment. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>transit_gateway_multicast_domain_id</code></td><td><code>string</code></td><td>The ID of the transit gateway multicast domain.</td></tr>
+<tr><td><code>transit_gateway_attachment_id</code></td><td><code>string</code></td><td>The ID of the transit gateway attachment.</td></tr>
+<tr><td><code>subnet_id</code></td><td><code>string</code></td><td>The IDs of the subnets to associate with the transit gateway multicast domain.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `transit_gateway_multicast_domain_associations_Get` | `SELECT` | `region` | Gets information about the associations for the transit gateway multicast domain. |
-| `transit_gateway_multicast_domain_associations_Accept` | `EXEC` | `region` | Accepts a request to associate subnets with a transit gateway multicast domain. |
-| `transit_gateway_multicast_domain_associations_Reject` | `EXEC` | `region` | Rejects a request to associate cross-account subnets with a transit gateway multicast domain. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+transit_gateway_multicast_domain_id,
+transit_gateway_attachment_id,
+subnet_id
+FROM aws.ec2.transit_gateway_multicast_domain_associations
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>transit_gateway_multicast_domain_associations</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:AssociateTransitGatewayMulticastDomain,
+ec2:GetTransitGatewayMulticastDomainAssociations
+```
+
+### List
+```json
+ec2:GetTransitGatewayMulticastDomainAssociations
+```
+

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - route_tables
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,31 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>route_tables</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_tables</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.&lt;br&#x2F;&gt; For more information, see &#91;Route tables&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;userguide&#x2F;VPC_Route_Tables.html) in the *Amazon VPC User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.route_tables</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `associationSet` | `array` | The associations between the route table and one or more subnets or a gateway. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the route table. |
-| `propagatingVgwSet` | `array` | Any virtual private gateway (VGW) propagating routes. |
-| `routeSet` | `array` | The routes in the route table. |
-| `routeTableId` | `string` | The ID of the route table. |
-| `tagSet` | `array` | Any tags assigned to the route table. |
-| `vpcId` | `string` | The ID of the VPC. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>route_table_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `route_tables_Describe` | `SELECT` | `region` | &lt;p&gt;Describes one or more of your route tables.&lt;/p&gt; &lt;p&gt;Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html"&gt;Route tables&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `route_table_Create` | `INSERT` | `VpcId, region` | &lt;p&gt;Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html"&gt;Route tables&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `route_table_Delete` | `DELETE` | `RouteTableId, region` | Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table. |
-| `route_table_Associate` | `EXEC` | `RouteTableId, region` | &lt;p&gt;Associates a subnet in your VPC or an internet gateway or virtual private gateway attached to your VPC with a route table in your VPC. This association causes traffic from the subnet or gateway to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table later. A route table can be associated with multiple subnets.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html"&gt;Route tables&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `route_table_Disassociate` | `EXEC` | `AssociationId, region` | &lt;p&gt;Disassociates a subnet or gateway from a route table.&lt;/p&gt; &lt;p&gt;After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html"&gt;Route tables&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+route_table_id
+FROM aws.ec2.route_tables
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>route_tables</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateRouteTable,
+ec2:CreateTags,
+ec2:DescribeRouteTables
+```
+
+### List
+```json
+ec2:DescribeRouteTables
+```
+

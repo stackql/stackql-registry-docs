@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - vpc_cidr_block
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,20 +14,83 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Gets an individual <code>vpc_cidr_block</code> resource
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_cidr_block</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::VPCCidrBlock</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.vpc_cidr_block</code></td></tr>
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>cidr_block</code></td><td><code>string</code></td><td>An IPv4 CIDR block to associate with the VPC.</td></tr>
+<tr><td><code>ipv6_pool</code></td><td><code>string</code></td><td>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>The Id of the VPC associated CIDR Block.</td></tr>
+<tr><td><code>vpc_id</code></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
+<tr><td><code>ipv6_cidr_block</code></td><td><code>string</code></td><td>An IPv6 CIDR block from the IPv6 address pool.</td></tr>
+<tr><td><code>ipv4_ipam_pool_id</code></td><td><code>string</code></td><td>The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.</td></tr>
+<tr><td><code>ipv4_netmask_length</code></td><td><code>integer</code></td><td>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.</td></tr>
+<tr><td><code>ipv6_ipam_pool_id</code></td><td><code>string</code></td><td>The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.</td></tr>
+<tr><td><code>ipv6_netmask_length</code></td><td><code>integer</code></td><td>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.</td></tr>
+<tr><td><code>amazon_provided_ipv6_cidr_block</code></td><td><code>boolean</code></td><td>Requests an Amazon-provided IPv6 CIDR block with a &#x2F;56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `vpc_cidr_block_Associate` | `EXEC` | `VpcId, region` | &lt;p&gt;Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (&lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html"&gt;BYOIP&lt;/a&gt;). The IPv6 CIDR block size is fixed at /56.&lt;/p&gt; &lt;p&gt;You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.&lt;/p&gt; &lt;p&gt;For more information about associating CIDR blocks with your VPC and applicable restrictions, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing"&gt;VPC and subnet sizing&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `vpc_cidr_block_Disassociate` | `EXEC` | `AssociationId, region` | &lt;p&gt;Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must specify its association ID. You can get the association ID by using &lt;a&gt;DescribeVpcs&lt;/a&gt;. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. &lt;/p&gt; &lt;p&gt;You cannot disassociate the CIDR block with which you originally created the VPC (the primary CIDR block).&lt;/p&gt; |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>delete_resource</code></td>
+    <td><code>DELETE</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+  <tr>
+    <td><code>get_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+cidr_block,
+ipv6_pool,
+id,
+vpc_id,
+ipv6_cidr_block,
+ipv4_ipam_pool_id,
+ipv4_netmask_length,
+ipv6_ipam_pool_id,
+ipv6_netmask_length,
+amazon_provided_ipv6_cidr_block
+FROM aws.ec2.vpc_cidr_block
+WHERE data__Identifier = '<Id>|<VpcId>';
+```
+
+## Permissions
+
+To operate on the <code>vpc_cidr_block</code> resource, the following permissions are required:
+
+### Read
+```json
+ec2:DescribeVpcs
+```
+
+### Delete
+```json
+ec2:DescribeVpcs,
+ec2:DisassociateVpcCidrBlock
+```
+

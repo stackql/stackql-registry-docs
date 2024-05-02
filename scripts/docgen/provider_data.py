@@ -178,13 +178,7 @@ provider_data = {
   },
   'aws': {
       'meta_description': 'Query, deploy and manage AWS resources using SQL',
-      'description': """EC2, IAM and S3 core AWS Services.
-:::tip
-
-All AWS Services (incl Lambda, DynamoDB, RDS, etc) are supported by the [__`awscc`__](https://awscc.stackql.io/providers/awscc/) (AWS Cloud Control API) provider in StackQL.
-
-:::      
-      """,
+      'description': 'Cloud services by AWS.',
       'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
   },
   'azure': {

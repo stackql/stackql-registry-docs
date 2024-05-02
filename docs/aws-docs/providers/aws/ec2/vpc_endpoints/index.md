@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - vpc_endpoints
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,42 +14,65 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>vpc_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a VPC endpoint. A VPC endpoint provides a private connection between your VPC and an endpoint service. You can use an endpoint service provided by AWS, an MKT Partner, or another AWS accounts in your organization. For more information, see the &#91;User Guide&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;privatelink&#x2F;).&lt;br&#x2F;&gt; An endpoint of type ``Interface`` establishes connections between the subnets in your VPC and an AWS-service, your own service, or a service hosted by another AWS-account. With an interface VPC endpoint, you specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interfaces.&lt;br&#x2F;&gt; An endpoint of type ``gateway`` serves as a target for a route in your route table for traffic destined for S3 or DDB. You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For more information about connectivity to S3, see &#91;W</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.vpc_endpoints</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `creationTimestamp` | `string` | The date and time that the endpoint was created. |
-| `dnsEntrySet` | `array` | (Interface endpoint) The DNS entries for the endpoint. |
-| `dnsOptions` | `object` | Describes the DNS options for an endpoint. |
-| `groupSet` | `array` | (Interface endpoint) Information about the security groups that are associated with the network interface. |
-| `ipAddressType` | `string` | The IP address type for the endpoint. |
-| `lastError` | `object` | The last error that occurred for a VPC endpoint. |
-| `networkInterfaceIdSet` | `array` | (Interface endpoint) One or more network interfaces for the endpoint. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the endpoint. |
-| `policyDocument` | `string` | The policy document associated with the endpoint, if applicable. |
-| `privateDnsEnabled` | `boolean` | (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone. |
-| `requesterManaged` | `boolean` | Indicates whether the endpoint is being managed by its service. |
-| `routeTableIdSet` | `array` | (Gateway endpoint) One or more route tables associated with the endpoint. |
-| `serviceName` | `string` | The name of the service to which the endpoint is associated. |
-| `state` | `string` | The state of the endpoint. |
-| `subnetIdSet` | `array` | (Interface endpoint) The subnets for the endpoint. |
-| `tagSet` | `array` | Any tags assigned to the endpoint. |
-| `vpcEndpointId` | `string` | The ID of the endpoint. |
-| `vpcEndpointType` | `string` | The type of endpoint. |
-| `vpcId` | `string` | The ID of the VPC to which the endpoint is associated. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `vpc_endpoints_Describe` | `SELECT` | `region` | Describes one or more of your VPC endpoints. |
-| `vpc_endpoint_Create` | `INSERT` | `ServiceName, VpcId, region` | Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/privatelink/"&gt;Amazon Web Services PrivateLink Guide&lt;/a&gt;. |
-| `vpc_endpoints_Delete` | `DELETE` | `VpcEndpointId, region` | &lt;p&gt;Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints. &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Gateway endpoint,&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Gateway Load Balancer endpoint,&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Interface endpoint&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;The following rules apply when you delete a VPC endpoint:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. &lt;/p&gt; &lt;p&gt;You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;When you delete an interface endpoint, we delete the endpoint network interfaces.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `vpc_endpoint_Modify` | `EXEC` | `VpcEndpointId, region` | Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/privatelink/"&gt;Amazon Web Services PrivateLink Guide&lt;/a&gt;. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+id
+FROM aws.ec2.vpc_endpoints
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>vpc_endpoints</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateVpcEndpoint,
+ec2:DescribeVpcEndpoints
+```
+
+### List
+```json
+ec2:DescribeVpcEndpoints
+```
+

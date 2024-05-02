@@ -28,7 +28,11 @@ fi
 chmod +x stackql
 
 # clear .stackql folder
-rm -rf ./.stackql
+if [ "$version" = "local" ]; then
+    echo "using local doc version"
+else
+    rm -rf ./.stackql
+fi
 
 # start server if not running
 echo "checking if server is running"

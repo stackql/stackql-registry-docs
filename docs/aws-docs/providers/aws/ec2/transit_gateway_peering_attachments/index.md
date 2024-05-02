@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - transit_gateway_peering_attachments
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,31 +14,65 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>transit_gateway_peering_attachments</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateway_peering_attachments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::EC2::TransitGatewayPeeringAttachment type</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.transit_gateway_peering_attachments</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `accepterTgwInfo` | `object` | Information about the transit gateway in the peering attachment. |
-| `creationTime` | `string` | The time the transit gateway peering attachment was created. |
-| `requesterTgwInfo` | `object` | Information about the transit gateway in the peering attachment. |
-| `state` | `string` | The state of the transit gateway peering attachment. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
-| `status` | `object` | The status of the transit gateway peering attachment. |
-| `tagSet` | `array` | The tags for the transit gateway peering attachment. |
-| `transitGatewayAttachmentId` | `string` | The ID of the transit gateway peering attachment. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>transit_gateway_attachment_id</code></td><td><code>string</code></td><td>The ID of the transit gateway peering attachment.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `transit_gateway_peering_attachments_Describe` | `SELECT` | `region` | Describes your transit gateway peering attachments. |
-| `transit_gateway_peering_attachment_Create` | `INSERT` | `PeerAccountId, PeerRegion, PeerTransitGatewayId, TransitGatewayId, region` | &lt;p&gt;Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The transit gateways must be in different Regions. The peer transit gateway can be in your account or a different Amazon Web Services account.&lt;/p&gt; &lt;p&gt;After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.&lt;/p&gt; |
-| `transit_gateway_peering_attachment_Delete` | `DELETE` | `TransitGatewayAttachmentId, region` | Deletes a transit gateway peering attachment. |
-| `transit_gateway_peering_attachment_Accept` | `EXEC` | `TransitGatewayAttachmentId, region` | Accepts a transit gateway peering attachment request. The peering attachment must be in the &lt;code&gt;pendingAcceptance&lt;/code&gt; state. |
-| `transit_gateway_peering_attachment_Reject` | `EXEC` | `TransitGatewayAttachmentId, region` | Rejects a transit gateway peering attachment request. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+transit_gateway_attachment_id
+FROM aws.ec2.transit_gateway_peering_attachments
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>transit_gateway_peering_attachments</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateTransitGatewayPeeringAttachment,
+ec2:DescribeTransitGatewayPeeringAttachments
+```
+
+### List
+```json
+ec2:DescribeTransitGatewayPeeringAttachments
+```
+

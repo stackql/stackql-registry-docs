@@ -55,11 +55,12 @@ def run_command(query):
 
 # pull docs for provider
 print('pulling docs for %s %s' % (provider, provider_ver))
-if provider_ver == "latest":
-      iql_query = "REGISTRY PULL %s" % provider
+if provider_ver == "local":
+      print("INFO [using local provider docs]")
+elif provider_ver == "latest":
+      run_command("REGISTRY PULL %s" % provider)
 else:
-      iql_query = "REGISTRY PULL %s %s" % (provider, provider_ver)
-run_command(iql_query)
+      run_command("REGISTRY PULL %s %s" % (provider, provider_ver))
 
 # get version pulled
 if provider_ver == "latest":

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - carrier_gateways
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,27 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>carrier_gateways</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>carrier_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>An example resource schema demonstrating some basic constructs and validation rules.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.carrier_gateways</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `carrierGatewayId` | `string` | The ID of the carrier gateway. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the carrier gateway. |
-| `state` | `string` | The state of the carrier gateway. |
-| `tagSet` | `array` | The tags assigned to the carrier gateway. |
-| `vpcId` | `string` | The ID of the VPC associated with the carrier gateway. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>carrier_gateway_id</code></td><td><code>string</code></td><td>The ID of the carrier gateway.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `carrier_gateways_Describe` | `SELECT` | `region` | Describes one or more of your carrier gateways. |
-| `carrier_gateway_Delete` | `DELETE` | `CarrierGatewayId, region` | &lt;p&gt;Deletes a carrier gateway.&lt;/p&gt; &lt;important&gt; &lt;p&gt;If you do not delete the route that contains the carrier gateway as the Target, the route is a blackhole route. For information about how to delete a route, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html"&gt;DeleteRoute&lt;/a&gt;.&lt;/p&gt; &lt;/important&gt; |
-| `carrier_gateway_Create` | `EXEC` | `VpcId, region` | Creates a carrier gateway. For more information about carrier gateways, see &lt;a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway"&gt;Carrier gateways&lt;/a&gt; in the &lt;i&gt;Amazon Web Services Wavelength Developer Guide&lt;/i&gt;. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+carrier_gateway_id
+FROM aws.ec2.carrier_gateways
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>carrier_gateways</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateCarrierGateway,
+ec2:DescribeCarrierGateways,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeCarrierGateways
+```
+

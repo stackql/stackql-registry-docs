@@ -27,7 +27,6 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Datadog | [![Netlify Status](https://api.netlify.com/api/v1/badges/9e76122d-09bd-4938-a50f-3b4196e94f0c/deploy-status)](https://app.netlify.com/sites/stackql-datadog-docs/deploys) | [datadog-docs.stackql.io](https://datadog-docs.stackql.io)<br/>[datadog.stackql.io](https://datadog.stackql.io) |
 | Netlify Deploy Azure ISV | [![Netlify Status](https://api.netlify.com/api/v1/badges/35fc840c-0494-462f-9b3f-cbd3418a3c78/deploy-status)](https://app.netlify.com/sites/stackql-azure-isv-docs/deploys) | [azure-isv-docs.stackql.io](https://azure-isv-docs.stackql.io)<br/>[azure-isv.stackql.io](https://azure-isv.stackql.io) |
 | Netlify Deploy Azure Stack | [![Netlify Status](https://api.netlify.com/api/v1/badges/53abcb20-0194-41dd-b466-4d933cfffcad/deploy-status)](https://app.netlify.com/sites/stackql-azure-stack-docs/deploys) | [azure-stack-docs.stackql.io](https://azure-stack-docs.stackql.io)<br/>[azure-stack.stackql.io](https://azure-stack.stackql.io) |
-| Netlify Deploy AWS Cloud Control | [![Netlify Status](https://api.netlify.com/api/v1/badges/b214d7f4-4c43-43b5-a584-19d2d18902f1/deploy-status)](https://app.netlify.com/sites/stackql-awscc-docs/deploys) | [awscc-docs.stackql.io](https://awscc-docs.stackql.io)<br/>[awscc.stackql.io](https://awscc.stackql.io) |
 
 
 ## Adding Docs for a New Provider

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - transit_gateways
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,31 +14,78 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>transit_gateways</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::TransitGateway</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.transit_gateways</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `description` | `string` | The description of the transit gateway. |
-| `creationTime` | `string` | The creation time. |
-| `options` | `object` | Describes the options for a transit gateway. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the transit gateway. |
-| `state` | `string` | The state of the transit gateway. |
-| `tagSet` | `array` | The tags for the transit gateway. |
-| `transitGatewayArn` | `string` | The Amazon Resource Name (ARN) of the transit gateway. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `transit_gateways_Describe` | `SELECT` | `region` | Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can filter the results. |
-| `transit_gateway_Create` | `INSERT` | `region` | &lt;p&gt;Creates a transit gateway.&lt;/p&gt; &lt;p&gt;You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks. After the transit gateway enters the &lt;code&gt;available&lt;/code&gt; state, you can attach your VPCs and VPN connections to the transit gateway.&lt;/p&gt; &lt;p&gt;To attach your VPCs, use &lt;a&gt;CreateTransitGatewayVpcAttachment&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;To attach a VPN connection, use &lt;a&gt;CreateCustomerGateway&lt;/a&gt; to create a customer gateway and specify the ID of the customer gateway and the ID of the transit gateway in a call to &lt;a&gt;CreateVpnConnection&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table and the default propagation route table. You can use &lt;a&gt;CreateTransitGatewayRouteTable&lt;/a&gt; to create additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table. You can use &lt;a&gt;EnableTransitGatewayRouteTablePropagation&lt;/a&gt; to propagate routes from a resource attachment to a transit gateway route table. If you disable automatic associations, you can use &lt;a&gt;AssociateTransitGatewayRouteTable&lt;/a&gt; to associate a resource attachment with a transit gateway route table.&lt;/p&gt; |
-| `transit_gateway_Delete` | `DELETE` | `TransitGatewayId, region` | Deletes the specified transit gateway. |
-| `transit_gateway_Modify` | `EXEC` | `TransitGatewayId, region` | Modifies the specified transit gateway. When you modify a transit gateway, the modified options are applied to new transit gateway attachments only. Your existing transit gateway attachments are not modified. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+id
+FROM aws.ec2.transit_gateways
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>transit_gateways</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateTransitGateway,
+ec2:CreateTags,
+ec2:DescribeTransitGateways,
+ec2:DescribeTags,
+ec2:DeleteTransitGateway,
+ec2:DeleteTags,
+ec2:ModifyTransitGateway,
+ec2:ModifyTransitGatewayOptions
+```
+
+### List
+```json
+ec2:CreateTransitGateway,
+ec2:CreateTags,
+ec2:DescribeTransitGateways,
+ec2:DescribeTags,
+ec2:DeleteTransitGateway,
+ec2:DeleteTags,
+ec2:ModifyTransitGateway,
+ec2:ModifyTransitGatewayOptions
+```
+

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - network_acls
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,29 +14,66 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>network_acls</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_acls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a network ACL for your VPC.</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.network_acls</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `associationSet` | `array` | Any associations between the network ACL and one or more subnets |
-| `default` | `boolean` | Indicates whether this is the default network ACL for the VPC. |
-| `entrySet` | `array` | One or more entries (rules) in the network ACL. |
-| `networkAclId` | `string` | The ID of the network ACL. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the network ACL. |
-| `tagSet` | `array` | Any tags assigned to the network ACL. |
-| `vpcId` | `string` | The ID of the VPC for the network ACL. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `network_acls_Describe` | `SELECT` | `region` | &lt;p&gt;Describes one or more of your network ACLs.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html"&gt;Network ACLs&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `network_acl_Create` | `INSERT` | `VpcId, region` | &lt;p&gt;Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html"&gt;Network ACLs&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `network_acl_Delete` | `DELETE` | `NetworkAclId, region` | Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+id
+FROM aws.ec2.network_acls
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>network_acls</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateNetworkAcl,
+ec2:DescribeNetworkAcls,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeNetworkAcls
+```
+

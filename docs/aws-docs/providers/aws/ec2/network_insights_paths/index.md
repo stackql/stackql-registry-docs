@@ -5,7 +5,7 @@ hide_table_of_contents: false
 keywords:
   - network_insights_paths
   - ec2
-  - aws    
+  - aws
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -14,32 +14,65 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+Retrieves a list of <code>network_insights_paths</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_insights_paths</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource schema for AWS::EC2::NetworkInsightsPath</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ec2.network_insights_paths</code></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `createdDate` | `string` | The time stamp when the path was created. |
-| `destination` | `string` | The Amazon Web Services resource that is the destination of the path. |
-| `destinationIp` | `string` | The IP address of the Amazon Web Services resource that is the destination of the path. |
-| `destinationPort` | `integer` | The destination port. |
-| `networkInsightsPathArn` | `string` | The Amazon Resource Name (ARN) of the path. |
-| `networkInsightsPathId` | `string` | The ID of the path. |
-| `protocol` | `string` | The protocol. |
-| `source` | `string` | The Amazon Web Services resource that is the source of the path. |
-| `sourceIp` | `string` | The IP address of the Amazon Web Services resource that is the source of the path. |
-| `tagSet` | `array` | The tags associated with the path. |
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>network_insights_path_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `network_insights_paths_Describe` | `SELECT` | `region` | Describes one or more of your paths. |
-| `network_insights_path_Create` | `INSERT` | `ClientToken, Destination, Protocol, Source, region` | &lt;p&gt;Creates a path to analyze for reachability.&lt;/p&gt; &lt;p&gt;Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/reachability/"&gt;What is Reachability Analyzer&lt;/a&gt;.&lt;/p&gt; |
-| `network_insights_path_Delete` | `DELETE` | `NetworkInsightsPathId, region` | Deletes the specified path. |
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>create_resource</code></td>
+    <td><code>INSERT</code></td>
+    <td><code>data__DesiredState, region</code></td>
+  </tr>
+  <tr>
+    <td><code>list_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+network_insights_path_id
+FROM aws.ec2.network_insights_paths
+WHERE region = 'us-east-1'
+```
+
+## Permissions
+
+To operate on the <code>network_insights_paths</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateNetworkInsightsPath,
+ec2:CreateTags
+```
+
+### List
+```json
+ec2:DescribeNetworkInsightsPaths
+```
+

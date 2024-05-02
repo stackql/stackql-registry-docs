@@ -1,0 +1,136 @@
+---
+title: alarm
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - alarm
+  - cloudwatch
+  - aws
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage AWS resources using SQL
+custom_edit_url: null
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
+---
+Gets an individual <code>alarm</code> resource
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>alarm</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.&lt;br&#x2F;&gt; When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.&lt;br&#x2F;&gt; When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.</td></tr>
+<tr><td><b>Id</b></td><td><code>aws.cloudwatch.alarm</code></td></tr>
+</tbody></table>
+
+## Fields
+<table><tbody>
+<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<tr><td><code>threshold_metric_id</code></td><td><code>string</code></td><td>In an alarm based on an anomaly detection model, this is the ID of the ``ANOMALY_DETECTION_BAND`` function used as the threshold for the alarm.</td></tr>
+<tr><td><code>evaluate_low_sample_count_percentile</code></td><td><code>string</code></td><td>Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.</td></tr>
+<tr><td><code>extended_statistic</code></td><td><code>string</code></td><td>The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.&lt;br&#x2F;&gt; For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.&lt;br&#x2F;&gt; For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.</td></tr>
+<tr><td><code>comparison_operator</code></td><td><code>string</code></td><td>The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.</td></tr>
+<tr><td><code>treat_missing_data</code></td><td><code>string</code></td><td>Sets how this alarm is to handle missing data points. Valid values are ``breaching``, ``notBreaching``, ``ignore``, and ``missing``. For more information, see &#91;Configuring How Alarms Treat Missing Data&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonCloudWatch&#x2F;latest&#x2F;monitoring&#x2F;AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon User Guide*.&lt;br&#x2F;&gt; If you omit this parameter, the default behavior of ``missing`` is used.</td></tr>
+<tr><td><code>dimensions</code></td><td><code>array</code></td><td>The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.</td></tr>
+<tr><td><code>period</code></td><td><code>integer</code></td><td>The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.&lt;br&#x2F;&gt; For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.&lt;br&#x2F;&gt; *Minimum:* 10</td></tr>
+<tr><td><code>evaluation_periods</code></td><td><code>integer</code></td><td>The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.&lt;br&#x2F;&gt; For more information, see &#91;Evaluating an Alarm&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonCloudWatch&#x2F;latest&#x2F;monitoring&#x2F;AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.</td></tr>
+<tr><td><code>unit</code></td><td><code>string</code></td><td>The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.&lt;br&#x2F;&gt;  You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes&#x2F;Second, Kilobytes&#x2F;Second, Megabytes&#x2F;Second, Gigabytes&#x2F;Second, Terabytes&#x2F;Second, Bits&#x2F;Second, Kilobits&#x2F;Second, Megabits&#x2F;Second, Gigabits&#x2F;Second, Terabits&#x2F;Second, Count&#x2F;Second, or None.</td></tr>
+<tr><td><code>namespace</code></td><td><code>string</code></td><td>The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.&lt;br&#x2F;&gt; For a list of namespaces for metrics from AWS services, see &#91;Services That Publish Metrics.&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonCloudWatch&#x2F;latest&#x2F;monitoring&#x2F;aws-services-cloudwatch-metrics.html)</td></tr>
+<tr><td><code>ok_actions</code></td><td><code>array</code></td><td>The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).</td></tr>
+<tr><td><code>alarm_actions</code></td><td><code>array</code></td><td>The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see &#91;PutMetricAlarm&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonCloudWatch&#x2F;latest&#x2F;APIReference&#x2F;API_PutMetricAlarm.html) in the *API Reference*.</td></tr>
+<tr><td><code>metric_name</code></td><td><code>string</code></td><td>The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use ``Metrics`` instead and you can't specify ``MetricName``.</td></tr>
+<tr><td><code>actions_enabled</code></td><td><code>boolean</code></td><td>Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.</td></tr>
+<tr><td><code>metrics</code></td><td><code>array</code></td><td>An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.&lt;br&#x2F;&gt; If you specify the ``Metrics`` parameter, you cannot specify ``MetricName``, ``Dimensions``, ``Period``, ``Namespace``, ``Statistic``, ``ExtendedStatistic``, or ``Unit``.</td></tr>
+<tr><td><code>alarm_description</code></td><td><code>string</code></td><td>The description of the alarm.</td></tr>
+<tr><td><code>alarm_name</code></td><td><code>string</code></td><td>The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. &lt;br&#x2F;&gt;  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.</td></tr>
+<tr><td><code>statistic</code></td><td><code>string</code></td><td>The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.&lt;br&#x2F;&gt; For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.&lt;br&#x2F;&gt; For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.</td></tr>
+<tr><td><code>insufficient_data_actions</code></td><td><code>array</code></td><td>The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>datapoints_to_alarm</code></td><td><code>integer</code></td><td>The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see &#91;Evaluating an Alarm&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonCloudWatch&#x2F;latest&#x2F;monitoring&#x2F;AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.&lt;br&#x2F;&gt; If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.</td></tr>
+<tr><td><code>threshold</code></td><td><code>number</code></td><td>The value to compare with the specified statistic.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+
+</tbody></table>
+
+## Methods
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><code>update_resource</code></td>
+    <td><code>UPDATE</code></td>
+    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+  </tr>
+  <tr>
+    <td><code>delete_resource</code></td>
+    <td><code>DELETE</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+  <tr>
+    <td><code>get_resource</code></td>
+    <td><code>SELECT</code></td>
+    <td><code>data__Identifier, region</code></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` Example
+```sql
+SELECT
+region,
+threshold_metric_id,
+evaluate_low_sample_count_percentile,
+extended_statistic,
+comparison_operator,
+treat_missing_data,
+dimensions,
+period,
+evaluation_periods,
+unit,
+namespace,
+ok_actions,
+alarm_actions,
+metric_name,
+actions_enabled,
+metrics,
+alarm_description,
+alarm_name,
+statistic,
+insufficient_data_actions,
+arn,
+datapoints_to_alarm,
+threshold,
+tags
+FROM aws.cloudwatch.alarm
+WHERE data__Identifier = '<AlarmName>';
+```
+
+## Permissions
+
+To operate on the <code>alarm</code> resource, the following permissions are required:
+
+### Update
+```json
+cloudwatch:PutMetricAlarm,
+cloudwatch:DescribeAlarms,
+cloudwatch:TagResource,
+cloudwatch:UntagResource
+```
+
+### Delete
+```json
+cloudwatch:DeleteAlarms,
+cloudwatch:DescribeAlarms
+```
+
+### Read
+```json
+cloudwatch:DescribeAlarms,
+cloudwatch:ListTagsForResource
+```
+
