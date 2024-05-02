@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>dedicated_ip_pool</code> resource
+Gets or operates on an individual <code>dedicated_ip_pool</code> resource, use <code>dedicated_ip_pools</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

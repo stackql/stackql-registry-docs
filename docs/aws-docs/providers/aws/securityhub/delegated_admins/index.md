@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>delegated_admins</code> in a region
+Used to retrieve a list of <code>delegated_admins</code> in a region or create a <code>delegated_admins</code> resource, use <code>delegated_admin</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

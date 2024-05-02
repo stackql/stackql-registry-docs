@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>network_interface_attachment</code> resource
+Gets or operates on an individual <code>network_interface_attachment</code> resource, use <code>network_interface_attachments</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

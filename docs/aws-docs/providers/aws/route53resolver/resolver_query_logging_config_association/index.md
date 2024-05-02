@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>resolver_query_logging_config_association</code> resource
+Gets or operates on an individual <code>resolver_query_logging_config_association</code> resource, use <code>resolver_query_logging_config_associations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

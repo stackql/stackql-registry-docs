@@ -24,11 +24,11 @@ Cloud services from AWS.
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>220</b></span><br />
-<span>total methods:&nbsp;<b>6,535</b></span><br />
+<span>total methods:&nbsp;<b>7,597</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1,915</b></span><br />
-<span>total selectable resources:&nbsp;<b>1,807</b></span><br />
+<span>total resources:&nbsp;<b>2,269</b></span><br />
+<span>total selectable resources:&nbsp;<b>2,161</b></span><br />
 </div>
 </div>
 

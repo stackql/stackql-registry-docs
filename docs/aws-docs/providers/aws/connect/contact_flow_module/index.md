@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>contact_flow_module</code> resource
+Gets or operates on an individual <code>contact_flow_module</code> resource, use <code>contact_flow_modules</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>

@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>channel_groups</code> in a region
+Used to retrieve a list of <code>channel_groups</code> in a region or create a <code>channel_groups</code> resource, use <code>channel_group</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Retrieves a list of <code>metered_products</code> in a region
+Used to retrieve a list of <code>metered_products</code> in a region or create a <code>metered_products</code> resource, use <code>metered_product</code> to operate on an individual resource.
 
 ## Overview
 <table><tbody>

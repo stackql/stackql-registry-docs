@@ -14,7 +14,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Gets an individual <code>hours_of_operation</code> resource
+Gets or operates on an individual <code>hours_of_operation</code> resource, use <code>hours_of_operations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
 <table><tbody>
