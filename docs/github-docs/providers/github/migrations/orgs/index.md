@@ -14,14 +14,17 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>orgs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.migrations.orgs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.migrations.orgs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete_archive_for_org` | `EXEC` | `migration_id, org` | Deletes a previous migration archive. Migration archives are automatically deleted after seven days. |
-| `download_archive_for_org` | `EXEC` | `migration_id, org` | Fetches the URL to a migration archive. |
+| <CopyableCode code="delete_archive_for_org" /> | `EXEC` | <CopyableCode code="migration_id, org" /> | Deletes a previous migration archive. Migration archives are automatically deleted after seven days. |
+| <CopyableCode code="download_archive_for_org" /> | `EXEC` | <CopyableCode code="migration_id, org" /> | Fetches the URL to a migration archive. |

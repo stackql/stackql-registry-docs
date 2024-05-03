@@ -14,14 +14,17 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dependency_submission</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.dependency_graph.dependency_submission</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.dependency_graph.dependency_submission" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `create_repository_snapshot` | `INSERT` | `owner, repo, data__detector, data__job, data__ref, data__scanned, data__sha, data__version` |
+| <CopyableCode code="create_repository_snapshot" /> | `INSERT` | <CopyableCode code="owner, repo, data__detector, data__job, data__ref, data__scanned, data__sha, data__version" /> |

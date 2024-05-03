@@ -14,27 +14,30 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>status_combined</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.repos.status_combined</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.repos.status_combined" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `url` | `string` |  |
-| `commit_url` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `sha` | `string` |  |
-| `state` | `string` |  |
-| `statuses` | `array` |  |
-| `total_count` | `integer` |  |
+| <CopyableCode code="commit_url" /> | `string` |  |
+| <CopyableCode code="repository" /> | `object` | Minimal Repository |
+| <CopyableCode code="sha" /> | `string` |  |
+| <CopyableCode code="state" /> | `string` |  |
+| <CopyableCode code="statuses" /> | `array` |  |
+| <CopyableCode code="total_count" /> | `integer` |  |
+| <CopyableCode code="url" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_combined_status_for_ref` | `SELECT` | `owner, ref, repo` |
+| <CopyableCode code="get_combined_status_for_ref" /> | `SELECT` | <CopyableCode code="owner, ref, repo" /> |

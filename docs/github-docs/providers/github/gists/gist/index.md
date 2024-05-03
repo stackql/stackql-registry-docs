@@ -14,41 +14,44 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gist</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.gists.gist</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.gists.gist" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` |  |
-| `description` | `string` |  |
-| `commits_url` | `string` |  |
-| `forks_url` | `string` |  |
-| `history` | `array` |  |
-| `comments` | `integer` |  |
-| `truncated` | `boolean` |  |
-| `user` | `string` |  |
-| `public` | `boolean` |  |
-| `url` | `string` |  |
-| `forks` | `array` |  |
-| `fork_of` | `object` | Gist |
-| `git_pull_url` | `string` |  |
-| `owner` | `object` | A GitHub user. |
-| `created_at` | `string` |  |
-| `files` | `object` |  |
-| `git_push_url` | `string` |  |
-| `node_id` | `string` |  |
-| `updated_at` | `string` |  |
-| `comments_url` | `string` |  |
-| `html_url` | `string` |  |
+| <CopyableCode code="id" /> | `string` |  |
+| <CopyableCode code="description" /> | `string` |  |
+| <CopyableCode code="comments" /> | `integer` |  |
+| <CopyableCode code="comments_url" /> | `string` |  |
+| <CopyableCode code="commits_url" /> | `string` |  |
+| <CopyableCode code="created_at" /> | `string` |  |
+| <CopyableCode code="files" /> | `object` |  |
+| <CopyableCode code="fork_of" /> | `object` | Gist |
+| <CopyableCode code="forks" /> | `array` |  |
+| <CopyableCode code="forks_url" /> | `string` |  |
+| <CopyableCode code="git_pull_url" /> | `string` |  |
+| <CopyableCode code="git_push_url" /> | `string` |  |
+| <CopyableCode code="history" /> | `array` |  |
+| <CopyableCode code="html_url" /> | `string` |  |
+| <CopyableCode code="node_id" /> | `string` |  |
+| <CopyableCode code="owner" /> | `object` | A GitHub user. |
+| <CopyableCode code="public" /> | `boolean` |  |
+| <CopyableCode code="truncated" /> | `boolean` |  |
+| <CopyableCode code="updated_at" /> | `string` |  |
+| <CopyableCode code="url" /> | `string` |  |
+| <CopyableCode code="user" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `gist_id` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="gist_id" /> |

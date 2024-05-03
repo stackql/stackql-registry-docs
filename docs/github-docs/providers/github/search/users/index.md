@@ -14,54 +14,57 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>users</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.search.users</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.search.users" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `integer` |
-| `name` | `string` |
-| `repos_url` | `string` |
-| `created_at` | `string` |
-| `company` | `string` |
-| `text_matches` | `array` |
-| `hireable` | `boolean` |
-| `site_admin` | `boolean` |
-| `avatar_url` | `string` |
-| `updated_at` | `string` |
-| `bio` | `string` |
-| `location` | `string` |
-| `followers_url` | `string` |
-| `followers` | `integer` |
-| `organizations_url` | `string` |
-| `blog` | `string` |
-| `gravatar_id` | `string` |
-| `public_gists` | `integer` |
-| `email` | `string` |
-| `score` | `number` |
-| `following_url` | `string` |
-| `starred_url` | `string` |
-| `login` | `string` |
-| `node_id` | `string` |
-| `subscriptions_url` | `string` |
-| `events_url` | `string` |
-| `received_events_url` | `string` |
-| `type` | `string` |
-| `html_url` | `string` |
-| `public_repos` | `integer` |
-| `following` | `integer` |
-| `url` | `string` |
-| `gists_url` | `string` |
-| `suspended_at` | `string` |
+| <CopyableCode code="id" /> | `integer` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="avatar_url" /> | `string` |
+| <CopyableCode code="bio" /> | `string` |
+| <CopyableCode code="blog" /> | `string` |
+| <CopyableCode code="company" /> | `string` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="email" /> | `string` |
+| <CopyableCode code="events_url" /> | `string` |
+| <CopyableCode code="followers" /> | `integer` |
+| <CopyableCode code="followers_url" /> | `string` |
+| <CopyableCode code="following" /> | `integer` |
+| <CopyableCode code="following_url" /> | `string` |
+| <CopyableCode code="gists_url" /> | `string` |
+| <CopyableCode code="gravatar_id" /> | `string` |
+| <CopyableCode code="hireable" /> | `boolean` |
+| <CopyableCode code="html_url" /> | `string` |
+| <CopyableCode code="location" /> | `string` |
+| <CopyableCode code="login" /> | `string` |
+| <CopyableCode code="node_id" /> | `string` |
+| <CopyableCode code="organizations_url" /> | `string` |
+| <CopyableCode code="public_gists" /> | `integer` |
+| <CopyableCode code="public_repos" /> | `integer` |
+| <CopyableCode code="received_events_url" /> | `string` |
+| <CopyableCode code="repos_url" /> | `string` |
+| <CopyableCode code="score" /> | `number` |
+| <CopyableCode code="site_admin" /> | `boolean` |
+| <CopyableCode code="starred_url" /> | `string` |
+| <CopyableCode code="subscriptions_url" /> | `string` |
+| <CopyableCode code="suspended_at" /> | `string` |
+| <CopyableCode code="text_matches" /> | `array` |
+| <CopyableCode code="type" /> | `string` |
+| <CopyableCode code="updated_at" /> | `string` |
+| <CopyableCode code="url" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `users` | `SELECT` | `q` |
+| <CopyableCode code="users" /> | `SELECT` | <CopyableCode code="q" /> |

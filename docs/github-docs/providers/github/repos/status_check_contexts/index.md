@@ -14,21 +14,24 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>status_check_contexts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.repos.status_check_contexts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.repos.status_check_contexts" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_all_status_check_contexts` | `SELECT` | `branch, owner, repo` |
-| `add_status_check_contexts` | `INSERT` | `branch, owner, repo` |
-| `remove_status_check_contexts` | `DELETE` | `branch, owner, repo` |
-| `set_status_check_contexts` | `EXEC` | `branch, owner, repo` |
+| <CopyableCode code="get_all_status_check_contexts" /> | `SELECT` | <CopyableCode code="branch, owner, repo" /> |
+| <CopyableCode code="add_status_check_contexts" /> | `INSERT` | <CopyableCode code="branch, owner, repo" /> |
+| <CopyableCode code="remove_status_check_contexts" /> | `DELETE` | <CopyableCode code="branch, owner, repo" /> |
+| <CopyableCode code="set_status_check_contexts" /> | `EXEC` | <CopyableCode code="branch, owner, repo" /> |

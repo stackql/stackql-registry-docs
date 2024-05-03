@@ -14,22 +14,25 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repo_org_secrets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.actions.repo_org_secrets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.actions.repo_org_secrets" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `total_count` | `integer` |
-| `secrets` | `array` |
+| <CopyableCode code="secrets" /> | `array` |
+| <CopyableCode code="total_count" /> | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_repo_organization_secrets` | `SELECT` | `owner, repo` |
+| <CopyableCode code="list_repo_organization_secrets" /> | `SELECT` | <CopyableCode code="owner, repo" /> |

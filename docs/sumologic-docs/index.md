@@ -51,8 +51,8 @@ REGISTRY PULL sumologic;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="SUMOLOGIC_ACCESSID" /> - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
-- <CopyableCode code="SUMOLOGIC_ACCESSKEY" /> - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- <CopyableCode code="SUMOLOGIC_ACCESSID" /> - SumoLogic Access ID (see <a href="https://help.sumologic.com/docs/manage/security/access-keys/">Generating an Access Key</a>)
+- <CopyableCode code="SUMOLOGIC_ACCESSKEY" /> - SumoLogic Access Key (see <a href="https://help.sumologic.com/docs/manage/security/access-keys/">Generating an Access Key</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

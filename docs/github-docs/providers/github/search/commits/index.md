@@ -14,32 +14,35 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>commits</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.search.commits</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.search.commits" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `url` | `string` |  |
-| `sha` | `string` |  |
-| `comments_url` | `string` |  |
-| `score` | `number` |  |
-| `parents` | `array` |  |
-| `repository` | `object` | Minimal Repository |
-| `html_url` | `string` |  |
-| `committer` | `object` | Metaproperties for Git author/committer information. |
-| `text_matches` | `array` |  |
-| `node_id` | `string` |  |
-| `commit` | `object` |  |
-| `author` | `object` | A GitHub user. |
+| <CopyableCode code="author" /> | `object` | A GitHub user. |
+| <CopyableCode code="comments_url" /> | `string` |  |
+| <CopyableCode code="commit" /> | `object` |  |
+| <CopyableCode code="committer" /> | `object` | Metaproperties for Git author/committer information. |
+| <CopyableCode code="html_url" /> | `string` |  |
+| <CopyableCode code="node_id" /> | `string` |  |
+| <CopyableCode code="parents" /> | `array` |  |
+| <CopyableCode code="repository" /> | `object` | Minimal Repository |
+| <CopyableCode code="score" /> | `number` |  |
+| <CopyableCode code="sha" /> | `string` |  |
+| <CopyableCode code="text_matches" /> | `array` |  |
+| <CopyableCode code="url" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `commits` | `SELECT` | `q` |
+| <CopyableCode code="commits" /> | `SELECT` | <CopyableCode code="q" /> |

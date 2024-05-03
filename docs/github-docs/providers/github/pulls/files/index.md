@@ -14,31 +14,34 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>files</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.pulls.files</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.pulls.files" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `previous_filename` | `string` |
-| `blob_url` | `string` |
-| `sha` | `string` |
-| `changes` | `integer` |
-| `additions` | `integer` |
-| `filename` | `string` |
-| `raw_url` | `string` |
-| `patch` | `string` |
-| `deletions` | `integer` |
-| `contents_url` | `string` |
-| `status` | `string` |
+| <CopyableCode code="additions" /> | `integer` |
+| <CopyableCode code="blob_url" /> | `string` |
+| <CopyableCode code="changes" /> | `integer` |
+| <CopyableCode code="contents_url" /> | `string` |
+| <CopyableCode code="deletions" /> | `integer` |
+| <CopyableCode code="filename" /> | `string` |
+| <CopyableCode code="patch" /> | `string` |
+| <CopyableCode code="previous_filename" /> | `string` |
+| <CopyableCode code="raw_url" /> | `string` |
+| <CopyableCode code="sha" /> | `string` |
+| <CopyableCode code="status" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_files` | `SELECT` | `owner, pull_number, repo` |
+| <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="owner, pull_number, repo" /> |

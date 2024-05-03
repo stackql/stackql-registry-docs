@@ -13,6 +13,7 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
+
 Information For Integrations And Installations.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Information For Integrations And Installations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Apps</td></tr>
 <tr><td><b>Description</b></td><td>Information For Integrations And Installations.</td></tr>
-<tr><td><b>Id</b></td><td><code>apps:v23.09.00175</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apps:v24.04.00227</code></td></tr>
 </tbody></table>
 
 ## Resources

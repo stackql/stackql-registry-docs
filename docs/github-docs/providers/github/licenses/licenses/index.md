@@ -14,35 +14,38 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>licenses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.licenses.licenses</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.licenses.licenses" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` |  |
-| `sha` | `string` |  |
-| `type` | `string` |  |
-| `license` | `object` | License Simple |
-| `content` | `string` |  |
-| `encoding` | `string` |  |
-| `git_url` | `string` |  |
-| `_links` | `object` |  |
-| `html_url` | `string` |  |
-| `size` | `integer` |  |
-| `path` | `string` |  |
-| `download_url` | `string` |  |
-| `url` | `string` |  |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="_links" /> | `object` |  |
+| <CopyableCode code="content" /> | `string` |  |
+| <CopyableCode code="download_url" /> | `string` |  |
+| <CopyableCode code="encoding" /> | `string` |  |
+| <CopyableCode code="git_url" /> | `string` |  |
+| <CopyableCode code="html_url" /> | `string` |  |
+| <CopyableCode code="license" /> | `object` | License Simple |
+| <CopyableCode code="path" /> | `string` |  |
+| <CopyableCode code="sha" /> | `string` |  |
+| <CopyableCode code="size" /> | `integer` |  |
+| <CopyableCode code="type" /> | `string` |  |
+| <CopyableCode code="url" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `license` | Gets information about a specific license. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |
-| `get_all_commonly_used` | `SELECT` |  | Lists the most commonly used licenses on GitHub. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |
-| `get_for_repo` | `SELECT` | `owner, repo` | This method returns the contents of the repository's license file, if one is detected.<br /><br />Similar to [Get repository content](https://docs.github.com/rest/repos/contents#get-repository-content), this method also supports [custom media types](https://docs.github.com/rest/overview/media-types) for retrieving the raw license content or rendered license HTML. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="license" /> | Gets information about a specific license. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |
+| <CopyableCode code="get_all_commonly_used" /> | `SELECT` |  | Lists the most commonly used licenses on GitHub. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |
+| <CopyableCode code="get_for_repo" /> | `SELECT` | <CopyableCode code="owner, repo" /> | This method returns the contents of the repository's license file, if one is detected.<br /><br />Similar to [Get repository content](https://docs.github.com/rest/repos/contents#get-repository-content), this method also supports [custom media types](https://docs.github.com/rest/overview/media-types) for retrieving the raw license content or rendered license HTML. |

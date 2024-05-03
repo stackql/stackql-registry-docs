@@ -14,33 +14,36 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>code</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.search.code</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.search.code" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` |  |
-| `path` | `string` |  |
-| `git_url` | `string` |  |
-| `line_numbers` | `array` |  |
-| `score` | `number` |  |
-| `url` | `string` |  |
-| `last_modified_at` | `string` |  |
-| `file_size` | `integer` |  |
-| `html_url` | `string` |  |
-| `sha` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `text_matches` | `array` |  |
-| `language` | `string` |  |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="file_size" /> | `integer` |  |
+| <CopyableCode code="git_url" /> | `string` |  |
+| <CopyableCode code="html_url" /> | `string` |  |
+| <CopyableCode code="language" /> | `string` |  |
+| <CopyableCode code="last_modified_at" /> | `string` |  |
+| <CopyableCode code="line_numbers" /> | `array` |  |
+| <CopyableCode code="path" /> | `string` |  |
+| <CopyableCode code="repository" /> | `object` | Minimal Repository |
+| <CopyableCode code="score" /> | `number` |  |
+| <CopyableCode code="sha" /> | `string` |  |
+| <CopyableCode code="text_matches" /> | `array` |  |
+| <CopyableCode code="url" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `code` | `SELECT` | `q` |
+| <CopyableCode code="code" /> | `SELECT` | <CopyableCode code="q" /> |

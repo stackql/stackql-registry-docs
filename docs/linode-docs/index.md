@@ -51,7 +51,7 @@ REGISTRY PULL linode;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="LINODE_TOKEN" /> - Linode API token (see [How to Create a Linode API Token](https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token))
+- <CopyableCode code="LINODE_TOKEN" /> - Linode API token (see <a href="https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token">How to Create a Linode API Token</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

@@ -14,38 +14,41 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cards</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.projects.cards</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.projects.cards" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `integer` | The project card's ID |
-| `content_url` | `string` |  |
-| `note` | `string` |  |
-| `column_name` | `string` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
-| `column_url` | `string` |  |
-| `created_at` | `string` |  |
-| `project_url` | `string` |  |
-| `project_id` | `string` |  |
-| `node_id` | `string` |  |
-| `creator` | `object` | A GitHub user. |
-| `archived` | `boolean` | Whether or not the card is archived |
+| <CopyableCode code="id" /> | `integer` | The project card's ID |
+| <CopyableCode code="archived" /> | `boolean` | Whether or not the card is archived |
+| <CopyableCode code="column_name" /> | `string` |  |
+| <CopyableCode code="column_url" /> | `string` |  |
+| <CopyableCode code="content_url" /> | `string` |  |
+| <CopyableCode code="created_at" /> | `string` |  |
+| <CopyableCode code="creator" /> | `object` | A GitHub user. |
+| <CopyableCode code="node_id" /> | `string` |  |
+| <CopyableCode code="note" /> | `string` |  |
+| <CopyableCode code="project_id" /> | `string` |  |
+| <CopyableCode code="project_url" /> | `string` |  |
+| <CopyableCode code="updated_at" /> | `string` |  |
+| <CopyableCode code="url" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_card` | `SELECT` | `card_id` | Gets information about a project card. |
-| `list_cards` | `SELECT` | `column_id` | Lists the project cards in a project. |
-| `create_card` | `INSERT` | `column_id` |  |
-| `delete_card` | `DELETE` | `card_id` | Deletes a project card |
-| `move_card` | `EXEC` | `card_id, data__position` |  |
-| `update_card` | `EXEC` | `card_id` |  |
+| <CopyableCode code="get_card" /> | `SELECT` | <CopyableCode code="card_id" /> | Gets information about a project card. |
+| <CopyableCode code="list_cards" /> | `SELECT` | <CopyableCode code="column_id" /> | Lists the project cards in a project. |
+| <CopyableCode code="create_card" /> | `INSERT` | <CopyableCode code="column_id" /> |  |
+| <CopyableCode code="delete_card" /> | `DELETE` | <CopyableCode code="card_id" /> | Deletes a project card |
+| <CopyableCode code="move_card" /> | `EXEC` | <CopyableCode code="card_id, data__position" /> |  |
+| <CopyableCode code="update_card" /> | `EXEC` | <CopyableCode code="card_id" /> |  |

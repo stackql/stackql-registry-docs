@@ -14,56 +14,59 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>commit_pr_branches</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.repos.commit_pr_branches</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.repos.commit_pr_branches" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `integer` |  |
-| `state` | `string` |  |
-| `node_id` | `string` |  |
-| `comments_url` | `string` |  |
-| `closed_at` | `string` |  |
-| `patch_url` | `string` |  |
-| `labels` | `array` |  |
-| `merged_at` | `string` |  |
-| `issue_url` | `string` |  |
-| `review_comment_url` | `string` |  |
-| `title` | `string` |  |
-| `user` | `object` | A GitHub user. |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `commits_url` | `string` |  |
-| `_links` | `object` |  |
-| `url` | `string` |  |
-| `html_url` | `string` |  |
-| `created_at` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `active_lock_reason` | `string` |  |
-| `base` | `object` |  |
-| `statuses_url` | `string` |  |
-| `assignee` | `object` | A GitHub user. |
-| `head` | `object` |  |
-| `updated_at` | `string` |  |
-| `auto_merge` | `object` | The status of auto merging a pull request. |
-| `requested_teams` | `array` |  |
-| `requested_reviewers` | `array` |  |
-| `review_comments_url` | `string` |  |
-| `locked` | `boolean` |  |
-| `diff_url` | `string` |  |
-| `merge_commit_sha` | `string` |  |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
-| `body` | `string` |  |
-| `number` | `integer` |  |
-| `assignees` | `array` |  |
+| <CopyableCode code="id" /> | `integer` |  |
+| <CopyableCode code="_links" /> | `object` |  |
+| <CopyableCode code="active_lock_reason" /> | `string` |  |
+| <CopyableCode code="assignee" /> | `object` | A GitHub user. |
+| <CopyableCode code="assignees" /> | `array` |  |
+| <CopyableCode code="author_association" /> | `string` | How the author is associated with the repository. |
+| <CopyableCode code="auto_merge" /> | `object` | The status of auto merging a pull request. |
+| <CopyableCode code="base" /> | `object` |  |
+| <CopyableCode code="body" /> | `string` |  |
+| <CopyableCode code="closed_at" /> | `string` |  |
+| <CopyableCode code="comments_url" /> | `string` |  |
+| <CopyableCode code="commits_url" /> | `string` |  |
+| <CopyableCode code="created_at" /> | `string` |  |
+| <CopyableCode code="diff_url" /> | `string` |  |
+| <CopyableCode code="draft" /> | `boolean` | Indicates whether or not the pull request is a draft. |
+| <CopyableCode code="head" /> | `object` |  |
+| <CopyableCode code="html_url" /> | `string` |  |
+| <CopyableCode code="issue_url" /> | `string` |  |
+| <CopyableCode code="labels" /> | `array` |  |
+| <CopyableCode code="locked" /> | `boolean` |  |
+| <CopyableCode code="merge_commit_sha" /> | `string` |  |
+| <CopyableCode code="merged_at" /> | `string` |  |
+| <CopyableCode code="milestone" /> | `object` | A collection of related issues and pull requests. |
+| <CopyableCode code="node_id" /> | `string` |  |
+| <CopyableCode code="number" /> | `integer` |  |
+| <CopyableCode code="patch_url" /> | `string` |  |
+| <CopyableCode code="requested_reviewers" /> | `array` |  |
+| <CopyableCode code="requested_teams" /> | `array` |  |
+| <CopyableCode code="review_comment_url" /> | `string` |  |
+| <CopyableCode code="review_comments_url" /> | `string` |  |
+| <CopyableCode code="state" /> | `string` |  |
+| <CopyableCode code="statuses_url" /> | `string` |  |
+| <CopyableCode code="title" /> | `string` |  |
+| <CopyableCode code="updated_at" /> | `string` |  |
+| <CopyableCode code="url" /> | `string` |  |
+| <CopyableCode code="user" /> | `object` | A GitHub user. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_pull_requests_associated_with_commit` | `SELECT` | `commit_sha, owner, repo` |
+| <CopyableCode code="list_pull_requests_associated_with_commit" /> | `SELECT` | <CopyableCode code="commit_sha, owner, repo" /> |

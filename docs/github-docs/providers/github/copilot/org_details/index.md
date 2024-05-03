@@ -14,23 +14,26 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>org_details</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.copilot.org_details</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.copilot.org_details" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `seat_breakdown` | `object` | The breakdown of Copilot for Business seats for the organization. |
-| `seat_management_setting` | `string` | The mode of assigning new seats. |
-| `public_code_suggestions` | `string` | The organization policy for allowing or disallowing Copilot to make suggestions that match public code. |
+| <CopyableCode code="public_code_suggestions" /> | `string` | The organization policy for allowing or disallowing Copilot to make suggestions that match public code. |
+| <CopyableCode code="seat_breakdown" /> | `object` | The breakdown of Copilot for Business seats for the organization. |
+| <CopyableCode code="seat_management_setting" /> | `string` | The mode of assigning new seats. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_copilot_organization_details` | `SELECT` | `org` |
+| <CopyableCode code="get_copilot_organization_details" /> | `SELECT` | <CopyableCode code="org" /> |
