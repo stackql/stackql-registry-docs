@@ -14,14 +14,17 @@ description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pod_attach_options</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>k8s.core_v1.pod_attach_options</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="k8s.core_v1.pod_attach_options" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1GetNamespacedPodAttach` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect GET requests to attach of Pod |
-| `connectCoreV1PostNamespacedPodAttach` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect POST requests to attach of Pod |
+| <CopyableCode code="connectCoreV1GetNamespacedPodAttach" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect GET requests to attach of Pod |
+| <CopyableCode code="connectCoreV1PostNamespacedPodAttach" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect POST requests to attach of Pod |

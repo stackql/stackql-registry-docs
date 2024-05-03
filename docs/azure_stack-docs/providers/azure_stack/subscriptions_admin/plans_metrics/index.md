@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>plans_metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.subscriptions_admin.plans_metrics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.subscriptions_admin.plans_metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `endTime` | `string` | End time of the metric. |
-| `metricUnit` | `string` | The resource metric unit. |
-| `metricValues` | `array` | List of metric values. |
-| `startTime` | `string` | Start time of the metric. |
-| `timeGrain` | `string` | Timespan of the metric. |
+| <CopyableCode code="endTime" /> | `string` | End time of the metric. |
+| <CopyableCode code="metricUnit" /> | `string` | The resource metric unit. |
+| <CopyableCode code="metricValues" /> | `array` | List of metric values. |
+| <CopyableCode code="startTime" /> | `string` | Start time of the metric. |
+| <CopyableCode code="timeGrain" /> | `string` | Timespan of the metric. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `plan, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `plan, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="plan, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="plan, resourceGroupName, subscriptionId" /> |

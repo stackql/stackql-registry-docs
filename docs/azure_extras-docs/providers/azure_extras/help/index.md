@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 By Using Help API, You Can Get Access To Insight Diagnostics, Troubleshooters, And Other Powerful Solutions For Your Azure Resource And Subscription. These Solutions Are Curated By Azure Engineers That Will Expedite Your Troubleshooting Experiences Across Billing, Subscription Management And Technical Issues.  
     
 :::info Service Summary

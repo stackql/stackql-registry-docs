@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The MarketplaceCommerce API (MPC, Also Known As StoreApi) Is Used For Purchases Of Third-Party Virtual Machines (VM), Managed Applications (MA), And Developer Services.  
     
 :::info Service Summary

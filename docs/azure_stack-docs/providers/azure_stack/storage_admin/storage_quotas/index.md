@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>storage_quotas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.storage_admin.storage_quotas</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.storage_admin.storage_quotas" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource Name. |
-| `location` | `string` | Resource Location. |
-| `properties` | `object` | Storage quota properties. |
-| `type` | `string` | Resource Type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource Name. |
+| <CopyableCode code="location" /> | `string` | Resource Location. |
+| <CopyableCode code="properties" /> | `object` | Storage quota properties. |
+| <CopyableCode code="type" /> | `string` | Resource Type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `location, quotaName, subscriptionId` | Returns the specified storage quota. |
-| `list` | `SELECT` | `location, subscriptionId` | Returns a list of storage quotas at the given location. |
-| `create_or_update` | `INSERT` | `location, quotaName, subscriptionId` | Create or update an existing storage quota. |
-| `delete` | `DELETE` | `location, quotaName, subscriptionId` | Delete an existing quota |
-| `_list` | `EXEC` | `location, subscriptionId` | Returns a list of storage quotas at the given location. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, quotaName, subscriptionId" /> | Returns the specified storage quota. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Returns a list of storage quotas at the given location. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="location, quotaName, subscriptionId" /> | Create or update an existing storage quota. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="location, quotaName, subscriptionId" /> | Delete an existing quota |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Returns a list of storage quotas at the given location. |

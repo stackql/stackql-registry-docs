@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>quotas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.compute_admin.quotas</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.compute_admin.quotas" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | ID of the resource. |
-| `name` | `string` | Name of the resource. |
-| `location` | `string` | Location of the resource. |
-| `properties` | `object` | Properties for a Compute Quota |
-| `type` | `string` | Type of Resource. |
+| <CopyableCode code="id" /> | `string` | ID of the resource. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="location" /> | `string` | Location of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties for a Compute Quota |
+| <CopyableCode code="type" /> | `string` | Type of Resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `location, quotaName, subscriptionId` | Get an existing Compute Quota. |
-| `list` | `SELECT` | `location, subscriptionId` | Get a list of existing Compute quotas. |
-| `create_or_update` | `INSERT` | `location, quotaName, subscriptionId` | Creates or Updates a Compute Quota with the provided quota parameters. |
-| `delete` | `DELETE` | `location, quotaName, subscriptionId` | Delete an existing Compute quota. |
-| `_list` | `EXEC` | `location, subscriptionId` | Get a list of existing Compute quotas. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, quotaName, subscriptionId" /> | Get an existing Compute Quota. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Get a list of existing Compute quotas. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="location, quotaName, subscriptionId" /> | Creates or Updates a Compute Quota with the provided quota parameters. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="location, quotaName, subscriptionId" /> | Delete an existing Compute quota. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Get a list of existing Compute quotas. |

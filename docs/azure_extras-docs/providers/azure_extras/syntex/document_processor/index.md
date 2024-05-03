@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>document_processor</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.syntex.document_processor</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.syntex.document_processor" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Document processor properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Document processor properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `processorName, resourceGroupName, subscriptionId` | Returns a document processor for a given name. |
-| `list` | `SELECT` | `subscriptionId` | Returns document processors in the subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Returns document processors in a resource group. |
-| `create` | `INSERT` | `processorName, resourceGroupName, subscriptionId` | Creates a document processor resource for a given name. |
-| `delete` | `DELETE` | `processorName, resourceGroupName, subscriptionId` | Deletes document processor resource for a given name. |
-| `_list` | `EXEC` | `subscriptionId` | Returns document processors in the subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Returns document processors in a resource group. |
-| `update` | `EXEC` | `processorName, resourceGroupName, subscriptionId` | Updates a document processor resource for a given name. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="processorName, resourceGroupName, subscriptionId" /> | Returns a document processor for a given name. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns document processors in the subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns document processors in a resource group. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="processorName, resourceGroupName, subscriptionId" /> | Creates a document processor resource for a given name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="processorName, resourceGroupName, subscriptionId" /> | Deletes document processor resource for a given name. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns document processors in the subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns document processors in a resource group. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="processorName, resourceGroupName, subscriptionId" /> | Updates a document processor resource for a given name. |

@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>experiments_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.chaos.experiments_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.chaos.experiments_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | String of the fully qualified resource ID. |
-| `name` | `string` | String of the resource name. |
-| `properties` | `object` | Model that represents the Experiment status properties model. |
-| `type` | `string` | String of the resource type. |
+| <CopyableCode code="id" /> | `string` | String of the fully qualified resource ID. |
+| <CopyableCode code="name" /> | `string` | String of the resource name. |
+| <CopyableCode code="properties" /> | `object` | Model that represents the Experiment status properties model. |
+| <CopyableCode code="type" /> | `string` | String of the resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, experimentName, resourceGroupName, statusId, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, experimentName, resourceGroupName, statusId, subscriptionId" /> |

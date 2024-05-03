@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>skus_availability</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.vmware_cloud_simple.skus_availability</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.vmware_cloud_simple.skus_availability" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `dedicatedAvailabilityZoneId` | `string` | CloudSimple Availability Zone id |
-| `dedicatedAvailabilityZoneName` | `string` | CloudSimple Availability Zone Name |
-| `dedicatedPlacementGroupId` | `string` | CloudSimple Placement Group Id |
-| `dedicatedPlacementGroupName` | `string` | CloudSimple Placement Group name |
-| `limit` | `integer` | indicates how many resources of a given SKU is available in a AZ-&gt;PG |
-| `resourceType` | `string` | resource type e.g. DedicatedCloudNodes |
-| `skuId` | `string` | sku id |
-| `skuName` | `string` | sku name |
+| <CopyableCode code="dedicatedAvailabilityZoneId" /> | `string` | CloudSimple Availability Zone id |
+| <CopyableCode code="dedicatedAvailabilityZoneName" /> | `string` | CloudSimple Availability Zone Name |
+| <CopyableCode code="dedicatedPlacementGroupId" /> | `string` | CloudSimple Placement Group Id |
+| <CopyableCode code="dedicatedPlacementGroupName" /> | `string` | CloudSimple Placement Group name |
+| <CopyableCode code="limit" /> | `integer` | indicates how many resources of a given SKU is available in a AZ-&gt;PG |
+| <CopyableCode code="resourceType" /> | `string` | resource type e.g. DedicatedCloudNodes |
+| <CopyableCode code="skuId" /> | `string` | sku id |
+| <CopyableCode code="skuName" /> | `string` | sku name |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version, regionId, subscriptionId` |
-| `_list` | `EXEC` | `api-version, regionId, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, regionId, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, regionId, subscriptionId" /> |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Center For SAP Solutions (ACSS) Is An Azure Offering That Makes SAP A Top-Level Workload On Azure. You Can Use ACSS To Deploy Or Manage SAP Systems On Azure Seamlessly. The Deployment Experience Sets Up And Connects The Individual SAP Components On Your Behalf. ACSS Simplifies The Management Of SAP Systems And Provides Quality Checks To Increase The Reliability Of These Systems On Azure.  
     
 :::info Service Summary

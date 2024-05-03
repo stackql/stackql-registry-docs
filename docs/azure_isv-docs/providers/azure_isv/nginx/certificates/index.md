@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.nginx.certificates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.nginx.certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `location` | `string` |  |
-| `properties` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` |  |
+| <CopyableCode code="id" /> | `string` |  |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="location" /> | `string` |  |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `certificateName, deploymentName, resourceGroupName, subscriptionId` |
-| `list` | `SELECT` | `deploymentName, resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `certificateName, deploymentName, resourceGroupName, subscriptionId` |
-| `delete` | `DELETE` | `certificateName, deploymentName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `deploymentName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="certificateName, deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="certificateName, deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateName, deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |

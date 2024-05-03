@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>volume_quota_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.netapp.volume_quota_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.netapp.volume_quota_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Volume Quota Rule properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Volume Quota Rule properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName` | Get details of the specified quota rule |
-| `list_by_volume` | `SELECT` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName` | List all quota rules associated with the volume |
-| `create` | `INSERT` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName` | Create the specified quota rule within the given volume |
-| `delete` | `DELETE` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName` | Delete quota rule |
-| `_list_by_volume` | `EXEC` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName` | List all quota rules associated with the volume |
-| `update` | `EXEC` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName` | Patch a quota rule |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName" /> | Get details of the specified quota rule |
+| <CopyableCode code="list_by_volume" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | List all quota rules associated with the volume |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName" /> | Create the specified quota rule within the given volume |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName" /> | Delete quota rule |
+| <CopyableCode code="_list_by_volume" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | List all quota rules associated with the volume |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName" /> | Patch a quota rule |

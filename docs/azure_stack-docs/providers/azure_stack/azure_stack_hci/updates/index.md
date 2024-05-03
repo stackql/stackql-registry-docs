@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>updates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack_hci.updates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack_hci.updates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Details of a singular Update in HCI Cluster |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Details of a singular Update in HCI Cluster |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, resourceGroupName, subscriptionId, updateName` | Get specified Update |
-| `list` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | List all Updates |
-| `delete` | `DELETE` | `clusterName, resourceGroupName, subscriptionId, updateName` | Delete specified Update |
-| `_list` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | List all Updates |
-| `post` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, updateName` | Apply Update |
-| `put` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, updateName` | Put specified Update |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Get specified Update |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List all Updates |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Delete specified Update |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List all Updates |
+| <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Apply Update |
+| <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Put specified Update |

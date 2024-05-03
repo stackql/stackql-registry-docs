@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack.operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the operation being performed on this particular object. |
-| `display` | `object` | Contains the localized display information for this particular operation or action. |
-| `origin` | `string` | The intended executor of the operation. |
+| <CopyableCode code="name" /> | `string` | The name of the operation being performed on this particular object. |
+| <CopyableCode code="display" /> | `object` | Contains the localized display information for this particular operation or action. |
+| <CopyableCode code="origin" /> | `string` | The intended executor of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

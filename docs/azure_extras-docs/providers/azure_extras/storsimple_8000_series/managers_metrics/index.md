@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managers_metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.storsimple_8000_series.managers_metrics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.storsimple_8000_series.managers_metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `object` | The metric name. |
-| `dimensions` | `array` | The metric dimensions. |
-| `endTime` | `string` | The end time of the metric data. |
-| `primaryAggregation` | `string` | The metric aggregation type. |
-| `resourceId` | `string` | The ID of metric source. |
-| `startTime` | `string` | The start time of the metric data. |
-| `timeGrain` | `string` | The time granularity of the metric data. |
-| `type` | `string` | The type of the metric data. |
-| `unit` | `string` | The unit of the metric data. |
-| `values` | `array` | The list of the metric data. |
+| <CopyableCode code="name" /> | `object` | The metric name. |
+| <CopyableCode code="dimensions" /> | `array` | The metric dimensions. |
+| <CopyableCode code="endTime" /> | `string` | The end time of the metric data. |
+| <CopyableCode code="primaryAggregation" /> | `string` | The metric aggregation type. |
+| <CopyableCode code="resourceId" /> | `string` | The ID of metric source. |
+| <CopyableCode code="startTime" /> | `string` | The start time of the metric data. |
+| <CopyableCode code="timeGrain" /> | `string` | The time granularity of the metric data. |
+| <CopyableCode code="type" /> | `string` | The type of the metric data. |
+| <CopyableCode code="unit" /> | `string` | The unit of the metric data. |
+| <CopyableCode code="values" /> | `array` | The list of the metric data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `$filter, managerName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `$filter, managerName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="$filter, managerName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="$filter, managerName, resourceGroupName, subscriptionId" /> |

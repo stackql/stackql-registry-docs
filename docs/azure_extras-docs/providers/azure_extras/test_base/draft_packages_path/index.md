@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>draft_packages_path</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.test_base.draft_packages_path</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.test_base.draft_packages_path" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `baseUrl` | `string` | The base URL of the storage account. |
-| `draftPackagePath` | `string` | The relative path of the folder hosting package files. |
-| `expirationTime` | `string` | Expiry date of the SAS token. |
-| `sasToken` | `string` | A SAS token for the storage account to access workspace. |
-| `workingPath` | `string` | The relative path for a temporary folder for package creation work. |
+| <CopyableCode code="baseUrl" /> | `string` | The base URL of the storage account. |
+| <CopyableCode code="draftPackagePath" /> | `string` | The relative path of the folder hosting package files. |
+| <CopyableCode code="expirationTime" /> | `string` | Expiry date of the SAS token. |
+| <CopyableCode code="sasToken" /> | `string` | A SAS token for the storage account to access workspace. |
+| <CopyableCode code="workingPath" /> | `string` | The relative path for a temporary folder for package creation work. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName" /> |

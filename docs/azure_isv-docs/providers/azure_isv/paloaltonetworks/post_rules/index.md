@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>post_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.paloaltonetworks.post_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.paloaltonetworks.post_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | definition of rule |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | definition of rule |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `globalRulestackName, priority` | Get a PostRulesResource |
-| `list` | `SELECT` | `globalRulestackName` | List PostRulesResource resources by Tenant |
-| `create_or_update` | `INSERT` | `globalRulestackName, priority, data__properties` | Create a PostRulesResource |
-| `delete` | `DELETE` | `globalRulestackName, priority` | Delete a PostRulesResource |
-| `_list` | `EXEC` | `globalRulestackName` | List PostRulesResource resources by Tenant |
-| `refresh_counters` | `EXEC` | `globalRulestackName, priority` | Refresh counters |
-| `reset_counters` | `EXEC` | `globalRulestackName, priority` | Reset counters |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="globalRulestackName, priority" /> | Get a PostRulesResource |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="globalRulestackName" /> | List PostRulesResource resources by Tenant |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="globalRulestackName, priority, data__properties" /> | Create a PostRulesResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="globalRulestackName, priority" /> | Delete a PostRulesResource |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | List PostRulesResource resources by Tenant |
+| <CopyableCode code="refresh_counters" /> | `EXEC` | <CopyableCode code="globalRulestackName, priority" /> | Refresh counters |
+| <CopyableCode code="reset_counters" /> | `EXEC` | <CopyableCode code="globalRulestackName, priority" /> | Reset counters |

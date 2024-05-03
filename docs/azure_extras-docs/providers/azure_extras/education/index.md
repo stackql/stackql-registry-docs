@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Education API Includes Operations To Manage Labs Deployed Through The Education Hub. These Labs Are Designed To Allow For Distribution Of Credit And Limiting Of Spend For Individual Subscriptions In A Classroom Environment.  
     
 :::info Service Summary

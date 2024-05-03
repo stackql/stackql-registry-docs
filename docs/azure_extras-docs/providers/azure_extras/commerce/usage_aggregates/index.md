@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_aggregates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.commerce.usage_aggregates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.commerce.usage_aggregates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique Id for the usage aggregate. |
-| `name` | `string` | Name of the usage aggregate. |
-| `properties` | `object` | Describes a sample of the usageAggregation. |
-| `type` | `string` | Type of the resource being returned. |
+| <CopyableCode code="id" /> | `string` | Unique Id for the usage aggregate. |
+| <CopyableCode code="name" /> | `string` | Name of the usage aggregate. |
+| <CopyableCode code="properties" /> | `object` | Describes a sample of the usageAggregation. |
+| <CopyableCode code="type" /> | `string` | Type of the resource being returned. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `reportedEndTime, reportedStartTime, subscriptionId` |
-| `_list` | `EXEC` | `reportedEndTime, reportedStartTime, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="reportedEndTime, reportedStartTime, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="reportedEndTime, reportedStartTime, subscriptionId" /> |

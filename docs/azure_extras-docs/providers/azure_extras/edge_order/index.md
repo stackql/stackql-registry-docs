@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Edge Hardware Center Is An Azure Service That Lets You Order A Variety Of First Party Azure Hardware And Discover Third Party Hardware Offered By Our Partners. Edge Hardware Center Lets You See And Track All Your Order Related Information At One Place.  
     
 :::info Service Summary

@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>draft_packages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.test_base.draft_packages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.test_base.draft_packages" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a Test Base Draft Package. |
-| `list_by_test_base_account` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the draft packages under a test base account. |
-| `create` | `INSERT` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName` | Creates or replaces a Test Base Draft Package. |
-| `delete` | `DELETE` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes a Test Base Draft Package. |
-| `_list_by_test_base_account` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the draft packages under a test base account. |
-| `copy_from_package` | `EXEC` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName, data__packageId` | Copy package file and metadata from a package to this draft package |
-| `extract_file` | `EXEC` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName, data__sourceFile` | Performs extracting file operation for a Test Base Draft Package |
-| `generate_folders_and_scripts` | `EXEC` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName` | Generates folders and scripts |
-| `update` | `EXEC` | `draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName` | Updates an existing Test Base Draft Package. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Gets a Test Base Draft Package. |
+| <CopyableCode code="list_by_test_base_account" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, testBaseAccountName" /> | Lists all the draft packages under a test base account. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Creates or replaces a Test Base Draft Package. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Deletes a Test Base Draft Package. |
+| <CopyableCode code="_list_by_test_base_account" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, testBaseAccountName" /> | Lists all the draft packages under a test base account. |
+| <CopyableCode code="copy_from_package" /> | `EXEC` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName, data__packageId" /> | Copy package file and metadata from a package to this draft package |
+| <CopyableCode code="extract_file" /> | `EXEC` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName, data__sourceFile" /> | Performs extracting file operation for a Test Base Draft Package |
+| <CopyableCode code="generate_folders_and_scripts" /> | `EXEC` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Generates folders and scripts |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="draftPackageName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Updates an existing Test Base Draft Package. |

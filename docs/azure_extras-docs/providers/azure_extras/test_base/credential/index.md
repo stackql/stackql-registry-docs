@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>credential</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.test_base.credential</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.test_base.credential" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `credentialName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a test base credential Resource |
-| `list_by_test_base_account` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the Credentials under a Test Base Account. |
-| `_list_by_test_base_account` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the Credentials under a Test Base Account. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="credentialName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Gets a test base credential Resource |
+| <CopyableCode code="list_by_test_base_account" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, testBaseAccountName" /> | Lists all the Credentials under a Test Base Account. |
+| <CopyableCode code="_list_by_test_base_account" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, testBaseAccountName" /> | Lists all the Credentials under a Test Base Account. |

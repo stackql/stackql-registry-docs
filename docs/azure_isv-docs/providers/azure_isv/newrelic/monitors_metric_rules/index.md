@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>monitors_metric_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.newrelic.monitors_metric_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.newrelic.monitors_metric_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `filteringTags` | `array` | List of filtering tags to be used for capturing metrics. |
-| `sendMetrics` | `string` | Indicates whether metrics are being sent. |
-| `userEmail` | `string` | Reusable representation of an email address |
+| <CopyableCode code="filteringTags" /> | `array` | List of filtering tags to be used for capturing metrics. |
+| <CopyableCode code="sendMetrics" /> | `string` | Indicates whether metrics are being sent. |
+| <CopyableCode code="userEmail" /> | `string` | Reusable representation of an email address |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `monitorName, resourceGroupName, subscriptionId, data__userEmail` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId, data__userEmail" /> |

@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_rulestack</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.paloaltonetworks.global_rulestack</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.paloaltonetworks.global_rulestack" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | The properties of the managed service identities assigned to this resource. |
-| `location` | `string` | Global Location |
-| `properties` | `object` | PAN Rulestack Describe Object |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="identity" /> | `object` | The properties of the managed service identities assigned to this resource. |
+| <CopyableCode code="location" /> | `string` | Global Location |
+| <CopyableCode code="properties" /> | `object` | PAN Rulestack Describe Object |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `globalRulestackName` | Get a GlobalRulestackResource |
-| `list` | `SELECT` |  | List GlobalRulestackResource resources by Tenant |
-| `create_or_update` | `INSERT` | `globalRulestackName, data__location, data__properties` | Create a GlobalRulestackResource |
-| `delete` | `DELETE` | `globalRulestackName` | Delete a GlobalRulestackResource |
-| `_list` | `EXEC` |  | List GlobalRulestackResource resources by Tenant |
-| `commit` | `EXEC` | `globalRulestackName` | Commit rulestack configuration |
-| `revert` | `EXEC` | `globalRulestackName` | Revert rulestack configuration |
-| `update` | `EXEC` | `globalRulestackName` | Update a GlobalRulestackResource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="globalRulestackName" /> | Get a GlobalRulestackResource |
+| <CopyableCode code="list" /> | `SELECT` |  | List GlobalRulestackResource resources by Tenant |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="globalRulestackName, data__location, data__properties" /> | Create a GlobalRulestackResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="globalRulestackName" /> | Delete a GlobalRulestackResource |
+| <CopyableCode code="_list" /> | `EXEC` |  | List GlobalRulestackResource resources by Tenant |
+| <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | Commit rulestack configuration |
+| <CopyableCode code="revert" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | Revert rulestack configuration |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | Update a GlobalRulestackResource |

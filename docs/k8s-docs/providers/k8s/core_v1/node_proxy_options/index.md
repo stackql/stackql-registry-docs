@@ -14,14 +14,17 @@ description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>node_proxy_options</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>k8s.core_v1.node_proxy_options</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="k8s.core_v1.node_proxy_options" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,17 +32,17 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1DeleteNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect DELETE requests to proxy of Node |
-| `connectCoreV1DeleteNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect DELETE requests to proxy of Node |
-| `connectCoreV1GetNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect GET requests to proxy of Node |
-| `connectCoreV1GetNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect GET requests to proxy of Node |
-| `connectCoreV1HeadNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect HEAD requests to proxy of Node |
-| `connectCoreV1HeadNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect HEAD requests to proxy of Node |
-| `connectCoreV1OptionsNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect OPTIONS requests to proxy of Node |
-| `connectCoreV1OptionsNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect OPTIONS requests to proxy of Node |
-| `connectCoreV1PatchNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect PATCH requests to proxy of Node |
-| `connectCoreV1PatchNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect PATCH requests to proxy of Node |
-| `connectCoreV1PostNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect POST requests to proxy of Node |
-| `connectCoreV1PostNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect POST requests to proxy of Node |
-| `connectCoreV1PutNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect PUT requests to proxy of Node |
-| `connectCoreV1PutNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect PUT requests to proxy of Node |
+| <CopyableCode code="connectCoreV1DeleteNodeProxy" /> | `EXEC` | <CopyableCode code="name, cluster_addr, protocol" /> | connect DELETE requests to proxy of Node |
+| <CopyableCode code="connectCoreV1DeleteNodeProxyWithPath" /> | `EXEC` | <CopyableCode code="name, path, cluster_addr, protocol" /> | connect DELETE requests to proxy of Node |
+| <CopyableCode code="connectCoreV1GetNodeProxy" /> | `EXEC` | <CopyableCode code="name, cluster_addr, protocol" /> | connect GET requests to proxy of Node |
+| <CopyableCode code="connectCoreV1GetNodeProxyWithPath" /> | `EXEC` | <CopyableCode code="name, path, cluster_addr, protocol" /> | connect GET requests to proxy of Node |
+| <CopyableCode code="connectCoreV1HeadNodeProxy" /> | `EXEC` | <CopyableCode code="name, cluster_addr, protocol" /> | connect HEAD requests to proxy of Node |
+| <CopyableCode code="connectCoreV1HeadNodeProxyWithPath" /> | `EXEC` | <CopyableCode code="name, path, cluster_addr, protocol" /> | connect HEAD requests to proxy of Node |
+| <CopyableCode code="connectCoreV1OptionsNodeProxy" /> | `EXEC` | <CopyableCode code="name, cluster_addr, protocol" /> | connect OPTIONS requests to proxy of Node |
+| <CopyableCode code="connectCoreV1OptionsNodeProxyWithPath" /> | `EXEC` | <CopyableCode code="name, path, cluster_addr, protocol" /> | connect OPTIONS requests to proxy of Node |
+| <CopyableCode code="connectCoreV1PatchNodeProxy" /> | `EXEC` | <CopyableCode code="name, cluster_addr, protocol" /> | connect PATCH requests to proxy of Node |
+| <CopyableCode code="connectCoreV1PatchNodeProxyWithPath" /> | `EXEC` | <CopyableCode code="name, path, cluster_addr, protocol" /> | connect PATCH requests to proxy of Node |
+| <CopyableCode code="connectCoreV1PostNodeProxy" /> | `EXEC` | <CopyableCode code="name, cluster_addr, protocol" /> | connect POST requests to proxy of Node |
+| <CopyableCode code="connectCoreV1PostNodeProxyWithPath" /> | `EXEC` | <CopyableCode code="name, path, cluster_addr, protocol" /> | connect POST requests to proxy of Node |
+| <CopyableCode code="connectCoreV1PutNodeProxy" /> | `EXEC` | <CopyableCode code="name, cluster_addr, protocol" /> | connect PUT requests to proxy of Node |
+| <CopyableCode code="connectCoreV1PutNodeProxyWithPath" /> | `EXEC` | <CopyableCode code="name, path, cluster_addr, protocol" /> | connect PUT requests to proxy of Node |

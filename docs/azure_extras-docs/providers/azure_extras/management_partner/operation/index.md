@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.management_partner.operation</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.management_partner.operation" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | this is the operation response name |
-| `display` | `object` | this is the management partner operation |
-| `origin` | `string` | the is operation response origin information |
+| <CopyableCode code="name" /> | `string` | this is the operation response name |
+| <CopyableCode code="display" /> | `object` | this is the management partner operation |
+| <CopyableCode code="origin" /> | `string` | the is operation response origin information |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

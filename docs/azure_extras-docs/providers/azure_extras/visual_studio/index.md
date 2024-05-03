@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Use These APIs To Manage Visual Studio Team Services Resources Through The Azure Resource Manager. All Task Operations Conform To The HTTP/1.1 Protocol Specification And Each Operation Returns An X-Ms-Request-Id Header That Can Be Used To Obtain Information About The Request. You Must Make Sure That Requests Made To These Resources Are Secure. For More Information, See Https://Docs.Microsoft.Com/En-Us/Rest/Api/Index.  
     
 :::info Service Summary

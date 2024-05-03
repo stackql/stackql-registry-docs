@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Intune Provides Mobile Device Management, Mobile Application Management, And PC Management Capabilities From The Cloud.  
     
 :::info Service Summary

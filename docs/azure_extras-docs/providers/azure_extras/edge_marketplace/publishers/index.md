@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>publishers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.edge_marketplace.publishers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.edge_marketplace.publishers" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `publisherName, resourceUri` | Get a Publisher |
-| `list` | `SELECT` | `resourceUri` | List Publisher resources by parent |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List Publisher resources in subscription |
-| `_list` | `EXEC` | `resourceUri` | List Publisher resources by parent |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List Publisher resources in subscription |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="publisherName, resourceUri" /> | Get a Publisher |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceUri" /> | List Publisher resources by parent |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List Publisher resources in subscription |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceUri" /> | List Publisher resources by parent |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List Publisher resources in subscription |

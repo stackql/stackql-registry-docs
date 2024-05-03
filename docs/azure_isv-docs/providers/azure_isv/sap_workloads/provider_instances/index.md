@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provider_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.sap_workloads.provider_instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.sap_workloads.provider_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide. |
-| `properties` | `object` | Describes the properties of a provider instance. |
+| <CopyableCode code="identity" /> | `object` | A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide. |
+| <CopyableCode code="properties" /> | `object` | Describes the properties of a provider instance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `monitorName, providerInstanceName, resourceGroupName, subscriptionId` | Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name. |
-| `list` | `SELECT` | `monitorName, resourceGroupName, subscriptionId` | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
-| `create` | `INSERT` | `monitorName, providerInstanceName, resourceGroupName, subscriptionId` | Creates a provider instance for the specified subscription, resource group, SAP monitor name, and resource name. |
-| `delete` | `DELETE` | `monitorName, providerInstanceName, resourceGroupName, subscriptionId` | Deletes a provider instance for the specified subscription, resource group, SAP monitor name, and resource name. |
-| `_list` | `EXEC` | `monitorName, resourceGroupName, subscriptionId` | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="monitorName, providerInstanceName, resourceGroupName, subscriptionId" /> | Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="monitorName, providerInstanceName, resourceGroupName, subscriptionId" /> | Creates a provider instance for the specified subscription, resource group, SAP monitor name, and resource name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="monitorName, providerInstanceName, resourceGroupName, subscriptionId" /> | Deletes a provider instance for the specified subscription, resource group, SAP monitor name, and resource name. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |

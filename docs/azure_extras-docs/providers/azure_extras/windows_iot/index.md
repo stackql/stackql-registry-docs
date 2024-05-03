@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Windows For IoT Is A Member Of The Windows Family That Brings Enterprise-Class Power, Security, And Manageability To The Internet Of Things. It Uses Windows Embedded Experience, Ecosystem And Cloud Connectivity, Allowing Organizations To Create Their Internet Of Things With Secure Devices That Can Be Quickly Provisioned, Easily Managed, And Seamlessly Connected To An Overall Cloud Strategy.  
     
 :::info Service Summary

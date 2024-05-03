@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>async_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.storage_admin.async_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.storage_admin.async_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The operation id. |
-| `context` | `object` | Operation request context. |
-| `httpStatus` | `string` | Http status for the async operation. |
-| `locationHeader` | `string` | Location header for async operation. |
-| `operation` | `object` | Async operation content |
-| `operationEndTime` | `string` | Operation end time. |
-| `operationStartTime` | `string` | Operation start time. |
-| `response` | `string` | Response for the async operation. |
-| `subscriptionId` | `string` | Subscription id for async operation. |
+| <CopyableCode code="id" /> | `string` | The operation id. |
+| <CopyableCode code="context" /> | `object` | Operation request context. |
+| <CopyableCode code="httpStatus" /> | `string` | Http status for the async operation. |
+| <CopyableCode code="locationHeader" /> | `string` | Location header for async operation. |
+| <CopyableCode code="operation" /> | `object` | Async operation content |
+| <CopyableCode code="operationEndTime" /> | `string` | Operation end time. |
+| <CopyableCode code="operationStartTime" /> | `string` | Operation start time. |
+| <CopyableCode code="response" /> | `string` | Response for the async operation. |
+| <CopyableCode code="subscriptionId" /> | `string` | Subscription id for async operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `asyncOperationId, location, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="asyncOperationId, location, subscriptionId" /> |

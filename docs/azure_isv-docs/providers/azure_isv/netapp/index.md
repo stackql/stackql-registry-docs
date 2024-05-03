@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure NetApp Files Service Is An Enterprise-Class, High-Performant, Metered File Storage Service. Besides Using The Azure Portal, You Can Also Manage Resources By Using REST API. The REST API For The Azure NetApp Files Service Defines HTTP Operations Against The Supported Resources.  
     
 :::info Service Summary

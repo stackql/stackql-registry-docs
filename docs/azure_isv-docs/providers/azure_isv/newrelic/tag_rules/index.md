@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tag_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.newrelic.tag_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.newrelic.tag_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `monitorName, resourceGroupName, ruleSetName, subscriptionId` | Get a TagRule |
-| `list_by_new_relic_monitor_resource` | `SELECT` | `monitorName, resourceGroupName, subscriptionId` | List TagRule resources by NewRelicMonitorResource |
-| `create_or_update` | `INSERT` | `monitorName, resourceGroupName, ruleSetName, subscriptionId, data__properties` | Create a TagRule |
-| `delete` | `DELETE` | `monitorName, resourceGroupName, ruleSetName, subscriptionId` | Delete a TagRule |
-| `_list_by_new_relic_monitor_resource` | `EXEC` | `monitorName, resourceGroupName, subscriptionId` | List TagRule resources by NewRelicMonitorResource |
-| `update` | `EXEC` | `monitorName, resourceGroupName, ruleSetName, subscriptionId` | Update a TagRule |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, ruleSetName, subscriptionId" /> | Get a TagRule |
+| <CopyableCode code="list_by_new_relic_monitor_resource" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | List TagRule resources by NewRelicMonitorResource |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="monitorName, resourceGroupName, ruleSetName, subscriptionId, data__properties" /> | Create a TagRule |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="monitorName, resourceGroupName, ruleSetName, subscriptionId" /> | Delete a TagRule |
+| <CopyableCode code="_list_by_new_relic_monitor_resource" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | List TagRule resources by NewRelicMonitorResource |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, ruleSetName, subscriptionId" /> | Update a TagRule |

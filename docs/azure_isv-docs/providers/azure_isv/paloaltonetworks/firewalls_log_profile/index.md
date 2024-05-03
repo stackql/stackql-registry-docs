@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewalls_log_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.paloaltonetworks.firewalls_log_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.paloaltonetworks.firewalls_log_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `applicationInsights` | `object` | Application Insights key |
-| `commonDestination` | `object` | Log Destination |
-| `decryptLogDestination` | `object` | Log Destination |
-| `logOption` | `string` | Log options possible |
-| `logType` | `string` | Possible log types |
-| `threatLogDestination` | `object` | Log Destination |
-| `trafficLogDestination` | `object` | Log Destination |
+| <CopyableCode code="applicationInsights" /> | `object` | Application Insights key |
+| <CopyableCode code="commonDestination" /> | `object` | Log Destination |
+| <CopyableCode code="decryptLogDestination" /> | `object` | Log Destination |
+| <CopyableCode code="logOption" /> | `string` | Log options possible |
+| <CopyableCode code="logType" /> | `string` | Possible log types |
+| <CopyableCode code="threatLogDestination" /> | `object` | Log Destination |
+| <CopyableCode code="trafficLogDestination" /> | `object` | Log Destination |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `firewallName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="firewallName, resourceGroupName, subscriptionId" /> |

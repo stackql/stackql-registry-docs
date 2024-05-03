@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_rulestack_firewalls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.paloaltonetworks.global_rulestack_firewalls</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.paloaltonetworks.global_rulestack_firewalls" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | next link |
-| `value` | `array` | firewalls list |
+| <CopyableCode code="nextLink" /> | `string` | next link |
+| <CopyableCode code="value" /> | `array` | firewalls list |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `globalRulestackName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="globalRulestackName" /> |

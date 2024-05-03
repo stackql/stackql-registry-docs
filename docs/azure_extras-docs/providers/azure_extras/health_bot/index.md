@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 A Managed Service Purpose-Built For Development Of Virtual Healthcare Assistants.  
     
 :::info Service Summary

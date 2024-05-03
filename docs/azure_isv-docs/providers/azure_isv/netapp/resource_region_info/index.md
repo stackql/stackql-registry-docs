@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_region_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.netapp.resource_region_info</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.netapp.resource_region_info" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `availabilityZoneMappings` | `array` | Provides logical availability zone mappings for the subscription for a region. |
-| `storageToNetworkProximity` | `string` | Provides storage to network proximity information in the region. |
+| <CopyableCode code="availabilityZoneMappings" /> | `array` | Provides logical availability zone mappings for the subscription for a region. |
+| <CopyableCode code="storageToNetworkProximity" /> | `string` | Provides storage to network proximity information in the region. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `query_region_info` | `SELECT` | `location, subscriptionId` |
+| <CopyableCode code="query_region_info" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |

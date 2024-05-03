@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>update_summaries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack_hci.update_summaries</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack_hci.update_summaries" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of Update summaries |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of Update summaries |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Get all Update summaries under the HCI cluster |
-| `delete` | `DELETE` | `clusterName, resourceGroupName, subscriptionId` | Delete Update Summaries |
-| `put` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Put Update summaries under the HCI cluster |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Get all Update summaries under the HCI cluster |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Delete Update Summaries |
+| <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Put Update summaries under the HCI cluster |

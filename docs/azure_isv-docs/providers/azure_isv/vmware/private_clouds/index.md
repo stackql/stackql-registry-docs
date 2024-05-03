@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_clouds</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.vmware.private_clouds</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.vmware.private_clouds" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Identity for the virtual machine. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of a private cloud resource |
-| `sku` | `object` | The resource model definition representing SKU |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Identity for the virtual machine. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | The properties of a private cloud resource |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `privateCloudName, resourceGroupName, subscriptionId` |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `privateCloudName, resourceGroupName, subscriptionId, data__location, data__sku` |
-| `delete` | `DELETE` | `privateCloudName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` |
-| `_list_in_subscription` | `EXEC` | `subscriptionId` |
-| `list_in_subscription` | `EXEC` | `subscriptionId` |
-| `rotate_nsxt_password` | `EXEC` | `privateCloudName, resourceGroupName, subscriptionId` |
-| `rotate_vcenter_password` | `EXEC` | `privateCloudName, resourceGroupName, subscriptionId` |
-| `update` | `EXEC` | `privateCloudName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId, data__location, data__sku" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list_in_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="list_in_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="rotate_nsxt_password" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="rotate_vcenter_password" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |

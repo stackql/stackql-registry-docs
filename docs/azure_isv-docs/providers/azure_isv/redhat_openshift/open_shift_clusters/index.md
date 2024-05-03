@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>open_shift_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.redhat_openshift.open_shift_clusters</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.redhat_openshift.open_shift_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | OpenShiftClusterProperties represents an OpenShift cluster's properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | OpenShiftClusterProperties represents an OpenShift cluster's properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | The operation returns properties of a OpenShift cluster. |
-| `list` | `SELECT` | `subscriptionId` | The operation returns properties of each OpenShift cluster. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | The operation returns properties of each OpenShift cluster. |
-| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | The operation returns properties of a OpenShift cluster. |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | The operation returns nothing. |
-| `_list` | `EXEC` | `subscriptionId` | The operation returns properties of each OpenShift cluster. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | The operation returns properties of each OpenShift cluster. |
-| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | The operation returns properties of a OpenShift cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | The operation returns properties of a OpenShift cluster. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | The operation returns properties of each OpenShift cluster. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | The operation returns properties of each OpenShift cluster. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | The operation returns properties of a OpenShift cluster. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | The operation returns nothing. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | The operation returns properties of each OpenShift cluster. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | The operation returns properties of each OpenShift cluster. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | The operation returns properties of a OpenShift cluster. |

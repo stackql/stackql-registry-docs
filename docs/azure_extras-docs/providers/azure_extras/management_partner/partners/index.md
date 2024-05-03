@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>partners</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.management_partner.partners</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.management_partner.partners" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Identifier of the partner |
-| `name` | `string` | Name of the partner |
-| `etag` | `integer` | Type of the partner |
-| `properties` | `object` | this is the management partner properties |
-| `type` | `string` | Type of resource. "Microsoft.ManagementPartner/partners" |
+| <CopyableCode code="id" /> | `string` | Identifier of the partner |
+| <CopyableCode code="name" /> | `string` | Name of the partner |
+| <CopyableCode code="etag" /> | `integer` | Type of the partner |
+| <CopyableCode code="properties" /> | `object` | this is the management partner properties |
+| <CopyableCode code="type" /> | `string` | Type of resource. "Microsoft.ManagementPartner/partners" |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` |  |
+| <CopyableCode code="get" /> | `SELECT` |  |

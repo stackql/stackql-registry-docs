@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Run Virtual Machines And Containers On-Premises With An Azure Arc–Enabled Infrastructure.  
     
 :::info Service Summary

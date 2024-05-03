@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 SAP On Azure Solutions Help You Optimize Your Enterprise Resource Planning (ERP) In The Cloud Using The Security Features, Reliability, And Scalable SAP-Certified Infrastructure Of Azure.  
     
 :::info Service Summary

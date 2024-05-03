@@ -14,36 +14,39 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.nginx.deployments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.nginx.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `identity` | `object` |  |
-| `location` | `string` |  |
-| `properties` | `object` |  |
-| `sku` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` |  |
-| `type` | `string` |  |
+| <CopyableCode code="id" /> | `string` |  |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="identity" /> | `object` |  |
+| <CopyableCode code="location" /> | `string` |  |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="sku" /> | `object` |  |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` |  |
+| <CopyableCode code="type" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `deploymentName, resourceGroupName, subscriptionId` |
-| `list` | `SELECT` | `subscriptionId` |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `deploymentName, resourceGroupName, subscriptionId` |
-| `delete` | `DELETE` | `deploymentName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `subscriptionId` |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` |
-| `update` | `EXEC` | `deploymentName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |

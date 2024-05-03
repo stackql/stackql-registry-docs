@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The AzureStack Compute Administrator Module Which Provides Functionality To Manage Compute Quotas, Platform Images, And Virtual Machine Extensions, As Well As Managed Disks Migration Jobs To Rebalance Storage.  
     
 :::info Service Summary

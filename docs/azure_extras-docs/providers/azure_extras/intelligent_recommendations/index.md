@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Intelligent Recommendations Democratizes AI And Machine Learning Recommendations Through A Codeless And Powerful Experience Powered By The Same Technology That Fuels Xbox, Microsoft 365, And Microsoft Azure. Businesses Can Now Provide Relevant Discovery For Customers With This New, Innovative AI For Personalization And Recommendations.  
     
 :::info Service Summary

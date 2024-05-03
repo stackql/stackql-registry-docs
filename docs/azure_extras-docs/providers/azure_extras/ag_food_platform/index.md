@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Data Manager For Agriculture Helps Enable A More Sustainable Future And A More Productive Agriculture Industry By Empowering Organizations To Drive Innovation Through Insight, Reduce Their Environmental Impact, Optimize Agriculture Operations, And Build That Trust Rooted In Transparency.  
     
 :::info Service Summary

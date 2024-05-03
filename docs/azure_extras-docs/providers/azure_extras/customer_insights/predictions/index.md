@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>predictions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.customer_insights.predictions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.customer_insights.predictions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `properties` | `object` | The prediction definition. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="properties" /> | `object` | The prediction definition. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `hubName, predictionName, resourceGroupName, subscriptionId` | Gets a Prediction in the hub. |
-| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the predictions in the specified hub. |
-| `create_or_update` | `INSERT` | `hubName, predictionName, resourceGroupName, subscriptionId` | Creates a Prediction or updates an existing Prediction in the hub. |
-| `delete` | `DELETE` | `hubName, predictionName, resourceGroupName, subscriptionId` | Deletes a Prediction in the hub. |
-| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all the predictions in the specified hub. |
-| `model_status` | `EXEC` | `hubName, predictionName, resourceGroupName, subscriptionId, data__status` | Creates or updates the model status of prediction. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="hubName, predictionName, resourceGroupName, subscriptionId" /> | Gets a Prediction in the hub. |
+| <CopyableCode code="list_by_hub" /> | `SELECT` | <CopyableCode code="hubName, resourceGroupName, subscriptionId" /> | Gets all the predictions in the specified hub. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="hubName, predictionName, resourceGroupName, subscriptionId" /> | Creates a Prediction or updates an existing Prediction in the hub. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="hubName, predictionName, resourceGroupName, subscriptionId" /> | Deletes a Prediction in the hub. |
+| <CopyableCode code="_list_by_hub" /> | `EXEC` | <CopyableCode code="hubName, resourceGroupName, subscriptionId" /> | Gets all the predictions in the specified hub. |
+| <CopyableCode code="model_status" /> | `EXEC` | <CopyableCode code="hubName, predictionName, resourceGroupName, subscriptionId, data__status" /> | Creates or updates the model status of prediction. |

@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.test_base.usage</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.test_base.usage" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified ARM resource id |
-| `name` | `object` | Localizable String object containing the name and a localized value. |
-| `currentValue` | `integer` | Current value for the usage quota. |
-| `limit` | `integer` | The maximum permitted value for the usage quota. If there is no limit, this value will be -1. |
-| `unit` | `string` | Representing the units of the usage quota. Possible values are: Count, Bytes, Seconds, Percent, CountPerSecond, BytesPerSecond. |
+| <CopyableCode code="id" /> | `string` | Fully qualified ARM resource id |
+| <CopyableCode code="name" /> | `object` | Localizable String object containing the name and a localized value. |
+| <CopyableCode code="currentValue" /> | `integer` | Current value for the usage quota. |
+| <CopyableCode code="limit" /> | `integer` | The maximum permitted value for the usage quota. If there is no limit, this value will be -1. |
+| <CopyableCode code="unit" /> | `string` | Representing the units of the usage quota. Possible values are: Count, Bytes, Seconds, Percent, CountPerSecond, BytesPerSecond. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, testBaseAccountName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, testBaseAccountName" /> |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>monitors_linkable_environments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.dynatrace.monitors_linkable_environments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.dynatrace.monitors_linkable_environments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | Link to the next set of results, if any. |
-| `value` | `array` | List of environments for which user is an admin |
+| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
+| <CopyableCode code="value" /> | `array` | List of environments for which user is an admin |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `monitorName, resourceGroupName, subscriptionId, data__region, data__tenantId, data__userPrincipal` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId, data__region, data__tenantId, data__userPrincipal" /> |

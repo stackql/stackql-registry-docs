@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>snapshot_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.netapp.snapshot_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.netapp.snapshot_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Snapshot policy properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Snapshot policy properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, resourceGroupName, snapshotPolicyName, subscriptionId` | Get a snapshot Policy |
-| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List snapshot policy |
-| `create` | `INSERT` | `accountName, resourceGroupName, snapshotPolicyName, subscriptionId, data__location, data__properties` | Create a snapshot policy |
-| `delete` | `DELETE` | `accountName, resourceGroupName, snapshotPolicyName, subscriptionId` | Delete snapshot policy |
-| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | List snapshot policy |
-| `update` | `EXEC` | `accountName, resourceGroupName, snapshotPolicyName, subscriptionId` | Patch a snapshot policy |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId" /> | Get a snapshot Policy |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List snapshot policy |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId, data__location, data__properties" /> | Create a snapshot policy |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId" /> | Delete snapshot policy |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List snapshot policy |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId" /> | Patch a snapshot policy |

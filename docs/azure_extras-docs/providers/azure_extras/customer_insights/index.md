@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Customer Insights Management API Provides A RESTful Set Of Web Services That Interact With Azure Customer Insights Service To Manage Your Resources. The API Has Entities That Capture The Relationship Between An End User And The Azure Customer Insights Service.  
     
 :::info Service Summary

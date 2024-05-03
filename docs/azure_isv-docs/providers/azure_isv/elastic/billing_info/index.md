@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>billing_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.elastic.billing_info</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.elastic.billing_info" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `marketplaceSaasInfo` | `object` | Marketplace SAAS Info of the resource. |
-| `partnerBillingEntity` | `object` | Partner Billing details associated with the resource. |
+| <CopyableCode code="marketplaceSaasInfo" /> | `object` | Marketplace SAAS Info of the resource. |
+| <CopyableCode code="partnerBillingEntity" /> | `object` | Partner Billing details associated with the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `monitorName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |

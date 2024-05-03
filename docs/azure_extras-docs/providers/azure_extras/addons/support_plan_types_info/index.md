@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>support_plan_types_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.addons.support_plan_types_info</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.addons.support_plan_types_info" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `enabled` | `boolean` | Flag to indicate if this support plan type is currently enabled for the subscription. |
-| `oneTimeCharge` | `string` | The one time charge status for the subscription. |
-| `supportPlanType` | `string` | Support plan type. |
+| <CopyableCode code="enabled" /> | `boolean` | Flag to indicate if this support plan type is currently enabled for the subscription. |
+| <CopyableCode code="oneTimeCharge" /> | `string` | The one time charge status for the subscription. |
+| <CopyableCode code="supportPlanType" /> | `string` | Support plan type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |

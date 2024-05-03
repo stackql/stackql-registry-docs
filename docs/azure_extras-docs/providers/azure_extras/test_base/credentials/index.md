@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>credentials</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.test_base.credentials</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.test_base.credentials" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create` | `INSERT` | `credentialName, resourceGroupName, subscriptionId, testBaseAccountName` | Creates or replaces a Test Base Credential. |
-| `delete` | `DELETE` | `credentialName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes an existing test base credential. |
-| `update` | `EXEC` | `credentialName, resourceGroupName, subscriptionId, testBaseAccountName` | Updates an existing test base credential. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="credentialName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Creates or replaces a Test Base Credential. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="credentialName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Deletes an existing test base credential. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="credentialName, resourceGroupName, subscriptionId, testBaseAccountName" /> | Updates an existing test base credential. |

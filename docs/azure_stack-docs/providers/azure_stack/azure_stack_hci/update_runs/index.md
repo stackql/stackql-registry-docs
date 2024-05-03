@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>update_runs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack_hci.update_runs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack_hci.update_runs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Details of an Update run |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Details of an Update run |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, resourceGroupName, subscriptionId, updateName, updateRunName` | Get the Update run for a specified update |
-| `list` | `SELECT` | `clusterName, resourceGroupName, subscriptionId, updateName` | List all Update runs for a specified update |
-| `delete` | `DELETE` | `clusterName, resourceGroupName, subscriptionId, updateName, updateRunName` | Delete specified Update Run |
-| `_list` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, updateName` | List all Update runs for a specified update |
-| `put` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, updateName, updateRunName` | Put Update runs for a specified update |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName, updateRunName" /> | Get the Update run for a specified update |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | List all Update runs for a specified update |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName, updateRunName" /> | Delete specified Update Run |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | List all Update runs for a specified update |
+| <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName, updateRunName" /> | Put Update runs for a specified update |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure VMware Solution By CloudSimple Transforms And Extends VMware Workloads To Private, Dedicated Clouds On Azure In Minutes. CloudSimple Takes Care Of Provisioning, Managing The Infrastructure, And Orchestrating Workloads Between On-Premises And Azure.  
     
 :::info Service Summary

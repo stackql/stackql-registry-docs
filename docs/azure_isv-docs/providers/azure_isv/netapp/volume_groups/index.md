@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>volume_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.netapp.volume_groups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.netapp.volume_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
-| `properties` | `object` | Volume group properties |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | Volume group properties |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, volumeGroupName` | Get details of the specified volume group |
-| `list_by_netapp_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List all volume groups for given account |
-| `create` | `INSERT` | `accountName, resourceGroupName, subscriptionId, volumeGroupName` | Create a volume group along with specified volumes |
-| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, volumeGroupName` | Delete the specified volume group only if there are no volumes under volume group. |
-| `_list_by_netapp_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | List all volume groups for given account |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, volumeGroupName" /> | Get details of the specified volume group |
+| <CopyableCode code="list_by_netapp_account" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all volume groups for given account |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, volumeGroupName" /> | Create a volume group along with specified volumes |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, volumeGroupName" /> | Delete the specified volume group only if there are no volumes under volume group. |
+| <CopyableCode code="_list_by_netapp_account" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all volume groups for given account |

@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ios_mam_policy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.intune.ios_mam_policy</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.intune.ios_mam_policy" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create_or_update` | `INSERT` | `hostName, policyName` | Creates or updates iOSMAMPolicy. |
-| `delete` | `DELETE` | `hostName, policyName` | Delete Ios Policy |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="hostName, policyName" /> | Creates or updates iOSMAMPolicy. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="hostName, policyName" /> | Delete Ios Policy |

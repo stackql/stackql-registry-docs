@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>get_operation_results</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.intune.get_operation_results</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.intune.get_operation_results" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `_get_operation_results` | `EXEC` | `hostName` |
-| `get_operation_results` | `EXEC` | `hostName` |
+| <CopyableCode code="_get_operation_results" /> | `EXEC` | <CopyableCode code="hostName" /> |
+| <CopyableCode code="get_operation_results" /> | `EXEC` | <CopyableCode code="hostName" /> |

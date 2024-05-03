@@ -14,41 +14,44 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>manifests</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.subscriptions_admin.manifests</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.subscriptions_admin.manifests" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The unique identifier of the registration. |
-| `alwaysRoutable` | `boolean` | A value indicating whether the manifest is always routable by all subscriptions. |
-| `displayName` | `string` | The display name. |
-| `enabled` | `boolean` | A value indicating whether this resource provider is enabled. |
-| `extensionCollection` | `object` | The manifest extension collection definition. |
-| `linkedNotificationRules` | `object` | List of the linked notification rules. |
-| `metadata` | `object` | The metadata. |
-| `namespace` | `string` | The namespace. |
-| `providerAuthorization` | `object` | The resource provider authorization information. |
-| `providerLocation` | `string` | The location of the provider. |
-| `providerType` | `string` | The resource provider type. |
-| `provisioningState` | `string` | The provisioning state. |
-| `resourceGroupName` | `string` | The name of the resource group. |
-| `resourceHydrationAccounts` | `object` | List of the resource hydration accounts. |
-| `resourceLocation` | `string` | The location of the resource. |
-| `resourceTags` | `object` | The resource tags. |
-| `resourceTypes` | `object` | List of the resource types. |
-| `routingResourceManagerType` | `string` | Resource manager type. |
-| `subscriptionId` | `string` | The subscription ID under which RP is registered. |
+| <CopyableCode code="name" /> | `string` | The unique identifier of the registration. |
+| <CopyableCode code="alwaysRoutable" /> | `boolean` | A value indicating whether the manifest is always routable by all subscriptions. |
+| <CopyableCode code="displayName" /> | `string` | The display name. |
+| <CopyableCode code="enabled" /> | `boolean` | A value indicating whether this resource provider is enabled. |
+| <CopyableCode code="extensionCollection" /> | `object` | The manifest extension collection definition. |
+| <CopyableCode code="linkedNotificationRules" /> | `object` | List of the linked notification rules. |
+| <CopyableCode code="metadata" /> | `object` | The metadata. |
+| <CopyableCode code="namespace" /> | `string` | The namespace. |
+| <CopyableCode code="providerAuthorization" /> | `object` | The resource provider authorization information. |
+| <CopyableCode code="providerLocation" /> | `string` | The location of the provider. |
+| <CopyableCode code="providerType" /> | `string` | The resource provider type. |
+| <CopyableCode code="provisioningState" /> | `string` | The provisioning state. |
+| <CopyableCode code="resourceGroupName" /> | `string` | The name of the resource group. |
+| <CopyableCode code="resourceHydrationAccounts" /> | `object` | List of the resource hydration accounts. |
+| <CopyableCode code="resourceLocation" /> | `string` | The location of the resource. |
+| <CopyableCode code="resourceTags" /> | `object` | The resource tags. |
+| <CopyableCode code="resourceTypes" /> | `object` | List of the resource types. |
+| <CopyableCode code="routingResourceManagerType" /> | `string` | Resource manager type. |
+| <CopyableCode code="subscriptionId" /> | `string` | The subscription ID under which RP is registered. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `manifestName, subscriptionId` | Get the specified manifest. |
-| `list` | `SELECT` | `subscriptionId` | Get a list of all manifests. |
-| `_list` | `EXEC` | `subscriptionId` | Get a list of all manifests. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="manifestName, subscriptionId" /> | Get the specified manifest. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get a list of all manifests. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Get a list of all manifests. |

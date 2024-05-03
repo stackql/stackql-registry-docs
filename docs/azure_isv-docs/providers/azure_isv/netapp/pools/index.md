@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.netapp.pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.netapp.pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Pool properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Pool properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, poolName, resourceGroupName, subscriptionId` | Get details of the specified capacity pool |
-| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List all capacity pools in the NetApp Account |
-| `create_or_update` | `INSERT` | `accountName, poolName, resourceGroupName, subscriptionId, data__location, data__properties` | Create or Update a capacity pool |
-| `delete` | `DELETE` | `accountName, poolName, resourceGroupName, subscriptionId` | Delete the specified capacity pool |
-| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | List all capacity pools in the NetApp Account |
-| `update` | `EXEC` | `accountName, poolName, resourceGroupName, subscriptionId` | Patch the specified capacity pool |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId" /> | Get details of the specified capacity pool |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all capacity pools in the NetApp Account |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, data__location, data__properties" /> | Create or Update a capacity pool |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId" /> | Delete the specified capacity pool |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all capacity pools in the NetApp Account |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId" /> | Patch the specified capacity pool |

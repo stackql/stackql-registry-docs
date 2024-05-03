@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>arc_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack_hci.arc_settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack_hci.arc_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | Get ArcSetting resource details of HCI Cluster. |
-| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Get ArcSetting resources of HCI Cluster. |
-| `create` | `INSERT` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | Create ArcSetting for HCI cluster. |
-| `delete` | `DELETE` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | Delete ArcSetting resource details of HCI Cluster. |
-| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Get ArcSetting resources of HCI Cluster. |
-| `consent_and_install_default_extensions` | `EXEC` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | Add consent time for default extensions and initiate extensions installation |
-| `generate_password` | `EXEC` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | Generate password for arc settings. |
-| `initialize_disable_process` | `EXEC` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | Initializes ARC Disable process on the cluster |
-| `update` | `EXEC` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | Update ArcSettings for HCI cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Get ArcSetting resource details of HCI Cluster. |
+| <CopyableCode code="list_by_cluster" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Get ArcSetting resources of HCI Cluster. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Create ArcSetting for HCI cluster. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Delete ArcSetting resource details of HCI Cluster. |
+| <CopyableCode code="_list_by_cluster" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Get ArcSetting resources of HCI Cluster. |
+| <CopyableCode code="consent_and_install_default_extensions" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Add consent time for default extensions and initiate extensions installation |
+| <CopyableCode code="generate_password" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Generate password for arc settings. |
+| <CopyableCode code="initialize_disable_process" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Initializes ARC Disable process on the cluster |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Update ArcSettings for HCI cluster. |
