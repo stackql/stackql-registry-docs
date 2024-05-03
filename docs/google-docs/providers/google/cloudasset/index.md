@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.  
     
 :::info Service Summary

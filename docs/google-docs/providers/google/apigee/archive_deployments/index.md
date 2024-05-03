@@ -14,33 +14,36 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>archive_deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.archive_deployments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.archive_deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the Archive Deployment in the following format: `organizations/&#123;org&#125;/environments/&#123;env&#125;/archiveDeployments/&#123;id&#125;`. |
-| `labels` | `object` | User-supplied key-value pairs used to organize ArchiveDeployments. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: \p&#123;Ll&#125;\p&#123;Lo&#125;&#123;0,62&#125; Label values must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: [\p&#123;Ll&#125;\p&#123;Lo&#125;\p&#123;N&#125;_-]&#123;0,63&#125; No more than 64 labels can be associated with a given store. |
-| `operation` | `string` | Output only. A reference to the LRO that created this Archive Deployment in the following format: `organizations/&#123;org&#125;/operations/&#123;id&#125;` |
-| `updatedAt` | `string` | Output only. The time at which the Archive Deployment was updated in milliseconds since the epoch. |
-| `createdAt` | `string` | Output only. The time at which the Archive Deployment was created in milliseconds since the epoch. |
-| `gcsUri` | `string` | Input only. The Google Cloud Storage signed URL returned from GenerateUploadUrl and used to upload the Archive zip file. |
+| <CopyableCode code="name" /> | `string` | Name of the Archive Deployment in the following format: `organizations/&#123;org&#125;/environments/&#123;env&#125;/archiveDeployments/&#123;id&#125;`. |
+| <CopyableCode code="createdAt" /> | `string` | Output only. The time at which the Archive Deployment was created in milliseconds since the epoch. |
+| <CopyableCode code="gcsUri" /> | `string` | Input only. The Google Cloud Storage signed URL returned from GenerateUploadUrl and used to upload the Archive zip file. |
+| <CopyableCode code="labels" /> | `object` | User-supplied key-value pairs used to organize ArchiveDeployments. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: \p&#123;Ll&#125;\p&#123;Lo&#125;&#123;0,62&#125; Label values must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: [\p&#123;Ll&#125;\p&#123;Lo&#125;\p&#123;N&#125;_-]&#123;0,63&#125; No more than 64 labels can be associated with a given store. |
+| <CopyableCode code="operation" /> | `string` | Output only. A reference to the LRO that created this Archive Deployment in the following format: `organizations/&#123;org&#125;/operations/&#123;id&#125;` |
+| <CopyableCode code="updatedAt" /> | `string` | Output only. The time at which the Archive Deployment was updated in milliseconds since the epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_environments_archive_deployments_get` | `SELECT` | `archiveDeploymentsId, environmentsId, organizationsId` | Gets the specified ArchiveDeployment. |
-| `organizations_environments_archive_deployments_list` | `SELECT` | `environmentsId, organizationsId` | Lists the ArchiveDeployments in the specified Environment. |
-| `organizations_environments_archive_deployments_create` | `INSERT` | `environmentsId, organizationsId` | Creates a new ArchiveDeployment. |
-| `organizations_environments_archive_deployments_delete` | `DELETE` | `archiveDeploymentsId, environmentsId, organizationsId` | Deletes an archive deployment. |
-| `_organizations_environments_archive_deployments_list` | `EXEC` | `environmentsId, organizationsId` | Lists the ArchiveDeployments in the specified Environment. |
-| `organizations_environments_archive_deployments_generate_download_url` | `EXEC` | `archiveDeploymentsId, environmentsId, organizationsId` | Generates a signed URL for downloading the original zip file used to create an Archive Deployment. The URL is only valid for a limited period and should be used within minutes after generation. Each call returns a new upload URL. |
-| `organizations_environments_archive_deployments_generate_upload_url` | `EXEC` | `environmentsId, organizationsId` | Generates a signed URL for uploading an Archive zip file to Google Cloud Storage. Once the upload is complete, the signed URL should be passed to CreateArchiveDeployment. When uploading to the generated signed URL, please follow these restrictions: * Source file type should be a zip file. * Source file size should not exceed 1GB limit. * No credentials should be attached - the signed URLs provide access to the target bucket using internal service identity; if credentials were attached, the identity from the credentials would be used, but that identity does not have permissions to upload files to the URL. When making a HTTP PUT request, these two headers need to be specified: * `content-type: application/zip` * `x-goog-content-length-range: 0,1073741824` And this header SHOULD NOT be specified: * `Authorization: Bearer YOUR_TOKEN` |
-| `organizations_environments_archive_deployments_patch` | `EXEC` | `archiveDeploymentsId, environmentsId, organizationsId` | Updates an existing ArchiveDeployment. Labels can modified but most of the other fields are not modifiable. |
+| <CopyableCode code="organizations_environments_archive_deployments_get" /> | `SELECT` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Gets the specified ArchiveDeployment. |
+| <CopyableCode code="organizations_environments_archive_deployments_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Lists the ArchiveDeployments in the specified Environment. |
+| <CopyableCode code="organizations_environments_archive_deployments_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a new ArchiveDeployment. |
+| <CopyableCode code="organizations_environments_archive_deployments_delete" /> | `DELETE` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Deletes an archive deployment. |
+| <CopyableCode code="_organizations_environments_archive_deployments_list" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Lists the ArchiveDeployments in the specified Environment. |
+| <CopyableCode code="organizations_environments_archive_deployments_generate_download_url" /> | `EXEC` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Generates a signed URL for downloading the original zip file used to create an Archive Deployment. The URL is only valid for a limited period and should be used within minutes after generation. Each call returns a new upload URL. |
+| <CopyableCode code="organizations_environments_archive_deployments_generate_upload_url" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Generates a signed URL for uploading an Archive zip file to Google Cloud Storage. Once the upload is complete, the signed URL should be passed to CreateArchiveDeployment. When uploading to the generated signed URL, please follow these restrictions: * Source file type should be a zip file. * Source file size should not exceed 1GB limit. * No credentials should be attached - the signed URLs provide access to the target bucket using internal service identity; if credentials were attached, the identity from the credentials would be used, but that identity does not have permissions to upload files to the URL. When making a HTTP PUT request, these two headers need to be specified: * `content-type: application/zip` * `x-goog-content-length-range: 0,1073741824` And this header SHOULD NOT be specified: * `Authorization: Bearer YOUR_TOKEN` |
+| <CopyableCode code="organizations_environments_archive_deployments_patch" /> | `EXEC` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Updates an existing ArchiveDeployment. Labels can modified but most of the other fields are not modifiable. |

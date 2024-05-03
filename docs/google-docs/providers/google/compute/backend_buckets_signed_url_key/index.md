@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backend_buckets_signed_url_key</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.backend_buckets_signed_url_key</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.backend_buckets_signed_url_key" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `add_signed_url_key` | `EXEC` | `backendBucket, project` | Adds a key for validating requests with signed URLs for this backend bucket. |
-| `delete_signed_url_key` | `EXEC` | `backendBucket, keyName, project` | Deletes a key for validating requests with signed URLs for this backend bucket. |
+| <CopyableCode code="add_signed_url_key" /> | `EXEC` | <CopyableCode code="backendBucket, project" /> | Adds a key for validating requests with signed URLs for this backend bucket. |
+| <CopyableCode code="delete_signed_url_key" /> | `EXEC` | <CopyableCode code="backendBucket, keyName, project" /> | Deletes a key for validating requests with signed URLs for this backend bucket. |

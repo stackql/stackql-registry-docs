@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firebasedynamiclinks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>firebase.firebasedynamiclinks.firebasedynamiclinks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="firebase.firebasedynamiclinks.firebasedynamiclinks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `installAttribution` | `EXEC` |  | Get iOS strong/weak-match info for post-install attribution. |
-| `reopenAttribution` | `EXEC` |  | Get iOS reopen attribution for app universal link open deeplinking. |
+| <CopyableCode code="installAttribution" /> | `EXEC` |  | Get iOS strong/weak-match info for post-install attribution. |
+| <CopyableCode code="reopenAttribution" /> | `EXEC` |  | Get iOS reopen attribution for app universal link open deeplinking. |

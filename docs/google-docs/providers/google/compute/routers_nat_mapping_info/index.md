@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routers_nat_mapping_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.routers_nat_mapping_info</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.routers_nat_mapping_info" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `interfaceNatMappings` | `array` |  |
-| `instanceName` | `string` | Name of the VM instance which the endpoint belongs to |
+| <CopyableCode code="instanceName" /> | `string` | Name of the VM instance which the endpoint belongs to |
+| <CopyableCode code="interfaceNatMappings" /> | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_nat_mapping_info` | `SELECT` | `project, region, router` |
-| `_get_nat_mapping_info` | `EXEC` | `project, region, router` |
+| <CopyableCode code="get_nat_mapping_info" /> | `SELECT` | <CopyableCode code="project, region, router" /> |
+| <CopyableCode code="_get_nat_mapping_info" /> | `EXEC` | <CopyableCode code="project, region, router" /> |

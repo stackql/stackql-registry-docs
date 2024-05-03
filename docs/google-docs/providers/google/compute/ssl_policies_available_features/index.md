@@ -14,18 +14,21 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ssl_policies_available_features</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.ssl_policies_available_features</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.ssl_policies_available_features" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_available_features` | `SELECT` | `project` |
+| <CopyableCode code="list_available_features" /> | `SELECT` | <CopyableCode code="project" /> |

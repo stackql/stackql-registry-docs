@@ -14,34 +14,37 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_map_entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.certificatemanager.certificate_map_entries</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.certificatemanager.certificate_map_entries" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | A user-defined name of the Certificate Map Entry. Certificate Map Entry names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*/certificateMapEntries/*`. |
-| `description` | `string` | One or more paragraphs of text description of a certificate map entry. |
-| `state` | `string` | Output only. A serving state of this Certificate Map Entry. |
-| `labels` | `object` | Set of labels associated with a Certificate Map Entry. |
-| `matcher` | `string` | A predefined matcher for particular cases, other than SNI selection. |
-| `certificates` | `array` | A set of Certificates defines for the given `hostname`. There can be defined up to four certificates in each Certificate Map Entry. Each certificate must match pattern `projects/*/locations/*/certificates/*`. |
-| `hostname` | `string` | A Hostname (FQDN, e.g. `example.com`) or a wildcard hostname expression (`*.example.com`) for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for selecting a proper certificate. |
-| `updateTime` | `string` | Output only. The update timestamp of a Certificate Map Entry. |
-| `createTime` | `string` | Output only. The creation timestamp of a Certificate Map Entry. |
+| <CopyableCode code="name" /> | `string` | A user-defined name of the Certificate Map Entry. Certificate Map Entry names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*/certificateMapEntries/*`. |
+| <CopyableCode code="description" /> | `string` | One or more paragraphs of text description of a certificate map entry. |
+| <CopyableCode code="certificates" /> | `array` | A set of Certificates defines for the given `hostname`. There can be defined up to four certificates in each Certificate Map Entry. Each certificate must match pattern `projects/*/locations/*/certificates/*`. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of a Certificate Map Entry. |
+| <CopyableCode code="hostname" /> | `string` | A Hostname (FQDN, e.g. `example.com`) or a wildcard hostname expression (`*.example.com`) for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for selecting a proper certificate. |
+| <CopyableCode code="labels" /> | `object` | Set of labels associated with a Certificate Map Entry. |
+| <CopyableCode code="matcher" /> | `string` | A predefined matcher for particular cases, other than SNI selection. |
+| <CopyableCode code="state" /> | `string` | Output only. A serving state of this Certificate Map Entry. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The update timestamp of a Certificate Map Entry. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Gets details of a single CertificateMapEntry. |
-| `list` | `SELECT` | `certificateMapsId, locationsId, projectsId` | Lists CertificateMapEntries in a given project and location. |
-| `create` | `INSERT` | `certificateMapsId, locationsId, projectsId` | Creates a new CertificateMapEntry in a given project and location. |
-| `delete` | `DELETE` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Deletes a single CertificateMapEntry. |
-| `_list` | `EXEC` | `certificateMapsId, locationsId, projectsId` | Lists CertificateMapEntries in a given project and location. |
-| `patch` | `EXEC` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Updates a CertificateMapEntry. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="certificateMapEntriesId, certificateMapsId, locationsId, projectsId" /> | Gets details of a single CertificateMapEntry. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Lists CertificateMapEntries in a given project and location. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Creates a new CertificateMapEntry in a given project and location. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateMapEntriesId, certificateMapsId, locationsId, projectsId" /> | Deletes a single CertificateMapEntry. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Lists CertificateMapEntries in a given project and location. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="certificateMapEntriesId, certificateMapsId, locationsId, projectsId" /> | Updates a CertificateMapEntry. |

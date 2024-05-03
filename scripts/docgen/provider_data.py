@@ -54,7 +54,7 @@ To authorize a Google Cloud service account for use in the Admin SDK, follow the
 
 The following system environment variable is used by default:  
 
-- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json file
+- <CopyableCode code="GOOGLE_CREDENTIALS" /> - contents of the <code>google</code> service account key json file
 
 This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=`cat creds/my-sa-key.json` for example or as a CI variable/secret).
 
@@ -81,8 +81,8 @@ stackql.exe shell --auth=$Auth
 
 google_auth_markdown = """
 The following authentication methods are supported:
-- `service_account`
-- `interactive` for running interactive queries from Cloud Shell or other machines where the user is authenticated using `gcloud auth login`
+- <CopyableCode code="service_account" />
+- <CopyableCode code="interactive" /> for running interactive queries from Cloud Shell or other machines where the user is authenticated using <CopyableCode code="gcloud auth login" />
 
 > for more information on creating service accounts and key files, see [Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview).
 
@@ -90,7 +90,7 @@ The following authentication methods are supported:
 
 The following system environment variable is used by default:  
 
-- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json fileThis variable is sourced at runtime (from the local machine using export GOOGLE_CREDENTIALS=cat creds/my-sa-key.json` for example or as a CI variable/secret).
+- <CopyableCode code="GOOGLE_CREDENTIALS" /> - contents of the <code>google</code> service account key json file.  This variable is sourced at runtime (from the local machine using <cdoe>export GOOGLE_CREDENTIALS=cat creds/my-sa-key.json</code> for example or as a CI variable/secret).
 
 This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=$(cat creds/my-sa-key.json)` for example or as a CI variable/secret).
 
@@ -98,7 +98,7 @@ This variable is sourced at runtime (from the local machine using `export GOOGLE
 
 <summary>Specifying the service account key file location directly</summary>
 
-You can specify the path to the service account key file without using the default environment variable by using the `--auth` flag of the `stackql` program.  For example:  
+You can specify the path to the service account key file without using the default environment variable by using the <CopyableCode code="--auth" /> flag of the <code>stackql</code> program.  For example:  
 
 ```bash
 AUTH='{ "google": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
@@ -115,7 +115,7 @@ stackql.exe shell --auth=$Auth
 </details>
 
 ### Interactive Authentication
-When you are using Google Cloud Shell or on a machine where you have authenticated using `gcloud auth login`, you can then use the following authentication method:   
+When you are using Google Cloud Shell or on a machine where you have authenticated using <CopyableCode code="gcloud auth login" />, you can then use the following authentication method:   
 
 ```bash
 AUTH='{ "google": { "type": "interactive" }}'

@@ -14,33 +14,36 @@ description: Query and manage Google Workspace users and groups using SQL.
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>roles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>googleadmin.directory.roles</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="googleadmin.directory.roles" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | The type of the API resource. This is always `admin#directory#role`. |
-| `roleDescription` | `string` | A short description of the role. |
-| `roleId` | `string` | ID of the role. |
-| `roleName` | `string` | Name of the role. |
-| `rolePrivileges` | `array` | The set of privileges that are granted to this role. |
-| `etag` | `string` | ETag of the resource. |
-| `isSuperAdminRole` | `boolean` | Returns `true` if the role is a super admin role. |
-| `isSystemRole` | `boolean` | Returns `true` if this is a pre-defined system role. |
+| <CopyableCode code="etag" /> | `string` | ETag of the resource. |
+| <CopyableCode code="isSuperAdminRole" /> | `boolean` | Returns `true` if the role is a super admin role. |
+| <CopyableCode code="isSystemRole" /> | `boolean` | Returns `true` if this is a pre-defined system role. |
+| <CopyableCode code="kind" /> | `string` | The type of the API resource. This is always `admin#directory#role`. |
+| <CopyableCode code="roleDescription" /> | `string` | A short description of the role. |
+| <CopyableCode code="roleId" /> | `string` | ID of the role. |
+| <CopyableCode code="roleName" /> | `string` | Name of the role. |
+| <CopyableCode code="rolePrivileges" /> | `array` | The set of privileges that are granted to this role. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `customer, roleId` | Retrieves a role. |
-| `list` | `SELECT` | `customer` | Retrieves a paginated list of all the roles in a domain. |
-| `insert` | `INSERT` | `customer` | Creates a role. |
-| `delete` | `DELETE` | `customer, roleId` | Deletes a role. |
-| `patch` | `EXEC` | `customer, roleId` | Patches a role. |
-| `update` | `EXEC` | `customer, roleId` | Updates a role. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="customer, roleId" /> | Retrieves a role. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="customer" /> | Retrieves a paginated list of all the roles in a domain. |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="customer" /> | Creates a role. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="customer, roleId" /> | Deletes a role. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="customer, roleId" /> | Patches a role. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="customer, roleId" /> | Updates a role. |

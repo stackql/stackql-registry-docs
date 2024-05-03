@@ -14,18 +14,21 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_policies_preconfigured_expression_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.security_policies_preconfigured_expression_sets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.security_policies_preconfigured_expression_sets" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_preconfigured_expression_sets` | `SELECT` | `project` |
+| <CopyableCode code="list_preconfigured_expression_sets" /> | `SELECT` | <CopyableCode code="project" /> |

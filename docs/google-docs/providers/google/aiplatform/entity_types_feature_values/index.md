@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entity_types_feature_values</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.aiplatform.entity_types_feature_values</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.entity_types_feature_values" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `delete_feature_values` | `EXEC` | `entityTypesId, featurestoresId, locationsId, projectsId` |
+| <CopyableCode code="delete_feature_values" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> |

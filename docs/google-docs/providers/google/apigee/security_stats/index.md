@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_stats</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.security_stats</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.security_stats" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_environments_security_stats_query_tabular_stats` | `EXEC` | `environmentsId, organizationsId` | Retrieve security statistics as tabular rows. |
-| `organizations_environments_security_stats_query_time_series_stats` | `EXEC` | `environmentsId, organizationsId` | Retrieve security statistics as a collection of time series. |
+| <CopyableCode code="organizations_environments_security_stats_query_tabular_stats" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Retrieve security statistics as tabular rows. |
+| <CopyableCode code="organizations_environments_security_stats_query_time_series_stats" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Retrieve security statistics as a collection of time series. |

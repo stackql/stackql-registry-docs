@@ -14,26 +14,29 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tabledata</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.bigquery.tabledata</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.tabledata" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `totalRows` | `string` | The total number of rows in the complete table. |
-| `etag` | `string` | A hash of this page of results. |
-| `kind` | `string` | The resource type of the response. |
-| `pageToken` | `string` | A token used for paging results. Providing this token instead of the startIndex parameter can help you retrieve stable results when an underlying table is changing. |
-| `rows` | `array` | Rows of results. |
+| <CopyableCode code="etag" /> | `string` | A hash of this page of results. |
+| <CopyableCode code="kind" /> | `string` | The resource type of the response. |
+| <CopyableCode code="pageToken" /> | `string` | A token used for paging results. Providing this token instead of the startIndex parameter can help you retrieve stable results when an underlying table is changing. |
+| <CopyableCode code="rows" /> | `array` | Rows of results. |
+| <CopyableCode code="totalRows" /> | `string` | The total number of rows in the complete table. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `datasetId, projectId, tableId` | Retrieves table data from a specified set of rows. Requires the READER dataset role. |
-| `insert_all` | `INSERT` | `datasetId, projectId, tableId` | Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="datasetId, projectId, tableId" /> | Retrieves table data from a specified set of rows. Requires the READER dataset role. |
+| <CopyableCode code="insert_all" /> | `INSERT` | <CopyableCode code="datasetId, projectId, tableId" /> | Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role. |

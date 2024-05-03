@@ -14,18 +14,21 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routers_nat_ip_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.routers_nat_ip_info</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.routers_nat_ip_info" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_nat_ip_info` | `SELECT` | `project, region, router` |
+| <CopyableCode code="get_nat_ip_info" /> | `SELECT` | <CopyableCode code="project, region, router" /> |

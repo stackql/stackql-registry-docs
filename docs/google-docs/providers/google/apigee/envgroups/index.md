@@ -14,30 +14,33 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>envgroups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.envgroups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.envgroups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | ID of the environment group. |
-| `lastModifiedAt` | `string` | Output only. The time at which the environment group was last updated as milliseconds since epoch. |
-| `state` | `string` | Output only. State of the environment group. Values other than ACTIVE means the resource is not ready to use. |
-| `createdAt` | `string` | Output only. The time at which the environment group was created as milliseconds since epoch. |
-| `hostnames` | `array` | Required. Host names for this environment group. |
+| <CopyableCode code="name" /> | `string` | ID of the environment group. |
+| <CopyableCode code="createdAt" /> | `string` | Output only. The time at which the environment group was created as milliseconds since epoch. |
+| <CopyableCode code="hostnames" /> | `array` | Required. Host names for this environment group. |
+| <CopyableCode code="lastModifiedAt" /> | `string` | Output only. The time at which the environment group was last updated as milliseconds since epoch. |
+| <CopyableCode code="state" /> | `string` | Output only. State of the environment group. Values other than ACTIVE means the resource is not ready to use. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_envgroups_get` | `SELECT` | `envgroupsId, organizationsId` | Gets an environment group. |
-| `organizations_envgroups_list` | `SELECT` | `organizationsId` | Lists all environment groups. |
-| `organizations_envgroups_create` | `INSERT` | `organizationsId` | Creates a new environment group. |
-| `organizations_envgroups_delete` | `DELETE` | `envgroupsId, organizationsId` | Deletes an environment group. |
-| `_organizations_envgroups_list` | `EXEC` | `organizationsId` | Lists all environment groups. |
-| `organizations_envgroups_patch` | `EXEC` | `envgroupsId, organizationsId` | Updates an environment group. |
+| <CopyableCode code="organizations_envgroups_get" /> | `SELECT` | <CopyableCode code="envgroupsId, organizationsId" /> | Gets an environment group. |
+| <CopyableCode code="organizations_envgroups_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all environment groups. |
+| <CopyableCode code="organizations_envgroups_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a new environment group. |
+| <CopyableCode code="organizations_envgroups_delete" /> | `DELETE` | <CopyableCode code="envgroupsId, organizationsId" /> | Deletes an environment group. |
+| <CopyableCode code="_organizations_envgroups_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all environment groups. |
+| <CopyableCode code="organizations_envgroups_patch" /> | `EXEC` | <CopyableCode code="envgroupsId, organizationsId" /> | Updates an environment group. |

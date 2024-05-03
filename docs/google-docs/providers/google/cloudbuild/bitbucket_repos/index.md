@@ -14,26 +14,29 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bitbucket_repos</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.cloudbuild.bitbucket_repos</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudbuild.bitbucket_repos" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the repository. |
-| `description` | `string` | Description of the repository. |
-| `repoId` | `object` | BitbucketServerRepositoryId identifies a specific repository hosted on a Bitbucket Server. |
-| `browseUri` | `string` | Link to the browse repo page on the Bitbucket Server instance. |
-| `displayName` | `string` | Display name of the repository. |
+| <CopyableCode code="name" /> | `string` | The resource name of the repository. |
+| <CopyableCode code="description" /> | `string` | Description of the repository. |
+| <CopyableCode code="browseUri" /> | `string` | Link to the browse repo page on the Bitbucket Server instance. |
+| <CopyableCode code="displayName" /> | `string` | Display name of the repository. |
+| <CopyableCode code="repoId" /> | `object` | BitbucketServerRepositoryId identifies a specific repository hosted on a Bitbucket Server. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_bitbucket_server_configs_repos_list` | `SELECT` | `bitbucketServerConfigsId, locationsId, projectsId` |
-| `_projects_locations_bitbucket_server_configs_repos_list` | `EXEC` | `bitbucketServerConfigsId, locationsId, projectsId` |
+| <CopyableCode code="projects_locations_bitbucket_server_configs_repos_list" /> | `SELECT` | <CopyableCode code="bitbucketServerConfigsId, locationsId, projectsId" /> |
+| <CopyableCode code="_projects_locations_bitbucket_server_configs_repos_list" /> | `EXEC` | <CopyableCode code="bitbucketServerConfigsId, locationsId, projectsId" /> |

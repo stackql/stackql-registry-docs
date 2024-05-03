@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>document_links</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.contentwarehouse.document_links</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.contentwarehouse.document_links" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create` | `INSERT` | `documentsId, locationsId, projectsId` | Create a link between a source document and a target document. |
-| `delete` | `DELETE` | `documentLinksId, documentsId, locationsId, projectsId` | Remove the link between the source and target documents. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="documentsId, locationsId, projectsId" /> | Create a link between a source document and a target document. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="documentLinksId, documentsId, locationsId, projectsId" /> | Remove the link between the source and target documents. |

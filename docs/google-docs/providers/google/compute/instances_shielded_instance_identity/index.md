@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_shielded_instance_identity</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.instances_shielded_instance_identity</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instances_shielded_instance_identity" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `encryptionKey` | `object` | A Shielded Instance Identity Entry. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#shieldedInstanceIdentity for shielded Instance identity entry. |
-| `signingKey` | `object` | A Shielded Instance Identity Entry. |
+| <CopyableCode code="encryptionKey" /> | `object` | A Shielded Instance Identity Entry. |
+| <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#shieldedInstanceIdentity for shielded Instance identity entry. |
+| <CopyableCode code="signingKey" /> | `object` | A Shielded Instance Identity Entry. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_shielded_instance_identity` | `SELECT` | `instance, project, zone` |
+| <CopyableCode code="get_shielded_instance_identity" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> |

@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aliases_certificate</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.aliases_certificate</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.aliases_certificate" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `data` | `string` | The HTTP request/response body as raw binary. |
-| `extensions` | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
-| `contentType` | `string` | The HTTP Content-Type header value specifying the content type of the body. |
+| <CopyableCode code="contentType" /> | `string` | The HTTP Content-Type header value specifying the content type of the body. |
+| <CopyableCode code="data" /> | `string` | The HTTP request/response body as raw binary. |
+| <CopyableCode code="extensions" /> | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_keystores_aliases_get_certificate` | `SELECT` | `aliasesId, environmentsId, keystoresId, organizationsId` |
+| <CopyableCode code="organizations_environments_keystores_aliases_get_certificate" /> | `SELECT` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> |

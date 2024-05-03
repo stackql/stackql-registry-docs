@@ -14,14 +14,17 @@ description: Query and manage Google Workspace users and groups using SQL.
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>two_step_verification</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>googleadmin.directory.two_step_verification</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="googleadmin.directory.two_step_verification" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `turnOff` | `EXEC` | `userKey` |
+| <CopyableCode code="turnOff" /> | `EXEC` | <CopyableCode code="userKey" /> |

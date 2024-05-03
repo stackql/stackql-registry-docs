@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>networks_peering</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.networks_peering</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.networks_peering" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `add_peering` | `EXEC` | `network, project` | Adds a peering to the specified network. |
-| `remove_peering` | `EXEC` | `network, project` | Removes a peering from the specified network. |
-| `update_peering` | `EXEC` | `network, project` | Updates the specified network peering with the data included in the request. You can only modify the NetworkPeering.export_custom_routes field and the NetworkPeering.import_custom_routes field. |
+| <CopyableCode code="add_peering" /> | `EXEC` | <CopyableCode code="network, project" /> | Adds a peering to the specified network. |
+| <CopyableCode code="remove_peering" /> | `EXEC` | <CopyableCode code="network, project" /> | Removes a peering from the specified network. |
+| <CopyableCode code="update_peering" /> | `EXEC` | <CopyableCode code="network, project" /> | Updates the specified network peering with the data included in the request. You can only modify the NetworkPeering.export_custom_routes field and the NetworkPeering.import_custom_routes field. |

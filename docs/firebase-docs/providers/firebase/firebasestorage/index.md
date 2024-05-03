@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
+
 The Cloud Storage for Firebase API enables programmatic management of Cloud Storage buckets for use in Firebase projects  
     
 :::info Service Summary

@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>host_stats</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.host_stats</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.host_stats" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `environments` | `array` | List of query results on the environment level. |
-| `hosts` | `array` | List of query results grouped by host. |
-| `metaData` | `object` | Encapsulates additional information about query execution. |
+| <CopyableCode code="environments" /> | `array` | List of query results on the environment level. |
+| <CopyableCode code="hosts" /> | `array` | List of query results grouped by host. |
+| <CopyableCode code="metaData" /> | `object` | Encapsulates additional information about query execution. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_host_stats_get` | `SELECT` | `hostStatsId, organizationsId` |
+| <CopyableCode code="organizations_host_stats_get" /> | `SELECT` | <CopyableCode code="hostStatsId, organizationsId" /> |

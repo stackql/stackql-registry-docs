@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>specs_contents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigeeregistry.specs_contents</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigeeregistry.specs_contents" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `data` | `string` | The HTTP request/response body as raw binary. |
-| `extensions` | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
-| `contentType` | `string` | The HTTP Content-Type header value specifying the content type of the body. |
+| <CopyableCode code="contentType" /> | `string` | The HTTP Content-Type header value specifying the content type of the body. |
+| <CopyableCode code="data" /> | `string` | The HTTP request/response body as raw binary. |
+| <CopyableCode code="extensions" /> | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_apis_versions_specs_get_contents` | `SELECT` | `apisId, locationsId, projectsId, specsId, versionsId` |
+| <CopyableCode code="projects_locations_apis_versions_specs_get_contents" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> |

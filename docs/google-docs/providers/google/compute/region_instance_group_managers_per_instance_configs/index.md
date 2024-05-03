@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_instance_group_managers_per_instance_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.region_instance_group_managers_per_instance_configs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_instance_group_managers_per_instance_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete_per_instance_configs` | `EXEC` | `instanceGroupManager, project, region` | Deletes selected per-instance configurations for the managed instance group. |
-| `list_per_instance_configs` | `EXEC` | `instanceGroupManager, project, region` | Lists all of the per-instance configurations defined for the managed instance group. The orderBy query parameter is not supported. |
-| `update_per_instance_configs` | `EXEC` | `instanceGroupManager, project, region` | Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. |
+| <CopyableCode code="delete_per_instance_configs" /> | `EXEC` | <CopyableCode code="instanceGroupManager, project, region" /> | Deletes selected per-instance configurations for the managed instance group. |
+| <CopyableCode code="list_per_instance_configs" /> | `EXEC` | <CopyableCode code="instanceGroupManager, project, region" /> | Lists all of the per-instance configurations defined for the managed instance group. The orderBy query parameter is not supported. |
+| <CopyableCode code="update_per_instance_configs" /> | `EXEC` | <CopyableCode code="instanceGroupManager, project, region" /> | Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. |

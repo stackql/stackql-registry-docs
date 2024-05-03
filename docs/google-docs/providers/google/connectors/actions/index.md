@@ -14,25 +14,28 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>actions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.connectors.actions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.connectors.actions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the action. |
-| `inputParameters` | `array` | List containing input parameter metadata. |
-| `resultMetadata` | `array` | List containing the metadata of result fields. |
+| <CopyableCode code="name" /> | `string` | Name of the action. |
+| <CopyableCode code="inputParameters" /> | `array` | List containing input parameter metadata. |
+| <CopyableCode code="resultMetadata" /> | `array` | List containing the metadata of result fields. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `connectionsId, locationsId, projectsId` | Gets the schema of all the actions supported by the connector. |
-| `_list` | `EXEC` | `connectionsId, locationsId, projectsId` | Gets the schema of all the actions supported by the connector. |
-| `execute` | `EXEC` | `actionsId, connectionsId, locationsId, projectsId` | Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Gets the schema of all the actions supported by the connector. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Gets the schema of all the actions supported by the connector. |
+| <CopyableCode code="execute" /> | `EXEC` | <CopyableCode code="actionsId, connectionsId, locationsId, projectsId" /> | Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. |

@@ -14,19 +14,22 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>firebase.firebasestorage.buckets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="firebase.firebasestorage.buckets" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_buckets_get` | `SELECT` | `bucketsId, projectsId` | Gets a single linked storage bucket. |
-| `projects_buckets_list` | `SELECT` | `projectsId` | Lists the linked storage buckets for a project. |
+| <CopyableCode code="projects_buckets_get" /> | `SELECT` | <CopyableCode code="bucketsId, projectsId" /> | Gets a single linked storage bucket. |
+| <CopyableCode code="projects_buckets_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the linked storage buckets for a project. |

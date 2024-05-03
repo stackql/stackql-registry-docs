@@ -14,22 +14,25 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.data</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.data" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `point` | `array` | List of debug data collected by runtime plane at various defined points in the flow. |
-| `completed` | `boolean` | Flag indicating whether a transaction is completed or not |
+| <CopyableCode code="completed" /> | `boolean` | Flag indicating whether a transaction is completed or not |
+| <CopyableCode code="point" /> | `array` | List of debug data collected by runtime plane at various defined points in the flow. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_apis_revisions_debugsessions_data_get` | `SELECT` | `apisId, dataId, debugsessionsId, environmentsId, organizationsId, revisionsId` |
+| <CopyableCode code="organizations_environments_apis_revisions_debugsessions_data_get" /> | `SELECT` | <CopyableCode code="apisId, dataId, debugsessionsId, environmentsId, organizationsId, revisionsId" /> |

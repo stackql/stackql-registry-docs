@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
+
 Access custom machine learning models hosted via Firebase ML.  
     
 :::info Service Summary

@@ -14,28 +14,31 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>overrides</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.overrides</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.overrides" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | ID of the trace configuration override specified as a system-generated UUID. |
-| `samplingConfig` | `object` | TraceSamplingConfig represents the detail settings of distributed tracing. Only the fields that are defined in the distributed trace configuration can be overridden using the distribute trace configuration override APIs. |
-| `apiProxy` | `string` | ID of the API proxy that will have its trace configuration overridden. |
+| <CopyableCode code="name" /> | `string` | ID of the trace configuration override specified as a system-generated UUID. |
+| <CopyableCode code="apiProxy" /> | `string` | ID of the API proxy that will have its trace configuration overridden. |
+| <CopyableCode code="samplingConfig" /> | `object` | TraceSamplingConfig represents the detail settings of distributed tracing. Only the fields that are defined in the distributed trace configuration can be overridden using the distribute trace configuration override APIs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_environments_trace_config_overrides_get` | `SELECT` | `environmentsId, organizationsId, overridesId` | Gets a trace configuration override. |
-| `organizations_environments_trace_config_overrides_list` | `SELECT` | `environmentsId, organizationsId` | Lists all of the distributed trace configuration overrides in an environment. |
-| `organizations_environments_trace_config_overrides_create` | `INSERT` | `environmentsId, organizationsId` | Creates a trace configuration override. The response contains a system-generated UUID, that can be used to view, update, or delete the configuration override. Use the List API to view the existing trace configuration overrides. |
-| `organizations_environments_trace_config_overrides_delete` | `DELETE` | `environmentsId, organizationsId, overridesId` | Deletes a distributed trace configuration override. |
-| `_organizations_environments_trace_config_overrides_list` | `EXEC` | `environmentsId, organizationsId` | Lists all of the distributed trace configuration overrides in an environment. |
-| `organizations_environments_trace_config_overrides_patch` | `EXEC` | `environmentsId, organizationsId, overridesId` | Updates a distributed trace configuration override. Note that the repeated fields have replace semantics when included in the field mask and that they will be overwritten by the value of the fields in the request body. |
+| <CopyableCode code="organizations_environments_trace_config_overrides_get" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, overridesId" /> | Gets a trace configuration override. |
+| <CopyableCode code="organizations_environments_trace_config_overrides_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Lists all of the distributed trace configuration overrides in an environment. |
+| <CopyableCode code="organizations_environments_trace_config_overrides_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a trace configuration override. The response contains a system-generated UUID, that can be used to view, update, or delete the configuration override. Use the List API to view the existing trace configuration overrides. |
+| <CopyableCode code="organizations_environments_trace_config_overrides_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, overridesId" /> | Deletes a distributed trace configuration override. |
+| <CopyableCode code="_organizations_environments_trace_config_overrides_list" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Lists all of the distributed trace configuration overrides in an environment. |
+| <CopyableCode code="organizations_environments_trace_config_overrides_patch" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, overridesId" /> | Updates a distributed trace configuration override. Note that the repeated fields have replace semantics when included in the field mask and that they will be overwritten by the value of the fields in the request body. |

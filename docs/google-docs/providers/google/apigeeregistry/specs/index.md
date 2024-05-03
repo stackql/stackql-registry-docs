@@ -14,41 +14,44 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>specs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigeeregistry.specs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigeeregistry.specs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Resource name. |
-| `description` | `string` | A detailed description. |
-| `revisionUpdateTime` | `string` | Output only. Last update timestamp: when the represented revision was last modified. |
-| `revisionCreateTime` | `string` | Output only. Revision creation timestamp; when the represented revision was created. |
-| `annotations` | `object` | Annotations attach non-identifying metadata to resources. Annotation keys and values are less restricted than those of labels, but should be generally used for small values of broad interest. Larger, topic- specific metadata should be stored in Artifacts. |
-| `contents` | `string` | Input only. The contents of the spec. Provided by API callers when specs are created or updated. To access the contents of a spec, use GetApiSpecContents. |
-| `filename` | `string` | A possibly-hierarchical name used to refer to the spec from other specs. |
-| `createTime` | `string` | Output only. Creation timestamp; when the spec resource was created. |
-| `sourceUri` | `string` | The original source URI of the spec (if one exists). This is an external location that can be used for reference purposes but which may not be authoritative since this external resource may change after the spec is retrieved. |
-| `mimeType` | `string` | A style (format) descriptor for this spec that is specified as a [Media Type](https://en.wikipedia.org/wiki/Media_type). Possible values include `application/vnd.apigee.proto`, `application/vnd.apigee.openapi`, and `application/vnd.apigee.graphql`, with possible suffixes representing compression types. These hypothetical names are defined in the vendor tree defined in RFC6838 (https://tools.ietf.org/html/rfc6838) and are not final. Content types can specify compression. Currently only GZip compression is supported (indicated with "+gzip"). |
-| `revisionId` | `string` | Output only. Immutable. The revision ID of the spec. A new revision is committed whenever the spec contents are changed. The format is an 8-character hexadecimal string. |
-| `sizeBytes` | `integer` | Output only. The size of the spec file in bytes. If the spec is gzipped, this is the size of the uncompressed spec. |
-| `labels` | `object` | Labels attach identifying metadata to resources. Identifying metadata can be used to filter list operations. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one resource (System labels are excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with `apigeeregistry.googleapis.com/` and cannot be changed. |
-| `hash` | `string` | Output only. A SHA-256 hash of the spec's contents. If the spec is gzipped, this is the hash of the uncompressed spec. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="description" /> | `string` | A detailed description. |
+| <CopyableCode code="annotations" /> | `object` | Annotations attach non-identifying metadata to resources. Annotation keys and values are less restricted than those of labels, but should be generally used for small values of broad interest. Larger, topic- specific metadata should be stored in Artifacts. |
+| <CopyableCode code="contents" /> | `string` | Input only. The contents of the spec. Provided by API callers when specs are created or updated. To access the contents of a spec, use GetApiSpecContents. |
+| <CopyableCode code="createTime" /> | `string` | Output only. Creation timestamp; when the spec resource was created. |
+| <CopyableCode code="filename" /> | `string` | A possibly-hierarchical name used to refer to the spec from other specs. |
+| <CopyableCode code="hash" /> | `string` | Output only. A SHA-256 hash of the spec's contents. If the spec is gzipped, this is the hash of the uncompressed spec. |
+| <CopyableCode code="labels" /> | `object` | Labels attach identifying metadata to resources. Identifying metadata can be used to filter list operations. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one resource (System labels are excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with `apigeeregistry.googleapis.com/` and cannot be changed. |
+| <CopyableCode code="mimeType" /> | `string` | A style (format) descriptor for this spec that is specified as a [Media Type](https://en.wikipedia.org/wiki/Media_type). Possible values include `application/vnd.apigee.proto`, `application/vnd.apigee.openapi`, and `application/vnd.apigee.graphql`, with possible suffixes representing compression types. These hypothetical names are defined in the vendor tree defined in RFC6838 (https://tools.ietf.org/html/rfc6838) and are not final. Content types can specify compression. Currently only GZip compression is supported (indicated with "+gzip"). |
+| <CopyableCode code="revisionCreateTime" /> | `string` | Output only. Revision creation timestamp; when the represented revision was created. |
+| <CopyableCode code="revisionId" /> | `string` | Output only. Immutable. The revision ID of the spec. A new revision is committed whenever the spec contents are changed. The format is an 8-character hexadecimal string. |
+| <CopyableCode code="revisionUpdateTime" /> | `string` | Output only. Last update timestamp: when the represented revision was last modified. |
+| <CopyableCode code="sizeBytes" /> | `integer` | Output only. The size of the spec file in bytes. If the spec is gzipped, this is the size of the uncompressed spec. |
+| <CopyableCode code="sourceUri" /> | `string` | The original source URI of the spec (if one exists). This is an external location that can be used for reference purposes but which may not be authoritative since this external resource may change after the spec is retrieved. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_apis_versions_specs_get` | `SELECT` | `apisId, locationsId, projectsId, specsId, versionsId` | Returns a specified spec. |
-| `projects_locations_apis_versions_specs_list` | `SELECT` | `apisId, locationsId, projectsId, versionsId` | Returns matching specs. |
-| `projects_locations_apis_versions_specs_create` | `INSERT` | `apisId, locationsId, projectsId, versionsId` | Creates a specified spec. |
-| `projects_locations_apis_versions_specs_delete` | `DELETE` | `apisId, locationsId, projectsId, specsId, versionsId` | Removes a specified spec, all revisions, and all child resources (e.g., artifacts). |
-| `_projects_locations_apis_versions_specs_list` | `EXEC` | `apisId, locationsId, projectsId, versionsId` | Returns matching specs. |
-| `projects_locations_apis_versions_specs_patch` | `EXEC` | `apisId, locationsId, projectsId, specsId, versionsId` | Used to modify a specified spec. |
-| `projects_locations_apis_versions_specs_rollback` | `EXEC` | `apisId, locationsId, projectsId, specsId, versionsId` | Sets the current revision to a specified prior revision. Note that this creates a new revision with a new revision ID. |
-| `projects_locations_apis_versions_specs_tag_revision` | `EXEC` | `apisId, locationsId, projectsId, specsId, versionsId` | Adds a tag to a specified revision of a spec. |
+| <CopyableCode code="projects_locations_apis_versions_specs_get" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Returns a specified spec. |
+| <CopyableCode code="projects_locations_apis_versions_specs_list" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Returns matching specs. |
+| <CopyableCode code="projects_locations_apis_versions_specs_create" /> | `INSERT` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Creates a specified spec. |
+| <CopyableCode code="projects_locations_apis_versions_specs_delete" /> | `DELETE` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Removes a specified spec, all revisions, and all child resources (e.g., artifacts). |
+| <CopyableCode code="_projects_locations_apis_versions_specs_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Returns matching specs. |
+| <CopyableCode code="projects_locations_apis_versions_specs_patch" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Used to modify a specified spec. |
+| <CopyableCode code="projects_locations_apis_versions_specs_rollback" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Sets the current revision to a specified prior revision. Note that this creates a new revision with a new revision ID. |
+| <CopyableCode code="projects_locations_apis_versions_specs_tag_revision" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Adds a tag to a specified revision of a spec. |

@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 id: googleadmin-doc
 slug: /providers/googleadmin
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Google Workspace identity services.  
     
 :::info Provider Summary (v23.07.00153)
@@ -103,7 +105,7 @@ To authorize a Google Cloud service account for use in the Admin SDK, follow the
 
 The following system environment variable is used by default:  
 
-- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json file
+- <CopyableCode code="GOOGLE_CREDENTIALS" /> - contents of the <code>google</code> service account key json file
 
 This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=`cat creds/my-sa-key.json` for example or as a CI variable/secret).
 
