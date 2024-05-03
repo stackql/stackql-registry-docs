@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_functions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.mpc_network_function.network_functions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.mpc_network_function.network_functions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Network Function Properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Network Function Properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `networkFunctionName, resourceGroupName, subscriptionId` | Get a NetworkFunctionResource |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List NetworkFunctionResource resources by resource group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List NetworkFunctionResource resources by subscription ID |
-| `create_or_update` | `INSERT` | `networkFunctionName, resourceGroupName, subscriptionId` | Create a NetworkFunctionResource |
-| `delete` | `DELETE` | `networkFunctionName, resourceGroupName, subscriptionId` | Delete a NetworkFunctionResource |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List NetworkFunctionResource resources by resource group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List NetworkFunctionResource resources by subscription ID |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkFunctionName, resourceGroupName, subscriptionId" /> | Get a NetworkFunctionResource |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List NetworkFunctionResource resources by resource group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List NetworkFunctionResource resources by subscription ID |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="networkFunctionName, resourceGroupName, subscriptionId" /> | Create a NetworkFunctionResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkFunctionName, resourceGroupName, subscriptionId" /> | Delete a NetworkFunctionResource |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List NetworkFunctionResource resources by resource group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List NetworkFunctionResource resources by subscription ID |

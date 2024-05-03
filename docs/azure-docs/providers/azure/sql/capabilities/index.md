@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>capabilities</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.capabilities</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.capabilities" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The location name. |
-| `reason` | `string` | The reason for the capability not being available. |
-| `status` | `string` | The status of the capability. |
-| `supportedManagedInstanceVersions` | `array` | The list of supported managed instance versions. |
-| `supportedServerVersions` | `array` | The list of supported server versions. |
+| <CopyableCode code="name" /> | `string` | The location name. |
+| <CopyableCode code="reason" /> | `string` | The reason for the capability not being available. |
+| <CopyableCode code="status" /> | `string` | The status of the capability. |
+| <CopyableCode code="supportedManagedInstanceVersions" /> | `array` | The list of supported managed instance versions. |
+| <CopyableCode code="supportedServerVersions" /> | `array` | The list of supported server versions. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_location` | `SELECT` | `locationName, subscriptionId` |
+| <CopyableCode code="list_by_location" /> | `SELECT` | <CopyableCode code="locationName, subscriptionId" /> |

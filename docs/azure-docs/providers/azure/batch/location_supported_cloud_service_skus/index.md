@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>location_supported_cloud_service_skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.batch.location_supported_cloud_service_skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.batch.location_supported_cloud_service_skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the SKU. |
-| `capabilities` | `array` | A collection of capabilities which this SKU supports. |
-| `familyName` | `string` | The family name of the SKU. |
+| <CopyableCode code="name" /> | `string` | The name of the SKU. |
+| <CopyableCode code="capabilities" /> | `array` | A collection of capabilities which this SKU supports. |
+| <CopyableCode code="familyName" /> | `string` | The family name of the SKU. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `locationName, subscriptionId` |
-| `_list` | `EXEC` | `locationName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationName, subscriptionId" /> |

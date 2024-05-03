@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reservations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.billing.reservations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.billing.reservations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The id of the reservation. |
-| `name` | `string` | The name of the reservation. |
-| `location` | `string` | The location of the reservation. |
-| `properties` | `object` | The property of reservation object. |
-| `sku` | `object` | The property of reservation sku object. |
-| `type` | `string` | The type of the reservation. |
+| <CopyableCode code="id" /> | `string` | The id of the reservation. |
+| <CopyableCode code="name" /> | `string` | The name of the reservation. |
+| <CopyableCode code="location" /> | `string` | The location of the reservation. |
+| <CopyableCode code="properties" /> | `object` | The property of reservation object. |
+| <CopyableCode code="sku" /> | `object` | The property of reservation sku object. |
+| <CopyableCode code="type" /> | `string` | The type of the reservation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the reservations for a billing account and the roll up counts of reservations group by provisioning states. |
-| `list_by_billing_profile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state. |
-| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the reservations for a billing account and the roll up counts of reservations group by provisioning states. |
-| `_list_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state. |
+| <CopyableCode code="list_by_billing_account" /> | `SELECT` | <CopyableCode code="billingAccountName" /> | Lists the reservations for a billing account and the roll up counts of reservations group by provisioning states. |
+| <CopyableCode code="list_by_billing_profile" /> | `SELECT` | <CopyableCode code="billingAccountName, billingProfileName" /> | Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state. |
+| <CopyableCode code="_list_by_billing_account" /> | `EXEC` | <CopyableCode code="billingAccountName" /> | Lists the reservations for a billing account and the roll up counts of reservations group by provisioning states. |
+| <CopyableCode code="_list_by_billing_profile" /> | `EXEC` | <CopyableCode code="billingAccountName, billingProfileName" /> | Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state. |

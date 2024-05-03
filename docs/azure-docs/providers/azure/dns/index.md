@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Microsoft Azure DNS Resource Provider REST API Allows You To Create And Modify DNS Zones And Records Hosted Within Azure. Zones And Records Are Managed As Azure Resources.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Microsoft Azure DNS Resource Provider REST API Allows You To Create And Modi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure DNS</td></tr>
 <tr><td><b>Description</b></td><td>The Microsoft Azure DNS Resource Provider REST API Allows You To Create And Modify DNS Zones And Records Hosted Within Azure. Zones And Records Are Managed As Azure Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>dns:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dns:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

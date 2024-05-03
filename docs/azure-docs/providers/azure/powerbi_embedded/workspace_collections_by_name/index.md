@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspace_collections_by_name</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.powerbi_embedded.workspace_collections_by_name</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.powerbi_embedded.workspace_collections_by_name" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource id |
-| `name` | `string` | Workspace collection name |
-| `location` | `string` | Azure location |
-| `properties` | `object` | Properties |
-| `sku` | `object` |  |
-| `tags` | `object` |  |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Resource id |
+| <CopyableCode code="name" /> | `string` | Workspace collection name |
+| <CopyableCode code="location" /> | `string` | Azure location |
+| <CopyableCode code="properties" /> | `object` | Properties |
+| <CopyableCode code="sku" /> | `object` |  |
+| <CopyableCode code="tags" /> | `object` |  |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, workspaceCollectionName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceCollectionName" /> |

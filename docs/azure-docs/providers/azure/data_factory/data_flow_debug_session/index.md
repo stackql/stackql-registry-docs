@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_flow_debug_session</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_factory.data_flow_debug_session</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_factory.data_flow_debug_session" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,8 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create` | `INSERT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Creates a data flow debug session. |
-| `delete` | `DELETE` | `api-version, factoryName, resourceGroupName, subscriptionId` | Deletes a data flow debug session. |
-| `add_data_flow` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Add a data flow into debug session. |
-| `execute_command` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Execute a data flow debug command. |
-| `query_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Query all active data flow debug sessions. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> | Creates a data flow debug session. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> | Deletes a data flow debug session. |
+| <CopyableCode code="add_data_flow" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> | Add a data flow into debug session. |
+| <CopyableCode code="execute_command" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> | Execute a data flow debug command. |
+| <CopyableCode code="query_by_factory" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> | Query all active data flow debug sessions. |

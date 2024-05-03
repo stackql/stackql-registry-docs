@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machine_extensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.virtual_machine_extensions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.virtual_machine_extensions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
-| `properties` | `object` | Describes the properties of a Virtual Machine Extension. |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | Describes the properties of a Virtual Machine Extension. |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to get the extension. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | The operation to get all extensions of a Virtual Machine. |
-| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to create or update the extension. |
-| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to delete the extension. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vmName` | The operation to get all extensions of a Virtual Machine. |
-| `update` | `EXEC` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to update the extension. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmExtensionName, vmName" /> | The operation to get the extension. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmName" /> | The operation to get all extensions of a Virtual Machine. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, subscriptionId, vmExtensionName, vmName" /> | The operation to create or update the extension. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subscriptionId, vmExtensionName, vmName" /> | The operation to delete the extension. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vmName" /> | The operation to get all extensions of a Virtual Machine. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vmExtensionName, vmName" /> | The operation to update the extension. |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_endpoint_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.azure_active_directory.private_endpoint_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.azure_active_directory.private_endpoint_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the given policy. |
-| `list_by_policy_name` | `SELECT` | `policyName, resourceGroupName, subscriptionId` | Lists all Private Endpoint Connections for the given policy. |
-| `create` | `INSERT` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Creates specified private endpoint connection associated with the given policy. |
-| `delete` | `DELETE` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection associated with the given policy. |
-| `_list_by_policy_name` | `EXEC` | `policyName, resourceGroupName, subscriptionId` | Lists all Private Endpoint Connections for the given policy. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Gets the specified private endpoint connection associated with the given policy. |
+| <CopyableCode code="list_by_policy_name" /> | `SELECT` | <CopyableCode code="policyName, resourceGroupName, subscriptionId" /> | Lists all Private Endpoint Connections for the given policy. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Creates specified private endpoint connection associated with the given policy. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Deletes the specified private endpoint connection associated with the given policy. |
+| <CopyableCode code="_list_by_policy_name" /> | `EXEC` | <CopyableCode code="policyName, resourceGroupName, subscriptionId" /> | Lists all Private Endpoint Connections for the given policy. |

@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.spring_apps.operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.spring_apps.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the operation |
-| `actionType` | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
-| `display` | `object` | Operation display payload |
-| `isDataAction` | `boolean` | Indicates whether the operation is a data action |
-| `origin` | `string` | Origin of the operation |
-| `properties` | `object` | Extra Operation properties |
+| <CopyableCode code="name" /> | `string` | Name of the operation |
+| <CopyableCode code="actionType" /> | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
+| <CopyableCode code="display" /> | `object` | Operation display payload |
+| <CopyableCode code="isDataAction" /> | `boolean` | Indicates whether the operation is a data action |
+| <CopyableCode code="origin" /> | `string` | Origin of the operation |
+| <CopyableCode code="properties" /> | `object` | Extra Operation properties |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

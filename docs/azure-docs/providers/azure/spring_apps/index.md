@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Spring Apps Provides A Managed Service That Enables Java Developers To Build And Run Spring-Boot Based Microservices On Azure With No Code Changes.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Spring Apps Provides A Managed Service That Enables Java Developers To Bui
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Spring Apps</td></tr>
 <tr><td><b>Description</b></td><td>Azure Spring Apps Provides A Managed Service That Enables Java Developers To Build And Run Spring-Boot Based Microservices On Azure With No Code Changes.</td></tr>
-<tr><td><b>Id</b></td><td><code>spring_apps:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>spring_apps:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

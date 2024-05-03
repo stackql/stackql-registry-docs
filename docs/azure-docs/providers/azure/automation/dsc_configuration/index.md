@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dsc_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.dsc_configuration</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.dsc_configuration" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Gets or sets the etag of the resource. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Definition of the configuration property type. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | Gets or sets the etag of the resource. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Definition of the configuration property type. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `automationAccountName, configurationName, resourceGroupName, subscriptionId` | Retrieve the configuration identified by configuration name. |
-| `list_by_automation_account` | `SELECT` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of configurations. |
-| `create_or_update` | `INSERT` | `automationAccountName, configurationName, resourceGroupName, subscriptionId, data__properties` | Create the configuration identified by configuration name. |
-| `delete` | `DELETE` | `automationAccountName, configurationName, resourceGroupName, subscriptionId` | Delete the dsc configuration identified by configuration name. |
-| `_list_by_automation_account` | `EXEC` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of configurations. |
-| `update` | `EXEC` | `automationAccountName, configurationName, resourceGroupName, subscriptionId` | Create the configuration identified by configuration name. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, configurationName, resourceGroupName, subscriptionId" /> | Retrieve the configuration identified by configuration name. |
+| <CopyableCode code="list_by_automation_account" /> | `SELECT` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of configurations. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="automationAccountName, configurationName, resourceGroupName, subscriptionId, data__properties" /> | Create the configuration identified by configuration name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="automationAccountName, configurationName, resourceGroupName, subscriptionId" /> | Delete the dsc configuration identified by configuration name. |
+| <CopyableCode code="_list_by_automation_account" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of configurations. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="automationAccountName, configurationName, resourceGroupName, subscriptionId" /> | Create the configuration identified by configuration name. |

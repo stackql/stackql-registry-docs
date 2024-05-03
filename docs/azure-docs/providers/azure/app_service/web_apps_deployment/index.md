@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_apps_deployment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.web_apps_deployment</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.web_apps_deployment" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource Name. |
-| `kind` | `string` | Kind of resource. |
-| `properties` | `object` | Deployment resource specific properties |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource Name. |
+| <CopyableCode code="kind" /> | `string` | Kind of resource. |
+| <CopyableCode code="properties" /> | `object` | Deployment resource specific properties |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `id, name, resourceGroupName, subscriptionId` | Description for Get a deployment by its ID for an app, or a deployment slot. |
-| `create` | `INSERT` | `id, name, resourceGroupName, subscriptionId` | Description for Create a deployment for an app, or a deployment slot. |
-| `delete` | `DELETE` | `id, name, resourceGroupName, subscriptionId` | Description for Delete a deployment by its ID for an app, or a deployment slot. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="id, name, resourceGroupName, subscriptionId" /> | Description for Get a deployment by its ID for an app, or a deployment slot. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="id, name, resourceGroupName, subscriptionId" /> | Description for Create a deployment for an app, or a deployment slot. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="id, name, resourceGroupName, subscriptionId" /> | Description for Delete a deployment by its ID for an app, or a deployment slot. |

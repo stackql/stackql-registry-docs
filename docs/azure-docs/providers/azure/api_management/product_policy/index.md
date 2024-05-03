@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>product_policy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.product_policy</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.product_policy" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `policyId, productId, resourceGroupName, serviceName, subscriptionId` | Get the policy configuration at the Product level. |
-| `list_by_product` | `SELECT` | `productId, resourceGroupName, serviceName, subscriptionId` | Get the policy configuration at the Product level. |
-| `create_or_update` | `INSERT` | `policyId, productId, resourceGroupName, serviceName, subscriptionId` | Creates or updates policy configuration for the Product. |
-| `delete` | `DELETE` | `If-Match, policyId, productId, resourceGroupName, serviceName, subscriptionId` | Deletes the policy configuration at the Product. |
-| `_list_by_product` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId` | Get the policy configuration at the Product level. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="policyId, productId, resourceGroupName, serviceName, subscriptionId" /> | Get the policy configuration at the Product level. |
+| <CopyableCode code="list_by_product" /> | `SELECT` | <CopyableCode code="productId, resourceGroupName, serviceName, subscriptionId" /> | Get the policy configuration at the Product level. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="policyId, productId, resourceGroupName, serviceName, subscriptionId" /> | Creates or updates policy configuration for the Product. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="If-Match, policyId, productId, resourceGroupName, serviceName, subscriptionId" /> | Deletes the policy configuration at the Product. |
+| <CopyableCode code="_list_by_product" /> | `EXEC` | <CopyableCode code="productId, resourceGroupName, serviceName, subscriptionId" /> | Get the policy configuration at the Product level. |

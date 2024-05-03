@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations_capabilities</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hdinsight.locations_capabilities</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hdinsight.locations_capabilities" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `features` | `array` | The capability features. |
-| `quota` | `object` | The regional quota capability. |
-| `regions` | `object` | The virtual machine size compatibility features. |
-| `versions` | `object` | The version capability. |
+| <CopyableCode code="features" /> | `array` | The capability features. |
+| <CopyableCode code="quota" /> | `object` | The regional quota capability. |
+| <CopyableCode code="regions" /> | `object` | The virtual machine size compatibility features. |
+| <CopyableCode code="versions" /> | `object` | The version capability. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `location, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |

@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.event_hubs.namespaces_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.event_hubs.namespaces_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `aliasPrimaryConnectionString` | `string` | Primary connection string of the alias if GEO DR is enabled |
-| `aliasSecondaryConnectionString` | `string` | Secondary  connection string of the alias if GEO DR is enabled |
-| `keyName` | `string` | A string that describes the AuthorizationRule. |
-| `primaryConnectionString` | `string` | Primary connection string of the created namespace AuthorizationRule. |
-| `primaryKey` | `string` | A base64-encoded 256-bit primary key for signing and validating the SAS token. |
-| `secondaryConnectionString` | `string` | Secondary connection string of the created namespace AuthorizationRule. |
-| `secondaryKey` | `string` | A base64-encoded 256-bit primary key for signing and validating the SAS token. |
+| <CopyableCode code="aliasPrimaryConnectionString" /> | `string` | Primary connection string of the alias if GEO DR is enabled |
+| <CopyableCode code="aliasSecondaryConnectionString" /> | `string` | Secondary  connection string of the alias if GEO DR is enabled |
+| <CopyableCode code="keyName" /> | `string` | A string that describes the AuthorizationRule. |
+| <CopyableCode code="primaryConnectionString" /> | `string` | Primary connection string of the created namespace AuthorizationRule. |
+| <CopyableCode code="primaryKey" /> | `string` | A base64-encoded 256-bit primary key for signing and validating the SAS token. |
+| <CopyableCode code="secondaryConnectionString" /> | `string` | Secondary connection string of the created namespace AuthorizationRule. |
+| <CopyableCode code="secondaryKey" /> | `string` | A base64-encoded 256-bit primary key for signing and validating the SAS token. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="authorizationRuleName, namespaceName, resourceGroupName, subscriptionId" /> |

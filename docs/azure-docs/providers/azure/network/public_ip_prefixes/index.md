@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_ip_prefixes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.public_ip_prefixes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.public_ip_prefixes" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Public IP prefix properties. |
-| `sku` | `object` | SKU of a public IP prefix. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
-| `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="extendedLocation" /> | `object` | ExtendedLocation complex type. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Public IP prefix properties. |
+| <CopyableCode code="sku" /> | `object` | SKU of a public IP prefix. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
+| <CopyableCode code="zones" /> | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Gets the specified public IP prefix in a specified resource group. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all public IP prefixes in a resource group. |
-| `create_or_update` | `INSERT` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Creates or updates a static or dynamic public IP prefix. |
-| `delete` | `DELETE` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Deletes the specified public IP prefix. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all public IP prefixes in a resource group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="publicIpPrefixName, resourceGroupName, subscriptionId" /> | Gets the specified public IP prefix in a specified resource group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all public IP prefixes in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="publicIpPrefixName, resourceGroupName, subscriptionId" /> | Creates or updates a static or dynamic public IP prefix. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="publicIpPrefixName, resourceGroupName, subscriptionId" /> | Deletes the specified public IP prefix. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all public IP prefixes in a resource group. |

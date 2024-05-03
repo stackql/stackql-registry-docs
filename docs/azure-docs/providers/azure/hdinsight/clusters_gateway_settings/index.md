@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters_gateway_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hdinsight.clusters_gateway_settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hdinsight.clusters_gateway_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `restAuthCredential.isEnabled` | `string` | Indicates whether or not the gateway settings based authorization is enabled. |
-| `restAuthCredential.password` | `string` | The gateway settings user password. |
-| `restAuthCredential.username` | `string` | The gateway settings user name. |
+| <CopyableCode code="restAuthCredential.isEnabled" /> | `string` | Indicates whether or not the gateway settings based authorization is enabled. |
+| <CopyableCode code="restAuthCredential.password" /> | `string` | The gateway settings user password. |
+| <CopyableCode code="restAuthCredential.username" /> | `string` | The gateway settings user name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Gets the gateway settings for the specified cluster. |
-| `update` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Configures the gateway settings on the specified cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Gets the gateway settings for the specified cluster. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Configures the gateway settings on the specified cluster. |

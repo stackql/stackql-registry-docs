@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>restore_points</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.restore_points</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.restore_points" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of a database restore point |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of a database restore point |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `databaseName, resourceGroupName, restorePointName, serverName, subscriptionId` | Gets a restore point. |
-| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database restore points. |
-| `create` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, data__restorePointLabel` | Creates a restore point for a data warehouse. |
-| `delete` | `DELETE` | `databaseName, resourceGroupName, restorePointName, serverName, subscriptionId` | Deletes a restore point. |
-| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database restore points. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, restorePointName, serverName, subscriptionId" /> | Gets a restore point. |
+| <CopyableCode code="list_by_database" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of database restore points. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId, data__restorePointLabel" /> | Creates a restore point for a data warehouse. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="databaseName, resourceGroupName, restorePointName, serverName, subscriptionId" /> | Deletes a restore point. |
+| <CopyableCode code="_list_by_database" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of database restore points. |

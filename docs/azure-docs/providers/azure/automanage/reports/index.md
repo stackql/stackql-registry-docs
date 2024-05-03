@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reports</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automanage.reports</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automanage.reports" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Data related to the report detail. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | Data related to the report detail. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `configurationProfileAssignmentName, reportName, resourceGroupName, subscriptionId, vmName` | Get information about a report associated with a configuration profile assignment run |
-| `list_by_configuration_profile_assignments` | `SELECT` | `configurationProfileAssignmentName, resourceGroupName, subscriptionId, vmName` | Retrieve a list of reports within a given configuration profile assignment |
-| `_list_by_configuration_profile_assignments` | `EXEC` | `configurationProfileAssignmentName, resourceGroupName, subscriptionId, vmName` | Retrieve a list of reports within a given configuration profile assignment |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="configurationProfileAssignmentName, reportName, resourceGroupName, subscriptionId, vmName" /> | Get information about a report associated with a configuration profile assignment run |
+| <CopyableCode code="list_by_configuration_profile_assignments" /> | `SELECT` | <CopyableCode code="configurationProfileAssignmentName, resourceGroupName, subscriptionId, vmName" /> | Retrieve a list of reports within a given configuration profile assignment |
+| <CopyableCode code="_list_by_configuration_profile_assignments" /> | `EXEC` | <CopyableCode code="configurationProfileAssignmentName, resourceGroupName, subscriptionId, vmName" /> | Retrieve a list of reports within a given configuration profile assignment |

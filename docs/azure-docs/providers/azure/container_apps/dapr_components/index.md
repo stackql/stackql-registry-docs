@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dapr_components</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.dapr_components</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.dapr_components" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `componentName, environmentName, resourceGroupName, subscriptionId` |  |
-| `list` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` |  |
-| `create_or_update` | `INSERT` | `componentName, environmentName, resourceGroupName, subscriptionId` | Creates or updates a Dapr Component in a Managed Environment. |
-| `delete` | `DELETE` | `componentName, environmentName, resourceGroupName, subscriptionId` | Delete a Dapr Component from a Managed Environment. |
-| `_list` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` |  |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="componentName, environmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="environmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="componentName, environmentName, resourceGroupName, subscriptionId" /> | Creates or updates a Dapr Component in a Managed Environment. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="componentName, environmentName, resourceGroupName, subscriptionId" /> | Delete a Dapr Component from a Managed Environment. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="environmentName, resourceGroupName, subscriptionId" /> |  |

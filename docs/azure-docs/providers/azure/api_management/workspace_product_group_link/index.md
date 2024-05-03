@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspace_product_group_link</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.workspace_product_group_link</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.workspace_product_group_link" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `groupLinkId, productId, resourceGroupName, serviceName, subscriptionId, workspaceId` | Gets the group link for the product. |
-| `list_by_product` | `SELECT` | `productId, resourceGroupName, serviceName, subscriptionId, workspaceId` | Lists a collection of the group links associated with a product. |
-| `create_or_update` | `INSERT` | `groupLinkId, productId, resourceGroupName, serviceName, subscriptionId, workspaceId` | Adds a group to the specified product via link. |
-| `delete` | `DELETE` | `groupLinkId, productId, resourceGroupName, serviceName, subscriptionId, workspaceId` | Deletes the specified group from the specified product. |
-| `_list_by_product` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, workspaceId` | Lists a collection of the group links associated with a product. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupLinkId, productId, resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Gets the group link for the product. |
+| <CopyableCode code="list_by_product" /> | `SELECT` | <CopyableCode code="productId, resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Lists a collection of the group links associated with a product. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="groupLinkId, productId, resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Adds a group to the specified product via link. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupLinkId, productId, resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Deletes the specified group from the specified product. |
+| <CopyableCode code="_list_by_product" /> | `EXEC` | <CopyableCode code="productId, resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Lists a collection of the group links associated with a product. |

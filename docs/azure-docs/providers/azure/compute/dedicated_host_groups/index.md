@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dedicated_host_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.dedicated_host_groups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.dedicated_host_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
-| `properties` | `object` | Dedicated Host Group Properties. |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
-| `zones` | `array` | Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone. |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | Dedicated Host Group Properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
+| <CopyableCode code="type" /> | `string` | Resource type |
+| <CopyableCode code="zones" /> | `array` | Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `hostGroupName, resourceGroupName, subscriptionId` | Retrieves information about a dedicated host group. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the dedicated host groups in the specified resource group. Use the nextLink property in the response to get the next page of dedicated host groups. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all of the dedicated host groups in the subscription. Use the nextLink property in the response to get the next page of dedicated host groups. |
-| `create_or_update` | `INSERT` | `hostGroupName, resourceGroupName, subscriptionId` | Create or update a dedicated host group. For details of Dedicated Host and Dedicated Host Groups please see [Dedicated Host Documentation] (https://go.microsoft.com/fwlink/?linkid=2082596) |
-| `delete` | `DELETE` | `hostGroupName, resourceGroupName, subscriptionId` | Delete a dedicated host group. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all of the dedicated host groups in the specified resource group. Use the nextLink property in the response to get the next page of dedicated host groups. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all of the dedicated host groups in the subscription. Use the nextLink property in the response to get the next page of dedicated host groups. |
-| `update` | `EXEC` | `hostGroupName, resourceGroupName, subscriptionId` | Update an dedicated host group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="hostGroupName, resourceGroupName, subscriptionId" /> | Retrieves information about a dedicated host group. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all of the dedicated host groups in the specified resource group. Use the nextLink property in the response to get the next page of dedicated host groups. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all of the dedicated host groups in the subscription. Use the nextLink property in the response to get the next page of dedicated host groups. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="hostGroupName, resourceGroupName, subscriptionId" /> | Create or update a dedicated host group. For details of Dedicated Host and Dedicated Host Groups please see [Dedicated Host Documentation] (https://go.microsoft.com/fwlink/?linkid=2082596) |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="hostGroupName, resourceGroupName, subscriptionId" /> | Delete a dedicated host group. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all of the dedicated host groups in the specified resource group. Use the nextLink property in the response to get the next page of dedicated host groups. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all of the dedicated host groups in the subscription. Use the nextLink property in the response to get the next page of dedicated host groups. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="hostGroupName, resourceGroupName, subscriptionId" /> | Update an dedicated host group. |

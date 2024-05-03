@@ -14,43 +14,46 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services_export_errors_v2</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ad_hybrid_health_service.services_export_errors_v2</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ad_hybrid_health_service.services_export_errors_v2" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The error Id. |
-| `attributeName` | `string` | The attribute name. |
-| `attributeValue` | `string` | The attribute value. |
-| `createdDate` | `string` | The date and time, in UTC, when the error was created. |
-| `csObjectId` | `string` |  the cs object Id. |
-| `dn` | `string` | the DN of the object. |
-| `existingObject` | `object` | Object that hold sync object details. |
-| `exportErrorStatus` | `integer` | The export error status. |
-| `incomingObject` | `object` | Object that hold sync object details. |
-| `incomingObjectDisplayName` | `string` | The incoming object display name. |
-| `incomingObjectType` | `string` | The incoming object type. |
-| `mergedEntityId` | `string` | The merged entity Id. |
-| `modifiedOrRemovedAttributeValue` | `string` | The modified or removed attribute value. |
-| `runStepResultId` | `string` | The run step result Id. |
-| `samAccountName` | `string` | The sam account name. |
-| `serverErrorDetail` | `string` | The server error details. |
-| `serviceId` | `string` | The service Id. |
-| `serviceMemberId` | `string` | The server Id. |
-| `timeFirstOccurred` | `string` | The time when the error first occurred. |
-| `timeOccurred` | `string` | The date and time when the error occurred. |
-| `type` | `string` | The type of the error. |
-| `userPrincipalName` | `string` | The user principal name |
+| <CopyableCode code="id" /> | `string` | The error Id. |
+| <CopyableCode code="attributeName" /> | `string` | The attribute name. |
+| <CopyableCode code="attributeValue" /> | `string` | The attribute value. |
+| <CopyableCode code="createdDate" /> | `string` | The date and time, in UTC, when the error was created. |
+| <CopyableCode code="csObjectId" /> | `string` |  the cs object Id. |
+| <CopyableCode code="dn" /> | `string` | the DN of the object. |
+| <CopyableCode code="existingObject" /> | `object` | Object that hold sync object details. |
+| <CopyableCode code="exportErrorStatus" /> | `integer` | The export error status. |
+| <CopyableCode code="incomingObject" /> | `object` | Object that hold sync object details. |
+| <CopyableCode code="incomingObjectDisplayName" /> | `string` | The incoming object display name. |
+| <CopyableCode code="incomingObjectType" /> | `string` | The incoming object type. |
+| <CopyableCode code="mergedEntityId" /> | `string` | The merged entity Id. |
+| <CopyableCode code="modifiedOrRemovedAttributeValue" /> | `string` | The modified or removed attribute value. |
+| <CopyableCode code="runStepResultId" /> | `string` | The run step result Id. |
+| <CopyableCode code="samAccountName" /> | `string` | The sam account name. |
+| <CopyableCode code="serverErrorDetail" /> | `string` | The server error details. |
+| <CopyableCode code="serviceId" /> | `string` | The service Id. |
+| <CopyableCode code="serviceMemberId" /> | `string` | The server Id. |
+| <CopyableCode code="timeFirstOccurred" /> | `string` | The time when the error first occurred. |
+| <CopyableCode code="timeOccurred" /> | `string` | The date and time when the error occurred. |
+| <CopyableCode code="type" /> | `string` | The type of the error. |
+| <CopyableCode code="userPrincipalName" /> | `string` | The user principal name |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `errorBucket, serviceName` |
-| `_list` | `EXEC` | `errorBucket, serviceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="errorBucket, serviceName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="errorBucket, serviceName" /> |

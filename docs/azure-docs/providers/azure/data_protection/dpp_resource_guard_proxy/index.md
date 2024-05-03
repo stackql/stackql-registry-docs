@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dpp_resource_guard_proxy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_protection.dpp_resource_guard_proxy</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_protection.dpp_resource_guard_proxy" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id represents the complete path to the resource. |
-| `name` | `string` | Resource name associated with the resource. |
-| `properties` | `object` | ResourceGuardProxyBase object, used in ResourceGuardProxyBaseResource |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+| <CopyableCode code="id" /> | `string` | Resource Id represents the complete path to the resource. |
+| <CopyableCode code="name" /> | `string` | Resource name associated with the resource. |
+| <CopyableCode code="properties" /> | `object` | ResourceGuardProxyBase object, used in ResourceGuardProxyBaseResource |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` |
-| `create_or_update` | `INSERT` | `resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` |
-| `delete` | `DELETE` | `resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` |
-| `unlock_delete` | `EXEC` | `resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> |
+| <CopyableCode code="unlock_delete" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName" /> |

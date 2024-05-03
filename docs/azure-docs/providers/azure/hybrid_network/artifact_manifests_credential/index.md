@@ -14,18 +14,21 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>artifact_manifests_credential</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_network.artifact_manifests_credential</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_network.artifact_manifests_credential" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `artifactManifestName, artifactStoreName, publisherName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="artifactManifestName, artifactStoreName, publisherName, resourceGroupName, subscriptionId" /> |

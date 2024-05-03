@@ -14,37 +14,40 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.application_gateways</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.application_gateways" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `identity` | `object` | Identity for the resource. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of the application gateway. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
-| `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="identity" /> | `object` | Identity for the resource. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of the application gateway. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
+| <CopyableCode code="zones" /> | `array` | A list of availability zones denoting where the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the specified application gateway. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all application gateways in a resource group. |
-| `create_or_update` | `INSERT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Creates or updates the specified application gateway. |
-| `delete` | `DELETE` | `applicationGatewayName, resourceGroupName, subscriptionId` | Deletes the specified application gateway. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all application gateways in a resource group. |
-| `backend_health` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the backend health of the specified application gateway in a resource group. |
-| `backend_health_on_demand` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group. |
-| `start` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Starts the specified application gateway. |
-| `stop` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Stops the specified application gateway in a resource group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="applicationGatewayName, resourceGroupName, subscriptionId" /> | Gets the specified application gateway. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all application gateways in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="applicationGatewayName, resourceGroupName, subscriptionId" /> | Creates or updates the specified application gateway. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="applicationGatewayName, resourceGroupName, subscriptionId" /> | Deletes the specified application gateway. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all application gateways in a resource group. |
+| <CopyableCode code="backend_health" /> | `EXEC` | <CopyableCode code="applicationGatewayName, resourceGroupName, subscriptionId" /> | Gets the backend health of the specified application gateway in a resource group. |
+| <CopyableCode code="backend_health_on_demand" /> | `EXEC` | <CopyableCode code="applicationGatewayName, resourceGroupName, subscriptionId" /> | Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group. |
+| <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="applicationGatewayName, resourceGroupName, subscriptionId" /> | Starts the specified application gateway. |
+| <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="applicationGatewayName, resourceGroupName, subscriptionId" /> | Stops the specified application gateway in a resource group. |

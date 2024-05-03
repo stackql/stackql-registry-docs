@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>express_route_cross_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.express_route_cross_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.express_route_cross_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of ExpressRouteCrossConnection. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of ExpressRouteCrossConnection. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `crossConnectionName, resourceGroupName, subscriptionId` | Gets details about the specified ExpressRouteCrossConnection. |
-| `list` | `SELECT` | `subscriptionId` | Retrieves all the ExpressRouteCrossConnections in a subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieves all the ExpressRouteCrossConnections in a resource group. |
-| `create_or_update` | `INSERT` | `crossConnectionName, resourceGroupName, subscriptionId` | Update the specified ExpressRouteCrossConnection. |
-| `_list` | `EXEC` | `subscriptionId` | Retrieves all the ExpressRouteCrossConnections in a subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Retrieves all the ExpressRouteCrossConnections in a resource group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="crossConnectionName, resourceGroupName, subscriptionId" /> | Gets details about the specified ExpressRouteCrossConnection. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Retrieves all the ExpressRouteCrossConnections in a subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieves all the ExpressRouteCrossConnections in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="crossConnectionName, resourceGroupName, subscriptionId" /> | Update the specified ExpressRouteCrossConnection. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Retrieves all the ExpressRouteCrossConnections in a subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieves all the ExpressRouteCrossConnections in a resource group. |

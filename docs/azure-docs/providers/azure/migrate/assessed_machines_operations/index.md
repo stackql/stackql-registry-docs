@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assessed_machines_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.migrate.assessed_machines_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.migrate.assessed_machines_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `assessedMachineName, assessmentName, groupName, projectName, resourceGroupName, subscriptionId` | Get a AssessedMachine |
-| `list_by_assessment` | `SELECT` | `assessmentName, groupName, projectName, resourceGroupName, subscriptionId` | List AssessedMachine resources by Assessment |
-| `_list_by_assessment` | `EXEC` | `assessmentName, groupName, projectName, resourceGroupName, subscriptionId` | List AssessedMachine resources by Assessment |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="assessedMachineName, assessmentName, groupName, projectName, resourceGroupName, subscriptionId" /> | Get a AssessedMachine |
+| <CopyableCode code="list_by_assessment" /> | `SELECT` | <CopyableCode code="assessmentName, groupName, projectName, resourceGroupName, subscriptionId" /> | List AssessedMachine resources by Assessment |
+| <CopyableCode code="_list_by_assessment" /> | `EXEC` | <CopyableCode code="assessmentName, groupName, projectName, resourceGroupName, subscriptionId" /> | List AssessedMachine resources by Assessment |

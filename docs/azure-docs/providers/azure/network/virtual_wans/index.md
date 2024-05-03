@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_wans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.virtual_wans</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.virtual_wans" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Parameters for VirtualWAN. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Parameters for VirtualWAN. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `VirtualWANName, resourceGroupName, subscriptionId` | Retrieves the details of a VirtualWAN. |
-| `list` | `SELECT` | `subscriptionId` | Lists all the VirtualWANs in a subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the VirtualWANs in a resource group. |
-| `create_or_update` | `INSERT` | `VirtualWANName, resourceGroupName, subscriptionId, data__location` | Creates a VirtualWAN resource if it doesn't exist else updates the existing VirtualWAN. |
-| `delete` | `DELETE` | `VirtualWANName, resourceGroupName, subscriptionId` | Deletes a VirtualWAN. |
-| `_list` | `EXEC` | `subscriptionId` | Lists all the VirtualWANs in a subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the VirtualWANs in a resource group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="VirtualWANName, resourceGroupName, subscriptionId" /> | Retrieves the details of a VirtualWAN. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all the VirtualWANs in a subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the VirtualWANs in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="VirtualWANName, resourceGroupName, subscriptionId, data__location" /> | Creates a VirtualWAN resource if it doesn't exist else updates the existing VirtualWAN. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="VirtualWANName, resourceGroupName, subscriptionId" /> | Deletes a VirtualWAN. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all the VirtualWANs in a subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the VirtualWANs in a resource group. |

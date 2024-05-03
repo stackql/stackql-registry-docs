@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource identifier. |
-| `name` | `object` | The usage names. |
-| `currentValue` | `integer` | The current value of the usage. |
-| `limit` | `integer` | The limit of usage. |
-| `unit` | `string` | An enum describing the unit of measurement. |
+| <CopyableCode code="id" /> | `string` | Resource identifier. |
+| <CopyableCode code="name" /> | `object` | The usage names. |
+| <CopyableCode code="currentValue" /> | `integer` | The current value of the usage. |
+| <CopyableCode code="limit" /> | `integer` | The limit of usage. |
+| <CopyableCode code="unit" /> | `string` | An enum describing the unit of measurement. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `location, subscriptionId` |
-| `_list` | `EXEC` | `location, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> |

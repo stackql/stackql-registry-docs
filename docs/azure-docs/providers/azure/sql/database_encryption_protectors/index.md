@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>database_encryption_protectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.database_encryption_protectors</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.database_encryption_protectors" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `revalidate` | `EXEC` | `databaseName, encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Revalidates an existing encryption protector for a particular database. |
-| `revert` | `EXEC` | `databaseName, encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Reverts an existing encryption protector for a particular database. |
+| <CopyableCode code="revalidate" /> | `EXEC` | <CopyableCode code="databaseName, encryptionProtectorName, resourceGroupName, serverName, subscriptionId" /> | Revalidates an existing encryption protector for a particular database. |
+| <CopyableCode code="revert" /> | `EXEC` | <CopyableCode code="databaseName, encryptionProtectorName, resourceGroupName, serverName, subscriptionId" /> | Reverts an existing encryption protector for a particular database. |

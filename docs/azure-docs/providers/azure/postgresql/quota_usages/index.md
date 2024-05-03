@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>quota_usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.postgresql.quota_usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.postgresql.quota_usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified ARM resource Id |
-| `name` | `object` | Name property for quota usage |
-| `currentValue` | `integer` | Current Quota usage value |
-| `limit` | `integer` | Quota limit |
-| `unit` | `string` | Quota unit |
+| <CopyableCode code="id" /> | `string` | Fully qualified ARM resource Id |
+| <CopyableCode code="name" /> | `object` | Name property for quota usage |
+| <CopyableCode code="currentValue" /> | `integer` | Current Quota usage value |
+| <CopyableCode code="limit" /> | `integer` | Quota limit |
+| <CopyableCode code="unit" /> | `string` | Quota unit |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `locationName, subscriptionId` |
-| `_list` | `EXEC` | `locationName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationName, subscriptionId" /> |

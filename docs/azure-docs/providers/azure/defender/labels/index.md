@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>labels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.defender.labels</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.defender.labels" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of labels in the given workspace. |
-| `delete` | `DELETE` | `labelName, resourceGroupName, subscriptionId, workspaceName` | Delete a Label. |
-| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of labels in the given workspace. |
-| `create_and_update` | `EXEC` | `labelName, resourceGroupName, subscriptionId, workspaceName` | Create or update a Label. |
-| `get_by_workspace` | `EXEC` | `labelName, resourceGroupName, subscriptionId, workspaceName` | Returns a label in the given workspace. |
-| `update` | `EXEC` | `labelName, resourceGroupName, subscriptionId, workspaceName` | Update a Label. |
+| <CopyableCode code="list_by_workspace" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Returns a list of labels in the given workspace. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="labelName, resourceGroupName, subscriptionId, workspaceName" /> | Delete a Label. |
+| <CopyableCode code="_list_by_workspace" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Returns a list of labels in the given workspace. |
+| <CopyableCode code="create_and_update" /> | `EXEC` | <CopyableCode code="labelName, resourceGroupName, subscriptionId, workspaceName" /> | Create or update a Label. |
+| <CopyableCode code="get_by_workspace" /> | `EXEC` | <CopyableCode code="labelName, resourceGroupName, subscriptionId, workspaceName" /> | Returns a label in the given workspace. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="labelName, resourceGroupName, subscriptionId, workspaceName" /> | Update a Label. |

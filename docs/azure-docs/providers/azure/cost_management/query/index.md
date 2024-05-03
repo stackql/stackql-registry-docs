@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>query</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cost_management.query</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cost_management.query" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `usage` | `EXEC` | `scope, data__dataset, data__timeframe, data__type` | Query the usage data for scope defined. |
-| `usage_by_external_cloud_provider_type` | `EXEC` | `externalCloudProviderId, externalCloudProviderType, data__dataset, data__timeframe, data__type` | Query the usage data for external cloud provider type defined. |
+| <CopyableCode code="usage" /> | `EXEC` | <CopyableCode code="scope, data__dataset, data__timeframe, data__type" /> | Query the usage data for scope defined. |
+| <CopyableCode code="usage_by_external_cloud_provider_type" /> | `EXEC` | <CopyableCode code="externalCloudProviderId, externalCloudProviderType, data__dataset, data__timeframe, data__type" /> | Query the usage data for external cloud provider type defined. |

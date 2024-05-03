@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deny_assignments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.deny_assignments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.deny_assignments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The deny assignment ID. |
-| `name` | `string` | The deny assignment name. |
-| `properties` | `object` | Deny assignment properties. |
-| `type` | `string` | The deny assignment type. |
+| <CopyableCode code="id" /> | `string` | The deny assignment ID. |
+| <CopyableCode code="name" /> | `string` | The deny assignment name. |
+| <CopyableCode code="properties" /> | `object` | Deny assignment properties. |
+| <CopyableCode code="type" /> | `string` | The deny assignment type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `denyAssignmentId, scope` | Get the specified deny assignment. |
-| `list` | `SELECT` | `subscriptionId` | Gets all deny assignments for the subscription. |
-| `_list` | `EXEC` | `subscriptionId` | Gets all deny assignments for the subscription. |
-| `get_by_id` | `EXEC` | `denyAssignmentId` | Gets a deny assignment by ID. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="denyAssignmentId, scope" /> | Get the specified deny assignment. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all deny assignments for the subscription. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all deny assignments for the subscription. |
+| <CopyableCode code="get_by_id" /> | `EXEC` | <CopyableCode code="denyAssignmentId" /> | Gets a deny assignment by ID. |

@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_data_manager.data_services</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_data_manager.data_services" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Id of the object. |
-| `name` | `string` | Name of the object. |
-| `properties` | `object` | Data Service properties. |
-| `type` | `string` | Type of the object. |
+| <CopyableCode code="id" /> | `string` | Id of the object. |
+| <CopyableCode code="name" /> | `string` | Name of the object. |
+| <CopyableCode code="properties" /> | `object` | Data Service properties. |
+| <CopyableCode code="type" /> | `string` | Type of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `dataManagerName, dataServiceName, resourceGroupName, subscriptionId` | Gets the data service that matches the data service name given. |
-| `list_by_data_manager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets all the data services. |
-| `_list_by_data_manager` | `EXEC` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets all the data services. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dataManagerName, dataServiceName, resourceGroupName, subscriptionId" /> | Gets the data service that matches the data service name given. |
+| <CopyableCode code="list_by_data_manager" /> | `SELECT` | <CopyableCode code="dataManagerName, resourceGroupName, subscriptionId" /> | This method gets all the data services. |
+| <CopyableCode code="_list_by_data_manager" /> | `EXEC` | <CopyableCode code="dataManagerName, resourceGroupName, subscriptionId" /> | This method gets all the data services. |

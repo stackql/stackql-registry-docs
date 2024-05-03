@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_box_edge.jobs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_box_edge.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The path ID that uniquely identifies the object. |
-| `name` | `string` | The name of the object. |
-| `endTime` | `string` | The UTC date and time at which the job completed. |
-| `error` | `object` | The job error information containing the list of job errors. |
-| `percentComplete` | `integer` | The percentage of the job that is complete. |
-| `properties` | `object` | The properties for the job. |
-| `startTime` | `string` | The UTC date and time at which the job started. |
-| `status` | `string` | The current status of the job. |
-| `type` | `string` | The hierarchical type of the object. |
+| <CopyableCode code="id" /> | `string` | The path ID that uniquely identifies the object. |
+| <CopyableCode code="name" /> | `string` | The name of the object. |
+| <CopyableCode code="endTime" /> | `string` | The UTC date and time at which the job completed. |
+| <CopyableCode code="error" /> | `object` | The job error information containing the list of job errors. |
+| <CopyableCode code="percentComplete" /> | `integer` | The percentage of the job that is complete. |
+| <CopyableCode code="properties" /> | `object` | The properties for the job. |
+| <CopyableCode code="startTime" /> | `string` | The UTC date and time at which the job started. |
+| <CopyableCode code="status" /> | `string` | The current status of the job. |
+| <CopyableCode code="type" /> | `string` | The hierarchical type of the object. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `deviceName, name, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId" /> |

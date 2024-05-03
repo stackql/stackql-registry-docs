@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The AzureData Management API Provides A RESTful Set Of Web APIs To Manage Azure Data Resources.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The AzureData Management API Provides A RESTful Set Of Web APIs To Manage Azure 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureData Management Client</td></tr>
 <tr><td><b>Description</b></td><td>The AzureData Management API Provides A RESTful Set Of Web APIs To Manage Azure Data Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_data:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_data:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

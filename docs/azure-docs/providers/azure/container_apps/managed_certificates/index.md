@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.managed_certificates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.managed_certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Certificate resource specific properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Certificate resource specific properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `environmentName, managedCertificateName, resourceGroupName, subscriptionId` |  |
-| `list` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` |  |
-| `create_or_update` | `INSERT` | `environmentName, managedCertificateName, resourceGroupName, subscriptionId` |  |
-| `delete` | `DELETE` | `environmentName, managedCertificateName, resourceGroupName, subscriptionId` |  |
-| `_list` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` |  |
-| `update` | `EXEC` | `environmentName, managedCertificateName, resourceGroupName, subscriptionId` | Patches a managed certificate. Oly patching of tags is supported |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="environmentName, managedCertificateName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="environmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="environmentName, managedCertificateName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="environmentName, managedCertificateName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="environmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="environmentName, managedCertificateName, resourceGroupName, subscriptionId" /> | Patches a managed certificate. Oly patching of tags is supported |

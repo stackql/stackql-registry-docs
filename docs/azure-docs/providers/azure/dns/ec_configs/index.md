@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ec_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dns.ec_configs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dns.ec_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The ID of the DNSSEC configuration. |
-| `name` | `string` | The name of the DNSSEC configuration. |
-| `etag` | `string` | The etag of the DNSSEC configuration. |
-| `properties` | `object` | Represents the DNSSEC properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the DNSSEC configuration. |
+| <CopyableCode code="id" /> | `string` | The ID of the DNSSEC configuration. |
+| <CopyableCode code="name" /> | `string` | The name of the DNSSEC configuration. |
+| <CopyableCode code="etag" /> | `string` | The etag of the DNSSEC configuration. |
+| <CopyableCode code="properties" /> | `object` | Represents the DNSSEC properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the DNSSEC configuration. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, zoneName` | Gets the DNSSEC configuration. |
-| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, zoneName` | Creates or updates the DNSSEC configuration on a DNS zone. |
-| `delete` | `DELETE` | `resourceGroupName, subscriptionId, zoneName` | Deletes the DNSSEC configuration on a DNS zone. This operation cannot be undone. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, zoneName" /> | Gets the DNSSEC configuration. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, subscriptionId, zoneName" /> | Creates or updates the DNSSEC configuration on a DNS zone. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subscriptionId, zoneName" /> | Deletes the DNSSEC configuration on a DNS zone. This operation cannot be undone. |

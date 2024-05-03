@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.relay.namespaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.relay.namespaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of the namespace. |
-| `sku` | `object` | The resource model definition representing SKU |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of the namespace. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Returns the description for the specified namespace. |
-| `list` | `SELECT` | `subscriptionId` | Lists all the available namespaces within the subscription regardless of the resourceGroups. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the available namespaces within the ResourceGroup. |
-| `create_or_update` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId` | Create Azure Relay namespace. |
-| `delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId` | Deletes an existing namespace. This operation also removes all associated resources under the namespace. |
-| `_list` | `EXEC` | `subscriptionId` | Lists all the available namespaces within the subscription regardless of the resourceGroups. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the available namespaces within the ResourceGroup. |
-| `check_name_availability` | `EXEC` | `subscriptionId, data__name` | Check the specified namespace name availability. |
-| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, data__keyType` | Regenerates the primary or secondary connection strings to the namespace. |
-| `update` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Creates or updates a namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Returns the description for the specified namespace. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all the available namespaces within the subscription regardless of the resourceGroups. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the available namespaces within the ResourceGroup. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Create Azure Relay namespace. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Deletes an existing namespace. This operation also removes all associated resources under the namespace. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all the available namespaces within the subscription regardless of the resourceGroups. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the available namespaces within the ResourceGroup. |
+| <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="subscriptionId, data__name" /> | Check the specified namespace name availability. |
+| <CopyableCode code="regenerate_keys" /> | `EXEC` | <CopyableCode code="authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, data__keyType" /> | Regenerates the primary or secondary connection strings to the namespace. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Creates or updates a namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent. |

@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>management_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.operations_management.management_configurations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.operations_management.management_configurations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `location` | `string` | Resource location |
-| `properties` | `object` | ManagementConfiguration properties supported by the OperationsManagement resource provider. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | ManagementConfiguration properties supported by the OperationsManagement resource provider. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `managementConfigurationName, resourceGroupName, subscriptionId` | Retrieves the user ManagementConfiguration. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieves the ManagementConfigurations list. |
-| `create_or_update` | `INSERT` | `managementConfigurationName, resourceGroupName, subscriptionId` | Creates or updates the ManagementConfiguration. |
-| `delete` | `DELETE` | `managementConfigurationName, resourceGroupName, subscriptionId` | Deletes the ManagementConfiguration in the subscription. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieves the ManagementConfigurations list. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="managementConfigurationName, resourceGroupName, subscriptionId" /> | Retrieves the user ManagementConfiguration. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Retrieves the ManagementConfigurations list. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="managementConfigurationName, resourceGroupName, subscriptionId" /> | Creates or updates the ManagementConfiguration. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="managementConfigurationName, resourceGroupName, subscriptionId" /> | Deletes the ManagementConfiguration in the subscription. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Retrieves the ManagementConfigurations list. |

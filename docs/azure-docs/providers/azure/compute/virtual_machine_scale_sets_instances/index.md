@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machine_scale_sets_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.virtual_machine_scale_sets_instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.virtual_machine_scale_sets_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vmScaleSetName, data__instanceIds` | Deletes virtual machines in a VM scale set. |
-| `update` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName, data__instanceIds` | Upgrades one or more virtual machines to the latest SKU set in the VM scale set model. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subscriptionId, vmScaleSetName, data__instanceIds" /> | Deletes virtual machines in a VM scale set. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vmScaleSetName, data__instanceIds" /> | Upgrades one or more virtual machines to the latest SKU set in the VM scale set model. |

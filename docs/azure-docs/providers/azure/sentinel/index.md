@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Microsoft Sentinel Is A Scalable, Cloud-Native, Security Information Event Management (SIEM), And Security Orchestration Automated Response (SOAR) Solution. Microsoft Sentinel Delivers Intelligent Security Analytics And Threat Intelligence Across The Enterprise, Providing A Single Solution For Alert Detection, Threat Visibility, Proactive Hunting, And Threat Response.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Microsoft Sentinel Is A Scalable, Cloud-Native, Security Information Event Manag
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Sentinel</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Sentinel Is A Scalable, Cloud-Native, Security Information Event Management (SIEM), And Security Orchestration Automated Response (SOAR) Solution. Microsoft Sentinel Delivers Intelligent Security Analytics And Threat Intelligence Across The Enterprise, Providing A Single Solution For Alert Detection, Threat Visibility, Proactive Hunting, And Threat Response.</td></tr>
-<tr><td><b>Id</b></td><td><code>sentinel:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sentinel:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

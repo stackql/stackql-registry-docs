@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>watchers_topology</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.watchers_topology</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.watchers_topology" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | GUID representing the operation id. |
-| `createdDateTime` | `string` | The datetime when the topology was initially created for the resource group. |
-| `lastModified` | `string` | The datetime when the topology was last modified. |
-| `resources` | `array` | A list of topology resources. |
+| <CopyableCode code="id" /> | `string` | GUID representing the operation id. |
+| <CopyableCode code="createdDateTime" /> | `string` | The datetime when the topology was initially created for the resource group. |
+| <CopyableCode code="lastModified" /> | `string` | The datetime when the topology was last modified. |
+| <CopyableCode code="resources" /> | `array` | A list of topology resources. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `networkWatcherName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkWatcherName, resourceGroupName, subscriptionId" /> |

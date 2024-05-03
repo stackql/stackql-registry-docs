@@ -14,18 +14,21 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts_sas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.maps.accounts_sas</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.maps.accounts_sas" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId, data__expiry, data__maxRatePerSecond, data__principalId, data__signingKey, data__start` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, data__expiry, data__maxRatePerSecond, data__principalId, data__signingKey, data__start" /> |

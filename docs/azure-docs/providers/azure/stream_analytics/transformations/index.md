@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transformations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.stream_analytics.transformations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.stream_analytics.transformations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
-| `properties` | `object` | The properties that are associated with a transformation. |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="properties" /> | `object` | The properties that are associated with a transformation. |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `jobName, resourceGroupName, subscriptionId, transformationName` | Gets details about the specified transformation. |
-| `create_or_replace` | `INSERT` | `jobName, resourceGroupName, subscriptionId, transformationName` | Creates a transformation or replaces an already existing transformation under an existing streaming job. |
-| `update` | `EXEC` | `jobName, resourceGroupName, subscriptionId, transformationName` | Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="jobName, resourceGroupName, subscriptionId, transformationName" /> | Gets details about the specified transformation. |
+| <CopyableCode code="create_or_replace" /> | `INSERT` | <CopyableCode code="jobName, resourceGroupName, subscriptionId, transformationName" /> | Creates a transformation or replaces an already existing transformation under an existing streaming job. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="jobName, resourceGroupName, subscriptionId, transformationName" /> | Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition. |

@@ -14,35 +14,38 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.scom.instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.scom.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Azure Active Directory identity configuration for a resource. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of a SCOM instance resource |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Azure Active Directory identity configuration for a resource. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | The properties of a SCOM instance resource |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `instanceName, resourceGroupName, subscriptionId` | Get SCOM managed instance details |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all SCOM managed instances in a resource group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all SCOM managed instances in a subscription  |
-| `create_or_update` | `INSERT` | `instanceName, resourceGroupName, subscriptionId` | Create or update SCOM managed instance |
-| `delete` | `DELETE` | `instanceName, resourceGroupName, subscriptionId` | Delete a SCOM managed instance |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all SCOM managed instances in a resource group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all SCOM managed instances in a subscription  |
-| `link_log_analytics` | `EXEC` | `instanceName, resourceGroupName, subscriptionId` | Link Log Analytics workspace for SCOM monitoring instance |
-| `patch_servers` | `EXEC` | `instanceName, resourceGroupName, subscriptionId` | Update SCOM servers with latest scom software. |
-| `scale` | `EXEC` | `instanceName, resourceGroupName, subscriptionId` | Scaling SCOM managed instance. |
-| `unlink_log_analytics` | `EXEC` | `instanceName, resourceGroupName, subscriptionId` | Unlink Log Analytics workspace for SCOM monitoring instance |
-| `update` | `EXEC` | `instanceName, resourceGroupName, subscriptionId` | Patch SCOM managed instance |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Get SCOM managed instance details |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all SCOM managed instances in a resource group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all SCOM managed instances in a subscription  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Create or update SCOM managed instance |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Delete a SCOM managed instance |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all SCOM managed instances in a resource group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all SCOM managed instances in a subscription  |
+| <CopyableCode code="link_log_analytics" /> | `EXEC` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Link Log Analytics workspace for SCOM monitoring instance |
+| <CopyableCode code="patch_servers" /> | `EXEC` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Update SCOM servers with latest scom software. |
+| <CopyableCode code="scale" /> | `EXEC` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Scaling SCOM managed instance. |
+| <CopyableCode code="unlink_log_analytics" /> | `EXEC` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Unlink Log Analytics workspace for SCOM monitoring instance |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Patch SCOM managed instance |

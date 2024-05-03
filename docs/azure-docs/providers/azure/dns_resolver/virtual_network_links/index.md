@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_network_links</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dns_resolver.virtual_network_links</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dns_resolver.virtual_network_links" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | ETag of the virtual network link. |
-| `properties` | `object` | Represents the properties of a virtual network link. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="etag" /> | `string` | ETag of the virtual network link. |
+| <CopyableCode code="properties" /> | `object` | Represents the properties of a virtual network link. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Gets properties of a virtual network link to a DNS forwarding ruleset. |
-| `list` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists virtual network links to a DNS forwarding ruleset. |
-| `create_or_update` | `INSERT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName, data__properties` | Creates or updates a virtual network link to a DNS forwarding ruleset. |
-| `delete` | `DELETE` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Deletes a virtual network link to a DNS forwarding ruleset. WARNING: This operation cannot be undone. |
-| `_list` | `EXEC` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists virtual network links to a DNS forwarding ruleset. |
-| `update` | `EXEC` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Updates a virtual network link to a DNS forwarding ruleset. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName" /> | Gets properties of a virtual network link to a DNS forwarding ruleset. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="dnsForwardingRulesetName, resourceGroupName, subscriptionId" /> | Lists virtual network links to a DNS forwarding ruleset. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName, data__properties" /> | Creates or updates a virtual network link to a DNS forwarding ruleset. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName" /> | Deletes a virtual network link to a DNS forwarding ruleset. WARNING: This operation cannot be undone. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="dnsForwardingRulesetName, resourceGroupName, subscriptionId" /> | Lists virtual network links to a DNS forwarding ruleset. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName" /> | Updates a virtual network link to a DNS forwarding ruleset. |

@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>databases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_explorer.databases</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_explorer.databases" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind of the database |
-| `location` | `string` | Resource location. |
+| <CopyableCode code="kind" /> | `string` | Kind of the database |
+| <CopyableCode code="location" /> | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, databaseName, resourceGroupName, subscriptionId` | Returns a database. |
-| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Returns the list of databases of the given Kusto cluster. |
-| `create_or_update` | `INSERT` | `clusterName, databaseName, resourceGroupName, subscriptionId, data__kind` | Creates or updates a database. |
-| `delete` | `DELETE` | `clusterName, databaseName, resourceGroupName, subscriptionId` | Deletes the database with the given name. |
-| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Returns the list of databases of the given Kusto cluster. |
-| `add_principals` | `EXEC` | `clusterName, databaseName, resourceGroupName, subscriptionId` | Add Database principals permissions. |
-| `check_name_availability` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, data__name, data__type` | Checks that the databases resource name is valid and is not already in use. |
-| `remove_principals` | `EXEC` | `clusterName, databaseName, resourceGroupName, subscriptionId` | Remove Database principals permissions. |
-| `update` | `EXEC` | `clusterName, databaseName, resourceGroupName, subscriptionId, data__kind` | Updates a database. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, databaseName, resourceGroupName, subscriptionId" /> | Returns a database. |
+| <CopyableCode code="list_by_cluster" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Returns the list of databases of the given Kusto cluster. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="clusterName, databaseName, resourceGroupName, subscriptionId, data__kind" /> | Creates or updates a database. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, databaseName, resourceGroupName, subscriptionId" /> | Deletes the database with the given name. |
+| <CopyableCode code="_list_by_cluster" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Returns the list of databases of the given Kusto cluster. |
+| <CopyableCode code="add_principals" /> | `EXEC` | <CopyableCode code="clusterName, databaseName, resourceGroupName, subscriptionId" /> | Add Database principals permissions. |
+| <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, data__name, data__type" /> | Checks that the databases resource name is valid and is not already in use. |
+| <CopyableCode code="remove_principals" /> | `EXEC` | <CopyableCode code="clusterName, databaseName, resourceGroupName, subscriptionId" /> | Remove Database principals permissions. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="clusterName, databaseName, resourceGroupName, subscriptionId, data__kind" /> | Updates a database. |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 APIs For Azure Alert Processing Rules CRUD Operations.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ APIs For Azure Alert Processing Rules CRUD Operations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Alerts Management Service Resource Provider</td></tr>
 <tr><td><b>Description</b></td><td>APIs For Azure Alert Processing Rules CRUD Operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>alerts_management:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>alerts_management:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

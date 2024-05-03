@@ -14,36 +14,39 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>object_anchors_accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.mixed_reality.object_anchors_accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.mixed_reality.object_anchors_accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Identity for the resource. |
-| `kind` | `object` | The resource model definition representing SKU |
-| `location` | `string` | The geo-location where the resource lives |
-| `plan` | `object` | Identity for the resource. |
-| `properties` | `object` | Common Properties shared by Mixed Reality Accounts |
-| `sku` | `object` | The resource model definition representing SKU |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Identity for the resource. |
+| <CopyableCode code="kind" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="plan" /> | `object` | Identity for the resource. |
+| <CopyableCode code="properties" /> | `object` | Common Properties shared by Mixed Reality Accounts |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Retrieve an Object Anchors Account. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List Resources by Resource Group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List Object Anchors Accounts by Subscription |
-| `create` | `INSERT` | `accountName, resourceGroupName, subscriptionId` | Creating or Updating an object anchors Account. |
-| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Delete an Object Anchors Account. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List Resources by Resource Group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List Object Anchors Accounts by Subscription |
-| `regenerate_keys` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Regenerate specified Key of an object anchors Account |
-| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Updating an Object Anchors Account |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Retrieve an Object Anchors Account. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List Resources by Resource Group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List Object Anchors Accounts by Subscription |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Creating or Updating an object anchors Account. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Delete an Object Anchors Account. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List Resources by Resource Group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List Object Anchors Accounts by Subscription |
+| <CopyableCode code="regenerate_keys" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Regenerate specified Key of an object anchors Account |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Updating an Object Anchors Account |

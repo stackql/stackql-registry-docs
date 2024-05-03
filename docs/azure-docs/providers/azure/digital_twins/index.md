@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Digital Twins Client For Managing DigitalTwinsInstance.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Digital Twins Client For Managing DigitalTwinsInstance.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Digital Twins Management Client</td></tr>
 <tr><td><b>Description</b></td><td>Azure Digital Twins Client For Managing DigitalTwinsInstance.</td></tr>
-<tr><td><b>Id</b></td><td><code>digital_twins:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>digital_twins:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

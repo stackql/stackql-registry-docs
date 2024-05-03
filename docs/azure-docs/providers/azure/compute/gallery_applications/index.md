@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gallery_applications</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.gallery_applications</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.gallery_applications" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
-| `properties` | `object` | Describes the properties of a gallery Application Definition. |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | Describes the properties of a gallery Application Definition. |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Retrieves information about a gallery Application Definition. |
-| `list_by_gallery` | `SELECT` | `galleryName, resourceGroupName, subscriptionId` | List gallery Application Definitions in a gallery. |
-| `create_or_update` | `INSERT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Create or update a gallery Application Definition. |
-| `delete` | `DELETE` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Delete a gallery Application. |
-| `_list_by_gallery` | `EXEC` | `galleryName, resourceGroupName, subscriptionId` | List gallery Application Definitions in a gallery. |
-| `update` | `EXEC` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Update a gallery Application Definition. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="galleryApplicationName, galleryName, resourceGroupName, subscriptionId" /> | Retrieves information about a gallery Application Definition. |
+| <CopyableCode code="list_by_gallery" /> | `SELECT` | <CopyableCode code="galleryName, resourceGroupName, subscriptionId" /> | List gallery Application Definitions in a gallery. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="galleryApplicationName, galleryName, resourceGroupName, subscriptionId" /> | Create or update a gallery Application Definition. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="galleryApplicationName, galleryName, resourceGroupName, subscriptionId" /> | Delete a gallery Application. |
+| <CopyableCode code="_list_by_gallery" /> | `EXEC` | <CopyableCode code="galleryName, resourceGroupName, subscriptionId" /> | List gallery Application Definitions in a gallery. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="galleryApplicationName, galleryName, resourceGroupName, subscriptionId" /> | Update a gallery Application Definition. |

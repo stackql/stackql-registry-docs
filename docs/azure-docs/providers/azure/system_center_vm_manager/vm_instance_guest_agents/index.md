@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vm_instance_guest_agents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.system_center_vm_manager.vm_instance_guest_agents</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.system_center_vm_manager.vm_instance_guest_agents" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceUri` | Implements GuestAgent GET method. |
-| `create` | `INSERT` | `resourceUri, data__properties` | Create Or Update GuestAgent. |
-| `delete` | `DELETE` | `resourceUri` | Implements GuestAgent DELETE method. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceUri" /> | Implements GuestAgent GET method. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceUri, data__properties" /> | Create Or Update GuestAgent. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceUri" /> | Implements GuestAgent DELETE method. |

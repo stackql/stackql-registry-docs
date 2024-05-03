@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation_status_resource_group_context</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_protection.operation_status_resource_group_context</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_protection.operation_status_resource_group_context" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | It should match what is used to GET the operation result |
-| `name` | `string` | It must match the last segment of the "id" field, and will typically be a GUID / system generated value |
-| `endTime` | `string` | End time of the operation |
-| `error` | `object` | The resource management error response. |
-| `properties` | `object` | Operation Extended Info |
-| `startTime` | `string` | Start time of the operation |
-| `status` | `string` |  |
+| <CopyableCode code="id" /> | `string` | It should match what is used to GET the operation result |
+| <CopyableCode code="name" /> | `string` | It must match the last segment of the "id" field, and will typically be a GUID / system generated value |
+| <CopyableCode code="endTime" /> | `string` | End time of the operation |
+| <CopyableCode code="error" /> | `object` | The resource management error response. |
+| <CopyableCode code="properties" /> | `object` | Operation Extended Info |
+| <CopyableCode code="startTime" /> | `string` | Start time of the operation |
+| <CopyableCode code="status" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `operationId, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operationId, resourceGroupName, subscriptionId" /> |

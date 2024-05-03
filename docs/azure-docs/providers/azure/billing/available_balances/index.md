@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>available_balances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.billing.available_balances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.billing.available_balances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource name. |
-| `properties` | `object` | The properties of available balance. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="properties" /> | `object` | The properties of available balance. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `billingAccountName, billingProfileName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="billingAccountName, billingProfileName" /> |

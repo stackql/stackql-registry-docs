@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>partner_namespaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.event_grid.partner_namespaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.event_grid.partner_namespaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of the partner namespace. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of the partner namespace. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `partnerNamespaceName, resourceGroupName, subscriptionId` | Get properties of a partner namespace. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the partner namespaces under a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List all the partner namespaces under an Azure subscription. |
-| `create_or_update` | `INSERT` | `partnerNamespaceName, resourceGroupName, subscriptionId` | Asynchronously creates a new partner namespace with the specified parameters. |
-| `delete` | `DELETE` | `partnerNamespaceName, resourceGroupName, subscriptionId` | Delete existing partner namespace. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the partner namespaces under a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all the partner namespaces under an Azure subscription. |
-| `regenerate_key` | `EXEC` | `partnerNamespaceName, resourceGroupName, subscriptionId, data__keyName` | Regenerate a shared access key for a partner namespace. |
-| `update` | `EXEC` | `partnerNamespaceName, resourceGroupName, subscriptionId` | Asynchronously updates a partner namespace with the specified parameters. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="partnerNamespaceName, resourceGroupName, subscriptionId" /> | Get properties of a partner namespace. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List all the partner namespaces under a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List all the partner namespaces under an Azure subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="partnerNamespaceName, resourceGroupName, subscriptionId" /> | Asynchronously creates a new partner namespace with the specified parameters. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="partnerNamespaceName, resourceGroupName, subscriptionId" /> | Delete existing partner namespace. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List all the partner namespaces under a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List all the partner namespaces under an Azure subscription. |
+| <CopyableCode code="regenerate_key" /> | `EXEC` | <CopyableCode code="partnerNamespaceName, resourceGroupName, subscriptionId, data__keyName" /> | Regenerate a shared access key for a partner namespace. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="partnerNamespaceName, resourceGroupName, subscriptionId" /> | Asynchronously updates a partner namespace with the specified parameters. |

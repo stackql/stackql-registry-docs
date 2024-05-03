@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>database_schemas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.database_schemas</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.database_schemas" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | Link to retrieve next page of results. |
-| `value` | `array` | Array of results. |
+| <CopyableCode code="nextLink" /> | `string` | Link to retrieve next page of results. |
+| <CopyableCode code="value" /> | `array` | Array of results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database schemas |
-| `exec_get` | `EXEC` | `databaseName, resourceGroupName, schemaName, serverName, subscriptionId` | Get database schema |
+| <CopyableCode code="list_by_database" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | List database schemas |
+| <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, schemaName, serverName, subscriptionId" /> | Get database schema |

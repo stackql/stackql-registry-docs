@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scheduled_event</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.maintenance.scheduled_event</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.maintenance.scheduled_event" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `acknowledge` | `EXEC` | `resourceGroupName, resourceName, resourceType, scheduledEventId, subscriptionId` |
+| <CopyableCode code="acknowledge" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, resourceType, scheduledEventId, subscriptionId" /> |

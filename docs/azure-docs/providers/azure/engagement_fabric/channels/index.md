@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>channels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.engagement_fabric.channels</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.engagement_fabric.channels" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `accountName, channelName, resourceGroupName, subscriptionId` |
-| `list_by_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `accountName, channelName, resourceGroupName, subscriptionId` |
-| `delete` | `DELETE` | `accountName, channelName, resourceGroupName, subscriptionId` |
-| `_list_by_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, channelName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list_by_account" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, channelName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, channelName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list_by_account" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> |

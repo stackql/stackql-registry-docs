@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github_connector</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.security_devops.github_connector</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.security_devops.github_connector" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of the ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of the ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `gitHubConnectorName, resourceGroupName, subscriptionId` |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` |
-| `list_by_subscription` | `SELECT` | `subscriptionId` |
-| `create_or_update` | `INSERT` | `gitHubConnectorName, resourceGroupName, subscriptionId` |
-| `delete` | `DELETE` | `gitHubConnectorName, resourceGroupName, subscriptionId` |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` |
-| `update` | `EXEC` | `gitHubConnectorName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="gitHubConnectorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="gitHubConnectorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="gitHubConnectorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="gitHubConnectorName, resourceGroupName, subscriptionId" /> |

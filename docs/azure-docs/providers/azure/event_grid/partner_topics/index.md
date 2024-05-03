@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>partner_topics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.event_grid.partner_topics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.event_grid.partner_topics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | The identity information for the resource. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of the Partner Topic. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | The identity information for the resource. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of the Partner Topic. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `partnerTopicName, resourceGroupName, subscriptionId` | Get properties of a partner topic. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the partner topics under a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List all the partner topics under an Azure subscription. |
-| `create_or_update` | `INSERT` | `partnerTopicName, resourceGroupName, subscriptionId` | Asynchronously creates a new partner topic with the specified parameters. |
-| `delete` | `DELETE` | `partnerTopicName, resourceGroupName, subscriptionId` | Delete existing partner topic. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the partner topics under a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all the partner topics under an Azure subscription. |
-| `activate` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Activate a newly created partner topic. |
-| `deactivate` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Deactivate specific partner topic. |
-| `update` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Asynchronously updates a partner topic with the specified parameters. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="partnerTopicName, resourceGroupName, subscriptionId" /> | Get properties of a partner topic. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List all the partner topics under a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List all the partner topics under an Azure subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="partnerTopicName, resourceGroupName, subscriptionId" /> | Asynchronously creates a new partner topic with the specified parameters. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="partnerTopicName, resourceGroupName, subscriptionId" /> | Delete existing partner topic. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List all the partner topics under a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List all the partner topics under an Azure subscription. |
+| <CopyableCode code="activate" /> | `EXEC` | <CopyableCode code="partnerTopicName, resourceGroupName, subscriptionId" /> | Activate a newly created partner topic. |
+| <CopyableCode code="deactivate" /> | `EXEC` | <CopyableCode code="partnerTopicName, resourceGroupName, subscriptionId" /> | Deactivate specific partner topic. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="partnerTopicName, resourceGroupName, subscriptionId" /> | Asynchronously updates a partner topic with the specified parameters. |

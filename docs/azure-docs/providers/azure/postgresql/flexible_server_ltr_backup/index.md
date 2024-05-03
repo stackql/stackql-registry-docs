@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>flexible_server_ltr_backup</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.postgresql.flexible_server_ltr_backup</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.postgresql.flexible_server_ltr_backup" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `start_ltr_backup` | `EXEC` | `resourceGroupName, serverName, subscriptionId, data__targetDetails` | Start the Long Term Retention Backup operation |
-| `trigger_ltr_pre_backup` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | PreBackup operation performs all the checks that are needed for the subsequent long term retention backup operation to succeed. |
+| <CopyableCode code="start_ltr_backup" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId, data__targetDetails" /> | Start the Long Term Retention Backup operation |
+| <CopyableCode code="trigger_ltr_pre_backup" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | PreBackup operation performs all the checks that are needed for the subsequent long term retention backup operation to succeed. |

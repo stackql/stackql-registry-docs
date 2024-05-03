@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>postgres_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.azure_arc_data.postgres_instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.azure_arc_data.postgres_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` | The complex type of the extended location. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Postgres Instance properties. |
-| `sku` | `object` | The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="extendedLocation" /> | `object` | The complex type of the extended location. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Postgres Instance properties. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, postgresInstanceName, resourceGroupName, subscriptionId` | Retrieves a postgres Instance resource |
-| `list` | `SELECT` | `api-version, subscriptionId` |  |
-| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Get a postgres Instances list by Resource group name. |
-| `create` | `INSERT` | `api-version, postgresInstanceName, resourceGroupName, subscriptionId, data__properties` | Creates or replaces a postgres Instance resource |
-| `delete` | `DELETE` | `api-version, postgresInstanceName, resourceGroupName, subscriptionId` | Deletes a postgres Instance resource |
-| `_list` | `EXEC` | `api-version, subscriptionId` |  |
-| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Get a postgres Instances list by Resource group name. |
-| `update` | `EXEC` | `api-version, postgresInstanceName, resourceGroupName, subscriptionId` | Updates a postgres Instance resource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, postgresInstanceName, resourceGroupName, subscriptionId" /> | Retrieves a postgres Instance resource |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> |  |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | Get a postgres Instances list by Resource group name. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, postgresInstanceName, resourceGroupName, subscriptionId, data__properties" /> | Creates or replaces a postgres Instance resource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, postgresInstanceName, resourceGroupName, subscriptionId" /> | Deletes a postgres Instance resource |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> |  |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | Get a postgres Instances list by Resource group name. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, postgresInstanceName, resourceGroupName, subscriptionId" /> | Updates a postgres Instance resource |

@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_hsm_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hardware_security_modules.cloud_hsm_clusters</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hardware_security_modules.cloud_hsm_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `properties` | `object` | Properties of a Cloud HSM Cluster. |
-| `sku` | `object` | Cloud Hsm Cluster SKU information |
+| <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| <CopyableCode code="properties" /> | `object` | Properties of a Cloud HSM Cluster. |
+| <CopyableCode code="sku" /> | `object` | Cloud Hsm Cluster SKU information |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `cloudHsmClusterName, resourceGroupName, subscriptionId` | Gets the specified Cloud HSM Cluster |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | The List operation gets information about the Cloud HSM Clusters associated with the subscription and within the specified resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | The List operation gets information about the Cloud HSM Clusters associated with the subscription. |
-| `create_or_update` | `INSERT` | `cloudHsmClusterName, resourceGroupName, subscriptionId` | Create or Update a Cloud HSM Cluster in the specified subscription. |
-| `delete` | `DELETE` | `cloudHsmClusterName, resourceGroupName, subscriptionId` | Deletes the specified Cloud HSM Cluster |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | The List operation gets information about the Cloud HSM Clusters associated with the subscription and within the specified resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | The List operation gets information about the Cloud HSM Clusters associated with the subscription. |
-| `update` | `EXEC` | `cloudHsmClusterName, resourceGroupName, subscriptionId` | Update a Cloud HSM Cluster in the specified subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cloudHsmClusterName, resourceGroupName, subscriptionId" /> | Gets the specified Cloud HSM Cluster |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | The List operation gets information about the Cloud HSM Clusters associated with the subscription and within the specified resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | The List operation gets information about the Cloud HSM Clusters associated with the subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="cloudHsmClusterName, resourceGroupName, subscriptionId" /> | Create or Update a Cloud HSM Cluster in the specified subscription. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="cloudHsmClusterName, resourceGroupName, subscriptionId" /> | Deletes the specified Cloud HSM Cluster |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | The List operation gets information about the Cloud HSM Clusters associated with the subscription and within the specified resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | The List operation gets information about the Cloud HSM Clusters associated with the subscription. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="cloudHsmClusterName, resourceGroupName, subscriptionId" /> | Update a Cloud HSM Cluster in the specified subscription. |

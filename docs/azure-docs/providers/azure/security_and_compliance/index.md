@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Security And Compliance Management Client  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Security And Compliance Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Security And Compliance</td></tr>
 <tr><td><b>Description</b></td><td>Security And Compliance Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>security_and_compliance:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>security_and_compliance:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

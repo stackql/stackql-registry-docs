@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>integration_account_batch_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.integration_account_batch_configurations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.integration_account_batch_configurations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource id. |
-| `name` | `string` | Gets the resource name. |
-| `location` | `string` | The resource location. |
-| `properties` | `object` | The batch configuration properties definition. |
-| `tags` | `object` | The resource tags. |
-| `type` | `string` | Gets the resource type. |
+| <CopyableCode code="id" /> | `string` | The resource id. |
+| <CopyableCode code="name" /> | `string` | Gets the resource name. |
+| <CopyableCode code="location" /> | `string` | The resource location. |
+| <CopyableCode code="properties" /> | `object` | The batch configuration properties definition. |
+| <CopyableCode code="tags" /> | `object` | The resource tags. |
+| <CopyableCode code="type" /> | `string` | Gets the resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId` | Get a batch configuration for an integration account. |
-| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the batch configurations for an integration account. |
-| `create_or_update` | `INSERT` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId, data__properties` | Create or update a batch configuration for an integration account. |
-| `delete` | `DELETE` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId` | Delete a batch configuration for an integration account. |
-| `_list` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the batch configurations for an integration account. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId" /> | Get a batch configuration for an integration account. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, integrationAccountName, resourceGroupName, subscriptionId" /> | List the batch configurations for an integration account. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId, data__properties" /> | Create or update a batch configuration for an integration account. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId" /> | Delete a batch configuration for an integration account. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, integrationAccountName, resourceGroupName, subscriptionId" /> | List the batch configurations for an integration account. |

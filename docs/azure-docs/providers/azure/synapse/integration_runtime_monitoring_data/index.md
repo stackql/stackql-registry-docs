@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>integration_runtime_monitoring_data</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.integration_runtime_monitoring_data</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.integration_runtime_monitoring_data" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Integration runtime name. |
-| `nodes` | `array` | Integration runtime node monitoring data. |
+| <CopyableCode code="name" /> | `string` | Integration runtime name. |
+| <CopyableCode code="nodes" /> | `array` | Integration runtime node monitoring data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName" /> |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>suppression_lists</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.communication.suppression_lists</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.communication.suppression_lists" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Get a SuppressionList resource. |
-| `list_by_domain` | `SELECT` | `domainName, emailServiceName, resourceGroupName, subscriptionId` | List all suppression lists for a domains resource. |
-| `create_or_update` | `INSERT` | `domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Add a new SuppressionList resource under the parent Domains resource or update an existing SuppressionList resource. |
-| `delete` | `DELETE` | `domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Delete a SuppressionList. |
-| `_list_by_domain` | `EXEC` | `domainName, emailServiceName, resourceGroupName, subscriptionId` | List all suppression lists for a domains resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Get a SuppressionList resource. |
+| <CopyableCode code="list_by_domain" /> | `SELECT` | <CopyableCode code="domainName, emailServiceName, resourceGroupName, subscriptionId" /> | List all suppression lists for a domains resource. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Add a new SuppressionList resource under the parent Domains resource or update an existing SuppressionList resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Delete a SuppressionList. |
+| <CopyableCode code="_list_by_domain" /> | `EXEC` | <CopyableCode code="domainName, emailServiceName, resourceGroupName, subscriptionId" /> | List all suppression lists for a domains resource. |

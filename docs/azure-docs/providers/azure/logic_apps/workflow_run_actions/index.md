@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_run_actions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.workflow_run_actions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.workflow_run_actions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource id. |
-| `name` | `string` | Gets the workflow run action name. |
-| `properties` | `object` | The workflow run action properties. |
-| `type` | `string` | Gets the workflow run action type. |
+| <CopyableCode code="id" /> | `string` | The resource id. |
+| <CopyableCode code="name" /> | `string` | Gets the workflow run action name. |
+| <CopyableCode code="properties" /> | `object` | The workflow run action properties. |
+| <CopyableCode code="type" /> | `string` | Gets the workflow run action type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a workflow run action. |
-| `list` | `SELECT` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a list of workflow run actions. |
-| `_list` | `EXEC` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a list of workflow run actions. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName" /> | Gets a workflow run action. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, runName, subscriptionId, workflowName" /> | Gets a list of workflow run actions. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, runName, subscriptionId, workflowName" /> | Gets a list of workflow run actions. |

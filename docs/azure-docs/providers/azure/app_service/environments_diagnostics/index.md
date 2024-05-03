@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments_diagnostics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.environments_diagnostics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.environments_diagnostics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name/identifier of the diagnostics. |
-| `diagnosticsOutput` | `string` | Diagnostics output. |
+| <CopyableCode code="name" /> | `string` | Name/identifier of the diagnostics. |
+| <CopyableCode code="diagnosticsOutput" /> | `string` | Diagnostics output. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `name, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure SQL Virtual Machine REST API Includes Operations For Managing Azure SQL Virtual Machine Resources.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure SQL Virtual Machine REST API Includes Operations For Managing Azure SQ
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure SQL Virtual Machine</td></tr>
 <tr><td><b>Description</b></td><td>The Azure SQL Virtual Machine REST API Includes Operations For Managing Azure SQL Virtual Machine Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>sql_vm:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sql_vm:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

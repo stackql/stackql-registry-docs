@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>disk_accesses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.disk_accesses</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.disk_accesses" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
-| `extendedLocation` | `object` | The complex type of the extended location. |
-| `location` | `string` | Resource location |
-| `properties` | `object` |  |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="extendedLocation" /> | `object` | The complex type of the extended location. |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `diskAccessName, resourceGroupName, subscriptionId` | Gets information about a disk access resource. |
-| `list` | `SELECT` | `subscriptionId` | Lists all the disk access resources under a subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the disk access resources under a resource group. |
-| `create_or_update` | `INSERT` | `diskAccessName, resourceGroupName, subscriptionId` | Creates or updates a disk access resource |
-| `delete` | `DELETE` | `diskAccessName, resourceGroupName, subscriptionId` | Deletes a disk access resource. |
-| `_list` | `EXEC` | `subscriptionId` | Lists all the disk access resources under a subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the disk access resources under a resource group. |
-| `update` | `EXEC` | `diskAccessName, resourceGroupName, subscriptionId` | Updates (patches) a disk access resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="diskAccessName, resourceGroupName, subscriptionId" /> | Gets information about a disk access resource. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all the disk access resources under a subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the disk access resources under a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="diskAccessName, resourceGroupName, subscriptionId" /> | Creates or updates a disk access resource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="diskAccessName, resourceGroupName, subscriptionId" /> | Deletes a disk access resource. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all the disk access resources under a subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the disk access resources under a resource group. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="diskAccessName, resourceGroupName, subscriptionId" /> | Updates (patches) a disk access resource. |

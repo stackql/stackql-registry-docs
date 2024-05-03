@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>catalogs_sync_error_details</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dev_center.catalogs_sync_error_details</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dev_center.catalogs_sync_error_details" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `conflicts` | `array` | Catalog items that have conflicting names. |
-| `errors` | `array` | Errors that occured during synchronization. |
-| `operationError` | `object` | Catalog error details |
+| <CopyableCode code="conflicts" /> | `array` | Catalog items that have conflicting names. |
+| <CopyableCode code="errors" /> | `array` | Errors that occured during synchronization. |
+| <CopyableCode code="operationError" /> | `object` | Catalog error details |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` |  |
+| <CopyableCode code="get" /> | `SELECT` |  |

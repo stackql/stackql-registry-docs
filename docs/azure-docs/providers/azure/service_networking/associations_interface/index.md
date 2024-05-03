@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>associations_interface</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_networking.associations_interface</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_networking.associations_interface" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Association Properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Association Properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `associationName, resourceGroupName, subscriptionId, trafficControllerName` | Get a Association |
-| `list_by_traffic_controller` | `SELECT` | `resourceGroupName, subscriptionId, trafficControllerName` | List Association resources by TrafficController |
-| `create_or_update` | `INSERT` | `associationName, resourceGroupName, subscriptionId, trafficControllerName` | Create a Association |
-| `delete` | `DELETE` | `associationName, resourceGroupName, subscriptionId, trafficControllerName` | Delete a Association |
-| `_list_by_traffic_controller` | `EXEC` | `resourceGroupName, subscriptionId, trafficControllerName` | List Association resources by TrafficController |
-| `update` | `EXEC` | `associationName, resourceGroupName, subscriptionId, trafficControllerName` | Update a Association |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="associationName, resourceGroupName, subscriptionId, trafficControllerName" /> | Get a Association |
+| <CopyableCode code="list_by_traffic_controller" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | List Association resources by TrafficController |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="associationName, resourceGroupName, subscriptionId, trafficControllerName" /> | Create a Association |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="associationName, resourceGroupName, subscriptionId, trafficControllerName" /> | Delete a Association |
+| <CopyableCode code="_list_by_traffic_controller" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | List Association resources by TrafficController |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="associationName, resourceGroupName, subscriptionId, trafficControllerName" /> | Update a Association |

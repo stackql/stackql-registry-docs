@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>signal_r_shared_private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.signalr.signal_r_shared_private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.signalr.signal_r_shared_private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, sharedPrivateLinkResourceName, subscriptionId` | Get the specified shared private link resource |
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | List shared private link resources |
-| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, sharedPrivateLinkResourceName, subscriptionId` | Create or update a shared private link resource |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, sharedPrivateLinkResourceName, subscriptionId` | Delete the specified shared private link resource |
-| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | List shared private link resources |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, sharedPrivateLinkResourceName, subscriptionId" /> | Get the specified shared private link resource |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List shared private link resources |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, sharedPrivateLinkResourceName, subscriptionId" /> | Create or update a shared private link resource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, sharedPrivateLinkResourceName, subscriptionId" /> | Delete the specified shared private link resource |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List shared private link resources |

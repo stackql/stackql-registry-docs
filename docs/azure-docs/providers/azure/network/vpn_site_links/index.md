@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpn_site_links</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.vpn_site_links</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.vpn_site_links" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `properties` | `object` | Parameters for VpnSite. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="properties" /> | `object` | Parameters for VpnSite. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteLinkName, vpnSiteName` | Retrieves the details of a VPN site link. |
-| `list_by_vpn_site` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteName` | Lists all the vpnSiteLinks in a resource group for a vpn site. |
-| `_list_by_vpn_site` | `EXEC` | `resourceGroupName, subscriptionId, vpnSiteName` | Lists all the vpnSiteLinks in a resource group for a vpn site. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vpnSiteLinkName, vpnSiteName" /> | Retrieves the details of a VPN site link. |
+| <CopyableCode code="list_by_vpn_site" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vpnSiteName" /> | Lists all the vpnSiteLinks in a resource group for a vpn site. |
+| <CopyableCode code="_list_by_vpn_site" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vpnSiteName" /> | Lists all the vpnSiteLinks in a resource group for a vpn site. |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>webhooks_events</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_registry.webhooks_events</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_registry.webhooks_events" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The URI that can be used to request the next list of events. |
-| `value` | `array` | The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events. |
+| <CopyableCode code="nextLink" /> | `string` | The URI that can be used to request the next list of events. |
+| <CopyableCode code="value" /> | `array` | The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId, webhookName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="registryName, resourceGroupName, subscriptionId, webhookName" /> |

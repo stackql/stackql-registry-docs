@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>quotas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.playwrighttesting.quotas</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.playwrighttesting.quotas" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `location, name, subscriptionId` | Get quota by name. |
-| `list_by_subscription` | `SELECT` | `location, subscriptionId` | List quotas for a given subscription Id. |
-| `_list_by_subscription` | `EXEC` | `location, subscriptionId` | List quotas for a given subscription Id. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, name, subscriptionId" /> | Get quota by name. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | List quotas for a given subscription Id. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | List quotas for a given subscription Id. |

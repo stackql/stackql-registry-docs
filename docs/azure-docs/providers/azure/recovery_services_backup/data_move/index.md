@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_move</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.recovery_services_backup.data_move</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.recovery_services_backup.data_move" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `data_move` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName, data__correlationId, data__dataMoveLevel, data__sourceRegion, data__sourceResourceId` |
+| <CopyableCode code="data_move" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, vaultName, data__correlationId, data__dataMoveLevel, data__sourceRegion, data__sourceResourceId" /> |

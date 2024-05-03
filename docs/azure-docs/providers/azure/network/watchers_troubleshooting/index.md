@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>watchers_troubleshooting</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.watchers_troubleshooting</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.watchers_troubleshooting" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `code` | `string` | The result code of the troubleshooting. |
-| `endTime` | `string` | The end time of the troubleshooting. |
-| `results` | `array` | Information from troubleshooting. |
-| `startTime` | `string` | The start time of the troubleshooting. |
+| <CopyableCode code="code" /> | `string` | The result code of the troubleshooting. |
+| <CopyableCode code="endTime" /> | `string` | The end time of the troubleshooting. |
+| <CopyableCode code="results" /> | `array` | Information from troubleshooting. |
+| <CopyableCode code="startTime" /> | `string` | The start time of the troubleshooting. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `networkWatcherName, resourceGroupName, subscriptionId, data__properties, data__targetResourceId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkWatcherName, resourceGroupName, subscriptionId, data__properties, data__targetResourceId" /> |

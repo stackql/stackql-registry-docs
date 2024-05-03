@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>adds_services_replication_details</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ad_hybrid_health_service.adds_services_replication_details</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ad_hybrid_health_service.adds_services_replication_details" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `domain` | `string` | The domain name for a given domain controller. |
-| `inboundNeighborCollection` | `array` | List of individual domain controller neighbor's inbound replication status. |
-| `lastAttemptedSync` | `string` | The last time when a sync was attempted for a given domain controller. |
-| `lastSuccessfulSync` | `string` | The time when the last successful sync happened for a given domain controller. |
-| `site` | `string` | The site name for a given domain controller. |
-| `status` | `integer` | The health status for a domain controller. |
-| `targetServer` | `string` | The domain controller name. |
+| <CopyableCode code="domain" /> | `string` | The domain name for a given domain controller. |
+| <CopyableCode code="inboundNeighborCollection" /> | `array` | List of individual domain controller neighbor's inbound replication status. |
+| <CopyableCode code="lastAttemptedSync" /> | `string` | The last time when a sync was attempted for a given domain controller. |
+| <CopyableCode code="lastSuccessfulSync" /> | `string` | The time when the last successful sync happened for a given domain controller. |
+| <CopyableCode code="site" /> | `string` | The site name for a given domain controller. |
+| <CopyableCode code="status" /> | `integer` | The health status for a domain controller. |
+| <CopyableCode code="targetServer" /> | `string` | The domain controller name. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `serviceName` |
-| `_list` | `EXEC` | `serviceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="serviceName" /> |

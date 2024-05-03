@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_hubs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.private_link_hubs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.private_link_hubs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | PrivateLinkHub properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | PrivateLinkHub properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Gets a privateLinkHub |
-| `list` | `SELECT` | `subscriptionId` | Returns a list of privateLinkHubs in a subscription |
-| `list_by_resource_group` | `SELECT` |  | Returns a list of privateLinkHubs in a resource group |
-| `create_or_update` | `INSERT` |  | Creates or updates a privateLinkHub |
-| `delete` | `DELETE` |  | Deletes a privateLinkHub |
-| `_list` | `EXEC` | `subscriptionId` | Returns a list of privateLinkHubs in a subscription |
-| `_list_by_resource_group` | `EXEC` |  | Returns a list of privateLinkHubs in a resource group |
-| `update` | `EXEC` |  | Updates a privateLinkHub |
+| <CopyableCode code="get" /> | `SELECT` |  | Gets a privateLinkHub |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns a list of privateLinkHubs in a subscription |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` |  | Returns a list of privateLinkHubs in a resource group |
+| <CopyableCode code="create_or_update" /> | `INSERT` |  | Creates or updates a privateLinkHub |
+| <CopyableCode code="delete" /> | `DELETE` |  | Deletes a privateLinkHub |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns a list of privateLinkHubs in a subscription |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` |  | Returns a list of privateLinkHubs in a resource group |
+| <CopyableCode code="update" /> | `EXEC` |  | Updates a privateLinkHub |

@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agreements</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.billing.agreements</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.billing.agreements" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource name. |
-| `properties` | `object` | The properties of an agreement. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="properties" /> | `object` | The properties of an agreement. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `agreementName, billingAccountName` | Gets an agreement by ID. |
-| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the agreements for a billing account. |
-| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the agreements for a billing account. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="agreementName, billingAccountName" /> | Gets an agreement by ID. |
+| <CopyableCode code="list_by_billing_account" /> | `SELECT` | <CopyableCode code="billingAccountName" /> | Lists the agreements for a billing account. |
+| <CopyableCode code="_list_by_billing_account" /> | `EXEC` | <CopyableCode code="billingAccountName" /> | Lists the agreements for a billing account. |

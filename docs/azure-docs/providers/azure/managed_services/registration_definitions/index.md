@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>registration_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.managed_services.registration_definitions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.managed_services.registration_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The fully qualified path of the registration definition. |
-| `name` | `string` | The name of the registration definition. |
-| `plan` | `object` | The details for the Managed Services offer’s plan in Azure Marketplace. |
-| `properties` | `object` | The properties of a registration definition. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions). |
+| <CopyableCode code="id" /> | `string` | The fully qualified path of the registration definition. |
+| <CopyableCode code="name" /> | `string` | The name of the registration definition. |
+| <CopyableCode code="plan" /> | `object` | The details for the Managed Services offer’s plan in Azure Marketplace. |
+| <CopyableCode code="properties" /> | `object` | The properties of a registration definition. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `registrationDefinitionId, scope` | Gets the registration definition details. |
-| `list` | `SELECT` | `scope` | Gets a list of the registration definitions. |
-| `create_or_update` | `INSERT` | `registrationDefinitionId, scope` | Creates or updates a registration definition. |
-| `delete` | `DELETE` | `registrationDefinitionId, scope` | Deletes the registration definition. |
-| `_list` | `EXEC` | `scope` | Gets a list of the registration definitions. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="registrationDefinitionId, scope" /> | Gets the registration definition details. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> | Gets a list of the registration definitions. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="registrationDefinitionId, scope" /> | Creates or updates a registration definition. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="registrationDefinitionId, scope" /> | Deletes the registration definition. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="scope" /> | Gets a list of the registration definitions. |

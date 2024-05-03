@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>migration_recovery_points</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.recovery_services_site_recovery.migration_recovery_points</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.recovery_services_site_recovery.migration_recovery_points" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource Name |
-| `location` | `string` | Resource Location |
-| `properties` | `object` | Migration item recovery point properties. |
-| `type` | `string` | Resource Type |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource Name |
+| <CopyableCode code="location" /> | `string` | Resource Location |
+| <CopyableCode code="properties" /> | `object` | Migration item recovery point properties. |
+| <CopyableCode code="type" /> | `string` | Resource Type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, fabricName, migrationItemName, migrationRecoveryPointName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` |
-| `list_by_replication_migration_items` | `SELECT` | `api-version, fabricName, migrationItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` |
-| `_list_by_replication_migration_items` | `EXEC` | `api-version, fabricName, migrationItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, fabricName, migrationItemName, migrationRecoveryPointName, protectionContainerName, resourceGroupName, resourceName, subscriptionId" /> |
+| <CopyableCode code="list_by_replication_migration_items" /> | `SELECT` | <CopyableCode code="api-version, fabricName, migrationItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId" /> |
+| <CopyableCode code="_list_by_replication_migration_items" /> | `EXEC` | <CopyableCode code="api-version, fabricName, migrationItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId" /> |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>adds_services_metric_metadata_for_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ad_hybrid_health_service.adds_services_metric_metadata_for_group</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ad_hybrid_health_service.adds_services_metric_metadata_for_group" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sets` | `array` | The list of metric set. |
-| `timeStamps` | `array` | The list of timestamps for each metric in the metric set. |
+| <CopyableCode code="sets" /> | `array` | The list of metric set. |
+| <CopyableCode code="timeStamps" /> | `array` | The list of timestamps for each metric in the metric set. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `groupName, metricName, serviceName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupName, metricName, serviceName" /> |

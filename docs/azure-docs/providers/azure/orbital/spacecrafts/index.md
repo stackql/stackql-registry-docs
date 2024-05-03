@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>spacecrafts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.orbital.spacecrafts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.orbital.spacecrafts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | List of Spacecraft Resource Properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | List of Spacecraft Resource Properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, spacecraftName, subscriptionId` | Gets the specified spacecraft in a specified resource group. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Returns list of spacecrafts by resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Returns list of spacecrafts by subscription. |
-| `create_or_update` | `INSERT` | `resourceGroupName, spacecraftName, subscriptionId, data__properties` | Creates or updates a spacecraft resource. |
-| `delete` | `DELETE` | `resourceGroupName, spacecraftName, subscriptionId` | Deletes a specified spacecraft resource. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Returns list of spacecrafts by resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Returns list of spacecrafts by subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, spacecraftName, subscriptionId" /> | Gets the specified spacecraft in a specified resource group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns list of spacecrafts by resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns list of spacecrafts by subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, spacecraftName, subscriptionId, data__properties" /> | Creates or updates a spacecraft resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, spacecraftName, subscriptionId" /> | Deletes a specified spacecraft resource. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns list of spacecrafts by resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns list of spacecrafts by subscription. |

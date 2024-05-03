@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_networks_ddos_protection_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.virtual_networks_ddos_protection_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.virtual_networks_ddos_protection_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The URL to get the next set of results. |
-| `value` | `array` | The Ddos Protection Status Result for each public ip under a virtual network. |
+| <CopyableCode code="nextLink" /> | `string` | The URL to get the next set of results. |
+| <CopyableCode code="value" /> | `array` | The Ddos Protection Status Result for each public ip under a virtual network. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualNetworkName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkName" /> |

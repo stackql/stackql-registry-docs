@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mqtt_bridge_topic_map</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.iot_mq.mqtt_bridge_topic_map</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.iot_mq.mqtt_bridge_topic_map" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` | ExtendedLocation properties |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | MqttBridgeTopicMap Properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="extendedLocation" /> | `object` | ExtendedLocation properties |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | MqttBridgeTopicMap Properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName` | Get a MqttBridgeTopicMapResource |
-| `list_by_mqtt_bridge_connector_resource` | `SELECT` | `mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId` | List MqttBridgeTopicMapResource resources by MqttBridgeConnectorResource |
-| `create_or_update` | `INSERT` | `mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName, data__extendedLocation` | Create a MqttBridgeTopicMapResource |
-| `delete` | `DELETE` | `mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName` | Delete a MqttBridgeTopicMapResource |
-| `_list_by_mqtt_bridge_connector_resource` | `EXEC` | `mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId` | List MqttBridgeTopicMapResource resources by MqttBridgeConnectorResource |
-| `update` | `EXEC` | `mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName` | Update a MqttBridgeTopicMapResource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName" /> | Get a MqttBridgeTopicMapResource |
+| <CopyableCode code="list_by_mqtt_bridge_connector_resource" /> | `SELECT` | <CopyableCode code="mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId" /> | List MqttBridgeTopicMapResource resources by MqttBridgeConnectorResource |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName, data__extendedLocation" /> | Create a MqttBridgeTopicMapResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName" /> | Delete a MqttBridgeTopicMapResource |
+| <CopyableCode code="_list_by_mqtt_bridge_connector_resource" /> | `EXEC` | <CopyableCode code="mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId" /> | List MqttBridgeTopicMapResource resources by MqttBridgeConnectorResource |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="mqName, mqttBridgeConnectorName, resourceGroupName, subscriptionId, topicMapName" /> | Update a MqttBridgeTopicMapResource |

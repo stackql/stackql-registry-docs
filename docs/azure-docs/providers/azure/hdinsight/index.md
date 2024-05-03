@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure HDInsight Is A Managed, Full-Spectrum, Open-Source Analytics Service In The Cloud For Enterprises. You Can Use Open-Source Frameworks Such As Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, And More. You Can Use These Open-Source Frameworks To Enable A Broad Range Of Scenarios Such As Extract, Transform, And Load (ETL), Data Warehousing, Machine Learning, And IoT.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure HDInsight Is A Managed, Full-Spectrum, Open-Source Analytics Service In Th
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure HDInsight</td></tr>
 <tr><td><b>Description</b></td><td>Azure HDInsight Is A Managed, Full-Spectrum, Open-Source Analytics Service In The Cloud For Enterprises. You Can Use Open-Source Frameworks Such As Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, And More. You Can Use These Open-Source Frameworks To Enable A Broad Range Of Scenarios Such As Extract, Transform, And Load (ETL), Data Warehousing, Machine Learning, And IoT.</td></tr>
-<tr><td><b>Id</b></td><td><code>hdinsight:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hdinsight:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

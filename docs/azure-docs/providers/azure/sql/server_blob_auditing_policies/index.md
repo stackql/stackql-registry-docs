@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>server_blob_auditing_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.server_blob_auditing_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.server_blob_auditing_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `blobAuditingPolicyName, resourceGroupName, serverName, subscriptionId` | Gets a server's blob auditing policy. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists auditing settings of a server. |
-| `create_or_update` | `INSERT` | `blobAuditingPolicyName, resourceGroupName, serverName, subscriptionId` | Creates or updates a server's blob auditing policy. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists auditing settings of a server. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="blobAuditingPolicyName, resourceGroupName, serverName, subscriptionId" /> | Gets a server's blob auditing policy. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Lists auditing settings of a server. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="blobAuditingPolicyName, resourceGroupName, serverName, subscriptionId" /> | Creates or updates a server's blob auditing policy. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Lists auditing settings of a server. |

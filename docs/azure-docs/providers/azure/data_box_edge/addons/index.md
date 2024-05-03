@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>addons</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_box_edge.addons</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_box_edge.addons" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The path ID that uniquely identifies the object. |
-| `name` | `string` | The object name. |
-| `kind` | `string` | Addon type. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The hierarchical type of the object. |
+| <CopyableCode code="id" /> | `string` | The path ID that uniquely identifies the object. |
+| <CopyableCode code="name" /> | `string` | The object name. |
+| <CopyableCode code="kind" /> | `string` | Addon type. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The hierarchical type of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `addonName, deviceName, resourceGroupName, roleName, subscriptionId` | Gets a specific addon by name. |
-| `list_by_role` | `SELECT` | `deviceName, resourceGroupName, roleName, subscriptionId` | Lists all the addons configured in the role. |
-| `create_or_update` | `INSERT` | `addonName, deviceName, resourceGroupName, roleName, subscriptionId, data__kind` | Create or update a addon. |
-| `delete` | `DELETE` | `addonName, deviceName, resourceGroupName, roleName, subscriptionId` | Deletes the addon on the device. |
-| `_list_by_role` | `EXEC` | `deviceName, resourceGroupName, roleName, subscriptionId` | Lists all the addons configured in the role. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="addonName, deviceName, resourceGroupName, roleName, subscriptionId" /> | Gets a specific addon by name. |
+| <CopyableCode code="list_by_role" /> | `SELECT` | <CopyableCode code="deviceName, resourceGroupName, roleName, subscriptionId" /> | Lists all the addons configured in the role. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="addonName, deviceName, resourceGroupName, roleName, subscriptionId, data__kind" /> | Create or update a addon. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="addonName, deviceName, resourceGroupName, roleName, subscriptionId" /> | Deletes the addon on the device. |
+| <CopyableCode code="_list_by_role" /> | `EXEC` | <CopyableCode code="deviceName, resourceGroupName, roleName, subscriptionId" /> | Lists all the addons configured in the role. |

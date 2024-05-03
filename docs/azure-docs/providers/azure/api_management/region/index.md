@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.region</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.region" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Region name. |
-| `isDeleted` | `boolean` | whether Region is deleted. |
-| `isMasterRegion` | `boolean` | whether Region is the master region. |
+| <CopyableCode code="name" /> | `string` | Region name. |
+| <CopyableCode code="isDeleted" /> | `boolean` | whether Region is deleted. |
+| <CopyableCode code="isMasterRegion" /> | `boolean` | whether Region is the master region. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` |
-| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` |
+| <CopyableCode code="list_by_service" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> |
+| <CopyableCode code="_list_by_service" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> |

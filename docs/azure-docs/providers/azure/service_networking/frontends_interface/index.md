@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>frontends_interface</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_networking.frontends_interface</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_networking.frontends_interface" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Frontend Properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Frontend Properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `frontendName, resourceGroupName, subscriptionId, trafficControllerName` | Get a Frontend |
-| `list_by_traffic_controller` | `SELECT` | `resourceGroupName, subscriptionId, trafficControllerName` | List Frontend resources by TrafficController |
-| `create_or_update` | `INSERT` | `frontendName, resourceGroupName, subscriptionId, trafficControllerName` | Create a Frontend |
-| `delete` | `DELETE` | `frontendName, resourceGroupName, subscriptionId, trafficControllerName` | Delete a Frontend |
-| `_list_by_traffic_controller` | `EXEC` | `resourceGroupName, subscriptionId, trafficControllerName` | List Frontend resources by TrafficController |
-| `update` | `EXEC` | `frontendName, resourceGroupName, subscriptionId, trafficControllerName` | Update a Frontend |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="frontendName, resourceGroupName, subscriptionId, trafficControllerName" /> | Get a Frontend |
+| <CopyableCode code="list_by_traffic_controller" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | List Frontend resources by TrafficController |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="frontendName, resourceGroupName, subscriptionId, trafficControllerName" /> | Create a Frontend |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="frontendName, resourceGroupName, subscriptionId, trafficControllerName" /> | Delete a Frontend |
+| <CopyableCode code="_list_by_traffic_controller" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | List Frontend resources by TrafficController |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="frontendName, resourceGroupName, subscriptionId, trafficControllerName" /> | Update a Frontend |

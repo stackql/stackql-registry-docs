@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage_import_export.locations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage_import_export.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Specifies the resource identifier of the location.  |
-| `name` | `string` | Specifies the name of the location. Use List Locations to get all supported locations.  |
-| `properties` | `` | location properties |
-| `type` | `string` | Specifies the type of the location.  |
+| <CopyableCode code="id" /> | `string` | Specifies the resource identifier of the location.  |
+| <CopyableCode code="name" /> | `string` | Specifies the name of the location. Use List Locations to get all supported locations.  |
+| <CopyableCode code="properties" /> | `` | location properties |
+| <CopyableCode code="type" /> | `string` | Specifies the type of the location.  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, locationName` | Returns the details about a location to which you can ship the disks associated with an import or export job. A location is an Azure region. |
-| `list` | `SELECT` | `api-version` | Returns a list of locations to which you can ship the disks associated with an import or export job. A location is a Microsoft data center region. |
-| `_list` | `EXEC` | `api-version` | Returns a list of locations to which you can ship the disks associated with an import or export job. A location is a Microsoft data center region. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, locationName" /> | Returns the details about a location to which you can ship the disks associated with an import or export job. A location is an Azure region. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version" /> | Returns a list of locations to which you can ship the disks associated with an import or export job. A location is a Microsoft data center region. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version" /> | Returns a list of locations to which you can ship the disks associated with an import or export job. A location is a Microsoft data center region. |

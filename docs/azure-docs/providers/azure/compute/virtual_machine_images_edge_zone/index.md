@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machine_images_edge_zone</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.virtual_machine_images_edge_zone</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.virtual_machine_images_edge_zone" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the resource. |
-| `extendedLocation` | `object` | The complex type of the extended location. |
-| `location` | `string` | The supported Azure location of the resource. |
-| `properties` | `object` | Describes the properties of a Virtual Machine Image. |
-| `tags` | `object` | Specifies the tags that are assigned to the virtual machine. For more information about using tags, see [Using tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags.md). |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="extendedLocation" /> | `object` | The complex type of the extended location. |
+| <CopyableCode code="location" /> | `string` | The supported Azure location of the resource. |
+| <CopyableCode code="properties" /> | `object` | Describes the properties of a Virtual Machine Image. |
+| <CopyableCode code="tags" /> | `object` | Specifies the tags that are assigned to the virtual machine. For more information about using tags, see [Using tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags.md). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `edgeZone, location, offer, publisherName, skus, subscriptionId, version` | Gets a virtual machine image in an edge zone. |
-| `list` | `SELECT` | `edgeZone, location, offer, publisherName, skus, subscriptionId` | Gets a list of all virtual machine image versions for the specified location, edge zone, publisher, offer, and SKU. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="edgeZone, location, offer, publisherName, skus, subscriptionId, version" /> | Gets a virtual machine image in an edge zone. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="edgeZone, location, offer, publisherName, skus, subscriptionId" /> | Gets a list of all virtual machine image versions for the specified location, edge zone, publisher, offer, and SKU. |

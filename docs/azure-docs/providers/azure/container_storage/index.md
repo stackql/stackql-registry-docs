@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Manage Persistent Storage Volumes For Stateful Container Applications.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Manage Persistent Storage Volumes For Stateful Container Applications.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Container Storage</td></tr>
 <tr><td><b>Description</b></td><td>Manage Persistent Storage Volumes For Stateful Container Applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>container_storage:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_storage:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

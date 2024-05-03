@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ip_allocations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.ip_allocations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.ip_allocations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of the IpAllocation. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of the IpAllocation. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `ipAllocationName, resourceGroupName, subscriptionId` | Gets the specified IpAllocation by resource group. |
-| `list` | `SELECT` | `subscriptionId` | Gets all IpAllocations in a subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all IpAllocations in a resource group. |
-| `create_or_update` | `INSERT` | `ipAllocationName, resourceGroupName, subscriptionId` | Creates or updates an IpAllocation in the specified resource group. |
-| `delete` | `DELETE` | `ipAllocationName, resourceGroupName, subscriptionId` | Deletes the specified IpAllocation. |
-| `_list` | `EXEC` | `subscriptionId` | Gets all IpAllocations in a subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all IpAllocations in a resource group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="ipAllocationName, resourceGroupName, subscriptionId" /> | Gets the specified IpAllocation by resource group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all IpAllocations in a subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all IpAllocations in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="ipAllocationName, resourceGroupName, subscriptionId" /> | Creates or updates an IpAllocation in the specified resource group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="ipAllocationName, resourceGroupName, subscriptionId" /> | Deletes the specified IpAllocation. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all IpAllocations in a subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all IpAllocations in a resource group. |

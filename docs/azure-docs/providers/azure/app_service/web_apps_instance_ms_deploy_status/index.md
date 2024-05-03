@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_apps_instance_ms_deploy_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.web_apps_instance_ms_deploy_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.web_apps_instance_ms_deploy_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource Name. |
-| `kind` | `string` | Kind of resource. |
-| `properties` | `object` | MSDeployStatus resource specific properties |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource Name. |
+| <CopyableCode code="kind" /> | `string` | Kind of resource. |
+| <CopyableCode code="properties" /> | `object` | MSDeployStatus resource specific properties |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `instanceId, name, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instanceId, name, resourceGroupName, subscriptionId" /> |

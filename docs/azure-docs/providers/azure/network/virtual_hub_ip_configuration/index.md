@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_hub_ip_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.virtual_hub_ip_configuration</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.virtual_hub_ip_configuration" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Name of the Ip Configuration. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `properties` | `object` | Properties of IP configuration. |
-| `type` | `string` | Ipconfiguration type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Name of the Ip Configuration. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="properties" /> | `object` | Properties of IP configuration. |
+| <CopyableCode code="type" /> | `string` | Ipconfiguration type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `ipConfigName, resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of a Virtual Hub Ip configuration. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all VirtualHubIpConfigurations. |
-| `create_or_update` | `INSERT` | `ipConfigName, resourceGroupName, subscriptionId, virtualHubName` | Creates a VirtualHubIpConfiguration resource if it doesn't exist else updates the existing VirtualHubIpConfiguration. |
-| `delete` | `DELETE` | `ipConfigName, resourceGroupName, subscriptionId, virtualHubName` | Deletes a VirtualHubIpConfiguration. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all VirtualHubIpConfigurations. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="ipConfigName, resourceGroupName, subscriptionId, virtualHubName" /> | Retrieves the details of a Virtual Hub Ip configuration. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualHubName" /> | Retrieves the details of all VirtualHubIpConfigurations. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="ipConfigName, resourceGroupName, subscriptionId, virtualHubName" /> | Creates a VirtualHubIpConfiguration resource if it doesn't exist else updates the existing VirtualHubIpConfiguration. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="ipConfigName, resourceGroupName, subscriptionId, virtualHubName" /> | Deletes a VirtualHubIpConfiguration. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, virtualHubName" /> | Retrieves the details of all VirtualHubIpConfigurations. |

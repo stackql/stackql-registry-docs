@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Microsoft Azure Storage Pool Allows Your Applications And Workloads To Access A Group Of Managed Disks From A Single Endpoint.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Microsoft Azure Storage Pool Allows Your Applications And Workloads To Access A 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Storage Pool</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Azure Storage Pool Allows Your Applications And Workloads To Access A Group Of Managed Disks From A Single Endpoint.</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_pool:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage_pool:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

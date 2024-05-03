@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage_cache.skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage_cache.skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of this SKU. |
-| `capabilities` | `array` | A list of capabilities of this SKU, such as throughput or ops/sec. |
-| `locationInfo` | `array` | The set of locations where the SKU is available. |
-| `locations` | `array` | The set of locations where the SKU is available. This is the supported and registered Azure Geo Regions (e.g., West US, East US, Southeast Asia, etc.). |
-| `resourceType` | `string` | The type of resource the SKU applies to. |
-| `restrictions` | `array` | The restrictions preventing this SKU from being used. This is empty if there are no restrictions. |
+| <CopyableCode code="name" /> | `string` | The name of this SKU. |
+| <CopyableCode code="capabilities" /> | `array` | A list of capabilities of this SKU, such as throughput or ops/sec. |
+| <CopyableCode code="locationInfo" /> | `array` | The set of locations where the SKU is available. |
+| <CopyableCode code="locations" /> | `array` | The set of locations where the SKU is available. This is the supported and registered Azure Geo Regions (e.g., West US, East US, Southeast Asia, etc.). |
+| <CopyableCode code="resourceType" /> | `string` | The type of resource the SKU applies to. |
+| <CopyableCode code="restrictions" /> | `array` | The restrictions preventing this SKU from being used. This is empty if there are no restrictions. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `subscriptionId` |
-| `_list` | `EXEC` | `subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |

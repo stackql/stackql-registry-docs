@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.digital_twins.private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.digital_twins.private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource identifier. |
-| `name` | `string` | The resource name. |
-| `properties` | `object` | The properties for a group information object. |
-| `type` | `string` | The resource type. |
+| <CopyableCode code="id" /> | `string` | The resource identifier. |
+| <CopyableCode code="name" /> | `string` | The resource name. |
+| <CopyableCode code="properties" /> | `object` | The properties for a group information object. |
+| <CopyableCode code="type" /> | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, resourceGroupName, resourceId, resourceName, subscriptionId` | Get the specified private link resource for the given Digital Twin. |
-| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | List private link resources for given Digital Twin. |
-| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | List private link resources for given Digital Twin. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, resourceId, resourceName, subscriptionId" /> | Get the specified private link resource for the given Digital Twin. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, resourceName, subscriptionId" /> | List private link resources for given Digital Twin. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, resourceName, subscriptionId" /> | List private link resources for given Digital Twin. |

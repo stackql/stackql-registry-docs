@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>restorable_mongodb_collections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cosmos_db.restorable_mongodb_collections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cosmos_db.restorable_mongodb_collections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The unique resource Identifier of the ARM resource. |
-| `name` | `string` | The name of the ARM resource. |
-| `properties` | `object` | The properties of an Azure Cosmos DB MongoDB collection event |
-| `type` | `string` | The type of Azure resource. |
+| <CopyableCode code="id" /> | `string` | The unique resource Identifier of the ARM resource. |
+| <CopyableCode code="name" /> | `string` | The name of the ARM resource. |
+| <CopyableCode code="properties" /> | `object` | The properties of an Azure Cosmos DB MongoDB collection event |
+| <CopyableCode code="type" /> | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `instanceId, location, subscriptionId` |
-| `_list` | `EXEC` | `instanceId, location, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instanceId, location, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instanceId, location, subscriptionId" /> |

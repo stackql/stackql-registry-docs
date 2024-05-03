@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connected_environments_certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.connected_environments_certificates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.connected_environments_certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Certificate resource specific properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Certificate resource specific properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId` |  |
-| `list` | `SELECT` | `connectedEnvironmentName, resourceGroupName, subscriptionId` |  |
-| `create_or_update` | `INSERT` | `certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId` |  |
-| `delete` | `DELETE` | `certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId` |  |
-| `_list` | `EXEC` | `connectedEnvironmentName, resourceGroupName, subscriptionId` |  |
-| `update` | `EXEC` | `certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId` | Patches a certificate. Currently only patching of tags is supported |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="connectedEnvironmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="connectedEnvironmentName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="certificateName, connectedEnvironmentName, resourceGroupName, subscriptionId" /> | Patches a certificate. Currently only patching of tags is supported |

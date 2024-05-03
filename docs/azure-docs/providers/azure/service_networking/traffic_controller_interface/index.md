@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>traffic_controller_interface</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_networking.traffic_controller_interface</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_networking.traffic_controller_interface" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Traffic Controller Properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Traffic Controller Properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, trafficControllerName` | Get a TrafficController |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List TrafficController resources by resource group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List TrafficController resources by subscription ID |
-| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, trafficControllerName` | Create a TrafficController |
-| `delete` | `DELETE` | `resourceGroupName, subscriptionId, trafficControllerName` | Delete a TrafficController |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List TrafficController resources by resource group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List TrafficController resources by subscription ID |
-| `update` | `EXEC` | `resourceGroupName, subscriptionId, trafficControllerName` | Update a TrafficController |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | Get a TrafficController |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List TrafficController resources by resource group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List TrafficController resources by subscription ID |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | Create a TrafficController |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | Delete a TrafficController |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List TrafficController resources by resource group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List TrafficController resources by subscription ID |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, trafficControllerName" /> | Update a TrafficController |

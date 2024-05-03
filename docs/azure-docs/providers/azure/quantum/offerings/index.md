@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>offerings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.quantum.offerings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.quantum.offerings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique provider's id. |
-| `name` | `string` | Provider's display name. |
-| `properties` | `object` | Provider properties. |
+| <CopyableCode code="id" /> | `string` | Unique provider's id. |
+| <CopyableCode code="name" /> | `string` | Provider's display name. |
+| <CopyableCode code="properties" /> | `object` | Provider properties. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `location, subscriptionId` |
-| `_list` | `EXEC` | `location, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> |

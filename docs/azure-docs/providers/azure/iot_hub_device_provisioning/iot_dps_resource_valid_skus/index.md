@@ -14,19 +14,22 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>iot_dps_resource_valid_skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.iot_hub_device_provisioning.iot_dps_resource_valid_skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.iot_hub_device_provisioning.iot_dps_resource_valid_skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version, provisioningServiceName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `api-version, provisioningServiceName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, provisioningServiceName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, provisioningServiceName, resourceGroupName, subscriptionId" /> |

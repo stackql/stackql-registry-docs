@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_endpoint_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.postgresql_hsc.private_endpoint_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.postgresql_hsc.private_endpoint_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Properties of the private endpoint connection. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="properties" /> | `object` | Properties of the private endpoint connection. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets private endpoint connection. |
-| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Gets list of private endpoint connections on a cluster. |
-| `create_or_update` | `INSERT` | `clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Approves or Rejects a private endpoint connection with a given name. |
-| `delete` | `DELETE` | `clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection with a given name. |
-| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Gets list of private endpoint connections on a cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Gets private endpoint connection. |
+| <CopyableCode code="list_by_cluster" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Gets list of private endpoint connections on a cluster. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Approves or Rejects a private endpoint connection with a given name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Deletes a private endpoint connection with a given name. |
+| <CopyableCode code="_list_by_cluster" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Gets list of private endpoint connections on a cluster. |

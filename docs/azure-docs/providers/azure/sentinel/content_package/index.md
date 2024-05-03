@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>content_package</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sentinel.content_package</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sentinel.content_package" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `install` | `EXEC` | `packageId, resourceGroupName, subscriptionId, workspaceName` | Install a package to the workspace. |
-| `uninstall` | `EXEC` | `packageId, resourceGroupName, subscriptionId, workspaceName` | Uninstall a package from the workspace. |
+| <CopyableCode code="install" /> | `EXEC` | <CopyableCode code="packageId, resourceGroupName, subscriptionId, workspaceName" /> | Install a package to the workspace. |
+| <CopyableCode code="uninstall" /> | `EXEC` | <CopyableCode code="packageId, resourceGroupName, subscriptionId, workspaceName" /> | Uninstall a package from the workspace. |

@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>images</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.lab_services.images</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.lab_services.images" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of an image resource. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of an image resource. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Gets an image resource. |
-| `list_by_lab_plan` | `SELECT` |  | Gets all images from galleries attached to a lab plan. |
-| `create_or_update` | `INSERT` | `data__properties` | Updates an image resource via PUT. Creating new resources via PUT will not function. |
-| `_list_by_lab_plan` | `EXEC` |  | Gets all images from galleries attached to a lab plan. |
-| `update` | `EXEC` |  | Updates an image resource. |
+| <CopyableCode code="get" /> | `SELECT` |  | Gets an image resource. |
+| <CopyableCode code="list_by_lab_plan" /> | `SELECT` |  | Gets all images from galleries attached to a lab plan. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="data__properties" /> | Updates an image resource via PUT. Creating new resources via PUT will not function. |
+| <CopyableCode code="_list_by_lab_plan" /> | `EXEC` |  | Gets all images from galleries attached to a lab plan. |
+| <CopyableCode code="update" /> | `EXEC` |  | Updates an image resource. |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>integration_accounts_key_vault_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.integration_accounts_key_vault_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.integration_accounts_key_vault_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `skipToken` | `string` | The skip token. |
-| `value` | `array` | The key vault keys. |
+| <CopyableCode code="skipToken" /> | `string` | The skip token. |
+| <CopyableCode code="value" /> | `array` | The key vault keys. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId, data__keyVault` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, integrationAccountName, resourceGroupName, subscriptionId, data__keyVault" /> |

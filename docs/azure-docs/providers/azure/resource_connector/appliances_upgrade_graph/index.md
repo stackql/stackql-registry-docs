@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>appliances_upgrade_graph</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.resource_connector.appliances_upgrade_graph</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resource_connector.appliances_upgrade_graph" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The appliance resource path |
-| `name` | `string` | The release train name. |
-| `properties` | `object` | The Upgrade Graph Properties for appliance. |
+| <CopyableCode code="id" /> | `string` | The appliance resource path |
+| <CopyableCode code="name" /> | `string` | The release train name. |
+| <CopyableCode code="properties" /> | `object` | The Upgrade Graph Properties for appliance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId, upgradeGraph` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId, upgradeGraph" /> |

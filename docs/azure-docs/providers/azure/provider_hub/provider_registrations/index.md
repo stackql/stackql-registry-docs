@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provider_registrations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.provider_hub.provider_registrations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.provider_hub.provider_registrations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `providerNamespace, subscriptionId` | Gets the provider registration details. |
-| `list` | `SELECT` | `subscriptionId` | Gets the list of the provider registrations in the subscription. |
-| `create_or_update` | `INSERT` | `providerNamespace, subscriptionId` | Creates or updates the provider registration. |
-| `delete` | `DELETE` | `providerNamespace, subscriptionId` | Deletes a provider registration. |
-| `_list` | `EXEC` | `subscriptionId` | Gets the list of the provider registrations in the subscription. |
-| `generate_operations` | `EXEC` | `providerNamespace, subscriptionId` | Generates the operations api for the given provider. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="providerNamespace, subscriptionId" /> | Gets the provider registration details. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets the list of the provider registrations in the subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="providerNamespace, subscriptionId" /> | Creates or updates the provider registration. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="providerNamespace, subscriptionId" /> | Deletes a provider registration. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets the list of the provider registrations in the subscription. |
+| <CopyableCode code="generate_operations" /> | `EXEC` | <CopyableCode code="providerNamespace, subscriptionId" /> | Generates the operations api for the given provider. |

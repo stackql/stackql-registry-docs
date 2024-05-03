@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>credential_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_factory.credential_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_factory.credential_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource identifier. |
-| `name` | `string` | The resource name. |
-| `etag` | `string` | Etag identifies change in the resource. |
-| `properties` | `object` | Managed identity credential. |
-| `type` | `string` | The resource type. |
+| <CopyableCode code="id" /> | `string` | The resource identifier. |
+| <CopyableCode code="name" /> | `string` | The resource name. |
+| <CopyableCode code="etag" /> | `string` | Etag identifies change in the resource. |
+| <CopyableCode code="properties" /> | `object` | Managed identity credential. |
+| <CopyableCode code="type" /> | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, credentialName, factoryName, resourceGroupName, subscriptionId` | Gets a credential. |
-| `list_by_factory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | List credentials. |
-| `create_or_update` | `INSERT` | `api-version, credentialName, factoryName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a credential. |
-| `delete` | `DELETE` | `api-version, credentialName, factoryName, resourceGroupName, subscriptionId` | Deletes a credential. |
-| `_list_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | List credentials. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, credentialName, factoryName, resourceGroupName, subscriptionId" /> | Gets a credential. |
+| <CopyableCode code="list_by_factory" /> | `SELECT` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> | List credentials. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, credentialName, factoryName, resourceGroupName, subscriptionId, data__properties" /> | Creates or updates a credential. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, credentialName, factoryName, resourceGroupName, subscriptionId" /> | Deletes a credential. |
+| <CopyableCode code="_list_by_factory" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> | List credentials. |

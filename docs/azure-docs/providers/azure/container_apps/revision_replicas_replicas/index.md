@@ -14,19 +14,22 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>revision_replicas_replicas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.revision_replicas_replicas</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.revision_replicas_replicas" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
-| `_list` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="containerAppName, resourceGroupName, revisionName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="containerAppName, resourceGroupName, revisionName, subscriptionId" /> |

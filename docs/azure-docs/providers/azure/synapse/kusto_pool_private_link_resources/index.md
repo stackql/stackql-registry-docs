@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>kusto_pool_private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.kusto_pool_private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.kusto_pool_private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Private Link Resources Properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | Private Link Resources Properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` |
-| `_list` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> |

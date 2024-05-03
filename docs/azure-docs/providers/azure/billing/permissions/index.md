@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>permissions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.billing.permissions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.billing.permissions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `actions` | `array` | The set of actions that the caller is allowed to perform. |
-| `notActions` | `array` | The set of actions that the caller is not allowed to perform. |
+| <CopyableCode code="actions" /> | `array` | The set of actions that the caller is allowed to perform. |
+| <CopyableCode code="notActions" /> | `array` | The set of actions that the caller is not allowed to perform. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the billing permissions the caller has on a billing account. |
-| `list_by_billing_profile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the billing permissions the caller has on a billing profile. |
-| `list_by_customer` | `SELECT` | `billingAccountName, customerName` | Lists the billing permissions the caller has for a customer. |
-| `list_by_invoice_sections` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Lists the billing permissions the caller has on an invoice section. |
-| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the billing permissions the caller has on a billing account. |
-| `_list_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the billing permissions the caller has on a billing profile. |
-| `_list_by_customer` | `EXEC` | `billingAccountName, customerName` | Lists the billing permissions the caller has for a customer. |
-| `_list_by_invoice_sections` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Lists the billing permissions the caller has on an invoice section. |
+| <CopyableCode code="list_by_billing_account" /> | `SELECT` | <CopyableCode code="billingAccountName" /> | Lists the billing permissions the caller has on a billing account. |
+| <CopyableCode code="list_by_billing_profile" /> | `SELECT` | <CopyableCode code="billingAccountName, billingProfileName" /> | Lists the billing permissions the caller has on a billing profile. |
+| <CopyableCode code="list_by_customer" /> | `SELECT` | <CopyableCode code="billingAccountName, customerName" /> | Lists the billing permissions the caller has for a customer. |
+| <CopyableCode code="list_by_invoice_sections" /> | `SELECT` | <CopyableCode code="billingAccountName, billingProfileName, invoiceSectionName" /> | Lists the billing permissions the caller has on an invoice section. |
+| <CopyableCode code="_list_by_billing_account" /> | `EXEC` | <CopyableCode code="billingAccountName" /> | Lists the billing permissions the caller has on a billing account. |
+| <CopyableCode code="_list_by_billing_profile" /> | `EXEC` | <CopyableCode code="billingAccountName, billingProfileName" /> | Lists the billing permissions the caller has on a billing profile. |
+| <CopyableCode code="_list_by_customer" /> | `EXEC` | <CopyableCode code="billingAccountName, customerName" /> | Lists the billing permissions the caller has for a customer. |
+| <CopyableCode code="_list_by_invoice_sections" /> | `EXEC` | <CopyableCode code="billingAccountName, billingProfileName, invoiceSectionName" /> | Lists the billing permissions the caller has on an invoice section. |

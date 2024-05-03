@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cdn.routes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cdn.routes" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
-| `list_by_endpoint` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within a profile. |
-| `create` | `INSERT` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Creates a new route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
-| `delete` | `DELETE` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Deletes an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
-| `_list_by_endpoint` | `EXEC` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within a profile. |
-| `update` | `EXEC` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Updates an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="endpointName, profileName, resourceGroupName, routeName, subscriptionId" /> | Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| <CopyableCode code="list_by_endpoint" /> | `SELECT` | <CopyableCode code="endpointName, profileName, resourceGroupName, subscriptionId" /> | Lists all of the existing origins within a profile. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="endpointName, profileName, resourceGroupName, routeName, subscriptionId" /> | Creates a new route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointName, profileName, resourceGroupName, routeName, subscriptionId" /> | Deletes an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| <CopyableCode code="_list_by_endpoint" /> | `EXEC` | <CopyableCode code="endpointName, profileName, resourceGroupName, subscriptionId" /> | Lists all of the existing origins within a profile. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="endpointName, profileName, resourceGroupName, routeName, subscriptionId" /> | Updates an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |

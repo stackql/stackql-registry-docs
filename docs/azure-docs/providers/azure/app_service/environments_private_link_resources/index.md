@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments_private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.environments_private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.environments_private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` |  |
-| `name` | `string` | Name of a private link resource |
-| `properties` | `object` | Properties of a private link resource |
-| `type` | `string` |  |
+| <CopyableCode code="id" /> | `string` |  |
+| <CopyableCode code="name" /> | `string` | Name of a private link resource |
+| <CopyableCode code="properties" /> | `object` | Properties of a private link resource |
+| <CopyableCode code="type" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `name, resourceGroupName, subscriptionId` |
-| `_get` | `EXEC` | `name, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> |

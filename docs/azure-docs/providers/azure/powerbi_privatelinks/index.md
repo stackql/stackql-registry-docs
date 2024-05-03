@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 PowerBI Privatelinks  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ PowerBI Privatelinks
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>PowerBI Privatelinks</td></tr>
 <tr><td><b>Description</b></td><td>PowerBI Privatelinks</td></tr>
-<tr><td><b>Id</b></td><td><code>powerbi_privatelinks:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>powerbi_privatelinks:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sphere.deployments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sphere.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `catalogName, deploymentName, deviceGroupName, productName, resourceGroupName, subscriptionId` | Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
-| `list_by_device_group` | `SELECT` | `catalogName, deviceGroupName, productName, resourceGroupName, subscriptionId` | List Deployment resources by DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
-| `create_or_update` | `INSERT` | `catalogName, deploymentName, deviceGroupName, productName, resourceGroupName, subscriptionId` | Create a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
-| `delete` | `DELETE` | `catalogName, deploymentName, deviceGroupName, productName, resourceGroupName, subscriptionId` | Delete a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
-| `_list_by_device_group` | `EXEC` | `catalogName, deviceGroupName, productName, resourceGroupName, subscriptionId` | List Deployment resources by DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="catalogName, deploymentName, deviceGroupName, productName, resourceGroupName, subscriptionId" /> | Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+| <CopyableCode code="list_by_device_group" /> | `SELECT` | <CopyableCode code="catalogName, deviceGroupName, productName, resourceGroupName, subscriptionId" /> | List Deployment resources by DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="catalogName, deploymentName, deviceGroupName, productName, resourceGroupName, subscriptionId" /> | Create a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="catalogName, deploymentName, deviceGroupName, productName, resourceGroupName, subscriptionId" /> | Delete a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+| <CopyableCode code="_list_by_device_group" /> | `EXEC` | <CopyableCode code="catalogName, deviceGroupName, productName, resourceGroupName, subscriptionId" /> | List Deployment resources by DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |

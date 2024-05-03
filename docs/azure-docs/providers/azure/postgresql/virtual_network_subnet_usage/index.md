@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_network_subnet_usage</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.postgresql.virtual_network_subnet_usage</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.postgresql.virtual_network_subnet_usage" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `delegatedSubnetsUsage` | `array` |  |
-| `location` | `string` | location of the delegated subnet usage |
-| `subscriptionId` | `string` | subscriptionId of the delegated subnet usage |
+| <CopyableCode code="delegatedSubnetsUsage" /> | `array` |  |
+| <CopyableCode code="location" /> | `string` | location of the delegated subnet usage |
+| <CopyableCode code="subscriptionId" /> | `string` | subscriptionId of the delegated subnet usage |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `locationName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, subscriptionId" /> |

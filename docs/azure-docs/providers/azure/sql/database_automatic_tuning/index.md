@@ -14,19 +14,22 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>database_automatic_tuning</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.database_automatic_tuning</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.database_automatic_tuning" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's automatic tuning. |
-| `update` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Update automatic tuning properties for target database. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets a database's automatic tuning. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Update automatic tuning properties for target database. |

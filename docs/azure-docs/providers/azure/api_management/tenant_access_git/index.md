@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tenant_access_git</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.tenant_access_git</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.tenant_access_git" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `regenerate_primary_key` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate primary access key for GIT. |
-| `regenerate_secondary_key` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate secondary access key for GIT. |
+| <CopyableCode code="regenerate_primary_key" /> | `EXEC` | <CopyableCode code="accessName, resourceGroupName, serviceName, subscriptionId" /> | Regenerate primary access key for GIT. |
+| <CopyableCode code="regenerate_secondary_key" /> | `EXEC` | <CopyableCode code="accessName, resourceGroupName, serviceName, subscriptionId" /> | Regenerate secondary access key for GIT. |

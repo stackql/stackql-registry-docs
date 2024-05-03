@@ -14,40 +14,43 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.managed_instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.managed_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Azure Active Directory identity configuration for a resource. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | The properties of a managed instance. |
-| `sku` | `object` | An ARM Resource SKU. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Azure Active Directory identity configuration for a resource. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | The properties of a managed instance. |
+| <CopyableCode code="sku" /> | `object` | An ARM Resource SKU. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `subscriptionId` | Gets a list of all managed instances in the subscription. |
-| `list_by_instance_pool` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` | Gets a list of all managed instances in an instance pool. |
-| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get top resource consuming queries of a managed instance. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of managed instances in a resource group. |
-| `create_or_update` | `INSERT` | `managedInstanceName, resourceGroupName, subscriptionId, data__location` | Creates or updates a managed instance. |
-| `delete` | `DELETE` | `managedInstanceName, resourceGroupName, subscriptionId` | Deletes a managed instance. |
-| `_list` | `EXEC` | `subscriptionId` | Gets a list of all managed instances in the subscription. |
-| `_list_by_instance_pool` | `EXEC` | `instancePoolName, resourceGroupName, subscriptionId` | Gets a list of all managed instances in an instance pool. |
-| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Get top resource consuming queries of a managed instance. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of managed instances in a resource group. |
-| `exec_get` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed instance. |
-| `failover` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Failovers a managed instance. |
-| `refresh_status` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Refresh external governance enablement status. |
-| `start` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Starts the managed instance. |
-| `stop` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Stops the managed instance. |
-| `update` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Updates a managed instance. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets a list of all managed instances in the subscription. |
+| <CopyableCode code="list_by_instance_pool" /> | `SELECT` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId" /> | Gets a list of all managed instances in an instance pool. |
+| <CopyableCode code="list_by_managed_instance" /> | `SELECT` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Get top resource consuming queries of a managed instance. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of managed instances in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId, data__location" /> | Creates or updates a managed instance. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Deletes a managed instance. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets a list of all managed instances in the subscription. |
+| <CopyableCode code="_list_by_instance_pool" /> | `EXEC` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId" /> | Gets a list of all managed instances in an instance pool. |
+| <CopyableCode code="_list_by_managed_instance" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Get top resource consuming queries of a managed instance. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of managed instances in a resource group. |
+| <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Gets a managed instance. |
+| <CopyableCode code="failover" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Failovers a managed instance. |
+| <CopyableCode code="refresh_status" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Refresh external governance enablement status. |
+| <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Starts the managed instance. |
+| <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Stops the managed instance. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Updates a managed instance. |

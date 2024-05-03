@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dedicated_hsm_outbound_network_dependencies_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hardware_security_modules.dedicated_hsm_outbound_network_dependencies_endpoints</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hardware_security_modules.dedicated_hsm_outbound_network_dependencies_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `category` | `string` | The category of endpoints accessed by the dedicated hsm service, e.g. azure-resource-management, apiserver, etc. |
-| `endpoints` | `array` | The endpoints that dedicated hsm service connects to |
+| <CopyableCode code="category" /> | `string` | The category of endpoints accessed by the dedicated hsm service, e.g. azure-resource-management, apiserver, etc. |
+| <CopyableCode code="endpoints" /> | `array` | The endpoints that dedicated hsm service connects to |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `name, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `name, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> |

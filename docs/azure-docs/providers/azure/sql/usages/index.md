@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `object` | ARM Usage Name |
-| `currentValue` | `integer` | Usage current value. |
-| `limit` | `integer` | Usage limit. |
-| `requestedLimit` | `integer` | Usage requested limit. |
-| `type` | `string` | Resource type. |
-| `unit` | `string` | Usage unit. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `object` | ARM Usage Name |
+| <CopyableCode code="currentValue" /> | `integer` | Usage current value. |
+| <CopyableCode code="limit" /> | `integer` | Usage limit. |
+| <CopyableCode code="requestedLimit" /> | `integer` | Usage requested limit. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
+| <CopyableCode code="unit" /> | `string` | Usage unit. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_instance_pool` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` |
-| `_list_by_instance_pool` | `EXEC` | `instancePoolName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list_by_instance_pool" /> | `SELECT` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list_by_instance_pool" /> | `EXEC` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId" /> |

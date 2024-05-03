@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Image Builder Is A Managed Service From Microsoft Azure That Simplifies Building Custom Images (A Snapshot Of A Disk Or A Server That Can Be Used To Create New Servers That Are Pre-Configured With Those Settings). It Can Be Used To Create Images In A More Streamlined And Automated Way, Rather Than Manually Configuring Them.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Image Builder Is A Managed Service From Microsoft Azure That Simplifies Bu
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Image Builder</td></tr>
 <tr><td><b>Description</b></td><td>Azure Image Builder Is A Managed Service From Microsoft Azure That Simplifies Building Custom Images (A Snapshot Of A Disk Or A Server That Can Be Used To Create New Servers That Are Pre-Configured With Those Settings). It Can Be Used To Create Images In A More Streamlined And Automated Way, Rather Than Manually Configuring Them.</td></tr>
-<tr><td><b>Id</b></td><td><code>image_builder:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>image_builder:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_security_perimeter_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.bot_service.network_security_perimeter_configurations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.bot_service.network_security_perimeter_configurations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified identifier of the resource |
-| `name` | `string` | Name of the resource |
-| `properties` | `object` | Properties of Network Security Perimeter configuration |
-| `type` | `string` | Type of the resource |
+| <CopyableCode code="id" /> | `string` | Fully qualified identifier of the resource |
+| <CopyableCode code="name" /> | `string` | Name of the resource |
+| <CopyableCode code="properties" /> | `object` | Properties of Network Security Perimeter configuration |
+| <CopyableCode code="type" /> | `string` | Type of the resource |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `networkSecurityPerimeterConfigurationName, resourceGroupName, resourceName, subscriptionId` | Gets the specified Network Security Perimeter configuration associated with the Bot. |
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | List Network Security Perimeter configurations associated with the Bot. |
-| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | List Network Security Perimeter configurations associated with the Bot. |
-| `reconcile` | `EXEC` | `networkSecurityPerimeterConfigurationName, resourceGroupName, resourceName, subscriptionId` | Reconcile the specified Network Security Perimeter configuration associated with the Bot. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkSecurityPerimeterConfigurationName, resourceGroupName, resourceName, subscriptionId" /> | Gets the specified Network Security Perimeter configuration associated with the Bot. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List Network Security Perimeter configurations associated with the Bot. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List Network Security Perimeter configurations associated with the Bot. |
+| <CopyableCode code="reconcile" /> | `EXEC` | <CopyableCode code="networkSecurityPerimeterConfigurationName, resourceGroupName, resourceName, subscriptionId" /> | Reconcile the specified Network Security Perimeter configuration associated with the Bot. |

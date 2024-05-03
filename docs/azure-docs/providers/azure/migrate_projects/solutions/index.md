@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>solutions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.migrate_projects.solutions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.migrate_projects.solutions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,8 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `_enumerate_solutions` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, subscriptionId` |  |
-| `cleanup_solution_data` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, solutionName, subscriptionId` |  |
-| `enumerate_solutions` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, subscriptionId` |  |
-| `patch_solution` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, solutionName, subscriptionId` | Update a solution with specified name. Supports partial updates, for example only tags can be provided. |
-| `put_solution` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, solutionName, subscriptionId` |  |
+| <CopyableCode code="_enumerate_solutions" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="cleanup_solution_data" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, solutionName, subscriptionId" /> |  |
+| <CopyableCode code="enumerate_solutions" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="patch_solution" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, solutionName, subscriptionId" /> | Update a solution with specified name. Supports partial updates, for example only tags can be provided. |
+| <CopyableCode code="put_solution" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, solutionName, subscriptionId" /> |  |

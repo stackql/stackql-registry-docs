@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>builds</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.builds</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.builds" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `buildName, builderName, resourceGroupName, subscriptionId` | Get a BuildResource |
-| `list_by_builder_resource` | `SELECT` | `builderName, resourceGroupName, subscriptionId` | List BuildResource resources by BuilderResource |
-| `create_or_update` | `INSERT` | `buildName, builderName, resourceGroupName, subscriptionId` | Create a BuildResource |
-| `delete` | `DELETE` | `buildName, builderName, resourceGroupName, subscriptionId` | Delete a BuildResource |
-| `_list_by_builder_resource` | `EXEC` | `builderName, resourceGroupName, subscriptionId` | List BuildResource resources by BuilderResource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="buildName, builderName, resourceGroupName, subscriptionId" /> | Get a BuildResource |
+| <CopyableCode code="list_by_builder_resource" /> | `SELECT` | <CopyableCode code="builderName, resourceGroupName, subscriptionId" /> | List BuildResource resources by BuilderResource |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="buildName, builderName, resourceGroupName, subscriptionId" /> | Create a BuildResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="buildName, builderName, resourceGroupName, subscriptionId" /> | Delete a BuildResource |
+| <CopyableCode code="_list_by_builder_resource" /> | `EXEC` | <CopyableCode code="builderName, resourceGroupName, subscriptionId" /> | List BuildResource resources by BuilderResource |

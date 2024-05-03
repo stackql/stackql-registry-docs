@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.iot_firmware_defense.workspaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.iot_firmware_defense.workspaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Workspace properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Workspace properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Get firmware analysis workspace. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the firmware analysis workspaces in the specified resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all of the firmware analysis workspaces in the specified subscription. |
-| `create` | `INSERT` | `resourceGroupName, subscriptionId, workspaceName` | The operation to create or update a firmware analysis workspace. |
-| `delete` | `DELETE` | `resourceGroupName, subscriptionId, workspaceName` | The operation to delete a firmware analysis workspace. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all of the firmware analysis workspaces in the specified resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all of the firmware analysis workspaces in the specified subscription. |
-| `generate_upload_url` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | The operation to get a url for file upload. |
-| `update` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | The operation to update a firmware analysis workspaces. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Get firmware analysis workspace. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all of the firmware analysis workspaces in the specified resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all of the firmware analysis workspaces in the specified subscription. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | The operation to create or update a firmware analysis workspace. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | The operation to delete a firmware analysis workspace. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all of the firmware analysis workspaces in the specified resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all of the firmware analysis workspaces in the specified subscription. |
+| <CopyableCode code="generate_upload_url" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | The operation to get a url for file upload. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | The operation to update a firmware analysis workspaces. |

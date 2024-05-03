@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.powerbi_embedded.workspaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.powerbi_embedded.workspaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Workspace id |
-| `name` | `string` | Workspace name |
-| `properties` | `object` | Property bag |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Workspace id |
+| <CopyableCode code="name" /> | `string` | Workspace name |
+| <CopyableCode code="properties" /> | `object` | Property bag |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceCollectionName` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceCollectionName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceCollectionName" /> |

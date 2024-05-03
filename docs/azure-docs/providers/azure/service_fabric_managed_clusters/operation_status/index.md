@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_fabric_managed_clusters.operation_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_fabric_managed_clusters.operation_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the operation. |
-| `endTime` | `string` | The end time of the operation. |
-| `error` | `object` | The error details. |
-| `percentComplete` | `number` | The completion percentage of the operation. |
-| `startTime` | `string` | The start time of the operation. |
-| `status` | `string` | The status of the operation. |
+| <CopyableCode code="name" /> | `string` | The name of the operation. |
+| <CopyableCode code="endTime" /> | `string` | The end time of the operation. |
+| <CopyableCode code="error" /> | `object` | The error details. |
+| <CopyableCode code="percentComplete" /> | `number` | The completion percentage of the operation. |
+| <CopyableCode code="startTime" /> | `string` | The start time of the operation. |
+| <CopyableCode code="status" /> | `string` | The status of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, location, operationId, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, location, operationId, subscriptionId" /> |

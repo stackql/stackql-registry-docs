@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.quota.operation</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.quota.operation" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `name` | `string` |
-| `display` | `object` |
-| `origin` | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="display" /> | `object` |
+| <CopyableCode code="origin" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

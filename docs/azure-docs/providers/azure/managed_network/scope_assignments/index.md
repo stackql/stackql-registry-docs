@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scope_assignments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.managed_network.scope_assignments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.managed_network.scope_assignments" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `scope, scopeAssignmentName` | Get the specified scope assignment. |
-| `list` | `SELECT` | `scope` | Get the specified scope assignment. |
-| `create_or_update` | `INSERT` | `scope, scopeAssignmentName` | Creates a scope assignment. |
-| `delete` | `DELETE` | `scope, scopeAssignmentName` | Deletes a scope assignment. |
-| `_list` | `EXEC` | `scope` | Get the specified scope assignment. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="scope, scopeAssignmentName" /> | Get the specified scope assignment. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> | Get the specified scope assignment. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="scope, scopeAssignmentName" /> | Creates a scope assignment. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="scope, scopeAssignmentName" /> | Deletes a scope assignment. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="scope" /> | Get the specified scope assignment. |

@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>l2_networks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.nexus.l2_networks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.nexus.l2_networks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` |  |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` |  |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="extendedLocation" /> | `object` |  |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `l2NetworkName, resourceGroupName, subscriptionId` | Get properties of the provided layer 2 (L2) network. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Get a list of layer 2 (L2) networks in the provided resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Get a list of layer 2 (L2) networks in the provided subscription. |
-| `create_or_update` | `INSERT` | `l2NetworkName, resourceGroupName, subscriptionId, data__extendedLocation, data__properties` | Create a new layer 2 (L2) network or update the properties of the existing network. |
-| `delete` | `DELETE` | `l2NetworkName, resourceGroupName, subscriptionId` | Delete the provided layer 2 (L2) network. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Get a list of layer 2 (L2) networks in the provided resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Get a list of layer 2 (L2) networks in the provided subscription. |
-| `update` | `EXEC` | `l2NetworkName, resourceGroupName, subscriptionId` | Update tags associated with the provided layer 2 (L2) network. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="l2NetworkName, resourceGroupName, subscriptionId" /> | Get properties of the provided layer 2 (L2) network. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get a list of layer 2 (L2) networks in the provided resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get a list of layer 2 (L2) networks in the provided subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="l2NetworkName, resourceGroupName, subscriptionId, data__extendedLocation, data__properties" /> | Create a new layer 2 (L2) network or update the properties of the existing network. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="l2NetworkName, resourceGroupName, subscriptionId" /> | Delete the provided layer 2 (L2) network. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get a list of layer 2 (L2) networks in the provided resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Get a list of layer 2 (L2) networks in the provided subscription. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="l2NetworkName, resourceGroupName, subscriptionId" /> | Update tags associated with the provided layer 2 (L2) network. |

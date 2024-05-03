@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>outbound_firewall_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.outbound_firewall_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.outbound_firewall_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Gets an outbound firewall rule. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets all outbound firewall rules on a server. |
-| `create_or_update` | `INSERT` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Create a outbound firewall rule with a given name. |
-| `delete` | `DELETE` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Deletes a outbound firewall rule with a given name. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets all outbound firewall rules on a server. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="outboundRuleFqdn, resourceGroupName, serverName, subscriptionId" /> | Gets an outbound firewall rule. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets all outbound firewall rules on a server. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="outboundRuleFqdn, resourceGroupName, serverName, subscriptionId" /> | Create a outbound firewall rule with a given name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="outboundRuleFqdn, resourceGroupName, serverName, subscriptionId" /> | Deletes a outbound firewall rule with a given name. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets all outbound firewall rules on a server. |

@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_pub_sub_skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.web_pubsub.web_pub_sub_skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.web_pubsub.web_pub_sub_skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `capacity` | `object` | Describes scaling information of a sku. |
-| `resourceType` | `string` | The resource type that this object applies to |
-| `sku` | `object` | The billing information of the resource. |
+| <CopyableCode code="capacity" /> | `object` | Describes scaling information of a sku. |
+| <CopyableCode code="resourceType" /> | `string` | The resource type that this object applies to |
+| <CopyableCode code="sku" /> | `object` | The billing information of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` |
-| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> |

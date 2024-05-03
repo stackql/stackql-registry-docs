@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Elastic Storage Area Network (SAN) Is Microsofts Answer To The Problem Of Workload Optimization And Integration Between Your Large Scale Databases And Performance-Intensive Mission-Critical Applications. Elastic SAN Preview Is A Fully Integrated Solution That Simplifies Deploying, Scaling, Managing, And Configuring A SAN, While Also Offering Built-In Cloud Capabilities Like High Availability.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Elastic Storage Area Network (SAN) Is Microsofts Answer To The Problem Of 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Elastic San</td></tr>
 <tr><td><b>Description</b></td><td>Azure Elastic Storage Area Network (SAN) Is Microsofts Answer To The Problem Of Workload Optimization And Integration Between Your Large Scale Databases And Performance-Intensive Mission-Critical Applications. Elastic SAN Preview Is A Fully Integrated Solution That Simplifies Deploying, Scaling, Managing, And Configuring A SAN, While Also Offering Built-In Cloud Capabilities Like High Availability.</td></tr>
-<tr><td><b>Id</b></td><td><code>elastic_san:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>elastic_san:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

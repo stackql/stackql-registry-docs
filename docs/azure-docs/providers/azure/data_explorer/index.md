@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Data Explorer Is A Fully Managed Data Analytics Service For Real-Time Analysis On Large Volumes Of Data Streaming From Many Sources. Azure Data Explorer REST API Helps You Query And Manage Your Data In Azure Data Explorer. REST API Supports The Kusto Query Language For Queries And Control Commands.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Data Explorer Is A Fully Managed Data Analytics Service For Real-Time Anal
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Data Explorer</td></tr>
 <tr><td><b>Description</b></td><td>Azure Data Explorer Is A Fully Managed Data Analytics Service For Real-Time Analysis On Large Volumes Of Data Streaming From Many Sources. Azure Data Explorer REST API Helps You Query And Manage Your Data In Azure Data Explorer. REST API Supports The Kusto Query Language For Queries And Control Commands.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_explorer:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_explorer:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

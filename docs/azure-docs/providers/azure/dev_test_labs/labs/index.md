@@ -14,37 +14,40 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>labs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dev_test_labs.labs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dev_test_labs.labs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The identifier of the resource. |
-| `name` | `string` | The name of the resource. |
-| `location` | `string` | The location of the resource. |
-| `properties` | `object` | Properties of a lab. |
-| `tags` | `object` | The tags of the resource. |
-| `type` | `string` | The type of the resource. |
+| <CopyableCode code="id" /> | `string` | The identifier of the resource. |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="location" /> | `string` | The location of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of a lab. |
+| <CopyableCode code="tags" /> | `object` | The tags of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, name, resourceGroupName, subscriptionId` | Get lab. |
-| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List labs in a resource group. |
-| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | List labs in a subscription. |
-| `create_or_update` | `INSERT` | `api-version, name, resourceGroupName, subscriptionId` | Create or replace an existing lab. This operation can take a while to complete. |
-| `delete` | `DELETE` | `api-version, name, resourceGroupName, subscriptionId` | Delete lab. This operation can take a while to complete. |
-| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | List labs in a resource group. |
-| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | List labs in a subscription. |
-| `claim_any_vm` | `EXEC` | `api-version, name, resourceGroupName, subscriptionId` | Claim a random claimable virtual machine in the lab. This operation can take a while to complete. |
-| `export_resource_usage` | `EXEC` | `api-version, name, resourceGroupName, subscriptionId` | Exports the lab resource usage into a storage account This operation can take a while to complete. |
-| `generate_upload_uri` | `EXEC` | `api-version, name, resourceGroupName, subscriptionId` | Generate a URI for uploading custom disk images to a Lab. |
-| `import_virtual_machine` | `EXEC` | `api-version, name, resourceGroupName, subscriptionId` | Import a virtual machine into a different lab. This operation can take a while to complete. |
-| `update` | `EXEC` | `api-version, name, resourceGroupName, subscriptionId` | Allows modifying tags of labs. All other properties will be ignored. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Get lab. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List labs in a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> | List labs in a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Create or replace an existing lab. This operation can take a while to complete. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Delete lab. This operation can take a while to complete. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List labs in a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> | List labs in a subscription. |
+| <CopyableCode code="claim_any_vm" /> | `EXEC` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Claim a random claimable virtual machine in the lab. This operation can take a while to complete. |
+| <CopyableCode code="export_resource_usage" /> | `EXEC` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Exports the lab resource usage into a storage account This operation can take a while to complete. |
+| <CopyableCode code="generate_upload_uri" /> | `EXEC` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Generate a URI for uploading custom disk images to a Lab. |
+| <CopyableCode code="import_virtual_machine" /> | `EXEC` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Import a virtual machine into a different lab. This operation can take a while to complete. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, name, resourceGroupName, subscriptionId" /> | Allows modifying tags of labs. All other properties will be ignored. |

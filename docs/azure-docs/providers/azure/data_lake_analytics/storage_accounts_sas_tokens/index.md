@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>storage_accounts_sas_tokens</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_lake_analytics.storage_accounts_sas_tokens</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_lake_analytics.storage_accounts_sas_tokens" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The link (url) to the next page of results. |
-| `value` | `array` | The results of the list operation. |
+| <CopyableCode code="nextLink" /> | `string` | The link (url) to the next page of results. |
+| <CopyableCode code="value" /> | `array` | The results of the list operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `accountName, containerName, resourceGroupName, storageAccountName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, containerName, resourceGroupName, storageAccountName, subscriptionId" /> |

@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>spaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.integration_environment.spaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.integration_environment.spaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of space. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | The properties of space. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, spaceName, subscriptionId` | Get a Space |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List Space resources by resource group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List Space resources by subscription ID |
-| `create_or_update` | `INSERT` | `resourceGroupName, spaceName, subscriptionId` | Create a Space |
-| `delete` | `DELETE` | `resourceGroupName, spaceName, subscriptionId` | Delete a Space |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List Space resources by resource group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List Space resources by subscription ID |
-| `patch` | `EXEC` | `resourceGroupName, spaceName, subscriptionId` | Update a Space |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, spaceName, subscriptionId" /> | Get a Space |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List Space resources by resource group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List Space resources by subscription ID |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, spaceName, subscriptionId" /> | Create a Space |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, spaceName, subscriptionId" /> | Delete a Space |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List Space resources by resource group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List Space resources by subscription ID |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="resourceGroupName, spaceName, subscriptionId" /> | Update a Space |

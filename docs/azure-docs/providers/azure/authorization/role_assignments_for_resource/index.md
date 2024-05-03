@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>role_assignments_for_resource</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.role_assignments_for_resource</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.role_assignments_for_resource" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The role assignment ID. |
-| `name` | `string` | The role assignment name. |
-| `properties` | `object` | Role assignment properties. |
-| `type` | `string` | The role assignment type. |
+| <CopyableCode code="id" /> | `string` | The role assignment ID. |
+| <CopyableCode code="name" /> | `string` | The role assignment name. |
+| <CopyableCode code="properties" /> | `object` | Role assignment properties. |
+| <CopyableCode code="type" /> | `string` | The role assignment type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, resourceName, resourceProviderNamespace, resourceType, subscriptionId` |
-| `_list` | `EXEC` | `resourceGroupName, resourceName, resourceProviderNamespace, resourceType, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, resourceProviderNamespace, resourceType, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, resourceProviderNamespace, resourceType, subscriptionId" /> |

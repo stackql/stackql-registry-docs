@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>appliances_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.resource_connector.appliances_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resource_connector.appliances_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `artifactProfiles` | `object` | Map of artifacts that contains a list of ArtifactProfile used to upload artifacts such as logs. |
-| `kubeconfigs` | `array` | The list of appliance kubeconfigs. |
-| `sshKeys` | `object` | Map of Customer User Public, Private SSH Keys and Certificate when available. |
+| <CopyableCode code="artifactProfiles" /> | `object` | Map of artifacts that contains a list of ArtifactProfile used to upload artifacts such as logs. |
+| <CopyableCode code="kubeconfigs" /> | `array` | The list of appliance kubeconfigs. |
+| <CopyableCode code="sshKeys" /> | `object` | Map of Customer User Public, Private SSH Keys and Certificate when available. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> |

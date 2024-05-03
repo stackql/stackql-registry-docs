@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Microsoft Dev Box Is A Service That Enables You To Provide Preconfigured Cloud-Based Workstations To Your Users Through Dev Centers. Developers, Testers, QA Professionals, And Others Who Need To Get Productive Quickly On New Projects Can Self-Serve Multiple Dev Boxes Customized For Their Workloads.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Microsoft Dev Box Is A Service That Enables You To Provide Preconfigured Cloud-B
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dev Center</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Dev Box Is A Service That Enables You To Provide Preconfigured Cloud-Based Workstations To Your Users Through Dev Centers. Developers, Testers, QA Professionals, And Others Who Need To Get Productive Quickly On New Projects Can Self-Serve Multiple Dev Boxes Customized For Their Workloads.</td></tr>
-<tr><td><b>Id</b></td><td><code>dev_center:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dev_center:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

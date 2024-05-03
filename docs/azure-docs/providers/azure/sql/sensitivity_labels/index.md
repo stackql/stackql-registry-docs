@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sensitivity_labels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.sensitivity_labels</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.sensitivity_labels" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `managedBy` | `string` | Resource that manages the sensitivity label. |
-| `properties` | `object` | Properties of a sensitivity label. |
+| <CopyableCode code="managedBy" /> | `string` | Resource that manages the sensitivity label. |
+| <CopyableCode code="properties" /> | `object` | Properties of a sensitivity label. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName` | Gets the sensitivity label of a given column |
-| `create_or_update` | `INSERT` | `columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName` | Creates or updates the sensitivity label of a given column |
-| `delete` | `DELETE` | `columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName` | Deletes the sensitivity label of a given column |
-| `disable_recommendation` | `EXEC` | `columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName` | Disables sensitivity recommendations on a given column |
-| `enable_recommendation` | `EXEC` | `columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName` | Enables sensitivity recommendations on a given column (recommendations are enabled by default on all columns) |
-| `update` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Update sensitivity labels of a given database using an operations batch. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName" /> | Gets the sensitivity label of a given column |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName" /> | Creates or updates the sensitivity label of a given column |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName" /> | Deletes the sensitivity label of a given column |
+| <CopyableCode code="disable_recommendation" /> | `EXEC` | <CopyableCode code="columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName" /> | Disables sensitivity recommendations on a given column |
+| <CopyableCode code="enable_recommendation" /> | `EXEC` | <CopyableCode code="columnName, databaseName, resourceGroupName, schemaName, sensitivityLabelSource, serverName, subscriptionId, tableName" /> | Enables sensitivity recommendations on a given column (recommendations are enabled by default on all columns) |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Update sensitivity labels of a given database using an operations batch. |

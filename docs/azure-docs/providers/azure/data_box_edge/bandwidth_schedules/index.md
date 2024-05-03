@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bandwidth_schedules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_box_edge.bandwidth_schedules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_box_edge.bandwidth_schedules" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The path ID that uniquely identifies the object. |
-| `name` | `string` | The object name. |
-| `properties` | `object` | The properties of the bandwidth schedule. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The hierarchical type of the object. |
+| <CopyableCode code="id" /> | `string` | The path ID that uniquely identifies the object. |
+| <CopyableCode code="name" /> | `string` | The object name. |
+| <CopyableCode code="properties" /> | `object` | The properties of the bandwidth schedule. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The hierarchical type of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `deviceName, name, resourceGroupName, subscriptionId` | Gets the properties of the specified bandwidth schedule. |
-| `list_by_data_box_edge_device` | `SELECT` | `deviceName, resourceGroupName, subscriptionId` | Gets all the bandwidth schedules for a Data Box Edge/Data Box Gateway device. |
-| `create_or_update` | `INSERT` | `deviceName, name, resourceGroupName, subscriptionId, data__properties` | Creates or updates a bandwidth schedule. |
-| `delete` | `DELETE` | `deviceName, name, resourceGroupName, subscriptionId` | Deletes the specified bandwidth schedule. |
-| `_list_by_data_box_edge_device` | `EXEC` | `deviceName, resourceGroupName, subscriptionId` | Gets all the bandwidth schedules for a Data Box Edge/Data Box Gateway device. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId" /> | Gets the properties of the specified bandwidth schedule. |
+| <CopyableCode code="list_by_data_box_edge_device" /> | `SELECT` | <CopyableCode code="deviceName, resourceGroupName, subscriptionId" /> | Gets all the bandwidth schedules for a Data Box Edge/Data Box Gateway device. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId, data__properties" /> | Creates or updates a bandwidth schedule. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId" /> | Deletes the specified bandwidth schedule. |
+| <CopyableCode code="_list_by_data_box_edge_device" /> | `EXEC` | <CopyableCode code="deviceName, resourceGroupName, subscriptionId" /> | Gets all the bandwidth schedules for a Data Box Edge/Data Box Gateway device. |

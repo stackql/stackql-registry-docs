@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoints_resource_usage</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cdn.endpoints_resource_usage</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cdn.endpoints_resource_usage" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | URL to get the next set of custom domain objects if there are any. |
-| `value` | `array` | List of resource usages. |
+| <CopyableCode code="nextLink" /> | `string` | URL to get the next set of custom domain objects if there are any. |
+| <CopyableCode code="value" /> | `array` | List of resource usages. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="endpointName, profileName, resourceGroupName, subscriptionId" /> |

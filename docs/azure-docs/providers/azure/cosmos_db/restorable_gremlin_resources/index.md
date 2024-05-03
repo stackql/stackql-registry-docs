@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>restorable_gremlin_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cosmos_db.restorable_gremlin_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cosmos_db.restorable_gremlin_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The unique resource identifier of the ARM resource. |
-| `name` | `string` | The name of the ARM resource. |
-| `databaseName` | `string` | The name of the gremlin database available for restore. |
-| `graphNames` | `array` | The names of the graphs available for restore. |
-| `type` | `string` | The type of Azure resource. |
+| <CopyableCode code="id" /> | `string` | The unique resource identifier of the ARM resource. |
+| <CopyableCode code="name" /> | `string` | The name of the ARM resource. |
+| <CopyableCode code="databaseName" /> | `string` | The name of the gremlin database available for restore. |
+| <CopyableCode code="graphNames" /> | `array` | The names of the graphs available for restore. |
+| <CopyableCode code="type" /> | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `instanceId, location, subscriptionId` |
-| `_list` | `EXEC` | `instanceId, location, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instanceId, location, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instanceId, location, subscriptionId" /> |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>build_service_resource_upload_url</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.spring_apps.build_service_resource_upload_url</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.spring_apps.build_service_resource_upload_url" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `relativePath` | `string` | Source relative path |
-| `uploadUrl` | `string` | Upload URL |
+| <CopyableCode code="relativePath" /> | `string` | Source relative path |
+| <CopyableCode code="uploadUrl" /> | `string` | Upload URL |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `buildServiceName, resourceGroupName, serviceName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="buildServiceName, resourceGroupName, serviceName, subscriptionId" /> |

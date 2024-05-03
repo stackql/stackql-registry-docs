@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dsc_node_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.dsc_node_configuration</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.dsc_node_configuration" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `automationAccountName, nodeConfigurationName, resourceGroupName, subscriptionId` | Retrieve the Dsc node configurations by node configuration. |
-| `list_by_automation_account` | `SELECT` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of dsc node configurations. |
-| `create_or_update` | `INSERT` | `automationAccountName, nodeConfigurationName, resourceGroupName, subscriptionId` | Create the node configuration identified by node configuration name. |
-| `delete` | `DELETE` | `automationAccountName, nodeConfigurationName, resourceGroupName, subscriptionId` | Delete the Dsc node configurations by node configuration. |
-| `_list_by_automation_account` | `EXEC` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of dsc node configurations. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, nodeConfigurationName, resourceGroupName, subscriptionId" /> | Retrieve the Dsc node configurations by node configuration. |
+| <CopyableCode code="list_by_automation_account" /> | `SELECT` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of dsc node configurations. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="automationAccountName, nodeConfigurationName, resourceGroupName, subscriptionId" /> | Create the node configuration identified by node configuration name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="automationAccountName, nodeConfigurationName, resourceGroupName, subscriptionId" /> | Delete the Dsc node configurations by node configuration. |
+| <CopyableCode code="_list_by_automation_account" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of dsc node configurations. |

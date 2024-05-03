@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_fabric_managed_clusters.application_types</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_fabric_managed_clusters.application_types" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Azure resource identifier. |
-| `name` | `string` | Azure resource name. |
-| `location` | `string` | Resource location depends on the parent resource. |
-| `properties` | `object` | The application type name properties |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Azure resource tags. |
-| `type` | `string` | Azure resource type. |
+| <CopyableCode code="id" /> | `string` | Azure resource identifier. |
+| <CopyableCode code="name" /> | `string` | Azure resource name. |
+| <CopyableCode code="location" /> | `string` | Resource location depends on the parent resource. |
+| <CopyableCode code="properties" /> | `object` | The application type name properties |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Azure resource tags. |
+| <CopyableCode code="type" /> | `string` | Azure resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId` | Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource. |
-| `list` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all application type name resources created or in the process of being created in the Service Fabric managed cluster resource. |
-| `create_or_update` | `INSERT` | `api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId` | Create or update a Service Fabric managed application type name resource with the specified name. |
-| `delete` | `DELETE` | `api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId` | Delete a Service Fabric managed application type name resource with the specified name. |
-| `_list` | `EXEC` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all application type name resources created or in the process of being created in the Service Fabric managed cluster resource. |
-| `update` | `EXEC` | `api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId` | Updates the tags of an application type resource of a given managed cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId" /> | Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, clusterName, resourceGroupName, subscriptionId" /> | Gets all application type name resources created or in the process of being created in the Service Fabric managed cluster resource. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId" /> | Create or update a Service Fabric managed application type name resource with the specified name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId" /> | Delete a Service Fabric managed application type name resource with the specified name. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, clusterName, resourceGroupName, subscriptionId" /> | Gets all application type name resources created or in the process of being created in the Service Fabric managed cluster resource. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, applicationTypeName, clusterName, resourceGroupName, subscriptionId" /> | Updates the tags of an application type resource of a given managed cluster. |

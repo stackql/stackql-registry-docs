@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_share.accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_share.accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Identity of resource |
-| `location` | `string` | Location of the azure resource. |
-| `properties` | `object` | Account property bag. |
-| `tags` | `object` | Tags on the azure resource. |
+| <CopyableCode code="identity" /> | `object` | Identity of resource |
+| <CopyableCode code="location" /> | `string` | Location of the azure resource. |
+| <CopyableCode code="properties" /> | `object` | Account property bag. |
+| <CopyableCode code="tags" /> | `object` | Tags on the azure resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Get an account |
-| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List Accounts in ResourceGroup |
-| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | List Accounts in Subscription |
-| `create` | `INSERT` | `accountName, api-version, resourceGroupName, subscriptionId, data__identity` | Create an account |
-| `delete` | `DELETE` | `accountName, api-version, resourceGroupName, subscriptionId` | DeleteAccount |
-| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | List Accounts in ResourceGroup |
-| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | List Accounts in Subscription |
-| `update` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Patch an account |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> | Get an account |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List Accounts in ResourceGroup |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> | List Accounts in Subscription |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId, data__identity" /> | Create an account |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> | DeleteAccount |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List Accounts in ResourceGroup |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> | List Accounts in Subscription |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> | Patch an account |

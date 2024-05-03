@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policy_fragment_references</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.policy_fragment_references</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.policy_fragment_references" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `count` | `integer` | Total record count number. |
-| `nextLink` | `string` | Next page link if any. |
-| `value` | `array` | A collection of resources. |
+| <CopyableCode code="count" /> | `integer` | Total record count number. |
+| <CopyableCode code="nextLink" /> | `string` | Next page link if any. |
+| <CopyableCode code="value" /> | `array` | A collection of resources. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `id, resourceGroupName, serviceName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="id, resourceGroupName, serviceName, subscriptionId" /> |

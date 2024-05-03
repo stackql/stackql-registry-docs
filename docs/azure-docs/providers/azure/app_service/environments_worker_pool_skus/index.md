@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments_worker_pool_skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.environments_worker_pool_skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.environments_worker_pool_skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `capacity` | `object` | Description of the App Service plan scale options. |
-| `resourceType` | `string` | Resource type that this SKU applies to. |
-| `sku` | `object` | Description of a SKU for a scalable resource. |
+| <CopyableCode code="capacity" /> | `object` | Description of the App Service plan scale options. |
+| <CopyableCode code="resourceType" /> | `string` | Resource type that this SKU applies to. |
+| <CopyableCode code="sku" /> | `object` | Description of a SKU for a scalable resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `name, resourceGroupName, subscriptionId, workerPoolName` |
-| `_list` | `EXEC` | `name, resourceGroupName, subscriptionId, workerPoolName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId, workerPoolName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId, workerPoolName" /> |

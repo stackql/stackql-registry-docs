@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations_usage</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_lake_store.locations_usage</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_lake_store.locations_usage" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource identifier. |
-| `name` | `object` | The usage names that can be used. |
-| `currentValue` | `integer` | Gets the current count of the allocated resources in the subscription. |
-| `limit` | `integer` | Gets the maximum count of the resources that can be allocated in the subscription. |
-| `unit` | `string` | Gets the unit of measurement. |
+| <CopyableCode code="id" /> | `string` | Resource identifier. |
+| <CopyableCode code="name" /> | `object` | The usage names that can be used. |
+| <CopyableCode code="currentValue" /> | `integer` | Gets the current count of the allocated resources in the subscription. |
+| <CopyableCode code="limit" /> | `integer` | Gets the maximum count of the resources that can be allocated in the subscription. |
+| <CopyableCode code="unit" /> | `string` | Gets the unit of measurement. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `location, subscriptionId` |
-| `_get` | `EXEC` | `location, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> |

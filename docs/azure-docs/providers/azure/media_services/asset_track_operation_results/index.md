@@ -14,18 +14,21 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>asset_track_operation_results</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.media_services.asset_track_operation_results</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.media_services.asset_track_operation_results" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `accountName, api-version, assetName, operationId, resourceGroupName, subscriptionId, trackName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, api-version, assetName, operationId, resourceGroupName, subscriptionId, trackName" /> |

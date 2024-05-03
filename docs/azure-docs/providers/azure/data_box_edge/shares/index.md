@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>shares</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_box_edge.shares</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_box_edge.shares" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The path ID that uniquely identifies the object. |
-| `name` | `string` | The object name. |
-| `properties` | `object` | The share properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The hierarchical type of the object. |
+| <CopyableCode code="id" /> | `string` | The path ID that uniquely identifies the object. |
+| <CopyableCode code="name" /> | `string` | The object name. |
+| <CopyableCode code="properties" /> | `object` | The share properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The hierarchical type of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `deviceName, name, resourceGroupName, subscriptionId` |  |
-| `list_by_data_box_edge_device` | `SELECT` | `deviceName, resourceGroupName, subscriptionId` |  |
-| `create_or_update` | `INSERT` | `deviceName, name, resourceGroupName, subscriptionId, data__properties` |  |
-| `delete` | `DELETE` | `deviceName, name, resourceGroupName, subscriptionId` | Deletes the share on the Data Box Edge/Data Box Gateway device. |
-| `_list_by_data_box_edge_device` | `EXEC` | `deviceName, resourceGroupName, subscriptionId` |  |
-| `refresh` | `EXEC` | `deviceName, name, resourceGroupName, subscriptionId` |  |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list_by_data_box_edge_device" /> | `SELECT` | <CopyableCode code="deviceName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId, data__properties" /> |  |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId" /> | Deletes the share on the Data Box Edge/Data Box Gateway device. |
+| <CopyableCode code="_list_by_data_box_edge_device" /> | `EXEC` | <CopyableCode code="deviceName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="refresh" /> | `EXEC` | <CopyableCode code="deviceName, name, resourceGroupName, subscriptionId" /> |  |

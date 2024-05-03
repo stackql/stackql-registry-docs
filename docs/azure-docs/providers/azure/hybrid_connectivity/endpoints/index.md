@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_connectivity.endpoints</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_connectivity.endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Endpoint details |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | Endpoint details |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `endpointName, resourceUri` | Gets the endpoint to the resource. |
-| `list` | `SELECT` | `resourceUri` | List of endpoints to the target resource. |
-| `create_or_update` | `INSERT` | `endpointName, resourceUri` | Create or update the endpoint to the target resource. |
-| `delete` | `DELETE` | `endpointName, resourceUri` | Deletes the endpoint access to the target resource. |
-| `_list` | `EXEC` | `resourceUri` | List of endpoints to the target resource. |
-| `update` | `EXEC` | `endpointName, resourceUri` | Update the endpoint to the target resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri" /> | Gets the endpoint to the resource. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceUri" /> | List of endpoints to the target resource. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="endpointName, resourceUri" /> | Create or update the endpoint to the target resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointName, resourceUri" /> | Deletes the endpoint access to the target resource. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceUri" /> | List of endpoints to the target resource. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="endpointName, resourceUri" /> | Update the endpoint to the target resource. |

@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>synchronization_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_share.synchronization_settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_share.synchronization_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource id of the azure resource |
-| `name` | `string` | Name of the azure resource |
-| `kind` | `string` | Kind of synchronization setting. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | Type of the azure resource |
+| <CopyableCode code="id" /> | `string` | The resource id of the azure resource |
+| <CopyableCode code="name" /> | `string` | Name of the azure resource |
+| <CopyableCode code="kind" /> | `string` | Kind of synchronization setting. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | Type of the azure resource |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, api-version, resourceGroupName, shareName, subscriptionId, synchronizationSettingName` | Get a synchronizationSetting in a share |
-| `list_by_share` | `SELECT` | `accountName, api-version, resourceGroupName, shareName, subscriptionId` | List synchronizationSettings in a share |
-| `create` | `INSERT` | `accountName, api-version, resourceGroupName, shareName, subscriptionId, synchronizationSettingName, data__kind` | Create a synchronizationSetting |
-| `delete` | `DELETE` | `accountName, api-version, resourceGroupName, shareName, subscriptionId, synchronizationSettingName` | Delete a synchronizationSetting in a share |
-| `_list_by_share` | `EXEC` | `accountName, api-version, resourceGroupName, shareName, subscriptionId` | List synchronizationSettings in a share |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, shareName, subscriptionId, synchronizationSettingName" /> | Get a synchronizationSetting in a share |
+| <CopyableCode code="list_by_share" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, shareName, subscriptionId" /> | List synchronizationSettings in a share |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, api-version, resourceGroupName, shareName, subscriptionId, synchronizationSettingName, data__kind" /> | Create a synchronizationSetting |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, api-version, resourceGroupName, shareName, subscriptionId, synchronizationSettingName" /> | Delete a synchronizationSetting in a share |
+| <CopyableCode code="_list_by_share" /> | `EXEC` | <CopyableCode code="accountName, api-version, resourceGroupName, shareName, subscriptionId" /> | List synchronizationSettings in a share |

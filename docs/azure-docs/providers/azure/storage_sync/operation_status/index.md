@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage_sync.operation_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage_sync.operation_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Operation Id |
-| `endTime` | `string` | End time of the operation |
-| `error` | `object` | Error type |
-| `startTime` | `string` | Start time of the operation |
-| `status` | `string` | Operation status |
+| <CopyableCode code="name" /> | `string` | Operation Id |
+| <CopyableCode code="endTime" /> | `string` | End time of the operation |
+| <CopyableCode code="error" /> | `object` | Error type |
+| <CopyableCode code="startTime" /> | `string` | Start time of the operation |
+| <CopyableCode code="status" /> | `string` | Operation status |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `locationName, operationId, resourceGroupName, subscriptionId, workflowId` |
-| `operation_status` | `EXEC` | `locationName, operationId, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, operationId, resourceGroupName, subscriptionId, workflowId" /> |
+| <CopyableCode code="operation_status" /> | `EXEC` | <CopyableCode code="locationName, operationId, subscriptionId" /> |

@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hybrid_identity_metadata_list</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_aks.hybrid_identity_metadata_list</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_aks.hybrid_identity_metadata_list" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Defines the resource properties for the hybrid identity metadata. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | Defines the resource properties for the hybrid identity metadata. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_cluster` | `SELECT` | `connectedClusterResourceUri` |
-| `_list_by_cluster` | `EXEC` | `connectedClusterResourceUri` |
+| <CopyableCode code="list_by_cluster" /> | `SELECT` | <CopyableCode code="connectedClusterResourceUri" /> |
+| <CopyableCode code="_list_by_cluster" /> | `EXEC` | <CopyableCode code="connectedClusterResourceUri" /> |

@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_pi_ns</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.recovery_services_backup.security_pi_ns</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.recovery_services_backup.security_pi_ns" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `expiryTimeInUtcTicks` | `integer` | Expiry time of token. |
-| `securityPIN` | `string` | Security PIN |
-| `token` | `string` | Token value. |
+| <CopyableCode code="expiryTimeInUtcTicks" /> | `integer` | Expiry time of token. |
+| <CopyableCode code="securityPIN" /> | `string` | Security PIN |
+| <CopyableCode code="token" /> | `string` | Token value. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, vaultName" /> |

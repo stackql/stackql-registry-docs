@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dscp_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.dscp_configuration</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.dscp_configuration" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Differentiated Services Code Point configuration properties. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Differentiated Services Code Point configuration properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `dscpConfigurationName, resourceGroupName, subscriptionId` | Gets a DSCP Configuration. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a DSCP Configuration. |
-| `create_or_update` | `INSERT` | `dscpConfigurationName, resourceGroupName, subscriptionId` | Creates or updates a DSCP Configuration. |
-| `delete` | `DELETE` | `dscpConfigurationName, resourceGroupName, subscriptionId` | Deletes a DSCP Configuration. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a DSCP Configuration. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dscpConfigurationName, resourceGroupName, subscriptionId" /> | Gets a DSCP Configuration. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a DSCP Configuration. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="dscpConfigurationName, resourceGroupName, subscriptionId" /> | Creates or updates a DSCP Configuration. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="dscpConfigurationName, resourceGroupName, subscriptionId" /> | Deletes a DSCP Configuration. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a DSCP Configuration. |

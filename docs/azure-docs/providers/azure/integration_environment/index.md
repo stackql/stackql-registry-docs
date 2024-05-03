@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Integration Environment REST API Includes Operations For Managing An Integration Environment Resource In Your Azure Subscription. The Azure Integration Environment Is Part Of Azure Integration Services Unified Experience, A Platform That Helps Developers Effectively Manage And Monitor Integration Resources In Azure.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure Integration Environment REST API Includes Operations For Managing An I
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Integration Environment</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Integration Environment REST API Includes Operations For Managing An Integration Environment Resource In Your Azure Subscription. The Azure Integration Environment Is Part Of Azure Integration Services Unified Experience, A Platform That Helps Developers Effectively Manage And Monitor Integration Resources In Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>integration_environment:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>integration_environment:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

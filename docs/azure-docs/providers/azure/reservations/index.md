@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Lower Your Total Cost Of Ownership By Combining Azure Reserved VM Instances Rates With A Pay-As-You-Go Subscription To Manage Costs Across Predictable And Variable Workloads.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Lower Your Total Cost Of Ownership By Combining Azure Reserved VM Instances Rate
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Reserved Virtual Machine Instances</td></tr>
 <tr><td><b>Description</b></td><td>Lower Your Total Cost Of Ownership By Combining Azure Reserved VM Instances Rates With A Pay-As-You-Go Subscription To Manage Costs Across Predictable And Variable Workloads.</td></tr>
-<tr><td><b>Id</b></td><td><code>reservations:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>reservations:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

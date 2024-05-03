@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>job_executions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.job_executions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.job_executions" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Gets a job execution. |
-| `list_by_agent` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Lists all executions in a job agent. |
-| `list_by_job` | `SELECT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Lists a job's executions. |
-| `create` | `INSERT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Starts an elastic job execution. |
-| `create_or_update` | `INSERT` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Creates or updates a job execution. |
-| `_list_by_agent` | `EXEC` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Lists all executions in a job agent. |
-| `_list_by_job` | `EXEC` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Lists a job's executions. |
-| `cancel` | `EXEC` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Requests cancellation of a job execution. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId" /> | Gets a job execution. |
+| <CopyableCode code="list_by_agent" /> | `SELECT` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId" /> | Lists all executions in a job agent. |
+| <CopyableCode code="list_by_job" /> | `SELECT` | <CopyableCode code="jobAgentName, jobName, resourceGroupName, serverName, subscriptionId" /> | Lists a job's executions. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="jobAgentName, jobName, resourceGroupName, serverName, subscriptionId" /> | Starts an elastic job execution. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId" /> | Creates or updates a job execution. |
+| <CopyableCode code="_list_by_agent" /> | `EXEC` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId" /> | Lists all executions in a job agent. |
+| <CopyableCode code="_list_by_job" /> | `EXEC` | <CopyableCode code="jobAgentName, jobName, resourceGroupName, serverName, subscriptionId" /> | Lists a job's executions. |
+| <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId" /> | Requests cancellation of a job execution. |

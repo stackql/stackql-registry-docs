@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure DevTest Labs Is A Service That Helps Developers And Testers Quickly Create Environments In Azure While Minimizing Waste And Controlling Cost. You Can Test The Latest Version Of Your Application By Quickly Provisioning Windows And Linux Environments Using Reusable Templates And Artifacts. Easily Integrate Your Deployment Pipeline With DevTest Labs To Provision On-Demand Environments. Scale Up Your Load Testing By Provisioning Multiple Test Agents, And Create Pre-Provisioned Environments For Training And Demos.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure DevTest Labs Is A Service That Helps Developers And Testers Quickly Create
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure DevTest Labs</td></tr>
 <tr><td><b>Description</b></td><td>Azure DevTest Labs Is A Service That Helps Developers And Testers Quickly Create Environments In Azure While Minimizing Waste And Controlling Cost. You Can Test The Latest Version Of Your Application By Quickly Provisioning Windows And Linux Environments Using Reusable Templates And Artifacts. Easily Integrate Your Deployment Pipeline With DevTest Labs To Provision On-Demand Environments. Scale Up Your Load Testing By Provisioning Multiple Test Agents, And Create Pre-Provisioned Environments For Training And Demos.</td></tr>
-<tr><td><b>Id</b></td><td><code>dev_test_labs:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dev_test_labs:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

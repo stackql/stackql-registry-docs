@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>unresolved_dependencies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.resource_mover.unresolved_dependencies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resource_mover.unresolved_dependencies" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Gets or sets the arm id of the dependency. |
-| `count` | `integer` | Gets or sets the count. |
+| <CopyableCode code="id" /> | `string` | Gets or sets the arm id of the dependency. |
+| <CopyableCode code="count" /> | `integer` | Gets or sets the count. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` |
-| `_get` | `EXEC` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, moveCollectionName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="api-version, moveCollectionName, resourceGroupName, subscriptionId" /> |

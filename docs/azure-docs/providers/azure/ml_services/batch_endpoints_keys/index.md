@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>batch_endpoints_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ml_services.batch_endpoints_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ml_services.batch_endpoints_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `primaryKey` | `string` | The primary key. |
-| `secondaryKey` | `string` | The secondary key. |
+| <CopyableCode code="primaryKey" /> | `string` | The primary key. |
+| <CopyableCode code="secondaryKey" /> | `string` | The secondary key. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `endpointName, resourceGroupName, subscriptionId, workspaceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="endpointName, resourceGroupName, subscriptionId, workspaceName" /> |

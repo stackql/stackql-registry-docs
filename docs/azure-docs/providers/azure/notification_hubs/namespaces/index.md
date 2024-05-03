@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.notification_hubs.namespaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.notification_hubs.namespaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Represents namespace properties. |
-| `sku` | `object` | The resource model definition representing SKU |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Represents namespace properties. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId, data__location, data__sku` |
-| `delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` |
-| `check_availability` | `EXEC` | `subscriptionId, data__name` |
-| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, data__policyKey` |
-| `update` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId, data__location, data__sku" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="check_availability" /> | `EXEC` | <CopyableCode code="subscriptionId, data__name" /> |
+| <CopyableCode code="regenerate_keys" /> | `EXEC` | <CopyableCode code="authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, data__policyKey" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> |

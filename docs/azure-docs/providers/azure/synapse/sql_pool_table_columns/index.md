@@ -14,19 +14,22 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sql_pool_table_columns</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.sql_pool_table_columns</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.sql_pool_table_columns" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_table_name` | `SELECT` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName` |
-| `_list_by_table_name` | `EXEC` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName` |
+| <CopyableCode code="list_by_table_name" /> | `SELECT` | <CopyableCode code="resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName" /> |
+| <CopyableCode code="_list_by_table_name" /> | `EXEC` | <CopyableCode code="resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName" /> |

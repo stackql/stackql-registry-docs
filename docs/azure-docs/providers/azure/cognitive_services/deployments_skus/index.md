@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments_skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cognitive_services.deployments_skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cognitive_services.deployments_skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `capacity` | `object` | The capacity configuration. |
-| `resourceType` | `string` | The resource type name. |
-| `sku` | `object` | The resource model definition representing SKU |
+| <CopyableCode code="capacity" /> | `object` | The capacity configuration. |
+| <CopyableCode code="resourceType" /> | `string` | The resource type name. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `accountName, deploymentName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `accountName, deploymentName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, deploymentName, resourceGroupName, subscriptionId" /> |

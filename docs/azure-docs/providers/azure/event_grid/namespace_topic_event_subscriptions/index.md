@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespace_topic_event_subscriptions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.event_grid.namespace_topic_event_subscriptions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.event_grid.namespace_topic_event_subscriptions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Properties of the event subscription. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="properties" /> | `object` | Properties of the event subscription. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName` | Get properties of an event subscription of a namespace topic. |
-| `list_by_namespace_topic` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, topicName` | List event subscriptions that belong to a specific namespace topic. |
-| `create_or_update` | `INSERT` | `eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName` | Asynchronously creates or updates an event subscription of a namespace topic with the specified parameters. Existing event subscriptions will be updated with this API. |
-| `delete` | `DELETE` | `eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName` | Delete an existing event subscription of a namespace topic. |
-| `_list_by_namespace_topic` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, topicName` | List event subscriptions that belong to a specific namespace topic. |
-| `update` | `EXEC` | `eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName` | Update an existing event subscription of a namespace topic. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName" /> | Get properties of an event subscription of a namespace topic. |
+| <CopyableCode code="list_by_namespace_topic" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId, topicName" /> | List event subscriptions that belong to a specific namespace topic. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName" /> | Asynchronously creates or updates an event subscription of a namespace topic with the specified parameters. Existing event subscriptions will be updated with this API. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName" /> | Delete an existing event subscription of a namespace topic. |
+| <CopyableCode code="_list_by_namespace_topic" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId, topicName" /> | List event subscriptions that belong to a specific namespace topic. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="eventSubscriptionName, namespaceName, resourceGroupName, subscriptionId, topicName" /> | Update an existing event subscription of a namespace topic. |

@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reservation_all</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.reservations.reservation_all</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.reservations.reservation_all" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `integer` |  |
-| `kind` | `string` | Resource Provider type to be reserved. |
-| `location` | `string` | The Azure region where the reserved resource lives. |
-| `properties` | `object` | The properties of the reservations |
-| `sku` | `object` | The name of sku |
+| <CopyableCode code="etag" /> | `integer` |  |
+| <CopyableCode code="kind" /> | `string` | Resource Provider type to be reserved. |
+| <CopyableCode code="location" /> | `string` | The Azure region where the reserved resource lives. |
+| <CopyableCode code="properties" /> | `object` | The properties of the reservations |
+| <CopyableCode code="sku" /> | `object` | The name of sku |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

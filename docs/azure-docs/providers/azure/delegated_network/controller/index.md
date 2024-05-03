@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>controller</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.delegated_network.controller</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.delegated_network.controller" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a dnc controller |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Deletes the DNC controller |
-| `patch` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Update dnc controller |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Create a dnc controller |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Deletes the DNC controller |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Update dnc controller |

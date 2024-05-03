@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_service_role_instances_instance_view</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.cloud_service_role_instances_instance_view</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.cloud_service_role_instances_instance_view" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `platformFaultDomain` | `integer` | The Fault Domain. |
-| `platformUpdateDomain` | `integer` | The Update Domain. |
-| `privateId` | `string` | Specifies a unique identifier generated internally for the cloud service associated with this role instance. &lt;br /&gt;&lt;br /&gt; NOTE: If you are using Azure Diagnostics extension, this property can be used as 'DeploymentId' for querying details. |
-| `statuses` | `array` |  |
+| <CopyableCode code="platformFaultDomain" /> | `integer` | The Fault Domain. |
+| <CopyableCode code="platformUpdateDomain" /> | `integer` | The Update Domain. |
+| <CopyableCode code="privateId" /> | `string` | Specifies a unique identifier generated internally for the cloud service associated with this role instance. &lt;br /&gt;&lt;br /&gt; NOTE: If you are using Azure Diagnostics extension, this property can be used as 'DeploymentId' for querying details. |
+| <CopyableCode code="statuses" /> | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `cloudServiceName, resourceGroupName, roleInstanceName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cloudServiceName, resourceGroupName, roleInstanceName, subscriptionId" /> |

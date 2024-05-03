@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.network_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.network_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `connectivityStatus` | `array` | Gets the list of Connectivity Status to the Resources on which the service depends upon. |
-| `dnsServers` | `array` | Gets the list of DNS servers IPV4 addresses. |
+| <CopyableCode code="connectivityStatus" /> | `array` | Gets the list of Connectivity Status to the Resources on which the service depends upon. |
+| <CopyableCode code="dnsServers" /> | `array` | Gets the list of DNS servers IPV4 addresses. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_location` | `SELECT` | `locationName, resourceGroupName, serviceName, subscriptionId` |
-| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` |
+| <CopyableCode code="list_by_location" /> | `SELECT` | <CopyableCode code="locationName, resourceGroupName, serviceName, subscriptionId" /> |
+| <CopyableCode code="list_by_service" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> |

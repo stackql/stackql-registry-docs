@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 A Backup Vault, Created Under The Data Protection Platform Of Azure Backup, Is A Storage Entity In Azure That Holds Backup Data For Various Newer Workloads That Azure Backup Supports, Such As Azure Database For PostgreSQL Servers And Azure Disks. Backup Vaults Make It Easy To Organize Your Backup Data, While Minimizing Management Overhead. Backup Vaults Are Based On The Azure Resource Manager Model Of Azure, Which Provides Enhanced Capabilities To Help Secure Backup Data.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ A Backup Vault, Created Under The Data Protection Platform Of Azure Backup, Is A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Backup Data Protection Platform</td></tr>
 <tr><td><b>Description</b></td><td>A Backup Vault, Created Under The Data Protection Platform Of Azure Backup, Is A Storage Entity In Azure That Holds Backup Data For Various Newer Workloads That Azure Backup Supports, Such As Azure Database For PostgreSQL Servers And Azure Disks. Backup Vaults Make It Easy To Organize Your Backup Data, While Minimizing Management Overhead. Backup Vaults Are Based On The Azure Resource Manager Model Of Azure, Which Provides Enhanced Capabilities To Help Secure Backup Data.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_protection:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_protection:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>asc_usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage_cache.asc_usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage_cache.asc_usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `object` | Naming information for this resource type. |
-| `currentValue` | `integer` | The current usage of this resource. |
-| `limit` | `integer` | The limit (quota) for this resource. |
-| `unit` | `string` | Unit that the limit and usages are expressed in, such as 'Count'. |
+| <CopyableCode code="name" /> | `object` | Naming information for this resource type. |
+| <CopyableCode code="currentValue" /> | `integer` | The current usage of this resource. |
+| <CopyableCode code="limit" /> | `integer` | The limit (quota) for this resource. |
+| <CopyableCode code="unit" /> | `string` | Unit that the limit and usages are expressed in, such as 'Count'. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `location, subscriptionId` |
-| `_list` | `EXEC` | `location, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> |

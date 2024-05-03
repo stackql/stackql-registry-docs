@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.signalr.operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.signalr.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the operation with format: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125; |
-| `display` | `object` | The object that describes a operation. |
-| `isDataAction` | `boolean` | If the operation is a data action. (for data plane rbac) |
-| `origin` | `string` | Optional. The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. |
-| `properties` | `object` | Extra Operation properties. |
+| <CopyableCode code="name" /> | `string` | Name of the operation with format: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125; |
+| <CopyableCode code="display" /> | `object` | The object that describes a operation. |
+| <CopyableCode code="isDataAction" /> | `boolean` | If the operation is a data action. (for data plane rbac) |
+| <CopyableCode code="origin" /> | `string` | Optional. The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. |
+| <CopyableCode code="properties" /> | `object` | Extra Operation properties. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

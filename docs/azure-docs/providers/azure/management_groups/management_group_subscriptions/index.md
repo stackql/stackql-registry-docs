@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>management_group_subscriptions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.management_groups.management_group_subscriptions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.management_groups.management_group_subscriptions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create` | `INSERT` | `groupId, subscriptionId` | Associates existing subscription with the management group.<br /> |
-| `delete` | `DELETE` | `groupId, subscriptionId` | De-associates subscription from the management group.<br /> |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="groupId, subscriptionId" /> | Associates existing subscription with the management group.<br /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupId, subscriptionId" /> | De-associates subscription from the management group.<br /> |

@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_ccf</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.confidential_ledger.managed_ccf</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.confidential_ledger.managed_ccf" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Additional Managed CCF properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Additional Managed CCF properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appName, resourceGroupName, subscriptionId` | Retrieves the properties of a Managed CCF app. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieves the properties of all Managed CCF apps. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieves the properties of all Managed CCF. |
-| `create` | `INSERT` | `appName, resourceGroupName, subscriptionId` | Creates a Managed CCF with the specified Managed CCF parameters. |
-| `delete` | `DELETE` | `appName, resourceGroupName, subscriptionId` | Deletes an existing Managed CCF. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Retrieves the properties of all Managed CCF apps. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieves the properties of all Managed CCF. |
-| `backup` | `EXEC` | `appName, resourceGroupName, subscriptionId, data__uri` | Backs up a Managed CCF Resource. |
-| `restore` | `EXEC` | `appName, resourceGroupName, subscriptionId, data__fileShareName, data__restoreRegion, data__uri` | Restores a Managed CCF Resource. |
-| `update` | `EXEC` | `appName, resourceGroupName, subscriptionId` | Updates properties of Managed CCF |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="appName, resourceGroupName, subscriptionId" /> | Retrieves the properties of a Managed CCF app. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieves the properties of all Managed CCF apps. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Retrieves the properties of all Managed CCF. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="appName, resourceGroupName, subscriptionId" /> | Creates a Managed CCF with the specified Managed CCF parameters. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appName, resourceGroupName, subscriptionId" /> | Deletes an existing Managed CCF. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieves the properties of all Managed CCF apps. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Retrieves the properties of all Managed CCF. |
+| <CopyableCode code="backup" /> | `EXEC` | <CopyableCode code="appName, resourceGroupName, subscriptionId, data__uri" /> | Backs up a Managed CCF Resource. |
+| <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="appName, resourceGroupName, subscriptionId, data__fileShareName, data__restoreRegion, data__uri" /> | Restores a Managed CCF Resource. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="appName, resourceGroupName, subscriptionId" /> | Updates properties of Managed CCF |

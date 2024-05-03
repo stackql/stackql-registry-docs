@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Hybrid Kubernetes Service Allows You To Manage Your On-Premise Kubernetes Clusters From Azure By Onboarding Them To Azure Arc. The Hybrid Kubernetes API Allows You To Create, List, Update And Delete Your Arc Enabled Kubernetes Clusters.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Hybrid Kubernetes Service Allows You To Manage Your On-Premise Kubernetes Cluste
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Hybrid Kubernetes API</td></tr>
 <tr><td><b>Description</b></td><td>Hybrid Kubernetes Service Allows You To Manage Your On-Premise Kubernetes Clusters From Azure By Onboarding Them To Azure Arc. The Hybrid Kubernetes API Allows You To Create, List, Update And Delete Your Arc Enabled Kubernetes Clusters.</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_kubernetes:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_kubernetes:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

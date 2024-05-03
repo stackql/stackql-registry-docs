@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reservation_recommendations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.consumption.reservation_recommendations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.consumption.reservation_recommendations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `_exec_list` | `EXEC` | `resourceScope` |
-| `exec_list` | `EXEC` | `resourceScope` |
+| <CopyableCode code="_exec_list" /> | `EXEC` | <CopyableCode code="resourceScope" /> |
+| <CopyableCode code="exec_list" /> | `EXEC` | <CopyableCode code="resourceScope" /> |

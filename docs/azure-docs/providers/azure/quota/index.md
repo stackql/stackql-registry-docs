@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Quota Service REST API Is Designed For Viewing And Managing Quotas For Azure Resource Providers. A Quota Is The Service Limit Or Allowance Set On A Resource In Your Azure Subscription. Each Azure Service Defines Its Quotas And Determines Its Default Values.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure Quota Service REST API Is Designed For Viewing And Managing Quotas For
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Quota Service</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Quota Service REST API Is Designed For Viewing And Managing Quotas For Azure Resource Providers. A Quota Is The Service Limit Or Allowance Set On A Resource In Your Azure Subscription. Each Azure Service Defines Its Quotas And Determines Its Default Values.</td></tr>
-<tr><td><b>Id</b></td><td><code>quota:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>quota:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

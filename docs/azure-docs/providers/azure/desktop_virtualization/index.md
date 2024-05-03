@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Virtual Desktop Is A Comprehensive Desktop And App Virtualization Service Running In The Cloud. It Is The Only Virtual Desktop Infrastructure (VDI) That Delivers Simplified Management, Multi-Session Windows 10, Optimizations For Microsoft 365 Apps For Enterprise. Deploy And Scale Your Windows Desktops And Apps On Azure In Minutes, And Get Built-In Security And Compliance Features. The Desktop Virtualization APIs Allow You To Create And Manage Your Azure Virtual Desktop Environment Programmatically.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Virtual Desktop Is A Comprehensive Desktop And App Virtualization Service 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Virtual Desktop</td></tr>
 <tr><td><b>Description</b></td><td>Azure Virtual Desktop Is A Comprehensive Desktop And App Virtualization Service Running In The Cloud. It Is The Only Virtual Desktop Infrastructure (VDI) That Delivers Simplified Management, Multi-Session Windows 10, Optimizations For Microsoft 365 Apps For Enterprise. Deploy And Scale Your Windows Desktops And Apps On Azure In Minutes, And Get Built-In Security And Compliance Features. The Desktop Virtualization APIs Allow You To Create And Manage Your Azure Virtual Desktop Environment Programmatically.</td></tr>
-<tr><td><b>Id</b></td><td><code>desktop_virtualization:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>desktop_virtualization:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

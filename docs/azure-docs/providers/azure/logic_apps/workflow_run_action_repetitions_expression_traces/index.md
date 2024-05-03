@@ -14,18 +14,21 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_run_action_repetitions_expression_traces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.workflow_run_action_repetitions_expression_traces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.workflow_run_action_repetitions_expression_traces" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `actionName, api-version, repetitionName, resourceGroupName, runName, subscriptionId, workflowName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="actionName, api-version, repetitionName, resourceGroupName, runName, subscriptionId, workflowName" /> |

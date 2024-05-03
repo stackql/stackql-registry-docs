@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machine_scale_sets_os_upgrade_history</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.virtual_machine_scale_sets_os_upgrade_history</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.virtual_machine_scale_sets_os_upgrade_history" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Resource location |
-| `properties` | `object` | Describes each OS upgrade on the Virtual Machine Scale Set. |
-| `type` | `string` | Resource type |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | Describes each OS upgrade on the Virtual Machine Scale Set. |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, vmScaleSetName` |
-| `_get` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmScaleSetName" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vmScaleSetName" /> |

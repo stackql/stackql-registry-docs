@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.reservations.operation</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.reservations.operation" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the operation |
-| `display` | `object` | Information about an operation |
-| `isDataAction` | `boolean` | Indicates whether the operation is a data action |
-| `origin` | `string` | Origin of the operation |
-| `properties` | `object` | Additional details about an operation. |
+| <CopyableCode code="name" /> | `string` | Name of the operation |
+| <CopyableCode code="display" /> | `object` | Information about an operation |
+| <CopyableCode code="isDataAction" /> | `boolean` | Indicates whether the operation is a data action |
+| <CopyableCode code="origin" /> | `string` | Origin of the operation |
+| <CopyableCode code="properties" /> | `object` | Additional details about an operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

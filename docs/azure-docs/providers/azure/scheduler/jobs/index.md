@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.scheduler.jobs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.scheduler.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Gets the job resource identifier. |
-| `name` | `string` | Gets the job resource name. |
-| `properties` | `object` |  |
-| `type` | `string` | Gets the job resource type. |
+| <CopyableCode code="id" /> | `string` | Gets the job resource identifier. |
+| <CopyableCode code="name" /> | `string` | Gets the job resource name. |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="type" /> | `string` | Gets the job resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Gets a job. |
-| `list` | `SELECT` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Lists all jobs under the specified job collection. |
-| `create_or_update` | `INSERT` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Provisions a new job or updates an existing job. |
-| `delete` | `DELETE` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Deletes a job. |
-| `_list` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Lists all jobs under the specified job collection. |
-| `patch` | `EXEC` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Patches an existing job. |
-| `run` | `EXEC` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Runs a job. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId" /> | Gets a job. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, jobCollectionName, resourceGroupName, subscriptionId" /> | Lists all jobs under the specified job collection. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId" /> | Provisions a new job or updates an existing job. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId" /> | Deletes a job. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, jobCollectionName, resourceGroupName, subscriptionId" /> | Lists all jobs under the specified job collection. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId" /> | Patches an existing job. |
+| <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId" /> | Runs a job. |

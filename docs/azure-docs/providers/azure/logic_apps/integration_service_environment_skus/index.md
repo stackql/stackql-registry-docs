@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>integration_service_environment_skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.integration_service_environment_skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.integration_service_environment_skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `capacity` | `object` | The integration service environment sku capacity. |
-| `resourceType` | `string` | The resource type. |
-| `sku` | `object` | The sku. |
+| <CopyableCode code="capacity" /> | `object` | The integration service environment sku capacity. |
+| <CopyableCode code="resourceType" /> | `string` | The resource type. |
+| <CopyableCode code="sku" /> | `object` | The sku. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |
-| `_list` | `EXEC` | `api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId" /> |

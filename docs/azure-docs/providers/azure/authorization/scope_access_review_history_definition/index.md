@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scope_access_review_history_definition</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.scope_access_review_history_definition</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.scope_access_review_history_definition" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create` | `INSERT` | `historyDefinitionId, scope` | Create a scheduled or one-time Access Review History Definition |
-| `delete_by_id` | `DELETE` | `historyDefinitionId, scope` | Delete an access review history definition |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="historyDefinitionId, scope" /> | Create a scheduled or one-time Access Review History Definition |
+| <CopyableCode code="delete_by_id" /> | `DELETE` | <CopyableCode code="historyDefinitionId, scope" /> | Delete an access review history definition |

@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>email_registrations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_share.email_registrations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_share.email_registrations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `activate_email` | `EXEC` | `api-version, location` | Activate the email registration for the current tenant |
-| `register_email` | `EXEC` | `api-version, location` | Register an email for the current tenant |
+| <CopyableCode code="activate_email" /> | `EXEC` | <CopyableCode code="api-version, location" /> | Activate the email registration for the current tenant |
+| <CopyableCode code="register_email" /> | `EXEC` | <CopyableCode code="api-version, location" /> | Register an email for the current tenant |

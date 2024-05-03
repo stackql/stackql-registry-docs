@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>commitment_plans_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cognitive_services.commitment_plans_associations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cognitive_services.commitment_plans_associations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Resource Etag. |
-| `properties` | `object` | The commitment plan account association properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | Resource Etag. |
+| <CopyableCode code="properties" /> | `object` | The commitment plan account association properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `commitmentPlanName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `commitmentPlanName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="commitmentPlanName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="commitmentPlanName, resourceGroupName, subscriptionId" /> |

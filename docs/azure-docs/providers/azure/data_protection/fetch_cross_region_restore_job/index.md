@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>fetch_cross_region_restore_job</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_protection.fetch_cross_region_restore_job</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_protection.fetch_cross_region_restore_job" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id represents the complete path to the resource. |
-| `name` | `string` | Resource name associated with the resource. |
-| `properties` | `object` | AzureBackup Job Class |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+| <CopyableCode code="id" /> | `string` | Resource Id represents the complete path to the resource. |
+| <CopyableCode code="name" /> | `string` | Resource name associated with the resource. |
+| <CopyableCode code="properties" /> | `object` | AzureBackup Job Class |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `location, resourceGroupName, subscriptionId, data__jobId, data__sourceBackupVaultId, data__sourceRegion` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId, data__jobId, data__sourceBackupVaultId, data__sourceRegion" /> |

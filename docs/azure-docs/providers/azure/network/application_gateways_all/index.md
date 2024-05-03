@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_gateways_all</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.application_gateways_all</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.application_gateways_all" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `identity` | `object` | Identity for the resource. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of the application gateway. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
-| `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="identity" /> | `object` | Identity for the resource. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of the application gateway. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
+| <CopyableCode code="zones" /> | `array` | A list of availability zones denoting where the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `subscriptionId` |
-| `_list` | `EXEC` | `subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |

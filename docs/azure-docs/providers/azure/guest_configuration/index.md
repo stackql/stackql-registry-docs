@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Guest Configuration Definitions In Azure Policy Allow You To Validate Settings Inside Virtual Machines. This Validation Includes The Configuration Of The Operating System, Applications, Or Even Environmental Data. You Can Use This API To Create Or Update A Guest Configuration, And Get Information About The Compliance Details Of A Virtual Machine. The Details Include Specific Settings That Arent Compliant With The Assigned Configuration.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Guest Configuration Definitions In Azure Policy Allow You To Validate Settings I
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Policy Guest Configuration</td></tr>
 <tr><td><b>Description</b></td><td>Guest Configuration Definitions In Azure Policy Allow You To Validate Settings Inside Virtual Machines. This Validation Includes The Configuration Of The Operating System, Applications, Or Even Environmental Data. You Can Use This API To Create Or Update A Guest Configuration, And Get Information About The Compliance Details Of A Virtual Machine. The Details Include Specific Settings That Arent Compliant With The Assigned Configuration.</td></tr>
-<tr><td><b>Id</b></td><td><code>guest_configuration:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>guest_configuration:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

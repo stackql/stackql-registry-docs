@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>labeling_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ml_services.labeling_jobs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ml_services.labeling_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `id, resourceGroupName, subscriptionId, workspaceName` |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` |
-| `create_or_update` | `INSERT` | `id, resourceGroupName, subscriptionId, workspaceName, data__properties` |
-| `delete` | `DELETE` | `id, resourceGroupName, subscriptionId, workspaceName` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` |
-| `export_labels` | `EXEC` | `id, resourceGroupName, subscriptionId, workspaceName, data__format` |
-| `pause` | `EXEC` | `id, resourceGroupName, subscriptionId, workspaceName` |
-| `resume` | `EXEC` | `id, resourceGroupName, subscriptionId, workspaceName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="id, resourceGroupName, subscriptionId, workspaceName" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="id, resourceGroupName, subscriptionId, workspaceName, data__properties" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="id, resourceGroupName, subscriptionId, workspaceName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> |
+| <CopyableCode code="export_labels" /> | `EXEC` | <CopyableCode code="id, resourceGroupName, subscriptionId, workspaceName, data__format" /> |
+| <CopyableCode code="pause" /> | `EXEC` | <CopyableCode code="id, resourceGroupName, subscriptionId, workspaceName" /> |
+| <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="id, resourceGroupName, subscriptionId, workspaceName" /> |

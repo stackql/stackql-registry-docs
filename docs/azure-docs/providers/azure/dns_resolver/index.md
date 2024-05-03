@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The DNS Resolver Management Client.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The DNS Resolver Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dns Resolver</td></tr>
 <tr><td><b>Description</b></td><td>The DNS Resolver Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>dns_resolver:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dns_resolver:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

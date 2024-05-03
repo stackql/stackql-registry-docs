@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>flow_logs_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.flow_logs_tags</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.flow_logs_tags" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `update` | `EXEC` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="flowLogName, networkWatcherName, resourceGroupName, subscriptionId" /> |

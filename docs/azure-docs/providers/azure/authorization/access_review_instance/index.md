@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_review_instance</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.access_review_instance</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.access_review_instance" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,8 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `accept_recommendations` | `EXEC` | `id, scheduleDefinitionId` | An action to accept recommendations for decision in an access review instance. |
-| `apply_decisions` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to apply all decisions for an access review instance. |
-| `reset_decisions` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to reset all decisions for an access review instance. |
-| `send_reminders` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to send reminders for an access review instance. |
-| `stop` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to stop an access review instance. |
+| <CopyableCode code="accept_recommendations" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId" /> | An action to accept recommendations for decision in an access review instance. |
+| <CopyableCode code="apply_decisions" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, subscriptionId" /> | An action to apply all decisions for an access review instance. |
+| <CopyableCode code="reset_decisions" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, subscriptionId" /> | An action to reset all decisions for an access review instance. |
+| <CopyableCode code="send_reminders" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, subscriptionId" /> | An action to send reminders for an access review instance. |
+| <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, subscriptionId" /> | An action to stop an access review instance. |

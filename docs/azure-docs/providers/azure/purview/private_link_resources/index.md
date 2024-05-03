@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.purview.private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.purview.private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The private link resource identifier. |
-| `name` | `string` | The private link resource name. |
-| `properties` | `object` | A privately linkable resource properties. |
-| `type` | `string` | The private link resource type. |
+| <CopyableCode code="id" /> | `string` | The private link resource identifier. |
+| <CopyableCode code="name" /> | `string` | The private link resource name. |
+| <CopyableCode code="properties" /> | `object` | A privately linkable resource properties. |
+| <CopyableCode code="type" /> | `string` | The private link resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_account` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Gets a list of privately linkable resources for an account |
-| `_list_by_account` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Gets a list of privately linkable resources for an account |
-| `get_by_group_id` | `EXEC` | `accountName, api-version, groupId, resourceGroupName, subscriptionId` | Gets a privately linkable resources for an account with given group identifier |
+| <CopyableCode code="list_by_account" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> | Gets a list of privately linkable resources for an account |
+| <CopyableCode code="_list_by_account" /> | `EXEC` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> | Gets a list of privately linkable resources for an account |
+| <CopyableCode code="get_by_group_id" /> | `EXEC` | <CopyableCode code="accountName, api-version, groupId, resourceGroupName, subscriptionId" /> | Gets a privately linkable resources for an account with given group identifier |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Front Door Service Enables You To Define, Manage, And Monitor The Global Routing For Your Web Traffic By Optimizing For Best Performance And Instant Global Failover For High Availability. With Front Door, You Can Transform Your Global (Multi-Region) Consumer And Enterprise Applications Into Robust, High-Performance Personalized Modern Applications, APIs, And Content That Reach A Global Audience With Azure.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Front Door Service Enables You To Define, Manage, And Monitor The Global R
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Front Door Service</td></tr>
 <tr><td><b>Description</b></td><td>Azure Front Door Service Enables You To Define, Manage, And Monitor The Global Routing For Your Web Traffic By Optimizing For Best Performance And Instant Global Failover For High Availability. With Front Door, You Can Transform Your Global (Multi-Region) Consumer And Enterprise Applications Into Robust, High-Performance Personalized Modern Applications, APIs, And Content That Reach A Global Audience With Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>front_door:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>front_door:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

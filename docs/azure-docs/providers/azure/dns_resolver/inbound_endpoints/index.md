@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inbound_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dns_resolver.inbound_endpoints</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dns_resolver.inbound_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | ETag of the inbound endpoint. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Represents the properties of an inbound endpoint for a DNS resolver. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | ETag of the inbound endpoint. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Represents the properties of an inbound endpoint for a DNS resolver. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId` | Gets properties of an inbound endpoint for a DNS resolver. |
-| `list` | `SELECT` | `dnsResolverName, resourceGroupName, subscriptionId` | Lists inbound endpoints for a DNS resolver. |
-| `create_or_update` | `INSERT` | `dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an inbound endpoint for a DNS resolver. |
-| `delete` | `DELETE` | `dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId` | Deletes an inbound endpoint for a DNS resolver. WARNING: This operation cannot be undone. |
-| `_list` | `EXEC` | `dnsResolverName, resourceGroupName, subscriptionId` | Lists inbound endpoints for a DNS resolver. |
-| `update` | `EXEC` | `dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId` | Updates an inbound endpoint for a DNS resolver. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId" /> | Gets properties of an inbound endpoint for a DNS resolver. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="dnsResolverName, resourceGroupName, subscriptionId" /> | Lists inbound endpoints for a DNS resolver. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId, data__properties" /> | Creates or updates an inbound endpoint for a DNS resolver. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId" /> | Deletes an inbound endpoint for a DNS resolver. WARNING: This operation cannot be undone. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="dnsResolverName, resourceGroupName, subscriptionId" /> | Lists inbound endpoints for a DNS resolver. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="dnsResolverName, inboundEndpointName, resourceGroupName, subscriptionId" /> | Updates an inbound endpoint for a DNS resolver. |

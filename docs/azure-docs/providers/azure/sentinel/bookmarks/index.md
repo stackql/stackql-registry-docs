@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bookmarks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sentinel.bookmarks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sentinel.bookmarks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Etag of the azure resource |
-| `properties` | `object` | Describes bookmark properties |
+| <CopyableCode code="etag" /> | `string` | Etag of the azure resource |
+| <CopyableCode code="properties" /> | `object` | Describes bookmark properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `bookmarkId, resourceGroupName, subscriptionId, workspaceName` | Gets a bookmark. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets all bookmarks. |
-| `create_or_update` | `INSERT` | `bookmarkId, resourceGroupName, subscriptionId, workspaceName` | Creates or updates the bookmark. |
-| `delete` | `DELETE` | `bookmarkId, resourceGroupName, subscriptionId, workspaceName` | Delete the bookmark. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Gets all bookmarks. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="bookmarkId, resourceGroupName, subscriptionId, workspaceName" /> | Gets a bookmark. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all bookmarks. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="bookmarkId, resourceGroupName, subscriptionId, workspaceName" /> | Creates or updates the bookmark. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bookmarkId, resourceGroupName, subscriptionId, workspaceName" /> | Delete the bookmark. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all bookmarks. |

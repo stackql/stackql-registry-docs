@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>node_type_skus</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_fabric_managed_clusters.node_type_skus</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_fabric_managed_clusters.node_type_skus" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `capacity` | `object` | Provides information about how node type can be scaled. |
-| `resourceType` | `string` | The type of resource the sku applies to.  &lt;br /&gt;&lt;br /&gt;Value: Microsoft.ServiceFabric/managedClusters/nodeTypes. |
-| `sku` | `object` | Describes a node type supported sku. |
+| <CopyableCode code="capacity" /> | `object` | Provides information about how node type can be scaled. |
+| <CopyableCode code="resourceType" /> | `string` | The type of resource the sku applies to.  &lt;br /&gt;&lt;br /&gt;Value: Microsoft.ServiceFabric/managedClusters/nodeTypes. |
+| <CopyableCode code="sku" /> | `object` | Describes a node type supported sku. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId" /> |

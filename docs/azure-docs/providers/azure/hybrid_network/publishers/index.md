@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>publishers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_network.publishers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_network.publishers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | publisher properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | publisher properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `publisherName, resourceGroupName, subscriptionId` | Gets information about the specified publisher. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the publishers in a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all the publishers in a subscription. |
-| `create_or_update` | `INSERT` | `publisherName, resourceGroupName, subscriptionId` | Creates or updates a publisher. |
-| `delete` | `DELETE` | `publisherName, resourceGroupName, subscriptionId` | Deletes the specified publisher. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the publishers in a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all the publishers in a subscription. |
-| `update` | `EXEC` | `publisherName, resourceGroupName, subscriptionId` | Update a publisher resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="publisherName, resourceGroupName, subscriptionId" /> | Gets information about the specified publisher. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the publishers in a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all the publishers in a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="publisherName, resourceGroupName, subscriptionId" /> | Creates or updates a publisher. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="publisherName, resourceGroupName, subscriptionId" /> | Deletes the specified publisher. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the publishers in a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all the publishers in a subscription. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="publisherName, resourceGroupName, subscriptionId" /> | Update a publisher resource. |

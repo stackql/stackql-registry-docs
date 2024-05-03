@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scope_access_review_instance</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.scope_access_review_instance</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.scope_access_review_instance" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,8 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `apply_decisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to apply all decisions for an access review instance. |
-| `record_all_decisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to approve/deny all decisions for a review with certain filters. |
-| `reset_decisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to reset all decisions for an access review instance. |
-| `send_reminders` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to send reminders for an access review instance. |
-| `stop` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to stop an access review instance. |
+| <CopyableCode code="apply_decisions" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, scope" /> | An action to apply all decisions for an access review instance. |
+| <CopyableCode code="record_all_decisions" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, scope" /> | An action to approve/deny all decisions for a review with certain filters. |
+| <CopyableCode code="reset_decisions" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, scope" /> | An action to reset all decisions for an access review instance. |
+| <CopyableCode code="send_reminders" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, scope" /> | An action to send reminders for an access review instance. |
+| <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, scope" /> | An action to stop an access review instance. |

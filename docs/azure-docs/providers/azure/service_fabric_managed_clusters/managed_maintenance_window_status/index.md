@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_maintenance_window_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_fabric_managed_clusters.managed_maintenance_window_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_fabric_managed_clusters.managed_maintenance_window_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `canApplyUpdates` | `boolean` | If updates can be applied. |
-| `isRegionReady` | `boolean` | Indicates if the region is ready to configure maintenance windows. |
-| `isWindowActive` | `boolean` | If maintenance window is active. |
-| `isWindowEnabled` | `boolean` | If maintenance window is enabled on this cluster. |
-| `lastWindowEndTimeUTC` | `string` | Last window end time in UTC. |
-| `lastWindowStartTimeUTC` | `string` | Last window start time in UTC. |
-| `lastWindowStatusUpdateAtUTC` | `string` | Last window update time in UTC. |
+| <CopyableCode code="canApplyUpdates" /> | `boolean` | If updates can be applied. |
+| <CopyableCode code="isRegionReady" /> | `boolean` | Indicates if the region is ready to configure maintenance windows. |
+| <CopyableCode code="isWindowActive" /> | `boolean` | If maintenance window is active. |
+| <CopyableCode code="isWindowEnabled" /> | `boolean` | If maintenance window is enabled on this cluster. |
+| <CopyableCode code="lastWindowEndTimeUTC" /> | `string` | Last window end time in UTC. |
+| <CopyableCode code="lastWindowStartTimeUTC" /> | `string` | Last window start time in UTC. |
+| <CopyableCode code="lastWindowStatusUpdateAtUTC" /> | `string` | Last window update time in UTC. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, clusterName, resourceGroupName, subscriptionId" /> |

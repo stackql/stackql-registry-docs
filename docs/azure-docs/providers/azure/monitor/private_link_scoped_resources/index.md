@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_scoped_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.monitor.private_link_scoped_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.monitor.private_link_scoped_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of a private link scoped resource. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of a private link scoped resource. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `name, resourceGroupName, scopeName, subscriptionId` | Gets a scoped resource in a private link scope. |
-| `list_by_private_link_scope` | `SELECT` | `resourceGroupName, scopeName, subscriptionId` | Gets all private endpoint connections on a private link scope. |
-| `create_or_update` | `INSERT` | `name, resourceGroupName, scopeName, subscriptionId` | Approve or reject a private endpoint connection with a given name. |
-| `delete` | `DELETE` | `name, resourceGroupName, scopeName, subscriptionId` | Deletes a private endpoint connection with a given name. |
-| `_list_by_private_link_scope` | `EXEC` | `resourceGroupName, scopeName, subscriptionId` | Gets all private endpoint connections on a private link scope. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, scopeName, subscriptionId" /> | Gets a scoped resource in a private link scope. |
+| <CopyableCode code="list_by_private_link_scope" /> | `SELECT` | <CopyableCode code="resourceGroupName, scopeName, subscriptionId" /> | Gets all private endpoint connections on a private link scope. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="name, resourceGroupName, scopeName, subscriptionId" /> | Approve or reject a private endpoint connection with a given name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="name, resourceGroupName, scopeName, subscriptionId" /> | Deletes a private endpoint connection with a given name. |
+| <CopyableCode code="_list_by_private_link_scope" /> | `EXEC` | <CopyableCode code="resourceGroupName, scopeName, subscriptionId" /> | Gets all private endpoint connections on a private link scope. |

@@ -14,37 +14,40 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.jobs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` | The complex type of the extended location. |
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Container Apps Job resource specific properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="extendedLocation" /> | `object` | The complex type of the extended location. |
+| <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Container Apps Job resource specific properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `jobName, resourceGroupName, subscriptionId` |  |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` |  |
-| `list_by_subscription` | `SELECT` | `subscriptionId` |  |
-| `create_or_update` | `INSERT` | `jobName, resourceGroupName, subscriptionId` | Create or Update a Container Apps Job. |
-| `delete` | `DELETE` | `jobName, resourceGroupName, subscriptionId` | Delete a Container Apps Job. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` |  |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` |  |
-| `jobs` | `EXEC` | `jobExecutionName, jobName, resourceGroupName, subscriptionId` |  |
-| `proxy_get` | `EXEC` | `apiName, jobName, resourceGroupName, subscriptionId` | Get the properties of a Container App Job. |
-| `start` | `EXEC` | `jobName, resourceGroupName, subscriptionId` |  |
-| `stop_execution` | `EXEC` | `jobExecutionName, jobName, resourceGroupName, subscriptionId` |  |
-| `stop_multiple_executions` | `EXEC` | `jobName, resourceGroupName, subscriptionId` |  |
-| `update` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Patches a Container Apps Job using JSON Merge Patch |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="jobName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="jobName, resourceGroupName, subscriptionId" /> | Create or Update a Container Apps Job. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobName, resourceGroupName, subscriptionId" /> | Delete a Container Apps Job. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |  |
+| <CopyableCode code="jobs" /> | `EXEC` | <CopyableCode code="jobExecutionName, jobName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="proxy_get" /> | `EXEC` | <CopyableCode code="apiName, jobName, resourceGroupName, subscriptionId" /> | Get the properties of a Container App Job. |
+| <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="jobName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="stop_execution" /> | `EXEC` | <CopyableCode code="jobExecutionName, jobName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="stop_multiple_executions" /> | `EXEC` | <CopyableCode code="jobName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="jobName, resourceGroupName, subscriptionId" /> | Patches a Container Apps Job using JSON Merge Patch |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure SignalR Service Is A Fully-Managed Service That Allows Developers To Focus On Building Real-Time Web Experiences Without Worrying About Capacity Provisioning, Reliable Connections, Scaling, Encryption Or Authentication.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure SignalR Service Is A Fully-Managed Service That Allows Developers To Focus
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure SignalR Service</td></tr>
 <tr><td><b>Description</b></td><td>Azure SignalR Service Is A Fully-Managed Service That Allows Developers To Focus On Building Real-Time Web Experiences Without Worrying About Capacity Provisioning, Reliable Connections, Scaling, Encryption Or Authentication.</td></tr>
-<tr><td><b>Id</b></td><td><code>signalr:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>signalr:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

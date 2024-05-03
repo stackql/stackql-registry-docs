@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>database_extensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.database_extensions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.database_extensions" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database extension. This will return an empty list as it is not supported. |
-| `create_or_update` | `INSERT` | `databaseName, extensionName, resourceGroupName, serverName, subscriptionId` | Perform a database extension operation, like polybase import |
-| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database extension. This will return an empty list as it is not supported. |
-| `exec_get` | `EXEC` | `databaseName, extensionName, resourceGroupName, serverName, subscriptionId` | Gets a database extension. This will return resource not found as it is not supported. |
+| <CopyableCode code="list_by_database" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | List database extension. This will return an empty list as it is not supported. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="databaseName, extensionName, resourceGroupName, serverName, subscriptionId" /> | Perform a database extension operation, like polybase import |
+| <CopyableCode code="_list_by_database" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | List database extension. This will return an empty list as it is not supported. |
+| <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="databaseName, extensionName, resourceGroupName, serverName, subscriptionId" /> | Gets a database extension. This will return resource not found as it is not supported. |

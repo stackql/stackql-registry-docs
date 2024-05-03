@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services_user_bad_password_report</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ad_hybrid_health_service.services_user_bad_password_report</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ad_hybrid_health_service.services_user_bad_password_report" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ipAddress` | `string` | The IP address corresponding to the last error event. |
-| `lastUpdated` | `string` | The date and time when the last error event was logged. |
-| `totalErrorAttempts` | `integer` | The total count of specific error events. |
-| `uniqueIpAddresses` | `string` | The list of unique IP addresses. |
-| `userId` | `string` | The user ID value. |
+| <CopyableCode code="ipAddress" /> | `string` | The IP address corresponding to the last error event. |
+| <CopyableCode code="lastUpdated" /> | `string` | The date and time when the last error event was logged. |
+| <CopyableCode code="totalErrorAttempts" /> | `integer` | The total count of specific error events. |
+| <CopyableCode code="uniqueIpAddresses" /> | `string` | The list of unique IP addresses. |
+| <CopyableCode code="userId" /> | `string` | The user ID value. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `serviceName` |
-| `_list` | `EXEC` | `serviceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="serviceName" /> |

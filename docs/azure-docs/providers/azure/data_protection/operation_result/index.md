@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation_result</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_protection.operation_result</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_protection.operation_result" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `jobId` | `string` | Name or Arm Id of the job created for this operation. |
-| `objectType` | `string` | This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types. |
+| <CopyableCode code="jobId" /> | `string` | Name or Arm Id of the job created for this operation. |
+| <CopyableCode code="objectType" /> | `string` | This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `location, operationId, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, operationId, subscriptionId" /> |

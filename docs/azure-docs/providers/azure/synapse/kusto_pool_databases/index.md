@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>kusto_pool_databases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.kusto_pool_databases</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.kusto_pool_databases" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind of the database |
-| `location` | `string` | Resource location. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="kind" /> | `string` | Kind of the database |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns a database. |
-| `list_by_kusto_pool` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of databases of the given Kusto pool. |
-| `create_or_update` | `INSERT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Creates or updates a database. |
-| `delete` | `DELETE` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Deletes the database with the given name. |
-| `_list_by_kusto_pool` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of databases of the given Kusto pool. |
-| `update` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Updates a database. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> | Returns a database. |
+| <CopyableCode code="list_by_kusto_pool" /> | `SELECT` | <CopyableCode code="kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> | Returns the list of databases of the given Kusto pool. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind" /> | Creates or updates a database. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> | Deletes the database with the given name. |
+| <CopyableCode code="_list_by_kusto_pool" /> | `EXEC` | <CopyableCode code="kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> | Returns the list of databases of the given Kusto pool. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind" /> | Updates a database. |

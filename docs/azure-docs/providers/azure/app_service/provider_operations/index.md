@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provider_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.provider_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.provider_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` |  |
-| `display` | `object` | Meta data about operation used for display in portal. |
-| `isDataAction` | `boolean` |  |
-| `origin` | `string` |  |
-| `properties` | `object` | Properties available for a Microsoft.Web resource provider operation. |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="display" /> | `object` | Meta data about operation used for display in portal. |
+| <CopyableCode code="isDataAction" /> | `boolean` |  |
+| <CopyableCode code="origin" /> | `string` |  |
+| <CopyableCode code="properties" /> | `object` | Properties available for a Microsoft.Web resource provider operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

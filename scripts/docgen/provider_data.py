@@ -176,11 +176,11 @@ provider_data = {
       'description': 'Authentication and authorization services.',
       'image': '/img/providers/okta/stackql-okta-provider-featured-image.png' 
   },
-  'aws': {
-      'meta_description': 'Query, deploy and manage AWS resources using SQL',
-      'description': 'Cloud services by AWS.',
-      'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
-  },
+  # 'aws': {
+  #     'meta_description': 'Query, deploy and manage AWS resources using SQL',
+  #     'description': 'Cloud services by AWS.',
+  #     'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
+  # },
   'azure': {
       'meta_description': 'Query, deploy and manage Azure resources using SQL',
       'description': 'Cloud computing services operated by Microsoft.',

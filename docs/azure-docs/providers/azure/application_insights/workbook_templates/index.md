@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workbook_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.application_insights.workbook_templates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.application_insights.workbook_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Azure resource Id |
-| `name` | `string` | Azure resource name. |
-| `location` | `string` | Resource location |
-| `properties` | `object` | Properties that contain a workbook template. |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Azure resource type |
+| <CopyableCode code="id" /> | `string` | Azure resource Id |
+| <CopyableCode code="name" /> | `string` | Azure resource name. |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | Properties that contain a workbook template. |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
+| <CopyableCode code="type" /> | `string` | Azure resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Get a single workbook template by its resourceName. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Get all Workbook templates defined within a specified resource group. |
-| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a new workbook template. |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Delete a workbook template. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Get all Workbook templates defined within a specified resource group. |
-| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates a workbook template that has already been added. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Get a single workbook template by its resourceName. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get all Workbook templates defined within a specified resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Create a new workbook template. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Delete a workbook template. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get all Workbook templates defined within a specified resource group. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Updates a workbook template that has already been added. |

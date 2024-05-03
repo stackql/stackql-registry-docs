@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>prometheus_rule_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.alerts_management.prometheus_rule_groups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.alerts_management.prometheus_rule_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | An Azure Prometheus rule group. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | An Azure Prometheus rule group. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, ruleGroupName, subscriptionId` | Retrieve a Prometheus rule group definition. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieve Prometheus rule group definitions in a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieve Prometheus all rule group definitions in a subscription. |
-| `create_or_update` | `INSERT` | `resourceGroupName, ruleGroupName, subscriptionId, data__properties` | Create or update a Prometheus rule group definition. |
-| `delete` | `DELETE` | `resourceGroupName, ruleGroupName, subscriptionId` | Delete a Prometheus rule group definition. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Retrieve Prometheus rule group definitions in a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieve Prometheus all rule group definitions in a subscription. |
-| `update` | `EXEC` | `resourceGroupName, ruleGroupName, subscriptionId` | Update an Prometheus rule group definition. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, ruleGroupName, subscriptionId" /> | Retrieve a Prometheus rule group definition. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieve Prometheus rule group definitions in a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Retrieve Prometheus all rule group definitions in a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, ruleGroupName, subscriptionId, data__properties" /> | Create or update a Prometheus rule group definition. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, ruleGroupName, subscriptionId" /> | Delete a Prometheus rule group definition. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieve Prometheus rule group definitions in a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Retrieve Prometheus all rule group definitions in a subscription. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, ruleGroupName, subscriptionId" /> | Update an Prometheus rule group definition. |

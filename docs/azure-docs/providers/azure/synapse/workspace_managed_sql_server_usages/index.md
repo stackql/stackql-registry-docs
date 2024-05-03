@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspace_managed_sql_server_usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.workspace_managed_sql_server_usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.workspace_managed_sql_server_usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the server usage metric. |
-| `currentValue` | `number` | The current value of the metric. |
-| `displayName` | `string` | The metric display name. |
-| `limit` | `number` | The current limit of the metric. |
-| `nextResetTime` | `string` | The next reset time for the metric (ISO8601 format). |
-| `resourceName` | `string` | The name of the resource. |
-| `unit` | `string` | The units of the metric. |
+| <CopyableCode code="name" /> | `string` | Name of the server usage metric. |
+| <CopyableCode code="currentValue" /> | `number` | The current value of the metric. |
+| <CopyableCode code="displayName" /> | `string` | The metric display name. |
+| <CopyableCode code="limit" /> | `number` | The current limit of the metric. |
+| <CopyableCode code="nextResetTime" /> | `string` | The next reset time for the metric (ISO8601 format). |
+| <CopyableCode code="resourceName" /> | `string` | The name of the resource. |
+| <CopyableCode code="unit" /> | `string` | The units of the metric. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> |

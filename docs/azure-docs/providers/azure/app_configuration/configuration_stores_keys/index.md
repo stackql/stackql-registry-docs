@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>configuration_stores_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_configuration.configuration_stores_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_configuration.configuration_stores_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The URI that can be used to request the next set of paged results. |
-| `value` | `array` | The collection value. |
+| <CopyableCode code="nextLink" /> | `string` | The URI that can be used to request the next set of paged results. |
+| <CopyableCode code="value" /> | `array` | The collection value. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `configStoreName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="configStoreName, resourceGroupName, subscriptionId" /> |

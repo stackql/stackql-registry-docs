@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>serial_console</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.serial_console.serial_console</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.serial_console.serial_console" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `_serial_console` | `EXEC` |  | Gets a list of Serial Console API operations. |
-| `serial_console` | `EXEC` | `default, subscriptionId` | Enables the Serial Console service for all VMs and VM scale sets in the provided subscription |
+| <CopyableCode code="_serial_console" /> | `EXEC` |  | Gets a list of Serial Console API operations. |
+| <CopyableCode code="serial_console" /> | `EXEC` | <CopyableCode code="default, subscriptionId" /> | Enables the Serial Console service for all VMs and VM scale sets in the provided subscription |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Monitor Operations Manager Managed Instance (SCOM MI) Management APIs  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Monitor Operations Manager Managed Instance (SCOM MI) Management APIs
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure API For Managing SCOM Managed Instances And Monitored Resources.</td></tr>
 <tr><td><b>Description</b></td><td>Azure Monitor Operations Manager Managed Instance (SCOM MI) Management APIs</td></tr>
-<tr><td><b>Id</b></td><td><code>scom:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>scom:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

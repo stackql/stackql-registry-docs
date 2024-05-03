@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_apps_function_secret</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.web_apps_function_secret</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.web_apps_function_secret" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create_or_update` | `INSERT` | `functionName, keyName, name, resourceGroupName, subscriptionId` | Description for Add or update a function secret. |
-| `delete` | `DELETE` | `functionName, keyName, name, resourceGroupName, subscriptionId` | Description for Delete a function secret. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="functionName, keyName, name, resourceGroupName, subscriptionId" /> | Description for Add or update a function secret. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="functionName, keyName, name, resourceGroupName, subscriptionId" /> | Description for Delete a function secret. |

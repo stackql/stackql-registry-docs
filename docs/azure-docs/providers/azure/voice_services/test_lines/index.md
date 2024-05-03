@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>test_lines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.voice_services.test_lines</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.voice_services.test_lines" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Details of the TestLine resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Details of the TestLine resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `communicationsGatewayName, resourceGroupName, subscriptionId, testLineName` | Get a TestLine |
-| `list_by_communications_gateway` | `SELECT` | `communicationsGatewayName, resourceGroupName, subscriptionId` | List TestLine resources by CommunicationsGateway |
-| `create_or_update` | `INSERT` | `communicationsGatewayName, resourceGroupName, subscriptionId, testLineName` | Create a TestLine |
-| `delete` | `DELETE` | `communicationsGatewayName, resourceGroupName, subscriptionId, testLineName` | Delete a TestLine |
-| `_list_by_communications_gateway` | `EXEC` | `communicationsGatewayName, resourceGroupName, subscriptionId` | List TestLine resources by CommunicationsGateway |
-| `update` | `EXEC` | `communicationsGatewayName, resourceGroupName, subscriptionId, testLineName` | Update a TestLine |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="communicationsGatewayName, resourceGroupName, subscriptionId, testLineName" /> | Get a TestLine |
+| <CopyableCode code="list_by_communications_gateway" /> | `SELECT` | <CopyableCode code="communicationsGatewayName, resourceGroupName, subscriptionId" /> | List TestLine resources by CommunicationsGateway |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="communicationsGatewayName, resourceGroupName, subscriptionId, testLineName" /> | Create a TestLine |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="communicationsGatewayName, resourceGroupName, subscriptionId, testLineName" /> | Delete a TestLine |
+| <CopyableCode code="_list_by_communications_gateway" /> | `EXEC` | <CopyableCode code="communicationsGatewayName, resourceGroupName, subscriptionId" /> | List TestLine resources by CommunicationsGateway |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="communicationsGatewayName, resourceGroupName, subscriptionId, testLineName" /> | Update a TestLine |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorization_provider</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.authorization_provider</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.authorization_provider" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `authorizationProviderId, resourceGroupName, serviceName, subscriptionId` | Gets the details of the authorization provider specified by its identifier. |
-| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of authorization providers defined within a service instance. |
-| `create_or_update` | `INSERT` | `authorizationProviderId, resourceGroupName, serviceName, subscriptionId` | Creates or updates authorization provider. |
-| `delete` | `DELETE` | `If-Match, authorizationProviderId, resourceGroupName, serviceName, subscriptionId` | Deletes specific authorization provider from the API Management service instance. |
-| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of authorization providers defined within a service instance. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="authorizationProviderId, resourceGroupName, serviceName, subscriptionId" /> | Gets the details of the authorization provider specified by its identifier. |
+| <CopyableCode code="list_by_service" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | Lists a collection of authorization providers defined within a service instance. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="authorizationProviderId, resourceGroupName, serviceName, subscriptionId" /> | Creates or updates authorization provider. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="If-Match, authorizationProviderId, resourceGroupName, serviceName, subscriptionId" /> | Deletes specific authorization provider from the API Management service instance. |
+| <CopyableCode code="_list_by_service" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | Lists a collection of authorization providers defined within a service instance. |

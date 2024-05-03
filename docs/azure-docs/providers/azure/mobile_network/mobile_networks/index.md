@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mobile_networks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.mobile_network.mobile_networks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.mobile_network.mobile_networks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Mobile network properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Mobile network properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `mobileNetworkName, resourceGroupName, subscriptionId` | Gets information about the specified mobile network. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the mobile networks in a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all the mobile networks in a subscription. |
-| `create_or_update` | `INSERT` | `mobileNetworkName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a mobile network. |
-| `delete` | `DELETE` | `mobileNetworkName, resourceGroupName, subscriptionId` | Deletes the specified mobile network. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the mobile networks in a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all the mobile networks in a subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="mobileNetworkName, resourceGroupName, subscriptionId" /> | Gets information about the specified mobile network. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the mobile networks in a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all the mobile networks in a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="mobileNetworkName, resourceGroupName, subscriptionId, data__properties" /> | Creates or updates a mobile network. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="mobileNetworkName, resourceGroupName, subscriptionId" /> | Deletes the specified mobile network. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all the mobile networks in a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all the mobile networks in a subscription. |

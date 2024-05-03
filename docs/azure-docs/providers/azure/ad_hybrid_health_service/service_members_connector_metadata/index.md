@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_members_connector_metadata</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ad_hybrid_health_service.service_members_connector_metadata</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ad_hybrid_health_service.service_members_connector_metadata" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `connectors` | `array` | The list of connectors. |
-| `runProfileNames` | `array` | The list of run profile names. |
+| <CopyableCode code="connectors" /> | `array` | The list of connectors. |
+| <CopyableCode code="runProfileNames" /> | `array` | The list of run profile names. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `metricName, serviceMemberId, serviceName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="metricName, serviceMemberId, serviceName" /> |

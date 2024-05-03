@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hdinsight.locations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hdinsight.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `check_name_availability` | `EXEC` | `location, subscriptionId` | Check the cluster name is available or not. |
-| `validate_cluster_create_request` | `EXEC` | `location, subscriptionId` | Validate the cluster create request spec is valid or not. |
+| <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Check the cluster name is available or not. |
+| <CopyableCode code="validate_cluster_create_request" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Validate the cluster create request spec is valid or not. |

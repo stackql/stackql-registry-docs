@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.spring_apps.certificates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.spring_apps.certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `certificateName, resourceGroupName, serviceName, subscriptionId` | Get the certificate resource. |
-| `list` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | List all the certificates of one user. |
-| `create_or_update` | `INSERT` | `certificateName, resourceGroupName, serviceName, subscriptionId` | Create or update certificate resource. |
-| `delete` | `DELETE` | `certificateName, resourceGroupName, serviceName, subscriptionId` | Delete the certificate resource. |
-| `_list` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | List all the certificates of one user. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="certificateName, resourceGroupName, serviceName, subscriptionId" /> | Get the certificate resource. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | List all the certificates of one user. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="certificateName, resourceGroupName, serviceName, subscriptionId" /> | Create or update certificate resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateName, resourceGroupName, serviceName, subscriptionId" /> | Delete the certificate resource. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | List all the certificates of one user. |

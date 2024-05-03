@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_maps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.route_maps</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.route_maps" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `properties` | `object` | Properties of RouteMap resource |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="properties" /> | `object` | Properties of RouteMap resource |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Retrieves the details of a RouteMap. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteMaps. |
-| `create_or_update` | `INSERT` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Creates a RouteMap if it doesn't exist else updates the existing one. |
-| `delete` | `DELETE` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Deletes a RouteMap. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteMaps. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, routeMapName, subscriptionId, virtualHubName" /> | Retrieves the details of a RouteMap. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualHubName" /> | Retrieves the details of all RouteMaps. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, routeMapName, subscriptionId, virtualHubName" /> | Creates a RouteMap if it doesn't exist else updates the existing one. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, routeMapName, subscriptionId, virtualHubName" /> | Deletes a RouteMap. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, virtualHubName" /> | Retrieves the details of all RouteMaps. |
