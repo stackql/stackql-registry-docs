@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>kubernetes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.one_click_applications.kubernetes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.one_click_applications.kubernetes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `oneClicks_install_kubernetes` | `EXEC` | `data__addon_slugs, data__cluster_uuid` |
+| <CopyableCode code="oneClicks_install_kubernetes" /> | `EXEC` | <CopyableCode code="data__addon_slugs, data__cluster_uuid" /> |

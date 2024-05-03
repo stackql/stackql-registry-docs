@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>search</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.slos.search</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.slos.search" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `slosSearch` | `EXEC` | `query, region` |
+| <CopyableCode code="slosSearch" /> | `EXEC` | <CopyableCode code="query, region" /> |

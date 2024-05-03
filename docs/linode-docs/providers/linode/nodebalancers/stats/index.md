@@ -14,23 +14,26 @@ description: Query, deploy and manage Linode resources using SQL
 custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stats</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>linode.nodebalancers.stats</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="linode.nodebalancers.stats" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `connections` | `array` | An array of key/value pairs representing unix timestamp and reading for connections to this NodeBalancer.<br /> |
-| `traffic` | `object` | Traffic statistics for this NodeBalancer.<br /> |
+| <CopyableCode code="connections" /> | `array` | An array of key/value pairs representing unix timestamp and reading for connections to this NodeBalancer.<br /> |
+| <CopyableCode code="traffic" /> | `object` | Traffic statistics for this NodeBalancer.<br /> |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_nodebalancers__nodeBalancerId_stats` | `SELECT` | `nodeBalancerId` |
-| `_get_nodebalancers__nodeBalancerId_stats` | `EXEC` | `nodeBalancerId` |
+| <CopyableCode code="get_nodebalancers__nodeBalancerId_stats" /> | `SELECT` | <CopyableCode code="nodeBalancerId" /> |
+| <CopyableCode code="_get_nodebalancers__nodeBalancerId_stats" /> | `EXEC` | <CopyableCode code="nodeBalancerId" /> |

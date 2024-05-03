@@ -14,29 +14,32 @@ description: Query, deploy and manage Linode resources using SQL
 custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>linode.instances.backups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="linode.instances.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `snapshot` | `object` |
-| `automatic` | `array` |
+| <CopyableCode code="automatic" /> | `array` |
+| <CopyableCode code="snapshot" /> | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getBackup` | `SELECT` | `backupId, linodeId` | Returns information about a Backup.<br /> |
-| `getBackups` | `SELECT` | `linodeId` | Returns information about this Linode's available backups.<br /> |
-| `createSnapshot` | `INSERT` | `linodeId, data__label` | Creates a snapshot Backup of a Linode.<br /><br />**Important:** If you already have a snapshot of this Linode, this is a destructive<br />action. The previous snapshot will be deleted.<br /> |
-| `_getBackup` | `EXEC` | `backupId, linodeId` | Returns information about a Backup.<br /> |
-| `_getBackups` | `EXEC` | `linodeId` | Returns information about this Linode's available backups.<br /> |
-| `cancelBackups` | `EXEC` | `linodeId` | Cancels the Backup service on the given Linode. Deletes all of this Linode's existing backups forever.<br /> |
-| `enableBackups` | `EXEC` | `linodeId` | Enables backups for the specified Linode.<br /> |
-| `restoreBackup` | `EXEC` | `backupId, linodeId, data__linode_id` | Restores a Linode's Backup to the specified Linode.<br /> |
+| <CopyableCode code="getBackup" /> | `SELECT` | <CopyableCode code="backupId, linodeId" /> | Returns information about a Backup.<br /> |
+| <CopyableCode code="getBackups" /> | `SELECT` | <CopyableCode code="linodeId" /> | Returns information about this Linode's available backups.<br /> |
+| <CopyableCode code="createSnapshot" /> | `INSERT` | <CopyableCode code="linodeId, data__label" /> | Creates a snapshot Backup of a Linode.<br /><br />**Important:** If you already have a snapshot of this Linode, this is a destructive<br />action. The previous snapshot will be deleted.<br /> |
+| <CopyableCode code="_getBackup" /> | `EXEC` | <CopyableCode code="backupId, linodeId" /> | Returns information about a Backup.<br /> |
+| <CopyableCode code="_getBackups" /> | `EXEC` | <CopyableCode code="linodeId" /> | Returns information about this Linode's available backups.<br /> |
+| <CopyableCode code="cancelBackups" /> | `EXEC` | <CopyableCode code="linodeId" /> | Cancels the Backup service on the given Linode. Deletes all of this Linode's existing backups forever.<br /> |
+| <CopyableCode code="enableBackups" /> | `EXEC` | <CopyableCode code="linodeId" /> | Enables backups for the specified Linode.<br /> |
+| <CopyableCode code="restoreBackup" /> | `EXEC` | <CopyableCode code="backupId, linodeId, data__linode_id" /> | Restores a Linode's Backup to the specified Linode.<br /> |

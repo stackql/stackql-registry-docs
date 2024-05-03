@@ -14,23 +14,26 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pending_update_request</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.plan.pending_update_request</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.plan.pending_update_request" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `createdOn` | `string` | The date on which the update request was created. |
-| `plan` | `object` | Current plan of the account. |
+| <CopyableCode code="createdOn" /> | `string` | The date on which the update request was created. |
+| <CopyableCode code="plan" /> | `object` | Current plan of the account. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getPendingUpdateRequest` | `SELECT` | `region` | Get the pending plan update request which will be applicable from next billing cycle. |
-| `deletePendingUpdateRequest` | `DELETE` | `region` | Delete the pending plan update request which would be applicable from next billing cycle. |
+| <CopyableCode code="getPendingUpdateRequest" /> | `SELECT` | <CopyableCode code="region" /> | Get the pending plan update request which will be applicable from next billing cycle. |
+| <CopyableCode code="deletePendingUpdateRequest" /> | `DELETE` | <CopyableCode code="region" /> | Delete the pending plan update request which would be applicable from next billing cycle. |

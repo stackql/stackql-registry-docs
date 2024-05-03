@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delete</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.content.delete</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.content.delete" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `beginAsyncDelete` | `EXEC` | `id, region` |
+| <CopyableCode code="beginAsyncDelete" /> | `EXEC` | <CopyableCode code="id, region" /> |

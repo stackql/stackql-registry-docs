@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>install</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.apps.install</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.apps.install" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `installApp` | `EXEC` | `uuid, data__description, data__destinationFolderId, data__name, region` |
+| <CopyableCode code="installApp" /> | `EXEC` | <CopyableCode code="uuid, data__description, data__destinationFolderId, data__name, region" /> |

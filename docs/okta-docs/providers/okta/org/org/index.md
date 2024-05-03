@@ -14,40 +14,43 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>org</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.org.org</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.org.org" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `subdomain` | `string` |
-| `status` | `string` |
-| `endUserSupportHelpURL` | `string` |
-| `state` | `string` |
-| `address2` | `string` |
-| `created` | `string` |
-| `website` | `string` |
-| `companyName` | `string` |
-| `postalCode` | `string` |
-| `supportPhoneNumber` | `string` |
-| `address1` | `string` |
-| `phoneNumber` | `string` |
-| `country` | `string` |
-| `expiresAt` | `string` |
-| `_links` | `object` |
-| `lastUpdated` | `string` |
-| `city` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="address1" /> | `string` |
+| <CopyableCode code="address2" /> | `string` |
+| <CopyableCode code="city" /> | `string` |
+| <CopyableCode code="companyName" /> | `string` |
+| <CopyableCode code="country" /> | `string` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="endUserSupportHelpURL" /> | `string` |
+| <CopyableCode code="expiresAt" /> | `string` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="phoneNumber" /> | `string` |
+| <CopyableCode code="postalCode" /> | `string` |
+| <CopyableCode code="state" /> | `string` |
+| <CopyableCode code="status" /> | `string` |
+| <CopyableCode code="subdomain" /> | `string` |
+| <CopyableCode code="supportPhoneNumber" /> | `string` |
+| <CopyableCode code="website" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `subdomain` | Get settings of your organization. |
-| `partialUpdate` | `EXEC` | `subdomain` | Partial update settings of your organization. |
-| `update` | `EXEC` | `subdomain` | Update settings of your organization. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="subdomain" /> | Get settings of your organization. |
+| <CopyableCode code="partialUpdate" /> | `EXEC` | <CopyableCode code="subdomain" /> | Partial update settings of your organization. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="subdomain" /> | Update settings of your organization. |

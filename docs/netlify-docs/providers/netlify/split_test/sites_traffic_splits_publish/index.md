@@ -14,14 +14,17 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_traffic_splits_publish</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.split_test.sites_traffic_splits_publish</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.split_test.sites_traffic_splits_publish" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `enableSplitTest` | `EXEC` | `site_id, split_test_id` |
+| <CopyableCode code="enableSplitTest" /> | `EXEC` | <CopyableCode code="site_id, split_test_id" /> |

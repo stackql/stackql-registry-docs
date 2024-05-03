@@ -14,35 +14,38 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.usertype.user</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.usertype.user" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `description` | `string` |
-| `_links` | `object` |
-| `default` | `boolean` |
-| `lastUpdatedBy` | `string` |
-| `createdBy` | `string` |
-| `displayName` | `string` |
-| `lastUpdated` | `string` |
-| `created` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="description" /> | `string` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="createdBy" /> | `string` |
+| <CopyableCode code="default" /> | `boolean` |
+| <CopyableCode code="displayName" /> | `string` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="lastUpdatedBy" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `typeId, subdomain` | Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type. |
-| `list` | `SELECT` | `subdomain` | Fetches all User Types in your org |
-| `insert` | `INSERT` | `subdomain` | Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10. |
-| `delete` | `DELETE` | `typeId, subdomain` | Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users |
-| `partialUpdate` | `EXEC` | `typeId, subdomain` | Updates an existing User Type |
-| `update` | `EXEC` | `typeId, subdomain` | Replace an existing User Type |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="typeId, subdomain" /> | Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subdomain" /> | Fetches all User Types in your org |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="subdomain" /> | Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="typeId, subdomain" /> | Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users |
+| <CopyableCode code="partialUpdate" /> | `EXEC` | <CopyableCode code="typeId, subdomain" /> | Updates an existing User Type |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="typeId, subdomain" /> | Replace an existing User Type |

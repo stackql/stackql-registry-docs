@@ -14,25 +14,28 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clients</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.user.clients</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.user.clients" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `client_uri` | `string` |
-| `logo_uri` | `string` |
-| `_links` | `object` |
-| `client_id` | `string` |
-| `client_name` | `string` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="client_id" /> | `string` |
+| <CopyableCode code="client_name" /> | `string` |
+| <CopyableCode code="client_uri" /> | `string` |
+| <CopyableCode code="logo_uri" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `userId, subdomain` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="userId, subdomain" /> |

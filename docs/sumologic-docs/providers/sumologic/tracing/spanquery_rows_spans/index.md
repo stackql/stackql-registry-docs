@@ -14,22 +14,25 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>spanquery_rows_spans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.tracing.spanquery_rows_spans</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.tracing.spanquery_rows_spans" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `spanPage` | `array` | List of trace spans. |
-| `next` | `string` | Next continuation token. |
+| <CopyableCode code="next" /> | `string` | Next continuation token. |
+| <CopyableCode code="spanPage" /> | `array` | List of trace spans. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSpanQueryResult` | `SELECT` | `queryId, rowId, region` |
+| <CopyableCode code="getSpanQueryResult" /> | `SELECT` | <CopyableCode code="queryId, rowId, region" /> |

@@ -14,43 +14,46 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.collectors.sources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.collectors.sources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `integer` | Source identifer. |
-| `name` | `string` | Source name. |
-| `multilineProcessingEnabled` | `boolean` | Source multilineProcessingEnabled. |
-| `messagePerRequest` | `boolean` | Source messagePerRequest. |
-| `automaticDateParsing` | `boolean` | Source automaticDateParsing. |
-| `fields` | `object` | Source fields. |
-| `pathExpression` | `string` | Source pathExpression. |
-| `hostName` | `string` | Source hostName. |
-| `cutoffTimestamp` | `integer` | Source cutoffTimestamp. |
-| `denylist` | `array` | Source denylist. |
-| `forceTimeZone` | `boolean` | Source forceTimeZone. |
-| `encoding` | `string` | Source encoding. |
-| `sourceType` | `string` | Source sourceType. |
-| `url` | `string` | Source url. |
-| `useAutolineMatching` | `boolean` | Source useAutolineMatching. |
-| `filters` | `array` | Source filters. |
-| `alive` | `boolean` | Source alive. |
-| `category` | `string` | Source category. |
-| `hashAlgorithm` | `string` | Source hashAlgorithm. |
+| <CopyableCode code="id" /> | `integer` | Source identifer. |
+| <CopyableCode code="name" /> | `string` | Source name. |
+| <CopyableCode code="alive" /> | `boolean` | Source alive. |
+| <CopyableCode code="automaticDateParsing" /> | `boolean` | Source automaticDateParsing. |
+| <CopyableCode code="category" /> | `string` | Source category. |
+| <CopyableCode code="cutoffTimestamp" /> | `integer` | Source cutoffTimestamp. |
+| <CopyableCode code="denylist" /> | `array` | Source denylist. |
+| <CopyableCode code="encoding" /> | `string` | Source encoding. |
+| <CopyableCode code="fields" /> | `object` | Source fields. |
+| <CopyableCode code="filters" /> | `array` | Source filters. |
+| <CopyableCode code="forceTimeZone" /> | `boolean` | Source forceTimeZone. |
+| <CopyableCode code="hashAlgorithm" /> | `string` | Source hashAlgorithm. |
+| <CopyableCode code="hostName" /> | `string` | Source hostName. |
+| <CopyableCode code="messagePerRequest" /> | `boolean` | Source messagePerRequest. |
+| <CopyableCode code="multilineProcessingEnabled" /> | `boolean` | Source multilineProcessingEnabled. |
+| <CopyableCode code="pathExpression" /> | `string` | Source pathExpression. |
+| <CopyableCode code="sourceType" /> | `string` | Source sourceType. |
+| <CopyableCode code="url" /> | `string` | Source url. |
+| <CopyableCode code="useAutolineMatching" /> | `boolean` | Source useAutolineMatching. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_source_by_id` | `SELECT` | `collectorId, sourceId, region` | Gets information about a specified Collector and Source. |
-| `list_sources` | `SELECT` | `collectorId, region` | Gets information about all Sources for a specified Collector. |
-| `create_source` | `INSERT` | `collectorId, region` | Creates a new Source for a Collector. See Use JSON to Configure Sources for required fields for the request JSON file. |
-| `delete_source` | `DELETE` | `collectorId, sourceId, region` | Delete Source by ID |
-| `update_source` | `EXEC` | `collectorId, sourceId, region` | Update a source |
+| <CopyableCode code="get_source_by_id" /> | `SELECT` | <CopyableCode code="collectorId, sourceId, region" /> | Gets information about a specified Collector and Source. |
+| <CopyableCode code="list_sources" /> | `SELECT` | <CopyableCode code="collectorId, region" /> | Gets information about all Sources for a specified Collector. |
+| <CopyableCode code="create_source" /> | `INSERT` | <CopyableCode code="collectorId, region" /> | Creates a new Source for a Collector. See Use JSON to Configure Sources for required fields for the request JSON file. |
+| <CopyableCode code="delete_source" /> | `DELETE` | <CopyableCode code="collectorId, sourceId, region" /> | Delete Source by ID |
+| <CopyableCode code="update_source" /> | `EXEC` | <CopyableCode code="collectorId, sourceId, region" /> | Update a source |

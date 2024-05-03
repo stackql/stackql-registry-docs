@@ -14,32 +14,35 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_service_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.service_instance.sites_service_instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.service_instance.sites_service_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `service_name` | `string` |
-| `service_slug` | `string` |
-| `config` | `object` |
-| `url` | `string` |
-| `service_path` | `string` |
-| `updated_at` | `string` |
-| `snippets` | `array` |
-| `env` | `object` |
-| `auth_url` | `string` |
-| `created_at` | `string` |
-| `external_attributes` | `object` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="auth_url" /> | `string` |
+| <CopyableCode code="config" /> | `object` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="env" /> | `object` |
+| <CopyableCode code="external_attributes" /> | `object` |
+| <CopyableCode code="service_name" /> | `string` |
+| <CopyableCode code="service_path" /> | `string` |
+| <CopyableCode code="service_slug" /> | `string` |
+| <CopyableCode code="snippets" /> | `array` |
+| <CopyableCode code="updated_at" /> | `string` |
+| <CopyableCode code="url" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `listServiceInstancesForSite` | `SELECT` | `site_id` |
+| <CopyableCode code="listServiceInstancesForSite" /> | `SELECT` | <CopyableCode code="site_id" /> |

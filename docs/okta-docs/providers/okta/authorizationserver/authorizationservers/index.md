@@ -14,37 +14,40 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorizationservers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.authorizationserver.authorizationservers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.authorizationserver.authorizationservers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `description` | `string` |
-| `issuerMode` | `string` |
-| `_links` | `object` |
-| `lastUpdated` | `string` |
-| `status` | `string` |
-| `created` | `string` |
-| `credentials` | `object` |
-| `audiences` | `array` |
-| `issuer` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="description" /> | `string` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="audiences" /> | `array` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="credentials" /> | `object` |
+| <CopyableCode code="issuer" /> | `string` |
+| <CopyableCode code="issuerMode" /> | `string` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="status" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `authServerId, subdomain` |
-| `list` | `SELECT` | `subdomain` |
-| `insert` | `INSERT` | `subdomain` |
-| `delete` | `DELETE` | `authServerId, subdomain` |
-| `activate` | `EXEC` | `authServerId, subdomain` |
-| `deactivate` | `EXEC` | `authServerId, subdomain` |
-| `update` | `EXEC` | `authServerId, subdomain` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="authServerId, subdomain" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="authServerId, subdomain" /> |
+| <CopyableCode code="activate" /> | `EXEC` | <CopyableCode code="authServerId, subdomain" /> |
+| <CopyableCode code="deactivate" /> | `EXEC` | <CopyableCode code="authServerId, subdomain" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="authServerId, subdomain" /> |

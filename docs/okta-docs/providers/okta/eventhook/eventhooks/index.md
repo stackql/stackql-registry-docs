@@ -14,37 +14,40 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>eventhooks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.eventhook.eventhooks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.eventhook.eventhooks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `createdBy` | `string` |
-| `lastUpdated` | `string` |
-| `events` | `object` |
-| `_links` | `object` |
-| `channel` | `object` |
-| `status` | `string` |
-| `created` | `string` |
-| `verificationStatus` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="channel" /> | `object` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="createdBy" /> | `string` |
+| <CopyableCode code="events" /> | `object` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="status" /> | `string` |
+| <CopyableCode code="verificationStatus" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `eventHookId, subdomain` |
-| `list` | `SELECT` | `subdomain` |
-| `insert` | `INSERT` | `subdomain` |
-| `delete` | `DELETE` | `eventHookId, subdomain` |
-| `activate` | `EXEC` | `eventHookId, subdomain` |
-| `deactivate` | `EXEC` | `eventHookId, subdomain` |
-| `update` | `EXEC` | `eventHookId, subdomain` |
-| `verify` | `EXEC` | `eventHookId, subdomain` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="eventHookId, subdomain" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="eventHookId, subdomain" /> |
+| <CopyableCode code="activate" /> | `EXEC` | <CopyableCode code="eventHookId, subdomain" /> |
+| <CopyableCode code="deactivate" /> | `EXEC` | <CopyableCode code="eventHookId, subdomain" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="eventHookId, subdomain" /> |
+| <CopyableCode code="verify" /> | `EXEC` | <CopyableCode code="eventHookId, subdomain" /> |

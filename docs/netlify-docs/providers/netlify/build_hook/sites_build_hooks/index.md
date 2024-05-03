@@ -14,30 +14,33 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_build_hooks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.build_hook.sites_build_hooks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.build_hook.sites_build_hooks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `branch` | `string` |
-| `created_at` | `string` |
-| `site_id` | `string` |
-| `title` | `string` |
-| `url` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="branch" /> | `string` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="site_id" /> | `string` |
+| <CopyableCode code="title" /> | `string` |
+| <CopyableCode code="url" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSiteBuildHook` | `SELECT` | `id, site_id` |
-| `listSiteBuildHooks` | `SELECT` | `site_id` |
-| `createSiteBuildHook` | `INSERT` | `site_id` |
-| `deleteSiteBuildHook` | `DELETE` | `id, site_id` |
-| `updateSiteBuildHook` | `EXEC` | `id, site_id` |
+| <CopyableCode code="getSiteBuildHook" /> | `SELECT` | <CopyableCode code="id, site_id" /> |
+| <CopyableCode code="listSiteBuildHooks" /> | `SELECT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="createSiteBuildHook" /> | `INSERT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="deleteSiteBuildHook" /> | `DELETE` | <CopyableCode code="id, site_id" /> |
+| <CopyableCode code="updateSiteBuildHook" /> | `EXEC` | <CopyableCode code="id, site_id" /> |

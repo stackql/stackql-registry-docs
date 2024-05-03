@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>droplets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.firewalls.droplets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.firewalls.droplets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete_droplets` | `DELETE` | `firewall_id, data__droplet_ids` | To remove a Droplet from a firewall, send a DELETE request to<br />`/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there should<br />be a `droplet_ids` attribute containing a list of Droplet IDs.<br /><br />No response body will be sent back, but the response code will indicate<br />success. Specifically, the response code will be a 204, which means that the<br />action was successful with no returned body data.<br /> |
-| `assign_droplets` | `EXEC` | `firewall_id, data__droplet_ids` | To assign a Droplet to a firewall, send a POST request to<br />`/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there<br />should be a `droplet_ids` attribute containing a list of Droplet IDs.<br /><br />No response body will be sent back, but the response code will indicate<br />success. Specifically, the response code will be a 204, which means that the<br />action was successful with no returned body data.<br /> |
+| <CopyableCode code="delete_droplets" /> | `DELETE` | <CopyableCode code="firewall_id, data__droplet_ids" /> | To remove a Droplet from a firewall, send a DELETE request to<br />`/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there should<br />be a `droplet_ids` attribute containing a list of Droplet IDs.<br /><br />No response body will be sent back, but the response code will indicate<br />success. Specifically, the response code will be a 204, which means that the<br />action was successful with no returned body data.<br /> |
+| <CopyableCode code="assign_droplets" /> | `EXEC` | <CopyableCode code="firewall_id, data__droplet_ids" /> | To assign a Droplet to a firewall, send a POST request to<br />`/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there<br />should be a `droplet_ids` attribute containing a list of Droplet IDs.<br /><br />No response body will be sent back, but the response code will indicate<br />success. Specifically, the response code will be a 204, which means that the<br />action was successful with no returned body data.<br /> |

@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 id: digitalocean-doc
 slug: /providers/digitalocean
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Cloud computing services and Infrastructure as a Service (IaaS).  
     
 :::info Provider Summary (v23.04.00139)
@@ -49,7 +51,7 @@ REGISTRY PULL digitalocean;
 
 The following system environment variables are used for authentication by default:  
 
-- `DIGITALOCEAN_ACCESS_TOKEN` - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
+- <CopyableCode code="DIGITALOCEAN_ACCESS_TOKEN" /> - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

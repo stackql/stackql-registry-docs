@@ -14,34 +14,37 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dns_zones_dns_records</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.dns_zone.dns_zones_dns_records</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.dns_zone.dns_zones_dns_records" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `flag` | `integer` |
-| `managed` | `boolean` |
-| `tag` | `string` |
-| `value` | `string` |
-| `dns_zone_id` | `string` |
-| `priority` | `integer` |
-| `type` | `string` |
-| `hostname` | `string` |
-| `site_id` | `string` |
-| `ttl` | `integer` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="dns_zone_id" /> | `string` |
+| <CopyableCode code="flag" /> | `integer` |
+| <CopyableCode code="hostname" /> | `string` |
+| <CopyableCode code="managed" /> | `boolean` |
+| <CopyableCode code="priority" /> | `integer` |
+| <CopyableCode code="site_id" /> | `string` |
+| <CopyableCode code="tag" /> | `string` |
+| <CopyableCode code="ttl" /> | `integer` |
+| <CopyableCode code="type" /> | `string` |
+| <CopyableCode code="value" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getDnsRecords` | `SELECT` | `zone_id` |
-| `getIndividualDnsRecord` | `SELECT` | `dns_record_id, zone_id` |
-| `createDnsRecord` | `INSERT` | `zone_id` |
-| `deleteDnsRecord` | `DELETE` | `dns_record_id, zone_id` |
+| <CopyableCode code="getDnsRecords" /> | `SELECT` | <CopyableCode code="zone_id" /> |
+| <CopyableCode code="getIndividualDnsRecord" /> | `SELECT` | <CopyableCode code="dns_record_id, zone_id" /> |
+| <CopyableCode code="createDnsRecord" /> | `INSERT` | <CopyableCode code="zone_id" /> |
+| <CopyableCode code="deleteDnsRecord" /> | `DELETE` | <CopyableCode code="dns_record_id, zone_id" /> |

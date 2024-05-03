@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 id: okta-doc
 slug: /providers/okta
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Authentication and authorization services.  
     
 :::info Provider Summary (v23.03.00121)
@@ -49,7 +51,7 @@ REGISTRY PULL okta;
 
 The following system environment variables are used for authentication by default:  
 
-- `OKTA_API_TOKEN` - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
+- <CopyableCode code="OKTA_API_TOKEN" /> - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

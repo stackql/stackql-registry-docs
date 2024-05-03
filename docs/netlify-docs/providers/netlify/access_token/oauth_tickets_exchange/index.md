@@ -14,14 +14,17 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>oauth_tickets_exchange</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.access_token.oauth_tickets_exchange</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.access_token.oauth_tickets_exchange" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `exchangeTicket` | `EXEC` | `ticket_id` |
+| <CopyableCode code="exchangeTicket" /> | `EXEC` | <CopyableCode code="ticket_id" /> |

@@ -13,9 +13,11 @@ custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 id: linode-doc
 slug: /providers/linode
-
 ---
- Cloud Computing Services by Akamai.  
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+Cloud Computing Services by Akamai.  
     
 :::info Provider Summary (v23.05.00149)
 
@@ -49,7 +51,7 @@ REGISTRY PULL linode;
 
 The following system environment variables are used for authentication by default:  
 
-- `LINODE_TOKEN` - Linode API token (see [How to Create a Linode API Token](https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token))
+- <CopyableCode code="LINODE_TOKEN" /> - Linode API token (see [How to Create a Linode API Token](https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

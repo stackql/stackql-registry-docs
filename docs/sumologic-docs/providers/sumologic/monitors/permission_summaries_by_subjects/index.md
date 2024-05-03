@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>permission_summaries_by_subjects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.monitors.permission_summaries_by_subjects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.monitors.permission_summaries_by_subjects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `monitorsReadPermissionSummariesByIdGroupBySubjects` | `EXEC` | `id, region` |
+| <CopyableCode code="monitorsReadPermissionSummariesByIdGroupBySubjects" /> | `EXEC` | <CopyableCode code="id, region" /> |

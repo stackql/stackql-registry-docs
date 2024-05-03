@@ -14,31 +14,34 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.user.user</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.user.user" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `affiliate_id` | `string` |
-| `avatar_url` | `string` |
-| `uid` | `string` |
-| `created_at` | `string` |
-| `onboarding_progress` | `object` |
-| `email` | `string` |
-| `site_count` | `integer` |
-| `login_providers` | `array` |
-| `full_name` | `string` |
-| `last_login` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="affiliate_id" /> | `string` |
+| <CopyableCode code="avatar_url" /> | `string` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="email" /> | `string` |
+| <CopyableCode code="full_name" /> | `string` |
+| <CopyableCode code="last_login" /> | `string` |
+| <CopyableCode code="login_providers" /> | `array` |
+| <CopyableCode code="onboarding_progress" /> | `object` |
+| <CopyableCode code="site_count" /> | `integer` |
+| <CopyableCode code="uid" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getCurrentUser` | `SELECT` |  |
+| <CopyableCode code="getCurrentUser" /> | `SELECT` |  |

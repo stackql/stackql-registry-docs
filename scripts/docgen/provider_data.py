@@ -240,7 +240,7 @@ auth_blocks = {
   'linode': {
     'custom': False,
     'variables': """
-- `LINODE_TOKEN` - Linode API token (see [How to Create a Linode API Token](https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token))
+- <CopyableCode code="LINODE_TOKEN" /> - Linode API token (see [How to Create a Linode API Token](https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token))
   """,
     'linux': """
 AUTH='{ "linode": { "type": "bearer",  "credentialsenvvar": "YOUR_LINODE_TOKEN_VAR" }}'
@@ -257,7 +257,7 @@ stackql.exe shell --auth=$Auth
   'digitalocean': {
     'custom': False,
     'variables': """
-- `DIGITALOCEAN_ACCESS_TOKEN` - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
+- <CopyableCode code="DIGITALOCEAN_ACCESS_TOKEN" /> - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
   """,
     'linux': """
 AUTH='{ "digitalocean": { "type": "bearer",  "credentialsenvvar": "YOUR_DIGITALOCEAN_TOKEN_VAR" }}'
@@ -274,8 +274,8 @@ stackql.exe shell --auth=$Auth
   'sumologic': {
     'custom': False,
     'variables': """
-- `SUMOLOGIC_ACCESSID` - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
-- `SUMOLOGIC_ACCESSKEY` - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- <CopyableCode code="SUMOLOGIC_ACCESSID" /> - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- <CopyableCode code="SUMOLOGIC_ACCESSKEY" /> - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
   """,
     'linux': """
 AUTH='{ "sumologic": { "type": "basic",  "username_var": "YOUR_SUMOLOGIC_ACCESS_ID_VAR", "password_var": "YOUR_SUMOLOGIC_ACCESS_KEY_VAR" }}'
@@ -310,7 +310,7 @@ stackql.exe shell --auth=$Auth
  'netlify': {
     'custom': False,
     'variables': """
-- `NETLIFY_AUTH_TOKEN` - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
+- <CopyableCode code="NETLIFY_AUTH_TOKEN" /> - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
   """,
     'linux': """
 AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_AUTH_TOKEN_VAR" }}'
@@ -346,7 +346,7 @@ stackql.exe shell --auth=$Auth
   'okta': {
     'custom': False,
     'variables': """
-- `OKTA_API_TOKEN` - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
+- <CopyableCode code="OKTA_API_TOKEN" /> - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
   """,
     'linux': """
 AUTH='{ "okta": { "type": "api_key", "valuePrefix": "SSWS ", "credentialsenvvar": "YOUR_OKTA_API_TOKEN_VAR" }}'

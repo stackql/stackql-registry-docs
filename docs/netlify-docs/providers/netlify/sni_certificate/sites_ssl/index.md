@@ -14,14 +14,17 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_ssl</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.sni_certificate.sites_ssl</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.sni_certificate.sites_ssl" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `provisionSiteTLSCertificate` | `EXEC` | `site_id` |
-| `showSiteTLSCertificate` | `EXEC` | `site_id` |
+| <CopyableCode code="provisionSiteTLSCertificate" /> | `EXEC` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="showSiteTLSCertificate" /> | `EXEC` | <CopyableCode code="site_id" /> |

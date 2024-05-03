@@ -14,22 +14,25 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>spanquery_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.tracing.spanquery_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.tracing.spanquery_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `queryRows` | `array` | A list of span analytics queries. |
-| `status` | `string` | Status of the query. Possible values: `Processing`, `Finished`, `Error`, `Paused` |
+| <CopyableCode code="queryRows" /> | `array` | A list of span analytics queries. |
+| <CopyableCode code="status" /> | `string` | Status of the query. Possible values: `Processing`, `Finished`, `Error`, `Paused` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSpanQueryStatus` | `SELECT` | `queryId, region` |
+| <CopyableCode code="getSpanQueryStatus" /> | `SELECT` | <CopyableCode code="queryId, region" /> |

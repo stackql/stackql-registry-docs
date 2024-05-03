@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>container_registry</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.kubernetes.container_registry</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.kubernetes.container_registry" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `add_registry` | `INSERT` |  | To integrate the container registry with Kubernetes clusters, send a POST request to `/v2/kubernetes/registry`. |
-| `remove_registry` | `DELETE` |  | To remove the container registry from Kubernetes clusters, send a DELETE request to `/v2/kubernetes/registry`. |
+| <CopyableCode code="add_registry" /> | `INSERT` |  | To integrate the container registry with Kubernetes clusters, send a POST request to `/v2/kubernetes/registry`. |
+| <CopyableCode code="remove_registry" /> | `DELETE` |  | To remove the container registry from Kubernetes clusters, send a DELETE request to `/v2/kubernetes/registry`. |

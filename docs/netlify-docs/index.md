@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 id: netlify-doc
 slug: /providers/netlify
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Web development and content distribution platform.  
     
 :::info Provider Summary (v23.04.00141)
@@ -49,7 +51,7 @@ REGISTRY PULL netlify;
 
 The following system environment variables are used for authentication by default:  
 
-- `NETLIFY_AUTH_TOKEN` - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
+- <CopyableCode code="NETLIFY_AUTH_TOKEN" /> - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

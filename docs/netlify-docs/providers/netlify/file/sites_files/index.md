@@ -14,26 +14,29 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_files</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.file.sites_files</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.file.sites_files" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `mime_type` | `string` |
-| `path` | `string` |
-| `sha` | `string` |
-| `size` | `integer` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="mime_type" /> | `string` |
+| <CopyableCode code="path" /> | `string` |
+| <CopyableCode code="sha" /> | `string` |
+| <CopyableCode code="size" /> | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSiteFileByPathName` | `SELECT` | `file_path, site_id` |
-| `listSiteFiles` | `SELECT` | `site_id` |
+| <CopyableCode code="getSiteFileByPathName" /> | `SELECT` | <CopyableCode code="file_path, site_id" /> |
+| <CopyableCode code="listSiteFiles" /> | `SELECT` | <CopyableCode code="site_id" /> |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tracequery_rows_traces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.tracing.tracequery_rows_traces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.tracing.tracequery_rows_traces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `next` | `string` | Next continuation token. |
-| `results` | `array` | List of traces matching the query. |
+| <CopyableCode code="next" /> | `string` | Next continuation token. |
+| <CopyableCode code="results" /> | `array` | List of traces matching the query. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getTraceQueryResult` | `SELECT` | `queryId, rowId, region` |
+| <CopyableCode code="getTraceQueryResult" /> | `SELECT` | <CopyableCode code="queryId, rowId, region" /> |

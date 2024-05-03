@@ -14,23 +14,26 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hooks_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.hook_type.hooks_types</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.hook_type.hooks_types" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `name` | `string` |
-| `fields` | `array` |
-| `events` | `array` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="events" /> | `array` |
+| <CopyableCode code="fields" /> | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `listHookTypes` | `SELECT` |  |
+| <CopyableCode code="listHookTypes" /> | `SELECT` |  |

@@ -14,14 +14,17 @@ description: Query, deploy and manage Linode resources using SQL
 custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>share</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>linode.networking.share</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="linode.networking.share" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `shareIPv4s` | `EXEC` | `data__ips, data__linode_id` |
+| <CopyableCode code="shareIPv4s" /> | `EXEC` | <CopyableCode code="data__ips, data__linode_id" /> |

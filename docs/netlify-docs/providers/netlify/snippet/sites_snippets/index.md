@@ -14,31 +14,34 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_snippets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.snippet.sites_snippets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.snippet.sites_snippets" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `integer` |
-| `goal` | `string` |
-| `goal_position` | `string` |
-| `site_id` | `string` |
-| `title` | `string` |
-| `general` | `string` |
-| `general_position` | `string` |
+| <CopyableCode code="id" /> | `integer` |
+| <CopyableCode code="general" /> | `string` |
+| <CopyableCode code="general_position" /> | `string` |
+| <CopyableCode code="goal" /> | `string` |
+| <CopyableCode code="goal_position" /> | `string` |
+| <CopyableCode code="site_id" /> | `string` |
+| <CopyableCode code="title" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSiteSnippet` | `SELECT` | `site_id, snippet_id` |
-| `listSiteSnippets` | `SELECT` | `site_id` |
-| `createSiteSnippet` | `INSERT` | `site_id` |
-| `deleteSiteSnippet` | `DELETE` | `site_id, snippet_id` |
-| `updateSiteSnippet` | `EXEC` | `site_id, snippet_id` |
+| <CopyableCode code="getSiteSnippet" /> | `SELECT` | <CopyableCode code="site_id, snippet_id" /> |
+| <CopyableCode code="listSiteSnippets" /> | `SELECT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="createSiteSnippet" /> | `INSERT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="deleteSiteSnippet" /> | `DELETE` | <CopyableCode code="site_id, snippet_id" /> |
+| <CopyableCode code="updateSiteSnippet" /> | `EXEC` | <CopyableCode code="site_id, snippet_id" /> |

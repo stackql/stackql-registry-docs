@@ -14,14 +14,17 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_deploys_restore</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.deploy.sites_deploys_restore</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.deploy.sites_deploys_restore" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `restoreSiteDeploy` | `EXEC` | `deploy_id, site_id` |
+| <CopyableCode code="restoreSiteDeploy" /> | `EXEC` | <CopyableCode code="deploy_id, site_id" /> |

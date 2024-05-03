@@ -14,19 +14,22 @@ description: Query, deploy and manage Linode resources using SQL
 custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters_api_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>linode.lke.clusters_api_endpoints</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="linode.lke.clusters_api_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getLKEClusterAPIEndpoints` | `SELECT` | `clusterId` |
-| `_getLKEClusterAPIEndpoints` | `EXEC` | `clusterId` |
+| <CopyableCode code="getLKEClusterAPIEndpoints" /> | `SELECT` | <CopyableCode code="clusterId" /> |
+| <CopyableCode code="_getLKEClusterAPIEndpoints" /> | `EXEC` | <CopyableCode code="clusterId" /> |
