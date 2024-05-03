@@ -51,7 +51,7 @@ REGISTRY PULL pagerduty;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="PAGERDUTY_API_TOKEN" /> - PagerDuty API token (see [Creating a PagerDuty API Token](https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key))
+- <CopyableCode code="PAGERDUTY_API_TOKEN" /> - PagerDuty API token (see <a href="https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key">Creating a PagerDuty API Token</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

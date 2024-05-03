@@ -51,8 +51,8 @@ REGISTRY PULL datadog;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="DD_API_KEY" /> - Datadog API key (see [Datadog API Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys))
-- <CopyableCode code="DD_APP_KEY" /> - Datadog Application Key (see [Datadog Application Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#application-keys))
+- <CopyableCode code="DD_API_KEY" /> - Datadog API key (see <a href="https://docs.datadoghq.com/account_management/api-app-keys/#api-keys">Datadog API Key Documentation</a>)
+- <CopyableCode code="DD_APP_KEY" /> - Datadog Application Key (see <a href="https://docs.datadoghq.com/account_management/api-app-keys/#application-keys">Datadog Application Key Documentation</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

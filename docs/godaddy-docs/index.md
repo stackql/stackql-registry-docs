@@ -51,7 +51,7 @@ REGISTRY PULL godaddy;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="GODADDY_API_KEY" /> - Godaddy API key (see [Creating a Godaddy API Key](https://developer.godaddy.com/keys))
+- <CopyableCode code="GODADDY_API_KEY" /> - Godaddy API key (see <a href="https://developer.godaddy.com/keys">Creating a Godaddy API Key</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

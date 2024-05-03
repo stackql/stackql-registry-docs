@@ -293,7 +293,7 @@ stackql.exe shell --auth=$Auth
     'custom': False,
     'variables': """
 - <CopyableCode code="STACKQL_GITHUB_USERNAME" /> - GitHub username (login)
-- <CopyableCode code="STACKQL_GITHUB_PASSWORD" /> - GitHub Personal Access Token (see [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+- <CopyableCode code="STACKQL_GITHUB_PASSWORD" /> - GitHub Personal Access Token (see <a href="https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Creating a personal access token</a>)
   """,
     'linux': """
 AUTH='{ "github": { "type": "basic",  "username_var": "YOUR_GITHUB_USERNAME_VAR", "password_var": "YOUR_GITHUB_PASSWORD_VAR" }}'
@@ -310,7 +310,7 @@ stackql.exe shell --auth=$Auth
  'netlify': {
     'custom': False,
     'variables': """
-- <CopyableCode code="NETLIFY_AUTH_TOKEN" /> - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
+- <CopyableCode code="NETLIFY_AUTH_TOKEN" /> - Netlify API token (see <a href="https://docs.netlify.com/api/get-started/#authentication">How to Create a Netlify API Token</a>)
   """,
     'linux': """
 AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_AUTH_TOKEN_VAR" }}'
@@ -324,29 +324,29 @@ stackql.exe shell --auth=$Auth
 # 
 # AWS
 # 
-  'aws': {
-    'custom': False,
-    'variables': """
-- `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-- `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-- `AWS_SESSION_TOKEN` - [__OPTIONAL:__ only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
-  """,
-    'linux': """
-AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
-stackql shell --auth="${AUTH}"
-""",
-    'windows': """
-$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
-stackql.exe shell --auth=$Auth
-""",
-  },
+#   'aws': {
+#     'custom': False,
+#     'variables': """
+# - `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+# - `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+# - `AWS_SESSION_TOKEN` - [__OPTIONAL:__ only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
+#   """,
+#     'linux': """
+# AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
+# stackql shell --auth="${AUTH}"
+# """,
+#     'windows': """
+# $Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
+# stackql.exe shell --auth=$Auth
+# """,
+#   },
 # 
 # Okta
 #
   'okta': {
     'custom': False,
     'variables': """
-- <CopyableCode code="OKTA_API_TOKEN" /> - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
+- <CopyableCode code="OKTA_API_TOKEN" /> - Okta API Token (see <a href="https://developer.okta.com/docs/guides/create-an-api-token/">Creating an Okta API Token</a>)
   """,
     'linux': """
 AUTH='{ "okta": { "type": "api_key", "valuePrefix": "SSWS ", "credentialsenvvar": "YOUR_OKTA_API_TOKEN_VAR" }}'
@@ -363,7 +363,7 @@ stackql.exe shell --auth=$Auth
   'vercel': {
     'custom': False,
     'variables': """
-- <CopyableCode code="VERCEL_API_TOKEN" /> - Vercel API Token (see [Creating a Vercel API Token](https://vercel.com/account/tokens))
+- <CopyableCode code="VERCEL_API_TOKEN" /> - Vercel API Token (see <a href="https://vercel.com/account/tokens">Creating a Vercel API Token</a>)
   """,
     'linux': """
 AUTH='{ "okta": { "type": "bearer", "credentialsenvvar": "YOUR_VERCEL_API_TOKEN_VAR" }}'
@@ -380,7 +380,7 @@ stackql.exe shell --auth=$Auth
   'godaddy': {
     'custom': False,
     'variables': """
-- <CopyableCode code="GODADDY_API_KEY" /> - Godaddy API key (see [Creating a Godaddy API Key](https://developer.godaddy.com/keys))
+- <CopyableCode code="GODADDY_API_KEY" /> - Godaddy API key (see <a href="https://developer.godaddy.com/keys">Creating a Godaddy API Key</a>)
   """,
     'linux': """
 AUTH='{ "okta": { "type": "bearer", "credentialsenvvar": "YOUR_GODADDY_API_KEY_VAR" }}'
@@ -397,7 +397,7 @@ stackql.exe shell --auth=$Auth
 'pagerduty': {
   'custom': False,
   'variables': """
-- <CopyableCode code="PAGERDUTY_API_TOKEN" /> - PagerDuty API token (see [Creating a PagerDuty API Token](https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key))
+- <CopyableCode code="PAGERDUTY_API_TOKEN" /> - PagerDuty API token (see <a href="https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key">Creating a PagerDuty API Token</a>)
   """,
   'linux': """
 AUTH='{ "pagerduty": { "type": "bearer", "credentialsenvvar": "YOUR_PAGERDUTY_API_TOKEN_VAR" }}'
@@ -414,8 +414,8 @@ stackql.exe shell --auth=$Auth
 'datadog': {
   'custom': False,
   'variables': """
-- <CopyableCode code="DD_API_KEY" /> - Datadog API key (see [Datadog API Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys))
-- <CopyableCode code="DD_APP_KEY" /> - Datadog Application Key (see [Datadog Application Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#application-keys))
+- <CopyableCode code="DD_API_KEY" /> - Datadog API key (see <a href="https://docs.datadoghq.com/account_management/api-app-keys/#api-keys">Datadog API Key Documentation</a>)
+- <CopyableCode code="DD_APP_KEY" /> - Datadog Application Key (see <a href="https://docs.datadoghq.com/account_management/api-app-keys/#application-keys">Datadog Application Key Documentation</a>)
   """,
   'linux': """
 AUTH='{ "datadog": { "type": "custom", "location": "header", "name": "DD-API-KEY", "credentialsenvvar": "YOUR_DD_API_KEY_VAR", "successor": { "type": "custom", "location": "header", "name": "DD-APPLICATION-KEY", "credentialsenvvar": "YOUR_DD_APP_KEY_VAR" }}}'
@@ -462,7 +462,7 @@ stackql.exe shell --auth=$Auth
   'azure': {
     'custom': True,
     'custom_markdown': """
-StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
 """,
   },
 # 
@@ -471,7 +471,7 @@ StackQL uses Azure application credentials obtained using the `az login` command
   'azure_extras': {
     'custom': True,
     'custom_markdown': """
-StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
 """,
   },
 # 
@@ -480,7 +480,7 @@ StackQL uses Azure application credentials obtained using the `az login` command
   'azure_isv': {
     'custom': True,
     'custom_markdown': """
-StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
 """,
   },
 # 
@@ -489,7 +489,7 @@ StackQL uses Azure application credentials obtained using the `az login` command
   'azure_stack': {
     'custom': True,
     'custom_markdown': """
-StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
 """,
   },    
 # 
@@ -500,7 +500,7 @@ StackQL uses Azure application credentials obtained using the `az login` command
     'custom_markdown': """
 :::note
 
-__`cluster_addr`__ is a required paramter for all operations using the `k8s` provider, for example:  
+<b><CopyableCode code="cluster_addr" /></b> is a required parameter for all operations using the `k8s` provider, for example:  
 
 ```sql
 SELECT name, namespace, uid, creationTimestamp 
@@ -515,7 +515,7 @@ ORDER BY name ASC;
 
 :::note
 
-The __`protocol`__ parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
+The <b><CopyableCode code="protocol" /></b> parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
 
 ```sql
 select name, namespace, uid, creationTimestamp 
@@ -542,7 +542,7 @@ You will need to generate a certificate bundle for your cluster (`k8s_cert_bundl
 kubectl get secret -o jsonpath="{.items[?(@.type==\"kubernetes.io/service-account-token\")].data['ca\.crt']}" | base64 -i --decode > k8s_cert_bundle.pem
 ```
 
-Alternatively, you could add the `--tls.allowInsecure=true` argument to the `stackql` command, it is not recommended however. 
+Alternatively, you could add the <CopyableCode code="--tls.allowInsecure=true" /> argument to the `stackql` command, it is not recommended however. 
 
 :::
 """
@@ -550,32 +550,32 @@ Alternatively, you could add the `--tls.allowInsecure=true` argument to the `sta
 }
 
 server_variables_blocks = {
-    'aws': """
-The following parameter is required for the `aws` provider:  
+#     'aws': """
+# The following parameter is required for the `aws` provider:  
 
-- `region` - AWS region (e.g. `us-east-1`)
+# - `region` - AWS region (e.g. `us-east-1`)
 
-This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
-    """,
+# This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
+#     """,
     'okta': """
 The following parameter is required for the `okta` provider:  
 
-- `subdomain` - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
+- <CopyableCode code="subdomain" /> - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
 
 This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
     """,
     'sumologic': """
 The following parameter is required for the `sumologic` provider if you are not using the `us2` region:  
 
-- `region` - The SumoLogic regional endpoint (e.g. `au`, `ca`, `de`, `eu`, `fed`, `in`, `jp`)
+- <CopyableCode code="region" /> - The SumoLogic regional endpoint (e.g. `au`, `ca`, `de`, `eu`, `fed`, `in`, `jp`)
 
 This parameter would be supplied to the `WHERE` clause of each `SELECT` statement if you are not usign the `us2` region.
     """,
     'k8s': """
 The following parameters may be required for the `k8s` provider:  
 
-- `protocol` - `https` or `http` (default: `https`)
-- `cluster_addr` - The hostname of the Kubernetes cluster (default: `localhost`)
+- <CopyableCode code="protocol" /> - `https` or `http` (default: `https`)
+- <CopyableCode code="cluster_addr" /> - The hostname of the Kubernetes cluster (default: `localhost`)
 
 This parameter would be supplied to the `WHERE` clause of each `SELECT` statement.
     """,

@@ -51,7 +51,7 @@ REGISTRY PULL netlify;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="NETLIFY_AUTH_TOKEN" /> - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
+- <CopyableCode code="NETLIFY_AUTH_TOKEN" /> - Netlify API token (see <a href="https://docs.netlify.com/api/get-started/#authentication">How to Create a Netlify API Token</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
