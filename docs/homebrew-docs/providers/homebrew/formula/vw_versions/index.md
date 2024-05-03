@@ -14,14 +14,17 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vw_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="homebrew.formula.vw_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,9 +32,9 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `bottle_available` ||
-| `formula_name` | `text` |
-| `head_version` ||
-| `stable_version` ||
+| <CopyableCode code="bottle_available" /> ||
+| <CopyableCode code="formula_name" /> | `text` |
+| <CopyableCode code="head_version" /> ||
+| <CopyableCode code="stable_version" /> ||
 ## Methods
-No methods available for the resource
+No additional methods available for this resource

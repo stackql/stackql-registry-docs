@@ -14,14 +14,17 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vw_dependencies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_dependencies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="homebrew.formula.vw_dependencies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,12 +32,12 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `build_dependencies` ||
-| `dependencies` ||
-| `formula_name` | `text` |
-| `head_dependencies` ||
-| `optional_dependencies` ||
-| `recommended_dependencies` ||
-| `test_dependencies` ||
+| <CopyableCode code="build_dependencies" /> ||
+| <CopyableCode code="dependencies" /> ||
+| <CopyableCode code="formula_name" /> | `text` |
+| <CopyableCode code="head_dependencies" /> ||
+| <CopyableCode code="optional_dependencies" /> ||
+| <CopyableCode code="recommended_dependencies" /> ||
+| <CopyableCode code="test_dependencies" /> ||
 ## Methods
-No methods available for the resource
+No additional methods available for this resource

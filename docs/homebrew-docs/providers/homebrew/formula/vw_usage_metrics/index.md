@@ -14,14 +14,17 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vw_usage_metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_usage_metrics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="homebrew.formula.vw_usage_metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,12 +32,12 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `formula_name` | `text` |
-| `install_on_requests_30d` ||
-| `install_on_requests_365d` ||
-| `install_on_requests_90d` ||
-| `installs_30d` ||
-| `installs_365d` ||
-| `installs_90d` ||
+| <CopyableCode code="formula_name" /> | `text` |
+| <CopyableCode code="install_on_requests_30d" /> ||
+| <CopyableCode code="install_on_requests_365d" /> ||
+| <CopyableCode code="install_on_requests_90d" /> ||
+| <CopyableCode code="installs_30d" /> ||
+| <CopyableCode code="installs_365d" /> ||
+| <CopyableCode code="installs_90d" /> ||
 ## Methods
-No methods available for the resource
+No additional methods available for this resource

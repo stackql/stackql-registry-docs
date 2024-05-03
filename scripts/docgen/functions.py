@@ -287,7 +287,7 @@ def generate_methods_table(methods):
                     output = output + '| <CopyableCode code="%s" /> | `%s` | <CopyableCode code="%s" /> | %s |\n' % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"], make_markdown_table_safe(methodRow["description"]))
         return output
     except:
-        output = output + "No methods available for the resource\n"
+        output = output + "No additional methods available for this resource\n"
         return output
 
 

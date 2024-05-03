@@ -13,6 +13,7 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
+
 API For Accessing Homebrew Formulae Information.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ API For Accessing Homebrew Formulae Information.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Homebrew Formulae API</td></tr>
 <tr><td><b>Description</b></td><td>API For Accessing Homebrew Formulae Information.</td></tr>
-<tr><td><b>Id</b></td><td><code>formula:v23.12.00194</code></td></tr>
+<tr><td><b>Id</b></td><td><code>formula:v24.03.00212</code></td></tr>
 </tbody></table>
 
 ## Resources

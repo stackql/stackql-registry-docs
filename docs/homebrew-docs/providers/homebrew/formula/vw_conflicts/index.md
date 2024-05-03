@@ -14,14 +14,17 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vw_conflicts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_conflicts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="homebrew.formula.vw_conflicts" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,8 +32,8 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `conflicts_with` ||
-| `conflicts_with_reasons` ||
-| `formula_name` | `text` |
+| <CopyableCode code="conflicts_with" /> ||
+| <CopyableCode code="conflicts_with_reasons" /> ||
+| <CopyableCode code="formula_name" /> | `text` |
 ## Methods
-No methods available for the resource
+No additional methods available for this resource
