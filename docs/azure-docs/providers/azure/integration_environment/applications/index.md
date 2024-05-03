@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>applications</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.integration_environment.applications</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.integration_environment.applications" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of application. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | The properties of application. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `applicationName, resourceGroupName, spaceName, subscriptionId` | Get a Application |
-| `list_by_space` | `SELECT` | `resourceGroupName, spaceName, subscriptionId` | List Application resources by Space |
-| `create_or_update` | `INSERT` | `applicationName, resourceGroupName, spaceName, subscriptionId` | Create a Application |
-| `delete` | `DELETE` | `applicationName, resourceGroupName, spaceName, subscriptionId` | Delete a Application |
-| `_list_by_space` | `EXEC` | `resourceGroupName, spaceName, subscriptionId` | List Application resources by Space |
-| `patch` | `EXEC` | `applicationName, resourceGroupName, spaceName, subscriptionId` | Update a Application |
-| `save_business_process_development_artifact` | `EXEC` | `applicationName, resourceGroupName, spaceName, subscriptionId, data__name` | The save business process development artifact action. |
-| `validate_business_process_development_artifact` | `EXEC` | `applicationName, resourceGroupName, spaceName, subscriptionId, data__name` | The validate business process development artifact action. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | Get a Application |
+| <CopyableCode code="list_by_space" /> | `SELECT` | <CopyableCode code="resourceGroupName, spaceName, subscriptionId" /> | List Application resources by Space |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | Create a Application |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | Delete a Application |
+| <CopyableCode code="_list_by_space" /> | `EXEC` | <CopyableCode code="resourceGroupName, spaceName, subscriptionId" /> | List Application resources by Space |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | Update a Application |
+| <CopyableCode code="save_business_process_development_artifact" /> | `EXEC` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId, data__name" /> | The save business process development artifact action. |
+| <CopyableCode code="validate_business_process_development_artifact" /> | `EXEC` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId, data__name" /> | The validate business process development artifact action. |

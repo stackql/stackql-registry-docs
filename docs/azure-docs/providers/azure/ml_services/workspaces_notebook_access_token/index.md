@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspaces_notebook_access_token</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ml_services.workspaces_notebook_access_token</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ml_services.workspaces_notebook_access_token" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `accessToken` | `string` |
-| `expiresIn` | `integer` |
-| `hostName` | `string` |
-| `notebookResourceId` | `string` |
-| `publicDns` | `string` |
-| `refreshToken` | `string` |
-| `scope` | `string` |
-| `tokenType` | `string` |
+| <CopyableCode code="accessToken" /> | `string` |
+| <CopyableCode code="expiresIn" /> | `integer` |
+| <CopyableCode code="hostName" /> | `string` |
+| <CopyableCode code="notebookResourceId" /> | `string` |
+| <CopyableCode code="publicDns" /> | `string` |
+| <CopyableCode code="refreshToken" /> | `string` |
+| <CopyableCode code="scope" /> | `string` |
+| <CopyableCode code="tokenType" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> |

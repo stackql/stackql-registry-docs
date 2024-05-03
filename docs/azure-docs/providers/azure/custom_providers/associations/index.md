@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.custom_providers.associations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.custom_providers.associations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The association id. |
-| `name` | `string` | The association name. |
-| `properties` | `object` | The properties of the association. |
-| `type` | `string` | The association type. |
+| <CopyableCode code="id" /> | `string` | The association id. |
+| <CopyableCode code="name" /> | `string` | The association name. |
+| <CopyableCode code="properties" /> | `object` | The properties of the association. |
+| <CopyableCode code="type" /> | `string` | The association type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `associationName, scope` | Get an association. |
-| `create_or_update` | `INSERT` | `associationName, scope` | Create or update an association. |
-| `delete` | `DELETE` | `associationName, scope` | Delete an association. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="associationName, scope" /> | Get an association. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="associationName, scope" /> | Create or update an association. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="associationName, scope" /> | Delete an association. |

@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployment_operations_at_subscription_scope</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.resources.deployment_operations_at_subscription_scope</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resources.deployment_operations_at_subscription_scope" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Full deployment operation ID. |
-| `operationId` | `string` | Deployment operation ID. |
-| `properties` | `object` | Deployment operation properties. |
+| <CopyableCode code="id" /> | `string` | Full deployment operation ID. |
+| <CopyableCode code="operationId" /> | `string` | Deployment operation ID. |
+| <CopyableCode code="properties" /> | `object` | Deployment operation properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `deploymentName, operationId, subscriptionId` | Gets a deployments operation. |
-| `list` | `SELECT` | `deploymentName, subscriptionId` | Gets all deployments operations for a deployment. |
-| `_list` | `EXEC` | `deploymentName, subscriptionId` | Gets all deployments operations for a deployment. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deploymentName, operationId, subscriptionId" /> | Gets a deployments operation. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deploymentName, subscriptionId" /> | Gets all deployments operations for a deployment. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deploymentName, subscriptionId" /> | Gets all deployments operations for a deployment. |

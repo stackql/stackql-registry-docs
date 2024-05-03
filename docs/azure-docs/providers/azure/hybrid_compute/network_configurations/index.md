@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_compute.network_configurations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_compute.network_configurations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceUri` | Returns a NetworkConfiguration for the target resource. |
-| `create_or_update` | `INSERT` | `resourceUri` | Create or update the NetworkConfiguration of the target resource. |
-| `update` | `EXEC` | `resourceUri` | Update the endpoint to the target resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceUri" /> | Returns a NetworkConfiguration for the target resource. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceUri" /> | Create or update the NetworkConfiguration of the target resource. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceUri" /> | Update the endpoint to the target resource. |

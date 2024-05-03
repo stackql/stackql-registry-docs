@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>static_sites_static_site_user</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.static_sites_static_site_user</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.static_sites_static_site_user" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete` | `DELETE` | `authprovider, name, resourceGroupName, subscriptionId, userid` | Description for Deletes the user entry from the static site. |
-| `update` | `EXEC` | `authprovider, name, resourceGroupName, subscriptionId, userid` | Description for Updates a user entry with the listed roles |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="authprovider, name, resourceGroupName, subscriptionId, userid" /> | Description for Deletes the user entry from the static site. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="authprovider, name, resourceGroupName, subscriptionId, userid" /> | Description for Updates a user entry with the listed roles |

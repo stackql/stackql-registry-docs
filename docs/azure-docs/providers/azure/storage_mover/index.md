@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Storage Mover Is A Fully Managed Migration Service That Enables You To Migrate Your Files And Folders To Azure Storage While Minimizing Downtime For Your Workload. You Can Use Storage Mover For Different Migration Scenarios Such As Lift-And-Shift, And For Cloud Migrations That Youll Have To Repeat Occasionally. Azure Storage Mover Also Helps Maintain Oversight And Manage The Migration Of All Your Globally Distributed File Shares From A Single Storage Mover Resource. The Storage Mover API Allows You To Create, List, Update And Delete Your Migration Projects And Jobs Associated With Them.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Storage Mover Is A Fully Managed Migration Service That Enables You To Mig
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Storage Mover</td></tr>
 <tr><td><b>Description</b></td><td>Azure Storage Mover Is A Fully Managed Migration Service That Enables You To Migrate Your Files And Folders To Azure Storage While Minimizing Downtime For Your Workload. You Can Use Storage Mover For Different Migration Scenarios Such As Lift-And-Shift, And For Cloud Migrations That Youll Have To Repeat Occasionally. Azure Storage Mover Also Helps Maintain Oversight And Manage The Migration Of All Your Globally Distributed File Shares From A Single Storage Mover Resource. The Storage Mover API Allows You To Create, List, Update And Delete Your Migration Projects And Jobs Associated With Them.</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_mover:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage_mover:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

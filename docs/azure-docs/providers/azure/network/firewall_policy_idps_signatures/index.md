@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewall_policy_idps_signatures</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.firewall_policy_idps_signatures</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.firewall_policy_idps_signatures" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `matchingRecordsCount` | `integer` | Number of total records matching the query. |
-| `signatures` | `array` | Array containing the results of the query |
+| <CopyableCode code="matchingRecordsCount" /> | `integer` | Number of total records matching the query. |
+| <CopyableCode code="signatures" /> | `array` | Array containing the results of the query |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="firewallPolicyName, resourceGroupName, subscriptionId" /> |

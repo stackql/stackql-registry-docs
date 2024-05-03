@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>plans_vnet_route</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.plans_vnet_route</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.plans_vnet_route" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create_or_update` | `INSERT` | `name, resourceGroupName, routeName, subscriptionId, vnetName` | Description for Create or update a Virtual Network route in an App Service plan. |
-| `delete` | `DELETE` | `name, resourceGroupName, routeName, subscriptionId, vnetName` | Description for Delete a Virtual Network route in an App Service plan. |
-| `update` | `EXEC` | `name, resourceGroupName, routeName, subscriptionId, vnetName` | Description for Create or update a Virtual Network route in an App Service plan. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="name, resourceGroupName, routeName, subscriptionId, vnetName" /> | Description for Create or update a Virtual Network route in an App Service plan. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="name, resourceGroupName, routeName, subscriptionId, vnetName" /> | Description for Delete a Virtual Network route in an App Service plan. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, routeName, subscriptionId, vnetName" /> | Description for Create or update a Virtual Network route in an App Service plan. |

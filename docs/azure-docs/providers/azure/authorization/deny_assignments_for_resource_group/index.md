@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deny_assignments_for_resource_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.deny_assignments_for_resource_group</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.deny_assignments_for_resource_group" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The deny assignment ID. |
-| `name` | `string` | The deny assignment name. |
-| `properties` | `object` | Deny assignment properties. |
-| `type` | `string` | The deny assignment type. |
+| <CopyableCode code="id" /> | `string` | The deny assignment ID. |
+| <CopyableCode code="name" /> | `string` | The deny assignment name. |
+| <CopyableCode code="properties" /> | `object` | Deny assignment properties. |
+| <CopyableCode code="type" /> | `string` | The deny assignment type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |

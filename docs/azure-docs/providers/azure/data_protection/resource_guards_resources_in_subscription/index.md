@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_guards_resources_in_subscription</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_protection.resource_guards_resources_in_subscription</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_protection.resource_guards_resources_in_subscription" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id represents the complete path to the resource. |
-| `name` | `string` | Resource name associated with the resource. |
-| `eTag` | `string` | Optional ETag. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+| <CopyableCode code="id" /> | `string` | Resource Id represents the complete path to the resource. |
+| <CopyableCode code="name" /> | `string` | Resource name associated with the resource. |
+| <CopyableCode code="eTag" /> | `string` | Optional ETag. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `subscriptionId` |
-| `_get` | `EXEC` | `subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |

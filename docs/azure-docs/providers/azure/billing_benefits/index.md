@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Billing Benefits API Gives You Access To Billing Benefits (Savings Plan) Operations.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Billing Benefits API Gives You Access To Billing Benefits (Savings Plan) Ope
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Billing Benefits</td></tr>
 <tr><td><b>Description</b></td><td>The Billing Benefits API Gives You Access To Billing Benefits (Savings Plan) Operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>billing_benefits:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billing_benefits:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

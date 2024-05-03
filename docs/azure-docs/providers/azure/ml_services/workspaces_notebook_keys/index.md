@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspaces_notebook_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ml_services.workspaces_notebook_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ml_services.workspaces_notebook_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `primaryAccessKey` | `string` | The primary access key of the Notebook |
-| `secondaryAccessKey` | `string` | The secondary access key of the Notebook |
+| <CopyableCode code="primaryAccessKey" /> | `string` | The primary access key of the Notebook |
+| <CopyableCode code="secondaryAccessKey" /> | `string` | The secondary access key of the Notebook |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> |

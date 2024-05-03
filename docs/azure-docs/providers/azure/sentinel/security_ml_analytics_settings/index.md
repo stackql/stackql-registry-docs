@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_ml_analytics_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sentinel.security_ml_analytics_settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sentinel.security_ml_analytics_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Etag of the azure resource |
-| `kind` | `string` | The kind of security ML analytics settings |
+| <CopyableCode code="etag" /> | `string` | Etag of the azure resource |
+| <CopyableCode code="kind" /> | `string` | The kind of security ML analytics settings |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, settingsResourceName, subscriptionId, workspaceName` | Gets the Security ML Analytics Settings. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets all Security ML Analytics Settings. |
-| `create_or_update` | `INSERT` | `resourceGroupName, settingsResourceName, subscriptionId, workspaceName, data__kind` | Creates or updates the Security ML Analytics Settings. |
-| `delete` | `DELETE` | `resourceGroupName, settingsResourceName, subscriptionId, workspaceName` | Delete the Security ML Analytics Settings. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Gets all Security ML Analytics Settings. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, settingsResourceName, subscriptionId, workspaceName" /> | Gets the Security ML Analytics Settings. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all Security ML Analytics Settings. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, settingsResourceName, subscriptionId, workspaceName, data__kind" /> | Creates or updates the Security ML Analytics Settings. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, settingsResourceName, subscriptionId, workspaceName" /> | Delete the Security ML Analytics Settings. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all Security ML Analytics Settings. |

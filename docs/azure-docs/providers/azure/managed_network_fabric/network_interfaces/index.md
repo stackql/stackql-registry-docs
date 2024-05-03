@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_interfaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.managed_network_fabric.network_interfaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.managed_network_fabric.network_interfaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId` | Get the Network Interface resource details. |
-| `list_by_network_device` | `SELECT` | `networkDeviceName, resourceGroupName, subscriptionId` | List all the Network Interface resources in a given resource group. |
-| `create` | `INSERT` | `networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId, data__properties` | Create a Network Interface resource. |
-| `delete` | `DELETE` | `networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId` | Delete the Network Interface resource. |
-| `_list_by_network_device` | `EXEC` | `networkDeviceName, resourceGroupName, subscriptionId` | List all the Network Interface resources in a given resource group. |
-| `update` | `EXEC` | `networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId` | Update certain properties of the Network Interface resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId" /> | Get the Network Interface resource details. |
+| <CopyableCode code="list_by_network_device" /> | `SELECT` | <CopyableCode code="networkDeviceName, resourceGroupName, subscriptionId" /> | List all the Network Interface resources in a given resource group. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId, data__properties" /> | Create a Network Interface resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId" /> | Delete the Network Interface resource. |
+| <CopyableCode code="_list_by_network_device" /> | `EXEC` | <CopyableCode code="networkDeviceName, resourceGroupName, subscriptionId" /> | List all the Network Interface resources in a given resource group. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="networkDeviceName, networkInterfaceName, resourceGroupName, subscriptionId" /> | Update certain properties of the Network Interface resource. |

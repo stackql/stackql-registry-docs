@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_resiliency</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.app_resiliency</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.app_resiliency" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appName, name, resourceGroupName, subscriptionId` | Get container app resiliency policy. |
-| `list` | `SELECT` | `appName, resourceGroupName, subscriptionId` | List container app resiliency policies. |
-| `create_or_update` | `INSERT` | `appName, name, resourceGroupName, subscriptionId` | Create or update container app resiliency policy. |
-| `delete` | `DELETE` | `appName, name, resourceGroupName, subscriptionId` | Delete container app resiliency policy. |
-| `_list` | `EXEC` | `appName, resourceGroupName, subscriptionId` | List container app resiliency policies. |
-| `update` | `EXEC` | `appName, name, resourceGroupName, subscriptionId` | Update container app resiliency policy. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="appName, name, resourceGroupName, subscriptionId" /> | Get container app resiliency policy. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appName, resourceGroupName, subscriptionId" /> | List container app resiliency policies. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="appName, name, resourceGroupName, subscriptionId" /> | Create or update container app resiliency policy. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appName, name, resourceGroupName, subscriptionId" /> | Delete container app resiliency policy. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appName, resourceGroupName, subscriptionId" /> | List container app resiliency policies. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="appName, name, resourceGroupName, subscriptionId" /> | Update container app resiliency policy. |

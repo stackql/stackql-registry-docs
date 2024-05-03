@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>automation_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sentinel.automation_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sentinel.automation_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Etag of the azure resource |
-| `properties` | `object` | Automation rule properties |
+| <CopyableCode code="etag" /> | `string` | Etag of the azure resource |
+| <CopyableCode code="properties" /> | `object` | Automation rule properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `automationRuleId, resourceGroupName, subscriptionId, workspaceName` | Gets the automation rule. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets all automation rules. |
-| `create_or_update` | `INSERT` | `automationRuleId, resourceGroupName, subscriptionId, workspaceName, data__properties` | Creates or updates the automation rule. |
-| `delete` | `DELETE` | `automationRuleId, resourceGroupName, subscriptionId, workspaceName` | Delete the automation rule. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Gets all automation rules. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationRuleId, resourceGroupName, subscriptionId, workspaceName" /> | Gets the automation rule. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all automation rules. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="automationRuleId, resourceGroupName, subscriptionId, workspaceName, data__properties" /> | Creates or updates the automation rule. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="automationRuleId, resourceGroupName, subscriptionId, workspaceName" /> | Delete the automation rule. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all automation rules. |

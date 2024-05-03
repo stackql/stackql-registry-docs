@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machine_scale_sets_instance_view</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.virtual_machine_scale_sets_instance_view</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.virtual_machine_scale_sets_instance_view" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extensions` | `array` | The extensions information. |
-| `orchestrationServices` | `array` | The orchestration services information. |
-| `statuses` | `array` | The resource status information. |
-| `virtualMachine` | `object` | Instance view statuses summary for virtual machines of a virtual machine scale set. |
+| <CopyableCode code="extensions" /> | `array` | The extensions information. |
+| <CopyableCode code="orchestrationServices" /> | `array` | The orchestration services information. |
+| <CopyableCode code="statuses" /> | `array` | The resource status information. |
+| <CopyableCode code="virtualMachine" /> | `object` | Instance view statuses summary for virtual machines of a virtual machine scale set. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, vmScaleSetName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmScaleSetName" /> |

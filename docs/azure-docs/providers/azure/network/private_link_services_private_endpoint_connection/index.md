@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_services_private_endpoint_connection</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.private_link_services_private_endpoint_connection</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.private_link_services_private_endpoint_connection" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `properties` | `object` | Properties of the PrivateEndpointConnectProperties. |
-| `type` | `string` | The resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="properties" /> | `object` | Properties of the PrivateEndpointConnectProperties. |
+| <CopyableCode code="type" /> | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `peConnectionName, resourceGroupName, serviceName, subscriptionId` | Get the specific private end point connection by specific private link service in the resource group. |
-| `delete` | `DELETE` | `peConnectionName, resourceGroupName, serviceName, subscriptionId` | Delete private end point connection for a private link service in a subscription. |
-| `update` | `EXEC` | `peConnectionName, resourceGroupName, serviceName, subscriptionId` | Approve or reject private end point connection for a private link service in a subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="peConnectionName, resourceGroupName, serviceName, subscriptionId" /> | Get the specific private end point connection by specific private link service in the resource group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="peConnectionName, resourceGroupName, serviceName, subscriptionId" /> | Delete private end point connection for a private link service in a subscription. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="peConnectionName, resourceGroupName, serviceName, subscriptionId" /> | Approve or reject private end point connection for a private link service in a subscription. |

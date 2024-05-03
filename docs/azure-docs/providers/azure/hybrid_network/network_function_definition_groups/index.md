@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_function_definition_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_network.network_function_definition_groups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_network.network_function_definition_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Network function definition group properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Network function definition group properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId` | Gets information about the specified networkFunctionDefinition group. |
-| `list_by_publisher` | `SELECT` | `publisherName, resourceGroupName, subscriptionId` | Gets information of the network function definition groups under a publisher. |
-| `create_or_update` | `INSERT` | `networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId` | Creates or updates a network function definition group. |
-| `delete` | `DELETE` | `networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId` | Deletes a specified network function definition group. |
-| `_list_by_publisher` | `EXEC` | `publisherName, resourceGroupName, subscriptionId` | Gets information of the network function definition groups under a publisher. |
-| `update` | `EXEC` | `networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId` | Updates a network function definition group resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId" /> | Gets information about the specified networkFunctionDefinition group. |
+| <CopyableCode code="list_by_publisher" /> | `SELECT` | <CopyableCode code="publisherName, resourceGroupName, subscriptionId" /> | Gets information of the network function definition groups under a publisher. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId" /> | Creates or updates a network function definition group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId" /> | Deletes a specified network function definition group. |
+| <CopyableCode code="_list_by_publisher" /> | `EXEC` | <CopyableCode code="publisherName, resourceGroupName, subscriptionId" /> | Gets information of the network function definition groups under a publisher. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId" /> | Updates a network function definition group resource. |

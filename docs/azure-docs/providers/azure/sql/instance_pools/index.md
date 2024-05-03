@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.instance_pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.instance_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of an instance pool. |
-| `sku` | `object` | An ARM Resource SKU. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of an instance pool. |
+| <CopyableCode code="sku" /> | `object` | An ARM Resource SKU. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` | Gets an instance pool. |
-| `list` | `SELECT` | `subscriptionId` | Gets a list of all instance pools in the subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of instance pools in the resource group |
-| `create_or_update` | `INSERT` | `instancePoolName, resourceGroupName, subscriptionId, data__location` | Creates or updates an instance pool. |
-| `delete` | `DELETE` | `instancePoolName, resourceGroupName, subscriptionId` | Deletes an instance pool |
-| `_list` | `EXEC` | `subscriptionId` | Gets a list of all instance pools in the subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of instance pools in the resource group |
-| `update` | `EXEC` | `instancePoolName, resourceGroupName, subscriptionId` | Updates an instance pool. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId" /> | Gets an instance pool. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets a list of all instance pools in the subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of instance pools in the resource group |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId, data__location" /> | Creates or updates an instance pool. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId" /> | Deletes an instance pool |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets a list of all instance pools in the subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of instance pools in the resource group |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instancePoolName, resourceGroupName, subscriptionId" /> | Updates an instance pool. |

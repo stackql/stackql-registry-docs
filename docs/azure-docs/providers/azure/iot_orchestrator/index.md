@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure IoT Orchestrator Is An Orchestration Service That Manages Application Workloads On Kubernetes Clusters That Have Been Azure Arc Enabled. It Uses Solution, Target, And Instance Constructs To Describe The Desired State Of A Specific Cluster Or Group Of Clusters. The REST APIs For IoT Orchestrator Offer Programmatic Access To The Solution, Target, And Instance Objects In IoT Orchestrator.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure IoT Orchestrator Is An Orchestration Service That Manages Application Work
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>IoT Orchestrator</td></tr>
 <tr><td><b>Description</b></td><td>Azure IoT Orchestrator Is An Orchestration Service That Manages Application Workloads On Kubernetes Clusters That Have Been Azure Arc Enabled. It Uses Solution, Target, And Instance Constructs To Describe The Desired State Of A Specific Cluster Or Group Of Clusters. The REST APIs For IoT Orchestrator Offer Programmatic Access To The Solution, Target, And Instance Objects In IoT Orchestrator.</td></tr>
-<tr><td><b>Id</b></td><td><code>iot_orchestrator:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iot_orchestrator:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

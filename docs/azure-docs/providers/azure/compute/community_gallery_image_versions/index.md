@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>community_gallery_image_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.community_gallery_image_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.community_gallery_image_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Resource name |
-| `identifier` | `object` | The identifier information of community gallery. |
-| `location` | `string` | Resource location |
-| `properties` | `object` | Describes the properties of a gallery image version. |
-| `type` | `string` | Resource type |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="identifier" /> | `object` | The identifier information of community gallery. |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | Describes the properties of a gallery image version. |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `galleryImageName, galleryImageVersionName, location, publicGalleryName, subscriptionId` | Get a community gallery image version. |
-| `list` | `SELECT` | `galleryImageName, location, publicGalleryName, subscriptionId` | List community gallery image versions inside an image. |
-| `_list` | `EXEC` | `galleryImageName, location, publicGalleryName, subscriptionId` | List community gallery image versions inside an image. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="galleryImageName, galleryImageVersionName, location, publicGalleryName, subscriptionId" /> | Get a community gallery image version. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="galleryImageName, location, publicGalleryName, subscriptionId" /> | List community gallery image versions inside an image. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="galleryImageName, location, publicGalleryName, subscriptionId" /> | List community gallery image versions inside an image. |

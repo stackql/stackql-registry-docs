@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>storage_insight_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.log_analytics.storage_insight_configs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.log_analytics.storage_insight_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `eTag` | `string` | The ETag of the storage insight. |
-| `properties` | `object` | Storage insight properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="eTag" /> | `string` | The ETag of the storage insight. |
+| <CopyableCode code="properties" /> | `object` | Storage insight properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, storageInsightName, subscriptionId, workspaceName` | Gets a storage insight instance. |
-| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Lists the storage insight instances within a workspace |
-| `create_or_update` | `INSERT` | `resourceGroupName, storageInsightName, subscriptionId, workspaceName` | Create or update a storage insight. |
-| `delete` | `DELETE` | `resourceGroupName, storageInsightName, subscriptionId, workspaceName` | Deletes a storageInsightsConfigs resource |
-| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Lists the storage insight instances within a workspace |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, storageInsightName, subscriptionId, workspaceName" /> | Gets a storage insight instance. |
+| <CopyableCode code="list_by_workspace" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Lists the storage insight instances within a workspace |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, storageInsightName, subscriptionId, workspaceName" /> | Create or update a storage insight. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, storageInsightName, subscriptionId, workspaceName" /> | Deletes a storageInsightsConfigs resource |
+| <CopyableCode code="_list_by_workspace" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Lists the storage insight instances within a workspace |

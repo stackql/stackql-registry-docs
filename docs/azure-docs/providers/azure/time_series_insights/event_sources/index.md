@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>event_sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.time_series_insights.event_sources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.time_series_insights.event_sources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | The kind of the event source. |
-| `location` | `string` | Resource location |
-| `tags` | `object` | Resource tags |
+| <CopyableCode code="kind" /> | `string` | The kind of the event source. |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `environmentName, eventSourceName, resourceGroupName, subscriptionId` | Gets the event source with the specified name in the specified environment. |
-| `list_by_environment` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available event sources associated with the subscription and within the specified resource group and environment. |
-| `create_or_update` | `INSERT` | `environmentName, eventSourceName, resourceGroupName, subscriptionId, data__kind` | Create or update an event source under the specified environment. |
-| `delete` | `DELETE` | `environmentName, eventSourceName, resourceGroupName, subscriptionId` | Deletes the event source with the specified name in the specified subscription, resource group, and environment |
-| `_list_by_environment` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available event sources associated with the subscription and within the specified resource group and environment. |
-| `update` | `EXEC` | `environmentName, eventSourceName, resourceGroupName, subscriptionId, data__kind` | Updates the event source with the specified name in the specified subscription, resource group, and environment. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="environmentName, eventSourceName, resourceGroupName, subscriptionId" /> | Gets the event source with the specified name in the specified environment. |
+| <CopyableCode code="list_by_environment" /> | `SELECT` | <CopyableCode code="environmentName, resourceGroupName, subscriptionId" /> | Lists all the available event sources associated with the subscription and within the specified resource group and environment. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="environmentName, eventSourceName, resourceGroupName, subscriptionId, data__kind" /> | Create or update an event source under the specified environment. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="environmentName, eventSourceName, resourceGroupName, subscriptionId" /> | Deletes the event source with the specified name in the specified subscription, resource group, and environment |
+| <CopyableCode code="_list_by_environment" /> | `EXEC` | <CopyableCode code="environmentName, resourceGroupName, subscriptionId" /> | Lists all the available event sources associated with the subscription and within the specified resource group and environment. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="environmentName, eventSourceName, resourceGroupName, subscriptionId, data__kind" /> | Updates the event source with the specified name in the specified subscription, resource group, and environment. |

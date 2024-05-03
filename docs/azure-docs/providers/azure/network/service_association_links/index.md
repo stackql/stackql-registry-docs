@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_association_links</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.service_association_links</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.service_association_links" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `properties` | `object` | Properties of ServiceAssociationLink. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="properties" /> | `object` | Properties of ServiceAssociationLink. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` |
-| `_list` | `EXEC` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> |

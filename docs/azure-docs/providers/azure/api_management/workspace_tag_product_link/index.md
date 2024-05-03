@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspace_tag_product_link</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.workspace_tag_product_link</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.workspace_tag_product_link" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `productLinkId, resourceGroupName, serviceName, subscriptionId, tagId, workspaceId` | Gets the product link for the tag. |
-| `list_by_product` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, tagId, workspaceId` | Lists a collection of the product links associated with a tag. |
-| `create_or_update` | `INSERT` | `productLinkId, resourceGroupName, serviceName, subscriptionId, tagId, workspaceId` | Adds a product to the specified tag via link. |
-| `delete` | `DELETE` | `productLinkId, resourceGroupName, serviceName, subscriptionId, tagId, workspaceId` | Deletes the specified product from the specified tag. |
-| `_list_by_product` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, tagId, workspaceId` | Lists a collection of the product links associated with a tag. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="productLinkId, resourceGroupName, serviceName, subscriptionId, tagId, workspaceId" /> | Gets the product link for the tag. |
+| <CopyableCode code="list_by_product" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId, tagId, workspaceId" /> | Lists a collection of the product links associated with a tag. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="productLinkId, resourceGroupName, serviceName, subscriptionId, tagId, workspaceId" /> | Adds a product to the specified tag via link. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="productLinkId, resourceGroupName, serviceName, subscriptionId, tagId, workspaceId" /> | Deletes the specified product from the specified tag. |
+| <CopyableCode code="_list_by_product" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId, tagId, workspaceId" /> | Lists a collection of the product links associated with a tag. |

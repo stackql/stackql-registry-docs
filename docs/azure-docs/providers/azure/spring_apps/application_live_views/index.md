@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_live_views</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.spring_apps.application_live_views</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.spring_apps.application_live_views" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `applicationLiveViewName, resourceGroupName, serviceName, subscriptionId` | Get the Application Live  and its properties. |
-| `list` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Handles requests to list all resources in a Service. |
-| `create_or_update` | `INSERT` | `applicationLiveViewName, resourceGroupName, serviceName, subscriptionId` | Create the default Application Live View or update the existing Application Live View. |
-| `delete` | `DELETE` | `applicationLiveViewName, resourceGroupName, serviceName, subscriptionId` | Disable the default Application Live View. |
-| `_list` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Handles requests to list all resources in a Service. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="applicationLiveViewName, resourceGroupName, serviceName, subscriptionId" /> | Get the Application Live  and its properties. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | Handles requests to list all resources in a Service. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="applicationLiveViewName, resourceGroupName, serviceName, subscriptionId" /> | Create the default Application Live View or update the existing Application Live View. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="applicationLiveViewName, resourceGroupName, serviceName, subscriptionId" /> | Disable the default Application Live View. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | Handles requests to list all resources in a Service. |

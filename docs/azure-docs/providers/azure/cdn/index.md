@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Content Delivery Network (CDN) Caches Static Web Content At Strategically Placed Locations To Provide Maximum Throughput For Delivering Content To Users. The CDN Offers Developers A Global Solution For Delivering High-Bandwidth Content By Caching The Content At Physical Nodes Across The World.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure Content Delivery Network (CDN) Caches Static Web Content At Strategica
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure CDN</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Content Delivery Network (CDN) Caches Static Web Content At Strategically Placed Locations To Provide Maximum Throughput For Delivering Content To Users. The CDN Offers Developers A Global Solution For Delivering High-Bandwidth Content By Caching The Content At Physical Nodes Across The World.</td></tr>
-<tr><td><b>Id</b></td><td><code>cdn:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cdn:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

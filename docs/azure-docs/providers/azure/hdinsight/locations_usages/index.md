@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations_usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hdinsight.locations_usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hdinsight.locations_usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `object` | The details about the localizable name of a type of usage. |
-| `currentValue` | `integer` | The current usage. |
-| `limit` | `integer` | The maximum allowed usage. |
-| `unit` | `string` | The type of measurement for usage. |
+| <CopyableCode code="name" /> | `object` | The details about the localizable name of a type of usage. |
+| <CopyableCode code="currentValue" /> | `integer` | The current usage. |
+| <CopyableCode code="limit" /> | `integer` | The maximum allowed usage. |
+| <CopyableCode code="unit" /> | `string` | The type of measurement for usage. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `location, subscriptionId` |
-| `_list` | `EXEC` | `location, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> |

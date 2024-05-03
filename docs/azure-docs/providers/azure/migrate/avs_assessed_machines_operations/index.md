@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>avs_assessed_machines_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.migrate.avs_assessed_machines_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.migrate.avs_assessed_machines_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `assessmentName, avsAssessedMachineName, groupName, projectName, resourceGroupName, subscriptionId` | Get a AvsAssessedMachine |
-| `list_by_avs_assessment` | `SELECT` | `assessmentName, groupName, projectName, resourceGroupName, subscriptionId` | List AvsAssessedMachine resources by AvsAssessment |
-| `_list_by_avs_assessment` | `EXEC` | `assessmentName, groupName, projectName, resourceGroupName, subscriptionId` | List AvsAssessedMachine resources by AvsAssessment |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="assessmentName, avsAssessedMachineName, groupName, projectName, resourceGroupName, subscriptionId" /> | Get a AvsAssessedMachine |
+| <CopyableCode code="list_by_avs_assessment" /> | `SELECT` | <CopyableCode code="assessmentName, groupName, projectName, resourceGroupName, subscriptionId" /> | List AvsAssessedMachine resources by AvsAssessment |
+| <CopyableCode code="_list_by_avs_assessment" /> | `EXEC` | <CopyableCode code="assessmentName, groupName, projectName, resourceGroupName, subscriptionId" /> | List AvsAssessedMachine resources by AvsAssessment |

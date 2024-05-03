@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_triggers_callback_url</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.workflow_triggers_callback_url</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.workflow_triggers_callback_url" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `basePath` | `string` | Gets the workflow trigger callback URL base path. |
-| `method` | `string` | Gets the workflow trigger callback URL HTTP method. |
-| `queries` | `object` | Gets the workflow trigger callback URL query parameters. |
-| `relativePath` | `string` | Gets the workflow trigger callback URL relative path. |
-| `relativePathParameters` | `array` | Gets the workflow trigger callback URL relative path parameters. |
-| `value` | `string` | Gets the workflow trigger callback URL. |
+| <CopyableCode code="basePath" /> | `string` | Gets the workflow trigger callback URL base path. |
+| <CopyableCode code="method" /> | `string` | Gets the workflow trigger callback URL HTTP method. |
+| <CopyableCode code="queries" /> | `object` | Gets the workflow trigger callback URL query parameters. |
+| <CopyableCode code="relativePath" /> | `string` | Gets the workflow trigger callback URL relative path. |
+| <CopyableCode code="relativePathParameters" /> | `array` | Gets the workflow trigger callback URL relative path parameters. |
+| <CopyableCode code="value" /> | `string` | Gets the workflow trigger callback URL. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `name, resourceGroupName, subscriptionId, triggerName, workflowName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId, triggerName, workflowName" /> |

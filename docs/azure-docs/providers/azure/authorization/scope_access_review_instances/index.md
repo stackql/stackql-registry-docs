@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scope_access_review_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.scope_access_review_instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.scope_access_review_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The access review instance id. |
-| `name` | `string` | The access review instance name. |
-| `properties` | `object` | Access Review Instance properties. |
-| `type` | `string` | The resource type. |
+| <CopyableCode code="id" /> | `string` | The access review instance id. |
+| <CopyableCode code="name" /> | `string` | The access review instance name. |
+| <CopyableCode code="properties" /> | `object` | Access Review Instance properties. |
+| <CopyableCode code="type" /> | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `scheduleDefinitionId, scope` | Get access review instances |
-| `create` | `INSERT` | `id, scheduleDefinitionId, scope` | Update access review instance. |
-| `_list` | `EXEC` | `scheduleDefinitionId, scope` | Get access review instances |
-| `get_by_id` | `EXEC` | `id, scheduleDefinitionId, scope` | Get access review instances |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scheduleDefinitionId, scope" /> | Get access review instances |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="id, scheduleDefinitionId, scope" /> | Update access review instance. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="scheduleDefinitionId, scope" /> | Get access review instances |
+| <CopyableCode code="get_by_id" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId, scope" /> | Get access review instances |

@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assessment_project_summary_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.migrate.assessment_project_summary_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.migrate.assessment_project_summary_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `projectName, projectSummaryName, resourceGroupName, subscriptionId` | Get a AssessmentProjectSummary |
-| `list_by_assessment_project` | `SELECT` | `projectName, resourceGroupName, subscriptionId` | List AssessmentProjectSummary resources by AssessmentProject |
-| `_list_by_assessment_project` | `EXEC` | `projectName, resourceGroupName, subscriptionId` | List AssessmentProjectSummary resources by AssessmentProject |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="projectName, projectSummaryName, resourceGroupName, subscriptionId" /> | Get a AssessmentProjectSummary |
+| <CopyableCode code="list_by_assessment_project" /> | `SELECT` | <CopyableCode code="projectName, resourceGroupName, subscriptionId" /> | List AssessmentProjectSummary resources by AssessmentProject |
+| <CopyableCode code="_list_by_assessment_project" /> | `EXEC` | <CopyableCode code="projectName, resourceGroupName, subscriptionId" /> | List AssessmentProjectSummary resources by AssessmentProject |

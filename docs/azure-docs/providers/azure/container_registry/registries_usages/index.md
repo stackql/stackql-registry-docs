@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>registries_usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_registry.registries_usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_registry.registries_usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the usage. |
-| `currentValue` | `integer` | The current value of the usage. |
-| `limit` | `integer` | The limit of the usage. |
-| `unit` | `string` | The unit of measurement. |
+| <CopyableCode code="name" /> | `string` | The name of the usage. |
+| <CopyableCode code="currentValue" /> | `integer` | The current value of the usage. |
+| <CopyableCode code="limit" /> | `integer` | The limit of the usage. |
+| <CopyableCode code="unit" /> | `string` | The unit of measurement. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="registryName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="registryName, resourceGroupName, subscriptionId" /> |

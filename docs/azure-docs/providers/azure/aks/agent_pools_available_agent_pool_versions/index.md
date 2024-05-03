@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agent_pools_available_agent_pool_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.aks.agent_pools_available_agent_pool_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.aks.agent_pools_available_agent_pool_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The ID of the agent pool version list. |
-| `name` | `string` | The name of the agent pool version list. |
-| `properties` | `object` | The list of available agent pool versions. |
-| `type` | `string` | Type of the agent pool version list. |
+| <CopyableCode code="id" /> | `string` | The ID of the agent pool version list. |
+| <CopyableCode code="name" /> | `string` | The name of the agent pool version list. |
+| <CopyableCode code="properties" /> | `object` | The list of available agent pool versions. |
+| <CopyableCode code="type" /> | `string` | Type of the agent pool version list. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> |

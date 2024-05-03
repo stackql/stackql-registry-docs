@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>database_columns</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.database_columns</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.database_columns" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `columnName, databaseName, resourceGroupName, schemaName, serverName, subscriptionId, tableName` | Get database column |
-| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database columns |
-| `list_by_table` | `SELECT` | `databaseName, resourceGroupName, schemaName, serverName, subscriptionId, tableName` | List database columns |
-| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database columns |
-| `_list_by_table` | `EXEC` | `databaseName, resourceGroupName, schemaName, serverName, subscriptionId, tableName` | List database columns |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="columnName, databaseName, resourceGroupName, schemaName, serverName, subscriptionId, tableName" /> | Get database column |
+| <CopyableCode code="list_by_database" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | List database columns |
+| <CopyableCode code="list_by_table" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, schemaName, serverName, subscriptionId, tableName" /> | List database columns |
+| <CopyableCode code="_list_by_database" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | List database columns |
+| <CopyableCode code="_list_by_table" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, schemaName, serverName, subscriptionId, tableName" /> | List database columns |

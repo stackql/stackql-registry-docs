@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>server_azure_ad_only_authentications</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.server_azure_ad_only_authentications</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.server_azure_ad_only_authentications" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Gets a specific Azure Active Directory only authentication property. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server Azure Active Directory only authentications. |
-| `create_or_update` | `INSERT` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Sets Server Active Directory only authentication property or updates an existing server Active Directory only authentication property. |
-| `delete` | `DELETE` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Deletes an existing server Active Directory only authentication property. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server Azure Active Directory only authentications. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="authenticationName, resourceGroupName, serverName, subscriptionId" /> | Gets a specific Azure Active Directory only authentication property. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets a list of server Azure Active Directory only authentications. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="authenticationName, resourceGroupName, serverName, subscriptionId" /> | Sets Server Active Directory only authentication property or updates an existing server Active Directory only authentication property. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="authenticationName, resourceGroupName, serverName, subscriptionId" /> | Deletes an existing server Active Directory only authentication property. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets a list of server Azure Active Directory only authentications. |

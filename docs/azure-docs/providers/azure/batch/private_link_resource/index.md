@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_resource</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.batch.private_link_resource</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.batch.private_link_resource" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The ID of the resource. |
-| `name` | `string` | The name of the resource. |
-| `etag` | `string` | The ETag of the resource, used for concurrency statements. |
-| `properties` | `object` | Private link resource properties. |
-| `type` | `string` | The type of the resource. |
+| <CopyableCode code="id" /> | `string` | The ID of the resource. |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="etag" /> | `string` | The ETag of the resource, used for concurrency statements. |
+| <CopyableCode code="properties" /> | `object` | Private link resource properties. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, privateLinkResourceName, resourceGroupName, subscriptionId` | Gets information about the specified private link resource. |
-| `list_by_batch_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private link resources in the specified account. |
-| `_list_by_batch_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private link resources in the specified account. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, privateLinkResourceName, resourceGroupName, subscriptionId" /> | Gets information about the specified private link resource. |
+| <CopyableCode code="list_by_batch_account" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Lists all of the private link resources in the specified account. |
+| <CopyableCode code="_list_by_batch_account" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Lists all of the private link resources in the specified account. |

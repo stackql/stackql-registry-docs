@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backup_operation_statuses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.recovery_services_backup.backup_operation_statuses</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.recovery_services_backup.backup_operation_statuses" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | ID of the operation. |
-| `name` | `string` | Name of the operation. |
-| `endTime` | `string` | Operation end time. Format: ISO-8601. |
-| `error` | `object` | Error information associated with operation status call. |
-| `properties` | `object` | Base class for additional information of operation status. |
-| `startTime` | `string` | Operation start time. Format: ISO-8601. |
-| `status` | `string` | Operation status. |
+| <CopyableCode code="id" /> | `string` | ID of the operation. |
+| <CopyableCode code="name" /> | `string` | Name of the operation. |
+| <CopyableCode code="endTime" /> | `string` | Operation end time. Format: ISO-8601. |
+| <CopyableCode code="error" /> | `object` | Error information associated with operation status call. |
+| <CopyableCode code="properties" /> | `object` | Base class for additional information of operation status. |
+| <CopyableCode code="startTime" /> | `string` | Operation start time. Format: ISO-8601. |
+| <CopyableCode code="status" /> | `string` | Operation status. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, operationId, resourceGroupName, subscriptionId, vaultName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, operationId, resourceGroupName, subscriptionId, vaultName" /> |

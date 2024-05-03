@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>afd_origin_groups_resource_usage</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cdn.afd_origin_groups_resource_usage</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cdn.afd_origin_groups_resource_usage" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | URL to get the next set of results. |
-| `value` | `array` | The list of resource usages. |
+| <CopyableCode code="nextLink" /> | `string` | URL to get the next set of results. |
+| <CopyableCode code="value" /> | `array` | The list of resource usages. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `originGroupName, profileName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="originGroupName, profileName, resourceGroupName, subscriptionId" /> |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>suppression_list_addresses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.communication.suppression_list_addresses</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.communication.suppression_list_addresses" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `addressId, domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Get a SuppressionListAddress. |
-| `list` | `SELECT` | `domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Get all the addresses in a suppression list. |
-| `create_or_update` | `INSERT` | `addressId, domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Create or update a SuppressionListAddress. |
-| `delete` | `DELETE` | `addressId, domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Operation to delete a single address from a suppression list. |
-| `_list` | `EXEC` | `domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName` | Get all the addresses in a suppression list. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="addressId, domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Get a SuppressionListAddress. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Get all the addresses in a suppression list. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="addressId, domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Create or update a SuppressionListAddress. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="addressId, domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Operation to delete a single address from a suppression list. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="domainName, emailServiceName, resourceGroupName, subscriptionId, suppressionListName" /> | Get all the addresses in a suppression list. |

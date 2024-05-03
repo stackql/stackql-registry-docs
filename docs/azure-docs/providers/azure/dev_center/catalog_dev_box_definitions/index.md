@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>catalog_dev_box_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dev_center.catalog_dev_box_definitions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dev_center.catalog_dev_box_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of a Dev Box definition. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of a Dev Box definition. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Gets a Dev Box definition from the catalog |
-| `list_by_catalog` | `SELECT` |  | List Dev Box definitions in the catalog. |
-| `_list_by_catalog` | `EXEC` |  | List Dev Box definitions in the catalog. |
+| <CopyableCode code="get" /> | `SELECT` |  | Gets a Dev Box definition from the catalog |
+| <CopyableCode code="list_by_catalog" /> | `SELECT` |  | List Dev Box definitions in the catalog. |
+| <CopyableCode code="_list_by_catalog" /> | `EXEC` |  | List Dev Box definitions in the catalog. |

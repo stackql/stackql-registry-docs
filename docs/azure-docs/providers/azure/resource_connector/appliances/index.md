@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>appliances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.resource_connector.appliances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resource_connector.appliances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Identity for the resource. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties for an appliance. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Identity for the resource. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties for an appliance. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the details of an Appliance with a specified resource group and name. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of Appliances in the specified subscription and resource group. The operation returns properties of each Appliance. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Gets a list of Appliances in the specified subscription. The operation returns properties of each Appliance |
-| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Creates or updates an Appliance in the specified Subscription and Resource Group. |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Deletes an Appliance with the specified Resource Name, Resource Group, and Subscription Id. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of Appliances in the specified subscription and resource group. The operation returns properties of each Appliance. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Gets a list of Appliances in the specified subscription. The operation returns properties of each Appliance |
-| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates an Appliance with the specified Resource Name in the specified Resource Group and Subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Gets the details of an Appliance with a specified resource group and name. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of Appliances in the specified subscription and resource group. The operation returns properties of each Appliance. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets a list of Appliances in the specified subscription. The operation returns properties of each Appliance |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Creates or updates an Appliance in the specified Subscription and Resource Group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Deletes an Appliance with the specified Resource Name, Resource Group, and Subscription Id. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of Appliances in the specified subscription and resource group. The operation returns properties of each Appliance. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets a list of Appliances in the specified subscription. The operation returns properties of each Appliance |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Updates an Appliance with the specified Resource Name in the specified Resource Group and Subscription. |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>appliances_cluster_user_credential</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.resource_connector.appliances_cluster_user_credential</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resource_connector.appliances_cluster_user_credential" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `hybridConnectionConfig` | `object` | Contains the REP (rendezvous endpoint) and “Listener” access token from notification service (NS). |
-| `kubeconfigs` | `array` | The list of appliance kubeconfigs. |
+| <CopyableCode code="hybridConnectionConfig" /> | `object` | Contains the REP (rendezvous endpoint) and “Listener” access token from notification service (NS). |
+| <CopyableCode code="kubeconfigs" /> | `array` | The list of appliance kubeconfigs. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> |

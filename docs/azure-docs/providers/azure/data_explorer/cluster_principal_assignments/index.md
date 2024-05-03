@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cluster_principal_assignments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_explorer.cluster_principal_assignments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_explorer.cluster_principal_assignments" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, principalAssignmentName, resourceGroupName, subscriptionId` | Gets a Kusto cluster principalAssignment. |
-| `list` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Lists all Kusto cluster principalAssignments. |
-| `create_or_update` | `INSERT` | `clusterName, principalAssignmentName, resourceGroupName, subscriptionId` | Create a Kusto cluster principalAssignment. |
-| `delete` | `DELETE` | `clusterName, principalAssignmentName, resourceGroupName, subscriptionId` | Deletes a Kusto cluster principalAssignment. |
-| `_list` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Lists all Kusto cluster principalAssignments. |
-| `check_name_availability` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, data__name, data__type` | Checks that the principal assignment name is valid and is not already in use. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, principalAssignmentName, resourceGroupName, subscriptionId" /> | Gets a Kusto cluster principalAssignment. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Lists all Kusto cluster principalAssignments. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="clusterName, principalAssignmentName, resourceGroupName, subscriptionId" /> | Create a Kusto cluster principalAssignment. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, principalAssignmentName, resourceGroupName, subscriptionId" /> | Deletes a Kusto cluster principalAssignment. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Lists all Kusto cluster principalAssignments. |
+| <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, data__name, data__type" /> | Checks that the principal assignment name is valid and is not already in use. |

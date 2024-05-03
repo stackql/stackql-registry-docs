@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Service Fabric Mesh Resource Manager APIs Allow Managing Microservices Applications Deployed In Azure Service Fabric Mesh Environment Through Management.Azure.Com.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Service Fabric Mesh Resource Manager APIs Allow Managing Microservices Applicati
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Fabric Mesh</td></tr>
 <tr><td><b>Description</b></td><td>Service Fabric Mesh Resource Manager APIs Allow Managing Microservices Applications Deployed In Azure Service Fabric Mesh Environment Through Management.Azure.Com.</td></tr>
-<tr><td><b>Id</b></td><td><code>service_fabric_mesh:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_fabric_mesh:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transactions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.billing.transactions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.billing.transactions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource name. |
-| `properties` | `object` | The properties of a transaction. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="properties" /> | `object` | The properties of a transaction. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_invoice` | `SELECT` | `billingAccountName, invoiceName` |
-| `_list_by_invoice` | `EXEC` | `billingAccountName, invoiceName` |
+| <CopyableCode code="list_by_invoice" /> | `SELECT` | <CopyableCode code="billingAccountName, invoiceName" /> |
+| <CopyableCode code="_list_by_invoice" /> | `EXEC` | <CopyableCode code="billingAccountName, invoiceName" /> |

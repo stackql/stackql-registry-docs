@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>alert_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.alert_definitions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.alert_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The alert definition ID. |
-| `name` | `string` | The alert definition name. |
-| `properties` | `object` | Alert definition properties. |
-| `type` | `string` | The alert definition type. |
+| <CopyableCode code="id" /> | `string` | The alert definition ID. |
+| <CopyableCode code="name" /> | `string` | The alert definition name. |
+| <CopyableCode code="properties" /> | `object` | Alert definition properties. |
+| <CopyableCode code="type" /> | `string` | The alert definition type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `alertDefinitionId, scope` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="alertDefinitionId, scope" /> |

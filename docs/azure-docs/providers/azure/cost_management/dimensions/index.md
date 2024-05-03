@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dimensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cost_management.dimensions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cost_management.dimensions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,7 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `_by_external_cloud_provider_type` | `EXEC` | `externalCloudProviderId, externalCloudProviderType` | Lists the dimensions by the external cloud provider type. |
-| `_exec_list` | `EXEC` | `scope` | Lists the dimensions by the defined scope. |
-| `by_external_cloud_provider_type` | `EXEC` | `externalCloudProviderId, externalCloudProviderType` | Lists the dimensions by the external cloud provider type. |
-| `exec_list` | `EXEC` | `scope` | Lists the dimensions by the defined scope. |
+| <CopyableCode code="_by_external_cloud_provider_type" /> | `EXEC` | <CopyableCode code="externalCloudProviderId, externalCloudProviderType" /> | Lists the dimensions by the external cloud provider type. |
+| <CopyableCode code="_exec_list" /> | `EXEC` | <CopyableCode code="scope" /> | Lists the dimensions by the defined scope. |
+| <CopyableCode code="by_external_cloud_provider_type" /> | `EXEC` | <CopyableCode code="externalCloudProviderId, externalCloudProviderType" /> | Lists the dimensions by the external cloud provider type. |
+| <CopyableCode code="exec_list" /> | `EXEC` | <CopyableCode code="scope" /> | Lists the dimensions by the defined scope. |

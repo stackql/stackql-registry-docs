@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The System Center Virtual Machine Manager (VMM) Is Part Of The System Center Suite Used To Configure, Manage, And Transform Traditional Datacenters. It Helps To Provide A Unified Management Experience Across On-Premises, Service Provider, And The Azure Cloud.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The System Center Virtual Machine Manager (VMM) Is Part Of The System Center Sui
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>System Center VM Manager</td></tr>
 <tr><td><b>Description</b></td><td>The System Center Virtual Machine Manager (VMM) Is Part Of The System Center Suite Used To Configure, Manage, And Transform Traditional Datacenters. It Helps To Provide A Unified Management Experience Across On-Premises, Service Provider, And The Azure Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>system_center_vm_manager:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>system_center_vm_manager:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

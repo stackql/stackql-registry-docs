@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Easily Add Real-Time Collaborative Experiences To Your Apps With Fluid Framework.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Easily Add Real-Time Collaborative Experiences To Your Apps With Fluid Framework
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Fluid Relay</td></tr>
 <tr><td><b>Description</b></td><td>Easily Add Real-Time Collaborative Experiences To Your Apps With Fluid Framework.</td></tr>
-<tr><td><b>Id</b></td><td><code>fluid_relay:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>fluid_relay:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

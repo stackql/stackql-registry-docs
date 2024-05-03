@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_apps_host_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.web_apps_host_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.web_apps_host_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `functionKeys` | `object` | Host level function keys. |
-| `masterKey` | `string` | Secret key. |
-| `systemKeys` | `object` | System keys. |
+| <CopyableCode code="functionKeys" /> | `object` | Host level function keys. |
+| <CopyableCode code="masterKey" /> | `string` | Secret key. |
+| <CopyableCode code="systemKeys" /> | `object` | System keys. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `name, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> |

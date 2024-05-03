@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hybrid_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.relay.hybrid_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.relay.hybrid_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `` | Properties of the HybridConnection. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `` | Properties of the HybridConnection. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `hybridConnectionName, namespaceName, resourceGroupName, subscriptionId` | Returns the description for the specified hybrid connection. |
-| `list_by_namespace` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Lists the hybrid connection within the namespace. |
-| `create_or_update` | `INSERT` | `hybridConnectionName, namespaceName, resourceGroupName, subscriptionId` | Creates or updates a service hybrid connection. This operation is idempotent. |
-| `delete` | `DELETE` | `hybridConnectionName, namespaceName, resourceGroupName, subscriptionId` | Deletes a hybrid connection. |
-| `_list_by_namespace` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Lists the hybrid connection within the namespace. |
-| `regenerate_keys` | `EXEC` | `authorizationRuleName, hybridConnectionName, namespaceName, resourceGroupName, subscriptionId, data__keyType` | Regenerates the primary or secondary connection strings to the hybrid connection. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="hybridConnectionName, namespaceName, resourceGroupName, subscriptionId" /> | Returns the description for the specified hybrid connection. |
+| <CopyableCode code="list_by_namespace" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Lists the hybrid connection within the namespace. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="hybridConnectionName, namespaceName, resourceGroupName, subscriptionId" /> | Creates or updates a service hybrid connection. This operation is idempotent. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="hybridConnectionName, namespaceName, resourceGroupName, subscriptionId" /> | Deletes a hybrid connection. |
+| <CopyableCode code="_list_by_namespace" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Lists the hybrid connection within the namespace. |
+| <CopyableCode code="regenerate_keys" /> | `EXEC` | <CopyableCode code="authorizationRuleName, hybridConnectionName, namespaceName, resourceGroupName, subscriptionId, data__keyType" /> | Regenerates the primary or secondary connection strings to the hybrid connection. |

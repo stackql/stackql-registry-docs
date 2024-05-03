@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_instance_advanced_threat_protection_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.managed_instance_advanced_threat_protection_settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.managed_instance_advanced_threat_protection_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of an Advanced Threat Protection state. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of an Advanced Threat Protection state. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId` | Get a managed instance's Advanced Threat Protection state. |
-| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed instance's Advanced Threat Protection settings. |
-| `create_or_update` | `INSERT` | `advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId` | Creates or updates Advanced Threat Protection settings. |
-| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed instance's Advanced Threat Protection settings. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId" /> | Get a managed instance's Advanced Threat Protection state. |
+| <CopyableCode code="list_by_instance" /> | `SELECT` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Get the managed instance's Advanced Threat Protection settings. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId" /> | Creates or updates Advanced Threat Protection settings. |
+| <CopyableCode code="_list_by_instance" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Get the managed instance's Advanced Threat Protection settings. |

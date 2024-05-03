@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_instance_administrators</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.managed_instance_administrators</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.managed_instance_administrators" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `administratorName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed instance administrator. |
-| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance administrators. |
-| `create_or_update` | `INSERT` | `administratorName, managedInstanceName, resourceGroupName, subscriptionId` | Creates or updates a managed instance administrator. |
-| `delete` | `DELETE` | `administratorName, managedInstanceName, resourceGroupName, subscriptionId` | Deletes a managed instance administrator. |
-| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance administrators. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="administratorName, managedInstanceName, resourceGroupName, subscriptionId" /> | Gets a managed instance administrator. |
+| <CopyableCode code="list_by_instance" /> | `SELECT` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Gets a list of managed instance administrators. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="administratorName, managedInstanceName, resourceGroupName, subscriptionId" /> | Creates or updates a managed instance administrator. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="administratorName, managedInstanceName, resourceGroupName, subscriptionId" /> | Deletes a managed instance administrator. |
+| <CopyableCode code="_list_by_instance" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Gets a list of managed instance administrators. |

@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>partition_key_range_id_region_metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cosmos_db.partition_key_range_id_region_metrics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cosmos_db.partition_key_range_id_region_metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `object` | A metric name. |
-| `endTime` | `string` | The end time for the metric (ISO-8601 format). |
-| `metricValues` | `array` | The metric values for the specified time window and timestep. |
-| `partitionId` | `string` | The partition id (GUID identifier) of the metric values. |
-| `partitionKeyRangeId` | `string` | The partition key range id (integer identifier) of the metric values. |
-| `startTime` | `string` | The start time for the metric (ISO-8601 format). |
-| `timeGrain` | `string` | The time grain to be used to summarize the metric values. |
-| `unit` | `string` | The unit of the metric. |
+| <CopyableCode code="name" /> | `object` | A metric name. |
+| <CopyableCode code="endTime" /> | `string` | The end time for the metric (ISO-8601 format). |
+| <CopyableCode code="metricValues" /> | `array` | The metric values for the specified time window and timestep. |
+| <CopyableCode code="partitionId" /> | `string` | The partition id (GUID identifier) of the metric values. |
+| <CopyableCode code="partitionKeyRangeId" /> | `string` | The partition key range id (integer identifier) of the metric values. |
+| <CopyableCode code="startTime" /> | `string` | The start time for the metric (ISO-8601 format). |
+| <CopyableCode code="timeGrain" /> | `string` | The time grain to be used to summarize the metric values. |
+| <CopyableCode code="unit" /> | `string` | The unit of the metric. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `$filter, accountName, collectionRid, databaseRid, partitionKeyRangeId, region, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `$filter, accountName, collectionRid, databaseRid, partitionKeyRangeId, region, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="$filter, accountName, collectionRid, databaseRid, partitionKeyRangeId, region, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="$filter, accountName, collectionRid, databaseRid, partitionKeyRangeId, region, resourceGroupName, subscriptionId" /> |

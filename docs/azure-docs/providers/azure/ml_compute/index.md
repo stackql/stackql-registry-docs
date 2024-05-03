@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Train And Deploy Models And Manage The ML Lifecycle (MLOps) With Azure Machine Learning. Tutorials, Code Examples, API References, And More.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Train And Deploy Models And Manage The ML Lifecycle (MLOps) With Azure Machine L
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Machine Learning Compute</td></tr>
 <tr><td><b>Description</b></td><td>Train And Deploy Models And Manage The ML Lifecycle (MLOps) With Azure Machine Learning. Tutorials, Code Examples, API References, And More.</td></tr>
-<tr><td><b>Id</b></td><td><code>ml_compute:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ml_compute:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

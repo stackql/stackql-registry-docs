@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>test_job_streams</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.test_job_streams</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.test_job_streams" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Gets or sets the id of the resource. |
-| `properties` | `object` | Definition of the job stream. |
+| <CopyableCode code="id" /> | `string` | Gets or sets the id of the resource. |
+| <CopyableCode code="properties" /> | `object` | Definition of the job stream. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `automationAccountName, jobStreamId, resourceGroupName, runbookName, subscriptionId` | Retrieve a test job stream of the test job identified by runbook name and stream id. |
-| `list_by_test_job` | `SELECT` | `automationAccountName, resourceGroupName, runbookName, subscriptionId` | Retrieve a list of test job streams identified by runbook name. |
-| `_list_by_test_job` | `EXEC` | `automationAccountName, resourceGroupName, runbookName, subscriptionId` | Retrieve a list of test job streams identified by runbook name. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, jobStreamId, resourceGroupName, runbookName, subscriptionId" /> | Retrieve a test job stream of the test job identified by runbook name and stream id. |
+| <CopyableCode code="list_by_test_job" /> | `SELECT` | <CopyableCode code="automationAccountName, resourceGroupName, runbookName, subscriptionId" /> | Retrieve a list of test job streams identified by runbook name. |
+| <CopyableCode code="_list_by_test_job" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, runbookName, subscriptionId" /> | Retrieve a list of test job streams identified by runbook name. |

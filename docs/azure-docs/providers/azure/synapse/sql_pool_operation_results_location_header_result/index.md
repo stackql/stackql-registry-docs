@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sql_pool_operation_results_location_header_result</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.sql_pool_operation_results_location_header_result</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.sql_pool_operation_results_location_header_result" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of a SQL Analytics pool |
-| `sku` | `object` | The resource model definition representing SKU |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of a SQL Analytics pool |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `operationId, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operationId, resourceGroupName, sqlPoolName, subscriptionId, workspaceName" /> |

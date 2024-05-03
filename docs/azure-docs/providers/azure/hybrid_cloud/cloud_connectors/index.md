@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_cloud.cloud_connectors</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_cloud.cloud_connectors" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Cloud connector resource properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Cloud connector resource properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `cloudConnectorName, resourceGroupName, subscriptionId` | Gets the specified cloud connector in a specified resource group. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Return list of cloud connectors in a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Return list of cloud connectors in a subscription. |
-| `create_or_update` | `INSERT` | `cloudConnectorName, resourceGroupName, subscriptionId` | Creates or updates a cloud connector resource. |
-| `delete` | `DELETE` | `cloudConnectorName, resourceGroupName, subscriptionId` | Deletes a specified cloud connector resource. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Return list of cloud connectors in a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Return list of cloud connectors in a subscription. |
-| `discover_resources` | `EXEC` | `cloudConnectorName, resourceGroupName, subscriptionId` | Returns a list of discovered remote cloud resources via this cloud connector resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cloudConnectorName, resourceGroupName, subscriptionId" /> | Gets the specified cloud connector in a specified resource group. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Return list of cloud connectors in a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Return list of cloud connectors in a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="cloudConnectorName, resourceGroupName, subscriptionId" /> | Creates or updates a cloud connector resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="cloudConnectorName, resourceGroupName, subscriptionId" /> | Deletes a specified cloud connector resource. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Return list of cloud connectors in a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Return list of cloud connectors in a subscription. |
+| <CopyableCode code="discover_resources" /> | `EXEC` | <CopyableCode code="cloudConnectorName, resourceGroupName, subscriptionId" /> | Returns a list of discovered remote cloud resources via this cloud connector resource. |

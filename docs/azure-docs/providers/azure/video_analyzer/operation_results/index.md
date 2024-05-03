@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operation_results</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.video_analyzer.operation_results</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.video_analyzer.operation_results" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | The managed identity for the Video Analyzer resource. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of the Video Analyzer account. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | The managed identity for the Video Analyzer resource. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | The properties of the Video Analyzer account. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `locationName, operationId, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, operationId, subscriptionId" /> |

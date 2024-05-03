@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bot_connection_service_providers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.bot_service.bot_connection_service_providers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.bot_service.bot_connection_service_providers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The link used to get the next page of bot service providers. |
-| `value` | `array` | Gets the list of bot service providers and their properties. |
+| <CopyableCode code="nextLink" /> | `string` | The link used to get the next page of bot service providers. |
+| <CopyableCode code="value" /> | `array` | Gets the list of bot service providers and their properties. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |

@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_dev_ops_repo</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.security_devops.azure_dev_ops_repo</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.security_devops.azure_dev_ops_repo" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, azureDevOpsRepoName, resourceGroupName, subscriptionId` |
-| `list` | `SELECT` | `azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, resourceGroupName, subscriptionId` |
-| `list_by_connector` | `SELECT` | `azureDevOpsConnectorName, resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, azureDevOpsRepoName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, resourceGroupName, subscriptionId` |
-| `_list_by_connector` | `EXEC` | `azureDevOpsConnectorName, resourceGroupName, subscriptionId` |
-| `update` | `EXEC` | `azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, azureDevOpsRepoName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, azureDevOpsRepoName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list_by_connector" /> | `SELECT` | <CopyableCode code="azureDevOpsConnectorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, azureDevOpsRepoName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list_by_connector" /> | `EXEC` | <CopyableCode code="azureDevOpsConnectorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="azureDevOpsConnectorName, azureDevOpsOrgName, azureDevOpsProjectName, azureDevOpsRepoName, resourceGroupName, subscriptionId" /> |

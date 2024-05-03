@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.integration_environment.application_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.integration_environment.application_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `applicationName, resourceGroupName, resourceName, spaceName, subscriptionId` | Get a ApplicationResource |
-| `list_by_application` | `SELECT` | `applicationName, resourceGroupName, spaceName, subscriptionId` | List ApplicationResource resources by Application |
-| `create_or_update` | `INSERT` | `applicationName, resourceGroupName, resourceName, spaceName, subscriptionId` | Create a ApplicationResource |
-| `delete` | `DELETE` | `applicationName, resourceGroupName, resourceName, spaceName, subscriptionId` | Delete a ApplicationResource |
-| `_list_by_application` | `EXEC` | `applicationName, resourceGroupName, spaceName, subscriptionId` | List ApplicationResource resources by Application |
-| `patch` | `EXEC` | `applicationName, resourceGroupName, resourceName, spaceName, subscriptionId` | Update a ApplicationResource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="applicationName, resourceGroupName, resourceName, spaceName, subscriptionId" /> | Get a ApplicationResource |
+| <CopyableCode code="list_by_application" /> | `SELECT` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | List ApplicationResource resources by Application |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="applicationName, resourceGroupName, resourceName, spaceName, subscriptionId" /> | Create a ApplicationResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="applicationName, resourceGroupName, resourceName, spaceName, subscriptionId" /> | Delete a ApplicationResource |
+| <CopyableCode code="_list_by_application" /> | `EXEC` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | List ApplicationResource resources by Application |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="applicationName, resourceGroupName, resourceName, spaceName, subscriptionId" /> | Update a ApplicationResource |

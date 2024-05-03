@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trigger_runs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_factory.trigger_runs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_factory.trigger_runs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `cancel` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName` | Cancel a single trigger instance by runId. |
-| `query_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore` | Query trigger runs. |
-| `rerun` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName` | Rerun single trigger instance by runId. |
+| <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName" /> | Cancel a single trigger instance by runId. |
+| <CopyableCode code="query_by_factory" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore" /> | Query trigger runs. |
+| <CopyableCode code="rerun" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName" /> | Rerun single trigger instance by runId. |

@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>top_level_domains</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.top_level_domains</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.top_level_domains" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource Name. |
-| `kind` | `string` | Kind of resource. |
-| `properties` | `object` | TopLevelDomain resource specific properties |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource Name. |
+| <CopyableCode code="kind" /> | `string` | Kind of resource. |
+| <CopyableCode code="properties" /> | `object` | TopLevelDomain resource specific properties |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `name, subscriptionId` | Description for Get details of a top-level domain. |
-| `list` | `SELECT` | `subscriptionId` | Description for Get all top-level domains supported for registration. |
-| `_list` | `EXEC` | `subscriptionId` | Description for Get all top-level domains supported for registration. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name, subscriptionId" /> | Description for Get details of a top-level domain. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Description for Get all top-level domains supported for registration. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Description for Get all top-level domains supported for registration. |

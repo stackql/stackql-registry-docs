@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>job_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_data_manager.job_definitions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_data_manager.job_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Id of the object. |
-| `name` | `string` | Name of the object. |
-| `properties` | `object` | Job Definition |
-| `type` | `string` | Type of the object. |
+| <CopyableCode code="id" /> | `string` | Id of the object. |
+| <CopyableCode code="name" /> | `string` | Name of the object. |
+| <CopyableCode code="properties" /> | `object` | Job Definition |
+| <CopyableCode code="type" /> | `string` | Type of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId` | This method gets job definition object by name. |
-| `list_by_data_manager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets all the job definitions of the given data manager resource. |
-| `list_by_data_service` | `SELECT` | `dataManagerName, dataServiceName, resourceGroupName, subscriptionId` | This method gets all the job definitions of the given data service name. |
-| `create_or_update` | `INSERT` | `dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a job definition. |
-| `delete` | `DELETE` | `dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId` | This method deletes the given job definition. |
-| `_list_by_data_manager` | `EXEC` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets all the job definitions of the given data manager resource. |
-| `_list_by_data_service` | `EXEC` | `dataManagerName, dataServiceName, resourceGroupName, subscriptionId` | This method gets all the job definitions of the given data service name. |
-| `run` | `EXEC` | `dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId` | This method runs a job instance of the given job definition. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId" /> | This method gets job definition object by name. |
+| <CopyableCode code="list_by_data_manager" /> | `SELECT` | <CopyableCode code="dataManagerName, resourceGroupName, subscriptionId" /> | This method gets all the job definitions of the given data manager resource. |
+| <CopyableCode code="list_by_data_service" /> | `SELECT` | <CopyableCode code="dataManagerName, dataServiceName, resourceGroupName, subscriptionId" /> | This method gets all the job definitions of the given data service name. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId, data__properties" /> | Creates or updates a job definition. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId" /> | This method deletes the given job definition. |
+| <CopyableCode code="_list_by_data_manager" /> | `EXEC` | <CopyableCode code="dataManagerName, resourceGroupName, subscriptionId" /> | This method gets all the job definitions of the given data manager resource. |
+| <CopyableCode code="_list_by_data_service" /> | `EXEC` | <CopyableCode code="dataManagerName, dataServiceName, resourceGroupName, subscriptionId" /> | This method gets all the job definitions of the given data service name. |
+| <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="dataManagerName, dataServiceName, jobDefinitionName, resourceGroupName, subscriptionId" /> | This method runs a job instance of the given job definition. |

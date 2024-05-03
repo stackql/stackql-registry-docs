@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>signal_r_custom_domains</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.signalr.signal_r_custom_domains</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.signalr.signal_r_custom_domains" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `name, resourceGroupName, resourceName, subscriptionId` | Get a custom domain. |
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | List all custom domains. |
-| `create_or_update` | `INSERT` | `name, resourceGroupName, resourceName, subscriptionId, data__properties` | Create or update a custom domain. |
-| `delete` | `DELETE` | `name, resourceGroupName, resourceName, subscriptionId` | Delete a custom domain. |
-| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | List all custom domains. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, resourceName, subscriptionId" /> | Get a custom domain. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List all custom domains. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="name, resourceGroupName, resourceName, subscriptionId, data__properties" /> | Create or update a custom domain. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="name, resourceGroupName, resourceName, subscriptionId" /> | Delete a custom domain. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List all custom domains. |

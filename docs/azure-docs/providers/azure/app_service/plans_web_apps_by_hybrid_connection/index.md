@@ -14,19 +14,22 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>plans_web_apps_by_hybrid_connection</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.plans_web_apps_by_hybrid_connection</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.plans_web_apps_by_hybrid_connection" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `name, namespaceName, relayName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `name, namespaceName, relayName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, namespaceName, relayName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="name, namespaceName, relayName, resourceGroupName, subscriptionId" /> |

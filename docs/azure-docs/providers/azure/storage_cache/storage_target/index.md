@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>storage_target</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage_cache.storage_target</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage_cache.storage_target" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,7 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `flush` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Tells the cache to write all dirty data to the Storage Target's backend storage. Client requests to this storage target's namespace will return errors until the flush operation completes. |
-| `invalidate` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Invalidate all cached data for a storage target. Cached files are discarded and fetched from the back end on the next request. |
-| `resume` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Resumes client access to a previously suspended storage target. |
-| `suspend` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Suspends client access to a storage target. |
+| <CopyableCode code="flush" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, storageTargetName, subscriptionId" /> | Tells the cache to write all dirty data to the Storage Target's backend storage. Client requests to this storage target's namespace will return errors until the flush operation completes. |
+| <CopyableCode code="invalidate" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, storageTargetName, subscriptionId" /> | Invalidate all cached data for a storage target. Cached files are discarded and fetched from the back end on the next request. |
+| <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, storageTargetName, subscriptionId" /> | Resumes client access to a previously suspended storage target. |
+| <CopyableCode code="suspend" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, storageTargetName, subscriptionId" /> | Suspends client access to a storage target. |

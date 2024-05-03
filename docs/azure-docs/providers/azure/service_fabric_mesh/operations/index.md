@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_fabric_mesh.operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_fabric_mesh.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the operation. |
-| `display` | `object` | An operation available at the listed Azure resource provider. |
-| `nextLink` | `string` | The URL to use for getting the next set of results. |
-| `origin` | `string` | Origin result |
-| `properties` | `object` | Properties available for a Microsoft.Web resource provider operation. |
+| <CopyableCode code="name" /> | `string` | The name of the operation. |
+| <CopyableCode code="display" /> | `object` | An operation available at the listed Azure resource provider. |
+| <CopyableCode code="nextLink" /> | `string` | The URL to use for getting the next set of results. |
+| <CopyableCode code="origin" /> | `string` | Origin result |
+| <CopyableCode code="properties" /> | `object` | Properties available for a Microsoft.Web resource provider operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version` |
-| `_list` | `EXEC` | `api-version` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version" /> |

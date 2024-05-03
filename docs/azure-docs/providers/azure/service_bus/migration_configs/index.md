@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>migration_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_bus.migration_configs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_bus.migration_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `` | Properties required to the Create Migration Configuration |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `` | Properties required to the Create Migration Configuration |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `configName, namespaceName, resourceGroupName, subscriptionId` | Retrieves Migration Config |
-| `list` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets all migrationConfigurations |
-| `delete` | `DELETE` | `configName, namespaceName, resourceGroupName, subscriptionId` | Deletes a MigrationConfiguration |
-| `_list` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Gets all migrationConfigurations |
-| `complete_migration` | `EXEC` | `configName, namespaceName, resourceGroupName, subscriptionId` | This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any entities created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress. |
-| `revert` | `EXEC` | `configName, namespaceName, resourceGroupName, subscriptionId` | This operation reverts Migration |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="configName, namespaceName, resourceGroupName, subscriptionId" /> | Retrieves Migration Config |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Gets all migrationConfigurations |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="configName, namespaceName, resourceGroupName, subscriptionId" /> | Deletes a MigrationConfiguration |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Gets all migrationConfigurations |
+| <CopyableCode code="complete_migration" /> | `EXEC` | <CopyableCode code="configName, namespaceName, resourceGroupName, subscriptionId" /> | This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any entities created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress. |
+| <CopyableCode code="revert" /> | `EXEC` | <CopyableCode code="configName, namespaceName, resourceGroupName, subscriptionId" /> | This operation reverts Migration |

@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_apps_host_secret</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.web_apps_host_secret</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.web_apps_host_secret" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create_or_update` | `INSERT` | `keyName, keyType, name, resourceGroupName, subscriptionId` | Description for Add or update a host level secret. |
-| `delete` | `DELETE` | `keyName, keyType, name, resourceGroupName, subscriptionId` | Description for Delete a host level secret. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="keyName, keyType, name, resourceGroupName, subscriptionId" /> | Description for Add or update a host level secret. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="keyName, keyType, name, resourceGroupName, subscriptionId" /> | Description for Delete a host level secret. |

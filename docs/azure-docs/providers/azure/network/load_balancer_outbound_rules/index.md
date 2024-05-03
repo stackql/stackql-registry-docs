@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>load_balancer_outbound_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.load_balancer_outbound_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.load_balancer_outbound_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | The name of the resource that is unique within the set of outbound rules used by the load balancer. This name can be used to access the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `properties` | `object` | Outbound rule of the load balancer. |
-| `type` | `string` | Type of the resource. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | The name of the resource that is unique within the set of outbound rules used by the load balancer. This name can be used to access the resource. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="properties" /> | `object` | Outbound rule of the load balancer. |
+| <CopyableCode code="type" /> | `string` | Type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `loadBalancerName, outboundRuleName, resourceGroupName, subscriptionId` | Gets the specified load balancer outbound rule. |
-| `list` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the outbound rules in a load balancer. |
-| `_list` | `EXEC` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the outbound rules in a load balancer. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="loadBalancerName, outboundRuleName, resourceGroupName, subscriptionId" /> | Gets the specified load balancer outbound rule. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Gets all the outbound rules in a load balancer. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Gets all the outbound rules in a load balancer. |

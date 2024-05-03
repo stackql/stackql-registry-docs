@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The REST APIs For IoT Hub Offer Programmatic Access To The Device, Messaging, And Job Services, As Well As The Resource Provider, In IoT Hub. You Can Access Messaging Services From Within An IoT Service Running In Azure, Or Directly Over The Internet From Any Application That Can Send An HTTPS Request And Receive An HTTPS Response.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The REST APIs For IoT Hub Offer Programmatic Access To The Device, Messaging, An
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>IoT Hub</td></tr>
 <tr><td><b>Description</b></td><td>The REST APIs For IoT Hub Offer Programmatic Access To The Device, Messaging, And Job Services, As Well As The Resource Provider, In IoT Hub. You Can Access Messaging Services From Within An IoT Service Running In Azure, Or Directly Over The Internet From Any Application That Can Send An HTTPS Request And Receive An HTTPS Response.</td></tr>
-<tr><td><b>Id</b></td><td><code>iot_hub:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iot_hub:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

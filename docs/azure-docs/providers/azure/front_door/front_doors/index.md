@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>front_doors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.front_door.front_doors</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.front_door.front_doors" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | The JSON object that contains the properties required to create an endpoint. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | The JSON object that contains the properties required to create an endpoint. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `frontDoorName, resourceGroupName, subscriptionId` | Gets a Front Door with the specified Front Door name under the specified subscription and resource group. |
-| `list` | `SELECT` | `subscriptionId` | Lists all of the Front Doors within an Azure subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the Front Doors within a resource group under a subscription. |
-| `create_or_update` | `INSERT` | `frontDoorName, resourceGroupName, subscriptionId` | Creates a new Front Door with a Front Door name under the specified subscription and resource group. |
-| `delete` | `DELETE` | `frontDoorName, resourceGroupName, subscriptionId` | Deletes an existing Front Door with the specified parameters. |
-| `_list` | `EXEC` | `subscriptionId` | Lists all of the Front Doors within an Azure subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all of the Front Doors within a resource group under a subscription. |
-| `validate_custom_domain` | `EXEC` | `frontDoorName, resourceGroupName, subscriptionId, data__hostName` | Validates the custom domain mapping to ensure it maps to the correct Front Door endpoint in DNS. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="frontDoorName, resourceGroupName, subscriptionId" /> | Gets a Front Door with the specified Front Door name under the specified subscription and resource group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all of the Front Doors within an Azure subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all of the Front Doors within a resource group under a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="frontDoorName, resourceGroupName, subscriptionId" /> | Creates a new Front Door with a Front Door name under the specified subscription and resource group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="frontDoorName, resourceGroupName, subscriptionId" /> | Deletes an existing Front Door with the specified parameters. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all of the Front Doors within an Azure subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all of the Front Doors within a resource group under a subscription. |
+| <CopyableCode code="validate_custom_domain" /> | `EXEC` | <CopyableCode code="frontDoorName, resourceGroupName, subscriptionId, data__hostName" /> | Validates the custom domain mapping to ensure it maps to the correct Front Door endpoint in DNS. |

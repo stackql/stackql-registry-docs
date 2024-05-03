@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cognitive_services.usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cognitive_services.usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `object` | A metric name. |
-| `currentValue` | `number` | Current value for this metric. |
-| `limit` | `number` | Maximum value for this metric. |
-| `nextResetTime` | `string` | Next reset time for current quota. |
-| `quotaPeriod` | `string` | The quota period used to summarize the usage values. |
-| `status` | `string` | Cognitive Services account quota usage status. |
-| `unit` | `string` | The unit of the metric. |
+| <CopyableCode code="name" /> | `object` | A metric name. |
+| <CopyableCode code="currentValue" /> | `number` | Current value for this metric. |
+| <CopyableCode code="limit" /> | `number` | Maximum value for this metric. |
+| <CopyableCode code="nextResetTime" /> | `string` | Next reset time for current quota. |
+| <CopyableCode code="quotaPeriod" /> | `string` | The quota period used to summarize the usage values. |
+| <CopyableCode code="status" /> | `string` | Cognitive Services account quota usage status. |
+| <CopyableCode code="unit" /> | `string` | The unit of the metric. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `location, subscriptionId` |
-| `_list` | `EXEC` | `location, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> |

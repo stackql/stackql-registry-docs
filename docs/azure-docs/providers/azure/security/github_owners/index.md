@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github_owners</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.security.github_owners</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.security.github_owners" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | GitHub Owner properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | GitHub Owner properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `ownerName, resourceGroupName, securityConnectorName, subscriptionId` |
-| `list` | `SELECT` | `resourceGroupName, securityConnectorName, subscriptionId` |
-| `_list` | `EXEC` | `resourceGroupName, securityConnectorName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="ownerName, resourceGroupName, securityConnectorName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, securityConnectorName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, securityConnectorName, subscriptionId" /> |

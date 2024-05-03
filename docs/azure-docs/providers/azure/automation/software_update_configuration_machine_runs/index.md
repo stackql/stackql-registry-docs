@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>software_update_configuration_machine_runs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.software_update_configuration_machine_runs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.software_update_configuration_machine_runs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id of the software update configuration machine run |
-| `name` | `string` | Name of the software update configuration machine run |
-| `properties` | `object` | Software update configuration machine run properties. |
+| <CopyableCode code="id" /> | `string` | Resource Id of the software update configuration machine run |
+| <CopyableCode code="name" /> | `string` | Name of the software update configuration machine run |
+| <CopyableCode code="properties" /> | `object` | Software update configuration machine run properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `automationAccountName, resourceGroupName, subscriptionId` | Return list of software update configuration machine runs |
-| `_list` | `EXEC` | `automationAccountName, resourceGroupName, subscriptionId` | Return list of software update configuration machine runs |
-| `get_by_id` | `EXEC` | `automationAccountName, resourceGroupName, softwareUpdateConfigurationMachineRunId, subscriptionId` | Get a single software update configuration machine run by Id. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Return list of software update configuration machine runs |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Return list of software update configuration machine runs |
+| <CopyableCode code="get_by_id" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, softwareUpdateConfigurationMachineRunId, subscriptionId" /> | Get a single software update configuration machine run by Id. |

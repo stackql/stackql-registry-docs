@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Engagement Fabric Management Client  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Engagement Fabric Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Engagement Fabric</td></tr>
 <tr><td><b>Description</b></td><td>Engagement Fabric Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>engagement_fabric:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>engagement_fabric:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

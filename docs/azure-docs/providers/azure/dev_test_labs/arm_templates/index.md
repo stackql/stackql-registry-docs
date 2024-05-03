@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>arm_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dev_test_labs.arm_templates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dev_test_labs.arm_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The identifier of the resource. |
-| `name` | `string` | The name of the resource. |
-| `location` | `string` | The location of the resource. |
-| `properties` | `object` | Properties of an Azure Resource Manager template. |
-| `tags` | `object` | The tags of the resource. |
-| `type` | `string` | The type of the resource. |
+| <CopyableCode code="id" /> | `string` | The identifier of the resource. |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="location" /> | `string` | The location of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of an Azure Resource Manager template. |
+| <CopyableCode code="tags" /> | `object` | The tags of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, artifactSourceName, labName, name, resourceGroupName, subscriptionId` | Get azure resource manager template. |
-| `list` | `SELECT` | `api-version, artifactSourceName, labName, resourceGroupName, subscriptionId` | List azure resource manager templates in a given artifact source. |
-| `_list` | `EXEC` | `api-version, artifactSourceName, labName, resourceGroupName, subscriptionId` | List azure resource manager templates in a given artifact source. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, artifactSourceName, labName, name, resourceGroupName, subscriptionId" /> | Get azure resource manager template. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, artifactSourceName, labName, resourceGroupName, subscriptionId" /> | List azure resource manager templates in a given artifact source. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, artifactSourceName, labName, resourceGroupName, subscriptionId" /> | List azure resource manager templates in a given artifact source. |

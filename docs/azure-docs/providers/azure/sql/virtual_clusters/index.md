@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.virtual_clusters</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.virtual_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Resource location. |
-| `properties` | `object` | The properties of a virtual cluster. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | The properties of a virtual cluster. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, virtualClusterName` | Gets a virtual cluster. |
-| `list` | `SELECT` | `subscriptionId` | Gets a list of all virtualClusters in the subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of virtual clusters in a resource group. |
-| `delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualClusterName` | Deletes a virtual cluster. |
-| `_list` | `EXEC` | `subscriptionId` | Gets a list of all virtualClusters in the subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of virtual clusters in a resource group. |
-| `update` | `EXEC` | `resourceGroupName, subscriptionId, virtualClusterName` | Updates an existing virtual cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualClusterName" /> | Gets a virtual cluster. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets a list of all virtualClusters in the subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of virtual clusters in a resource group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subscriptionId, virtualClusterName" /> | Deletes a virtual cluster. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets a list of all virtualClusters in the subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets a list of virtual clusters in a resource group. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, virtualClusterName" /> | Updates an existing virtual cluster. |

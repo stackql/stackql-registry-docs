@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.device_update.instances</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.device_update.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Device Update instance properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Device Update instance properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, instanceName, resourceGroupName, subscriptionId` | Returns instance details for the given instance and account name. |
-| `list_by_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Returns instances for the given account name. |
-| `create` | `INSERT` | `accountName, instanceName, resourceGroupName, subscriptionId, data__properties` | Creates or updates instance. |
-| `delete` | `DELETE` | `accountName, instanceName, resourceGroupName, subscriptionId` | Deletes instance. |
-| `_list_by_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Returns instances for the given account name. |
-| `head` | `EXEC` | `accountName, instanceName, resourceGroupName, subscriptionId` | Checks whether instance exists. |
-| `update` | `EXEC` | `accountName, instanceName, resourceGroupName, subscriptionId` | Updates instance's tags. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, instanceName, resourceGroupName, subscriptionId" /> | Returns instance details for the given instance and account name. |
+| <CopyableCode code="list_by_account" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Returns instances for the given account name. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, instanceName, resourceGroupName, subscriptionId, data__properties" /> | Creates or updates instance. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, instanceName, resourceGroupName, subscriptionId" /> | Deletes instance. |
+| <CopyableCode code="_list_by_account" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Returns instances for the given account name. |
+| <CopyableCode code="head" /> | `EXEC` | <CopyableCode code="accountName, instanceName, resourceGroupName, subscriptionId" /> | Checks whether instance exists. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, instanceName, resourceGroupName, subscriptionId" /> | Updates instance's tags. |

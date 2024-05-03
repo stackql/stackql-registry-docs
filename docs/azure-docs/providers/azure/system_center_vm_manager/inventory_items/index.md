@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inventory_items</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.system_center_vm_manager.inventory_items</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.system_center_vm_manager.inventory_items" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
-| `properties` | `object` | Defines the resource properties. |
+| <CopyableCode code="kind" /> | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
+| <CopyableCode code="properties" /> | `object` | Defines the resource properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `inventoryItemResourceName, resourceGroupName, subscriptionId, vmmServerName` | Shows an inventory item. |
-| `list_by_vm_m_server` | `SELECT` | `resourceGroupName, subscriptionId, vmmServerName` | Returns the list of inventoryItems in the given VMMServer. |
-| `create` | `INSERT` | `inventoryItemResourceName, resourceGroupName, subscriptionId, vmmServerName, data__properties` | Create Or Update InventoryItem. |
-| `delete` | `DELETE` | `inventoryItemResourceName, resourceGroupName, subscriptionId, vmmServerName` | Deletes an inventoryItem. |
-| `_list_by_vm_m_server` | `EXEC` | `resourceGroupName, subscriptionId, vmmServerName` | Returns the list of inventoryItems in the given VMMServer. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="inventoryItemResourceName, resourceGroupName, subscriptionId, vmmServerName" /> | Shows an inventory item. |
+| <CopyableCode code="list_by_vm_m_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmmServerName" /> | Returns the list of inventoryItems in the given VMMServer. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="inventoryItemResourceName, resourceGroupName, subscriptionId, vmmServerName, data__properties" /> | Create Or Update InventoryItem. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="inventoryItemResourceName, resourceGroupName, subscriptionId, vmmServerName" /> | Deletes an inventoryItem. |
+| <CopyableCode code="_list_by_vm_m_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vmmServerName" /> | Returns the list of inventoryItems in the given VMMServer. |

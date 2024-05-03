@@ -14,35 +14,38 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>load_balancers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.load_balancers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.load_balancers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of the load balancer. |
-| `sku` | `object` | SKU of a load balancer. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="extendedLocation" /> | `object` | ExtendedLocation complex type. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of the load balancer. |
+| <CopyableCode code="sku" /> | `object` | SKU of a load balancer. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets the specified load balancer. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the load balancers in a resource group. |
-| `create_or_update` | `INSERT` | `loadBalancerName, resourceGroupName, subscriptionId` | Creates or updates a load balancer. |
-| `delete` | `DELETE` | `loadBalancerName, resourceGroupName, subscriptionId` | Deletes the specified load balancer. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the load balancers in a resource group. |
-| `migrate_to_ip_based` | `EXEC` | `groupName, loadBalancerName, subscriptionId` | Migrate load balancer to IP Based |
-| `swap_public_ip_addresses` | `EXEC` | `location, subscriptionId` | Swaps VIPs between two load balancers. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Gets the specified load balancer. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the load balancers in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Creates or updates a load balancer. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Deletes the specified load balancer. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the load balancers in a resource group. |
+| <CopyableCode code="migrate_to_ip_based" /> | `EXEC` | <CopyableCode code="groupName, loadBalancerName, subscriptionId" /> | Migrate load balancer to IP Based |
+| <CopyableCode code="swap_public_ip_addresses" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Swaps VIPs between two load balancers. |

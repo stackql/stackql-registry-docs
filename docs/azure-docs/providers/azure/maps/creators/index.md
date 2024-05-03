@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>creators</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.maps.creators</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.maps.creators" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Creator resource properties |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Creator resource properties |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, creatorName, resourceGroupName, subscriptionId` | Get a Maps Creator resource. |
-| `list_by_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Get all Creator instances for an Azure Maps Account |
-| `create_or_update` | `INSERT` | `accountName, creatorName, resourceGroupName, subscriptionId, data__properties` | Create or update a Maps Creator resource. Creator resource will manage Azure resources required to populate a custom set of mapping data. It requires an account to exist before it can be created. |
-| `delete` | `DELETE` | `accountName, creatorName, resourceGroupName, subscriptionId` | Delete a Maps Creator resource. |
-| `_list_by_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Get all Creator instances for an Azure Maps Account |
-| `update` | `EXEC` | `accountName, creatorName, resourceGroupName, subscriptionId` | Updates the Maps Creator resource. Only a subset of the parameters may be updated after creation, such as Tags. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, creatorName, resourceGroupName, subscriptionId" /> | Get a Maps Creator resource. |
+| <CopyableCode code="list_by_account" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Get all Creator instances for an Azure Maps Account |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, creatorName, resourceGroupName, subscriptionId, data__properties" /> | Create or update a Maps Creator resource. Creator resource will manage Azure resources required to populate a custom set of mapping data. It requires an account to exist before it can be created. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, creatorName, resourceGroupName, subscriptionId" /> | Delete a Maps Creator resource. |
+| <CopyableCode code="_list_by_account" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Get all Creator instances for an Azure Maps Account |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, creatorName, resourceGroupName, subscriptionId" /> | Updates the Maps Creator resource. Only a subset of the parameters may be updated after creation, such as Tags. |

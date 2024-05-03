@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agent_pool</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_aks.agent_pool</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_aks.agent_pool" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` | Extended location pointing to the underlying infrastructure |
-| `properties` | `object` | Properties of the agent pool resource |
-| `tags` | `object` | Resource tags |
+| <CopyableCode code="extendedLocation" /> | `object` | Extended location pointing to the underlying infrastructure |
+| <CopyableCode code="properties" /> | `object` | Properties of the agent pool resource |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `agentPoolName, connectedClusterResourceUri` | Gets the specified agent pool in the provisioned cluster |
-| `list_by_provisioned_cluster` | `SELECT` | `connectedClusterResourceUri` | Gets the list of agent pools in the specified provisioned cluster |
-| `create_or_update` | `INSERT` | `agentPoolName, connectedClusterResourceUri` | Creates or updates the agent pool in the provisioned cluster |
-| `delete` | `DELETE` | `agentPoolName, connectedClusterResourceUri` | Deletes the specified agent pool in the provisioned cluster |
-| `_list_by_provisioned_cluster` | `EXEC` | `connectedClusterResourceUri` | Gets the list of agent pools in the specified provisioned cluster |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="agentPoolName, connectedClusterResourceUri" /> | Gets the specified agent pool in the provisioned cluster |
+| <CopyableCode code="list_by_provisioned_cluster" /> | `SELECT` | <CopyableCode code="connectedClusterResourceUri" /> | Gets the list of agent pools in the specified provisioned cluster |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="agentPoolName, connectedClusterResourceUri" /> | Creates or updates the agent pool in the provisioned cluster |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="agentPoolName, connectedClusterResourceUri" /> | Deletes the specified agent pool in the provisioned cluster |
+| <CopyableCode code="_list_by_provisioned_cluster" /> | `EXEC` | <CopyableCode code="connectedClusterResourceUri" /> | Gets the list of agent pools in the specified provisioned cluster |

@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspace_notification</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.workspace_notification</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.workspace_notification" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `notificationName, resourceGroupName, serviceName, subscriptionId, workspaceId` | Gets the details of the Notification specified by its identifier. |
-| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, workspaceId` | Lists a collection of properties defined within a service instance. |
-| `create_or_update` | `INSERT` | `notificationName, resourceGroupName, serviceName, subscriptionId, workspaceId` | Create or Update API Management publisher notification for the workspace. |
-| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, workspaceId` | Lists a collection of properties defined within a service instance. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="notificationName, resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Gets the details of the Notification specified by its identifier. |
+| <CopyableCode code="list_by_service" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Lists a collection of properties defined within a service instance. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="notificationName, resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Create or Update API Management publisher notification for the workspace. |
+| <CopyableCode code="_list_by_service" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId, workspaceId" /> | Lists a collection of properties defined within a service instance. |

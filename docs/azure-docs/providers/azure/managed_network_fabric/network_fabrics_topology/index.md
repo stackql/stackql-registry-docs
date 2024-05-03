@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_fabrics_topology</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.managed_network_fabric.network_fabrics_topology</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.managed_network_fabric.network_fabrics_topology" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `configurationState` | `string` | Configuration state for the resource. |
-| `error` | `object` | The error detail. |
-| `url` | `string` | URL for the details of the response. |
+| <CopyableCode code="configurationState" /> | `string` | Configuration state for the resource. |
+| <CopyableCode code="error" /> | `object` | The error detail. |
+| <CopyableCode code="url" /> | `string` | URL for the details of the response. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `networkFabricName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkFabricName, resourceGroupName, subscriptionId" /> |

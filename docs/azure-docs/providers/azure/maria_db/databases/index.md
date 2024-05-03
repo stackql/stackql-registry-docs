@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>databases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.maria_db.databases</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.maria_db.databases" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets information about a database. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the databases in a given server. |
-| `create_or_update` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Creates a new database or updates an existing database. |
-| `delete` | `DELETE` | `databaseName, resourceGroupName, serverName, subscriptionId` | Deletes a database. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | List all the databases in a given server. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets information about a database. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | List all the databases in a given server. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Creates a new database or updates an existing database. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Deletes a database. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | List all the databases in a given server. |

@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.recovery_services.replication_usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.recovery_services.replication_usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `jobsSummary` | `object` | Summary of the replication job data for this vault. |
-| `monitoringSummary` | `object` | Summary of the replication monitoring data for this vault. |
-| `protectedItemCount` | `integer` | Number of replication protected items for this vault. |
-| `recoveryPlanCount` | `integer` | Number of replication recovery plans for this vault. |
-| `recoveryServicesProviderAuthType` | `integer` | The authentication type of recovery service providers in the vault. |
-| `registeredServersCount` | `integer` | Number of servers registered to this vault. |
+| <CopyableCode code="jobsSummary" /> | `object` | Summary of the replication job data for this vault. |
+| <CopyableCode code="monitoringSummary" /> | `object` | Summary of the replication monitoring data for this vault. |
+| <CopyableCode code="protectedItemCount" /> | `integer` | Number of replication protected items for this vault. |
+| <CopyableCode code="recoveryPlanCount" /> | `integer` | Number of replication recovery plans for this vault. |
+| <CopyableCode code="recoveryServicesProviderAuthType" /> | `integer` | The authentication type of recovery service providers in the vault. |
+| <CopyableCode code="registeredServersCount" /> | `integer` | Number of servers registered to this vault. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> |

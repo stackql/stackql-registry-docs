@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Frequently Updates Its Infrastructure To Improve Reliability, Performance, And Security, Or To Launch New Features. Most Updates Have Zero Impact On Virtual Machines.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Frequently Updates Its Infrastructure To Improve Reliability, Performance,
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Maintenance</td></tr>
 <tr><td><b>Description</b></td><td>Azure Frequently Updates Its Infrastructure To Improve Reliability, Performance, And Security, Or To Launch New Features. Most Updates Have Zero Impact On Virtual Machines.</td></tr>
-<tr><td><b>Id</b></td><td><code>maintenance:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>maintenance:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>triggers_event_subscription_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_factory.triggers_event_subscription_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_factory.triggers_event_subscription_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `status` | `string` | Event Subscription Status. |
-| `triggerName` | `string` | Trigger name. |
+| <CopyableCode code="status" /> | `string` | Event Subscription Status. |
+| <CopyableCode code="triggerName" /> | `string` | Trigger name. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId, triggerName" /> |

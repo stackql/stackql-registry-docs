@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Hybrid Network REST APIs Contain Two Services: Azure Operator Service Manager; And Azure Network Function Manager.  Azure Operator Service Manager Is An Azure Service Designed To Assist Telecom Operators In Managing Their Network Services.  Azure Network Function Manager Is For Deploying Individual Network Functions To Your On-Premises Environment.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure Hybrid Network REST APIs Contain Two Services: Azure Operator Service 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Hybrid Network</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Hybrid Network REST APIs Contain Two Services: Azure Operator Service Manager; And Azure Network Function Manager.  Azure Operator Service Manager Is An Azure Service Designed To Assist Telecom Operators In Managing Their Network Services.  Azure Network Function Manager Is For Deploying Individual Network Functions To Your On-Premises Environment.</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_network:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_network:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

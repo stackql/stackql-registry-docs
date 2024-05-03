@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>elastic_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.elastic_pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.elastic_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind of elastic pool. This is metadata used for the Azure portal experience. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of an elastic pool |
-| `sku` | `object` | An ARM Resource SKU. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="kind" /> | `string` | Kind of elastic pool. This is metadata used for the Azure portal experience. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of an elastic pool |
+| <CopyableCode code="sku" /> | `object` | An ARM Resource SKU. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` | Gets an elastic pool. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets all elastic pools in a server. |
-| `create_or_update` | `INSERT` | `elasticPoolName, resourceGroupName, serverName, subscriptionId, data__location` | Creates or updates an elastic pool. |
-| `delete` | `DELETE` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` | Deletes an elastic pool. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets all elastic pools in a server. |
-| `failover` | `EXEC` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` | Failovers an elastic pool. |
-| `update` | `EXEC` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` | Updates an elastic pool. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="elasticPoolName, resourceGroupName, serverName, subscriptionId" /> | Gets an elastic pool. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets all elastic pools in a server. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="elasticPoolName, resourceGroupName, serverName, subscriptionId, data__location" /> | Creates or updates an elastic pool. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="elasticPoolName, resourceGroupName, serverName, subscriptionId" /> | Deletes an elastic pool. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets all elastic pools in a server. |
+| <CopyableCode code="failover" /> | `EXEC` | <CopyableCode code="elasticPoolName, resourceGroupName, serverName, subscriptionId" /> | Failovers an elastic pool. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="elasticPoolName, resourceGroupName, serverName, subscriptionId" /> | Updates an elastic pool. |

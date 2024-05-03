@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assessed_sql_recommended_entity_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.migrate.assessed_sql_recommended_entity_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.migrate.assessed_sql_recommended_entity_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `assessmentName, groupName, projectName, recommendedAssessedEntityName, resourceGroupName, subscriptionId` | Get a AssessedSqlRecommendedEntity |
-| `list_by_sql_assessment_v2` | `SELECT` | `assessmentName, groupName, projectName, resourceGroupName, subscriptionId` | List AssessedSqlRecommendedEntity resources by SqlAssessmentV2 |
-| `_list_by_sql_assessment_v2` | `EXEC` | `assessmentName, groupName, projectName, resourceGroupName, subscriptionId` | List AssessedSqlRecommendedEntity resources by SqlAssessmentV2 |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="assessmentName, groupName, projectName, recommendedAssessedEntityName, resourceGroupName, subscriptionId" /> | Get a AssessedSqlRecommendedEntity |
+| <CopyableCode code="list_by_sql_assessment_v2" /> | `SELECT` | <CopyableCode code="assessmentName, groupName, projectName, resourceGroupName, subscriptionId" /> | List AssessedSqlRecommendedEntity resources by SqlAssessmentV2 |
+| <CopyableCode code="_list_by_sql_assessment_v2" /> | `EXEC` | <CopyableCode code="assessmentName, groupName, projectName, resourceGroupName, subscriptionId" /> | List AssessedSqlRecommendedEntity resources by SqlAssessmentV2 |

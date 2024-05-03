@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>catalogs_devices</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sphere.catalogs_devices</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sphere.catalogs_devices" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The link to the next page of items |
-| `value` | `array` | The Device items on this page |
+| <CopyableCode code="nextLink" /> | `string` | The link to the next page of items |
+| <CopyableCode code="value" /> | `array` | The Device items on this page |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `catalogName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="catalogName, resourceGroupName, subscriptionId" /> |

@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_protectable_items</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.recovery_services_site_recovery.replication_protectable_items</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.recovery_services_site_recovery.replication_protectable_items" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource Name |
-| `location` | `string` | Resource Location |
-| `properties` | `object` | Replication protected item custom data details. |
-| `type` | `string` | Resource Type |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource Name |
+| <CopyableCode code="location" /> | `string` | Resource Location |
+| <CopyableCode code="properties" /> | `object` | Replication protected item custom data details. |
+| <CopyableCode code="type" /> | `string` | Resource Type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, fabricName, protectableItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to get the details of a protectable item. |
-| `list_by_replication_protection_containers` | `SELECT` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protectable items in a protection container. |
-| `_list_by_replication_protection_containers` | `EXEC` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protectable items in a protection container. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, fabricName, protectableItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId" /> | The operation to get the details of a protectable item. |
+| <CopyableCode code="list_by_replication_protection_containers" /> | `SELECT` | <CopyableCode code="api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId" /> | Lists the protectable items in a protection container. |
+| <CopyableCode code="_list_by_replication_protection_containers" /> | `EXEC` | <CopyableCode code="api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId" /> | Lists the protectable items in a protection container. |

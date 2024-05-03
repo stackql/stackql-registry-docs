@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>diagnostic_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.monitor.diagnostic_settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.monitor.diagnostic_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Azure resource Id |
-| `name` | `string` | Azure resource name |
-| `location` | `string` | Resource location |
-| `properties` | `object` | The diagnostic settings. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters. |
-| `type` | `string` | Azure resource type |
+| <CopyableCode code="id" /> | `string` | Azure resource Id |
+| <CopyableCode code="name" /> | `string` | Azure resource name |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | The diagnostic settings. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters. |
+| <CopyableCode code="type" /> | `string` | Azure resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `name, resourceUri` | Gets the active diagnostic settings for the specified resource. |
-| `list` | `SELECT` | `resourceUri` | Gets the active diagnostic settings list for the specified resource. |
-| `create_or_update` | `INSERT` | `name, resourceUri` | Creates or updates diagnostic settings for the specified resource. |
-| `delete` | `DELETE` | `name, resourceUri` | Deletes existing diagnostic settings for the specified resource. |
-| `_list` | `EXEC` | `resourceUri` | Gets the active diagnostic settings list for the specified resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name, resourceUri" /> | Gets the active diagnostic settings for the specified resource. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceUri" /> | Gets the active diagnostic settings list for the specified resource. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="name, resourceUri" /> | Creates or updates diagnostic settings for the specified resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="name, resourceUri" /> | Deletes existing diagnostic settings for the specified resource. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceUri" /> | Gets the active diagnostic settings list for the specified resource. |

@@ -14,35 +14,38 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workbooks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.application_insights.workbooks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.application_insights.workbooks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Resource etag |
-| `identity` | `object` | Identity used for BYOS |
-| `kind` | `string` | The kind of workbook. Only valid value is shared. |
-| `properties` | `object` | Properties that contain a workbook. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="etag" /> | `string` | Resource etag |
+| <CopyableCode code="identity" /> | `object` | Identity used for BYOS |
+| <CopyableCode code="kind" /> | `string` | The kind of workbook. Only valid value is shared. |
+| <CopyableCode code="properties" /> | `object` | Properties that contain a workbook. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Get a single workbook by its resourceName. |
-| `list_by_resource_group` | `SELECT` | `category, resourceGroupName, subscriptionId` | Get all Workbooks defined within a specified resource group and category. |
-| `list_by_subscription` | `SELECT` | `category, subscriptionId` | Get all Workbooks defined within a specified subscription and category. |
-| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a new workbook. |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Delete a workbook. |
-| `_list_by_resource_group` | `EXEC` | `category, resourceGroupName, subscriptionId` | Get all Workbooks defined within a specified resource group and category. |
-| `_list_by_subscription` | `EXEC` | `category, subscriptionId` | Get all Workbooks defined within a specified subscription and category. |
-| `_revisions_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Get the revisions for the workbook defined by its resourceName. |
-| `revision_get` | `EXEC` | `resourceGroupName, resourceName, revisionId, subscriptionId` | Get a single workbook revision defined by its revisionId. |
-| `revisions_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Get the revisions for the workbook defined by its resourceName. |
-| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates a workbook that has already been added. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Get a single workbook by its resourceName. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="category, resourceGroupName, subscriptionId" /> | Get all Workbooks defined within a specified resource group and category. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="category, subscriptionId" /> | Get all Workbooks defined within a specified subscription and category. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Create a new workbook. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Delete a workbook. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="category, resourceGroupName, subscriptionId" /> | Get all Workbooks defined within a specified resource group and category. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="category, subscriptionId" /> | Get all Workbooks defined within a specified subscription and category. |
+| <CopyableCode code="_revisions_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Get the revisions for the workbook defined by its resourceName. |
+| <CopyableCode code="revision_get" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, revisionId, subscriptionId" /> | Get a single workbook revision defined by its revisionId. |
+| <CopyableCode code="revisions_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Get the revisions for the workbook defined by its resourceName. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Updates a workbook that has already been added. |

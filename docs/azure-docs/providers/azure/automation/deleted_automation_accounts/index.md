@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deleted_automation_accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.deleted_automation_accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.deleted_automation_accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource id. |
-| `name` | `string` | Gets or sets name of the resource. |
-| `location` | `string` | Gets or sets the location of the resource. |
-| `properties` | `object` | Definition of the deleted automation account properties. |
-| `type` | `string` | The resource type. |
+| <CopyableCode code="id" /> | `string` | The resource id. |
+| <CopyableCode code="name" /> | `string` | Gets or sets name of the resource. |
+| <CopyableCode code="location" /> | `string` | Gets or sets the location of the resource. |
+| <CopyableCode code="properties" /> | `object` | Definition of the deleted automation account properties. |
+| <CopyableCode code="type" /> | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_subscription` | `SELECT` | `subscriptionId` |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |

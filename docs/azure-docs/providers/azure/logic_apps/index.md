@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Logic Apps Helps You Simplify And Implement Scalable Integrations And Workflows In The Cloud. You Can Model And Automate Your Process Visually As A Series Of Steps Known As A Workflow In The Logic App Designer. There Are Also Many Connectors That You Can Add To Your Logic App So You Can Quickly Integrate Across Services And Protocols Across The Cloud And On-Premises. A Logic App Begins With A Trigger, Like When An Account Is Added To Dynamics CRM, And After Firing, Can Begin Many Combinations Actions, Conversions, And Condition Logic.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Logic Apps Helps You Simplify And Implement Scalable Integrations And Work
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Logic Apps</td></tr>
 <tr><td><b>Description</b></td><td>Azure Logic Apps Helps You Simplify And Implement Scalable Integrations And Workflows In The Cloud. You Can Model And Automate Your Process Visually As A Series Of Steps Known As A Workflow In The Logic App Designer. There Are Also Many Connectors That You Can Add To Your Logic App So You Can Quickly Integrate Across Services And Protocols Across The Cloud And On-Premises. A Logic App Begins With A Trigger, Like When An Account Is Added To Dynamics CRM, And After Firing, Can Begin Many Combinations Actions, Conversions, And Condition Logic.</td></tr>
-<tr><td><b>Id</b></td><td><code>logic_apps:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>logic_apps:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>wcf_relays</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.relay.wcf_relays</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.relay.wcf_relays" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `` | Properties of the WCF relay. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `` | Properties of the WCF relay. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `namespaceName, relayName, resourceGroupName, subscriptionId` | Returns the description for the specified WCF relay. |
-| `list_by_namespace` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Lists the WCF relays within the namespace. |
-| `create_or_update` | `INSERT` | `namespaceName, relayName, resourceGroupName, subscriptionId` | Creates or updates a WCF relay. This operation is idempotent. |
-| `delete` | `DELETE` | `namespaceName, relayName, resourceGroupName, subscriptionId` | Deletes a WCF relay. |
-| `_list_by_namespace` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Lists the WCF relays within the namespace. |
-| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, relayName, resourceGroupName, subscriptionId, data__keyType` | Regenerates the primary or secondary connection strings to the WCF relay. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="namespaceName, relayName, resourceGroupName, subscriptionId" /> | Returns the description for the specified WCF relay. |
+| <CopyableCode code="list_by_namespace" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Lists the WCF relays within the namespace. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="namespaceName, relayName, resourceGroupName, subscriptionId" /> | Creates or updates a WCF relay. This operation is idempotent. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="namespaceName, relayName, resourceGroupName, subscriptionId" /> | Deletes a WCF relay. |
+| <CopyableCode code="_list_by_namespace" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> | Lists the WCF relays within the namespace. |
+| <CopyableCode code="regenerate_keys" /> | `EXEC` | <CopyableCode code="authorizationRuleName, namespaceName, relayName, resourceGroupName, subscriptionId, data__keyType" /> | Regenerates the primary or secondary connection strings to the WCF relay. |

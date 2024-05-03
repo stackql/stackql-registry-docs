@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>available_resource_group_delegations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.available_resource_group_delegations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.available_resource_group_delegations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | A unique identifier of the AvailableDelegation resource. |
-| `name` | `string` | The name of the AvailableDelegation resource. |
-| `actions` | `array` | The actions permitted to the service upon delegation. |
-| `serviceName` | `string` | The name of the service and resource. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | A unique identifier of the AvailableDelegation resource. |
+| <CopyableCode code="name" /> | `string` | The name of the AvailableDelegation resource. |
+| <CopyableCode code="actions" /> | `array` | The actions permitted to the service upon delegation. |
+| <CopyableCode code="serviceName" /> | `string` | The name of the service and resource. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `location, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `location, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> |

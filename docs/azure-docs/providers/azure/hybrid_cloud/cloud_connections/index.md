@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_cloud.cloud_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_cloud.cloud_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Cloud connection resource properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Cloud connection resource properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `cloudConnectionName, resourceGroupName, subscriptionId` | Gets the specified cloud connection in a specified resource group. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Return list of cloud connections in a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Return list of cloud connections in a subscription. |
-| `create_or_update` | `INSERT` | `cloudConnectionName, resourceGroupName, subscriptionId` | Creates or updates a cloud connection resource |
-| `delete` | `DELETE` | `cloudConnectionName, resourceGroupName, subscriptionId` | Deletes a specified cloud connection resource. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Return list of cloud connections in a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Return list of cloud connections in a subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cloudConnectionName, resourceGroupName, subscriptionId" /> | Gets the specified cloud connection in a specified resource group. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Return list of cloud connections in a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Return list of cloud connections in a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="cloudConnectionName, resourceGroupName, subscriptionId" /> | Creates or updates a cloud connection resource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="cloudConnectionName, resourceGroupName, subscriptionId" /> | Deletes a specified cloud connection resource. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Return list of cloud connections in a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Return list of cloud connections in a subscription. |

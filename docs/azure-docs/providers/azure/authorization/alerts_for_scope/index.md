@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>alerts_for_scope</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.alerts_for_scope</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.alerts_for_scope" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The alert ID. |
-| `name` | `string` | The alert name. |
-| `properties` | `object` | Alert properties. |
-| `type` | `string` | The alert type. |
+| <CopyableCode code="id" /> | `string` | The alert ID. |
+| <CopyableCode code="name" /> | `string` | The alert name. |
+| <CopyableCode code="properties" /> | `object` | Alert properties. |
+| <CopyableCode code="type" /> | `string` | The alert type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `scope` |
-| `_list` | `EXEC` | `scope` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="scope" /> |

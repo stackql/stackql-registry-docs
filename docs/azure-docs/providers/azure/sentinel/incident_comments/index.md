@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>incident_comments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sentinel.incident_comments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sentinel.incident_comments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Etag of the azure resource |
-| `properties` | `object` | Incident comment property bag. |
+| <CopyableCode code="etag" /> | `string` | Etag of the azure resource |
+| <CopyableCode code="properties" /> | `object` | Incident comment property bag. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `incidentCommentId, incidentId, resourceGroupName, subscriptionId, workspaceName` | Gets a comment for a given incident. |
-| `list` | `SELECT` | `incidentId, resourceGroupName, subscriptionId, workspaceName` | Gets all comments for a given incident. |
-| `create_or_update` | `INSERT` | `incidentCommentId, incidentId, resourceGroupName, subscriptionId, workspaceName` | Creates or updates a comment for a given incident. |
-| `delete` | `DELETE` | `incidentCommentId, incidentId, resourceGroupName, subscriptionId, workspaceName` | Deletes a comment for a given incident. |
-| `_list` | `EXEC` | `incidentId, resourceGroupName, subscriptionId, workspaceName` | Gets all comments for a given incident. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="incidentCommentId, incidentId, resourceGroupName, subscriptionId, workspaceName" /> | Gets a comment for a given incident. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="incidentId, resourceGroupName, subscriptionId, workspaceName" /> | Gets all comments for a given incident. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="incidentCommentId, incidentId, resourceGroupName, subscriptionId, workspaceName" /> | Creates or updates a comment for a given incident. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="incidentCommentId, incidentId, resourceGroupName, subscriptionId, workspaceName" /> | Deletes a comment for a given incident. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="incidentId, resourceGroupName, subscriptionId, workspaceName" /> | Gets all comments for a given incident. |

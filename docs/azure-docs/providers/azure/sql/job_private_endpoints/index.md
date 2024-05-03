@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>job_private_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.job_private_endpoints</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.job_private_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `jobAgentName, privateEndpointName, resourceGroupName, serverName, subscriptionId` | Gets a private endpoint. |
-| `list_by_agent` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a list of job agent private endpoints. |
-| `create_or_update` | `INSERT` | `jobAgentName, privateEndpointName, resourceGroupName, serverName, subscriptionId` | Creates or updates a private endpoint. |
-| `delete` | `DELETE` | `jobAgentName, privateEndpointName, resourceGroupName, serverName, subscriptionId` | Deletes a private endpoint. |
-| `_list_by_agent` | `EXEC` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a list of job agent private endpoints. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="jobAgentName, privateEndpointName, resourceGroupName, serverName, subscriptionId" /> | Gets a private endpoint. |
+| <CopyableCode code="list_by_agent" /> | `SELECT` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of job agent private endpoints. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="jobAgentName, privateEndpointName, resourceGroupName, serverName, subscriptionId" /> | Creates or updates a private endpoint. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobAgentName, privateEndpointName, resourceGroupName, serverName, subscriptionId" /> | Deletes a private endpoint. |
+| <CopyableCode code="_list_by_agent" /> | `EXEC` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of job agent private endpoints. |

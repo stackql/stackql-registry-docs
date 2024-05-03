@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>available_service_aliases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.available_service_aliases</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.available_service_aliases" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The ID of the service alias. |
-| `name` | `string` | The name of the service alias. |
-| `resourceName` | `string` | The resource name of the service alias. |
-| `type` | `string` | The type of the resource. |
+| <CopyableCode code="id" /> | `string` | The ID of the service alias. |
+| <CopyableCode code="name" /> | `string` | The name of the service alias. |
+| <CopyableCode code="resourceName" /> | `string` | The resource name of the service alias. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `location, subscriptionId` | Gets all available service aliases for this subscription in this region. |
-| `list_by_resource_group` | `SELECT` | `location, resourceGroupName, subscriptionId` | Gets all available service aliases for this resource group in this region. |
-| `_list` | `EXEC` | `location, subscriptionId` | Gets all available service aliases for this subscription in this region. |
-| `_list_by_resource_group` | `EXEC` | `location, resourceGroupName, subscriptionId` | Gets all available service aliases for this resource group in this region. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Gets all available service aliases for this subscription in this region. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Gets all available service aliases for this resource group in this region. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Gets all available service aliases for this subscription in this region. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Gets all available service aliases for this resource group in this region. |

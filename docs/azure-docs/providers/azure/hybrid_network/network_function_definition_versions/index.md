@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_function_definition_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hybrid_network.network_function_definition_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hybrid_network.network_function_definition_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Network function definition version properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Network function definition version properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId` | Gets information about a network function definition version. |
-| `list_by_network_function_definition_group` | `SELECT` | `networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId` | Gets information about a list of network function definition versions under a network function definition group. |
-| `create_or_update` | `INSERT` | `networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId` | Creates or updates a network function definition version. |
-| `delete` | `DELETE` | `networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId` | Deletes the specified network function definition version. |
-| `_list_by_network_function_definition_group` | `EXEC` | `networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId` | Gets information about a list of network function definition versions under a network function definition group. |
-| `update` | `EXEC` | `networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId` | Updates a network function definition version resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId" /> | Gets information about a network function definition version. |
+| <CopyableCode code="list_by_network_function_definition_group" /> | `SELECT` | <CopyableCode code="networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId" /> | Gets information about a list of network function definition versions under a network function definition group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId" /> | Creates or updates a network function definition version. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId" /> | Deletes the specified network function definition version. |
+| <CopyableCode code="_list_by_network_function_definition_group" /> | `EXEC` | <CopyableCode code="networkFunctionDefinitionGroupName, publisherName, resourceGroupName, subscriptionId" /> | Gets information about a list of network function definition versions under a network function definition group. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="networkFunctionDefinitionGroupName, networkFunctionDefinitionVersionName, publisherName, resourceGroupName, subscriptionId" /> | Updates a network function definition version resource. |

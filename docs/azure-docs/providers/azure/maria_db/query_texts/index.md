@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>query_texts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.maria_db.query_texts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.maria_db.query_texts" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `queryId, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for the queryId. |
-| `list_by_server` | `SELECT` | `queryIds, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for specified queryIds. |
-| `_list_by_server` | `EXEC` | `queryIds, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for specified queryIds. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="queryId, resourceGroupName, serverName, subscriptionId" /> | Retrieve the Query-Store query texts for the queryId. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="queryIds, resourceGroupName, serverName, subscriptionId" /> | Retrieve the Query-Store query texts for specified queryIds. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="queryIds, resourceGroupName, serverName, subscriptionId" /> | Retrieve the Query-Store query texts for specified queryIds. |

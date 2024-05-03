@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Service Bus Provides Cloud-Enabled Communication With Enterprise Messaging And Relayed Communication That Helps You Connect On-Premises Solutions With The Cloud.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Service Bus Provides Cloud-Enabled Communication With Enterprise Messaging
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Service Bus</td></tr>
 <tr><td><b>Description</b></td><td>Azure Service Bus Provides Cloud-Enabled Communication With Enterprise Messaging And Relayed Communication That Helps You Connect On-Premises Solutions With The Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>service_bus:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_bus:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

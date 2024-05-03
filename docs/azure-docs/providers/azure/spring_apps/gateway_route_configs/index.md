@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gateway_route_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.spring_apps.gateway_route_configs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.spring_apps.gateway_route_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `gatewayName, resourceGroupName, routeConfigName, serviceName, subscriptionId` | Get the Spring Cloud Gateway route configs. |
-| `list` | `SELECT` | `gatewayName, resourceGroupName, serviceName, subscriptionId` | Handle requests to list all Spring Cloud Gateway route configs. |
-| `create_or_update` | `INSERT` | `gatewayName, resourceGroupName, routeConfigName, serviceName, subscriptionId` | Create the default Spring Cloud Gateway route configs or update the existing Spring Cloud Gateway route configs. |
-| `delete` | `DELETE` | `gatewayName, resourceGroupName, routeConfigName, serviceName, subscriptionId` | Delete the Spring Cloud Gateway route config. |
-| `_list` | `EXEC` | `gatewayName, resourceGroupName, serviceName, subscriptionId` | Handle requests to list all Spring Cloud Gateway route configs. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="gatewayName, resourceGroupName, routeConfigName, serviceName, subscriptionId" /> | Get the Spring Cloud Gateway route configs. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="gatewayName, resourceGroupName, serviceName, subscriptionId" /> | Handle requests to list all Spring Cloud Gateway route configs. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="gatewayName, resourceGroupName, routeConfigName, serviceName, subscriptionId" /> | Create the default Spring Cloud Gateway route configs or update the existing Spring Cloud Gateway route configs. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="gatewayName, resourceGroupName, routeConfigName, serviceName, subscriptionId" /> | Delete the Spring Cloud Gateway route config. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="gatewayName, resourceGroupName, serviceName, subscriptionId" /> | Handle requests to list all Spring Cloud Gateway route configs. |

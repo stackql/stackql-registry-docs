@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>events</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.consumption.events</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.consumption.events" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_by_billing_account` | `SELECT` | `billingAccountId` |
-| `list_by_billing_profile` | `SELECT` | `billingAccountId, billingProfileId, endDate, startDate` |
-| `_list_by_billing_account` | `EXEC` | `billingAccountId` |
-| `_list_by_billing_profile` | `EXEC` | `billingAccountId, billingProfileId, endDate, startDate` |
+| <CopyableCode code="list_by_billing_account" /> | `SELECT` | <CopyableCode code="billingAccountId" /> |
+| <CopyableCode code="list_by_billing_profile" /> | `SELECT` | <CopyableCode code="billingAccountId, billingProfileId, endDate, startDate" /> |
+| <CopyableCode code="_list_by_billing_account" /> | `EXEC` | <CopyableCode code="billingAccountId" /> |
+| <CopyableCode code="_list_by_billing_profile" /> | `EXEC` | <CopyableCode code="billingAccountId, billingProfileId, endDate, startDate" /> |

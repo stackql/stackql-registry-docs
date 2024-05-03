@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>skus_nested_resource_type_first</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.provider_hub.skus_nested_resource_type_first</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.provider_hub.skus_nested_resource_type_first" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `nestedResourceTypeFirst, providerNamespace, resourceType, sku, subscriptionId` | Gets the sku details for the given resource type and sku name. |
-| `create_or_update` | `INSERT` | `nestedResourceTypeFirst, providerNamespace, resourceType, sku, subscriptionId` | Creates or updates the resource type skus in the given resource type. |
-| `delete` | `DELETE` | `nestedResourceTypeFirst, providerNamespace, resourceType, sku, subscriptionId` | Deletes a resource type sku. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="nestedResourceTypeFirst, providerNamespace, resourceType, sku, subscriptionId" /> | Gets the sku details for the given resource type and sku name. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="nestedResourceTypeFirst, providerNamespace, resourceType, sku, subscriptionId" /> | Creates or updates the resource type skus in the given resource type. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="nestedResourceTypeFirst, providerNamespace, resourceType, sku, subscriptionId" /> | Deletes a resource type sku. |

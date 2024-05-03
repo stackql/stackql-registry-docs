@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Video Analyzer Resource Provider API Definition.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Video Analyzer Resource Provider API Definition.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Video Analyzer</td></tr>
 <tr><td><b>Description</b></td><td>Azure Video Analyzer Resource Provider API Definition.</td></tr>
-<tr><td><b>Id</b></td><td><code>video_analyzer:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>video_analyzer:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

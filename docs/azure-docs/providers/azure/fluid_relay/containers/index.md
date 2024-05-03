@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>containers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.fluid_relay.containers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.fluid_relay.containers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | The properties of a Fluid Relay Container resource. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` | The properties of a Fluid Relay Container resource. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `fluidRelayContainerName, fluidRelayServerName, resourceGroup, subscriptionId` |
-| `list_by_fluid_relay_servers` | `SELECT` | `fluidRelayServerName, resourceGroup, subscriptionId` |
-| `delete` | `DELETE` | `fluidRelayContainerName, fluidRelayServerName, resourceGroup, subscriptionId` |
-| `_list_by_fluid_relay_servers` | `EXEC` | `fluidRelayServerName, resourceGroup, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="fluidRelayContainerName, fluidRelayServerName, resourceGroup, subscriptionId" /> |
+| <CopyableCode code="list_by_fluid_relay_servers" /> | `SELECT` | <CopyableCode code="fluidRelayServerName, resourceGroup, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="fluidRelayContainerName, fluidRelayServerName, resourceGroup, subscriptionId" /> |
+| <CopyableCode code="_list_by_fluid_relay_servers" /> | `EXEC` | <CopyableCode code="fluidRelayServerName, resourceGroup, subscriptionId" /> |

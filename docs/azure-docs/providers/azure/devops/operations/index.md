@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.devops.operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.devops.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the operation. |
-| `display` | `object` | Display information of an operation. |
-| `isDataAction` | `string` | Indicates whether the operation applies to data-plane. |
+| <CopyableCode code="name" /> | `string` | Name of the operation. |
+| <CopyableCode code="display" /> | `object` | Display information of an operation. |
+| <CopyableCode code="isDataAction" /> | `string` | Indicates whether the operation applies to data-plane. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

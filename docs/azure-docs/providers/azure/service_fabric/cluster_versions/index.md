@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cluster_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_fabric.cluster_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_fabric.cluster_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The identification of the result |
-| `name` | `string` | The name of the result |
-| `properties` | `object` | The detail of the Service Fabric runtime version result |
-| `type` | `string` | The result resource type |
+| <CopyableCode code="id" /> | `string` | The identification of the result |
+| <CopyableCode code="name" /> | `string` | The name of the result |
+| <CopyableCode code="properties" /> | `object` | The detail of the Service Fabric runtime version result |
+| <CopyableCode code="type" /> | `string` | The result resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, clusterVersion, location, subscriptionId` | Gets information about an available Service Fabric cluster code version. |
-| `list` | `SELECT` | `api-version, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by location. |
-| `list_by_environment` | `SELECT` | `api-version, environment, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by environment. |
-| `_get` | `EXEC` | `api-version, clusterVersion, location, subscriptionId` | Gets information about an available Service Fabric cluster code version. |
-| `_get_by_environment` | `EXEC` | `api-version, clusterVersion, environment, location, subscriptionId` | Gets information about an available Service Fabric cluster code version by environment. |
-| `_list` | `EXEC` | `api-version, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by location. |
-| `_list_by_environment` | `EXEC` | `api-version, environment, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by environment. |
-| `get_by_environment` | `EXEC` | `api-version, clusterVersion, environment, location, subscriptionId` | Gets information about an available Service Fabric cluster code version by environment. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, clusterVersion, location, subscriptionId" /> | Gets information about an available Service Fabric cluster code version. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, location, subscriptionId" /> | Gets all available code versions for Service Fabric cluster resources by location. |
+| <CopyableCode code="list_by_environment" /> | `SELECT` | <CopyableCode code="api-version, environment, location, subscriptionId" /> | Gets all available code versions for Service Fabric cluster resources by environment. |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="api-version, clusterVersion, location, subscriptionId" /> | Gets information about an available Service Fabric cluster code version. |
+| <CopyableCode code="_get_by_environment" /> | `EXEC` | <CopyableCode code="api-version, clusterVersion, environment, location, subscriptionId" /> | Gets information about an available Service Fabric cluster code version by environment. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, location, subscriptionId" /> | Gets all available code versions for Service Fabric cluster resources by location. |
+| <CopyableCode code="_list_by_environment" /> | `EXEC` | <CopyableCode code="api-version, environment, location, subscriptionId" /> | Gets all available code versions for Service Fabric cluster resources by environment. |
+| <CopyableCode code="get_by_environment" /> | `EXEC` | <CopyableCode code="api-version, clusterVersion, environment, location, subscriptionId" /> | Gets information about an available Service Fabric cluster code version by environment. |

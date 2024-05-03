@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_fabrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dev_test_labs.service_fabrics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dev_test_labs.service_fabrics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The identifier of the resource. |
-| `name` | `string` | The name of the resource. |
-| `location` | `string` | The location of the resource. |
-| `properties` | `object` | Properties of a service fabric. |
-| `tags` | `object` | The tags of the resource. |
-| `type` | `string` | The type of the resource. |
+| <CopyableCode code="id" /> | `string` | The identifier of the resource. |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="location" /> | `string` | The location of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of a service fabric. |
+| <CopyableCode code="tags" /> | `object` | The tags of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, labName, name, resourceGroupName, subscriptionId, userName` | Get service fabric. |
-| `list` | `SELECT` | `api-version, labName, resourceGroupName, subscriptionId, userName` | List service fabrics in a given user profile. |
-| `create_or_update` | `INSERT` | `api-version, labName, name, resourceGroupName, subscriptionId, userName, data__properties` | Create or replace an existing service fabric. This operation can take a while to complete. |
-| `delete` | `DELETE` | `api-version, labName, name, resourceGroupName, subscriptionId, userName` | Delete service fabric. This operation can take a while to complete. |
-| `_list` | `EXEC` | `api-version, labName, resourceGroupName, subscriptionId, userName` | List service fabrics in a given user profile. |
-| `start` | `EXEC` | `api-version, labName, name, resourceGroupName, subscriptionId, userName` | Start a service fabric. This operation can take a while to complete. |
-| `stop` | `EXEC` | `api-version, labName, name, resourceGroupName, subscriptionId, userName` | Stop a service fabric This operation can take a while to complete. |
-| `update` | `EXEC` | `api-version, labName, name, resourceGroupName, subscriptionId, userName` | Allows modifying tags of service fabrics. All other properties will be ignored. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, labName, name, resourceGroupName, subscriptionId, userName" /> | Get service fabric. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, labName, resourceGroupName, subscriptionId, userName" /> | List service fabrics in a given user profile. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, labName, name, resourceGroupName, subscriptionId, userName, data__properties" /> | Create or replace an existing service fabric. This operation can take a while to complete. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, labName, name, resourceGroupName, subscriptionId, userName" /> | Delete service fabric. This operation can take a while to complete. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, labName, resourceGroupName, subscriptionId, userName" /> | List service fabrics in a given user profile. |
+| <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="api-version, labName, name, resourceGroupName, subscriptionId, userName" /> | Start a service fabric. This operation can take a while to complete. |
+| <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="api-version, labName, name, resourceGroupName, subscriptionId, userName" /> | Stop a service fabric This operation can take a while to complete. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, labName, name, resourceGroupName, subscriptionId, userName" /> | Allows modifying tags of service fabrics. All other properties will be ignored. |

@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>diagnostic_service</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.iot_mq.diagnostic_service</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.iot_mq.diagnostic_service" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` | ExtendedLocation properties |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | MQ Diagnostic Services Resource properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="extendedLocation" /> | `object` | ExtendedLocation properties |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | MQ Diagnostic Services Resource properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `diagnosticServiceName, mqName, resourceGroupName, subscriptionId` | Get a DiagnosticServiceResource |
-| `list_by_mq_resource` | `SELECT` | `mqName, resourceGroupName, subscriptionId` | List DiagnosticServiceResource resources by MqResource |
-| `create_or_update` | `INSERT` | `diagnosticServiceName, mqName, resourceGroupName, subscriptionId, data__extendedLocation` | Create a DiagnosticServiceResource |
-| `delete` | `DELETE` | `diagnosticServiceName, mqName, resourceGroupName, subscriptionId` | Delete a DiagnosticServiceResource |
-| `_list_by_mq_resource` | `EXEC` | `mqName, resourceGroupName, subscriptionId` | List DiagnosticServiceResource resources by MqResource |
-| `update` | `EXEC` | `diagnosticServiceName, mqName, resourceGroupName, subscriptionId` | Update a DiagnosticServiceResource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="diagnosticServiceName, mqName, resourceGroupName, subscriptionId" /> | Get a DiagnosticServiceResource |
+| <CopyableCode code="list_by_mq_resource" /> | `SELECT` | <CopyableCode code="mqName, resourceGroupName, subscriptionId" /> | List DiagnosticServiceResource resources by MqResource |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="diagnosticServiceName, mqName, resourceGroupName, subscriptionId, data__extendedLocation" /> | Create a DiagnosticServiceResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="diagnosticServiceName, mqName, resourceGroupName, subscriptionId" /> | Delete a DiagnosticServiceResource |
+| <CopyableCode code="_list_by_mq_resource" /> | `EXEC` | <CopyableCode code="mqName, resourceGroupName, subscriptionId" /> | List DiagnosticServiceResource resources by MqResource |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="diagnosticServiceName, mqName, resourceGroupName, subscriptionId" /> | Update a DiagnosticServiceResource |

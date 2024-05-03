@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_storage.pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_storage.pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Pool Properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Pool Properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `poolName, resourceGroupName, subscriptionId` | Get a Pool |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List Pool resources by resource group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List Pool resources by subscription ID |
-| `create_or_update` | `INSERT` | `poolName, resourceGroupName, subscriptionId` | Create a Pool |
-| `delete` | `DELETE` | `poolName, resourceGroupName, subscriptionId` | Compliant create or update template/** |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List Pool resources by resource group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List Pool resources by subscription ID |
-| `update` | `EXEC` | `poolName, resourceGroupName, subscriptionId` | Update a Pool |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="poolName, resourceGroupName, subscriptionId" /> | Get a Pool |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List Pool resources by resource group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List Pool resources by subscription ID |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="poolName, resourceGroupName, subscriptionId" /> | Create a Pool |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="poolName, resourceGroupName, subscriptionId" /> | Compliant create or update template/** |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List Pool resources by resource group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List Pool resources by subscription ID |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="poolName, resourceGroupName, subscriptionId" /> | Update a Pool |

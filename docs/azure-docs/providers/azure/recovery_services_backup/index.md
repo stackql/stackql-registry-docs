@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Backup Contributes To Your Business Continuity And Disaster Recovery (BCDR) Strategy By Backing Up Data To The Azure Clouds. Use Backup To Back Up Data On Virtual Machines Running On-Premises, And On Azure VMs.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Backup Contributes To Your Business Continuity And Disaster Recovery (BCDR
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Recovery Services (Azure Backup)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Backup Contributes To Your Business Continuity And Disaster Recovery (BCDR) Strategy By Backing Up Data To The Azure Clouds. Use Backup To Back Up Data On Virtual Machines Running On-Premises, And On Azure VMs.</td></tr>
-<tr><td><b>Id</b></td><td><code>recovery_services_backup:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recovery_services_backup:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

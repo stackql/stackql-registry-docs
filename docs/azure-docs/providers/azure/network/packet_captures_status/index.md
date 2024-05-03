@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>packet_captures_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.packet_captures_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.packet_captures_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The ID of the packet capture resource. |
-| `name` | `string` | The name of the packet capture resource. |
-| `captureStartTime` | `string` | The start time of the packet capture session. |
-| `packetCaptureError` | `array` | List of errors of packet capture session. |
-| `packetCaptureStatus` | `string` | The status of the packet capture session. |
-| `stopReason` | `string` | The reason the current packet capture session was stopped. |
+| <CopyableCode code="id" /> | `string` | The ID of the packet capture resource. |
+| <CopyableCode code="name" /> | `string` | The name of the packet capture resource. |
+| <CopyableCode code="captureStartTime" /> | `string` | The start time of the packet capture session. |
+| <CopyableCode code="packetCaptureError" /> | `array` | List of errors of packet capture session. |
+| <CopyableCode code="packetCaptureStatus" /> | `string` | The status of the packet capture session. |
+| <CopyableCode code="stopReason" /> | `string` | The reason the current packet capture session was stopped. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `networkWatcherName, packetCaptureName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkWatcherName, packetCaptureName, resourceGroupName, subscriptionId" /> |

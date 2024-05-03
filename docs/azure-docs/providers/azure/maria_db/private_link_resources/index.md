@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.maria_db.private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.maria_db.private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `groupName, resourceGroupName, serverName, subscriptionId` | Gets a private link resource for MariaDB server. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets the private link resources for MariaDB server. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets the private link resources for MariaDB server. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupName, resourceGroupName, serverName, subscriptionId" /> | Gets a private link resource for MariaDB server. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets the private link resources for MariaDB server. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets the private link resources for MariaDB server. |

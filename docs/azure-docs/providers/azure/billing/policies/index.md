@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.billing.policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.billing.policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
-| `get_by_customer` | `EXEC` | `billingAccountName, customerName` | Lists the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
-| `update` | `EXEC` | `billingAccountName, billingProfileName` | Updates the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| <CopyableCode code="get_by_billing_profile" /> | `EXEC` | <CopyableCode code="billingAccountName, billingProfileName" /> | Lists the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| <CopyableCode code="get_by_customer" /> | `EXEC` | <CopyableCode code="billingAccountName, customerName" /> | Lists the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="billingAccountName, billingProfileName" /> | Updates the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |

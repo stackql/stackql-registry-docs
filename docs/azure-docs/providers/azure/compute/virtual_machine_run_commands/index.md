@@ -14,35 +14,38 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machine_run_commands</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.virtual_machine_run_commands</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.virtual_machine_run_commands" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The VM run command id. |
-| `description` | `string` | The VM run command description. |
-| `$schema` | `string` | The VM run command schema. |
-| `label` | `string` | The VM run command label. |
-| `osType` | `string` | The Operating System type. |
-| `parameters` | `array` | The parameters used by the script. |
-| `script` | `array` | The script to be executed. |
+| <CopyableCode code="id" /> | `string` | The VM run command id. |
+| <CopyableCode code="description" /> | `string` | The VM run command description. |
+| <CopyableCode code="$schema" /> | `string` | The VM run command schema. |
+| <CopyableCode code="label" /> | `string` | The VM run command label. |
+| <CopyableCode code="osType" /> | `string` | The Operating System type. |
+| <CopyableCode code="parameters" /> | `array` | The parameters used by the script. |
+| <CopyableCode code="script" /> | `array` | The script to be executed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `commandId, location, subscriptionId` | Gets specific run command for a subscription in a location. |
-| `list` | `SELECT` | `location, subscriptionId` | Lists all available run commands for a subscription in a location. |
-| `list_by_virtual_machine` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | The operation to get all run commands of a Virtual Machine. |
-| `create_or_update` | `INSERT` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to create or update the run command. |
-| `delete` | `DELETE` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to delete the run command. |
-| `_list` | `EXEC` | `location, subscriptionId` | Lists all available run commands for a subscription in a location. |
-| `_list_by_virtual_machine` | `EXEC` | `resourceGroupName, subscriptionId, vmName` | The operation to get all run commands of a Virtual Machine. |
-| `get_by_virtual_machine` | `EXEC` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to get the run command. |
-| `update` | `EXEC` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to update the run command. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="commandId, location, subscriptionId" /> | Gets specific run command for a subscription in a location. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Lists all available run commands for a subscription in a location. |
+| <CopyableCode code="list_by_virtual_machine" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmName" /> | The operation to get all run commands of a Virtual Machine. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, runCommandName, subscriptionId, vmName" /> | The operation to create or update the run command. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, runCommandName, subscriptionId, vmName" /> | The operation to delete the run command. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Lists all available run commands for a subscription in a location. |
+| <CopyableCode code="_list_by_virtual_machine" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vmName" /> | The operation to get all run commands of a Virtual Machine. |
+| <CopyableCode code="get_by_virtual_machine" /> | `EXEC` | <CopyableCode code="resourceGroupName, runCommandName, subscriptionId, vmName" /> | The operation to get the run command. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, runCommandName, subscriptionId, vmName" /> | The operation to update the run command. |

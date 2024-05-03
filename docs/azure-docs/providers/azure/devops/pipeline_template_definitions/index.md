@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pipeline_template_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.devops.pipeline_template_definitions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.devops.pipeline_template_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique identifier of the pipeline template. |
-| `description` | `string` | Description of the pipeline enabled by the template. |
-| `inputs` | `array` | List of input parameters required by the template to create a pipeline. |
+| <CopyableCode code="id" /> | `string` | Unique identifier of the pipeline template. |
+| <CopyableCode code="description" /> | `string` | Description of the pipeline enabled by the template. |
+| <CopyableCode code="inputs" /> | `array` | List of input parameters required by the template to create a pipeline. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

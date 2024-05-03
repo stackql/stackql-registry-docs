@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorization_server</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.authorization_server</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.authorization_server" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `authsid, resourceGroupName, serviceName, subscriptionId` | Gets the details of the authorization server specified by its identifier. |
-| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of authorization servers defined within a service instance. |
-| `create_or_update` | `INSERT` | `authsid, resourceGroupName, serviceName, subscriptionId` | Creates new authorization server or updates an existing authorization server. |
-| `delete` | `DELETE` | `If-Match, authsid, resourceGroupName, serviceName, subscriptionId` | Deletes specific authorization server instance. |
-| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of authorization servers defined within a service instance. |
-| `update` | `EXEC` | `If-Match, authsid, resourceGroupName, serviceName, subscriptionId` | Updates the details of the authorization server specified by its identifier. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="authsid, resourceGroupName, serviceName, subscriptionId" /> | Gets the details of the authorization server specified by its identifier. |
+| <CopyableCode code="list_by_service" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | Lists a collection of authorization servers defined within a service instance. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="authsid, resourceGroupName, serviceName, subscriptionId" /> | Creates new authorization server or updates an existing authorization server. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="If-Match, authsid, resourceGroupName, serviceName, subscriptionId" /> | Deletes specific authorization server instance. |
+| <CopyableCode code="_list_by_service" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | Lists a collection of authorization servers defined within a service instance. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="If-Match, authsid, resourceGroupName, serviceName, subscriptionId" /> | Updates the details of the authorization server specified by its identifier. |

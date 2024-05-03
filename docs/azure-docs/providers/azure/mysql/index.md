@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Database For MySQL Provides A Managed Database Service For App Development And Deployment That Allows You To Stand Up A MySQL Database In Minutes And Scale On The Fly - On The Cloud You Trust Most.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Database For MySQL Provides A Managed Database Service For App Development
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Database For MySQL</td></tr>
 <tr><td><b>Description</b></td><td>Azure Database For MySQL Provides A Managed Database Service For App Development And Deployment That Allows You To Stand Up A MySQL Database In Minutes And Scale On The Fly - On The Cloud You Trust Most.</td></tr>
-<tr><td><b>Id</b></td><td><code>mysql:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mysql:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

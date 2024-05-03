@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ingestion_private_endpoint_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.purview.ingestion_private_endpoint_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.purview.ingestion_private_endpoint_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Gets or sets the identifier. |
-| `name` | `string` | Gets or sets the name. |
-| `properties` | `object` | A private endpoint connection properties class. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | Gets or sets the type. |
+| <CopyableCode code="id" /> | `string` | Gets or sets the identifier. |
+| <CopyableCode code="name" /> | `string` | Gets or sets the name. |
+| <CopyableCode code="properties" /> | `object` | A private endpoint connection properties class. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | Gets or sets the type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> |

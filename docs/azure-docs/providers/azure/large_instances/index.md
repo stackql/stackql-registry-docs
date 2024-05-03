@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Large Instances Provides Specialized, Certified, And Tested Infrastructure For Enterprise Workloads That Are Not Suited For Typical Virtualized Cloud Environments Due To Their Need For Specific Architecture, Certified Hardware, Or Very Large Servers, Offering A Leading Solution In This Niche.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Large Instances Provides Specialized, Certified, And Tested Infrastructure
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Large Instances</td></tr>
 <tr><td><b>Description</b></td><td>Azure Large Instances Provides Specialized, Certified, And Tested Infrastructure For Enterprise Workloads That Are Not Suited For Typical Virtualized Cloud Environments Due To Their Need For Specific Architecture, Certified Hardware, Or Very Large Servers, Offering A Leading Solution In This Niche.</td></tr>
-<tr><td><b>Id</b></td><td><code>large_instances:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>large_instances:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

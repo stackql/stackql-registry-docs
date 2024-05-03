@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_run_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.workflow_run_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.workflow_run_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource id. |
-| `name` | `string` | Gets the workflow run name. |
-| `properties` | `object` | The workflow run properties. |
-| `type` | `string` | Gets the workflow run type. |
+| <CopyableCode code="id" /> | `string` | The resource id. |
+| <CopyableCode code="name" /> | `string` | Gets the workflow run name. |
+| <CopyableCode code="properties" /> | `object` | The workflow run properties. |
+| <CopyableCode code="type" /> | `string` | Gets the workflow run type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, operationId, resourceGroupName, runName, subscriptionId, workflowName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, operationId, resourceGroupName, runName, subscriptionId, workflowName" /> |

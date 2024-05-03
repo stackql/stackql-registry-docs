@@ -14,36 +14,39 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bastion_hosts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.bastion_hosts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.bastion_hosts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of the Bastion Host. |
-| `sku` | `object` | The sku of this Bastion Host. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
-| `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of the Bastion Host. |
+| <CopyableCode code="sku" /> | `object` | The sku of this Bastion Host. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
+| <CopyableCode code="zones" /> | `array` | A list of availability zones denoting where the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `bastionHostName, resourceGroupName, subscriptionId` | Gets the specified Bastion Host. |
-| `list` | `SELECT` | `subscriptionId` | Lists all Bastion Hosts in a subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Bastion Hosts in a resource group. |
-| `create_or_update` | `INSERT` | `bastionHostName, resourceGroupName, subscriptionId` | Creates or updates the specified Bastion Host. |
-| `delete` | `DELETE` | `bastionHostName, resourceGroupName, subscriptionId` | Deletes the specified Bastion Host. |
-| `_list` | `EXEC` | `subscriptionId` | Lists all Bastion Hosts in a subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all Bastion Hosts in a resource group. |
-| `bastion_hosts` | `EXEC` | `bastionHostName, resourceGroupName, subscriptionId` | Returns the list of currently active sessions on the Bastion. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="bastionHostName, resourceGroupName, subscriptionId" /> | Gets the specified Bastion Host. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all Bastion Hosts in a subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all Bastion Hosts in a resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="bastionHostName, resourceGroupName, subscriptionId" /> | Creates or updates the specified Bastion Host. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bastionHostName, resourceGroupName, subscriptionId" /> | Deletes the specified Bastion Host. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all Bastion Hosts in a subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all Bastion Hosts in a resource group. |
+| <CopyableCode code="bastion_hosts" /> | `EXEC` | <CopyableCode code="bastionHostName, resourceGroupName, subscriptionId" /> | Returns the list of currently active sessions on the Bastion. |

@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>adds_services_user_preference</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.ad_hybrid_health_service.adds_services_user_preference</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.ad_hybrid_health_service.adds_services_user_preference" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `featureName, serviceName` | Gets the user preferences for a given feature. |
-| `add` | `INSERT` | `featureName, serviceName` | Adds the user preferences for a given feature. |
-| `delete` | `DELETE` | `featureName, serviceName` | Deletes the user preferences for a given feature. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="featureName, serviceName" /> | Gets the user preferences for a given feature. |
+| <CopyableCode code="add" /> | `INSERT` | <CopyableCode code="featureName, serviceName" /> | Adds the user preferences for a given feature. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="featureName, serviceName" /> | Deletes the user preferences for a given feature. |

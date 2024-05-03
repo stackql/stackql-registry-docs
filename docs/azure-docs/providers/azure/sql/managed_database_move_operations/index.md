@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_database_move_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.managed_database_move_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.managed_database_move_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `locationName, operationId, resourceGroupName, subscriptionId` | Gets a managed database move operation. |
-| `list_by_location` | `SELECT` | `locationName, resourceGroupName, subscriptionId` | Lists managed database move operations. |
-| `_list_by_location` | `EXEC` | `locationName, resourceGroupName, subscriptionId` | Lists managed database move operations. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, operationId, resourceGroupName, subscriptionId" /> | Gets a managed database move operation. |
+| <CopyableCode code="list_by_location" /> | `SELECT` | <CopyableCode code="locationName, resourceGroupName, subscriptionId" /> | Lists managed database move operations. |
+| <CopyableCode code="_list_by_location" /> | `EXEC` | <CopyableCode code="locationName, resourceGroupName, subscriptionId" /> | Lists managed database move operations. |

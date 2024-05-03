@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>work_item_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.application_insights.work_item_configurations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.application_insights.work_item_configurations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ConfigDisplayName` | `string` | Configuration friendly name |
-| `ConfigProperties` | `string` | Serialized JSON object for detailed properties |
-| `ConnectorId` | `string` | Connector identifier where work item is created |
-| `Id` | `string` | Unique Id for work item |
-| `IsDefault` | `boolean` | Boolean value indicating whether configuration is default |
+| <CopyableCode code="ConfigDisplayName" /> | `string` | Configuration friendly name |
+| <CopyableCode code="ConfigProperties" /> | `string` | Serialized JSON object for detailed properties |
+| <CopyableCode code="ConnectorId" /> | `string` | Connector identifier where work item is created |
+| <CopyableCode code="Id" /> | `string` | Unique Id for work item |
+| <CopyableCode code="IsDefault" /> | `boolean` | Boolean value indicating whether configuration is default |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the list work item configurations that exist for the application |
-| `create` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a work item configuration for an Application Insights component. |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId, workItemConfigId` | Delete a work item configuration of an Application Insights component. |
-| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Gets the list work item configurations that exist for the application |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Gets the list work item configurations that exist for the application |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Create a work item configuration for an Application Insights component. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId, workItemConfigId" /> | Delete a work item configuration of an Application Insights component. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Gets the list work item configurations that exist for the application |

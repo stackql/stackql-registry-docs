@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>node_types_node</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_fabric_managed_clusters.node_types_node</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_fabric_managed_clusters.node_types_node" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `delete` | `DELETE` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId" /> |

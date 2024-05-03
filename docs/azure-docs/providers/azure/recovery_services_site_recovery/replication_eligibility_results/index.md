@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_eligibility_results</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.recovery_services_site_recovery.replication_eligibility_results</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.recovery_services_site_recovery.replication_eligibility_results" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Gets Unique ARM identifier for this object. |
-| `name` | `string` | Gets the name of this object. |
-| `properties` | `object` | Properties model for replication eligibility results API. |
-| `type` | `string` | Gets the object type. |
+| <CopyableCode code="id" /> | `string` | Gets Unique ARM identifier for this object. |
+| <CopyableCode code="name" /> | `string` | Gets the name of this object. |
+| <CopyableCode code="properties" /> | `object` | Properties model for replication eligibility results API. |
+| <CopyableCode code="type" /> | `string` | Gets the object type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |
-| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |
-| `exec_get` | `EXEC` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualMachineName" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualMachineName" /> |
+| <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualMachineName" /> |

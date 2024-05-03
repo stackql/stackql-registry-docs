@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_triggers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.workflow_triggers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.workflow_triggers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource id. |
-| `name` | `string` | Gets the workflow trigger name. |
-| `properties` | `object` | The workflow trigger properties. |
-| `type` | `string` | Gets the workflow trigger type. |
+| <CopyableCode code="id" /> | `string` | The resource id. |
+| <CopyableCode code="name" /> | `string` | Gets the workflow trigger name. |
+| <CopyableCode code="properties" /> | `object` | The workflow trigger properties. |
+| <CopyableCode code="type" /> | `string` | Gets the workflow trigger type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a workflow trigger. |
-| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow triggers. |
-| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow triggers. |
-| `reset` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Resets a workflow trigger. |
-| `run` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Runs a workflow trigger. |
-| `set_state` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName, data__source` | Sets the state of a workflow trigger. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, triggerName, workflowName" /> | Gets a workflow trigger. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, workflowName" /> | Gets a list of workflow triggers. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, workflowName" /> | Gets a list of workflow triggers. |
+| <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, triggerName, workflowName" /> | Resets a workflow trigger. |
+| <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, triggerName, workflowName" /> | Runs a workflow trigger. |
+| <CopyableCode code="set_state" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, triggerName, workflowName, data__source" /> | Sets the state of a workflow trigger. |

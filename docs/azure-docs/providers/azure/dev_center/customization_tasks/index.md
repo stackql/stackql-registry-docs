@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>customization_tasks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dev_center.customization_tasks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dev_center.customization_tasks" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Gets a Task from the catalog |
-| `list_by_catalog` | `SELECT` |  | List Tasks in the catalog. |
-| `_list_by_catalog` | `EXEC` |  | List Tasks in the catalog. |
+| <CopyableCode code="get" /> | `SELECT` |  | Gets a Task from the catalog |
+| <CopyableCode code="list_by_catalog" /> | `SELECT` |  | List Tasks in the catalog. |
+| <CopyableCode code="_list_by_catalog" /> | `EXEC` |  | List Tasks in the catalog. |

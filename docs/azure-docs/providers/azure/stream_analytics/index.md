@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Use The Operations Described In This REST API To Manage Azure Stream Analytics Resources Through Azure Resource Manager.  All Task Operations In This REST API Conform To The HTTP/1.1 Protocol Specification, And Each Operation Returns An X-Ms-Request-Id Header That Can Be Used To Obtain Information About The Request. You Must Make Sure That Requests Made To These Resources Are Secure.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Use The Operations Described In This REST API To Manage Azure Stream Analytics R
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Stream Analytics</td></tr>
 <tr><td><b>Description</b></td><td>Use The Operations Described In This REST API To Manage Azure Stream Analytics Resources Through Azure Resource Manager.  All Task Operations In This REST API Conform To The HTTP/1.1 Protocol Specification, And Each Operation Returns An X-Ms-Request-Id Header That Can Be Used To Obtain Information About The Request. You Must Make Sure That Requests Made To These Resources Are Secure.</td></tr>
-<tr><td><b>Id</b></td><td><code>stream_analytics:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>stream_analytics:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

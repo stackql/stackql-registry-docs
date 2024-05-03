@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>failover_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.failover_groups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.failover_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of a failover group. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of a failover group. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Gets a failover group. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists the failover groups in a server. |
-| `create_or_update` | `INSERT` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Creates or updates a failover group. |
-| `delete` | `DELETE` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Deletes a failover group. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists the failover groups in a server. |
-| `failover` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. |
-| `force_failover_allow_data_loss` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. This operation might result in data loss. |
-| `try_planned_before_forced_failover` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. This operation tries planned before forced failover but might still result in data loss. |
-| `update` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Updates a failover group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="failoverGroupName, resourceGroupName, serverName, subscriptionId" /> | Gets a failover group. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Lists the failover groups in a server. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="failoverGroupName, resourceGroupName, serverName, subscriptionId" /> | Creates or updates a failover group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="failoverGroupName, resourceGroupName, serverName, subscriptionId" /> | Deletes a failover group. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Lists the failover groups in a server. |
+| <CopyableCode code="failover" /> | `EXEC` | <CopyableCode code="failoverGroupName, resourceGroupName, serverName, subscriptionId" /> | Fails over from the current primary server to this server. |
+| <CopyableCode code="force_failover_allow_data_loss" /> | `EXEC` | <CopyableCode code="failoverGroupName, resourceGroupName, serverName, subscriptionId" /> | Fails over from the current primary server to this server. This operation might result in data loss. |
+| <CopyableCode code="try_planned_before_forced_failover" /> | `EXEC` | <CopyableCode code="failoverGroupName, resourceGroupName, serverName, subscriptionId" /> | Fails over from the current primary server to this server. This operation tries planned before forced failover but might still result in data loss. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="failoverGroupName, resourceGroupName, serverName, subscriptionId" /> | Updates a failover group. |

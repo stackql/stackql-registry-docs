@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_changes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.change_analysis.resource_changes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.change_analysis.resource_changes" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The URI that can be used to request the next page of changes. |
-| `value` | `array` | The list of changes. |
+| <CopyableCode code="nextLink" /> | `string` | The URI that can be used to request the next page of changes. |
+| <CopyableCode code="value" /> | `array` | The list of changes. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `$endTime, $startTime, resourceId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="$endTime, $startTime, resourceId" /> |

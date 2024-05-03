@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>extensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hdinsight.extensions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hdinsight.extensions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `clusterMonitoringEnabled` | `boolean` | The status of the monitor on the HDInsight cluster. |
-| `workspaceId` | `string` | The workspace ID of the monitor on the HDInsight cluster. |
+| <CopyableCode code="clusterMonitoringEnabled" /> | `boolean` | The status of the monitor on the HDInsight cluster. |
+| <CopyableCode code="workspaceId" /> | `string` | The workspace ID of the monitor on the HDInsight cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, extensionName, resourceGroupName, subscriptionId` | Gets the extension properties for the specified HDInsight cluster extension. |
-| `create` | `INSERT` | `clusterName, extensionName, resourceGroupName, subscriptionId` | Creates an HDInsight cluster extension. |
-| `delete` | `DELETE` | `clusterName, extensionName, resourceGroupName, subscriptionId` | Deletes the specified extension for HDInsight cluster. |
-| `disable_azure_monitor` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Disables the Azure Monitor on the HDInsight cluster. |
-| `disable_monitoring` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Disables the Operations Management Suite (OMS) on the HDInsight cluster. |
-| `enable_azure_monitor` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Enables the Azure Monitor on the HDInsight cluster. |
-| `enable_monitoring` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Enables the Operations Management Suite (OMS) on the HDInsight cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, extensionName, resourceGroupName, subscriptionId" /> | Gets the extension properties for the specified HDInsight cluster extension. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clusterName, extensionName, resourceGroupName, subscriptionId" /> | Creates an HDInsight cluster extension. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, extensionName, resourceGroupName, subscriptionId" /> | Deletes the specified extension for HDInsight cluster. |
+| <CopyableCode code="disable_azure_monitor" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Disables the Azure Monitor on the HDInsight cluster. |
+| <CopyableCode code="disable_monitoring" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Disables the Operations Management Suite (OMS) on the HDInsight cluster. |
+| <CopyableCode code="enable_azure_monitor" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Enables the Azure Monitor on the HDInsight cluster. |
+| <CopyableCode code="enable_monitoring" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Enables the Operations Management Suite (OMS) on the HDInsight cluster. |

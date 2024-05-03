@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Defender For Iot Firmware Analysis SDK Is Your Comprehensive, Feature-Rich Toolkit For Firmware Analysis.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Defender For Iot Firmware Analysis SDK Is Your Comprehensive, Feature-Rich T
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>IoT Firmware Defense</td></tr>
 <tr><td><b>Description</b></td><td>The Defender For Iot Firmware Analysis SDK Is Your Comprehensive, Feature-Rich Toolkit For Firmware Analysis.</td></tr>
-<tr><td><b>Id</b></td><td><code>iot_firmware_defense:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iot_firmware_defense:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

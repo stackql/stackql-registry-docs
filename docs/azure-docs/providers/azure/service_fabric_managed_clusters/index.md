@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Service Fabric Is A Distributed Systems Platform That Makes It Easy To Package, Deploy, And Manage Scalable And Reliable Microservices.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Service Fabric Is A Distributed Systems Platform That Makes It Easy To Package, 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Fabric Managed Clusters</td></tr>
 <tr><td><b>Description</b></td><td>Service Fabric Is A Distributed Systems Platform That Makes It Easy To Package, Deploy, And Manage Scalable And Reliable Microservices.</td></tr>
-<tr><td><b>Id</b></td><td><code>service_fabric_managed_clusters:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_fabric_managed_clusters:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

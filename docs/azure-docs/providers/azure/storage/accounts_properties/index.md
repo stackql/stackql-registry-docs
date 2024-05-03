@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts_properties</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage.accounts_properties</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage.accounts_properties" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` | The complex type of the extended location. |
-| `identity` | `object` | Identity for the resource. |
-| `kind` | `string` | Gets the Kind. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of the storage account. |
-| `sku` | `object` | The resource model definition representing SKU |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="extendedLocation" /> | `object` | The complex type of the extended location. |
+| <CopyableCode code="identity" /> | `object` | Identity for the resource. |
+| <CopyableCode code="kind" /> | `string` | Gets the Kind. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of the storage account. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> |

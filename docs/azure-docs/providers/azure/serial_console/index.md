@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Serial Console REST API Is Available For You To Use With The Azure Serial Console Resource Provider To Enable, Disable, And Get The Disabled Status Of Serial Console For A Subscription.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure Serial Console REST API Is Available For You To Use With The Azure Ser
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Serial Console</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Serial Console REST API Is Available For You To Use With The Azure Serial Console Resource Provider To Enable, Disable, And Get The Disabled Status Of Serial Console For A Subscription.</td></tr>
-<tr><td><b>Id</b></td><td><code>serial_console:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>serial_console:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

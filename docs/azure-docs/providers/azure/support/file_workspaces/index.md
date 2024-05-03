@@ -14,19 +14,22 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>file_workspaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.support.file_workspaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.support.file_workspaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `fileWorkspaceName, subscriptionId` | Gets details for a specific file workspace in an Azure subscription. |
-| `create` | `INSERT` | `fileWorkspaceName, subscriptionId` | Creates a new file workspace for the specified subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="fileWorkspaceName, subscriptionId" /> | Gets details for a specific file workspace in an Azure subscription. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="fileWorkspaceName, subscriptionId" /> | Creates a new file workspace for the specified subscription. |

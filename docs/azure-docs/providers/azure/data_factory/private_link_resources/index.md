@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_factory.private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_factory.private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource identifier. |
-| `name` | `string` | The resource name. |
-| `etag` | `string` | Etag identifies change in the resource. |
-| `properties` | `object` | Properties of a private link resource |
-| `type` | `string` | The resource type. |
+| <CopyableCode code="id" /> | `string` | The resource identifier. |
+| <CopyableCode code="name" /> | `string` | The resource name. |
+| <CopyableCode code="etag" /> | `string` | Etag identifies change in the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of a private link resource |
+| <CopyableCode code="type" /> | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` |
-| `_get` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId" /> |

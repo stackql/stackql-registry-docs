@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>business_processes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.integration_environment.business_processes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.integration_environment.business_processes" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId` | Get a BusinessProcess |
-| `list_by_application` | `SELECT` | `applicationName, resourceGroupName, spaceName, subscriptionId` | List BusinessProcess resources by Application |
-| `create_or_update` | `INSERT` | `applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId` | Create a BusinessProcess |
-| `delete` | `DELETE` | `applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId` | Delete a BusinessProcess |
-| `_list_by_application` | `EXEC` | `applicationName, resourceGroupName, spaceName, subscriptionId` | List BusinessProcess resources by Application |
-| `patch` | `EXEC` | `applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId` | Update a BusinessProcess |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId" /> | Get a BusinessProcess |
+| <CopyableCode code="list_by_application" /> | `SELECT` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | List BusinessProcess resources by Application |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId" /> | Create a BusinessProcess |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId" /> | Delete a BusinessProcess |
+| <CopyableCode code="_list_by_application" /> | `EXEC` | <CopyableCode code="applicationName, resourceGroupName, spaceName, subscriptionId" /> | List BusinessProcess resources by Application |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="applicationName, businessProcessName, resourceGroupName, spaceName, subscriptionId" /> | Update a BusinessProcess |

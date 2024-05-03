@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.certificate</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.certificate" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `automationAccountName, certificateName, resourceGroupName, subscriptionId` | Retrieve the certificate identified by certificate name. |
-| `list_by_automation_account` | `SELECT` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of certificates. |
-| `create_or_update` | `INSERT` | `automationAccountName, certificateName, resourceGroupName, subscriptionId, data__name, data__properties` | Create a certificate. |
-| `delete` | `DELETE` | `automationAccountName, certificateName, resourceGroupName, subscriptionId` | Delete the certificate. |
-| `_list_by_automation_account` | `EXEC` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of certificates. |
-| `update` | `EXEC` | `automationAccountName, certificateName, resourceGroupName, subscriptionId` | Update a certificate. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, certificateName, resourceGroupName, subscriptionId" /> | Retrieve the certificate identified by certificate name. |
+| <CopyableCode code="list_by_automation_account" /> | `SELECT` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of certificates. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="automationAccountName, certificateName, resourceGroupName, subscriptionId, data__name, data__properties" /> | Create a certificate. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="automationAccountName, certificateName, resourceGroupName, subscriptionId" /> | Delete the certificate. |
+| <CopyableCode code="_list_by_automation_account" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of certificates. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="automationAccountName, certificateName, resourceGroupName, subscriptionId" /> | Update a certificate. |

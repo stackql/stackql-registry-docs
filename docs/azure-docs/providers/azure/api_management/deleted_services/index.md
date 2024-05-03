@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deleted_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.deleted_services</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.deleted_services" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | API Management Service Master Location. |
-| `properties` | `object` |  |
+| <CopyableCode code="location" /> | `string` | API Management Service Master Location. |
+| <CopyableCode code="properties" /> | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all soft-deleted services available for undelete for the given subscription. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all soft-deleted services available for undelete for the given subscription. |
-| `get_by_name` | `EXEC` | `location, serviceName, subscriptionId` | Get soft-deleted Api Management Service by name. |
-| `purge` | `EXEC` | `location, serviceName, subscriptionId` | Purges Api Management Service (deletes it with no option to undelete). |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all soft-deleted services available for undelete for the given subscription. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all soft-deleted services available for undelete for the given subscription. |
+| <CopyableCode code="get_by_name" /> | `EXEC` | <CopyableCode code="location, serviceName, subscriptionId" /> | Get soft-deleted Api Management Service by name. |
+| <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="location, serviceName, subscriptionId" /> | Purges Api Management Service (deletes it with no option to undelete). |

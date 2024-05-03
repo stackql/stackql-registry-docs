@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>database_accounts_read_only_keys_list</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cosmos_db.database_accounts_read_only_keys_list</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cosmos_db.database_accounts_read_only_keys_list" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `primaryReadonlyMasterKey` | `string` | Base 64 encoded value of the primary read-only key. |
-| `secondaryReadonlyMasterKey` | `string` | Base 64 encoded value of the secondary read-only key. |
+| <CopyableCode code="primaryReadonlyMasterKey" /> | `string` | Base 64 encoded value of the primary read-only key. |
+| <CopyableCode code="secondaryReadonlyMasterKey" /> | `string` | Base 64 encoded value of the secondary read-only key. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> |

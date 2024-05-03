@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorization_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.notification_hubs.authorization_rule</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.notification_hubs.authorization_rule" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Deprecated - only for compatibility. |
-| `properties` | `object` | SharedAccessAuthorizationRule properties. |
-| `tags` | `object` | Deprecated - only for compatibility. |
+| <CopyableCode code="location" /> | `string` | Deprecated - only for compatibility. |
+| <CopyableCode code="properties" /> | `object` | SharedAccessAuthorizationRule properties. |
+| <CopyableCode code="tags" /> | `object` | Deprecated - only for compatibility. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
-| `delete` | `DELETE` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId" /> |

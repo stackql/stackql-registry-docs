@@ -14,37 +14,40 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cognitive_services.accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cognitive_services.accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Resource Etag. |
-| `identity` | `object` | Identity for the resource. |
-| `kind` | `string` | The kind (type) of cognitive service account. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties of Cognitive Services account. |
-| `sku` | `object` | The resource model definition representing SKU |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | Resource Etag. |
+| <CopyableCode code="identity" /> | `object` | Identity for the resource. |
+| <CopyableCode code="kind" /> | `string` | The kind (type) of cognitive service account. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties of Cognitive Services account. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Returns a Cognitive Services account specified by the parameters. |
-| `list` | `SELECT` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Returns all the resources of a particular type belonging to a resource group |
-| `create` | `INSERT` | `accountName, resourceGroupName, subscriptionId` | Create Cognitive Services Account. Accounts is a resource group wide resource type. It holds the keys for developer to access intelligent APIs. It's also the resource type for billing. |
-| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Deletes a Cognitive Services account from the resource group.  |
-| `_list` | `EXEC` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Returns all the resources of a particular type belonging to a resource group |
-| `cognitive_services_accounts` | `EXEC` | `subscriptionId, data__subdomainName, data__type` | Check whether a domain is available. |
-| `regenerate_key` | `EXEC` | `accountName, resourceGroupName, subscriptionId, data__keyName` | Regenerates the specified account key for the specified Cognitive Services account. |
-| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Updates a Cognitive Services account |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Returns a Cognitive Services account specified by the parameters. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns all the resources of a particular type belonging to a subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns all the resources of a particular type belonging to a resource group |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Create Cognitive Services Account. Accounts is a resource group wide resource type. It holds the keys for developer to access intelligent APIs. It's also the resource type for billing. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Deletes a Cognitive Services account from the resource group.  |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns all the resources of a particular type belonging to a subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns all the resources of a particular type belonging to a resource group |
+| <CopyableCode code="cognitive_services_accounts" /> | `EXEC` | <CopyableCode code="subscriptionId, data__subdomainName, data__type" /> | Check whether a domain is available. |
+| <CopyableCode code="regenerate_key" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, data__keyName" /> | Regenerates the specified account key for the specified Cognitive Services account. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Updates a Cognitive Services account |

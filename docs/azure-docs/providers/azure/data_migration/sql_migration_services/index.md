@@ -14,35 +14,38 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sql_migration_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_migration.sql_migration_services</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_migration.sql_migration_services" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `location` | `string` |  |
-| `properties` | `object` | The SQL Migration Service properties. |
-| `systemData` | `object` |  |
-| `tags` | `object` |  |
-| `type` | `string` |  |
+| <CopyableCode code="id" /> | `string` |  |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="location" /> | `string` |  |
+| <CopyableCode code="properties" /> | `object` | The SQL Migration Service properties. |
+| <CopyableCode code="systemData" /> | `object` |  |
+| <CopyableCode code="tags" /> | `object` |  |
+| <CopyableCode code="type" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Retrieve the Database Migration Service |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieve all SQL migration services in the resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieve all SQL migration services in the subscriptions. |
-| `create_or_update` | `INSERT` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Create or Update Database Migration Service. |
-| `delete` | `DELETE` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Delete Database Migration Service. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Retrieve all SQL migration services in the resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieve all SQL migration services in the subscriptions. |
-| `regenerate_auth_keys` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Regenerate a new set of Authentication Keys for Self Hosted Integration Runtime. |
-| `update` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Update Database Migration Service. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, sqlMigrationServiceName, subscriptionId" /> | Retrieve the Database Migration Service |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieve all SQL migration services in the resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Retrieve all SQL migration services in the subscriptions. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, sqlMigrationServiceName, subscriptionId" /> | Create or Update Database Migration Service. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, sqlMigrationServiceName, subscriptionId" /> | Delete Database Migration Service. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Retrieve all SQL migration services in the resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Retrieve all SQL migration services in the subscriptions. |
+| <CopyableCode code="regenerate_auth_keys" /> | `EXEC` | <CopyableCode code="resourceGroupName, sqlMigrationServiceName, subscriptionId" /> | Regenerate a new set of Authentication Keys for Self Hosted Integration Runtime. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, sqlMigrationServiceName, subscriptionId" /> | Update Database Migration Service. |

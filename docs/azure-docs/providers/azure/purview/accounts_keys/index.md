@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.purview.accounts_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.purview.accounts_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `atlasKafkaPrimaryEndpoint` | `string` | Gets or sets the primary connection string. |
-| `atlasKafkaSecondaryEndpoint` | `string` | Gets or sets the secondary connection string. |
+| <CopyableCode code="atlasKafkaPrimaryEndpoint" /> | `string` | Gets or sets the primary connection string. |
+| <CopyableCode code="atlasKafkaSecondaryEndpoint" /> | `string` | Gets or sets the secondary connection string. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> |

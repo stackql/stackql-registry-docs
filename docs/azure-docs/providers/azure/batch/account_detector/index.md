@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>account_detector</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.batch.account_detector</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.batch.account_detector" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The ID of the resource. |
-| `name` | `string` | The name of the resource. |
-| `etag` | `string` | The ETag of the resource, used for concurrency statements. |
-| `properties` | `object` | Detector response properties. |
-| `type` | `string` | The type of the resource. |
+| <CopyableCode code="id" /> | `string` | The ID of the resource. |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="etag" /> | `string` | The ETag of the resource, used for concurrency statements. |
+| <CopyableCode code="properties" /> | `object` | Detector response properties. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `accountName, detectorId, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, detectorId, resourceGroupName, subscriptionId" /> |

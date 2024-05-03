@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>variable</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.variable</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.variable" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `automationAccountName, resourceGroupName, subscriptionId, variableName` | Retrieve the variable identified by variable name. |
-| `list_by_automation_account` | `SELECT` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of variables. |
-| `create_or_update` | `INSERT` | `automationAccountName, resourceGroupName, subscriptionId, variableName, data__name, data__properties` | Create a variable. |
-| `delete` | `DELETE` | `automationAccountName, resourceGroupName, subscriptionId, variableName` | Delete the variable. |
-| `_list_by_automation_account` | `EXEC` | `automationAccountName, resourceGroupName, subscriptionId` | Retrieve a list of variables. |
-| `update` | `EXEC` | `automationAccountName, resourceGroupName, subscriptionId, variableName` | Update a variable. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId, variableName" /> | Retrieve the variable identified by variable name. |
+| <CopyableCode code="list_by_automation_account" /> | `SELECT` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of variables. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId, variableName, data__name, data__properties" /> | Create a variable. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId, variableName" /> | Delete the variable. |
+| <CopyableCode code="_list_by_automation_account" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId" /> | Retrieve a list of variables. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="automationAccountName, resourceGroupName, subscriptionId, variableName" /> | Update a variable. |

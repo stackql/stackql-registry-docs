@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>advisors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.maria_db.advisors</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.maria_db.advisors" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `advisorName, resourceGroupName, serverName, subscriptionId` | Get a recommendation action advisor. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List recommendation action advisors. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | List recommendation action advisors. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="advisorName, resourceGroupName, serverName, subscriptionId" /> | Get a recommendation action advisor. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | List recommendation action advisors. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | List recommendation action advisors. |

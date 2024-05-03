@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>linked_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.log_analytics.linked_services</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.log_analytics.linked_services" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Linked service properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="properties" /> | `object` | Linked service properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `linkedServiceName, resourceGroupName, subscriptionId, workspaceName` | Gets a linked service instance. |
-| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets the linked services instances in a workspace. |
-| `create_or_update` | `INSERT` | `linkedServiceName, resourceGroupName, subscriptionId, workspaceName, data__properties` | Create or update a linked service. |
-| `delete` | `DELETE` | `linkedServiceName, resourceGroupName, subscriptionId, workspaceName` | Deletes a linked service instance. |
-| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Gets the linked services instances in a workspace. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="linkedServiceName, resourceGroupName, subscriptionId, workspaceName" /> | Gets a linked service instance. |
+| <CopyableCode code="list_by_workspace" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets the linked services instances in a workspace. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="linkedServiceName, resourceGroupName, subscriptionId, workspaceName, data__properties" /> | Create or update a linked service. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="linkedServiceName, resourceGroupName, subscriptionId, workspaceName" /> | Deletes a linked service instance. |
+| <CopyableCode code="_list_by_workspace" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets the linked services instances in a workspace. |

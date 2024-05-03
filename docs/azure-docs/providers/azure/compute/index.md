@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Compute APIs Give You Programmatic Access To Virtual Machines And Their Supporting Resources.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure Compute APIs Give You Programmatic Access To Virtual Machines And Thei
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Compute</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Compute APIs Give You Programmatic Access To Virtual Machines And Their Supporting Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>compute:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>compute:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

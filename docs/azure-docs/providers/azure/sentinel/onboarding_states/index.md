@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>onboarding_states</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sentinel.onboarding_states</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sentinel.onboarding_states" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Etag of the azure resource |
-| `properties` | `object` | The Sentinel onboarding state properties |
+| <CopyableCode code="etag" /> | `string` | Etag of the azure resource |
+| <CopyableCode code="properties" /> | `object` | The Sentinel onboarding state properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, sentinelOnboardingStateName, subscriptionId, workspaceName` | Get Sentinel onboarding state |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets all Sentinel onboarding states |
-| `create` | `INSERT` | `resourceGroupName, sentinelOnboardingStateName, subscriptionId, workspaceName` | Create Sentinel onboarding state |
-| `delete` | `DELETE` | `resourceGroupName, sentinelOnboardingStateName, subscriptionId, workspaceName` | Delete Sentinel onboarding state |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Gets all Sentinel onboarding states |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, sentinelOnboardingStateName, subscriptionId, workspaceName" /> | Get Sentinel onboarding state |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all Sentinel onboarding states |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, sentinelOnboardingStateName, subscriptionId, workspaceName" /> | Create Sentinel onboarding state |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, sentinelOnboardingStateName, subscriptionId, workspaceName" /> | Delete Sentinel onboarding state |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Gets all Sentinel onboarding states |

@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transparent_data_encryptions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.transparent_data_encryptions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.transparent_data_encryptions" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId, tdeName` | Gets a logical database's transparent data encryption. |
-| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of the logical database's transparent data encryption. |
-| `create_or_update` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, tdeName` | Updates a logical database's transparent data encryption configuration. |
-| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of the logical database's transparent data encryption. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId, tdeName" /> | Gets a logical database's transparent data encryption. |
+| <CopyableCode code="list_by_database" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of the logical database's transparent data encryption. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId, tdeName" /> | Updates a logical database's transparent data encryption configuration. |
+| <CopyableCode code="_list_by_database" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of the logical database's transparent data encryption. |

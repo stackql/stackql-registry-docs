@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>volumes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.elastic_san.volumes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.elastic_san.volumes" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName` | Get an Volume. |
-| `list_by_volume_group` | `SELECT` | `elasticSanName, resourceGroupName, subscriptionId, volumeGroupName` | List Volumes in a VolumeGroup. |
-| `create` | `INSERT` | `elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName, data__properties` | Create a Volume. |
-| `delete` | `DELETE` | `elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName` | Delete an Volume. |
-| `_list_by_volume_group` | `EXEC` | `elasticSanName, resourceGroupName, subscriptionId, volumeGroupName` | List Volumes in a VolumeGroup. |
-| `update` | `EXEC` | `elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName` | Update an Volume. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName" /> | Get an Volume. |
+| <CopyableCode code="list_by_volume_group" /> | `SELECT` | <CopyableCode code="elasticSanName, resourceGroupName, subscriptionId, volumeGroupName" /> | List Volumes in a VolumeGroup. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName, data__properties" /> | Create a Volume. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName" /> | Delete an Volume. |
+| <CopyableCode code="_list_by_volume_group" /> | `EXEC` | <CopyableCode code="elasticSanName, resourceGroupName, subscriptionId, volumeGroupName" /> | List Volumes in a VolumeGroup. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="elasticSanName, resourceGroupName, subscriptionId, volumeGroupName, volumeName" /> | Update an Volume. |

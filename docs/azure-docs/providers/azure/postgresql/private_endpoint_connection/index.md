@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_endpoint_connection</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.postgresql.private_endpoint_connection</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.postgresql.private_endpoint_connection" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete` | `DELETE` | `privateEndpointConnectionName, resourceGroupName, serverName, subscriptionId` | Deletes a private endpoint connection with a given name. |
-| `update` | `EXEC` | `privateEndpointConnectionName, resourceGroupName, serverName, subscriptionId` | Approve or reject a private endpoint connection with a given name. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="privateEndpointConnectionName, resourceGroupName, serverName, subscriptionId" /> | Deletes a private endpoint connection with a given name. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="privateEndpointConnectionName, resourceGroupName, serverName, subscriptionId" /> | Approve or reject a private endpoint connection with a given name. |

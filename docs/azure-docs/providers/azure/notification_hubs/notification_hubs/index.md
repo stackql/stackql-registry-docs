@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notification_hubs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.notification_hubs.notification_hubs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.notification_hubs.notification_hubs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | NotificationHub properties. |
-| `sku` | `object` | The resource model definition representing SKU |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | NotificationHub properties. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
-| `list` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` |
-| `create_or_update` | `INSERT` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__location` |
-| `delete` | `DELETE` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` |
-| `check_notification_hub_availability` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, data__name` |
-| `debug_send` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
-| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__policyKey` |
-| `update` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="namespaceName, notificationHubName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__location" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="namespaceName, notificationHubName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="check_notification_hub_availability" /> | `EXEC` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId, data__name" /> |
+| <CopyableCode code="debug_send" /> | `EXEC` | <CopyableCode code="namespaceName, notificationHubName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="regenerate_keys" /> | `EXEC` | <CopyableCode code="authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__policyKey" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="namespaceName, notificationHubName, resourceGroupName, subscriptionId" /> |

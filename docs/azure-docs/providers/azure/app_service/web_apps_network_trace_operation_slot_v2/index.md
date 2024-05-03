@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_apps_network_trace_operation_slot_v2</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.web_apps_network_trace_operation_slot_v2</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.web_apps_network_trace_operation_slot_v2" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `message` | `string` | Detailed message of a network trace operation, e.g. error message in case of failure. |
-| `path` | `string` | Local file path for the captured network trace file. |
-| `status` | `string` | Current status of the network trace operation, same as Operation.Status (InProgress/Succeeded/Failed). |
+| <CopyableCode code="message" /> | `string` | Detailed message of a network trace operation, e.g. error message in case of failure. |
+| <CopyableCode code="path" /> | `string` | Local file path for the captured network trace file. |
+| <CopyableCode code="status" /> | `string` | Current status of the network trace operation, same as Operation.Status (InProgress/Succeeded/Failed). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `name, operationId, resourceGroupName, slot, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name, operationId, resourceGroupName, slot, subscriptionId" /> |

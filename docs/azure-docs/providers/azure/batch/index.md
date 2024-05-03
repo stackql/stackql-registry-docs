@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Batch Enables You To Run Large-Scale Parallel And High-Performance Computing (HPC) Applications Efficiently In The Cloud. Its A Platform Service That Schedules Compute-Intensive Work To Run On A Managed Collection Of Virtual Machines, And Can Automatically Scale Compute Resources To Meet The Needs Of Your Jobs.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Batch Enables You To Run Large-Scale Parallel And High-Performance Computi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Batch Management</td></tr>
 <tr><td><b>Description</b></td><td>Azure Batch Enables You To Run Large-Scale Parallel And High-Performance Computing (HPC) Applications Efficiently In The Cloud. Its A Platform Service That Schedules Compute-Intensive Work To Run On A Managed Collection Of Virtual Machines, And Can Automatically Scale Compute Resources To Meet The Needs Of Your Jobs.</td></tr>
-<tr><td><b>Id</b></td><td><code>batch:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>batch:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bindings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.spring_apps.bindings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.spring_apps.bindings" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appName, bindingName, resourceGroupName, serviceName, subscriptionId` | Get a Binding and its properties. |
-| `list` | `SELECT` | `appName, resourceGroupName, serviceName, subscriptionId` | Handles requests to list all resources in an App. |
-| `create_or_update` | `INSERT` | `appName, bindingName, resourceGroupName, serviceName, subscriptionId` | Create a new Binding or update an exiting Binding. |
-| `delete` | `DELETE` | `appName, bindingName, resourceGroupName, serviceName, subscriptionId` | Operation to delete a Binding. |
-| `_list` | `EXEC` | `appName, resourceGroupName, serviceName, subscriptionId` | Handles requests to list all resources in an App. |
-| `update` | `EXEC` | `appName, bindingName, resourceGroupName, serviceName, subscriptionId` | Operation to update an exiting Binding. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="appName, bindingName, resourceGroupName, serviceName, subscriptionId" /> | Get a Binding and its properties. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appName, resourceGroupName, serviceName, subscriptionId" /> | Handles requests to list all resources in an App. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="appName, bindingName, resourceGroupName, serviceName, subscriptionId" /> | Create a new Binding or update an exiting Binding. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appName, bindingName, resourceGroupName, serviceName, subscriptionId" /> | Operation to delete a Binding. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appName, resourceGroupName, serviceName, subscriptionId" /> | Handles requests to list all resources in an App. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="appName, bindingName, resourceGroupName, serviceName, subscriptionId" /> | Operation to update an exiting Binding. |

@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>post</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.customer_lockbox.post</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.customer_lockbox.post" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `disable_lockbox` | `EXEC` |  | Disable Tenant for Lockbox  |
-| `enable_lockbox` | `EXEC` |  | Enable Tenant for Lockbox  |
+| <CopyableCode code="disable_lockbox" /> | `EXEC` |  | Disable Tenant for Lockbox  |
+| <CopyableCode code="enable_lockbox" /> | `EXEC` |  | Enable Tenant for Lockbox  |

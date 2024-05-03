@@ -14,37 +14,40 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.hdinsight.clusters</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.hdinsight.clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | The ETag for the resource |
-| `identity` | `object` | Identity for the cluster. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of cluster. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
-| `zones` | `array` | The availability zones. |
+| <CopyableCode code="etag" /> | `string` | The ETag for the resource |
+| <CopyableCode code="identity" /> | `object` | Identity for the cluster. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | The properties of cluster. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="zones" /> | `array` | The availability zones. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Gets the specified cluster. |
-| `list` | `SELECT` | `subscriptionId` | Lists all the HDInsight clusters under the subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the HDInsight clusters in a resource group. |
-| `create` | `INSERT` | `clusterName, resourceGroupName, subscriptionId` | Creates a new HDInsight cluster with the specified parameters. |
-| `delete` | `DELETE` | `clusterName, resourceGroupName, subscriptionId` | Deletes the specified HDInsight cluster. |
-| `_list` | `EXEC` | `subscriptionId` | Lists all the HDInsight clusters under the subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the HDInsight clusters in a resource group. |
-| `execute_script_actions` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, data__persistOnSuccess` | Executes script actions on the specified HDInsight cluster. |
-| `resize` | `EXEC` | `clusterName, resourceGroupName, roleName, subscriptionId` | Resizes the specified HDInsight cluster to the specified size. |
-| `rotate_disk_encryption_key` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Rotate disk encryption key of the specified HDInsight cluster. |
-| `update` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Patch HDInsight cluster with the specified parameters. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Gets the specified cluster. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all the HDInsight clusters under the subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists the HDInsight clusters in a resource group. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Creates a new HDInsight cluster with the specified parameters. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Deletes the specified HDInsight cluster. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Lists all the HDInsight clusters under the subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists the HDInsight clusters in a resource group. |
+| <CopyableCode code="execute_script_actions" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, data__persistOnSuccess" /> | Executes script actions on the specified HDInsight cluster. |
+| <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, roleName, subscriptionId" /> | Resizes the specified HDInsight cluster to the specified size. |
+| <CopyableCode code="rotate_disk_encryption_key" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Rotate disk encryption key of the specified HDInsight cluster. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Patch HDInsight cluster with the specified parameters. |

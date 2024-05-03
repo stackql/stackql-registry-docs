@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_masking_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.data_masking_rules</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.data_masking_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | The kind of Data Masking Rule. Metadata, used for Azure portal. |
-| `location` | `string` | The location of the data masking rule. |
-| `properties` | `object` | The properties of a database data masking rule. |
+| <CopyableCode code="kind" /> | `string` | The kind of Data Masking Rule. Metadata, used for Azure portal. |
+| <CopyableCode code="location" /> | `string` | The location of the data masking rule. |
+| <CopyableCode code="properties" /> | `object` | The properties of a database data masking rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_database` | `SELECT` | `dataMaskingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database data masking rules. |
-| `create_or_update` | `INSERT` | `dataMaskingPolicyName, dataMaskingRuleName, databaseName, resourceGroupName, serverName, subscriptionId` | Creates or updates a database data masking rule. |
-| `_list_by_database` | `EXEC` | `dataMaskingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database data masking rules. |
+| <CopyableCode code="list_by_database" /> | `SELECT` | <CopyableCode code="dataMaskingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of database data masking rules. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="dataMaskingPolicyName, dataMaskingRuleName, databaseName, resourceGroupName, serverName, subscriptionId" /> | Creates or updates a database data masking rule. |
+| <CopyableCode code="_list_by_database" /> | `EXEC` | <CopyableCode code="dataMaskingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId" /> | Gets a list of database data masking rules. |

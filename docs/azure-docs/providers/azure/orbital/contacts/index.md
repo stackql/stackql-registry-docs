@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>contacts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.orbital.contacts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.orbital.contacts" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `contactName, resourceGroupName, spacecraftName, subscriptionId` | Gets the specified contact in a specified resource group. |
-| `list` | `SELECT` | `resourceGroupName, spacecraftName, subscriptionId` | Returns list of contacts by spacecraftName. |
-| `create` | `INSERT` | `contactName, resourceGroupName, spacecraftName, subscriptionId, data__properties` | Creates a contact. |
-| `delete` | `DELETE` | `contactName, resourceGroupName, spacecraftName, subscriptionId` | Deletes a specified contact. |
-| `_list` | `EXEC` | `resourceGroupName, spacecraftName, subscriptionId` | Returns list of contacts by spacecraftName. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="contactName, resourceGroupName, spacecraftName, subscriptionId" /> | Gets the specified contact in a specified resource group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, spacecraftName, subscriptionId" /> | Returns list of contacts by spacecraftName. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="contactName, resourceGroupName, spacecraftName, subscriptionId, data__properties" /> | Creates a contact. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="contactName, resourceGroupName, spacecraftName, subscriptionId" /> | Deletes a specified contact. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, spacecraftName, subscriptionId" /> | Returns list of contacts by spacecraftName. |

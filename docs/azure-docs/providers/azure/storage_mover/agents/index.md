@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage_mover.agents</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage_mover.agents" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Gets an Agent resource. |
-| `list` | `SELECT` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Agents in a Storage Mover. |
-| `create_or_update` | `INSERT` | `agentName, resourceGroupName, storageMoverName, subscriptionId, data__properties` | Creates or updates an Agent resource, which references a hybrid compute machine that can run jobs. |
-| `delete` | `DELETE` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Deletes an Agent resource. |
-| `_list` | `EXEC` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Agents in a Storage Mover. |
-| `update` | `EXEC` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Creates or updates an Agent resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="agentName, resourceGroupName, storageMoverName, subscriptionId" /> | Gets an Agent resource. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, storageMoverName, subscriptionId" /> | Lists all Agents in a Storage Mover. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="agentName, resourceGroupName, storageMoverName, subscriptionId, data__properties" /> | Creates or updates an Agent resource, which references a hybrid compute machine that can run jobs. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="agentName, resourceGroupName, storageMoverName, subscriptionId" /> | Deletes an Agent resource. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, storageMoverName, subscriptionId" /> | Lists all Agents in a Storage Mover. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="agentName, resourceGroupName, storageMoverName, subscriptionId" /> | Creates or updates an Agent resource. |

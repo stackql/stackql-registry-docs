@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_instance_dtcs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.managed_instance_dtcs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.managed_instance_dtcs" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `dtcName, managedInstanceName, resourceGroupName, subscriptionId` | Gets managed instance DTC settings. |
-| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance DTC settings. |
-| `create_or_update` | `INSERT` | `dtcName, managedInstanceName, resourceGroupName, subscriptionId` | Updates managed instance DTC settings. |
-| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance DTC settings. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dtcName, managedInstanceName, resourceGroupName, subscriptionId" /> | Gets managed instance DTC settings. |
+| <CopyableCode code="list_by_managed_instance" /> | `SELECT` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Gets a list of managed instance DTC settings. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="dtcName, managedInstanceName, resourceGroupName, subscriptionId" /> | Updates managed instance DTC settings. |
+| <CopyableCode code="_list_by_managed_instance" /> | `EXEC` | <CopyableCode code="managedInstanceName, resourceGroupName, subscriptionId" /> | Gets a list of managed instance DTC settings. |

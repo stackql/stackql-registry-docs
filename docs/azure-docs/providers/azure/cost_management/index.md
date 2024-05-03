@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Cost Management APIs Provide The Ability To Explore Cost And Usage Data Via Multidimensional Analysis, Where Creating Customized Filters And Expressions Allow You To Answer Consumption-Related Questions For Your Azure Resources. These APIs Are Currently Available For Azure Enterprise Customers.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Cost Management APIs Provide The Ability To Explore Cost And Usage Data Via 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Cost Management</td></tr>
 <tr><td><b>Description</b></td><td>The Cost Management APIs Provide The Ability To Explore Cost And Usage Data Via Multidimensional Analysis, Where Creating Customized Filters And Expressions Allow You To Answer Consumption-Related Questions For Your Azure Resources. These APIs Are Currently Available For Azure Enterprise Customers.</td></tr>
-<tr><td><b>Id</b></td><td><code>cost_management:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cost_management:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

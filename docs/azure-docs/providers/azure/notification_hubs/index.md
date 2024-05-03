@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Notification Hubs Provide An Easy-To-Use And Scaled-Out Push Engine That Allows You To Send Notifications To Any Platform (IOS, Android, Windows, Kindle, Baidu, Etc.) From Any Backend (Cloud Or On-Premises).  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Notification Hubs Provide An Easy-To-Use And Scaled-Out Push Engine That A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Notification Hubs</td></tr>
 <tr><td><b>Description</b></td><td>Azure Notification Hubs Provide An Easy-To-Use And Scaled-Out Push Engine That Allows You To Send Notifications To Any Platform (IOS, Android, Windows, Kindle, Baidu, Etc.) From Any Backend (Cloud Or On-Premises).</td></tr>
-<tr><td><b>Id</b></td><td><code>notification_hubs:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>notification_hubs:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

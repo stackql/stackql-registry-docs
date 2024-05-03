@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>machine_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.service_map.machine_groups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.service_map.machine_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Resource ETAG. |
-| `kind` | `string` | Additional resource type qualifier. |
-| `properties` | `object` | Resource properties. |
+| <CopyableCode code="etag" /> | `string` | Resource ETAG. |
+| <CopyableCode code="kind" /> | `string` | Additional resource type qualifier. |
+| <CopyableCode code="properties" /> | `object` | Resource properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Returns the specified machine group as it existed during the specified time interval. |
-| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns all machine groups during the specified time interval. |
-| `create` | `INSERT` | `resourceGroupName, subscriptionId, workspaceName` | Creates a new machine group. |
-| `delete` | `DELETE` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Deletes the specified Machine Group. |
-| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Returns all machine groups during the specified time interval. |
-| `update` | `EXEC` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Updates a machine group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="machineGroupName, resourceGroupName, subscriptionId, workspaceName" /> | Returns the specified machine group as it existed during the specified time interval. |
+| <CopyableCode code="list_by_workspace" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Returns all machine groups during the specified time interval. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Creates a new machine group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="machineGroupName, resourceGroupName, subscriptionId, workspaceName" /> | Deletes the specified Machine Group. |
+| <CopyableCode code="_list_by_workspace" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Returns all machine groups during the specified time interval. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="machineGroupName, resourceGroupName, subscriptionId, workspaceName" /> | Updates a machine group. |

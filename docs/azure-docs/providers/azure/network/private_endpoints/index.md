@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.private_endpoints</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.private_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of the private endpoint. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="extendedLocation" /> | `object` | ExtendedLocation complex type. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of the private endpoint. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `privateEndpointName, resourceGroupName, subscriptionId` | Gets the specified private endpoint by resource group. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all private endpoints in a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Gets all private endpoints in a subscription. |
-| `create_or_update` | `INSERT` | `privateEndpointName, resourceGroupName, subscriptionId` | Creates or updates an private endpoint in the specified resource group. |
-| `delete` | `DELETE` | `privateEndpointName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all private endpoints in a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Gets all private endpoints in a subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="privateEndpointName, resourceGroupName, subscriptionId" /> | Gets the specified private endpoint by resource group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all private endpoints in a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all private endpoints in a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="privateEndpointName, resourceGroupName, subscriptionId" /> | Creates or updates an private endpoint in the specified resource group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="privateEndpointName, resourceGroupName, subscriptionId" /> | Deletes the specified private endpoint. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all private endpoints in a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all private endpoints in a subscription. |

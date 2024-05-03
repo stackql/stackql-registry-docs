@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>express_route_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.express_route_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.express_route_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | The name of the resource. |
-| `properties` | `object` | Properties of the ExpressRouteConnection subresource. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties of the ExpressRouteConnection subresource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId` | Gets the specified ExpressRouteConnection. |
-| `list` | `SELECT` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Lists ExpressRouteConnections. |
-| `create_or_update` | `INSERT` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId, data__name` | Creates a connection between an ExpressRoute gateway and an ExpressRoute circuit. |
-| `delete` | `DELETE` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId` | Deletes a connection to a ExpressRoute circuit. |
-| `_list` | `EXEC` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Lists ExpressRouteConnections. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId" /> | Gets the specified ExpressRouteConnection. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="expressRouteGatewayName, resourceGroupName, subscriptionId" /> | Lists ExpressRouteConnections. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId, data__name" /> | Creates a connection between an ExpressRoute gateway and an ExpressRoute circuit. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId" /> | Deletes a connection to a ExpressRoute circuit. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="expressRouteGatewayName, resourceGroupName, subscriptionId" /> | Lists ExpressRouteConnections. |

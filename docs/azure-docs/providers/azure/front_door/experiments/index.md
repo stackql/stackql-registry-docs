@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>experiments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.front_door.experiments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.front_door.experiments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Defines the properties of an experiment |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | Resource name. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Defines the properties of an experiment |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `experimentName, profileName, resourceGroupName, subscriptionId` |  |
-| `list_by_profile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` |  |
-| `create_or_update` | `INSERT` | `experimentName, profileName, resourceGroupName, subscriptionId` |  |
-| `delete` | `DELETE` | `experimentName, profileName, resourceGroupName, subscriptionId` |  |
-| `_list_by_profile` | `EXEC` | `profileName, resourceGroupName, subscriptionId` |  |
-| `update` | `EXEC` | `experimentName, profileName, resourceGroupName, subscriptionId` | Updates an Experiment |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="experimentName, profileName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list_by_profile" /> | `SELECT` | <CopyableCode code="profileName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="experimentName, profileName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="experimentName, profileName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="_list_by_profile" /> | `EXEC` | <CopyableCode code="profileName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="experimentName, profileName, resourceGroupName, subscriptionId" /> | Updates an Experiment |

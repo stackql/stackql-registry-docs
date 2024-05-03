@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>auth_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_apps.auth_configs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_apps.auth_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` |  |
-| `list_by_container_app` | `SELECT` | `containerAppName, resourceGroupName, subscriptionId` |  |
-| `create_or_update` | `INSERT` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` | Create or update the AuthConfig for a Container App. |
-| `delete` | `DELETE` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` | Delete a Container App AuthConfig. |
-| `_list_by_container_app` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |  |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="authConfigName, containerAppName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list_by_container_app" /> | `SELECT` | <CopyableCode code="containerAppName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="authConfigName, containerAppName, resourceGroupName, subscriptionId" /> | Create or update the AuthConfig for a Container App. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="authConfigName, containerAppName, resourceGroupName, subscriptionId" /> | Delete a Container App AuthConfig. |
+| <CopyableCode code="_list_by_container_app" /> | `EXEC` | <CopyableCode code="containerAppName, resourceGroupName, subscriptionId" /> |  |

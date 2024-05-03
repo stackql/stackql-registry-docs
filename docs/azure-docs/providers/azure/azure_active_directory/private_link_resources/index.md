@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.azure_active_directory.private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.azure_active_directory.private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The unique resource identifier of the Azure AD PrivateLink Policy. |
-| `name` | `string` | The name of the Azure AD PrivateLink Policy. |
-| `properties` | `object` | Properties of a private link resource. |
-| `type` | `string` | The type of Azure resource. |
+| <CopyableCode code="id" /> | `string` | The unique resource identifier of the Azure AD PrivateLink Policy. |
+| <CopyableCode code="name" /> | `string` | The name of the Azure AD PrivateLink Policy. |
+| <CopyableCode code="properties" /> | `object` | Properties of a private link resource. |
+| <CopyableCode code="type" /> | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `groupName, policyName, resourceGroupName, subscriptionId` |
-| `list_by_private_link_policy` | `SELECT` | `policyName, resourceGroupName, subscriptionId` |
-| `_list_by_private_link_policy` | `EXEC` | `policyName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupName, policyName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="list_by_private_link_policy" /> | `SELECT` | <CopyableCode code="policyName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list_by_private_link_policy" /> | `EXEC` | <CopyableCode code="policyName, resourceGroupName, subscriptionId" /> |

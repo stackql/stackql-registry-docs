@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>server_connection_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.server_connection_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.server_connection_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Metadata used for the Azure portal experience. |
-| `location` | `string` | Resource location. |
-| `properties` | `object` | The properties of a server connection policy. |
+| <CopyableCode code="kind" /> | `string` | Metadata used for the Azure portal experience. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | The properties of a server connection policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `connectionPolicyName, resourceGroupName, serverName, subscriptionId` | Gets a server connection policy |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists connection policy |
-| `create_or_update` | `INSERT` | `connectionPolicyName, resourceGroupName, serverName, subscriptionId` | Updates a server connection policy |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists connection policy |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectionPolicyName, resourceGroupName, serverName, subscriptionId" /> | Gets a server connection policy |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Lists connection policy |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="connectionPolicyName, resourceGroupName, serverName, subscriptionId" /> | Updates a server connection policy |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Lists connection policy |

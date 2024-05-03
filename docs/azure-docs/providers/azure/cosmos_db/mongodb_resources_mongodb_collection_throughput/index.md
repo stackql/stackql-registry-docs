@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mongodb_resources_mongodb_collection_throughput</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cosmos_db.mongodb_resources_mongodb_collection_throughput</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cosmos_db.mongodb_resources_mongodb_collection_throughput" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `update` | `EXEC` | `accountName, collectionName, databaseName, resourceGroupName, subscriptionId, data__properties` |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, collectionName, databaseName, resourceGroupName, subscriptionId, data__properties" /> |

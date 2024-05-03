@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflows</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.storage_sync.workflows</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.storage_sync.workflows" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId, workflowId` | Get Workflows resource |
-| `list_by_storage_sync_service` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a Workflow List |
-| `_list_by_storage_sync_service` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a Workflow List |
-| `abort` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId, workflowId` | Abort the given workflow. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, storageSyncServiceName, subscriptionId, workflowId" /> | Get Workflows resource |
+| <CopyableCode code="list_by_storage_sync_service" /> | `SELECT` | <CopyableCode code="resourceGroupName, storageSyncServiceName, subscriptionId" /> | Get a Workflow List |
+| <CopyableCode code="_list_by_storage_sync_service" /> | `EXEC` | <CopyableCode code="resourceGroupName, storageSyncServiceName, subscriptionId" /> | Get a Workflow List |
+| <CopyableCode code="abort" /> | `EXEC` | <CopyableCode code="resourceGroupName, storageSyncServiceName, subscriptionId, workflowId" /> | Abort the given workflow. |

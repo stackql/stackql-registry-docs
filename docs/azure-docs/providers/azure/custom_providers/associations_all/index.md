@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>associations_all</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.custom_providers.associations_all</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.custom_providers.associations_all" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The association id. |
-| `name` | `string` | The association name. |
-| `properties` | `object` | The properties of the association. |
-| `type` | `string` | The association type. |
+| <CopyableCode code="id" /> | `string` | The association id. |
+| <CopyableCode code="name" /> | `string` | The association name. |
+| <CopyableCode code="properties" /> | `object` | The properties of the association. |
+| <CopyableCode code="type" /> | `string` | The association type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `scope` |
-| `_list` | `EXEC` | `scope` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="scope" /> |

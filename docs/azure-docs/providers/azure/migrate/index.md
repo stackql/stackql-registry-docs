@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Migrate Helps You To Migrate To Azure. Azure Migrate Provides A Centralized Hub To Track Discovery, Assessment, And Migration Of On-Premises Infrastructure, Applications, And Data To Azure. The Hub Provides Azure Tools For Assessment And Migration, As Well As Third-Party Independent Software Vendor (ISV) Offerings.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Migrate Helps You To Migrate To Azure. Azure Migrate Provides A Centralize
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Migrate</td></tr>
 <tr><td><b>Description</b></td><td>Azure Migrate Helps You To Migrate To Azure. Azure Migrate Provides A Centralized Hub To Track Discovery, Assessment, And Migration Of On-Premises Infrastructure, Applications, And Data To Azure. The Hub Provides Azure Tools For Assessment And Migration, As Well As Third-Party Independent Software Vendor (ISV) Offerings.</td></tr>
-<tr><td><b>Id</b></td><td><code>migrate:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>migrate:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

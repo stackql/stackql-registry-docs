@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Scalable End-To-End Modern Web App Testing Service  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Scalable End-To-End Modern Web App Testing Service
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Playwright Testing Service</td></tr>
 <tr><td><b>Description</b></td><td>Scalable End-To-End Modern Web App Testing Service</td></tr>
-<tr><td><b>Id</b></td><td><code>playwrighttesting:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>playwrighttesting:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

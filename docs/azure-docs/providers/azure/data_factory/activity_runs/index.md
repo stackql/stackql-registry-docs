@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>activity_runs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_factory.activity_runs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_factory.activity_runs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `query_by_pipeline_run` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore` |
+| <CopyableCode code="query_by_pipeline_run" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, runId, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore" /> |

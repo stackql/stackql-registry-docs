@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_guards_delete_protected_item_requests_objects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_protection.resource_guards_delete_protected_item_requests_objects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_protection.resource_guards_delete_protected_item_requests_objects" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id represents the complete path to the resource. |
-| `name` | `string` | Resource name associated with the resource. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+| <CopyableCode code="id" /> | `string` | Resource Id represents the complete path to the resource. |
+| <CopyableCode code="name" /> | `string` | Resource name associated with the resource. |
+| <CopyableCode code="type" /> | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, resourceGuardsName, subscriptionId` |
-| `_get` | `EXEC` | `resourceGroupName, resourceGuardsName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceGuardsName, subscriptionId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceGuardsName, subscriptionId" /> |

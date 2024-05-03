@@ -14,20 +14,23 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_link_hub_private_link_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.synapse.private_link_hub_private_link_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.synapse.private_link_hub_private_link_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `privateLinkHubName, privateLinkResourceName, resourceGroupName, subscriptionId` | Get private link resource in private link hub |
-| `list` | `SELECT` | `privateLinkHubName, resourceGroupName, subscriptionId` | Get all private link resources for a private link hub |
-| `_list` | `EXEC` | `privateLinkHubName, resourceGroupName, subscriptionId` | Get all private link resources for a private link hub |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="privateLinkHubName, privateLinkResourceName, resourceGroupName, subscriptionId" /> | Get private link resource in private link hub |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="privateLinkHubName, resourceGroupName, subscriptionId" /> | Get all private link resources for a private link hub |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="privateLinkHubName, resourceGroupName, subscriptionId" /> | Get all private link resources for a private link hub |

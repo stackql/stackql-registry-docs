@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Container Instances Offers The Fastest And Simplest Way To Run A Container In Azure, Without Having To Provision Any Virtual Machines And Without Having To Adopt A Higher-Level Service.   
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Container Instances Offers The Fastest And Simplest Way To Run A Container
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Container Instances</td></tr>
 <tr><td><b>Description</b></td><td>Azure Container Instances Offers The Fastest And Simplest Way To Run A Container In Azure, Without Having To Provision Any Virtual Machines And Without Having To Adopt A Higher-Level Service. </td></tr>
-<tr><td><b>Id</b></td><td><code>container_instances:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_instances:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

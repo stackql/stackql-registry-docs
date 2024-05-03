@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>node_count_information</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.automation.node_count_information</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.automation.node_count_information" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Gets the name of a count type |
-| `properties` | `object` |  |
+| <CopyableCode code="name" /> | `string` | Gets the name of a count type |
+| <CopyableCode code="properties" /> | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `automationAccountName, countType, resourceGroupName, subscriptionId` |
-| `_get` | `EXEC` | `automationAccountName, countType, resourceGroupName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, countType, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="automationAccountName, countType, resourceGroupName, subscriptionId" /> |

@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>databases_metric_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.databases_metric_definitions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.databases_metric_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `object` | A database metric name. |
-| `metricAvailabilities` | `array` | The list of database metric availabilities for the metric. |
-| `primaryAggregationType` | `string` | The primary aggregation type defining how metric values are displayed. |
-| `resourceUri` | `string` | The resource uri of the database. |
-| `unit` | `string` | The unit of the metric. |
+| <CopyableCode code="name" /> | `object` | A database metric name. |
+| <CopyableCode code="metricAvailabilities" /> | `array` | The list of database metric availabilities for the metric. |
+| <CopyableCode code="primaryAggregationType" /> | `string` | The primary aggregation type defining how metric values are displayed. |
+| <CopyableCode code="resourceUri" /> | `string` | The resource uri of the database. |
+| <CopyableCode code="unit" /> | `string` | The unit of the metric. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` |
-| `_list` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> |

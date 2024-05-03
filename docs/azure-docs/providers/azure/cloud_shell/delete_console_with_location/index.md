@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delete_console_with_location</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cloud_shell.delete_console_with_location</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cloud_shell.delete_console_with_location" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `delete_console_with_location` | `EXEC` | `consoleName, location` |
+| <CopyableCode code="delete_console_with_location" /> | `EXEC` | <CopyableCode code="consoleName, location" /> |

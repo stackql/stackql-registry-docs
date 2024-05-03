@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cost_management.settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cost_management.settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `scope` | List all cost management settings in the requested scope. |
-| `delete_by_scope` | `DELETE` | `scope, type` | Delete a setting within the given scope. |
-| `_list` | `EXEC` | `scope` | List all cost management settings in the requested scope. |
-| `create_or_update_by_scope` | `EXEC` | `scope, type, data__kind` | Create or update a setting within the given scope. |
-| `get_by_scope` | `EXEC` | `scope, type` | Get the setting from the given scope by name. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> | List all cost management settings in the requested scope. |
+| <CopyableCode code="delete_by_scope" /> | `DELETE` | <CopyableCode code="scope, type" /> | Delete a setting within the given scope. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="scope" /> | List all cost management settings in the requested scope. |
+| <CopyableCode code="create_or_update_by_scope" /> | `EXEC` | <CopyableCode code="scope, type, data__kind" /> | Create or update a setting within the given scope. |
+| <CopyableCode code="get_by_scope" /> | `EXEC` | <CopyableCode code="scope, type" /> | Get the setting from the given scope by name. |

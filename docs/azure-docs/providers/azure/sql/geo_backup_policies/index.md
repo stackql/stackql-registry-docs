@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>geo_backup_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.geo_backup_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.geo_backup_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind of geo backup policy.  This is metadata used for the Azure portal experience. |
-| `location` | `string` | Backup policy location. |
-| `properties` | `object` | The properties of the geo backup policy. |
+| <CopyableCode code="kind" /> | `string` | Kind of geo backup policy.  This is metadata used for the Azure portal experience. |
+| <CopyableCode code="location" /> | `string` | Backup policy location. |
+| <CopyableCode code="properties" /> | `object` | The properties of the geo backup policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId` | Gets a geo backup policy. |
-| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Returns a list of geo backup policies. |
-| `create_or_update` | `INSERT` | `databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId, data__properties` | Updates a database geo backup policy. |
-| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Returns a list of geo backup policies. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId" /> | Gets a geo backup policy. |
+| <CopyableCode code="list_by_database" /> | `SELECT` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Returns a list of geo backup policies. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId, data__properties" /> | Updates a database geo backup policy. |
+| <CopyableCode code="_list_by_database" /> | `EXEC` | <CopyableCode code="databaseName, resourceGroupName, serverName, subscriptionId" /> | Returns a list of geo backup policies. |

@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_extension</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.data_replication.replication_extension</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_replication.replication_extension" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Gets or sets the Id of the resource. |
-| `name` | `string` | Gets or sets the name of the resource. |
-| `properties` | `object` | Replication extension model properties. |
-| `systemData` | `object` | System data required to be defined for Azure resources. |
-| `type` | `string` | Gets or sets the type of the resource. |
+| <CopyableCode code="id" /> | `string` | Gets or sets the Id of the resource. |
+| <CopyableCode code="name" /> | `string` | Gets or sets the name of the resource. |
+| <CopyableCode code="properties" /> | `object` | Replication extension model properties. |
+| <CopyableCode code="systemData" /> | `object` | System data required to be defined for Azure resources. |
+| <CopyableCode code="type" /> | `string` | Gets or sets the type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `replicationExtensionName, resourceGroupName, subscriptionId, vaultName` | Gets the details of the replication extension. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` | Gets the list of replication extensions in the given vault. |
-| `create` | `INSERT` | `replicationExtensionName, resourceGroupName, subscriptionId, vaultName, data__properties` | Creates the replication extension in the given vault. |
-| `delete` | `DELETE` | `replicationExtensionName, resourceGroupName, subscriptionId, vaultName` | Deletes the replication extension in the given vault. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` | Gets the list of replication extensions in the given vault. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="replicationExtensionName, resourceGroupName, subscriptionId, vaultName" /> | Gets the details of the replication extension. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Gets the list of replication extensions in the given vault. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="replicationExtensionName, resourceGroupName, subscriptionId, vaultName, data__properties" /> | Creates the replication extension in the given vault. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="replicationExtensionName, resourceGroupName, subscriptionId, vaultName" /> | Deletes the replication extension in the given vault. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Gets the list of replication extensions in the given vault. |

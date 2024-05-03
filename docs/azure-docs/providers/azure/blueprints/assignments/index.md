@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assignments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.blueprints.assignments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.blueprints.assignments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Managed identity generic object. |
-| `location` | `string` | The location of this blueprint assignment. |
-| `properties` | `object` | Detailed properties for a blueprint assignment. |
+| <CopyableCode code="identity" /> | `object` | Managed identity generic object. |
+| <CopyableCode code="location" /> | `string` | The location of this blueprint assignment. |
+| <CopyableCode code="properties" /> | `object` | Detailed properties for a blueprint assignment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `assignmentName, resourceScope` | Get a blueprint assignment. |
-| `list` | `SELECT` | `resourceScope` | List blueprint assignments within a subscription or a management group. |
-| `create_or_update` | `INSERT` | `assignmentName, resourceScope, data__identity, data__properties` | Create or update a blueprint assignment. |
-| `delete` | `DELETE` | `assignmentName, resourceScope` | Delete a blueprint assignment. |
-| `_list` | `EXEC` | `resourceScope` | List blueprint assignments within a subscription or a management group. |
-| `who_is_blueprint` | `EXEC` | `assignmentName, resourceScope` | Get Blueprints service SPN objectId |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="assignmentName, resourceScope" /> | Get a blueprint assignment. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceScope" /> | List blueprint assignments within a subscription or a management group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="assignmentName, resourceScope, data__identity, data__properties" /> | Create or update a blueprint assignment. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="assignmentName, resourceScope" /> | Delete a blueprint assignment. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceScope" /> | List blueprint assignments within a subscription or a management group. |
+| <CopyableCode code="who_is_blueprint" /> | `EXEC` | <CopyableCode code="assignmentName, resourceScope" /> | Get Blueprints service SPN objectId |

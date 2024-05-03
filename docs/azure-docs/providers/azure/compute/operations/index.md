@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the compute operation. |
-| `display` | `object` | Describes the properties of a Compute Operation Value Display. |
-| `origin` | `string` | The origin of the compute operation. |
+| <CopyableCode code="name" /> | `string` | The name of the compute operation. |
+| <CopyableCode code="display" /> | `object` | Describes the properties of a Compute Operation Value Display. |
+| <CopyableCode code="origin" /> | `string` | The origin of the compute operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

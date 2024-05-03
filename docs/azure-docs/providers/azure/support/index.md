@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The Azure Support REST API Enables You To Create And Manage Azure Support Tickets Programmatically.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ The Azure Support REST API Enables You To Create And Manage Azure Support Ticket
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Support</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Support REST API Enables You To Create And Manage Azure Support Tickets Programmatically.</td></tr>
-<tr><td><b>Id</b></td><td><code>support:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>support:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

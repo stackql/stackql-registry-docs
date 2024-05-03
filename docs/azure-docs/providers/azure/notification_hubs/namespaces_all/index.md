@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces_all</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.notification_hubs.namespaces_all</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.notification_hubs.namespaces_all" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Represents namespace properties. |
-| `sku` | `object` | The resource model definition representing SKU |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Represents namespace properties. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `subscriptionId` |
-| `_list` | `EXEC` | `subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |

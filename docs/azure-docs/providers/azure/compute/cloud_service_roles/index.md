@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_service_roles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.cloud_service_roles</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.cloud_service_roles" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource id |
-| `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
-| `properties` | `object` | The cloud service role properties. |
-| `sku` | `object` | Describes the cloud service role sku. |
-| `type` | `string` | Resource type |
+| <CopyableCode code="id" /> | `string` | Resource id |
+| <CopyableCode code="name" /> | `string` | Resource name |
+| <CopyableCode code="location" /> | `string` | Resource location |
+| <CopyableCode code="properties" /> | `object` | The cloud service role properties. |
+| <CopyableCode code="sku" /> | `object` | Describes the cloud service role sku. |
+| <CopyableCode code="type" /> | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `cloudServiceName, resourceGroupName, roleName, subscriptionId` | Gets a role from a cloud service. |
-| `list` | `SELECT` | `cloudServiceName, resourceGroupName, subscriptionId` | Gets a list of all roles in a cloud service. Use nextLink property in the response to get the next page of roles. Do this till nextLink is null to fetch all the roles. |
-| `_list` | `EXEC` | `cloudServiceName, resourceGroupName, subscriptionId` | Gets a list of all roles in a cloud service. Use nextLink property in the response to get the next page of roles. Do this till nextLink is null to fetch all the roles. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cloudServiceName, resourceGroupName, roleName, subscriptionId" /> | Gets a role from a cloud service. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="cloudServiceName, resourceGroupName, subscriptionId" /> | Gets a list of all roles in a cloud service. Use nextLink property in the response to get the next page of roles. Do this till nextLink is null to fetch all the roles. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="cloudServiceName, resourceGroupName, subscriptionId" /> | Gets a list of all roles in a cloud service. Use nextLink property in the response to get the next page of roles. Do this till nextLink is null to fetch all the roles. |

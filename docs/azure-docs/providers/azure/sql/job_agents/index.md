@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>job_agents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.sql.job_agents</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.sql.job_agents" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Resource location. |
-| `properties` | `object` | Properties of a job agent. |
-| `sku` | `object` | An ARM Resource SKU. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` | Properties of a job agent. |
+| <CopyableCode code="sku" /> | `object` | An ARM Resource SKU. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a job agent. |
-| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of job agents in a server. |
-| `create_or_update` | `INSERT` | `jobAgentName, resourceGroupName, serverName, subscriptionId, data__location` | Creates or updates a job agent. |
-| `delete` | `DELETE` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Deletes a job agent. |
-| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of job agents in a server. |
-| `update` | `EXEC` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Updates a job agent. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId" /> | Gets a job agent. |
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets a list of job agents in a server. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId, data__location" /> | Creates or updates a job agent. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId" /> | Deletes a job agent. |
+| <CopyableCode code="_list_by_server" /> | `EXEC` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Gets a list of job agents in a server. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="jobAgentName, resourceGroupName, serverName, subscriptionId" /> | Updates a job agent. |

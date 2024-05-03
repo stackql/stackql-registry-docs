@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provider_operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.dev_test_labs.provider_operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.dev_test_labs.provider_operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125; |
-| `display` | `object` | The object that describes the operations |
+| <CopyableCode code="name" /> | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125; |
+| <CopyableCode code="display" /> | `object` | The object that describes the operations |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version` |
-| `_list` | `EXEC` | `api-version` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version" /> |

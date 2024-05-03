@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>disk_accesses_private_endpoint_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.compute.disk_accesses_private_endpoint_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.compute.disk_accesses_private_endpoint_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | private endpoint connection Id |
-| `name` | `string` | private endpoint connection name |
-| `properties` | `object` | Properties of the PrivateEndpointConnectProperties. |
-| `type` | `string` | private endpoint connection type |
+| <CopyableCode code="id" /> | `string` | private endpoint connection Id |
+| <CopyableCode code="name" /> | `string` | private endpoint connection name |
+| <CopyableCode code="properties" /> | `object` | Properties of the PrivateEndpointConnectProperties. |
+| <CopyableCode code="type" /> | `string` | private endpoint connection type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `diskAccessName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `diskAccessName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="diskAccessName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="diskAccessName, resourceGroupName, subscriptionId" /> |

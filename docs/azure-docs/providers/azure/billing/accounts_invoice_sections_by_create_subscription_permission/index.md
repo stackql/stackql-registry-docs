@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts_invoice_sections_by_create_subscription_permission</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.billing.accounts_invoice_sections_by_create_subscription_permission</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.billing.accounts_invoice_sections_by_create_subscription_permission" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The link (url) to the next page of results. |
-| `value` | `array` | The list of invoice section properties with create subscription permission. |
+| <CopyableCode code="nextLink" /> | `string` | The link (url) to the next page of results. |
+| <CopyableCode code="value" /> | `array` | The list of invoice section properties with create subscription permission. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `billingAccountName` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="billingAccountName" /> |

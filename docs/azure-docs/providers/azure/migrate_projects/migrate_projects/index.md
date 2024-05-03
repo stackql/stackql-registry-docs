@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>migrate_projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.migrate_projects.migrate_projects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.migrate_projects.migrate_projects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,7 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `patch_migrate_project` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, subscriptionId` | Update a migrate project with specified name. Supports partial updates, for example only tags can be provided. |
-| `put_migrate_project` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, subscriptionId` |  |
-| `refresh_migrate_project_summary` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, subscriptionId` |  |
-| `register_tool` | `EXEC` | `api-version, migrateProjectName, resourceGroupName, subscriptionId` |  |
+| <CopyableCode code="patch_migrate_project" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, subscriptionId" /> | Update a migrate project with specified name. Supports partial updates, for example only tags can be provided. |
+| <CopyableCode code="put_migrate_project" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="refresh_migrate_project_summary" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="register_tool" /> | `EXEC` | <CopyableCode code="api-version, migrateProjectName, resourceGroupName, subscriptionId" /> |  |

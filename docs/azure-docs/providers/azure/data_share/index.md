@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Data Share Is A Cloud-Based Service That Helps Customers Share Data With Other Organizations. Azure Data Share Provides Centralized Management, Monitoring, And Governance For Sharing Data From Multiple Azure Data Sources. Using This Service, You Can Quickly Create Shares That Consist Of Multiple Datasets From A Variety Of Azure Data Stores. You Can Invite Your Customers And External Partners To Access These Shares Through Incremental Snapshots Of Your Data And Revoke Access As Needed.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Azure Data Share Is A Cloud-Based Service That Helps Customers Share Data With O
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Data Share</td></tr>
 <tr><td><b>Description</b></td><td>Azure Data Share Is A Cloud-Based Service That Helps Customers Share Data With Other Organizations. Azure Data Share Provides Centralized Management, Monitoring, And Governance For Sharing Data From Multiple Azure Data Sources. Using This Service, You Can Quickly Create Shares That Consist Of Multiple Datasets From A Variety Of Azure Data Stores. You Can Invite Your Customers And External Partners To Access These Shares Through Incremental Snapshots Of Your Data And Revoke Access As Needed.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_share:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_share:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

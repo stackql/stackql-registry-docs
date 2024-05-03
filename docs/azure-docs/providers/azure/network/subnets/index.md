@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subnets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.network.subnets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.network.subnets" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `properties` | `object` | Properties of the subnet. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="name" /> | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="properties" /> | `object` | Properties of the subnet. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` | Gets the specified subnet by virtual network and resource group. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualNetworkName` | Gets all subnets in a virtual network. |
-| `create_or_update` | `INSERT` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` | Creates or updates a subnet in the specified virtual network. |
-| `delete` | `DELETE` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` | Deletes the specified subnet. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkName` | Gets all subnets in a virtual network. |
-| `prepare_network_policies` | `EXEC` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` | Prepares a subnet by applying network intent policies. |
-| `unprepare_network_policies` | `EXEC` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` | Unprepares a subnet by removing network intent policies. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> | Gets the specified subnet by virtual network and resource group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkName" /> | Gets all subnets in a virtual network. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> | Creates or updates a subnet in the specified virtual network. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> | Deletes the specified subnet. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkName" /> | Gets all subnets in a virtual network. |
+| <CopyableCode code="prepare_network_policies" /> | `EXEC` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> | Prepares a subnet by applying network intent policies. |
+| <CopyableCode code="unprepare_network_policies" /> | `EXEC` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> | Unprepares a subnet by removing network intent policies. |

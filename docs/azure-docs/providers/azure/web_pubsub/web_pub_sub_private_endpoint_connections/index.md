@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_pub_sub_private_endpoint_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.web_pubsub.web_pub_sub_private_endpoint_connections</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.web_pubsub.web_pub_sub_private_endpoint_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId` | Get the specified private endpoint connection |
-| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | List private endpoint connections |
-| `delete` | `DELETE` | `privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId` | Delete the specified private endpoint connection |
-| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | List private endpoint connections |
-| `update` | `EXEC` | `privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId` | Update the state of specified private endpoint connection |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId" /> | Get the specified private endpoint connection |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List private endpoint connections |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId" /> | Delete the specified private endpoint connection |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | List private endpoint connections |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId" /> | Update the state of specified private endpoint connection |

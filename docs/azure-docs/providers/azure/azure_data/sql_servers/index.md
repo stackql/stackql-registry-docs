@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sql_servers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.azure_data.sql_servers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.azure_data.sql_servers" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, sqlServerName, sqlServerRegistrationName, subscriptionId` | Gets a SQL Server. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, sqlServerRegistrationName, subscriptionId` | Gets all SQL Servers in a SQL Server Registration. |
-| `create_or_update` | `INSERT` | `resourceGroupName, sqlServerName, sqlServerRegistrationName, subscriptionId` | Creates or updates a SQL Server. |
-| `delete` | `DELETE` | `resourceGroupName, sqlServerName, sqlServerRegistrationName, subscriptionId` | Deletes a SQL Server. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, sqlServerRegistrationName, subscriptionId` | Gets all SQL Servers in a SQL Server Registration. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, sqlServerName, sqlServerRegistrationName, subscriptionId" /> | Gets a SQL Server. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, sqlServerRegistrationName, subscriptionId" /> | Gets all SQL Servers in a SQL Server Registration. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, sqlServerName, sqlServerRegistrationName, subscriptionId" /> | Creates or updates a SQL Server. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, sqlServerName, sqlServerRegistrationName, subscriptionId" /> | Deletes a SQL Server. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, sqlServerRegistrationName, subscriptionId" /> | Gets all SQL Servers in a SQL Server Registration. |

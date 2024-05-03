@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subnet_service_association_link</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.container_instances.subnet_service_association_link</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.container_instances.subnet_service_association_link" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `delete` | `DELETE` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subnetName, subscriptionId, virtualNetworkName" /> |

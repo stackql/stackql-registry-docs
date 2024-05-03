@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_review_instance_my_decisions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.authorization.access_review_instance_my_decisions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.authorization.access_review_instance_my_decisions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The access review decision id. |
-| `name` | `string` | The access review decision name. |
-| `properties` | `object` | Approval Step. |
-| `type` | `string` | The resource type. |
+| <CopyableCode code="id" /> | `string` | The access review decision id. |
+| <CopyableCode code="name" /> | `string` | The access review decision name. |
+| <CopyableCode code="properties" /> | `object` | Approval Step. |
+| <CopyableCode code="type" /> | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `id, scheduleDefinitionId` | Get my access review instance decisions. |
-| `_list` | `EXEC` | `id, scheduleDefinitionId` | Get my access review instance decisions. |
-| `get_by_id` | `EXEC` | `decisionId, id, scheduleDefinitionId` | Get my single access review instance decision. |
-| `patch` | `EXEC` | `decisionId, id, scheduleDefinitionId` | Record a decision. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="id, scheduleDefinitionId" /> | Get my access review instance decisions. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="id, scheduleDefinitionId" /> | Get my access review instance decisions. |
+| <CopyableCode code="get_by_id" /> | `EXEC` | <CopyableCode code="decisionId, id, scheduleDefinitionId" /> | Get my single access review instance decision. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="decisionId, id, scheduleDefinitionId" /> | Record a decision. |

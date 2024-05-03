@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>integration_service_environment_network_health</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.logic_apps.integration_service_environment_network_health</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.logic_apps.integration_service_environment_network_health" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `exec_get` | `EXEC` | `api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |
+| <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId" /> |

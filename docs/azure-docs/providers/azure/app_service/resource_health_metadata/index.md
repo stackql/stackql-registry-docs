@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_health_metadata</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.resource_health_metadata</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.resource_health_metadata" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource Name. |
-| `kind` | `string` | Kind of resource. |
-| `properties` | `object` | ResourceHealthMetadata resource specific properties |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource Name. |
+| <CopyableCode code="kind" /> | `string` | Kind of resource. |
+| <CopyableCode code="properties" /> | `object` | ResourceHealthMetadata resource specific properties |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `subscriptionId` | Description for List all ResourceHealthMetadata for all sites in the subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Description for List all ResourceHealthMetadata for all sites in the resource group in the subscription. |
-| `list_by_site` | `SELECT` | `name, resourceGroupName, subscriptionId` | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
-| `list_by_site_slot` | `SELECT` | `name, resourceGroupName, slot, subscriptionId` | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
-| `_list` | `EXEC` | `subscriptionId` | Description for List all ResourceHealthMetadata for all sites in the subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Description for List all ResourceHealthMetadata for all sites in the resource group in the subscription. |
-| `_list_by_site` | `EXEC` | `name, resourceGroupName, subscriptionId` | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
-| `_list_by_site_slot` | `EXEC` | `name, resourceGroupName, slot, subscriptionId` | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
-| `get_by_site` | `EXEC` | `name, resourceGroupName, subscriptionId` | Description for Gets the category of ResourceHealthMetadata to use for the given site |
-| `get_by_site_slot` | `EXEC` | `name, resourceGroupName, slot, subscriptionId` | Description for Gets the category of ResourceHealthMetadata to use for the given site |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Description for List all ResourceHealthMetadata for all sites in the subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Description for List all ResourceHealthMetadata for all sites in the resource group in the subscription. |
+| <CopyableCode code="list_by_site" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
+| <CopyableCode code="list_by_site_slot" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Description for List all ResourceHealthMetadata for all sites in the subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Description for List all ResourceHealthMetadata for all sites in the resource group in the subscription. |
+| <CopyableCode code="_list_by_site" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
+| <CopyableCode code="_list_by_site_slot" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Gets the category of ResourceHealthMetadata to use for the given site as a collection |
+| <CopyableCode code="get_by_site" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Gets the category of ResourceHealthMetadata to use for the given site |
+| <CopyableCode code="get_by_site_slot" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Gets the category of ResourceHealthMetadata to use for the given site |

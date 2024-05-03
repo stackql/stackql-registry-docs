@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>power_bi_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.powerbi_privatelinks.power_bi_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.powerbi_privatelinks.power_bi_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Specifies the resource identifier of the resource. |
-| `name` | `string` | Specifies the name of the resource. |
-| `location` | `string` | Specifies the location of the resource. |
-| `properties` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Specifies the tags of the resource. |
-| `type` | `string` | Specifies the type of the resource. |
+| <CopyableCode code="id" /> | `string` | Specifies the resource identifier of the resource. |
+| <CopyableCode code="name" /> | `string` | Specifies the name of the resource. |
+| <CopyableCode code="location" /> | `string` | Specifies the location of the resource. |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Specifies the tags of the resource. |
+| <CopyableCode code="type" /> | `string` | Specifies the type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_by_resource_name` | `SELECT` | `azureResourceName, resourceGroupName, subscriptionId` | Gets all the private link resources for the given Azure resource. |
-| `create` | `INSERT` | `azureResourceName, resourceGroupName, subscriptionId` | Creates or updates a Private Link Service Resource for Power BI. |
-| `delete` | `DELETE` | `azureResourceName, resourceGroupName, subscriptionId` | Deletes a Private Link Service Resource for Power BI. |
-| `update` | `EXEC` | `azureResourceName, resourceGroupName, subscriptionId` | Creates or updates a Private Link Service Resource for Power BI. |
+| <CopyableCode code="list_by_resource_name" /> | `SELECT` | <CopyableCode code="azureResourceName, resourceGroupName, subscriptionId" /> | Gets all the private link resources for the given Azure resource. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="azureResourceName, resourceGroupName, subscriptionId" /> | Creates or updates a Private Link Service Resource for Power BI. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="azureResourceName, resourceGroupName, subscriptionId" /> | Deletes a Private Link Service Resource for Power BI. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="azureResourceName, resourceGroupName, subscriptionId" /> | Creates or updates a Private Link Service Resource for Power BI. |

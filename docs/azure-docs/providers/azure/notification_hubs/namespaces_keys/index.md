@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.notification_hubs.namespaces_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.notification_hubs.namespaces_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `keyName` | `string` | Gets or sets keyName of the created AuthorizationRule |
-| `primaryConnectionString` | `string` | Gets or sets primaryConnectionString of the AuthorizationRule. |
-| `primaryKey` | `string` | Gets or sets primaryKey of the created AuthorizationRule. |
-| `secondaryConnectionString` | `string` | Gets or sets secondaryConnectionString of the created<br />AuthorizationRule |
-| `secondaryKey` | `string` | Gets or sets secondaryKey of the created AuthorizationRule |
+| <CopyableCode code="keyName" /> | `string` | Gets or sets keyName of the created AuthorizationRule |
+| <CopyableCode code="primaryConnectionString" /> | `string` | Gets or sets primaryConnectionString of the AuthorizationRule. |
+| <CopyableCode code="primaryKey" /> | `string` | Gets or sets primaryKey of the created AuthorizationRule. |
+| <CopyableCode code="secondaryConnectionString" /> | `string` | Gets or sets secondaryConnectionString of the created<br />AuthorizationRule |
+| <CopyableCode code="secondaryKey" /> | `string` | Gets or sets secondaryKey of the created AuthorizationRule |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="authorizationRuleName, namespaceName, resourceGroupName, subscriptionId" /> |

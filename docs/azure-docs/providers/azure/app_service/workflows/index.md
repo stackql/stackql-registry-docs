@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflows</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.workflows</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.workflows" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `regenerate_access_key` | `EXEC` | `name, resourceGroupName, subscriptionId, workflowName` | Regenerates the callback URL access key for request triggers. |
-| `validate` | `EXEC` | `name, resourceGroupName, subscriptionId, workflowName` | Validates the workflow definition. |
+| <CopyableCode code="regenerate_access_key" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId, workflowName" /> | Regenerates the callback URL access key for request triggers. |
+| <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId, workflowName" /> | Validates the workflow definition. |

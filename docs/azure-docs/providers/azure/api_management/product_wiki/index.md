@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>product_wiki</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.api_management.product_wiki</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.api_management.product_wiki" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `productId, resourceGroupName, serviceName, subscriptionId` | Gets the details of the Wiki for a Product specified by its identifier. |
-| `create_or_update` | `INSERT` | `productId, resourceGroupName, serviceName, subscriptionId` | Creates a new Wiki for a Product or updates an existing one. |
-| `delete` | `DELETE` | `If-Match, productId, resourceGroupName, serviceName, subscriptionId` | Deletes the specified Wiki from a Product. |
-| `update` | `EXEC` | `If-Match, productId, resourceGroupName, serviceName, subscriptionId` | Updates the details of the Wiki for a Product specified by its identifier. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="productId, resourceGroupName, serviceName, subscriptionId" /> | Gets the details of the Wiki for a Product specified by its identifier. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="productId, resourceGroupName, serviceName, subscriptionId" /> | Creates a new Wiki for a Product or updates an existing one. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="If-Match, productId, resourceGroupName, serviceName, subscriptionId" /> | Deletes the specified Wiki from a Product. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="If-Match, productId, resourceGroupName, serviceName, subscriptionId" /> | Updates the details of the Wiki for a Product specified by its identifier. |

@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_clusters_upgrade_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.aks.managed_clusters_upgrade_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.aks.managed_clusters_upgrade_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The ID of the upgrade profile. |
-| `name` | `string` | The name of the upgrade profile. |
-| `properties` | `object` | Control plane and agent pool upgrade profiles. |
-| `type` | `string` | The type of the upgrade profile. |
+| <CopyableCode code="id" /> | `string` | The ID of the upgrade profile. |
+| <CopyableCode code="name" /> | `string` | The name of the upgrade profile. |
+| <CopyableCode code="properties" /> | `object` | Control plane and agent pool upgrade profiles. |
+| <CopyableCode code="type" /> | `string` | The type of the upgrade profile. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> |

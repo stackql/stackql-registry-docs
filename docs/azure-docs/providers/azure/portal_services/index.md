@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Allows Creation And Deletion Of Azure Portal Extensions.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Allows Creation And Deletion Of Azure Portal Extensions.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Portal Services</td></tr>
 <tr><td><b>Description</b></td><td>Allows Creation And Deletion Of Azure Portal Extensions.</td></tr>
-<tr><td><b>Id</b></td><td><code>portal_services:v24.01.00201</code></td></tr>
+<tr><td><b>Id</b></td><td><code>portal_services:v24.04.00223</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>table_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.cosmos_db.table_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.cosmos_db.table_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `migrate_table_to_autoscale` | `EXEC` | `accountName, resourceGroupName, subscriptionId, tableName` | Migrate an Azure Cosmos DB Table from manual throughput to autoscale |
-| `migrate_table_to_manual_throughput` | `EXEC` | `accountName, resourceGroupName, subscriptionId, tableName` | Migrate an Azure Cosmos DB Table from autoscale to manual throughput |
-| `retrieve_continuous_backup_information` | `EXEC` | `accountName, resourceGroupName, subscriptionId, tableName` | Retrieves continuous backup information for a table. |
+| <CopyableCode code="migrate_table_to_autoscale" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, tableName" /> | Migrate an Azure Cosmos DB Table from manual throughput to autoscale |
+| <CopyableCode code="migrate_table_to_manual_throughput" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, tableName" /> | Migrate an Azure Cosmos DB Table from autoscale to manual throughput |
+| <CopyableCode code="retrieve_continuous_backup_information" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, tableName" /> | Retrieves continuous backup information for a table. |

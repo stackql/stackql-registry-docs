@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>artifact_sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.deployment_manager.artifact_sources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.deployment_manager.artifact_sources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties that define the artifact source. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | The properties that define the artifact source. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `artifactSourceName, resourceGroupName, subscriptionId` |  |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` |  |
-| `create_or_update` | `INSERT` | `artifactSourceName, resourceGroupName, subscriptionId` | Synchronously creates a new artifact source or updates an existing artifact source. |
-| `delete` | `DELETE` | `artifactSourceName, resourceGroupName, subscriptionId` |  |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="artifactSourceName, resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |  |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="artifactSourceName, resourceGroupName, subscriptionId" /> | Synchronously creates a new artifact source or updates an existing artifact source. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="artifactSourceName, resourceGroupName, subscriptionId" /> |  |

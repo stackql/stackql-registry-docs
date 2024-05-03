@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>diagnostics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.app_service.diagnostics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.app_service.diagnostics" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,7 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `execute_site_analysis` | `EXEC` | `analysisName, diagnosticCategory, resourceGroupName, siteName, subscriptionId` | Description for Execute Analysis |
-| `execute_site_analysis_slot` | `EXEC` | `analysisName, diagnosticCategory, resourceGroupName, siteName, slot, subscriptionId` | Description for Execute Analysis |
-| `execute_site_detector` | `EXEC` | `detectorName, diagnosticCategory, resourceGroupName, siteName, subscriptionId` | Description for Execute Detector |
-| `execute_site_detector_slot` | `EXEC` | `detectorName, diagnosticCategory, resourceGroupName, siteName, slot, subscriptionId` | Description for Execute Detector |
+| <CopyableCode code="execute_site_analysis" /> | `EXEC` | <CopyableCode code="analysisName, diagnosticCategory, resourceGroupName, siteName, subscriptionId" /> | Description for Execute Analysis |
+| <CopyableCode code="execute_site_analysis_slot" /> | `EXEC` | <CopyableCode code="analysisName, diagnosticCategory, resourceGroupName, siteName, slot, subscriptionId" /> | Description for Execute Analysis |
+| <CopyableCode code="execute_site_detector" /> | `EXEC` | <CopyableCode code="detectorName, diagnosticCategory, resourceGroupName, siteName, subscriptionId" /> | Description for Execute Detector |
+| <CopyableCode code="execute_site_detector_slot" /> | `EXEC` | <CopyableCode code="detectorName, diagnosticCategory, resourceGroupName, siteName, slot, subscriptionId" /> | Description for Execute Detector |
