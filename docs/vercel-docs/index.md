@@ -51,7 +51,7 @@ REGISTRY PULL vercel;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="VERCEL_API_TOKEN" /> - Vercel API Token (see [Creating a Vercel API Token](https://vercel.com/account/tokens))
+- <CopyableCode code="VERCEL_API_TOKEN" /> - Vercel API Token (see <a href="https://vercel.com/account/tokens">Creating a Vercel API Token</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

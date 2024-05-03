@@ -51,7 +51,7 @@ REGISTRY PULL okta;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="OKTA_API_TOKEN" /> - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
+- <CopyableCode code="OKTA_API_TOKEN" /> - Okta API Token (see <a href="https://developer.okta.com/docs/guides/create-an-api-token/">Creating an Okta API Token</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
@@ -83,7 +83,7 @@ stackql.exe shell --auth=$Auth
 
 The following parameter is required for the `okta` provider:  
 
-- `subdomain` - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
+- <CopyableCode code="subdomain" /> - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
 
 This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
     

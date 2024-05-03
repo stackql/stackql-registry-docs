@@ -47,4 +47,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="title" /> ||
 | <CopyableCode code="verified" /> ||
 ## Methods
-No methods available for the resource
+No additional methods available for this resource

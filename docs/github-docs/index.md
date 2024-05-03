@@ -52,7 +52,7 @@ REGISTRY PULL github;
 The following system environment variables are used for authentication by default:  
 
 - <CopyableCode code="STACKQL_GITHUB_USERNAME" /> - GitHub username (login)
-- <CopyableCode code="STACKQL_GITHUB_PASSWORD" /> - GitHub Personal Access Token (see [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+- <CopyableCode code="STACKQL_GITHUB_PASSWORD" /> - GitHub Personal Access Token (see <a href="https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Creating a personal access token</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
