@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 List of policies (requires `aws` provider to be installed)
 
 ## Overview
@@ -21,26 +24,26 @@ List of policies (requires `aws` provider to be installed)
 <tr><td><b>Name</b></td><td><code>policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>List of policies (requires `aws` provider to be installed)</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.iam.policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.iam.policies" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>policy_name</code></td><td><code>string</code></td><td>The name for the policy</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN</td></tr>
-<tr><td><code>attachment_count</code></td><td><code>number</code></td><td>The attachment count for the policy</td></tr>
-<tr><td><code>create_date</code></td><td><code>string</code></td><td>The creation date for the policy</td></tr>
-<tr><td><code>default_version_id</code></td><td><code>string</code></td><td>The default version id for the policy</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description for the policy</td></tr>
-<tr><td><code>is_attachable</code></td><td><code>boolean</code></td><td>Is the policy attachable?</td></tr>
-<tr><td><code>path</code></td><td><code>string</code></td><td>The path for the policy</td></tr>
-<tr><td><code>permissions_boundary_usage_count</code></td><td><code>number</code></td><td>The permissions boundary usage count for the policy</td></tr>
-<tr><td><code>policy_id</code></td><td><code>string</code></td><td>The id for the policy</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Tags for the policy</td></tr>
-<tr><td><code>update_date</code></td><td><code>string</code></td><td>The update date for the policy</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>The name for the policy</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN</td></tr>
+<tr><td><CopyableCode code="attachment_count" /></td><td><code>number</code></td><td>The attachment count for the policy</td></tr>
+<tr><td><CopyableCode code="create_date" /></td><td><code>string</code></td><td>The creation date for the policy</td></tr>
+<tr><td><CopyableCode code="default_version_id" /></td><td><code>string</code></td><td>The default version id for the policy</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description for the policy</td></tr>
+<tr><td><CopyableCode code="is_attachable" /></td><td><code>boolean</code></td><td>Is the policy attachable?</td></tr>
+<tr><td><CopyableCode code="path" /></td><td><code>string</code></td><td>The path for the policy</td></tr>
+<tr><td><CopyableCode code="permissions_boundary_usage_count" /></td><td><code>number</code></td><td>The permissions boundary usage count for the policy</td></tr>
+<tr><td><CopyableCode code="policy_id" /></td><td><code>string</code></td><td>The id for the policy</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags for the policy</td></tr>
+<tr><td><CopyableCode code="update_date" /></td><td><code>string</code></td><td>The update date for the policy</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,9 +56,9 @@ List of policies (requires `aws` provider to be installed)
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>view</code></td>
+    <td><CopyableCode code="view" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

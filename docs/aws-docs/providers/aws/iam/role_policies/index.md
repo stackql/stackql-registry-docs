@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 List of policies by RoleName (requires `aws` provider to be installed)
 
 ## Overview
@@ -21,17 +24,17 @@ List of policies by RoleName (requires `aws` provider to be installed)
 <tr><td><b>Name</b></td><td><code>role_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>List of policies by RoleName (requires `aws` provider to be installed)</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.iam.role_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.iam.role_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>role_name</code></td><td><code>string</code></td><td>The IAM role name</td></tr>
-<tr><td><code>policy_name</code></td><td><code>string</code></td><td>The role policy name</td></tr>
-<tr><td><code>policy_document</code></td><td><code>string</code></td><td>The role policy document</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="role_name" /></td><td><code>string</code></td><td>The IAM role name</td></tr>
+<tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>The role policy name</td></tr>
+<tr><td><CopyableCode code="policy_document" /></td><td><code>string</code></td><td>The role policy document</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,9 +47,9 @@ List of policies by RoleName (requires `aws` provider to be installed)
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>view</code></td>
+    <td><CopyableCode code="view" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

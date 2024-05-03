@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>simulation</code> resource, use <code>simulations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>simulation</code> resource, use <code>si
 <tr><td><b>Name</b></td><td><code>simulation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.simspaceweaver.simulation</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.simspaceweaver.simulation" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the simulation.</td></tr>
-<tr><td><code>role_arn</code></td><td><code>string</code></td><td>Role ARN.</td></tr>
-<tr><td><code>schema_s3_location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>describe_payload</code></td><td><code>string</code></td><td>Json object with all simulation details</td></tr>
-<tr><td><code>maximum_duration</code></td><td><code>string</code></td><td>The maximum running time of the simulation.</td></tr>
-<tr><td><code>snapshot_s3_location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the simulation.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role ARN.</td></tr>
+<tr><td><CopyableCode code="schema_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="describe_payload" /></td><td><code>string</code></td><td>Json object with all simulation details</td></tr>
+<tr><td><CopyableCode code="maximum_duration" /></td><td><code>string</code></td><td>The maximum running time of the simulation.</td></tr>
+<tr><td><CopyableCode code="snapshot_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>simulation</code> resource, use <code>si
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>customer_gateway</code> resource, use <code>customer_gateways</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,20 +24,20 @@ Gets or operates on an individual <code>customer_gateway</code> resource, use <c
 <tr><td><b>Name</b></td><td><code>customer_gateway</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Specifies a customer gateway.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.customer_gateway</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.customer_gateway" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>certificate_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>customer_gateway_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>bgp_asn</code></td><td><code>integer</code></td><td>For devices that support BGP, the customer gateway's BGP ASN.&lt;br&#x2F;&gt; Default: 65000</td></tr>
-<tr><td><code>ip_address</code></td><td><code>string</code></td><td>IPv4 address for the customer gateway device's outside interface. The address must be static.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>One or more tags for the customer gateway.</td></tr>
-<tr><td><code>type</code></td><td><code>string</code></td><td>The type of VPN connection that this customer gateway supports (``ipsec.1``).</td></tr>
-<tr><td><code>device_name</code></td><td><code>string</code></td><td>The name of customer gateway device.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="customer_gateway_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="bgp_asn" /></td><td><code>integer</code></td><td>For devices that support BGP, the customer gateway's BGP ASN.&lt;br&#x2F;&gt; Default: 65000</td></tr>
+<tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>IPv4 address for the customer gateway device's outside interface. The address must be static.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags for the customer gateway.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of VPN connection that this customer gateway supports (``ipsec.1``).</td></tr>
+<tr><td><CopyableCode code="device_name" /></td><td><code>string</code></td><td>The name of customer gateway device.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,19 +50,19 @@ Gets or operates on an individual <code>customer_gateway</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

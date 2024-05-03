@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>customdb_engine_version</code> resource, use <code>customdb_engine_versions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,26 +24,26 @@ Gets or operates on an individual <code>customdb_engine_version</code> resource,
 <tr><td><b>Name</b></td><td><code>customdb_engine_version</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.rds.customdb_engine_version</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.rds.customdb_engine_version" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>database_installation_files_s3_bucket_name</code></td><td><code>string</code></td><td>The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.</td></tr>
-<tr><td><code>database_installation_files_s3_prefix</code></td><td><code>string</code></td><td>The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012&#x2F;cev1`. If this setting isn't specified, no prefix is assumed.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>An optional description of your CEV.</td></tr>
-<tr><td><code>engine</code></td><td><code>string</code></td><td>The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.</td></tr>
-<tr><td><code>engine_version</code></td><td><code>string</code></td><td>The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.</td></tr>
-<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td>The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.</td></tr>
-<tr><td><code>manifest</code></td><td><code>string</code></td><td>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name&#x2F;value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</td></tr>
-<tr><td><code>db_engine_version_arn</code></td><td><code>string</code></td><td>The ARN of the custom engine version.</td></tr>
-<tr><td><code>source_custom_db_engine_version_identifier</code></td><td><code>string</code></td><td>The identifier of the source custom engine version.</td></tr>
-<tr><td><code>use_aws_provided_latest_image</code></td><td><code>boolean</code></td><td>A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.</td></tr>
-<tr><td><code>image_id</code></td><td><code>string</code></td><td>The identifier of Amazon Machine Image (AMI) used for CEV.</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td>The availability status to be assigned to the CEV.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="database_installation_files_s3_bucket_name" /></td><td><code>string</code></td><td>The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.</td></tr>
+<tr><td><CopyableCode code="database_installation_files_s3_prefix" /></td><td><code>string</code></td><td>The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012&#x2F;cev1`. If this setting isn't specified, no prefix is assumed.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description of your CEV.</td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.</td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.</td></tr>
+<tr><td><CopyableCode code="manifest" /></td><td><code>string</code></td><td>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name&#x2F;value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</td></tr>
+<tr><td><CopyableCode code="db_engine_version_arn" /></td><td><code>string</code></td><td>The ARN of the custom engine version.</td></tr>
+<tr><td><CopyableCode code="source_custom_db_engine_version_identifier" /></td><td><code>string</code></td><td>The identifier of the source custom engine version.</td></tr>
+<tr><td><CopyableCode code="use_aws_provided_latest_image" /></td><td><code>boolean</code></td><td>A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.</td></tr>
+<tr><td><CopyableCode code="image_id" /></td><td><code>string</code></td><td>The identifier of Amazon Machine Image (AMI) used for CEV.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The availability status to be assigned to the CEV.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,19 +56,19 @@ Gets or operates on an individual <code>customdb_engine_version</code> resource,
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>option_group</code> resource, use <code>option_groups</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>option_group</code> resource, use <code>
 <tr><td><b>Name</b></td><td><code>option_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.rds.option_group</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.rds.option_group" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>option_group_name</code></td><td><code>string</code></td><td>Specifies the name of the option group.</td></tr>
-<tr><td><code>option_group_description</code></td><td><code>string</code></td><td>Provides a description of the option group.</td></tr>
-<tr><td><code>engine_name</code></td><td><code>string</code></td><td>Indicates the name of the engine that this option group can be applied to.</td></tr>
-<tr><td><code>major_engine_version</code></td><td><code>string</code></td><td>Indicates the major engine version associated with this option group.</td></tr>
-<tr><td><code>option_configurations</code></td><td><code>array</code></td><td>Indicates what options are available in the option group.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="option_group_name" /></td><td><code>string</code></td><td>Specifies the name of the option group.</td></tr>
+<tr><td><CopyableCode code="option_group_description" /></td><td><code>string</code></td><td>Provides a description of the option group.</td></tr>
+<tr><td><CopyableCode code="engine_name" /></td><td><code>string</code></td><td>Indicates the name of the engine that this option group can be applied to.</td></tr>
+<tr><td><CopyableCode code="major_engine_version" /></td><td><code>string</code></td><td>Indicates the major engine version associated with this option group.</td></tr>
+<tr><td><CopyableCode code="option_configurations" /></td><td><code>array</code></td><td>Indicates what options are available in the option group.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>option_group</code> resource, use <code>
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

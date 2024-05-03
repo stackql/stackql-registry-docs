@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>model</code> resource, use <code>models</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>model</code> resource, use <code>models<
 <tr><td><b>Name</b></td><td><code>model</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see &#91;Model Selection Expressions&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.apigatewayv2.model</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.model" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>model_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the model.</td></tr>
-<tr><td><code>content_type</code></td><td><code>string</code></td><td>The content-type for the model, for example, "application&#x2F;json".</td></tr>
-<tr><td><code>schema</code></td><td><code>object</code></td><td>The schema for the model. For application&#x2F;json models, this should be JSON schema draft 4 model.</td></tr>
-<tr><td><code>api_id</code></td><td><code>string</code></td><td>The API identifier.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the model.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="model_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the model.</td></tr>
+<tr><td><CopyableCode code="content_type" /></td><td><code>string</code></td><td>The content-type for the model, for example, "application&#x2F;json".</td></tr>
+<tr><td><CopyableCode code="schema" /></td><td><code>object</code></td><td>The schema for the model. For application&#x2F;json models, this should be JSON schema draft 4 model.</td></tr>
+<tr><td><CopyableCode code="api_id" /></td><td><code>string</code></td><td>The API identifier.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the model.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>model</code> resource, use <code>models<
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

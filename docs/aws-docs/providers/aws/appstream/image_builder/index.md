@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>image_builder</code> resource, use <code>image_builders</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,27 +24,27 @@ Gets or operates on an individual <code>image_builder</code> resource, use <code
 <tr><td><b>Name</b></td><td><code>image_builder</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::AppStream::ImageBuilder</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.appstream.image_builder</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.appstream.image_builder" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>vpc_config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>enable_default_internet_access</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>domain_join_info</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>appstream_agent_version</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>image_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>display_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>iam_role_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>instance_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>streaming_url</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>image_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>access_endpoints</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_default_internet_access" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_join_info" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="appstream_agent_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="iam_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="streaming_url" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="access_endpoints" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,14 +57,14 @@ Gets or operates on an individual <code>image_builder</code> resource, use <code
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

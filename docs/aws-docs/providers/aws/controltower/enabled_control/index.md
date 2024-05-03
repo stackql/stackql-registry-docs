@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>enabled_control</code> resource, use <code>enabled_controls</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,17 +24,17 @@ Gets or operates on an individual <code>enabled_control</code> resource, use <co
 <tr><td><b>Name</b></td><td><code>enabled_control</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Enables a control on a specified target.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.controltower.enabled_control</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.controltower.enabled_control" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>control_identifier</code></td><td><code>string</code></td><td>Arn of the control.</td></tr>
-<tr><td><code>target_identifier</code></td><td><code>string</code></td><td>Arn for Organizational unit to which the control needs to be applied</td></tr>
-<tr><td><code>parameters</code></td><td><code>array</code></td><td>Parameters to configure the enabled control behavior.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>A set of tags to assign to the enabled control.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="control_identifier" /></td><td><code>string</code></td><td>Arn of the control.</td></tr>
+<tr><td><CopyableCode code="target_identifier" /></td><td><code>string</code></td><td>Arn for Organizational unit to which the control needs to be applied</td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>array</code></td><td>Parameters to configure the enabled control behavior.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A set of tags to assign to the enabled control.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,19 +47,19 @@ Gets or operates on an individual <code>enabled_control</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

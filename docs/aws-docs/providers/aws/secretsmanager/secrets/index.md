@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>secrets</code> in a region or create a <code>secrets</code> resource, use <code>secret</code> to operate on an individual resource.
 
 ## Overview
@@ -21,14 +24,14 @@ Used to retrieve a list of <code>secrets</code> in a region or create a <code>se
 <tr><td><b>Name</b></td><td><code>secrets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.&lt;br&#x2F;&gt; For RDS master user credentials, see &#91;AWS::RDS::DBCluster MasterUserSecret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-properties-rds-dbcluster-masterusersecret.html).&lt;br&#x2F;&gt; To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see &#91;Retrieve a secret in an resource&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;cfn-example_reference-secret.html).&lt;br&#x2F;&gt; A common scenario is to first create a secret with ``GenerateSecretString``, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.&lt;br&#x2F;&gt; For information about creating a secret in the console, see &#91;Create a secret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see &#91;CreateSecret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;apireference&#x2F;API_CreateSecret.html).&lt;br&#x2F;&gt; For information about retrieving a secret in code, see &#91;Retrieve secrets from Secrets Manager&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;retrieving-secrets.html).</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.secretsmanager.secrets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.secretsmanager.secrets" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,14 +44,14 @@ Used to retrieve a list of <code>secrets</code> in a region or create a <code>se
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

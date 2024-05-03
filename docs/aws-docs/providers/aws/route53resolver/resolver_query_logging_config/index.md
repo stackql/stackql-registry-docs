@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>resolver_query_logging_config</code> resource, use <code>resolver_query_logging_configs</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>resolver_query_logging_config</code> res
 <tr><td><b>Name</b></td><td><code>resolver_query_logging_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.route53resolver.resolver_query_logging_config</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.route53resolver.resolver_query_logging_config" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><code>owner_id</code></td><td><code>string</code></td><td>AccountId</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td>ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.</td></tr>
-<tr><td><code>share_status</code></td><td><code>string</code></td><td>ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.</td></tr>
-<tr><td><code>association_count</code></td><td><code>integer</code></td><td>Count</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>Arn</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>ResolverQueryLogConfigName</td></tr>
-<tr><td><code>creator_request_id</code></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
-<tr><td><code>destination_arn</code></td><td><code>string</code></td><td>destination arn</td></tr>
-<tr><td><code>creation_time</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>AccountId</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.</td></tr>
+<tr><td><CopyableCode code="share_status" /></td><td><code>string</code></td><td>ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.</td></tr>
+<tr><td><CopyableCode code="association_count" /></td><td><code>integer</code></td><td>Count</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Arn</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>ResolverQueryLogConfigName</td></tr>
+<tr><td><CopyableCode code="creator_request_id" /></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
+<tr><td><CopyableCode code="destination_arn" /></td><td><code>string</code></td><td>destination arn</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,14 +53,14 @@ Gets or operates on an individual <code>resolver_query_logging_config</code> res
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

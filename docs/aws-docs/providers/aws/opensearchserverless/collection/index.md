@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>collection</code> resource, use <code>collections</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>collection</code> resource, use <code>co
 <tr><td><b>Name</b></td><td><code>collection</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Amazon OpenSearchServerless collection resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.opensearchserverless.collection</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.opensearchserverless.collection" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the collection</td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td>The identifier of the collection</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the collection.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;The name must meet the following criteria:&lt;br&#x2F;&gt;Unique to your account and AWS Region&lt;br&#x2F;&gt;Starts with a lowercase letter&lt;br&#x2F;&gt;Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)&lt;br&#x2F;&gt;Contains between 3 and 32 characters&lt;br&#x2F;&gt;</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>List of tags to be added to the resource</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the collection.</td></tr>
-<tr><td><code>collection_endpoint</code></td><td><code>string</code></td><td>The endpoint for the collection.</td></tr>
-<tr><td><code>dashboard_endpoint</code></td><td><code>string</code></td><td>The OpenSearch Dashboards endpoint for the collection.</td></tr>
-<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>standby_replicas</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the collection</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The identifier of the collection</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the collection.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;The name must meet the following criteria:&lt;br&#x2F;&gt;Unique to your account and AWS Region&lt;br&#x2F;&gt;Starts with a lowercase letter&lt;br&#x2F;&gt;Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)&lt;br&#x2F;&gt;Contains between 3 and 32 characters&lt;br&#x2F;&gt;</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>List of tags to be added to the resource</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the collection.</td></tr>
+<tr><td><CopyableCode code="collection_endpoint" /></td><td><code>string</code></td><td>The endpoint for the collection.</td></tr>
+<tr><td><CopyableCode code="dashboard_endpoint" /></td><td><code>string</code></td><td>The OpenSearch Dashboards endpoint for the collection.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="standby_replicas" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>collection</code> resource, use <code>co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

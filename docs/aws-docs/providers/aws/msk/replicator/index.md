@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>replicator</code> resource, use <code>replicators</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>replicator</code> resource, use <code>re
 <tr><td><b>Name</b></td><td><code>replicator</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::MSK::Replicator</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.msk.replicator</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.msk.replicator" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>replicator_arn</code></td><td><code>string</code></td><td>Amazon Resource Name for the created replicator.</td></tr>
-<tr><td><code>replicator_name</code></td><td><code>string</code></td><td>The name of the replicator.</td></tr>
-<tr><td><code>current_version</code></td><td><code>string</code></td><td>The current version of the MSK replicator.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A summary description of the replicator.</td></tr>
-<tr><td><code>kafka_clusters</code></td><td><code>array</code></td><td>Specifies a list of Kafka clusters which are targets of the replicator.</td></tr>
-<tr><td><code>replication_info_list</code></td><td><code>array</code></td><td>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</td></tr>
-<tr><td><code>service_execution_role_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="replicator_arn" /></td><td><code>string</code></td><td>Amazon Resource Name for the created replicator.</td></tr>
+<tr><td><CopyableCode code="replicator_name" /></td><td><code>string</code></td><td>The name of the replicator.</td></tr>
+<tr><td><CopyableCode code="current_version" /></td><td><code>string</code></td><td>The current version of the MSK replicator.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A summary description of the replicator.</td></tr>
+<tr><td><CopyableCode code="kafka_clusters" /></td><td><code>array</code></td><td>Specifies a list of Kafka clusters which are targets of the replicator.</td></tr>
+<tr><td><CopyableCode code="replication_info_list" /></td><td><code>array</code></td><td>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</td></tr>
+<tr><td><CopyableCode code="service_execution_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>replicator</code> resource, use <code>re
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

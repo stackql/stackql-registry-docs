@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>environment</code> resource, use <code>environments</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,28 +24,28 @@ Gets or operates on an individual <code>environment</code> resource, use <code>e
 <tr><td><b>Name</b></td><td><code>environment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Represents a runtime environment that can run migrated mainframe applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.m2.environment</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.m2.environment" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the environment.</td></tr>
-<tr><td><code>engine_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>engine_version</code></td><td><code>string</code></td><td>The version of the runtime engine for the environment.</td></tr>
-<tr><td><code>environment_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
-<tr><td><code>environment_id</code></td><td><code>string</code></td><td>The unique identifier of the environment.</td></tr>
-<tr><td><code>high_availability_config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>instance_type</code></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
-<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the environment.</td></tr>
-<tr><td><code>preferred_maintenance_window</code></td><td><code>string</code></td><td>Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.</td></tr>
-<tr><td><code>publicly_accessible</code></td><td><code>boolean</code></td><td>Specifies whether the environment is publicly accessible.</td></tr>
-<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td>The list of security groups for the VPC associated with this environment.</td></tr>
-<tr><td><code>storage_configurations</code></td><td><code>array</code></td><td>The storage configurations defined for the runtime environment.</td></tr>
-<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td>The unique identifiers of the subnets assigned to this runtime environment.</td></tr>
-<tr><td><code>tags</code></td><td><code>object</code></td><td>Tags associated to this environment.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the environment.</td></tr>
+<tr><td><CopyableCode code="engine_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The version of the runtime engine for the environment.</td></tr>
+<tr><td><CopyableCode code="environment_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
+<tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The unique identifier of the environment.</td></tr>
+<tr><td><CopyableCode code="high_availability_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the environment.</td></tr>
+<tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td>Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.</td></tr>
+<tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>Specifies whether the environment is publicly accessible.</td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The list of security groups for the VPC associated with this environment.</td></tr>
+<tr><td><CopyableCode code="storage_configurations" /></td><td><code>array</code></td><td>The storage configurations defined for the runtime environment.</td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The unique identifiers of the subnets assigned to this runtime environment.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>Tags associated to this environment.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -55,19 +58,19 @@ Gets or operates on an individual <code>environment</code> resource, use <code>e
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>connector</code> resource, use <code>connectors</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,27 +24,27 @@ Gets or operates on an individual <code>connector</code> resource, use <code>con
 <tr><td><b>Name</b></td><td><code>connector</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::KafkaConnect::Connector</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.kafkaconnect.connector</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.kafkaconnect.connector" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>capacity</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>connector_arn</code></td><td><code>string</code></td><td>Amazon Resource Name for the created Connector.</td></tr>
-<tr><td><code>connector_configuration</code></td><td><code>object</code></td><td>The configuration for the connector.</td></tr>
-<tr><td><code>connector_description</code></td><td><code>string</code></td><td>A summary description of the connector.</td></tr>
-<tr><td><code>connector_name</code></td><td><code>string</code></td><td>The name of the connector.</td></tr>
-<tr><td><code>kafka_cluster</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>kafka_cluster_client_authentication</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>kafka_cluster_encryption_in_transit</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>kafka_connect_version</code></td><td><code>string</code></td><td>The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.</td></tr>
-<tr><td><code>log_delivery</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>plugins</code></td><td><code>array</code></td><td>List of plugins to use with the connector.</td></tr>
-<tr><td><code>service_execution_role_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
-<tr><td><code>worker_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="capacity" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="connector_arn" /></td><td><code>string</code></td><td>Amazon Resource Name for the created Connector.</td></tr>
+<tr><td><CopyableCode code="connector_configuration" /></td><td><code>object</code></td><td>The configuration for the connector.</td></tr>
+<tr><td><CopyableCode code="connector_description" /></td><td><code>string</code></td><td>A summary description of the connector.</td></tr>
+<tr><td><CopyableCode code="connector_name" /></td><td><code>string</code></td><td>The name of the connector.</td></tr>
+<tr><td><CopyableCode code="kafka_cluster" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="kafka_cluster_client_authentication" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="kafka_cluster_encryption_in_transit" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="kafka_connect_version" /></td><td><code>string</code></td><td>The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.</td></tr>
+<tr><td><CopyableCode code="log_delivery" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="plugins" /></td><td><code>array</code></td><td>List of plugins to use with the connector.</td></tr>
+<tr><td><CopyableCode code="service_execution_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<tr><td><CopyableCode code="worker_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,19 +57,19 @@ Gets or operates on an individual <code>connector</code> resource, use <code>con
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>subscription_target</code> resource, use <code>subscription_targets</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,30 +24,30 @@ Gets or operates on an individual <code>subscription_target</code> resource, use
 <tr><td><b>Name</b></td><td><code>subscription_target</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Subscription targets enables one to access the data to which you have subscribed in your projects.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.datazone.subscription_target</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.datazone.subscription_target" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>applicable_asset_types</code></td><td><code>array</code></td><td>The asset types that can be included in the subscription target.</td></tr>
-<tr><td><code>authorized_principals</code></td><td><code>array</code></td><td>The authorized principals of the subscription target.</td></tr>
-<tr><td><code>created_at</code></td><td><code>string</code></td><td>The timestamp of when the subscription target was created.</td></tr>
-<tr><td><code>created_by</code></td><td><code>string</code></td><td>The Amazon DataZone user who created the subscription target.</td></tr>
-<tr><td><code>domain_id</code></td><td><code>string</code></td><td>The ID of the Amazon DataZone domain in which subscription target is created.</td></tr>
-<tr><td><code>domain_identifier</code></td><td><code>string</code></td><td>The ID of the Amazon DataZone domain in which subscription target would be created.</td></tr>
-<tr><td><code>environment_id</code></td><td><code>string</code></td><td>The ID of the environment in which subscription target is created.</td></tr>
-<tr><td><code>environment_identifier</code></td><td><code>string</code></td><td>The ID of the environment in which subscription target would be created.</td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td>The ID of the subscription target.</td></tr>
-<tr><td><code>manage_access_role</code></td><td><code>string</code></td><td>The manage access role that is used to create the subscription target.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the subscription target.</td></tr>
-<tr><td><code>project_id</code></td><td><code>string</code></td><td>The identifier of the project specified in the subscription target.</td></tr>
-<tr><td><code>provider</code></td><td><code>string</code></td><td>The provider of the subscription target.</td></tr>
-<tr><td><code>subscription_target_config</code></td><td><code>array</code></td><td>The configuration of the subscription target.</td></tr>
-<tr><td><code>type</code></td><td><code>string</code></td><td>The type of the subscription target.</td></tr>
-<tr><td><code>updated_at</code></td><td><code>string</code></td><td>The timestamp of when the subscription target was updated.</td></tr>
-<tr><td><code>updated_by</code></td><td><code>string</code></td><td>The Amazon DataZone user who updated the subscription target.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="applicable_asset_types" /></td><td><code>array</code></td><td>The asset types that can be included in the subscription target.</td></tr>
+<tr><td><CopyableCode code="authorized_principals" /></td><td><code>array</code></td><td>The authorized principals of the subscription target.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the subscription target was created.</td></tr>
+<tr><td><CopyableCode code="created_by" /></td><td><code>string</code></td><td>The Amazon DataZone user who created the subscription target.</td></tr>
+<tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone domain in which subscription target is created.</td></tr>
+<tr><td><CopyableCode code="domain_identifier" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone domain in which subscription target would be created.</td></tr>
+<tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The ID of the environment in which subscription target is created.</td></tr>
+<tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td>The ID of the environment in which subscription target would be created.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the subscription target.</td></tr>
+<tr><td><CopyableCode code="manage_access_role" /></td><td><code>string</code></td><td>The manage access role that is used to create the subscription target.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the subscription target.</td></tr>
+<tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The identifier of the project specified in the subscription target.</td></tr>
+<tr><td><CopyableCode code="provider" /></td><td><code>string</code></td><td>The provider of the subscription target.</td></tr>
+<tr><td><CopyableCode code="subscription_target_config" /></td><td><code>array</code></td><td>The configuration of the subscription target.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the subscription target.</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The timestamp of when the subscription target was updated.</td></tr>
+<tr><td><CopyableCode code="updated_by" /></td><td><code>string</code></td><td>The Amazon DataZone user who updated the subscription target.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -57,19 +60,19 @@ Gets or operates on an individual <code>subscription_target</code> resource, use
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

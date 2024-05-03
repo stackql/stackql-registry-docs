@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>storage_profile</code> resource, use <code>storage_profiles</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,18 +24,18 @@ Gets or operates on an individual <code>storage_profile</code> resource, use <co
 <tr><td><b>Name</b></td><td><code>storage_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Definition of AWS::Deadline::StorageProfile Resource Type</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.deadline.storage_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.deadline.storage_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>display_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>farm_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>file_system_locations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>os_family</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>storage_profile_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="file_system_locations" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="os_family" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="storage_profile_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,19 +48,19 @@ Gets or operates on an individual <code>storage_profile</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

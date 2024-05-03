@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>table</code> resource, use <code>tables</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>table</code> resource, use <code>tables<
 <tr><td><b>Name</b></td><td><code>table</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::Timestream::Table resource creates a Timestream Table.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.timestream.table</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.timestream.table" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The table name exposed as a read-only attribute.</td></tr>
-<tr><td><code>database_name</code></td><td><code>string</code></td><td>The name for the database which the table to be created belongs to.</td></tr>
-<tr><td><code>table_name</code></td><td><code>string</code></td><td>The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.</td></tr>
-<tr><td><code>retention_properties</code></td><td><code>object</code></td><td>The retention duration of the memory store and the magnetic store.</td></tr>
-<tr><td><code>schema</code></td><td><code>object</code></td><td>A Schema specifies the expected data model of the table.</td></tr>
-<tr><td><code>magnetic_store_write_properties</code></td><td><code>object</code></td><td>The properties that determine whether magnetic store writes are enabled.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The table name exposed as a read-only attribute.</td></tr>
+<tr><td><CopyableCode code="database_name" /></td><td><code>string</code></td><td>The name for the database which the table to be created belongs to.</td></tr>
+<tr><td><CopyableCode code="table_name" /></td><td><code>string</code></td><td>The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.</td></tr>
+<tr><td><CopyableCode code="retention_properties" /></td><td><code>object</code></td><td>The retention duration of the memory store and the magnetic store.</td></tr>
+<tr><td><CopyableCode code="schema" /></td><td><code>object</code></td><td>A Schema specifies the expected data model of the table.</td></tr>
+<tr><td><CopyableCode code="magnetic_store_write_properties" /></td><td><code>object</code></td><td>The properties that determine whether magnetic store writes are enabled.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>table</code> resource, use <code>tables<
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

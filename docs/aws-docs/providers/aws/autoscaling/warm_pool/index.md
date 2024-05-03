@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>warm_pool</code> resource, use <code>warm_pools</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,18 +24,18 @@ Gets or operates on an individual <code>warm_pool</code> resource, use <code>war
 <tr><td><b>Name</b></td><td><code>warm_pool</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::AutoScaling::WarmPool.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.autoscaling.warm_pool</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.autoscaling.warm_pool" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>auto_scaling_group_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>max_group_prepared_capacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>min_size</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>pool_state</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>instance_reuse_policy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="auto_scaling_group_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="max_group_prepared_capacity" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="min_size" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="pool_state" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_reuse_policy" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,19 +48,19 @@ Gets or operates on an individual <code>warm_pool</code> resource, use <code>war
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

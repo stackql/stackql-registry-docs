@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>log_streams</code> in a region or create a <code>log_streams</code> resource, use <code>log_stream</code> to operate on an individual resource.
 
 ## Overview
@@ -21,15 +24,15 @@ Used to retrieve a list of <code>log_streams</code> in a region or create a <cod
 <tr><td><b>Name</b></td><td><code>log_streams</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Logs::LogStream</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.logs.log_streams</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.logs.log_streams" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>log_group_name</code></td><td><code>string</code></td><td>The name of the log group where the log stream is created.</td></tr>
-<tr><td><code>log_stream_name</code></td><td><code>string</code></td><td>The name of the log stream. The name must be unique wihtin the log group.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td>The name of the log group where the log stream is created.</td></tr>
+<tr><td><CopyableCode code="log_stream_name" /></td><td><code>string</code></td><td>The name of the log stream. The name must be unique wihtin the log group.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,14 +45,14 @@ Used to retrieve a list of <code>log_streams</code> in a region or create a <cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

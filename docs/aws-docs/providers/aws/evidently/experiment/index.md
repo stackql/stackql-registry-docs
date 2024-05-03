@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>experiment</code> resource, use <code>experiments</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,26 +24,26 @@ Gets or operates on an individual <code>experiment</code> resource, use <code>ex
 <tr><td><b>Name</b></td><td><code>experiment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Evidently::Experiment.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.evidently.experiment</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.evidently.experiment" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>project</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>running_status</code></td><td><code>object</code></td><td>Start Experiment. Default is False</td></tr>
-<tr><td><code>randomization_salt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>treatments</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>metric_goals</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>sampling_rate</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>online_ab_config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>segment</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>remove_segment</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="project" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="running_status" /></td><td><code>object</code></td><td>Start Experiment. Default is False</td></tr>
+<tr><td><CopyableCode code="randomization_salt" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="treatments" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="metric_goals" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="sampling_rate" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="online_ab_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="segment" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="remove_segment" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,19 +56,19 @@ Gets or operates on an individual <code>experiment</code> resource, use <code>ex
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

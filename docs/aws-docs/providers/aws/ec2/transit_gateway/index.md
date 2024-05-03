@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>transit_gateway</code> resource, use <code>transit_gateways</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,27 +24,27 @@ Gets or operates on an individual <code>transit_gateway</code> resource, use <co
 <tr><td><b>Name</b></td><td><code>transit_gateway</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::TransitGateway</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.transit_gateway</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.transit_gateway" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>association_default_route_table_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>auto_accept_shared_attachments</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>transit_gateway_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>default_route_table_propagation</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>transit_gateway_cidr_blocks</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>propagation_default_route_table_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>default_route_table_association</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>vpn_ecmp_support</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>dns_support</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>multicast_support</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>amazon_side_asn</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="association_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_accept_shared_attachments" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="transit_gateway_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_route_table_propagation" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="transit_gateway_cidr_blocks" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="propagation_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_route_table_association" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpn_ecmp_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="dns_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="multicast_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="amazon_side_asn" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,19 +57,19 @@ Gets or operates on an individual <code>transit_gateway</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

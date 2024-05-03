@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>account_policy</code> resource, use <code>account_policies</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>account_policy</code> resource, use <cod
 <tr><td><b>Name</b></td><td><code>account_policy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.logs.account_policy</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.logs.account_policy" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>account_id</code></td><td><code>string</code></td><td>User account id</td></tr>
-<tr><td><code>policy_name</code></td><td><code>string</code></td><td>The name of the account policy</td></tr>
-<tr><td><code>policy_document</code></td><td><code>string</code></td><td>The body of the policy document you want to use for this topic.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;You can only add one policy per PolicyType.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;The policy must be in JSON string format.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;Length Constraints: Maximum length of 30720</td></tr>
-<tr><td><code>policy_type</code></td><td><code>string</code></td><td>Type of the policy.</td></tr>
-<tr><td><code>scope</code></td><td><code>string</code></td><td>Scope for policy application</td></tr>
-<tr><td><code>selection_criteria</code></td><td><code>string</code></td><td>Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>User account id</td></tr>
+<tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>The name of the account policy</td></tr>
+<tr><td><CopyableCode code="policy_document" /></td><td><code>string</code></td><td>The body of the policy document you want to use for this topic.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;You can only add one policy per PolicyType.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;The policy must be in JSON string format.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;Length Constraints: Maximum length of 30720</td></tr>
+<tr><td><CopyableCode code="policy_type" /></td><td><code>string</code></td><td>Type of the policy.</td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>string</code></td><td>Scope for policy application</td></tr>
+<tr><td><CopyableCode code="selection_criteria" /></td><td><code>string</code></td><td>Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>account_policy</code> resource, use <cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

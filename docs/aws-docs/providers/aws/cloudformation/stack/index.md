@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>stack</code> resource, use <code>stacks</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,36 +24,36 @@ Gets or operates on an individual <code>stack</code> resource, use <code>stacks<
 <tr><td><b>Name</b></td><td><code>stack</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.cloudformation.stack</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudformation.stack" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>capabilities</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>outputs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>disable_rollback</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>enable_termination_protection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>notification_arns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>parameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>parent_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>root_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>change_set_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>stack_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>stack_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>stack_policy_body</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>stack_policy_url</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>stack_status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>stack_status_reason</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>template_body</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>template_url</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>timeout_in_minutes</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>last_update_time</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>creation_time</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="capabilities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="disable_rollback" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_termination_protection" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="notification_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="parent_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="root_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="change_set_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_policy_body" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_policy_url" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_status_reason" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="template_body" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="template_url" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="timeout_in_minutes" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_update_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -63,19 +66,19 @@ Gets or operates on an individual <code>stack</code> resource, use <code>stacks<
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

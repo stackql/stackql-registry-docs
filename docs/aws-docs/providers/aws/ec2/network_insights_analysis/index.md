@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>network_insights_analysis</code> resource, use <code>network_insights_analyses</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,28 +24,28 @@ Gets or operates on an individual <code>network_insights_analysis</code> resourc
 <tr><td><b>Name</b></td><td><code>network_insights_analysis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::EC2::NetworkInsightsAnalysis</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.network_insights_analysis</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.network_insights_analysis" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>return_path_components</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>network_insights_analysis_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>network_insights_path_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>network_path_found</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>suggested_accounts</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>filter_in_arns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>network_insights_analysis_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>status_message</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>start_date</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>alternate_path_hints</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>explanations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>forward_path_components</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>additional_accounts</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="return_path_components" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_insights_analysis_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_insights_path_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_path_found" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="suggested_accounts" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="filter_in_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_insights_analysis_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="start_date" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="alternate_path_hints" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="explanations" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="forward_path_components" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="additional_accounts" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -55,19 +58,19 @@ Gets or operates on an individual <code>network_insights_analysis</code> resourc
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

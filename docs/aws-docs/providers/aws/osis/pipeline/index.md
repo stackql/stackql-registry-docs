@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>pipeline</code> resource, use <code>pipelines</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,25 +24,25 @@ Gets or operates on an individual <code>pipeline</code> resource, use <code>pipe
 <tr><td><b>Name</b></td><td><code>pipeline</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.osis.pipeline</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.osis.pipeline" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>buffer_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>encryption_at_rest_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>log_publishing_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>max_units</code></td><td><code>integer</code></td><td>The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).</td></tr>
-<tr><td><code>min_units</code></td><td><code>integer</code></td><td>The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).</td></tr>
-<tr><td><code>pipeline_configuration_body</code></td><td><code>string</code></td><td>The Data Prepper pipeline configuration.</td></tr>
-<tr><td><code>pipeline_name</code></td><td><code>string</code></td><td>Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>vpc_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>vpc_endpoints</code></td><td><code>array</code></td><td>The VPC interface endpoints that have access to the pipeline.</td></tr>
-<tr><td><code>pipeline_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the pipeline.</td></tr>
-<tr><td><code>ingest_endpoint_urls</code></td><td><code>array</code></td><td>A list of endpoints that can be used for ingesting data into a pipeline</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="buffer_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_at_rest_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_publishing_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="max_units" /></td><td><code>integer</code></td><td>The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).</td></tr>
+<tr><td><CopyableCode code="min_units" /></td><td><code>integer</code></td><td>The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).</td></tr>
+<tr><td><CopyableCode code="pipeline_configuration_body" /></td><td><code>string</code></td><td>The Data Prepper pipeline configuration.</td></tr>
+<tr><td><CopyableCode code="pipeline_name" /></td><td><code>string</code></td><td>Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="vpc_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_endpoints" /></td><td><code>array</code></td><td>The VPC interface endpoints that have access to the pipeline.</td></tr>
+<tr><td><CopyableCode code="pipeline_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the pipeline.</td></tr>
+<tr><td><CopyableCode code="ingest_endpoint_urls" /></td><td><code>array</code></td><td>A list of endpoints that can be used for ingesting data into a pipeline</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,19 +55,19 @@ Gets or operates on an individual <code>pipeline</code> resource, use <code>pipe
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

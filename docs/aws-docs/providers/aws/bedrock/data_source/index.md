@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>data_source</code> resource, use <code>data_sources</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>data_source</code> resource, use <code>d
 <tr><td><b>Name</b></td><td><code>data_source</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Definition of AWS::Bedrock::DataSource Resource Type</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.bedrock.data_source</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.bedrock.data_source" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>data_source_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>data_source_id</code></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
-<tr><td><code>knowledge_base_id</code></td><td><code>string</code></td><td>The unique identifier of the knowledge base to which to add the data source.</td></tr>
-<tr><td><code>data_source_status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the data source.</td></tr>
-<tr><td><code>server_side_encryption_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>vector_ingestion_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>created_at</code></td><td><code>string</code></td><td>The time at which the data source was created.</td></tr>
-<tr><td><code>updated_at</code></td><td><code>string</code></td><td>The time at which the knowledge base was last updated.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="data_source_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_source_id" /></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
+<tr><td><CopyableCode code="knowledge_base_id" /></td><td><code>string</code></td><td>The unique identifier of the knowledge base to which to add the data source.</td></tr>
+<tr><td><CopyableCode code="data_source_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the data source.</td></tr>
+<tr><td><CopyableCode code="server_side_encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="vector_ingestion_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time at which the data source was created.</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time at which the knowledge base was last updated.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,19 +53,19 @@ Gets or operates on an individual <code>data_source</code> resource, use <code>d
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

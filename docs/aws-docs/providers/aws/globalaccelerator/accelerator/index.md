@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>accelerator</code> resource, use <code>accelerators</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>accelerator</code> resource, use <code>a
 <tr><td><b>Name</b></td><td><code>accelerator</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::GlobalAccelerator::Accelerator</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.globalaccelerator.accelerator</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.globalaccelerator.accelerator" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>Name of accelerator.</td></tr>
-<tr><td><code>ip_address_type</code></td><td><code>string</code></td><td>IP Address type.</td></tr>
-<tr><td><code>ip_addresses</code></td><td><code>array</code></td><td>The IP addresses from BYOIP Prefix pool.</td></tr>
-<tr><td><code>enabled</code></td><td><code>boolean</code></td><td>Indicates whether an accelerator is enabled. The value is true or false.</td></tr>
-<tr><td><code>dns_name</code></td><td><code>string</code></td><td>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.</td></tr>
-<tr><td><code>ipv4_addresses</code></td><td><code>array</code></td><td>The IPv4 addresses assigned to the accelerator.</td></tr>
-<tr><td><code>ipv6_addresses</code></td><td><code>array</code></td><td>The IPv6 addresses assigned if the accelerator is dualstack</td></tr>
-<tr><td><code>dual_stack_dns_name</code></td><td><code>string</code></td><td>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.</td></tr>
-<tr><td><code>accelerator_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the accelerator.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of accelerator.</td></tr>
+<tr><td><CopyableCode code="ip_address_type" /></td><td><code>string</code></td><td>IP Address type.</td></tr>
+<tr><td><CopyableCode code="ip_addresses" /></td><td><code>array</code></td><td>The IP addresses from BYOIP Prefix pool.</td></tr>
+<tr><td><CopyableCode code="enabled" /></td><td><code>boolean</code></td><td>Indicates whether an accelerator is enabled. The value is true or false.</td></tr>
+<tr><td><CopyableCode code="dns_name" /></td><td><code>string</code></td><td>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.</td></tr>
+<tr><td><CopyableCode code="ipv4_addresses" /></td><td><code>array</code></td><td>The IPv4 addresses assigned to the accelerator.</td></tr>
+<tr><td><CopyableCode code="ipv6_addresses" /></td><td><code>array</code></td><td>The IPv6 addresses assigned if the accelerator is dualstack</td></tr>
+<tr><td><CopyableCode code="dual_stack_dns_name" /></td><td><code>string</code></td><td>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.</td></tr>
+<tr><td><CopyableCode code="accelerator_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the accelerator.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,19 +53,19 @@ Gets or operates on an individual <code>accelerator</code> resource, use <code>a
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

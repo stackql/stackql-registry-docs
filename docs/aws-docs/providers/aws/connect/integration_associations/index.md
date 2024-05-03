@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>integration_associations</code> in a region or create a <code>integration_associations</code> resource, use <code>integration_association</code> to operate on an individual resource.
 
 ## Overview
@@ -21,16 +24,16 @@ Used to retrieve a list of <code>integration_associations</code> in a region or 
 <tr><td><b>Name</b></td><td><code>integration_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Connect::IntegrationAssociation</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.connect.integration_associations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.connect.integration_associations" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>instance_id</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>integration_type</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>integration_arn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="instance_id" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="integration_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="integration_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,14 +46,14 @@ Used to retrieve a list of <code>integration_associations</code> in a region or 
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

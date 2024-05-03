@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>deployment</code> resource, use <code>deployments</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>deployment</code> resource, use <code>de
 <tr><td><b>Name</b></td><td><code>deployment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.apigateway.deployment</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.deployment" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>deployment_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>deployment_canary_settings</code></td><td><code>object</code></td><td>The input configuration for a canary deployment.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description for the Deployment resource to create.</td></tr>
-<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><code>stage_description</code></td><td><code>object</code></td><td>The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.</td></tr>
-<tr><td><code>stage_name</code></td><td><code>string</code></td><td>The name of the Stage resource for the Deployment resource to create.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="deployment_canary_settings" /></td><td><code>object</code></td><td>The input configuration for a canary deployment.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description for the Deployment resource to create.</td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<tr><td><CopyableCode code="stage_description" /></td><td><code>object</code></td><td>The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.</td></tr>
+<tr><td><CopyableCode code="stage_name" /></td><td><code>string</code></td><td>The name of the Stage resource for the Deployment resource to create.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>deployment</code> resource, use <code>de
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

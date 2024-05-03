@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>budgets_action</code> resource, use <code>budgets_actions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>budgets_action</code> resource, use <cod
 <tr><td><b>Name</b></td><td><code>budgets_action</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>An example resource schema demonstrating some basic constructs and validation rules.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.budgets.budgets_action</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.budgets.budgets_action" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>action_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>budget_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>notification_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>action_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>action_threshold</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>execution_role_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>approval_model</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>subscribers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>definition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="action_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="budget_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="notification_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="action_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="action_threshold" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="execution_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="approval_model" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subscribers" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>budgets_action</code> resource, use <cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>package_group</code> resource, use <code>package_groups</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>package_group</code> resource, use <code
 <tr><td><b>Name</b></td><td><code>package_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The resource schema to create a CodeArtifact package group.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.codeartifact.package_group</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.codeartifact.package_group" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The name of the domain that contains the package group.</td></tr>
-<tr><td><code>domain_owner</code></td><td><code>string</code></td><td>The 12-digit account ID of the AWS account that owns the domain.</td></tr>
-<tr><td><code>pattern</code></td><td><code>string</code></td><td>The package group pattern that is used to gather packages.</td></tr>
-<tr><td><code>contact_info</code></td><td><code>string</code></td><td>The contact info of the package group.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The text description of the package group.</td></tr>
-<tr><td><code>origin_configuration</code></td><td><code>object</code></td><td>The package origin configuration of the package group.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to the package group.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the package group.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The name of the domain that contains the package group.</td></tr>
+<tr><td><CopyableCode code="domain_owner" /></td><td><code>string</code></td><td>The 12-digit account ID of the AWS account that owns the domain.</td></tr>
+<tr><td><CopyableCode code="pattern" /></td><td><code>string</code></td><td>The package group pattern that is used to gather packages.</td></tr>
+<tr><td><CopyableCode code="contact_info" /></td><td><code>string</code></td><td>The contact info of the package group.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The text description of the package group.</td></tr>
+<tr><td><CopyableCode code="origin_configuration" /></td><td><code>object</code></td><td>The package origin configuration of the package group.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to the package group.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the package group.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>package_group</code> resource, use <code
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>agent_alias</code> resource, use <code>agent_aliases</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,24 +24,24 @@ Gets or operates on an individual <code>agent_alias</code> resource, use <code>a
 <tr><td><b>Name</b></td><td><code>agent_alias</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Definition of AWS::Bedrock::AgentAlias Resource Type</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.bedrock.agent_alias</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.bedrock.agent_alias" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>agent_alias_arn</code></td><td><code>string</code></td><td>Arn representation of the Agent Alias.</td></tr>
-<tr><td><code>agent_alias_history_events</code></td><td><code>array</code></td><td>The list of history events for an alias for an Agent.</td></tr>
-<tr><td><code>agent_alias_id</code></td><td><code>string</code></td><td>Id for an Agent Alias generated at the server side.</td></tr>
-<tr><td><code>agent_alias_name</code></td><td><code>string</code></td><td>Name for a resource.</td></tr>
-<tr><td><code>agent_alias_status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>agent_id</code></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
-<tr><td><code>created_at</code></td><td><code>string</code></td><td>Time Stamp.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
-<tr><td><code>routing_configuration</code></td><td><code>array</code></td><td>Routing configuration for an Agent alias.</td></tr>
-<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>updated_at</code></td><td><code>string</code></td><td>Time Stamp.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="agent_alias_arn" /></td><td><code>string</code></td><td>Arn representation of the Agent Alias.</td></tr>
+<tr><td><CopyableCode code="agent_alias_history_events" /></td><td><code>array</code></td><td>The list of history events for an alias for an Agent.</td></tr>
+<tr><td><CopyableCode code="agent_alias_id" /></td><td><code>string</code></td><td>Id for an Agent Alias generated at the server side.</td></tr>
+<tr><td><CopyableCode code="agent_alias_name" /></td><td><code>string</code></td><td>Name for a resource.</td></tr>
+<tr><td><CopyableCode code="agent_alias_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="agent_id" /></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
+<tr><td><CopyableCode code="routing_configuration" /></td><td><code>array</code></td><td>Routing configuration for an Agent alias.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,19 +54,19 @@ Gets or operates on an individual <code>agent_alias</code> resource, use <code>a
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

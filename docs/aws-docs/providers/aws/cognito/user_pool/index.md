@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>user_pool</code> resource, use <code>user_pools</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,41 +24,41 @@ Gets or operates on an individual <code>user_pool</code> resource, use <code>use
 <tr><td><b>Name</b></td><td><code>user_pool</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Cognito::UserPool</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.cognito.user_pool</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.cognito.user_pool" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>user_pool_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>policies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>account_recovery_setting</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>admin_create_user_config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>alias_attributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>username_attributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>auto_verified_attributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>device_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>email_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>email_verification_message</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>email_verification_subject</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>deletion_protection</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>lambda_config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>mfa_configuration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>enabled_mfas</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>sms_authentication_message</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>sms_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>sms_verification_message</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>schema</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>username_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>user_attribute_update_settings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>user_pool_tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>verification_message_template</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>user_pool_add_ons</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>provider_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>provider_url</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>user_pool_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="user_pool_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="policies" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="account_recovery_setting" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="admin_create_user_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="alias_attributes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="username_attributes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_verified_attributes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="device_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="email_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="email_verification_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="email_verification_subject" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="deletion_protection" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="lambda_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="mfa_configuration" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="enabled_mfas" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="sms_authentication_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="sms_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="sms_verification_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="schema" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="username_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_attribute_update_settings" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_pool_tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="verification_message_template" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_pool_add_ons" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="provider_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="provider_url" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -68,19 +71,19 @@ Gets or operates on an individual <code>user_pool</code> resource, use <code>use
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
