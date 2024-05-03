@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>custom_classes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.speech.custom_classes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.speech.custom_classes" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `customClassesId, locationsId, projectsId` | Get a custom class. |
-| `list` | `SELECT` | `locationsId, projectsId` | List custom classes. |
-| `create` | `INSERT` | `locationsId, projectsId` | Create a custom class. |
-| `delete` | `DELETE` | `customClassesId, locationsId, projectsId` | Delete a custom class. |
-| `_list` | `EXEC` | `locationsId, projectsId` | List custom classes. |
-| `patch` | `EXEC` | `customClassesId, locationsId, projectsId` | Update a custom class. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="customClassesId, locationsId, projectsId" /> | Get a custom class. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List custom classes. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a custom class. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="customClassesId, locationsId, projectsId" /> | Delete a custom class. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List custom classes. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="customClassesId, locationsId, projectsId" /> | Update a custom class. |

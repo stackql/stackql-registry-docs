@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 You Can Use OS Login To Manage Access To Your VM Instances Using IAM Roles.  
     
 :::info Service Summary

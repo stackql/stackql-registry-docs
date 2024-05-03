@@ -14,28 +14,31 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>studies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.ml.studies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.ml.studies" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The name of a study. |
-| `createTime` | `string` | Output only. Time at which the study was created. |
-| `inactiveReason` | `string` | Output only. A human readable reason why the Study is inactive. This should be empty if a study is ACTIVE or COMPLETED. |
-| `state` | `string` | Output only. The detailed state of a study. |
-| `studyConfig` | `object` | Represents configuration of a study. |
+| <CopyableCode code="name" /> | `string` | Output only. The name of a study. |
+| <CopyableCode code="createTime" /> | `string` | Output only. Time at which the study was created. |
+| <CopyableCode code="inactiveReason" /> | `string` | Output only. A human readable reason why the Study is inactive. This should be empty if a study is ACTIVE or COMPLETED. |
+| <CopyableCode code="state" /> | `string` | Output only. The detailed state of a study. |
+| <CopyableCode code="studyConfig" /> | `object` | Represents configuration of a study. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_studies_get` | `SELECT` | `locationsId, projectsId, studiesId` | Gets a study. |
-| `projects_locations_studies_list` | `SELECT` | `locationsId, projectsId` | Lists all the studies in a region for an associated project. |
-| `projects_locations_studies_create` | `INSERT` | `locationsId, projectsId` | Creates a study. |
-| `projects_locations_studies_delete` | `DELETE` | `locationsId, projectsId, studiesId` | Deletes a study. |
+| <CopyableCode code="projects_locations_studies_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, studiesId" /> | Gets a study. |
+| <CopyableCode code="projects_locations_studies_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the studies in a region for an associated project. |
+| <CopyableCode code="projects_locations_studies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a study. |
+| <CopyableCode code="projects_locations_studies_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, studiesId" /> | Deletes a study. |

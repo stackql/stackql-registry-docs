@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_rendered</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.healthcare.instances_rendered</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.instances_rendered" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `retrieve_rendered` | `EXEC` | `datasetsId, dicomStoresId, instancesId, locationsId, projectsId, seriesId, studiesId` |
+| <CopyableCode code="retrieve_rendered" /> | `EXEC` | <CopyableCode code="datasetsId, dicomStoresId, instancesId, locationsId, projectsId, seriesId, studiesId" /> |

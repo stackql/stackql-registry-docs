@@ -146,10 +146,9 @@ html[data-theme='dark'] .react-toggle-thumb {
 	 */
 	 padding: 0px 64px;
 }
- .navbar {
-	/* border-bottom: 0.2px solid var(--dark-2);
-	 */
-}
+ /* .navbar {
+	border-bottom: 0.2px solid var(--dark-2);
+} */
 
 /* START sidebar styling overrides */
 
@@ -559,19 +558,11 @@ html[data-theme='dark'] .contactFormHeading {
     transform: translateY(-50%);
   }
 
-  /* copyable code */
+/* copyable code */
 
-  /* src/css/custom.css */
 .copyable-code-container code {
     cursor: pointer;
     position: relative;
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    padding: 2px 6px;
-}
-
-.copyable-code-container code:hover {
-    background-color: #e8e8e8;
 }
 
 /* end copyable code */

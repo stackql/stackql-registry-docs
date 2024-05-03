@@ -13,6 +13,7 @@ description: Query and manage Google Workspace users and groups using SQL.
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Admin SDK Lets Administrators Of Enterprise Domains To View And Manage Resources Like User, Groups Etc. It Also Provides Audit And Usage Reports Of Domain.  
     
 :::info Service Summary

@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>devices_signed</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.sasportal.devices_signed</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.devices_signed" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,12 +32,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `customers_deployments_devices_create_signed` | `INSERT` | `customersId, deploymentsId` | Creates a signed device under a node or customer. |
-| `customers_devices_create_signed` | `INSERT` | `customersId` | Creates a signed device under a node or customer. |
-| `customers_nodes_devices_create_signed` | `INSERT` | `customersId, nodesId` | Creates a signed device under a node or customer. |
-| `nodes_deployments_devices_create_signed` | `INSERT` | `deploymentsId, nodesId` | Creates a signed device under a node or customer. |
-| `nodes_devices_create_signed` | `INSERT` | `nodesId` | Creates a signed device under a node or customer. |
-| `nodes_nodes_devices_create_signed` | `INSERT` | `nodesId, nodesId1` | Creates a signed device under a node or customer. |
-| `customers_devices_update_signed` | `EXEC` | `customersId, devicesId` | Updates a signed device. |
-| `deployments_devices_update_signed` | `EXEC` | `deploymentsId, devicesId` | Updates a signed device. |
-| `nodes_devices_update_signed` | `EXEC` | `devicesId, nodesId` | Updates a signed device. |
+| <CopyableCode code="customers_deployments_devices_create_signed" /> | `INSERT` | <CopyableCode code="customersId, deploymentsId" /> | Creates a signed device under a node or customer. |
+| <CopyableCode code="customers_devices_create_signed" /> | `INSERT` | <CopyableCode code="customersId" /> | Creates a signed device under a node or customer. |
+| <CopyableCode code="customers_nodes_devices_create_signed" /> | `INSERT` | <CopyableCode code="customersId, nodesId" /> | Creates a signed device under a node or customer. |
+| <CopyableCode code="nodes_deployments_devices_create_signed" /> | `INSERT` | <CopyableCode code="deploymentsId, nodesId" /> | Creates a signed device under a node or customer. |
+| <CopyableCode code="nodes_devices_create_signed" /> | `INSERT` | <CopyableCode code="nodesId" /> | Creates a signed device under a node or customer. |
+| <CopyableCode code="nodes_nodes_devices_create_signed" /> | `INSERT` | <CopyableCode code="nodesId, nodesId1" /> | Creates a signed device under a node or customer. |
+| <CopyableCode code="customers_devices_update_signed" /> | `EXEC` | <CopyableCode code="customersId, devicesId" /> | Updates a signed device. |
+| <CopyableCode code="deployments_devices_update_signed" /> | `EXEC` | <CopyableCode code="deploymentsId, devicesId" /> | Updates a signed device. |
+| <CopyableCode code="nodes_devices_update_signed" /> | `EXEC` | <CopyableCode code="devicesId, nodesId" /> | Updates a signed device. |

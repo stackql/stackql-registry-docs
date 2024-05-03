@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Creating Friction.  
     
 :::info Service Summary

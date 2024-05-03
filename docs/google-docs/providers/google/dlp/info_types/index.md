@@ -14,19 +14,22 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>info_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dlp.info_types</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.info_types" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `info_types_list` | `SELECT` |  |
-| `locations_info_types_list` | `SELECT` | `locationsId` |
+| <CopyableCode code="info_types_list" /> | `SELECT` |  |
+| <CopyableCode code="locations_info_types_list" /> | `SELECT` | <CopyableCode code="locationsId" /> |

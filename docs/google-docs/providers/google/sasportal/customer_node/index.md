@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>customer_node</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.sasportal.customer_node</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.customer_node" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name. |
-| `displayName` | `string` | The node's display name. |
-| `sasUserIds` | `array` | User ids used by the devices belonging to this node. |
+| <CopyableCode code="name" /> | `string` | Output only. Resource name. |
+| <CopyableCode code="displayName" /> | `string` | The node's display name. |
+| <CopyableCode code="sasUserIds" /> | `array` | User ids used by the devices belonging to this node. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `customers_nodes_get` | `SELECT` | `customersId, nodesId` |
+| <CopyableCode code="customers_nodes_get" /> | `SELECT` | <CopyableCode code="customersId, nodesId" /> |

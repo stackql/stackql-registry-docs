@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>external_systems</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.securitycenter.external_systems</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.external_systems" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `folders_sources_findings_external_systems_patch` | `EXEC` | `externalSystemsId, findingsId, foldersId, sourcesId` |
-| `organizations_sources_findings_external_systems_patch` | `EXEC` | `externalSystemsId, findingsId, organizationsId, sourcesId` |
-| `projects_sources_findings_external_systems_patch` | `EXEC` | `externalSystemsId, findingsId, projectsId, sourcesId` |
+| <CopyableCode code="folders_sources_findings_external_systems_patch" /> | `EXEC` | <CopyableCode code="externalSystemsId, findingsId, foldersId, sourcesId" /> |
+| <CopyableCode code="organizations_sources_findings_external_systems_patch" /> | `EXEC` | <CopyableCode code="externalSystemsId, findingsId, organizationsId, sourcesId" /> |
+| <CopyableCode code="projects_sources_findings_external_systems_patch" /> | `EXEC` | <CopyableCode code="externalSystemsId, findingsId, projectsId, sourcesId" /> |

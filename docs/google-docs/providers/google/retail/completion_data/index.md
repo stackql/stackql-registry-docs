@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>completion_data</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.retail.completion_data</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.retail.completion_data" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_catalogs_completion_data_import` | `EXEC` | `catalogsId, locationsId, projectsId` |
+| <CopyableCode code="projects_locations_catalogs_completion_data_import" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> |

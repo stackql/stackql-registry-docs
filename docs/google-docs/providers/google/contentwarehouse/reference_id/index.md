@@ -14,19 +14,22 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reference_id</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.contentwarehouse.reference_id</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.contentwarehouse.reference_id" /></td></tr>
 </tbody></table>
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `locationsId, projectsId, referenceIdId` | Gets a document. Returns NOT_FOUND if the document does not exist. |
-| `delete` | `DELETE` | `locationsId, projectsId, referenceIdId` | Deletes a document. Returns NOT_FOUND if the document does not exist. |
-| `patch` | `EXEC` | `locationsId, projectsId, referenceIdId` | Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, referenceIdId" /> | Gets a document. Returns NOT_FOUND if the document does not exist. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, referenceIdId" /> | Deletes a document. Returns NOT_FOUND if the document does not exist. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, referenceIdId" /> | Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. |

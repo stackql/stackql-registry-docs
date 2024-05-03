@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gitlab_configs_gitlab_connected_repository</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.cloudbuild.gitlab_configs_gitlab_connected_repository</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudbuild.gitlab_configs_gitlab_connected_repository" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_gitlab_configs_removegitlab_connected_repository` | `EXEC` | `gitLabConfigsId, locationsId, projectsId` |
+| <CopyableCode code="projects_locations_gitlab_configs_removegitlab_connected_repository" /> | `EXEC` | <CopyableCode code="gitLabConfigsId, locationsId, projectsId" /> |

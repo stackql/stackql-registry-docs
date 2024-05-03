@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>balance</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.balance</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.balance" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_developers_balance_adjust` | `EXEC` | `developersId, organizationsId` | Adjust the prepaid balance for the developer. This API will be used in scenarios where the developer has been under-charged or over-charged. |
-| `organizations_developers_balance_credit` | `EXEC` | `developersId, organizationsId` | Credits the account balance for the developer. |
+| <CopyableCode code="organizations_developers_balance_adjust" /> | `EXEC` | <CopyableCode code="developersId, organizationsId" /> | Adjust the prepaid balance for the developer. This API will be used in scenarios where the developer has been under-charged or over-charged. |
+| <CopyableCode code="organizations_developers_balance_credit" /> | `EXEC` | <CopyableCode code="developersId, organizationsId" /> | Credits the account balance for the developer. |

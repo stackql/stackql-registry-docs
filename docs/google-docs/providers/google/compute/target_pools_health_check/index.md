@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_pools_health_check</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.target_pools_health_check</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.target_pools_health_check" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `add_health_check` | `EXEC` | `project, region, targetPool` | Adds health check URLs to a target pool. |
-| `remove_health_check` | `EXEC` | `project, region, targetPool` | Removes health check URL from a target pool. |
+| <CopyableCode code="add_health_check" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Adds health check URLs to a target pool. |
+| <CopyableCode code="remove_health_check" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Removes health check URL from a target pool. |

@@ -14,24 +14,27 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_account</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.accessapproval.service_account</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.accessapproval.service_account" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the Access Approval service account. Format is one of: * "projects/&#123;project&#125;/serviceAccount" * "folders/&#123;folder&#125;/serviceAccount" * "organizations/&#123;organization&#125;/serviceAccount" |
-| `accountEmail` | `string` | Email address of the service account. |
+| <CopyableCode code="name" /> | `string` | The resource name of the Access Approval service account. Format is one of: * "projects/&#123;project&#125;/serviceAccount" * "folders/&#123;folder&#125;/serviceAccount" * "organizations/&#123;organization&#125;/serviceAccount" |
+| <CopyableCode code="accountEmail" /> | `string` | Email address of the service account. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `folders_get_service_account` | `SELECT` | `foldersId` |
-| `organizations_get_service_account` | `SELECT` | `organizationsId` |
-| `projects_get_service_account` | `SELECT` | `projectsId` |
+| <CopyableCode code="folders_get_service_account" /> | `SELECT` | <CopyableCode code="foldersId" /> |
+| <CopyableCode code="organizations_get_service_account" /> | `SELECT` | <CopyableCode code="organizationsId" /> |
+| <CopyableCode code="projects_get_service_account" /> | `SELECT` | <CopyableCode code="projectsId" /> |

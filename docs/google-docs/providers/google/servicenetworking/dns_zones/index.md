@@ -14,25 +14,28 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dns_zones</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.servicenetworking.dns_zones</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.servicenetworking.dns_zones" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `consumerPeeringZone` | `object` |
-| `producerPrivateZone` | `object` |
+| <CopyableCode code="consumerPeeringZone" /> | `object` |
+| <CopyableCode code="producerPrivateZone" /> | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `dnsZonesId, networksId, projectsId, servicesId` | Service producers can use this method to retrieve a DNS zone in the shared producer host project and the matching peering zones in consumer project |
-| `list` | `SELECT` | `networksId, projectsId, servicesId` | * Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. * |
-| `add` | `EXEC` | `servicesId` | Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
-| `remove` | `EXEC` | `servicesId` | Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dnsZonesId, networksId, projectsId, servicesId" /> | Service producers can use this method to retrieve a DNS zone in the shared producer host project and the matching peering zones in consumer project |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="networksId, projectsId, servicesId" /> | * Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. * |
+| <CopyableCode code="add" /> | `EXEC` | <CopyableCode code="servicesId" /> | Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
+| <CopyableCode code="remove" /> | `EXEC` | <CopyableCode code="servicesId" /> | Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. |

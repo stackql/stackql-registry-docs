@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Cloud Data Fusion Is A Fully-Managed, Cloud Native, Enterprise Data Integration Service For Quickly Building And Managing Data Pipelines. It Provides A Graphical Interface To Increase Time Efficiency And Reduce Complexity, And Allows Business Users, Developers, And Data Scientists To Easily And Reliably Build Scalable Data Integration Solutions To Cleanse, Prepare, Blend, Transfer And Transform Data Without Having To Wrestle With Infrastructure.  
     
 :::info Service Summary

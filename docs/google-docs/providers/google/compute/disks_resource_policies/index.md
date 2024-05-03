@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>disks_resource_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.disks_resource_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.disks_resource_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `add_resource_policies` | `EXEC` | `disk, project, zone` | Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. |
-| `remove_resource_policies` | `EXEC` | `disk, project, zone` | Removes resource policies from a disk. |
+| <CopyableCode code="add_resource_policies" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. |
+| <CopyableCode code="remove_resource_policies" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Removes resource policies from a disk. |

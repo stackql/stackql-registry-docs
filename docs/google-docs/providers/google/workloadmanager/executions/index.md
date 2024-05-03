@@ -14,31 +14,34 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>executions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.workloadmanager.executions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.workloadmanager.executions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of execution resource. The format is projects/&#123;project&#125;/locations/&#123;location&#125;/evaluations/&#123;evaluation&#125;/executions/&#123;execution&#125; |
-| `state` | `string` | Output only. [Output only] State |
-| `endTime` | `string` | Output only. [Output only] End time stamp |
-| `evaluationId` | `string` | Output only. [Output only] Evaluation ID |
-| `inventoryTime` | `string` | Output only. [Output only] Inventory time stamp |
-| `labels` | `object` | Labels as key value pairs |
-| `runType` | `string` | type represent whether the execution executed directly by user or scheduled according evaluation.schedule field. |
-| `startTime` | `string` | Output only. [Output only] Start time stamp |
+| <CopyableCode code="name" /> | `string` | The name of execution resource. The format is projects/&#123;project&#125;/locations/&#123;location&#125;/evaluations/&#123;evaluation&#125;/executions/&#123;execution&#125; |
+| <CopyableCode code="endTime" /> | `string` | Output only. [Output only] End time stamp |
+| <CopyableCode code="evaluationId" /> | `string` | Output only. [Output only] Evaluation ID |
+| <CopyableCode code="inventoryTime" /> | `string` | Output only. [Output only] Inventory time stamp |
+| <CopyableCode code="labels" /> | `object` | Labels as key value pairs |
+| <CopyableCode code="runType" /> | `string` | type represent whether the execution executed directly by user or scheduled according evaluation.schedule field. |
+| <CopyableCode code="startTime" /> | `string` | Output only. [Output only] Start time stamp |
+| <CopyableCode code="state" /> | `string` | Output only. [Output only] State |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `evaluationsId, executionsId, locationsId, projectsId` | Gets details of a single Execution. |
-| `list` | `SELECT` | `evaluationsId, locationsId, projectsId` | Lists Executions in a given project and location. |
-| `_list` | `EXEC` | `evaluationsId, locationsId, projectsId` | Lists Executions in a given project and location. |
-| `run` | `EXEC` | `evaluationsId, locationsId, projectsId` | Creates a new Execution in a given project and location. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="evaluationsId, executionsId, locationsId, projectsId" /> | Gets details of a single Execution. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="evaluationsId, locationsId, projectsId" /> | Lists Executions in a given project and location. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="evaluationsId, locationsId, projectsId" /> | Lists Executions in a given project and location. |
+| <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="evaluationsId, locationsId, projectsId" /> | Creates a new Execution in a given project and location. |

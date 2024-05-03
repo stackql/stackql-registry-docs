@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apiproducts_developer_app_key_api_product</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.apiproducts_developer_app_key_api_product</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.apiproducts_developer_app_key_api_product" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_developers_apps_keys_apiproducts_update_developer_app_key_api_product` | `EXEC` | `apiproductsId, appsId, developersId, keysId, organizationsId` |
+| <CopyableCode code="organizations_developers_apps_keys_apiproducts_update_developer_app_key_api_product" /> | `EXEC` | <CopyableCode code="apiproductsId, appsId, developersId, keysId, organizationsId" /> |

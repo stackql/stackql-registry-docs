@@ -14,22 +14,25 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connections_connection_schema_metadata</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.integrations.connections_connection_schema_metadata</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.connections_connection_schema_metadata" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `actions` | `array` | List of actions. |
-| `entities` | `array` | List of entity names. |
+| <CopyableCode code="actions" /> | `array` | List of actions. |
+| <CopyableCode code="entities" /> | `array` | List of entity names. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_connections_get_connection_schema_metadata` | `SELECT` | `connectionsId, locationsId, projectsId` |
+| <CopyableCode code="projects_locations_connections_get_connection_schema_metadata" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |

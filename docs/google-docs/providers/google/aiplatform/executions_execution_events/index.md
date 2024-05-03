@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>executions_execution_events</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.aiplatform.executions_execution_events</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.executions_execution_events" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `add_execution_events` | `EXEC` | `executionsId, locationsId, metadataStoresId, projectsId` |
+| <CopyableCode code="add_execution_events" /> | `EXEC` | <CopyableCode code="executionsId, locationsId, metadataStoresId, projectsId" /> |

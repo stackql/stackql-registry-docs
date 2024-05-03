@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>product_sets_product</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.vision.product_sets_product</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vision.product_sets_product" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_product_sets_add_product` | `EXEC` | `locationsId, productSetsId, projectsId` | Adds a Product to the specified ProductSet. If the Product is already present, no change is made. One Product can be added to at most 100 ProductSets. Possible errors: * Returns NOT_FOUND if the Product or the ProductSet doesn't exist. |
-| `projects_locations_product_sets_remove_product` | `EXEC` | `locationsId, productSetsId, projectsId` | Removes a Product from the specified ProductSet. |
+| <CopyableCode code="projects_locations_product_sets_add_product" /> | `EXEC` | <CopyableCode code="locationsId, productSetsId, projectsId" /> | Adds a Product to the specified ProductSet. If the Product is already present, no change is made. One Product can be added to at most 100 ProductSets. Possible errors: * Returns NOT_FOUND if the Product or the ProductSet doesn't exist. |
+| <CopyableCode code="projects_locations_product_sets_remove_product" /> | `EXEC` | <CopyableCode code="locationsId, productSetsId, projectsId" /> | Removes a Product from the specified ProductSet. |

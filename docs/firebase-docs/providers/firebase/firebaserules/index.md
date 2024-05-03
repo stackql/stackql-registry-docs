@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
+
 Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.   
     
 :::info Service Summary

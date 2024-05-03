@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.translate.projects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.translate.projects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_detect_language` | `EXEC` | `projectsId` | Detects the language of text within a request. |
-| `projects_romanize_text` | `EXEC` | `projectsId` | Romanize input text written in non-Latin scripts to Latin text. |
-| `projects_translate_text` | `EXEC` | `projectsId` | Translates input text and returns translated text. |
+| <CopyableCode code="projects_detect_language" /> | `EXEC` | <CopyableCode code="projectsId" /> | Detects the language of text within a request. |
+| <CopyableCode code="projects_romanize_text" /> | `EXEC` | <CopyableCode code="projectsId" /> | Romanize input text written in non-Latin scripts to Latin text. |
+| <CopyableCode code="projects_translate_text" /> | `EXEC` | <CopyableCode code="projectsId" /> | Translates input text and returns translated text. |

@@ -14,19 +14,22 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>supported_languages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.translate.supported_languages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.translate.supported_languages" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_get_supported_languages` | `SELECT` | `projectsId` |
-| `projects_locations_get_supported_languages` | `SELECT` | `locationsId, projectsId` |
+| <CopyableCode code="projects_get_supported_languages" /> | `SELECT` | <CopyableCode code="projectsId" /> |
+| <CopyableCode code="projects_locations_get_supported_languages" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> |

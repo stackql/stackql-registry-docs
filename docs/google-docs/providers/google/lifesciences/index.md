@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Cloud Life Sciences Is A Suite Of Services And Tools For Managing, Processing, And Transforming Life Sciences Data.  
     
 :::info Service Summary

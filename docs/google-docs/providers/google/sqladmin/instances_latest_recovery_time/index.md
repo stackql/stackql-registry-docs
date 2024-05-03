@@ -14,22 +14,25 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_latest_recovery_time</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.sqladmin.instances_latest_recovery_time</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.instances_latest_recovery_time" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | This is always `sql#getLatestRecoveryTime`. |
-| `latestRecoveryTime` | `string` | Timestamp, identifies the latest recovery time of the source instance. |
+| <CopyableCode code="kind" /> | `string` | This is always `sql#getLatestRecoveryTime`. |
+| <CopyableCode code="latestRecoveryTime" /> | `string` | Timestamp, identifies the latest recovery time of the source instance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_latest_recovery_time` | `SELECT` | `instance, project` |
+| <CopyableCode code="get_latest_recovery_time" /> | `SELECT` | <CopyableCode code="instance, project" /> |

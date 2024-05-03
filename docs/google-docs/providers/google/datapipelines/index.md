@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Data Pipelines Provides An Interface For Creating, Updating, And Managing Recurring Data Analytics Jobs.  
     
 :::info Service Summary

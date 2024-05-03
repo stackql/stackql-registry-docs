@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Manages Identity And Access Control For Google Cloud Platform Resources, Including The Creation Of Service Accounts, Which You Can Use To Authenticate To Google And Make API Calls.   
     
 :::info Service Summary

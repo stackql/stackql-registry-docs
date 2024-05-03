@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Google Cloud Deployment Manager V2 API Provides Services For Configuring, Deploying, And Viewing Google Cloud Services And APIs Via Templates Which Specify Deployments Of Cloud Resources.  
     
 :::info Service Summary

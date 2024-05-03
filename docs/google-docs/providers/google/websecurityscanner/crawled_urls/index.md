@@ -14,24 +14,27 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>crawled_urls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.websecurityscanner.crawled_urls</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.websecurityscanner.crawled_urls" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `body` | `string` | Output only. The body of the request that was used to visit the URL. |
-| `httpMethod` | `string` | Output only. The http method of the request that was used to visit the URL, in uppercase. |
-| `url` | `string` | Output only. The URL that was crawled. |
+| <CopyableCode code="body" /> | `string` | Output only. The body of the request that was used to visit the URL. |
+| <CopyableCode code="httpMethod" /> | `string` | Output only. The http method of the request that was used to visit the URL, in uppercase. |
+| <CopyableCode code="url" /> | `string` | Output only. The URL that was crawled. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `projectsId, scanConfigsId, scanRunsId` |
-| `_list` | `EXEC` | `projectsId, scanConfigsId, scanRunsId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId, scanConfigsId, scanRunsId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId, scanConfigsId, scanRunsId" /> |

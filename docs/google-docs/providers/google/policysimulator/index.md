@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
  Policy Simulator Is A Collection Of Endpoints For Creating, Running, And Viewing A Replay. A `Replay` Is A Type Of Simulation That Lets You See How Your Members' Access To Resources Might Change If You Changed Your IAM Policy. During A `Replay`, Policy Simulator Re-Evaluates, Or Replays, Past Access Attempts Under Both The Current Policy And Your Proposed Policy, And Compares Those Results To Determine How Your Members' Access Might Change Under The Proposed Policy.  
     
 :::info Service Summary

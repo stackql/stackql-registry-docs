@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_endpoint_groups_network_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.network_endpoint_groups_network_endpoints</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.network_endpoint_groups_network_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_network_endpoints` | `EXEC` | `networkEndpointGroup, project, zone` |
+| <CopyableCode code="list_network_endpoints" /> | `EXEC` | <CopyableCode code="networkEndpointGroup, project, zone" /> |

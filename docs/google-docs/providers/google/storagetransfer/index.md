@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Transfers Data From External Data Sources To A Google Cloud Storage Bucket Or Between Google Cloud Storage Buckets.   
     
 :::info Service Summary

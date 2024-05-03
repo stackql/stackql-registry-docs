@@ -14,32 +14,35 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>manifests</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.deploymentmanager.manifests</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.deploymentmanager.manifests" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` |  |
-| `name` | `string` | Output only. The name of the manifest. |
-| `insertTime` | `string` | Output only. Creation timestamp in RFC3339 text format. |
-| `expandedConfig` | `string` | Output only. The fully-expanded configuration file, including any templates and references. |
-| `layout` | `string` | Output only. The YAML layout for this manifest. |
-| `config` | `object` |  |
-| `imports` | `array` | Output only. The imported files for this manifest. |
-| `manifestSizeLimitBytes` | `string` | Output only. The size limit for expanded manifests in the project. |
-| `selfLink` | `string` | Output only. Self link for the manifest. |
-| `manifestSizeBytes` | `string` | Output only. The computed size of the fully expanded manifest. |
+| <CopyableCode code="id" /> | `string` |  |
+| <CopyableCode code="name" /> | `string` | Output only. The name of the manifest. |
+| <CopyableCode code="config" /> | `object` |  |
+| <CopyableCode code="expandedConfig" /> | `string` | Output only. The fully-expanded configuration file, including any templates and references. |
+| <CopyableCode code="imports" /> | `array` | Output only. The imported files for this manifest. |
+| <CopyableCode code="insertTime" /> | `string` | Output only. Creation timestamp in RFC3339 text format. |
+| <CopyableCode code="layout" /> | `string` | Output only. The YAML layout for this manifest. |
+| <CopyableCode code="manifestSizeBytes" /> | `string` | Output only. The computed size of the fully expanded manifest. |
+| <CopyableCode code="manifestSizeLimitBytes" /> | `string` | Output only. The size limit for expanded manifests in the project. |
+| <CopyableCode code="selfLink" /> | `string` | Output only. Self link for the manifest. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `deployment, manifest, project` | Gets information about a specific manifest. |
-| `list` | `SELECT` | `deployment, project` | Lists all manifests for a given deployment. |
-| `_list` | `EXEC` | `deployment, project` | Lists all manifests for a given deployment. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deployment, manifest, project" /> | Gets information about a specific manifest. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deployment, project" /> | Lists all manifests for a given deployment. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Lists all manifests for a given deployment. |

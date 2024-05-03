@@ -14,33 +14,36 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_revocation_lists</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.privateca.certificate_revocation_lists</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.privateca.certificate_revocation_lists" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name for this CertificateRevocationList in the format `projects/*/locations/*/caPools/*certificateAuthorities/*/ certificateRevocationLists/*`. |
-| `createTime` | `string` | Output only. The time at which this CertificateRevocationList was created. |
-| `revisionId` | `string` | Output only. The revision ID of this CertificateRevocationList. A new revision is committed whenever a new CRL is published. The format is an 8-character hexadecimal string. |
-| `revokedCertificates` | `array` | Output only. The revoked serial numbers that appear in pem_crl. |
-| `labels` | `object` | Optional. Labels with user-defined metadata. |
-| `accessUrl` | `string` | Output only. The location where 'pem_crl' can be accessed. |
-| `sequenceNumber` | `string` | Output only. The CRL sequence number that appears in pem_crl. |
-| `state` | `string` | Output only. The State for this CertificateRevocationList. |
-| `updateTime` | `string` | Output only. The time at which this CertificateRevocationList was updated. |
-| `pemCrl` | `string` | Output only. The PEM-encoded X.509 CRL. |
+| <CopyableCode code="name" /> | `string` | Output only. The resource name for this CertificateRevocationList in the format `projects/*/locations/*/caPools/*certificateAuthorities/*/ certificateRevocationLists/*`. |
+| <CopyableCode code="accessUrl" /> | `string` | Output only. The location where 'pem_crl' can be accessed. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The time at which this CertificateRevocationList was created. |
+| <CopyableCode code="labels" /> | `object` | Optional. Labels with user-defined metadata. |
+| <CopyableCode code="pemCrl" /> | `string` | Output only. The PEM-encoded X.509 CRL. |
+| <CopyableCode code="revisionId" /> | `string` | Output only. The revision ID of this CertificateRevocationList. A new revision is committed whenever a new CRL is published. The format is an 8-character hexadecimal string. |
+| <CopyableCode code="revokedCertificates" /> | `array` | Output only. The revoked serial numbers that appear in pem_crl. |
+| <CopyableCode code="sequenceNumber" /> | `string` | Output only. The CRL sequence number that appears in pem_crl. |
+| <CopyableCode code="state" /> | `string` | Output only. The State for this CertificateRevocationList. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this CertificateRevocationList was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId` | Returns a CertificateRevocationList. |
-| `list` | `SELECT` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Lists CertificateRevocationLists. |
-| `_list` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Lists CertificateRevocationLists. |
-| `patch` | `EXEC` | `caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId` | Update a CertificateRevocationList. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId" /> | Returns a CertificateRevocationList. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Lists CertificateRevocationLists. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Lists CertificateRevocationLists. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId" /> | Update a CertificateRevocationList. |

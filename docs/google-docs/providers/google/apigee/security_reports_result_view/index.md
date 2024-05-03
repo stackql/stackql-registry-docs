@@ -14,25 +14,28 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_reports_result_view</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.security_reports_result_view</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.security_reports_result_view" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `rows` | `array` | Rows of security report result. Each row is a JSON object. Example: &#123;sum(message_count): 1, developer_app: "(not set)",…&#125; |
-| `state` | `string` | State of retrieving ResultView. |
-| `code` | `integer` | Error code when there is a failure. |
-| `error` | `string` | Error message when there is a failure. |
-| `metadata` | `object` | Metadata for the security report. |
+| <CopyableCode code="code" /> | `integer` | Error code when there is a failure. |
+| <CopyableCode code="error" /> | `string` | Error message when there is a failure. |
+| <CopyableCode code="metadata" /> | `object` | Metadata for the security report. |
+| <CopyableCode code="rows" /> | `array` | Rows of security report result. Each row is a JSON object. Example: &#123;sum(message_count): 1, developer_app: "(not set)",…&#125; |
+| <CopyableCode code="state" /> | `string` | State of retrieving ResultView. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_security_reports_get_result_view` | `SELECT` | `environmentsId, organizationsId, securityReportsId` |
+| <CopyableCode code="organizations_environments_security_reports_get_result_view" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, securityReportsId" /> |

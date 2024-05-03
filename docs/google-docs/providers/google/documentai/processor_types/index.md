@@ -14,30 +14,33 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>processor_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.documentai.processor_types</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.documentai.processor_types" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the processor type. Format: `projects/&#123;project&#125;/processorTypes/&#123;processor_type&#125;` |
-| `allowCreation` | `boolean` | Whether the processor type allows creation. If true, users can create a processor of this processor type. Otherwise, users need to request access. |
-| `availableLocations` | `array` | The locations in which this processor is available. |
-| `category` | `string` | The processor category, used by UI to group processor types. |
-| `launchStage` | `string` | Launch stage of the processor type |
-| `sampleDocumentUris` | `array` | A set of Cloud Storage URIs of sample documents for this processor. |
-| `type` | `string` | The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. |
+| <CopyableCode code="name" /> | `string` | The resource name of the processor type. Format: `projects/&#123;project&#125;/processorTypes/&#123;processor_type&#125;` |
+| <CopyableCode code="allowCreation" /> | `boolean` | Whether the processor type allows creation. If true, users can create a processor of this processor type. Otherwise, users need to request access. |
+| <CopyableCode code="availableLocations" /> | `array` | The locations in which this processor is available. |
+| <CopyableCode code="category" /> | `string` | The processor category, used by UI to group processor types. |
+| <CopyableCode code="launchStage" /> | `string` | Launch stage of the processor type |
+| <CopyableCode code="sampleDocumentUris" /> | `array` | A set of Cloud Storage URIs of sample documents for this processor. |
+| <CopyableCode code="type" /> | `string` | The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_processor_types_get` | `SELECT` | `locationsId, processorTypesId, projectsId` | Gets a processor type detail. |
-| `projects_locations_processor_types_list` | `SELECT` | `locationsId, projectsId` | Lists the processor types that exist. |
-| `_projects_locations_processor_types_list` | `EXEC` | `locationsId, projectsId` | Lists the processor types that exist. |
-| `projects_locations_fetch_processor_types` | `EXEC` | `locationsId, projectsId` | Fetches processor types. Note that we don't use ListProcessorTypes here, because it isn't paginated. |
+| <CopyableCode code="projects_locations_processor_types_get" /> | `SELECT` | <CopyableCode code="locationsId, processorTypesId, projectsId" /> | Gets a processor type detail. |
+| <CopyableCode code="projects_locations_processor_types_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists the processor types that exist. |
+| <CopyableCode code="_projects_locations_processor_types_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the processor types that exist. |
+| <CopyableCode code="projects_locations_fetch_processor_types" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Fetches processor types. Note that we don't use ListProcessorTypes here, because it isn't paginated. |

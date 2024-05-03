@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Cloud Retail Service Enables Customers To Build End-To-End Personalized Recommendation Systems Without Requiring A High Level Of Expertise In Machine Learning, Recommendation System, Or Google Cloud.  
     
 :::info Service Summary

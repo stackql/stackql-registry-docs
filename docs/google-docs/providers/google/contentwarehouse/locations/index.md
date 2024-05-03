@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.contentwarehouse.locations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.contentwarehouse.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `initialize` | `EXEC` | `locationsId, projectsId` | Provisions resources for given tenant project. Returns a long running operation. |
-| `run_pipeline` | `EXEC` | `locationsId, projectsId` | Run a predefined pipeline. |
+| <CopyableCode code="initialize" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Provisions resources for given tenant project. Returns a long running operation. |
+| <CopyableCode code="run_pipeline" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Run a predefined pipeline. |

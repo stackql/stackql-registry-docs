@@ -14,28 +14,31 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dialogflow.deployments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the deployment. Format: projects//locations//agents//environments//deployments/. |
-| `state` | `string` | The current state of the deployment. |
-| `endTime` | `string` | End time of this deployment. |
-| `flowVersion` | `string` | The name of the flow version for this deployment. Format: projects//locations//agents//flows//versions/. |
-| `result` | `object` | Result of the deployment. |
-| `startTime` | `string` | Start time of this deployment. |
+| <CopyableCode code="name" /> | `string` | The name of the deployment. Format: projects//locations//agents//environments//deployments/. |
+| <CopyableCode code="endTime" /> | `string` | End time of this deployment. |
+| <CopyableCode code="flowVersion" /> | `string` | The name of the flow version for this deployment. Format: projects//locations//agents//flows//versions/. |
+| <CopyableCode code="result" /> | `object` | Result of the deployment. |
+| <CopyableCode code="startTime" /> | `string` | Start time of this deployment. |
+| <CopyableCode code="state" /> | `string` | The current state of the deployment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_agents_environments_deployments_get` | `SELECT` | `agentsId, deploymentsId, environmentsId, locationsId, projectsId` | Retrieves the specified Deployment. |
-| `projects_locations_agents_environments_deployments_list` | `SELECT` | `agentsId, environmentsId, locationsId, projectsId` | Returns the list of all deployments in the specified Environment. |
-| `_projects_locations_agents_environments_deployments_list` | `EXEC` | `agentsId, environmentsId, locationsId, projectsId` | Returns the list of all deployments in the specified Environment. |
+| <CopyableCode code="projects_locations_agents_environments_deployments_get" /> | `SELECT` | <CopyableCode code="agentsId, deploymentsId, environmentsId, locationsId, projectsId" /> | Retrieves the specified Deployment. |
+| <CopyableCode code="projects_locations_agents_environments_deployments_list" /> | `SELECT` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Returns the list of all deployments in the specified Environment. |
+| <CopyableCode code="_projects_locations_agents_environments_deployments_list" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Returns the list of all deployments in the specified Environment. |

@@ -182,7 +182,7 @@ for serviceIx, serviceRow in services.iterrows():
                               total_provider_selectable_resources = total_provider_selectable_resources + 1
                         else:
                               print("ERROR [no fields found for %s.%s.%s]" % (provider, serviceName, resourceName))
-                              sys.exit(1)
+                              # sys.exit(1)
                   else:
                         # resource with no selectable methods
                         resource_doc = resource_doc + generate_select_not_supported()

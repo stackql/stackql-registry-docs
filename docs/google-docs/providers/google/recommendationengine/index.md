@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Note That We Now Highly Recommend New Customers To Use Retail API, Which Incorporates The GA Version Of The Recommendations AI Funtionalities. To Enable Retail API, Please Visit Https://Console.Cloud.Google.Com/Apis/Library/Retail.Googleapis.Com. The Recommendations AI Service Enables Customers To Build End-To-End Personalized Recommendation Systems Without Requiring A High Level Of Expertise In Machine Learning, Recommendation System, Or Google Cloud.  
     
 :::info Service Summary

@@ -14,28 +14,31 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>identity_aware_proxy_clients</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.iap.identity_aware_proxy_clients</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.iap.identity_aware_proxy_clients" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Unique identifier of the OAuth client. |
-| `secret` | `string` | Output only. Client secret of the OAuth client. |
-| `displayName` | `string` | Human-friendly name given to the OAuth client. |
+| <CopyableCode code="name" /> | `string` | Output only. Unique identifier of the OAuth client. |
+| <CopyableCode code="displayName" /> | `string` | Human-friendly name given to the OAuth client. |
+| <CopyableCode code="secret" /> | `string` | Output only. Client secret of the OAuth client. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `brandsId, identityAwareProxyClientsId, projectsId` | Retrieves an Identity Aware Proxy (IAP) OAuth client. Requires that the client is owned by IAP. |
-| `list` | `SELECT` | `brandsId, projectsId` | Lists the existing clients for the brand. |
-| `create` | `INSERT` | `brandsId, projectsId` | Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned by IAP. Requires that the brand for the project exists and that it is set for internal-only use. |
-| `delete` | `DELETE` | `brandsId, identityAwareProxyClientsId, projectsId` | Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing obsolete clients, managing the number of clients in a given project, and cleaning up after tests. Requires that the client is owned by IAP. |
-| `_list` | `EXEC` | `brandsId, projectsId` | Lists the existing clients for the brand. |
-| `reset_secret` | `EXEC` | `brandsId, identityAwareProxyClientsId, projectsId` | Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful if the secret was compromised. Requires that the client is owned by IAP. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="brandsId, identityAwareProxyClientsId, projectsId" /> | Retrieves an Identity Aware Proxy (IAP) OAuth client. Requires that the client is owned by IAP. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="brandsId, projectsId" /> | Lists the existing clients for the brand. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="brandsId, projectsId" /> | Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned by IAP. Requires that the brand for the project exists and that it is set for internal-only use. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="brandsId, identityAwareProxyClientsId, projectsId" /> | Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing obsolete clients, managing the number of clients in a given project, and cleaning up after tests. Requires that the client is owned by IAP. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="brandsId, projectsId" /> | Lists the existing clients for the brand. |
+| <CopyableCode code="reset_secret" /> | `EXEC` | <CopyableCode code="brandsId, identityAwareProxyClientsId, projectsId" /> | Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful if the secret was compromised. Requires that the client is owned by IAP. |

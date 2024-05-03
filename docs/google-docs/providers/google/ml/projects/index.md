@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.ml.projects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.ml.projects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_explain` | `EXEC` | `projectsId` | Performs explanation on the data in the request. &#123;% dynamic include "/ai-platform/includes/___explain-request" %&#125;  |
-| `projects_predict` | `EXEC` | `projectsId` | Performs online prediction on the data in the request. &#123;% dynamic include "/ai-platform/includes/___predict-request" %&#125;  |
+| <CopyableCode code="projects_explain" /> | `EXEC` | <CopyableCode code="projectsId" /> | Performs explanation on the data in the request. &#123;% dynamic include "/ai-platform/includes/___explain-request" %&#125;  |
+| <CopyableCode code="projects_predict" /> | `EXEC` | <CopyableCode code="projectsId" /> | Performs online prediction on the data in the request. &#123;% dynamic include "/ai-platform/includes/___predict-request" %&#125;  |

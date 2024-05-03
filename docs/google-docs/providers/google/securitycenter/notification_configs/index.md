@@ -14,42 +14,45 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notification_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.securitycenter.notification_configs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.notification_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The relative resource name of this notification config. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example: "organizations/&#123;organization_id&#125;/notificationConfigs/notify_public_bucket", "folders/&#123;folder_id&#125;/notificationConfigs/notify_public_bucket", or "projects/&#123;project_id&#125;/notificationConfigs/notify_public_bucket". |
-| `description` | `string` | The description of the notification config (max of 1024 characters). |
-| `streamingConfig` | `object` | The config for streaming-based notifications, which send each event as soon as it is detected. |
-| `pubsubTopic` | `string` | The Pub/Sub topic to send notifications to. Its format is "projects/[project_id]/topics/[topic]". |
-| `serviceAccount` | `string` | Output only. The service account that needs "pubsub.topics.publish" permission to publish to the Pub/Sub topic. |
+| <CopyableCode code="name" /> | `string` | The relative resource name of this notification config. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example: "organizations/&#123;organization_id&#125;/notificationConfigs/notify_public_bucket", "folders/&#123;folder_id&#125;/notificationConfigs/notify_public_bucket", or "projects/&#123;project_id&#125;/notificationConfigs/notify_public_bucket". |
+| <CopyableCode code="description" /> | `string` | The description of the notification config (max of 1024 characters). |
+| <CopyableCode code="pubsubTopic" /> | `string` | The Pub/Sub topic to send notifications to. Its format is "projects/[project_id]/topics/[topic]". |
+| <CopyableCode code="serviceAccount" /> | `string` | Output only. The service account that needs "pubsub.topics.publish" permission to publish to the Pub/Sub topic. |
+| <CopyableCode code="streamingConfig" /> | `object` | The config for streaming-based notifications, which send each event as soon as it is detected. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `folders_notification_configs_get` | `SELECT` | `foldersId, notificationConfigsId` | Gets a notification config. |
-| `folders_notification_configs_list` | `SELECT` | `foldersId` | Lists notification configs. |
-| `organizations_notification_configs_get` | `SELECT` | `notificationConfigsId, organizationsId` | Gets a notification config. |
-| `organizations_notification_configs_list` | `SELECT` | `organizationsId` | Lists notification configs. |
-| `projects_notification_configs_get` | `SELECT` | `notificationConfigsId, projectsId` | Gets a notification config. |
-| `projects_notification_configs_list` | `SELECT` | `projectsId` | Lists notification configs. |
-| `folders_notification_configs_create` | `INSERT` | `foldersId` | Creates a notification config. |
-| `organizations_notification_configs_create` | `INSERT` | `organizationsId` | Creates a notification config. |
-| `projects_notification_configs_create` | `INSERT` | `projectsId` | Creates a notification config. |
-| `folders_notification_configs_delete` | `DELETE` | `foldersId, notificationConfigsId` | Deletes a notification config. |
-| `organizations_notification_configs_delete` | `DELETE` | `notificationConfigsId, organizationsId` | Deletes a notification config. |
-| `projects_notification_configs_delete` | `DELETE` | `notificationConfigsId, projectsId` | Deletes a notification config. |
-| `_folders_notification_configs_list` | `EXEC` | `foldersId` | Lists notification configs. |
-| `_organizations_notification_configs_list` | `EXEC` | `organizationsId` | Lists notification configs. |
-| `_projects_notification_configs_list` | `EXEC` | `projectsId` | Lists notification configs. |
-| `folders_notification_configs_patch` | `EXEC` | `foldersId, notificationConfigsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
-| `organizations_notification_configs_patch` | `EXEC` | `notificationConfigsId, organizationsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
-| `projects_notification_configs_patch` | `EXEC` | `notificationConfigsId, projectsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| <CopyableCode code="folders_notification_configs_get" /> | `SELECT` | <CopyableCode code="foldersId, notificationConfigsId" /> | Gets a notification config. |
+| <CopyableCode code="folders_notification_configs_list" /> | `SELECT` | <CopyableCode code="foldersId" /> | Lists notification configs. |
+| <CopyableCode code="organizations_notification_configs_get" /> | `SELECT` | <CopyableCode code="notificationConfigsId, organizationsId" /> | Gets a notification config. |
+| <CopyableCode code="organizations_notification_configs_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists notification configs. |
+| <CopyableCode code="projects_notification_configs_get" /> | `SELECT` | <CopyableCode code="notificationConfigsId, projectsId" /> | Gets a notification config. |
+| <CopyableCode code="projects_notification_configs_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists notification configs. |
+| <CopyableCode code="folders_notification_configs_create" /> | `INSERT` | <CopyableCode code="foldersId" /> | Creates a notification config. |
+| <CopyableCode code="organizations_notification_configs_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a notification config. |
+| <CopyableCode code="projects_notification_configs_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a notification config. |
+| <CopyableCode code="folders_notification_configs_delete" /> | `DELETE` | <CopyableCode code="foldersId, notificationConfigsId" /> | Deletes a notification config. |
+| <CopyableCode code="organizations_notification_configs_delete" /> | `DELETE` | <CopyableCode code="notificationConfigsId, organizationsId" /> | Deletes a notification config. |
+| <CopyableCode code="projects_notification_configs_delete" /> | `DELETE` | <CopyableCode code="notificationConfigsId, projectsId" /> | Deletes a notification config. |
+| <CopyableCode code="_folders_notification_configs_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists notification configs. |
+| <CopyableCode code="_organizations_notification_configs_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists notification configs. |
+| <CopyableCode code="_projects_notification_configs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists notification configs. |
+| <CopyableCode code="folders_notification_configs_patch" /> | `EXEC` | <CopyableCode code="foldersId, notificationConfigsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| <CopyableCode code="organizations_notification_configs_patch" /> | `EXEC` | <CopyableCode code="notificationConfigsId, organizationsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| <CopyableCode code="projects_notification_configs_patch" /> | `EXEC` | <CopyableCode code="notificationConfigsId, projectsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |

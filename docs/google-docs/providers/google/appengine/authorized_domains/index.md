@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorized_domains</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.appengine.authorized_domains</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.appengine.authorized_domains" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified domain name of the domain authorized for use. Example: example.com. |
-| `name` | `string` | Full path to the AuthorizedDomain resource in the API. Example: apps/myapp/authorizedDomains/example.com.@OutputOnly |
+| <CopyableCode code="id" /> | `string` | Fully qualified domain name of the domain authorized for use. Example: example.com. |
+| <CopyableCode code="name" /> | `string` | Full path to the AuthorizedDomain resource in the API. Example: apps/myapp/authorizedDomains/example.com.@OutputOnly |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `appsId` |
-| `_list` | `EXEC` | `appsId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appsId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId" /> |

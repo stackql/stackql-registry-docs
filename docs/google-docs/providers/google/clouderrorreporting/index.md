@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Groups And Counts Similar Errors From Cloud Services And Applications, Reports New Errors, And Provides Access To Error Groups And Their Associated Errors.   
     
 :::info Service Summary

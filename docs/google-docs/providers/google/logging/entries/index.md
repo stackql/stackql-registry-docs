@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.logging.entries</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.entries" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,7 +32,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `entries_copy` | `EXEC` |  | Copies a set of log entries from a log bucket to a Cloud Storage bucket. |
-| `entries_list` | `EXEC` |  | Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log entries, see Exporting Logs (https://cloud.google.com/logging/docs/export). |
-| `entries_tail` | `EXEC` |  | Streaming read of log entries as they are received. Until the stream is terminated, it will continue reading logs. |
-| `entries_write` | `EXEC` |  | Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the Logging agent (fluentd) and all logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different resources (projects, organizations, billing accounts or folders) |
+| <CopyableCode code="entries_copy" /> | `EXEC` |  | Copies a set of log entries from a log bucket to a Cloud Storage bucket. |
+| <CopyableCode code="entries_list" /> | `EXEC` |  | Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log entries, see Exporting Logs (https://cloud.google.com/logging/docs/export). |
+| <CopyableCode code="entries_tail" /> | `EXEC` |  | Streaming read of log entries as they are received. Until the stream is terminated, it will continue reading logs. |
+| <CopyableCode code="entries_write" /> | `EXEC` |  | Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the Logging agent (fluentd) and all logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different resources (projects, organizations, billing accounts or folders) |

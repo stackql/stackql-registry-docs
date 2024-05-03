@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Sends Application Trace Data To Cloud Trace For Viewing. Trace Data Is Collected For All App Engine Applications By Default. Trace Data From Other Applications Can Be Provided Using This API. This Library Is Used To Interact With The Cloud Trace API Directly. If You Are Looking To Instrument Your Application For Cloud Trace, We Recommend Using OpenTelemetry.   
     
 :::info Service Summary

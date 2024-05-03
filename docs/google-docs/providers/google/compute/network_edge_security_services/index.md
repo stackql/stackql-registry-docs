@@ -14,35 +14,38 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_edge_security_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.network_edge_security_services</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.network_edge_security_services" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
-| `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
-| `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `region` | `string` | [Output Only] URL of the region where the resource resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `fingerprint` | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a NetworkEdgeSecurityService. An up-to-date fingerprint must be provided in order to update the NetworkEdgeSecurityService, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a NetworkEdgeSecurityService. |
-| `securityPolicy` | `string` | The resource URL for the network edge security service associated with this network edge security service. |
-| `kind` | `string` | [Output only] Type of the resource. Always compute#networkEdgeSecurityService for NetworkEdgeSecurityServices |
-| `selfLinkWithId` | `string` | [Output Only] Server-defined URL for this resource with the resource id. |
+| <CopyableCode code="id" /> | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
+| <CopyableCode code="description" /> | `string` | An optional description of this resource. Provide this property when you create the resource. |
+| <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| <CopyableCode code="fingerprint" /> | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a NetworkEdgeSecurityService. An up-to-date fingerprint must be provided in order to update the NetworkEdgeSecurityService, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a NetworkEdgeSecurityService. |
+| <CopyableCode code="kind" /> | `string` | [Output only] Type of the resource. Always compute#networkEdgeSecurityService for NetworkEdgeSecurityServices |
+| <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the resource resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| <CopyableCode code="securityPolicy" /> | `string` | The resource URL for the network edge security service associated with this network edge security service. |
+| <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
+| <CopyableCode code="selfLinkWithId" /> | `string` | [Output Only] Server-defined URL for this resource with the resource id. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `aggregated_list` | `SELECT` | `project` | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. |
-| `get` | `SELECT` | `networkEdgeSecurityService, project, region` | Gets a specified NetworkEdgeSecurityService. |
-| `insert` | `INSERT` | `project, region` | Creates a new service in the specified project using the data included in the request. |
-| `delete` | `DELETE` | `networkEdgeSecurityService, project, region` | Deletes the specified service. |
-| `_aggregated_list` | `EXEC` | `project` | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. |
-| `patch` | `EXEC` | `networkEdgeSecurityService, project, region` | Patches the specified policy with the data included in the request. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkEdgeSecurityService, project, region" /> | Gets a specified NetworkEdgeSecurityService. |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a new service in the specified project using the data included in the request. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkEdgeSecurityService, project, region" /> | Deletes the specified service. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="networkEdgeSecurityService, project, region" /> | Patches the specified policy with the data included in the request. |

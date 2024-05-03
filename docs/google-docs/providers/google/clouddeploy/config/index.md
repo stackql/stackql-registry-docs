@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.clouddeploy.config</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.clouddeploy.config" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the configuration. |
-| `supportedVersions` | `array` | All supported versions of Skaffold. |
-| `defaultSkaffoldVersion` | `string` | Default Skaffold version that is assigned when a Release is created without specifying a Skaffold version. |
+| <CopyableCode code="name" /> | `string` | Name of the configuration. |
+| <CopyableCode code="defaultSkaffoldVersion" /> | `string` | Default Skaffold version that is assigned when a Release is created without specifying a Skaffold version. |
+| <CopyableCode code="supportedVersions" /> | `array` | All supported versions of Skaffold. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_config` | `SELECT` | `locationsId, projectsId` |
+| <CopyableCode code="get_config" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> |

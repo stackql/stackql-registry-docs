@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Runtime Configurator Allows You To Dynamically Configure And Expose Variables Through Google Cloud Platform. In Addition, You Can Also Set Watchers And Waiters That Will Watch For Changes To Your Data And Return Based On Certain Conditions.  
     
 :::info Service Summary

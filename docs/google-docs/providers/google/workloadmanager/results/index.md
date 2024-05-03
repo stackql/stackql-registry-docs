@@ -14,27 +14,30 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>results</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.workloadmanager.results</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.workloadmanager.results" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resource` | `object` | Message represent resource in execution result |
-| `rule` | `string` | the rule which violate in execution |
-| `severity` | `string` | severity of violation |
-| `violationDetails` | `object` | Message describing the violdation in execution result |
-| `violationMessage` | `string` | the violation message of an execution |
-| `documentationUrl` | `string` | the document url of the rule |
+| <CopyableCode code="documentationUrl" /> | `string` | the document url of the rule |
+| <CopyableCode code="resource" /> | `object` | Message represent resource in execution result |
+| <CopyableCode code="rule" /> | `string` | the rule which violate in execution |
+| <CopyableCode code="severity" /> | `string` | severity of violation |
+| <CopyableCode code="violationDetails" /> | `object` | Message describing the violdation in execution result |
+| <CopyableCode code="violationMessage" /> | `string` | the violation message of an execution |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `evaluationsId, executionsId, locationsId, projectsId` |
-| `_list` | `EXEC` | `evaluationsId, executionsId, locationsId, projectsId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="evaluationsId, executionsId, locationsId, projectsId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="evaluationsId, executionsId, locationsId, projectsId" /> |

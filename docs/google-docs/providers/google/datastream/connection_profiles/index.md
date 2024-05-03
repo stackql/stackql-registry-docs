@@ -14,39 +14,42 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connection_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.datastream.connection_profiles</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datastream.connection_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource's name. |
-| `gcsProfile` | `object` | Cloud Storage bucket profile. |
-| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
-| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. Used when the source database is configured to allow incoming connections from the Datastream public IP addresses for the region specified in the connection profile. |
-| `createTime` | `string` | Output only. The create time of the resource. |
-| `mysqlProfile` | `object` | MySQL database profile. |
-| `privateConnectivity` | `object` | Private Connectivity |
-| `displayName` | `string` | Required. Display name. |
-| `bigqueryProfile` | `object` | BigQuery warehouse profile. |
-| `updateTime` | `string` | Output only. The update time of the resource. |
-| `postgresqlProfile` | `object` | PostgreSQL database profile. |
-| `labels` | `object` | Labels. |
-| `oracleProfile` | `object` | Oracle database profile. |
+| <CopyableCode code="name" /> | `string` | Output only. The resource's name. |
+| <CopyableCode code="bigqueryProfile" /> | `object` | BigQuery warehouse profile. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The create time of the resource. |
+| <CopyableCode code="displayName" /> | `string` | Required. Display name. |
+| <CopyableCode code="forwardSshConnectivity" /> | `object` | Forward SSH Tunnel connectivity. |
+| <CopyableCode code="gcsProfile" /> | `object` | Cloud Storage bucket profile. |
+| <CopyableCode code="labels" /> | `object` | Labels. |
+| <CopyableCode code="mysqlProfile" /> | `object` | MySQL database profile. |
+| <CopyableCode code="oracleProfile" /> | `object` | Oracle database profile. |
+| <CopyableCode code="postgresqlProfile" /> | `object` | PostgreSQL database profile. |
+| <CopyableCode code="privateConnectivity" /> | `object` | Private Connectivity |
+| <CopyableCode code="staticServiceIpConnectivity" /> | `object` | Static IP address connectivity. Used when the source database is configured to allow incoming connections from the Datastream public IP addresses for the region specified in the connection profile. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The update time of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `connectionProfilesId, locationsId, projectsId` | Use this method to get details about a connection profile. |
-| `list` | `SELECT` | `locationsId, projectsId` | Use this method to list connection profiles created in a project and location. |
-| `create` | `INSERT` | `locationsId, projectsId` | Use this method to create a connection profile in a project and location. |
-| `delete` | `DELETE` | `connectionProfilesId, locationsId, projectsId` | Use this method to delete a connection profile. |
-| `_list` | `EXEC` | `locationsId, projectsId` | Use this method to list connection profiles created in a project and location. |
-| `discover` | `EXEC` | `locationsId, projectsId` | Use this method to discover a connection profile. The discover API call exposes the data objects and metadata belonging to the profile. Typically, a request returns children data objects of a parent data object that's optionally supplied in the request. |
-| `patch` | `EXEC` | `connectionProfilesId, locationsId, projectsId` | Use this method to update the parameters of a connection profile. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectionProfilesId, locationsId, projectsId" /> | Use this method to get details about a connection profile. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list connection profiles created in a project and location. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to create a connection profile in a project and location. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectionProfilesId, locationsId, projectsId" /> | Use this method to delete a connection profile. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list connection profiles created in a project and location. |
+| <CopyableCode code="discover" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Use this method to discover a connection profile. The discover API call exposes the data objects and metadata belonging to the profile. Typically, a request returns children data objects of a parent data object that's optionally supplied in the request. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="connectionProfilesId, locationsId, projectsId" /> | Use this method to update the parameters of a connection profile. |

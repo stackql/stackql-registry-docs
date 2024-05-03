@@ -14,26 +14,29 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_details</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.osconfig.instance_details</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.osconfig.instance_details" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The instance name in the form `projects/*/zones/*/instances/*` |
-| `state` | `string` | Current state of instance patch. |
-| `attemptCount` | `string` | The number of times the agent that the agent attempts to apply the patch. |
-| `failureReason` | `string` | If the patch fails, this field provides the reason. |
-| `instanceSystemId` | `string` | The unique identifier for the instance. This identifier is defined by the server. |
+| <CopyableCode code="name" /> | `string` | The instance name in the form `projects/*/zones/*/instances/*` |
+| <CopyableCode code="attemptCount" /> | `string` | The number of times the agent that the agent attempts to apply the patch. |
+| <CopyableCode code="failureReason" /> | `string` | If the patch fails, this field provides the reason. |
+| <CopyableCode code="instanceSystemId" /> | `string` | The unique identifier for the instance. This identifier is defined by the server. |
+| <CopyableCode code="state" /> | `string` | Current state of instance patch. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `patchJobsId, projectsId` |
-| `_list` | `EXEC` | `patchJobsId, projectsId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="patchJobsId, projectsId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="patchJobsId, projectsId" /> |

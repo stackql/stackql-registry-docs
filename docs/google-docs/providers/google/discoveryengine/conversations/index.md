@@ -14,39 +14,42 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>conversations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.discoveryengine.conversations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.conversations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. Fully qualified name `project/*/locations/global/collections/&#123;collection&#125;/dataStore/*/conversations/*` |
-| `endTime` | `string` | Output only. The time the conversation finished. |
-| `messages` | `array` | Conversation messages. |
-| `startTime` | `string` | Output only. The time the conversation started. |
-| `state` | `string` | The state of the Conversation. |
-| `userPseudoId` | `string` | A unique identifier for tracking users. |
+| <CopyableCode code="name" /> | `string` | Immutable. Fully qualified name `project/*/locations/global/collections/&#123;collection&#125;/dataStore/*/conversations/*` |
+| <CopyableCode code="endTime" /> | `string` | Output only. The time the conversation finished. |
+| <CopyableCode code="messages" /> | `array` | Conversation messages. |
+| <CopyableCode code="startTime" /> | `string` | Output only. The time the conversation started. |
+| <CopyableCode code="state" /> | `string` | The state of the Conversation. |
+| <CopyableCode code="userPseudoId" /> | `string` | A unique identifier for tracking users. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_collections_data_stores_conversations_get` | `SELECT` | `collectionsId, conversationsId, dataStoresId, locationsId, projectsId` | Gets a Conversation. |
-| `projects_locations_collections_data_stores_conversations_list` | `SELECT` | `collectionsId, dataStoresId, locationsId, projectsId` | Lists all Conversations by their parent DataStore. |
-| `projects_locations_data_stores_conversations_get` | `SELECT` | `conversationsId, dataStoresId, locationsId, projectsId` | Gets a Conversation. |
-| `projects_locations_data_stores_conversations_list` | `SELECT` | `dataStoresId, locationsId, projectsId` | Lists all Conversations by their parent DataStore. |
-| `projects_locations_collections_data_stores_conversations_create` | `INSERT` | `collectionsId, dataStoresId, locationsId, projectsId` | Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. |
-| `projects_locations_data_stores_conversations_create` | `INSERT` | `dataStoresId, locationsId, projectsId` | Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. |
-| `projects_locations_collections_data_stores_conversations_delete` | `DELETE` | `collectionsId, conversationsId, dataStoresId, locationsId, projectsId` | Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. |
-| `projects_locations_data_stores_conversations_delete` | `DELETE` | `conversationsId, dataStoresId, locationsId, projectsId` | Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. |
-| `_projects_locations_collections_data_stores_conversations_list` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId` | Lists all Conversations by their parent DataStore. |
-| `_projects_locations_data_stores_conversations_list` | `EXEC` | `dataStoresId, locationsId, projectsId` | Lists all Conversations by their parent DataStore. |
-| `projects_locations_collections_data_stores_conversations_converse` | `EXEC` | `collectionsId, conversationsId, dataStoresId, locationsId, projectsId` | Converses a conversation. |
-| `projects_locations_collections_data_stores_conversations_patch` | `EXEC` | `collectionsId, conversationsId, dataStoresId, locationsId, projectsId` | Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. |
-| `projects_locations_data_stores_conversations_converse` | `EXEC` | `conversationsId, dataStoresId, locationsId, projectsId` | Converses a conversation. |
-| `projects_locations_data_stores_conversations_patch` | `EXEC` | `conversationsId, dataStoresId, locationsId, projectsId` | Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_collections_data_stores_conversations_get" /> | `SELECT` | <CopyableCode code="collectionsId, conversationsId, dataStoresId, locationsId, projectsId" /> | Gets a Conversation. |
+| <CopyableCode code="projects_locations_collections_data_stores_conversations_list" /> | `SELECT` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Lists all Conversations by their parent DataStore. |
+| <CopyableCode code="projects_locations_data_stores_conversations_get" /> | `SELECT` | <CopyableCode code="conversationsId, dataStoresId, locationsId, projectsId" /> | Gets a Conversation. |
+| <CopyableCode code="projects_locations_data_stores_conversations_list" /> | `SELECT` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Lists all Conversations by their parent DataStore. |
+| <CopyableCode code="projects_locations_collections_data_stores_conversations_create" /> | `INSERT` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. |
+| <CopyableCode code="projects_locations_data_stores_conversations_create" /> | `INSERT` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. |
+| <CopyableCode code="projects_locations_collections_data_stores_conversations_delete" /> | `DELETE` | <CopyableCode code="collectionsId, conversationsId, dataStoresId, locationsId, projectsId" /> | Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_data_stores_conversations_delete" /> | `DELETE` | <CopyableCode code="conversationsId, dataStoresId, locationsId, projectsId" /> | Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="_projects_locations_collections_data_stores_conversations_list" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Lists all Conversations by their parent DataStore. |
+| <CopyableCode code="_projects_locations_data_stores_conversations_list" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Lists all Conversations by their parent DataStore. |
+| <CopyableCode code="projects_locations_collections_data_stores_conversations_converse" /> | `EXEC` | <CopyableCode code="collectionsId, conversationsId, dataStoresId, locationsId, projectsId" /> | Converses a conversation. |
+| <CopyableCode code="projects_locations_collections_data_stores_conversations_patch" /> | `EXEC` | <CopyableCode code="collectionsId, conversationsId, dataStoresId, locationsId, projectsId" /> | Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_data_stores_conversations_converse" /> | `EXEC` | <CopyableCode code="conversationsId, dataStoresId, locationsId, projectsId" /> | Converses a conversation. |
+| <CopyableCode code="projects_locations_data_stores_conversations_patch" /> | `EXEC` | <CopyableCode code="conversationsId, dataStoresId, locationsId, projectsId" /> | Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. |

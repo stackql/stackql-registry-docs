@@ -14,26 +14,29 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.bigquery.projects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.projects" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | An opaque ID of this project. |
-| `kind` | `string` | The resource type. |
-| `numericId` | `string` | The numeric ID of this project. |
-| `projectReference` | `object` |  |
-| `friendlyName` | `string` | A descriptive name for this project. |
+| <CopyableCode code="id" /> | `string` | An opaque ID of this project. |
+| <CopyableCode code="friendlyName" /> | `string` | A descriptive name for this project. |
+| <CopyableCode code="kind" /> | `string` | The resource type. |
+| <CopyableCode code="numericId" /> | `string` | The numeric ID of this project. |
+| <CopyableCode code="projectReference" /> | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

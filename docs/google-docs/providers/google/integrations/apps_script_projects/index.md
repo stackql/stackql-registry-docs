@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apps_script_projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.integrations.apps_script_projects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.apps_script_projects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_apps_script_projects_create` | `INSERT` | `locationsId, projectsId` | Creates an Apps Script project. |
-| `projects_locations_apps_script_projects_link` | `EXEC` | `locationsId, projectsId` | Links a existing Apps Script project. |
+| <CopyableCode code="projects_locations_apps_script_projects_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an Apps Script project. |
+| <CopyableCode code="projects_locations_apps_script_projects_link" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Links a existing Apps Script project. |

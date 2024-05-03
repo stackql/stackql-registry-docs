@@ -14,30 +14,33 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policy_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.datacatalog.policy_tags</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.policy_tags" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name of this policy tag in the URL format. The policy tag manager generates unique taxonomy IDs and policy tag IDs. |
-| `description` | `string` | Description of this policy tag. If not set, defaults to empty. The description must contain only Unicode characters, tabs, newlines, carriage returns and page breaks, and be at most 2000 bytes long when encoded in UTF-8. |
-| `parentPolicyTag` | `string` | Resource name of this policy tag's parent policy tag. If empty, this is a top level tag. If not set, defaults to an empty string. For example, for the "LatLong" policy tag in the example above, this field contains the resource name of the "Geolocation" policy tag, and, for "Geolocation", this field is empty. |
-| `childPolicyTags` | `array` | Output only. Resource names of child policy tags of this policy tag. |
-| `displayName` | `string` | Required. User-defined name of this policy tag. The name can't start or end with spaces and must be unique within the parent taxonomy, contain only Unicode letters, numbers, underscores, dashes and spaces, and be at most 200 bytes long when encoded in UTF-8. |
+| <CopyableCode code="name" /> | `string` | Output only. Resource name of this policy tag in the URL format. The policy tag manager generates unique taxonomy IDs and policy tag IDs. |
+| <CopyableCode code="description" /> | `string` | Description of this policy tag. If not set, defaults to empty. The description must contain only Unicode characters, tabs, newlines, carriage returns and page breaks, and be at most 2000 bytes long when encoded in UTF-8. |
+| <CopyableCode code="childPolicyTags" /> | `array` | Output only. Resource names of child policy tags of this policy tag. |
+| <CopyableCode code="displayName" /> | `string` | Required. User-defined name of this policy tag. The name can't start or end with spaces and must be unique within the parent taxonomy, contain only Unicode letters, numbers, underscores, dashes and spaces, and be at most 200 bytes long when encoded in UTF-8. |
+| <CopyableCode code="parentPolicyTag" /> | `string` | Resource name of this policy tag's parent policy tag. If empty, this is a top level tag. If not set, defaults to an empty string. For example, for the "LatLong" policy tag in the example above, this field contains the resource name of the "Geolocation" policy tag, and, for "Geolocation", this field is empty. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_taxonomies_policy_tags_get` | `SELECT` | `locationsId, policyTagsId, projectsId, taxonomiesId` | Gets a policy tag. |
-| `projects_locations_taxonomies_policy_tags_list` | `SELECT` | `locationsId, projectsId, taxonomiesId` | Lists all policy tags in a taxonomy. |
-| `projects_locations_taxonomies_policy_tags_create` | `INSERT` | `locationsId, projectsId, taxonomiesId` | Creates a policy tag in a taxonomy. |
-| `projects_locations_taxonomies_policy_tags_delete` | `DELETE` | `locationsId, policyTagsId, projectsId, taxonomiesId` | Deletes a policy tag together with the following: * All of its descendant policy tags, if any * Policies associated with the policy tag and its descendants * References from BigQuery table schema of the policy tag and its descendants |
-| `_projects_locations_taxonomies_policy_tags_list` | `EXEC` | `locationsId, projectsId, taxonomiesId` | Lists all policy tags in a taxonomy. |
-| `projects_locations_taxonomies_policy_tags_patch` | `EXEC` | `locationsId, policyTagsId, projectsId, taxonomiesId` | Updates a policy tag, including its display name, description, and parent policy tag. |
+| <CopyableCode code="projects_locations_taxonomies_policy_tags_get" /> | `SELECT` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Gets a policy tag. |
+| <CopyableCode code="projects_locations_taxonomies_policy_tags_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Lists all policy tags in a taxonomy. |
+| <CopyableCode code="projects_locations_taxonomies_policy_tags_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Creates a policy tag in a taxonomy. |
+| <CopyableCode code="projects_locations_taxonomies_policy_tags_delete" /> | `DELETE` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Deletes a policy tag together with the following: * All of its descendant policy tags, if any * Policies associated with the policy tag and its descendants * References from BigQuery table schema of the policy tag and its descendants |
+| <CopyableCode code="_projects_locations_taxonomies_policy_tags_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Lists all policy tags in a taxonomy. |
+| <CopyableCode code="projects_locations_taxonomies_policy_tags_patch" /> | `EXEC` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Updates a policy tag, including its display name, description, and parent policy tag. |

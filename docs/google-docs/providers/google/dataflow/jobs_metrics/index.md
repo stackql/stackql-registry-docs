@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs_metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dataflow.jobs_metrics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataflow.jobs_metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `metricTime` | `string` | Timestamp as of which metric values are current. |
-| `metrics` | `array` | All metrics for this job. |
+| <CopyableCode code="metricTime" /> | `string` | Timestamp as of which metric values are current. |
+| <CopyableCode code="metrics" /> | `array` | All metrics for this job. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_jobs_get_metrics` | `SELECT` | `jobId, projectId` |
-| `projects_locations_jobs_get_metrics` | `SELECT` | `jobId, location, projectId` |
+| <CopyableCode code="projects_jobs_get_metrics" /> | `SELECT` | <CopyableCode code="jobId, projectId" /> |
+| <CopyableCode code="projects_locations_jobs_get_metrics" /> | `SELECT` | <CopyableCode code="jobId, location, projectId" /> |

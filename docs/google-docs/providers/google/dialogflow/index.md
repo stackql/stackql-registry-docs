@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps And Devices).  
     
 :::info Service Summary

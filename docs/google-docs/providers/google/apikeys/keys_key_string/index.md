@@ -14,18 +14,21 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>keys_key_string</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apikeys.keys_key_string</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apikeys.keys_key_string" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_key_string` | `SELECT` | `keysId, locationsId, projectsId` |
+| <CopyableCode code="get_key_string" /> | `SELECT` | <CopyableCode code="keysId, locationsId, projectsId" /> |

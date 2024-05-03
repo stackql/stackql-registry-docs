@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Allows Users To Start, Configure, And Connect To Interactive Shell Sessions Running In The Cloud.   
     
 :::info Service Summary

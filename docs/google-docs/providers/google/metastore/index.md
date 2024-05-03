@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Dataproc Metastore API Is Used To Manage The Lifecycle And Configuration Of Metastore Services.  
     
 :::info Service Summary

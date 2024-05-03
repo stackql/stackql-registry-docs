@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspaces_file</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dataform.workspaces_file</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.workspaces_file" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `remove_file` | `EXEC` | `locationsId, projectsId, repositoriesId, workspacesId` |
+| <CopyableCode code="remove_file" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> |

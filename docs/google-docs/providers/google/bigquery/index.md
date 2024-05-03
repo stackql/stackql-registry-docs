@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 A Data Platform For Customers To Create, Manage, Share And Query Data.  
     
 :::info Service Summary

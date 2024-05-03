@@ -14,30 +14,33 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provisioning_quotas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.baremetalsolution.provisioning_quotas</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.provisioning_quotas" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The name of the provisioning quota. |
-| `gcpService` | `string` | The gcp service of the provisioning quota. |
-| `location` | `string` | The specific location of the provisioining quota. |
-| `networkBandwidth` | `string` | Network bandwidth, Gbps |
-| `storageGib` | `string` | Storage size (GB). |
-| `instanceQuota` | `object` | A resource budget. |
-| `availableCount` | `integer` | The available count of the provisioning quota. |
-| `serverCount` | `string` | Server count. |
-| `assetType` | `string` | The asset type of this provisioning quota. |
+| <CopyableCode code="name" /> | `string` | Output only. The name of the provisioning quota. |
+| <CopyableCode code="assetType" /> | `string` | The asset type of this provisioning quota. |
+| <CopyableCode code="availableCount" /> | `integer` | The available count of the provisioning quota. |
+| <CopyableCode code="gcpService" /> | `string` | The gcp service of the provisioning quota. |
+| <CopyableCode code="instanceQuota" /> | `object` | A resource budget. |
+| <CopyableCode code="location" /> | `string` | The specific location of the provisioining quota. |
+| <CopyableCode code="networkBandwidth" /> | `string` | Network bandwidth, Gbps |
+| <CopyableCode code="serverCount" /> | `string` | Server count. |
+| <CopyableCode code="storageGib" /> | `string` | Storage size (GB). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `locationsId, projectsId` |
-| `_list` | `EXEC` | `locationsId, projectsId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> |

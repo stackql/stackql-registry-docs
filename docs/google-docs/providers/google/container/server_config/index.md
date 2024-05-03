@@ -14,26 +14,29 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>server_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.container.server_config</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.container.server_config" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `defaultImageType` | `string` | Default image type. |
-| `validImageTypes` | `array` | List of valid image types. |
-| `validMasterVersions` | `array` | List of valid master versions, in descending order. |
-| `validNodeVersions` | `array` | List of valid node upgrade target versions, in descending order. |
-| `channels` | `array` | List of release channel configurations. |
-| `defaultClusterVersion` | `string` | Version of Kubernetes the service deploys by default. |
+| <CopyableCode code="channels" /> | `array` | List of release channel configurations. |
+| <CopyableCode code="defaultClusterVersion" /> | `string` | Version of Kubernetes the service deploys by default. |
+| <CopyableCode code="defaultImageType" /> | `string` | Default image type. |
+| <CopyableCode code="validImageTypes" /> | `array` | List of valid image types. |
+| <CopyableCode code="validMasterVersions" /> | `array` | List of valid master versions, in descending order. |
+| <CopyableCode code="validNodeVersions" /> | `array` | List of valid node upgrade target versions, in descending order. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_get_server_config` | `SELECT` | `locationsId, projectsId` |
+| <CopyableCode code="projects_locations_get_server_config" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> |

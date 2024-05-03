@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Workload Manager Is A Service That Provides Tooling For Enterprise Workloads To Automate The Deployment And Validation Of Your Workloads Against Best Practices And Recommendations.  
     
 :::info Service Summary

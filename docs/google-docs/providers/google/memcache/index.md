@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Google Cloud Memorystore For Memcached API Is Used For Creating And Managing Memcached Instances In GCP.  
     
 :::info Service Summary

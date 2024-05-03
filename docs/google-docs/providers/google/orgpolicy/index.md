@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Organization Policy API Allows Users To Configure Governance Rules On Their Google Cloud Resources Across The Resource Hierarchy.  
     
 :::info Service Summary

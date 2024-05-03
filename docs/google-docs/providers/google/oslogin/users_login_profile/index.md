@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>users_login_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.oslogin.users_login_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.oslogin.users_login_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. A unique user ID. |
-| `sshPublicKeys` | `object` | A map from SSH public key fingerprint to the associated key object. |
-| `posixAccounts` | `array` | The list of POSIX accounts associated with the user. |
+| <CopyableCode code="name" /> | `string` | Required. A unique user ID. |
+| <CopyableCode code="posixAccounts" /> | `array` | The list of POSIX accounts associated with the user. |
+| <CopyableCode code="sshPublicKeys" /> | `object` | A map from SSH public key fingerprint to the associated key object. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_login_profile` | `SELECT` | `usersId` |
+| <CopyableCode code="get_login_profile" /> | `SELECT` | <CopyableCode code="usersId" /> |

@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>image</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dlp.image</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.image" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_image_redact` | `EXEC` | `projectsId` |
-| `projects_locations_image_redact` | `EXEC` | `locationsId, projectsId` |
+| <CopyableCode code="projects_image_redact" /> | `EXEC` | <CopyableCode code="projectsId" /> |
+| <CopyableCode code="projects_locations_image_redact" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> |

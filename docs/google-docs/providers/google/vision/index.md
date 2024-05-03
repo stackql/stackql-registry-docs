@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Integrates Google Vision Features, Including Image Labeling, Face, Logo, And Landmark Detection, Optical Character Recognition (OCR), And Detection Of Explicit Content, Into Applications.  
     
 :::info Service Summary

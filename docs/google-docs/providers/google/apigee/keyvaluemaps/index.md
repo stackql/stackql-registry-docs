@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>keyvaluemaps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.keyvaluemaps</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.keyvaluemaps" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,9 +32,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_apis_keyvaluemaps_create` | `INSERT` | `apisId, organizationsId` | Creates a key value map in an API proxy. |
-| `organizations_environments_keyvaluemaps_create` | `INSERT` | `environmentsId, organizationsId` | Creates a key value map in an environment. |
-| `organizations_keyvaluemaps_create` | `INSERT` | `organizationsId` | Creates a key value map in an organization. |
-| `organizations_apis_keyvaluemaps_delete` | `DELETE` | `apisId, keyvaluemapsId, organizationsId` | Deletes a key value map from an API proxy. |
-| `organizations_environments_keyvaluemaps_delete` | `DELETE` | `environmentsId, keyvaluemapsId, organizationsId` | Deletes a key value map from an environment. |
-| `organizations_keyvaluemaps_delete` | `DELETE` | `keyvaluemapsId, organizationsId` | Deletes a key value map from an organization. |
+| <CopyableCode code="organizations_apis_keyvaluemaps_create" /> | `INSERT` | <CopyableCode code="apisId, organizationsId" /> | Creates a key value map in an API proxy. |
+| <CopyableCode code="organizations_environments_keyvaluemaps_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a key value map in an environment. |
+| <CopyableCode code="organizations_keyvaluemaps_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a key value map in an organization. |
+| <CopyableCode code="organizations_apis_keyvaluemaps_delete" /> | `DELETE` | <CopyableCode code="apisId, keyvaluemapsId, organizationsId" /> | Deletes a key value map from an API proxy. |
+| <CopyableCode code="organizations_environments_keyvaluemaps_delete" /> | `DELETE` | <CopyableCode code="environmentsId, keyvaluemapsId, organizationsId" /> | Deletes a key value map from an environment. |
+| <CopyableCode code="organizations_keyvaluemaps_delete" /> | `DELETE` | <CopyableCode code="keyvaluemapsId, organizationsId" /> | Deletes a key value map from an organization. |

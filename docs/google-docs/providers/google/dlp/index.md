@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-Sensitive Fragments In Text, Images, And Google Cloud Platform Storage Repositories.  
     
 :::info Service Summary

@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>findings_security_marks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.securitycenter.findings_security_marks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.findings_security_marks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `folders_sources_findings_update_security_marks` | `EXEC` | `findingsId, foldersId, sourcesId` |
-| `organizations_sources_findings_update_security_marks` | `EXEC` | `findingsId, organizationsId, sourcesId` |
-| `projects_sources_findings_update_security_marks` | `EXEC` | `findingsId, projectsId, sourcesId` |
+| <CopyableCode code="folders_sources_findings_update_security_marks" /> | `EXEC` | <CopyableCode code="findingsId, foldersId, sourcesId" /> |
+| <CopyableCode code="organizations_sources_findings_update_security_marks" /> | `EXEC` | <CopyableCode code="findingsId, organizationsId, sourcesId" /> |
+| <CopyableCode code="projects_sources_findings_update_security_marks" /> | `EXEC` | <CopyableCode code="findingsId, projectsId, sourcesId" /> |

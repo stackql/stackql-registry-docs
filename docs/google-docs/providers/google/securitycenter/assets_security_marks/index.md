@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assets_security_marks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.securitycenter.assets_security_marks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.assets_security_marks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `folders_assets_update_security_marks` | `EXEC` | `assetsId, foldersId` |
-| `organizations_assets_update_security_marks` | `EXEC` | `assetsId, organizationsId` |
-| `projects_assets_update_security_marks` | `EXEC` | `assetsId, projectsId` |
+| <CopyableCode code="folders_assets_update_security_marks" /> | `EXEC` | <CopyableCode code="assetsId, foldersId" /> |
+| <CopyableCode code="organizations_assets_update_security_marks" /> | `EXEC` | <CopyableCode code="assetsId, organizationsId" /> |
+| <CopyableCode code="projects_assets_update_security_marks" /> | `EXEC` | <CopyableCode code="assetsId, projectsId" /> |

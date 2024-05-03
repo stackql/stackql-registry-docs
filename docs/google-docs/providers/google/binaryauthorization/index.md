@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Management Interface For Binary Authorization, A Service That Provides Policy-Based Deployment Validation And Control For Images Deployed To Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, And Cloud Run.   
     
 :::info Service Summary

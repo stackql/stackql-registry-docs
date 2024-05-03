@@ -14,25 +14,28 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sessions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dataplex.sessions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.sessions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The relative resource name of the content, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/environment/&#123;environment_id&#125;/sessions/&#123;session_id&#125; |
-| `createTime` | `string` | Output only. Session start time. |
-| `state` | `string` | Output only. State of Session |
-| `userId` | `string` | Output only. Email of user running the session. |
+| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the content, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/environment/&#123;environment_id&#125;/sessions/&#123;session_id&#125; |
+| <CopyableCode code="createTime" /> | `string` | Output only. Session start time. |
+| <CopyableCode code="state" /> | `string` | Output only. State of Session |
+| <CopyableCode code="userId" /> | `string` | Output only. Email of user running the session. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_lakes_environments_sessions_list` | `SELECT` | `environmentsId, lakesId, locationsId, projectsId` |
-| `_projects_locations_lakes_environments_sessions_list` | `EXEC` | `environmentsId, lakesId, locationsId, projectsId` |
+| <CopyableCode code="projects_locations_lakes_environments_sessions_list" /> | `SELECT` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> |
+| <CopyableCode code="_projects_locations_lakes_environments_sessions_list" /> | `EXEC` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> |

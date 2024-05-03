@@ -14,19 +14,22 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>relatedaccountgroups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.recaptchaenterprise.relatedaccountgroups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.recaptchaenterprise.relatedaccountgroups" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `projectsId` |
-| `_list` | `EXEC` | `projectsId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> |

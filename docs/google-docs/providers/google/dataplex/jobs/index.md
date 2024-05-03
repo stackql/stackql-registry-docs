@@ -14,38 +14,41 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dataplex.jobs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The relative resource name of the job, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/tasks/&#123;task_id&#125;/jobs/&#123;job_id&#125;. |
-| `trigger` | `string` | Output only. Job execution trigger. |
-| `serviceJob` | `string` | Output only. The full resource name for the job run under a particular service. |
-| `state` | `string` | Output only. Execution state for the job. |
-| `executionSpec` | `object` | Execution related settings, like retry and service_account. |
-| `labels` | `object` | Output only. User-defined labels for the task. |
-| `message` | `string` | Output only. Additional information about the current state. |
-| `retryCount` | `integer` | Output only. The number of times the job has been retried (excluding the initial attempt). |
-| `startTime` | `string` | Output only. The time when the job was started. |
-| `service` | `string` | Output only. The underlying service running a job. |
-| `endTime` | `string` | Output only. The time when the job ended. |
-| `uid` | `string` | Output only. System generated globally unique ID for the job. |
+| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the job, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/tasks/&#123;task_id&#125;/jobs/&#123;job_id&#125;. |
+| <CopyableCode code="endTime" /> | `string` | Output only. The time when the job ended. |
+| <CopyableCode code="executionSpec" /> | `object` | Execution related settings, like retry and service_account. |
+| <CopyableCode code="labels" /> | `object` | Output only. User-defined labels for the task. |
+| <CopyableCode code="message" /> | `string` | Output only. Additional information about the current state. |
+| <CopyableCode code="retryCount" /> | `integer` | Output only. The number of times the job has been retried (excluding the initial attempt). |
+| <CopyableCode code="service" /> | `string` | Output only. The underlying service running a job. |
+| <CopyableCode code="serviceJob" /> | `string` | Output only. The full resource name for the job run under a particular service. |
+| <CopyableCode code="startTime" /> | `string` | Output only. The time when the job was started. |
+| <CopyableCode code="state" /> | `string` | Output only. Execution state for the job. |
+| <CopyableCode code="trigger" /> | `string` | Output only. Job execution trigger. |
+| <CopyableCode code="uid" /> | `string` | Output only. System generated globally unique ID for the job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_data_scans_jobs_get` | `SELECT` | `dataScansId, jobsId, locationsId, projectsId` | Gets a DataScanJob resource. |
-| `projects_locations_data_scans_jobs_list` | `SELECT` | `dataScansId, locationsId, projectsId` | Lists DataScanJobs under the given DataScan. |
-| `projects_locations_lakes_tasks_jobs_get` | `SELECT` | `jobsId, lakesId, locationsId, projectsId, tasksId` | Get job resource. |
-| `projects_locations_lakes_tasks_jobs_list` | `SELECT` | `lakesId, locationsId, projectsId, tasksId` | Lists Jobs under the given task. |
-| `_projects_locations_data_scans_jobs_list` | `EXEC` | `dataScansId, locationsId, projectsId` | Lists DataScanJobs under the given DataScan. |
-| `_projects_locations_lakes_tasks_jobs_list` | `EXEC` | `lakesId, locationsId, projectsId, tasksId` | Lists Jobs under the given task. |
-| `projects_locations_lakes_tasks_jobs_cancel` | `EXEC` | `jobsId, lakesId, locationsId, projectsId, tasksId` | Cancel jobs running for the task resource. |
+| <CopyableCode code="projects_locations_data_scans_jobs_get" /> | `SELECT` | <CopyableCode code="dataScansId, jobsId, locationsId, projectsId" /> | Gets a DataScanJob resource. |
+| <CopyableCode code="projects_locations_data_scans_jobs_list" /> | `SELECT` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Lists DataScanJobs under the given DataScan. |
+| <CopyableCode code="projects_locations_lakes_tasks_jobs_get" /> | `SELECT` | <CopyableCode code="jobsId, lakesId, locationsId, projectsId, tasksId" /> | Get job resource. |
+| <CopyableCode code="projects_locations_lakes_tasks_jobs_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Lists Jobs under the given task. |
+| <CopyableCode code="_projects_locations_data_scans_jobs_list" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Lists DataScanJobs under the given DataScan. |
+| <CopyableCode code="_projects_locations_lakes_tasks_jobs_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Lists Jobs under the given task. |
+| <CopyableCode code="projects_locations_lakes_tasks_jobs_cancel" /> | `EXEC` | <CopyableCode code="jobsId, lakesId, locationsId, projectsId, tasksId" /> | Cancel jobs running for the task resource. |

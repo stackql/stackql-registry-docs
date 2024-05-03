@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Detects Objects, Explicit Content, And Scene Changes In Videos. It Also Specifies The Region For Annotation And Transcribes Speech To Text. Supports Both Asynchronous API And Streaming API.  
     
 :::info Service Summary

@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
+
 Firebase App Check works alongside other Firebase services to help protect your backend resources from abuse, such as billing fraud or phishing.  
     
 :::info Service Summary

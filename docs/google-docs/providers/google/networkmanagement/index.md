@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Network Management API Provides A Collection Of Network Performance Monitoring And Diagnostic Capabilities.  
     
 :::info Service Summary

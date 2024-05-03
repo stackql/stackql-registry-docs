@@ -14,52 +14,55 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>images_from_family</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.images_from_family</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.images_from_family" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
-| `name` | `string` | Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
-| `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `sourceDiskId` | `string` | [Output Only] The ID value of the disk used to create this image. This value may be used to determine whether the image was taken from the current or a previous instance of a given disk name. |
-| `archiveSizeBytes` | `string` | Size of the image tar.gz archive stored in Google Cloud Storage (in bytes). |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#image for images. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `rawDisk` | `object` | The parameters of the raw disk image. |
-| `sourceImageEncryptionKey` | `object` |  |
-| `sourceDisk` | `string` | URL of the source disk used to create this image. For example, the following are valid values: - https://www.googleapis.com/compute/v1/projects/project/zones/zone /disks/disk - projects/project/zones/zone/disks/disk - zones/zone/disks/disk In order to create an image, you must provide the full or partial URL of one of the following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The sourceSnapshot URL  |
-| `family` | `string` | The name of the image family to which this image belongs. The image family name can be from a publicly managed image family provided by Compute Engine, or from a custom image family you create. For example, centos-stream-9 is a publicly available image family. For more information, see Image family best practices. When creating disks, you can specify an image family instead of a specific image name. The image family always returns its latest image that is not deprecated. The name of the image family must comply with RFC1035. |
-| `sourceSnapshotEncryptionKey` | `object` |  |
-| `diskSizeGb` | `string` | Size of the image when restored onto a persistent disk (in GB). |
-| `licenses` | `array` | Any applicable license URI. |
-| `sourceImageId` | `string` | [Output Only] The ID value of the image used to create this image. This value may be used to determine whether the image was taken from the current or a previous instance of a given image name. |
-| `sourceType` | `string` | The type of the image used to create this disk. The default and only valid value is RAW. |
-| `deprecated` | `object` | Deprecation status for a public resource. |
-| `storageLocations` | `array` | Cloud Storage bucket storage location of the image (regional or multi-regional). |
-| `licenseCodes` | `array` | Integer license codes indicating which licenses are attached to this image. |
-| `sourceSnapshotId` | `string` | [Output Only] The ID value of the snapshot used to create this image. This value may be used to determine whether the snapshot was taken from the current or a previous instance of a given snapshot name. |
-| `imageEncryptionKey` | `object` |  |
-| `labels` | `object` | Labels to apply to this image. These can be later modified by the setLabels method. |
-| `sourceSnapshot` | `string` | URL of the source snapshot used to create this image. The following are valid formats for the URL: - https://www.googleapis.com/compute/v1/projects/project_id/global/ snapshots/snapshot_name - projects/project_id/global/snapshots/snapshot_name In order to create an image, you must provide the full or partial URL of one of the following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The sourceSnapshot URL  |
-| `status` | `string` | [Output Only] The status of the image. An image can be used to create other resources, such as instances, only after the image has been successfully created and the status is set to READY. Possible values are FAILED, PENDING, or READY. |
-| `shieldedInstanceInitialState` | `object` | Initial State for shielded instance, these are public keys which are safe to store in public |
-| `guestOsFeatures` | `array` | A list of features to enable on the guest operating system. Applicable only for bootable images. To see a list of available options, see the guestOSfeatures[].type parameter. |
-| `sourceImage` | `string` | URL of the source image used to create this image. The following are valid formats for the URL: - https://www.googleapis.com/compute/v1/projects/project_id/global/ images/image_name - projects/project_id/global/images/image_name In order to create an image, you must provide the full or partial URL of one of the following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The sourceSnapshot URL  |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
-| `sourceDiskEncryptionKey` | `object` |  |
-| `labelFingerprint` | `string` | A fingerprint for the labels being applied to this image, which is essentially a hash of the labels used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve an image. |
-| `architecture` | `string` | The architecture of the image. Valid values are ARM64 or X86_64. |
+| <CopyableCode code="id" /> | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
+| <CopyableCode code="name" /> | `string` | Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
+| <CopyableCode code="description" /> | `string` | An optional description of this resource. Provide this property when you create the resource. |
+| <CopyableCode code="architecture" /> | `string` | The architecture of the image. Valid values are ARM64 or X86_64. |
+| <CopyableCode code="archiveSizeBytes" /> | `string` | Size of the image tar.gz archive stored in Google Cloud Storage (in bytes). |
+| <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| <CopyableCode code="deprecated" /> | `object` | Deprecation status for a public resource. |
+| <CopyableCode code="diskSizeGb" /> | `string` | Size of the image when restored onto a persistent disk (in GB). |
+| <CopyableCode code="family" /> | `string` | The name of the image family to which this image belongs. The image family name can be from a publicly managed image family provided by Compute Engine, or from a custom image family you create. For example, centos-stream-9 is a publicly available image family. For more information, see Image family best practices. When creating disks, you can specify an image family instead of a specific image name. The image family always returns its latest image that is not deprecated. The name of the image family must comply with RFC1035. |
+| <CopyableCode code="guestOsFeatures" /> | `array` | A list of features to enable on the guest operating system. Applicable only for bootable images. To see a list of available options, see the guestOSfeatures[].type parameter. |
+| <CopyableCode code="imageEncryptionKey" /> | `object` |  |
+| <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#image for images. |
+| <CopyableCode code="labelFingerprint" /> | `string` | A fingerprint for the labels being applied to this image, which is essentially a hash of the labels used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve an image. |
+| <CopyableCode code="labels" /> | `object` | Labels to apply to this image. These can be later modified by the setLabels method. |
+| <CopyableCode code="licenseCodes" /> | `array` | Integer license codes indicating which licenses are attached to this image. |
+| <CopyableCode code="licenses" /> | `array` | Any applicable license URI. |
+| <CopyableCode code="rawDisk" /> | `object` | The parameters of the raw disk image. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | [Output Only] Reserved for future use. |
+| <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
+| <CopyableCode code="shieldedInstanceInitialState" /> | `object` | Initial State for shielded instance, these are public keys which are safe to store in public |
+| <CopyableCode code="sourceDisk" /> | `string` | URL of the source disk used to create this image. For example, the following are valid values: - https://www.googleapis.com/compute/v1/projects/project/zones/zone /disks/disk - projects/project/zones/zone/disks/disk - zones/zone/disks/disk In order to create an image, you must provide the full or partial URL of one of the following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The sourceSnapshot URL  |
+| <CopyableCode code="sourceDiskEncryptionKey" /> | `object` |  |
+| <CopyableCode code="sourceDiskId" /> | `string` | [Output Only] The ID value of the disk used to create this image. This value may be used to determine whether the image was taken from the current or a previous instance of a given disk name. |
+| <CopyableCode code="sourceImage" /> | `string` | URL of the source image used to create this image. The following are valid formats for the URL: - https://www.googleapis.com/compute/v1/projects/project_id/global/ images/image_name - projects/project_id/global/images/image_name In order to create an image, you must provide the full or partial URL of one of the following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The sourceSnapshot URL  |
+| <CopyableCode code="sourceImageEncryptionKey" /> | `object` |  |
+| <CopyableCode code="sourceImageId" /> | `string` | [Output Only] The ID value of the image used to create this image. This value may be used to determine whether the image was taken from the current or a previous instance of a given image name. |
+| <CopyableCode code="sourceSnapshot" /> | `string` | URL of the source snapshot used to create this image. The following are valid formats for the URL: - https://www.googleapis.com/compute/v1/projects/project_id/global/ snapshots/snapshot_name - projects/project_id/global/snapshots/snapshot_name In order to create an image, you must provide the full or partial URL of one of the following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The sourceSnapshot URL  |
+| <CopyableCode code="sourceSnapshotEncryptionKey" /> | `object` |  |
+| <CopyableCode code="sourceSnapshotId" /> | `string` | [Output Only] The ID value of the snapshot used to create this image. This value may be used to determine whether the snapshot was taken from the current or a previous instance of a given snapshot name. |
+| <CopyableCode code="sourceType" /> | `string` | The type of the image used to create this disk. The default and only valid value is RAW. |
+| <CopyableCode code="status" /> | `string` | [Output Only] The status of the image. An image can be used to create other resources, such as instances, only after the image has been successfully created and the status is set to READY. Possible values are FAILED, PENDING, or READY. |
+| <CopyableCode code="storageLocations" /> | `array` | Cloud Storage bucket storage location of the image (regional or multi-regional). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_from_family` | `SELECT` | `family, project` |
+| <CopyableCode code="get_from_family" /> | `SELECT` | <CopyableCode code="family, project" /> |

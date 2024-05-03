@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets__firebase</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>firebase.firebasestorage.buckets__firebase</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="firebase.firebasestorage.buckets__firebase" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_buckets_addFirebase` | `EXEC` | `bucketsId, projectsId` | Links a Google Cloud Storage bucket to a Firebase project. |
-| `projects_buckets_removeFirebase` | `EXEC` | `bucketsId, projectsId` | Unlinks a linked Google Cloud Storage bucket from a Firebase project. |
+| <CopyableCode code="projects_buckets_addFirebase" /> | `EXEC` | <CopyableCode code="bucketsId, projectsId" /> | Links a Google Cloud Storage bucket to a Firebase project. |
+| <CopyableCode code="projects_buckets_removeFirebase" /> | `EXEC` | <CopyableCode code="bucketsId, projectsId" /> | Unlinks a linked Google Cloud Storage bucket from a Firebase project. |

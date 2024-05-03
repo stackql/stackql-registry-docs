@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable Relational Database Service.  
     
 :::info Service Summary

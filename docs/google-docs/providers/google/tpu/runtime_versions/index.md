@@ -14,24 +14,27 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>runtime_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.tpu.runtime_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.tpu.runtime_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name. |
-| `version` | `string` | The runtime version. |
+| <CopyableCode code="name" /> | `string` | The resource name. |
+| <CopyableCode code="version" /> | `string` | The runtime version. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `locationsId, projectsId, runtimeVersionsId` | Gets a runtime version. |
-| `list` | `SELECT` | `locationsId, projectsId` | Lists runtime versions supported by this API. |
-| `_list` | `EXEC` | `locationsId, projectsId` | Lists runtime versions supported by this API. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, runtimeVersionsId" /> | Gets a runtime version. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists runtime versions supported by this API. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists runtime versions supported by this API. |

@@ -14,22 +14,25 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_account</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.storage.service_account</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.service_account" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | The kind of item this is. For notifications, this is always storage#notification. |
-| `email_address` | `string` | The ID of the notification. |
+| <CopyableCode code="email_address" /> | `string` | The ID of the notification. |
+| <CopyableCode code="kind" /> | `string` | The kind of item this is. For notifications, this is always storage#notification. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `projectId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="projectId" /> |

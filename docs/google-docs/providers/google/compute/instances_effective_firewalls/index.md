@@ -14,22 +14,25 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_effective_firewalls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.compute.instances_effective_firewalls</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instances_effective_firewalls" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `firewalls` | `array` | Effective firewalls on the instance. |
-| `firewallPolicys` | `array` | Effective firewalls from firewall policies. |
+| <CopyableCode code="firewallPolicys" /> | `array` | Effective firewalls from firewall policies. |
+| <CopyableCode code="firewalls" /> | `array` | Effective firewalls on the instance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_effective_firewalls` | `SELECT` | `instance, networkInterface, project, zone` |
+| <CopyableCode code="get_effective_firewalls" /> | `SELECT` | <CopyableCode code="instance, networkInterface, project, zone" /> |

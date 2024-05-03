@@ -14,27 +14,30 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>packages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.artifactregistry.packages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.packages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the package, for example: `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If the package ID part contains slashes, the slashes are escaped. |
-| `createTime` | `string` | The time when the package was created. |
-| `displayName` | `string` | The display name of the package. |
-| `updateTime` | `string` | The time when the package was last updated. This includes publishing a new version of the package. |
+| <CopyableCode code="name" /> | `string` | The name of the package, for example: `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If the package ID part contains slashes, the slashes are escaped. |
+| <CopyableCode code="createTime" /> | `string` | The time when the package was created. |
+| <CopyableCode code="displayName" /> | `string` | The display name of the package. |
+| <CopyableCode code="updateTime" /> | `string` | The time when the package was last updated. This includes publishing a new version of the package. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `locationsId, packagesId, projectsId, repositoriesId` | Gets a package. |
-| `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists packages. |
-| `delete` | `DELETE` | `locationsId, packagesId, projectsId, repositoriesId` | Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. |
-| `_list` | `EXEC` | `locationsId, projectsId, repositoriesId` | Lists packages. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Gets a package. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |

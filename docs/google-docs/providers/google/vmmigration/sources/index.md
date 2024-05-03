@@ -14,32 +14,35 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.vmmigration.sources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.sources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The Source name. |
-| `description` | `string` | User-provided description of the source. |
-| `aws` | `object` | AwsSourceDetails message describes a specific source details for the AWS source type. |
-| `createTime` | `string` | Output only. The create time timestamp. |
-| `labels` | `object` | The labels of the source. |
-| `updateTime` | `string` | Output only. The update time timestamp. |
-| `vmware` | `object` | VmwareSourceDetails message describes a specific source details for the vmware source type. |
+| <CopyableCode code="name" /> | `string` | Output only. The Source name. |
+| <CopyableCode code="description" /> | `string` | User-provided description of the source. |
+| <CopyableCode code="aws" /> | `object` | AwsSourceDetails message describes a specific source details for the AWS source type. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The create time timestamp. |
+| <CopyableCode code="labels" /> | `object` | The labels of the source. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The update time timestamp. |
+| <CopyableCode code="vmware" /> | `object` | VmwareSourceDetails message describes a specific source details for the vmware source type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `locationsId, projectsId, sourcesId` | Gets details of a single Source. |
-| `list` | `SELECT` | `locationsId, projectsId` | Lists Sources in a given project and location. |
-| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Source in a given project and location. |
-| `delete` | `DELETE` | `locationsId, projectsId, sourcesId` | Deletes a single Source. |
-| `_list` | `EXEC` | `locationsId, projectsId` | Lists Sources in a given project and location. |
-| `patch` | `EXEC` | `locationsId, projectsId, sourcesId` | Updates the parameters of a single Source. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Gets details of a single Source. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Sources in a given project and location. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Source in a given project and location. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Deletes a single Source. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Sources in a given project and location. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Updates the parameters of a single Source. |

@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.discoveryengine.data_stores</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.data_stores" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_collections_data_stores_complete_query` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId` |
-| `projects_locations_data_stores_complete_query` | `EXEC` | `dataStoresId, locationsId, projectsId` |
+| <CopyableCode code="projects_locations_collections_data_stores_complete_query" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> |
+| <CopyableCode code="projects_locations_data_stores_complete_query" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> |

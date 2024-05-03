@@ -14,24 +14,27 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>snapshots</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dataflow.snapshots</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataflow.snapshots" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_jobs_snapshots_list` | `SELECT` | `jobId, location, projectId` | Lists snapshots. |
-| `projects_locations_snapshots_get` | `SELECT` | `location, projectId, snapshotId` | Gets information about a snapshot. |
-| `projects_locations_snapshots_list` | `SELECT` | `location, projectId` | Lists snapshots. |
-| `projects_snapshots_get` | `SELECT` | `projectId, snapshotId` | Gets information about a snapshot. |
-| `projects_snapshots_list` | `SELECT` | `projectId` | Lists snapshots. |
-| `projects_delete_snapshots` | `DELETE` | `projectId` | Deletes a snapshot. |
-| `projects_locations_snapshots_delete` | `DELETE` | `location, projectId, snapshotId` | Deletes a snapshot. |
+| <CopyableCode code="projects_locations_jobs_snapshots_list" /> | `SELECT` | <CopyableCode code="jobId, location, projectId" /> | Lists snapshots. |
+| <CopyableCode code="projects_locations_snapshots_get" /> | `SELECT` | <CopyableCode code="location, projectId, snapshotId" /> | Gets information about a snapshot. |
+| <CopyableCode code="projects_locations_snapshots_list" /> | `SELECT` | <CopyableCode code="location, projectId" /> | Lists snapshots. |
+| <CopyableCode code="projects_snapshots_get" /> | `SELECT` | <CopyableCode code="projectId, snapshotId" /> | Gets information about a snapshot. |
+| <CopyableCode code="projects_snapshots_list" /> | `SELECT` | <CopyableCode code="projectId" /> | Lists snapshots. |
+| <CopyableCode code="projects_delete_snapshots" /> | `DELETE` | <CopyableCode code="projectId" /> | Deletes a snapshot. |
+| <CopyableCode code="projects_locations_snapshots_delete" /> | `DELETE` | <CopyableCode code="location, projectId, snapshotId" /> | Deletes a snapshot. |

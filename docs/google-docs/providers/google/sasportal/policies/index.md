@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.sasportal.policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `policies_get` | `EXEC` |  | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| `policies_set` | `EXEC` |  | Sets the access control policy on the specified resource. Replaces any existing policy. |
-| `policies_test` | `EXEC` |  | Returns permissions that a caller has on the specified resource. |
+| <CopyableCode code="policies_get" /> | `EXEC` |  | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
+| <CopyableCode code="policies_set" /> | `EXEC` |  | Sets the access control policy on the specified resource. Replaces any existing policy. |
+| <CopyableCode code="policies_test" /> | `EXEC` |  | Returns permissions that a caller has on the specified resource. |

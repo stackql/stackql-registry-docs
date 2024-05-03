@@ -14,33 +14,36 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.privateca.certificate_templates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.privateca.certificate_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name for this CertificateTemplate in the format `projects/*/locations/*/certificateTemplates/*`. |
-| `description` | `string` | Optional. A human-readable description of scenarios this template is intended for. |
-| `updateTime` | `string` | Output only. The time at which this CertificateTemplate was updated. |
-| `createTime` | `string` | Output only. The time at which this CertificateTemplate was created. |
-| `identityConstraints` | `object` | Describes constraints on a Certificate's Subject and SubjectAltNames. |
-| `labels` | `object` | Optional. Labels with user-defined metadata. |
-| `passthroughExtensions` | `object` | Describes a set of X.509 extensions that may be part of some certificate issuance controls. |
-| `predefinedValues` | `object` | An X509Parameters is used to describe certain fields of an X.509 certificate, such as the key usage fields, fields specific to CA certificates, certificate policy extensions and custom extensions. |
+| <CopyableCode code="name" /> | `string` | Output only. The resource name for this CertificateTemplate in the format `projects/*/locations/*/certificateTemplates/*`. |
+| <CopyableCode code="description" /> | `string` | Optional. A human-readable description of scenarios this template is intended for. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The time at which this CertificateTemplate was created. |
+| <CopyableCode code="identityConstraints" /> | `object` | Describes constraints on a Certificate's Subject and SubjectAltNames. |
+| <CopyableCode code="labels" /> | `object` | Optional. Labels with user-defined metadata. |
+| <CopyableCode code="passthroughExtensions" /> | `object` | Describes a set of X.509 extensions that may be part of some certificate issuance controls. |
+| <CopyableCode code="predefinedValues" /> | `object` | An X509Parameters is used to describe certain fields of an X.509 certificate, such as the key usage fields, fields specific to CA certificates, certificate policy extensions and custom extensions. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this CertificateTemplate was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `certificateTemplatesId, locationsId, projectsId` | Returns a CertificateTemplate. |
-| `list` | `SELECT` | `locationsId, projectsId` | Lists CertificateTemplates. |
-| `create` | `INSERT` | `locationsId, projectsId` | Create a new CertificateTemplate in a given Project and Location. |
-| `delete` | `DELETE` | `certificateTemplatesId, locationsId, projectsId` | DeleteCertificateTemplate deletes a CertificateTemplate. |
-| `_list` | `EXEC` | `locationsId, projectsId` | Lists CertificateTemplates. |
-| `patch` | `EXEC` | `certificateTemplatesId, locationsId, projectsId` | Update a CertificateTemplate. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | Returns a CertificateTemplate. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateTemplates. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a new CertificateTemplate in a given Project and Location. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | DeleteCertificateTemplate deletes a CertificateTemplate. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateTemplates. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | Update a CertificateTemplate. |

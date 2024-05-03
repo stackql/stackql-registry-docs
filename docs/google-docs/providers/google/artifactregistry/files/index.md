@@ -14,29 +14,32 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>files</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.artifactregistry.files</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.files" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the file, for example: "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt". If the file ID part contains slashes, they are escaped. |
-| `owner` | `string` | The name of the Package or Version that owns this file, if any. |
-| `sizeBytes` | `string` | The size of the File in bytes. |
-| `updateTime` | `string` | Output only. The time when the File was last updated. |
-| `createTime` | `string` | Output only. The time when the File was created. |
-| `fetchTime` | `string` | Output only. The time when the last attempt to refresh the file's data was made. Only set when the repository is remote. |
-| `hashes` | `array` | The hashes of the file content. |
+| <CopyableCode code="name" /> | `string` | The name of the file, for example: "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt". If the file ID part contains slashes, they are escaped. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The time when the File was created. |
+| <CopyableCode code="fetchTime" /> | `string` | Output only. The time when the last attempt to refresh the file's data was made. Only set when the repository is remote. |
+| <CopyableCode code="hashes" /> | `array` | The hashes of the file content. |
+| <CopyableCode code="owner" /> | `string` | The name of the Package or Version that owns this file, if any. |
+| <CopyableCode code="sizeBytes" /> | `string` | The size of the File in bytes. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The time when the File was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `filesId, locationsId, projectsId, repositoriesId` | Gets a file. |
-| `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists files. |
-| `_list` | `EXEC` | `locationsId, projectsId, repositoriesId` | Lists files. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="filesId, locationsId, projectsId, repositoriesId" /> | Gets a file. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists files. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists files. |

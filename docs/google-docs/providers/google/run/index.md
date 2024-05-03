@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Deploy And Manage User Provided Container Images That Scale Automatically Based On Incoming Requests. The Cloud Run Admin API V1 Follows The Knative Serving API Specification, While V2 Is Aligned With Google Cloud AIP-Based API Standards, As Described In Https://Google.Aip.Dev/.  
     
 :::info Service Summary

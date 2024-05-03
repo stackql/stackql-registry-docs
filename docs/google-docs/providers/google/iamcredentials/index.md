@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Creates Short-Lived Credentials For Impersonating IAM Service Accounts. To Enable This API, You Must Enable The IAM API (Iam.Googleapis.Com).   
     
 :::info Service Summary

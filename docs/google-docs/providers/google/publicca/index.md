@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Public Certificate Authority API May Be Used To Create And Manage ACME External Account Binding Keys Associated With Google Trust Services' Publicly Trusted Certificate Authority.   
     
 :::info Service Summary

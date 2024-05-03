@@ -14,28 +14,31 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>attack_paths</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.securitycenter.attack_paths</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.attack_paths" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The attack path name, for example, `organizations/12/simulation/34/valuedResources/56/attackPaths/78` |
-| `pathNodes` | `array` | A list of nodes that exist in this attack path. |
-| `edges` | `array` | A list of the edges between nodes in this attack path. |
+| <CopyableCode code="name" /> | `string` | The attack path name, for example, `organizations/12/simulation/34/valuedResources/56/attackPaths/78` |
+| <CopyableCode code="edges" /> | `array` | A list of the edges between nodes in this attack path. |
+| <CopyableCode code="pathNodes" /> | `array` | A list of nodes that exist in this attack path. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_simulations_attack_exposure_results_attack_paths_list` | `SELECT` | `attackExposureResultsId, organizationsId, simulationsId` |
-| `organizations_simulations_attack_paths_list` | `SELECT` | `organizationsId, simulationsId` |
-| `organizations_simulations_valued_resources_attack_paths_list` | `SELECT` | `organizationsId, simulationsId, valuedResourcesId` |
-| `_organizations_simulations_attack_exposure_results_attack_paths_list` | `EXEC` | `attackExposureResultsId, organizationsId, simulationsId` |
-| `_organizations_simulations_attack_paths_list` | `EXEC` | `organizationsId, simulationsId` |
-| `_organizations_simulations_valued_resources_attack_paths_list` | `EXEC` | `organizationsId, simulationsId, valuedResourcesId` |
+| <CopyableCode code="organizations_simulations_attack_exposure_results_attack_paths_list" /> | `SELECT` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> |
+| <CopyableCode code="organizations_simulations_attack_paths_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId" /> |
+| <CopyableCode code="organizations_simulations_valued_resources_attack_paths_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId, valuedResourcesId" /> |
+| <CopyableCode code="_organizations_simulations_attack_exposure_results_attack_paths_list" /> | `EXEC` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> |
+| <CopyableCode code="_organizations_simulations_attack_paths_list" /> | `EXEC` | <CopyableCode code="organizationsId, simulationsId" /> |
+| <CopyableCode code="_organizations_simulations_valued_resources_attack_paths_list" /> | `EXEC` | <CopyableCode code="organizationsId, simulationsId, valuedResourcesId" /> |

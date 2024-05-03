@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpcsc_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.artifactregistry.vpcsc_config</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.vpcsc_config" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the project's VPC SC Config. Always of the form: projects/&#123;projectID&#125;/locations/&#123;location&#125;/vpcscConfig In update request: never set In response: always set |
-| `vpcscPolicy` | `string` | The project per location VPC SC policy that defines the VPC SC behavior for the Remote Repository (Allow/Deny). |
+| <CopyableCode code="name" /> | `string` | The name of the project's VPC SC Config. Always of the form: projects/&#123;projectID&#125;/locations/&#123;location&#125;/vpcscConfig In update request: never set In response: always set |
+| <CopyableCode code="vpcscPolicy" /> | `string` | The project per location VPC SC policy that defines the VPC SC behavior for the Remote Repository (Allow/Deny). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_vpcsc_config` | `SELECT` | `locationsId, projectsId` | Retrieves the VPCSC Config for the Project. |
-| `update_vpcsc_config` | `EXEC` | `locationsId, projectsId` | Updates the VPCSC Config for the Project. |
+| <CopyableCode code="get_vpcsc_config" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Retrieves the VPCSC Config for the Project. |
+| <CopyableCode code="update_vpcsc_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Updates the VPCSC Config for the Project. |

@@ -14,32 +14,35 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>datastores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.apigee.datastores</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.datastores" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `self` | `string` | Output only. Resource link of Datastore. Example: `/organizations/&#123;org&#125;/analytics/datastores/&#123;uuid&#125;` |
-| `targetType` | `string` | Destination storage type. Supported types `gcs` or `bigquery`. |
-| `createTime` | `string` | Output only. Datastore create time, in milliseconds since the epoch of 1970-01-01T00:00:00Z |
-| `datastoreConfig` | `object` | Configuration detail for datastore |
-| `displayName` | `string` | Required. Display name in UI |
-| `lastUpdateTime` | `string` | Output only. Datastore last update time, in milliseconds since the epoch of 1970-01-01T00:00:00Z |
-| `org` | `string` | Output only. Organization that the datastore belongs to |
+| <CopyableCode code="createTime" /> | `string` | Output only. Datastore create time, in milliseconds since the epoch of 1970-01-01T00:00:00Z |
+| <CopyableCode code="datastoreConfig" /> | `object` | Configuration detail for datastore |
+| <CopyableCode code="displayName" /> | `string` | Required. Display name in UI |
+| <CopyableCode code="lastUpdateTime" /> | `string` | Output only. Datastore last update time, in milliseconds since the epoch of 1970-01-01T00:00:00Z |
+| <CopyableCode code="org" /> | `string` | Output only. Organization that the datastore belongs to |
+| <CopyableCode code="self" /> | `string` | Output only. Resource link of Datastore. Example: `/organizations/&#123;org&#125;/analytics/datastores/&#123;uuid&#125;` |
+| <CopyableCode code="targetType" /> | `string` | Destination storage type. Supported types `gcs` or `bigquery`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_analytics_datastores_get` | `SELECT` | `datastoresId, organizationsId` | Get a Datastore |
-| `organizations_analytics_datastores_list` | `SELECT` | `organizationsId` | List Datastores |
-| `organizations_analytics_datastores_create` | `INSERT` | `organizationsId` | Create a Datastore for an org |
-| `organizations_analytics_datastores_delete` | `DELETE` | `datastoresId, organizationsId` | Delete a Datastore from an org. |
-| `organizations_analytics_datastores_test` | `EXEC` | `organizationsId` | Test if Datastore configuration is correct. This includes checking if credentials provided by customer have required permissions in target destination storage |
-| `organizations_analytics_datastores_update` | `EXEC` | `datastoresId, organizationsId` | Update a Datastore |
+| <CopyableCode code="organizations_analytics_datastores_get" /> | `SELECT` | <CopyableCode code="datastoresId, organizationsId" /> | Get a Datastore |
+| <CopyableCode code="organizations_analytics_datastores_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | List Datastores |
+| <CopyableCode code="organizations_analytics_datastores_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Create a Datastore for an org |
+| <CopyableCode code="organizations_analytics_datastores_delete" /> | `DELETE` | <CopyableCode code="datastoresId, organizationsId" /> | Delete a Datastore from an org. |
+| <CopyableCode code="organizations_analytics_datastores_test" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Test if Datastore configuration is correct. This includes checking if credentials provided by customer have required permissions in target destination storage |
+| <CopyableCode code="organizations_analytics_datastores_update" /> | `EXEC` | <CopyableCode code="datastoresId, organizationsId" /> | Update a Datastore |

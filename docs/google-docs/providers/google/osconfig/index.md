@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And Configuration Management On VM Instances.  
     
 :::info Service Summary

@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 The Managed Service For Microsoft Active Directory API Is Used For Managing A Highly Available, Hardened Service Running Microsoft Active Directory (AD).  
     
 :::info Service Summary

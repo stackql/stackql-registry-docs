@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For GKE Clusters.  
     
 :::info Service Summary

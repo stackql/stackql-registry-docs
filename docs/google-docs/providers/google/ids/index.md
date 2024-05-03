@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Cloud IDS (Cloud Intrusion Detection System) Detects Malware, Spyware, Command-And-Control Attacks, And Other Network-Based Threats. Its Security Efficacy Is Industry Leading, Built With Palo Alto Networks Technologies. When You Use This Product, Your Organization Name And Consumption Levels Will Be Shared With Palo Alto Networks.  
     
 :::info Service Summary

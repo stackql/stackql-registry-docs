@@ -13,6 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
+
 Cloud Talent Solution Provides The Capability To Create, Read, Update, And Delete Job Postings, As Well As Search Jobs Based On Keywords And Filters.   
     
 :::info Service Summary

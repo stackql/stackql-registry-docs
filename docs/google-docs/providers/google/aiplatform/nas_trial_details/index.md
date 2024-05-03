@@ -14,26 +14,29 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nas_trial_details</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.aiplatform.nas_trial_details</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.nas_trial_details" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name of the NasTrialDetail. |
-| `searchTrial` | `object` | Represents a uCAIP NasJob trial. |
-| `trainTrial` | `object` | Represents a uCAIP NasJob trial. |
-| `parameters` | `string` | The parameters for the NasJob NasTrial. |
+| <CopyableCode code="name" /> | `string` | Output only. Resource name of the NasTrialDetail. |
+| <CopyableCode code="parameters" /> | `string` | The parameters for the NasJob NasTrial. |
+| <CopyableCode code="searchTrial" /> | `object` | Represents a uCAIP NasJob trial. |
+| <CopyableCode code="trainTrial" /> | `object` | Represents a uCAIP NasJob trial. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `locationsId, nasJobsId, nasTrialDetailsId, projectsId` | Gets a NasTrialDetail. |
-| `list` | `SELECT` | `locationsId, nasJobsId, projectsId` | List top NasTrialDetails of a NasJob. |
-| `_list` | `EXEC` | `locationsId, nasJobsId, projectsId` | List top NasTrialDetails of a NasJob. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, nasJobsId, nasTrialDetailsId, projectsId" /> | Gets a NasTrialDetail. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, nasJobsId, projectsId" /> | List top NasTrialDetails of a NasJob. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, nasJobsId, projectsId" /> | List top NasTrialDetails of a NasJob. |

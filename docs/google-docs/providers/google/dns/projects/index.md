@@ -14,24 +14,27 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.dns.projects</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dns.projects" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | User assigned unique identifier for the resource (output only). |
-| `number` | `string` | Unique numeric identifier for the resource; defined by the server (output only). |
-| `quota` | `object` | Limits associated with a Project. |
-| `kind` | `string` |  |
+| <CopyableCode code="id" /> | `string` | User assigned unique identifier for the resource (output only). |
+| <CopyableCode code="kind" /> | `string` |  |
+| <CopyableCode code="number" /> | `string` | Unique numeric identifier for the resource; defined by the server (output only). |
+| <CopyableCode code="quota" /> | `object` | Limits associated with a Project. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `project` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project" /> |

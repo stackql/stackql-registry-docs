@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>registrations_authorization_code</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.domains.registrations_authorization_code</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.domains.registrations_authorization_code" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `retrieve_authorization_code` | `EXEC` | `locationsId, projectsId, registrationsId` |
+| <CopyableCode code="retrieve_authorization_code" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, registrationsId" /> |

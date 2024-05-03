@@ -14,23 +14,26 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.ml.config</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.ml.config" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `serviceAccount` | `string` | The service account Cloud ML uses to access resources in the project. |
-| `serviceAccountProject` | `string` | The project number for `service_account`. |
-| `config` | `object` |  |
+| <CopyableCode code="config" /> | `object` |  |
+| <CopyableCode code="serviceAccount" /> | `string` | The service account Cloud ML uses to access resources in the project. |
+| <CopyableCode code="serviceAccountProject" /> | `string` | The project number for `service_account`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_get_config` | `SELECT` | `projectsId` |
+| <CopyableCode code="projects_get_config" /> | `SELECT` | <CopyableCode code="projectsId" /> |

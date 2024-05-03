@@ -14,14 +14,17 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>address_groups_items</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.networksecurity.address_groups_items</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.address_groups_items" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,7 +32,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_locations_address_groups_add_items` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Adds items to an address group. |
-| `organizations_locations_address_groups_remove_items` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Removes items from an address group. |
-| `projects_locations_address_groups_add_items` | `EXEC` | `addressGroupsId, locationsId, projectsId` | Adds items to an address group. |
-| `projects_locations_address_groups_remove_items` | `EXEC` | `addressGroupsId, locationsId, projectsId` | Removes items from an address group. |
+| <CopyableCode code="organizations_locations_address_groups_add_items" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, organizationsId" /> | Adds items to an address group. |
+| <CopyableCode code="organizations_locations_address_groups_remove_items" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, organizationsId" /> | Removes items from an address group. |
+| <CopyableCode code="projects_locations_address_groups_add_items" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> | Adds items to an address group. |
+| <CopyableCode code="projects_locations_address_groups_remove_items" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> | Removes items from an address group. |

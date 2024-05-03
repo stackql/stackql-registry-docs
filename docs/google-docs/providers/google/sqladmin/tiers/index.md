@@ -14,25 +14,28 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tiers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.sqladmin.tiers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.tiers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `RAM` | `string` | The maximum RAM usage of this tier in bytes. |
-| `kind` | `string` | This is always `sql#tier`. |
-| `region` | `array` | The applicable regions for this tier. |
-| `tier` | `string` | An identifier for the machine type, for example, `db-custom-1-3840`. For related information, see [Pricing](/sql/pricing). |
-| `DiskQuota` | `string` | The maximum disk size of this tier in bytes. |
+| <CopyableCode code="DiskQuota" /> | `string` | The maximum disk size of this tier in bytes. |
+| <CopyableCode code="RAM" /> | `string` | The maximum RAM usage of this tier in bytes. |
+| <CopyableCode code="kind" /> | `string` | This is always `sql#tier`. |
+| <CopyableCode code="region" /> | `array` | The applicable regions for this tier. |
+| <CopyableCode code="tier" /> | `string` | An identifier for the machine type, for example, `db-custom-1-3840`. For related information, see [Pricing](/sql/pricing). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `project` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> |

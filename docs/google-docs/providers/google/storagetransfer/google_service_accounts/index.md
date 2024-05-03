@@ -14,22 +14,25 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google_service_accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.storagetransfer.google_service_accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storagetransfer.google_service_accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `subjectId` | `string` | Unique identifier for the service account. |
-| `accountEmail` | `string` | Email address of the service account. |
+| <CopyableCode code="accountEmail" /> | `string` | Email address of the service account. |
+| <CopyableCode code="subjectId" /> | `string` | Unique identifier for the service account. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `projectId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="projectId" /> |

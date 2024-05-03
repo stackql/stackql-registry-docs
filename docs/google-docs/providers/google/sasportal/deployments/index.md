@@ -14,43 +14,46 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.sasportal.deployments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name. |
-| `displayName` | `string` | The deployment's display name. |
-| `frns` | `array` | Output only. The FCC Registration Numbers (FRNs) copied from its direct parent. |
-| `sasUserIds` | `array` | User ID used by the devices belonging to this deployment. Each deployment should be associated with one unique user ID. |
+| <CopyableCode code="name" /> | `string` | Output only. Resource name. |
+| <CopyableCode code="displayName" /> | `string` | The deployment's display name. |
+| <CopyableCode code="frns" /> | `array` | Output only. The FCC Registration Numbers (FRNs) copied from its direct parent. |
+| <CopyableCode code="sasUserIds" /> | `array` | User ID used by the devices belonging to this deployment. Each deployment should be associated with one unique user ID. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `customers_deployments_get` | `SELECT` | `customersId, deploymentsId` | Returns a requested deployment. |
-| `customers_deployments_list` | `SELECT` | `customersId` | Lists deployments. |
-| `customers_nodes_deployments_list` | `SELECT` | `customersId, nodesId` | Lists deployments. |
-| `deployments_get` | `SELECT` | `deploymentsId` | Returns a requested deployment. |
-| `nodes_deployments_get` | `SELECT` | `deploymentsId, nodesId` | Returns a requested deployment. |
-| `nodes_deployments_list` | `SELECT` | `nodesId` | Lists deployments. |
-| `nodes_nodes_deployments_list` | `SELECT` | `nodesId, nodesId1` | Lists deployments. |
-| `customers_deployments_create` | `INSERT` | `customersId` | Creates a new deployment. |
-| `customers_nodes_deployments_create` | `INSERT` | `customersId, nodesId` | Creates a new deployment. |
-| `nodes_nodes_deployments_create` | `INSERT` | `nodesId, nodesId1` | Creates a new deployment. |
-| `customers_deployments_delete` | `DELETE` | `customersId, deploymentsId` | Deletes a deployment. |
-| `nodes_deployments_delete` | `DELETE` | `deploymentsId, nodesId` | Deletes a deployment. |
-| `_customers_deployments_list` | `EXEC` | `customersId` | Lists deployments. |
-| `_customers_nodes_deployments_list` | `EXEC` | `customersId, nodesId` | Lists deployments. |
-| `_nodes_deployments_list` | `EXEC` | `nodesId` | Lists deployments. |
-| `_nodes_nodes_deployments_list` | `EXEC` | `nodesId, nodesId1` | Lists deployments. |
-| `customers_deployments_move` | `EXEC` | `customersId, deploymentsId` | Moves a deployment under another node or customer. |
-| `customers_deployments_patch` | `EXEC` | `customersId, deploymentsId` | Updates an existing deployment. |
-| `nodes_deployments_move` | `EXEC` | `deploymentsId, nodesId` | Moves a deployment under another node or customer. |
-| `nodes_deployments_patch` | `EXEC` | `deploymentsId, nodesId` | Updates an existing deployment. |
+| <CopyableCode code="customers_deployments_get" /> | `SELECT` | <CopyableCode code="customersId, deploymentsId" /> | Returns a requested deployment. |
+| <CopyableCode code="customers_deployments_list" /> | `SELECT` | <CopyableCode code="customersId" /> | Lists deployments. |
+| <CopyableCode code="customers_nodes_deployments_list" /> | `SELECT` | <CopyableCode code="customersId, nodesId" /> | Lists deployments. |
+| <CopyableCode code="deployments_get" /> | `SELECT` | <CopyableCode code="deploymentsId" /> | Returns a requested deployment. |
+| <CopyableCode code="nodes_deployments_get" /> | `SELECT` | <CopyableCode code="deploymentsId, nodesId" /> | Returns a requested deployment. |
+| <CopyableCode code="nodes_deployments_list" /> | `SELECT` | <CopyableCode code="nodesId" /> | Lists deployments. |
+| <CopyableCode code="nodes_nodes_deployments_list" /> | `SELECT` | <CopyableCode code="nodesId, nodesId1" /> | Lists deployments. |
+| <CopyableCode code="customers_deployments_create" /> | `INSERT` | <CopyableCode code="customersId" /> | Creates a new deployment. |
+| <CopyableCode code="customers_nodes_deployments_create" /> | `INSERT` | <CopyableCode code="customersId, nodesId" /> | Creates a new deployment. |
+| <CopyableCode code="nodes_nodes_deployments_create" /> | `INSERT` | <CopyableCode code="nodesId, nodesId1" /> | Creates a new deployment. |
+| <CopyableCode code="customers_deployments_delete" /> | `DELETE` | <CopyableCode code="customersId, deploymentsId" /> | Deletes a deployment. |
+| <CopyableCode code="nodes_deployments_delete" /> | `DELETE` | <CopyableCode code="deploymentsId, nodesId" /> | Deletes a deployment. |
+| <CopyableCode code="_customers_deployments_list" /> | `EXEC` | <CopyableCode code="customersId" /> | Lists deployments. |
+| <CopyableCode code="_customers_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="customersId, nodesId" /> | Lists deployments. |
+| <CopyableCode code="_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="nodesId" /> | Lists deployments. |
+| <CopyableCode code="_nodes_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="nodesId, nodesId1" /> | Lists deployments. |
+| <CopyableCode code="customers_deployments_move" /> | `EXEC` | <CopyableCode code="customersId, deploymentsId" /> | Moves a deployment under another node or customer. |
+| <CopyableCode code="customers_deployments_patch" /> | `EXEC` | <CopyableCode code="customersId, deploymentsId" /> | Updates an existing deployment. |
+| <CopyableCode code="nodes_deployments_move" /> | `EXEC` | <CopyableCode code="deploymentsId, nodesId" /> | Moves a deployment under another node or customer. |
+| <CopyableCode code="nodes_deployments_patch" /> | `EXEC` | <CopyableCode code="deploymentsId, nodesId" /> | Updates an existing deployment. |
