@@ -14,14 +14,17 @@ description: Query, deploy and manage Linode resources using SQL
 custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stats</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>linode.managed.stats</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="linode.managed.stats" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `_getManagedStats` | `EXEC` |  |
-| `getManagedStats` | `EXEC` |  |
+| <CopyableCode code="_getManagedStats" /> | `EXEC` |  |
+| <CopyableCode code="getManagedStats" /> | `EXEC` |  |

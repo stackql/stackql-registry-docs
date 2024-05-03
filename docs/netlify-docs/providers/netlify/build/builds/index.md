@@ -14,26 +14,29 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>builds</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.build.builds</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.build.builds" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `deploy_id` | `string` |
-| `done` | `boolean` |
-| `error` | `string` |
-| `sha` | `string` |
-| `created_at` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="deploy_id" /> | `string` |
+| <CopyableCode code="done" /> | `boolean` |
+| <CopyableCode code="error" /> | `string` |
+| <CopyableCode code="sha" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSiteBuild` | `SELECT` | `build_id` |
+| <CopyableCode code="getSiteBuild" /> | `SELECT` | <CopyableCode code="build_id" /> |

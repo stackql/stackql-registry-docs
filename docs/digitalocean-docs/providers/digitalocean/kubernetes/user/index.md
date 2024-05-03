@@ -14,23 +14,26 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.kubernetes.user</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.kubernetes.user" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `groups` | `array` | A list of in-cluster groups that the user belongs to. |
-| `username` | `string` | The username for the cluster admin user. |
+| <CopyableCode code="groups" /> | `array` | A list of in-cluster groups that the user belongs to. |
+| <CopyableCode code="username" /> | `string` | The username for the cluster admin user. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_clusterUser` | `SELECT` | `cluster_id` |
-| `_get_clusterUser` | `EXEC` | `cluster_id` |
+| <CopyableCode code="get_clusterUser" /> | `SELECT` | <CopyableCode code="cluster_id" /> |
+| <CopyableCode code="_get_clusterUser" /> | `EXEC` | <CopyableCode code="cluster_id" /> |

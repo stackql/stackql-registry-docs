@@ -13,6 +13,7 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
+
 accountMembership  
     
 :::info Service Summary

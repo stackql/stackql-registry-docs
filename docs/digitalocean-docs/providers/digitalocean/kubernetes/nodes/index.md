@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nodes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.kubernetes.nodes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.kubernetes.nodes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `delete_node` | `DELETE` | `cluster_id, node_id, node_pool_id` |
+| <CopyableCode code="delete_node" /> | `DELETE` | <CopyableCode code="cluster_id, node_id, node_pool_id" /> |

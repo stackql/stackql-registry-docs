@@ -14,25 +14,28 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.threatinsight.configuration</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.threatinsight.configuration" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `created` | `string` |
-| `excludeZones` | `array` |
-| `lastUpdated` | `string` |
-| `_links` | `object` |
-| `action` | `string` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="action" /> | `string` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="excludeZones" /> | `array` |
+| <CopyableCode code="lastUpdated" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `subdomain` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="subdomain" /> |

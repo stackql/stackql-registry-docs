@@ -14,26 +14,29 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>default_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.projects.default_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.projects.default_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `status` | `string` | The status of assigning and fetching the resources. |
-| `urn` | `string` | The uniform resource name (URN) for the resource in the format do:resource_type:resource_id. |
-| `assigned_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the project was created. |
-| `links` | `object` | The links object contains the `self` object, which contains the resource relationship. |
+| <CopyableCode code="assigned_at" /> | `string` | A time value given in ISO8601 combined date and time format that represents when the project was created. |
+| <CopyableCode code="links" /> | `object` | The links object contains the `self` object, which contains the resource relationship. |
+| <CopyableCode code="status" /> | `string` | The status of assigning and fetching the resources. |
+| <CopyableCode code="urn" /> | `string` | The uniform resource name (URN) for the resource in the format do:resource_type:resource_id. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_resources_default` | `SELECT` |  | To list all your resources in your default project, send a GET request to `/v2/projects/default/resources`. |
-| `_list_resources_default` | `EXEC` |  | To list all your resources in your default project, send a GET request to `/v2/projects/default/resources`. |
-| `assign_resources_default` | `EXEC` |  | To assign resources to your default project, send a POST request to `/v2/projects/default/resources`. |
+| <CopyableCode code="list_resources_default" /> | `SELECT` |  | To list all your resources in your default project, send a GET request to `/v2/projects/default/resources`. |
+| <CopyableCode code="_list_resources_default" /> | `EXEC` |  | To list all your resources in your default project, send a GET request to `/v2/projects/default/resources`. |
+| <CopyableCode code="assign_resources_default" /> | `EXEC` |  | To assign resources to your default project, send a POST request to `/v2/projects/default/resources`. |

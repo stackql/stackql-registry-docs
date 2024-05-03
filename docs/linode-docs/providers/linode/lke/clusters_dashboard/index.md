@@ -14,19 +14,22 @@ description: Query, deploy and manage Linode resources using SQL
 custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters_dashboard</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>linode.lke.clusters_dashboard</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="linode.lke.clusters_dashboard" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getLKEClusterDashboard` | `SELECT` | `clusterId` |
-| `_getLKEClusterDashboard` | `EXEC` | `clusterId` |
+| <CopyableCode code="getLKEClusterDashboard" /> | `SELECT` | <CopyableCode code="clusterId" /> |
+| <CopyableCode code="_getLKEClusterDashboard" /> | `EXEC` | <CopyableCode code="clusterId" /> |

@@ -14,35 +14,38 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>grants</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.user.grants</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.user.grants" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `lastUpdated` | `string` |
-| `status` | `string` |
-| `_links` | `object` |
-| `clientId` | `string` |
-| `created` | `string` |
-| `scopeId` | `string` |
-| `userId` | `string` |
-| `source` | `string` |
-| `_embedded` | `object` |
-| `createdBy` | `object` |
-| `issuer` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="_embedded" /> | `object` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="clientId" /> | `string` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="createdBy" /> | `object` |
+| <CopyableCode code="issuer" /> | `string` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="scopeId" /> | `string` |
+| <CopyableCode code="source" /> | `string` |
+| <CopyableCode code="status" /> | `string` |
+| <CopyableCode code="userId" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `grantId, userId, subdomain` | Gets a grant for the specified user |
-| `list` | `SELECT` | `userId, subdomain` | Lists all grants for the specified user |
-| `delete` | `DELETE` | `grantId, userId, subdomain` | Revokes one grant for a specified user |
-| `deleteAll` | `EXEC` | `userId, subdomain` | Revokes all grants for a specified user |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="grantId, userId, subdomain" /> | Gets a grant for the specified user |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="userId, subdomain" /> | Lists all grants for the specified user |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="grantId, userId, subdomain" /> | Revokes one grant for a specified user |
+| <CopyableCode code="deleteAll" /> | `EXEC` | <CopyableCode code="userId, subdomain" /> | Revokes all grants for a specified user |

@@ -14,32 +14,35 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hooks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.hook.hooks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.hook.hooks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `site_id` | `string` |
-| `type` | `string` |
-| `updated_at` | `string` |
-| `created_at` | `string` |
-| `data` | `object` |
-| `disabled` | `boolean` |
-| `event` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="data" /> | `object` |
+| <CopyableCode code="disabled" /> | `boolean` |
+| <CopyableCode code="event" /> | `string` |
+| <CopyableCode code="site_id" /> | `string` |
+| <CopyableCode code="type" /> | `string` |
+| <CopyableCode code="updated_at" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getHook` | `SELECT` | `hook_id` |
-| `listHooksBySiteId` | `SELECT` | `site_id` |
-| `createHookBySiteId` | `INSERT` | `site_id` |
-| `deleteHook` | `DELETE` | `hook_id` |
-| `updateHook` | `EXEC` | `hook_id` |
+| <CopyableCode code="getHook" /> | `SELECT` | <CopyableCode code="hook_id" /> |
+| <CopyableCode code="listHooksBySiteId" /> | `SELECT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="createHookBySiteId" /> | `INSERT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="deleteHook" /> | `DELETE` | <CopyableCode code="hook_id" /> |
+| <CopyableCode code="updateHook" /> | `EXEC` | <CopyableCode code="hook_id" /> |

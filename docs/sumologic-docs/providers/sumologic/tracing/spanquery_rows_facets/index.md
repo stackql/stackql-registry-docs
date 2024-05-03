@@ -14,18 +14,21 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>spanquery_rows_facets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.tracing.spanquery_rows_facets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.tracing.spanquery_rows_facets" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSpanQueryFacets` | `SELECT` | `queryId, rowId, region` |
+| <CopyableCode code="getSpanQueryFacets" /> | `SELECT` | <CopyableCode code="queryId, rowId, region" /> |

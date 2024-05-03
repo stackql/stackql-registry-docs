@@ -14,36 +14,39 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trustedorigins</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.trustedorigin.trustedorigins</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.trustedorigin.trustedorigins" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `lastUpdatedBy` | `string` |
-| `created` | `string` |
-| `status` | `string` |
-| `origin` | `string` |
-| `_links` | `object` |
-| `createdBy` | `string` |
-| `lastUpdated` | `string` |
-| `scopes` | `array` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="createdBy" /> | `string` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="lastUpdatedBy" /> | `string` |
+| <CopyableCode code="origin" /> | `string` |
+| <CopyableCode code="scopes" /> | `array` |
+| <CopyableCode code="status" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `trustedOriginId, subdomain` |
-| `list` | `SELECT` | `subdomain` |
-| `insert` | `INSERT` | `subdomain` |
-| `delete` | `DELETE` | `trustedOriginId, subdomain` |
-| `activate` | `EXEC` | `trustedOriginId, subdomain` |
-| `deactivate` | `EXEC` | `trustedOriginId, subdomain` |
-| `update` | `EXEC` | `trustedOriginId, subdomain` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="trustedOriginId, subdomain" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="trustedOriginId, subdomain" /> |
+| <CopyableCode code="activate" /> | `EXEC` | <CopyableCode code="trustedOriginId, subdomain" /> |
+| <CopyableCode code="deactivate" /> | `EXEC` | <CopyableCode code="trustedOriginId, subdomain" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="trustedOriginId, subdomain" /> |

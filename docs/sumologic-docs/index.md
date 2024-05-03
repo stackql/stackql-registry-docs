@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 id: sumologic-doc
 slug: /providers/sumologic
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Cloud-native, real-time, unified logs and metrics analytics platform.  
     
 :::info Provider Summary (v23.04.00143)
@@ -49,8 +51,8 @@ REGISTRY PULL sumologic;
 
 The following system environment variables are used for authentication by default:  
 
-- `SUMOLOGIC_ACCESSID` - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
-- `SUMOLOGIC_ACCESSKEY` - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- <CopyableCode code="SUMOLOGIC_ACCESSID" /> - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- <CopyableCode code="SUMOLOGIC_ACCESSKEY" /> - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

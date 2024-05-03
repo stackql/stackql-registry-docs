@@ -14,18 +14,21 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_assets_public_signature</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.asset_public_signature.sites_assets_public_signature</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.asset_public_signature.sites_assets_public_signature" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSiteAssetPublicSignature` | `SELECT` | `asset_id, site_id` |
+| <CopyableCode code="getSiteAssetPublicSignature" /> | `SELECT` | <CopyableCode code="asset_id, site_id" /> |

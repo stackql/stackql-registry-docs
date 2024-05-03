@@ -14,29 +14,32 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>folders_global_result</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.content.folders_global_result</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.content.folders_global_result" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Identifier of the content item. |
-| `name` | `string` | The name of the content item. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `parentId` | `string` | Identifier of the parent content item. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `itemType` | `string` | Type of the content item. Supported values are:<br />  1. Folder<br />  2. Search<br />  3. Report (for old dashboards)<br />  4. Dashboard (for new dashboards)<br />  5. Lookups |
-| `permissions` | `array` | List of permissions the user has on the content item. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| <CopyableCode code="id" /> | `string` | Identifier of the content item. |
+| <CopyableCode code="name" /> | `string` | The name of the content item. |
+| <CopyableCode code="createdAt" /> | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| <CopyableCode code="createdBy" /> | `string` | Identifier of the user who created the resource. |
+| <CopyableCode code="itemType" /> | `string` | Type of the content item. Supported values are:<br />  1. Folder<br />  2. Search<br />  3. Report (for old dashboards)<br />  4. Dashboard (for new dashboards)<br />  5. Lookups |
+| <CopyableCode code="modifiedAt" /> | `string` | Last modification timestamp in UTC. |
+| <CopyableCode code="modifiedBy" /> | `string` | Identifier of the user who last modified the resource. |
+| <CopyableCode code="parentId" /> | `string` | Identifier of the parent content item. |
+| <CopyableCode code="permissions" /> | `array` | List of permissions the user has on the content item. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getGlobalFolderAsyncResult` | `SELECT` | `jobId, region` |
+| <CopyableCode code="getGlobalFolderAsyncResult" /> | `SELECT` | <CopyableCode code="jobId, region" /> |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
+
 Okta user type management.  
     
 :::info Service Summary

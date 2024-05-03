@@ -14,23 +14,26 @@ description: Query, deploy and manage Linode resources using SQL
 custom_edit_url: null
 image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>linode.view.tags</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="linode.view.tags" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `data` | `` |
-| `type` | `string` |
+| <CopyableCode code="data" /> ||
+| <CopyableCode code="type" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getTaggedObjects` | `SELECT` | `label` |
-| `_getTaggedObjects` | `EXEC` | `label` |
+| <CopyableCode code="getTaggedObjects" /> | `SELECT` | <CopyableCode code="label" /> |
+| <CopyableCode code="_getTaggedObjects" /> | `EXEC` | <CopyableCode code="label" /> |

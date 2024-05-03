@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_reset</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.ingest_budgets.usage_reset</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.ingest_budgets.usage_reset" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `resetUsage` | `EXEC` | `id, region` |
-| `resetUsageV2` | `EXEC` | `id, region` |
+| <CopyableCode code="resetUsage" /> | `EXEC` | <CopyableCode code="id, region" /> |
+| <CopyableCode code="resetUsageV2" /> | `EXEC` | <CopyableCode code="id, region" /> |

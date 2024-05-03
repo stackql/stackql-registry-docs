@@ -14,35 +14,38 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>grants</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.application.grants</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.application.grants" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `_embedded` | `object` |
-| `clientId` | `string` |
-| `createdBy` | `object` |
-| `issuer` | `string` |
-| `lastUpdated` | `string` |
-| `source` | `string` |
-| `status` | `string` |
-| `userId` | `string` |
-| `_links` | `object` |
-| `scopeId` | `string` |
-| `created` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="_embedded" /> | `object` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="clientId" /> | `string` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="createdBy" /> | `object` |
+| <CopyableCode code="issuer" /> | `string` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="scopeId" /> | `string` |
+| <CopyableCode code="source" /> | `string` |
+| <CopyableCode code="status" /> | `string` |
+| <CopyableCode code="userId" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appId, grantId, subdomain` | Fetches a single scope consent grant for the application |
-| `list` | `SELECT` | `appId, subdomain` | Lists all scope consent grants for the application |
-| `insert` | `INSERT` | `appId, subdomain` | Grants consent for the application to request an OAuth 2.0 Okta scope |
-| `delete` | `DELETE` | `appId, grantId, subdomain` | Revokes permission for the application to request the given scope |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="appId, grantId, subdomain" /> | Fetches a single scope consent grant for the application |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appId, subdomain" /> | Lists all scope consent grants for the application |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="appId, subdomain" /> | Grants consent for the application to request an OAuth 2.0 Okta scope |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appId, grantId, subdomain" /> | Revokes permission for the application to request the given scope |

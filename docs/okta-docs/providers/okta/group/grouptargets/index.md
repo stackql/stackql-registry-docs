@@ -14,31 +14,34 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>grouptargets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.group.grouptargets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.group.grouptargets" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `type` | `string` |
-| `_embedded` | `object` |
-| `created` | `string` |
-| `profile` | `object` |
-| `objectClass` | `array` |
-| `lastMembershipUpdated` | `string` |
-| `_links` | `object` |
-| `lastUpdated` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="_embedded" /> | `object` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="created" /> | `string` |
+| <CopyableCode code="lastMembershipUpdated" /> | `string` |
+| <CopyableCode code="lastUpdated" /> | `string` |
+| <CopyableCode code="objectClass" /> | `array` |
+| <CopyableCode code="profile" /> | `object` |
+| <CopyableCode code="type" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `groupId, roleId, subdomain` | Success |
-| `insert` | `INSERT` | `groupId, roleId, targetGroupId, subdomain` |  |
-| `delete` | `DELETE` | `groupId, roleId, targetGroupId, subdomain` |  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="groupId, roleId, subdomain" /> | Success |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="groupId, roleId, targetGroupId, subdomain" /> |  |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupId, roleId, targetGroupId, subdomain" /> |  |

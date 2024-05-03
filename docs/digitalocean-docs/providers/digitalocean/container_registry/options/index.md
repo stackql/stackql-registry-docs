@@ -14,23 +14,26 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>options</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.container_registry.options</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.container_registry.options" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `available_regions` | `array` |
-| `subscription_tiers` | `array` |
+| <CopyableCode code="available_regions" /> | `array` |
+| <CopyableCode code="subscription_tiers" /> | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `registry_get_options` | `SELECT` |  |
-| `_registry_get_options` | `EXEC` |  |
+| <CopyableCode code="registry_get_options" /> | `SELECT` |  |
+| <CopyableCode code="_registry_get_options" /> | `EXEC` |  |

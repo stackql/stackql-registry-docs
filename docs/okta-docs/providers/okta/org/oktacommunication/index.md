@@ -14,24 +14,27 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>oktacommunication</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.org.oktacommunication</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.org.oktacommunication" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `_links` | `object` |
-| `optOutEmailUsers` | `boolean` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="optOutEmailUsers" /> | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `subdomain` | Gets Okta Communication Settings of your organization. |
-| `optIn` | `EXEC` | `subdomain` | Opts in all users of this org to Okta Communication emails. |
-| `optOut` | `EXEC` | `subdomain` | Opts out all users of this org from Okta Communication emails. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="subdomain" /> | Gets Okta Communication Settings of your organization. |
+| <CopyableCode code="optIn" /> | `EXEC` | <CopyableCode code="subdomain" /> | Opts in all users of this org to Okta Communication emails. |
+| <CopyableCode code="optOut" /> | `EXEC` | <CopyableCode code="subdomain" /> | Opts out all users of this org from Okta Communication emails. |

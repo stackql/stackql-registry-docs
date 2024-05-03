@@ -14,26 +14,29 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>idps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.linkedobject.idps</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.linkedobject.idps" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `_links` | `object` |
-| `associated` | `object` |
-| `primary` | `object` |
+| <CopyableCode code="_links" /> | `object` |
+| <CopyableCode code="associated" /> | `object` |
+| <CopyableCode code="primary" /> | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `linkedObjectName, subdomain` |
-| `list` | `SELECT` | `subdomain` |
-| `insert` | `INSERT` | `subdomain` |
-| `delete` | `DELETE` | `linkedObjectName, subdomain` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="linkedObjectName, subdomain" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="subdomain" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="linkedObjectName, subdomain" /> |

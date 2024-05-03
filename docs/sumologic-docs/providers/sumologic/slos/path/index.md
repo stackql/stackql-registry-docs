@@ -14,23 +14,26 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>path</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.slos.path</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.slos.path" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `path` | `string` | String representation of the path. |
-| `pathItems` | `array` | Elements of the path. |
+| <CopyableCode code="path" /> | `string` | String representation of the path. |
+| <CopyableCode code="pathItems" /> | `array` | Elements of the path. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getSlosFullPath` | `SELECT` | `id, region` | Get the full path of the slo or folder in the slos library. |
-| `slosGetByPath` | `EXEC` | `path, region` | Read a slo or folder by its path in the slos library structure. |
+| <CopyableCode code="getSlosFullPath" /> | `SELECT` | <CopyableCode code="id, region" /> | Get the full path of the slo or folder in the slos library. |
+| <CopyableCode code="slosGetByPath" /> | `EXEC` | <CopyableCode code="path, region" /> | Read a slo or folder by its path in the slos library structure. |

@@ -14,30 +14,33 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>applinks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.user.applinks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.user.applinks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `label` | `string` |
-| `appInstanceId` | `string` |
-| `logoUrl` | `string` |
-| `appName` | `string` |
-| `linkUrl` | `string` |
-| `sortOrder` | `integer` |
-| `appAssignmentId` | `string` |
-| `credentialsSetup` | `boolean` |
-| `hidden` | `boolean` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="appAssignmentId" /> | `string` |
+| <CopyableCode code="appInstanceId" /> | `string` |
+| <CopyableCode code="appName" /> | `string` |
+| <CopyableCode code="credentialsSetup" /> | `boolean` |
+| <CopyableCode code="hidden" /> | `boolean` |
+| <CopyableCode code="label" /> | `string` |
+| <CopyableCode code="linkUrl" /> | `string` |
+| <CopyableCode code="logoUrl" /> | `string` |
+| <CopyableCode code="sortOrder" /> | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `userId, subdomain` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="userId, subdomain" /> |

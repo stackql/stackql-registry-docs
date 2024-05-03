@@ -14,14 +14,17 @@ description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ruleactivations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>okta.group.ruleactivations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="okta.group.ruleactivations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `insert` | `INSERT` | `ruleId, subdomain` | Activates a specific group rule by id from your organization |
-| `delete` | `DELETE` | `ruleId, subdomain` | Deactivates a specific group rule by id from your organization |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="ruleId, subdomain" /> | Activates a specific group rule by id from your organization |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="ruleId, subdomain" /> | Deactivates a specific group rule by id from your organization |

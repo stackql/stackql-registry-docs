@@ -14,14 +14,17 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>lookup_tables</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.lookup_tables.lookup_tables</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.lookup_tables.lookup_tables" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,7 +32,7 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `createTable` | `INSERT` | `data__name, data__parentFolderId, region` | Create a new lookup table by providing a schema and specifying its configuration. Providing parentFolderId<br /> is mandatory. Use the [getItemByPath](#operation/getItemByPath) endpoint to get content id of a path.<br />Please check [Content management API](#tag/contentManagement) and [Folder management API](#tag/folderManagement) for all available options. |
-| `deleteTable` | `DELETE` | `id, region` | Delete a lookup table completely. &lt;br&gt; **Warning:** `This operation cannot be undone`. |
-| `lookupTableById` | `EXEC` | `id, region` | Get a lookup table for the given identifier. |
-| `updateTable` | `EXEC` | `id, data__description, data__ttl, region` | Edit the lookup table data. All the fields are mandatory in the request. |
+| <CopyableCode code="createTable" /> | `INSERT` | <CopyableCode code="data__name, data__parentFolderId, region" /> | Create a new lookup table by providing a schema and specifying its configuration. Providing parentFolderId<br /> is mandatory. Use the [getItemByPath](#operation/getItemByPath) endpoint to get content id of a path.<br />Please check [Content management API](#tag/contentManagement) and [Folder management API](#tag/folderManagement) for all available options. |
+| <CopyableCode code="deleteTable" /> | `DELETE` | <CopyableCode code="id, region" /> | Delete a lookup table completely. &lt;br&gt; **Warning:** `This operation cannot be undone`. |
+| <CopyableCode code="lookupTableById" /> | `EXEC` | <CopyableCode code="id, region" /> | Get a lookup table for the given identifier. |
+| <CopyableCode code="updateTable" /> | `EXEC` | <CopyableCode code="id, data__description, data__ttl, region" /> | Edit the lookup table data. All the fields are mandatory in the request. |

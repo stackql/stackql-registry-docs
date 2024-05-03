@@ -14,26 +14,29 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_deployed_branches</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.deployed_branch.sites_deployed_branches</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.deployed_branch.sites_deployed_branches" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `url` | `string` |
-| `deploy_id` | `string` |
-| `slug` | `string` |
-| `ssl_url` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="deploy_id" /> | `string` |
+| <CopyableCode code="slug" /> | `string` |
+| <CopyableCode code="ssl_url" /> | `string` |
+| <CopyableCode code="url" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `listSiteDeployedBranches` | `SELECT` | `site_id` |
+| <CopyableCode code="listSiteDeployedBranches" /> | `SELECT` | <CopyableCode code="site_id" /> |

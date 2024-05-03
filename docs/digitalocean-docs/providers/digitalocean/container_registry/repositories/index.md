@@ -14,25 +14,28 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repositories</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>digitalocean.container_registry.repositories</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="digitalocean.container_registry.repositories" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the repository. |
-| `latest_tag` | `object` |  |
-| `registry_name` | `string` | The name of the container registry. |
-| `tag_count` | `integer` | The number of tags in the repository. |
+| <CopyableCode code="name" /> | `string` | The name of the repository. |
+| <CopyableCode code="latest_tag" /> | `object` |  |
+| <CopyableCode code="registry_name" /> | `string` | The name of the container registry. |
+| <CopyableCode code="tag_count" /> | `integer` | The number of tags in the repository. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `registry_list_repositories` | `SELECT` | `registry_name` |
-| `_registry_list_repositories` | `EXEC` | `registry_name` |
+| <CopyableCode code="registry_list_repositories" /> | `SELECT` | <CopyableCode code="registry_name" /> |
+| <CopyableCode code="_registry_list_repositories" /> | `EXEC` | <CopyableCode code="registry_name" /> |

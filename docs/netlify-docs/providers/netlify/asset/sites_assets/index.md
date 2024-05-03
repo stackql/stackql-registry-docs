@@ -14,36 +14,39 @@ description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sites_assets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>netlify.asset.sites_assets</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="netlify.asset.sites_assets" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `visibility` | `string` |
-| `size` | `integer` |
-| `url` | `string` |
-| `updated_at` | `string` |
-| `created_at` | `string` |
-| `content_type` | `string` |
-| `creator_id` | `string` |
-| `key` | `string` |
-| `site_id` | `string` |
-| `state` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="content_type" /> | `string` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="creator_id" /> | `string` |
+| <CopyableCode code="key" /> | `string` |
+| <CopyableCode code="site_id" /> | `string` |
+| <CopyableCode code="size" /> | `integer` |
+| <CopyableCode code="state" /> | `string` |
+| <CopyableCode code="updated_at" /> | `string` |
+| <CopyableCode code="url" /> | `string` |
+| <CopyableCode code="visibility" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSiteAssetInfo` | `SELECT` | `asset_id, site_id` |
-| `listSiteAssets` | `SELECT` | `site_id` |
-| `createSiteAsset` | `INSERT` | `site_id` |
-| `deleteSiteAsset` | `DELETE` | `asset_id, site_id` |
-| `updateSiteAsset` | `EXEC` | `asset_id, site_id` |
+| <CopyableCode code="getSiteAssetInfo" /> | `SELECT` | <CopyableCode code="asset_id, site_id" /> |
+| <CopyableCode code="listSiteAssets" /> | `SELECT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="createSiteAsset" /> | `INSERT` | <CopyableCode code="site_id" /> |
+| <CopyableCode code="deleteSiteAsset" /> | `DELETE` | <CopyableCode code="asset_id, site_id" /> |
+| <CopyableCode code="updateSiteAsset" /> | `EXEC` | <CopyableCode code="asset_id, site_id" /> |

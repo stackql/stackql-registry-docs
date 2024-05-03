@@ -14,36 +14,39 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>root</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>sumologic.slos.root</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sumologic.slos.root" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Identifier of the slo or folder. |
-| `name` | `string` | Identifier of the slo or folder. |
-| `description` | `string` | Description of the slo or folder. |
-| `contentType` | `string` | Type of the content. Valid values:<br />  1) Slo<br />  2) Folder |
-| `isMutable` | `boolean` | Immutable objects are "READ-ONLY". |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
-| `parentId` | `string` | Identifier of the parent folder. |
-| `children` | `array` | Children of the folder. NOTE: Permissions field will not be filled (empty list) for children. |
-| `permissions` | `array` | Aggregated permission summary for the calling user. If detailed permission statements are required, please call list permissions endpoint. |
-| `version` | `integer` | Version of the slo or folder. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `type` | `string` | Type of the object model. |
-| `isSystem` | `boolean` | System objects are objects provided by Sumo Logic. System objects can only be localized. Non-local fields can't be updated. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `_permissions` | `array` | Aggregated permission summary for the calling user. If detailed permission statements are required, please call list permissions endpoint. |
+| <CopyableCode code="id" /> | `string` | Identifier of the slo or folder. |
+| <CopyableCode code="name" /> | `string` | Identifier of the slo or folder. |
+| <CopyableCode code="description" /> | `string` | Description of the slo or folder. |
+| <CopyableCode code="_permissions" /> | `array` | Aggregated permission summary for the calling user. If detailed permission statements are required, please call list permissions endpoint. |
+| <CopyableCode code="children" /> | `array` | Children of the folder. NOTE: Permissions field will not be filled (empty list) for children. |
+| <CopyableCode code="contentType" /> | `string` | Type of the content. Valid values:<br />  1) Slo<br />  2) Folder |
+| <CopyableCode code="createdAt" /> | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| <CopyableCode code="createdBy" /> | `string` | Identifier of the user who created the resource. |
+| <CopyableCode code="isMutable" /> | `boolean` | Immutable objects are "READ-ONLY". |
+| <CopyableCode code="isSystem" /> | `boolean` | System objects are objects provided by Sumo Logic. System objects can only be localized. Non-local fields can't be updated. |
+| <CopyableCode code="modifiedAt" /> | `string` | Last modification timestamp in UTC. |
+| <CopyableCode code="modifiedBy" /> | `string` | Identifier of the user who last modified the resource. |
+| <CopyableCode code="parentId" /> | `string` | Identifier of the parent folder. |
+| <CopyableCode code="permissions" /> | `array` | Aggregated permission summary for the calling user. If detailed permission statements are required, please call list permissions endpoint. |
+| <CopyableCode code="type" /> | `string` | Type of the object model. |
+| <CopyableCode code="version" /> | `integer` | Version of the slo or folder. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSlosLibraryRoot` | `SELECT` | `region` |
+| <CopyableCode code="getSlosLibraryRoot" /> | `SELECT` | <CopyableCode code="region" /> |

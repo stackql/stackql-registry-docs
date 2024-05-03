@@ -13,6 +13,7 @@ description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
+
 Actions  
     
 :::info Service Summary
