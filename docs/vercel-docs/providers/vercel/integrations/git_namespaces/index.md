@@ -14,28 +14,31 @@ description: Query, deploy, and manage Vercel resources using SQL
 custom_edit_url: null
 image: /img/providers/vercel/stackql-vercel-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>git_namespaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>vercel.integrations.git_namespaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vercel.integrations.git_namespaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `` |
-| `name` | `string` |
-| `installationId` | `number` |
-| `isAccessRestricted` | `boolean` |
-| `ownerType` | `string` |
-| `provider` | `string` |
-| `requireReauth` | `boolean` |
-| `slug` | `string` |
+| <CopyableCode code="id" /> ||
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="installationId" /> | `number` |
+| <CopyableCode code="isAccessRestricted" /> | `boolean` |
+| <CopyableCode code="ownerType" /> | `string` |
+| <CopyableCode code="provider" /> | `string` |
+| <CopyableCode code="requireReauth" /> | `boolean` |
+| <CopyableCode code="slug" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `git_namespaces` | `SELECT` | `teamId` |
+| <CopyableCode code="git_namespaces" /> | `SELECT` | <CopyableCode code="teamId" /> |

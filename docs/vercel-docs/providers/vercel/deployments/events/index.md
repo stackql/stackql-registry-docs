@@ -14,29 +14,32 @@ description: Query, deploy, and manage Vercel resources using SQL
 custom_edit_url: null
 image: /img/providers/vercel/stackql-vercel-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>events</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>vercel.deployments.events</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vercel.deployments.events" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `__created` | `number` |
-| `__payload` | `object` |
-| `__type` | `string` |
-| `_created` | `number` |
-| `_payload` | `object` |
-| `_type` | `string` |
-| `created` | `number` |
-| `payload` | `object` |
-| `type` | `string` |
+| <CopyableCode code="__created" /> | `number` |
+| <CopyableCode code="__payload" /> | `object` |
+| <CopyableCode code="__type" /> | `string` |
+| <CopyableCode code="_created" /> | `number` |
+| <CopyableCode code="_payload" /> | `object` |
+| <CopyableCode code="_type" /> | `string` |
+| <CopyableCode code="created" /> | `number` |
+| <CopyableCode code="payload" /> | `object` |
+| <CopyableCode code="type" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_deployment_events` | `SELECT` | `idOrUrl, teamId` |
+| <CopyableCode code="get_deployment_events" /> | `SELECT` | <CopyableCode code="idOrUrl, teamId" /> |

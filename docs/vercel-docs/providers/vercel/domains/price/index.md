@@ -14,22 +14,25 @@ description: Query, deploy, and manage Vercel resources using SQL
 custom_edit_url: null
 image: /img/providers/vercel/stackql-vercel-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>price</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>vercel.domains.price</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vercel.domains.price" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `period` | `number` | The number of years the domain could be held before paying again. |
-| `price` | `number` | The domain price in USD. |
+| <CopyableCode code="period" /> | `number` | The number of years the domain could be held before paying again. |
+| <CopyableCode code="price" /> | `number` | The domain price in USD. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `check_domain_price` | `SELECT` | `name, teamId` |
+| <CopyableCode code="check_domain_price" /> | `SELECT` | <CopyableCode code="name, teamId" /> |

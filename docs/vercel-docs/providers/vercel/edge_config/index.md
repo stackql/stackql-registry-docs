@@ -13,6 +13,7 @@ description: Query, deploy, and manage Vercel resources using SQL
 custom_edit_url: null
 image: /img/providers/vercel/stackql-vercel-provider-featured-image.png
 ---
+
 Edge-Config  
     
 :::info Service Summary
