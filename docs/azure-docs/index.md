@@ -254,3 +254,4 @@ StackQL uses Azure application credentials obtained using the <CopyableCode code
 <a href="/providers/azure/workload_monitor/">workload_monitor</a><br />
 </div>
 </div>
+
