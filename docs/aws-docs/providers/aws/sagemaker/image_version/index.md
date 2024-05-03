@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>image_version</code> resource, use <code>image_versions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,28 +24,28 @@ Gets or operates on an individual <code>image_version</code> resource, use <code
 <tr><td><b>Name</b></td><td><code>image_version</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::SageMaker::ImageVersion</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.sagemaker.image_version</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.sagemaker.image_version" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>image_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>image_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>image_version_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>base_image</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>container_image</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>version</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>alias</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>aliases</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>vendor_guidance</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>job_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ml_framework</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>programming_lang</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>processor</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>horovod</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>release_notes</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="image_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_version_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="base_image" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="container_image" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="alias" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="aliases" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="vendor_guidance" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="ml_framework" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="programming_lang" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="processor" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="horovod" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="release_notes" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -55,19 +58,19 @@ Gets or operates on an individual <code>image_version</code> resource, use <code
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

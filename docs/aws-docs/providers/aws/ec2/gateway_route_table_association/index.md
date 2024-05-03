@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>gateway_route_table_association</code> resource, use <code>gateway_route_table_associations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,16 +24,16 @@ Gets or operates on an individual <code>gateway_route_table_association</code> r
 <tr><td><b>Name</b></td><td><code>gateway_route_table_association</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.gateway_route_table_association</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.gateway_route_table_association" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>route_table_id</code></td><td><code>string</code></td><td>The ID of the route table.</td></tr>
-<tr><td><code>gateway_id</code></td><td><code>string</code></td><td>The ID of the gateway.</td></tr>
-<tr><td><code>association_id</code></td><td><code>string</code></td><td>The route table association ID.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td>The ID of the route table.</td></tr>
+<tr><td><CopyableCode code="gateway_id" /></td><td><code>string</code></td><td>The ID of the gateway.</td></tr>
+<tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>The route table association ID.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,19 +46,19 @@ Gets or operates on an individual <code>gateway_route_table_association</code> r
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

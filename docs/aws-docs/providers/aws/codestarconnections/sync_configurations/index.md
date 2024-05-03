@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>sync_configurations</code> in a region or create a <code>sync_configurations</code> resource, use <code>sync_configuration</code> to operate on an individual resource.
 
 ## Overview
@@ -21,15 +24,15 @@ Used to retrieve a list of <code>sync_configurations</code> in a region or creat
 <tr><td><b>Name</b></td><td><code>sync_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.codestarconnections.sync_configurations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.codestarconnections.sync_configurations" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>resource_name</code></td><td><code>string</code></td><td>The name of the resource that is being synchronized to the repository.</td></tr>
-<tr><td><code>sync_type</code></td><td><code>string</code></td><td>The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="resource_name" /></td><td><code>string</code></td><td>The name of the resource that is being synchronized to the repository.</td></tr>
+<tr><td><CopyableCode code="sync_type" /></td><td><code>string</code></td><td>The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,14 +45,14 @@ Used to retrieve a list of <code>sync_configurations</code> in a region or creat
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

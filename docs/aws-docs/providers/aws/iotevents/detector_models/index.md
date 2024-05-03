@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>detector_models</code> in a region or create a <code>detector_models</code> resource, use <code>detector_model</code> to operate on an individual resource.
 
 ## Overview
@@ -21,14 +24,14 @@ Used to retrieve a list of <code>detector_models</code> in a region or create a 
 <tr><td><b>Name</b></td><td><code>detector_models</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a *detector model* (a model of your equipment or process) using *states*. For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see &#91;How to Use AWS IoT Events&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;iotevents&#x2F;latest&#x2F;developerguide&#x2F;how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.iotevents.detector_models</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.iotevents.detector_models" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>detector_model_name</code></td><td><code>string</code></td><td>The name of the detector model.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="detector_model_name" /></td><td><code>string</code></td><td>The name of the detector model.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,14 +44,14 @@ Used to retrieve a list of <code>detector_models</code> in a region or create a 
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

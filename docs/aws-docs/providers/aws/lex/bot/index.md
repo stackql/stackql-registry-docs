@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>bot</code> resource, use <code>bots</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,26 +24,26 @@ Gets or operates on an individual <code>bot</code> resource, use <code>bots</cod
 <tr><td><b>Name</b></td><td><code>bot</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.lex.bot</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.lex.bot" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>data_privacy</code></td><td><code>object</code></td><td>Data privacy setting of the Bot.</td></tr>
-<tr><td><code>idle_session_ttl_in_seconds</code></td><td><code>integer</code></td><td>IdleSessionTTLInSeconds of the resource</td></tr>
-<tr><td><code>bot_locales</code></td><td><code>array</code></td><td>List of bot locales</td></tr>
-<tr><td><code>bot_file_s3_location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>bot_tags</code></td><td><code>array</code></td><td>A list of tags to add to the bot, which can only be added at bot creation.</td></tr>
-<tr><td><code>test_bot_alias_tags</code></td><td><code>array</code></td><td>A list of tags to add to the test alias for a bot, , which can only be added at bot&#x2F;bot alias creation.</td></tr>
-<tr><td><code>auto_build_bot_locales</code></td><td><code>boolean</code></td><td>Specifies whether to build the bot locales after bot creation completes.</td></tr>
-<tr><td><code>test_bot_alias_settings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_privacy" /></td><td><code>object</code></td><td>Data privacy setting of the Bot.</td></tr>
+<tr><td><CopyableCode code="idle_session_ttl_in_seconds" /></td><td><code>integer</code></td><td>IdleSessionTTLInSeconds of the resource</td></tr>
+<tr><td><CopyableCode code="bot_locales" /></td><td><code>array</code></td><td>List of bot locales</td></tr>
+<tr><td><CopyableCode code="bot_file_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_tags" /></td><td><code>array</code></td><td>A list of tags to add to the bot, which can only be added at bot creation.</td></tr>
+<tr><td><CopyableCode code="test_bot_alias_tags" /></td><td><code>array</code></td><td>A list of tags to add to the test alias for a bot, , which can only be added at bot&#x2F;bot alias creation.</td></tr>
+<tr><td><CopyableCode code="auto_build_bot_locales" /></td><td><code>boolean</code></td><td>Specifies whether to build the bot locales after bot creation completes.</td></tr>
+<tr><td><CopyableCode code="test_bot_alias_settings" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,19 +56,19 @@ Gets or operates on an individual <code>bot</code> resource, use <code>bots</cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

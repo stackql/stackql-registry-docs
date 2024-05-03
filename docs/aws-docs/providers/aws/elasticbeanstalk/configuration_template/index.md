@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>configuration_template</code> resource, use <code>configuration_templates</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>configuration_template</code> resource, 
 <tr><td><b>Name</b></td><td><code>configuration_template</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.elasticbeanstalk.configuration_template</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.elasticbeanstalk.configuration_template" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>application_name</code></td><td><code>string</code></td><td>The name of the Elastic Beanstalk application to associate with this configuration template. </td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>An optional description for this configuration.</td></tr>
-<tr><td><code>environment_id</code></td><td><code>string</code></td><td>The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. </td></tr>
-<tr><td><code>option_settings</code></td><td><code>array</code></td><td>Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see &#91;Option Values&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;elasticbeanstalk&#x2F;latest&#x2F;dg&#x2F;command-options.html) in the AWS Elastic Beanstalk Developer Guide. </td></tr>
-<tr><td><code>platform_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the custom platform. For more information, see &#91;Custom Platforms&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;elasticbeanstalk&#x2F;latest&#x2F;dg&#x2F;custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide. </td></tr>
-<tr><td><code>solution_stack_name</code></td><td><code>string</code></td><td>The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see &#91;Supported Platforms&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;elasticbeanstalk&#x2F;latest&#x2F;dg&#x2F;concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt; You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt; Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks. </td></tr>
-<tr><td><code>source_configuration</code></td><td><code>object</code></td><td>An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;Values specified in OptionSettings override any values obtained from the SourceConfiguration.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. </td></tr>
-<tr><td><code>template_name</code></td><td><code>string</code></td><td>The name of the configuration template</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>The name of the Elastic Beanstalk application to associate with this configuration template. </td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description for this configuration.</td></tr>
+<tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. </td></tr>
+<tr><td><CopyableCode code="option_settings" /></td><td><code>array</code></td><td>Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see &#91;Option Values&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;elasticbeanstalk&#x2F;latest&#x2F;dg&#x2F;command-options.html) in the AWS Elastic Beanstalk Developer Guide. </td></tr>
+<tr><td><CopyableCode code="platform_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the custom platform. For more information, see &#91;Custom Platforms&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;elasticbeanstalk&#x2F;latest&#x2F;dg&#x2F;custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide. </td></tr>
+<tr><td><CopyableCode code="solution_stack_name" /></td><td><code>string</code></td><td>The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see &#91;Supported Platforms&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;elasticbeanstalk&#x2F;latest&#x2F;dg&#x2F;concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt; You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt; Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks. </td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>object</code></td><td>An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;Values specified in OptionSettings override any values obtained from the SourceConfiguration.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. </td></tr>
+<tr><td><CopyableCode code="template_name" /></td><td><code>string</code></td><td>The name of the configuration template</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>configuration_template</code> resource, 
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>license</code> resource, use <code>licenses</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,26 +24,26 @@ Gets or operates on an individual <code>license</code> resource, use <code>licen
 <tr><td><b>Name</b></td><td><code>license</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::LicenseManager::License</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.licensemanager.license</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.licensemanager.license" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>product_sku</code></td><td><code>string</code></td><td>ProductSKU of the license.</td></tr>
-<tr><td><code>issuer</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>license_name</code></td><td><code>string</code></td><td>Name for the created license.</td></tr>
-<tr><td><code>product_name</code></td><td><code>string</code></td><td>Product name for the created license.</td></tr>
-<tr><td><code>home_region</code></td><td><code>string</code></td><td>Home region for the created license.</td></tr>
-<tr><td><code>validity</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>entitlements</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>beneficiary</code></td><td><code>string</code></td><td>Beneficiary of the license.</td></tr>
-<tr><td><code>consumption_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>license_metadata</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>license_arn</code></td><td><code>string</code></td><td>Amazon Resource Name is a unique name for each resource.</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>version</code></td><td><code>string</code></td><td>The version of the license.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="product_sku" /></td><td><code>string</code></td><td>ProductSKU of the license.</td></tr>
+<tr><td><CopyableCode code="issuer" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="license_name" /></td><td><code>string</code></td><td>Name for the created license.</td></tr>
+<tr><td><CopyableCode code="product_name" /></td><td><code>string</code></td><td>Product name for the created license.</td></tr>
+<tr><td><CopyableCode code="home_region" /></td><td><code>string</code></td><td>Home region for the created license.</td></tr>
+<tr><td><CopyableCode code="validity" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="entitlements" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="beneficiary" /></td><td><code>string</code></td><td>Beneficiary of the license.</td></tr>
+<tr><td><CopyableCode code="consumption_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="license_metadata" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="license_arn" /></td><td><code>string</code></td><td>Amazon Resource Name is a unique name for each resource.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version of the license.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,19 +56,19 @@ Gets or operates on an individual <code>license</code> resource, use <code>licen
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

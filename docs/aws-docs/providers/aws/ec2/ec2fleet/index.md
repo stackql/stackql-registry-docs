@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>ec2fleet</code> resource, use <code>ec2fleets</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,26 +24,26 @@ Gets or operates on an individual <code>ec2fleet</code> resource, use <code>ec2f
 <tr><td><b>Name</b></td><td><code>ec2fleet</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::EC2Fleet</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.ec2fleet</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.ec2fleet" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>target_capacity_specification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>on_demand_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>excess_capacity_termination_policy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tag_specifications</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>spot_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>valid_from</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>replace_unhealthy_instances</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>launch_template_configs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>fleet_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>terminate_instances_with_expiration</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>valid_until</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>context</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="target_capacity_specification" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="on_demand_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="excess_capacity_termination_policy" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="spot_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="valid_from" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="replace_unhealthy_instances" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="launch_template_configs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="terminate_instances_with_expiration" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="valid_until" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="context" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,19 +56,19 @@ Gets or operates on an individual <code>ec2fleet</code> resource, use <code>ec2f
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

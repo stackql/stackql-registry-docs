@@ -558,3 +558,20 @@ html[data-theme='dark'] .contactFormHeading {
     top: 2px;
     transform: translateY(-50%);
   }
+
+  /* copyable code */
+
+  /* src/css/custom.css */
+.copyable-code-container code {
+    cursor: pointer;
+    position: relative;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 2px 6px;
+}
+
+.copyable-code-container code:hover {
+    background-color: #e8e8e8;
+}
+
+/* end copyable code */

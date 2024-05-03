@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>key_signing_keys</code> in a region or create a <code>key_signing_keys</code> resource, use <code>key_signing_key</code> to operate on an individual resource.
 
 ## Overview
@@ -21,15 +24,15 @@ Used to retrieve a list of <code>key_signing_keys</code> in a region or create a
 <tr><td><b>Name</b></td><td><code>key_signing_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.route53.key_signing_keys</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.route53.key_signing_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>hosted_zone_id</code></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="hosted_zone_id" /></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,14 +45,14 @@ Used to retrieve a list of <code>key_signing_keys</code> in a region or create a
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

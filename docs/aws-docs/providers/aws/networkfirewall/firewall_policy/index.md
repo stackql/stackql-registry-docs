@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>firewall_policy</code> resource, use <code>firewall_policies</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>firewall_policy</code> resource, use <co
 <tr><td><b>Name</b></td><td><code>firewall_policy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource type definition for AWS::NetworkFirewall::FirewallPolicy</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.networkfirewall.firewall_policy</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.networkfirewall.firewall_policy" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>firewall_policy_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>firewall_policy_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>firewall_policy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>firewall_policy_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="firewall_policy_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="firewall_policy_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="firewall_policy" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="firewall_policy_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>firewall_policy</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

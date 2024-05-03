@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>launch_profile</code> resource, use <code>launch_profiles</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>launch_profile</code> resource, use <cod
 <tr><td><b>Name</b></td><td><code>launch_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Represents a launch profile which delegates access to a collection of studio components to studio users</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.nimblestudio.launch_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.nimblestudio.launch_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>&lt;p&gt;The description.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>ec2_subnet_ids</code></td><td><code>array</code></td><td>&lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.&lt;br&#x2F;&gt;            These subnets must support the specified instance types. &lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>launch_profile_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>launch_profile_protocol_versions</code></td><td><code>array</code></td><td>&lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid&lt;br&#x2F;&gt;            version is "2021-03-31".&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>&lt;p&gt;The name for the launch profile.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>stream_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>studio_component_ids</code></td><td><code>array</code></td><td>&lt;p&gt;Unique identifiers for a collection of studio components that can be used with this&lt;br&#x2F;&gt;            launch profile.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>studio_id</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>&lt;p&gt;The description.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="ec2_subnet_ids" /></td><td><code>array</code></td><td>&lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.&lt;br&#x2F;&gt;            These subnets must support the specified instance types. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="launch_profile_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="launch_profile_protocol_versions" /></td><td><code>array</code></td><td>&lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid&lt;br&#x2F;&gt;            version is "2021-03-31".&lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>&lt;p&gt;The name for the launch profile.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="stream_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="studio_component_ids" /></td><td><code>array</code></td><td>&lt;p&gt;Unique identifiers for a collection of studio components that can be used with this&lt;br&#x2F;&gt;            launch profile.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>launch_profile</code> resource, use <cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

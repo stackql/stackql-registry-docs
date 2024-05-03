@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>subscriber</code> resource, use <code>subscribers</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,25 +24,25 @@ Gets or operates on an individual <code>subscriber</code> resource, use <code>su
 <tr><td><b>Name</b></td><td><code>subscriber</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::SecurityLake::Subscriber</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.securitylake.subscriber</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.securitylake.subscriber" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>access_types</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>data_lake_arn</code></td><td><code>string</code></td><td>The ARN for the data lake.</td></tr>
-<tr><td><code>subscriber_identity</code></td><td><code>object</code></td><td>The AWS identity used to access your data.</td></tr>
-<tr><td><code>subscriber_name</code></td><td><code>string</code></td><td>The name of your Security Lake subscriber account.</td></tr>
-<tr><td><code>subscriber_description</code></td><td><code>string</code></td><td>The description for your subscriber account in Security Lake.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.</td></tr>
-<tr><td><code>sources</code></td><td><code>array</code></td><td>The supported AWS services from which logs and events are collected.</td></tr>
-<tr><td><code>resource_share_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>resource_share_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>subscriber_role_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>s3_bucket_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>subscriber_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="access_types" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_lake_arn" /></td><td><code>string</code></td><td>The ARN for the data lake.</td></tr>
+<tr><td><CopyableCode code="subscriber_identity" /></td><td><code>object</code></td><td>The AWS identity used to access your data.</td></tr>
+<tr><td><CopyableCode code="subscriber_name" /></td><td><code>string</code></td><td>The name of your Security Lake subscriber account.</td></tr>
+<tr><td><CopyableCode code="subscriber_description" /></td><td><code>string</code></td><td>The description for your subscriber account in Security Lake.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.</td></tr>
+<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>The supported AWS services from which logs and events are collected.</td></tr>
+<tr><td><CopyableCode code="resource_share_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_share_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subscriber_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="s3_bucket_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subscriber_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,19 +55,19 @@ Gets or operates on an individual <code>subscriber</code> resource, use <code>su
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

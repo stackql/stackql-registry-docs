@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>event_type</code> resource, use <code>event_types</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>event_type</code> resource, use <code>ev
 <tr><td><b>Name</b></td><td><code>event_type</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>A resource schema for an EventType in Amazon Fraud Detector.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.frauddetector.event_type</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.frauddetector.event_type" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name for the event type</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Tags associated with this event type.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the event type.</td></tr>
-<tr><td><code>event_variables</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>labels</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>entity_types</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the event type.</td></tr>
-<tr><td><code>created_time</code></td><td><code>string</code></td><td>The time when the event type was created.</td></tr>
-<tr><td><code>last_updated_time</code></td><td><code>string</code></td><td>The time when the event type was last updated.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the event type</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this event type.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the event type.</td></tr>
+<tr><td><CopyableCode code="event_variables" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="labels" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="entity_types" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the event type.</td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The time when the event type was created.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The time when the event type was last updated.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>event_type</code> resource, use <code>ev
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

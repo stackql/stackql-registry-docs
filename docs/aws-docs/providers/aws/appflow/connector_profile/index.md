@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>connector_profile</code> resource, use <code>connector_profiles</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>connector_profile</code> resource, use <
 <tr><td><b>Name</b></td><td><code>connector_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::AppFlow::ConnectorProfile</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.appflow.connector_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.appflow.connector_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>connector_profile_arn</code></td><td><code>string</code></td><td>Unique identifier for connector profile resources</td></tr>
-<tr><td><code>connector_label</code></td><td><code>string</code></td><td>The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type&#x2F;.</td></tr>
-<tr><td><code>connector_profile_name</code></td><td><code>string</code></td><td>The maximum number of items to retrieve in a single batch.</td></tr>
-<tr><td><code>kms_arn</code></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
-<tr><td><code>connector_type</code></td><td><code>string</code></td><td>List of Saas providers that need connector profile to be created</td></tr>
-<tr><td><code>connection_mode</code></td><td><code>string</code></td><td>Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular</td></tr>
-<tr><td><code>connector_profile_config</code></td><td><code>object</code></td><td>Connector specific configurations needed to create connector profile</td></tr>
-<tr><td><code>credentials_arn</code></td><td><code>string</code></td><td>A unique Arn for Connector-Profile resource</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="connector_profile_arn" /></td><td><code>string</code></td><td>Unique identifier for connector profile resources</td></tr>
+<tr><td><CopyableCode code="connector_label" /></td><td><code>string</code></td><td>The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type&#x2F;.</td></tr>
+<tr><td><CopyableCode code="connector_profile_name" /></td><td><code>string</code></td><td>The maximum number of items to retrieve in a single batch.</td></tr>
+<tr><td><CopyableCode code="kms_arn" /></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
+<tr><td><CopyableCode code="connector_type" /></td><td><code>string</code></td><td>List of Saas providers that need connector profile to be created</td></tr>
+<tr><td><CopyableCode code="connection_mode" /></td><td><code>string</code></td><td>Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular</td></tr>
+<tr><td><CopyableCode code="connector_profile_config" /></td><td><code>object</code></td><td>Connector specific configurations needed to create connector profile</td></tr>
+<tr><td><CopyableCode code="credentials_arn" /></td><td><code>string</code></td><td>A unique Arn for Connector-Profile resource</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>connector_profile</code> resource, use <
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

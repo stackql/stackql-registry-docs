@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>deployments</code> in a region or create a <code>deployments</code> resource, use <code>deployment</code> to operate on an individual resource.
 
 ## Overview
@@ -21,15 +24,15 @@ Used to retrieve a list of <code>deployments</code> in a region or create a <cod
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.apigateway.deployments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>deployment_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,14 +45,14 @@ Used to retrieve a list of <code>deployments</code> in a region or create a <cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

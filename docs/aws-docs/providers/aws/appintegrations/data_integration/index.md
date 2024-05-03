@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>data_integration</code> resource, use <code>data_integrations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>data_integration</code> resource, use <c
 <tr><td><b>Name</b></td><td><code>data_integration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::AppIntegrations::DataIntegration</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.appintegrations.data_integration</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.appintegrations.data_integration" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The data integration description.</td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td>The unique identifer of the data integration.</td></tr>
-<tr><td><code>data_integration_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the data integration.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the data integration.</td></tr>
-<tr><td><code>kms_key</code></td><td><code>string</code></td><td>The KMS key of the data integration.</td></tr>
-<tr><td><code>schedule_config</code></td><td><code>object</code></td><td>The name of the data and how often it should be pulled from the source.</td></tr>
-<tr><td><code>source_uri</code></td><td><code>string</code></td><td>The URI of the data source.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the data integration.</td></tr>
-<tr><td><code>file_configuration</code></td><td><code>object</code></td><td>The configuration for what files should be pulled from the source.</td></tr>
-<tr><td><code>object_configuration</code></td><td><code>object</code></td><td>The configuration for what data should be pulled from the source.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The data integration description.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifer of the data integration.</td></tr>
+<tr><td><CopyableCode code="data_integration_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the data integration.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the data integration.</td></tr>
+<tr><td><CopyableCode code="kms_key" /></td><td><code>string</code></td><td>The KMS key of the data integration.</td></tr>
+<tr><td><CopyableCode code="schedule_config" /></td><td><code>object</code></td><td>The name of the data and how often it should be pulled from the source.</td></tr>
+<tr><td><CopyableCode code="source_uri" /></td><td><code>string</code></td><td>The URI of the data source.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags (keys and values) associated with the data integration.</td></tr>
+<tr><td><CopyableCode code="file_configuration" /></td><td><code>object</code></td><td>The configuration for what files should be pulled from the source.</td></tr>
+<tr><td><CopyableCode code="object_configuration" /></td><td><code>object</code></td><td>The configuration for what data should be pulled from the source.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,19 +53,19 @@ Gets or operates on an individual <code>data_integration</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

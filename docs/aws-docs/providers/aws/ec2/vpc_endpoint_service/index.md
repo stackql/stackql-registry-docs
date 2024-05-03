@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>vpc_endpoint_service</code> resource, use <code>vpc_endpoint_services</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>vpc_endpoint_service</code> resource, us
 <tr><td><b>Name</b></td><td><code>vpc_endpoint_service</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::VPCEndpointService</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.vpc_endpoint_service</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.vpc_endpoint_service" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>network_load_balancer_arns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>contributor_insights_enabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>payer_responsibility</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>service_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>acceptance_required</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>gateway_load_balancer_arns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="network_load_balancer_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="contributor_insights_enabled" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="payer_responsibility" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="acceptance_required" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="gateway_load_balancer_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>vpc_endpoint_service</code> resource, us
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

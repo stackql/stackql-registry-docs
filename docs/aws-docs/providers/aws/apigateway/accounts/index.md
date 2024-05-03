@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>accounts</code> in a region or create a <code>accounts</code> resource, use <code>account</code> to operate on an individual resource.
 
 ## Overview
@@ -21,14 +24,14 @@ Used to retrieve a list of <code>accounts</code> in a region or create a <code>a
 <tr><td><b>Name</b></td><td><code>accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.apigateway.accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,14 +44,14 @@ Used to retrieve a list of <code>accounts</code> in a region or create a <code>a
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

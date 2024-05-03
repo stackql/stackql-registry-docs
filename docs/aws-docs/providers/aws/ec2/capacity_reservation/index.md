@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>capacity_reservation</code> resource, use <code>capacity_reservations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,29 +24,29 @@ Gets or operates on an individual <code>capacity_reservation</code> resource, us
 <tr><td><b>Name</b></td><td><code>capacity_reservation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::CapacityReservation</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.capacity_reservation</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.capacity_reservation" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>tenancy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>end_date_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tag_specifications</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>availability_zone</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>total_instance_count</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>end_date</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ebs_optimized</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>out_post_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>instance_count</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>placement_group_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>available_instance_count</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>instance_platform</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>instance_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ephemeral_storage</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>instance_match_criteria</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="tenancy" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="end_date_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="total_instance_count" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="end_date" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="ebs_optimized" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="out_post_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_count" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="placement_group_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="available_instance_count" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_platform" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="ephemeral_storage" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_match_criteria" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -56,19 +59,19 @@ Gets or operates on an individual <code>capacity_reservation</code> resource, us
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

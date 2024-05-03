@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>state_machine_version</code> resource, use <code>state_machine_versions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,17 +24,17 @@ Gets or operates on an individual <code>state_machine_version</code> resource, u
 <tr><td><b>Name</b></td><td><code>state_machine_version</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for StateMachineVersion</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.stepfunctions.state_machine_version</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.stepfunctions.state_machine_version" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>state_machine_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>state_machine_revision_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_revision_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,14 +47,14 @@ Gets or operates on an individual <code>state_machine_version</code> resource, u
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

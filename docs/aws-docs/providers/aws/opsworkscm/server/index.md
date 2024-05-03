@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>server</code> resource, use <code>servers</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,36 +24,36 @@ Gets or operates on an individual <code>server</code> resource, use <code>server
 <tr><td><b>Name</b></td><td><code>server</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::OpsWorksCM::Server</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.opsworkscm.server</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.opsworkscm.server" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>key_pair</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>engine_version</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>service_role_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>disable_automated_backup</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>backup_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>engine_model</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>preferred_maintenance_window</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>associate_public_ip_address</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>instance_profile_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>custom_certificate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>preferred_backup_window</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>custom_domain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>custom_private_key</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>server_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>engine_attributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>backup_retention_count</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>instance_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>engine</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="key_pair" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="disable_automated_backup" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_model" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="associate_public_ip_address" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_profile_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_certificate" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="preferred_backup_window" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_domain" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_private_key" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="server_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_attributes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_retention_count" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -63,19 +66,19 @@ Gets or operates on an individual <code>server</code> resource, use <code>server
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

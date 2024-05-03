@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>capability</code> resource, use <code>capabilities</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>capability</code> resource, use <code>ca
 <tr><td><b>Name</b></td><td><code>capability</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Definition of AWS::B2BI::Capability Resource Type</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.b2bi.capability</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.b2bi.capability" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>capability_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>capability_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>configuration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>created_at</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>instructions_documents</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>modified_at</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="capability_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="capability_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instructions_documents" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>capability</code> resource, use <code>ca
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

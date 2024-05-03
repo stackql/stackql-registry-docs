@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>endpoint_authorizations</code> in a region or create a <code>endpoint_authorizations</code> resource, use <code>endpoint_authorization</code> to operate on an individual resource.
 
 ## Overview
@@ -21,15 +24,15 @@ Used to retrieve a list of <code>endpoint_authorizations</code> in a region or c
 <tr><td><b>Name</b></td><td><code>endpoint_authorizations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.redshift.endpoint_authorizations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.redshift.endpoint_authorizations" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>cluster_identifier</code></td><td><code>string</code></td><td>The cluster identifier.</td></tr>
-<tr><td><code>account</code></td><td><code>undefined</code></td><td>The target AWS account ID to grant or revoke access for.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="cluster_identifier" /></td><td><code>string</code></td><td>The cluster identifier.</td></tr>
+<tr><td><CopyableCode code="account" /></td><td><code>undefined</code></td><td>The target AWS account ID to grant or revoke access for.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,14 +45,14 @@ Used to retrieve a list of <code>endpoint_authorizations</code> in a region or c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

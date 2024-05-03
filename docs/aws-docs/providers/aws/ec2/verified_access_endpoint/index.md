@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>verified_access_endpoint</code> resource, use <code>verified_access_endpoints</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,34 +24,34 @@ Gets or operates on an individual <code>verified_access_endpoint</code> resource
 <tr><td><b>Name</b></td><td><code>verified_access_endpoint</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.verified_access_endpoint</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.verified_access_endpoint" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>verified_access_endpoint_id</code></td><td><code>string</code></td><td>The ID of the AWS Verified Access endpoint.</td></tr>
-<tr><td><code>verified_access_group_id</code></td><td><code>string</code></td><td>The ID of the AWS Verified Access group.</td></tr>
-<tr><td><code>verified_access_instance_id</code></td><td><code>string</code></td><td>The ID of the AWS Verified Access instance.</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td>The endpoint status.</td></tr>
-<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td>The IDs of the security groups for the endpoint.</td></tr>
-<tr><td><code>network_interface_options</code></td><td><code>object</code></td><td>The options for network-interface type endpoint.</td></tr>
-<tr><td><code>load_balancer_options</code></td><td><code>object</code></td><td>The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.</td></tr>
-<tr><td><code>endpoint_type</code></td><td><code>string</code></td><td>The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.</td></tr>
-<tr><td><code>endpoint_domain</code></td><td><code>string</code></td><td>A DNS name that is generated for the endpoint.</td></tr>
-<tr><td><code>endpoint_domain_prefix</code></td><td><code>string</code></td><td>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</td></tr>
-<tr><td><code>device_validation_domain</code></td><td><code>string</code></td><td>Returned if endpoint has a device trust provider attached.</td></tr>
-<tr><td><code>domain_certificate_arn</code></td><td><code>string</code></td><td>The ARN of a public TLS&#x2F;SSL certificate imported into or created with ACM.</td></tr>
-<tr><td><code>attachment_type</code></td><td><code>string</code></td><td>The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.</td></tr>
-<tr><td><code>application_domain</code></td><td><code>string</code></td><td>The DNS name for users to reach your application.</td></tr>
-<tr><td><code>creation_time</code></td><td><code>string</code></td><td>The creation time.</td></tr>
-<tr><td><code>last_updated_time</code></td><td><code>string</code></td><td>The last updated time.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A description for the AWS Verified Access endpoint.</td></tr>
-<tr><td><code>policy_document</code></td><td><code>string</code></td><td>The AWS Verified Access policy document.</td></tr>
-<tr><td><code>policy_enabled</code></td><td><code>boolean</code></td><td>The status of the Verified Access policy.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>sse_specification</code></td><td><code>object</code></td><td>The configuration options for customer provided KMS encryption.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="verified_access_endpoint_id" /></td><td><code>string</code></td><td>The ID of the AWS Verified Access endpoint.</td></tr>
+<tr><td><CopyableCode code="verified_access_group_id" /></td><td><code>string</code></td><td>The ID of the AWS Verified Access group.</td></tr>
+<tr><td><CopyableCode code="verified_access_instance_id" /></td><td><code>string</code></td><td>The ID of the AWS Verified Access instance.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The endpoint status.</td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The IDs of the security groups for the endpoint.</td></tr>
+<tr><td><CopyableCode code="network_interface_options" /></td><td><code>object</code></td><td>The options for network-interface type endpoint.</td></tr>
+<tr><td><CopyableCode code="load_balancer_options" /></td><td><code>object</code></td><td>The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.</td></tr>
+<tr><td><CopyableCode code="endpoint_type" /></td><td><code>string</code></td><td>The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.</td></tr>
+<tr><td><CopyableCode code="endpoint_domain" /></td><td><code>string</code></td><td>A DNS name that is generated for the endpoint.</td></tr>
+<tr><td><CopyableCode code="endpoint_domain_prefix" /></td><td><code>string</code></td><td>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</td></tr>
+<tr><td><CopyableCode code="device_validation_domain" /></td><td><code>string</code></td><td>Returned if endpoint has a device trust provider attached.</td></tr>
+<tr><td><CopyableCode code="domain_certificate_arn" /></td><td><code>string</code></td><td>The ARN of a public TLS&#x2F;SSL certificate imported into or created with ACM.</td></tr>
+<tr><td><CopyableCode code="attachment_type" /></td><td><code>string</code></td><td>The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.</td></tr>
+<tr><td><CopyableCode code="application_domain" /></td><td><code>string</code></td><td>The DNS name for users to reach your application.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The creation time.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The last updated time.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the AWS Verified Access endpoint.</td></tr>
+<tr><td><CopyableCode code="policy_document" /></td><td><code>string</code></td><td>The AWS Verified Access policy document.</td></tr>
+<tr><td><CopyableCode code="policy_enabled" /></td><td><code>boolean</code></td><td>The status of the Verified Access policy.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="sse_specification" /></td><td><code>object</code></td><td>The configuration options for customer provided KMS encryption.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -61,19 +64,19 @@ Gets or operates on an individual <code>verified_access_endpoint</code> resource
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

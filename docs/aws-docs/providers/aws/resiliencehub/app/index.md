@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>app</code> resource, use <code>apps</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,24 +24,24 @@ Gets or operates on an individual <code>app</code> resource, use <code>apps</cod
 <tr><td><b>Name</b></td><td><code>app</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type Definition for AWS::ResilienceHub::App.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.resiliencehub.app</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.resiliencehub.app" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>Name of the app.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>App description.</td></tr>
-<tr><td><code>app_arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
-<tr><td><code>resiliency_policy_arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
-<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>app_template_body</code></td><td><code>string</code></td><td>A string containing full ResilienceHub app template body.</td></tr>
-<tr><td><code>resource_mappings</code></td><td><code>array</code></td><td>An array of ResourceMapping objects.</td></tr>
-<tr><td><code>app_assessment_schedule</code></td><td><code>string</code></td><td>Assessment execution schedule.</td></tr>
-<tr><td><code>permission_model</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>event_subscriptions</code></td><td><code>array</code></td><td>The list of events you would like to subscribe and get notification for.</td></tr>
-<tr><td><code>drift_status</code></td><td><code>string</code></td><td>Indicates if compliance drifts (deviations) were detected while running an assessment for your application.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the app.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>App description.</td></tr>
+<tr><td><CopyableCode code="app_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
+<tr><td><CopyableCode code="resiliency_policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="app_template_body" /></td><td><code>string</code></td><td>A string containing full ResilienceHub app template body.</td></tr>
+<tr><td><CopyableCode code="resource_mappings" /></td><td><code>array</code></td><td>An array of ResourceMapping objects.</td></tr>
+<tr><td><CopyableCode code="app_assessment_schedule" /></td><td><code>string</code></td><td>Assessment execution schedule.</td></tr>
+<tr><td><CopyableCode code="permission_model" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="event_subscriptions" /></td><td><code>array</code></td><td>The list of events you would like to subscribe and get notification for.</td></tr>
+<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td>Indicates if compliance drifts (deviations) were detected while running an assessment for your application.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,19 +54,19 @@ Gets or operates on an individual <code>app</code> resource, use <code>apps</cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

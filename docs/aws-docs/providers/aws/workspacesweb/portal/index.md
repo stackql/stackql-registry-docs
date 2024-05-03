@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>portal</code> resource, use <code>portals</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,32 +24,32 @@ Gets or operates on an individual <code>portal</code> resource, use <code>portal
 <tr><td><b>Name</b></td><td><code>portal</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Definition of AWS::WorkSpacesWeb::Portal Resource Type</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.workspacesweb.portal</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.workspacesweb.portal" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>additional_encryption_context</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>authentication_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>browser_settings_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>browser_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>creation_date</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>customer_managed_key</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>display_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ip_access_settings_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>network_settings_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>portal_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>portal_endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>portal_status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>renderer_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>service_provider_saml_metadata</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>status_reason</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>trust_store_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>user_access_logging_settings_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>user_settings_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="authentication_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="browser_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="browser_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="ip_access_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="portal_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="portal_endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="portal_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="renderer_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_provider_saml_metadata" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="trust_store_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_access_logging_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -59,19 +62,19 @@ Gets or operates on an individual <code>portal</code> resource, use <code>portal
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

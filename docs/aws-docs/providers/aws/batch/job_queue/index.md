@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>job_queue</code> resource, use <code>job_queues</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>job_queue</code> resource, use <code>job
 <tr><td><b>Name</b></td><td><code>job_queue</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Batch::JobQueue</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.batch.job_queue</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.batch.job_queue" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>job_queue_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>job_queue_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>compute_environment_order</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>job_state_time_limit_actions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>priority</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>state</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>scheduling_policy_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="job_queue_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_queue_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="compute_environment_order" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_state_time_limit_actions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="scheduling_policy_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>job_queue</code> resource, use <code>job
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

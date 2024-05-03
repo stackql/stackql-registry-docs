@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>robot_application</code> resource, use <code>robot_applications</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,20 +24,20 @@ Gets or operates on an individual <code>robot_application</code> resource, use <
 <tr><td><b>Name</b></td><td><code>robot_application</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>This schema is for testing purpose only.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.robomaker.robot_application</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.robomaker.robot_application" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the robot application.</td></tr>
-<tr><td><code>sources</code></td><td><code>array</code></td><td>The sources of the robot application.</td></tr>
-<tr><td><code>environment</code></td><td><code>string</code></td><td>The URI of the Docker image for the robot application.</td></tr>
-<tr><td><code>robot_software_suite</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>current_revision_id</code></td><td><code>string</code></td><td>The revision ID of robot application.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the robot application.</td></tr>
+<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>The sources of the robot application.</td></tr>
+<tr><td><CopyableCode code="environment" /></td><td><code>string</code></td><td>The URI of the Docker image for the robot application.</td></tr>
+<tr><td><CopyableCode code="robot_software_suite" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="current_revision_id" /></td><td><code>string</code></td><td>The revision ID of robot application.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,19 +50,19 @@ Gets or operates on an individual <code>robot_application</code> resource, use <
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

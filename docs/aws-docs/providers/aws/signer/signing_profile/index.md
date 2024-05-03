@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>signing_profile</code> resource, use <code>signing_profiles</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,20 +24,20 @@ Gets or operates on an individual <code>signing_profile</code> resource, use <co
 <tr><td><b>Name</b></td><td><code>signing_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>A signing profile is a signing template that can be used to carry out a pre-defined signing job.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.signer.signing_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.signer.signing_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>profile_name</code></td><td><code>string</code></td><td>A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. </td></tr>
-<tr><td><code>profile_version</code></td><td><code>string</code></td><td>A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile.</td></tr>
-<tr><td><code>profile_version_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile version.</td></tr>
-<tr><td><code>signature_validity_period</code></td><td><code>object</code></td><td>Signature validity period of the profile.</td></tr>
-<tr><td><code>platform_id</code></td><td><code>string</code></td><td>The ID of the target signing platform.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>A list of tags associated with the signing profile.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="profile_name" /></td><td><code>string</code></td><td>A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. </td></tr>
+<tr><td><CopyableCode code="profile_version" /></td><td><code>string</code></td><td>A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile.</td></tr>
+<tr><td><CopyableCode code="profile_version_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile version.</td></tr>
+<tr><td><CopyableCode code="signature_validity_period" /></td><td><code>object</code></td><td>Signature validity period of the profile.</td></tr>
+<tr><td><CopyableCode code="platform_id" /></td><td><code>string</code></td><td>The ID of the target signing platform.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags associated with the signing profile.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,19 +50,19 @@ Gets or operates on an individual <code>signing_profile</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

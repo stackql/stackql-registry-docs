@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>distribution</code> resource, use <code>distributions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,17 +24,17 @@ Gets or operates on an individual <code>distribution</code> resource, use <code>
 <tr><td><b>Name</b></td><td><code>distribution</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.cloudfront.distribution</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.distribution" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>distribution_config</code></td><td><code>object</code></td><td>The distribution's configuration.</td></tr>
-<tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>A complex type that contains zero or more ``Tag`` elements.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="distribution_config" /></td><td><code>object</code></td><td>The distribution's configuration.</td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A complex type that contains zero or more ``Tag`` elements.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,19 +47,19 @@ Gets or operates on an individual <code>distribution</code> resource, use <code>
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

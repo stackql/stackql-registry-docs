@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>metric_filters</code> in a region or create a <code>metric_filters</code> resource, use <code>metric_filter</code> to operate on an individual resource.
 
 ## Overview
@@ -21,15 +24,15 @@ Used to retrieve a list of <code>metric_filters</code> in a region or create a <
 <tr><td><b>Name</b></td><td><code>metric_filters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.&lt;br&#x2F;&gt; The maximum number of metric filters that can be associated with a log group is 100.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.logs.metric_filters</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.logs.metric_filters" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>log_group_name</code></td><td><code>string</code></td><td>The name of an existing log group that you want to associate with this metric filter.</td></tr>
-<tr><td><code>filter_name</code></td><td><code>string</code></td><td>The name of the metric filter.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td>The name of an existing log group that you want to associate with this metric filter.</td></tr>
+<tr><td><CopyableCode code="filter_name" /></td><td><code>string</code></td><td>The name of the metric filter.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,14 +45,14 @@ Used to retrieve a list of <code>metric_filters</code> in a region or create a <
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

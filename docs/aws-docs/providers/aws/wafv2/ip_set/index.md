@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>ip_set</code> resource, use <code>ip_sets</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>ip_set</code> resource, use <code>ip_set
 <tr><td><b>Name</b></td><td><code>ip_set</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.wafv2.ip_set</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.wafv2.ip_set" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>scope</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ip_address_version</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>addresses</code></td><td><code>array</code></td><td>List of IPAddresses.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="ip_address_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="addresses" /></td><td><code>array</code></td><td>List of IPAddresses.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>ip_set</code> resource, use <code>ip_set
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

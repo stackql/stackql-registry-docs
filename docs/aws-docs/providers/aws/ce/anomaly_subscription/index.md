@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>anomaly_subscription</code> resource, use <code>anomaly_subscriptions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>anomaly_subscription</code> resource, us
 <tr><td><b>Name</b></td><td><code>anomaly_subscription</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ce.anomaly_subscription</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ce.anomaly_subscription" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>subscription_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>subscription_name</code></td><td><code>string</code></td><td>The name of the subscription.</td></tr>
-<tr><td><code>account_id</code></td><td><code>string</code></td><td>The accountId</td></tr>
-<tr><td><code>monitor_arn_list</code></td><td><code>array</code></td><td>A list of cost anomaly monitors.</td></tr>
-<tr><td><code>subscribers</code></td><td><code>array</code></td><td>A list of subscriber</td></tr>
-<tr><td><code>threshold</code></td><td><code>number</code></td><td>The dollar value that triggers a notification if the threshold is exceeded. </td></tr>
-<tr><td><code>threshold_expression</code></td><td><code>string</code></td><td>An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.</td></tr>
-<tr><td><code>frequency</code></td><td><code>string</code></td><td>The frequency at which anomaly reports are sent over email. </td></tr>
-<tr><td><code>resource_tags</code></td><td><code>array</code></td><td>Tags to assign to subscription.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="subscription_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subscription_name" /></td><td><code>string</code></td><td>The name of the subscription.</td></tr>
+<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The accountId</td></tr>
+<tr><td><CopyableCode code="monitor_arn_list" /></td><td><code>array</code></td><td>A list of cost anomaly monitors.</td></tr>
+<tr><td><CopyableCode code="subscribers" /></td><td><code>array</code></td><td>A list of subscriber</td></tr>
+<tr><td><CopyableCode code="threshold" /></td><td><code>number</code></td><td>The dollar value that triggers a notification if the threshold is exceeded. </td></tr>
+<tr><td><CopyableCode code="threshold_expression" /></td><td><code>string</code></td><td>An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.</td></tr>
+<tr><td><CopyableCode code="frequency" /></td><td><code>string</code></td><td>The frequency at which anomaly reports are sent over email. </td></tr>
+<tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td>Tags to assign to subscription.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>anomaly_subscription</code> resource, us
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

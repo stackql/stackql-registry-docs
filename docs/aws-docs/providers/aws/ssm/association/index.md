@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>association</code> resource, use <code>associations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,31 +24,31 @@ Gets or operates on an individual <code>association</code> resource, use <code>a
 <tr><td><b>Name</b></td><td><code>association</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ssm.association</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ssm.association" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>association_name</code></td><td><code>string</code></td><td>The name of the association.</td></tr>
-<tr><td><code>calendar_names</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>schedule_expression</code></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
-<tr><td><code>max_errors</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>parameters</code></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
-<tr><td><code>instance_id</code></td><td><code>string</code></td><td>The ID of the instance that the SSM document is associated with.</td></tr>
-<tr><td><code>wait_for_success_timeout_seconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>max_concurrency</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>compliance_severity</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>targets</code></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
-<tr><td><code>sync_compliance</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>output_location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>schedule_offset</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
-<tr><td><code>apply_only_at_cron_interval</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>document_version</code></td><td><code>string</code></td><td>The version of the SSM document to associate with the target.</td></tr>
-<tr><td><code>association_id</code></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
-<tr><td><code>automation_target_parameter_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="association_name" /></td><td><code>string</code></td><td>The name of the association.</td></tr>
+<tr><td><CopyableCode code="calendar_names" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
+<tr><td><CopyableCode code="max_errors" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
+<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance that the SSM document is associated with.</td></tr>
+<tr><td><CopyableCode code="wait_for_success_timeout_seconds" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="max_concurrency" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="compliance_severity" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
+<tr><td><CopyableCode code="sync_compliance" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="output_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_offset" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
+<tr><td><CopyableCode code="apply_only_at_cron_interval" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="document_version" /></td><td><code>string</code></td><td>The version of the SSM document to associate with the target.</td></tr>
+<tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
+<tr><td><CopyableCode code="automation_target_parameter_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -58,19 +61,19 @@ Gets or operates on an individual <code>association</code> resource, use <code>a
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

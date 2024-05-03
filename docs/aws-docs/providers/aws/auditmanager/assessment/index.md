@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>assessment</code> resource, use <code>assessments</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,26 +24,26 @@ Gets or operates on an individual <code>assessment</code> resource, use <code>as
 <tr><td><b>Name</b></td><td><code>assessment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>An entity that defines the scope of audit evidence collected by AWS Audit Manager.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.auditmanager.assessment</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.auditmanager.assessment" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>framework_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>assessment_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>aws_account</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags associated with the assessment.</td></tr>
-<tr><td><code>delegations</code></td><td><code>array</code></td><td>The list of delegations.</td></tr>
-<tr><td><code>roles</code></td><td><code>array</code></td><td>The list of roles for the specified assessment.</td></tr>
-<tr><td><code>scope</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>assessment_reports_destination</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>creation_time</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="framework_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="assessment_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="aws_account" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags associated with the assessment.</td></tr>
+<tr><td><CopyableCode code="delegations" /></td><td><code>array</code></td><td>The list of delegations.</td></tr>
+<tr><td><CopyableCode code="roles" /></td><td><code>array</code></td><td>The list of roles for the specified assessment.</td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="assessment_reports_destination" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>number</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,19 +56,19 @@ Gets or operates on an individual <code>assessment</code> resource, use <code>as
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>assignment</code> resource, use <code>assignments</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>assignment</code> resource, use <code>as
 <tr><td><b>Name</b></td><td><code>assignment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for SSO assignmet</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.sso.assignment</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.sso.assignment" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>The sso instance that the permission set is owned.</td></tr>
-<tr><td><code>target_id</code></td><td><code>string</code></td><td>The account id to be provisioned.</td></tr>
-<tr><td><code>target_type</code></td><td><code>string</code></td><td>The type of resource to be provsioned to, only aws account now</td></tr>
-<tr><td><code>permission_set_arn</code></td><td><code>string</code></td><td>The permission set that the assignemt will be assigned</td></tr>
-<tr><td><code>principal_type</code></td><td><code>string</code></td><td>The assignee's type, user&#x2F;group</td></tr>
-<tr><td><code>principal_id</code></td><td><code>string</code></td><td>The assignee's identifier, user id&#x2F;group id</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The sso instance that the permission set is owned.</td></tr>
+<tr><td><CopyableCode code="target_id" /></td><td><code>string</code></td><td>The account id to be provisioned.</td></tr>
+<tr><td><CopyableCode code="target_type" /></td><td><code>string</code></td><td>The type of resource to be provsioned to, only aws account now</td></tr>
+<tr><td><CopyableCode code="permission_set_arn" /></td><td><code>string</code></td><td>The permission set that the assignemt will be assigned</td></tr>
+<tr><td><CopyableCode code="principal_type" /></td><td><code>string</code></td><td>The assignee's type, user&#x2F;group</td></tr>
+<tr><td><CopyableCode code="principal_id" /></td><td><code>string</code></td><td>The assignee's identifier, user id&#x2F;group id</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,14 +49,14 @@ Gets or operates on an individual <code>assignment</code> resource, use <code>as
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

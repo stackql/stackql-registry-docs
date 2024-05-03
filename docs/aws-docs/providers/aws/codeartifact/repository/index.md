@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>repository</code> resource, use <code>repositories</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>repository</code> resource, use <code>re
 <tr><td><b>Name</b></td><td><code>repository</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The resource schema to create a CodeArtifact repository.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.codeartifact.repository</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.codeartifact.repository" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>repository_name</code></td><td><code>string</code></td><td>The name of the repository.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the repository. This is used for GetAtt</td></tr>
-<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The name of the domain that contains the repository.</td></tr>
-<tr><td><code>domain_owner</code></td><td><code>string</code></td><td>The 12-digit account ID of the AWS account that owns the domain.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A text description of the repository.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the repository.</td></tr>
-<tr><td><code>external_connections</code></td><td><code>array</code></td><td>A list of external connections associated with the repository.</td></tr>
-<tr><td><code>upstreams</code></td><td><code>array</code></td><td>A list of upstream repositories associated with the repository.</td></tr>
-<tr><td><code>permissions_policy_document</code></td><td><code>object</code></td><td>The access control resource policy on the provided repository.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="repository_name" /></td><td><code>string</code></td><td>The name of the repository.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the repository. This is used for GetAtt</td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The name of the domain that contains the repository.</td></tr>
+<tr><td><CopyableCode code="domain_owner" /></td><td><code>string</code></td><td>The 12-digit account ID of the AWS account that owns the domain.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A text description of the repository.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the repository.</td></tr>
+<tr><td><CopyableCode code="external_connections" /></td><td><code>array</code></td><td>A list of external connections associated with the repository.</td></tr>
+<tr><td><CopyableCode code="upstreams" /></td><td><code>array</code></td><td>A list of upstream repositories associated with the repository.</td></tr>
+<tr><td><CopyableCode code="permissions_policy_document" /></td><td><code>object</code></td><td>The access control resource policy on the provided repository.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,19 +53,19 @@ Gets or operates on an individual <code>repository</code> resource, use <code>re
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

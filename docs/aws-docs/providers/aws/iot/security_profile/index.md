@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>security_profile</code> resource, use <code>security_profiles</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>security_profile</code> resource, use <c
 <tr><td><b>Name</b></td><td><code>security_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>A security profile defines a set of expected behaviors for devices in your account.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.iot.security_profile</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.iot.security_profile" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>security_profile_name</code></td><td><code>string</code></td><td>A unique identifier for the security profile.</td></tr>
-<tr><td><code>security_profile_description</code></td><td><code>string</code></td><td>A description of the security profile.</td></tr>
-<tr><td><code>behaviors</code></td><td><code>array</code></td><td>Specifies the behaviors that, when violated by a device (thing), cause an alert.</td></tr>
-<tr><td><code>alert_targets</code></td><td><code>object</code></td><td>Specifies the destinations to which alerts are sent.</td></tr>
-<tr><td><code>additional_metrics_to_retain_v2</code></td><td><code>array</code></td><td>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</td></tr>
-<tr><td><code>metrics_export_config</code></td><td><code>object</code></td><td>A structure containing the mqtt topic for metrics export.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Metadata that can be used to manage the security profile.</td></tr>
-<tr><td><code>target_arns</code></td><td><code>array</code></td><td>A set of target ARNs that the security profile is attached to.</td></tr>
-<tr><td><code>security_profile_arn</code></td><td><code>string</code></td><td>The ARN (Amazon resource name) of the created security profile.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="security_profile_name" /></td><td><code>string</code></td><td>A unique identifier for the security profile.</td></tr>
+<tr><td><CopyableCode code="security_profile_description" /></td><td><code>string</code></td><td>A description of the security profile.</td></tr>
+<tr><td><CopyableCode code="behaviors" /></td><td><code>array</code></td><td>Specifies the behaviors that, when violated by a device (thing), cause an alert.</td></tr>
+<tr><td><CopyableCode code="alert_targets" /></td><td><code>object</code></td><td>Specifies the destinations to which alerts are sent.</td></tr>
+<tr><td><CopyableCode code="additional_metrics_to_retain_v2" /></td><td><code>array</code></td><td>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</td></tr>
+<tr><td><CopyableCode code="metrics_export_config" /></td><td><code>object</code></td><td>A structure containing the mqtt topic for metrics export.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata that can be used to manage the security profile.</td></tr>
+<tr><td><CopyableCode code="target_arns" /></td><td><code>array</code></td><td>A set of target ARNs that the security profile is attached to.</td></tr>
+<tr><td><CopyableCode code="security_profile_arn" /></td><td><code>string</code></td><td>The ARN (Amazon resource name) of the created security profile.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>security_profile</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

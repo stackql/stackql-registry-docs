@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>flow</code> resource, use <code>flows</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>flow</code> resource, use <code>flows</c
 <tr><td><b>Name</b></td><td><code>flow</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::MediaConnect::Flow</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.mediaconnect.flow</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.mediaconnect.flow" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>flow_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the flow.</td></tr>
-<tr><td><code>availability_zone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</td></tr>
-<tr><td><code>flow_availability_zone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)</td></tr>
-<tr><td><code>source</code></td><td><code>object</code></td><td>The source of the flow.</td></tr>
-<tr><td><code>source_failover_config</code></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the flow.</td></tr>
+<tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</td></tr>
+<tr><td><CopyableCode code="flow_availability_zone" /></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)</td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>object</code></td><td>The source of the flow.</td></tr>
+<tr><td><CopyableCode code="source_failover_config" /></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>flow</code> resource, use <code>flows</c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

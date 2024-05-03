@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>attribute_group_association</code> resource, use <code>attribute_group_associations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,17 +24,17 @@ Gets or operates on an individual <code>attribute_group_association</code> resou
 <tr><td><b>Name</b></td><td><code>attribute_group_association</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.servicecatalogappregistry.attribute_group_association</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.servicecatalogappregistry.attribute_group_association" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>application</code></td><td><code>string</code></td><td>The name or the Id of the Application.</td></tr>
-<tr><td><code>attribute_group</code></td><td><code>string</code></td><td>The name or the Id of the AttributeGroup.</td></tr>
-<tr><td><code>application_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>attribute_group_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="application" /></td><td><code>string</code></td><td>The name or the Id of the Application.</td></tr>
+<tr><td><CopyableCode code="attribute_group" /></td><td><code>string</code></td><td>The name or the Id of the AttributeGroup.</td></tr>
+<tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="attribute_group_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,14 +47,14 @@ Gets or operates on an individual <code>attribute_group_association</code> resou
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

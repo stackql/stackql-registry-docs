@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>channel</code> resource, use <code>channels</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>channel</code> resource, use <code>chann
 <tr><td><b>Name</b></td><td><code>channel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Definition of AWS::MediaTailor::Channel Resource Type</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.mediatailor.channel</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.mediatailor.channel" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>&lt;p&gt;The ARN of the channel.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>audiences</code></td><td><code>array</code></td><td>&lt;p&gt;The list of audiences defined in channel.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>channel_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>filler_slate</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>log_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>outputs</code></td><td><code>array</code></td><td>&lt;p&gt;The channel's output properties.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>playback_mode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags to assign to the channel.</td></tr>
-<tr><td><code>tier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>time_shift_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>&lt;p&gt;The ARN of the channel.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="audiences" /></td><td><code>array</code></td><td>&lt;p&gt;The list of audiences defined in channel.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="filler_slate" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td>&lt;p&gt;The channel's output properties.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="playback_mode" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to assign to the channel.</td></tr>
+<tr><td><CopyableCode code="tier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="time_shift_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,19 +53,19 @@ Gets or operates on an individual <code>channel</code> resource, use <code>chann
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

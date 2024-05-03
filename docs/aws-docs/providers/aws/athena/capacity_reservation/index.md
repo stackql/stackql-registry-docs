@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>capacity_reservation</code> resource, use <code>capacity_reservations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>capacity_reservation</code> resource, us
 <tr><td><b>Name</b></td><td><code>capacity_reservation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::Athena::CapacityReservation</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.athena.capacity_reservation</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.athena.capacity_reservation" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The reservation name.</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td>The status of the reservation.</td></tr>
-<tr><td><code>target_dpus</code></td><td><code>integer</code></td><td>The number of DPUs to request to be allocated to the reservation.</td></tr>
-<tr><td><code>allocated_dpus</code></td><td><code>integer</code></td><td>The number of DPUs Athena has provisioned and allocated for the reservation</td></tr>
-<tr><td><code>capacity_assignment_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>creation_time</code></td><td><code>string</code></td><td>The date and time the reservation was created.</td></tr>
-<tr><td><code>last_successful_allocation_time</code></td><td><code>string</code></td><td>The timestamp when the last successful allocated was made</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The reservation name.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the reservation.</td></tr>
+<tr><td><CopyableCode code="target_dpus" /></td><td><code>integer</code></td><td>The number of DPUs to request to be allocated to the reservation.</td></tr>
+<tr><td><CopyableCode code="allocated_dpus" /></td><td><code>integer</code></td><td>The number of DPUs Athena has provisioned and allocated for the reservation</td></tr>
+<tr><td><CopyableCode code="capacity_assignment_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The date and time the reservation was created.</td></tr>
+<tr><td><CopyableCode code="last_successful_allocation_time" /></td><td><code>string</code></td><td>The timestamp when the last successful allocated was made</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>capacity_reservation</code> resource, us
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>workflow</code> resource, use <code>workflows</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>workflow</code> resource, use <code>work
 <tr><td><b>Name</b></td><td><code>workflow</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Transfer::Workflow</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.transfer.workflow</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.transfer.workflow" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>on_exception_steps</code></td><td><code>array</code></td><td>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</td></tr>
-<tr><td><code>steps</code></td><td><code>array</code></td><td>Specifies the details for the steps that are in the specified workflow.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A textual description for the workflow.</td></tr>
-<tr><td><code>workflow_id</code></td><td><code>string</code></td><td>A unique identifier for the workflow.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the workflow.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="on_exception_steps" /></td><td><code>array</code></td><td>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</td></tr>
+<tr><td><CopyableCode code="steps" /></td><td><code>array</code></td><td>Specifies the details for the steps that are in the specified workflow.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A textual description for the workflow.</td></tr>
+<tr><td><CopyableCode code="workflow_id" /></td><td><code>string</code></td><td>A unique identifier for the workflow.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the workflow.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>workflow</code> resource, use <code>work
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

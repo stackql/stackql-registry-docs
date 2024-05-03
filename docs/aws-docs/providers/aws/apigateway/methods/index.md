@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Used to retrieve a list of <code>methods</code> in a region or create a <code>methods</code> resource, use <code>method</code> to operate on an individual resource.
 
 ## Overview
@@ -21,16 +24,16 @@ Used to retrieve a list of <code>methods</code> in a region or create a <code>me
 <tr><td><b>Name</b></td><td><code>methods</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.apigateway.methods</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.methods" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><code>resource_id</code></td><td><code>string</code></td><td>The Resource identifier for the MethodResponse resource.</td></tr>
-<tr><td><code>http_method</code></td><td><code>string</code></td><td>The method's HTTP verb.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>The Resource identifier for the MethodResponse resource.</td></tr>
+<tr><td><CopyableCode code="http_method" /></td><td><code>string</code></td><td>The method's HTTP verb.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,14 +46,14 @@ Used to retrieve a list of <code>methods</code> in a region or create a <code>me
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>create_resource</code></td>
+    <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><code>data__DesiredState, region</code></td>
+    <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
-    <td><code>list_resource</code></td>
+    <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>region</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>agreement</code> resource, use <code>agreements</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>agreement</code> resource, use <code>agr
 <tr><td><b>Name</b></td><td><code>agreement</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Transfer::Agreement</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.transfer.agreement</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.transfer.agreement" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A textual description for the agreement.</td></tr>
-<tr><td><code>server_id</code></td><td><code>string</code></td><td>A unique identifier for the server.</td></tr>
-<tr><td><code>local_profile_id</code></td><td><code>string</code></td><td>A unique identifier for the local profile.</td></tr>
-<tr><td><code>partner_profile_id</code></td><td><code>string</code></td><td>A unique identifier for the partner profile.</td></tr>
-<tr><td><code>base_directory</code></td><td><code>string</code></td><td>Specifies the base directory for the agreement.</td></tr>
-<tr><td><code>access_role</code></td><td><code>string</code></td><td>Specifies the access role for the agreement.</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td>Specifies the status of the agreement.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.</td></tr>
-<tr><td><code>agreement_id</code></td><td><code>string</code></td><td>A unique identifier for the agreement.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the agreement.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A textual description for the agreement.</td></tr>
+<tr><td><CopyableCode code="server_id" /></td><td><code>string</code></td><td>A unique identifier for the server.</td></tr>
+<tr><td><CopyableCode code="local_profile_id" /></td><td><code>string</code></td><td>A unique identifier for the local profile.</td></tr>
+<tr><td><CopyableCode code="partner_profile_id" /></td><td><code>string</code></td><td>A unique identifier for the partner profile.</td></tr>
+<tr><td><CopyableCode code="base_directory" /></td><td><code>string</code></td><td>Specifies the base directory for the agreement.</td></tr>
+<tr><td><CopyableCode code="access_role" /></td><td><code>string</code></td><td>Specifies the access role for the agreement.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Specifies the status of the agreement.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.</td></tr>
+<tr><td><CopyableCode code="agreement_id" /></td><td><code>string</code></td><td>A unique identifier for the agreement.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the agreement.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,19 +53,19 @@ Gets or operates on an individual <code>agreement</code> resource, use <code>agr
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

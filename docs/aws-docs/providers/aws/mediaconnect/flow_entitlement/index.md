@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>flow_entitlement</code> resource, use <code>flow_entitlements</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,21 +24,21 @@ Gets or operates on an individual <code>flow_entitlement</code> resource, use <c
 <tr><td><b>Name</b></td><td><code>flow_entitlement</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::MediaConnect::FlowEntitlement</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.mediaconnect.flow_entitlement</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.mediaconnect.flow_entitlement" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>flow_arn</code></td><td><code>string</code></td><td>The ARN of the flow.</td></tr>
-<tr><td><code>entitlement_arn</code></td><td><code>string</code></td><td>The ARN of the entitlement.</td></tr>
-<tr><td><code>data_transfer_subscriber_fee_percent</code></td><td><code>integer</code></td><td>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A description of the entitlement.</td></tr>
-<tr><td><code>encryption</code></td><td><code>object</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
-<tr><td><code>entitlement_status</code></td><td><code>string</code></td><td> An indication of whether the entitlement is enabled.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the entitlement.</td></tr>
-<tr><td><code>subscribers</code></td><td><code>array</code></td><td>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>The ARN of the flow.</td></tr>
+<tr><td><CopyableCode code="entitlement_arn" /></td><td><code>string</code></td><td>The ARN of the entitlement.</td></tr>
+<tr><td><CopyableCode code="data_transfer_subscriber_fee_percent" /></td><td><code>integer</code></td><td>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the entitlement.</td></tr>
+<tr><td><CopyableCode code="encryption" /></td><td><code>object</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
+<tr><td><CopyableCode code="entitlement_status" /></td><td><code>string</code></td><td> An indication of whether the entitlement is enabled.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the entitlement.</td></tr>
+<tr><td><CopyableCode code="subscribers" /></td><td><code>array</code></td><td>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,19 +51,19 @@ Gets or operates on an individual <code>flow_entitlement</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

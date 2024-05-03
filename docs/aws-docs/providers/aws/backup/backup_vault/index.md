@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>backup_vault</code> resource, use <code>backup_vaults</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,20 +24,20 @@ Gets or operates on an individual <code>backup_vault</code> resource, use <code>
 <tr><td><b>Name</b></td><td><code>backup_vault</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Backup::BackupVault</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.backup.backup_vault</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.backup.backup_vault" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>access_policy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>backup_vault_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>backup_vault_tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>encryption_key_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>notifications</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>lock_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>backup_vault_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="access_policy" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_vault_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_vault_tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_key_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="notifications" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="lock_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_vault_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,19 +50,19 @@ Gets or operates on an individual <code>backup_vault</code> resource, use <code>
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

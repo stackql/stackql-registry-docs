@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>serverless_cache</code> resource, use <code>serverless_caches</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,33 +24,33 @@ Gets or operates on an individual <code>serverless_cache</code> resource, use <c
 <tr><td><b>Name</b></td><td><code>serverless_cache</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.elasticache.serverless_cache</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.elasticache.serverless_cache" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>serverless_cache_name</code></td><td><code>string</code></td><td>The name of the Serverless Cache. This value must be unique.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the Serverless Cache.</td></tr>
-<tr><td><code>engine</code></td><td><code>string</code></td><td>The engine name of the Serverless Cache.</td></tr>
-<tr><td><code>major_engine_version</code></td><td><code>string</code></td><td>The major engine version of the Serverless Cache.</td></tr>
-<tr><td><code>full_engine_version</code></td><td><code>string</code></td><td>The full engine version of the Serverless Cache.</td></tr>
-<tr><td><code>cache_usage_limits</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td>The ID of the KMS key used to encrypt the cluster.</td></tr>
-<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td>One or more Amazon VPC security groups associated with this Serverless Cache.</td></tr>
-<tr><td><code>snapshot_arns_to_restore</code></td><td><code>array</code></td><td>The ARN's of snapshot to restore Serverless Cache.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this Serverless Cache.</td></tr>
-<tr><td><code>user_group_id</code></td><td><code>string</code></td><td>The ID of the user group.</td></tr>
-<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td>The subnet id's of the Serverless Cache.</td></tr>
-<tr><td><code>snapshot_retention_limit</code></td><td><code>integer</code></td><td>The snapshot retention limit of the Serverless Cache.</td></tr>
-<tr><td><code>daily_snapshot_time</code></td><td><code>string</code></td><td>The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.</td></tr>
-<tr><td><code>create_time</code></td><td><code>string</code></td><td>The creation time of the Serverless Cache.</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td>The status of the Serverless Cache.</td></tr>
-<tr><td><code>endpoint</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>reader_endpoint</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the Serverless Cache.</td></tr>
-<tr><td><code>final_snapshot_name</code></td><td><code>string</code></td><td>The final snapshot name which is taken before Serverless Cache is deleted.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="serverless_cache_name" /></td><td><code>string</code></td><td>The name of the Serverless Cache. This value must be unique.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The engine name of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="major_engine_version" /></td><td><code>string</code></td><td>The major engine version of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="full_engine_version" /></td><td><code>string</code></td><td>The full engine version of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="cache_usage_limits" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID of the KMS key used to encrypt the cluster.</td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>One or more Amazon VPC security groups associated with this Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="snapshot_arns_to_restore" /></td><td><code>array</code></td><td>The ARN's of snapshot to restore Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="user_group_id" /></td><td><code>string</code></td><td>The ID of the user group.</td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The subnet id's of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="snapshot_retention_limit" /></td><td><code>integer</code></td><td>The snapshot retention limit of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="daily_snapshot_time" /></td><td><code>string</code></td><td>The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="create_time" /></td><td><code>string</code></td><td>The creation time of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="reader_endpoint" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the Serverless Cache.</td></tr>
+<tr><td><CopyableCode code="final_snapshot_name" /></td><td><code>string</code></td><td>The final snapshot name which is taken before Serverless Cache is deleted.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -60,19 +63,19 @@ Gets or operates on an individual <code>serverless_cache</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

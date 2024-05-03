@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>storage_lens_group</code> resource, use <code>storage_lens_groups</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,17 +24,17 @@ Gets or operates on an individual <code>storage_lens_group</code> resource, use 
 <tr><td><b>Name</b></td><td><code>storage_lens_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.s3.storage_lens_group</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.s3.storage_lens_group" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>filter</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>storage_lens_group_arn</code></td><td><code>string</code></td><td>The ARN for the Amazon S3 Storage Lens Group.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="filter" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="storage_lens_group_arn" /></td><td><code>string</code></td><td>The ARN for the Amazon S3 Storage Lens Group.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,19 +47,19 @@ Gets or operates on an individual <code>storage_lens_group</code> resource, use 
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

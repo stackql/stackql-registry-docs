@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>monitoring_subscription</code> resource, use <code>monitoring_subscriptions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,15 +24,15 @@ Gets or operates on an individual <code>monitoring_subscription</code> resource,
 <tr><td><b>Name</b></td><td><code>monitoring_subscription</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::MonitoringSubscription</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.cloudfront.monitoring_subscription</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.monitoring_subscription" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>distribution_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>monitoring_subscription</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="distribution_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="monitoring_subscription" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,14 +45,14 @@ Gets or operates on an individual <code>monitoring_subscription</code> resource,
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

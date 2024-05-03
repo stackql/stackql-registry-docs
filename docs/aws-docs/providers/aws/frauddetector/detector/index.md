@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>detector</code> resource, use <code>detectors</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,25 +24,25 @@ Gets or operates on an individual <code>detector</code> resource, use <code>dete
 <tr><td><b>Name</b></td><td><code>detector</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>A resource schema for a Detector in Amazon Fraud Detector.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.frauddetector.detector</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.frauddetector.detector" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>detector_id</code></td><td><code>string</code></td><td>The ID of the detector</td></tr>
-<tr><td><code>detector_version_status</code></td><td><code>string</code></td><td>The desired detector version status for the detector</td></tr>
-<tr><td><code>detector_version_id</code></td><td><code>string</code></td><td>The active version ID of the detector</td></tr>
-<tr><td><code>rule_execution_mode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Tags associated with this detector.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the detector.</td></tr>
-<tr><td><code>rules</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>event_type</code></td><td><code>object</code></td><td>The event type to associate this detector with.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the detector.</td></tr>
-<tr><td><code>created_time</code></td><td><code>string</code></td><td>The time when the detector was created.</td></tr>
-<tr><td><code>last_updated_time</code></td><td><code>string</code></td><td>The time when the detector was last updated.</td></tr>
-<tr><td><code>associated_models</code></td><td><code>array</code></td><td>The models to associate with this detector.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="detector_id" /></td><td><code>string</code></td><td>The ID of the detector</td></tr>
+<tr><td><CopyableCode code="detector_version_status" /></td><td><code>string</code></td><td>The desired detector version status for the detector</td></tr>
+<tr><td><CopyableCode code="detector_version_id" /></td><td><code>string</code></td><td>The active version ID of the detector</td></tr>
+<tr><td><CopyableCode code="rule_execution_mode" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this detector.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the detector.</td></tr>
+<tr><td><CopyableCode code="rules" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="event_type" /></td><td><code>object</code></td><td>The event type to associate this detector with.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the detector.</td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The time when the detector was created.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The time when the detector was last updated.</td></tr>
+<tr><td><CopyableCode code="associated_models" /></td><td><code>array</code></td><td>The models to associate with this detector.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,19 +55,19 @@ Gets or operates on an individual <code>detector</code> resource, use <code>dete
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

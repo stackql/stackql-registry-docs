@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>domain</code> resource, use <code>domains</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,38 +24,38 @@ Gets or operates on an individual <code>domain</code> resource, use <code>domain
 <tr><td><b>Name</b></td><td><code>domain</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>An example resource schema demonstrating some basic constructs and validation rules.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.opensearchservice.domain</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.opensearchservice.domain" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>cluster_config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>access_policies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ip_address_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>engine_version</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>advanced_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>log_publishing_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>snapshot_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>vpc_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>node_to_node_encryption_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>domain_endpoint_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>cognito_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>advanced_security_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>domain_endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>domain_endpoint_v2</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>domain_endpoints</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ebs_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>domain_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>encryption_at_rest_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this Domain.</td></tr>
-<tr><td><code>service_software_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>off_peak_window_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>software_update_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="cluster_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="access_policies" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="ip_address_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="advanced_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_publishing_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="snapshot_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="node_to_node_encryption_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoint_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="cognito_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="advanced_security_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoint_v2" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoints" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="ebs_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_at_rest_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this Domain.</td></tr>
+<tr><td><CopyableCode code="service_software_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="off_peak_window_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="software_update_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -65,19 +68,19 @@ Gets or operates on an individual <code>domain</code> resource, use <code>domain
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>certificate</code> resource, use <code>certificates</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,28 +24,28 @@ Gets or operates on an individual <code>certificate</code> resource, use <code>c
 <tr><td><b>Name</b></td><td><code>certificate</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::Transfer::Certificate</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.transfer.certificate</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.transfer.certificate" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>usage</code></td><td><code>string</code></td><td>Specifies the usage type for the certificate.</td></tr>
-<tr><td><code>certificate</code></td><td><code>string</code></td><td>Specifies the certificate body to be imported.</td></tr>
-<tr><td><code>certificate_chain</code></td><td><code>string</code></td><td>Specifies the certificate chain to be imported.</td></tr>
-<tr><td><code>private_key</code></td><td><code>string</code></td><td>Specifies the private key for the certificate.</td></tr>
-<tr><td><code>active_date</code></td><td><code>string</code></td><td>Specifies the active date for the certificate.</td></tr>
-<tr><td><code>inactive_date</code></td><td><code>string</code></td><td>Specifies the inactive date for the certificate.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A textual description for the certificate.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the agreement.</td></tr>
-<tr><td><code>certificate_id</code></td><td><code>string</code></td><td>A unique identifier for the certificate.</td></tr>
-<tr><td><code>status</code></td><td><code>string</code></td><td>A status description for the certificate.</td></tr>
-<tr><td><code>type</code></td><td><code>string</code></td><td>Describing the type of certificate. With or without a private key.</td></tr>
-<tr><td><code>serial</code></td><td><code>string</code></td><td>Specifies Certificate's serial.</td></tr>
-<tr><td><code>not_before_date</code></td><td><code>string</code></td><td>Specifies the not before date for the certificate.</td></tr>
-<tr><td><code>not_after_date</code></td><td><code>string</code></td><td>Specifies the not after date for the certificate.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="usage" /></td><td><code>string</code></td><td>Specifies the usage type for the certificate.</td></tr>
+<tr><td><CopyableCode code="certificate" /></td><td><code>string</code></td><td>Specifies the certificate body to be imported.</td></tr>
+<tr><td><CopyableCode code="certificate_chain" /></td><td><code>string</code></td><td>Specifies the certificate chain to be imported.</td></tr>
+<tr><td><CopyableCode code="private_key" /></td><td><code>string</code></td><td>Specifies the private key for the certificate.</td></tr>
+<tr><td><CopyableCode code="active_date" /></td><td><code>string</code></td><td>Specifies the active date for the certificate.</td></tr>
+<tr><td><CopyableCode code="inactive_date" /></td><td><code>string</code></td><td>Specifies the inactive date for the certificate.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A textual description for the certificate.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the agreement.</td></tr>
+<tr><td><CopyableCode code="certificate_id" /></td><td><code>string</code></td><td>A unique identifier for the certificate.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>A status description for the certificate.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>Describing the type of certificate. With or without a private key.</td></tr>
+<tr><td><CopyableCode code="serial" /></td><td><code>string</code></td><td>Specifies Certificate's serial.</td></tr>
+<tr><td><CopyableCode code="not_before_date" /></td><td><code>string</code></td><td>Specifies the not before date for the certificate.</td></tr>
+<tr><td><CopyableCode code="not_after_date" /></td><td><code>string</code></td><td>Specifies the not after date for the certificate.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -55,19 +58,19 @@ Gets or operates on an individual <code>certificate</code> resource, use <code>c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

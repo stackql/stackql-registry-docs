@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>vpc_link</code> resource, use <code>vpc_links</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,18 +24,18 @@ Gets or operates on an individual <code>vpc_link</code> resource, use <code>vpc_
 <tr><td><b>Name</b></td><td><code>vpc_link</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Schema for AWS ApiGateway VpcLink</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.apigateway.vpc_link</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.vpc_link" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>A name for the VPC link.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>A description of the VPC link.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of arbitrary tags (key-value pairs) to associate with the stage.</td></tr>
-<tr><td><code>target_arns</code></td><td><code>array</code></td><td>The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.</td></tr>
-<tr><td><code>vpc_link_id</code></td><td><code>string</code></td><td>The ID of the instance that backs VPC link.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the VPC link.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the VPC link.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of arbitrary tags (key-value pairs) to associate with the stage.</td></tr>
+<tr><td><CopyableCode code="target_arns" /></td><td><code>array</code></td><td>The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.</td></tr>
+<tr><td><CopyableCode code="vpc_link_id" /></td><td><code>string</code></td><td>The ID of the instance that backs VPC link.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,19 +48,19 @@ Gets or operates on an individual <code>vpc_link</code> resource, use <code>vpc_
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

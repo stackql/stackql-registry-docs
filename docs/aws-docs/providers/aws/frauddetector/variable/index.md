@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>variable</code> resource, use <code>variables</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>variable</code> resource, use <code>vari
 <tr><td><b>Name</b></td><td><code>variable</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>A resource schema for a Variable in Amazon Fraud Detector.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.frauddetector.variable</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.frauddetector.variable" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the variable.</td></tr>
-<tr><td><code>data_source</code></td><td><code>string</code></td><td>The source of the data.</td></tr>
-<tr><td><code>data_type</code></td><td><code>string</code></td><td>The data type.</td></tr>
-<tr><td><code>default_value</code></td><td><code>string</code></td><td>The default value for the variable when no value is received.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Tags associated with this variable.</td></tr>
-<tr><td><code>variable_type</code></td><td><code>string</code></td><td>The variable type. For more information see https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;frauddetector&#x2F;latest&#x2F;ug&#x2F;create-a-variable.html#variable-types</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the variable.</td></tr>
-<tr><td><code>created_time</code></td><td><code>string</code></td><td>The time when the variable was created.</td></tr>
-<tr><td><code>last_updated_time</code></td><td><code>string</code></td><td>The time when the variable was last updated.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the variable.</td></tr>
+<tr><td><CopyableCode code="data_source" /></td><td><code>string</code></td><td>The source of the data.</td></tr>
+<tr><td><CopyableCode code="data_type" /></td><td><code>string</code></td><td>The data type.</td></tr>
+<tr><td><CopyableCode code="default_value" /></td><td><code>string</code></td><td>The default value for the variable when no value is received.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this variable.</td></tr>
+<tr><td><CopyableCode code="variable_type" /></td><td><code>string</code></td><td>The variable type. For more information see https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;frauddetector&#x2F;latest&#x2F;ug&#x2F;create-a-variable.html#variable-types</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the variable.</td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The time when the variable was created.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The time when the variable was last updated.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,19 +53,19 @@ Gets or operates on an individual <code>variable</code> resource, use <code>vari
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

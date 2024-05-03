@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>app_block</code> resource, use <code>app_blocks</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,23 +24,23 @@ Gets or operates on an individual <code>app_block</code> resource, use <code>app
 <tr><td><b>Name</b></td><td><code>app_block</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource Type definition for AWS::AppStream::AppBlock</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.appstream.app_block</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.appstream.app_block" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>display_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>source_s3_location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>setup_script_details</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>created_time</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>packaging_type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>post_setup_script_details</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="setup_script_details" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="packaging_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="post_setup_script_details" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,14 +53,14 @@ Gets or operates on an individual <code>app_block</code> resource, use <code>app
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

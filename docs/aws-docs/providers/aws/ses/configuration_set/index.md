@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>configuration_set</code> resource, use <code>configuration_sets</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,20 +24,20 @@ Gets or operates on an individual <code>configuration_set</code> resource, use <
 <tr><td><b>Name</b></td><td><code>configuration_set</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::SES::ConfigurationSet.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ses.configuration_set</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ses.configuration_set" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the configuration set.</td></tr>
-<tr><td><code>tracking_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>delivery_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>reputation_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>sending_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>suppression_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>vdm_options</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the configuration set.</td></tr>
+<tr><td><CopyableCode code="tracking_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="delivery_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="reputation_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="sending_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="suppression_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="vdm_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,19 +50,19 @@ Gets or operates on an individual <code>configuration_set</code> resource, use <
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>network_insights_path</code> resource, use <code>network_insights_paths</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,27 +24,27 @@ Gets or operates on an individual <code>network_insights_path</code> resource, u
 <tr><td><b>Name</b></td><td><code>network_insights_path</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::EC2::NetworkInsightsPath</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2.network_insights_path</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.network_insights_path" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>network_insights_path_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>network_insights_path_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>created_date</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>source_ip</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>filter_at_source</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>filter_at_destination</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>destination_ip</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>source</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>destination</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>source_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>destination_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>protocol</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>destination_port</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="network_insights_path_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_insights_path_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_date" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_ip" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="filter_at_source" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="filter_at_destination" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_ip" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="protocol" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_port" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,19 +57,19 @@ Gets or operates on an individual <code>network_insights_path</code> resource, u
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>outcome</code> resource, use <code>outcomes</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,19 +24,19 @@ Gets or operates on an individual <code>outcome</code> resource, use <code>outco
 <tr><td><b>Name</b></td><td><code>outcome</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>An outcome for rule evaluation.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.frauddetector.outcome</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.frauddetector.outcome" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the outcome.</td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td>Tags associated with this outcome.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The outcome description.</td></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The outcome ARN.</td></tr>
-<tr><td><code>created_time</code></td><td><code>string</code></td><td>The timestamp when the outcome was created.</td></tr>
-<tr><td><code>last_updated_time</code></td><td><code>string</code></td><td>The timestamp when the outcome was last updated.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the outcome.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this outcome.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The outcome description.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The outcome ARN.</td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The timestamp when the outcome was created.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The timestamp when the outcome was last updated.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,19 +49,19 @@ Gets or operates on an individual <code>outcome</code> resource, use <code>outco
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

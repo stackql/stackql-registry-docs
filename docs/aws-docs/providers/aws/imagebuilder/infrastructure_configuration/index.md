@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>infrastructure_configuration</code> resource, use <code>infrastructure_configurations</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,27 +24,27 @@ Gets or operates on an individual <code>infrastructure_configuration</code> reso
 <tr><td><b>Name</b></td><td><code>infrastructure_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::ImageBuilder::InfrastructureConfiguration</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.imagebuilder.infrastructure_configuration</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.imagebuilder.infrastructure_configuration" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
-<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the infrastructure configuration.</td></tr>
-<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the infrastructure configuration.</td></tr>
-<tr><td><code>instance_types</code></td><td><code>array</code></td><td>The instance types of the infrastructure configuration.</td></tr>
-<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td>The security group IDs of the infrastructure configuration.</td></tr>
-<tr><td><code>logging</code></td><td><code>object</code></td><td>The logging configuration of the infrastructure configuration.</td></tr>
-<tr><td><code>subnet_id</code></td><td><code>string</code></td><td>The subnet ID of the infrastructure configuration.</td></tr>
-<tr><td><code>key_pair</code></td><td><code>string</code></td><td>The EC2 key pair of the infrastructure configuration..</td></tr>
-<tr><td><code>terminate_instance_on_failure</code></td><td><code>boolean</code></td><td>The terminate instance on failure configuration of the infrastructure configuration.</td></tr>
-<tr><td><code>instance_profile_name</code></td><td><code>string</code></td><td>The instance profile of the infrastructure configuration.</td></tr>
-<tr><td><code>instance_metadata_options</code></td><td><code>object</code></td><td>The instance metadata option settings for the infrastructure configuration.</td></tr>
-<tr><td><code>sns_topic_arn</code></td><td><code>string</code></td><td>The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
-<tr><td><code>resource_tags</code></td><td><code>object</code></td><td>The tags attached to the resource created by Image Builder.</td></tr>
-<tr><td><code>tags</code></td><td><code>object</code></td><td>The tags associated with the component.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="instance_types" /></td><td><code>array</code></td><td>The instance types of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The security group IDs of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="logging" /></td><td><code>object</code></td><td>The logging configuration of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The subnet ID of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="key_pair" /></td><td><code>string</code></td><td>The EC2 key pair of the infrastructure configuration..</td></tr>
+<tr><td><CopyableCode code="terminate_instance_on_failure" /></td><td><code>boolean</code></td><td>The terminate instance on failure configuration of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="instance_profile_name" /></td><td><code>string</code></td><td>The instance profile of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="instance_metadata_options" /></td><td><code>object</code></td><td>The instance metadata option settings for the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>string</code></td><td>The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
+<tr><td><CopyableCode code="resource_tags" /></td><td><code>object</code></td><td>The tags attached to the resource created by Image Builder.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>The tags associated with the component.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,19 +57,19 @@ Gets or operates on an individual <code>infrastructure_configuration</code> reso
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

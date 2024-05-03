@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>resolver_config</code> resource, use <code>resolver_configs</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,18 +24,18 @@ Gets or operates on an individual <code>resolver_config</code> resource, use <co
 <tr><td><b>Name</b></td><td><code>resolver_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Resource schema for AWS::Route53Resolver::ResolverConfig.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.route53resolver.resolver_config</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.route53resolver.resolver_config" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>id</code></td><td><code>string</code></td><td>Id</td></tr>
-<tr><td><code>owner_id</code></td><td><code>string</code></td><td>AccountId</td></tr>
-<tr><td><code>resource_id</code></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><code>autodefined_reverse</code></td><td><code>string</code></td><td>ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.</td></tr>
-<tr><td><code>autodefined_reverse_flag</code></td><td><code>string</code></td><td>Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>AccountId</td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><CopyableCode code="autodefined_reverse" /></td><td><code>string</code></td><td>ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.</td></tr>
+<tr><td><CopyableCode code="autodefined_reverse_flag" /></td><td><code>string</code></td><td>Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,14 +48,14 @@ Gets or operates on an individual <code>resolver_config</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

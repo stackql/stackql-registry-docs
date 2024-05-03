@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>fhir_datastore</code> resource, use <code>fhir_datastores</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,24 +24,24 @@ Gets or operates on an individual <code>fhir_datastore</code> resource, use <cod
 <tr><td><b>Name</b></td><td><code>fhir_datastore</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>HealthLake FHIR Datastore</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.healthlake.fhir_datastore</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.healthlake.fhir_datastore" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>created_at</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>datastore_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>datastore_endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>datastore_id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>datastore_name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>datastore_status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>datastore_type_version</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>preload_data_config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>sse_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>identity_provider_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_type_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="preload_data_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="sse_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_provider_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,19 +54,19 @@ Gets or operates on an individual <code>fhir_datastore</code> resource, use <cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

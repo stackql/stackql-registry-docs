@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>user_settings</code> resource, use <code>user_settings</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,26 +24,26 @@ Gets or operates on an individual <code>user_settings</code> resource, use <code
 <tr><td><b>Name</b></td><td><code>user_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>Definition of AWS::WorkSpacesWeb::UserSettings Resource Type</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.workspacesweb.user_settings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.workspacesweb.user_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>additional_encryption_context</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>associated_portal_arns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>cookie_synchronization_configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>copy_allowed</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>customer_managed_key</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>disconnect_timeout_in_minutes</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>download_allowed</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>idle_disconnect_timeout_in_minutes</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>paste_allowed</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>print_allowed</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>upload_allowed</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>user_settings_arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="cookie_synchronization_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="copy_allowed" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="disconnect_timeout_in_minutes" /></td><td><code>number</code></td><td></td></tr>
+<tr><td><CopyableCode code="download_allowed" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="idle_disconnect_timeout_in_minutes" /></td><td><code>number</code></td><td></td></tr>
+<tr><td><CopyableCode code="paste_allowed" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="print_allowed" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="upload_allowed" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,19 +56,19 @@ Gets or operates on an individual <code>user_settings</code> resource, use <code
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 

@@ -14,6 +14,9 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Gets or operates on an individual <code>scheduled_action</code> resource, use <code>scheduled_actions</code> to retrieve a list of resources or to create a resource.
 
 ## Overview
@@ -21,22 +24,22 @@ Gets or operates on an individual <code>scheduled_action</code> resource, use <c
 <tr><td><b>Name</b></td><td><code>scheduled_action</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
 <tr><td><b>Description</b></td><td>The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.autoscaling.scheduled_action</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.autoscaling.scheduled_action" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>scheduled_action_name</code></td><td><code>string</code></td><td>Auto-generated unique identifier</td></tr>
-<tr><td><code>min_size</code></td><td><code>integer</code></td><td>The minimum size of the Auto Scaling group.</td></tr>
-<tr><td><code>recurrence</code></td><td><code>string</code></td><td>The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.</td></tr>
-<tr><td><code>time_zone</code></td><td><code>string</code></td><td>The time zone for the cron expression.</td></tr>
-<tr><td><code>end_time</code></td><td><code>string</code></td><td>The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.</td></tr>
-<tr><td><code>auto_scaling_group_name</code></td><td><code>string</code></td><td>The name of the Auto Scaling group.</td></tr>
-<tr><td><code>start_time</code></td><td><code>string</code></td><td>The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.</td></tr>
-<tr><td><code>desired_capacity</code></td><td><code>integer</code></td><td>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.</td></tr>
-<tr><td><code>max_size</code></td><td><code>integer</code></td><td>The minimum size of the Auto Scaling group.</td></tr>
-<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
+<tr><td><CopyableCode code="scheduled_action_name" /></td><td><code>string</code></td><td>Auto-generated unique identifier</td></tr>
+<tr><td><CopyableCode code="min_size" /></td><td><code>integer</code></td><td>The minimum size of the Auto Scaling group.</td></tr>
+<tr><td><CopyableCode code="recurrence" /></td><td><code>string</code></td><td>The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.</td></tr>
+<tr><td><CopyableCode code="time_zone" /></td><td><code>string</code></td><td>The time zone for the cron expression.</td></tr>
+<tr><td><CopyableCode code="end_time" /></td><td><code>string</code></td><td>The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.</td></tr>
+<tr><td><CopyableCode code="auto_scaling_group_name" /></td><td><code>string</code></td><td>The name of the Auto Scaling group.</td></tr>
+<tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td>The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.</td></tr>
+<tr><td><CopyableCode code="desired_capacity" /></td><td><code>integer</code></td><td>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.</td></tr>
+<tr><td><CopyableCode code="max_size" /></td><td><code>integer</code></td><td>The minimum size of the Auto Scaling group.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,19 +52,19 @@ Gets or operates on an individual <code>scheduled_action</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><code>update_resource</code></td>
+    <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
-    <td><code>data__Identifier, data__PatchDocument, region</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><code>delete_resource</code></td>
+    <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><code>get_resource</code></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><code>data__Identifier, region</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
