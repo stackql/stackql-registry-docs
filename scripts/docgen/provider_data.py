@@ -257,7 +257,7 @@ stackql.exe shell --auth=$Auth
   'digitalocean': {
     'custom': False,
     'variables': """
-- <CopyableCode code="DIGITALOCEAN_ACCESS_TOKEN" /> - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
+- <CopyableCode code="DIGITALOCEAN_ACCESS_TOKEN" /> - DigitalOcean API token (see <a href="https://docs.digitalocean.com/reference/api/create-personal-access-token/">How to Create a Personal Access Token</a>)
   """,
     'linux': """
 AUTH='{ "digitalocean": { "type": "bearer",  "credentialsenvvar": "YOUR_DIGITALOCEAN_TOKEN_VAR" }}'

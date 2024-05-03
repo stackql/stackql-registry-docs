@@ -51,7 +51,7 @@ REGISTRY PULL digitalocean;
 
 The following system environment variables are used for authentication by default:  
 
-- <CopyableCode code="DIGITALOCEAN_ACCESS_TOKEN" /> - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
+- <CopyableCode code="DIGITALOCEAN_ACCESS_TOKEN" /> - DigitalOcean API token (see <a href="https://docs.digitalocean.com/reference/api/create-personal-access-token/">How to Create a Personal Access Token</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
