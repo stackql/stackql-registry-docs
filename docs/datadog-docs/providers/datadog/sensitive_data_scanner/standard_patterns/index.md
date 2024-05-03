@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>standard_patterns</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.sensitive_data_scanner.standard_patterns</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.sensitive_data_scanner.standard_patterns" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | ID of the standard pattern. |
-| `attributes` | `object` | Attributes of the Sensitive Data Scanner standard pattern. |
-| `type` | `string` | Sensitive Data Scanner standard pattern type. |
+| <CopyableCode code="id" /> | `string` | ID of the standard pattern. |
+| <CopyableCode code="attributes" /> | `object` | Attributes of the Sensitive Data Scanner standard pattern. |
+| <CopyableCode code="type" /> | `string` | Sensitive Data Scanner standard pattern type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_standard_patterns` | `SELECT` | `dd_site` |
-| `_list_standard_patterns` | `EXEC` | `dd_site` |
+| <CopyableCode code="list_standard_patterns" /> | `SELECT` | <CopyableCode code="dd_site" /> |
+| <CopyableCode code="_list_standard_patterns" /> | `EXEC` | <CopyableCode code="dd_site" /> |

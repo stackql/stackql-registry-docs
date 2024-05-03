@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>log_search</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.logs.log_search</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.logs.log_search" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique ID of the Log. |
-| `attributes` | `object` | JSON object containing all log attributes and their associated values. |
-| `type` | `string` | Type of the event. |
+| <CopyableCode code="id" /> | `string` | Unique ID of the Log. |
+| <CopyableCode code="attributes" /> | `object` | JSON object containing all log attributes and their associated values. |
+| <CopyableCode code="type" /> | `string` | Type of the event. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_logs_get` | `SELECT` | `dd_site` |
-| `_list_logs_get` | `EXEC` | `dd_site` |
+| <CopyableCode code="list_logs_get" /> | `SELECT` | <CopyableCode code="dd_site" /> |
+| <CopyableCode code="_list_logs_get" /> | `EXEC` | <CopyableCode code="dd_site" /> |

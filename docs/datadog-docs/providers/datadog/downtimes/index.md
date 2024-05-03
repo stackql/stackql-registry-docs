@@ -13,6 +13,7 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
+
 **Note**: Downtime V2 Is Currently In Private Beta. To Request Access, Contact [Datadog Support](Https://Docs.Datadoghq.Com/Help/).
 
 [Downtiming](Https://Docs.Datadoghq.Com/Monitors/Notify/Downtimes) Gives

@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>active_billing_dimensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.usage_metering.active_billing_dimensions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.usage_metering.active_billing_dimensions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique ID of the response. |
-| `attributes` | `object` | List of active billing dimensions. |
-| `type` | `string` | Type of active billing dimensions data. |
+| <CopyableCode code="id" /> | `string` | Unique ID of the response. |
+| <CopyableCode code="attributes" /> | `object` | List of active billing dimensions. |
+| <CopyableCode code="type" /> | `string` | Type of active billing dimensions data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_active_billing_dimensions` | `SELECT` | `dd_site` |
-| `_get_active_billing_dimensions` | `EXEC` | `dd_site` |
+| <CopyableCode code="get_active_billing_dimensions" /> | `SELECT` | <CopyableCode code="dd_site" /> |
+| <CopyableCode code="_get_active_billing_dimensions" /> | `EXEC` | <CopyableCode code="dd_site" /> |

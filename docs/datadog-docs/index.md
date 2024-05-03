@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 id: datadog-doc
 slug: /providers/datadog
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Monitoring, alerting and reporting platform for cloud platforms and applications.  
     
 :::info Provider Summary (v23.12.00194)
@@ -49,8 +51,8 @@ REGISTRY PULL datadog;
 
 The following system environment variables are used for authentication by default:  
 
-- `DD_API_KEY` - Datadog API key (see [Datadog API Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys))
-- `DD_APP_KEY` - Datadog Application Key (see [Datadog Application Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#application-keys))
+- <CopyableCode code="DD_API_KEY" /> - Datadog API key (see [Datadog API Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys))
+- <CopyableCode code="DD_APP_KEY" /> - Datadog Application Key (see [Datadog Application Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#application-keys))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

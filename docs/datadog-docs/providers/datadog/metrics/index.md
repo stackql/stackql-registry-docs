@@ -13,6 +13,7 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
+
 The Metrics Endpoint Allows You To:
 
 - Post Metrics Data So It Can Be Graphed On Datadog’S Dashboards

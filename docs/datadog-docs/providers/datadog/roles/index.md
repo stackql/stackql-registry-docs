@@ -13,6 +13,7 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
+
 The Roles API Is Used To Create And Manage Datadog Roles, What
 [Global Permissions](Https://Docs.Datadoghq.Com/Account Management/Rbac/)
 They Grant, And Which Users Belong To Them.

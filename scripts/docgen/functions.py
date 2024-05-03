@@ -49,8 +49,10 @@ custom_edit_url: null
 image: %s
 id: %s-doc
 slug: /providers/%s
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 %s  
     
 """ % (title, title, meta_description, image, title, title, description)
@@ -72,6 +74,7 @@ description: %s
 custom_edit_url: null
 image: %s
 ---
+
 %s  
     
 """ % (title, title, keyword2, meta_description, image, description)
@@ -94,8 +97,11 @@ description: %s
 custom_edit_url: null
 image: %s
 ---
-%s  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+%s
+
 """ % (title, title, keyword2, keyword3, meta_description, image, description)
 
 
@@ -216,7 +222,7 @@ def generate_resource_overview(provider, serviceName, resourceObj):
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>%s</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>%s</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="%s" /></td></tr>
 </tbody></table>
 
 """ % (resourceObj["name"], resourceObj["id"])
@@ -226,7 +232,7 @@ def generate_resource_overview(provider, serviceName, resourceObj):
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>%s</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>%s</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="%s" /></td></tr>
 <tr><td><b>Description</b></td><td>%s</td></tr>
 </tbody></table>
 
@@ -250,14 +256,14 @@ def generate_fields_table(provider, serviceName, resourceName, fields, is_view=F
             output = output + "|:-----|:---------|\n"
             for fieldIx, fieldRow in fields.iterrows():
                 if len(fieldRow["type"]) == 0:
-                    output = output + "| `%s` ||\n" % (fieldRow["name"])
+                    output = output + '| <CopyableCode code="%s" /> ||\n' % (fieldRow["name"])
                 else:
-                    output = output + "| `%s` | `%s` |\n" % (fieldRow["name"], fieldRow["type"])
+                    output = output + '| <CopyableCode code="%s" /> | `%s` |\n' % (fieldRow["name"], fieldRow["type"])
         else:
             output = output + "| Name | Datatype | Description |\n"
             output = output + "|:-----|:---------|:------------|\n"
             for fieldIx, fieldRow in fields.iterrows():
-                output = output + "| `%s` | `%s` | %s |\n" % (fieldRow["name"], fieldRow["type"], make_markdown_table_safe(fieldRow["description"]))
+                output = output + '| <CopyableCode code="%s" /> | `%s` | %s |\n' % (fieldRow["name"], fieldRow["type"], make_markdown_table_safe(fieldRow["description"]))
     return output
 
 def generate_methods_table(methods):
@@ -268,17 +274,17 @@ def generate_methods_table(methods):
             output = output + "|:-----|:--------------|:----------------|\n"
             for methodIx, methodRow in methods.iterrows():
                 if (methodRow["RequiredParams"] == ""):
-                    output = output + "| `%s` | `%s` | %s |\n" % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"])
+                    output = output + '| <CopyableCode code="%s" /> | `%s` | %s |\n' % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"])
                 else:
-                    output = output + "| `%s` | `%s` | `%s` |\n" % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"])
+                    output = output + '| <CopyableCode code="%s" /> | `%s` | <CopyableCode code="%s" /> |\n' % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"])
         else:
             output = output + "| Name | Accessible by | Required Params | Description |\n"
             output = output + "|:-----|:--------------|:----------------|:------------|\n"
             for methodIx, methodRow in methods.iterrows():
                 if (methodRow["RequiredParams"] == ""):
-                    output = output + "| `%s` | `%s` | %s | %s |\n" % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"], make_markdown_table_safe(methodRow["description"]))
+                    output = output + '| <CopyableCode code="%s" /> | `%s` | %s | %s |\n' % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"], make_markdown_table_safe(methodRow["description"]))
                 else:
-                    output = output + "| `%s` | `%s` | `%s` | %s |\n" % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"], make_markdown_table_safe(methodRow["description"]))
+                    output = output + '| <CopyableCode code="%s" /> | `%s` | <CopyableCode code="%s" /> | %s |\n' % (methodRow["MethodName"], methodRow["SQLVerb"], methodRow["RequiredParams"], make_markdown_table_safe(methodRow["description"]))
         return output
     except:
         output = output + "No methods available for the resource\n"
