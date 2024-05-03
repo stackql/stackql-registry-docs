@@ -14,36 +14,39 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>topics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.search.topics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.search.topics" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `name` | `string` |
-| `description` | `string` |
-| `text_matches` | `array` |
-| `featured` | `boolean` |
-| `short_description` | `string` |
-| `created_by` | `string` |
-| `aliases` | `array` |
-| `related` | `array` |
-| `logo_url` | `string` |
-| `score` | `number` |
-| `repository_count` | `integer` |
-| `curated` | `boolean` |
-| `created_at` | `string` |
-| `display_name` | `string` |
-| `updated_at` | `string` |
-| `released` | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="description" /> | `string` |
+| <CopyableCode code="aliases" /> | `array` |
+| <CopyableCode code="created_at" /> | `string` |
+| <CopyableCode code="created_by" /> | `string` |
+| <CopyableCode code="curated" /> | `boolean` |
+| <CopyableCode code="display_name" /> | `string` |
+| <CopyableCode code="featured" /> | `boolean` |
+| <CopyableCode code="logo_url" /> | `string` |
+| <CopyableCode code="related" /> | `array` |
+| <CopyableCode code="released" /> | `string` |
+| <CopyableCode code="repository_count" /> | `integer` |
+| <CopyableCode code="score" /> | `number` |
+| <CopyableCode code="short_description" /> | `string` |
+| <CopyableCode code="text_matches" /> | `array` |
+| <CopyableCode code="updated_at" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `topics` | `SELECT` | `q` |
+| <CopyableCode code="topics" /> | `SELECT` | <CopyableCode code="q" /> |

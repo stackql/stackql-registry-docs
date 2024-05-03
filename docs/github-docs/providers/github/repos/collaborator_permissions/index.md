@@ -14,23 +14,26 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>collaborator_permissions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.repos.collaborator_permissions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.repos.collaborator_permissions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `permission` | `string` |  |
-| `role_name` | `string` |  |
-| `user` | `object` | Collaborator |
+| <CopyableCode code="permission" /> | `string` |  |
+| <CopyableCode code="role_name" /> | `string` |  |
+| <CopyableCode code="user" /> | `object` | Collaborator |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_collaborator_permission_level` | `SELECT` | `owner, repo, username` |
+| <CopyableCode code="get_collaborator_permission_level" /> | `SELECT` | <CopyableCode code="owner, repo, username" /> |

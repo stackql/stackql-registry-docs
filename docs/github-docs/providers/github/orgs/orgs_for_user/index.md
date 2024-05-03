@@ -14,32 +14,35 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>orgs_for_user</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.orgs.orgs_for_user</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.orgs.orgs_for_user" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `integer` |
-| `description` | `string` |
-| `login` | `string` |
-| `node_id` | `string` |
-| `issues_url` | `string` |
-| `public_members_url` | `string` |
-| `repos_url` | `string` |
-| `url` | `string` |
-| `events_url` | `string` |
-| `hooks_url` | `string` |
-| `members_url` | `string` |
-| `avatar_url` | `string` |
+| <CopyableCode code="id" /> | `integer` |
+| <CopyableCode code="description" /> | `string` |
+| <CopyableCode code="avatar_url" /> | `string` |
+| <CopyableCode code="events_url" /> | `string` |
+| <CopyableCode code="hooks_url" /> | `string` |
+| <CopyableCode code="issues_url" /> | `string` |
+| <CopyableCode code="login" /> | `string` |
+| <CopyableCode code="members_url" /> | `string` |
+| <CopyableCode code="node_id" /> | `string` |
+| <CopyableCode code="public_members_url" /> | `string` |
+| <CopyableCode code="repos_url" /> | `string` |
+| <CopyableCode code="url" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_for_authenticated_user` | `SELECT` |  |
+| <CopyableCode code="list_for_authenticated_user" /> | `SELECT` |  |

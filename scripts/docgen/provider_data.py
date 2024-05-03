@@ -240,7 +240,7 @@ auth_blocks = {
   'linode': {
     'custom': False,
     'variables': """
-- <CopyableCode code="LINODE_TOKEN" /> - Linode API token (see [How to Create a Linode API Token](https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token))
+- <CopyableCode code="LINODE_TOKEN" /> - Linode API token (see <a href="https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token">How to Create a Linode API Token</a>)
   """,
     'linux': """
 AUTH='{ "linode": { "type": "bearer",  "credentialsenvvar": "YOUR_LINODE_TOKEN_VAR" }}'
@@ -274,8 +274,8 @@ stackql.exe shell --auth=$Auth
   'sumologic': {
     'custom': False,
     'variables': """
-- <CopyableCode code="SUMOLOGIC_ACCESSID" /> - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
-- <CopyableCode code="SUMOLOGIC_ACCESSKEY" /> - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- <CopyableCode code="SUMOLOGIC_ACCESSID" /> - SumoLogic Access ID (see <a href="https://help.sumologic.com/docs/manage/security/access-keys/">Generating an Access Key</a>)
+- <CopyableCode code="SUMOLOGIC_ACCESSKEY" /> - SumoLogic Access Key (see <a href="https://help.sumologic.com/docs/manage/security/access-keys/">Generating an Access Key</a>)
   """,
     'linux': """
 AUTH='{ "sumologic": { "type": "basic",  "username_var": "YOUR_SUMOLOGIC_ACCESS_ID_VAR", "password_var": "YOUR_SUMOLOGIC_ACCESS_KEY_VAR" }}'
@@ -292,8 +292,8 @@ stackql.exe shell --auth=$Auth
   'github': {
     'custom': False,
     'variables': """
-- `STACKQL_GITHUB_USERNAME` - GitHub username (login)
-- `STACKQL_GITHUB_PASSWORD` - GitHub Personal Access Token (see [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+- <CopyableCode code="STACKQL_GITHUB_USERNAME" /> - GitHub username (login)
+- <CopyableCode code="STACKQL_GITHUB_PASSWORD" /> - GitHub Personal Access Token (see [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
   """,
     'linux': """
 AUTH='{ "github": { "type": "basic",  "username_var": "YOUR_GITHUB_USERNAME_VAR", "password_var": "YOUR_GITHUB_PASSWORD_VAR" }}'

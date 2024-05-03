@@ -14,41 +14,44 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_users</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.users.public_users</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.users.public_users" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `integer` |
-| `name` | `string` |
-| `starred_at` | `string` |
-| `node_id` | `string` |
-| `followers_url` | `string` |
-| `repos_url` | `string` |
-| `gravatar_id` | `string` |
-| `gists_url` | `string` |
-| `subscriptions_url` | `string` |
-| `url` | `string` |
-| `html_url` | `string` |
-| `site_admin` | `boolean` |
-| `email` | `string` |
-| `login` | `string` |
-| `following_url` | `string` |
-| `organizations_url` | `string` |
-| `starred_url` | `string` |
-| `type` | `string` |
-| `events_url` | `string` |
-| `avatar_url` | `string` |
-| `received_events_url` | `string` |
+| <CopyableCode code="id" /> | `integer` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="avatar_url" /> | `string` |
+| <CopyableCode code="email" /> | `string` |
+| <CopyableCode code="events_url" /> | `string` |
+| <CopyableCode code="followers_url" /> | `string` |
+| <CopyableCode code="following_url" /> | `string` |
+| <CopyableCode code="gists_url" /> | `string` |
+| <CopyableCode code="gravatar_id" /> | `string` |
+| <CopyableCode code="html_url" /> | `string` |
+| <CopyableCode code="login" /> | `string` |
+| <CopyableCode code="node_id" /> | `string` |
+| <CopyableCode code="organizations_url" /> | `string` |
+| <CopyableCode code="received_events_url" /> | `string` |
+| <CopyableCode code="repos_url" /> | `string` |
+| <CopyableCode code="site_admin" /> | `boolean` |
+| <CopyableCode code="starred_at" /> | `string` |
+| <CopyableCode code="starred_url" /> | `string` |
+| <CopyableCode code="subscriptions_url" /> | `string` |
+| <CopyableCode code="type" /> | `string` |
+| <CopyableCode code="url" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |

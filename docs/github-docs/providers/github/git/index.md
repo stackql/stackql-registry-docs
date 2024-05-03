@@ -13,6 +13,7 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
+
 Raw Git Functionality.  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ Raw Git Functionality.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Git</td></tr>
 <tr><td><b>Description</b></td><td>Raw Git Functionality.</td></tr>
-<tr><td><b>Id</b></td><td><code>git:v23.09.00175</code></td></tr>
+<tr><td><b>Id</b></td><td><code>git:v24.04.00227</code></td></tr>
 </tbody></table>
 
 ## Resources

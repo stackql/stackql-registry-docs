@@ -13,20 +13,22 @@ custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 id: github-doc
 slug: /providers/github
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Web-based version-control and collaboration.  
     
-:::info Provider Summary (v23.09.00175)
+:::info Provider Summary (v24.04.00227)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>31</b></span><br />
-<span>total methods:&nbsp;<b>883</b></span><br />
+<span>total methods:&nbsp;<b>885</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>278</b></span><br />
-<span>total selectable resources:&nbsp;<b>273</b></span><br />
+<span>total resources:&nbsp;<b>281</b></span><br />
+<span>total selectable resources:&nbsp;<b>276</b></span><br />
 </div>
 </div>
 
@@ -49,8 +51,8 @@ REGISTRY PULL github;
 
 The following system environment variables are used for authentication by default:  
 
-- `STACKQL_GITHUB_USERNAME` - GitHub username (login)
-- `STACKQL_GITHUB_PASSWORD` - GitHub Personal Access Token (see [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+- <CopyableCode code="STACKQL_GITHUB_USERNAME" /> - GitHub username (login)
+- <CopyableCode code="STACKQL_GITHUB_PASSWORD" /> - GitHub Personal Access Token (see [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

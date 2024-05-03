@@ -14,28 +14,31 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>marketplace_users_subs_stubbed</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.apps.marketplace_users_subs_stubbed</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.apps.marketplace_users_subs_stubbed" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `free_trial_ends_on` | `string` |  |
-| `next_billing_date` | `string` |  |
-| `on_free_trial` | `boolean` |  |
-| `plan` | `object` | Marketplace Listing Plan |
-| `unit_count` | `integer` |  |
-| `updated_at` | `string` |  |
-| `account` | `object` |  |
-| `billing_cycle` | `string` |  |
+| <CopyableCode code="account" /> | `object` |  |
+| <CopyableCode code="billing_cycle" /> | `string` |  |
+| <CopyableCode code="free_trial_ends_on" /> | `string` |  |
+| <CopyableCode code="next_billing_date" /> | `string` |  |
+| <CopyableCode code="on_free_trial" /> | `boolean` |  |
+| <CopyableCode code="plan" /> | `object` | Marketplace Listing Plan |
+| <CopyableCode code="unit_count" /> | `integer` |  |
+| <CopyableCode code="updated_at" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_subscriptions_for_authenticated_user_stubbed` | `SELECT` |  |
+| <CopyableCode code="list_subscriptions_for_authenticated_user_stubbed" /> | `SELECT` |  |

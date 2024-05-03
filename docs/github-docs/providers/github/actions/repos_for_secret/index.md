@@ -14,25 +14,28 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repos_for_secret</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.actions.repos_for_secret</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.actions.repos_for_secret" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `repositories` | `array` |
-| `total_count` | `integer` |
+| <CopyableCode code="repositories" /> | `array` |
+| <CopyableCode code="total_count" /> | `integer` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_selected_repos_for_org_secret` | `SELECT` | `org, secret_name` | Lists all repositories that have been selected when the `visibility`<br />for repository access to a secret is set to `selected`.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |
-| `remove_selected_repo_from_org_secret` | `DELETE` | `org, repository_id, secret_name` | Removes a repository from an organization secret when the `visibility`<br />for repository access is set to `selected`. The visibility is set when you [Create<br />or update an organization secret](https://docs.github.com/rest/actions/secrets#create-or-update-an-organization-secret).<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |
-| `add_selected_repo_to_org_secret` | `EXEC` | `org, repository_id, secret_name` | Adds a repository to an organization secret when the `visibility` for<br />repository access is set to `selected`. The visibility is set when you [Create or<br />update an organization secret](https://docs.github.com/rest/actions/secrets#create-or-update-an-organization-secret).<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |
-| `set_selected_repos_for_org_secret` | `EXEC` | `org, secret_name, data__selected_repository_ids` | Replaces all repositories for an organization secret when the `visibility`<br />for repository access is set to `selected`. The visibility is set when you [Create<br />or update an organization secret](https://docs.github.com/rest/actions/secrets#create-or-update-an-organization-secret).<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |
+| <CopyableCode code="list_selected_repos_for_org_secret" /> | `SELECT` | <CopyableCode code="org, secret_name" /> | Lists all repositories that have been selected when the `visibility`<br />for repository access to a secret is set to `selected`.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |
+| <CopyableCode code="remove_selected_repo_from_org_secret" /> | `DELETE` | <CopyableCode code="org, repository_id, secret_name" /> | Removes a repository from an organization secret when the `visibility`<br />for repository access is set to `selected`. The visibility is set when you [Create<br />or update an organization secret](https://docs.github.com/rest/actions/secrets#create-or-update-an-organization-secret).<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |
+| <CopyableCode code="add_selected_repo_to_org_secret" /> | `EXEC` | <CopyableCode code="org, repository_id, secret_name" /> | Adds a repository to an organization secret when the `visibility` for<br />repository access is set to `selected`. The visibility is set when you [Create or<br />update an organization secret](https://docs.github.com/rest/actions/secrets#create-or-update-an-organization-secret).<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |
+| <CopyableCode code="set_selected_repos_for_org_secret" /> | `EXEC` | <CopyableCode code="org, secret_name, data__selected_repository_ids" /> | Replaces all repositories for an organization secret when the `visibility`<br />for repository access is set to `selected`. The visibility is set when you [Create<br />or update an organization secret](https://docs.github.com/rest/actions/secrets#create-or-update-an-organization-secret).<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `secrets` organization permission to use this endpoint.<br />Authenticated users must have collaborator access to a repository to create, update, or read secrets. |

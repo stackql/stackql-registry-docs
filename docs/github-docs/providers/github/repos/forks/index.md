@@ -14,108 +14,111 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>forks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.repos.forks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="github.repos.forks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `integer` |  |
-| `name` | `string` |  |
-| `description` | `string` |  |
-| `subscribers_url` | `string` |  |
-| `contributors_url` | `string` |  |
-| `has_projects` | `boolean` |  |
-| `deployments_url` | `string` |  |
-| `is_template` | `boolean` |  |
-| `archived` | `boolean` |  |
-| `url` | `string` |  |
-| `permissions` | `object` |  |
-| `events_url` | `string` |  |
-| `clone_url` | `string` |  |
-| `has_discussions` | `boolean` |  |
-| `statuses_url` | `string` |  |
-| `merges_url` | `string` |  |
-| `watchers_count` | `integer` |  |
-| `disabled` | `boolean` |  |
-| `mirror_url` | `string` |  |
-| `comments_url` | `string` |  |
-| `private` | `boolean` |  |
-| `open_issues_count` | `integer` |  |
-| `allow_forking` | `boolean` |  |
-| `stargazers_count` | `integer` |  |
-| `milestones_url` | `string` |  |
-| `subscription_url` | `string` |  |
-| `assignees_url` | `string` |  |
-| `default_branch` | `string` |  |
-| `has_issues` | `boolean` |  |
-| `git_url` | `string` |  |
-| `security_and_analysis` | `object` |  |
-| `subscribers_count` | `integer` |  |
-| `updated_at` | `string` |  |
-| `visibility` | `string` |  |
-| `labels_url` | `string` |  |
-| `forks_count` | `integer` |  |
-| `trees_url` | `string` |  |
-| `temp_clone_token` | `string` |  |
-| `has_pages` | `boolean` |  |
-| `html_url` | `string` |  |
-| `owner` | `object` | A GitHub user. |
-| `web_commit_signoff_required` | `boolean` |  |
-| `created_at` | `string` |  |
-| `git_tags_url` | `string` |  |
-| `role_name` | `string` |  |
-| `teams_url` | `string` |  |
-| `issues_url` | `string` |  |
-| `svn_url` | `string` |  |
-| `size` | `integer` | The size of the repository. Size is calculated hourly. When a repository is initially created, the size is 0. |
-| `tags_url` | `string` |  |
-| `downloads_url` | `string` |  |
-| `git_refs_url` | `string` |  |
-| `forks_url` | `string` |  |
-| `compare_url` | `string` |  |
-| `watchers` | `integer` |  |
-| `forks` | `integer` |  |
-| `open_issues` | `integer` |  |
-| `delete_branch_on_merge` | `boolean` |  |
-| `commits_url` | `string` |  |
-| `full_name` | `string` |  |
-| `issue_comment_url` | `string` |  |
-| `node_id` | `string` |  |
-| `license` | `object` |  |
-| `network_count` | `integer` |  |
-| `topics` | `array` |  |
-| `ssh_url` | `string` |  |
-| `pushed_at` | `string` |  |
-| `stargazers_url` | `string` |  |
-| `language` | `string` |  |
-| `archive_url` | `string` |  |
-| `releases_url` | `string` |  |
-| `contents_url` | `string` |  |
-| `collaborators_url` | `string` |  |
-| `pulls_url` | `string` |  |
-| `has_downloads` | `boolean` |  |
-| `code_of_conduct` | `object` | Code Of Conduct |
-| `issue_events_url` | `string` |  |
-| `fork` | `boolean` |  |
-| `git_commits_url` | `string` |  |
-| `has_wiki` | `boolean` |  |
-| `homepage` | `string` |  |
-| `hooks_url` | `string` |  |
-| `languages_url` | `string` |  |
-| `notifications_url` | `string` |  |
-| `branches_url` | `string` |  |
-| `blobs_url` | `string` |  |
-| `keys_url` | `string` |  |
+| <CopyableCode code="id" /> | `integer` |  |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="description" /> | `string` |  |
+| <CopyableCode code="allow_forking" /> | `boolean` |  |
+| <CopyableCode code="archive_url" /> | `string` |  |
+| <CopyableCode code="archived" /> | `boolean` |  |
+| <CopyableCode code="assignees_url" /> | `string` |  |
+| <CopyableCode code="blobs_url" /> | `string` |  |
+| <CopyableCode code="branches_url" /> | `string` |  |
+| <CopyableCode code="clone_url" /> | `string` |  |
+| <CopyableCode code="code_of_conduct" /> | `object` | Code Of Conduct |
+| <CopyableCode code="collaborators_url" /> | `string` |  |
+| <CopyableCode code="comments_url" /> | `string` |  |
+| <CopyableCode code="commits_url" /> | `string` |  |
+| <CopyableCode code="compare_url" /> | `string` |  |
+| <CopyableCode code="contents_url" /> | `string` |  |
+| <CopyableCode code="contributors_url" /> | `string` |  |
+| <CopyableCode code="created_at" /> | `string` |  |
+| <CopyableCode code="default_branch" /> | `string` |  |
+| <CopyableCode code="delete_branch_on_merge" /> | `boolean` |  |
+| <CopyableCode code="deployments_url" /> | `string` |  |
+| <CopyableCode code="disabled" /> | `boolean` |  |
+| <CopyableCode code="downloads_url" /> | `string` |  |
+| <CopyableCode code="events_url" /> | `string` |  |
+| <CopyableCode code="fork" /> | `boolean` |  |
+| <CopyableCode code="forks" /> | `integer` |  |
+| <CopyableCode code="forks_count" /> | `integer` |  |
+| <CopyableCode code="forks_url" /> | `string` |  |
+| <CopyableCode code="full_name" /> | `string` |  |
+| <CopyableCode code="git_commits_url" /> | `string` |  |
+| <CopyableCode code="git_refs_url" /> | `string` |  |
+| <CopyableCode code="git_tags_url" /> | `string` |  |
+| <CopyableCode code="git_url" /> | `string` |  |
+| <CopyableCode code="has_discussions" /> | `boolean` |  |
+| <CopyableCode code="has_downloads" /> | `boolean` |  |
+| <CopyableCode code="has_issues" /> | `boolean` |  |
+| <CopyableCode code="has_pages" /> | `boolean` |  |
+| <CopyableCode code="has_projects" /> | `boolean` |  |
+| <CopyableCode code="has_wiki" /> | `boolean` |  |
+| <CopyableCode code="homepage" /> | `string` |  |
+| <CopyableCode code="hooks_url" /> | `string` |  |
+| <CopyableCode code="html_url" /> | `string` |  |
+| <CopyableCode code="is_template" /> | `boolean` |  |
+| <CopyableCode code="issue_comment_url" /> | `string` |  |
+| <CopyableCode code="issue_events_url" /> | `string` |  |
+| <CopyableCode code="issues_url" /> | `string` |  |
+| <CopyableCode code="keys_url" /> | `string` |  |
+| <CopyableCode code="labels_url" /> | `string` |  |
+| <CopyableCode code="language" /> | `string` |  |
+| <CopyableCode code="languages_url" /> | `string` |  |
+| <CopyableCode code="license" /> | `object` |  |
+| <CopyableCode code="merges_url" /> | `string` |  |
+| <CopyableCode code="milestones_url" /> | `string` |  |
+| <CopyableCode code="mirror_url" /> | `string` |  |
+| <CopyableCode code="network_count" /> | `integer` |  |
+| <CopyableCode code="node_id" /> | `string` |  |
+| <CopyableCode code="notifications_url" /> | `string` |  |
+| <CopyableCode code="open_issues" /> | `integer` |  |
+| <CopyableCode code="open_issues_count" /> | `integer` |  |
+| <CopyableCode code="owner" /> | `object` | A GitHub user. |
+| <CopyableCode code="permissions" /> | `object` |  |
+| <CopyableCode code="private" /> | `boolean` |  |
+| <CopyableCode code="pulls_url" /> | `string` |  |
+| <CopyableCode code="pushed_at" /> | `string` |  |
+| <CopyableCode code="releases_url" /> | `string` |  |
+| <CopyableCode code="role_name" /> | `string` |  |
+| <CopyableCode code="security_and_analysis" /> | `object` |  |
+| <CopyableCode code="size" /> | `integer` | The size of the repository. Size is calculated hourly. When a repository is initially created, the size is 0. |
+| <CopyableCode code="ssh_url" /> | `string` |  |
+| <CopyableCode code="stargazers_count" /> | `integer` |  |
+| <CopyableCode code="stargazers_url" /> | `string` |  |
+| <CopyableCode code="statuses_url" /> | `string` |  |
+| <CopyableCode code="subscribers_count" /> | `integer` |  |
+| <CopyableCode code="subscribers_url" /> | `string` |  |
+| <CopyableCode code="subscription_url" /> | `string` |  |
+| <CopyableCode code="svn_url" /> | `string` |  |
+| <CopyableCode code="tags_url" /> | `string` |  |
+| <CopyableCode code="teams_url" /> | `string` |  |
+| <CopyableCode code="temp_clone_token" /> | `string` |  |
+| <CopyableCode code="topics" /> | `array` |  |
+| <CopyableCode code="trees_url" /> | `string` |  |
+| <CopyableCode code="updated_at" /> | `string` |  |
+| <CopyableCode code="url" /> | `string` |  |
+| <CopyableCode code="visibility" /> | `string` |  |
+| <CopyableCode code="watchers" /> | `integer` |  |
+| <CopyableCode code="watchers_count" /> | `integer` |  |
+| <CopyableCode code="web_commit_signoff_required" /> | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_forks` | `SELECT` | `owner, repo` |  |
-| `create_fork` | `INSERT` | `owner, repo` | Create a fork for the authenticated user.<br /><br />**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Support](https://support.github.com/contact?tags=dotcom-rest-api).<br /><br />**Note**: Although this endpoint works with GitHub Apps, the GitHub App must be installed on the destination account with access to all repositories and on the source account with access to the source repository. |
+| <CopyableCode code="list_forks" /> | `SELECT` | <CopyableCode code="owner, repo" /> |  |
+| <CopyableCode code="create_fork" /> | `INSERT` | <CopyableCode code="owner, repo" /> | Create a fork for the authenticated user.<br /><br />**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Support](https://support.github.com/contact?tags=dotcom-rest-api).<br /><br />**Note**: Although this endpoint works with GitHub Apps, the GitHub App must be installed on the destination account with access to all repositories and on the source account with access to the source repository. |
