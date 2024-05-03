@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 A Tag Is Applied To Escalation Policies, Teams Or Users And Can Be Used To Filter Them.
   
     

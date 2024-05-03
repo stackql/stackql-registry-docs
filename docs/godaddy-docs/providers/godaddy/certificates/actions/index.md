@@ -14,22 +14,25 @@ description: Query, deploy and manage GoDaddy resources using SQL
 custom_edit_url: null
 image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>actions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>godaddy.certificates.actions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="godaddy.certificates.actions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `createdAt` | `string` | Date action created |
-| `type` | `string` |  |
+| <CopyableCode code="createdAt" /> | `string` | Date action created |
+| <CopyableCode code="type" /> | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `certificate_action_retrieve` | `SELECT` | `certificate_id` |
+| <CopyableCode code="certificate_action_retrieve" /> | `SELECT` | <CopyableCode code="certificate_id" /> |

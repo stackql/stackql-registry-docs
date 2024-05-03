@@ -14,14 +14,17 @@ description: Query, deploy, and manage Vercel resources using SQL
 custom_edit_url: null
 image: /img/providers/vercel/stackql-vercel-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_cache_purge_all</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>vercel.cache.data_cache_purge_all</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vercel.cache.data_cache_purge_all" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/vercel/stackql-vercel-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `purge_all` | `EXEC` | `projectIdOrName` |
+| <CopyableCode code="purge_all" /> | `EXEC` | <CopyableCode code="projectIdOrName" /> |

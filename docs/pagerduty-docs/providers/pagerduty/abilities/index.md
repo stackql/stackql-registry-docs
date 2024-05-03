@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 This Describes Your Account'S Abilities By Feature Name. For Example `"Teams"`.
 An Ability May Be Available To Your Account Based On Things Like Your Pricing Plan Or Account State.
   

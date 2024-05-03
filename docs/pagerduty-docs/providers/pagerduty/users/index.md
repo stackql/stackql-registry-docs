@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 Users Are Members Of A PagerDuty Account That Have The Ability To Interact With Incidents And Other Data On The Account.
   
     

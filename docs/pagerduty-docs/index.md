@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 id: pagerduty-doc
 slug: /providers/pagerduty
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Incident management platform for real-time operations and response workflows.  
     
 :::info Provider Summary (v23.12.00190)
@@ -49,7 +51,7 @@ REGISTRY PULL pagerduty;
 
 The following system environment variables are used for authentication by default:  
 
-- `PAGERDUTY_API_TOKEN` - PagerDuty API token (see [Creating a PagerDuty API Token](https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key))
+- <CopyableCode code="PAGERDUTY_API_TOKEN" /> - PagerDuty API token (see [Creating a PagerDuty API Token](https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

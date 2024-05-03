@@ -14,14 +14,17 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vw_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_info</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="homebrew.formula.vw_info" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,13 +32,13 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `deprecated` | `boolean` |
-| `disabled` | `boolean` |
-| `formula_name` | `text` |
-| `full_name` | `text` |
-| `generated_date` | `text` |
-| `homepage` | `text` |
-| `latest_version` ||
-| `license` | `text` |
+| <CopyableCode code="deprecated" /> | `boolean` |
+| <CopyableCode code="disabled" /> | `boolean` |
+| <CopyableCode code="formula_name" /> | `text` |
+| <CopyableCode code="full_name" /> | `text` |
+| <CopyableCode code="generated_date" /> | `text` |
+| <CopyableCode code="homepage" /> | `text` |
+| <CopyableCode code="latest_version" /> ||
+| <CopyableCode code="license" /> | `text` |
 ## Methods
-No methods available for the resource
+No additional methods available for this resource

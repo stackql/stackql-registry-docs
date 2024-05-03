@@ -14,24 +14,27 @@ description: Query, deploy and manage GoDaddy resources using SQL
 custom_edit_url: null
 image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agreements</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>godaddy.agreements.agreements</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="godaddy.agreements.agreements" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `agreementKey` | `string` | Unique identifier for the legal agreement |
-| `content` | `string` | Contents of the legal agreement, suitable for embedding |
-| `title` | `string` | Title of the legal agreement |
-| `url` | `string` | URL to a page containing the legal agreement |
+| <CopyableCode code="agreementKey" /> | `string` | Unique identifier for the legal agreement |
+| <CopyableCode code="content" /> | `string` | Contents of the legal agreement, suitable for embedding |
+| <CopyableCode code="title" /> | `string` | Title of the legal agreement |
+| <CopyableCode code="url" /> | `string` | URL to a page containing the legal agreement |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `keys` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="keys" /> |

@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 Rulesets Allow You To Route Events To An Endpoint And Create Collections Of Event Rules, Which Define Sets Of Actions To Take Based On Event Content.
   
     

@@ -14,14 +14,17 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>escalation_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>pagerduty.teams.escalation_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="pagerduty.teams.escalation_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete_team_escalation_policy` | `DELETE` | `escalation_policy_id, id` | Remove an escalation policy from a team.<br /><br />A team is a collection of Users and Escalation Policies that represent a group of people within an organization.<br /><br />For more information see the [API Concepts Document](../../api-reference/ZG9jOjI3NDc5Nzc-api-concepts#teams)<br /><br />Scoped OAuth requires: `teams.write`<br /> |
-| `update_team_escalation_policy` | `EXEC` | `escalation_policy_id, id` | Add an escalation policy to a team.<br /><br />A team is a collection of Users and Escalation Policies that represent a group of people within an organization.<br /><br />For more information see the [API Concepts Document](../../api-reference/ZG9jOjI3NDc5Nzc-api-concepts#teams)<br /><br />Scoped OAuth requires: `teams.write`<br /> |
+| <CopyableCode code="delete_team_escalation_policy" /> | `DELETE` | <CopyableCode code="escalation_policy_id, id" /> | Remove an escalation policy from a team.<br /><br />A team is a collection of Users and Escalation Policies that represent a group of people within an organization.<br /><br />For more information see the [API Concepts Document](../../api-reference/ZG9jOjI3NDc5Nzc-api-concepts#teams)<br /><br />Scoped OAuth requires: `teams.write`<br /> |
+| <CopyableCode code="update_team_escalation_policy" /> | `EXEC` | <CopyableCode code="escalation_policy_id, id" /> | Add an escalation policy to a team.<br /><br />A team is a collection of Users and Escalation Policies that represent a group of people within an organization.<br /><br />For more information see the [API Concepts Document](../../api-reference/ZG9jOjI3NDc5Nzc-api-concepts#teams)<br /><br />Scoped OAuth requires: `teams.write`<br /> |

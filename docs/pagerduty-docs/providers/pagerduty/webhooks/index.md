@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 A Webhook Is A Way To Receive Events That Occur On The PagerDuty Platform Via An HTTP POST Request.
 V3 Webhooks Are Set Up By Creating A Webhook Subscription.
   

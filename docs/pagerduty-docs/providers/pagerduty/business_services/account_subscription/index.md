@@ -14,14 +14,17 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>account_subscription</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>pagerduty.business_services.account_subscription</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="pagerduty.business_services.account_subscription" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create_business_service_account_subscription` | `INSERT` | `id` | Subscribe your Account to a Business Service.<br /><br />Scoped OAuth requires: `subscribers.write`<br /> |
-| `remove_business_service_account_subscription` | `DELETE` | `id` | Unsubscribe your Account from a Business Service.<br /><br />Scoped OAuth requires: `subscribers.write`<br /> |
-| `remove_business_service_notification_subscriber` | `EXEC` | `id, data__subscribers` | Unsubscribes the matching Subscribers from a Business Service.<br /><br />Scoped OAuth requires: `subscribers.write`<br /> |
+| <CopyableCode code="create_business_service_account_subscription" /> | `INSERT` | <CopyableCode code="id" /> | Subscribe your Account to a Business Service.<br /><br />Scoped OAuth requires: `subscribers.write`<br /> |
+| <CopyableCode code="remove_business_service_account_subscription" /> | `DELETE` | <CopyableCode code="id" /> | Unsubscribe your Account from a Business Service.<br /><br />Scoped OAuth requires: `subscribers.write`<br /> |
+| <CopyableCode code="remove_business_service_notification_subscriber" /> | `EXEC` | <CopyableCode code="id, data__subscribers" /> | Unsubscribes the matching Subscribers from a Business Service.<br /><br />Scoped OAuth requires: `subscribers.write`<br /> |

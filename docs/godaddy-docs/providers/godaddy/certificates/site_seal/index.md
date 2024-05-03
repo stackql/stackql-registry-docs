@@ -14,18 +14,21 @@ description: Query, deploy and manage GoDaddy resources using SQL
 custom_edit_url: null
 image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>site_seal</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>godaddy.certificates.site_seal</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="godaddy.certificates.site_seal" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `certificate_siteseal_get` | `SELECT` | `certificate_id` |
+| <CopyableCode code="certificate_siteseal_get" /> | `SELECT` | <CopyableCode code="certificate_id" /> |

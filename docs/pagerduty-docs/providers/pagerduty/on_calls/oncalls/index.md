@@ -14,27 +14,30 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>oncalls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>pagerduty.on_calls.oncalls</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="pagerduty.on_calls.oncalls" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `end` | `string` | The end of the on-call. If `null`, the user does not go off-call. |
-| `escalation_level` | `integer` | The escalation level for the on-call. |
-| `escalation_policy` | `object` |  |
-| `schedule` | `object` |  |
-| `start` | `string` | The start of the on-call. If `null`, the on-call is a permanent user on-call. |
-| `user` | `object` |  |
+| <CopyableCode code="end" /> | `string` | The end of the on-call. If `null`, the user does not go off-call. |
+| <CopyableCode code="escalation_level" /> | `integer` | The escalation level for the on-call. |
+| <CopyableCode code="escalation_policy" /> | `object` |  |
+| <CopyableCode code="schedule" /> | `object` |  |
+| <CopyableCode code="start" /> | `string` | The start of the on-call. If `null`, the on-call is a permanent user on-call. |
+| <CopyableCode code="user" /> | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_on_calls` | `SELECT` |  |
-| `_list_on_calls` | `EXEC` |  |
+| <CopyableCode code="list_on_calls" /> | `SELECT` |  |
+| <CopyableCode code="_list_on_calls" /> | `EXEC` |  |

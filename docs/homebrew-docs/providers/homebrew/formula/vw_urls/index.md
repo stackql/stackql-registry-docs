@@ -14,14 +14,17 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vw_urls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_urls</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="homebrew.formula.vw_urls" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,15 +32,15 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `formula_name` | `text` |
-| `head_branch` ||
-| `head_url` ||
-| `head_using` ||
-| `homepage` | `text` |
-| `stable_checksum` ||
-| `stable_revision` ||
-| `stable_tag` ||
-| `stable_url` ||
-| `stable_using` ||
+| <CopyableCode code="formula_name" /> | `text` |
+| <CopyableCode code="head_branch" /> ||
+| <CopyableCode code="head_url" /> ||
+| <CopyableCode code="head_using" /> ||
+| <CopyableCode code="homepage" /> | `text` |
+| <CopyableCode code="stable_checksum" /> ||
+| <CopyableCode code="stable_revision" /> ||
+| <CopyableCode code="stable_tag" /> ||
+| <CopyableCode code="stable_url" /> ||
+| <CopyableCode code="stable_using" /> ||
 ## Methods
-No methods available for the resource
+No additional methods available for this resource

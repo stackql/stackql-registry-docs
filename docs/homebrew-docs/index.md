@@ -13,11 +13,13 @@ custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 id: homebrew-doc
 slug: /providers/homebrew
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Open-source package manager for macOS and Linux.  
     
-:::info Provider Summary (v23.12.00194)
+:::info Provider Summary (v24.03.00212)
 
 <div class="row">
 <div class="providerDocColumn">

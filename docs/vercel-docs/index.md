@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/vercel/stackql-vercel-provider-featured-image.png
 id: vercel-doc
 slug: /providers/vercel
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Cloud platform for serverless deployment and hosting of web applications.  
     
 :::info Provider Summary (v23.12.00183)
@@ -49,7 +51,7 @@ REGISTRY PULL vercel;
 
 The following system environment variables are used for authentication by default:  
 
-- `VERCEL_API_TOKEN` - Vercel API Token (see [Creating a Vercel API Token](https://vercel.com/account/tokens))
+- <CopyableCode code="VERCEL_API_TOKEN" /> - Vercel API Token (see [Creating a Vercel API Token](https://vercel.com/account/tokens))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

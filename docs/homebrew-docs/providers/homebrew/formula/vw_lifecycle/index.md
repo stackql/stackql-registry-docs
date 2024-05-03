@@ -14,14 +14,17 @@ description: Query and report on Homebrew packages using SQL
 custom_edit_url: null
 image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vw_lifecycle</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_lifecycle</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="homebrew.formula.vw_lifecycle" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,12 +32,12 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `deprecated` | `boolean` |
-| `deprecation_date` | `text` |
-| `deprecation_reason` | `text` |
-| `disable_date` | `text` |
-| `disable_reason` | `text` |
-| `disabled` | `boolean` |
-| `formula_name` | `text` |
+| <CopyableCode code="deprecated" /> | `boolean` |
+| <CopyableCode code="deprecation_date" /> | `text` |
+| <CopyableCode code="deprecation_reason" /> | `text` |
+| <CopyableCode code="disable_date" /> | `text` |
+| <CopyableCode code="disable_reason" /> | `text` |
+| <CopyableCode code="disabled" /> | `boolean` |
+| <CopyableCode code="formula_name" /> | `text` |
 ## Methods
-No methods available for the resource
+No additional methods available for this resource
