@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>permissions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.roles.permissions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.roles.permissions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | ID of the permission. |
-| `attributes` | `object` | Attributes of a permission. |
-| `type` | `string` | Permissions resource type. |
+| <CopyableCode code="id" /> | `string` | ID of the permission. |
+| <CopyableCode code="attributes" /> | `object` | Attributes of a permission. |
+| <CopyableCode code="type" /> | `string` | Permissions resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_permissions` | `SELECT` | `dd_site` |
-| `_list_permissions` | `EXEC` | `dd_site` |
+| <CopyableCode code="list_permissions" /> | `SELECT` | <CopyableCode code="dd_site" /> |
+| <CopyableCode code="_list_permissions" /> | `EXEC` | <CopyableCode code="dd_site" /> |

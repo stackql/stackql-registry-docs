@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hourly_usages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.usage_metering.hourly_usages</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.usage_metering.hourly_usages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique ID of the response. |
-| `attributes` | `object` | Attributes of hourly usage for a product family for an org for a time period. |
-| `type` | `string` | Type of usage data. |
+| <CopyableCode code="id" /> | `string` | Unique ID of the response. |
+| <CopyableCode code="attributes" /> | `object` | Attributes of hourly usage for a product family for an org for a time period. |
+| <CopyableCode code="type" /> | `string` | Type of usage data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_hourly_usage` | `SELECT` | `filter[product_families], filter[timestamp][start], dd_site` |
-| `_get_hourly_usage` | `EXEC` | `filter[product_families], filter[timestamp][start], dd_site` |
+| <CopyableCode code="get_hourly_usage" /> | `SELECT` | <CopyableCode code="filter[product_families], filter[timestamp][start], dd_site" /> |
+| <CopyableCode code="_get_hourly_usage" /> | `EXEC` | <CopyableCode code="filter[product_families], filter[timestamp][start], dd_site" /> |

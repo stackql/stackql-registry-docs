@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_application_security_monitorings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.usage_metering.usage_application_security_monitorings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.usage_metering.usage_application_security_monitorings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique ID of the response. |
-| `attributes` | `object` | Usage attributes data. |
-| `type` | `string` | Type of usage data. |
+| <CopyableCode code="id" /> | `string` | Unique ID of the response. |
+| <CopyableCode code="attributes" /> | `object` | Usage attributes data. |
+| <CopyableCode code="type" /> | `string` | Type of usage data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_usage_application_security_monitoring` | `SELECT` | `start_hr, dd_site` |
-| `_get_usage_application_security_monitoring` | `EXEC` | `start_hr, dd_site` |
+| <CopyableCode code="get_usage_application_security_monitoring" /> | `SELECT` | <CopyableCode code="start_hr, dd_site" /> |
+| <CopyableCode code="_get_usage_application_security_monitoring" /> | `EXEC` | <CopyableCode code="start_hr, dd_site" /> |

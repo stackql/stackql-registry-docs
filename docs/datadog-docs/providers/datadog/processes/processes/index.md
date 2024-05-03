@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>processes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.processes.processes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.processes.processes" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Process ID. |
-| `attributes` | `object` | Attributes for a process summary. |
-| `type` | `string` | Type of process summary. |
+| <CopyableCode code="id" /> | `string` | Process ID. |
+| <CopyableCode code="attributes" /> | `object` | Attributes for a process summary. |
+| <CopyableCode code="type" /> | `string` | Type of process summary. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_processes` | `SELECT` | `dd_site` |
-| `_list_processes` | `EXEC` | `dd_site` |
+| <CopyableCode code="list_processes" /> | `SELECT` | <CopyableCode code="dd_site" /> |
+| <CopyableCode code="_list_processes" /> | `EXEC` | <CopyableCode code="dd_site" /> |

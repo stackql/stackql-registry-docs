@@ -13,6 +13,7 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
+
 [Monitors](Https://Docs.Datadoghq.Com/Monitors) Allow You To Watch A Metric Or Check That You Care About And
 Notifies Your Team When A Defined Threshold Has Exceeded.
 

@@ -14,14 +14,17 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_workload_policy_files</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.cloud_workload_security.cloud_workload_policy_files</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.cloud_workload_security.cloud_workload_policy_files" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `_download_cloud_workload_policy_file` | `EXEC` | `dd_site` |
-| `download_cloud_workload_policy_file` | `EXEC` | `dd_site` |
+| <CopyableCode code="_download_cloud_workload_policy_file" /> | `EXEC` | <CopyableCode code="dd_site" /> |
+| <CopyableCode code="download_cloud_workload_policy_file" /> | `EXEC` | <CopyableCode code="dd_site" /> |

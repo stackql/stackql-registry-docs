@@ -14,26 +14,29 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>invitations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.users.invitations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.users.invitations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | ID of the user invitation. |
-| `attributes` | `object` | Attributes of a user invitation. |
-| `relationships` | `object` | Relationships data for user invitation. |
-| `type` | `string` | User invitations type. |
+| <CopyableCode code="id" /> | `string` | ID of the user invitation. |
+| <CopyableCode code="attributes" /> | `object` | Attributes of a user invitation. |
+| <CopyableCode code="relationships" /> | `object` | Relationships data for user invitation. |
+| <CopyableCode code="type" /> | `string` | User invitations type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_invitation` | `SELECT` | `user_invitation_uuid, dd_site` | Returns a single user invitation by its UUID. |
-| `_get_invitation` | `EXEC` | `user_invitation_uuid, dd_site` | Returns a single user invitation by its UUID. |
-| `send_invitations` | `EXEC` | `data__data, dd_site` | Sends emails to one or more users inviting them to join the organization. |
+| <CopyableCode code="get_invitation" /> | `SELECT` | <CopyableCode code="user_invitation_uuid, dd_site" /> | Returns a single user invitation by its UUID. |
+| <CopyableCode code="_get_invitation" /> | `EXEC` | <CopyableCode code="user_invitation_uuid, dd_site" /> | Returns a single user invitation by its UUID. |
+| <CopyableCode code="send_invitations" /> | `EXEC` | <CopyableCode code="data__data, dd_site" /> | Sends emails to one or more users inviting them to join the organization. |

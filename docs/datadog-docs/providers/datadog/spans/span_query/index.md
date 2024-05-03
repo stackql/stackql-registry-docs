@@ -14,24 +14,27 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>span_query</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.spans.span_query</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.spans.span_query" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique ID of the Span. |
-| `attributes` | `object` | JSON object containing all span attributes and their associated values. |
-| `type` | `string` | Type of the span. |
+| <CopyableCode code="id" /> | `string` | Unique ID of the Span. |
+| <CopyableCode code="attributes" /> | `object` | JSON object containing all span attributes and their associated values. |
+| <CopyableCode code="type" /> | `string` | Type of the span. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_spans_get` | `SELECT` | `dd_site` |
-| `_list_spans_get` | `EXEC` | `dd_site` |
+| <CopyableCode code="list_spans_get" /> | `SELECT` | <CopyableCode code="dd_site" /> |
+| <CopyableCode code="_list_spans_get" /> | `EXEC` | <CopyableCode code="dd_site" /> |

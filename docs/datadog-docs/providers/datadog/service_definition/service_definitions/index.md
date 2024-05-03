@@ -14,28 +14,31 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.service_definition.service_definitions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.service_definition.service_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Service definition id. |
-| `attributes` | `object` | Service definition attributes. |
-| `type` | `string` | Service definition type. |
+| <CopyableCode code="id" /> | `string` | Service definition id. |
+| <CopyableCode code="attributes" /> | `object` | Service definition attributes. |
+| <CopyableCode code="type" /> | `string` | Service definition type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_service_definition` | `SELECT` | `service_name, dd_site` | Get a single service definition from the Datadog Service Catalog. |
-| `list_service_definitions` | `SELECT` | `dd_site` | Get a list of all service definitions from the Datadog Service Catalog. |
-| `create_or_update_service_definitions` | `INSERT` | `dd_site` | Create or update service definition in the Datadog Service Catalog. |
-| `delete_service_definition` | `DELETE` | `service_name, dd_site` | Delete a single service definition in the Datadog Service Catalog. |
-| `_get_service_definition` | `EXEC` | `service_name, dd_site` | Get a single service definition from the Datadog Service Catalog. |
-| `_list_service_definitions` | `EXEC` | `dd_site` | Get a list of all service definitions from the Datadog Service Catalog. |
+| <CopyableCode code="get_service_definition" /> | `SELECT` | <CopyableCode code="service_name, dd_site" /> | Get a single service definition from the Datadog Service Catalog. |
+| <CopyableCode code="list_service_definitions" /> | `SELECT` | <CopyableCode code="dd_site" /> | Get a list of all service definitions from the Datadog Service Catalog. |
+| <CopyableCode code="create_or_update_service_definitions" /> | `INSERT` | <CopyableCode code="dd_site" /> | Create or update service definition in the Datadog Service Catalog. |
+| <CopyableCode code="delete_service_definition" /> | `DELETE` | <CopyableCode code="service_name, dd_site" /> | Delete a single service definition in the Datadog Service Catalog. |
+| <CopyableCode code="_get_service_definition" /> | `EXEC` | <CopyableCode code="service_name, dd_site" /> | Get a single service definition from the Datadog Service Catalog. |
+| <CopyableCode code="_list_service_definitions" /> | `EXEC` | <CopyableCode code="dd_site" /> | Get a list of all service definitions from the Datadog Service Catalog. |

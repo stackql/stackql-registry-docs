@@ -13,6 +13,7 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
+
 Datadog Synthetics Uses Simulated User Requests And Browser Rendering To Help You Ensure Uptime,
 Identify Regional Issues, And Track Your Application Performance. Datadog Synthetics Tests Come In
 Two Different Flavors, [API Tests](Https://Docs.Datadoghq.Com/Synthetics/Api Tests/)

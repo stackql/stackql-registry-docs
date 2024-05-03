@@ -414,8 +414,8 @@ stackql.exe shell --auth=$Auth
 'datadog': {
   'custom': False,
   'variables': """
-- `DD_API_KEY` - Datadog API key (see [Datadog API Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys))
-- `DD_APP_KEY` - Datadog Application Key (see [Datadog Application Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#application-keys))
+- <CopyableCode code="DD_API_KEY" /> - Datadog API key (see [Datadog API Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys))
+- <CopyableCode code="DD_APP_KEY" /> - Datadog Application Key (see [Datadog Application Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#application-keys))
   """,
   'linux': """
 AUTH='{ "datadog": { "type": "custom", "location": "header", "name": "DD-API-KEY", "credentialsenvvar": "YOUR_DD_API_KEY_VAR", "successor": { "type": "custom", "location": "header", "name": "DD-APPLICATION-KEY", "credentialsenvvar": "YOUR_DD_APP_KEY_VAR" }}}'

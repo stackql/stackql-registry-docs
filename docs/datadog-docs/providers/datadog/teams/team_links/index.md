@@ -14,29 +14,32 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>team_links</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.teams.team_links</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.teams.team_links" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The team link's identifier |
-| `attributes` | `object` | Team link attributes |
-| `type` | `string` | Team link type |
+| <CopyableCode code="id" /> | `string` | The team link's identifier |
+| <CopyableCode code="attributes" /> | `object` | Team link attributes |
+| <CopyableCode code="type" /> | `string` | Team link type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_team_link` | `SELECT` | `link_id, team_id, dd_site` | Get a single link for a team. |
-| `get_team_links` | `SELECT` | `team_id, dd_site` | Get all links for a given team. |
-| `create_team_link` | `INSERT` | `team_id, data__data, dd_site` | Add a new link to a team. |
-| `delete_team_link` | `DELETE` | `link_id, team_id, dd_site` | Remove a link from a team. |
-| `_get_team_link` | `EXEC` | `link_id, team_id, dd_site` | Get a single link for a team. |
-| `_get_team_links` | `EXEC` | `team_id, dd_site` | Get all links for a given team. |
-| `update_team_link` | `EXEC` | `link_id, team_id, data__data, dd_site` | Update a team link. |
+| <CopyableCode code="get_team_link" /> | `SELECT` | <CopyableCode code="link_id, team_id, dd_site" /> | Get a single link for a team. |
+| <CopyableCode code="get_team_links" /> | `SELECT` | <CopyableCode code="team_id, dd_site" /> | Get all links for a given team. |
+| <CopyableCode code="create_team_link" /> | `INSERT` | <CopyableCode code="team_id, data__data, dd_site" /> | Add a new link to a team. |
+| <CopyableCode code="delete_team_link" /> | `DELETE` | <CopyableCode code="link_id, team_id, dd_site" /> | Remove a link from a team. |
+| <CopyableCode code="_get_team_link" /> | `EXEC` | <CopyableCode code="link_id, team_id, dd_site" /> | Get a single link for a team. |
+| <CopyableCode code="_get_team_links" /> | `EXEC` | <CopyableCode code="team_id, dd_site" /> | Get all links for a given team. |
+| <CopyableCode code="update_team_link" /> | `EXEC` | <CopyableCode code="link_id, team_id, data__data, dd_site" /> | Update a team link. |

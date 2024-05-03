@@ -13,6 +13,7 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
+
 Create, Edit, And Manage Your Organizations. Read More About [Multi-Org Accounts](Https://Docs.Datadoghq.Com/Account Management/Multi Organization).  
     
 :::info Service Summary

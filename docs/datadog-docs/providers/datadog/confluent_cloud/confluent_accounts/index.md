@@ -14,29 +14,32 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>confluent_accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.confluent_cloud.confluent_accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.confluent_cloud.confluent_accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | A randomly generated ID associated with a Confluent account. |
-| `attributes` | `object` | The attributes of a Confluent account. |
-| `type` | `string` | The JSON:API type for this API. Should always be `confluent-cloud-accounts`. |
+| <CopyableCode code="id" /> | `string` | A randomly generated ID associated with a Confluent account. |
+| <CopyableCode code="attributes" /> | `object` | The attributes of a Confluent account. |
+| <CopyableCode code="type" /> | `string` | The JSON:API type for this API. Should always be `confluent-cloud-accounts`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_confluent_account` | `SELECT` | `account_id, dd_site` | Get the Confluent account with the provided account ID. |
-| `list_confluent_account` | `SELECT` | `dd_site` | List Confluent accounts. |
-| `create_confluent_account` | `INSERT` | `data__data, dd_site` | Create a Confluent account. |
-| `delete_confluent_account` | `DELETE` | `account_id, dd_site` | Delete a Confluent account with the provided account ID. |
-| `_get_confluent_account` | `EXEC` | `account_id, dd_site` | Get the Confluent account with the provided account ID. |
-| `_list_confluent_account` | `EXEC` | `dd_site` | List Confluent accounts. |
-| `update_confluent_account` | `EXEC` | `account_id, data__data, dd_site` | Update the Confluent account with the provided account ID. |
+| <CopyableCode code="get_confluent_account" /> | `SELECT` | <CopyableCode code="account_id, dd_site" /> | Get the Confluent account with the provided account ID. |
+| <CopyableCode code="list_confluent_account" /> | `SELECT` | <CopyableCode code="dd_site" /> | List Confluent accounts. |
+| <CopyableCode code="create_confluent_account" /> | `INSERT` | <CopyableCode code="data__data, dd_site" /> | Create a Confluent account. |
+| <CopyableCode code="delete_confluent_account" /> | `DELETE` | <CopyableCode code="account_id, dd_site" /> | Delete a Confluent account with the provided account ID. |
+| <CopyableCode code="_get_confluent_account" /> | `EXEC` | <CopyableCode code="account_id, dd_site" /> | Get the Confluent account with the provided account ID. |
+| <CopyableCode code="_list_confluent_account" /> | `EXEC` | <CopyableCode code="dd_site" /> | List Confluent accounts. |
+| <CopyableCode code="update_confluent_account" /> | `EXEC` | <CopyableCode code="account_id, data__data, dd_site" /> | Update the Confluent account with the provided account ID. |

@@ -13,6 +13,7 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
+
 Confluent Cloud  
     
 :::info Service Summary

@@ -14,14 +14,17 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.metrics.metrics</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.metrics.metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `submit_metrics` | `EXEC` | `data__series, dd_site` |
+| <CopyableCode code="submit_metrics" /> | `EXEC` | <CopyableCode code="data__series, dd_site" /> |

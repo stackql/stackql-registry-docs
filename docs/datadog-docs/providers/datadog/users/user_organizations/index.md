@@ -14,25 +14,28 @@ description: Query, monitor, and manage Datadog resources using SQL
 custom_edit_url: null
 image: /img/providers/datadog/stackql-datadog-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_organizations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog.users.user_organizations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datadog.users.user_organizations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | ID of the user. |
-| `attributes` | `object` | Attributes of user object returned by the API. |
-| `relationships` | `object` | Relationships of the user object returned by the API. |
-| `type` | `string` | Users resource type. |
+| <CopyableCode code="id" /> | `string` | ID of the user. |
+| <CopyableCode code="attributes" /> | `object` | Attributes of user object returned by the API. |
+| <CopyableCode code="relationships" /> | `object` | Relationships of the user object returned by the API. |
+| <CopyableCode code="type" /> | `string` | Users resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_user_organizations` | `SELECT` | `user_id, dd_site` |
-| `_list_user_organizations` | `EXEC` | `user_id, dd_site` |
+| <CopyableCode code="list_user_organizations" /> | `SELECT` | <CopyableCode code="user_id, dd_site" /> |
+| <CopyableCode code="_list_user_organizations" /> | `EXEC` | <CopyableCode code="user_id, dd_site" /> |
