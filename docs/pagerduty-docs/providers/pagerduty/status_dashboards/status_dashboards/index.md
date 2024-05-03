@@ -14,26 +14,29 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>status_dashboards</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>pagerduty.status_dashboards.status_dashboards</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="pagerduty.status_dashboards.status_dashboards" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `url_slug` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="url_slug" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_status_dashboard_by_id` | `SELECT` | `X-EARLY-ACCESS, id` | Get a Status Dashboard by its PagerDuty `id`.<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |
-| `list_status_dashboards` | `SELECT` | `X-EARLY-ACCESS` | Get all your account's custom Status Dashboard views<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |
-| `_get_status_dashboard_by_id` | `EXEC` | `X-EARLY-ACCESS, id` | Get a Status Dashboard by its PagerDuty `id`.<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |
-| `_list_status_dashboards` | `EXEC` | `X-EARLY-ACCESS` | Get all your account's custom Status Dashboard views<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |
+| <CopyableCode code="get_status_dashboard_by_id" /> | `SELECT` | <CopyableCode code="X-EARLY-ACCESS, id" /> | Get a Status Dashboard by its PagerDuty `id`.<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |
+| <CopyableCode code="list_status_dashboards" /> | `SELECT` | <CopyableCode code="X-EARLY-ACCESS" /> | Get all your account's custom Status Dashboard views<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |
+| <CopyableCode code="_get_status_dashboard_by_id" /> | `EXEC` | <CopyableCode code="X-EARLY-ACCESS, id" /> | Get a Status Dashboard by its PagerDuty `id`.<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |
+| <CopyableCode code="_list_status_dashboards" /> | `EXEC` | <CopyableCode code="X-EARLY-ACCESS" /> | Get all your account's custom Status Dashboard views<br /><br />&lt;!-- theme: warning --&gt;<br />&gt; ### Early Access<br />&gt; This endpoint is in Early Access and may change at any time. You must pass in the X-EARLY-ACCESS header to access it. |

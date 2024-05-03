@@ -14,23 +14,26 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>outlier_incident</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>pagerduty.incidents.outlier_incident</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="pagerduty.incidents.outlier_incident" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `incident` | `object` |
-| `incident_template` | `object` |
+| <CopyableCode code="incident" /> | `object` |
+| <CopyableCode code="incident_template" /> | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_outlier_incident` | `SELECT` | `id` |
-| `_get_outlier_incident` | `EXEC` | `id` |
+| <CopyableCode code="get_outlier_incident" /> | `SELECT` | <CopyableCode code="id" /> |
+| <CopyableCode code="_get_outlier_incident" /> | `EXEC` | <CopyableCode code="id" /> |

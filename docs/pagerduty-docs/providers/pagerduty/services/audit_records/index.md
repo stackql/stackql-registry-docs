@@ -14,30 +14,33 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>audit_records</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>pagerduty.services.audit_records</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="pagerduty.services.audit_records" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` |  |
-| `action` | `string` |  |
-| `actors` | `array` |  |
-| `details` | `object` | Additional details to provide further information about the action or<br />the resource that has been audited.<br /> |
-| `execution_context` | `object` | Action execution context |
-| `execution_time` | `string` | The date/time the action executed, in ISO8601 format and millisecond precision. |
-| `method` | `object` | The method information |
-| `root_resource` | `object` |  |
-| `self` | `string` | Record URL. |
+| <CopyableCode code="id" /> | `string` |  |
+| <CopyableCode code="action" /> | `string` |  |
+| <CopyableCode code="actors" /> | `array` |  |
+| <CopyableCode code="details" /> | `object` | Additional details to provide further information about the action or<br />the resource that has been audited.<br /> |
+| <CopyableCode code="execution_context" /> | `object` | Action execution context |
+| <CopyableCode code="execution_time" /> | `string` | The date/time the action executed, in ISO8601 format and millisecond precision. |
+| <CopyableCode code="method" /> | `object` | The method information |
+| <CopyableCode code="root_resource" /> | `object` |  |
+| <CopyableCode code="self" /> | `string` | Record URL. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_service_audit_records` | `SELECT` | `id` |
-| `_list_service_audit_records` | `EXEC` | `id` |
+| <CopyableCode code="list_service_audit_records" /> | `SELECT` | <CopyableCode code="id" /> |
+| <CopyableCode code="_list_service_audit_records" /> | `EXEC` | <CopyableCode code="id" /> |

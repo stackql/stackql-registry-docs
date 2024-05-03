@@ -363,7 +363,7 @@ stackql.exe shell --auth=$Auth
   'vercel': {
     'custom': False,
     'variables': """
-- `VERCEL_API_TOKEN` - Vercel API Token (see [Creating a Vercel API Token](https://vercel.com/account/tokens))
+- <CopyableCode code="VERCEL_API_TOKEN" /> - Vercel API Token (see [Creating a Vercel API Token](https://vercel.com/account/tokens))
   """,
     'linux': """
 AUTH='{ "okta": { "type": "bearer", "credentialsenvvar": "YOUR_VERCEL_API_TOKEN_VAR" }}'
@@ -397,7 +397,7 @@ stackql.exe shell --auth=$Auth
 'pagerduty': {
   'custom': False,
   'variables': """
-- `PAGERDUTY_API_TOKEN` - PagerDuty API token (see [Creating a PagerDuty API Token](https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key))
+- <CopyableCode code="PAGERDUTY_API_TOKEN" /> - PagerDuty API token (see [Creating a PagerDuty API Token](https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key))
   """,
   'linux': """
 AUTH='{ "pagerduty": { "type": "bearer", "credentialsenvvar": "YOUR_PAGERDUTY_API_TOKEN_VAR" }}'

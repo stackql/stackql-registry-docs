@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 Templates Is A New Feature Which Will Allow Customers To Create Message Templates To Be Leveraged By (But Not Limited To) Status Updates. The API Will Be Secured To Customers With The Status Updates Entitlements.
   
     

@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 A PagerDuty Vendor Represents A Specific Type Of Integration. AWS Cloudwatch, Splunk, Datadog Are All Examples Of Vendors
   
     

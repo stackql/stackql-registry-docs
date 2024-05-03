@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 An Incident Represents A Problem Or An Issue That Needs To Be Addressed And Resolved. Incidents Trigger On A Service, Which Prompts Notifications To Go Out To On-Call Responders Per The Service'S Escalation Policy.
   
     

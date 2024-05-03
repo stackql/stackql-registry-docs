@@ -14,24 +14,27 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>url_slugs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>pagerduty.status_dashboards.url_slugs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="pagerduty.status_dashboards.url_slugs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `id` | `string` |
-| `name` | `string` |
-| `url_slug` | `string` |
+| <CopyableCode code="id" /> | `string` |
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="url_slug" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_status_dashboard_by_url_slug` | `SELECT` | `X-EARLY-ACCESS, url_slug` |
-| `_get_status_dashboard_by_url_slug` | `EXEC` | `X-EARLY-ACCESS, url_slug` |
+| <CopyableCode code="get_status_dashboard_by_url_slug" /> | `SELECT` | <CopyableCode code="X-EARLY-ACCESS, url_slug" /> |
+| <CopyableCode code="_get_status_dashboard_by_url_slug" /> | `EXEC` | <CopyableCode code="X-EARLY-ACCESS, url_slug" /> |

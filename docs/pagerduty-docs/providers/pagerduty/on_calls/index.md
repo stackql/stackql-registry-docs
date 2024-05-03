@@ -13,6 +13,7 @@ description: Query, manage, and integrate PagerDuty resources using SQL
 custom_edit_url: null
 image: /img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png
 ---
+
 An On-Call Represents A Contiguous Unit Of Time For Which A User Will Be On Call For A Given Escalation Policy And Escalation Rules
   
     
