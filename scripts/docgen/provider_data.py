@@ -500,7 +500,7 @@ StackQL uses Azure application credentials obtained using the <CopyableCode code
     'custom_markdown': """
 :::note
 
-<b><CopyableCode code="cluster_addr" /></b> is a required parameter for all operations using the `k8s` provider, for example:  
+<b><CopyableCode code="cluster_addr" /></b> is a required parameter for all operations using the <code>k8s</code> provider, for example:  
 
 ```sql
 SELECT name, namespace, uid, creationTimestamp 
@@ -515,7 +515,7 @@ ORDER BY name ASC;
 
 :::note
 
-The <b><CopyableCode code="protocol" /></b> parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
+The <CopyableCode code="protocol" /> parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
 
 ```sql
 select name, namespace, uid, creationTimestamp 
@@ -560,22 +560,22 @@ server_variables_blocks = {
     'okta': """
 The following parameter is required for the `okta` provider:  
 
-- <CopyableCode code="subdomain" /> - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
+- <CopyableCode code="subdomain" /> - The Okta tenant domain, for example <code>my-company</code> would be supplied if your Okta domain is <code>my-company.okta.com</code>
 
 This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
     """,
     'sumologic': """
 The following parameter is required for the `sumologic` provider if you are not using the `us2` region:  
 
-- <CopyableCode code="region" /> - The SumoLogic regional endpoint (e.g. `au`, `ca`, `de`, `eu`, `fed`, `in`, `jp`)
+- <CopyableCode code="region" /> - The SumoLogic regional endpoint (e.g. <code>au</code>, <code>ca</code>, <code>de</code>, <code>eu</code>, <code>fed</code>, <code>in</code>, <code>jp</code>)
 
 This parameter would be supplied to the `WHERE` clause of each `SELECT` statement if you are not usign the `us2` region.
     """,
     'k8s': """
 The following parameters may be required for the `k8s` provider:  
 
-- <CopyableCode code="protocol" /> - `https` or `http` (default: `https`)
-- <CopyableCode code="cluster_addr" /> - The hostname of the Kubernetes cluster (default: `localhost`)
+- <CopyableCode code="protocol" /> - <code>https</code> or <code>http</code> (default: <code>https</code>)
+- <CopyableCode code="cluster_addr" /> - The hostname of the Kubernetes cluster (default: <code>localhost</code>)
 
 This parameter would be supplied to the `WHERE` clause of each `SELECT` statement.
     """,

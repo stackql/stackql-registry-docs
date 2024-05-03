@@ -52,7 +52,7 @@ REGISTRY PULL k8s;
 
 :::note
 
-<b><CopyableCode code="cluster_addr" /></b> is a required parameter for all operations using the `k8s` provider, for example:  
+<b><CopyableCode code="cluster_addr" /></b> is a required parameter for all operations using the <code>k8s</code> provider, for example:  
 
 ```sql
 SELECT name, namespace, uid, creationTimestamp 
@@ -67,7 +67,7 @@ ORDER BY name ASC;
 
 :::note
 
-The <b><CopyableCode code="protocol" /></b> parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
+The <CopyableCode code="protocol" /> parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
 
 ```sql
 select name, namespace, uid, creationTimestamp 
@@ -104,8 +104,8 @@ Alternatively, you could add the <CopyableCode code="--tls.allowInsecure=true" /
 
 The following parameters may be required for the `k8s` provider:  
 
-- <CopyableCode code="protocol" /> - `https` or `http` (default: `https`)
-- <CopyableCode code="cluster_addr" /> - The hostname of the Kubernetes cluster (default: `localhost`)
+- <CopyableCode code="protocol" /> - <code>https</code> or <code>http</code> (default: <code>https</code>)
+- <CopyableCode code="cluster_addr" /> - The hostname of the Kubernetes cluster (default: <code>localhost</code>)
 
 This parameter would be supplied to the `WHERE` clause of each `SELECT` statement.
     

@@ -84,7 +84,7 @@ stackql.exe shell --auth=$Auth
 
 The following parameter is required for the `sumologic` provider if you are not using the `us2` region:  
 
-- <CopyableCode code="region" /> - The SumoLogic regional endpoint (e.g. `au`, `ca`, `de`, `eu`, `fed`, `in`, `jp`)
+- <CopyableCode code="region" /> - The SumoLogic regional endpoint (e.g. <code>au</code>, <code>ca</code>, <code>de</code>, <code>eu</code>, <code>fed</code>, <code>in</code>, <code>jp</code>)
 
 This parameter would be supplied to the `WHERE` clause of each `SELECT` statement if you are not usign the `us2` region.
     
