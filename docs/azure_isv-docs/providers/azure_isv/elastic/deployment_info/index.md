@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployment_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.elastic.deployment_info</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.elastic.deployment_info" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `deploymentUrl` | `string` | Deployment URL of the elasticsearch in Elastic cloud deployment. |
-| `diskCapacity` | `string` | Disk capacity of the elasticsearch in Elastic cloud deployment. |
-| `elasticsearchEndPoint` | `string` | Elasticsearch endpoint in Elastic cloud deployment. This is either the aliased_endpoint if available, or the service_url otherwise. |
-| `marketplaceSaasInfo` | `object` | Marketplace SAAS Info of the resource. |
-| `memoryCapacity` | `string` | RAM capacity of the elasticsearch in Elastic cloud deployment. |
-| `status` | `string` | Flag specifying if the Elastic deployment status is healthy or not. |
-| `version` | `string` | Version of the elasticsearch in Elastic cloud deployment. |
+| <CopyableCode code="deploymentUrl" /> | `string` | Deployment URL of the elasticsearch in Elastic cloud deployment. |
+| <CopyableCode code="diskCapacity" /> | `string` | Disk capacity of the elasticsearch in Elastic cloud deployment. |
+| <CopyableCode code="elasticsearchEndPoint" /> | `string` | Elasticsearch endpoint in Elastic cloud deployment. This is either the aliased_endpoint if available, or the service_url otherwise. |
+| <CopyableCode code="marketplaceSaasInfo" /> | `object` | Marketplace SAAS Info of the resource. |
+| <CopyableCode code="memoryCapacity" /> | `string` | RAM capacity of the elasticsearch in Elastic cloud deployment. |
+| <CopyableCode code="status" /> | `string` | Flag specifying if the Elastic deployment status is healthy or not. |
+| <CopyableCode code="version" /> | `string` | Version of the elasticsearch in Elastic cloud deployment. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `monitorName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Microsoft 365 Security And Compliance Assessment Secures Your Business Operation By Providing Key Insights To Help You Establish The Right Processes  
     
 :::info Service Summary

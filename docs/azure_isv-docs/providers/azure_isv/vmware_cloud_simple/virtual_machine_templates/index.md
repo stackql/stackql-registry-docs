@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machine_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.vmware_cloud_simple.virtual_machine_templates</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.vmware_cloud_simple.virtual_machine_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | virtual machine template id (privateCloudId:vsphereId) |
-| `name` | `string` | &#123;virtualMachineTemplateName&#125; |
-| `location` | `string` | Azure region |
-| `properties` | `object` | Properties of virtual machine template |
-| `type` | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
+| <CopyableCode code="id" /> | `string` | virtual machine template id (privateCloudId:vsphereId) |
+| <CopyableCode code="name" /> | `string` | &#123;virtualMachineTemplateName&#125; |
+| <CopyableCode code="location" /> | `string` | Azure region |
+| <CopyableCode code="properties" /> | `object` | Properties of virtual machine template |
+| <CopyableCode code="type" /> | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, pcName, regionId, subscriptionId, virtualMachineTemplateName` | Returns virtual machine templates by its name |
-| `list` | `SELECT` | `api-version, pcName, regionId, resourcePoolName, subscriptionId` | Returns list of virtual machine templates in region for private cloud |
-| `_list` | `EXEC` | `api-version, pcName, regionId, resourcePoolName, subscriptionId` | Returns list of virtual machine templates in region for private cloud |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, pcName, regionId, subscriptionId, virtualMachineTemplateName" /> | Returns virtual machine templates by its name |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, pcName, regionId, resourcePoolName, subscriptionId" /> | Returns list of virtual machine templates in region for private cloud |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, pcName, regionId, resourcePoolName, subscriptionId" /> | Returns list of virtual machine templates in region for private cloud |

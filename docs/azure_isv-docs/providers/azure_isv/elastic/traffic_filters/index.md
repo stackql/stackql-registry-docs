@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>traffic_filters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.elastic.traffic_filters</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.elastic.traffic_filters" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `monitorName, resourceGroupName, subscriptionId` |
-| `delete` | `DELETE` | `monitorName, resourceGroupName, subscriptionId` |
-| `associate` | `EXEC` | `monitorName, resourceGroupName, subscriptionId` |
-| `detach_and_delete` | `EXEC` | `monitorName, resourceGroupName, subscriptionId` |
-| `update` | `EXEC` | `monitorName, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="associate" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="detach_and_delete" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |

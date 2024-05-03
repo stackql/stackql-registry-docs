@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.backup_admin.backups</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.backup_admin.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | URI of the resource. |
-| `name` | `string` | Name of the resource. |
-| `location` | `string` | Location of the resource. |
-| `properties` | `object` | Properties for a backup. |
-| `tags` | `object` | List of key value pairs. |
-| `type` | `string` | Type of resource. |
+| <CopyableCode code="id" /> | `string` | URI of the resource. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="location" /> | `string` | Location of the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties for a backup. |
+| <CopyableCode code="tags" /> | `object` | List of key value pairs. |
+| <CopyableCode code="type" /> | `string` | Type of resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `backup, location, resourceGroupName, subscriptionId` | Returns a backup from a location based on name. |
-| `list` | `SELECT` | `location, resourceGroupName, subscriptionId` | Returns a list of backups from a location. |
-| `create` | `INSERT` | `location, resourceGroupName, subscriptionId` | Back up a specific location. |
-| `_list` | `EXEC` | `location, resourceGroupName, subscriptionId` | Returns a list of backups from a location. |
-| `restore` | `EXEC` | `backup, location, resourceGroupName, subscriptionId` | Restore a backup. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="backup, location, resourceGroupName, subscriptionId" /> | Returns a backup from a location based on name. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of backups from a location. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Back up a specific location. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of backups from a location. |
+| <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="backup, location, resourceGroupName, subscriptionId" /> | Restore a backup. |

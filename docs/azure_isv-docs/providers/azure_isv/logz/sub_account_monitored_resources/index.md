@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sub_account_monitored_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.logz.sub_account_monitored_resources</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.logz.sub_account_monitored_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | Link to the next set of results, if any. |
-| `value` | `array` | Results of a list operation. |
+| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
+| <CopyableCode code="value" /> | `array` | Results of a list operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `monitorName, resourceGroupName, subAccountName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subAccountName, subscriptionId" /> |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Microsoft Power Platform Is A Line Of Business Intelligence, App Development, And App Connectivity Software Applications. Microsoft Developed The Power Fx Low-Code Programming Language For Expressing Logic Across The Power Platform. It Also Provides Integrations With GitHub And Teams Among Other Apps.  
     
 :::info Service Summary

@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>upgrade_notifications</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.redis.upgrade_notifications</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.redis.upgrade_notifications" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of upgrade notification. |
-| `timestamp` | `string` | Timestamp when upgrade notification occurred. |
-| `upsellNotification` | `object` | Details about this upgrade notification |
+| <CopyableCode code="name" /> | `string` | Name of upgrade notification. |
+| <CopyableCode code="timestamp" /> | `string` | Timestamp when upgrade notification occurred. |
+| <CopyableCode code="upsellNotification" /> | `object` | Details about this upgrade notification |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `history, name, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `history, name, resourceGroupName, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="history, name, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="history, name, resourceGroupName, subscriptionId" /> |

@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.intelligent_recommendations.accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.intelligent_recommendations.accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Account resource properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Account resource properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Returns RecommendationsService Account resource for a given name. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Returns list of RecommendationsService Account resources. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Returns list of RecommendationsService Account resources. |
-| `create_or_update` | `INSERT` | `accountName, resourceGroupName, subscriptionId` | Creates or updates RecommendationsService Account resource. |
-| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Deletes RecommendationsService Account resource. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Returns list of RecommendationsService Account resources. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Returns list of RecommendationsService Account resources. |
-| `check_name_availability` | `EXEC` | `subscriptionId` | Checks that the RecommendationsService Account name is valid and is not already in use. |
-| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Updates RecommendationsService Account details. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Returns RecommendationsService Account resource for a given name. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns list of RecommendationsService Account resources. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns list of RecommendationsService Account resources. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Creates or updates RecommendationsService Account resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Deletes RecommendationsService Account resource. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns list of RecommendationsService Account resources. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns list of RecommendationsService Account resources. |
+| <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Checks that the RecommendationsService Account name is valid and is not already in use. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Updates RecommendationsService Account details. |

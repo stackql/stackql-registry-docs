@@ -14,30 +14,33 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>addresses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.edge_order.addresses</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.edge_order.addresses" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Address Properties. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Address Properties. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `addressName, resourceGroupName, subscriptionId` | Get information about the specified address. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the addresses available under the given resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List all the addresses available under the subscription. |
-| `create` | `INSERT` | `addressName, resourceGroupName, subscriptionId, data__properties` | Create a new address with the specified parameters. Existing address cannot be updated with this API and should<br />instead be updated with the Update address API. |
-| `delete` | `DELETE` | `addressName, resourceGroupName, subscriptionId` | Delete an address. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the addresses available under the given resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all the addresses available under the subscription. |
-| `update` | `EXEC` | `addressName, resourceGroupName, subscriptionId` | Update the properties of an existing address. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="addressName, resourceGroupName, subscriptionId" /> | Get information about the specified address. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List all the addresses available under the given resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List all the addresses available under the subscription. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="addressName, resourceGroupName, subscriptionId, data__properties" /> | Create a new address with the specified parameters. Existing address cannot be updated with this API and should<br />instead be updated with the Update address API. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="addressName, resourceGroupName, subscriptionId" /> | Delete an address. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List all the addresses available under the given resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List all the addresses available under the subscription. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="addressName, resourceGroupName, subscriptionId" /> | Update the properties of an existing address. |

@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 id: k8s-doc
 slug: /providers/k8s
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Open source container management platform.  
     
 :::info Provider Summary (v23.03.00121)
@@ -50,7 +52,7 @@ REGISTRY PULL k8s;
 
 :::note
 
-__`cluster_addr`__ is a required paramter for all operations using the `k8s` provider, for example:  
+<b><CopyableCode code="cluster_addr" /></b> is a required parameter for all operations using the `k8s` provider, for example:  
 
 ```sql
 SELECT name, namespace, uid, creationTimestamp 
@@ -65,7 +67,7 @@ ORDER BY name ASC;
 
 :::note
 
-The __`protocol`__ parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
+The <b><CopyableCode code="protocol" /></b> parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
 
 ```sql
 select name, namespace, uid, creationTimestamp 
@@ -92,7 +94,7 @@ You will need to generate a certificate bundle for your cluster (`k8s_cert_bundl
 kubectl get secret -o jsonpath="{.items[?(@.type=="kubernetes.io/service-account-token")].data['ca\.crt']}" | base64 -i --decode > k8s_cert_bundle.pem
 ```
 
-Alternatively, you could add the `--tls.allowInsecure=true` argument to the `stackql` command, it is not recommended however. 
+Alternatively, you could add the <CopyableCode code="--tls.allowInsecure=true" /> argument to the `stackql` command, it is not recommended however. 
 
 :::
 
@@ -102,8 +104,8 @@ Alternatively, you could add the `--tls.allowInsecure=true` argument to the `sta
 
 The following parameters may be required for the `k8s` provider:  
 
-- `protocol` - `https` or `http` (default: `https`)
-- `cluster_addr` - The hostname of the Kubernetes cluster (default: `localhost`)
+- <CopyableCode code="protocol" /> - `https` or `http` (default: `https`)
+- <CopyableCode code="cluster_addr" /> - The hostname of the Kubernetes cluster (default: `localhost`)
 
 This parameter would be supplied to the `WHERE` clause of each `SELECT` statement.
     

@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>devices</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.storsimple_1200_series.devices</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.storsimple_1200_series.devices" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The identifier. |
-| `name` | `string` | The name. |
-| `properties` | `object` | Encases all the properties of the Device |
-| `type` | `string` | The type. |
+| <CopyableCode code="id" /> | `string` | The identifier. |
+| <CopyableCode code="name" /> | `string` | The name. |
+| <CopyableCode code="properties" /> | `object` | Encases all the properties of the Device |
+| <CopyableCode code="type" /> | `string` | The type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `deviceName, managerName, resourceGroupName, subscriptionId` | Returns the properties of the specified device name. |
-| `list_by_manager` | `SELECT` | `managerName, resourceGroupName, subscriptionId` | Retrieves all the devices in a manager. |
-| `delete` | `DELETE` | `deviceName, managerName, resourceGroupName, subscriptionId` | Deletes the device. |
-| `_list_by_manager` | `EXEC` | `managerName, resourceGroupName, subscriptionId` | Retrieves all the devices in a manager. |
-| `deactivate` | `EXEC` | `deviceName, managerName, resourceGroupName, subscriptionId` | Deactivates the device. |
-| `download_updates` | `EXEC` | `deviceName, managerName, resourceGroupName, subscriptionId` | Downloads updates on the device. |
-| `failover` | `EXEC` | `deviceName, managerName, resourceGroupName, subscriptionId` | Fails over the device to another device. |
-| `install_updates` | `EXEC` | `deviceName, managerName, resourceGroupName, subscriptionId` | Installs the updates on the device. |
-| `patch` | `EXEC` | `deviceName, managerName, resourceGroupName, subscriptionId` | Patches the device. |
-| `scan_for_updates` | `EXEC` | `deviceName, managerName, resourceGroupName, subscriptionId` | Scans for updates on the device. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Returns the properties of the specified device name. |
+| <CopyableCode code="list_by_manager" /> | `SELECT` | <CopyableCode code="managerName, resourceGroupName, subscriptionId" /> | Retrieves all the devices in a manager. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Deletes the device. |
+| <CopyableCode code="_list_by_manager" /> | `EXEC` | <CopyableCode code="managerName, resourceGroupName, subscriptionId" /> | Retrieves all the devices in a manager. |
+| <CopyableCode code="deactivate" /> | `EXEC` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Deactivates the device. |
+| <CopyableCode code="download_updates" /> | `EXEC` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Downloads updates on the device. |
+| <CopyableCode code="failover" /> | `EXEC` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Fails over the device to another device. |
+| <CopyableCode code="install_updates" /> | `EXEC` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Installs the updates on the device. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Patches the device. |
+| <CopyableCode code="scan_for_updates" /> | `EXEC` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Scans for updates on the device. |

@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.databricks.access_connectors</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.databricks.access_connectors" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `connectorName, resourceGroupName, subscriptionId` | Gets an azure databricks accessConnector. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the azure databricks accessConnectors within a resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | Gets all the azure databricks accessConnectors within a subscription. |
-| `create_or_update` | `INSERT` | `connectorName, resourceGroupName, subscriptionId` | Creates or updates azure databricks accessConnector. |
-| `delete` | `DELETE` | `connectorName, resourceGroupName, subscriptionId` | Deletes the azure databricks accessConnector. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the azure databricks accessConnectors within a resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | Gets all the azure databricks accessConnectors within a subscription. |
-| `update` | `EXEC` | `connectorName, resourceGroupName, subscriptionId` | Updates an azure databricks accessConnector. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Gets an azure databricks accessConnector. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the azure databricks accessConnectors within a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all the azure databricks accessConnectors within a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Creates or updates azure databricks accessConnector. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Deletes the azure databricks accessConnector. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the azure databricks accessConnectors within a resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all the azure databricks accessConnectors within a subscription. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Updates an azure databricks accessConnector. |

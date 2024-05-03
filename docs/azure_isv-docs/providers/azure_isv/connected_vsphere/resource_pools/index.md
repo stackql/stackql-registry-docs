@@ -14,36 +14,39 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.connected_vsphere.resource_pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.connected_vsphere.resource_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Gets or sets the Id. |
-| `name` | `string` | Gets or sets the name. |
-| `extendedLocation` | `object` | The extended location. |
-| `kind` | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
-| `location` | `string` | Gets or sets the location. |
-| `properties` | `object` | Describes the properties of a Resource Pool. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Gets or sets the Resource tags. |
-| `type` | `string` | Gets or sets the type of the resource. |
+| <CopyableCode code="id" /> | `string` | Gets or sets the Id. |
+| <CopyableCode code="name" /> | `string` | Gets or sets the name. |
+| <CopyableCode code="extendedLocation" /> | `object` | The extended location. |
+| <CopyableCode code="kind" /> | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
+| <CopyableCode code="location" /> | `string` | Gets or sets the location. |
+| <CopyableCode code="properties" /> | `object` | Describes the properties of a Resource Pool. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Gets or sets the Resource tags. |
+| <CopyableCode code="type" /> | `string` | Gets or sets the type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, resourceGroupName, resourcePoolName, subscriptionId` | Implements resourcePool GET method. |
-| `list` | `SELECT` | `api-version, subscriptionId` | List of resourcePools in a subscription. |
-| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List of resourcePools in a resource group. |
-| `create` | `INSERT` | `api-version, resourceGroupName, resourcePoolName, subscriptionId, data__location, data__properties` | Create Or Update resourcePool. |
-| `delete` | `DELETE` | `api-version, resourceGroupName, resourcePoolName, subscriptionId` | Implements resourcePool DELETE method. |
-| `_list` | `EXEC` | `api-version, subscriptionId` | List of resourcePools in a subscription. |
-| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | List of resourcePools in a resource group. |
-| `update` | `EXEC` | `api-version, resourceGroupName, resourcePoolName, subscriptionId` | API to update certain properties of the resourcePool resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, resourcePoolName, subscriptionId" /> | Implements resourcePool GET method. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> | List of resourcePools in a subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List of resourcePools in a resource group. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, resourceGroupName, resourcePoolName, subscriptionId, data__location, data__properties" /> | Create Or Update resourcePool. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, resourceGroupName, resourcePoolName, subscriptionId" /> | Implements resourcePool DELETE method. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> | List of resourcePools in a subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List of resourcePools in a resource group. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, resourcePoolName, subscriptionId" /> | API to update certain properties of the resourcePool resource. |

@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The AzureStack Commerce Administrator Module Which Provides A Way To View Aggregate Data Usage Across Your AzureStack Stamp.  
     
 :::info Service Summary

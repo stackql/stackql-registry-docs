@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subvolumes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.netapp.subvolumes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.netapp.subvolumes" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName` | Returns the path associated with the subvolumeName provided |
-| `list_by_volume` | `SELECT` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName` | Returns a list of the subvolumes in the volume |
-| `create` | `INSERT` | `accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName` | Creates a subvolume in the path or clones the subvolume mentioned in the parentPath |
-| `delete` | `DELETE` | `accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName` | Delete subvolume |
-| `_list_by_volume` | `EXEC` | `accountName, poolName, resourceGroupName, subscriptionId, volumeName` | Returns a list of the subvolumes in the volume |
-| `update` | `EXEC` | `accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName` | Patch a subvolume |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName" /> | Returns the path associated with the subvolumeName provided |
+| <CopyableCode code="list_by_volume" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | Returns a list of the subvolumes in the volume |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName" /> | Creates a subvolume in the path or clones the subvolume mentioned in the parentPath |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName" /> | Delete subvolume |
+| <CopyableCode code="_list_by_volume" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | Returns a list of the subvolumes in the volume |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName" /> | Patch a subvolume |

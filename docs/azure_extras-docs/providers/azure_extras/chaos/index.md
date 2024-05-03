@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Chaos Studio Is A Managed Service For Improving Resilience By Injecting Faults Into Your Azure Applications. Running Controlled Fault Injection Experiments Against Your Applications, A Practice Known As Chaos Engineering, Helps You To Measure, Understand, And Improve Resilience Against Real-World Incidents, Such As A Region Outages Or Application Failures Causing High CPU Utilization On A VM.  
     
 :::info Service Summary

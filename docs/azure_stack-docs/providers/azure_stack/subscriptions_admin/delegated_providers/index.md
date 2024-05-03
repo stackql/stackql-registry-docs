@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delegated_providers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.subscriptions_admin.delegated_providers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.subscriptions_admin.delegated_providers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified identifier. |
-| `delegatedProviderSubscriptionId` | `string` | Parent DelegatedProvider subscription identifier. |
-| `displayName` | `string` | Subscription name. |
-| `externalReferenceId` | `string` | External reference identifier. |
-| `offerId` | `string` | Identifier of the offer under the scope of a delegated provider. |
-| `owner` | `string` | Subscription owner. |
-| `routingResourceManagerType` | `string` | Resource manager type. |
-| `state` | `string` | Subscription notification state. |
-| `subscriptionId` | `string` | Subscription identifier. |
-| `tenantId` | `string` | Directory tenant identifier. |
+| <CopyableCode code="id" /> | `string` | Fully qualified identifier. |
+| <CopyableCode code="delegatedProviderSubscriptionId" /> | `string` | Parent DelegatedProvider subscription identifier. |
+| <CopyableCode code="displayName" /> | `string` | Subscription name. |
+| <CopyableCode code="externalReferenceId" /> | `string` | External reference identifier. |
+| <CopyableCode code="offerId" /> | `string` | Identifier of the offer under the scope of a delegated provider. |
+| <CopyableCode code="owner" /> | `string` | Subscription owner. |
+| <CopyableCode code="routingResourceManagerType" /> | `string` | Resource manager type. |
+| <CopyableCode code="state" /> | `string` | Subscription notification state. |
+| <CopyableCode code="subscriptionId" /> | `string` | Subscription identifier. |
+| <CopyableCode code="tenantId" /> | `string` | Directory tenant identifier. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `delegatedProvider, subscriptionId` | Get the specified delegated provider. |
-| `list` | `SELECT` | `subscriptionId` | Get the list of delegatedProviders. |
-| `_list` | `EXEC` | `subscriptionId` | Get the list of delegatedProviders. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="delegatedProvider, subscriptionId" /> | Get the specified delegated provider. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get the list of delegatedProviders. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Get the list of delegatedProviders. |

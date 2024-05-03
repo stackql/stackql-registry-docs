@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>storage_sub_systems</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.fabric_admin.storage_sub_systems</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.fabric_admin.storage_sub_systems" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | URI of the resource. |
-| `name` | `string` | Name of the resource. |
-| `location` | `string` | The region where the resource is located. |
-| `properties` | `object` | All properties of a storage subsystem. |
-| `tags` | `object` | List of key-value pairs. |
-| `type` | `string` | Type of resource. |
+| <CopyableCode code="id" /> | `string` | URI of the resource. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="location" /> | `string` | The region where the resource is located. |
+| <CopyableCode code="properties" /> | `object` | All properties of a storage subsystem. |
+| <CopyableCode code="tags" /> | `object` | List of key-value pairs. |
+| <CopyableCode code="type" /> | `string` | Type of resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `location, resourceGroupName, scaleUnit, storageSubSystem, subscriptionId` | Return the requested storage subsystem. |
-| `list` | `SELECT` | `location, resourceGroupName, scaleUnit, subscriptionId` | Returns a list of all storage subsystems for a location. |
-| `_list` | `EXEC` | `location, resourceGroupName, scaleUnit, subscriptionId` | Returns a list of all storage subsystems for a location. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, scaleUnit, storageSubSystem, subscriptionId" /> | Return the requested storage subsystem. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, scaleUnit, subscriptionId" /> | Returns a list of all storage subsystems for a location. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, scaleUnit, subscriptionId" /> | Returns a list of all storage subsystems for a location. |

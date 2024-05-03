@@ -14,14 +14,17 @@ description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_proxy_options</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>k8s.core_v1.service_proxy_options</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="k8s.core_v1.service_proxy_options" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,17 +32,17 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1DeleteNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect DELETE requests to proxy of Service |
-| `connectCoreV1DeleteNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect DELETE requests to proxy of Service |
-| `connectCoreV1GetNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect GET requests to proxy of Service |
-| `connectCoreV1GetNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect GET requests to proxy of Service |
-| `connectCoreV1HeadNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect HEAD requests to proxy of Service |
-| `connectCoreV1HeadNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect HEAD requests to proxy of Service |
-| `connectCoreV1OptionsNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect OPTIONS requests to proxy of Service |
-| `connectCoreV1OptionsNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect OPTIONS requests to proxy of Service |
-| `connectCoreV1PatchNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PATCH requests to proxy of Service |
-| `connectCoreV1PatchNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PATCH requests to proxy of Service |
-| `connectCoreV1PostNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect POST requests to proxy of Service |
-| `connectCoreV1PostNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect POST requests to proxy of Service |
-| `connectCoreV1PutNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PUT requests to proxy of Service |
-| `connectCoreV1PutNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PUT requests to proxy of Service |
+| <CopyableCode code="connectCoreV1DeleteNamespacedServiceProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect DELETE requests to proxy of Service |
+| <CopyableCode code="connectCoreV1DeleteNamespacedServiceProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect DELETE requests to proxy of Service |
+| <CopyableCode code="connectCoreV1GetNamespacedServiceProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect GET requests to proxy of Service |
+| <CopyableCode code="connectCoreV1GetNamespacedServiceProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect GET requests to proxy of Service |
+| <CopyableCode code="connectCoreV1HeadNamespacedServiceProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect HEAD requests to proxy of Service |
+| <CopyableCode code="connectCoreV1HeadNamespacedServiceProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect HEAD requests to proxy of Service |
+| <CopyableCode code="connectCoreV1OptionsNamespacedServiceProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect OPTIONS requests to proxy of Service |
+| <CopyableCode code="connectCoreV1OptionsNamespacedServiceProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect OPTIONS requests to proxy of Service |
+| <CopyableCode code="connectCoreV1PatchNamespacedServiceProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect PATCH requests to proxy of Service |
+| <CopyableCode code="connectCoreV1PatchNamespacedServiceProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect PATCH requests to proxy of Service |
+| <CopyableCode code="connectCoreV1PostNamespacedServiceProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect POST requests to proxy of Service |
+| <CopyableCode code="connectCoreV1PostNamespacedServiceProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect POST requests to proxy of Service |
+| <CopyableCode code="connectCoreV1PutNamespacedServiceProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect PUT requests to proxy of Service |
+| <CopyableCode code="connectCoreV1PutNamespacedServiceProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect PUT requests to proxy of Service |

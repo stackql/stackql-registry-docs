@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 The AzureStack Gallery Administrator Module Which Provides Functionality To Manage Gallery Items In The Marketplace.  
     
 :::info Service Summary

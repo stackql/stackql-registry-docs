@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Use A Multi-Petabyte Scale, Single Namespace, Multi-Protocol File Data Platform With The Performance, Security, And Simplicity To Meet The Most Demanding Enterprise Workloads.  
     
 :::info Service Summary

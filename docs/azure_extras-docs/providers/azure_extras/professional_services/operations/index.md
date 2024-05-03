@@ -14,25 +14,28 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.professional_services.operations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.professional_services.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | the operation name |
-| `display` | `object` | ProfessionalService app operation display |
-| `isDataAction` | `boolean` | whether the operation is a data action or not. |
-| `origin` | `string` | the operation origin |
+| <CopyableCode code="name" /> | `string` | the operation name |
+| <CopyableCode code="display" /> | `object` | ProfessionalService app operation display |
+| <CopyableCode code="isDataAction" /> | `boolean` | whether the operation is a data action or not. |
+| <CopyableCode code="origin" /> | `string` | the operation origin |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
-| `_list` | `EXEC` |  |
+| <CopyableCode code="list" /> | `SELECT` |  |
+| <CopyableCode code="_list" /> | `EXEC` |  |

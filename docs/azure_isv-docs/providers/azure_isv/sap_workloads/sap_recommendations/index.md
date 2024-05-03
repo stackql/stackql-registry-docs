@@ -14,18 +14,21 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sap_recommendations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.sap_workloads.sap_recommendations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.sap_workloads.sap_recommendations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `sap_recommendations` | `SELECT` | `location, subscriptionId, data__appLocation, data__databaseType, data__dbMemory, data__deploymentType, data__environment, data__sapProduct, data__saps` |
+| <CopyableCode code="sap_recommendations" /> | `SELECT` | <CopyableCode code="location, subscriptionId, data__appLocation, data__databaseType, data__dbMemory, data__deploymentType, data__environment, data__sapProduct, data__saps" /> |

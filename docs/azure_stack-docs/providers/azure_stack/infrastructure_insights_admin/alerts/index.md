@@ -14,27 +14,30 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>alerts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.infrastructure_insights_admin.alerts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.infrastructure_insights_admin.alerts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The Azure Region where the resource lives |
-| `properties` | `object` | Contains alert data. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="location" /> | `string` | The Azure Region where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Contains alert data. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `alertName, location, resourceGroupName, subscriptionId` | Returns the requested an alert. |
-| `list` | `SELECT` | `location, resourceGroupName, subscriptionId` | Returns the list of all alerts in a given region. |
-| `_list` | `EXEC` | `location, resourceGroupName, subscriptionId` | Returns the list of all alerts in a given region. |
-| `close` | `EXEC` | `alertName, location, resourceGroupName, subscriptionId, user` | Closes the given alert. |
-| `repair` | `EXEC` | `alertName, location, resourceGroupName, subscriptionId` | Repairs an alert. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="alertName, location, resourceGroupName, subscriptionId" /> | Returns the requested an alert. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns the list of all alerts in a given region. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns the list of all alerts in a given region. |
+| <CopyableCode code="close" /> | `EXEC` | <CopyableCode code="alertName, location, resourceGroupName, subscriptionId, user" /> | Closes the given alert. |
+| <CopyableCode code="repair" /> | `EXEC` | <CopyableCode code="alertName, location, resourceGroupName, subscriptionId" /> | Repairs an alert. |

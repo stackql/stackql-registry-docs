@@ -14,23 +14,26 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>edge_devices</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack_hci.edge_devices</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack_hci.edge_devices" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `edgeDeviceName, resourceUri` | Get a EdgeDevice |
-| `list` | `SELECT` | `resourceUri` | List EdgeDevice resources by parent |
-| `create_or_update` | `INSERT` | `edgeDeviceName, resourceUri` | Create a EdgeDevice |
-| `delete` | `DELETE` | `edgeDeviceName, resourceUri` | Delete a EdgeDevice |
-| `_list` | `EXEC` | `resourceUri` | List EdgeDevice resources by parent |
-| `validate` | `EXEC` | `edgeDeviceName, resourceUri, data__edgeDeviceIds` | A long-running resource action. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="edgeDeviceName, resourceUri" /> | Get a EdgeDevice |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceUri" /> | List EdgeDevice resources by parent |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="edgeDeviceName, resourceUri" /> | Create a EdgeDevice |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="edgeDeviceName, resourceUri" /> | Delete a EdgeDevice |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceUri" /> | List EdgeDevice resources by parent |
+| <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="edgeDeviceName, resourceUri, data__edgeDeviceIds" /> | A long-running resource action. |

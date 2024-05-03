@@ -13,9 +13,11 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 id: azure_stack-doc
 slug: /providers/azure_stack
-
 ---
- Build and run hybrid apps across datacenters, edge locations, remote offices, and the cloud.  
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+Build and run hybrid apps across datacenters, edge locations, remote offices, and the cloud.  
     
 :::info Provider Summary (v24.01.00199)
 
@@ -48,7 +50,7 @@ REGISTRY PULL azure_stack;
 ## Authentication
 
 
-StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
 
 ## Services
 <div class="row">

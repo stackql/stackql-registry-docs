@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.vmware_cloud_simple.resource_pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.vmware_cloud_simple.resource_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | resource pool id (privateCloudId:vsphereId) |
-| `name` | `string` | &#123;ResourcePoolName&#125; |
-| `location` | `string` | Azure region |
-| `privateCloudId` | `string` | The Private Cloud Id |
-| `properties` | `object` | Properties of resource pool |
-| `type` | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
+| <CopyableCode code="id" /> | `string` | resource pool id (privateCloudId:vsphereId) |
+| <CopyableCode code="name" /> | `string` | &#123;ResourcePoolName&#125; |
+| <CopyableCode code="location" /> | `string` | Azure region |
+| <CopyableCode code="privateCloudId" /> | `string` | The Private Cloud Id |
+| <CopyableCode code="properties" /> | `object` | Properties of resource pool |
+| <CopyableCode code="type" /> | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `api-version, pcName, regionId, resourcePoolName, subscriptionId` | Returns resource pool templates by its name |
-| `list` | `SELECT` | `api-version, pcName, regionId, subscriptionId` | Returns list of resource pools in region for private cloud |
-| `_list` | `EXEC` | `api-version, pcName, regionId, subscriptionId` | Returns list of resource pools in region for private cloud |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, pcName, regionId, resourcePoolName, subscriptionId" /> | Returns resource pool templates by its name |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, pcName, regionId, subscriptionId" /> | Returns list of resource pools in region for private cloud |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, pcName, regionId, subscriptionId" /> | Returns list of resource pools in region for private cloud |

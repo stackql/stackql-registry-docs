@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workload_networks_segments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.vmware.workload_networks_segments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.vmware.workload_networks_segments" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `privateCloudName, resourceGroupName, subscriptionId` |
-| `create` | `INSERT` | `privateCloudName, resourceGroupName, segmentId, subscriptionId` |
-| `_list` | `EXEC` | `privateCloudName, resourceGroupName, subscriptionId` |
-| `update` | `EXEC` | `privateCloudName, resourceGroupName, segmentId, subscriptionId` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="privateCloudName, resourceGroupName, segmentId, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, segmentId, subscriptionId" /> |

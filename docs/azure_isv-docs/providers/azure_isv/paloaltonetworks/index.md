@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Get A Next Generation Firewall Solution Integrated With Azure That You Can Use To Protect Your Organization.  
     
 :::info Service Summary

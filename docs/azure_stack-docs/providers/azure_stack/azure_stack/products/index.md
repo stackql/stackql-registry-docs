@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>products</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack.products</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack.products" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | URI to the next page. |
-| `value` | `array` | List of products. |
+| <CopyableCode code="nextLink" /> | `string` | URI to the next page. |
+| <CopyableCode code="value" /> | `array` | List of products. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `registrationName, resourceGroup, subscriptionId` | Returns a list of products. |
-| `list_by_product_name` | `SELECT` | `productName, registrationName, resourceGroup, subscriptionId` | Returns a list of products. |
-| `_list` | `EXEC` | `registrationName, resourceGroup, subscriptionId` | Returns a list of products. |
-| `exec_get` | `EXEC` | `productName, registrationName, resourceGroup, subscriptionId` | Returns a list of products. |
-| `upload_log` | `EXEC` | `productName, registrationName, resourceGroup, subscriptionId` | Returns the specified product. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
+| <CopyableCode code="list_by_product_name" /> | `SELECT` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
+| <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
+| <CopyableCode code="upload_log" /> | `EXEC` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> | Returns the specified product. |

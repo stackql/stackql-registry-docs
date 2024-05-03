@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Microsoft Syntex Is A Content Understanding, Processing, And Compliance Service That Uses Intelligent Document Processing, Content Artificial Intelligence (AI), And Advanced Machine Learning To Automatically And Thoughtfully Find, Organize, And Classify Documents In Your SharePoint Libraries, Microsoft Teams, OneDrive For Business, And Exchange.  
     
 :::info Service Summary

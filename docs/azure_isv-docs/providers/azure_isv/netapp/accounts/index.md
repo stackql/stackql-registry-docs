@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.netapp.accounts</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.netapp.accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | NetApp account properties |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | NetApp account properties |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Get the NetApp account |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | List and describe all NetApp accounts in the resource group. |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List and describe all NetApp accounts in the subscription. |
-| `create_or_update` | `INSERT` | `accountName, resourceGroupName, subscriptionId, data__location` | Create or update the specified NetApp account within the resource group |
-| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Delete the specified NetApp account |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | List and describe all NetApp accounts in the resource group. |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List and describe all NetApp accounts in the subscription. |
-| `renew_credentials` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Renew identity credentials that are used to authenticate to key vault, for customer-managed key encryption. If encryption.identity.principalId does not match identity.principalId, running this operation will fix it. |
-| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Patch the specified NetApp account |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Get the NetApp account |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List and describe all NetApp accounts in the resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List and describe all NetApp accounts in the subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, data__location" /> | Create or update the specified NetApp account within the resource group |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Delete the specified NetApp account |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List and describe all NetApp accounts in the resource group. |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List and describe all NetApp accounts in the subscription. |
+| <CopyableCode code="renew_credentials" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Renew identity credentials that are used to authenticate to key vault, for customer-managed key encryption. If encryption.identity.principalId does not match identity.principalId, running this operation will fix it. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Patch the specified NetApp account |

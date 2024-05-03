@@ -14,31 +14,34 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>professional_service_subscription_level</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.professional_services.professional_service_subscription_level</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.professional_services.professional_service_subscription_level" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource uri |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | professionalService properties |
-| `tags` | `object` | the resource tags. |
-| `type` | `string` | Resource type. |
+| <CopyableCode code="id" /> | `string` | The resource uri |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="properties" /> | `object` | professionalService properties |
+| <CopyableCode code="tags" /> | `object` | the resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets information about the specified Subscription Level ProfessionalService. |
-| `list_by_azure_subscription` | `SELECT` | `subscriptionId` | Gets information about all the Subscription Level ProfessionalService in a certain Azure subscription. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets information about all the Subscription Level ProfessionalService in a certain resource group. |
-| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Creates or updates a ProfessionalService resource. |
-| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Deletes the specified ProfessionalService. |
-| `_list_by_azure_subscription` | `EXEC` | `subscriptionId` | Gets information about all the Subscription Level ProfessionalService in a certain Azure subscription. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets information about all the Subscription Level ProfessionalService in a certain resource group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Gets information about the specified Subscription Level ProfessionalService. |
+| <CopyableCode code="list_by_azure_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets information about all the Subscription Level ProfessionalService in a certain Azure subscription. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets information about all the Subscription Level ProfessionalService in a certain resource group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Creates or updates a ProfessionalService resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Deletes the specified ProfessionalService. |
+| <CopyableCode code="_list_by_azure_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets information about all the Subscription Level ProfessionalService in a certain Azure subscription. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets information about all the Subscription Level ProfessionalService in a certain resource group. |

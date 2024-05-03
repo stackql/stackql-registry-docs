@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 App Compliance Automation Tool For Microsoft 365 (ACAT) Is A Service In Azure Portal That Helps Simplify The Compliance Journey For Any App That Consumes Microsoft 365 Customer Data And Is Published Via Partner Center. Its An Application-Centric Compliance Automation Tool That Helps You Complete Microsoft 365 Certification With Greater Ease And Convenience  
     
 :::info Service Summary

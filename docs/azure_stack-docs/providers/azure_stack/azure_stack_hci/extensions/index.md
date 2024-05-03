@@ -14,24 +14,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>extensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.azure_stack_hci.extensions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.azure_stack_hci.extensions" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId` | Get particular Arc Extension of HCI Cluster. |
-| `list_by_arc_setting` | `SELECT` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | List all Extensions under ArcSetting resource. |
-| `create` | `INSERT` | `arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId` | Create Extension for HCI cluster. |
-| `delete` | `DELETE` | `arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId` | Delete particular Arc Extension of HCI Cluster. |
-| `_list_by_arc_setting` | `EXEC` | `arcSettingName, clusterName, resourceGroupName, subscriptionId` | List all Extensions under ArcSetting resource. |
-| `update` | `EXEC` | `arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId` | Update Extension for HCI cluster. |
-| `upgrade` | `EXEC` | `arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId` | Upgrade a particular Arc Extension of HCI Cluster. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Get particular Arc Extension of HCI Cluster. |
+| <CopyableCode code="list_by_arc_setting" /> | `SELECT` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | List all Extensions under ArcSetting resource. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Create Extension for HCI cluster. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Delete particular Arc Extension of HCI Cluster. |
+| <CopyableCode code="_list_by_arc_setting" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | List all Extensions under ArcSetting resource. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Update Extension for HCI cluster. |
+| <CopyableCode code="upgrade" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Upgrade a particular Arc Extension of HCI Cluster. |

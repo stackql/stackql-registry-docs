@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Cache For Redis Is Based On The Popular Open-Source Redis Cache. It Gives You Access To A Secure, Dedicated Redis Server, Managed By Microsoft And Accessible From Any Application Within Azure.  
     
 :::info Service Summary

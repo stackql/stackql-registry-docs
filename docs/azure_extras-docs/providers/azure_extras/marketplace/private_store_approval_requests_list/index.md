@@ -14,26 +14,29 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_store_approval_requests_list</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.marketplace.private_store_approval_requests_list</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.marketplace.private_store_approval_requests_list" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `properties` | `object` | Approval request resource properties |
-| `systemData` | `object` | Read only system data |
-| `type` | `string` | The type of the resource. |
+| <CopyableCode code="id" /> | `string` | The resource ID. |
+| <CopyableCode code="name" /> | `string` | The name of the resource. |
+| <CopyableCode code="properties" /> | `object` | Approval request resource properties |
+| <CopyableCode code="systemData" /> | `object` | Read only system data |
+| <CopyableCode code="type" /> | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `privateStoreId` |
-| `_get` | `EXEC` | `privateStoreId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="privateStoreId" /> |
+| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="privateStoreId" /> |

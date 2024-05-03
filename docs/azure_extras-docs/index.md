@@ -13,9 +13,11 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 id: azure_extras-doc
 slug: /providers/azure_extras
-
 ---
- Additional Azure cloud computing services by Microsoft.  
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+Additional Azure cloud computing services by Microsoft.  
     
 :::info Provider Summary (v24.01.00199)
 
@@ -48,7 +50,7 @@ REGISTRY PULL azure_extras;
 ## Authentication
 
 
-StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
 
 ## Services
 <div class="row">

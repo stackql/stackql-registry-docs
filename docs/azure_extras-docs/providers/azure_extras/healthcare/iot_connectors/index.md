@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>iot_connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.healthcare.iot_connectors</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.healthcare.iot_connectors" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Setting indicating whether the service has a managed identity associated with it. |
-| `properties` | `object` | IoT Connector properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="identity" /> | `object` | Setting indicating whether the service has a managed identity associated with it. |
+| <CopyableCode code="properties" /> | `object` | IoT Connector properties. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `iotConnectorName, resourceGroupName, subscriptionId, workspaceName` | Gets the properties of the specified IoT Connector. |
-| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Lists all IoT Connectors for the given workspace |
-| `create_or_update` | `INSERT` | `iotConnectorName, resourceGroupName, subscriptionId, workspaceName` | Creates or updates an IoT Connector resource with the specified parameters. |
-| `delete` | `DELETE` | `iotConnectorName, resourceGroupName, subscriptionId, workspaceName` | Deletes an IoT Connector. |
-| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Lists all IoT Connectors for the given workspace |
-| `update` | `EXEC` | `iotConnectorName, resourceGroupName, subscriptionId, workspaceName` | Patch an IoT Connector. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="iotConnectorName, resourceGroupName, subscriptionId, workspaceName" /> | Gets the properties of the specified IoT Connector. |
+| <CopyableCode code="list_by_workspace" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Lists all IoT Connectors for the given workspace |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="iotConnectorName, resourceGroupName, subscriptionId, workspaceName" /> | Creates or updates an IoT Connector resource with the specified parameters. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="iotConnectorName, resourceGroupName, subscriptionId, workspaceName" /> | Deletes an IoT Connector. |
+| <CopyableCode code="_list_by_workspace" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Lists all IoT Connectors for the given workspace |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="iotConnectorName, resourceGroupName, subscriptionId, workspaceName" /> | Patch an IoT Connector. |

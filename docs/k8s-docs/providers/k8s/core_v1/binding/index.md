@@ -14,14 +14,17 @@ description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>binding</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>k8s.core_v1.binding</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="k8s.core_v1.binding" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `createCoreV1NamespacedBinding` | `INSERT` | `namespace, cluster_addr, protocol` | create a Binding |
-| `createCoreV1NamespacedPodBinding` | `INSERT` | `name, namespace, cluster_addr, protocol` | create binding of a Pod |
+| <CopyableCode code="createCoreV1NamespacedBinding" /> | `INSERT` | <CopyableCode code="namespace, cluster_addr, protocol" /> | create a Binding |
+| <CopyableCode code="createCoreV1NamespacedPodBinding" /> | `INSERT` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | create binding of a Pod |

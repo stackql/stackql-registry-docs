@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>generate</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.video_indexer.generate</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.video_indexer.generate" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `access_token` | `EXEC` | `accountName, resourceGroupName, subscriptionId, data__permissionType, data__scope` | Generate an Azure Video Indexer access token. |
-| `restricted_viewer_access_token` | `EXEC` | `accountName, resourceGroupName, subscriptionId, data__scope` | Generate an Azure Video Indexer restricted viewer access token. |
+| <CopyableCode code="access_token" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, data__permissionType, data__scope" /> | Generate an Azure Video Indexer access token. |
+| <CopyableCode code="restricted_viewer_access_token" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, data__scope" /> | Generate an Azure Video Indexer restricted viewer access token. |

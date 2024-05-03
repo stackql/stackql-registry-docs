@@ -14,29 +14,32 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>springbootservers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.off_azure_springboot.springbootservers</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.off_azure_springboot.springbootservers" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | The springbootservers resource definition. |
-| `tags` | `object` | Resource tags |
+| <CopyableCode code="properties" /> | `object` | The springbootservers resource definition. |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, siteName, springbootserversName, subscriptionId` | List springbootservers resource. |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, siteName, subscriptionId` | List springbootservers resource by resourceGroup |
-| `list_by_subscription` | `SELECT` | `siteName, subscriptionId` | List springbootservers resource by subscription |
-| `create_or_update` | `INSERT` | `resourceGroupName, siteName, springbootserversName, subscriptionId` | Create springbootservers resource. |
-| `delete` | `DELETE` | `resourceGroupName, siteName, springbootserversName, subscriptionId` | Delete springbootservers resource. |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, siteName, subscriptionId` | List springbootservers resource by resourceGroup |
-| `_list_by_subscription` | `EXEC` | `siteName, subscriptionId` | List springbootservers resource by subscription |
-| `update` | `EXEC` | `resourceGroupName, siteName, springbootserversName, subscriptionId` | Update springbootservers resource. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, siteName, springbootserversName, subscriptionId" /> | List springbootservers resource. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, siteName, subscriptionId" /> | List springbootservers resource by resourceGroup |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="siteName, subscriptionId" /> | List springbootservers resource by subscription |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, siteName, springbootserversName, subscriptionId" /> | Create springbootservers resource. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, siteName, springbootserversName, subscriptionId" /> | Delete springbootservers resource. |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, siteName, subscriptionId" /> | List springbootservers resource by resourceGroup |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="siteName, subscriptionId" /> | List springbootservers resource by subscription |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, siteName, springbootserversName, subscriptionId" /> | Update springbootservers resource. |

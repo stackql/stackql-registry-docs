@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>get_mam_user_device_by_device_name</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.intune.get_mam_user_device_by_device_name</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.intune.get_mam_user_device_by_device_name" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_mam_user_device_by_device_name` | `EXEC` | `deviceName, hostName, userName` |
+| <CopyableCode code="get_mam_user_device_by_device_name" /> | `EXEC` | <CopyableCode code="deviceName, hostName, userName" /> |

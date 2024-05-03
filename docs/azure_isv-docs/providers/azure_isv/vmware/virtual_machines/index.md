@@ -14,21 +14,24 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_machines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.vmware.virtual_machines</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.vmware.virtual_machines" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `clusterName, privateCloudName, resourceGroupName, subscriptionId, virtualMachineId` |
-| `list` | `SELECT` | `clusterName, privateCloudName, resourceGroupName, subscriptionId` |
-| `_list` | `EXEC` | `clusterName, privateCloudName, resourceGroupName, subscriptionId` |
-| `restrict_movement` | `EXEC` | `clusterName, privateCloudName, resourceGroupName, subscriptionId, virtualMachineId` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, privateCloudName, resourceGroupName, subscriptionId, virtualMachineId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clusterName, privateCloudName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="restrict_movement" /> | `EXEC` | <CopyableCode code="clusterName, privateCloudName, resourceGroupName, subscriptionId, virtualMachineId" /> |

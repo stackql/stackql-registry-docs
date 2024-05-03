@@ -14,32 +14,35 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>file_systems</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.qumulo.file_systems</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.qumulo.file_systems" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the File System resource |
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties specific to the Qumulo File System resource |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="name" /> | `string` | Name of the File System resource |
+| <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | Properties specific to the Qumulo File System resource |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `fileSystemName, resourceGroupName, subscriptionId` | Get a FileSystemResource |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List FileSystemResource resources by resource group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List FileSystemResource resources by subscription ID |
-| `create_or_update` | `INSERT` | `fileSystemName, resourceGroupName, subscriptionId, data__properties` | Create a FileSystemResource |
-| `delete` | `DELETE` | `fileSystemName, resourceGroupName, subscriptionId` | Delete a FileSystemResource |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List FileSystemResource resources by resource group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List FileSystemResource resources by subscription ID |
-| `update` | `EXEC` | `fileSystemName, resourceGroupName, subscriptionId` | Update a FileSystemResource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="fileSystemName, resourceGroupName, subscriptionId" /> | Get a FileSystemResource |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List FileSystemResource resources by resource group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List FileSystemResource resources by subscription ID |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="fileSystemName, resourceGroupName, subscriptionId, data__properties" /> | Create a FileSystemResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="fileSystemName, resourceGroupName, subscriptionId" /> | Delete a FileSystemResource |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List FileSystemResource resources by resource group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List FileSystemResource resources by subscription ID |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="fileSystemName, resourceGroupName, subscriptionId" /> | Update a FileSystemResource |

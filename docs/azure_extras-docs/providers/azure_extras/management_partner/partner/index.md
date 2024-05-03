@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>partner</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.management_partner.partner</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.management_partner.partner" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Identifier of the partner |
-| `name` | `string` | Name of the partner |
-| `etag` | `integer` | Type of the partner |
-| `properties` | `object` | this is the management partner properties |
-| `type` | `string` | Type of resource. "Microsoft.ManagementPartner/partners" |
+| <CopyableCode code="id" /> | `string` | Identifier of the partner |
+| <CopyableCode code="name" /> | `string` | Name of the partner |
+| <CopyableCode code="etag" /> | `integer` | Type of the partner |
+| <CopyableCode code="properties" /> | `object` | this is the management partner properties |
+| <CopyableCode code="type" /> | `string` | Type of resource. "Microsoft.ManagementPartner/partners" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `partnerId` | Get the management partner using the partnerId, objectId and tenantId. |
-| `create` | `INSERT` | `partnerId` | Create a management partner for the objectId and tenantId. |
-| `delete` | `DELETE` | `partnerId` | Delete the management partner for the objectId and tenantId. |
-| `update` | `EXEC` | `partnerId` | Update the management partner for the objectId and tenantId. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="partnerId" /> | Get the management partner using the partnerId, objectId and tenantId. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="partnerId" /> | Create a management partner for the objectId and tenantId. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="partnerId" /> | Delete the management partner for the objectId and tenantId. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="partnerId" /> | Update the management partner for the objectId and tenantId. |

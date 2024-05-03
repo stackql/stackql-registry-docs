@@ -14,33 +14,36 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.storsimple_1200_series.jobs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.storsimple_1200_series.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The identifier. |
-| `name` | `string` | The name. |
-| `endTime` | `string` | The UTC time at which the job completed |
-| `error` | `object` | The job error information containing List of JobErrorItem. |
-| `percentComplete` | `integer` | The percentage of the job that is already complete |
-| `properties` | `object` | properties for the job |
-| `startTime` | `string` | The UTC time at which the job was started |
-| `status` | `string` | Current status of the job |
-| `type` | `string` | The type. |
+| <CopyableCode code="id" /> | `string` | The identifier. |
+| <CopyableCode code="name" /> | `string` | The name. |
+| <CopyableCode code="endTime" /> | `string` | The UTC time at which the job completed |
+| <CopyableCode code="error" /> | `object` | The job error information containing List of JobErrorItem. |
+| <CopyableCode code="percentComplete" /> | `integer` | The percentage of the job that is already complete |
+| <CopyableCode code="properties" /> | `object` | properties for the job |
+| <CopyableCode code="startTime" /> | `string` | The UTC time at which the job was started |
+| <CopyableCode code="status" /> | `string` | Current status of the job |
+| <CopyableCode code="type" /> | `string` | The type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `deviceName, jobName, managerName, resourceGroupName, subscriptionId` | Returns the properties of the specified job name. |
-| `list_by_device` | `SELECT` | `deviceName, managerName, resourceGroupName, subscriptionId` | Retrieves all the jobs in a device. |
-| `list_by_manager` | `SELECT` | `managerName, resourceGroupName, subscriptionId` | Retrieves all the jobs in a manager. |
-| `_list_by_device` | `EXEC` | `deviceName, managerName, resourceGroupName, subscriptionId` | Retrieves all the jobs in a device. |
-| `_list_by_manager` | `EXEC` | `managerName, resourceGroupName, subscriptionId` | Retrieves all the jobs in a manager. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceName, jobName, managerName, resourceGroupName, subscriptionId" /> | Returns the properties of the specified job name. |
+| <CopyableCode code="list_by_device" /> | `SELECT` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Retrieves all the jobs in a device. |
+| <CopyableCode code="list_by_manager" /> | `SELECT` | <CopyableCode code="managerName, resourceGroupName, subscriptionId" /> | Retrieves all the jobs in a manager. |
+| <CopyableCode code="_list_by_device" /> | `EXEC` | <CopyableCode code="deviceName, managerName, resourceGroupName, subscriptionId" /> | Retrieves all the jobs in a device. |
+| <CopyableCode code="_list_by_manager" /> | `EXEC` | <CopyableCode code="managerName, resourceGroupName, subscriptionId" /> | Retrieves all the jobs in a manager. |

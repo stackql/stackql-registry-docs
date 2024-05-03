@@ -14,22 +14,25 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts_file_upload_url</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras.test_base.accounts_file_upload_url</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_extras.test_base.accounts_file_upload_url" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `blobPath` | `string` | The blob path of the uploaded package. It will be used as the 'blobPath' property of PackageResource. |
-| `uploadUrl` | `string` | The URL used for uploading the package. |
+| <CopyableCode code="blobPath" /> | `string` | The blob path of the uploaded package. It will be used as the 'blobPath' property of PackageResource. |
+| <CopyableCode code="uploadUrl" /> | `string` | The URL used for uploading the package. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, testBaseAccountName" /> |

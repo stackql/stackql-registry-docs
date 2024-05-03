@@ -14,14 +14,17 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.vmware.locations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.vmware.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `check_quota_availability` | `EXEC` | `location, subscriptionId` | Return quota for subscription by region |
-| `check_trial_availability` | `EXEC` | `location, subscriptionId, data__name` | Return trial status for subscription by region |
+| <CopyableCode code="check_quota_availability" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Return quota for subscription by region |
+| <CopyableCode code="check_trial_availability" /> | `EXEC` | <CopyableCode code="location, subscriptionId, data__name" /> | Return trial status for subscription by region |

@@ -14,34 +14,37 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>local_rulestacks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.paloaltonetworks.local_rulestacks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.paloaltonetworks.local_rulestacks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | The properties of the managed service identities assigned to this resource. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | PAN Rulestack Describe Object |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| <CopyableCode code="identity" /> | `object` | The properties of the managed service identities assigned to this resource. |
+| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="properties" /> | `object` | PAN Rulestack Describe Object |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `localRulestackName, resourceGroupName, subscriptionId` | Get a LocalRulestackResource |
-| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List LocalRulestackResource resources by resource group |
-| `list_by_subscription` | `SELECT` | `subscriptionId` | List LocalRulestackResource resources by subscription ID |
-| `create_or_update` | `INSERT` | `localRulestackName, resourceGroupName, subscriptionId, data__properties` | Create a LocalRulestackResource |
-| `delete` | `DELETE` | `localRulestackName, resourceGroupName, subscriptionId` | Delete a LocalRulestackResource |
-| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List LocalRulestackResource resources by resource group |
-| `_list_by_subscription` | `EXEC` | `subscriptionId` | List LocalRulestackResource resources by subscription ID |
-| `commit` | `EXEC` | `localRulestackName, resourceGroupName, subscriptionId` | Commit rulestack configuration |
-| `revert` | `EXEC` | `localRulestackName, resourceGroupName, subscriptionId` | Revert rulestack configuration |
-| `update` | `EXEC` | `localRulestackName, resourceGroupName, subscriptionId` | Update a LocalRulestackResource |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Get a LocalRulestackResource |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List LocalRulestackResource resources by resource group |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List LocalRulestackResource resources by subscription ID |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId, data__properties" /> | Create a LocalRulestackResource |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Delete a LocalRulestackResource |
+| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List LocalRulestackResource resources by resource group |
+| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List LocalRulestackResource resources by subscription ID |
+| <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Commit rulestack configuration |
+| <CopyableCode code="revert" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Revert rulestack configuration |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Update a LocalRulestackResource |

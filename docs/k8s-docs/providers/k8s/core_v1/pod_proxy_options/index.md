@@ -14,14 +14,17 @@ description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pod_proxy_options</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>k8s.core_v1.pod_proxy_options</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="k8s.core_v1.pod_proxy_options" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,17 +32,17 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1DeleteNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect DELETE requests to proxy of Pod |
-| `connectCoreV1DeleteNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect DELETE requests to proxy of Pod |
-| `connectCoreV1GetNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect GET requests to proxy of Pod |
-| `connectCoreV1GetNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect GET requests to proxy of Pod |
-| `connectCoreV1HeadNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect HEAD requests to proxy of Pod |
-| `connectCoreV1HeadNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect HEAD requests to proxy of Pod |
-| `connectCoreV1OptionsNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect OPTIONS requests to proxy of Pod |
-| `connectCoreV1OptionsNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect OPTIONS requests to proxy of Pod |
-| `connectCoreV1PatchNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PATCH requests to proxy of Pod |
-| `connectCoreV1PatchNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PATCH requests to proxy of Pod |
-| `connectCoreV1PostNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect POST requests to proxy of Pod |
-| `connectCoreV1PostNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect POST requests to proxy of Pod |
-| `connectCoreV1PutNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PUT requests to proxy of Pod |
-| `connectCoreV1PutNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PUT requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1DeleteNamespacedPodProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect DELETE requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1DeleteNamespacedPodProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect DELETE requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1GetNamespacedPodProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect GET requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1GetNamespacedPodProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect GET requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1HeadNamespacedPodProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect HEAD requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1HeadNamespacedPodProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect HEAD requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1OptionsNamespacedPodProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect OPTIONS requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1OptionsNamespacedPodProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect OPTIONS requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1PatchNamespacedPodProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect PATCH requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1PatchNamespacedPodProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect PATCH requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1PostNamespacedPodProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect POST requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1PostNamespacedPodProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect POST requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1PutNamespacedPodProxy" /> | `EXEC` | <CopyableCode code="name, namespace, cluster_addr, protocol" /> | connect PUT requests to proxy of Pod |
+| <CopyableCode code="connectCoreV1PutNamespacedPodProxyWithPath" /> | `EXEC` | <CopyableCode code="name, namespace, path, cluster_addr, protocol" /> | connect PUT requests to proxy of Pod |

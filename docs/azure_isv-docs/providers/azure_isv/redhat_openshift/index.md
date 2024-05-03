@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Microsoft Azure Red Hat OpenShift Enables You To Deploy Fully Managed OpenShift Clusters, Allowing You To Maintain Regulatory Compliance While You Stay Focused On Application Development.  
     
 :::info Service Summary

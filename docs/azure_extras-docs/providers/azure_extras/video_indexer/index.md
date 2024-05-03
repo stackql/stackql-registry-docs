@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Video Indexer (Formerly Azure Video Analyzer For Media) Is A Cloud Application, Part Of Azure Applied AI Services, Built On Azure Media Services And Azure Cognitive Services (Such As The Face, Translator, Computer Vision, And Speech). It Enables You To Extract The Insights From Your Videos Using Azure Video Indexer Video And Audio Models.  
     
 :::info Service Summary

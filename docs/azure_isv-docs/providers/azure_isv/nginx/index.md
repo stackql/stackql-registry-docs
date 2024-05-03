@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Deliver Secure, High-Performance Applications By Using Familiar And Trusted Load-Balancing Solutions.  
     
 :::info Service Summary

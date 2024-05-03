@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>edge_gateway_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.fabric_admin.edge_gateway_pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.fabric_admin.edge_gateway_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | URI of the resource. |
-| `name` | `string` | Name of the resource. |
-| `location` | `string` | The region where the resource is located. |
-| `properties` | `object` | An object that contains the properties of an edge gateway pool. |
-| `tags` | `object` | List of key-value pairs. |
-| `type` | `string` | Type of resource. |
+| <CopyableCode code="id" /> | `string` | URI of the resource. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="location" /> | `string` | The region where the resource is located. |
+| <CopyableCode code="properties" /> | `object` | An object that contains the properties of an edge gateway pool. |
+| <CopyableCode code="tags" /> | `object` | List of key-value pairs. |
+| <CopyableCode code="type" /> | `string` | Type of resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `edgeGatewayPool, location, resourceGroupName, subscriptionId` | Returns the requested edge gateway pool object. |
-| `list` | `SELECT` | `location, resourceGroupName, subscriptionId` | Returns a list of all edge gateway pool objects at a location. |
-| `_list` | `EXEC` | `location, resourceGroupName, subscriptionId` | Returns a list of all edge gateway pool objects at a location. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="edgeGatewayPool, location, resourceGroupName, subscriptionId" /> | Returns the requested edge gateway pool object. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all edge gateway pool objects at a location. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all edge gateway pool objects at a location. |

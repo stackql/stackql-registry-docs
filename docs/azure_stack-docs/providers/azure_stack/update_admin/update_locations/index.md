@@ -14,28 +14,31 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>update_locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack.update_admin.update_locations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_stack.update_admin.update_locations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | URI of the resource. |
-| `name` | `string` | Name of the resource. |
-| `location` | `string` | Region location of resource. |
-| `properties` | `object` | Model which holds information related to update location. |
-| `tags` | `object` | List of key-value pairs. |
-| `type` | `string` | Type of resource. |
+| <CopyableCode code="id" /> | `string` | URI of the resource. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="location" /> | `string` | Region location of resource. |
+| <CopyableCode code="properties" /> | `object` | Model which holds information related to update location. |
+| <CopyableCode code="tags" /> | `object` | List of key-value pairs. |
+| <CopyableCode code="type" /> | `string` | Type of resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `resourceGroupName, subscriptionId, updateLocation` | Get an update location based on name. |
-| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Get the list of update locations. |
-| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Get the list of update locations. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, updateLocation" /> | Get an update location based on name. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get the list of update locations. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get the list of update locations. |

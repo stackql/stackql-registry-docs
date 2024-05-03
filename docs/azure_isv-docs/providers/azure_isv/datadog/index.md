@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Cloud-Scale Observability And Security For Your Azure, Hybrid, Or Multi-Cloud Environment To Troubleshoot Quickly, Increase Uptime, And Control Costs.  
     
 :::info Service Summary

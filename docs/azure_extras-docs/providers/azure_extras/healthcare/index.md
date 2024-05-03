@@ -13,6 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
+
 Azure Health Data Services Is A Set Of Managed API Services Based On Open Standards And Frameworks That Enable Workflows To Improve Healthcare And Offer Scalable And Secure Healthcare Solutions.  
     
 :::info Service Summary

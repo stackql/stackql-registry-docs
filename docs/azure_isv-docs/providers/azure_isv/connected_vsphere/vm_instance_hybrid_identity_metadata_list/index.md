@@ -14,19 +14,22 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vm_instance_hybrid_identity_metadata_list</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv.connected_vsphere.vm_instance_hybrid_identity_metadata_list</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure_isv.connected_vsphere.vm_instance_hybrid_identity_metadata_list" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `api-version, resourceUri` |
-| `_list` | `EXEC` | `api-version, resourceUri` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceUri" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceUri" /> |

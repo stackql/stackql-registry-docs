@@ -13,6 +13,7 @@ description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
+
 admission registration api  
     
 :::info Service Summary
