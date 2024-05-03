@@ -1,0 +1,56 @@
+---
+title: sasportal
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - sasportal
+  - google
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+custom_edit_url: null
+image: /img/providers/google/stackql-google-provider-featured-image.png
+---
+
+  
+    
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>96</b></span><br />
+</div>
+</div>
+
+:::
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>google.sasportal</code></td></tr>
+<tr><td><b>Type</b></td><td>Service</td></tr>
+<tr><td><b>Title</b></td><td>SAS Portal API</td></tr>
+<tr><td><b>Description</b></td><td></td></tr>
+<tr><td><b>Id</b></td><td><code>sasportal:v23.09.00169</code></td></tr>
+</tbody></table>
+
+## Resources
+<div class="row">
+<div class="providerDocColumn">
+<a href="/providers/google/sasportal/customer_node/">customer_node</a><br />
+<a href="/providers/google/sasportal/customer_nodes/">customer_nodes</a><br />
+<a href="/providers/google/sasportal/customers/">customers</a><br />
+<a href="/providers/google/sasportal/deployments/">deployments</a><br />
+<a href="/providers/google/sasportal/devices/">devices</a><br />
+</div>
+<div class="providerDocColumn">
+<a href="/providers/google/sasportal/devices_signed/">devices_signed</a><br />
+<a href="/providers/google/sasportal/installer/">installer</a><br />
+<a href="/providers/google/sasportal/node/">node</a><br />
+<a href="/providers/google/sasportal/nodes/">nodes</a><br />
+<a href="/providers/google/sasportal/policies/">policies</a><br />
+</div>
+</div>

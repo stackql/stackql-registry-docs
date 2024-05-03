@@ -17,6 +17,9 @@ id: aws-doc
 slug: /providers/aws
 
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Cloud services from AWS.
 
 :::info Provider Summary (v24.05.00228)
@@ -51,9 +54,9 @@ REGISTRY PULL aws;
 
 The following system environment variables are used for authentication by default:  
 
-- `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-- `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-- `AWS_SESSION_TOKEN` - [*OPTIONAL:* only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
+- <CopyableCode code="AWS_ACCESS_KEY_ID" /> - AWS Access Key ID (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">How to Create AWS Credentials</a>)
+- <CopyableCode code="AWS_SECRET_ACCESS_KEY" /> - AWS Secret Access Key (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">How to Create AWS Credentials</a>)
+- <CopyableCode code="AWS_SESSION_TOKEN" /> - [<i>OPTIONAL:</i> only required if using <CopyableCode code="aws sts assume-role" />] AWS Session Token (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary security credentials in IAM</a>)
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
@@ -85,7 +88,7 @@ stackql.exe shell --auth=$Auth
 
 The following parameter is required for the `aws` provider:  
 
-- `region` - AWS region (e.g. `us-east-1`)
+- <CopyableCode code="region" /> - AWS region (e.g. <code>us-east-1</code>)
 
 This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
 

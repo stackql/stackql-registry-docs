@@ -1,0 +1,67 @@
+---
+title: views
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - views
+  - logging
+  - google    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+custom_edit_url: null
+image: /img/providers/google/stackql-google-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>views</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.views" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | The resource name of the view.For example:projects/my-project/locations/global/buckets/my-bucket/views/my-view |
+| <CopyableCode code="description" /> | `string` | Describes this view. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of the view. |
+| <CopyableCode code="filter" /> | `string` | Filter that restricts which log entries in a bucket are visible in this view.Filters are restricted to be a logical AND of ==/!= of any of the following: originating project/folder/organization/billing account. resource type log idFor example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND LOG_ID("stdout") |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of the view. |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="billing_accounts_locations_buckets_views_get" /> | `SELECT` | <CopyableCode code="billingAccountsId, bucketsId, locationsId, viewsId" /> | Gets a view on a log bucket. |
+| <CopyableCode code="billing_accounts_locations_buckets_views_list" /> | `SELECT` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="folders_locations_buckets_views_get" /> | `SELECT` | <CopyableCode code="bucketsId, foldersId, locationsId, viewsId" /> | Gets a view on a log bucket. |
+| <CopyableCode code="folders_locations_buckets_views_list" /> | `SELECT` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="locations_buckets_views_list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | Lists views on a log bucket. |
+| <CopyableCode code="organizations_locations_buckets_views_get" /> | `SELECT` | <CopyableCode code="bucketsId, locationsId, organizationsId, viewsId" /> | Gets a view on a log bucket. |
+| <CopyableCode code="organizations_locations_buckets_views_list" /> | `SELECT` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="projects_locations_buckets_views_get" /> | `SELECT` | <CopyableCode code="bucketsId, locationsId, projectsId, viewsId" /> | Gets a view on a log bucket. |
+| <CopyableCode code="projects_locations_buckets_views_list" /> | `SELECT` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="billing_accounts_locations_buckets_views_create" /> | `INSERT` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Creates a view over log entries in a log bucket. A bucket may contain a maximum of 30 views. |
+| <CopyableCode code="folders_locations_buckets_views_create" /> | `INSERT` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Creates a view over log entries in a log bucket. A bucket may contain a maximum of 30 views. |
+| <CopyableCode code="locations_buckets_views_create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Creates a view over log entries in a log bucket. A bucket may contain a maximum of 30 views. |
+| <CopyableCode code="organizations_locations_buckets_views_create" /> | `INSERT` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Creates a view over log entries in a log bucket. A bucket may contain a maximum of 30 views. |
+| <CopyableCode code="projects_locations_buckets_views_create" /> | `INSERT` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Creates a view over log entries in a log bucket. A bucket may contain a maximum of 30 views. |
+| <CopyableCode code="billing_accounts_locations_buckets_views_delete" /> | `DELETE` | <CopyableCode code="billingAccountsId, bucketsId, locationsId, viewsId" /> | Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="folders_locations_buckets_views_delete" /> | `DELETE` | <CopyableCode code="bucketsId, foldersId, locationsId, viewsId" /> | Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="organizations_locations_buckets_views_delete" /> | `DELETE` | <CopyableCode code="bucketsId, locationsId, organizationsId, viewsId" /> | Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="projects_locations_buckets_views_delete" /> | `DELETE` | <CopyableCode code="bucketsId, locationsId, projectsId, viewsId" /> | Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="_billing_accounts_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="_folders_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists views on a log bucket. |
+| <CopyableCode code="_organizations_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="_projects_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Lists views on a log bucket. |
+| <CopyableCode code="billing_accounts_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="folders_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="organizations_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="projects_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |

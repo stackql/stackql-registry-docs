@@ -1,0 +1,52 @@
+---
+title: endpoint_policies
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - endpoint_policies
+  - networkservices
+  - google    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+custom_edit_url: null
+image: /img/providers/google/stackql-google-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>endpoint_policies</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkservices.endpoint_policies" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Required. Name of the EndpointPolicy resource. It matches pattern `projects/&#123;project&#125;/locations/global/endpointPolicies/&#123;endpoint_policy&#125;`. |
+| <CopyableCode code="description" /> | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
+| <CopyableCode code="authorizationPolicy" /> | `string` | Optional. This field specifies the URL of AuthorizationPolicy resource that applies authorization policies to the inbound traffic at the matched endpoints. Refer to Authorization. If this field is not specified, authorization is disabled(no authz checks) for this endpoint. |
+| <CopyableCode code="clientTlsPolicy" /> | `string` | Optional. A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy can be set to specify the authentication for traffic from the proxy to the actual endpoints. More specifically, it is applied to the outgoing traffic from the proxy to the endpoint. This is typically used for sidecar model where the proxy identifies itself as endpoint to the control plane, with the connection between sidecar and endpoint requiring authentication. If this field is not set, authentication is disabled(open). Applicable only when EndpointPolicyType is SIDECAR_PROXY. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the resource was created. |
+| <CopyableCode code="endpointMatcher" /> | `object` | A definition of a matcher that selects endpoints to which the policies should be applied. |
+| <CopyableCode code="labels" /> | `object` | Optional. Set of label tags associated with the EndpointPolicy resource. |
+| <CopyableCode code="serverTlsPolicy" /> | `string` | Optional. A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is used to determine the authentication policy to be applied to terminate the inbound traffic at the identified backends. If this field is not set, authentication is disabled(open) for this endpoint. |
+| <CopyableCode code="trafficPortSelector" /> | `object` | Specification of a port-based selector. |
+| <CopyableCode code="type" /> | `string` | Required. The type of endpoint policy. This is primarily used to validate the configuration. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the resource was updated. |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Gets details of a single EndpointPolicy. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists EndpointPolicies in a given project and location. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new EndpointPolicy in a given project and location. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Deletes a single EndpointPolicy. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists EndpointPolicies in a given project and location. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single EndpointPolicy. |
