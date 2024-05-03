@@ -14,33 +14,36 @@ description: Query, deploy and manage GoDaddy resources using SQL
 custom_edit_url: null
 image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>records</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>godaddy.domains.records</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="godaddy.domains.records" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` |  |
-| `data` | `string` |  |
-| `port` | `integer` | Service port (SRV only) |
-| `priority` | `integer` | Record priority (MX and SRV only) |
-| `protocol` | `string` | Service protocol (SRV only) |
-| `service` | `string` | Service type (SRV only) |
-| `ttl` | `integer` |  |
-| `type` | `string` |  |
-| `weight` | `integer` | Record weight (SRV only) |
+| <CopyableCode code="name" /> | `string` |  |
+| <CopyableCode code="data" /> | `string` |  |
+| <CopyableCode code="port" /> | `integer` | Service port (SRV only) |
+| <CopyableCode code="priority" /> | `integer` | Record priority (MX and SRV only) |
+| <CopyableCode code="protocol" /> | `string` | Service protocol (SRV only) |
+| <CopyableCode code="service" /> | `string` | Service type (SRV only) |
+| <CopyableCode code="ttl" /> | `integer` |  |
+| <CopyableCode code="type" /> | `string` |  |
+| <CopyableCode code="weight" /> | `integer` | Record weight (SRV only) |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `record_get` | `SELECT` | `domain, type` | Retrieve DNS Records for the specified Domain, optionally with the specified Type and/or Name |
-| `record_add` | `EXEC` | `domain` | Add the specified DNS Records to the specified Domain |
-| `record_replace` | `EXEC` | `domain` | Replace all DNS Records for the specified Domain |
-| `record_replace_type` | `EXEC` | `domain, type` | Replace all DNS Records for the specified Domain with the specified Type |
-| `record_replace_type_name` | `EXEC` | `domain, name, type` | Replace all DNS Records for the specified Domain with the specified Type and Name |
+| <CopyableCode code="record_get" /> | `SELECT` | <CopyableCode code="domain, type" /> | Retrieve DNS Records for the specified Domain, optionally with the specified Type and/or Name |
+| <CopyableCode code="record_add" /> | `EXEC` | <CopyableCode code="domain" /> | Add the specified DNS Records to the specified Domain |
+| <CopyableCode code="record_replace" /> | `EXEC` | <CopyableCode code="domain" /> | Replace all DNS Records for the specified Domain |
+| <CopyableCode code="record_replace_type" /> | `EXEC` | <CopyableCode code="domain, type" /> | Replace all DNS Records for the specified Domain with the specified Type |
+| <CopyableCode code="record_replace_type_name" /> | `EXEC` | <CopyableCode code="domain, name, type" /> | Replace all DNS Records for the specified Domain with the specified Type and Name |

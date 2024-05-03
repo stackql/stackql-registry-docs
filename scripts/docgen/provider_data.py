@@ -380,7 +380,7 @@ stackql.exe shell --auth=$Auth
   'godaddy': {
     'custom': False,
     'variables': """
-- `GODADDY_API_KEY` - Godaddy API key (see [Creating a Godaddy API Key](https://developer.godaddy.com/keys))
+- <CopyableCode code="GODADDY_API_KEY" /> - Godaddy API key (see [Creating a Godaddy API Key](https://developer.godaddy.com/keys))
   """,
     'linux': """
 AUTH='{ "okta": { "type": "bearer", "credentialsenvvar": "YOUR_GODADDY_API_KEY_VAR" }}'

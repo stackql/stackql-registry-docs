@@ -13,8 +13,10 @@ custom_edit_url: null
 image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 id: godaddy-doc
 slug: /providers/godaddy
-
 ---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
 Domain registration and web hosting services.  
     
 :::info Provider Summary (v23.12.00190)
@@ -49,7 +51,7 @@ REGISTRY PULL godaddy;
 
 The following system environment variables are used for authentication by default:  
 
-- `GODADDY_API_KEY` - Godaddy API key (see [Creating a Godaddy API Key](https://developer.godaddy.com/keys))
+- <CopyableCode code="GODADDY_API_KEY" /> - Godaddy API key (see [Creating a Godaddy API Key](https://developer.godaddy.com/keys))
   
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 

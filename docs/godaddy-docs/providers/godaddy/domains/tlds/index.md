@@ -14,22 +14,25 @@ description: Query, deploy and manage GoDaddy resources using SQL
 custom_edit_url: null
 image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tlds</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>godaddy.domains.tlds</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="godaddy.domains.tlds" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the top-level domain |
-| `type` | `string` | Type of the top-level domain |
+| <CopyableCode code="name" /> | `string` | Name of the top-level domain |
+| <CopyableCode code="type" /> | `string` | Type of the top-level domain |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `tlds` | `SELECT` |  |
+| <CopyableCode code="tlds" /> | `SELECT` |  |

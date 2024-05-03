@@ -14,14 +14,17 @@ description: Query, deploy and manage GoDaddy resources using SQL
 custom_edit_url: null
 image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>listings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>godaddy.aftermarket.listings</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="godaddy.aftermarket.listings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete_listings` | `DELETE` | `domains` | Remove listings from GoDaddy Auction |
-| `add_expiry_listings` | `EXEC` |  | Add expiry listings into GoDaddy Auction |
+| <CopyableCode code="delete_listings" /> | `DELETE` | <CopyableCode code="domains" /> | Remove listings from GoDaddy Auction |
+| <CopyableCode code="add_expiry_listings" /> | `EXEC` |  | Add expiry listings into GoDaddy Auction |
