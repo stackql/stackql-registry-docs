@@ -83,7 +83,7 @@ stackql.exe shell --auth=$Auth
 
 The following parameter is required for the `okta` provider:  
 
-- <CopyableCode code="subdomain" /> - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
+- <CopyableCode code="subdomain" /> - The Okta tenant domain, for example <code>my-company</code> would be supplied if your Okta domain is <code>my-company.okta.com</code>
 
 This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
     
