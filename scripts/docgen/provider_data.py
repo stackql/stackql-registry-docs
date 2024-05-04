@@ -1,6 +1,6 @@
 googleadmin_auth_markdown = """
 The following authentication methods are supported:
-- `service_account` (using a Google Cloud service account)
+- <CopyableCode code="service_account" /> (using a Google Cloud service account)
 
 > for more information on creating service accounts and key files, see .
 
@@ -56,7 +56,7 @@ The following system environment variable is used by default:
 
 - <CopyableCode code="GOOGLE_CREDENTIALS" /> - contents of the <code>google</code> service account key json file
 
-This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=`cat creds/my-sa-key.json` for example or as a CI variable/secret).
+This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=cat creds/my-sa-key.json` for example or as a CI variable/secret).
 
 <details>
 
