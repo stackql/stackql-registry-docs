@@ -74,7 +74,7 @@ FROM aws.route53.cidr_collections
 
 ## `INSERT` Example
 
-Use the following StackQL query and manifest file to create a new <code>cidr_collection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+Use the following StackQL query and manifest file to create a new <code>cidr_collection</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
 <Tabs
     defaultValue="required"

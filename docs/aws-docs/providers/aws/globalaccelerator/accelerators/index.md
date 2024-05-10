@@ -74,7 +74,7 @@ FROM aws.globalaccelerator.accelerators
 
 ## `INSERT` Example
 
-Use the following StackQL query and manifest file to create a new <code>accelerator</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+Use the following StackQL query and manifest file to create a new <code>accelerator</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
 <Tabs
     defaultValue="required"
