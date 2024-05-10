@@ -74,6 +74,7 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+<>
 <Tabs
     defaultValue="required"
     values={[
@@ -161,6 +162,7 @@ SELECT
 
 </TabItem>
 </Tabs>
+</>
 
 ## `DELETE` Example
 
