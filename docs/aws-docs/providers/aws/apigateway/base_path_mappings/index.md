@@ -76,43 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>base_path_mapping</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}"
-}
->>>
---required properties only
+-- base_path_mapping.iql (required properties only)
 INSERT INTO aws.apigateway.base_path_mappings (
  DomainName,
  region
 )
 SELECT 
-{{ .DomainName }},
-'us-east-1';
+'{{ DomainName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BasePath": "{{ BasePath }}",
- "DomainName": "{{ DomainName }}",
- "RestApiId": "{{ RestApiId }}",
- "Stage": "{{ Stage }}"
-}
->>>
---all properties
+-- base_path_mapping.iql (all properties)
 INSERT INTO aws.apigateway.base_path_mappings (
  BasePath,
  DomainName,
@@ -121,11 +111,36 @@ INSERT INTO aws.apigateway.base_path_mappings (
  region
 )
 SELECT 
- {{ .BasePath }},
- {{ .DomainName }},
- {{ .RestApiId }},
- {{ .Stage }},
- 'us-east-1';
+ '{{ BasePath }}',
+ '{{ DomainName }}',
+ '{{ RestApiId }}',
+ '{{ Stage }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: base_path_mapping
+    props:
+      - name: BasePath
+        value: '{{ BasePath }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+      - name: Stage
+        value: '{{ Stage }}'
+
 ```
 </TabItem>
 </Tabs>

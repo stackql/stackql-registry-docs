@@ -74,107 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>db_cluster</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ReadEndpoint": {
-  "Address": "{{ Address }}"
- },
- "AllocatedStorage": "{{ AllocatedStorage }}",
- "AssociatedRoles": [
-  {
-   "FeatureName": "{{ FeatureName }}",
-   "RoleArn": "{{ RoleArn }}"
-  }
- ],
- "AvailabilityZones": [
-  "{{ AvailabilityZones[0] }}"
- ],
- "AutoMinorVersionUpgrade": "{{ AutoMinorVersionUpgrade }}",
- "BacktrackWindow": "{{ BacktrackWindow }}",
- "BackupRetentionPeriod": "{{ BackupRetentionPeriod }}",
- "CopyTagsToSnapshot": "{{ CopyTagsToSnapshot }}",
- "DatabaseName": "{{ DatabaseName }}",
- "DBClusterInstanceClass": "{{ DBClusterInstanceClass }}",
- "DBInstanceParameterGroupName": "{{ DBInstanceParameterGroupName }}",
- "DBSystemId": "{{ DBSystemId }}",
- "GlobalClusterIdentifier": "{{ GlobalClusterIdentifier }}",
- "DBClusterIdentifier": "{{ DBClusterIdentifier }}",
- "DBClusterParameterGroupName": "{{ DBClusterParameterGroupName }}",
- "DBSubnetGroupName": "{{ DBSubnetGroupName }}",
- "DeletionProtection": "{{ DeletionProtection }}",
- "Domain": "{{ Domain }}",
- "DomainIAMRoleName": "{{ DomainIAMRoleName }}",
- "EnableCloudwatchLogsExports": [
-  "{{ EnableCloudwatchLogsExports[0] }}"
- ],
- "EnableGlobalWriteForwarding": "{{ EnableGlobalWriteForwarding }}",
- "EnableHttpEndpoint": "{{ EnableHttpEndpoint }}",
- "EnableIAMDatabaseAuthentication": "{{ EnableIAMDatabaseAuthentication }}",
- "Engine": "{{ Engine }}",
- "EngineMode": "{{ EngineMode }}",
- "EngineVersion": "{{ EngineVersion }}",
- "ManageMasterUserPassword": "{{ ManageMasterUserPassword }}",
- "Iops": "{{ Iops }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "MasterUsername": "{{ MasterUsername }}",
- "MasterUserPassword": "{{ MasterUserPassword }}",
- "MasterUserSecret": {
-  "SecretArn": "{{ SecretArn }}",
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "MonitoringInterval": "{{ MonitoringInterval }}",
- "MonitoringRoleArn": "{{ MonitoringRoleArn }}",
- "NetworkType": "{{ NetworkType }}",
- "PerformanceInsightsEnabled": "{{ PerformanceInsightsEnabled }}",
- "PerformanceInsightsKmsKeyId": "{{ PerformanceInsightsKmsKeyId }}",
- "PerformanceInsightsRetentionPeriod": "{{ PerformanceInsightsRetentionPeriod }}",
- "Port": "{{ Port }}",
- "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "ReplicationSourceIdentifier": "{{ ReplicationSourceIdentifier }}",
- "RestoreToTime": "{{ RestoreToTime }}",
- "RestoreType": "{{ RestoreType }}",
- "ServerlessV2ScalingConfiguration": {
-  "MinCapacity": null,
-  "MaxCapacity": null
- },
- "ScalingConfiguration": {
-  "AutoPause": "{{ AutoPause }}",
-  "MaxCapacity": "{{ MaxCapacity }}",
-  "MinCapacity": "{{ MinCapacity }}",
-  "SecondsBeforeTimeout": "{{ SecondsBeforeTimeout }}",
-  "SecondsUntilAutoPause": "{{ SecondsUntilAutoPause }}",
-  "TimeoutAction": "{{ TimeoutAction }}"
- },
- "SnapshotIdentifier": "{{ SnapshotIdentifier }}",
- "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
- "SourceRegion": "{{ SourceRegion }}",
- "StorageEncrypted": "{{ StorageEncrypted }}",
- "StorageType": "{{ StorageType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "UseLatestRestorableTime": "{{ UseLatestRestorableTime }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ]
-}
->>>
---required properties only
+-- db_cluster.iql (required properties only)
 INSERT INTO aws.rds.db_clusters (
  ReadEndpoint,
  AllocatedStorage,
@@ -234,158 +147,68 @@ INSERT INTO aws.rds.db_clusters (
  region
 )
 SELECT 
-{{ .ReadEndpoint }},
- {{ .AllocatedStorage }},
- {{ .AssociatedRoles }},
- {{ .AvailabilityZones }},
- {{ .AutoMinorVersionUpgrade }},
- {{ .BacktrackWindow }},
- {{ .BackupRetentionPeriod }},
- {{ .CopyTagsToSnapshot }},
- {{ .DatabaseName }},
- {{ .DBClusterInstanceClass }},
- {{ .DBInstanceParameterGroupName }},
- {{ .DBSystemId }},
- {{ .GlobalClusterIdentifier }},
- {{ .DBClusterIdentifier }},
- {{ .DBClusterParameterGroupName }},
- {{ .DBSubnetGroupName }},
- {{ .DeletionProtection }},
- {{ .Domain }},
- {{ .DomainIAMRoleName }},
- {{ .EnableCloudwatchLogsExports }},
- {{ .EnableGlobalWriteForwarding }},
- {{ .EnableHttpEndpoint }},
- {{ .EnableIAMDatabaseAuthentication }},
- {{ .Engine }},
- {{ .EngineMode }},
- {{ .EngineVersion }},
- {{ .ManageMasterUserPassword }},
- {{ .Iops }},
- {{ .KmsKeyId }},
- {{ .MasterUsername }},
- {{ .MasterUserPassword }},
- {{ .MasterUserSecret }},
- {{ .MonitoringInterval }},
- {{ .MonitoringRoleArn }},
- {{ .NetworkType }},
- {{ .PerformanceInsightsEnabled }},
- {{ .PerformanceInsightsKmsKeyId }},
- {{ .PerformanceInsightsRetentionPeriod }},
- {{ .Port }},
- {{ .PreferredBackupWindow }},
- {{ .PreferredMaintenanceWindow }},
- {{ .PubliclyAccessible }},
- {{ .ReplicationSourceIdentifier }},
- {{ .RestoreToTime }},
- {{ .RestoreType }},
- {{ .ServerlessV2ScalingConfiguration }},
- {{ .ScalingConfiguration }},
- {{ .SnapshotIdentifier }},
- {{ .SourceDBClusterIdentifier }},
- {{ .SourceRegion }},
- {{ .StorageEncrypted }},
- {{ .StorageType }},
- {{ .Tags }},
- {{ .UseLatestRestorableTime }},
- {{ .VpcSecurityGroupIds }},
-'us-east-1';
+'{{ ReadEndpoint }}',
+ '{{ AllocatedStorage }}',
+ '{{ AssociatedRoles }}',
+ '{{ AvailabilityZones }}',
+ '{{ AutoMinorVersionUpgrade }}',
+ '{{ BacktrackWindow }}',
+ '{{ BackupRetentionPeriod }}',
+ '{{ CopyTagsToSnapshot }}',
+ '{{ DatabaseName }}',
+ '{{ DBClusterInstanceClass }}',
+ '{{ DBInstanceParameterGroupName }}',
+ '{{ DBSystemId }}',
+ '{{ GlobalClusterIdentifier }}',
+ '{{ DBClusterIdentifier }}',
+ '{{ DBClusterParameterGroupName }}',
+ '{{ DBSubnetGroupName }}',
+ '{{ DeletionProtection }}',
+ '{{ Domain }}',
+ '{{ DomainIAMRoleName }}',
+ '{{ EnableCloudwatchLogsExports }}',
+ '{{ EnableGlobalWriteForwarding }}',
+ '{{ EnableHttpEndpoint }}',
+ '{{ EnableIAMDatabaseAuthentication }}',
+ '{{ Engine }}',
+ '{{ EngineMode }}',
+ '{{ EngineVersion }}',
+ '{{ ManageMasterUserPassword }}',
+ '{{ Iops }}',
+ '{{ KmsKeyId }}',
+ '{{ MasterUsername }}',
+ '{{ MasterUserPassword }}',
+ '{{ MasterUserSecret }}',
+ '{{ MonitoringInterval }}',
+ '{{ MonitoringRoleArn }}',
+ '{{ NetworkType }}',
+ '{{ PerformanceInsightsEnabled }}',
+ '{{ PerformanceInsightsKmsKeyId }}',
+ '{{ PerformanceInsightsRetentionPeriod }}',
+ '{{ Port }}',
+ '{{ PreferredBackupWindow }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ PubliclyAccessible }}',
+ '{{ ReplicationSourceIdentifier }}',
+ '{{ RestoreToTime }}',
+ '{{ RestoreType }}',
+ '{{ ServerlessV2ScalingConfiguration }}',
+ '{{ ScalingConfiguration }}',
+ '{{ SnapshotIdentifier }}',
+ '{{ SourceDBClusterIdentifier }}',
+ '{{ SourceRegion }}',
+ '{{ StorageEncrypted }}',
+ '{{ StorageType }}',
+ '{{ Tags }}',
+ '{{ UseLatestRestorableTime }}',
+ '{{ VpcSecurityGroupIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ReadEndpoint": {
-  "Address": "{{ Address }}"
- },
- "AllocatedStorage": "{{ AllocatedStorage }}",
- "AssociatedRoles": [
-  {
-   "FeatureName": "{{ FeatureName }}",
-   "RoleArn": "{{ RoleArn }}"
-  }
- ],
- "AvailabilityZones": [
-  "{{ AvailabilityZones[0] }}"
- ],
- "AutoMinorVersionUpgrade": "{{ AutoMinorVersionUpgrade }}",
- "BacktrackWindow": "{{ BacktrackWindow }}",
- "BackupRetentionPeriod": "{{ BackupRetentionPeriod }}",
- "CopyTagsToSnapshot": "{{ CopyTagsToSnapshot }}",
- "DatabaseName": "{{ DatabaseName }}",
- "DBClusterInstanceClass": "{{ DBClusterInstanceClass }}",
- "DBInstanceParameterGroupName": "{{ DBInstanceParameterGroupName }}",
- "DBSystemId": "{{ DBSystemId }}",
- "GlobalClusterIdentifier": "{{ GlobalClusterIdentifier }}",
- "DBClusterIdentifier": "{{ DBClusterIdentifier }}",
- "DBClusterParameterGroupName": "{{ DBClusterParameterGroupName }}",
- "DBSubnetGroupName": "{{ DBSubnetGroupName }}",
- "DeletionProtection": "{{ DeletionProtection }}",
- "Domain": "{{ Domain }}",
- "DomainIAMRoleName": "{{ DomainIAMRoleName }}",
- "EnableCloudwatchLogsExports": [
-  "{{ EnableCloudwatchLogsExports[0] }}"
- ],
- "EnableGlobalWriteForwarding": "{{ EnableGlobalWriteForwarding }}",
- "EnableHttpEndpoint": "{{ EnableHttpEndpoint }}",
- "EnableIAMDatabaseAuthentication": "{{ EnableIAMDatabaseAuthentication }}",
- "Engine": "{{ Engine }}",
- "EngineMode": "{{ EngineMode }}",
- "EngineVersion": "{{ EngineVersion }}",
- "ManageMasterUserPassword": "{{ ManageMasterUserPassword }}",
- "Iops": "{{ Iops }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "MasterUsername": "{{ MasterUsername }}",
- "MasterUserPassword": "{{ MasterUserPassword }}",
- "MasterUserSecret": {
-  "SecretArn": "{{ SecretArn }}",
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "MonitoringInterval": "{{ MonitoringInterval }}",
- "MonitoringRoleArn": "{{ MonitoringRoleArn }}",
- "NetworkType": "{{ NetworkType }}",
- "PerformanceInsightsEnabled": "{{ PerformanceInsightsEnabled }}",
- "PerformanceInsightsKmsKeyId": "{{ PerformanceInsightsKmsKeyId }}",
- "PerformanceInsightsRetentionPeriod": "{{ PerformanceInsightsRetentionPeriod }}",
- "Port": "{{ Port }}",
- "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "ReplicationSourceIdentifier": "{{ ReplicationSourceIdentifier }}",
- "RestoreToTime": "{{ RestoreToTime }}",
- "RestoreType": "{{ RestoreType }}",
- "ServerlessV2ScalingConfiguration": {
-  "MinCapacity": null,
-  "MaxCapacity": null
- },
- "ScalingConfiguration": {
-  "AutoPause": "{{ AutoPause }}",
-  "MaxCapacity": "{{ MaxCapacity }}",
-  "MinCapacity": "{{ MinCapacity }}",
-  "SecondsBeforeTimeout": "{{ SecondsBeforeTimeout }}",
-  "SecondsUntilAutoPause": "{{ SecondsUntilAutoPause }}",
-  "TimeoutAction": "{{ TimeoutAction }}"
- },
- "SnapshotIdentifier": "{{ SnapshotIdentifier }}",
- "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
- "SourceRegion": "{{ SourceRegion }}",
- "StorageEncrypted": "{{ StorageEncrypted }}",
- "StorageType": "{{ StorageType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "UseLatestRestorableTime": "{{ UseLatestRestorableTime }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ]
-}
->>>
---all properties
+-- db_cluster.iql (all properties)
 INSERT INTO aws.rds.db_clusters (
  ReadEndpoint,
  AllocatedStorage,
@@ -445,62 +268,207 @@ INSERT INTO aws.rds.db_clusters (
  region
 )
 SELECT 
- {{ .ReadEndpoint }},
- {{ .AllocatedStorage }},
- {{ .AssociatedRoles }},
- {{ .AvailabilityZones }},
- {{ .AutoMinorVersionUpgrade }},
- {{ .BacktrackWindow }},
- {{ .BackupRetentionPeriod }},
- {{ .CopyTagsToSnapshot }},
- {{ .DatabaseName }},
- {{ .DBClusterInstanceClass }},
- {{ .DBInstanceParameterGroupName }},
- {{ .DBSystemId }},
- {{ .GlobalClusterIdentifier }},
- {{ .DBClusterIdentifier }},
- {{ .DBClusterParameterGroupName }},
- {{ .DBSubnetGroupName }},
- {{ .DeletionProtection }},
- {{ .Domain }},
- {{ .DomainIAMRoleName }},
- {{ .EnableCloudwatchLogsExports }},
- {{ .EnableGlobalWriteForwarding }},
- {{ .EnableHttpEndpoint }},
- {{ .EnableIAMDatabaseAuthentication }},
- {{ .Engine }},
- {{ .EngineMode }},
- {{ .EngineVersion }},
- {{ .ManageMasterUserPassword }},
- {{ .Iops }},
- {{ .KmsKeyId }},
- {{ .MasterUsername }},
- {{ .MasterUserPassword }},
- {{ .MasterUserSecret }},
- {{ .MonitoringInterval }},
- {{ .MonitoringRoleArn }},
- {{ .NetworkType }},
- {{ .PerformanceInsightsEnabled }},
- {{ .PerformanceInsightsKmsKeyId }},
- {{ .PerformanceInsightsRetentionPeriod }},
- {{ .Port }},
- {{ .PreferredBackupWindow }},
- {{ .PreferredMaintenanceWindow }},
- {{ .PubliclyAccessible }},
- {{ .ReplicationSourceIdentifier }},
- {{ .RestoreToTime }},
- {{ .RestoreType }},
- {{ .ServerlessV2ScalingConfiguration }},
- {{ .ScalingConfiguration }},
- {{ .SnapshotIdentifier }},
- {{ .SourceDBClusterIdentifier }},
- {{ .SourceRegion }},
- {{ .StorageEncrypted }},
- {{ .StorageType }},
- {{ .Tags }},
- {{ .UseLatestRestorableTime }},
- {{ .VpcSecurityGroupIds }},
- 'us-east-1';
+ '{{ ReadEndpoint }}',
+ '{{ AllocatedStorage }}',
+ '{{ AssociatedRoles }}',
+ '{{ AvailabilityZones }}',
+ '{{ AutoMinorVersionUpgrade }}',
+ '{{ BacktrackWindow }}',
+ '{{ BackupRetentionPeriod }}',
+ '{{ CopyTagsToSnapshot }}',
+ '{{ DatabaseName }}',
+ '{{ DBClusterInstanceClass }}',
+ '{{ DBInstanceParameterGroupName }}',
+ '{{ DBSystemId }}',
+ '{{ GlobalClusterIdentifier }}',
+ '{{ DBClusterIdentifier }}',
+ '{{ DBClusterParameterGroupName }}',
+ '{{ DBSubnetGroupName }}',
+ '{{ DeletionProtection }}',
+ '{{ Domain }}',
+ '{{ DomainIAMRoleName }}',
+ '{{ EnableCloudwatchLogsExports }}',
+ '{{ EnableGlobalWriteForwarding }}',
+ '{{ EnableHttpEndpoint }}',
+ '{{ EnableIAMDatabaseAuthentication }}',
+ '{{ Engine }}',
+ '{{ EngineMode }}',
+ '{{ EngineVersion }}',
+ '{{ ManageMasterUserPassword }}',
+ '{{ Iops }}',
+ '{{ KmsKeyId }}',
+ '{{ MasterUsername }}',
+ '{{ MasterUserPassword }}',
+ '{{ MasterUserSecret }}',
+ '{{ MonitoringInterval }}',
+ '{{ MonitoringRoleArn }}',
+ '{{ NetworkType }}',
+ '{{ PerformanceInsightsEnabled }}',
+ '{{ PerformanceInsightsKmsKeyId }}',
+ '{{ PerformanceInsightsRetentionPeriod }}',
+ '{{ Port }}',
+ '{{ PreferredBackupWindow }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ PubliclyAccessible }}',
+ '{{ ReplicationSourceIdentifier }}',
+ '{{ RestoreToTime }}',
+ '{{ RestoreType }}',
+ '{{ ServerlessV2ScalingConfiguration }}',
+ '{{ ScalingConfiguration }}',
+ '{{ SnapshotIdentifier }}',
+ '{{ SourceDBClusterIdentifier }}',
+ '{{ SourceRegion }}',
+ '{{ StorageEncrypted }}',
+ '{{ StorageType }}',
+ '{{ Tags }}',
+ '{{ UseLatestRestorableTime }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: db_cluster
+    props:
+      - name: ReadEndpoint
+        value:
+          Address: '{{ Address }}'
+      - name: AllocatedStorage
+        value: '{{ AllocatedStorage }}'
+      - name: AssociatedRoles
+        value:
+          - FeatureName: '{{ FeatureName }}'
+            RoleArn: '{{ RoleArn }}'
+      - name: AvailabilityZones
+        value:
+          - '{{ AvailabilityZones[0] }}'
+      - name: AutoMinorVersionUpgrade
+        value: '{{ AutoMinorVersionUpgrade }}'
+      - name: BacktrackWindow
+        value: '{{ BacktrackWindow }}'
+      - name: BackupRetentionPeriod
+        value: '{{ BackupRetentionPeriod }}'
+      - name: CopyTagsToSnapshot
+        value: '{{ CopyTagsToSnapshot }}'
+      - name: DatabaseName
+        value: '{{ DatabaseName }}'
+      - name: DBClusterInstanceClass
+        value: '{{ DBClusterInstanceClass }}'
+      - name: DBInstanceParameterGroupName
+        value: '{{ DBInstanceParameterGroupName }}'
+      - name: DBSystemId
+        value: '{{ DBSystemId }}'
+      - name: GlobalClusterIdentifier
+        value: '{{ GlobalClusterIdentifier }}'
+      - name: DBClusterIdentifier
+        value: '{{ DBClusterIdentifier }}'
+      - name: DBClusterParameterGroupName
+        value: '{{ DBClusterParameterGroupName }}'
+      - name: DBSubnetGroupName
+        value: '{{ DBSubnetGroupName }}'
+      - name: DeletionProtection
+        value: '{{ DeletionProtection }}'
+      - name: Domain
+        value: '{{ Domain }}'
+      - name: DomainIAMRoleName
+        value: '{{ DomainIAMRoleName }}'
+      - name: EnableCloudwatchLogsExports
+        value:
+          - '{{ EnableCloudwatchLogsExports[0] }}'
+      - name: EnableGlobalWriteForwarding
+        value: '{{ EnableGlobalWriteForwarding }}'
+      - name: EnableHttpEndpoint
+        value: '{{ EnableHttpEndpoint }}'
+      - name: EnableIAMDatabaseAuthentication
+        value: '{{ EnableIAMDatabaseAuthentication }}'
+      - name: Engine
+        value: '{{ Engine }}'
+      - name: EngineMode
+        value: '{{ EngineMode }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: ManageMasterUserPassword
+        value: '{{ ManageMasterUserPassword }}'
+      - name: Iops
+        value: '{{ Iops }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: MasterUsername
+        value: '{{ MasterUsername }}'
+      - name: MasterUserPassword
+        value: '{{ MasterUserPassword }}'
+      - name: MasterUserSecret
+        value:
+          SecretArn: '{{ SecretArn }}'
+          KmsKeyId: '{{ KmsKeyId }}'
+      - name: MonitoringInterval
+        value: '{{ MonitoringInterval }}'
+      - name: MonitoringRoleArn
+        value: '{{ MonitoringRoleArn }}'
+      - name: NetworkType
+        value: '{{ NetworkType }}'
+      - name: PerformanceInsightsEnabled
+        value: '{{ PerformanceInsightsEnabled }}'
+      - name: PerformanceInsightsKmsKeyId
+        value: '{{ PerformanceInsightsKmsKeyId }}'
+      - name: PerformanceInsightsRetentionPeriod
+        value: '{{ PerformanceInsightsRetentionPeriod }}'
+      - name: Port
+        value: '{{ Port }}'
+      - name: PreferredBackupWindow
+        value: '{{ PreferredBackupWindow }}'
+      - name: PreferredMaintenanceWindow
+        value: '{{ PreferredMaintenanceWindow }}'
+      - name: PubliclyAccessible
+        value: '{{ PubliclyAccessible }}'
+      - name: ReplicationSourceIdentifier
+        value: '{{ ReplicationSourceIdentifier }}'
+      - name: RestoreToTime
+        value: '{{ RestoreToTime }}'
+      - name: RestoreType
+        value: '{{ RestoreType }}'
+      - name: ServerlessV2ScalingConfiguration
+        value:
+          MinCapacity: null
+          MaxCapacity: null
+      - name: ScalingConfiguration
+        value:
+          AutoPause: '{{ AutoPause }}'
+          MaxCapacity: '{{ MaxCapacity }}'
+          MinCapacity: '{{ MinCapacity }}'
+          SecondsBeforeTimeout: '{{ SecondsBeforeTimeout }}'
+          SecondsUntilAutoPause: '{{ SecondsUntilAutoPause }}'
+          TimeoutAction: '{{ TimeoutAction }}'
+      - name: SnapshotIdentifier
+        value: '{{ SnapshotIdentifier }}'
+      - name: SourceDBClusterIdentifier
+        value: '{{ SourceDBClusterIdentifier }}'
+      - name: SourceRegion
+        value: '{{ SourceRegion }}'
+      - name: StorageEncrypted
+        value: '{{ StorageEncrypted }}'
+      - name: StorageType
+        value: '{{ StorageType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: UseLatestRestorableTime
+        value: '{{ UseLatestRestorableTime }}'
+      - name: VpcSecurityGroupIds
+        value:
+          - '{{ VpcSecurityGroupIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

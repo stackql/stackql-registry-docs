@@ -74,56 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>verified_access_instance</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VerifiedAccessTrustProviders": [
-  {
-   "TrustProviderType": "{{ TrustProviderType }}",
-   "PolicyReferenceName": "{{ PolicyReferenceName }}"
-  }
- ],
- "VerifiedAccessTrustProviderIds": [
-  "{{ VerifiedAccessTrustProviderIds[0] }}"
- ],
- "Description": "{{ Description }}",
- "LoggingConfigurations": {
-  "LogVersion": "{{ LogVersion }}",
-  "IncludeTrustContext": "{{ IncludeTrustContext }}",
-  "CloudWatchLogs": {
-   "Enabled": "{{ Enabled }}",
-   "LogGroup": "{{ LogGroup }}"
-  },
-  "KinesisDataFirehose": {
-   "Enabled": "{{ Enabled }}",
-   "DeliveryStream": "{{ DeliveryStream }}"
-  },
-  "S3": {
-   "Enabled": "{{ Enabled }}",
-   "BucketName": "{{ BucketName }}",
-   "BucketOwner": "{{ BucketOwner }}",
-   "Prefix": "{{ Prefix }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "FipsEnabled": "{{ FipsEnabled }}"
-}
->>>
---required properties only
+-- verified_access_instance.iql (required properties only)
 INSERT INTO aws.ec2.verified_access_instances (
  VerifiedAccessTrustProviders,
  VerifiedAccessTrustProviderIds,
@@ -134,81 +98,19 @@ INSERT INTO aws.ec2.verified_access_instances (
  region
 )
 SELECT 
-{{ .VerifiedAccessTrustProviders }},
- {{ .VerifiedAccessTrustProviderIds }},
- {{ .Description }},
- {{ .LoggingConfigurations }},
- {{ .Tags }},
- {{ .FipsEnabled }},
-'us-east-1';
+'{{ VerifiedAccessTrustProviders }}',
+ '{{ VerifiedAccessTrustProviderIds }}',
+ '{{ Description }}',
+ '{{ LoggingConfigurations }}',
+ '{{ Tags }}',
+ '{{ FipsEnabled }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VerifiedAccessTrustProviders": [
-  {
-   "TrustProviderType": "{{ TrustProviderType }}",
-   "DeviceTrustProviderType": "{{ DeviceTrustProviderType }}",
-   "UserTrustProviderType": "{{ UserTrustProviderType }}",
-   "OidcOptions": {
-    "Issuer": "{{ Issuer }}",
-    "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-    "TokenEndpoint": "{{ TokenEndpoint }}",
-    "UserInfoEndpoint": "{{ UserInfoEndpoint }}",
-    "ClientId": "{{ ClientId }}",
-    "ClientSecret": "{{ ClientSecret }}",
-    "Scope": "{{ Scope }}"
-   },
-   "DeviceOptions": {
-    "TenantId": "{{ TenantId }}",
-    "PublicSigningKeyUrl": "{{ PublicSigningKeyUrl }}"
-   },
-   "PolicyReferenceName": "{{ PolicyReferenceName }}",
-   "Description": "{{ Description }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "SseSpecification": {
-    "KmsKeyArn": "{{ KmsKeyArn }}",
-    "CustomerManagedKeyEnabled": "{{ CustomerManagedKeyEnabled }}"
-   }
-  }
- ],
- "VerifiedAccessTrustProviderIds": [
-  "{{ VerifiedAccessTrustProviderIds[0] }}"
- ],
- "Description": "{{ Description }}",
- "LoggingConfigurations": {
-  "LogVersion": "{{ LogVersion }}",
-  "IncludeTrustContext": "{{ IncludeTrustContext }}",
-  "CloudWatchLogs": {
-   "Enabled": "{{ Enabled }}",
-   "LogGroup": "{{ LogGroup }}"
-  },
-  "KinesisDataFirehose": {
-   "Enabled": "{{ Enabled }}",
-   "DeliveryStream": "{{ DeliveryStream }}"
-  },
-  "S3": {
-   "Enabled": "{{ Enabled }}",
-   "BucketName": "{{ BucketName }}",
-   "BucketOwner": "{{ BucketOwner }}",
-   "Prefix": "{{ Prefix }}"
-  }
- },
- "Tags": [
-  null
- ],
- "FipsEnabled": "{{ FipsEnabled }}"
-}
->>>
---all properties
+-- verified_access_instance.iql (all properties)
 INSERT INTO aws.ec2.verified_access_instances (
  VerifiedAccessTrustProviders,
  VerifiedAccessTrustProviderIds,
@@ -219,13 +121,79 @@ INSERT INTO aws.ec2.verified_access_instances (
  region
 )
 SELECT 
- {{ .VerifiedAccessTrustProviders }},
- {{ .VerifiedAccessTrustProviderIds }},
- {{ .Description }},
- {{ .LoggingConfigurations }},
- {{ .Tags }},
- {{ .FipsEnabled }},
- 'us-east-1';
+ '{{ VerifiedAccessTrustProviders }}',
+ '{{ VerifiedAccessTrustProviderIds }}',
+ '{{ Description }}',
+ '{{ LoggingConfigurations }}',
+ '{{ Tags }}',
+ '{{ FipsEnabled }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: verified_access_instance
+    props:
+      - name: VerifiedAccessTrustProviders
+        value:
+          - TrustProviderType: '{{ TrustProviderType }}'
+            DeviceTrustProviderType: '{{ DeviceTrustProviderType }}'
+            UserTrustProviderType: '{{ UserTrustProviderType }}'
+            OidcOptions:
+              Issuer: '{{ Issuer }}'
+              AuthorizationEndpoint: '{{ AuthorizationEndpoint }}'
+              TokenEndpoint: '{{ TokenEndpoint }}'
+              UserInfoEndpoint: '{{ UserInfoEndpoint }}'
+              ClientId: '{{ ClientId }}'
+              ClientSecret: '{{ ClientSecret }}'
+              Scope: '{{ Scope }}'
+            DeviceOptions:
+              TenantId: '{{ TenantId }}'
+              PublicSigningKeyUrl: '{{ PublicSigningKeyUrl }}'
+            PolicyReferenceName: '{{ PolicyReferenceName }}'
+            Description: '{{ Description }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+            SseSpecification:
+              KmsKeyArn: '{{ KmsKeyArn }}'
+              CustomerManagedKeyEnabled: '{{ CustomerManagedKeyEnabled }}'
+      - name: VerifiedAccessTrustProviderIds
+        value:
+          - '{{ VerifiedAccessTrustProviderIds[0] }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: LoggingConfigurations
+        value:
+          LogVersion: '{{ LogVersion }}'
+          IncludeTrustContext: '{{ IncludeTrustContext }}'
+          CloudWatchLogs:
+            Enabled: '{{ Enabled }}'
+            LogGroup: '{{ LogGroup }}'
+          KinesisDataFirehose:
+            Enabled: '{{ Enabled }}'
+            DeliveryStream: '{{ DeliveryStream }}'
+          S3:
+            Enabled: '{{ Enabled }}'
+            BucketName: '{{ BucketName }}'
+            BucketOwner: '{{ BucketOwner }}'
+            Prefix: '{{ Prefix }}'
+      - name: Tags
+        value:
+          - null
+      - name: FipsEnabled
+        value: '{{ FipsEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

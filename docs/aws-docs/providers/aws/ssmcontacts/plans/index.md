@@ -74,42 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ContactId": "{{ ContactId }}",
- "Stages": [
-  {
-   "DurationInMinutes": "{{ DurationInMinutes }}",
-   "Targets": [
-    {
-     "ContactTargetInfo": {
-      "ContactId": "{{ ContactId }}",
-      "IsEssential": "{{ IsEssential }}"
-     },
-     "ChannelTargetInfo": {
-      "ChannelId": "{{ ChannelId }}",
-      "RetryIntervalInMinutes": "{{ RetryIntervalInMinutes }}"
-     }
-    }
-   ]
-  }
- ],
- "RotationIds": [
-  "{{ RotationIds[0] }}"
- ]
-}
->>>
---required properties only
+-- plan.iql (required properties only)
 INSERT INTO aws.ssmcontacts.plans (
  ContactId,
  Stages,
@@ -117,41 +95,16 @@ INSERT INTO aws.ssmcontacts.plans (
  region
 )
 SELECT 
-{{ .ContactId }},
- {{ .Stages }},
- {{ .RotationIds }},
-'us-east-1';
+'{{ ContactId }}',
+ '{{ Stages }}',
+ '{{ RotationIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ContactId": "{{ ContactId }}",
- "Stages": [
-  {
-   "DurationInMinutes": "{{ DurationInMinutes }}",
-   "Targets": [
-    {
-     "ContactTargetInfo": {
-      "ContactId": "{{ ContactId }}",
-      "IsEssential": "{{ IsEssential }}"
-     },
-     "ChannelTargetInfo": {
-      "ChannelId": "{{ ChannelId }}",
-      "RetryIntervalInMinutes": "{{ RetryIntervalInMinutes }}"
-     }
-    }
-   ]
-  }
- ],
- "RotationIds": [
-  "{{ RotationIds[0] }}"
- ]
-}
->>>
---all properties
+-- plan.iql (all properties)
 INSERT INTO aws.ssmcontacts.plans (
  ContactId,
  Stages,
@@ -159,10 +112,42 @@ INSERT INTO aws.ssmcontacts.plans (
  region
 )
 SELECT 
- {{ .ContactId }},
- {{ .Stages }},
- {{ .RotationIds }},
- 'us-east-1';
+ '{{ ContactId }}',
+ '{{ Stages }}',
+ '{{ RotationIds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: plan
+    props:
+      - name: ContactId
+        value: '{{ ContactId }}'
+      - name: Stages
+        value:
+          - DurationInMinutes: '{{ DurationInMinutes }}'
+            Targets:
+              - ContactTargetInfo:
+                  ContactId: '{{ ContactId }}'
+                  IsEssential: '{{ IsEssential }}'
+                ChannelTargetInfo:
+                  ChannelId: '{{ ChannelId }}'
+                  RetryIntervalInMinutes: '{{ RetryIntervalInMinutes }}'
+      - name: RotationIds
+        value:
+          - '{{ RotationIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,47 +74,59 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>delegated_admin</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AdminAccountId": "{{ AdminAccountId }}"
-}
->>>
---required properties only
+-- delegated_admin.iql (required properties only)
 INSERT INTO aws.securityhub.delegated_admins (
  AdminAccountId,
  region
 )
 SELECT 
-{{ .AdminAccountId }},
-'us-east-1';
+'{{ AdminAccountId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AdminAccountId": "{{ AdminAccountId }}"
-}
->>>
---all properties
+-- delegated_admin.iql (all properties)
 INSERT INTO aws.securityhub.delegated_admins (
  AdminAccountId,
  region
 )
 SELECT 
- {{ .AdminAccountId }},
- 'us-east-1';
+ '{{ AdminAccountId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: delegated_admin
+    props:
+      - name: AdminAccountId
+        value: '{{ AdminAccountId }}'
+
 ```
 </TabItem>
 </Tabs>

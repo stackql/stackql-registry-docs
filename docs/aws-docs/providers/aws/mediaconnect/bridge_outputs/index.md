@@ -76,30 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>bridge_output</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BridgeArn": "{{ BridgeArn }}",
- "NetworkOutput": {
-  "Protocol": "{{ Protocol }}",
-  "IpAddress": "{{ IpAddress }}",
-  "Port": "{{ Port }}",
-  "NetworkName": "{{ NetworkName }}",
-  "Ttl": "{{ Ttl }}"
- },
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- bridge_output.iql (required properties only)
 INSERT INTO aws.mediaconnect.bridge_outputs (
  BridgeArn,
  NetworkOutput,
@@ -107,29 +97,16 @@ INSERT INTO aws.mediaconnect.bridge_outputs (
  region
 )
 SELECT 
-{{ .BridgeArn }},
- {{ .NetworkOutput }},
- {{ .Name }},
-'us-east-1';
+'{{ BridgeArn }}',
+ '{{ NetworkOutput }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BridgeArn": "{{ BridgeArn }}",
- "NetworkOutput": {
-  "Protocol": "{{ Protocol }}",
-  "IpAddress": "{{ IpAddress }}",
-  "Port": "{{ Port }}",
-  "NetworkName": "{{ NetworkName }}",
-  "Ttl": "{{ Ttl }}"
- },
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- bridge_output.iql (all properties)
 INSERT INTO aws.mediaconnect.bridge_outputs (
  BridgeArn,
  NetworkOutput,
@@ -137,10 +114,38 @@ INSERT INTO aws.mediaconnect.bridge_outputs (
  region
 )
 SELECT 
- {{ .BridgeArn }},
- {{ .NetworkOutput }},
- {{ .Name }},
- 'us-east-1';
+ '{{ BridgeArn }}',
+ '{{ NetworkOutput }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: bridge_output
+    props:
+      - name: BridgeArn
+        value: '{{ BridgeArn }}'
+      - name: NetworkOutput
+        value:
+          Protocol: '{{ Protocol }}'
+          IpAddress: '{{ IpAddress }}'
+          Port: '{{ Port }}'
+          NetworkName: '{{ NetworkName }}'
+          Ttl: '{{ Ttl }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

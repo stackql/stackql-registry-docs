@@ -74,53 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>replica_key</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KeyPolicy": {},
- "PrimaryKeyArn": "{{ PrimaryKeyArn }}"
-}
->>>
---required properties only
+-- replica_key.iql (required properties only)
 INSERT INTO aws.kms.replica_keys (
  KeyPolicy,
  PrimaryKeyArn,
  region
 )
 SELECT 
-{{ .KeyPolicy }},
- {{ .PrimaryKeyArn }},
-'us-east-1';
+'{{ KeyPolicy }}',
+ '{{ PrimaryKeyArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "PendingWindowInDays": "{{ PendingWindowInDays }}",
- "KeyPolicy": {},
- "PrimaryKeyArn": "{{ PrimaryKeyArn }}",
- "Enabled": "{{ Enabled }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- replica_key.iql (all properties)
 INSERT INTO aws.kms.replica_keys (
  Description,
  PendingWindowInDays,
@@ -131,13 +113,44 @@ INSERT INTO aws.kms.replica_keys (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .PendingWindowInDays }},
- {{ .KeyPolicy }},
- {{ .PrimaryKeyArn }},
- {{ .Enabled }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ PendingWindowInDays }}',
+ '{{ KeyPolicy }}',
+ '{{ PrimaryKeyArn }}',
+ '{{ Enabled }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: replica_key
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: PendingWindowInDays
+        value: '{{ PendingWindowInDays }}'
+      - name: KeyPolicy
+        value: {}
+      - name: PrimaryKeyArn
+        value: '{{ PrimaryKeyArn }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

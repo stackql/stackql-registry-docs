@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>module_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ModuleName": "{{ ModuleName }}",
- "ModulePackage": "{{ ModulePackage }}"
-}
->>>
---required properties only
+-- module_version.iql (required properties only)
 INSERT INTO aws.cloudformation.module_versions (
  ModuleName,
  ModulePackage,
  region
 )
 SELECT 
-{{ .ModuleName }},
- {{ .ModulePackage }},
-'us-east-1';
+'{{ ModuleName }}',
+ '{{ ModulePackage }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ModuleName": "{{ ModuleName }}",
- "ModulePackage": "{{ ModulePackage }}"
-}
->>>
---all properties
+-- module_version.iql (all properties)
 INSERT INTO aws.cloudformation.module_versions (
  ModuleName,
  ModulePackage,
  region
 )
 SELECT 
- {{ .ModuleName }},
- {{ .ModulePackage }},
- 'us-east-1';
+ '{{ ModuleName }}',
+ '{{ ModulePackage }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: module_version
+    props:
+      - name: ModuleName
+        value: '{{ ModuleName }}'
+      - name: ModulePackage
+        value: '{{ ModulePackage }}'
+
 ```
 </TabItem>
 </Tabs>

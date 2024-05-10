@@ -74,119 +74,85 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>backup_selection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BackupPlanId": "{{ BackupPlanId }}",
- "BackupSelection": {
-  "IamRoleArn": "{{ IamRoleArn }}",
-  "ListOfTags": [
-   {
-    "ConditionKey": "{{ ConditionKey }}",
-    "ConditionValue": "{{ ConditionValue }}",
-    "ConditionType": "{{ ConditionType }}"
-   }
-  ],
-  "Resources": [
-   "{{ Resources[0] }}"
-  ],
-  "SelectionName": "{{ SelectionName }}",
-  "NotResources": [
-   "{{ NotResources[0] }}"
-  ],
-  "Conditions": {
-   "StringEquals": [
-    {
-     "ConditionKey": "{{ ConditionKey }}",
-     "ConditionValue": "{{ ConditionValue }}"
-    }
-   ],
-   "StringNotEquals": [
-    null
-   ],
-   "StringLike": [
-    null
-   ],
-   "StringNotLike": [
-    null
-   ]
-  }
- }
-}
->>>
---required properties only
+-- backup_selection.iql (required properties only)
 INSERT INTO aws.backup.backup_selections (
  BackupPlanId,
  BackupSelection,
  region
 )
 SELECT 
-{{ .BackupPlanId }},
- {{ .BackupSelection }},
-'us-east-1';
+'{{ BackupPlanId }}',
+ '{{ BackupSelection }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BackupPlanId": "{{ BackupPlanId }}",
- "BackupSelection": {
-  "IamRoleArn": "{{ IamRoleArn }}",
-  "ListOfTags": [
-   {
-    "ConditionKey": "{{ ConditionKey }}",
-    "ConditionValue": "{{ ConditionValue }}",
-    "ConditionType": "{{ ConditionType }}"
-   }
-  ],
-  "Resources": [
-   "{{ Resources[0] }}"
-  ],
-  "SelectionName": "{{ SelectionName }}",
-  "NotResources": [
-   "{{ NotResources[0] }}"
-  ],
-  "Conditions": {
-   "StringEquals": [
-    {
-     "ConditionKey": "{{ ConditionKey }}",
-     "ConditionValue": "{{ ConditionValue }}"
-    }
-   ],
-   "StringNotEquals": [
-    null
-   ],
-   "StringLike": [
-    null
-   ],
-   "StringNotLike": [
-    null
-   ]
-  }
- }
-}
->>>
---all properties
+-- backup_selection.iql (all properties)
 INSERT INTO aws.backup.backup_selections (
  BackupPlanId,
  BackupSelection,
  region
 )
 SELECT 
- {{ .BackupPlanId }},
- {{ .BackupSelection }},
- 'us-east-1';
+ '{{ BackupPlanId }}',
+ '{{ BackupSelection }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: backup_selection
+    props:
+      - name: BackupPlanId
+        value: '{{ BackupPlanId }}'
+      - name: BackupSelection
+        value:
+          IamRoleArn: '{{ IamRoleArn }}'
+          ListOfTags:
+            - ConditionKey: '{{ ConditionKey }}'
+              ConditionValue: '{{ ConditionValue }}'
+              ConditionType: '{{ ConditionType }}'
+          Resources:
+            - '{{ Resources[0] }}'
+          SelectionName: '{{ SelectionName }}'
+          NotResources:
+            - '{{ NotResources[0] }}'
+          Conditions:
+            StringEquals:
+              - ConditionKey: '{{ ConditionKey }}'
+                ConditionValue: '{{ ConditionValue }}'
+            StringNotEquals:
+              - null
+            StringLike:
+              - null
+            StringNotLike:
+              - null
+
 ```
 </TabItem>
 </Tabs>

@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}",
- "VpcId": "{{ VpcId }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ]
-}
->>>
---required properties only
+-- transit_gateway_attachment.iql (required properties only)
 INSERT INTO aws.ec2.transit_gateway_attachments (
  TransitGatewayId,
  VpcId,
@@ -101,37 +95,16 @@ INSERT INTO aws.ec2.transit_gateway_attachments (
  region
 )
 SELECT 
-{{ .TransitGatewayId }},
- {{ .VpcId }},
- {{ .SubnetIds }},
-'us-east-1';
+'{{ TransitGatewayId }}',
+ '{{ VpcId }}',
+ '{{ SubnetIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}",
- "VpcId": "{{ VpcId }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Options": {
-  "DnsSupport": "{{ DnsSupport }}",
-  "Ipv6Support": "{{ Ipv6Support }}",
-  "ApplianceModeSupport": "{{ ApplianceModeSupport }}",
-  "SecurityGroupReferencingSupport": "{{ SecurityGroupReferencingSupport }}"
- }
-}
->>>
---all properties
+-- transit_gateway_attachment.iql (all properties)
 INSERT INTO aws.ec2.transit_gateway_attachments (
  TransitGatewayId,
  VpcId,
@@ -141,12 +114,46 @@ INSERT INTO aws.ec2.transit_gateway_attachments (
  region
 )
 SELECT 
- {{ .TransitGatewayId }},
- {{ .VpcId }},
- {{ .SubnetIds }},
- {{ .Tags }},
- {{ .Options }},
- 'us-east-1';
+ '{{ TransitGatewayId }}',
+ '{{ VpcId }}',
+ '{{ SubnetIds }}',
+ '{{ Tags }}',
+ '{{ Options }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway_attachment
+    props:
+      - name: TransitGatewayId
+        value: '{{ TransitGatewayId }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Options
+        value:
+          DnsSupport: '{{ DnsSupport }}'
+          Ipv6Support: '{{ Ipv6Support }}'
+          ApplianceModeSupport: '{{ ApplianceModeSupport }}'
+          SecurityGroupReferencingSupport: '{{ SecurityGroupReferencingSupport }}'
+
 ```
 </TabItem>
 </Tabs>

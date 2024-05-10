@@ -76,45 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>master</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MasterId": "{{ MasterId }}",
- "DetectorId": "{{ DetectorId }}"
-}
->>>
---required properties only
+-- master.iql (required properties only)
 INSERT INTO aws.guardduty.masters (
  MasterId,
  DetectorId,
  region
 )
 SELECT 
-{{ .MasterId }},
- {{ .DetectorId }},
-'us-east-1';
+'{{ MasterId }}',
+ '{{ DetectorId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MasterId": "{{ MasterId }}",
- "InvitationId": "{{ InvitationId }}",
- "DetectorId": "{{ DetectorId }}"
-}
->>>
---all properties
+-- master.iql (all properties)
 INSERT INTO aws.guardduty.masters (
  MasterId,
  InvitationId,
@@ -122,10 +112,33 @@ INSERT INTO aws.guardduty.masters (
  region
 )
 SELECT 
- {{ .MasterId }},
- {{ .InvitationId }},
- {{ .DetectorId }},
- 'us-east-1';
+ '{{ MasterId }}',
+ '{{ InvitationId }}',
+ '{{ DetectorId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: master
+    props:
+      - name: MasterId
+        value: '{{ MasterId }}'
+      - name: InvitationId
+        value: '{{ InvitationId }}'
+      - name: DetectorId
+        value: '{{ DetectorId }}'
+
 ```
 </TabItem>
 </Tabs>

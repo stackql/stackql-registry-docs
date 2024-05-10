@@ -76,50 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>lifecycle_hook</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
- "LifecycleTransition": "{{ LifecycleTransition }}"
-}
->>>
---required properties only
+-- lifecycle_hook.iql (required properties only)
 INSERT INTO aws.autoscaling.lifecycle_hooks (
  AutoScalingGroupName,
  LifecycleTransition,
  region
 )
 SELECT 
-{{ .AutoScalingGroupName }},
- {{ .LifecycleTransition }},
-'us-east-1';
+'{{ AutoScalingGroupName }}',
+ '{{ LifecycleTransition }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
- "DefaultResult": "{{ DefaultResult }}",
- "HeartbeatTimeout": "{{ HeartbeatTimeout }}",
- "LifecycleHookName": "{{ LifecycleHookName }}",
- "LifecycleTransition": "{{ LifecycleTransition }}",
- "NotificationMetadata": "{{ NotificationMetadata }}",
- "NotificationTargetARN": "{{ NotificationTargetARN }}",
- "RoleARN": "{{ RoleARN }}"
-}
->>>
---all properties
+-- lifecycle_hook.iql (all properties)
 INSERT INTO aws.autoscaling.lifecycle_hooks (
  AutoScalingGroupName,
  DefaultResult,
@@ -132,15 +117,48 @@ INSERT INTO aws.autoscaling.lifecycle_hooks (
  region
 )
 SELECT 
- {{ .AutoScalingGroupName }},
- {{ .DefaultResult }},
- {{ .HeartbeatTimeout }},
- {{ .LifecycleHookName }},
- {{ .LifecycleTransition }},
- {{ .NotificationMetadata }},
- {{ .NotificationTargetARN }},
- {{ .RoleARN }},
- 'us-east-1';
+ '{{ AutoScalingGroupName }}',
+ '{{ DefaultResult }}',
+ '{{ HeartbeatTimeout }}',
+ '{{ LifecycleHookName }}',
+ '{{ LifecycleTransition }}',
+ '{{ NotificationMetadata }}',
+ '{{ NotificationTargetARN }}',
+ '{{ RoleARN }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: lifecycle_hook
+    props:
+      - name: AutoScalingGroupName
+        value: '{{ AutoScalingGroupName }}'
+      - name: DefaultResult
+        value: '{{ DefaultResult }}'
+      - name: HeartbeatTimeout
+        value: '{{ HeartbeatTimeout }}'
+      - name: LifecycleHookName
+        value: '{{ LifecycleHookName }}'
+      - name: LifecycleTransition
+        value: '{{ LifecycleTransition }}'
+      - name: NotificationMetadata
+        value: '{{ NotificationMetadata }}'
+      - name: NotificationTargetARN
+        value: '{{ NotificationTargetARN }}'
+      - name: RoleARN
+        value: '{{ RoleARN }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,62 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>url</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TargetFunctionArn": "{{ TargetFunctionArn }}",
- "AuthType": "{{ AuthType }}"
-}
->>>
---required properties only
+-- url.iql (required properties only)
 INSERT INTO aws.lambda.urls (
  TargetFunctionArn,
  AuthType,
  region
 )
 SELECT 
-{{ .TargetFunctionArn }},
- {{ .AuthType }},
-'us-east-1';
+'{{ TargetFunctionArn }}',
+ '{{ AuthType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TargetFunctionArn": "{{ TargetFunctionArn }}",
- "Qualifier": "{{ Qualifier }}",
- "AuthType": "{{ AuthType }}",
- "InvokeMode": "{{ InvokeMode }}",
- "Cors": {
-  "AllowCredentials": "{{ AllowCredentials }}",
-  "AllowHeaders": [
-   "{{ AllowHeaders[0] }}"
-  ],
-  "AllowMethods": [
-   "{{ AllowMethods[0] }}"
-  ],
-  "AllowOrigins": [
-   "{{ AllowOrigins[0] }}"
-  ],
-  "ExposeHeaders": [
-   "{{ ExposeHeaders[0] }}"
-  ],
-  "MaxAge": "{{ MaxAge }}"
- }
-}
->>>
---all properties
+-- url.iql (all properties)
 INSERT INTO aws.lambda.urls (
  TargetFunctionArn,
  Qualifier,
@@ -139,12 +112,49 @@ INSERT INTO aws.lambda.urls (
  region
 )
 SELECT 
- {{ .TargetFunctionArn }},
- {{ .Qualifier }},
- {{ .AuthType }},
- {{ .InvokeMode }},
- {{ .Cors }},
- 'us-east-1';
+ '{{ TargetFunctionArn }}',
+ '{{ Qualifier }}',
+ '{{ AuthType }}',
+ '{{ InvokeMode }}',
+ '{{ Cors }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: url
+    props:
+      - name: TargetFunctionArn
+        value: '{{ TargetFunctionArn }}'
+      - name: Qualifier
+        value: '{{ Qualifier }}'
+      - name: AuthType
+        value: '{{ AuthType }}'
+      - name: InvokeMode
+        value: '{{ InvokeMode }}'
+      - name: Cors
+        value:
+          AllowCredentials: '{{ AllowCredentials }}'
+          AllowHeaders:
+            - '{{ AllowHeaders[0] }}'
+          AllowMethods:
+            - '{{ AllowMethods[0] }}'
+          AllowOrigins:
+            - '{{ AllowOrigins[0] }}'
+          ExposeHeaders:
+            - '{{ ExposeHeaders[0] }}'
+          MaxAge: '{{ MaxAge }}'
+
 ```
 </TabItem>
 </Tabs>

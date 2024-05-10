@@ -74,168 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceGroupName": "{{ ResourceGroupName }}"
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.applicationinsights.applications (
  ResourceGroupName,
  region
 )
 SELECT 
-{{ .ResourceGroupName }},
-'us-east-1';
+'{{ ResourceGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceGroupName": "{{ ResourceGroupName }}",
- "CWEMonitorEnabled": "{{ CWEMonitorEnabled }}",
- "OpsCenterEnabled": "{{ OpsCenterEnabled }}",
- "OpsItemSNSTopicArn": "{{ OpsItemSNSTopicArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CustomComponents": [
-  {
-   "ComponentName": "{{ ComponentName }}",
-   "ResourceList": [
-    "{{ ResourceList[0] }}"
-   ]
-  }
- ],
- "LogPatternSets": [
-  {
-   "PatternSetName": "{{ PatternSetName }}",
-   "LogPatterns": [
-    {
-     "PatternName": "{{ PatternName }}",
-     "Pattern": "{{ Pattern }}",
-     "Rank": "{{ Rank }}"
-    }
-   ]
-  }
- ],
- "AutoConfigurationEnabled": "{{ AutoConfigurationEnabled }}",
- "ComponentMonitoringSettings": [
-  {
-   "ComponentName": "{{ ComponentName }}",
-   "ComponentARN": "{{ ComponentARN }}",
-   "Tier": "{{ Tier }}",
-   "ComponentConfigurationMode": "{{ ComponentConfigurationMode }}",
-   "DefaultOverwriteComponentConfiguration": {
-    "ConfigurationDetails": {
-     "AlarmMetrics": [
-      {
-       "AlarmMetricName": "{{ AlarmMetricName }}"
-      }
-     ],
-     "Logs": [
-      {
-       "LogGroupName": "{{ LogGroupName }}",
-       "LogPath": "{{ LogPath }}",
-       "LogType": "{{ LogType }}",
-       "Encoding": "{{ Encoding }}",
-       "PatternSet": "{{ PatternSet }}"
-      }
-     ],
-     "WindowsEvents": [
-      {
-       "LogGroupName": "{{ LogGroupName }}",
-       "EventName": "{{ EventName }}",
-       "EventLevels": [
-        "{{ EventLevels[0] }}"
-       ],
-       "PatternSet": "{{ PatternSet }}"
-      }
-     ],
-     "Processes": [
-      {
-       "ProcessName": "{{ ProcessName }}",
-       "AlarmMetrics": [
-        null
-       ]
-      }
-     ],
-     "Alarms": [
-      {
-       "AlarmName": "{{ AlarmName }}",
-       "Severity": "{{ Severity }}"
-      }
-     ],
-     "JMXPrometheusExporter": {
-      "JMXURL": "{{ JMXURL }}",
-      "HostPort": "{{ HostPort }}",
-      "PrometheusPort": "{{ PrometheusPort }}"
-     },
-     "HANAPrometheusExporter": {
-      "HANASID": "{{ HANASID }}",
-      "HANAPort": "{{ HANAPort }}",
-      "HANASecretName": "{{ HANASecretName }}",
-      "AgreeToInstallHANADBClient": "{{ AgreeToInstallHANADBClient }}",
-      "PrometheusPort": "{{ PrometheusPort }}"
-     },
-     "HAClusterPrometheusExporter": {
-      "PrometheusPort": "{{ PrometheusPort }}"
-     },
-     "NetWeaverPrometheusExporter": {
-      "SAPSID": "{{ SAPSID }}",
-      "InstanceNumbers": [
-       "{{ InstanceNumbers[0] }}"
-      ],
-      "PrometheusPort": "{{ PrometheusPort }}"
-     },
-     "SQLServerPrometheusExporter": {
-      "PrometheusPort": "{{ PrometheusPort }}",
-      "SQLSecretName": "{{ SQLSecretName }}"
-     }
-    },
-    "SubComponentTypeConfigurations": [
-     {
-      "SubComponentType": "{{ SubComponentType }}",
-      "SubComponentConfigurationDetails": {
-       "AlarmMetrics": [
-        null
-       ],
-       "Logs": [
-        null
-       ],
-       "WindowsEvents": [
-        null
-       ],
-       "Processes": [
-        null
-       ]
-      }
-     }
-    ]
-   },
-   "CustomComponentConfiguration": null
-  }
- ],
- "GroupingType": "{{ GroupingType }}",
- "AttachMissingPermission": "{{ AttachMissingPermission }}"
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.applicationinsights.applications (
  ResourceGroupName,
  CWEMonitorEnabled,
@@ -251,18 +116,126 @@ INSERT INTO aws.applicationinsights.applications (
  region
 )
 SELECT 
- {{ .ResourceGroupName }},
- {{ .CWEMonitorEnabled }},
- {{ .OpsCenterEnabled }},
- {{ .OpsItemSNSTopicArn }},
- {{ .Tags }},
- {{ .CustomComponents }},
- {{ .LogPatternSets }},
- {{ .AutoConfigurationEnabled }},
- {{ .ComponentMonitoringSettings }},
- {{ .GroupingType }},
- {{ .AttachMissingPermission }},
- 'us-east-1';
+ '{{ ResourceGroupName }}',
+ '{{ CWEMonitorEnabled }}',
+ '{{ OpsCenterEnabled }}',
+ '{{ OpsItemSNSTopicArn }}',
+ '{{ Tags }}',
+ '{{ CustomComponents }}',
+ '{{ LogPatternSets }}',
+ '{{ AutoConfigurationEnabled }}',
+ '{{ ComponentMonitoringSettings }}',
+ '{{ GroupingType }}',
+ '{{ AttachMissingPermission }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: ResourceGroupName
+        value: '{{ ResourceGroupName }}'
+      - name: CWEMonitorEnabled
+        value: '{{ CWEMonitorEnabled }}'
+      - name: OpsCenterEnabled
+        value: '{{ OpsCenterEnabled }}'
+      - name: OpsItemSNSTopicArn
+        value: '{{ OpsItemSNSTopicArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CustomComponents
+        value:
+          - ComponentName: '{{ ComponentName }}'
+            ResourceList:
+              - '{{ ResourceList[0] }}'
+      - name: LogPatternSets
+        value:
+          - PatternSetName: '{{ PatternSetName }}'
+            LogPatterns:
+              - PatternName: '{{ PatternName }}'
+                Pattern: '{{ Pattern }}'
+                Rank: '{{ Rank }}'
+      - name: AutoConfigurationEnabled
+        value: '{{ AutoConfigurationEnabled }}'
+      - name: ComponentMonitoringSettings
+        value:
+          - ComponentName: '{{ ComponentName }}'
+            ComponentARN: '{{ ComponentARN }}'
+            Tier: '{{ Tier }}'
+            ComponentConfigurationMode: '{{ ComponentConfigurationMode }}'
+            DefaultOverwriteComponentConfiguration:
+              ConfigurationDetails:
+                AlarmMetrics:
+                  - AlarmMetricName: '{{ AlarmMetricName }}'
+                Logs:
+                  - LogGroupName: '{{ LogGroupName }}'
+                    LogPath: '{{ LogPath }}'
+                    LogType: '{{ LogType }}'
+                    Encoding: '{{ Encoding }}'
+                    PatternSet: '{{ PatternSet }}'
+                WindowsEvents:
+                  - LogGroupName: '{{ LogGroupName }}'
+                    EventName: '{{ EventName }}'
+                    EventLevels:
+                      - '{{ EventLevels[0] }}'
+                    PatternSet: '{{ PatternSet }}'
+                Processes:
+                  - ProcessName: '{{ ProcessName }}'
+                    AlarmMetrics:
+                      - null
+                Alarms:
+                  - AlarmName: '{{ AlarmName }}'
+                    Severity: '{{ Severity }}'
+                JMXPrometheusExporter:
+                  JMXURL: '{{ JMXURL }}'
+                  HostPort: '{{ HostPort }}'
+                  PrometheusPort: '{{ PrometheusPort }}'
+                HANAPrometheusExporter:
+                  HANASID: '{{ HANASID }}'
+                  HANAPort: '{{ HANAPort }}'
+                  HANASecretName: '{{ HANASecretName }}'
+                  AgreeToInstallHANADBClient: '{{ AgreeToInstallHANADBClient }}'
+                  PrometheusPort: '{{ PrometheusPort }}'
+                HAClusterPrometheusExporter:
+                  PrometheusPort: '{{ PrometheusPort }}'
+                NetWeaverPrometheusExporter:
+                  SAPSID: '{{ SAPSID }}'
+                  InstanceNumbers:
+                    - '{{ InstanceNumbers[0] }}'
+                  PrometheusPort: '{{ PrometheusPort }}'
+                SQLServerPrometheusExporter:
+                  PrometheusPort: '{{ PrometheusPort }}'
+                  SQLSecretName: '{{ SQLSecretName }}'
+              SubComponentTypeConfigurations:
+                - SubComponentType: '{{ SubComponentType }}'
+                  SubComponentConfigurationDetails:
+                    AlarmMetrics:
+                      - null
+                    Logs:
+                      - null
+                    WindowsEvents:
+                      - null
+                    Processes:
+                      - null
+            CustomComponentConfiguration: null
+      - name: GroupingType
+        value: '{{ GroupingType }}'
+      - name: AttachMissingPermission
+        value: '{{ AttachMissingPermission }}'
+
 ```
 </TabItem>
 </Tabs>

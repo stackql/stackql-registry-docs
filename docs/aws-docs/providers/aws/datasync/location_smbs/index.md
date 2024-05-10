@@ -74,61 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>location_smb</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AgentArns": [
-  "{{ AgentArns[0] }}"
- ],
- "User": "{{ User }}"
-}
->>>
---required properties only
+-- location_smb.iql (required properties only)
 INSERT INTO aws.datasync.location_smbs (
  AgentArns,
  User,
  region
 )
 SELECT 
-{{ .AgentArns }},
- {{ .User }},
-'us-east-1';
+'{{ AgentArns }}',
+ '{{ User }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AgentArns": [
-  "{{ AgentArns[0] }}"
- ],
- "Domain": "{{ Domain }}",
- "MountOptions": {
-  "Version": "{{ Version }}"
- },
- "Password": "{{ Password }}",
- "ServerHostname": "{{ ServerHostname }}",
- "Subdirectory": "{{ Subdirectory }}",
- "User": "{{ User }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- location_smb.iql (all properties)
 INSERT INTO aws.datasync.location_smbs (
  AgentArns,
  Domain,
@@ -141,15 +115,52 @@ INSERT INTO aws.datasync.location_smbs (
  region
 )
 SELECT 
- {{ .AgentArns }},
- {{ .Domain }},
- {{ .MountOptions }},
- {{ .Password }},
- {{ .ServerHostname }},
- {{ .Subdirectory }},
- {{ .User }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AgentArns }}',
+ '{{ Domain }}',
+ '{{ MountOptions }}',
+ '{{ Password }}',
+ '{{ ServerHostname }}',
+ '{{ Subdirectory }}',
+ '{{ User }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: location_smb
+    props:
+      - name: AgentArns
+        value:
+          - '{{ AgentArns[0] }}'
+      - name: Domain
+        value: '{{ Domain }}'
+      - name: MountOptions
+        value:
+          Version: '{{ Version }}'
+      - name: Password
+        value: '{{ Password }}'
+      - name: ServerHostname
+        value: '{{ ServerHostname }}'
+      - name: Subdirectory
+        value: '{{ Subdirectory }}'
+      - name: User
+        value: '{{ User }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

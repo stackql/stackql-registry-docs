@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cluster</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "NodeType": "{{ NodeType }}",
- "ACLName": "{{ ACLName }}"
-}
->>>
---required properties only
+-- cluster.iql (required properties only)
 INSERT INTO aws.memorydb.clusters (
  ClusterName,
  NodeType,
@@ -99,57 +95,16 @@ INSERT INTO aws.memorydb.clusters (
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .NodeType }},
- {{ .ACLName }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ NodeType }}',
+ '{{ ACLName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "Description": "{{ Description }}",
- "NodeType": "{{ NodeType }}",
- "NumShards": "{{ NumShards }}",
- "NumReplicasPerShard": "{{ NumReplicasPerShard }}",
- "SubnetGroupName": "{{ SubnetGroupName }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "MaintenanceWindow": "{{ MaintenanceWindow }}",
- "ParameterGroupName": "{{ ParameterGroupName }}",
- "Port": "{{ Port }}",
- "SnapshotRetentionLimit": "{{ SnapshotRetentionLimit }}",
- "SnapshotWindow": "{{ SnapshotWindow }}",
- "ACLName": "{{ ACLName }}",
- "SnsTopicArn": "{{ SnsTopicArn }}",
- "SnsTopicStatus": "{{ SnsTopicStatus }}",
- "TLSEnabled": "{{ TLSEnabled }}",
- "DataTiering": "{{ DataTiering }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "SnapshotArns": [
-  "{{ SnapshotArns[0] }}"
- ],
- "SnapshotName": "{{ SnapshotName }}",
- "FinalSnapshotName": "{{ FinalSnapshotName }}",
- "EngineVersion": "{{ EngineVersion }}",
- "ClusterEndpoint": {
-  "Address": "{{ Address }}",
-  "Port": "{{ Port }}"
- },
- "AutoMinorVersionUpgrade": "{{ AutoMinorVersionUpgrade }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- cluster.iql (all properties)
 INSERT INTO aws.memorydb.clusters (
  ClusterName,
  Description,
@@ -179,32 +134,105 @@ INSERT INTO aws.memorydb.clusters (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .Description }},
- {{ .NodeType }},
- {{ .NumShards }},
- {{ .NumReplicasPerShard }},
- {{ .SubnetGroupName }},
- {{ .SecurityGroupIds }},
- {{ .MaintenanceWindow }},
- {{ .ParameterGroupName }},
- {{ .Port }},
- {{ .SnapshotRetentionLimit }},
- {{ .SnapshotWindow }},
- {{ .ACLName }},
- {{ .SnsTopicArn }},
- {{ .SnsTopicStatus }},
- {{ .TLSEnabled }},
- {{ .DataTiering }},
- {{ .KmsKeyId }},
- {{ .SnapshotArns }},
- {{ .SnapshotName }},
- {{ .FinalSnapshotName }},
- {{ .EngineVersion }},
- {{ .ClusterEndpoint }},
- {{ .AutoMinorVersionUpgrade }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ Description }}',
+ '{{ NodeType }}',
+ '{{ NumShards }}',
+ '{{ NumReplicasPerShard }}',
+ '{{ SubnetGroupName }}',
+ '{{ SecurityGroupIds }}',
+ '{{ MaintenanceWindow }}',
+ '{{ ParameterGroupName }}',
+ '{{ Port }}',
+ '{{ SnapshotRetentionLimit }}',
+ '{{ SnapshotWindow }}',
+ '{{ ACLName }}',
+ '{{ SnsTopicArn }}',
+ '{{ SnsTopicStatus }}',
+ '{{ TLSEnabled }}',
+ '{{ DataTiering }}',
+ '{{ KmsKeyId }}',
+ '{{ SnapshotArns }}',
+ '{{ SnapshotName }}',
+ '{{ FinalSnapshotName }}',
+ '{{ EngineVersion }}',
+ '{{ ClusterEndpoint }}',
+ '{{ AutoMinorVersionUpgrade }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cluster
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: NodeType
+        value: '{{ NodeType }}'
+      - name: NumShards
+        value: '{{ NumShards }}'
+      - name: NumReplicasPerShard
+        value: '{{ NumReplicasPerShard }}'
+      - name: SubnetGroupName
+        value: '{{ SubnetGroupName }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: MaintenanceWindow
+        value: '{{ MaintenanceWindow }}'
+      - name: ParameterGroupName
+        value: '{{ ParameterGroupName }}'
+      - name: Port
+        value: '{{ Port }}'
+      - name: SnapshotRetentionLimit
+        value: '{{ SnapshotRetentionLimit }}'
+      - name: SnapshotWindow
+        value: '{{ SnapshotWindow }}'
+      - name: ACLName
+        value: '{{ ACLName }}'
+      - name: SnsTopicArn
+        value: '{{ SnsTopicArn }}'
+      - name: SnsTopicStatus
+        value: '{{ SnsTopicStatus }}'
+      - name: TLSEnabled
+        value: '{{ TLSEnabled }}'
+      - name: DataTiering
+        value: '{{ DataTiering }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: SnapshotArns
+        value:
+          - '{{ SnapshotArns[0] }}'
+      - name: SnapshotName
+        value: '{{ SnapshotName }}'
+      - name: FinalSnapshotName
+        value: '{{ FinalSnapshotName }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: ClusterEndpoint
+        value:
+          Address: '{{ Address }}'
+          Port: '{{ Port }}'
+      - name: AutoMinorVersionUpgrade
+        value: '{{ AutoMinorVersionUpgrade }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

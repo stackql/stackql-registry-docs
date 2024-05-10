@@ -74,78 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pipeline</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- pipeline.iql (required properties only)
 INSERT INTO aws.datapipeline.pipelines (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Activate": "{{ Activate }}",
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "ParameterObjects": [
-  {
-   "Attributes": [
-    {
-     "Key": "{{ Key }}",
-     "StringValue": "{{ StringValue }}"
-    }
-   ],
-   "Id": "{{ Id }}"
-  }
- ],
- "ParameterValues": [
-  {
-   "Id": "{{ Id }}",
-   "StringValue": "{{ StringValue }}"
-  }
- ],
- "PipelineObjects": [
-  {
-   "Fields": [
-    {
-     "Key": "{{ Key }}",
-     "RefValue": "{{ RefValue }}",
-     "StringValue": "{{ StringValue }}"
-    }
-   ],
-   "Id": "{{ Id }}",
-   "Name": "{{ Name }}"
-  }
- ],
- "PipelineTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- pipeline.iql (all properties)
 INSERT INTO aws.datapipeline.pipelines (
  Activate,
  Description,
@@ -157,14 +112,59 @@ INSERT INTO aws.datapipeline.pipelines (
  region
 )
 SELECT 
- {{ .Activate }},
- {{ .Description }},
- {{ .Name }},
- {{ .ParameterObjects }},
- {{ .ParameterValues }},
- {{ .PipelineObjects }},
- {{ .PipelineTags }},
- 'us-east-1';
+ '{{ Activate }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ ParameterObjects }}',
+ '{{ ParameterValues }}',
+ '{{ PipelineObjects }}',
+ '{{ PipelineTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pipeline
+    props:
+      - name: Activate
+        value: '{{ Activate }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ParameterObjects
+        value:
+          - Attributes:
+              - Key: '{{ Key }}'
+                StringValue: '{{ StringValue }}'
+            Id: '{{ Id }}'
+      - name: ParameterValues
+        value:
+          - Id: '{{ Id }}'
+            StringValue: '{{ StringValue }}'
+      - name: PipelineObjects
+        value:
+          - Fields:
+              - Key: '{{ Key }}'
+                RefValue: '{{ RefValue }}'
+                StringValue: '{{ StringValue }}'
+            Id: '{{ Id }}'
+            Name: '{{ Name }}'
+      - name: PipelineTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

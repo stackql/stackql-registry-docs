@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>security_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Policy": "{{ Policy }}",
- "Name": "{{ Name }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- security_policy.iql (required properties only)
 INSERT INTO aws.opensearchserverless.security_policies (
  Policy,
  Name,
@@ -101,24 +97,16 @@ INSERT INTO aws.opensearchserverless.security_policies (
  region
 )
 SELECT 
-{{ .Policy }},
- {{ .Name }},
- {{ .Type }},
-'us-east-1';
+'{{ Policy }}',
+ '{{ Name }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Policy": "{{ Policy }}",
- "Name": "{{ Name }}",
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- security_policy.iql (all properties)
 INSERT INTO aws.opensearchserverless.security_policies (
  Description,
  Policy,
@@ -127,11 +115,36 @@ INSERT INTO aws.opensearchserverless.security_policies (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Policy }},
- {{ .Name }},
- {{ .Type }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Policy }}',
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: security_policy
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Policy
+        value: '{{ Policy }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

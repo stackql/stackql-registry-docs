@@ -76,71 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>table</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DatabaseName": "{{ DatabaseName }}"
-}
->>>
---required properties only
+-- table.iql (required properties only)
 INSERT INTO aws.timestream.tables (
  DatabaseName,
  region
 )
 SELECT 
-{{ .DatabaseName }},
-'us-east-1';
+'{{ DatabaseName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DatabaseName": "{{ DatabaseName }}",
- "TableName": "{{ TableName }}",
- "RetentionProperties": {
-  "MemoryStoreRetentionPeriodInHours": "{{ MemoryStoreRetentionPeriodInHours }}",
-  "MagneticStoreRetentionPeriodInDays": "{{ MagneticStoreRetentionPeriodInDays }}"
- },
- "Schema": {
-  "CompositePartitionKey": [
-   {
-    "Type": "{{ Type }}",
-    "Name": "{{ Name }}",
-    "EnforcementInRecord": "{{ EnforcementInRecord }}"
-   }
-  ]
- },
- "MagneticStoreWriteProperties": {
-  "EnableMagneticStoreWrites": "{{ EnableMagneticStoreWrites }}",
-  "MagneticStoreRejectedDataLocation": {
-   "S3Configuration": {
-    "BucketName": "{{ BucketName }}",
-    "ObjectKeyPrefix": "{{ ObjectKeyPrefix }}",
-    "EncryptionOption": "{{ EncryptionOption }}",
-    "KmsKeyId": "{{ KmsKeyId }}"
-   }
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- table.iql (all properties)
 INSERT INTO aws.timestream.tables (
  DatabaseName,
  TableName,
@@ -151,13 +113,57 @@ INSERT INTO aws.timestream.tables (
  region
 )
 SELECT 
- {{ .DatabaseName }},
- {{ .TableName }},
- {{ .RetentionProperties }},
- {{ .Schema }},
- {{ .MagneticStoreWriteProperties }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DatabaseName }}',
+ '{{ TableName }}',
+ '{{ RetentionProperties }}',
+ '{{ Schema }}',
+ '{{ MagneticStoreWriteProperties }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: table
+    props:
+      - name: DatabaseName
+        value: '{{ DatabaseName }}'
+      - name: TableName
+        value: '{{ TableName }}'
+      - name: RetentionProperties
+        value:
+          MemoryStoreRetentionPeriodInHours: '{{ MemoryStoreRetentionPeriodInHours }}'
+          MagneticStoreRetentionPeriodInDays: '{{ MagneticStoreRetentionPeriodInDays }}'
+      - name: Schema
+        value:
+          CompositePartitionKey:
+            - Type: '{{ Type }}'
+              Name: '{{ Name }}'
+              EnforcementInRecord: '{{ EnforcementInRecord }}'
+      - name: MagneticStoreWriteProperties
+        value:
+          EnableMagneticStoreWrites: '{{ EnableMagneticStoreWrites }}'
+          MagneticStoreRejectedDataLocation:
+            S3Configuration:
+              BucketName: '{{ BucketName }}'
+              ObjectKeyPrefix: '{{ ObjectKeyPrefix }}'
+              EncryptionOption: '{{ EncryptionOption }}'
+              KmsKeyId: '{{ KmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,50 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>channel</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- channel.iql (required properties only)
 INSERT INTO aws.ivs.channels (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Authorized": "{{ Authorized }}",
- "InsecureIngest": "{{ InsecureIngest }}",
- "LatencyMode": "{{ LatencyMode }}",
- "Type": "{{ Type }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "RecordingConfigurationArn": "{{ RecordingConfigurationArn }}",
- "Preset": "{{ Preset }}"
-}
->>>
---all properties
+-- channel.iql (all properties)
 INSERT INTO aws.ivs.channels (
  Name,
  Authorized,
@@ -130,15 +113,50 @@ INSERT INTO aws.ivs.channels (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Authorized }},
- {{ .InsecureIngest }},
- {{ .LatencyMode }},
- {{ .Type }},
- {{ .Tags }},
- {{ .RecordingConfigurationArn }},
- {{ .Preset }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Authorized }}',
+ '{{ InsecureIngest }}',
+ '{{ LatencyMode }}',
+ '{{ Type }}',
+ '{{ Tags }}',
+ '{{ RecordingConfigurationArn }}',
+ '{{ Preset }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: channel
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Authorized
+        value: '{{ Authorized }}'
+      - name: InsecureIngest
+        value: '{{ InsecureIngest }}'
+      - name: LatencyMode
+        value: '{{ LatencyMode }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: RecordingConfigurationArn
+        value: '{{ RecordingConfigurationArn }}'
+      - name: Preset
+        value: '{{ Preset }}'
+
 ```
 </TabItem>
 </Tabs>

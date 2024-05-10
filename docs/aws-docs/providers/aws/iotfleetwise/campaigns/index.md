@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>campaign</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Action": "{{ Action }}",
- "Name": "{{ Name }}",
- "SignalCatalogArn": "{{ SignalCatalogArn }}",
- "TargetArn": "{{ TargetArn }}",
- "CollectionScheme": null
-}
->>>
---required properties only
+-- campaign.iql (required properties only)
 INSERT INTO aws.iotfleetwise.campaigns (
  Action,
  Name,
@@ -103,54 +97,18 @@ INSERT INTO aws.iotfleetwise.campaigns (
  region
 )
 SELECT 
-{{ .Action }},
- {{ .Name }},
- {{ .SignalCatalogArn }},
- {{ .TargetArn }},
- {{ .CollectionScheme }},
-'us-east-1';
+'{{ Action }}',
+ '{{ Name }}',
+ '{{ SignalCatalogArn }}',
+ '{{ TargetArn }}',
+ '{{ CollectionScheme }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Action": "{{ Action }}",
- "Compression": "{{ Compression }}",
- "Description": "{{ Description }}",
- "Priority": "{{ Priority }}",
- "SignalsToCollect": [
-  {
-   "MaxSampleCount": null,
-   "Name": "{{ Name }}",
-   "MinimumSamplingIntervalMs": null
-  }
- ],
- "DataDestinationConfigs": [
-  null
- ],
- "StartTime": "{{ StartTime }}",
- "Name": "{{ Name }}",
- "ExpiryTime": "{{ ExpiryTime }}",
- "SpoolingMode": "{{ SpoolingMode }}",
- "SignalCatalogArn": "{{ SignalCatalogArn }}",
- "PostTriggerCollectionDuration": null,
- "DataExtraDimensions": [
-  "{{ DataExtraDimensions[0] }}"
- ],
- "DiagnosticsMode": "{{ DiagnosticsMode }}",
- "TargetArn": "{{ TargetArn }}",
- "CollectionScheme": null,
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- campaign.iql (all properties)
 INSERT INTO aws.iotfleetwise.campaigns (
  Action,
  Compression,
@@ -172,24 +130,82 @@ INSERT INTO aws.iotfleetwise.campaigns (
  region
 )
 SELECT 
- {{ .Action }},
- {{ .Compression }},
- {{ .Description }},
- {{ .Priority }},
- {{ .SignalsToCollect }},
- {{ .DataDestinationConfigs }},
- {{ .StartTime }},
- {{ .Name }},
- {{ .ExpiryTime }},
- {{ .SpoolingMode }},
- {{ .SignalCatalogArn }},
- {{ .PostTriggerCollectionDuration }},
- {{ .DataExtraDimensions }},
- {{ .DiagnosticsMode }},
- {{ .TargetArn }},
- {{ .CollectionScheme }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Action }}',
+ '{{ Compression }}',
+ '{{ Description }}',
+ '{{ Priority }}',
+ '{{ SignalsToCollect }}',
+ '{{ DataDestinationConfigs }}',
+ '{{ StartTime }}',
+ '{{ Name }}',
+ '{{ ExpiryTime }}',
+ '{{ SpoolingMode }}',
+ '{{ SignalCatalogArn }}',
+ '{{ PostTriggerCollectionDuration }}',
+ '{{ DataExtraDimensions }}',
+ '{{ DiagnosticsMode }}',
+ '{{ TargetArn }}',
+ '{{ CollectionScheme }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: campaign
+    props:
+      - name: Action
+        value: '{{ Action }}'
+      - name: Compression
+        value: '{{ Compression }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Priority
+        value: '{{ Priority }}'
+      - name: SignalsToCollect
+        value:
+          - MaxSampleCount: null
+            Name: '{{ Name }}'
+            MinimumSamplingIntervalMs: null
+      - name: DataDestinationConfigs
+        value:
+          - null
+      - name: StartTime
+        value: '{{ StartTime }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ExpiryTime
+        value: '{{ ExpiryTime }}'
+      - name: SpoolingMode
+        value: '{{ SpoolingMode }}'
+      - name: SignalCatalogArn
+        value: '{{ SignalCatalogArn }}'
+      - name: PostTriggerCollectionDuration
+        value: null
+      - name: DataExtraDimensions
+        value:
+          - '{{ DataExtraDimensions[0] }}'
+      - name: DiagnosticsMode
+        value: '{{ DiagnosticsMode }}'
+      - name: TargetArn
+        value: '{{ TargetArn }}'
+      - name: CollectionScheme
+        value: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

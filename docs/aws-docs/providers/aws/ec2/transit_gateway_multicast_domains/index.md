@@ -74,51 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway_multicast_domain</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}"
-}
->>>
---required properties only
+-- transit_gateway_multicast_domain.iql (required properties only)
 INSERT INTO aws.ec2.transit_gateway_multicast_domains (
  TransitGatewayId,
  region
 )
 SELECT 
-{{ .TransitGatewayId }},
-'us-east-1';
+'{{ TransitGatewayId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Options": {
-  "AutoAcceptSharedAssociations": "{{ AutoAcceptSharedAssociations }}",
-  "Igmpv2Support": "{{ Igmpv2Support }}",
-  "StaticSourcesSupport": "{{ StaticSourcesSupport }}"
- }
-}
->>>
---all properties
+-- transit_gateway_multicast_domain.iql (all properties)
 INSERT INTO aws.ec2.transit_gateway_multicast_domains (
  TransitGatewayId,
  Tags,
@@ -126,10 +108,38 @@ INSERT INTO aws.ec2.transit_gateway_multicast_domains (
  region
 )
 SELECT 
- {{ .TransitGatewayId }},
- {{ .Tags }},
- {{ .Options }},
- 'us-east-1';
+ '{{ TransitGatewayId }}',
+ '{{ Tags }}',
+ '{{ Options }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway_multicast_domain
+    props:
+      - name: TransitGatewayId
+        value: '{{ TransitGatewayId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Options
+        value:
+          AutoAcceptSharedAssociations: '{{ AutoAcceptSharedAssociations }}'
+          Igmpv2Support: '{{ Igmpv2Support }}'
+          StaticSourcesSupport: '{{ StaticSourcesSupport }}'
+
 ```
 </TabItem>
 </Tabs>

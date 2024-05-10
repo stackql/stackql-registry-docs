@@ -74,54 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cluster_subnet_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ]
-}
->>>
---required properties only
+-- cluster_subnet_group.iql (required properties only)
 INSERT INTO aws.redshift.cluster_subnet_groups (
  Description,
  SubnetIds,
  region
 )
 SELECT 
-{{ .Description }},
- {{ .SubnetIds }},
-'us-east-1';
+'{{ Description }}',
+ '{{ SubnetIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- cluster_subnet_group.iql (all properties)
 INSERT INTO aws.redshift.cluster_subnet_groups (
  Description,
  SubnetIds,
@@ -129,10 +110,36 @@ INSERT INTO aws.redshift.cluster_subnet_groups (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .SubnetIds }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ SubnetIds }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cluster_subnet_group
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

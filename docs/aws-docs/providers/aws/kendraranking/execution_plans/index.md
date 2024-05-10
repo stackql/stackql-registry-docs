@@ -74,50 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>execution_plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- execution_plan.iql (required properties only)
 INSERT INTO aws.kendraranking.execution_plans (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Name": "{{ Name }}",
- "CapacityUnits": {
-  "RescoreCapacityUnits": "{{ RescoreCapacityUnits }}"
- }
-}
->>>
---all properties
+-- execution_plan.iql (all properties)
 INSERT INTO aws.kendraranking.execution_plans (
  Description,
  Tags,
@@ -126,11 +109,39 @@ INSERT INTO aws.kendraranking.execution_plans (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Tags }},
- {{ .Name }},
- {{ .CapacityUnits }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ CapacityUnits }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: execution_plan
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: CapacityUnits
+        value:
+          RescoreCapacityUnits: '{{ RescoreCapacityUnits }}'
+
 ```
 </TabItem>
 </Tabs>

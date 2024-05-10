@@ -76,66 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>bot_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BotId": "{{ BotId }}",
- "BotVersionLocaleSpecification": [
-  {
-   "LocaleId": "{{ LocaleId }}",
-   "BotVersionLocaleDetails": {
-    "SourceBotVersion": {
-     "BotId": null,
-     "BotVersionLocaleSpecification": null
-    }
-   }
-  }
- ]
-}
->>>
---required properties only
+-- bot_version.iql (required properties only)
 INSERT INTO aws.lex.bot_versions (
  BotId,
  BotVersionLocaleSpecification,
  region
 )
 SELECT 
-{{ .BotId }},
- {{ .BotVersionLocaleSpecification }},
-'us-east-1';
+'{{ BotId }}',
+ '{{ BotVersionLocaleSpecification }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BotId": "{{ BotId }}",
- "Description": "{{ Description }}",
- "BotVersionLocaleSpecification": [
-  {
-   "LocaleId": "{{ LocaleId }}",
-   "BotVersionLocaleDetails": {
-    "SourceBotVersion": {
-     "BotId": null,
-     "Description": null,
-     "BotVersionLocaleSpecification": null
-    }
-   }
-  }
- ]
-}
->>>
---all properties
+-- bot_version.iql (all properties)
 INSERT INTO aws.lex.bot_versions (
  BotId,
  Description,
@@ -143,10 +112,39 @@ INSERT INTO aws.lex.bot_versions (
  region
 )
 SELECT 
- {{ .BotId }},
- {{ .Description }},
- {{ .BotVersionLocaleSpecification }},
- 'us-east-1';
+ '{{ BotId }}',
+ '{{ Description }}',
+ '{{ BotVersionLocaleSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: bot_version
+    props:
+      - name: BotId
+        value: '{{ BotId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: BotVersionLocaleSpecification
+        value:
+          - LocaleId: '{{ LocaleId }}'
+            BotVersionLocaleDetails:
+              SourceBotVersion:
+                BotId: null
+                Description: null
+                BotVersionLocaleSpecification: null
+
 ```
 </TabItem>
 </Tabs>

@@ -76,50 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>entity</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EntityName": "{{ EntityName }}",
- "WorkspaceId": "{{ WorkspaceId }}"
-}
->>>
---required properties only
+-- entity.iql (required properties only)
 INSERT INTO aws.iottwinmaker.entities (
  EntityName,
  WorkspaceId,
  region
 )
 SELECT 
-{{ .EntityName }},
- {{ .WorkspaceId }},
-'us-east-1';
+'{{ EntityName }}',
+ '{{ WorkspaceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EntityId": "{{ EntityId }}",
- "EntityName": "{{ EntityName }}",
- "ParentEntityId": "{{ ParentEntityId }}",
- "Description": "{{ Description }}",
- "Tags": {},
- "WorkspaceId": "{{ WorkspaceId }}",
- "Components": {},
- "CompositeComponents": {}
-}
->>>
---all properties
+-- entity.iql (all properties)
 INSERT INTO aws.iottwinmaker.entities (
  EntityId,
  EntityName,
@@ -132,15 +117,48 @@ INSERT INTO aws.iottwinmaker.entities (
  region
 )
 SELECT 
- {{ .EntityId }},
- {{ .EntityName }},
- {{ .ParentEntityId }},
- {{ .Description }},
- {{ .Tags }},
- {{ .WorkspaceId }},
- {{ .Components }},
- {{ .CompositeComponents }},
- 'us-east-1';
+ '{{ EntityId }}',
+ '{{ EntityName }}',
+ '{{ ParentEntityId }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ WorkspaceId }}',
+ '{{ Components }}',
+ '{{ CompositeComponents }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: entity
+    props:
+      - name: EntityId
+        value: '{{ EntityId }}'
+      - name: EntityName
+        value: '{{ EntityName }}'
+      - name: ParentEntityId
+        value: '{{ ParentEntityId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value: {}
+      - name: WorkspaceId
+        value: '{{ WorkspaceId }}'
+      - name: Components
+        value: {}
+      - name: CompositeComponents
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

@@ -74,52 +74,64 @@ FROM aws.shield.drt_accesses
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>drt_access</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- drt_access.iql (required properties only)
 INSERT INTO aws.shield.drt_accesses (
  RoleArn,
  region
 )
 SELECT 
-{{ .RoleArn }},
-'us-east-1';
+'{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LogBucketList": [
-  "{{ LogBucketList[0] }}"
- ],
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---all properties
+-- drt_access.iql (all properties)
 INSERT INTO aws.shield.drt_accesses (
  LogBucketList,
  RoleArn,
  region
 )
 SELECT 
- {{ .LogBucketList }},
- {{ .RoleArn }},
- 'us-east-1';
+ '{{ LogBucketList }}',
+ '{{ RoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: drt_access
+    props:
+      - name: LogBucketList
+        value:
+          - '{{ LogBucketList[0] }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

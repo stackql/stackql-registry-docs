@@ -74,57 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>rotation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ContactIds": [
-  "{{ ContactIds[0] }}"
- ],
- "StartTime": "{{ StartTime }}",
- "TimeZoneId": "{{ TimeZoneId }}",
- "Recurrence": {
-  "MonthlySettings": [
-   {
-    "DayOfMonth": "{{ DayOfMonth }}",
-    "HandOffTime": "{{ HandOffTime }}"
-   }
-  ],
-  "WeeklySettings": [
-   {
-    "DayOfWeek": "{{ DayOfWeek }}",
-    "HandOffTime": null
-   }
-  ],
-  "DailySettings": [
-   null
-  ],
-  "NumberOfOnCalls": "{{ NumberOfOnCalls }}",
-  "RecurrenceMultiplier": "{{ RecurrenceMultiplier }}",
-  "ShiftCoverages": [
-   {
-    "DayOfWeek": null,
-    "CoverageTimes": [
-     {
-      "StartTime": null,
-      "EndTime": null
-     }
-    ]
-   }
-  ]
- }
-}
->>>
---required properties only
+-- rotation.iql (required properties only)
 INSERT INTO aws.ssmcontacts.rotations (
  Name,
  ContactIds,
@@ -134,64 +97,18 @@ INSERT INTO aws.ssmcontacts.rotations (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ContactIds }},
- {{ .StartTime }},
- {{ .TimeZoneId }},
- {{ .Recurrence }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ContactIds }}',
+ '{{ StartTime }}',
+ '{{ TimeZoneId }}',
+ '{{ Recurrence }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ContactIds": [
-  "{{ ContactIds[0] }}"
- ],
- "StartTime": "{{ StartTime }}",
- "TimeZoneId": "{{ TimeZoneId }}",
- "Recurrence": {
-  "MonthlySettings": [
-   {
-    "DayOfMonth": "{{ DayOfMonth }}",
-    "HandOffTime": "{{ HandOffTime }}"
-   }
-  ],
-  "WeeklySettings": [
-   {
-    "DayOfWeek": "{{ DayOfWeek }}",
-    "HandOffTime": null
-   }
-  ],
-  "DailySettings": [
-   null
-  ],
-  "NumberOfOnCalls": "{{ NumberOfOnCalls }}",
-  "RecurrenceMultiplier": "{{ RecurrenceMultiplier }}",
-  "ShiftCoverages": [
-   {
-    "DayOfWeek": null,
-    "CoverageTimes": [
-     {
-      "StartTime": null,
-      "EndTime": null
-     }
-    ]
-   }
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- rotation.iql (all properties)
 INSERT INTO aws.ssmcontacts.rotations (
  Name,
  ContactIds,
@@ -202,13 +119,60 @@ INSERT INTO aws.ssmcontacts.rotations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .ContactIds }},
- {{ .StartTime }},
- {{ .TimeZoneId }},
- {{ .Recurrence }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ ContactIds }}',
+ '{{ StartTime }}',
+ '{{ TimeZoneId }}',
+ '{{ Recurrence }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: rotation
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: ContactIds
+        value:
+          - '{{ ContactIds[0] }}'
+      - name: StartTime
+        value: '{{ StartTime }}'
+      - name: TimeZoneId
+        value: '{{ TimeZoneId }}'
+      - name: Recurrence
+        value:
+          MonthlySettings:
+            - DayOfMonth: '{{ DayOfMonth }}'
+              HandOffTime: '{{ HandOffTime }}'
+          WeeklySettings:
+            - DayOfWeek: '{{ DayOfWeek }}'
+              HandOffTime: null
+          DailySettings:
+            - null
+          NumberOfOnCalls: '{{ NumberOfOnCalls }}'
+          RecurrenceMultiplier: '{{ RecurrenceMultiplier }}'
+          ShiftCoverages:
+            - DayOfWeek: null
+              CoverageTimes:
+                - StartTime: null
+                  EndTime: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

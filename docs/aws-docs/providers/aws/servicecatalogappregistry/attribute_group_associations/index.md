@@ -76,53 +76,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>attribute_group_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Application": "{{ Application }}",
- "AttributeGroup": "{{ AttributeGroup }}"
-}
->>>
---required properties only
+-- attribute_group_association.iql (required properties only)
 INSERT INTO aws.servicecatalogappregistry.attribute_group_associations (
  Application,
  AttributeGroup,
  region
 )
 SELECT 
-{{ .Application }},
- {{ .AttributeGroup }},
-'us-east-1';
+'{{ Application }}',
+ '{{ AttributeGroup }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Application": "{{ Application }}",
- "AttributeGroup": "{{ AttributeGroup }}"
-}
->>>
---all properties
+-- attribute_group_association.iql (all properties)
 INSERT INTO aws.servicecatalogappregistry.attribute_group_associations (
  Application,
  AttributeGroup,
  region
 )
 SELECT 
- {{ .Application }},
- {{ .AttributeGroup }},
- 'us-east-1';
+ '{{ Application }}',
+ '{{ AttributeGroup }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: attribute_group_association
+    props:
+      - name: Application
+        value: '{{ Application }}'
+      - name: AttributeGroup
+        value: '{{ AttributeGroup }}'
+
 ```
 </TabItem>
 </Tabs>

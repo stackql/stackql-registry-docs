@@ -74,45 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resource_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "PolicyDocument": "{{ PolicyDocument }}"
-}
->>>
---required properties only
+-- resource_policy.iql (required properties only)
 INSERT INTO aws.xray.resource_policies (
  PolicyName,
  PolicyDocument,
  region
 )
 SELECT 
-{{ .PolicyName }},
- {{ .PolicyDocument }},
-'us-east-1';
+'{{ PolicyName }}',
+ '{{ PolicyDocument }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "PolicyDocument": "{{ PolicyDocument }}",
- "BypassPolicyLockoutCheck": "{{ BypassPolicyLockoutCheck }}"
-}
->>>
---all properties
+-- resource_policy.iql (all properties)
 INSERT INTO aws.xray.resource_policies (
  PolicyName,
  PolicyDocument,
@@ -120,10 +110,33 @@ INSERT INTO aws.xray.resource_policies (
  region
 )
 SELECT 
- {{ .PolicyName }},
- {{ .PolicyDocument }},
- {{ .BypassPolicyLockoutCheck }},
- 'us-east-1';
+ '{{ PolicyName }}',
+ '{{ PolicyDocument }}',
+ '{{ BypassPolicyLockoutCheck }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resource_policy
+    props:
+      - name: PolicyName
+        value: '{{ PolicyName }}'
+      - name: PolicyDocument
+        value: '{{ PolicyDocument }}'
+      - name: BypassPolicyLockoutCheck
+        value: '{{ BypassPolicyLockoutCheck }}'
+
 ```
 </TabItem>
 </Tabs>

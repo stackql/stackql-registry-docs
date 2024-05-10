@@ -74,120 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>listener_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Actions": [
-  {
-   "Order": "{{ Order }}",
-   "TargetGroupArn": "{{ TargetGroupArn }}",
-   "FixedResponseConfig": {
-    "ContentType": "{{ ContentType }}",
-    "StatusCode": "{{ StatusCode }}",
-    "MessageBody": "{{ MessageBody }}"
-   },
-   "AuthenticateCognitoConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "UserPoolClientId": "{{ UserPoolClientId }}",
-    "UserPoolDomain": "{{ UserPoolDomain }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UserPoolArn": "{{ UserPoolArn }}",
-    "AuthenticationRequestExtraParams": {}
-   },
-   "Type": "{{ Type }}",
-   "RedirectConfig": {
-    "Path": "{{ Path }}",
-    "Query": "{{ Query }}",
-    "Port": "{{ Port }}",
-    "Host": "{{ Host }}",
-    "Protocol": "{{ Protocol }}",
-    "StatusCode": "{{ StatusCode }}"
-   },
-   "ForwardConfig": {
-    "TargetGroupStickinessConfig": {
-     "Enabled": "{{ Enabled }}",
-     "DurationSeconds": "{{ DurationSeconds }}"
-    },
-    "TargetGroups": [
-     {
-      "TargetGroupArn": "{{ TargetGroupArn }}",
-      "Weight": "{{ Weight }}"
-     }
-    ]
-   },
-   "AuthenticateOidcConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "TokenEndpoint": "{{ TokenEndpoint }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "Issuer": "{{ Issuer }}",
-    "ClientSecret": "{{ ClientSecret }}",
-    "UserInfoEndpoint": "{{ UserInfoEndpoint }}",
-    "ClientId": "{{ ClientId }}",
-    "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UseExistingClientSecret": "{{ UseExistingClientSecret }}",
-    "AuthenticationRequestExtraParams": {}
-   }
-  }
- ],
- "Priority": "{{ Priority }}",
- "Conditions": [
-  {
-   "Field": "{{ Field }}",
-   "Values": [
-    "{{ Values[0] }}"
-   ],
-   "HttpRequestMethodConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "PathPatternConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "HttpHeaderConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ],
-    "HttpHeaderName": "{{ HttpHeaderName }}"
-   },
-   "SourceIpConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "HostHeaderConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "QueryStringConfig": {
-    "Values": [
-     {
-      "Value": "{{ Value }}",
-      "Key": "{{ Key }}"
-     }
-    ]
-   }
-  }
- ]
-}
->>>
---required properties only
+-- listener_rule.iql (required properties only)
 INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  Actions,
  Priority,
@@ -195,120 +95,16 @@ INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  region
 )
 SELECT 
-{{ .Actions }},
- {{ .Priority }},
- {{ .Conditions }},
-'us-east-1';
+'{{ Actions }}',
+ '{{ Priority }}',
+ '{{ Conditions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ListenerArn": "{{ ListenerArn }}",
- "Actions": [
-  {
-   "Order": "{{ Order }}",
-   "TargetGroupArn": "{{ TargetGroupArn }}",
-   "FixedResponseConfig": {
-    "ContentType": "{{ ContentType }}",
-    "StatusCode": "{{ StatusCode }}",
-    "MessageBody": "{{ MessageBody }}"
-   },
-   "AuthenticateCognitoConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "UserPoolClientId": "{{ UserPoolClientId }}",
-    "UserPoolDomain": "{{ UserPoolDomain }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UserPoolArn": "{{ UserPoolArn }}",
-    "AuthenticationRequestExtraParams": {}
-   },
-   "Type": "{{ Type }}",
-   "RedirectConfig": {
-    "Path": "{{ Path }}",
-    "Query": "{{ Query }}",
-    "Port": "{{ Port }}",
-    "Host": "{{ Host }}",
-    "Protocol": "{{ Protocol }}",
-    "StatusCode": "{{ StatusCode }}"
-   },
-   "ForwardConfig": {
-    "TargetGroupStickinessConfig": {
-     "Enabled": "{{ Enabled }}",
-     "DurationSeconds": "{{ DurationSeconds }}"
-    },
-    "TargetGroups": [
-     {
-      "TargetGroupArn": "{{ TargetGroupArn }}",
-      "Weight": "{{ Weight }}"
-     }
-    ]
-   },
-   "AuthenticateOidcConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "TokenEndpoint": "{{ TokenEndpoint }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "Issuer": "{{ Issuer }}",
-    "ClientSecret": "{{ ClientSecret }}",
-    "UserInfoEndpoint": "{{ UserInfoEndpoint }}",
-    "ClientId": "{{ ClientId }}",
-    "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UseExistingClientSecret": "{{ UseExistingClientSecret }}",
-    "AuthenticationRequestExtraParams": {}
-   }
-  }
- ],
- "Priority": "{{ Priority }}",
- "Conditions": [
-  {
-   "Field": "{{ Field }}",
-   "Values": [
-    "{{ Values[0] }}"
-   ],
-   "HttpRequestMethodConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "PathPatternConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "HttpHeaderConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ],
-    "HttpHeaderName": "{{ HttpHeaderName }}"
-   },
-   "SourceIpConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "HostHeaderConfig": {
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   },
-   "QueryStringConfig": {
-    "Values": [
-     {
-      "Value": "{{ Value }}",
-      "Key": "{{ Key }}"
-     }
-    ]
-   }
-  }
- ]
-}
->>>
---all properties
+-- listener_rule.iql (all properties)
 INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  ListenerArn,
  Actions,
@@ -317,11 +113,102 @@ INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  region
 )
 SELECT 
- {{ .ListenerArn }},
- {{ .Actions }},
- {{ .Priority }},
- {{ .Conditions }},
- 'us-east-1';
+ '{{ ListenerArn }}',
+ '{{ Actions }}',
+ '{{ Priority }}',
+ '{{ Conditions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: listener_rule
+    props:
+      - name: ListenerArn
+        value: '{{ ListenerArn }}'
+      - name: Actions
+        value:
+          - Order: '{{ Order }}'
+            TargetGroupArn: '{{ TargetGroupArn }}'
+            FixedResponseConfig:
+              ContentType: '{{ ContentType }}'
+              StatusCode: '{{ StatusCode }}'
+              MessageBody: '{{ MessageBody }}'
+            AuthenticateCognitoConfig:
+              OnUnauthenticatedRequest: '{{ OnUnauthenticatedRequest }}'
+              UserPoolClientId: '{{ UserPoolClientId }}'
+              UserPoolDomain: '{{ UserPoolDomain }}'
+              SessionTimeout: '{{ SessionTimeout }}'
+              Scope: '{{ Scope }}'
+              SessionCookieName: '{{ SessionCookieName }}'
+              UserPoolArn: '{{ UserPoolArn }}'
+              AuthenticationRequestExtraParams: {}
+            Type: '{{ Type }}'
+            RedirectConfig:
+              Path: '{{ Path }}'
+              Query: '{{ Query }}'
+              Port: '{{ Port }}'
+              Host: '{{ Host }}'
+              Protocol: '{{ Protocol }}'
+              StatusCode: '{{ StatusCode }}'
+            ForwardConfig:
+              TargetGroupStickinessConfig:
+                Enabled: '{{ Enabled }}'
+                DurationSeconds: '{{ DurationSeconds }}'
+              TargetGroups:
+                - TargetGroupArn: '{{ TargetGroupArn }}'
+                  Weight: '{{ Weight }}'
+            AuthenticateOidcConfig:
+              OnUnauthenticatedRequest: '{{ OnUnauthenticatedRequest }}'
+              TokenEndpoint: '{{ TokenEndpoint }}'
+              SessionTimeout: '{{ SessionTimeout }}'
+              Scope: '{{ Scope }}'
+              Issuer: '{{ Issuer }}'
+              ClientSecret: '{{ ClientSecret }}'
+              UserInfoEndpoint: '{{ UserInfoEndpoint }}'
+              ClientId: '{{ ClientId }}'
+              AuthorizationEndpoint: '{{ AuthorizationEndpoint }}'
+              SessionCookieName: '{{ SessionCookieName }}'
+              UseExistingClientSecret: '{{ UseExistingClientSecret }}'
+              AuthenticationRequestExtraParams: {}
+      - name: Priority
+        value: '{{ Priority }}'
+      - name: Conditions
+        value:
+          - Field: '{{ Field }}'
+            Values:
+              - '{{ Values[0] }}'
+            HttpRequestMethodConfig:
+              Values:
+                - '{{ Values[0] }}'
+            PathPatternConfig:
+              Values:
+                - '{{ Values[0] }}'
+            HttpHeaderConfig:
+              Values:
+                - '{{ Values[0] }}'
+              HttpHeaderName: '{{ HttpHeaderName }}'
+            SourceIpConfig:
+              Values:
+                - '{{ Values[0] }}'
+            HostHeaderConfig:
+              Values:
+                - '{{ Values[0] }}'
+            QueryStringConfig:
+              Values:
+                - Value: '{{ Value }}'
+                  Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

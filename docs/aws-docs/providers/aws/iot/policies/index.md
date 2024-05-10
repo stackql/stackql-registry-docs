@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PolicyDocument": {}
-}
->>>
---required properties only
+-- policy.iql (required properties only)
 INSERT INTO aws.iot.policies (
  PolicyDocument,
  region
 )
 SELECT 
-{{ .PolicyDocument }},
-'us-east-1';
+'{{ PolicyDocument }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyDocument": {},
- "PolicyName": "{{ PolicyName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- policy.iql (all properties)
 INSERT INTO aws.iot.policies (
  PolicyDocument,
  PolicyName,
@@ -122,10 +108,35 @@ INSERT INTO aws.iot.policies (
  region
 )
 SELECT 
- {{ .PolicyDocument }},
- {{ .PolicyName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ PolicyDocument }}',
+ '{{ PolicyName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: policy
+    props:
+      - name: PolicyDocument
+        value: {}
+      - name: PolicyName
+        value: '{{ PolicyName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

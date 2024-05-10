@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Definition": null,
- "EngineType": "{{ EngineType }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.m2.applications (
  Definition,
  EngineType,
@@ -99,27 +95,16 @@ INSERT INTO aws.m2.applications (
  region
 )
 SELECT 
-{{ .Definition }},
- {{ .EngineType }},
- {{ .Name }},
-'us-east-1';
+'{{ Definition }}',
+ '{{ EngineType }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Definition": null,
- "Description": "{{ Description }}",
- "EngineType": "{{ EngineType }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": {}
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.m2.applications (
  Definition,
  Description,
@@ -131,14 +116,45 @@ INSERT INTO aws.m2.applications (
  region
 )
 SELECT 
- {{ .Definition }},
- {{ .Description }},
- {{ .EngineType }},
- {{ .KmsKeyId }},
- {{ .Name }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Definition }}',
+ '{{ Description }}',
+ '{{ EngineType }}',
+ '{{ KmsKeyId }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: Definition
+        value: null
+      - name: Description
+        value: '{{ Description }}'
+      - name: EngineType
+        value: '{{ EngineType }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

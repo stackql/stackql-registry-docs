@@ -74,34 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>routing_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "MediaConcurrencies": [
-  {
-   "Channel": "{{ Channel }}",
-   "Concurrency": "{{ Concurrency }}",
-   "CrossChannelBehavior": {
-    "BehaviorType": "{{ BehaviorType }}"
-   }
-  }
- ],
- "DefaultOutboundQueueArn": "{{ DefaultOutboundQueueArn }}"
-}
->>>
---required properties only
+-- routing_profile.iql (required properties only)
 INSERT INTO aws.connect.routing_profiles (
  InstanceArn,
  Name,
@@ -111,52 +97,18 @@ INSERT INTO aws.connect.routing_profiles (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .Name }},
- {{ .Description }},
- {{ .MediaConcurrencies }},
- {{ .DefaultOutboundQueueArn }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ MediaConcurrencies }}',
+ '{{ DefaultOutboundQueueArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "MediaConcurrencies": [
-  {
-   "Channel": "{{ Channel }}",
-   "Concurrency": "{{ Concurrency }}",
-   "CrossChannelBehavior": {
-    "BehaviorType": "{{ BehaviorType }}"
-   }
-  }
- ],
- "DefaultOutboundQueueArn": "{{ DefaultOutboundQueueArn }}",
- "QueueConfigs": [
-  {
-   "Delay": "{{ Delay }}",
-   "Priority": "{{ Priority }}",
-   "QueueReference": {
-    "Channel": null,
-    "QueueArn": "{{ QueueArn }}"
-   }
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AgentAvailabilityTimer": "{{ AgentAvailabilityTimer }}"
-}
->>>
---all properties
+-- routing_profile.iql (all properties)
 INSERT INTO aws.connect.routing_profiles (
  InstanceArn,
  Name,
@@ -169,15 +121,59 @@ INSERT INTO aws.connect.routing_profiles (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Name }},
- {{ .Description }},
- {{ .MediaConcurrencies }},
- {{ .DefaultOutboundQueueArn }},
- {{ .QueueConfigs }},
- {{ .Tags }},
- {{ .AgentAvailabilityTimer }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ MediaConcurrencies }}',
+ '{{ DefaultOutboundQueueArn }}',
+ '{{ QueueConfigs }}',
+ '{{ Tags }}',
+ '{{ AgentAvailabilityTimer }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: routing_profile
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: MediaConcurrencies
+        value:
+          - Channel: '{{ Channel }}'
+            Concurrency: '{{ Concurrency }}'
+            CrossChannelBehavior:
+              BehaviorType: '{{ BehaviorType }}'
+      - name: DefaultOutboundQueueArn
+        value: '{{ DefaultOutboundQueueArn }}'
+      - name: QueueConfigs
+        value:
+          - Delay: '{{ Delay }}'
+            Priority: '{{ Priority }}'
+            QueueReference:
+              Channel: null
+              QueueArn: '{{ QueueArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AgentAvailabilityTimer
+        value: '{{ AgentAvailabilityTimer }}'
+
 ```
 </TabItem>
 </Tabs>

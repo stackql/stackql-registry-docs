@@ -74,64 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_insights_path</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Source": "{{ Source }}",
- "Protocol": "{{ Protocol }}"
-}
->>>
---required properties only
+-- network_insights_path.iql (required properties only)
 INSERT INTO aws.ec2.network_insights_paths (
  Source,
  Protocol,
  region
 )
 SELECT 
-{{ .Source }},
- {{ .Protocol }},
-'us-east-1';
+'{{ Source }}',
+ '{{ Protocol }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SourceIp": "{{ SourceIp }}",
- "FilterAtSource": {
-  "SourceAddress": null,
-  "SourcePortRange": {
-   "FromPort": "{{ FromPort }}",
-   "ToPort": "{{ ToPort }}"
-  },
-  "DestinationAddress": null,
-  "DestinationPortRange": null
- },
- "FilterAtDestination": null,
- "DestinationIp": null,
- "Source": "{{ Source }}",
- "Destination": "{{ Destination }}",
- "Protocol": "{{ Protocol }}",
- "DestinationPort": "{{ DestinationPort }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- network_insights_path.iql (all properties)
 INSERT INTO aws.ec2.network_insights_paths (
  SourceIp,
  FilterAtSource,
@@ -145,16 +116,59 @@ INSERT INTO aws.ec2.network_insights_paths (
  region
 )
 SELECT 
- {{ .SourceIp }},
- {{ .FilterAtSource }},
- {{ .FilterAtDestination }},
- {{ .DestinationIp }},
- {{ .Source }},
- {{ .Destination }},
- {{ .Protocol }},
- {{ .DestinationPort }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SourceIp }}',
+ '{{ FilterAtSource }}',
+ '{{ FilterAtDestination }}',
+ '{{ DestinationIp }}',
+ '{{ Source }}',
+ '{{ Destination }}',
+ '{{ Protocol }}',
+ '{{ DestinationPort }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_insights_path
+    props:
+      - name: SourceIp
+        value: '{{ SourceIp }}'
+      - name: FilterAtSource
+        value:
+          SourceAddress: null
+          SourcePortRange:
+            FromPort: '{{ FromPort }}'
+            ToPort: '{{ ToPort }}'
+          DestinationAddress: null
+          DestinationPortRange: null
+      - name: FilterAtDestination
+        value: null
+      - name: DestinationIp
+        value: null
+      - name: Source
+        value: '{{ Source }}'
+      - name: Destination
+        value: '{{ Destination }}'
+      - name: Protocol
+        value: '{{ Protocol }}'
+      - name: DestinationPort
+        value: '{{ DestinationPort }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

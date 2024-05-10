@@ -74,127 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>function</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Code": {
-  "S3ObjectVersion": "{{ S3ObjectVersion }}",
-  "S3Bucket": "{{ S3Bucket }}",
-  "ZipFile": "{{ ZipFile }}",
-  "S3Key": "{{ S3Key }}",
-  "ImageUri": "{{ ImageUri }}"
- },
- "Role": "{{ Role }}"
-}
->>>
---required properties only
+-- function.iql (required properties only)
 INSERT INTO aws.lambda.functions (
  Code,
  Role,
  region
 )
 SELECT 
-{{ .Code }},
- {{ .Role }},
-'us-east-1';
+'{{ Code }}',
+ '{{ Role }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "TracingConfig": {
-  "Mode": "{{ Mode }}"
- },
- "VpcConfig": {
-  "Ipv6AllowedForDualStack": "{{ Ipv6AllowedForDualStack }}",
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "RuntimeManagementConfig": {
-  "UpdateRuntimeOn": "{{ UpdateRuntimeOn }}",
-  "RuntimeVersionArn": "{{ RuntimeVersionArn }}"
- },
- "ReservedConcurrentExecutions": "{{ ReservedConcurrentExecutions }}",
- "SnapStart": {
-  "ApplyOn": "{{ ApplyOn }}"
- },
- "FileSystemConfigs": [
-  {
-   "Arn": "{{ Arn }}",
-   "LocalMountPath": "{{ LocalMountPath }}"
-  }
- ],
- "FunctionName": "{{ FunctionName }}",
- "Runtime": "{{ Runtime }}",
- "KmsKeyArn": "{{ KmsKeyArn }}",
- "PackageType": "{{ PackageType }}",
- "CodeSigningConfigArn": "{{ CodeSigningConfigArn }}",
- "Layers": [
-  "{{ Layers[0] }}"
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "ImageConfig": {
-  "WorkingDirectory": "{{ WorkingDirectory }}",
-  "Command": [
-   "{{ Command[0] }}"
-  ],
-  "EntryPoint": [
-   "{{ EntryPoint[0] }}"
-  ]
- },
- "MemorySize": "{{ MemorySize }}",
- "DeadLetterConfig": {
-  "TargetArn": "{{ TargetArn }}"
- },
- "Timeout": "{{ Timeout }}",
- "Handler": "{{ Handler }}",
- "Code": {
-  "S3ObjectVersion": "{{ S3ObjectVersion }}",
-  "S3Bucket": "{{ S3Bucket }}",
-  "ZipFile": "{{ ZipFile }}",
-  "S3Key": "{{ S3Key }}",
-  "ImageUri": "{{ ImageUri }}"
- },
- "Role": "{{ Role }}",
- "LoggingConfig": {
-  "LogFormat": "{{ LogFormat }}",
-  "ApplicationLogLevel": "{{ ApplicationLogLevel }}",
-  "LogGroup": "{{ LogGroup }}",
-  "SystemLogLevel": "{{ SystemLogLevel }}"
- },
- "Environment": {
-  "Variables": {}
- },
- "EphemeralStorage": {
-  "Size": "{{ Size }}"
- },
- "Architectures": [
-  "{{ Architectures[0] }}"
- ]
-}
->>>
---all properties
+-- function.iql (all properties)
 INSERT INTO aws.lambda.functions (
  Description,
  TracingConfig,
@@ -224,32 +132,131 @@ INSERT INTO aws.lambda.functions (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .TracingConfig }},
- {{ .VpcConfig }},
- {{ .RuntimeManagementConfig }},
- {{ .ReservedConcurrentExecutions }},
- {{ .SnapStart }},
- {{ .FileSystemConfigs }},
- {{ .FunctionName }},
- {{ .Runtime }},
- {{ .KmsKeyArn }},
- {{ .PackageType }},
- {{ .CodeSigningConfigArn }},
- {{ .Layers }},
- {{ .Tags }},
- {{ .ImageConfig }},
- {{ .MemorySize }},
- {{ .DeadLetterConfig }},
- {{ .Timeout }},
- {{ .Handler }},
- {{ .Code }},
- {{ .Role }},
- {{ .LoggingConfig }},
- {{ .Environment }},
- {{ .EphemeralStorage }},
- {{ .Architectures }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ TracingConfig }}',
+ '{{ VpcConfig }}',
+ '{{ RuntimeManagementConfig }}',
+ '{{ ReservedConcurrentExecutions }}',
+ '{{ SnapStart }}',
+ '{{ FileSystemConfigs }}',
+ '{{ FunctionName }}',
+ '{{ Runtime }}',
+ '{{ KmsKeyArn }}',
+ '{{ PackageType }}',
+ '{{ CodeSigningConfigArn }}',
+ '{{ Layers }}',
+ '{{ Tags }}',
+ '{{ ImageConfig }}',
+ '{{ MemorySize }}',
+ '{{ DeadLetterConfig }}',
+ '{{ Timeout }}',
+ '{{ Handler }}',
+ '{{ Code }}',
+ '{{ Role }}',
+ '{{ LoggingConfig }}',
+ '{{ Environment }}',
+ '{{ EphemeralStorage }}',
+ '{{ Architectures }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: function
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: TracingConfig
+        value:
+          Mode: '{{ Mode }}'
+      - name: VpcConfig
+        value:
+          Ipv6AllowedForDualStack: '{{ Ipv6AllowedForDualStack }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+      - name: RuntimeManagementConfig
+        value:
+          UpdateRuntimeOn: '{{ UpdateRuntimeOn }}'
+          RuntimeVersionArn: '{{ RuntimeVersionArn }}'
+      - name: ReservedConcurrentExecutions
+        value: '{{ ReservedConcurrentExecutions }}'
+      - name: SnapStart
+        value:
+          ApplyOn: '{{ ApplyOn }}'
+      - name: FileSystemConfigs
+        value:
+          - Arn: '{{ Arn }}'
+            LocalMountPath: '{{ LocalMountPath }}'
+      - name: FunctionName
+        value: '{{ FunctionName }}'
+      - name: Runtime
+        value: '{{ Runtime }}'
+      - name: KmsKeyArn
+        value: '{{ KmsKeyArn }}'
+      - name: PackageType
+        value: '{{ PackageType }}'
+      - name: CodeSigningConfigArn
+        value: '{{ CodeSigningConfigArn }}'
+      - name: Layers
+        value:
+          - '{{ Layers[0] }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: ImageConfig
+        value:
+          WorkingDirectory: '{{ WorkingDirectory }}'
+          Command:
+            - '{{ Command[0] }}'
+          EntryPoint:
+            - '{{ EntryPoint[0] }}'
+      - name: MemorySize
+        value: '{{ MemorySize }}'
+      - name: DeadLetterConfig
+        value:
+          TargetArn: '{{ TargetArn }}'
+      - name: Timeout
+        value: '{{ Timeout }}'
+      - name: Handler
+        value: '{{ Handler }}'
+      - name: Code
+        value:
+          S3ObjectVersion: '{{ S3ObjectVersion }}'
+          S3Bucket: '{{ S3Bucket }}'
+          ZipFile: '{{ ZipFile }}'
+          S3Key: '{{ S3Key }}'
+          ImageUri: '{{ ImageUri }}'
+      - name: Role
+        value: '{{ Role }}'
+      - name: LoggingConfig
+        value:
+          LogFormat: '{{ LogFormat }}'
+          ApplicationLogLevel: '{{ ApplicationLogLevel }}'
+          LogGroup: '{{ LogGroup }}'
+          SystemLogLevel: '{{ SystemLogLevel }}'
+      - name: Environment
+        value:
+          Variables: {}
+      - name: EphemeralStorage
+        value:
+          Size: '{{ Size }}'
+      - name: Architectures
+        value:
+          - '{{ Architectures[0] }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,91 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>patch_baseline</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- patch_baseline.iql (required properties only)
 INSERT INTO aws.ssm.patch_baselines (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DefaultBaseline": "{{ DefaultBaseline }}",
- "OperatingSystem": "{{ OperatingSystem }}",
- "Description": "{{ Description }}",
- "ApprovalRules": {
-  "PatchRules": [
-   {
-    "ApproveUntilDate": "{{ ApproveUntilDate }}",
-    "EnableNonSecurity": "{{ EnableNonSecurity }}",
-    "PatchFilterGroup": {
-     "PatchFilters": [
-      {
-       "Values": [
-        "{{ Values[0] }}"
-       ],
-       "Key": "{{ Key }}"
-      }
-     ]
-    },
-    "ApproveAfterDays": "{{ ApproveAfterDays }}",
-    "ComplianceLevel": "{{ ComplianceLevel }}"
-   }
-  ]
- },
- "Sources": [
-  {
-   "Products": [
-    "{{ Products[0] }}"
-   ],
-   "Configuration": "{{ Configuration }}",
-   "Name": "{{ Name }}"
-  }
- ],
- "Name": "{{ Name }}",
- "RejectedPatches": [
-  "{{ RejectedPatches[0] }}"
- ],
- "ApprovedPatches": [
-  "{{ ApprovedPatches[0] }}"
- ],
- "RejectedPatchesAction": "{{ RejectedPatchesAction }}",
- "PatchGroups": [
-  "{{ PatchGroups[0] }}"
- ],
- "ApprovedPatchesComplianceLevel": "{{ ApprovedPatchesComplianceLevel }}",
- "ApprovedPatchesEnableNonSecurity": "{{ ApprovedPatchesEnableNonSecurity }}",
- "GlobalFilters": null,
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- patch_baseline.iql (all properties)
 INSERT INTO aws.ssm.patch_baselines (
  DefaultBaseline,
  OperatingSystem,
@@ -177,21 +119,85 @@ INSERT INTO aws.ssm.patch_baselines (
  region
 )
 SELECT 
- {{ .DefaultBaseline }},
- {{ .OperatingSystem }},
- {{ .Description }},
- {{ .ApprovalRules }},
- {{ .Sources }},
- {{ .Name }},
- {{ .RejectedPatches }},
- {{ .ApprovedPatches }},
- {{ .RejectedPatchesAction }},
- {{ .PatchGroups }},
- {{ .ApprovedPatchesComplianceLevel }},
- {{ .ApprovedPatchesEnableNonSecurity }},
- {{ .GlobalFilters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DefaultBaseline }}',
+ '{{ OperatingSystem }}',
+ '{{ Description }}',
+ '{{ ApprovalRules }}',
+ '{{ Sources }}',
+ '{{ Name }}',
+ '{{ RejectedPatches }}',
+ '{{ ApprovedPatches }}',
+ '{{ RejectedPatchesAction }}',
+ '{{ PatchGroups }}',
+ '{{ ApprovedPatchesComplianceLevel }}',
+ '{{ ApprovedPatchesEnableNonSecurity }}',
+ '{{ GlobalFilters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: patch_baseline
+    props:
+      - name: DefaultBaseline
+        value: '{{ DefaultBaseline }}'
+      - name: OperatingSystem
+        value: '{{ OperatingSystem }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ApprovalRules
+        value:
+          PatchRules:
+            - ApproveUntilDate: '{{ ApproveUntilDate }}'
+              EnableNonSecurity: '{{ EnableNonSecurity }}'
+              PatchFilterGroup:
+                PatchFilters:
+                  - Values:
+                      - '{{ Values[0] }}'
+                    Key: '{{ Key }}'
+              ApproveAfterDays: '{{ ApproveAfterDays }}'
+              ComplianceLevel: '{{ ComplianceLevel }}'
+      - name: Sources
+        value:
+          - Products:
+              - '{{ Products[0] }}'
+            Configuration: '{{ Configuration }}'
+            Name: '{{ Name }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RejectedPatches
+        value:
+          - '{{ RejectedPatches[0] }}'
+      - name: ApprovedPatches
+        value:
+          - '{{ ApprovedPatches[0] }}'
+      - name: RejectedPatchesAction
+        value: '{{ RejectedPatchesAction }}'
+      - name: PatchGroups
+        value:
+          - '{{ PatchGroups[0] }}'
+      - name: ApprovedPatchesComplianceLevel
+        value: '{{ ApprovedPatchesComplianceLevel }}'
+      - name: ApprovedPatchesEnableNonSecurity
+        value: '{{ ApprovedPatchesEnableNonSecurity }}'
+      - name: GlobalFilters
+        value: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

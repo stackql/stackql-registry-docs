@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>logging</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccountId": "{{ AccountId }}",
- "RoleArn": "{{ RoleArn }}",
- "DefaultLogLevel": "{{ DefaultLogLevel }}"
-}
->>>
---required properties only
+-- logging.iql (required properties only)
 INSERT INTO aws.iot.loggings (
  AccountId,
  RoleArn,
@@ -99,23 +95,16 @@ INSERT INTO aws.iot.loggings (
  region
 )
 SELECT 
-{{ .AccountId }},
- {{ .RoleArn }},
- {{ .DefaultLogLevel }},
-'us-east-1';
+'{{ AccountId }}',
+ '{{ RoleArn }}',
+ '{{ DefaultLogLevel }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccountId": "{{ AccountId }}",
- "RoleArn": "{{ RoleArn }}",
- "DefaultLogLevel": "{{ DefaultLogLevel }}"
-}
->>>
---all properties
+-- logging.iql (all properties)
 INSERT INTO aws.iot.loggings (
  AccountId,
  RoleArn,
@@ -123,10 +112,33 @@ INSERT INTO aws.iot.loggings (
  region
 )
 SELECT 
- {{ .AccountId }},
- {{ .RoleArn }},
- {{ .DefaultLogLevel }},
- 'us-east-1';
+ '{{ AccountId }}',
+ '{{ RoleArn }}',
+ '{{ DefaultLogLevel }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: logging
+    props:
+      - name: AccountId
+        value: '{{ AccountId }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: DefaultLogLevel
+        value: '{{ DefaultLogLevel }}'
+
 ```
 </TabItem>
 </Tabs>

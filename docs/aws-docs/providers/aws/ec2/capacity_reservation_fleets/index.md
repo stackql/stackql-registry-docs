@@ -74,50 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>capacity_reservation_fleet</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AllocationStrategy": "{{ AllocationStrategy }}",
- "TagSpecifications": [
-  {
-   "ResourceType": "{{ ResourceType }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "InstanceTypeSpecifications": [
-  {
-   "InstanceType": "{{ InstanceType }}",
-   "InstancePlatform": "{{ InstancePlatform }}",
-   "Weight": null,
-   "AvailabilityZone": "{{ AvailabilityZone }}",
-   "AvailabilityZoneId": "{{ AvailabilityZoneId }}",
-   "EbsOptimized": "{{ EbsOptimized }}",
-   "Priority": "{{ Priority }}"
-  }
- ],
- "TotalTargetCapacity": "{{ TotalTargetCapacity }}",
- "EndDate": "{{ EndDate }}",
- "InstanceMatchCriteria": "{{ InstanceMatchCriteria }}",
- "Tenancy": "{{ Tenancy }}",
- "RemoveEndDate": "{{ RemoveEndDate }}",
- "NoRemoveEndDate": "{{ NoRemoveEndDate }}"
-}
->>>
---required properties only
+-- capacity_reservation_fleet.iql (required properties only)
 INSERT INTO aws.ec2.capacity_reservation_fleets (
  AllocationStrategy,
  TagSpecifications,
@@ -131,55 +101,22 @@ INSERT INTO aws.ec2.capacity_reservation_fleets (
  region
 )
 SELECT 
-{{ .AllocationStrategy }},
- {{ .TagSpecifications }},
- {{ .InstanceTypeSpecifications }},
- {{ .TotalTargetCapacity }},
- {{ .EndDate }},
- {{ .InstanceMatchCriteria }},
- {{ .Tenancy }},
- {{ .RemoveEndDate }},
- {{ .NoRemoveEndDate }},
-'us-east-1';
+'{{ AllocationStrategy }}',
+ '{{ TagSpecifications }}',
+ '{{ InstanceTypeSpecifications }}',
+ '{{ TotalTargetCapacity }}',
+ '{{ EndDate }}',
+ '{{ InstanceMatchCriteria }}',
+ '{{ Tenancy }}',
+ '{{ RemoveEndDate }}',
+ '{{ NoRemoveEndDate }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AllocationStrategy": "{{ AllocationStrategy }}",
- "TagSpecifications": [
-  {
-   "ResourceType": "{{ ResourceType }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "InstanceTypeSpecifications": [
-  {
-   "InstanceType": "{{ InstanceType }}",
-   "InstancePlatform": "{{ InstancePlatform }}",
-   "Weight": null,
-   "AvailabilityZone": "{{ AvailabilityZone }}",
-   "AvailabilityZoneId": "{{ AvailabilityZoneId }}",
-   "EbsOptimized": "{{ EbsOptimized }}",
-   "Priority": "{{ Priority }}"
-  }
- ],
- "TotalTargetCapacity": "{{ TotalTargetCapacity }}",
- "EndDate": "{{ EndDate }}",
- "InstanceMatchCriteria": "{{ InstanceMatchCriteria }}",
- "Tenancy": "{{ Tenancy }}",
- "RemoveEndDate": "{{ RemoveEndDate }}",
- "NoRemoveEndDate": "{{ NoRemoveEndDate }}"
-}
->>>
---all properties
+-- capacity_reservation_fleet.iql (all properties)
 INSERT INTO aws.ec2.capacity_reservation_fleets (
  AllocationStrategy,
  TagSpecifications,
@@ -193,16 +130,62 @@ INSERT INTO aws.ec2.capacity_reservation_fleets (
  region
 )
 SELECT 
- {{ .AllocationStrategy }},
- {{ .TagSpecifications }},
- {{ .InstanceTypeSpecifications }},
- {{ .TotalTargetCapacity }},
- {{ .EndDate }},
- {{ .InstanceMatchCriteria }},
- {{ .Tenancy }},
- {{ .RemoveEndDate }},
- {{ .NoRemoveEndDate }},
- 'us-east-1';
+ '{{ AllocationStrategy }}',
+ '{{ TagSpecifications }}',
+ '{{ InstanceTypeSpecifications }}',
+ '{{ TotalTargetCapacity }}',
+ '{{ EndDate }}',
+ '{{ InstanceMatchCriteria }}',
+ '{{ Tenancy }}',
+ '{{ RemoveEndDate }}',
+ '{{ NoRemoveEndDate }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: capacity_reservation_fleet
+    props:
+      - name: AllocationStrategy
+        value: '{{ AllocationStrategy }}'
+      - name: TagSpecifications
+        value:
+          - ResourceType: '{{ ResourceType }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+      - name: InstanceTypeSpecifications
+        value:
+          - InstanceType: '{{ InstanceType }}'
+            InstancePlatform: '{{ InstancePlatform }}'
+            Weight: null
+            AvailabilityZone: '{{ AvailabilityZone }}'
+            AvailabilityZoneId: '{{ AvailabilityZoneId }}'
+            EbsOptimized: '{{ EbsOptimized }}'
+            Priority: '{{ Priority }}'
+      - name: TotalTargetCapacity
+        value: '{{ TotalTargetCapacity }}'
+      - name: EndDate
+        value: '{{ EndDate }}'
+      - name: InstanceMatchCriteria
+        value: '{{ InstanceMatchCriteria }}'
+      - name: Tenancy
+        value: '{{ Tenancy }}'
+      - name: RemoveEndDate
+        value: '{{ RemoveEndDate }}'
+      - name: NoRemoveEndDate
+        value: '{{ NoRemoveEndDate }}'
+
 ```
 </TabItem>
 </Tabs>

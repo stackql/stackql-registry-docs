@@ -74,41 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>partner_account</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Sidewalk": {
-  "AppServerPrivateKey": "{{ AppServerPrivateKey }}"
- },
- "PartnerAccountId": "{{ PartnerAccountId }}",
- "PartnerType": "{{ PartnerType }}",
- "SidewalkResponse": {
-  "AmazonId": "{{ AmazonId }}",
-  "Fingerprint": "{{ Fingerprint }}",
-  "Arn": "{{ Arn }}"
- },
- "AccountLinked": "{{ AccountLinked }}",
- "SidewalkUpdate": {
-  "AppServerPrivateKey": "{{ AppServerPrivateKey }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- partner_account.iql (required properties only)
 INSERT INTO aws.iotwireless.partner_accounts (
  Sidewalk,
  PartnerAccountId,
@@ -120,44 +99,20 @@ INSERT INTO aws.iotwireless.partner_accounts (
  region
 )
 SELECT 
-{{ .Sidewalk }},
- {{ .PartnerAccountId }},
- {{ .PartnerType }},
- {{ .SidewalkResponse }},
- {{ .AccountLinked }},
- {{ .SidewalkUpdate }},
- {{ .Tags }},
-'us-east-1';
+'{{ Sidewalk }}',
+ '{{ PartnerAccountId }}',
+ '{{ PartnerType }}',
+ '{{ SidewalkResponse }}',
+ '{{ AccountLinked }}',
+ '{{ SidewalkUpdate }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Sidewalk": {
-  "AppServerPrivateKey": "{{ AppServerPrivateKey }}"
- },
- "PartnerAccountId": "{{ PartnerAccountId }}",
- "PartnerType": "{{ PartnerType }}",
- "SidewalkResponse": {
-  "AmazonId": "{{ AmazonId }}",
-  "Fingerprint": "{{ Fingerprint }}",
-  "Arn": "{{ Arn }}"
- },
- "AccountLinked": "{{ AccountLinked }}",
- "SidewalkUpdate": {
-  "AppServerPrivateKey": "{{ AppServerPrivateKey }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- partner_account.iql (all properties)
 INSERT INTO aws.iotwireless.partner_accounts (
  Sidewalk,
  PartnerAccountId,
@@ -169,14 +124,52 @@ INSERT INTO aws.iotwireless.partner_accounts (
  region
 )
 SELECT 
- {{ .Sidewalk }},
- {{ .PartnerAccountId }},
- {{ .PartnerType }},
- {{ .SidewalkResponse }},
- {{ .AccountLinked }},
- {{ .SidewalkUpdate }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Sidewalk }}',
+ '{{ PartnerAccountId }}',
+ '{{ PartnerType }}',
+ '{{ SidewalkResponse }}',
+ '{{ AccountLinked }}',
+ '{{ SidewalkUpdate }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: partner_account
+    props:
+      - name: Sidewalk
+        value:
+          AppServerPrivateKey: '{{ AppServerPrivateKey }}'
+      - name: PartnerAccountId
+        value: '{{ PartnerAccountId }}'
+      - name: PartnerType
+        value: '{{ PartnerType }}'
+      - name: SidewalkResponse
+        value:
+          AmazonId: '{{ AmazonId }}'
+          Fingerprint: '{{ Fingerprint }}'
+          Arn: '{{ Arn }}'
+      - name: AccountLinked
+        value: '{{ AccountLinked }}'
+      - name: SidewalkUpdate
+        value:
+          AppServerPrivateKey: '{{ AppServerPrivateKey }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

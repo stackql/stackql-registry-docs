@@ -74,59 +74,66 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>trust_store</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CertificateList": [
-  "{{ CertificateList[0] }}"
- ]
-}
->>>
---required properties only
+-- trust_store.iql (required properties only)
 INSERT INTO aws.workspacesweb.trust_stores (
  CertificateList,
  region
 )
 SELECT 
-{{ .CertificateList }},
-'us-east-1';
+'{{ CertificateList }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CertificateList": [
-  "{{ CertificateList[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- trust_store.iql (all properties)
 INSERT INTO aws.workspacesweb.trust_stores (
  CertificateList,
  Tags,
  region
 )
 SELECT 
- {{ .CertificateList }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CertificateList }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: trust_store
+    props:
+      - name: CertificateList
+        value:
+          - '{{ CertificateList[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

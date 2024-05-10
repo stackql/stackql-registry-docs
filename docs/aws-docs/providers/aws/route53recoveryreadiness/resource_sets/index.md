@@ -74,97 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resource_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Resources": [
-  {
-   "ResourceArn": "{{ ResourceArn }}",
-   "ComponentId": "{{ ComponentId }}",
-   "DnsTargetResource": {
-    "DomainName": "{{ DomainName }}",
-    "RecordSetId": "{{ RecordSetId }}",
-    "HostedZoneArn": "{{ HostedZoneArn }}",
-    "RecordType": "{{ RecordType }}",
-    "TargetResource": {
-     "NLBResource": {
-      "Arn": "{{ Arn }}"
-     },
-     "R53Resource": {
-      "DomainName": "{{ DomainName }}",
-      "RecordSetId": "{{ RecordSetId }}"
-     }
-    }
-   },
-   "ReadinessScopes": [
-    "{{ ReadinessScopes[0] }}"
-   ]
-  }
- ],
- "ResourceSetType": "{{ ResourceSetType }}"
-}
->>>
---required properties only
+-- resource_set.iql (required properties only)
 INSERT INTO aws.route53recoveryreadiness.resource_sets (
  Resources,
  ResourceSetType,
  region
 )
 SELECT 
-{{ .Resources }},
- {{ .ResourceSetType }},
-'us-east-1';
+'{{ Resources }}',
+ '{{ ResourceSetType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceSetName": "{{ ResourceSetName }}",
- "Resources": [
-  {
-   "ResourceArn": "{{ ResourceArn }}",
-   "ComponentId": "{{ ComponentId }}",
-   "DnsTargetResource": {
-    "DomainName": "{{ DomainName }}",
-    "RecordSetId": "{{ RecordSetId }}",
-    "HostedZoneArn": "{{ HostedZoneArn }}",
-    "RecordType": "{{ RecordType }}",
-    "TargetResource": {
-     "NLBResource": {
-      "Arn": "{{ Arn }}"
-     },
-     "R53Resource": {
-      "DomainName": "{{ DomainName }}",
-      "RecordSetId": "{{ RecordSetId }}"
-     }
-    }
-   },
-   "ReadinessScopes": [
-    "{{ ReadinessScopes[0] }}"
-   ]
-  }
- ],
- "ResourceSetType": "{{ ResourceSetType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- resource_set.iql (all properties)
 INSERT INTO aws.route53recoveryreadiness.resource_sets (
  ResourceSetName,
  Resources,
@@ -173,11 +111,53 @@ INSERT INTO aws.route53recoveryreadiness.resource_sets (
  region
 )
 SELECT 
- {{ .ResourceSetName }},
- {{ .Resources }},
- {{ .ResourceSetType }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ResourceSetName }}',
+ '{{ Resources }}',
+ '{{ ResourceSetType }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resource_set
+    props:
+      - name: ResourceSetName
+        value: '{{ ResourceSetName }}'
+      - name: Resources
+        value:
+          - ResourceArn: '{{ ResourceArn }}'
+            ComponentId: '{{ ComponentId }}'
+            DnsTargetResource:
+              DomainName: '{{ DomainName }}'
+              RecordSetId: '{{ RecordSetId }}'
+              HostedZoneArn: '{{ HostedZoneArn }}'
+              RecordType: '{{ RecordType }}'
+              TargetResource:
+                NLBResource:
+                  Arn: '{{ Arn }}'
+                R53Resource:
+                  DomainName: '{{ DomainName }}'
+                  RecordSetId: '{{ RecordSetId }}'
+            ReadinessScopes:
+              - '{{ ReadinessScopes[0] }}'
+      - name: ResourceSetType
+        value: '{{ ResourceSetType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

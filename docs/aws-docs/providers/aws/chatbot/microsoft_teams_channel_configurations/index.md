@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>microsoft_teams_channel_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TeamId": "{{ TeamId }}",
- "TeamsChannelId": "{{ TeamsChannelId }}",
- "TeamsTenantId": "{{ TeamsTenantId }}",
- "ConfigurationName": "{{ ConfigurationName }}",
- "IamRoleArn": "{{ IamRoleArn }}"
-}
->>>
---required properties only
+-- microsoft_teams_channel_configuration.iql (required properties only)
 INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  TeamId,
  TeamsChannelId,
@@ -103,35 +97,18 @@ INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  region
 )
 SELECT 
-{{ .TeamId }},
- {{ .TeamsChannelId }},
- {{ .TeamsTenantId }},
- {{ .ConfigurationName }},
- {{ .IamRoleArn }},
-'us-east-1';
+'{{ TeamId }}',
+ '{{ TeamsChannelId }}',
+ '{{ TeamsTenantId }}',
+ '{{ ConfigurationName }}',
+ '{{ IamRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TeamId": "{{ TeamId }}",
- "TeamsChannelId": "{{ TeamsChannelId }}",
- "TeamsTenantId": "{{ TeamsTenantId }}",
- "ConfigurationName": "{{ ConfigurationName }}",
- "IamRoleArn": "{{ IamRoleArn }}",
- "SnsTopicArns": [
-  "{{ SnsTopicArns[0] }}"
- ],
- "LoggingLevel": "{{ LoggingLevel }}",
- "GuardrailPolicies": [
-  "{{ GuardrailPolicies[0] }}"
- ],
- "UserRoleRequired": "{{ UserRoleRequired }}"
-}
->>>
---all properties
+-- microsoft_teams_channel_configuration.iql (all properties)
 INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  TeamId,
  TeamsChannelId,
@@ -145,16 +122,53 @@ INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  region
 )
 SELECT 
- {{ .TeamId }},
- {{ .TeamsChannelId }},
- {{ .TeamsTenantId }},
- {{ .ConfigurationName }},
- {{ .IamRoleArn }},
- {{ .SnsTopicArns }},
- {{ .LoggingLevel }},
- {{ .GuardrailPolicies }},
- {{ .UserRoleRequired }},
- 'us-east-1';
+ '{{ TeamId }}',
+ '{{ TeamsChannelId }}',
+ '{{ TeamsTenantId }}',
+ '{{ ConfigurationName }}',
+ '{{ IamRoleArn }}',
+ '{{ SnsTopicArns }}',
+ '{{ LoggingLevel }}',
+ '{{ GuardrailPolicies }}',
+ '{{ UserRoleRequired }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: microsoft_teams_channel_configuration
+    props:
+      - name: TeamId
+        value: '{{ TeamId }}'
+      - name: TeamsChannelId
+        value: '{{ TeamsChannelId }}'
+      - name: TeamsTenantId
+        value: '{{ TeamsTenantId }}'
+      - name: ConfigurationName
+        value: '{{ ConfigurationName }}'
+      - name: IamRoleArn
+        value: '{{ IamRoleArn }}'
+      - name: SnsTopicArns
+        value:
+          - '{{ SnsTopicArns[0] }}'
+      - name: LoggingLevel
+        value: '{{ LoggingLevel }}'
+      - name: GuardrailPolicies
+        value:
+          - '{{ GuardrailPolicies[0] }}'
+      - name: UserRoleRequired
+        value: '{{ UserRoleRequired }}'
+
 ```
 </TabItem>
 </Tabs>

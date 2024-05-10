@@ -74,45 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resolver_rule_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VPCId": "{{ VPCId }}",
- "ResolverRuleId": "{{ ResolverRuleId }}"
-}
->>>
---required properties only
+-- resolver_rule_association.iql (required properties only)
 INSERT INTO aws.route53resolver.resolver_rule_associations (
  VPCId,
  ResolverRuleId,
  region
 )
 SELECT 
-{{ .VPCId }},
- {{ .ResolverRuleId }},
-'us-east-1';
+'{{ VPCId }}',
+ '{{ ResolverRuleId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VPCId": "{{ VPCId }}",
- "ResolverRuleId": "{{ ResolverRuleId }}",
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- resolver_rule_association.iql (all properties)
 INSERT INTO aws.route53resolver.resolver_rule_associations (
  VPCId,
  ResolverRuleId,
@@ -120,10 +110,33 @@ INSERT INTO aws.route53resolver.resolver_rule_associations (
  region
 )
 SELECT 
- {{ .VPCId }},
- {{ .ResolverRuleId }},
- {{ .Name }},
- 'us-east-1';
+ '{{ VPCId }}',
+ '{{ ResolverRuleId }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resolver_rule_association
+    props:
+      - name: VPCId
+        value: '{{ VPCId }}'
+      - name: ResolverRuleId
+        value: '{{ ResolverRuleId }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

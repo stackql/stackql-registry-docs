@@ -74,55 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway_route_table</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}"
-}
->>>
---required properties only
+-- transit_gateway_route_table.iql (required properties only)
 INSERT INTO aws.ec2.transit_gateway_route_tables (
  TransitGatewayId,
  region
 )
 SELECT 
-{{ .TransitGatewayId }},
-'us-east-1';
+'{{ TransitGatewayId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- transit_gateway_route_table.iql (all properties)
 INSERT INTO aws.ec2.transit_gateway_route_tables (
  TransitGatewayId,
  Tags,
  region
 )
 SELECT 
- {{ .TransitGatewayId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ TransitGatewayId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway_route_table
+    props:
+      - name: TransitGatewayId
+        value: '{{ TransitGatewayId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

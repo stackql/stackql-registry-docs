@@ -74,52 +74,33 @@ FROM aws.iam.virtualmfa_devices
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>virtualmfa_device</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Users": [
-  "{{ Users[0] }}"
- ]
-}
->>>
---required properties only
+-- virtualmfa_device.iql (required properties only)
 INSERT INTO aws.iam.virtualmfa_devices (
  Users,
  region
 )
 SELECT 
-{{ .Users }},
-'us-east-1';
+'{{ Users }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VirtualMfaDeviceName": "{{ VirtualMfaDeviceName }}",
- "Path": "{{ Path }}",
- "Users": [
-  "{{ Users[0] }}"
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- virtualmfa_device.iql (all properties)
 INSERT INTO aws.iam.virtualmfa_devices (
  VirtualMfaDeviceName,
  Path,
@@ -128,11 +109,39 @@ INSERT INTO aws.iam.virtualmfa_devices (
  region
 )
 SELECT 
- {{ .VirtualMfaDeviceName }},
- {{ .Path }},
- {{ .Users }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ VirtualMfaDeviceName }}',
+ '{{ Path }}',
+ '{{ Users }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: virtualmfa_device
+    props:
+      - name: VirtualMfaDeviceName
+        value: '{{ VirtualMfaDeviceName }}'
+      - name: Path
+        value: '{{ Path }}'
+      - name: Users
+        value:
+          - '{{ Users[0] }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

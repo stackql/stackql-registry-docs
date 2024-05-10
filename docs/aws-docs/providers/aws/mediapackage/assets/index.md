@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>asset</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}",
- "PackagingGroupId": "{{ PackagingGroupId }}",
- "SourceArn": "{{ SourceArn }}",
- "SourceRoleArn": "{{ SourceRoleArn }}"
-}
->>>
---required properties only
+-- asset.iql (required properties only)
 INSERT INTO aws.mediapackage.assets (
  Id,
  PackagingGroupId,
@@ -101,38 +96,17 @@ INSERT INTO aws.mediapackage.assets (
  region
 )
 SELECT 
-{{ .Id }},
- {{ .PackagingGroupId }},
- {{ .SourceArn }},
- {{ .SourceRoleArn }},
-'us-east-1';
+'{{ Id }}',
+ '{{ PackagingGroupId }}',
+ '{{ SourceArn }}',
+ '{{ SourceRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EgressEndpoints": [
-  {
-   "PackagingConfigurationId": "{{ PackagingConfigurationId }}",
-   "Url": "{{ Url }}"
-  }
- ],
- "Id": "{{ Id }}",
- "PackagingGroupId": "{{ PackagingGroupId }}",
- "ResourceId": "{{ ResourceId }}",
- "SourceArn": "{{ SourceArn }}",
- "SourceRoleArn": "{{ SourceRoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- asset.iql (all properties)
 INSERT INTO aws.mediapackage.assets (
  EgressEndpoints,
  Id,
@@ -144,14 +118,49 @@ INSERT INTO aws.mediapackage.assets (
  region
 )
 SELECT 
- {{ .EgressEndpoints }},
- {{ .Id }},
- {{ .PackagingGroupId }},
- {{ .ResourceId }},
- {{ .SourceArn }},
- {{ .SourceRoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ EgressEndpoints }}',
+ '{{ Id }}',
+ '{{ PackagingGroupId }}',
+ '{{ ResourceId }}',
+ '{{ SourceArn }}',
+ '{{ SourceRoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: asset
+    props:
+      - name: EgressEndpoints
+        value:
+          - PackagingConfigurationId: '{{ PackagingConfigurationId }}'
+            Url: '{{ Url }}'
+      - name: Id
+        value: '{{ Id }}'
+      - name: PackagingGroupId
+        value: '{{ PackagingGroupId }}'
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+      - name: SourceArn
+        value: '{{ SourceArn }}'
+      - name: SourceRoleArn
+        value: '{{ SourceRoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

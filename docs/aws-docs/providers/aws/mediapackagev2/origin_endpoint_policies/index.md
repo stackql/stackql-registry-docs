@@ -78,25 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>origin_endpoint_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ChannelGroupName": "{{ ChannelGroupName }}",
- "ChannelName": "{{ ChannelName }}",
- "OriginEndpointName": "{{ OriginEndpointName }}",
- "Policy": {}
-}
->>>
---required properties only
+-- origin_endpoint_policy.iql (required properties only)
 INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
  ChannelGroupName,
  ChannelName,
@@ -105,25 +100,17 @@ INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
  region
 )
 SELECT 
-{{ .ChannelGroupName }},
- {{ .ChannelName }},
- {{ .OriginEndpointName }},
- {{ .Policy }},
-'us-east-1';
+'{{ ChannelGroupName }}',
+ '{{ ChannelName }}',
+ '{{ OriginEndpointName }}',
+ '{{ Policy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ChannelGroupName": "{{ ChannelGroupName }}",
- "ChannelName": "{{ ChannelName }}",
- "OriginEndpointName": "{{ OriginEndpointName }}",
- "Policy": {}
-}
->>>
---all properties
+-- origin_endpoint_policy.iql (all properties)
 INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
  ChannelGroupName,
  ChannelName,
@@ -132,11 +119,36 @@ INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
  region
 )
 SELECT 
- {{ .ChannelGroupName }},
- {{ .ChannelName }},
- {{ .OriginEndpointName }},
- {{ .Policy }},
- 'us-east-1';
+ '{{ ChannelGroupName }}',
+ '{{ ChannelName }}',
+ '{{ OriginEndpointName }}',
+ '{{ Policy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: origin_endpoint_policy
+    props:
+      - name: ChannelGroupName
+        value: '{{ ChannelGroupName }}'
+      - name: ChannelName
+        value: '{{ ChannelName }}'
+      - name: OriginEndpointName
+        value: '{{ OriginEndpointName }}'
+      - name: Policy
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

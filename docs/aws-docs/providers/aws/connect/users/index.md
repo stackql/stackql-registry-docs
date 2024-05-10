@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Username": "{{ Username }}",
- "RoutingProfileArn": "{{ RoutingProfileArn }}",
- "PhoneConfig": {
-  "AfterContactWorkTimeLimit": "{{ AfterContactWorkTimeLimit }}",
-  "AutoAccept": "{{ AutoAccept }}",
-  "DeskPhoneNumber": "{{ DeskPhoneNumber }}",
-  "PhoneType": "{{ PhoneType }}"
- },
- "SecurityProfileArns": [
-  "{{ SecurityProfileArns[0] }}"
- ]
-}
->>>
---required properties only
+-- user.iql (required properties only)
 INSERT INTO aws.connect.users (
  InstanceArn,
  Username,
@@ -110,57 +97,18 @@ INSERT INTO aws.connect.users (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .Username }},
- {{ .RoutingProfileArn }},
- {{ .PhoneConfig }},
- {{ .SecurityProfileArns }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ Username }}',
+ '{{ RoutingProfileArn }}',
+ '{{ PhoneConfig }}',
+ '{{ SecurityProfileArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "DirectoryUserId": "{{ DirectoryUserId }}",
- "HierarchyGroupArn": "{{ HierarchyGroupArn }}",
- "Username": "{{ Username }}",
- "Password": "{{ Password }}",
- "RoutingProfileArn": "{{ RoutingProfileArn }}",
- "IdentityInfo": {
-  "FirstName": "{{ FirstName }}",
-  "LastName": "{{ LastName }}",
-  "Email": "{{ Email }}",
-  "SecondaryEmail": "{{ SecondaryEmail }}",
-  "Mobile": "{{ Mobile }}"
- },
- "PhoneConfig": {
-  "AfterContactWorkTimeLimit": "{{ AfterContactWorkTimeLimit }}",
-  "AutoAccept": "{{ AutoAccept }}",
-  "DeskPhoneNumber": "{{ DeskPhoneNumber }}",
-  "PhoneType": "{{ PhoneType }}"
- },
- "SecurityProfileArns": [
-  "{{ SecurityProfileArns[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "UserProficiencies": [
-  {
-   "AttributeName": "{{ AttributeName }}",
-   "AttributeValue": "{{ AttributeValue }}",
-   "Level": null
-  }
- ]
-}
->>>
---all properties
+-- user.iql (all properties)
 INSERT INTO aws.connect.users (
  InstanceArn,
  DirectoryUserId,
@@ -176,18 +124,72 @@ INSERT INTO aws.connect.users (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .DirectoryUserId }},
- {{ .HierarchyGroupArn }},
- {{ .Username }},
- {{ .Password }},
- {{ .RoutingProfileArn }},
- {{ .IdentityInfo }},
- {{ .PhoneConfig }},
- {{ .SecurityProfileArns }},
- {{ .Tags }},
- {{ .UserProficiencies }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ DirectoryUserId }}',
+ '{{ HierarchyGroupArn }}',
+ '{{ Username }}',
+ '{{ Password }}',
+ '{{ RoutingProfileArn }}',
+ '{{ IdentityInfo }}',
+ '{{ PhoneConfig }}',
+ '{{ SecurityProfileArns }}',
+ '{{ Tags }}',
+ '{{ UserProficiencies }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: DirectoryUserId
+        value: '{{ DirectoryUserId }}'
+      - name: HierarchyGroupArn
+        value: '{{ HierarchyGroupArn }}'
+      - name: Username
+        value: '{{ Username }}'
+      - name: Password
+        value: '{{ Password }}'
+      - name: RoutingProfileArn
+        value: '{{ RoutingProfileArn }}'
+      - name: IdentityInfo
+        value:
+          FirstName: '{{ FirstName }}'
+          LastName: '{{ LastName }}'
+          Email: '{{ Email }}'
+          SecondaryEmail: '{{ SecondaryEmail }}'
+          Mobile: '{{ Mobile }}'
+      - name: PhoneConfig
+        value:
+          AfterContactWorkTimeLimit: '{{ AfterContactWorkTimeLimit }}'
+          AutoAccept: '{{ AutoAccept }}'
+          DeskPhoneNumber: '{{ DeskPhoneNumber }}'
+          PhoneType: '{{ PhoneType }}'
+      - name: SecurityProfileArns
+        value:
+          - '{{ SecurityProfileArns[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: UserProficiencies
+        value:
+          - AttributeName: '{{ AttributeName }}'
+            AttributeValue: '{{ AttributeValue }}'
+            Level: null
+
 ```
 </TabItem>
 </Tabs>

@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_grant</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccessGrantsLocationId": "{{ AccessGrantsLocationId }}",
- "Permission": "{{ Permission }}",
- "Grantee": {
-  "GranteeType": "{{ GranteeType }}",
-  "GranteeIdentifier": "{{ GranteeIdentifier }}"
- }
-}
->>>
---required properties only
+-- access_grant.iql (required properties only)
 INSERT INTO aws.s3.access_grants (
  AccessGrantsLocationId,
  Permission,
@@ -102,37 +95,16 @@ INSERT INTO aws.s3.access_grants (
  region
 )
 SELECT 
-{{ .AccessGrantsLocationId }},
- {{ .Permission }},
- {{ .Grantee }},
-'us-east-1';
+'{{ AccessGrantsLocationId }}',
+ '{{ Permission }}',
+ '{{ Grantee }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessGrantsLocationId": "{{ AccessGrantsLocationId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Permission": "{{ Permission }}",
- "ApplicationArn": "{{ ApplicationArn }}",
- "S3PrefixType": "{{ S3PrefixType }}",
- "Grantee": {
-  "GranteeType": "{{ GranteeType }}",
-  "GranteeIdentifier": "{{ GranteeIdentifier }}"
- },
- "AccessGrantsLocationConfiguration": {
-  "S3SubPrefix": "{{ S3SubPrefix }}"
- }
-}
->>>
---all properties
+-- access_grant.iql (all properties)
 INSERT INTO aws.s3.access_grants (
  AccessGrantsLocationId,
  Tags,
@@ -144,14 +116,50 @@ INSERT INTO aws.s3.access_grants (
  region
 )
 SELECT 
- {{ .AccessGrantsLocationId }},
- {{ .Tags }},
- {{ .Permission }},
- {{ .ApplicationArn }},
- {{ .S3PrefixType }},
- {{ .Grantee }},
- {{ .AccessGrantsLocationConfiguration }},
- 'us-east-1';
+ '{{ AccessGrantsLocationId }}',
+ '{{ Tags }}',
+ '{{ Permission }}',
+ '{{ ApplicationArn }}',
+ '{{ S3PrefixType }}',
+ '{{ Grantee }}',
+ '{{ AccessGrantsLocationConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_grant
+    props:
+      - name: AccessGrantsLocationId
+        value: '{{ AccessGrantsLocationId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Permission
+        value: '{{ Permission }}'
+      - name: ApplicationArn
+        value: '{{ ApplicationArn }}'
+      - name: S3PrefixType
+        value: '{{ S3PrefixType }}'
+      - name: Grantee
+        value:
+          GranteeType: '{{ GranteeType }}'
+          GranteeIdentifier: '{{ GranteeIdentifier }}'
+      - name: AccessGrantsLocationConfiguration
+        value:
+          S3SubPrefix: '{{ S3SubPrefix }}'
+
 ```
 </TabItem>
 </Tabs>

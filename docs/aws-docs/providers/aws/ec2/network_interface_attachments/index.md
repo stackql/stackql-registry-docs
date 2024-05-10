@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_interface_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DeviceIndex": "{{ DeviceIndex }}",
- "InstanceId": "{{ InstanceId }}",
- "NetworkInterfaceId": "{{ NetworkInterfaceId }}"
-}
->>>
---required properties only
+-- network_interface_attachment.iql (required properties only)
 INSERT INTO aws.ec2.network_interface_attachments (
  DeviceIndex,
  InstanceId,
@@ -99,30 +95,16 @@ INSERT INTO aws.ec2.network_interface_attachments (
  region
 )
 SELECT 
-{{ .DeviceIndex }},
- {{ .InstanceId }},
- {{ .NetworkInterfaceId }},
-'us-east-1';
+'{{ DeviceIndex }}',
+ '{{ InstanceId }}',
+ '{{ NetworkInterfaceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DeleteOnTermination": "{{ DeleteOnTermination }}",
- "DeviceIndex": "{{ DeviceIndex }}",
- "InstanceId": "{{ InstanceId }}",
- "NetworkInterfaceId": "{{ NetworkInterfaceId }}",
- "EnaSrdSpecification": {
-  "EnaSrdEnabled": "{{ EnaSrdEnabled }}",
-  "EnaSrdUdpSpecification": {
-   "EnaSrdUdpEnabled": "{{ EnaSrdUdpEnabled }}"
-  }
- }
-}
->>>
---all properties
+-- network_interface_attachment.iql (all properties)
 INSERT INTO aws.ec2.network_interface_attachments (
  DeleteOnTermination,
  DeviceIndex,
@@ -132,12 +114,42 @@ INSERT INTO aws.ec2.network_interface_attachments (
  region
 )
 SELECT 
- {{ .DeleteOnTermination }},
- {{ .DeviceIndex }},
- {{ .InstanceId }},
- {{ .NetworkInterfaceId }},
- {{ .EnaSrdSpecification }},
- 'us-east-1';
+ '{{ DeleteOnTermination }}',
+ '{{ DeviceIndex }}',
+ '{{ InstanceId }}',
+ '{{ NetworkInterfaceId }}',
+ '{{ EnaSrdSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_interface_attachment
+    props:
+      - name: DeleteOnTermination
+        value: '{{ DeleteOnTermination }}'
+      - name: DeviceIndex
+        value: '{{ DeviceIndex }}'
+      - name: InstanceId
+        value: '{{ InstanceId }}'
+      - name: NetworkInterfaceId
+        value: '{{ NetworkInterfaceId }}'
+      - name: EnaSrdSpecification
+        value:
+          EnaSrdEnabled: '{{ EnaSrdEnabled }}'
+          EnaSrdUdpSpecification:
+            EnaSrdUdpEnabled: '{{ EnaSrdUdpEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

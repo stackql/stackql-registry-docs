@@ -74,170 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SourceConfiguration": {
-  "CodeRepository": {
-   "RepositoryUrl": "{{ RepositoryUrl }}",
-   "SourceCodeVersion": {
-    "Type": "{{ Type }}",
-    "Value": "{{ Value }}"
-   },
-   "CodeConfiguration": {
-    "ConfigurationSource": "{{ ConfigurationSource }}",
-    "CodeConfigurationValues": {
-     "Runtime": "{{ Runtime }}",
-     "BuildCommand": "{{ BuildCommand }}",
-     "StartCommand": "{{ StartCommand }}",
-     "Port": "{{ Port }}",
-     "RuntimeEnvironmentVariables": [
-      {
-       "Name": "{{ Name }}",
-       "Value": "{{ Value }}"
-      }
-     ],
-     "RuntimeEnvironmentSecrets": [
-      null
-     ]
-    }
-   },
-   "SourceDirectory": "{{ SourceDirectory }}"
-  },
-  "ImageRepository": {
-   "ImageIdentifier": "{{ ImageIdentifier }}",
-   "ImageConfiguration": {
-    "StartCommand": "{{ StartCommand }}",
-    "Port": "{{ Port }}",
-    "RuntimeEnvironmentVariables": [
-     null
-    ],
-    "RuntimeEnvironmentSecrets": [
-     null
-    ]
-   },
-   "ImageRepositoryType": "{{ ImageRepositoryType }}"
-  },
-  "AutoDeploymentsEnabled": "{{ AutoDeploymentsEnabled }}",
-  "AuthenticationConfiguration": {
-   "ConnectionArn": "{{ ConnectionArn }}",
-   "AccessRoleArn": "{{ AccessRoleArn }}"
-  }
- }
-}
->>>
---required properties only
+-- service.iql (required properties only)
 INSERT INTO aws.apprunner.services (
  SourceConfiguration,
  region
 )
 SELECT 
-{{ .SourceConfiguration }},
-'us-east-1';
+'{{ SourceConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ServiceName": "{{ ServiceName }}",
- "SourceConfiguration": {
-  "CodeRepository": {
-   "RepositoryUrl": "{{ RepositoryUrl }}",
-   "SourceCodeVersion": {
-    "Type": "{{ Type }}",
-    "Value": "{{ Value }}"
-   },
-   "CodeConfiguration": {
-    "ConfigurationSource": "{{ ConfigurationSource }}",
-    "CodeConfigurationValues": {
-     "Runtime": "{{ Runtime }}",
-     "BuildCommand": "{{ BuildCommand }}",
-     "StartCommand": "{{ StartCommand }}",
-     "Port": "{{ Port }}",
-     "RuntimeEnvironmentVariables": [
-      {
-       "Name": "{{ Name }}",
-       "Value": "{{ Value }}"
-      }
-     ],
-     "RuntimeEnvironmentSecrets": [
-      null
-     ]
-    }
-   },
-   "SourceDirectory": "{{ SourceDirectory }}"
-  },
-  "ImageRepository": {
-   "ImageIdentifier": "{{ ImageIdentifier }}",
-   "ImageConfiguration": {
-    "StartCommand": "{{ StartCommand }}",
-    "Port": "{{ Port }}",
-    "RuntimeEnvironmentVariables": [
-     null
-    ],
-    "RuntimeEnvironmentSecrets": [
-     null
-    ]
-   },
-   "ImageRepositoryType": "{{ ImageRepositoryType }}"
-  },
-  "AutoDeploymentsEnabled": "{{ AutoDeploymentsEnabled }}",
-  "AuthenticationConfiguration": {
-   "ConnectionArn": "{{ ConnectionArn }}",
-   "AccessRoleArn": "{{ AccessRoleArn }}"
-  }
- },
- "InstanceConfiguration": {
-  "Cpu": "{{ Cpu }}",
-  "Memory": "{{ Memory }}",
-  "InstanceRoleArn": null
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "EncryptionConfiguration": {
-  "KmsKey": "{{ KmsKey }}"
- },
- "HealthCheckConfiguration": {
-  "Protocol": "{{ Protocol }}",
-  "Path": "{{ Path }}",
-  "Interval": "{{ Interval }}",
-  "Timeout": "{{ Timeout }}",
-  "HealthyThreshold": "{{ HealthyThreshold }}",
-  "UnhealthyThreshold": "{{ UnhealthyThreshold }}"
- },
- "ObservabilityConfiguration": {
-  "ObservabilityEnabled": "{{ ObservabilityEnabled }}",
-  "ObservabilityConfigurationArn": "{{ ObservabilityConfigurationArn }}"
- },
- "AutoScalingConfigurationArn": "{{ AutoScalingConfigurationArn }}",
- "NetworkConfiguration": {
-  "EgressConfiguration": {
-   "EgressType": "{{ EgressType }}",
-   "VpcConnectorArn": "{{ VpcConnectorArn }}"
-  },
-  "IngressConfiguration": {
-   "IsPubliclyAccessible": "{{ IsPubliclyAccessible }}"
-  },
-  "IpAddressType": "{{ IpAddressType }}"
- }
-}
->>>
---all properties
+-- service.iql (all properties)
 INSERT INTO aws.apprunner.services (
  ServiceName,
  SourceConfiguration,
@@ -251,16 +114,103 @@ INSERT INTO aws.apprunner.services (
  region
 )
 SELECT 
- {{ .ServiceName }},
- {{ .SourceConfiguration }},
- {{ .InstanceConfiguration }},
- {{ .Tags }},
- {{ .EncryptionConfiguration }},
- {{ .HealthCheckConfiguration }},
- {{ .ObservabilityConfiguration }},
- {{ .AutoScalingConfigurationArn }},
- {{ .NetworkConfiguration }},
- 'us-east-1';
+ '{{ ServiceName }}',
+ '{{ SourceConfiguration }}',
+ '{{ InstanceConfiguration }}',
+ '{{ Tags }}',
+ '{{ EncryptionConfiguration }}',
+ '{{ HealthCheckConfiguration }}',
+ '{{ ObservabilityConfiguration }}',
+ '{{ AutoScalingConfigurationArn }}',
+ '{{ NetworkConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service
+    props:
+      - name: ServiceName
+        value: '{{ ServiceName }}'
+      - name: SourceConfiguration
+        value:
+          CodeRepository:
+            RepositoryUrl: '{{ RepositoryUrl }}'
+            SourceCodeVersion:
+              Type: '{{ Type }}'
+              Value: '{{ Value }}'
+            CodeConfiguration:
+              ConfigurationSource: '{{ ConfigurationSource }}'
+              CodeConfigurationValues:
+                Runtime: '{{ Runtime }}'
+                BuildCommand: '{{ BuildCommand }}'
+                StartCommand: '{{ StartCommand }}'
+                Port: '{{ Port }}'
+                RuntimeEnvironmentVariables:
+                  - Name: '{{ Name }}'
+                    Value: '{{ Value }}'
+                RuntimeEnvironmentSecrets:
+                  - null
+            SourceDirectory: '{{ SourceDirectory }}'
+          ImageRepository:
+            ImageIdentifier: '{{ ImageIdentifier }}'
+            ImageConfiguration:
+              StartCommand: '{{ StartCommand }}'
+              Port: '{{ Port }}'
+              RuntimeEnvironmentVariables:
+                - null
+              RuntimeEnvironmentSecrets:
+                - null
+            ImageRepositoryType: '{{ ImageRepositoryType }}'
+          AutoDeploymentsEnabled: '{{ AutoDeploymentsEnabled }}'
+          AuthenticationConfiguration:
+            ConnectionArn: '{{ ConnectionArn }}'
+            AccessRoleArn: '{{ AccessRoleArn }}'
+      - name: InstanceConfiguration
+        value:
+          Cpu: '{{ Cpu }}'
+          Memory: '{{ Memory }}'
+          InstanceRoleArn: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: EncryptionConfiguration
+        value:
+          KmsKey: '{{ KmsKey }}'
+      - name: HealthCheckConfiguration
+        value:
+          Protocol: '{{ Protocol }}'
+          Path: '{{ Path }}'
+          Interval: '{{ Interval }}'
+          Timeout: '{{ Timeout }}'
+          HealthyThreshold: '{{ HealthyThreshold }}'
+          UnhealthyThreshold: '{{ UnhealthyThreshold }}'
+      - name: ObservabilityConfiguration
+        value:
+          ObservabilityEnabled: '{{ ObservabilityEnabled }}'
+          ObservabilityConfigurationArn: '{{ ObservabilityConfigurationArn }}'
+      - name: AutoScalingConfigurationArn
+        value: '{{ AutoScalingConfigurationArn }}'
+      - name: NetworkConfiguration
+        value:
+          EgressConfiguration:
+            EgressType: '{{ EgressType }}'
+            VpcConnectorArn: '{{ VpcConnectorArn }}'
+          IngressConfiguration:
+            IsPubliclyAccessible: '{{ IsPubliclyAccessible }}'
+          IpAddressType: '{{ IpAddressType }}'
+
 ```
 </TabItem>
 </Tabs>

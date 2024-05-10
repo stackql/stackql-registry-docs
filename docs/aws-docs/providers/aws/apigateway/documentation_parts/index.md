@@ -76,30 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>documentation_part</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Location": {
-  "Method": "{{ Method }}",
-  "Name": "{{ Name }}",
-  "Path": "{{ Path }}",
-  "StatusCode": "{{ StatusCode }}",
-  "Type": "{{ Type }}"
- },
- "Properties": "{{ Properties }}",
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---required properties only
+-- documentation_part.iql (required properties only)
 INSERT INTO aws.apigateway.documentation_parts (
  Location,
  Properties,
@@ -107,29 +97,16 @@ INSERT INTO aws.apigateway.documentation_parts (
  region
 )
 SELECT 
-{{ .Location }},
- {{ .Properties }},
- {{ .RestApiId }},
-'us-east-1';
+'{{ Location }}',
+ '{{ Properties }}',
+ '{{ RestApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Location": {
-  "Method": "{{ Method }}",
-  "Name": "{{ Name }}",
-  "Path": "{{ Path }}",
-  "StatusCode": "{{ StatusCode }}",
-  "Type": "{{ Type }}"
- },
- "Properties": "{{ Properties }}",
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---all properties
+-- documentation_part.iql (all properties)
 INSERT INTO aws.apigateway.documentation_parts (
  Location,
  Properties,
@@ -137,10 +114,38 @@ INSERT INTO aws.apigateway.documentation_parts (
  region
 )
 SELECT 
- {{ .Location }},
- {{ .Properties }},
- {{ .RestApiId }},
- 'us-east-1';
+ '{{ Location }}',
+ '{{ Properties }}',
+ '{{ RestApiId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: documentation_part
+    props:
+      - name: Location
+        value:
+          Method: '{{ Method }}'
+          Name: '{{ Name }}'
+          Path: '{{ Path }}'
+          StatusCode: '{{ StatusCode }}'
+          Type: '{{ Type }}'
+      - name: Properties
+        value: '{{ Properties }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+
 ```
 </TabItem>
 </Tabs>

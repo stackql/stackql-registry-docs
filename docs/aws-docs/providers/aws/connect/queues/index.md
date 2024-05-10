@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>queue</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "HoursOfOperationArn": "{{ HoursOfOperationArn }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- queue.iql (required properties only)
 INSERT INTO aws.connect.queues (
  InstanceArn,
  HoursOfOperationArn,
@@ -99,40 +95,16 @@ INSERT INTO aws.connect.queues (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .HoursOfOperationArn }},
- {{ .Name }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ HoursOfOperationArn }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Description": "{{ Description }}",
- "HoursOfOperationArn": "{{ HoursOfOperationArn }}",
- "MaxContacts": "{{ MaxContacts }}",
- "Name": "{{ Name }}",
- "OutboundCallerConfig": {
-  "OutboundCallerIdName": "{{ OutboundCallerIdName }}",
-  "OutboundCallerIdNumberArn": "{{ OutboundCallerIdNumberArn }}",
-  "OutboundFlowArn": "{{ OutboundFlowArn }}"
- },
- "Status": "{{ Status }}",
- "QuickConnectArns": [
-  "{{ QuickConnectArns[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- queue.iql (all properties)
 INSERT INTO aws.connect.queues (
  InstanceArn,
  Description,
@@ -146,16 +118,57 @@ INSERT INTO aws.connect.queues (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Description }},
- {{ .HoursOfOperationArn }},
- {{ .MaxContacts }},
- {{ .Name }},
- {{ .OutboundCallerConfig }},
- {{ .Status }},
- {{ .QuickConnectArns }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Description }}',
+ '{{ HoursOfOperationArn }}',
+ '{{ MaxContacts }}',
+ '{{ Name }}',
+ '{{ OutboundCallerConfig }}',
+ '{{ Status }}',
+ '{{ QuickConnectArns }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: queue
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: HoursOfOperationArn
+        value: '{{ HoursOfOperationArn }}'
+      - name: MaxContacts
+        value: '{{ MaxContacts }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: OutboundCallerConfig
+        value:
+          OutboundCallerIdName: '{{ OutboundCallerIdName }}'
+          OutboundCallerIdNumberArn: '{{ OutboundCallerIdNumberArn }}'
+          OutboundFlowArn: '{{ OutboundFlowArn }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: QuickConnectArns
+        value:
+          - '{{ QuickConnectArns[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

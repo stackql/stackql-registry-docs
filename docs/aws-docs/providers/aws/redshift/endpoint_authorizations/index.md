@@ -76,48 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>endpoint_authorization</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterIdentifier": "{{ ClusterIdentifier }}",
- "Account": "{{ Account }}"
-}
->>>
---required properties only
+-- endpoint_authorization.iql (required properties only)
 INSERT INTO aws.redshift.endpoint_authorizations (
  ClusterIdentifier,
  Account,
  region
 )
 SELECT 
-{{ .ClusterIdentifier }},
- {{ .Account }},
-'us-east-1';
+'{{ ClusterIdentifier }}',
+ '{{ Account }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterIdentifier": "{{ ClusterIdentifier }}",
- "Account": "{{ Account }}",
- "VpcIds": [
-  "{{ VpcIds[0] }}"
- ],
- "Force": "{{ Force }}"
-}
->>>
---all properties
+-- endpoint_authorization.iql (all properties)
 INSERT INTO aws.redshift.endpoint_authorizations (
  ClusterIdentifier,
  Account,
@@ -126,11 +113,37 @@ INSERT INTO aws.redshift.endpoint_authorizations (
  region
 )
 SELECT 
- {{ .ClusterIdentifier }},
- {{ .Account }},
- {{ .VpcIds }},
- {{ .Force }},
- 'us-east-1';
+ '{{ ClusterIdentifier }}',
+ '{{ Account }}',
+ '{{ VpcIds }}',
+ '{{ Force }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: endpoint_authorization
+    props:
+      - name: ClusterIdentifier
+        value: '{{ ClusterIdentifier }}'
+      - name: Account
+        value: '{{ Account }}'
+      - name: VpcIds
+        value:
+          - '{{ VpcIds[0] }}'
+      - name: Force
+        value: '{{ Force }}'
+
 ```
 </TabItem>
 </Tabs>

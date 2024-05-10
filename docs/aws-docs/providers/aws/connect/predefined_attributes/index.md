@@ -76,28 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>predefined_attribute</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Values": {
-  "StringList": [
-   "{{ StringList[0] }}"
-  ]
- }
-}
->>>
---required properties only
+-- predefined_attribute.iql (required properties only)
 INSERT INTO aws.connect.predefined_attributes (
  InstanceArn,
  Name,
@@ -105,27 +97,16 @@ INSERT INTO aws.connect.predefined_attributes (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .Name }},
- {{ .Values }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Values }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Values": {
-  "StringList": [
-   "{{ StringList[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- predefined_attribute.iql (all properties)
 INSERT INTO aws.connect.predefined_attributes (
  InstanceArn,
  Name,
@@ -133,10 +114,35 @@ INSERT INTO aws.connect.predefined_attributes (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Name }},
- {{ .Values }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Values }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: predefined_attribute
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Values
+        value:
+          StringList:
+            - '{{ StringList[0] }}'
+
 ```
 </TabItem>
 </Tabs>

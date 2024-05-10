@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>workspace</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AuthenticationProviders": [
-  "{{ AuthenticationProviders[0] }}"
- ],
- "AccountAccessType": "{{ AccountAccessType }}",
- "PermissionType": "{{ PermissionType }}"
-}
->>>
---required properties only
+-- workspace.iql (required properties only)
 INSERT INTO aws.grafana.workspaces (
  AuthenticationProviders,
  AccountAccessType,
@@ -101,84 +95,16 @@ INSERT INTO aws.grafana.workspaces (
  region
 )
 SELECT 
-{{ .AuthenticationProviders }},
- {{ .AccountAccessType }},
- {{ .PermissionType }},
-'us-east-1';
+'{{ AuthenticationProviders }}',
+ '{{ AccountAccessType }}',
+ '{{ PermissionType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AuthenticationProviders": [
-  "{{ AuthenticationProviders[0] }}"
- ],
- "SamlConfiguration": {
-  "IdpMetadata": {
-   "Url": "{{ Url }}",
-   "Xml": "{{ Xml }}"
-  },
-  "AssertionAttributes": {
-   "Name": "{{ Name }}",
-   "Login": "{{ Login }}",
-   "Email": "{{ Email }}",
-   "Groups": "{{ Groups }}",
-   "Role": "{{ Role }}",
-   "Org": "{{ Org }}"
-  },
-  "RoleValues": {
-   "Editor": [
-    "{{ Editor[0] }}"
-   ],
-   "Admin": [
-    "{{ Admin[0] }}"
-   ]
-  },
-  "AllowedOrganizations": [
-   "{{ AllowedOrganizations[0] }}"
-  ],
-  "LoginValidityDuration": null
- },
- "NetworkAccessControl": {
-  "PrefixListIds": [
-   "{{ PrefixListIds[0] }}"
-  ],
-  "VpceIds": [
-   "{{ VpceIds[0] }}"
-  ]
- },
- "VpcConfiguration": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "ClientToken": "{{ ClientToken }}",
- "GrafanaVersion": "{{ GrafanaVersion }}",
- "AccountAccessType": "{{ AccountAccessType }}",
- "OrganizationRoleName": "{{ OrganizationRoleName }}",
- "PermissionType": "{{ PermissionType }}",
- "StackSetName": "{{ StackSetName }}",
- "DataSources": [
-  "{{ DataSources[0] }}"
- ],
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "NotificationDestinations": [
-  "{{ NotificationDestinations[0] }}"
- ],
- "OrganizationalUnits": [
-  "{{ OrganizationalUnits[0] }}"
- ],
- "RoleArn": "{{ RoleArn }}",
- "PluginAdminEnabled": "{{ PluginAdminEnabled }}"
-}
->>>
---all properties
+-- workspace.iql (all properties)
 INSERT INTO aws.grafana.workspaces (
  AuthenticationProviders,
  SamlConfiguration,
@@ -200,24 +126,105 @@ INSERT INTO aws.grafana.workspaces (
  region
 )
 SELECT 
- {{ .AuthenticationProviders }},
- {{ .SamlConfiguration }},
- {{ .NetworkAccessControl }},
- {{ .VpcConfiguration }},
- {{ .ClientToken }},
- {{ .GrafanaVersion }},
- {{ .AccountAccessType }},
- {{ .OrganizationRoleName }},
- {{ .PermissionType }},
- {{ .StackSetName }},
- {{ .DataSources }},
- {{ .Description }},
- {{ .Name }},
- {{ .NotificationDestinations }},
- {{ .OrganizationalUnits }},
- {{ .RoleArn }},
- {{ .PluginAdminEnabled }},
- 'us-east-1';
+ '{{ AuthenticationProviders }}',
+ '{{ SamlConfiguration }}',
+ '{{ NetworkAccessControl }}',
+ '{{ VpcConfiguration }}',
+ '{{ ClientToken }}',
+ '{{ GrafanaVersion }}',
+ '{{ AccountAccessType }}',
+ '{{ OrganizationRoleName }}',
+ '{{ PermissionType }}',
+ '{{ StackSetName }}',
+ '{{ DataSources }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ NotificationDestinations }}',
+ '{{ OrganizationalUnits }}',
+ '{{ RoleArn }}',
+ '{{ PluginAdminEnabled }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: workspace
+    props:
+      - name: AuthenticationProviders
+        value:
+          - '{{ AuthenticationProviders[0] }}'
+      - name: SamlConfiguration
+        value:
+          IdpMetadata:
+            Url: '{{ Url }}'
+            Xml: '{{ Xml }}'
+          AssertionAttributes:
+            Name: '{{ Name }}'
+            Login: '{{ Login }}'
+            Email: '{{ Email }}'
+            Groups: '{{ Groups }}'
+            Role: '{{ Role }}'
+            Org: '{{ Org }}'
+          RoleValues:
+            Editor:
+              - '{{ Editor[0] }}'
+            Admin:
+              - '{{ Admin[0] }}'
+          AllowedOrganizations:
+            - '{{ AllowedOrganizations[0] }}'
+          LoginValidityDuration: null
+      - name: NetworkAccessControl
+        value:
+          PrefixListIds:
+            - '{{ PrefixListIds[0] }}'
+          VpceIds:
+            - '{{ VpceIds[0] }}'
+      - name: VpcConfiguration
+        value:
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+      - name: ClientToken
+        value: '{{ ClientToken }}'
+      - name: GrafanaVersion
+        value: '{{ GrafanaVersion }}'
+      - name: AccountAccessType
+        value: '{{ AccountAccessType }}'
+      - name: OrganizationRoleName
+        value: '{{ OrganizationRoleName }}'
+      - name: PermissionType
+        value: '{{ PermissionType }}'
+      - name: StackSetName
+        value: '{{ StackSetName }}'
+      - name: DataSources
+        value:
+          - '{{ DataSources[0] }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: NotificationDestinations
+        value:
+          - '{{ NotificationDestinations[0] }}'
+      - name: OrganizationalUnits
+        value:
+          - '{{ OrganizationalUnits[0] }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: PluginAdminEnabled
+        value: '{{ PluginAdminEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

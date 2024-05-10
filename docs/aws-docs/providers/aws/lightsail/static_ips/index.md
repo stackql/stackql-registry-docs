@@ -74,50 +74,63 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>static_ip</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StaticIpName": "{{ StaticIpName }}"
-}
->>>
---required properties only
+-- static_ip.iql (required properties only)
 INSERT INTO aws.lightsail.static_ips (
  StaticIpName,
  region
 )
 SELECT 
-{{ .StaticIpName }},
-'us-east-1';
+'{{ StaticIpName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "StaticIpName": "{{ StaticIpName }}",
- "AttachedTo": "{{ AttachedTo }}"
-}
->>>
---all properties
+-- static_ip.iql (all properties)
 INSERT INTO aws.lightsail.static_ips (
  StaticIpName,
  AttachedTo,
  region
 )
 SELECT 
- {{ .StaticIpName }},
- {{ .AttachedTo }},
- 'us-east-1';
+ '{{ StaticIpName }}',
+ '{{ AttachedTo }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: static_ip
+    props:
+      - name: StaticIpName
+        value: '{{ StaticIpName }}'
+      - name: AttachedTo
+        value: '{{ AttachedTo }}'
+
 ```
 </TabItem>
 </Tabs>

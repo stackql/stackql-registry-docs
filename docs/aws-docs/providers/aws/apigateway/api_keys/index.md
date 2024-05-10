@@ -74,39 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>api_key</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CustomerId": "{{ CustomerId }}",
- "Description": "{{ Description }}",
- "Enabled": "{{ Enabled }}",
- "GenerateDistinctId": "{{ GenerateDistinctId }}",
- "Name": "{{ Name }}",
- "StageKeys": [
-  {
-   "RestApiId": "{{ RestApiId }}",
-   "StageName": "{{ StageName }}"
-  }
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Value": "{{ Value }}"
-}
->>>
---required properties only
+-- api_key.iql (required properties only)
 INSERT INTO aws.apigateway.api_keys (
  CustomerId,
  Description,
@@ -119,43 +100,21 @@ INSERT INTO aws.apigateway.api_keys (
  region
 )
 SELECT 
-{{ .CustomerId }},
- {{ .Description }},
- {{ .Enabled }},
- {{ .GenerateDistinctId }},
- {{ .Name }},
- {{ .StageKeys }},
- {{ .Tags }},
- {{ .Value }},
-'us-east-1';
+'{{ CustomerId }}',
+ '{{ Description }}',
+ '{{ Enabled }}',
+ '{{ GenerateDistinctId }}',
+ '{{ Name }}',
+ '{{ StageKeys }}',
+ '{{ Tags }}',
+ '{{ Value }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CustomerId": "{{ CustomerId }}",
- "Description": "{{ Description }}",
- "Enabled": "{{ Enabled }}",
- "GenerateDistinctId": "{{ GenerateDistinctId }}",
- "Name": "{{ Name }}",
- "StageKeys": [
-  {
-   "RestApiId": "{{ RestApiId }}",
-   "StageName": "{{ StageName }}"
-  }
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Value": "{{ Value }}"
-}
->>>
---all properties
+-- api_key.iql (all properties)
 INSERT INTO aws.apigateway.api_keys (
  CustomerId,
  Description,
@@ -168,15 +127,52 @@ INSERT INTO aws.apigateway.api_keys (
  region
 )
 SELECT 
- {{ .CustomerId }},
- {{ .Description }},
- {{ .Enabled }},
- {{ .GenerateDistinctId }},
- {{ .Name }},
- {{ .StageKeys }},
- {{ .Tags }},
- {{ .Value }},
- 'us-east-1';
+ '{{ CustomerId }}',
+ '{{ Description }}',
+ '{{ Enabled }}',
+ '{{ GenerateDistinctId }}',
+ '{{ Name }}',
+ '{{ StageKeys }}',
+ '{{ Tags }}',
+ '{{ Value }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: api_key
+    props:
+      - name: CustomerId
+        value: '{{ CustomerId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: GenerateDistinctId
+        value: '{{ GenerateDistinctId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: StageKeys
+        value:
+          - RestApiId: '{{ RestApiId }}'
+            StageName: '{{ StageName }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Value
+        value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

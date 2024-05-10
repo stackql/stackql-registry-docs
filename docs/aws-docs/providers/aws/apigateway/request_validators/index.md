@@ -76,43 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>request_validator</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---required properties only
+-- request_validator.iql (required properties only)
 INSERT INTO aws.apigateway.request_validators (
  RestApiId,
  region
 )
 SELECT 
-{{ .RestApiId }},
-'us-east-1';
+'{{ RestApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RestApiId": "{{ RestApiId }}",
- "ValidateRequestBody": "{{ ValidateRequestBody }}",
- "ValidateRequestParameters": "{{ ValidateRequestParameters }}"
-}
->>>
---all properties
+-- request_validator.iql (all properties)
 INSERT INTO aws.apigateway.request_validators (
  Name,
  RestApiId,
@@ -121,11 +111,36 @@ INSERT INTO aws.apigateway.request_validators (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .RestApiId }},
- {{ .ValidateRequestBody }},
- {{ .ValidateRequestParameters }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ RestApiId }}',
+ '{{ ValidateRequestBody }}',
+ '{{ ValidateRequestParameters }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: request_validator
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+      - name: ValidateRequestBody
+        value: '{{ ValidateRequestBody }}'
+      - name: ValidateRequestParameters
+        value: '{{ ValidateRequestParameters }}'
+
 ```
 </TabItem>
 </Tabs>

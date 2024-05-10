@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>authorizer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AuthorizerType": "{{ AuthorizerType }}",
- "ApiId": "{{ ApiId }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- authorizer.iql (required properties only)
 INSERT INTO aws.apigatewayv2.authorizers (
  AuthorizerType,
  ApiId,
@@ -101,38 +97,16 @@ INSERT INTO aws.apigatewayv2.authorizers (
  region
 )
 SELECT 
-{{ .AuthorizerType }},
- {{ .ApiId }},
- {{ .Name }},
-'us-east-1';
+'{{ AuthorizerType }}',
+ '{{ ApiId }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IdentityValidationExpression": "{{ IdentityValidationExpression }}",
- "AuthorizerUri": "{{ AuthorizerUri }}",
- "AuthorizerCredentialsArn": "{{ AuthorizerCredentialsArn }}",
- "AuthorizerType": "{{ AuthorizerType }}",
- "JwtConfiguration": {
-  "Issuer": "{{ Issuer }}",
-  "Audience": [
-   "{{ Audience[0] }}"
-  ]
- },
- "AuthorizerResultTtlInSeconds": "{{ AuthorizerResultTtlInSeconds }}",
- "IdentitySource": [
-  "{{ IdentitySource[0] }}"
- ],
- "AuthorizerPayloadFormatVersion": "{{ AuthorizerPayloadFormatVersion }}",
- "ApiId": "{{ ApiId }}",
- "EnableSimpleResponses": "{{ EnableSimpleResponses }}",
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- authorizer.iql (all properties)
 INSERT INTO aws.apigatewayv2.authorizers (
  IdentityValidationExpression,
  AuthorizerUri,
@@ -148,18 +122,61 @@ INSERT INTO aws.apigatewayv2.authorizers (
  region
 )
 SELECT 
- {{ .IdentityValidationExpression }},
- {{ .AuthorizerUri }},
- {{ .AuthorizerCredentialsArn }},
- {{ .AuthorizerType }},
- {{ .JwtConfiguration }},
- {{ .AuthorizerResultTtlInSeconds }},
- {{ .IdentitySource }},
- {{ .AuthorizerPayloadFormatVersion }},
- {{ .ApiId }},
- {{ .EnableSimpleResponses }},
- {{ .Name }},
- 'us-east-1';
+ '{{ IdentityValidationExpression }}',
+ '{{ AuthorizerUri }}',
+ '{{ AuthorizerCredentialsArn }}',
+ '{{ AuthorizerType }}',
+ '{{ JwtConfiguration }}',
+ '{{ AuthorizerResultTtlInSeconds }}',
+ '{{ IdentitySource }}',
+ '{{ AuthorizerPayloadFormatVersion }}',
+ '{{ ApiId }}',
+ '{{ EnableSimpleResponses }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: authorizer
+    props:
+      - name: IdentityValidationExpression
+        value: '{{ IdentityValidationExpression }}'
+      - name: AuthorizerUri
+        value: '{{ AuthorizerUri }}'
+      - name: AuthorizerCredentialsArn
+        value: '{{ AuthorizerCredentialsArn }}'
+      - name: AuthorizerType
+        value: '{{ AuthorizerType }}'
+      - name: JwtConfiguration
+        value:
+          Issuer: '{{ Issuer }}'
+          Audience:
+            - '{{ Audience[0] }}'
+      - name: AuthorizerResultTtlInSeconds
+        value: '{{ AuthorizerResultTtlInSeconds }}'
+      - name: IdentitySource
+        value:
+          - '{{ IdentitySource[0] }}'
+      - name: AuthorizerPayloadFormatVersion
+        value: '{{ AuthorizerPayloadFormatVersion }}'
+      - name: ApiId
+        value: '{{ ApiId }}'
+      - name: EnableSimpleResponses
+        value: '{{ EnableSimpleResponses }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -76,122 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>integration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}"
-}
->>>
---required properties only
+-- integration.iql (required properties only)
 INSERT INTO aws.customerprofiles.integrations (
  DomainName,
  region
 )
 SELECT 
-{{ .DomainName }},
-'us-east-1';
+'{{ DomainName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "Uri": "{{ Uri }}",
- "FlowDefinition": {
-  "FlowName": "{{ FlowName }}",
-  "Description": "{{ Description }}",
-  "KmsArn": "{{ KmsArn }}",
-  "Tasks": [
-   {
-    "ConnectorOperator": {
-     "Marketo": "{{ Marketo }}",
-     "S3": "{{ S3 }}",
-     "Salesforce": "{{ Salesforce }}",
-     "ServiceNow": "{{ ServiceNow }}",
-     "Zendesk": "{{ Zendesk }}"
-    },
-    "SourceFields": [
-     "{{ SourceFields[0] }}"
-    ],
-    "DestinationField": "{{ DestinationField }}",
-    "TaskType": "{{ TaskType }}",
-    "TaskProperties": [
-     {
-      "OperatorPropertyKey": "{{ OperatorPropertyKey }}",
-      "Property": "{{ Property }}"
-     }
-    ]
-   }
-  ],
-  "TriggerConfig": {
-   "TriggerType": "{{ TriggerType }}",
-   "TriggerProperties": {
-    "Scheduled": {
-     "ScheduleExpression": "{{ ScheduleExpression }}",
-     "DataPullMode": "{{ DataPullMode }}",
-     "ScheduleStartTime": null,
-     "ScheduleEndTime": null,
-     "Timezone": "{{ Timezone }}",
-     "ScheduleOffset": "{{ ScheduleOffset }}",
-     "FirstExecutionFrom": null
-    }
-   }
-  },
-  "SourceFlowConfig": {
-   "ConnectorType": "{{ ConnectorType }}",
-   "ConnectorProfileName": "{{ ConnectorProfileName }}",
-   "IncrementalPullConfig": {
-    "DatetimeTypeFieldName": "{{ DatetimeTypeFieldName }}"
-   },
-   "SourceConnectorProperties": {
-    "Marketo": {
-     "Object": "{{ Object }}"
-    },
-    "S3": {
-     "BucketName": "{{ BucketName }}",
-     "BucketPrefix": "{{ BucketPrefix }}"
-    },
-    "Salesforce": {
-     "Object": null,
-     "EnableDynamicFieldUpdate": "{{ EnableDynamicFieldUpdate }}",
-     "IncludeDeletedRecords": "{{ IncludeDeletedRecords }}"
-    },
-    "ServiceNow": {
-     "Object": null
-    },
-    "Zendesk": {
-     "Object": null
-    }
-   }
-  }
- },
- "ObjectTypeName": "{{ ObjectTypeName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ObjectTypeNames": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- integration.iql (all properties)
 INSERT INTO aws.customerprofiles.integrations (
  DomainName,
  Uri,
@@ -202,13 +113,93 @@ INSERT INTO aws.customerprofiles.integrations (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .Uri }},
- {{ .FlowDefinition }},
- {{ .ObjectTypeName }},
- {{ .Tags }},
- {{ .ObjectTypeNames }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ Uri }}',
+ '{{ FlowDefinition }}',
+ '{{ ObjectTypeName }}',
+ '{{ Tags }}',
+ '{{ ObjectTypeNames }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: integration
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: Uri
+        value: '{{ Uri }}'
+      - name: FlowDefinition
+        value:
+          FlowName: '{{ FlowName }}'
+          Description: '{{ Description }}'
+          KmsArn: '{{ KmsArn }}'
+          Tasks:
+            - ConnectorOperator:
+                Marketo: '{{ Marketo }}'
+                S3: '{{ S3 }}'
+                Salesforce: '{{ Salesforce }}'
+                ServiceNow: '{{ ServiceNow }}'
+                Zendesk: '{{ Zendesk }}'
+              SourceFields:
+                - '{{ SourceFields[0] }}'
+              DestinationField: '{{ DestinationField }}'
+              TaskType: '{{ TaskType }}'
+              TaskProperties:
+                - OperatorPropertyKey: '{{ OperatorPropertyKey }}'
+                  Property: '{{ Property }}'
+          TriggerConfig:
+            TriggerType: '{{ TriggerType }}'
+            TriggerProperties:
+              Scheduled:
+                ScheduleExpression: '{{ ScheduleExpression }}'
+                DataPullMode: '{{ DataPullMode }}'
+                ScheduleStartTime: null
+                ScheduleEndTime: null
+                Timezone: '{{ Timezone }}'
+                ScheduleOffset: '{{ ScheduleOffset }}'
+                FirstExecutionFrom: null
+          SourceFlowConfig:
+            ConnectorType: '{{ ConnectorType }}'
+            ConnectorProfileName: '{{ ConnectorProfileName }}'
+            IncrementalPullConfig:
+              DatetimeTypeFieldName: '{{ DatetimeTypeFieldName }}'
+            SourceConnectorProperties:
+              Marketo:
+                Object: '{{ Object }}'
+              S3:
+                BucketName: '{{ BucketName }}'
+                BucketPrefix: '{{ BucketPrefix }}'
+              Salesforce:
+                Object: null
+                EnableDynamicFieldUpdate: '{{ EnableDynamicFieldUpdate }}'
+                IncludeDeletedRecords: '{{ IncludeDeletedRecords }}'
+              ServiceNow:
+                Object: null
+              Zendesk:
+                Object: null
+      - name: ObjectTypeName
+        value: '{{ ObjectTypeName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ObjectTypeNames
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

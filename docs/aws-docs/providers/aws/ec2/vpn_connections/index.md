@@ -74,59 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpn_connection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CustomerGatewayId": "{{ CustomerGatewayId }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- vpn_connection.iql (required properties only)
 INSERT INTO aws.ec2.vpn_connections (
  CustomerGatewayId,
  Type,
  region
 )
 SELECT 
-{{ .CustomerGatewayId }},
- {{ .Type }},
-'us-east-1';
+'{{ CustomerGatewayId }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CustomerGatewayId": "{{ CustomerGatewayId }}",
- "StaticRoutesOnly": "{{ StaticRoutesOnly }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TransitGatewayId": "{{ TransitGatewayId }}",
- "Type": "{{ Type }}",
- "VpnGatewayId": "{{ VpnGatewayId }}",
- "VpnTunnelOptionsSpecifications": [
-  {
-   "PreSharedKey": "{{ PreSharedKey }}",
-   "TunnelInsideCidr": "{{ TunnelInsideCidr }}"
-  }
- ]
-}
->>>
---all properties
+-- vpn_connection.iql (all properties)
 INSERT INTO aws.ec2.vpn_connections (
  CustomerGatewayId,
  StaticRoutesOnly,
@@ -138,14 +114,49 @@ INSERT INTO aws.ec2.vpn_connections (
  region
 )
 SELECT 
- {{ .CustomerGatewayId }},
- {{ .StaticRoutesOnly }},
- {{ .Tags }},
- {{ .TransitGatewayId }},
- {{ .Type }},
- {{ .VpnGatewayId }},
- {{ .VpnTunnelOptionsSpecifications }},
- 'us-east-1';
+ '{{ CustomerGatewayId }}',
+ '{{ StaticRoutesOnly }}',
+ '{{ Tags }}',
+ '{{ TransitGatewayId }}',
+ '{{ Type }}',
+ '{{ VpnGatewayId }}',
+ '{{ VpnTunnelOptionsSpecifications }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpn_connection
+    props:
+      - name: CustomerGatewayId
+        value: '{{ CustomerGatewayId }}'
+      - name: StaticRoutesOnly
+        value: '{{ StaticRoutesOnly }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TransitGatewayId
+        value: '{{ TransitGatewayId }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: VpnGatewayId
+        value: '{{ VpnGatewayId }}'
+      - name: VpnTunnelOptionsSpecifications
+        value:
+          - PreSharedKey: '{{ PreSharedKey }}'
+            TunnelInsideCidr: '{{ TunnelInsideCidr }}'
+
 ```
 </TabItem>
 </Tabs>

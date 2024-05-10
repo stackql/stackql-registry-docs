@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ServerSideEncryptionConfiguration": {
-  "KmsKeyId": "{{ KmsKeyId }}"
- }
-}
->>>
---required properties only
+-- domain.iql (required properties only)
 INSERT INTO aws.voiceid.domains (
  Name,
  ServerSideEncryptionConfiguration,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ServerSideEncryptionConfiguration }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ServerSideEncryptionConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "ServerSideEncryptionConfiguration": {
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- domain.iql (all properties)
 INSERT INTO aws.voiceid.domains (
  Description,
  Name,
@@ -131,11 +111,39 @@ INSERT INTO aws.voiceid.domains (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .ServerSideEncryptionConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ ServerSideEncryptionConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ServerSideEncryptionConfiguration
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

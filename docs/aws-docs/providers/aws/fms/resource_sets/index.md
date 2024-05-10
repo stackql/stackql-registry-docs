@@ -74,58 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resource_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ResourceTypeList": [
-  "{{ ResourceTypeList[0] }}"
- ]
-}
->>>
---required properties only
+-- resource_set.iql (required properties only)
 INSERT INTO aws.fms.resource_sets (
  Name,
  ResourceTypeList,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ResourceTypeList }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ResourceTypeList }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ResourceTypeList": [
-  "{{ ResourceTypeList[0] }}"
- ],
- "Resources": [
-  "{{ Resources[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- resource_set.iql (all properties)
 INSERT INTO aws.fms.resource_sets (
  Name,
  Description,
@@ -135,12 +112,43 @@ INSERT INTO aws.fms.resource_sets (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .ResourceTypeList }},
- {{ .Resources }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ ResourceTypeList }}',
+ '{{ Resources }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resource_set
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ResourceTypeList
+        value:
+          - '{{ ResourceTypeList[0] }}'
+      - name: Resources
+        value:
+          - '{{ Resources[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

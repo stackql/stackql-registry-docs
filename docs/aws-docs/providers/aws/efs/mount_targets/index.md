@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>mount_target</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FileSystemId": "{{ FileSystemId }}",
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---required properties only
+-- mount_target.iql (required properties only)
 INSERT INTO aws.efs.mount_targets (
  FileSystemId,
  SecurityGroups,
@@ -101,26 +95,16 @@ INSERT INTO aws.efs.mount_targets (
  region
 )
 SELECT 
-{{ .FileSystemId }},
- {{ .SecurityGroups }},
- {{ .SubnetId }},
-'us-east-1';
+'{{ FileSystemId }}',
+ '{{ SecurityGroups }}',
+ '{{ SubnetId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IpAddress": "{{ IpAddress }}",
- "FileSystemId": "{{ FileSystemId }}",
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---all properties
+-- mount_target.iql (all properties)
 INSERT INTO aws.efs.mount_targets (
  IpAddress,
  FileSystemId,
@@ -129,11 +113,37 @@ INSERT INTO aws.efs.mount_targets (
  region
 )
 SELECT 
- {{ .IpAddress }},
- {{ .FileSystemId }},
- {{ .SecurityGroups }},
- {{ .SubnetId }},
- 'us-east-1';
+ '{{ IpAddress }}',
+ '{{ FileSystemId }}',
+ '{{ SecurityGroups }}',
+ '{{ SubnetId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: mount_target
+    props:
+      - name: IpAddress
+        value: '{{ IpAddress }}'
+      - name: FileSystemId
+        value: '{{ FileSystemId }}'
+      - name: SecurityGroups
+        value:
+          - '{{ SecurityGroups[0] }}'
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+
 ```
 </TabItem>
 </Tabs>

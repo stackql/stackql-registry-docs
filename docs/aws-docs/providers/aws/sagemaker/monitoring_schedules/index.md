@@ -74,249 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>monitoring_schedule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MonitoringScheduleName": "{{ MonitoringScheduleName }}",
- "MonitoringScheduleConfig": {
-  "MonitoringJobDefinition": {
-   "BaselineConfig": {
-    "ConstraintsResource": {
-     "S3Uri": "{{ S3Uri }}"
-    },
-    "StatisticsResource": {
-     "S3Uri": null
-    }
-   },
-   "Environment": {},
-   "MonitoringAppSpecification": {
-    "ContainerArguments": [
-     "{{ ContainerArguments[0] }}"
-    ],
-    "ContainerEntrypoint": [
-     "{{ ContainerEntrypoint[0] }}"
-    ],
-    "ImageUri": "{{ ImageUri }}",
-    "PostAnalyticsProcessorSourceUri": null,
-    "RecordPreprocessorSourceUri": null
-   },
-   "MonitoringInputs": [
-    {
-     "EndpointInput": {
-      "EndpointName": "{{ EndpointName }}",
-      "LocalPath": "{{ LocalPath }}",
-      "S3DataDistributionType": "{{ S3DataDistributionType }}",
-      "S3InputMode": "{{ S3InputMode }}",
-      "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-     },
-     "BatchTransformInput": {
-      "DataCapturedDestinationS3Uri": "{{ DataCapturedDestinationS3Uri }}",
-      "DatasetFormat": {
-       "Csv": {
-        "Header": "{{ Header }}"
-       },
-       "Json": {
-        "Line": "{{ Line }}"
-       },
-       "Parquet": "{{ Parquet }}"
-      },
-      "LocalPath": "{{ LocalPath }}",
-      "S3DataDistributionType": "{{ S3DataDistributionType }}",
-      "S3InputMode": "{{ S3InputMode }}",
-      "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-     }
-    }
-   ],
-   "MonitoringOutputConfig": {
-    "KmsKeyId": "{{ KmsKeyId }}",
-    "MonitoringOutputs": [
-     {
-      "S3Output": {
-       "LocalPath": "{{ LocalPath }}",
-       "S3UploadMode": "{{ S3UploadMode }}",
-       "S3Uri": "{{ S3Uri }}"
-      }
-     }
-    ]
-   },
-   "MonitoringResources": {
-    "ClusterConfig": {
-     "InstanceCount": "{{ InstanceCount }}",
-     "InstanceType": "{{ InstanceType }}",
-     "VolumeKmsKeyId": "{{ VolumeKmsKeyId }}",
-     "VolumeSizeInGB": "{{ VolumeSizeInGB }}"
-    }
-   },
-   "NetworkConfig": {
-    "EnableInterContainerTrafficEncryption": "{{ EnableInterContainerTrafficEncryption }}",
-    "EnableNetworkIsolation": "{{ EnableNetworkIsolation }}",
-    "VpcConfig": {
-     "SecurityGroupIds": [
-      "{{ SecurityGroupIds[0] }}"
-     ],
-     "Subnets": [
-      "{{ Subnets[0] }}"
-     ]
-    }
-   },
-   "RoleArn": "{{ RoleArn }}",
-   "StoppingCondition": {
-    "MaxRuntimeInSeconds": "{{ MaxRuntimeInSeconds }}"
-   }
-  },
-  "MonitoringJobDefinitionName": "{{ MonitoringJobDefinitionName }}",
-  "MonitoringType": "{{ MonitoringType }}",
-  "ScheduleConfig": {
-   "ScheduleExpression": "{{ ScheduleExpression }}",
-   "DataAnalysisStartTime": "{{ DataAnalysisStartTime }}",
-   "DataAnalysisEndTime": null
-  }
- }
-}
->>>
---required properties only
+-- monitoring_schedule.iql (required properties only)
 INSERT INTO aws.sagemaker.monitoring_schedules (
  MonitoringScheduleName,
  MonitoringScheduleConfig,
  region
 )
 SELECT 
-{{ .MonitoringScheduleName }},
- {{ .MonitoringScheduleConfig }},
-'us-east-1';
+'{{ MonitoringScheduleName }}',
+ '{{ MonitoringScheduleConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MonitoringScheduleName": "{{ MonitoringScheduleName }}",
- "MonitoringScheduleConfig": {
-  "MonitoringJobDefinition": {
-   "BaselineConfig": {
-    "ConstraintsResource": {
-     "S3Uri": "{{ S3Uri }}"
-    },
-    "StatisticsResource": {
-     "S3Uri": null
-    }
-   },
-   "Environment": {},
-   "MonitoringAppSpecification": {
-    "ContainerArguments": [
-     "{{ ContainerArguments[0] }}"
-    ],
-    "ContainerEntrypoint": [
-     "{{ ContainerEntrypoint[0] }}"
-    ],
-    "ImageUri": "{{ ImageUri }}",
-    "PostAnalyticsProcessorSourceUri": null,
-    "RecordPreprocessorSourceUri": null
-   },
-   "MonitoringInputs": [
-    {
-     "EndpointInput": {
-      "EndpointName": "{{ EndpointName }}",
-      "LocalPath": "{{ LocalPath }}",
-      "S3DataDistributionType": "{{ S3DataDistributionType }}",
-      "S3InputMode": "{{ S3InputMode }}",
-      "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-     },
-     "BatchTransformInput": {
-      "DataCapturedDestinationS3Uri": "{{ DataCapturedDestinationS3Uri }}",
-      "DatasetFormat": {
-       "Csv": {
-        "Header": "{{ Header }}"
-       },
-       "Json": {
-        "Line": "{{ Line }}"
-       },
-       "Parquet": "{{ Parquet }}"
-      },
-      "LocalPath": "{{ LocalPath }}",
-      "S3DataDistributionType": "{{ S3DataDistributionType }}",
-      "S3InputMode": "{{ S3InputMode }}",
-      "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-     }
-    }
-   ],
-   "MonitoringOutputConfig": {
-    "KmsKeyId": "{{ KmsKeyId }}",
-    "MonitoringOutputs": [
-     {
-      "S3Output": {
-       "LocalPath": "{{ LocalPath }}",
-       "S3UploadMode": "{{ S3UploadMode }}",
-       "S3Uri": "{{ S3Uri }}"
-      }
-     }
-    ]
-   },
-   "MonitoringResources": {
-    "ClusterConfig": {
-     "InstanceCount": "{{ InstanceCount }}",
-     "InstanceType": "{{ InstanceType }}",
-     "VolumeKmsKeyId": "{{ VolumeKmsKeyId }}",
-     "VolumeSizeInGB": "{{ VolumeSizeInGB }}"
-    }
-   },
-   "NetworkConfig": {
-    "EnableInterContainerTrafficEncryption": "{{ EnableInterContainerTrafficEncryption }}",
-    "EnableNetworkIsolation": "{{ EnableNetworkIsolation }}",
-    "VpcConfig": {
-     "SecurityGroupIds": [
-      "{{ SecurityGroupIds[0] }}"
-     ],
-     "Subnets": [
-      "{{ Subnets[0] }}"
-     ]
-    }
-   },
-   "RoleArn": "{{ RoleArn }}",
-   "StoppingCondition": {
-    "MaxRuntimeInSeconds": "{{ MaxRuntimeInSeconds }}"
-   }
-  },
-  "MonitoringJobDefinitionName": "{{ MonitoringJobDefinitionName }}",
-  "MonitoringType": "{{ MonitoringType }}",
-  "ScheduleConfig": {
-   "ScheduleExpression": "{{ ScheduleExpression }}",
-   "DataAnalysisStartTime": "{{ DataAnalysisStartTime }}",
-   "DataAnalysisEndTime": null
-  }
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "EndpointName": null,
- "FailureReason": "{{ FailureReason }}",
- "LastMonitoringExecutionSummary": {
-  "CreationTime": "{{ CreationTime }}",
-  "EndpointName": null,
-  "FailureReason": "{{ FailureReason }}",
-  "LastModifiedTime": "{{ LastModifiedTime }}",
-  "MonitoringExecutionStatus": "{{ MonitoringExecutionStatus }}",
-  "MonitoringScheduleName": null,
-  "ProcessingJobArn": "{{ ProcessingJobArn }}",
-  "ScheduledTime": "{{ ScheduledTime }}"
- },
- "MonitoringScheduleStatus": "{{ MonitoringScheduleStatus }}"
-}
->>>
---all properties
+-- monitoring_schedule.iql (all properties)
 INSERT INTO aws.sagemaker.monitoring_schedules (
  MonitoringScheduleName,
  MonitoringScheduleConfig,
@@ -328,14 +114,119 @@ INSERT INTO aws.sagemaker.monitoring_schedules (
  region
 )
 SELECT 
- {{ .MonitoringScheduleName }},
- {{ .MonitoringScheduleConfig }},
- {{ .Tags }},
- {{ .EndpointName }},
- {{ .FailureReason }},
- {{ .LastMonitoringExecutionSummary }},
- {{ .MonitoringScheduleStatus }},
- 'us-east-1';
+ '{{ MonitoringScheduleName }}',
+ '{{ MonitoringScheduleConfig }}',
+ '{{ Tags }}',
+ '{{ EndpointName }}',
+ '{{ FailureReason }}',
+ '{{ LastMonitoringExecutionSummary }}',
+ '{{ MonitoringScheduleStatus }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: monitoring_schedule
+    props:
+      - name: MonitoringScheduleName
+        value: '{{ MonitoringScheduleName }}'
+      - name: MonitoringScheduleConfig
+        value:
+          MonitoringJobDefinition:
+            BaselineConfig:
+              ConstraintsResource:
+                S3Uri: '{{ S3Uri }}'
+              StatisticsResource:
+                S3Uri: null
+            Environment: {}
+            MonitoringAppSpecification:
+              ContainerArguments:
+                - '{{ ContainerArguments[0] }}'
+              ContainerEntrypoint:
+                - '{{ ContainerEntrypoint[0] }}'
+              ImageUri: '{{ ImageUri }}'
+              PostAnalyticsProcessorSourceUri: null
+              RecordPreprocessorSourceUri: null
+            MonitoringInputs:
+              - EndpointInput:
+                  EndpointName: '{{ EndpointName }}'
+                  LocalPath: '{{ LocalPath }}'
+                  S3DataDistributionType: '{{ S3DataDistributionType }}'
+                  S3InputMode: '{{ S3InputMode }}'
+                  ExcludeFeaturesAttribute: '{{ ExcludeFeaturesAttribute }}'
+                BatchTransformInput:
+                  DataCapturedDestinationS3Uri: '{{ DataCapturedDestinationS3Uri }}'
+                  DatasetFormat:
+                    Csv:
+                      Header: '{{ Header }}'
+                    Json:
+                      Line: '{{ Line }}'
+                    Parquet: '{{ Parquet }}'
+                  LocalPath: '{{ LocalPath }}'
+                  S3DataDistributionType: '{{ S3DataDistributionType }}'
+                  S3InputMode: '{{ S3InputMode }}'
+                  ExcludeFeaturesAttribute: '{{ ExcludeFeaturesAttribute }}'
+            MonitoringOutputConfig:
+              KmsKeyId: '{{ KmsKeyId }}'
+              MonitoringOutputs:
+                - S3Output:
+                    LocalPath: '{{ LocalPath }}'
+                    S3UploadMode: '{{ S3UploadMode }}'
+                    S3Uri: '{{ S3Uri }}'
+            MonitoringResources:
+              ClusterConfig:
+                InstanceCount: '{{ InstanceCount }}'
+                InstanceType: '{{ InstanceType }}'
+                VolumeKmsKeyId: '{{ VolumeKmsKeyId }}'
+                VolumeSizeInGB: '{{ VolumeSizeInGB }}'
+            NetworkConfig:
+              EnableInterContainerTrafficEncryption: '{{ EnableInterContainerTrafficEncryption }}'
+              EnableNetworkIsolation: '{{ EnableNetworkIsolation }}'
+              VpcConfig:
+                SecurityGroupIds:
+                  - '{{ SecurityGroupIds[0] }}'
+                Subnets:
+                  - '{{ Subnets[0] }}'
+            RoleArn: '{{ RoleArn }}'
+            StoppingCondition:
+              MaxRuntimeInSeconds: '{{ MaxRuntimeInSeconds }}'
+          MonitoringJobDefinitionName: '{{ MonitoringJobDefinitionName }}'
+          MonitoringType: '{{ MonitoringType }}'
+          ScheduleConfig:
+            ScheduleExpression: '{{ ScheduleExpression }}'
+            DataAnalysisStartTime: '{{ DataAnalysisStartTime }}'
+            DataAnalysisEndTime: null
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: EndpointName
+        value: null
+      - name: FailureReason
+        value: '{{ FailureReason }}'
+      - name: LastMonitoringExecutionSummary
+        value:
+          CreationTime: '{{ CreationTime }}'
+          EndpointName: null
+          FailureReason: '{{ FailureReason }}'
+          LastModifiedTime: '{{ LastModifiedTime }}'
+          MonitoringExecutionStatus: '{{ MonitoringExecutionStatus }}'
+          MonitoringScheduleName: null
+          ProcessingJobArn: '{{ ProcessingJobArn }}'
+          ScheduledTime: '{{ ScheduledTime }}'
+      - name: MonitoringScheduleStatus
+        value: '{{ MonitoringScheduleStatus }}'
+
 ```
 </TabItem>
 </Tabs>

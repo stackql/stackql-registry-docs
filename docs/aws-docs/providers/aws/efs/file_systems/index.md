@@ -74,58 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>file_system</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Encrypted": "{{ Encrypted }}",
- "FileSystemTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "KmsKeyId": "{{ KmsKeyId }}",
- "LifecyclePolicies": [
-  {
-   "TransitionToIA": "{{ TransitionToIA }}",
-   "TransitionToPrimaryStorageClass": "{{ TransitionToPrimaryStorageClass }}",
-   "TransitionToArchive": "{{ TransitionToArchive }}"
-  }
- ],
- "FileSystemProtection": {
-  "ReplicationOverwriteProtection": "{{ ReplicationOverwriteProtection }}"
- },
- "PerformanceMode": "{{ PerformanceMode }}",
- "ProvisionedThroughputInMibps": null,
- "ThroughputMode": "{{ ThroughputMode }}",
- "FileSystemPolicy": {},
- "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
- "BackupPolicy": {
-  "Status": "{{ Status }}"
- },
- "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
- "ReplicationConfiguration": {
-  "Destinations": [
-   {
-    "FileSystemId": "{{ FileSystemId }}",
-    "Region": "{{ Region }}",
-    "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
-    "KmsKeyId": "{{ KmsKeyId }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- file_system.iql (required properties only)
 INSERT INTO aws.efs.file_systems (
  Encrypted,
  FileSystemTags,
@@ -143,67 +105,26 @@ INSERT INTO aws.efs.file_systems (
  region
 )
 SELECT 
-{{ .Encrypted }},
- {{ .FileSystemTags }},
- {{ .KmsKeyId }},
- {{ .LifecyclePolicies }},
- {{ .FileSystemProtection }},
- {{ .PerformanceMode }},
- {{ .ProvisionedThroughputInMibps }},
- {{ .ThroughputMode }},
- {{ .FileSystemPolicy }},
- {{ .BypassPolicyLockoutSafetyCheck }},
- {{ .BackupPolicy }},
- {{ .AvailabilityZoneName }},
- {{ .ReplicationConfiguration }},
-'us-east-1';
+'{{ Encrypted }}',
+ '{{ FileSystemTags }}',
+ '{{ KmsKeyId }}',
+ '{{ LifecyclePolicies }}',
+ '{{ FileSystemProtection }}',
+ '{{ PerformanceMode }}',
+ '{{ ProvisionedThroughputInMibps }}',
+ '{{ ThroughputMode }}',
+ '{{ FileSystemPolicy }}',
+ '{{ BypassPolicyLockoutSafetyCheck }}',
+ '{{ BackupPolicy }}',
+ '{{ AvailabilityZoneName }}',
+ '{{ ReplicationConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Encrypted": "{{ Encrypted }}",
- "FileSystemTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "KmsKeyId": "{{ KmsKeyId }}",
- "LifecyclePolicies": [
-  {
-   "TransitionToIA": "{{ TransitionToIA }}",
-   "TransitionToPrimaryStorageClass": "{{ TransitionToPrimaryStorageClass }}",
-   "TransitionToArchive": "{{ TransitionToArchive }}"
-  }
- ],
- "FileSystemProtection": {
-  "ReplicationOverwriteProtection": "{{ ReplicationOverwriteProtection }}"
- },
- "PerformanceMode": "{{ PerformanceMode }}",
- "ProvisionedThroughputInMibps": null,
- "ThroughputMode": "{{ ThroughputMode }}",
- "FileSystemPolicy": {},
- "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
- "BackupPolicy": {
-  "Status": "{{ Status }}"
- },
- "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
- "ReplicationConfiguration": {
-  "Destinations": [
-   {
-    "FileSystemId": "{{ FileSystemId }}",
-    "Region": "{{ Region }}",
-    "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
-    "KmsKeyId": "{{ KmsKeyId }}"
-   }
-  ]
- }
-}
->>>
---all properties
+-- file_system.iql (all properties)
 INSERT INTO aws.efs.file_systems (
  Encrypted,
  FileSystemTags,
@@ -221,20 +142,75 @@ INSERT INTO aws.efs.file_systems (
  region
 )
 SELECT 
- {{ .Encrypted }},
- {{ .FileSystemTags }},
- {{ .KmsKeyId }},
- {{ .LifecyclePolicies }},
- {{ .FileSystemProtection }},
- {{ .PerformanceMode }},
- {{ .ProvisionedThroughputInMibps }},
- {{ .ThroughputMode }},
- {{ .FileSystemPolicy }},
- {{ .BypassPolicyLockoutSafetyCheck }},
- {{ .BackupPolicy }},
- {{ .AvailabilityZoneName }},
- {{ .ReplicationConfiguration }},
- 'us-east-1';
+ '{{ Encrypted }}',
+ '{{ FileSystemTags }}',
+ '{{ KmsKeyId }}',
+ '{{ LifecyclePolicies }}',
+ '{{ FileSystemProtection }}',
+ '{{ PerformanceMode }}',
+ '{{ ProvisionedThroughputInMibps }}',
+ '{{ ThroughputMode }}',
+ '{{ FileSystemPolicy }}',
+ '{{ BypassPolicyLockoutSafetyCheck }}',
+ '{{ BackupPolicy }}',
+ '{{ AvailabilityZoneName }}',
+ '{{ ReplicationConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: file_system
+    props:
+      - name: Encrypted
+        value: '{{ Encrypted }}'
+      - name: FileSystemTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: LifecyclePolicies
+        value:
+          - TransitionToIA: '{{ TransitionToIA }}'
+            TransitionToPrimaryStorageClass: '{{ TransitionToPrimaryStorageClass }}'
+            TransitionToArchive: '{{ TransitionToArchive }}'
+      - name: FileSystemProtection
+        value:
+          ReplicationOverwriteProtection: '{{ ReplicationOverwriteProtection }}'
+      - name: PerformanceMode
+        value: '{{ PerformanceMode }}'
+      - name: ProvisionedThroughputInMibps
+        value: null
+      - name: ThroughputMode
+        value: '{{ ThroughputMode }}'
+      - name: FileSystemPolicy
+        value: {}
+      - name: BypassPolicyLockoutSafetyCheck
+        value: '{{ BypassPolicyLockoutSafetyCheck }}'
+      - name: BackupPolicy
+        value:
+          Status: '{{ Status }}'
+      - name: AvailabilityZoneName
+        value: '{{ AvailabilityZoneName }}'
+      - name: ReplicationConfiguration
+        value:
+          Destinations:
+            - FileSystemId: '{{ FileSystemId }}'
+              Region: '{{ Region }}'
+              AvailabilityZoneName: '{{ AvailabilityZoneName }}'
+              KmsKeyId: '{{ KmsKeyId }}'
+
 ```
 </TabItem>
 </Tabs>

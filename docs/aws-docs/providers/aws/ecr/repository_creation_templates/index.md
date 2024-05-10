@@ -74,62 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>repository_creation_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Prefix": "{{ Prefix }}",
- "AppliedFor": [
-  "{{ AppliedFor[0] }}"
- ]
-}
->>>
---required properties only
+-- repository_creation_template.iql (required properties only)
 INSERT INTO aws.ecr.repository_creation_templates (
  Prefix,
  AppliedFor,
  region
 )
 SELECT 
-{{ .Prefix }},
- {{ .AppliedFor }},
-'us-east-1';
+'{{ Prefix }}',
+ '{{ AppliedFor }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Prefix": "{{ Prefix }}",
- "Description": "{{ Description }}",
- "ImageTagMutability": "{{ ImageTagMutability }}",
- "RepositoryPolicy": "{{ RepositoryPolicy }}",
- "LifecyclePolicy": "{{ LifecyclePolicy }}",
- "EncryptionConfiguration": {
-  "EncryptionType": "{{ EncryptionType }}",
-  "KmsKey": "{{ KmsKey }}"
- },
- "ResourceTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AppliedFor": [
-  "{{ AppliedFor[0] }}"
- ]
-}
->>>
---all properties
+-- repository_creation_template.iql (all properties)
 INSERT INTO aws.ecr.repository_creation_templates (
  Prefix,
  Description,
@@ -142,15 +115,53 @@ INSERT INTO aws.ecr.repository_creation_templates (
  region
 )
 SELECT 
- {{ .Prefix }},
- {{ .Description }},
- {{ .ImageTagMutability }},
- {{ .RepositoryPolicy }},
- {{ .LifecyclePolicy }},
- {{ .EncryptionConfiguration }},
- {{ .ResourceTags }},
- {{ .AppliedFor }},
- 'us-east-1';
+ '{{ Prefix }}',
+ '{{ Description }}',
+ '{{ ImageTagMutability }}',
+ '{{ RepositoryPolicy }}',
+ '{{ LifecyclePolicy }}',
+ '{{ EncryptionConfiguration }}',
+ '{{ ResourceTags }}',
+ '{{ AppliedFor }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: repository_creation_template
+    props:
+      - name: Prefix
+        value: '{{ Prefix }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ImageTagMutability
+        value: '{{ ImageTagMutability }}'
+      - name: RepositoryPolicy
+        value: '{{ RepositoryPolicy }}'
+      - name: LifecyclePolicy
+        value: '{{ LifecyclePolicy }}'
+      - name: EncryptionConfiguration
+        value:
+          EncryptionType: '{{ EncryptionType }}'
+          KmsKey: '{{ KmsKey }}'
+      - name: ResourceTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AppliedFor
+        value:
+          - '{{ AppliedFor[0] }}'
+
 ```
 </TabItem>
 </Tabs>

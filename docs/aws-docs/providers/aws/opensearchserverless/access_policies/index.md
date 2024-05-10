@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "Policy": "{{ Policy }}"
-}
->>>
---required properties only
+-- access_policy.iql (required properties only)
 INSERT INTO aws.opensearchserverless.access_policies (
  Name,
  Type,
@@ -101,24 +97,16 @@ INSERT INTO aws.opensearchserverless.access_policies (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Type }},
- {{ .Policy }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Type }}',
+ '{{ Policy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "Description": "{{ Description }}",
- "Policy": "{{ Policy }}"
-}
->>>
---all properties
+-- access_policy.iql (all properties)
 INSERT INTO aws.opensearchserverless.access_policies (
  Name,
  Type,
@@ -127,11 +115,36 @@ INSERT INTO aws.opensearchserverless.access_policies (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Type }},
- {{ .Description }},
- {{ .Policy }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ Description }}',
+ '{{ Policy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_policy
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Policy
+        value: '{{ Policy }}'
+
 ```
 </TabItem>
 </Tabs>

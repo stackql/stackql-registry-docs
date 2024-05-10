@@ -74,47 +74,33 @@ FROM aws.iam.saml_providers
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>saml_provider</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SamlMetadataDocument": "{{ SamlMetadataDocument }}"
-}
->>>
---required properties only
+-- saml_provider.iql (required properties only)
 INSERT INTO aws.iam.saml_providers (
  SamlMetadataDocument,
  region
 )
 SELECT 
-{{ .SamlMetadataDocument }},
-'us-east-1';
+'{{ SamlMetadataDocument }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "SamlMetadataDocument": "{{ SamlMetadataDocument }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- saml_provider.iql (all properties)
 INSERT INTO aws.iam.saml_providers (
  Name,
  SamlMetadataDocument,
@@ -122,10 +108,35 @@ INSERT INTO aws.iam.saml_providers (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .SamlMetadataDocument }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ SamlMetadataDocument }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: saml_provider
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: SamlMetadataDocument
+        value: '{{ SamlMetadataDocument }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

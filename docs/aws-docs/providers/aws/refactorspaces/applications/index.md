@@ -76,25 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "Name": "{{ Name }}",
- "ProxyType": "{{ ProxyType }}",
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.refactorspaces.applications (
  EnvironmentIdentifier,
  Name,
@@ -103,35 +98,17 @@ INSERT INTO aws.refactorspaces.applications (
  region
 )
 SELECT 
-{{ .EnvironmentIdentifier }},
- {{ .Name }},
- {{ .ProxyType }},
- {{ .VpcId }},
-'us-east-1';
+'{{ EnvironmentIdentifier }}',
+ '{{ Name }}',
+ '{{ ProxyType }}',
+ '{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApiGatewayProxy": {
-  "StageName": "{{ StageName }}",
-  "EndpointType": "{{ EndpointType }}"
- },
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "Name": "{{ Name }}",
- "ProxyType": "{{ ProxyType }}",
- "VpcId": "{{ VpcId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.refactorspaces.applications (
  ApiGatewayProxy,
  EnvironmentIdentifier,
@@ -142,13 +119,46 @@ INSERT INTO aws.refactorspaces.applications (
  region
 )
 SELECT 
- {{ .ApiGatewayProxy }},
- {{ .EnvironmentIdentifier }},
- {{ .Name }},
- {{ .ProxyType }},
- {{ .VpcId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ApiGatewayProxy }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ Name }}',
+ '{{ ProxyType }}',
+ '{{ VpcId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: ApiGatewayProxy
+        value:
+          StageName: '{{ StageName }}'
+          EndpointType: '{{ EndpointType }}'
+      - name: EnvironmentIdentifier
+        value: '{{ EnvironmentIdentifier }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ProxyType
+        value: '{{ ProxyType }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

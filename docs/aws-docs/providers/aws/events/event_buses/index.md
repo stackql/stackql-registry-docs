@@ -74,48 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_bus</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- event_bus.iql (required properties only)
 INSERT INTO aws.events.event_buses (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EventSourceName": "{{ EventSourceName }}",
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Policy": {}
-}
->>>
---all properties
+-- event_bus.iql (all properties)
 INSERT INTO aws.events.event_buses (
  EventSourceName,
  Name,
@@ -124,11 +109,38 @@ INSERT INTO aws.events.event_buses (
  region
 )
 SELECT 
- {{ .EventSourceName }},
- {{ .Name }},
- {{ .Tags }},
- {{ .Policy }},
- 'us-east-1';
+ '{{ EventSourceName }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ Policy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_bus
+    props:
+      - name: EventSourceName
+        value: '{{ EventSourceName }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Policy
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

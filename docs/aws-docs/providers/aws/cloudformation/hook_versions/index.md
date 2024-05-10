@@ -74,49 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>hook_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SchemaHandlerPackage": "{{ SchemaHandlerPackage }}",
- "TypeName": "{{ TypeName }}"
-}
->>>
---required properties only
+-- hook_version.iql (required properties only)
 INSERT INTO aws.cloudformation.hook_versions (
  SchemaHandlerPackage,
  TypeName,
  region
 )
 SELECT 
-{{ .SchemaHandlerPackage }},
- {{ .TypeName }},
-'us-east-1';
+'{{ SchemaHandlerPackage }}',
+ '{{ TypeName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "LoggingConfig": {
-  "LogGroupName": "{{ LogGroupName }}",
-  "LogRoleArn": "{{ LogRoleArn }}"
- },
- "SchemaHandlerPackage": "{{ SchemaHandlerPackage }}",
- "TypeName": "{{ TypeName }}"
-}
->>>
---all properties
+-- hook_version.iql (all properties)
 INSERT INTO aws.cloudformation.hook_versions (
  ExecutionRoleArn,
  LoggingConfig,
@@ -125,11 +111,38 @@ INSERT INTO aws.cloudformation.hook_versions (
  region
 )
 SELECT 
- {{ .ExecutionRoleArn }},
- {{ .LoggingConfig }},
- {{ .SchemaHandlerPackage }},
- {{ .TypeName }},
- 'us-east-1';
+ '{{ ExecutionRoleArn }}',
+ '{{ LoggingConfig }}',
+ '{{ SchemaHandlerPackage }}',
+ '{{ TypeName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: hook_version
+    props:
+      - name: ExecutionRoleArn
+        value: '{{ ExecutionRoleArn }}'
+      - name: LoggingConfig
+        value:
+          LogGroupName: '{{ LogGroupName }}'
+          LogRoleArn: '{{ LogRoleArn }}'
+      - name: SchemaHandlerPackage
+        value: '{{ SchemaHandlerPackage }}'
+      - name: TypeName
+        value: '{{ TypeName }}'
+
 ```
 </TabItem>
 </Tabs>

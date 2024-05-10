@@ -74,112 +74,83 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>backup_plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BackupPlan": {
-  "BackupPlanName": "{{ BackupPlanName }}",
-  "AdvancedBackupSettings": [
-   {
-    "BackupOptions": {},
-    "ResourceType": "{{ ResourceType }}"
-   }
-  ],
-  "BackupPlanRule": [
-   {
-    "RuleName": "{{ RuleName }}",
-    "TargetBackupVault": "{{ TargetBackupVault }}",
-    "StartWindowMinutes": null,
-    "CompletionWindowMinutes": null,
-    "ScheduleExpression": "{{ ScheduleExpression }}",
-    "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
-    "RecoveryPointTags": {},
-    "CopyActions": [
-     {
-      "Lifecycle": {
-       "MoveToColdStorageAfterDays": null,
-       "DeleteAfterDays": null,
-       "OptInToArchiveForSupportedResources": "{{ OptInToArchiveForSupportedResources }}"
-      },
-      "DestinationBackupVaultArn": "{{ DestinationBackupVaultArn }}"
-     }
-    ],
-    "Lifecycle": null,
-    "EnableContinuousBackup": "{{ EnableContinuousBackup }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- backup_plan.iql (required properties only)
 INSERT INTO aws.backup.backup_plans (
  BackupPlan,
  region
 )
 SELECT 
-{{ .BackupPlan }},
-'us-east-1';
+'{{ BackupPlan }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BackupPlan": {
-  "BackupPlanName": "{{ BackupPlanName }}",
-  "AdvancedBackupSettings": [
-   {
-    "BackupOptions": {},
-    "ResourceType": "{{ ResourceType }}"
-   }
-  ],
-  "BackupPlanRule": [
-   {
-    "RuleName": "{{ RuleName }}",
-    "TargetBackupVault": "{{ TargetBackupVault }}",
-    "StartWindowMinutes": null,
-    "CompletionWindowMinutes": null,
-    "ScheduleExpression": "{{ ScheduleExpression }}",
-    "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
-    "RecoveryPointTags": {},
-    "CopyActions": [
-     {
-      "Lifecycle": {
-       "MoveToColdStorageAfterDays": null,
-       "DeleteAfterDays": null,
-       "OptInToArchiveForSupportedResources": "{{ OptInToArchiveForSupportedResources }}"
-      },
-      "DestinationBackupVaultArn": "{{ DestinationBackupVaultArn }}"
-     }
-    ],
-    "Lifecycle": null,
-    "EnableContinuousBackup": "{{ EnableContinuousBackup }}"
-   }
-  ]
- },
- "BackupPlanTags": {}
-}
->>>
---all properties
+-- backup_plan.iql (all properties)
 INSERT INTO aws.backup.backup_plans (
  BackupPlan,
  BackupPlanTags,
  region
 )
 SELECT 
- {{ .BackupPlan }},
- {{ .BackupPlanTags }},
- 'us-east-1';
+ '{{ BackupPlan }}',
+ '{{ BackupPlanTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: backup_plan
+    props:
+      - name: BackupPlan
+        value:
+          BackupPlanName: '{{ BackupPlanName }}'
+          AdvancedBackupSettings:
+            - BackupOptions: {}
+              ResourceType: '{{ ResourceType }}'
+          BackupPlanRule:
+            - RuleName: '{{ RuleName }}'
+              TargetBackupVault: '{{ TargetBackupVault }}'
+              StartWindowMinutes: null
+              CompletionWindowMinutes: null
+              ScheduleExpression: '{{ ScheduleExpression }}'
+              ScheduleExpressionTimezone: '{{ ScheduleExpressionTimezone }}'
+              RecoveryPointTags: {}
+              CopyActions:
+                - Lifecycle:
+                    MoveToColdStorageAfterDays: null
+                    DeleteAfterDays: null
+                    OptInToArchiveForSupportedResources: '{{ OptInToArchiveForSupportedResources }}'
+                  DestinationBackupVaultArn: '{{ DestinationBackupVaultArn }}'
+              Lifecycle: null
+              EnableContinuousBackup: '{{ EnableContinuousBackup }}'
+      - name: BackupPlanTags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>anomaly_monitor</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MonitorType": "{{ MonitorType }}",
- "MonitorName": "{{ MonitorName }}"
-}
->>>
---required properties only
+-- anomaly_monitor.iql (required properties only)
 INSERT INTO aws.ce.anomaly_monitors (
  MonitorType,
  MonitorName,
  region
 )
 SELECT 
-{{ .MonitorType }},
- {{ .MonitorName }},
-'us-east-1';
+'{{ MonitorType }}',
+ '{{ MonitorName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MonitorType": "{{ MonitorType }}",
- "MonitorName": "{{ MonitorName }}",
- "MonitorDimension": "{{ MonitorDimension }}",
- "MonitorSpecification": "{{ MonitorSpecification }}",
- "ResourceTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- anomaly_monitor.iql (all properties)
 INSERT INTO aws.ce.anomaly_monitors (
  MonitorType,
  MonitorName,
@@ -129,12 +112,41 @@ INSERT INTO aws.ce.anomaly_monitors (
  region
 )
 SELECT 
- {{ .MonitorType }},
- {{ .MonitorName }},
- {{ .MonitorDimension }},
- {{ .MonitorSpecification }},
- {{ .ResourceTags }},
- 'us-east-1';
+ '{{ MonitorType }}',
+ '{{ MonitorName }}',
+ '{{ MonitorDimension }}',
+ '{{ MonitorSpecification }}',
+ '{{ ResourceTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: anomaly_monitor
+    props:
+      - name: MonitorType
+        value: '{{ MonitorType }}'
+      - name: MonitorName
+        value: '{{ MonitorName }}'
+      - name: MonitorDimension
+        value: '{{ MonitorDimension }}'
+      - name: MonitorSpecification
+        value: '{{ MonitorSpecification }}'
+      - name: ResourceTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

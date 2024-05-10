@@ -76,59 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>customdb_engine_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Engine": "{{ Engine }}",
- "EngineVersion": "{{ EngineVersion }}"
-}
->>>
---required properties only
+-- customdb_engine_version.iql (required properties only)
 INSERT INTO aws.rds.customdb_engine_versions (
  Engine,
  EngineVersion,
  region
 )
 SELECT 
-{{ .Engine }},
- {{ .EngineVersion }},
-'us-east-1';
+'{{ Engine }}',
+ '{{ EngineVersion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DatabaseInstallationFilesS3BucketName": "{{ DatabaseInstallationFilesS3BucketName }}",
- "DatabaseInstallationFilesS3Prefix": "{{ DatabaseInstallationFilesS3Prefix }}",
- "Description": "{{ Description }}",
- "Engine": "{{ Engine }}",
- "EngineVersion": "{{ EngineVersion }}",
- "KMSKeyId": "{{ KMSKeyId }}",
- "Manifest": "{{ Manifest }}",
- "SourceCustomDbEngineVersionIdentifier": "{{ SourceCustomDbEngineVersionIdentifier }}",
- "UseAwsProvidedLatestImage": "{{ UseAwsProvidedLatestImage }}",
- "ImageId": "{{ ImageId }}",
- "Status": "{{ Status }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- customdb_engine_version.iql (all properties)
 INSERT INTO aws.rds.customdb_engine_versions (
  DatabaseInstallationFilesS3BucketName,
  DatabaseInstallationFilesS3Prefix,
@@ -145,19 +121,62 @@ INSERT INTO aws.rds.customdb_engine_versions (
  region
 )
 SELECT 
- {{ .DatabaseInstallationFilesS3BucketName }},
- {{ .DatabaseInstallationFilesS3Prefix }},
- {{ .Description }},
- {{ .Engine }},
- {{ .EngineVersion }},
- {{ .KMSKeyId }},
- {{ .Manifest }},
- {{ .SourceCustomDbEngineVersionIdentifier }},
- {{ .UseAwsProvidedLatestImage }},
- {{ .ImageId }},
- {{ .Status }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DatabaseInstallationFilesS3BucketName }}',
+ '{{ DatabaseInstallationFilesS3Prefix }}',
+ '{{ Description }}',
+ '{{ Engine }}',
+ '{{ EngineVersion }}',
+ '{{ KMSKeyId }}',
+ '{{ Manifest }}',
+ '{{ SourceCustomDbEngineVersionIdentifier }}',
+ '{{ UseAwsProvidedLatestImage }}',
+ '{{ ImageId }}',
+ '{{ Status }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: customdb_engine_version
+    props:
+      - name: DatabaseInstallationFilesS3BucketName
+        value: '{{ DatabaseInstallationFilesS3BucketName }}'
+      - name: DatabaseInstallationFilesS3Prefix
+        value: '{{ DatabaseInstallationFilesS3Prefix }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Engine
+        value: '{{ Engine }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: KMSKeyId
+        value: '{{ KMSKeyId }}'
+      - name: Manifest
+        value: '{{ Manifest }}'
+      - name: SourceCustomDbEngineVersionIdentifier
+        value: '{{ SourceCustomDbEngineVersionIdentifier }}'
+      - name: UseAwsProvidedLatestImage
+        value: '{{ UseAwsProvidedLatestImage }}'
+      - name: ImageId
+        value: '{{ ImageId }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

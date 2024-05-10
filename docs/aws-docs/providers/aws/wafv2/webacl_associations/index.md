@@ -76,53 +76,65 @@ FROM aws.wafv2.webacl_associations
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>webacl_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceArn": "{{ ResourceArn }}",
- "WebACLArn": null
-}
->>>
---required properties only
+-- webacl_association.iql (required properties only)
 INSERT INTO aws.wafv2.webacl_associations (
  ResourceArn,
  WebACLArn,
  region
 )
 SELECT 
-{{ .ResourceArn }},
- {{ .WebACLArn }},
-'us-east-1';
+'{{ ResourceArn }}',
+ '{{ WebACLArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceArn": "{{ ResourceArn }}",
- "WebACLArn": null
-}
->>>
---all properties
+-- webacl_association.iql (all properties)
 INSERT INTO aws.wafv2.webacl_associations (
  ResourceArn,
  WebACLArn,
  region
 )
 SELECT 
- {{ .ResourceArn }},
- {{ .WebACLArn }},
- 'us-east-1';
+ '{{ ResourceArn }}',
+ '{{ WebACLArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: webacl_association
+    props:
+      - name: ResourceArn
+        value: '{{ ResourceArn }}'
+      - name: WebACLArn
+        value: null
+
 ```
 </TabItem>
 </Tabs>

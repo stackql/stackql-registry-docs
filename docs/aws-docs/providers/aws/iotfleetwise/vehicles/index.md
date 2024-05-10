@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vehicle</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DecoderManifestArn": "{{ DecoderManifestArn }}",
- "Name": "{{ Name }}",
- "ModelManifestArn": "{{ ModelManifestArn }}"
-}
->>>
---required properties only
+-- vehicle.iql (required properties only)
 INSERT INTO aws.iotfleetwise.vehicles (
  DecoderManifestArn,
  Name,
@@ -99,31 +95,16 @@ INSERT INTO aws.iotfleetwise.vehicles (
  region
 )
 SELECT 
-{{ .DecoderManifestArn }},
- {{ .Name }},
- {{ .ModelManifestArn }},
-'us-east-1';
+'{{ DecoderManifestArn }}',
+ '{{ Name }}',
+ '{{ ModelManifestArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssociationBehavior": "{{ AssociationBehavior }}",
- "Attributes": {},
- "DecoderManifestArn": "{{ DecoderManifestArn }}",
- "Name": "{{ Name }}",
- "ModelManifestArn": "{{ ModelManifestArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- vehicle.iql (all properties)
 INSERT INTO aws.iotfleetwise.vehicles (
  AssociationBehavior,
  Attributes,
@@ -134,13 +115,44 @@ INSERT INTO aws.iotfleetwise.vehicles (
  region
 )
 SELECT 
- {{ .AssociationBehavior }},
- {{ .Attributes }},
- {{ .DecoderManifestArn }},
- {{ .Name }},
- {{ .ModelManifestArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AssociationBehavior }}',
+ '{{ Attributes }}',
+ '{{ DecoderManifestArn }}',
+ '{{ Name }}',
+ '{{ ModelManifestArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vehicle
+    props:
+      - name: AssociationBehavior
+        value: '{{ AssociationBehavior }}'
+      - name: Attributes
+        value: {}
+      - name: DecoderManifestArn
+        value: '{{ DecoderManifestArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ModelManifestArn
+        value: '{{ ModelManifestArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

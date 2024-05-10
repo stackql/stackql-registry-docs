@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>simulation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- simulation.iql (required properties only)
 INSERT INTO aws.simspaceweaver.simulations (
  Name,
  RoleArn,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "SchemaS3Location": {
-  "BucketName": "{{ BucketName }}",
-  "ObjectKey": "{{ ObjectKey }}"
- },
- "MaximumDuration": "{{ MaximumDuration }}",
- "SnapshotS3Location": null
-}
->>>
---all properties
+-- simulation.iql (all properties)
 INSERT INTO aws.simspaceweaver.simulations (
  Name,
  RoleArn,
@@ -127,12 +112,41 @@ INSERT INTO aws.simspaceweaver.simulations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .RoleArn }},
- {{ .SchemaS3Location }},
- {{ .MaximumDuration }},
- {{ .SnapshotS3Location }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ SchemaS3Location }}',
+ '{{ MaximumDuration }}',
+ '{{ SnapshotS3Location }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: simulation
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: SchemaS3Location
+        value:
+          BucketName: '{{ BucketName }}'
+          ObjectKey: '{{ ObjectKey }}'
+      - name: MaximumDuration
+        value: '{{ MaximumDuration }}'
+      - name: SnapshotS3Location
+        value: null
+
 ```
 </TabItem>
 </Tabs>

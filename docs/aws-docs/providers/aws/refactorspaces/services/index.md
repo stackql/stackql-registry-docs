@@ -78,25 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
- "EndpointType": "{{ EndpointType }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- service.iql (required properties only)
 INSERT INTO aws.refactorspaces.services (
  ApplicationIdentifier,
  EndpointType,
@@ -105,40 +100,17 @@ INSERT INTO aws.refactorspaces.services (
  region
 )
 SELECT 
-{{ .ApplicationIdentifier }},
- {{ .EndpointType }},
- {{ .EnvironmentIdentifier }},
- {{ .Name }},
-'us-east-1';
+'{{ ApplicationIdentifier }}',
+ '{{ EndpointType }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
- "Description": "{{ Description }}",
- "EndpointType": "{{ EndpointType }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "LambdaEndpoint": {
-  "Arn": "{{ Arn }}"
- },
- "Name": "{{ Name }}",
- "UrlEndpoint": {
-  "HealthUrl": "{{ HealthUrl }}",
-  "Url": "{{ Url }}"
- },
- "VpcId": "{{ VpcId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- service.iql (all properties)
 INSERT INTO aws.refactorspaces.services (
  ApplicationIdentifier,
  Description,
@@ -152,16 +124,56 @@ INSERT INTO aws.refactorspaces.services (
  region
 )
 SELECT 
- {{ .ApplicationIdentifier }},
- {{ .Description }},
- {{ .EndpointType }},
- {{ .EnvironmentIdentifier }},
- {{ .LambdaEndpoint }},
- {{ .Name }},
- {{ .UrlEndpoint }},
- {{ .VpcId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ApplicationIdentifier }}',
+ '{{ Description }}',
+ '{{ EndpointType }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ LambdaEndpoint }}',
+ '{{ Name }}',
+ '{{ UrlEndpoint }}',
+ '{{ VpcId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service
+    props:
+      - name: ApplicationIdentifier
+        value: '{{ ApplicationIdentifier }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EndpointType
+        value: '{{ EndpointType }}'
+      - name: EnvironmentIdentifier
+        value: '{{ EnvironmentIdentifier }}'
+      - name: LambdaEndpoint
+        value:
+          Arn: '{{ Arn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: UrlEndpoint
+        value:
+          HealthUrl: '{{ HealthUrl }}'
+          Url: '{{ Url }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

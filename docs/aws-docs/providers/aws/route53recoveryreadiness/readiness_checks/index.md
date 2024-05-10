@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>readiness_check</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceSetName": "{{ ResourceSetName }}",
- "ReadinessCheckName": "{{ ReadinessCheckName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- readiness_check.iql (required properties only)
 INSERT INTO aws.route53recoveryreadiness.readiness_checks (
  ResourceSetName,
  ReadinessCheckName,
@@ -104,28 +95,16 @@ INSERT INTO aws.route53recoveryreadiness.readiness_checks (
  region
 )
 SELECT 
-{{ .ResourceSetName }},
- {{ .ReadinessCheckName }},
- {{ .Tags }},
-'us-east-1';
+'{{ ResourceSetName }}',
+ '{{ ReadinessCheckName }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceSetName": "{{ ResourceSetName }}",
- "ReadinessCheckName": "{{ ReadinessCheckName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- readiness_check.iql (all properties)
 INSERT INTO aws.route53recoveryreadiness.readiness_checks (
  ResourceSetName,
  ReadinessCheckName,
@@ -133,10 +112,35 @@ INSERT INTO aws.route53recoveryreadiness.readiness_checks (
  region
 )
 SELECT 
- {{ .ResourceSetName }},
- {{ .ReadinessCheckName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ResourceSetName }}',
+ '{{ ReadinessCheckName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: readiness_check
+    props:
+      - name: ResourceSetName
+        value: '{{ ResourceSetName }}'
+      - name: ReadinessCheckName
+        value: '{{ ReadinessCheckName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

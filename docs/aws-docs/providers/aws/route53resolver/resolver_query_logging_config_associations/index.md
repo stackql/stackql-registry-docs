@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resolver_query_logging_config_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResolverQueryLogConfigId": "{{ ResolverQueryLogConfigId }}",
- "ResourceId": "{{ ResourceId }}"
-}
->>>
---required properties only
+-- resolver_query_logging_config_association.iql (required properties only)
 INSERT INTO aws.route53resolver.resolver_query_logging_config_associations (
  ResolverQueryLogConfigId,
  ResourceId,
  region
 )
 SELECT 
-{{ .ResolverQueryLogConfigId }},
- {{ .ResourceId }},
-'us-east-1';
+'{{ ResolverQueryLogConfigId }}',
+ '{{ ResourceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResolverQueryLogConfigId": "{{ ResolverQueryLogConfigId }}",
- "ResourceId": "{{ ResourceId }}"
-}
->>>
---all properties
+-- resolver_query_logging_config_association.iql (all properties)
 INSERT INTO aws.route53resolver.resolver_query_logging_config_associations (
  ResolverQueryLogConfigId,
  ResourceId,
  region
 )
 SELECT 
- {{ .ResolverQueryLogConfigId }},
- {{ .ResourceId }},
- 'us-east-1';
+ '{{ ResolverQueryLogConfigId }}',
+ '{{ ResourceId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resolver_query_logging_config_association
+    props:
+      - name: ResolverQueryLogConfigId
+        value: '{{ ResolverQueryLogConfigId }}'
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+
 ```
 </TabItem>
 </Tabs>

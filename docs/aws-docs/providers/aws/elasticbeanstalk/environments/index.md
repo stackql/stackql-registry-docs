@@ -74,67 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationName": "{{ ApplicationName }}"
-}
->>>
---required properties only
+-- environment.iql (required properties only)
 INSERT INTO aws.elasticbeanstalk.environments (
  ApplicationName,
  region
 )
 SELECT 
-{{ .ApplicationName }},
-'us-east-1';
+'{{ ApplicationName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PlatformArn": "{{ PlatformArn }}",
- "ApplicationName": "{{ ApplicationName }}",
- "Description": "{{ Description }}",
- "EnvironmentName": "{{ EnvironmentName }}",
- "OperationsRole": "{{ OperationsRole }}",
- "Tier": {
-  "Type": "{{ Type }}",
-  "Version": "{{ Version }}",
-  "Name": "{{ Name }}"
- },
- "VersionLabel": "{{ VersionLabel }}",
- "OptionSettings": [
-  {
-   "ResourceName": "{{ ResourceName }}",
-   "Value": "{{ Value }}",
-   "Namespace": "{{ Namespace }}",
-   "OptionName": "{{ OptionName }}"
-  }
- ],
- "TemplateName": "{{ TemplateName }}",
- "SolutionStackName": "{{ SolutionStackName }}",
- "CNAMEPrefix": "{{ CNAMEPrefix }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- environment.iql (all properties)
 INSERT INTO aws.elasticbeanstalk.environments (
  PlatformArn,
  ApplicationName,
@@ -151,19 +117,69 @@ INSERT INTO aws.elasticbeanstalk.environments (
  region
 )
 SELECT 
- {{ .PlatformArn }},
- {{ .ApplicationName }},
- {{ .Description }},
- {{ .EnvironmentName }},
- {{ .OperationsRole }},
- {{ .Tier }},
- {{ .VersionLabel }},
- {{ .OptionSettings }},
- {{ .TemplateName }},
- {{ .SolutionStackName }},
- {{ .CNAMEPrefix }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ PlatformArn }}',
+ '{{ ApplicationName }}',
+ '{{ Description }}',
+ '{{ EnvironmentName }}',
+ '{{ OperationsRole }}',
+ '{{ Tier }}',
+ '{{ VersionLabel }}',
+ '{{ OptionSettings }}',
+ '{{ TemplateName }}',
+ '{{ SolutionStackName }}',
+ '{{ CNAMEPrefix }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment
+    props:
+      - name: PlatformArn
+        value: '{{ PlatformArn }}'
+      - name: ApplicationName
+        value: '{{ ApplicationName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EnvironmentName
+        value: '{{ EnvironmentName }}'
+      - name: OperationsRole
+        value: '{{ OperationsRole }}'
+      - name: Tier
+        value:
+          Type: '{{ Type }}'
+          Version: '{{ Version }}'
+          Name: '{{ Name }}'
+      - name: VersionLabel
+        value: '{{ VersionLabel }}'
+      - name: OptionSettings
+        value:
+          - ResourceName: '{{ ResourceName }}'
+            Value: '{{ Value }}'
+            Namespace: '{{ Namespace }}'
+            OptionName: '{{ OptionName }}'
+      - name: TemplateName
+        value: '{{ TemplateName }}'
+      - name: SolutionStackName
+        value: '{{ SolutionStackName }}'
+      - name: CNAMEPrefix
+        value: '{{ CNAMEPrefix }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

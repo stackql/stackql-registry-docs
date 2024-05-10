@@ -74,44 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccessPolicyIdentity": {
-  "User": {
-   "id": "{{ id }}"
-  },
-  "IamUser": {
-   "arn": "{{ arn }}"
-  },
-  "IamRole": {
-   "arn": "{{ arn }}"
-  }
- },
- "AccessPolicyPermission": "{{ AccessPolicyPermission }}",
- "AccessPolicyResource": {
-  "Portal": {
-   "PortalContactEmail": "{{ PortalContactEmail }}",
-   "PortalName": "{{ PortalName }}",
-   "RoleArn": "{{ RoleArn }}"
-  },
-  "Project": {
-   "PortalId": "{{ PortalId }}",
-   "ProjectName": "{{ ProjectName }}"
-  }
- }
-}
->>>
---required properties only
+-- access_policy.iql (required properties only)
 INSERT INTO aws.iotsitewise.access_policies (
  AccessPolicyIdentity,
  AccessPolicyPermission,
@@ -119,63 +95,16 @@ INSERT INTO aws.iotsitewise.access_policies (
  region
 )
 SELECT 
-{{ .AccessPolicyIdentity }},
- {{ .AccessPolicyPermission }},
- {{ .AccessPolicyResource }},
-'us-east-1';
+'{{ AccessPolicyIdentity }}',
+ '{{ AccessPolicyPermission }}',
+ '{{ AccessPolicyResource }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessPolicyIdentity": {
-  "User": {
-   "id": "{{ id }}"
-  },
-  "IamUser": {
-   "arn": "{{ arn }}"
-  },
-  "IamRole": {
-   "arn": "{{ arn }}"
-  }
- },
- "AccessPolicyPermission": "{{ AccessPolicyPermission }}",
- "AccessPolicyResource": {
-  "Portal": {
-   "PortalAuthMode": "{{ PortalAuthMode }}",
-   "PortalContactEmail": "{{ PortalContactEmail }}",
-   "PortalDescription": "{{ PortalDescription }}",
-   "PortalName": "{{ PortalName }}",
-   "RoleArn": "{{ RoleArn }}",
-   "NotificationSenderEmail": "{{ NotificationSenderEmail }}",
-   "Alarms": {
-    "AlarmRoleArn": "{{ AlarmRoleArn }}",
-    "NotificationLambdaArn": "{{ NotificationLambdaArn }}"
-   },
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "Project": {
-   "PortalId": "{{ PortalId }}",
-   "ProjectName": "{{ ProjectName }}",
-   "ProjectDescription": "{{ ProjectDescription }}",
-   "AssetIds": [
-    "{{ AssetIds[0] }}"
-   ],
-   "Tags": [
-    null
-   ]
-  }
- }
-}
->>>
---all properties
+-- access_policy.iql (all properties)
 INSERT INTO aws.iotsitewise.access_policies (
  AccessPolicyIdentity,
  AccessPolicyPermission,
@@ -183,10 +112,60 @@ INSERT INTO aws.iotsitewise.access_policies (
  region
 )
 SELECT 
- {{ .AccessPolicyIdentity }},
- {{ .AccessPolicyPermission }},
- {{ .AccessPolicyResource }},
- 'us-east-1';
+ '{{ AccessPolicyIdentity }}',
+ '{{ AccessPolicyPermission }}',
+ '{{ AccessPolicyResource }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_policy
+    props:
+      - name: AccessPolicyIdentity
+        value:
+          User:
+            id: '{{ id }}'
+          IamUser:
+            arn: '{{ arn }}'
+          IamRole:
+            arn: '{{ arn }}'
+      - name: AccessPolicyPermission
+        value: '{{ AccessPolicyPermission }}'
+      - name: AccessPolicyResource
+        value:
+          Portal:
+            PortalAuthMode: '{{ PortalAuthMode }}'
+            PortalContactEmail: '{{ PortalContactEmail }}'
+            PortalDescription: '{{ PortalDescription }}'
+            PortalName: '{{ PortalName }}'
+            RoleArn: '{{ RoleArn }}'
+            NotificationSenderEmail: '{{ NotificationSenderEmail }}'
+            Alarms:
+              AlarmRoleArn: '{{ AlarmRoleArn }}'
+              NotificationLambdaArn: '{{ NotificationLambdaArn }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+          Project:
+            PortalId: '{{ PortalId }}'
+            ProjectName: '{{ ProjectName }}'
+            ProjectDescription: '{{ ProjectDescription }}'
+            AssetIds:
+              - '{{ AssetIds[0] }}'
+            Tags:
+              - null
+
 ```
 </TabItem>
 </Tabs>

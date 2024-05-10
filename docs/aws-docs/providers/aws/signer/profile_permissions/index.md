@@ -76,25 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>profile_permission</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ProfileName": "{{ ProfileName }}",
- "Action": "{{ Action }}",
- "Principal": "{{ Principal }}",
- "StatementId": "{{ StatementId }}"
-}
->>>
---required properties only
+-- profile_permission.iql (required properties only)
 INSERT INTO aws.signer.profile_permissions (
  ProfileName,
  Action,
@@ -103,26 +98,17 @@ INSERT INTO aws.signer.profile_permissions (
  region
 )
 SELECT 
-{{ .ProfileName }},
- {{ .Action }},
- {{ .Principal }},
- {{ .StatementId }},
-'us-east-1';
+'{{ ProfileName }}',
+ '{{ Action }}',
+ '{{ Principal }}',
+ '{{ StatementId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ProfileName": "{{ ProfileName }}",
- "ProfileVersion": "{{ ProfileVersion }}",
- "Action": "{{ Action }}",
- "Principal": "{{ Principal }}",
- "StatementId": "{{ StatementId }}"
-}
->>>
---all properties
+-- profile_permission.iql (all properties)
 INSERT INTO aws.signer.profile_permissions (
  ProfileName,
  ProfileVersion,
@@ -132,12 +118,39 @@ INSERT INTO aws.signer.profile_permissions (
  region
 )
 SELECT 
- {{ .ProfileName }},
- {{ .ProfileVersion }},
- {{ .Action }},
- {{ .Principal }},
- {{ .StatementId }},
- 'us-east-1';
+ '{{ ProfileName }}',
+ '{{ ProfileVersion }}',
+ '{{ Action }}',
+ '{{ Principal }}',
+ '{{ StatementId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: profile_permission
+    props:
+      - name: ProfileName
+        value: '{{ ProfileName }}'
+      - name: ProfileVersion
+        value: '{{ ProfileVersion }}'
+      - name: Action
+        value: '{{ Action }}'
+      - name: Principal
+        value: '{{ Principal }}'
+      - name: StatementId
+        value: '{{ StatementId }}'
+
 ```
 </TabItem>
 </Tabs>

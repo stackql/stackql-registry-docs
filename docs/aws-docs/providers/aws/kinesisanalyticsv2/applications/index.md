@@ -74,189 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RuntimeEnvironment": "{{ RuntimeEnvironment }}",
- "ServiceExecutionRole": "{{ ServiceExecutionRole }}"
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.kinesisanalyticsv2.applications (
  RuntimeEnvironment,
  ServiceExecutionRole,
  region
 )
 SELECT 
-{{ .RuntimeEnvironment }},
- {{ .ServiceExecutionRole }},
-'us-east-1';
+'{{ RuntimeEnvironment }}',
+ '{{ ServiceExecutionRole }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicationConfiguration": {
-  "ApplicationCodeConfiguration": {
-   "CodeContent": {
-    "ZipFileContent": "{{ ZipFileContent }}",
-    "S3ContentLocation": {
-     "BucketARN": "{{ BucketARN }}",
-     "FileKey": "{{ FileKey }}",
-     "ObjectVersion": "{{ ObjectVersion }}"
-    },
-    "TextContent": "{{ TextContent }}"
-   },
-   "CodeContentType": "{{ CodeContentType }}"
-  },
-  "ApplicationSnapshotConfiguration": {
-   "SnapshotsEnabled": "{{ SnapshotsEnabled }}"
-  },
-  "EnvironmentProperties": {
-   "PropertyGroups": [
-    {
-     "PropertyGroupId": "{{ PropertyGroupId }}",
-     "PropertyMap": {}
-    }
-   ]
-  },
-  "FlinkApplicationConfiguration": {
-   "CheckpointConfiguration": {
-    "ConfigurationType": "{{ ConfigurationType }}",
-    "CheckpointingEnabled": "{{ CheckpointingEnabled }}",
-    "CheckpointInterval": "{{ CheckpointInterval }}",
-    "MinPauseBetweenCheckpoints": "{{ MinPauseBetweenCheckpoints }}"
-   },
-   "MonitoringConfiguration": {
-    "ConfigurationType": "{{ ConfigurationType }}",
-    "MetricsLevel": "{{ MetricsLevel }}",
-    "LogLevel": "{{ LogLevel }}"
-   },
-   "ParallelismConfiguration": {
-    "ConfigurationType": "{{ ConfigurationType }}",
-    "ParallelismPerKPU": "{{ ParallelismPerKPU }}",
-    "Parallelism": "{{ Parallelism }}",
-    "AutoScalingEnabled": "{{ AutoScalingEnabled }}"
-   }
-  },
-  "SqlApplicationConfiguration": {
-   "Inputs": [
-    {
-     "NamePrefix": "{{ NamePrefix }}",
-     "InputSchema": {
-      "RecordEncoding": "{{ RecordEncoding }}",
-      "RecordColumns": [
-       {
-        "Mapping": "{{ Mapping }}",
-        "Name": "{{ Name }}",
-        "SqlType": "{{ SqlType }}"
-       }
-      ],
-      "RecordFormat": {
-       "RecordFormatType": "{{ RecordFormatType }}",
-       "MappingParameters": {
-        "CSVMappingParameters": {
-         "RecordColumnDelimiter": "{{ RecordColumnDelimiter }}",
-         "RecordRowDelimiter": "{{ RecordRowDelimiter }}"
-        },
-        "JSONMappingParameters": {
-         "RecordRowPath": "{{ RecordRowPath }}"
-        }
-       }
-      }
-     },
-     "KinesisStreamsInput": {
-      "ResourceARN": null
-     },
-     "KinesisFirehoseInput": {
-      "ResourceARN": null
-     },
-     "InputProcessingConfiguration": {
-      "InputLambdaProcessor": {
-       "ResourceARN": null
-      }
-     },
-     "InputParallelism": {
-      "Count": "{{ Count }}"
-     }
-    }
-   ]
-  },
-  "ZeppelinApplicationConfiguration": {
-   "CatalogConfiguration": {
-    "GlueDataCatalogConfiguration": {
-     "DatabaseARN": null
-    }
-   },
-   "MonitoringConfiguration": {
-    "LogLevel": "{{ LogLevel }}"
-   },
-   "DeployAsApplicationConfiguration": {
-    "S3ContentLocation": {
-     "BucketARN": null,
-     "BasePath": "{{ BasePath }}"
-    }
-   },
-   "CustomArtifactsConfiguration": [
-    {
-     "ArtifactType": "{{ ArtifactType }}",
-     "MavenReference": {
-      "ArtifactId": "{{ ArtifactId }}",
-      "GroupId": "{{ GroupId }}",
-      "Version": "{{ Version }}"
-     },
-     "S3ContentLocation": null
-    }
-   ]
-  },
-  "VpcConfigurations": [
-   {
-    "SecurityGroupIds": [
-     "{{ SecurityGroupIds[0] }}"
-    ],
-    "SubnetIds": [
-     "{{ SubnetIds[0] }}"
-    ]
-   }
-  ]
- },
- "ApplicationDescription": "{{ ApplicationDescription }}",
- "ApplicationMode": "{{ ApplicationMode }}",
- "ApplicationName": "{{ ApplicationName }}",
- "RuntimeEnvironment": "{{ RuntimeEnvironment }}",
- "ServiceExecutionRole": null,
- "RunConfiguration": {
-  "ApplicationRestoreConfiguration": {
-   "ApplicationRestoreType": "{{ ApplicationRestoreType }}",
-   "SnapshotName": "{{ SnapshotName }}"
-  },
-  "FlinkRunConfiguration": {
-   "AllowNonRestoredState": "{{ AllowNonRestoredState }}"
-  }
- },
- "ApplicationMaintenanceConfiguration": {
-  "ApplicationMaintenanceWindowStartTime": "{{ ApplicationMaintenanceWindowStartTime }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.kinesisanalyticsv2.applications (
  ApplicationConfiguration,
  ApplicationDescription,
@@ -270,16 +116,137 @@ INSERT INTO aws.kinesisanalyticsv2.applications (
  region
 )
 SELECT 
- {{ .ApplicationConfiguration }},
- {{ .ApplicationDescription }},
- {{ .ApplicationMode }},
- {{ .ApplicationName }},
- {{ .RuntimeEnvironment }},
- {{ .ServiceExecutionRole }},
- {{ .RunConfiguration }},
- {{ .ApplicationMaintenanceConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ApplicationConfiguration }}',
+ '{{ ApplicationDescription }}',
+ '{{ ApplicationMode }}',
+ '{{ ApplicationName }}',
+ '{{ RuntimeEnvironment }}',
+ '{{ ServiceExecutionRole }}',
+ '{{ RunConfiguration }}',
+ '{{ ApplicationMaintenanceConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: ApplicationConfiguration
+        value:
+          ApplicationCodeConfiguration:
+            CodeContent:
+              ZipFileContent: '{{ ZipFileContent }}'
+              S3ContentLocation:
+                BucketARN: '{{ BucketARN }}'
+                FileKey: '{{ FileKey }}'
+                ObjectVersion: '{{ ObjectVersion }}'
+              TextContent: '{{ TextContent }}'
+            CodeContentType: '{{ CodeContentType }}'
+          ApplicationSnapshotConfiguration:
+            SnapshotsEnabled: '{{ SnapshotsEnabled }}'
+          EnvironmentProperties:
+            PropertyGroups:
+              - PropertyGroupId: '{{ PropertyGroupId }}'
+                PropertyMap: {}
+          FlinkApplicationConfiguration:
+            CheckpointConfiguration:
+              ConfigurationType: '{{ ConfigurationType }}'
+              CheckpointingEnabled: '{{ CheckpointingEnabled }}'
+              CheckpointInterval: '{{ CheckpointInterval }}'
+              MinPauseBetweenCheckpoints: '{{ MinPauseBetweenCheckpoints }}'
+            MonitoringConfiguration:
+              ConfigurationType: '{{ ConfigurationType }}'
+              MetricsLevel: '{{ MetricsLevel }}'
+              LogLevel: '{{ LogLevel }}'
+            ParallelismConfiguration:
+              ConfigurationType: '{{ ConfigurationType }}'
+              ParallelismPerKPU: '{{ ParallelismPerKPU }}'
+              Parallelism: '{{ Parallelism }}'
+              AutoScalingEnabled: '{{ AutoScalingEnabled }}'
+          SqlApplicationConfiguration:
+            Inputs:
+              - NamePrefix: '{{ NamePrefix }}'
+                InputSchema:
+                  RecordEncoding: '{{ RecordEncoding }}'
+                  RecordColumns:
+                    - Mapping: '{{ Mapping }}'
+                      Name: '{{ Name }}'
+                      SqlType: '{{ SqlType }}'
+                  RecordFormat:
+                    RecordFormatType: '{{ RecordFormatType }}'
+                    MappingParameters:
+                      CSVMappingParameters:
+                        RecordColumnDelimiter: '{{ RecordColumnDelimiter }}'
+                        RecordRowDelimiter: '{{ RecordRowDelimiter }}'
+                      JSONMappingParameters:
+                        RecordRowPath: '{{ RecordRowPath }}'
+                KinesisStreamsInput:
+                  ResourceARN: null
+                KinesisFirehoseInput:
+                  ResourceARN: null
+                InputProcessingConfiguration:
+                  InputLambdaProcessor:
+                    ResourceARN: null
+                InputParallelism:
+                  Count: '{{ Count }}'
+          ZeppelinApplicationConfiguration:
+            CatalogConfiguration:
+              GlueDataCatalogConfiguration:
+                DatabaseARN: null
+            MonitoringConfiguration:
+              LogLevel: '{{ LogLevel }}'
+            DeployAsApplicationConfiguration:
+              S3ContentLocation:
+                BucketARN: null
+                BasePath: '{{ BasePath }}'
+            CustomArtifactsConfiguration:
+              - ArtifactType: '{{ ArtifactType }}'
+                MavenReference:
+                  ArtifactId: '{{ ArtifactId }}'
+                  GroupId: '{{ GroupId }}'
+                  Version: '{{ Version }}'
+                S3ContentLocation: null
+          VpcConfigurations:
+            - SecurityGroupIds:
+                - '{{ SecurityGroupIds[0] }}'
+              SubnetIds:
+                - '{{ SubnetIds[0] }}'
+      - name: ApplicationDescription
+        value: '{{ ApplicationDescription }}'
+      - name: ApplicationMode
+        value: '{{ ApplicationMode }}'
+      - name: ApplicationName
+        value: '{{ ApplicationName }}'
+      - name: RuntimeEnvironment
+        value: '{{ RuntimeEnvironment }}'
+      - name: ServiceExecutionRole
+        value: null
+      - name: RunConfiguration
+        value:
+          ApplicationRestoreConfiguration:
+            ApplicationRestoreType: '{{ ApplicationRestoreType }}'
+            SnapshotName: '{{ SnapshotName }}'
+          FlinkRunConfiguration:
+            AllowNonRestoredState: '{{ AllowNonRestoredState }}'
+      - name: ApplicationMaintenanceConfiguration
+        value:
+          ApplicationMaintenanceWindowStartTime: '{{ ApplicationMaintenanceWindowStartTime }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

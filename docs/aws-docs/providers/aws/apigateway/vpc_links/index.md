@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_link</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "TargetArns": [
-  "{{ TargetArns[0] }}"
- ]
-}
->>>
---required properties only
+-- vpc_link.iql (required properties only)
 INSERT INTO aws.apigateway.vpc_links (
  Name,
  TargetArns,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .TargetArns }},
-'us-east-1';
+'{{ Name }}',
+ '{{ TargetArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "TargetArns": [
-  "{{ TargetArns[0] }}"
- ]
-}
->>>
---all properties
+-- vpc_link.iql (all properties)
 INSERT INTO aws.apigateway.vpc_links (
  Name,
  Description,
@@ -131,11 +111,39 @@ INSERT INTO aws.apigateway.vpc_links (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Tags }},
- {{ .TargetArns }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ TargetArns }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_link
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: TargetArns
+        value:
+          - '{{ TargetArns[0] }}'
+
 ```
 </TabItem>
 </Tabs>

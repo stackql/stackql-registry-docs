@@ -74,30 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>feature_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FeatureGroupName": "{{ FeatureGroupName }}",
- "RecordIdentifierFeatureName": "{{ RecordIdentifierFeatureName }}",
- "EventTimeFeatureName": "{{ EventTimeFeatureName }}",
- "FeatureDefinitions": [
-  {
-   "FeatureName": "{{ FeatureName }}",
-   "FeatureType": "{{ FeatureType }}"
-  }
- ]
-}
->>>
---required properties only
+-- feature_group.iql (required properties only)
 INSERT INTO aws.sagemaker.feature_groups (
  FeatureGroupName,
  RecordIdentifierFeatureName,
@@ -106,67 +96,17 @@ INSERT INTO aws.sagemaker.feature_groups (
  region
 )
 SELECT 
-{{ .FeatureGroupName }},
- {{ .RecordIdentifierFeatureName }},
- {{ .EventTimeFeatureName }},
- {{ .FeatureDefinitions }},
-'us-east-1';
+'{{ FeatureGroupName }}',
+ '{{ RecordIdentifierFeatureName }}',
+ '{{ EventTimeFeatureName }}',
+ '{{ FeatureDefinitions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FeatureGroupName": "{{ FeatureGroupName }}",
- "RecordIdentifierFeatureName": "{{ RecordIdentifierFeatureName }}",
- "EventTimeFeatureName": "{{ EventTimeFeatureName }}",
- "FeatureDefinitions": [
-  {
-   "FeatureName": "{{ FeatureName }}",
-   "FeatureType": "{{ FeatureType }}"
-  }
- ],
- "OnlineStoreConfig": {
-  "SecurityConfig": {
-   "KmsKeyId": "{{ KmsKeyId }}"
-  },
-  "EnableOnlineStore": "{{ EnableOnlineStore }}",
-  "StorageType": "{{ StorageType }}",
-  "TtlDuration": {
-   "Unit": "{{ Unit }}",
-   "Value": "{{ Value }}"
-  }
- },
- "OfflineStoreConfig": {
-  "S3StorageConfig": {
-   "S3Uri": "{{ S3Uri }}",
-   "KmsKeyId": null
-  },
-  "DisableGlueTableCreation": "{{ DisableGlueTableCreation }}",
-  "DataCatalogConfig": {
-   "TableName": "{{ TableName }}",
-   "Catalog": "{{ Catalog }}",
-   "Database": "{{ Database }}"
-  },
-  "TableFormat": "{{ TableFormat }}"
- },
- "ThroughputConfig": {
-  "ThroughputMode": "{{ ThroughputMode }}",
-  "ProvisionedReadCapacityUnits": "{{ ProvisionedReadCapacityUnits }}",
-  "ProvisionedWriteCapacityUnits": "{{ ProvisionedWriteCapacityUnits }}"
- },
- "RoleArn": "{{ RoleArn }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- feature_group.iql (all properties)
 INSERT INTO aws.sagemaker.feature_groups (
  FeatureGroupName,
  RecordIdentifierFeatureName,
@@ -181,17 +121,77 @@ INSERT INTO aws.sagemaker.feature_groups (
  region
 )
 SELECT 
- {{ .FeatureGroupName }},
- {{ .RecordIdentifierFeatureName }},
- {{ .EventTimeFeatureName }},
- {{ .FeatureDefinitions }},
- {{ .OnlineStoreConfig }},
- {{ .OfflineStoreConfig }},
- {{ .ThroughputConfig }},
- {{ .RoleArn }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ FeatureGroupName }}',
+ '{{ RecordIdentifierFeatureName }}',
+ '{{ EventTimeFeatureName }}',
+ '{{ FeatureDefinitions }}',
+ '{{ OnlineStoreConfig }}',
+ '{{ OfflineStoreConfig }}',
+ '{{ ThroughputConfig }}',
+ '{{ RoleArn }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: feature_group
+    props:
+      - name: FeatureGroupName
+        value: '{{ FeatureGroupName }}'
+      - name: RecordIdentifierFeatureName
+        value: '{{ RecordIdentifierFeatureName }}'
+      - name: EventTimeFeatureName
+        value: '{{ EventTimeFeatureName }}'
+      - name: FeatureDefinitions
+        value:
+          - FeatureName: '{{ FeatureName }}'
+            FeatureType: '{{ FeatureType }}'
+      - name: OnlineStoreConfig
+        value:
+          SecurityConfig:
+            KmsKeyId: '{{ KmsKeyId }}'
+          EnableOnlineStore: '{{ EnableOnlineStore }}'
+          StorageType: '{{ StorageType }}'
+          TtlDuration:
+            Unit: '{{ Unit }}'
+            Value: '{{ Value }}'
+      - name: OfflineStoreConfig
+        value:
+          S3StorageConfig:
+            S3Uri: '{{ S3Uri }}'
+            KmsKeyId: null
+          DisableGlueTableCreation: '{{ DisableGlueTableCreation }}'
+          DataCatalogConfig:
+            TableName: '{{ TableName }}'
+            Catalog: '{{ Catalog }}'
+            Database: '{{ Database }}'
+          TableFormat: '{{ TableFormat }}'
+      - name: ThroughputConfig
+        value:
+          ThroughputMode: '{{ ThroughputMode }}'
+          ProvisionedReadCapacityUnits: '{{ ProvisionedReadCapacityUnits }}'
+          ProvisionedWriteCapacityUnits: '{{ ProvisionedWriteCapacityUnits }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

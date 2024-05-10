@@ -74,87 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_data_store</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- event_data_store.iql (required properties only)
 INSERT INTO aws.cloudtrail.event_data_stores (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AdvancedEventSelectors": [
-  {
-   "Name": "{{ Name }}",
-   "FieldSelectors": [
-    {
-     "Field": "{{ Field }}",
-     "Equals": [
-      "{{ Equals[0] }}"
-     ],
-     "StartsWith": [
-      "{{ StartsWith[0] }}"
-     ],
-     "EndsWith": [
-      "{{ EndsWith[0] }}"
-     ],
-     "NotEquals": [
-      "{{ NotEquals[0] }}"
-     ],
-     "NotStartsWith": [
-      "{{ NotStartsWith[0] }}"
-     ],
-     "NotEndsWith": [
-      "{{ NotEndsWith[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "FederationEnabled": "{{ FederationEnabled }}",
- "FederationRoleArn": "{{ FederationRoleArn }}",
- "MultiRegionEnabled": "{{ MultiRegionEnabled }}",
- "Name": "{{ Name }}",
- "OrganizationEnabled": "{{ OrganizationEnabled }}",
- "BillingMode": "{{ BillingMode }}",
- "RetentionPeriod": "{{ RetentionPeriod }}",
- "TerminationProtectionEnabled": "{{ TerminationProtectionEnabled }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "InsightSelectors": [
-  {
-   "InsightType": "{{ InsightType }}"
-  }
- ],
- "InsightsDestination": "{{ InsightsDestination }}",
- "IngestionEnabled": "{{ IngestionEnabled }}"
-}
->>>
---all properties
+-- event_data_store.iql (all properties)
 INSERT INTO aws.cloudtrail.event_data_stores (
  AdvancedEventSelectors,
  FederationEnabled,
@@ -173,21 +119,84 @@ INSERT INTO aws.cloudtrail.event_data_stores (
  region
 )
 SELECT 
- {{ .AdvancedEventSelectors }},
- {{ .FederationEnabled }},
- {{ .FederationRoleArn }},
- {{ .MultiRegionEnabled }},
- {{ .Name }},
- {{ .OrganizationEnabled }},
- {{ .BillingMode }},
- {{ .RetentionPeriod }},
- {{ .TerminationProtectionEnabled }},
- {{ .KmsKeyId }},
- {{ .Tags }},
- {{ .InsightSelectors }},
- {{ .InsightsDestination }},
- {{ .IngestionEnabled }},
- 'us-east-1';
+ '{{ AdvancedEventSelectors }}',
+ '{{ FederationEnabled }}',
+ '{{ FederationRoleArn }}',
+ '{{ MultiRegionEnabled }}',
+ '{{ Name }}',
+ '{{ OrganizationEnabled }}',
+ '{{ BillingMode }}',
+ '{{ RetentionPeriod }}',
+ '{{ TerminationProtectionEnabled }}',
+ '{{ KmsKeyId }}',
+ '{{ Tags }}',
+ '{{ InsightSelectors }}',
+ '{{ InsightsDestination }}',
+ '{{ IngestionEnabled }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_data_store
+    props:
+      - name: AdvancedEventSelectors
+        value:
+          - Name: '{{ Name }}'
+            FieldSelectors:
+              - Field: '{{ Field }}'
+                Equals:
+                  - '{{ Equals[0] }}'
+                StartsWith:
+                  - '{{ StartsWith[0] }}'
+                EndsWith:
+                  - '{{ EndsWith[0] }}'
+                NotEquals:
+                  - '{{ NotEquals[0] }}'
+                NotStartsWith:
+                  - '{{ NotStartsWith[0] }}'
+                NotEndsWith:
+                  - '{{ NotEndsWith[0] }}'
+      - name: FederationEnabled
+        value: '{{ FederationEnabled }}'
+      - name: FederationRoleArn
+        value: '{{ FederationRoleArn }}'
+      - name: MultiRegionEnabled
+        value: '{{ MultiRegionEnabled }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: OrganizationEnabled
+        value: '{{ OrganizationEnabled }}'
+      - name: BillingMode
+        value: '{{ BillingMode }}'
+      - name: RetentionPeriod
+        value: '{{ RetentionPeriod }}'
+      - name: TerminationProtectionEnabled
+        value: '{{ TerminationProtectionEnabled }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: InsightSelectors
+        value:
+          - InsightType: '{{ InsightType }}'
+      - name: InsightsDestination
+        value: '{{ InsightsDestination }}'
+      - name: IngestionEnabled
+        value: '{{ IngestionEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

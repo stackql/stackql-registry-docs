@@ -80,25 +80,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_performance_metric_subscription</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Source": "{{ Source }}",
- "Destination": "{{ Destination }}",
- "Metric": "{{ Metric }}",
- "Statistic": "{{ Statistic }}"
-}
->>>
---required properties only
+-- network_performance_metric_subscription.iql (required properties only)
 INSERT INTO aws.ec2.network_performance_metric_subscriptions (
  Source,
  Destination,
@@ -107,25 +102,17 @@ INSERT INTO aws.ec2.network_performance_metric_subscriptions (
  region
 )
 SELECT 
-{{ .Source }},
- {{ .Destination }},
- {{ .Metric }},
- {{ .Statistic }},
-'us-east-1';
+'{{ Source }}',
+ '{{ Destination }}',
+ '{{ Metric }}',
+ '{{ Statistic }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Source": "{{ Source }}",
- "Destination": "{{ Destination }}",
- "Metric": "{{ Metric }}",
- "Statistic": "{{ Statistic }}"
-}
->>>
---all properties
+-- network_performance_metric_subscription.iql (all properties)
 INSERT INTO aws.ec2.network_performance_metric_subscriptions (
  Source,
  Destination,
@@ -134,11 +121,36 @@ INSERT INTO aws.ec2.network_performance_metric_subscriptions (
  region
 )
 SELECT 
- {{ .Source }},
- {{ .Destination }},
- {{ .Metric }},
- {{ .Statistic }},
- 'us-east-1';
+ '{{ Source }}',
+ '{{ Destination }}',
+ '{{ Metric }}',
+ '{{ Statistic }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_performance_metric_subscription
+    props:
+      - name: Source
+        value: '{{ Source }}'
+      - name: Destination
+        value: '{{ Destination }}'
+      - name: Metric
+        value: '{{ Metric }}'
+      - name: Statistic
+        value: '{{ Statistic }}'
+
 ```
 </TabItem>
 </Tabs>

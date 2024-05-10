@@ -74,51 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>migration_project</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MigrationProjectName": "{{ MigrationProjectName }}",
- "MigrationProjectIdentifier": "{{ MigrationProjectIdentifier }}",
- "MigrationProjectCreationTime": "{{ MigrationProjectCreationTime }}",
- "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
- "InstanceProfileName": "{{ InstanceProfileName }}",
- "InstanceProfileArn": "{{ InstanceProfileArn }}",
- "TransformationRules": "{{ TransformationRules }}",
- "Description": "{{ Description }}",
- "SchemaConversionApplicationAttributes": {
-  "S3BucketPath": "{{ S3BucketPath }}",
-  "S3BucketRoleArn": "{{ S3BucketRoleArn }}"
- },
- "SourceDataProviderDescriptors": [
-  {
-   "DataProviderIdentifier": "{{ DataProviderIdentifier }}",
-   "DataProviderName": "{{ DataProviderName }}",
-   "DataProviderArn": "{{ DataProviderArn }}",
-   "SecretsManagerSecretId": "{{ SecretsManagerSecretId }}",
-   "SecretsManagerAccessRoleArn": "{{ SecretsManagerAccessRoleArn }}"
-  }
- ],
- "TargetDataProviderDescriptors": [
-  null
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- migration_project.iql (required properties only)
 INSERT INTO aws.dms.migration_projects (
  MigrationProjectName,
  MigrationProjectIdentifier,
@@ -135,59 +104,25 @@ INSERT INTO aws.dms.migration_projects (
  region
 )
 SELECT 
-{{ .MigrationProjectName }},
- {{ .MigrationProjectIdentifier }},
- {{ .MigrationProjectCreationTime }},
- {{ .InstanceProfileIdentifier }},
- {{ .InstanceProfileName }},
- {{ .InstanceProfileArn }},
- {{ .TransformationRules }},
- {{ .Description }},
- {{ .SchemaConversionApplicationAttributes }},
- {{ .SourceDataProviderDescriptors }},
- {{ .TargetDataProviderDescriptors }},
- {{ .Tags }},
-'us-east-1';
+'{{ MigrationProjectName }}',
+ '{{ MigrationProjectIdentifier }}',
+ '{{ MigrationProjectCreationTime }}',
+ '{{ InstanceProfileIdentifier }}',
+ '{{ InstanceProfileName }}',
+ '{{ InstanceProfileArn }}',
+ '{{ TransformationRules }}',
+ '{{ Description }}',
+ '{{ SchemaConversionApplicationAttributes }}',
+ '{{ SourceDataProviderDescriptors }}',
+ '{{ TargetDataProviderDescriptors }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MigrationProjectName": "{{ MigrationProjectName }}",
- "MigrationProjectIdentifier": "{{ MigrationProjectIdentifier }}",
- "MigrationProjectCreationTime": "{{ MigrationProjectCreationTime }}",
- "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
- "InstanceProfileName": "{{ InstanceProfileName }}",
- "InstanceProfileArn": "{{ InstanceProfileArn }}",
- "TransformationRules": "{{ TransformationRules }}",
- "Description": "{{ Description }}",
- "SchemaConversionApplicationAttributes": {
-  "S3BucketPath": "{{ S3BucketPath }}",
-  "S3BucketRoleArn": "{{ S3BucketRoleArn }}"
- },
- "SourceDataProviderDescriptors": [
-  {
-   "DataProviderIdentifier": "{{ DataProviderIdentifier }}",
-   "DataProviderName": "{{ DataProviderName }}",
-   "DataProviderArn": "{{ DataProviderArn }}",
-   "SecretsManagerSecretId": "{{ SecretsManagerSecretId }}",
-   "SecretsManagerAccessRoleArn": "{{ SecretsManagerAccessRoleArn }}"
-  }
- ],
- "TargetDataProviderDescriptors": [
-  null
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- migration_project.iql (all properties)
 INSERT INTO aws.dms.migration_projects (
  MigrationProjectName,
  MigrationProjectIdentifier,
@@ -204,19 +139,70 @@ INSERT INTO aws.dms.migration_projects (
  region
 )
 SELECT 
- {{ .MigrationProjectName }},
- {{ .MigrationProjectIdentifier }},
- {{ .MigrationProjectCreationTime }},
- {{ .InstanceProfileIdentifier }},
- {{ .InstanceProfileName }},
- {{ .InstanceProfileArn }},
- {{ .TransformationRules }},
- {{ .Description }},
- {{ .SchemaConversionApplicationAttributes }},
- {{ .SourceDataProviderDescriptors }},
- {{ .TargetDataProviderDescriptors }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ MigrationProjectName }}',
+ '{{ MigrationProjectIdentifier }}',
+ '{{ MigrationProjectCreationTime }}',
+ '{{ InstanceProfileIdentifier }}',
+ '{{ InstanceProfileName }}',
+ '{{ InstanceProfileArn }}',
+ '{{ TransformationRules }}',
+ '{{ Description }}',
+ '{{ SchemaConversionApplicationAttributes }}',
+ '{{ SourceDataProviderDescriptors }}',
+ '{{ TargetDataProviderDescriptors }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: migration_project
+    props:
+      - name: MigrationProjectName
+        value: '{{ MigrationProjectName }}'
+      - name: MigrationProjectIdentifier
+        value: '{{ MigrationProjectIdentifier }}'
+      - name: MigrationProjectCreationTime
+        value: '{{ MigrationProjectCreationTime }}'
+      - name: InstanceProfileIdentifier
+        value: '{{ InstanceProfileIdentifier }}'
+      - name: InstanceProfileName
+        value: '{{ InstanceProfileName }}'
+      - name: InstanceProfileArn
+        value: '{{ InstanceProfileArn }}'
+      - name: TransformationRules
+        value: '{{ TransformationRules }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: SchemaConversionApplicationAttributes
+        value:
+          S3BucketPath: '{{ S3BucketPath }}'
+          S3BucketRoleArn: '{{ S3BucketRoleArn }}'
+      - name: SourceDataProviderDescriptors
+        value:
+          - DataProviderIdentifier: '{{ DataProviderIdentifier }}'
+            DataProviderName: '{{ DataProviderName }}'
+            DataProviderArn: '{{ DataProviderArn }}'
+            SecretsManagerSecretId: '{{ SecretsManagerSecretId }}'
+            SecretsManagerAccessRoleArn: '{{ SecretsManagerAccessRoleArn }}'
+      - name: TargetDataProviderDescriptors
+        value:
+          - null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

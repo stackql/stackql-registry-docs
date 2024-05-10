@@ -74,51 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GroupName": "{{ GroupName }}"
-}
->>>
---required properties only
+-- group.iql (required properties only)
 INSERT INTO aws.xray.groups (
  GroupName,
  region
 )
 SELECT 
-{{ .GroupName }},
-'us-east-1';
+'{{ GroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FilterExpression": "{{ FilterExpression }}",
- "GroupName": "{{ GroupName }}",
- "InsightsConfiguration": {
-  "InsightsEnabled": "{{ InsightsEnabled }}",
-  "NotificationsEnabled": "{{ NotificationsEnabled }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- group.iql (all properties)
 INSERT INTO aws.xray.groups (
  FilterExpression,
  GroupName,
@@ -127,11 +109,40 @@ INSERT INTO aws.xray.groups (
  region
 )
 SELECT 
- {{ .FilterExpression }},
- {{ .GroupName }},
- {{ .InsightsConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ FilterExpression }}',
+ '{{ GroupName }}',
+ '{{ InsightsConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: group
+    props:
+      - name: FilterExpression
+        value: '{{ FilterExpression }}'
+      - name: GroupName
+        value: '{{ GroupName }}'
+      - name: InsightsConfiguration
+        value:
+          InsightsEnabled: '{{ InsightsEnabled }}'
+          NotificationsEnabled: '{{ NotificationsEnabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,70 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>asset</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AssetModelId": "{{ AssetModelId }}",
- "AssetName": "{{ AssetName }}"
-}
->>>
---required properties only
+-- asset.iql (required properties only)
 INSERT INTO aws.iotsitewise.assets (
  AssetModelId,
  AssetName,
  region
 )
 SELECT 
-{{ .AssetModelId }},
- {{ .AssetName }},
-'us-east-1';
+'{{ AssetModelId }}',
+ '{{ AssetName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssetExternalId": "{{ AssetExternalId }}",
- "AssetModelId": "{{ AssetModelId }}",
- "AssetName": "{{ AssetName }}",
- "AssetDescription": "{{ AssetDescription }}",
- "AssetProperties": [
-  {
-   "Id": "{{ Id }}",
-   "ExternalId": "{{ ExternalId }}",
-   "LogicalId": "{{ LogicalId }}",
-   "Alias": "{{ Alias }}",
-   "NotificationState": "{{ NotificationState }}",
-   "Unit": "{{ Unit }}"
-  }
- ],
- "AssetHierarchies": [
-  {
-   "Id": "{{ Id }}",
-   "ExternalId": "{{ ExternalId }}",
-   "LogicalId": "{{ LogicalId }}",
-   "ChildAssetId": "{{ ChildAssetId }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- asset.iql (all properties)
 INSERT INTO aws.iotsitewise.assets (
  AssetExternalId,
  AssetModelId,
@@ -149,14 +114,57 @@ INSERT INTO aws.iotsitewise.assets (
  region
 )
 SELECT 
- {{ .AssetExternalId }},
- {{ .AssetModelId }},
- {{ .AssetName }},
- {{ .AssetDescription }},
- {{ .AssetProperties }},
- {{ .AssetHierarchies }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AssetExternalId }}',
+ '{{ AssetModelId }}',
+ '{{ AssetName }}',
+ '{{ AssetDescription }}',
+ '{{ AssetProperties }}',
+ '{{ AssetHierarchies }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: asset
+    props:
+      - name: AssetExternalId
+        value: '{{ AssetExternalId }}'
+      - name: AssetModelId
+        value: '{{ AssetModelId }}'
+      - name: AssetName
+        value: '{{ AssetName }}'
+      - name: AssetDescription
+        value: '{{ AssetDescription }}'
+      - name: AssetProperties
+        value:
+          - Id: '{{ Id }}'
+            ExternalId: '{{ ExternalId }}'
+            LogicalId: '{{ LogicalId }}'
+            Alias: '{{ Alias }}'
+            NotificationState: '{{ NotificationState }}'
+            Unit: '{{ Unit }}'
+      - name: AssetHierarchies
+        value:
+          - Id: '{{ Id }}'
+            ExternalId: '{{ ExternalId }}'
+            LogicalId: '{{ LogicalId }}'
+            ChildAssetId: '{{ ChildAssetId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

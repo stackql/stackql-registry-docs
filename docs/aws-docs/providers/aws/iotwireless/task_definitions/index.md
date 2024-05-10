@@ -74,66 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>task_definition</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AutoCreateTasks": "{{ AutoCreateTasks }}"
-}
->>>
---required properties only
+-- task_definition.iql (required properties only)
 INSERT INTO aws.iotwireless.task_definitions (
  AutoCreateTasks,
  region
 )
 SELECT 
-{{ .AutoCreateTasks }},
-'us-east-1';
+'{{ AutoCreateTasks }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "AutoCreateTasks": "{{ AutoCreateTasks }}",
- "Update": {
-  "UpdateDataSource": "{{ UpdateDataSource }}",
-  "UpdateDataRole": "{{ UpdateDataRole }}",
-  "LoRaWAN": {
-   "UpdateSignature": "{{ UpdateSignature }}",
-   "SigKeyCrc": "{{ SigKeyCrc }}",
-   "CurrentVersion": {
-    "PackageVersion": "{{ PackageVersion }}",
-    "Model": "{{ Model }}",
-    "Station": "{{ Station }}"
-   },
-   "UpdateVersion": null
-  }
- },
- "LoRaWANUpdateGatewayTaskEntry": {
-  "CurrentVersion": null,
-  "UpdateVersion": null
- },
- "TaskDefinitionType": "{{ TaskDefinitionType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- task_definition.iql (all properties)
 INSERT INTO aws.iotwireless.task_definitions (
  Name,
  AutoCreateTasks,
@@ -144,13 +111,56 @@ INSERT INTO aws.iotwireless.task_definitions (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .AutoCreateTasks }},
- {{ .Update }},
- {{ .LoRaWANUpdateGatewayTaskEntry }},
- {{ .TaskDefinitionType }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ AutoCreateTasks }}',
+ '{{ Update }}',
+ '{{ LoRaWANUpdateGatewayTaskEntry }}',
+ '{{ TaskDefinitionType }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: task_definition
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: AutoCreateTasks
+        value: '{{ AutoCreateTasks }}'
+      - name: Update
+        value:
+          UpdateDataSource: '{{ UpdateDataSource }}'
+          UpdateDataRole: '{{ UpdateDataRole }}'
+          LoRaWAN:
+            UpdateSignature: '{{ UpdateSignature }}'
+            SigKeyCrc: '{{ SigKeyCrc }}'
+            CurrentVersion:
+              PackageVersion: '{{ PackageVersion }}'
+              Model: '{{ Model }}'
+              Station: '{{ Station }}'
+            UpdateVersion: null
+      - name: LoRaWANUpdateGatewayTaskEntry
+        value:
+          CurrentVersion: null
+          UpdateVersion: null
+      - name: TaskDefinitionType
+        value: '{{ TaskDefinitionType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

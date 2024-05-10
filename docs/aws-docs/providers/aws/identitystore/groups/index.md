@@ -76,45 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DisplayName": "{{ DisplayName }}",
- "IdentityStoreId": "{{ IdentityStoreId }}"
-}
->>>
---required properties only
+-- group.iql (required properties only)
 INSERT INTO aws.identitystore.groups (
  DisplayName,
  IdentityStoreId,
  region
 )
 SELECT 
-{{ .DisplayName }},
- {{ .IdentityStoreId }},
-'us-east-1';
+'{{ DisplayName }}',
+ '{{ IdentityStoreId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DisplayName": "{{ DisplayName }}",
- "IdentityStoreId": "{{ IdentityStoreId }}"
-}
->>>
---all properties
+-- group.iql (all properties)
 INSERT INTO aws.identitystore.groups (
  Description,
  DisplayName,
@@ -122,10 +112,33 @@ INSERT INTO aws.identitystore.groups (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DisplayName }},
- {{ .IdentityStoreId }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DisplayName }}',
+ '{{ IdentityStoreId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: group
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: IdentityStoreId
+        value: '{{ IdentityStoreId }}'
+
 ```
 </TabItem>
 </Tabs>

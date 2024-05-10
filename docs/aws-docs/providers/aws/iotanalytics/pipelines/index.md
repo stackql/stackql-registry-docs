@@ -74,171 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pipeline</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PipelineActivities": [
-  {
-   "SelectAttributes": {
-    "Next": "{{ Next }}",
-    "Attributes": [
-     "{{ Attributes[0] }}"
-    ],
-    "Name": "{{ Name }}"
-   },
-   "Datastore": {
-    "DatastoreName": "{{ DatastoreName }}",
-    "Name": "{{ Name }}"
-   },
-   "Filter": {
-    "Filter": "{{ Filter }}",
-    "Next": "{{ Next }}",
-    "Name": "{{ Name }}"
-   },
-   "AddAttributes": {
-    "Next": "{{ Next }}",
-    "Attributes": {},
-    "Name": "{{ Name }}"
-   },
-   "Channel": {
-    "ChannelName": "{{ ChannelName }}",
-    "Next": "{{ Next }}",
-    "Name": "{{ Name }}"
-   },
-   "DeviceShadowEnrich": {
-    "Attribute": "{{ Attribute }}",
-    "Next": "{{ Next }}",
-    "ThingName": "{{ ThingName }}",
-    "RoleArn": "{{ RoleArn }}",
-    "Name": "{{ Name }}"
-   },
-   "Math": {
-    "Attribute": "{{ Attribute }}",
-    "Next": "{{ Next }}",
-    "Math": "{{ Math }}",
-    "Name": "{{ Name }}"
-   },
-   "Lambda": {
-    "BatchSize": "{{ BatchSize }}",
-    "Next": "{{ Next }}",
-    "LambdaName": "{{ LambdaName }}",
-    "Name": "{{ Name }}"
-   },
-   "DeviceRegistryEnrich": {
-    "Attribute": "{{ Attribute }}",
-    "Next": "{{ Next }}",
-    "ThingName": "{{ ThingName }}",
-    "RoleArn": "{{ RoleArn }}",
-    "Name": "{{ Name }}"
-   },
-   "RemoveAttributes": {
-    "Next": "{{ Next }}",
-    "Attributes": [
-     "{{ Attributes[0] }}"
-    ],
-    "Name": "{{ Name }}"
-   }
-  }
- ]
-}
->>>
---required properties only
+-- pipeline.iql (required properties only)
 INSERT INTO aws.iotanalytics.pipelines (
  PipelineActivities,
  region
 )
 SELECT 
-{{ .PipelineActivities }},
-'us-east-1';
+'{{ PipelineActivities }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PipelineName": "{{ PipelineName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "PipelineActivities": [
-  {
-   "SelectAttributes": {
-    "Next": "{{ Next }}",
-    "Attributes": [
-     "{{ Attributes[0] }}"
-    ],
-    "Name": "{{ Name }}"
-   },
-   "Datastore": {
-    "DatastoreName": "{{ DatastoreName }}",
-    "Name": "{{ Name }}"
-   },
-   "Filter": {
-    "Filter": "{{ Filter }}",
-    "Next": "{{ Next }}",
-    "Name": "{{ Name }}"
-   },
-   "AddAttributes": {
-    "Next": "{{ Next }}",
-    "Attributes": {},
-    "Name": "{{ Name }}"
-   },
-   "Channel": {
-    "ChannelName": "{{ ChannelName }}",
-    "Next": "{{ Next }}",
-    "Name": "{{ Name }}"
-   },
-   "DeviceShadowEnrich": {
-    "Attribute": "{{ Attribute }}",
-    "Next": "{{ Next }}",
-    "ThingName": "{{ ThingName }}",
-    "RoleArn": "{{ RoleArn }}",
-    "Name": "{{ Name }}"
-   },
-   "Math": {
-    "Attribute": "{{ Attribute }}",
-    "Next": "{{ Next }}",
-    "Math": "{{ Math }}",
-    "Name": "{{ Name }}"
-   },
-   "Lambda": {
-    "BatchSize": "{{ BatchSize }}",
-    "Next": "{{ Next }}",
-    "LambdaName": "{{ LambdaName }}",
-    "Name": "{{ Name }}"
-   },
-   "DeviceRegistryEnrich": {
-    "Attribute": "{{ Attribute }}",
-    "Next": "{{ Next }}",
-    "ThingName": "{{ ThingName }}",
-    "RoleArn": "{{ RoleArn }}",
-    "Name": "{{ Name }}"
-   },
-   "RemoveAttributes": {
-    "Next": "{{ Next }}",
-    "Attributes": [
-     "{{ Attributes[0] }}"
-    ],
-    "Name": "{{ Name }}"
-   }
-  }
- ]
-}
->>>
---all properties
+-- pipeline.iql (all properties)
 INSERT INTO aws.iotanalytics.pipelines (
  PipelineName,
  Tags,
@@ -246,10 +108,82 @@ INSERT INTO aws.iotanalytics.pipelines (
  region
 )
 SELECT 
- {{ .PipelineName }},
- {{ .Tags }},
- {{ .PipelineActivities }},
- 'us-east-1';
+ '{{ PipelineName }}',
+ '{{ Tags }}',
+ '{{ PipelineActivities }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pipeline
+    props:
+      - name: PipelineName
+        value: '{{ PipelineName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: PipelineActivities
+        value:
+          - SelectAttributes:
+              Next: '{{ Next }}'
+              Attributes:
+                - '{{ Attributes[0] }}'
+              Name: '{{ Name }}'
+            Datastore:
+              DatastoreName: '{{ DatastoreName }}'
+              Name: '{{ Name }}'
+            Filter:
+              Filter: '{{ Filter }}'
+              Next: '{{ Next }}'
+              Name: '{{ Name }}'
+            AddAttributes:
+              Next: '{{ Next }}'
+              Attributes: {}
+              Name: '{{ Name }}'
+            Channel:
+              ChannelName: '{{ ChannelName }}'
+              Next: '{{ Next }}'
+              Name: '{{ Name }}'
+            DeviceShadowEnrich:
+              Attribute: '{{ Attribute }}'
+              Next: '{{ Next }}'
+              ThingName: '{{ ThingName }}'
+              RoleArn: '{{ RoleArn }}'
+              Name: '{{ Name }}'
+            Math:
+              Attribute: '{{ Attribute }}'
+              Next: '{{ Next }}'
+              Math: '{{ Math }}'
+              Name: '{{ Name }}'
+            Lambda:
+              BatchSize: '{{ BatchSize }}'
+              Next: '{{ Next }}'
+              LambdaName: '{{ LambdaName }}'
+              Name: '{{ Name }}'
+            DeviceRegistryEnrich:
+              Attribute: '{{ Attribute }}'
+              Next: '{{ Next }}'
+              ThingName: '{{ ThingName }}'
+              RoleArn: '{{ RoleArn }}'
+              Name: '{{ Name }}'
+            RemoveAttributes:
+              Next: '{{ Next }}'
+              Attributes:
+                - '{{ Attributes[0] }}'
+              Name: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

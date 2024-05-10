@@ -78,43 +78,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>ipam_allocation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IpamPoolId": "{{ IpamPoolId }}"
-}
->>>
---required properties only
+-- ipam_allocation.iql (required properties only)
 INSERT INTO aws.ec2.ipam_allocations (
  IpamPoolId,
  region
 )
 SELECT 
-{{ .IpamPoolId }},
-'us-east-1';
+'{{ IpamPoolId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IpamPoolId": "{{ IpamPoolId }}",
- "Cidr": "{{ Cidr }}",
- "NetmaskLength": "{{ NetmaskLength }}",
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- ipam_allocation.iql (all properties)
 INSERT INTO aws.ec2.ipam_allocations (
  IpamPoolId,
  Cidr,
@@ -123,11 +113,36 @@ INSERT INTO aws.ec2.ipam_allocations (
  region
 )
 SELECT 
- {{ .IpamPoolId }},
- {{ .Cidr }},
- {{ .NetmaskLength }},
- {{ .Description }},
- 'us-east-1';
+ '{{ IpamPoolId }}',
+ '{{ Cidr }}',
+ '{{ NetmaskLength }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ipam_allocation
+    props:
+      - name: IpamPoolId
+        value: '{{ IpamPoolId }}'
+      - name: Cidr
+        value: '{{ Cidr }}'
+      - name: NetmaskLength
+        value: '{{ NetmaskLength }}'
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>host</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AvailabilityZone": "{{ AvailabilityZone }}"
-}
->>>
---required properties only
+-- host.iql (required properties only)
 INSERT INTO aws.ec2.hosts (
  AvailabilityZone,
  region
 )
 SELECT 
-{{ .AvailabilityZone }},
-'us-east-1';
+'{{ AvailabilityZone }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AutoPlacement": "{{ AutoPlacement }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "HostRecovery": "{{ HostRecovery }}",
- "InstanceType": "{{ InstanceType }}",
- "InstanceFamily": "{{ InstanceFamily }}",
- "OutpostArn": "{{ OutpostArn }}",
- "HostMaintenance": "{{ HostMaintenance }}",
- "AssetId": "{{ AssetId }}"
-}
->>>
---all properties
+-- host.iql (all properties)
 INSERT INTO aws.ec2.hosts (
  AutoPlacement,
  AvailabilityZone,
@@ -127,15 +113,48 @@ INSERT INTO aws.ec2.hosts (
  region
 )
 SELECT 
- {{ .AutoPlacement }},
- {{ .AvailabilityZone }},
- {{ .HostRecovery }},
- {{ .InstanceType }},
- {{ .InstanceFamily }},
- {{ .OutpostArn }},
- {{ .HostMaintenance }},
- {{ .AssetId }},
- 'us-east-1';
+ '{{ AutoPlacement }}',
+ '{{ AvailabilityZone }}',
+ '{{ HostRecovery }}',
+ '{{ InstanceType }}',
+ '{{ InstanceFamily }}',
+ '{{ OutpostArn }}',
+ '{{ HostMaintenance }}',
+ '{{ AssetId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: host
+    props:
+      - name: AutoPlacement
+        value: '{{ AutoPlacement }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: HostRecovery
+        value: '{{ HostRecovery }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: InstanceFamily
+        value: '{{ InstanceFamily }}'
+      - name: OutpostArn
+        value: '{{ OutpostArn }}'
+      - name: HostMaintenance
+        value: '{{ HostMaintenance }}'
+      - name: AssetId
+        value: '{{ AssetId }}'
+
 ```
 </TabItem>
 </Tabs>

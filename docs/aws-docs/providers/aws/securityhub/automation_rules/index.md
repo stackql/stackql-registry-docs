@@ -74,184 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>automation_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RuleStatus": "{{ RuleStatus }}",
- "RuleOrder": "{{ RuleOrder }}",
- "Description": "{{ Description }}",
- "RuleName": "{{ RuleName }}",
- "IsTerminal": "{{ IsTerminal }}",
- "Actions": [
-  {
-   "Type": "{{ Type }}",
-   "FindingFieldsUpdate": {
-    "Types": [
-     "{{ Types[0] }}"
-    ],
-    "Severity": {
-     "Product": null,
-     "Label": "{{ Label }}",
-     "Normalized": "{{ Normalized }}"
-    },
-    "Confidence": null,
-    "Criticality": null,
-    "UserDefinedFields": {},
-    "VerificationState": "{{ VerificationState }}",
-    "RelatedFindings": [
-     {
-      "ProductArn": "{{ ProductArn }}",
-      "Id": null
-     }
-    ],
-    "Note": {
-     "Text": "{{ Text }}",
-     "UpdatedBy": null
-    },
-    "Workflow": {
-     "Status": "{{ Status }}"
-    }
-   }
-  }
- ],
- "Criteria": {
-  "ProductArn": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "AwsAccountId": [
-   null
-  ],
-  "Id": [
-   null
-  ],
-  "GeneratorId": [
-   null
-  ],
-  "Type": [
-   null
-  ],
-  "FirstObservedAt": [
-   {
-    "DateRange": {
-     "Unit": "{{ Unit }}",
-     "Value": null
-    },
-    "End": "{{ End }}",
-    "Start": null
-   }
-  ],
-  "LastObservedAt": [
-   null
-  ],
-  "CreatedAt": [
-   null
-  ],
-  "UpdatedAt": [
-   null
-  ],
-  "Confidence": [
-   {
-    "Eq": null,
-    "Gte": null,
-    "Lte": null
-   }
-  ],
-  "Criticality": [
-   null
-  ],
-  "Title": [
-   null
-  ],
-  "Description": [
-   null
-  ],
-  "SourceUrl": [
-   null
-  ],
-  "ProductName": [
-   null
-  ],
-  "CompanyName": [
-   null
-  ],
-  "SeverityLabel": [
-   null
-  ],
-  "ResourceType": [
-   null
-  ],
-  "ResourceId": [
-   null
-  ],
-  "ResourcePartition": [
-   null
-  ],
-  "ResourceRegion": [
-   null
-  ],
-  "ResourceTags": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Key": null,
-    "Value": null
-   }
-  ],
-  "ResourceDetailsOther": [
-   null
-  ],
-  "ComplianceStatus": [
-   null
-  ],
-  "ComplianceSecurityControlId": [
-   null
-  ],
-  "ComplianceAssociatedStandardsId": [
-   null
-  ],
-  "VerificationState": [
-   null
-  ],
-  "WorkflowStatus": [
-   null
-  ],
-  "RecordState": [
-   null
-  ],
-  "RelatedFindingsProductArn": [
-   null
-  ],
-  "RelatedFindingsId": [
-   null
-  ],
-  "NoteText": [
-   null
-  ],
-  "NoteUpdatedAt": [
-   null
-  ],
-  "NoteUpdatedBy": [
-   null
-  ],
-  "UserDefinedFields": [
-   null
-  ]
- },
- "Tags": {}
-}
->>>
---required properties only
+-- automation_rule.iql (required properties only)
 INSERT INTO aws.securityhub.automation_rules (
  RuleStatus,
  RuleOrder,
@@ -264,188 +100,21 @@ INSERT INTO aws.securityhub.automation_rules (
  region
 )
 SELECT 
-{{ .RuleStatus }},
- {{ .RuleOrder }},
- {{ .Description }},
- {{ .RuleName }},
- {{ .IsTerminal }},
- {{ .Actions }},
- {{ .Criteria }},
- {{ .Tags }},
-'us-east-1';
+'{{ RuleStatus }}',
+ '{{ RuleOrder }}',
+ '{{ Description }}',
+ '{{ RuleName }}',
+ '{{ IsTerminal }}',
+ '{{ Actions }}',
+ '{{ Criteria }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RuleStatus": "{{ RuleStatus }}",
- "RuleOrder": "{{ RuleOrder }}",
- "Description": "{{ Description }}",
- "RuleName": "{{ RuleName }}",
- "IsTerminal": "{{ IsTerminal }}",
- "Actions": [
-  {
-   "Type": "{{ Type }}",
-   "FindingFieldsUpdate": {
-    "Types": [
-     "{{ Types[0] }}"
-    ],
-    "Severity": {
-     "Product": null,
-     "Label": "{{ Label }}",
-     "Normalized": "{{ Normalized }}"
-    },
-    "Confidence": null,
-    "Criticality": null,
-    "UserDefinedFields": {},
-    "VerificationState": "{{ VerificationState }}",
-    "RelatedFindings": [
-     {
-      "ProductArn": "{{ ProductArn }}",
-      "Id": null
-     }
-    ],
-    "Note": {
-     "Text": "{{ Text }}",
-     "UpdatedBy": null
-    },
-    "Workflow": {
-     "Status": "{{ Status }}"
-    }
-   }
-  }
- ],
- "Criteria": {
-  "ProductArn": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "AwsAccountId": [
-   null
-  ],
-  "Id": [
-   null
-  ],
-  "GeneratorId": [
-   null
-  ],
-  "Type": [
-   null
-  ],
-  "FirstObservedAt": [
-   {
-    "DateRange": {
-     "Unit": "{{ Unit }}",
-     "Value": null
-    },
-    "End": "{{ End }}",
-    "Start": null
-   }
-  ],
-  "LastObservedAt": [
-   null
-  ],
-  "CreatedAt": [
-   null
-  ],
-  "UpdatedAt": [
-   null
-  ],
-  "Confidence": [
-   {
-    "Eq": null,
-    "Gte": null,
-    "Lte": null
-   }
-  ],
-  "Criticality": [
-   null
-  ],
-  "Title": [
-   null
-  ],
-  "Description": [
-   null
-  ],
-  "SourceUrl": [
-   null
-  ],
-  "ProductName": [
-   null
-  ],
-  "CompanyName": [
-   null
-  ],
-  "SeverityLabel": [
-   null
-  ],
-  "ResourceType": [
-   null
-  ],
-  "ResourceId": [
-   null
-  ],
-  "ResourcePartition": [
-   null
-  ],
-  "ResourceRegion": [
-   null
-  ],
-  "ResourceTags": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Key": null,
-    "Value": null
-   }
-  ],
-  "ResourceDetailsOther": [
-   null
-  ],
-  "ComplianceStatus": [
-   null
-  ],
-  "ComplianceSecurityControlId": [
-   null
-  ],
-  "ComplianceAssociatedStandardsId": [
-   null
-  ],
-  "VerificationState": [
-   null
-  ],
-  "WorkflowStatus": [
-   null
-  ],
-  "RecordState": [
-   null
-  ],
-  "RelatedFindingsProductArn": [
-   null
-  ],
-  "RelatedFindingsId": [
-   null
-  ],
-  "NoteText": [
-   null
-  ],
-  "NoteUpdatedAt": [
-   null
-  ],
-  "NoteUpdatedBy": [
-   null
-  ],
-  "UserDefinedFields": [
-   null
-  ]
- },
- "Tags": {}
-}
->>>
---all properties
+-- automation_rule.iql (all properties)
 INSERT INTO aws.securityhub.automation_rules (
  RuleStatus,
  RuleOrder,
@@ -458,15 +127,147 @@ INSERT INTO aws.securityhub.automation_rules (
  region
 )
 SELECT 
- {{ .RuleStatus }},
- {{ .RuleOrder }},
- {{ .Description }},
- {{ .RuleName }},
- {{ .IsTerminal }},
- {{ .Actions }},
- {{ .Criteria }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ RuleStatus }}',
+ '{{ RuleOrder }}',
+ '{{ Description }}',
+ '{{ RuleName }}',
+ '{{ IsTerminal }}',
+ '{{ Actions }}',
+ '{{ Criteria }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: automation_rule
+    props:
+      - name: RuleStatus
+        value: '{{ RuleStatus }}'
+      - name: RuleOrder
+        value: '{{ RuleOrder }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RuleName
+        value: '{{ RuleName }}'
+      - name: IsTerminal
+        value: '{{ IsTerminal }}'
+      - name: Actions
+        value:
+          - Type: '{{ Type }}'
+            FindingFieldsUpdate:
+              Types:
+                - '{{ Types[0] }}'
+              Severity:
+                Product: null
+                Label: '{{ Label }}'
+                Normalized: '{{ Normalized }}'
+              Confidence: null
+              Criticality: null
+              UserDefinedFields: {}
+              VerificationState: '{{ VerificationState }}'
+              RelatedFindings:
+                - ProductArn: '{{ ProductArn }}'
+                  Id: null
+              Note:
+                Text: '{{ Text }}'
+                UpdatedBy: null
+              Workflow:
+                Status: '{{ Status }}'
+      - name: Criteria
+        value:
+          ProductArn:
+            - Comparison: '{{ Comparison }}'
+              Value: '{{ Value }}'
+          AwsAccountId:
+            - null
+          Id:
+            - null
+          GeneratorId:
+            - null
+          Type:
+            - null
+          FirstObservedAt:
+            - DateRange:
+                Unit: '{{ Unit }}'
+                Value: null
+              End: '{{ End }}'
+              Start: null
+          LastObservedAt:
+            - null
+          CreatedAt:
+            - null
+          UpdatedAt:
+            - null
+          Confidence:
+            - Eq: null
+              Gte: null
+              Lte: null
+          Criticality:
+            - null
+          Title:
+            - null
+          Description:
+            - null
+          SourceUrl:
+            - null
+          ProductName:
+            - null
+          CompanyName:
+            - null
+          SeverityLabel:
+            - null
+          ResourceType:
+            - null
+          ResourceId:
+            - null
+          ResourcePartition:
+            - null
+          ResourceRegion:
+            - null
+          ResourceTags:
+            - Comparison: '{{ Comparison }}'
+              Key: null
+              Value: null
+          ResourceDetailsOther:
+            - null
+          ComplianceStatus:
+            - null
+          ComplianceSecurityControlId:
+            - null
+          ComplianceAssociatedStandardsId:
+            - null
+          VerificationState:
+            - null
+          WorkflowStatus:
+            - null
+          RecordState:
+            - null
+          RelatedFindingsProductArn:
+            - null
+          RelatedFindingsId:
+            - null
+          NoteText:
+            - null
+          NoteUpdatedAt:
+            - null
+          NoteUpdatedBy:
+            - null
+          UserDefinedFields:
+            - null
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

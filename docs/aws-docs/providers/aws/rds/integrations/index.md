@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>integration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SourceArn": "{{ SourceArn }}",
- "TargetArn": "{{ TargetArn }}"
-}
->>>
---required properties only
+-- integration.iql (required properties only)
 INSERT INTO aws.rds.integrations (
  SourceArn,
  TargetArn,
  region
 )
 SELECT 
-{{ .SourceArn }},
- {{ .TargetArn }},
-'us-east-1';
+'{{ SourceArn }}',
+ '{{ TargetArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IntegrationName": "{{ IntegrationName }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "DataFilter": "{{ DataFilter }}",
- "SourceArn": "{{ SourceArn }}",
- "TargetArn": "{{ TargetArn }}",
- "KMSKeyId": "{{ KMSKeyId }}",
- "AdditionalEncryptionContext": {}
-}
->>>
---all properties
+-- integration.iql (all properties)
 INSERT INTO aws.rds.integrations (
  IntegrationName,
  Description,
@@ -135,15 +115,50 @@ INSERT INTO aws.rds.integrations (
  region
 )
 SELECT 
- {{ .IntegrationName }},
- {{ .Description }},
- {{ .Tags }},
- {{ .DataFilter }},
- {{ .SourceArn }},
- {{ .TargetArn }},
- {{ .KMSKeyId }},
- {{ .AdditionalEncryptionContext }},
- 'us-east-1';
+ '{{ IntegrationName }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ DataFilter }}',
+ '{{ SourceArn }}',
+ '{{ TargetArn }}',
+ '{{ KMSKeyId }}',
+ '{{ AdditionalEncryptionContext }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: integration
+    props:
+      - name: IntegrationName
+        value: '{{ IntegrationName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: DataFilter
+        value: '{{ DataFilter }}'
+      - name: SourceArn
+        value: '{{ SourceArn }}'
+      - name: TargetArn
+        value: '{{ TargetArn }}'
+      - name: KMSKeyId
+        value: '{{ KMSKeyId }}'
+      - name: AdditionalEncryptionContext
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

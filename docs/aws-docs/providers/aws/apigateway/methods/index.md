@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>method</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "HttpMethod": "{{ HttpMethod }}",
- "ResourceId": "{{ ResourceId }}",
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---required properties only
+-- method.iql (required properties only)
 INSERT INTO aws.apigateway.methods (
  HttpMethod,
  ResourceId,
@@ -103,66 +99,16 @@ INSERT INTO aws.apigateway.methods (
  region
 )
 SELECT 
-{{ .HttpMethod }},
- {{ .ResourceId }},
- {{ .RestApiId }},
-'us-east-1';
+'{{ HttpMethod }}',
+ '{{ ResourceId }}',
+ '{{ RestApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApiKeyRequired": "{{ ApiKeyRequired }}",
- "AuthorizationScopes": [
-  "{{ AuthorizationScopes[0] }}"
- ],
- "AuthorizationType": "{{ AuthorizationType }}",
- "AuthorizerId": "{{ AuthorizerId }}",
- "HttpMethod": "{{ HttpMethod }}",
- "Integration": {
-  "CacheKeyParameters": [
-   "{{ CacheKeyParameters[0] }}"
-  ],
-  "CacheNamespace": "{{ CacheNamespace }}",
-  "ConnectionId": "{{ ConnectionId }}",
-  "ConnectionType": "{{ ConnectionType }}",
-  "ContentHandling": "{{ ContentHandling }}",
-  "Credentials": "{{ Credentials }}",
-  "IntegrationHttpMethod": "{{ IntegrationHttpMethod }}",
-  "IntegrationResponses": [
-   {
-    "ContentHandling": "{{ ContentHandling }}",
-    "ResponseParameters": {},
-    "ResponseTemplates": {},
-    "SelectionPattern": "{{ SelectionPattern }}",
-    "StatusCode": "{{ StatusCode }}"
-   }
-  ],
-  "PassthroughBehavior": "{{ PassthroughBehavior }}",
-  "RequestParameters": {},
-  "RequestTemplates": {},
-  "TimeoutInMillis": "{{ TimeoutInMillis }}",
-  "Type": "{{ Type }}",
-  "Uri": "{{ Uri }}"
- },
- "MethodResponses": [
-  {
-   "ResponseModels": {},
-   "ResponseParameters": {},
-   "StatusCode": "{{ StatusCode }}"
-  }
- ],
- "OperationName": "{{ OperationName }}",
- "RequestModels": {},
- "RequestParameters": {},
- "RequestValidatorId": "{{ RequestValidatorId }}",
- "ResourceId": "{{ ResourceId }}",
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---all properties
+-- method.iql (all properties)
 INSERT INTO aws.apigateway.methods (
  ApiKeyRequired,
  AuthorizationScopes,
@@ -180,20 +126,87 @@ INSERT INTO aws.apigateway.methods (
  region
 )
 SELECT 
- {{ .ApiKeyRequired }},
- {{ .AuthorizationScopes }},
- {{ .AuthorizationType }},
- {{ .AuthorizerId }},
- {{ .HttpMethod }},
- {{ .Integration }},
- {{ .MethodResponses }},
- {{ .OperationName }},
- {{ .RequestModels }},
- {{ .RequestParameters }},
- {{ .RequestValidatorId }},
- {{ .ResourceId }},
- {{ .RestApiId }},
- 'us-east-1';
+ '{{ ApiKeyRequired }}',
+ '{{ AuthorizationScopes }}',
+ '{{ AuthorizationType }}',
+ '{{ AuthorizerId }}',
+ '{{ HttpMethod }}',
+ '{{ Integration }}',
+ '{{ MethodResponses }}',
+ '{{ OperationName }}',
+ '{{ RequestModels }}',
+ '{{ RequestParameters }}',
+ '{{ RequestValidatorId }}',
+ '{{ ResourceId }}',
+ '{{ RestApiId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: method
+    props:
+      - name: ApiKeyRequired
+        value: '{{ ApiKeyRequired }}'
+      - name: AuthorizationScopes
+        value:
+          - '{{ AuthorizationScopes[0] }}'
+      - name: AuthorizationType
+        value: '{{ AuthorizationType }}'
+      - name: AuthorizerId
+        value: '{{ AuthorizerId }}'
+      - name: HttpMethod
+        value: '{{ HttpMethod }}'
+      - name: Integration
+        value:
+          CacheKeyParameters:
+            - '{{ CacheKeyParameters[0] }}'
+          CacheNamespace: '{{ CacheNamespace }}'
+          ConnectionId: '{{ ConnectionId }}'
+          ConnectionType: '{{ ConnectionType }}'
+          ContentHandling: '{{ ContentHandling }}'
+          Credentials: '{{ Credentials }}'
+          IntegrationHttpMethod: '{{ IntegrationHttpMethod }}'
+          IntegrationResponses:
+            - ContentHandling: '{{ ContentHandling }}'
+              ResponseParameters: {}
+              ResponseTemplates: {}
+              SelectionPattern: '{{ SelectionPattern }}'
+              StatusCode: '{{ StatusCode }}'
+          PassthroughBehavior: '{{ PassthroughBehavior }}'
+          RequestParameters: {}
+          RequestTemplates: {}
+          TimeoutInMillis: '{{ TimeoutInMillis }}'
+          Type: '{{ Type }}'
+          Uri: '{{ Uri }}'
+      - name: MethodResponses
+        value:
+          - ResponseModels: {}
+            ResponseParameters: {}
+            StatusCode: '{{ StatusCode }}'
+      - name: OperationName
+        value: '{{ OperationName }}'
+      - name: RequestModels
+        value: {}
+      - name: RequestParameters
+        value: {}
+      - name: RequestValidatorId
+        value: '{{ RequestValidatorId }}'
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+
 ```
 </TabItem>
 </Tabs>

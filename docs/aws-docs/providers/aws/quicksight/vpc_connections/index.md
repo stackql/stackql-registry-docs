@@ -76,41 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_connection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "Name": "{{ Name }}",
- "VPCConnectionId": "{{ VPCConnectionId }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "DnsResolvers": [
-  "{{ DnsResolvers[0] }}"
- ],
- "AvailabilityStatus": "{{ AvailabilityStatus }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---required properties only
+-- vpc_connection.iql (required properties only)
 INSERT INTO aws.quicksight.vpc_connections (
  AwsAccountId,
  Name,
@@ -124,46 +103,22 @@ INSERT INTO aws.quicksight.vpc_connections (
  region
 )
 SELECT 
-{{ .AwsAccountId }},
- {{ .Name }},
- {{ .VPCConnectionId }},
- {{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .DnsResolvers }},
- {{ .AvailabilityStatus }},
- {{ .RoleArn }},
- {{ .Tags }},
-'us-east-1';
+'{{ AwsAccountId }}',
+ '{{ Name }}',
+ '{{ VPCConnectionId }}',
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ DnsResolvers }}',
+ '{{ AvailabilityStatus }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "Name": "{{ Name }}",
- "VPCConnectionId": "{{ VPCConnectionId }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "DnsResolvers": [
-  "{{ DnsResolvers[0] }}"
- ],
- "AvailabilityStatus": "{{ AvailabilityStatus }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- vpc_connection.iql (all properties)
 INSERT INTO aws.quicksight.vpc_connections (
  AwsAccountId,
  Name,
@@ -177,16 +132,56 @@ INSERT INTO aws.quicksight.vpc_connections (
  region
 )
 SELECT 
- {{ .AwsAccountId }},
- {{ .Name }},
- {{ .VPCConnectionId }},
- {{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .DnsResolvers }},
- {{ .AvailabilityStatus }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AwsAccountId }}',
+ '{{ Name }}',
+ '{{ VPCConnectionId }}',
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ DnsResolvers }}',
+ '{{ AvailabilityStatus }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_connection
+    props:
+      - name: AwsAccountId
+        value: '{{ AwsAccountId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: VPCConnectionId
+        value: '{{ VPCConnectionId }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: DnsResolvers
+        value:
+          - '{{ DnsResolvers[0] }}'
+      - name: AvailabilityStatus
+        value: '{{ AvailabilityStatus }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>verified_access_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VerifiedAccessInstanceId": "{{ VerifiedAccessInstanceId }}"
-}
->>>
---required properties only
+-- verified_access_group.iql (required properties only)
 INSERT INTO aws.ec2.verified_access_groups (
  VerifiedAccessInstanceId,
  region
 )
 SELECT 
-{{ .VerifiedAccessInstanceId }},
-'us-east-1';
+'{{ VerifiedAccessInstanceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VerifiedAccessInstanceId": "{{ VerifiedAccessInstanceId }}",
- "Description": "{{ Description }}",
- "PolicyDocument": "{{ PolicyDocument }}",
- "PolicyEnabled": "{{ PolicyEnabled }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "SseSpecification": {
-  "KmsKeyArn": "{{ KmsKeyArn }}",
-  "CustomerManagedKeyEnabled": "{{ CustomerManagedKeyEnabled }}"
- }
-}
->>>
---all properties
+-- verified_access_group.iql (all properties)
 INSERT INTO aws.ec2.verified_access_groups (
  VerifiedAccessInstanceId,
  Description,
@@ -131,13 +111,46 @@ INSERT INTO aws.ec2.verified_access_groups (
  region
 )
 SELECT 
- {{ .VerifiedAccessInstanceId }},
- {{ .Description }},
- {{ .PolicyDocument }},
- {{ .PolicyEnabled }},
- {{ .Tags }},
- {{ .SseSpecification }},
- 'us-east-1';
+ '{{ VerifiedAccessInstanceId }}',
+ '{{ Description }}',
+ '{{ PolicyDocument }}',
+ '{{ PolicyEnabled }}',
+ '{{ Tags }}',
+ '{{ SseSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: verified_access_group
+    props:
+      - name: VerifiedAccessInstanceId
+        value: '{{ VerifiedAccessInstanceId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: PolicyDocument
+        value: '{{ PolicyDocument }}'
+      - name: PolicyEnabled
+        value: '{{ PolicyEnabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: SseSpecification
+        value:
+          KmsKeyArn: '{{ KmsKeyArn }}'
+          CustomerManagedKeyEnabled: '{{ CustomerManagedKeyEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

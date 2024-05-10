@@ -74,46 +74,20 @@ FROM aws.iam.users
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Path": "{{ Path }}",
- "ManagedPolicyArns": [
-  "{{ ManagedPolicyArns[0] }}"
- ],
- "Policies": [
-  {
-   "PolicyDocument": {},
-   "PolicyName": "{{ PolicyName }}"
-  }
- ],
- "UserName": "{{ UserName }}",
- "Groups": [
-  "{{ Groups[0] }}"
- ],
- "LoginProfile": {
-  "PasswordResetRequired": "{{ PasswordResetRequired }}",
-  "Password": "{{ Password }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "PermissionsBoundary": "{{ PermissionsBoundary }}"
-}
->>>
---required properties only
+-- user.iql (required properties only)
 INSERT INTO aws.iam.users (
  Path,
  ManagedPolicyArns,
@@ -126,50 +100,21 @@ INSERT INTO aws.iam.users (
  region
 )
 SELECT 
-{{ .Path }},
- {{ .ManagedPolicyArns }},
- {{ .Policies }},
- {{ .UserName }},
- {{ .Groups }},
- {{ .LoginProfile }},
- {{ .Tags }},
- {{ .PermissionsBoundary }},
-'us-east-1';
+'{{ Path }}',
+ '{{ ManagedPolicyArns }}',
+ '{{ Policies }}',
+ '{{ UserName }}',
+ '{{ Groups }}',
+ '{{ LoginProfile }}',
+ '{{ Tags }}',
+ '{{ PermissionsBoundary }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Path": "{{ Path }}",
- "ManagedPolicyArns": [
-  "{{ ManagedPolicyArns[0] }}"
- ],
- "Policies": [
-  {
-   "PolicyDocument": {},
-   "PolicyName": "{{ PolicyName }}"
-  }
- ],
- "UserName": "{{ UserName }}",
- "Groups": [
-  "{{ Groups[0] }}"
- ],
- "LoginProfile": {
-  "PasswordResetRequired": "{{ PasswordResetRequired }}",
-  "Password": "{{ Password }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "PermissionsBoundary": "{{ PermissionsBoundary }}"
-}
->>>
---all properties
+-- user.iql (all properties)
 INSERT INTO aws.iam.users (
  Path,
  ManagedPolicyArns,
@@ -182,15 +127,56 @@ INSERT INTO aws.iam.users (
  region
 )
 SELECT 
- {{ .Path }},
- {{ .ManagedPolicyArns }},
- {{ .Policies }},
- {{ .UserName }},
- {{ .Groups }},
- {{ .LoginProfile }},
- {{ .Tags }},
- {{ .PermissionsBoundary }},
- 'us-east-1';
+ '{{ Path }}',
+ '{{ ManagedPolicyArns }}',
+ '{{ Policies }}',
+ '{{ UserName }}',
+ '{{ Groups }}',
+ '{{ LoginProfile }}',
+ '{{ Tags }}',
+ '{{ PermissionsBoundary }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user
+    props:
+      - name: Path
+        value: '{{ Path }}'
+      - name: ManagedPolicyArns
+        value:
+          - '{{ ManagedPolicyArns[0] }}'
+      - name: Policies
+        value:
+          - PolicyDocument: {}
+            PolicyName: '{{ PolicyName }}'
+      - name: UserName
+        value: '{{ UserName }}'
+      - name: Groups
+        value:
+          - '{{ Groups[0] }}'
+      - name: LoginProfile
+        value:
+          PasswordResetRequired: '{{ PasswordResetRequired }}'
+          Password: '{{ Password }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: PermissionsBoundary
+        value: '{{ PermissionsBoundary }}'
+
 ```
 </TabItem>
 </Tabs>

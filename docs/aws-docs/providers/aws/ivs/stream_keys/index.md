@@ -74,55 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>stream_key</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ChannelArn": "{{ ChannelArn }}"
-}
->>>
---required properties only
+-- stream_key.iql (required properties only)
 INSERT INTO aws.ivs.stream_keys (
  ChannelArn,
  region
 )
 SELECT 
-{{ .ChannelArn }},
-'us-east-1';
+'{{ ChannelArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ChannelArn": "{{ ChannelArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- stream_key.iql (all properties)
 INSERT INTO aws.ivs.stream_keys (
  ChannelArn,
  Tags,
  region
 )
 SELECT 
- {{ .ChannelArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ChannelArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: stream_key
+    props:
+      - name: ChannelArn
+        value: '{{ ChannelArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

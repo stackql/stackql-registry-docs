@@ -74,45 +74,33 @@ FROM aws.cloudfront.key_value_stores
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>key_value_store</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- key_value_store.iql (required properties only)
 INSERT INTO aws.cloudfront.key_value_stores (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Comment": "{{ Comment }}",
- "ImportSource": {
-  "SourceType": "{{ SourceType }}",
-  "SourceArn": "{{ SourceArn }}"
- }
-}
->>>
---all properties
+-- key_value_store.iql (all properties)
 INSERT INTO aws.cloudfront.key_value_stores (
  Name,
  Comment,
@@ -120,10 +108,35 @@ INSERT INTO aws.cloudfront.key_value_stores (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Comment }},
- {{ .ImportSource }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Comment }}',
+ '{{ ImportSource }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: key_value_store
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Comment
+        value: '{{ Comment }}'
+      - name: ImportSource
+        value:
+          SourceType: '{{ SourceType }}'
+          SourceArn: '{{ SourceArn }}'
+
 ```
 </TabItem>
 </Tabs>

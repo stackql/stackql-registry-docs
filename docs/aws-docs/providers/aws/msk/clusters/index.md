@@ -74,63 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cluster</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BrokerNodeGroupInfo": {
-  "StorageInfo": {
-   "EBSStorageInfo": {
-    "VolumeSize": "{{ VolumeSize }}",
-    "ProvisionedThroughput": {
-     "Enabled": "{{ Enabled }}",
-     "VolumeThroughput": "{{ VolumeThroughput }}"
-    }
-   }
-  },
-  "ConnectivityInfo": {
-   "PublicAccess": {
-    "Type": "{{ Type }}"
-   },
-   "VpcConnectivity": {
-    "ClientAuthentication": {
-     "Tls": {
-      "Enabled": "{{ Enabled }}"
-     },
-     "Sasl": {
-      "Scram": {
-       "Enabled": "{{ Enabled }}"
-      },
-      "Iam": {
-       "Enabled": "{{ Enabled }}"
-      }
-     }
-    }
-   }
-  },
-  "SecurityGroups": [
-   "{{ SecurityGroups[0] }}"
-  ],
-  "BrokerAZDistribution": "{{ BrokerAZDistribution }}",
-  "ClientSubnets": [
-   "{{ ClientSubnets[0] }}"
-  ],
-  "InstanceType": "{{ InstanceType }}"
- },
- "KafkaVersion": "{{ KafkaVersion }}",
- "NumberOfBrokerNodes": "{{ NumberOfBrokerNodes }}",
- "ClusterName": "{{ ClusterName }}"
-}
->>>
---required properties only
+-- cluster.iql (required properties only)
 INSERT INTO aws.msk.clusters (
  BrokerNodeGroupInfo,
  KafkaVersion,
@@ -139,114 +96,17 @@ INSERT INTO aws.msk.clusters (
  region
 )
 SELECT 
-{{ .BrokerNodeGroupInfo }},
- {{ .KafkaVersion }},
- {{ .NumberOfBrokerNodes }},
- {{ .ClusterName }},
-'us-east-1';
+'{{ BrokerNodeGroupInfo }}',
+ '{{ KafkaVersion }}',
+ '{{ NumberOfBrokerNodes }}',
+ '{{ ClusterName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BrokerNodeGroupInfo": {
-  "StorageInfo": {
-   "EBSStorageInfo": {
-    "VolumeSize": "{{ VolumeSize }}",
-    "ProvisionedThroughput": {
-     "Enabled": "{{ Enabled }}",
-     "VolumeThroughput": "{{ VolumeThroughput }}"
-    }
-   }
-  },
-  "ConnectivityInfo": {
-   "PublicAccess": {
-    "Type": "{{ Type }}"
-   },
-   "VpcConnectivity": {
-    "ClientAuthentication": {
-     "Tls": {
-      "Enabled": "{{ Enabled }}"
-     },
-     "Sasl": {
-      "Scram": {
-       "Enabled": "{{ Enabled }}"
-      },
-      "Iam": {
-       "Enabled": "{{ Enabled }}"
-      }
-     }
-    }
-   }
-  },
-  "SecurityGroups": [
-   "{{ SecurityGroups[0] }}"
-  ],
-  "BrokerAZDistribution": "{{ BrokerAZDistribution }}",
-  "ClientSubnets": [
-   "{{ ClientSubnets[0] }}"
-  ],
-  "InstanceType": "{{ InstanceType }}"
- },
- "EnhancedMonitoring": "{{ EnhancedMonitoring }}",
- "KafkaVersion": "{{ KafkaVersion }}",
- "NumberOfBrokerNodes": "{{ NumberOfBrokerNodes }}",
- "EncryptionInfo": {
-  "EncryptionAtRest": {
-   "DataVolumeKMSKeyId": "{{ DataVolumeKMSKeyId }}"
-  },
-  "EncryptionInTransit": {
-   "InCluster": "{{ InCluster }}",
-   "ClientBroker": "{{ ClientBroker }}"
-  }
- },
- "OpenMonitoring": {
-  "Prometheus": {
-   "JmxExporter": {
-    "EnabledInBroker": "{{ EnabledInBroker }}"
-   },
-   "NodeExporter": {
-    "EnabledInBroker": "{{ EnabledInBroker }}"
-   }
-  }
- },
- "ClusterName": "{{ ClusterName }}",
- "CurrentVersion": "{{ CurrentVersion }}",
- "ClientAuthentication": {
-  "Sasl": {
-   "Iam": {
-    "Enabled": "{{ Enabled }}"
-   }
-  }
- },
- "LoggingInfo": {
-  "BrokerLogs": {
-   "S3": {
-    "Enabled": "{{ Enabled }}",
-    "Prefix": "{{ Prefix }}",
-    "Bucket": "{{ Bucket }}"
-   },
-   "CloudWatchLogs": {
-    "LogGroup": "{{ LogGroup }}",
-    "Enabled": "{{ Enabled }}"
-   },
-   "Firehose": {
-    "Enabled": "{{ Enabled }}",
-    "DeliveryStream": "{{ DeliveryStream }}"
-   }
-  }
- },
- "Tags": {},
- "ConfigurationInfo": {
-  "Revision": "{{ Revision }}",
-  "Arn": "{{ Arn }}"
- },
- "StorageMode": "{{ StorageMode }}"
-}
->>>
---all properties
+-- cluster.iql (all properties)
 INSERT INTO aws.msk.clusters (
  BrokerNodeGroupInfo,
  EnhancedMonitoring,
@@ -264,20 +124,113 @@ INSERT INTO aws.msk.clusters (
  region
 )
 SELECT 
- {{ .BrokerNodeGroupInfo }},
- {{ .EnhancedMonitoring }},
- {{ .KafkaVersion }},
- {{ .NumberOfBrokerNodes }},
- {{ .EncryptionInfo }},
- {{ .OpenMonitoring }},
- {{ .ClusterName }},
- {{ .CurrentVersion }},
- {{ .ClientAuthentication }},
- {{ .LoggingInfo }},
- {{ .Tags }},
- {{ .ConfigurationInfo }},
- {{ .StorageMode }},
- 'us-east-1';
+ '{{ BrokerNodeGroupInfo }}',
+ '{{ EnhancedMonitoring }}',
+ '{{ KafkaVersion }}',
+ '{{ NumberOfBrokerNodes }}',
+ '{{ EncryptionInfo }}',
+ '{{ OpenMonitoring }}',
+ '{{ ClusterName }}',
+ '{{ CurrentVersion }}',
+ '{{ ClientAuthentication }}',
+ '{{ LoggingInfo }}',
+ '{{ Tags }}',
+ '{{ ConfigurationInfo }}',
+ '{{ StorageMode }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cluster
+    props:
+      - name: BrokerNodeGroupInfo
+        value:
+          StorageInfo:
+            EBSStorageInfo:
+              VolumeSize: '{{ VolumeSize }}'
+              ProvisionedThroughput:
+                Enabled: '{{ Enabled }}'
+                VolumeThroughput: '{{ VolumeThroughput }}'
+          ConnectivityInfo:
+            PublicAccess:
+              Type: '{{ Type }}'
+            VpcConnectivity:
+              ClientAuthentication:
+                Tls:
+                  Enabled: '{{ Enabled }}'
+                Sasl:
+                  Scram:
+                    Enabled: '{{ Enabled }}'
+                  Iam:
+                    Enabled: '{{ Enabled }}'
+          SecurityGroups:
+            - '{{ SecurityGroups[0] }}'
+          BrokerAZDistribution: '{{ BrokerAZDistribution }}'
+          ClientSubnets:
+            - '{{ ClientSubnets[0] }}'
+          InstanceType: '{{ InstanceType }}'
+      - name: EnhancedMonitoring
+        value: '{{ EnhancedMonitoring }}'
+      - name: KafkaVersion
+        value: '{{ KafkaVersion }}'
+      - name: NumberOfBrokerNodes
+        value: '{{ NumberOfBrokerNodes }}'
+      - name: EncryptionInfo
+        value:
+          EncryptionAtRest:
+            DataVolumeKMSKeyId: '{{ DataVolumeKMSKeyId }}'
+          EncryptionInTransit:
+            InCluster: '{{ InCluster }}'
+            ClientBroker: '{{ ClientBroker }}'
+      - name: OpenMonitoring
+        value:
+          Prometheus:
+            JmxExporter:
+              EnabledInBroker: '{{ EnabledInBroker }}'
+            NodeExporter:
+              EnabledInBroker: '{{ EnabledInBroker }}'
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: CurrentVersion
+        value: '{{ CurrentVersion }}'
+      - name: ClientAuthentication
+        value:
+          Sasl:
+            Iam:
+              Enabled: '{{ Enabled }}'
+      - name: LoggingInfo
+        value:
+          BrokerLogs:
+            S3:
+              Enabled: '{{ Enabled }}'
+              Prefix: '{{ Prefix }}'
+              Bucket: '{{ Bucket }}'
+            CloudWatchLogs:
+              LogGroup: '{{ LogGroup }}'
+              Enabled: '{{ Enabled }}'
+            Firehose:
+              Enabled: '{{ Enabled }}'
+              DeliveryStream: '{{ DeliveryStream }}'
+      - name: Tags
+        value: {}
+      - name: ConfigurationInfo
+        value:
+          Revision: '{{ Revision }}'
+          Arn: '{{ Arn }}'
+      - name: StorageMode
+        value: '{{ StorageMode }}'
+
 ```
 </TabItem>
 </Tabs>

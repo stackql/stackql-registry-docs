@@ -76,26 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment_blueprint_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EnabledRegions": [
-  "{{ EnabledRegions[0] }}"
- ],
- "EnvironmentBlueprintIdentifier": "{{ EnvironmentBlueprintIdentifier }}",
- "DomainIdentifier": "{{ DomainIdentifier }}"
-}
->>>
---required properties only
+-- environment_blueprint_configuration.iql (required properties only)
 INSERT INTO aws.datazone.environment_blueprint_configurations (
  EnabledRegions,
  EnvironmentBlueprintIdentifier,
@@ -103,33 +97,16 @@ INSERT INTO aws.datazone.environment_blueprint_configurations (
  region
 )
 SELECT 
-{{ .EnabledRegions }},
- {{ .EnvironmentBlueprintIdentifier }},
- {{ .DomainIdentifier }},
-'us-east-1';
+'{{ EnabledRegions }}',
+ '{{ EnvironmentBlueprintIdentifier }}',
+ '{{ DomainIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RegionalParameters": [
-  {
-   "Parameters": {},
-   "Region": "{{ Region }}"
-  }
- ],
- "ProvisioningRoleArn": "{{ ProvisioningRoleArn }}",
- "EnabledRegions": [
-  "{{ EnabledRegions[0] }}"
- ],
- "EnvironmentBlueprintIdentifier": "{{ EnvironmentBlueprintIdentifier }}",
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "ManageAccessRoleArn": "{{ ManageAccessRoleArn }}"
-}
->>>
---all properties
+-- environment_blueprint_configuration.iql (all properties)
 INSERT INTO aws.datazone.environment_blueprint_configurations (
  RegionalParameters,
  ProvisioningRoleArn,
@@ -140,13 +117,45 @@ INSERT INTO aws.datazone.environment_blueprint_configurations (
  region
 )
 SELECT 
- {{ .RegionalParameters }},
- {{ .ProvisioningRoleArn }},
- {{ .EnabledRegions }},
- {{ .EnvironmentBlueprintIdentifier }},
- {{ .DomainIdentifier }},
- {{ .ManageAccessRoleArn }},
- 'us-east-1';
+ '{{ RegionalParameters }}',
+ '{{ ProvisioningRoleArn }}',
+ '{{ EnabledRegions }}',
+ '{{ EnvironmentBlueprintIdentifier }}',
+ '{{ DomainIdentifier }}',
+ '{{ ManageAccessRoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment_blueprint_configuration
+    props:
+      - name: RegionalParameters
+        value:
+          - Parameters: {}
+            Region: '{{ Region }}'
+      - name: ProvisioningRoleArn
+        value: '{{ ProvisioningRoleArn }}'
+      - name: EnabledRegions
+        value:
+          - '{{ EnabledRegions[0] }}'
+      - name: EnvironmentBlueprintIdentifier
+        value: '{{ EnvironmentBlueprintIdentifier }}'
+      - name: DomainIdentifier
+        value: '{{ DomainIdentifier }}'
+      - name: ManageAccessRoleArn
+        value: '{{ ManageAccessRoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

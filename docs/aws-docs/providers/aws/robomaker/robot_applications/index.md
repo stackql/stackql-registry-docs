@@ -74,57 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>robot_application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RobotSoftwareSuite": {
-  "Name": "{{ Name }}",
-  "Version": "{{ Version }}"
- }
-}
->>>
---required properties only
+-- robot_application.iql (required properties only)
 INSERT INTO aws.robomaker.robot_applications (
  RobotSoftwareSuite,
  region
 )
 SELECT 
-{{ .RobotSoftwareSuite }},
-'us-east-1';
+'{{ RobotSoftwareSuite }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Sources": [
-  {
-   "S3Bucket": "{{ S3Bucket }}",
-   "S3Key": "{{ S3Key }}",
-   "Architecture": "{{ Architecture }}"
-  }
- ],
- "Environment": "{{ Environment }}",
- "RobotSoftwareSuite": {
-  "Name": "{{ Name }}",
-  "Version": "{{ Version }}"
- },
- "CurrentRevisionId": "{{ CurrentRevisionId }}",
- "Tags": {}
-}
->>>
---all properties
+-- robot_application.iql (all properties)
 INSERT INTO aws.robomaker.robot_applications (
  Name,
  Sources,
@@ -135,13 +111,47 @@ INSERT INTO aws.robomaker.robot_applications (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Sources }},
- {{ .Environment }},
- {{ .RobotSoftwareSuite }},
- {{ .CurrentRevisionId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Sources }}',
+ '{{ Environment }}',
+ '{{ RobotSoftwareSuite }}',
+ '{{ CurrentRevisionId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: robot_application
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Sources
+        value:
+          - S3Bucket: '{{ S3Bucket }}'
+            S3Key: '{{ S3Key }}'
+            Architecture: '{{ Architecture }}'
+      - name: Environment
+        value: '{{ Environment }}'
+      - name: RobotSoftwareSuite
+        value:
+          Name: '{{ Name }}'
+          Version: '{{ Version }}'
+      - name: CurrentRevisionId
+        value: '{{ CurrentRevisionId }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

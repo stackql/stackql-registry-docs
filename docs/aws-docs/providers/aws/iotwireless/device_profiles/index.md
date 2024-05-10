@@ -74,67 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>device_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- device_profile.iql (required properties only)
 INSERT INTO aws.iotwireless.device_profiles (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "LoRaWAN": {
-  "SupportsClassB": "{{ SupportsClassB }}",
-  "ClassBTimeout": "{{ ClassBTimeout }}",
-  "PingSlotPeriod": "{{ PingSlotPeriod }}",
-  "PingSlotDr": "{{ PingSlotDr }}",
-  "PingSlotFreq": "{{ PingSlotFreq }}",
-  "SupportsClassC": "{{ SupportsClassC }}",
-  "ClassCTimeout": "{{ ClassCTimeout }}",
-  "MacVersion": "{{ MacVersion }}",
-  "RegParamsRevision": "{{ RegParamsRevision }}",
-  "RxDelay1": "{{ RxDelay1 }}",
-  "RxDrOffset1": "{{ RxDrOffset1 }}",
-  "RxFreq2": "{{ RxFreq2 }}",
-  "RxDataRate2": "{{ RxDataRate2 }}",
-  "FactoryPresetFreqsList": [
-   "{{ FactoryPresetFreqsList[0] }}"
-  ],
-  "MaxEirp": "{{ MaxEirp }}",
-  "MaxDutyCycle": "{{ MaxDutyCycle }}",
-  "SupportsJoin": "{{ SupportsJoin }}",
-  "RfRegion": "{{ RfRegion }}",
-  "Supports32BitFCnt": "{{ Supports32BitFCnt }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- device_profile.iql (all properties)
 INSERT INTO aws.iotwireless.device_profiles (
  Name,
  LoRaWAN,
@@ -142,10 +108,55 @@ INSERT INTO aws.iotwireless.device_profiles (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .LoRaWAN }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ LoRaWAN }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: device_profile
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: LoRaWAN
+        value:
+          SupportsClassB: '{{ SupportsClassB }}'
+          ClassBTimeout: '{{ ClassBTimeout }}'
+          PingSlotPeriod: '{{ PingSlotPeriod }}'
+          PingSlotDr: '{{ PingSlotDr }}'
+          PingSlotFreq: '{{ PingSlotFreq }}'
+          SupportsClassC: '{{ SupportsClassC }}'
+          ClassCTimeout: '{{ ClassCTimeout }}'
+          MacVersion: '{{ MacVersion }}'
+          RegParamsRevision: '{{ RegParamsRevision }}'
+          RxDelay1: '{{ RxDelay1 }}'
+          RxDrOffset1: '{{ RxDrOffset1 }}'
+          RxFreq2: '{{ RxFreq2 }}'
+          RxDataRate2: '{{ RxDataRate2 }}'
+          FactoryPresetFreqsList:
+            - '{{ FactoryPresetFreqsList[0] }}'
+          MaxEirp: '{{ MaxEirp }}'
+          MaxDutyCycle: '{{ MaxDutyCycle }}'
+          SupportsJoin: '{{ SupportsJoin }}'
+          RfRegion: '{{ RfRegion }}'
+          Supports32BitFCnt: '{{ Supports32BitFCnt }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

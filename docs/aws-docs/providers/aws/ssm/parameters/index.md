@@ -74,51 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>parameter</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "Value": "{{ Value }}"
-}
->>>
---required properties only
+-- parameter.iql (required properties only)
 INSERT INTO aws.ssm.parameters (
  Type,
  Value,
  region
 )
 SELECT 
-{{ .Type }},
- {{ .Value }},
-'us-east-1';
+'{{ Type }}',
+ '{{ Value }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "Value": "{{ Value }}",
- "Description": "{{ Description }}",
- "Policies": "{{ Policies }}",
- "AllowedPattern": "{{ AllowedPattern }}",
- "Tier": "{{ Tier }}",
- "Tags": {},
- "DataType": "{{ DataType }}",
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- parameter.iql (all properties)
 INSERT INTO aws.ssm.parameters (
  Type,
  Value,
@@ -132,16 +116,51 @@ INSERT INTO aws.ssm.parameters (
  region
 )
 SELECT 
- {{ .Type }},
- {{ .Value }},
- {{ .Description }},
- {{ .Policies }},
- {{ .AllowedPattern }},
- {{ .Tier }},
- {{ .Tags }},
- {{ .DataType }},
- {{ .Name }},
- 'us-east-1';
+ '{{ Type }}',
+ '{{ Value }}',
+ '{{ Description }}',
+ '{{ Policies }}',
+ '{{ AllowedPattern }}',
+ '{{ Tier }}',
+ '{{ Tags }}',
+ '{{ DataType }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: parameter
+    props:
+      - name: Type
+        value: '{{ Type }}'
+      - name: Value
+        value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Policies
+        value: '{{ Policies }}'
+      - name: AllowedPattern
+        value: '{{ AllowedPattern }}'
+      - name: Tier
+        value: '{{ Tier }}'
+      - name: Tags
+        value: {}
+      - name: DataType
+        value: '{{ DataType }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

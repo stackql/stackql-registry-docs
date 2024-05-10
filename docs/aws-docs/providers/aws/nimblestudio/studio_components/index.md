@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>studio_component</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "StudioId": "{{ StudioId }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- studio_component.iql (required properties only)
 INSERT INTO aws.nimblestudio.studio_components (
  Name,
  StudioId,
@@ -101,46 +97,16 @@ INSERT INTO aws.nimblestudio.studio_components (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .StudioId }},
- {{ .Type }},
-'us-east-1';
+'{{ Name }}',
+ '{{ StudioId }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Configuration": null,
- "Description": "{{ Description }}",
- "Ec2SecurityGroupIds": [
-  "{{ Ec2SecurityGroupIds[0] }}"
- ],
- "InitializationScripts": [
-  {
-   "LaunchProfileProtocolVersion": "{{ LaunchProfileProtocolVersion }}",
-   "Platform": "{{ Platform }}",
-   "RunContext": "{{ RunContext }}",
-   "Script": "{{ Script }}"
-  }
- ],
- "Name": "{{ Name }}",
- "RuntimeRoleArn": "{{ RuntimeRoleArn }}",
- "ScriptParameters": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "SecureInitializationRoleArn": "{{ SecureInitializationRoleArn }}",
- "StudioId": "{{ StudioId }}",
- "Subtype": "{{ Subtype }}",
- "Tags": {},
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- studio_component.iql (all properties)
 INSERT INTO aws.nimblestudio.studio_components (
  Configuration,
  Description,
@@ -157,19 +123,67 @@ INSERT INTO aws.nimblestudio.studio_components (
  region
 )
 SELECT 
- {{ .Configuration }},
- {{ .Description }},
- {{ .Ec2SecurityGroupIds }},
- {{ .InitializationScripts }},
- {{ .Name }},
- {{ .RuntimeRoleArn }},
- {{ .ScriptParameters }},
- {{ .SecureInitializationRoleArn }},
- {{ .StudioId }},
- {{ .Subtype }},
- {{ .Tags }},
- {{ .Type }},
- 'us-east-1';
+ '{{ Configuration }}',
+ '{{ Description }}',
+ '{{ Ec2SecurityGroupIds }}',
+ '{{ InitializationScripts }}',
+ '{{ Name }}',
+ '{{ RuntimeRoleArn }}',
+ '{{ ScriptParameters }}',
+ '{{ SecureInitializationRoleArn }}',
+ '{{ StudioId }}',
+ '{{ Subtype }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: studio_component
+    props:
+      - name: Configuration
+        value: null
+      - name: Description
+        value: '{{ Description }}'
+      - name: Ec2SecurityGroupIds
+        value:
+          - '{{ Ec2SecurityGroupIds[0] }}'
+      - name: InitializationScripts
+        value:
+          - LaunchProfileProtocolVersion: '{{ LaunchProfileProtocolVersion }}'
+            Platform: '{{ Platform }}'
+            RunContext: '{{ RunContext }}'
+            Script: '{{ Script }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RuntimeRoleArn
+        value: '{{ RuntimeRoleArn }}'
+      - name: ScriptParameters
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: SecureInitializationRoleArn
+        value: '{{ SecureInitializationRoleArn }}'
+      - name: StudioId
+        value: '{{ StudioId }}'
+      - name: Subtype
+        value: '{{ Subtype }}'
+      - name: Tags
+        value: {}
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

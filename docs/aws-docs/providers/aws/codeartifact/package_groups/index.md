@@ -74,65 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>package_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "Pattern": "{{ Pattern }}"
-}
->>>
---required properties only
+-- package_group.iql (required properties only)
 INSERT INTO aws.codeartifact.package_groups (
  DomainName,
  Pattern,
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .Pattern }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ Pattern }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "DomainOwner": "{{ DomainOwner }}",
- "Pattern": "{{ Pattern }}",
- "ContactInfo": "{{ ContactInfo }}",
- "Description": "{{ Description }}",
- "OriginConfiguration": {
-  "Restrictions": {
-   "Publish": {
-    "RestrictionMode": "{{ RestrictionMode }}",
-    "Repositories": [
-     "{{ Repositories[0] }}"
-    ]
-   },
-   "ExternalUpstream": null,
-   "InternalUpstream": null
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- package_group.iql (all properties)
 INSERT INTO aws.codeartifact.package_groups (
  DomainName,
  DomainOwner,
@@ -144,14 +114,54 @@ INSERT INTO aws.codeartifact.package_groups (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .DomainOwner }},
- {{ .Pattern }},
- {{ .ContactInfo }},
- {{ .Description }},
- {{ .OriginConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ DomainOwner }}',
+ '{{ Pattern }}',
+ '{{ ContactInfo }}',
+ '{{ Description }}',
+ '{{ OriginConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: package_group
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: DomainOwner
+        value: '{{ DomainOwner }}'
+      - name: Pattern
+        value: '{{ Pattern }}'
+      - name: ContactInfo
+        value: '{{ ContactInfo }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: OriginConfiguration
+        value:
+          Restrictions:
+            Publish:
+              RestrictionMode: '{{ RestrictionMode }}'
+              Repositories:
+                - '{{ Repositories[0] }}'
+            ExternalUpstream: null
+            InternalUpstream: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

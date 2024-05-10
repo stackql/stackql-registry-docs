@@ -74,62 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationId": "{{ ApplicationId }}",
- "ApplicationType": "{{ ApplicationType }}"
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.systemsmanagersap.applications (
  ApplicationId,
  ApplicationType,
  region
 )
 SELECT 
-{{ .ApplicationId }},
- {{ .ApplicationType }},
-'us-east-1';
+'{{ ApplicationId }}',
+ '{{ ApplicationType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicationId": "{{ ApplicationId }}",
- "ApplicationType": "{{ ApplicationType }}",
- "Credentials": [
-  {
-   "DatabaseName": "{{ DatabaseName }}",
-   "CredentialType": "{{ CredentialType }}",
-   "SecretId": "{{ SecretId }}"
-  }
- ],
- "Instances": [
-  "{{ Instances[0] }}"
- ],
- "SapInstanceNumber": "{{ SapInstanceNumber }}",
- "Sid": "{{ Sid }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.systemsmanagersap.applications (
  ApplicationId,
  ApplicationType,
@@ -141,14 +114,51 @@ INSERT INTO aws.systemsmanagersap.applications (
  region
 )
 SELECT 
- {{ .ApplicationId }},
- {{ .ApplicationType }},
- {{ .Credentials }},
- {{ .Instances }},
- {{ .SapInstanceNumber }},
- {{ .Sid }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ApplicationId }}',
+ '{{ ApplicationType }}',
+ '{{ Credentials }}',
+ '{{ Instances }}',
+ '{{ SapInstanceNumber }}',
+ '{{ Sid }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: ApplicationId
+        value: '{{ ApplicationId }}'
+      - name: ApplicationType
+        value: '{{ ApplicationType }}'
+      - name: Credentials
+        value:
+          - DatabaseName: '{{ DatabaseName }}'
+            CredentialType: '{{ CredentialType }}'
+            SecretId: '{{ SecretId }}'
+      - name: Instances
+        value:
+          - '{{ Instances[0] }}'
+      - name: SapInstanceNumber
+        value: '{{ SapInstanceNumber }}'
+      - name: Sid
+        value: '{{ Sid }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

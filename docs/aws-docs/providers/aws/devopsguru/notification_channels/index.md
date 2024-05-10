@@ -74,71 +74,66 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>notification_channel</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Config": {
-  "Sns": {
-   "TopicArn": "{{ TopicArn }}"
-  },
-  "Filters": {
-   "Severities": [
-    "{{ Severities[0] }}"
-   ],
-   "MessageTypes": [
-    "{{ MessageTypes[0] }}"
-   ]
-  }
- }
-}
->>>
---required properties only
+-- notification_channel.iql (required properties only)
 INSERT INTO aws.devopsguru.notification_channels (
  Config,
  region
 )
 SELECT 
-{{ .Config }},
-'us-east-1';
+'{{ Config }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Config": {
-  "Sns": {
-   "TopicArn": "{{ TopicArn }}"
-  },
-  "Filters": {
-   "Severities": [
-    "{{ Severities[0] }}"
-   ],
-   "MessageTypes": [
-    "{{ MessageTypes[0] }}"
-   ]
-  }
- }
-}
->>>
---all properties
+-- notification_channel.iql (all properties)
 INSERT INTO aws.devopsguru.notification_channels (
  Config,
  region
 )
 SELECT 
- {{ .Config }},
- 'us-east-1';
+ '{{ Config }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: notification_channel
+    props:
+      - name: Config
+        value:
+          Sns:
+            TopicArn: '{{ TopicArn }}'
+          Filters:
+            Severities:
+              - '{{ Severities[0] }}'
+            MessageTypes:
+              - '{{ MessageTypes[0] }}'
+
 ```
 </TabItem>
 </Tabs>

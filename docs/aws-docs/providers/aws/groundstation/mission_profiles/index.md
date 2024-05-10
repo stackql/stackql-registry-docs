@@ -76,30 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>mission_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "MinimumViableContactDurationSeconds": "{{ MinimumViableContactDurationSeconds }}",
- "DataflowEdges": [
-  {
-   "Source": "{{ Source }}",
-   "Destination": "{{ Destination }}"
-  }
- ],
- "TrackingConfigArn": "{{ TrackingConfigArn }}"
-}
->>>
---required properties only
+-- mission_profile.iql (required properties only)
 INSERT INTO aws.groundstation.mission_profiles (
  Name,
  MinimumViableContactDurationSeconds,
@@ -108,43 +98,17 @@ INSERT INTO aws.groundstation.mission_profiles (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .MinimumViableContactDurationSeconds }},
- {{ .DataflowEdges }},
- {{ .TrackingConfigArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ MinimumViableContactDurationSeconds }}',
+ '{{ DataflowEdges }}',
+ '{{ TrackingConfigArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ContactPrePassDurationSeconds": "{{ ContactPrePassDurationSeconds }}",
- "ContactPostPassDurationSeconds": "{{ ContactPostPassDurationSeconds }}",
- "MinimumViableContactDurationSeconds": "{{ MinimumViableContactDurationSeconds }}",
- "StreamsKmsKey": {
-  "KmsKeyArn": "{{ KmsKeyArn }}",
-  "KmsAliasArn": "{{ KmsAliasArn }}"
- },
- "StreamsKmsRole": "{{ StreamsKmsRole }}",
- "DataflowEdges": [
-  {
-   "Source": "{{ Source }}",
-   "Destination": "{{ Destination }}"
-  }
- ],
- "TrackingConfigArn": "{{ TrackingConfigArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- mission_profile.iql (all properties)
 INSERT INTO aws.groundstation.mission_profiles (
  Name,
  ContactPrePassDurationSeconds,
@@ -158,16 +122,57 @@ INSERT INTO aws.groundstation.mission_profiles (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .ContactPrePassDurationSeconds }},
- {{ .ContactPostPassDurationSeconds }},
- {{ .MinimumViableContactDurationSeconds }},
- {{ .StreamsKmsKey }},
- {{ .StreamsKmsRole }},
- {{ .DataflowEdges }},
- {{ .TrackingConfigArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ ContactPrePassDurationSeconds }}',
+ '{{ ContactPostPassDurationSeconds }}',
+ '{{ MinimumViableContactDurationSeconds }}',
+ '{{ StreamsKmsKey }}',
+ '{{ StreamsKmsRole }}',
+ '{{ DataflowEdges }}',
+ '{{ TrackingConfigArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: mission_profile
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: ContactPrePassDurationSeconds
+        value: '{{ ContactPrePassDurationSeconds }}'
+      - name: ContactPostPassDurationSeconds
+        value: '{{ ContactPostPassDurationSeconds }}'
+      - name: MinimumViableContactDurationSeconds
+        value: '{{ MinimumViableContactDurationSeconds }}'
+      - name: StreamsKmsKey
+        value:
+          KmsKeyArn: '{{ KmsKeyArn }}'
+          KmsAliasArn: '{{ KmsAliasArn }}'
+      - name: StreamsKmsRole
+        value: '{{ StreamsKmsRole }}'
+      - name: DataflowEdges
+        value:
+          - Source: '{{ Source }}'
+            Destination: '{{ Destination }}'
+      - name: TrackingConfigArn
+        value: '{{ TrackingConfigArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

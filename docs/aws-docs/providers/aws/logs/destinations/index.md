@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>destination</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DestinationName": "{{ DestinationName }}",
- "RoleArn": "{{ RoleArn }}",
- "TargetArn": "{{ TargetArn }}"
-}
->>>
---required properties only
+-- destination.iql (required properties only)
 INSERT INTO aws.logs.destinations (
  DestinationName,
  RoleArn,
@@ -99,24 +95,16 @@ INSERT INTO aws.logs.destinations (
  region
 )
 SELECT 
-{{ .DestinationName }},
- {{ .RoleArn }},
- {{ .TargetArn }},
-'us-east-1';
+'{{ DestinationName }}',
+ '{{ RoleArn }}',
+ '{{ TargetArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DestinationName": "{{ DestinationName }}",
- "DestinationPolicy": "{{ DestinationPolicy }}",
- "RoleArn": "{{ RoleArn }}",
- "TargetArn": "{{ TargetArn }}"
-}
->>>
---all properties
+-- destination.iql (all properties)
 INSERT INTO aws.logs.destinations (
  DestinationName,
  DestinationPolicy,
@@ -125,11 +113,36 @@ INSERT INTO aws.logs.destinations (
  region
 )
 SELECT 
- {{ .DestinationName }},
- {{ .DestinationPolicy }},
- {{ .RoleArn }},
- {{ .TargetArn }},
- 'us-east-1';
+ '{{ DestinationName }}',
+ '{{ DestinationPolicy }}',
+ '{{ RoleArn }}',
+ '{{ TargetArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: destination
+    props:
+      - name: DestinationName
+        value: '{{ DestinationName }}'
+      - name: DestinationPolicy
+        value: '{{ DestinationPolicy }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: TargetArn
+        value: '{{ TargetArn }}'
+
 ```
 </TabItem>
 </Tabs>

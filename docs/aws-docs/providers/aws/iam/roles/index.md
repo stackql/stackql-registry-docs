@@ -74,60 +74,33 @@ FROM aws.iam.roles
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>role</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AssumeRolePolicyDocument": {}
-}
->>>
---required properties only
+-- role.iql (required properties only)
 INSERT INTO aws.iam.roles (
  AssumeRolePolicyDocument,
  region
 )
 SELECT 
-{{ .AssumeRolePolicyDocument }},
-'us-east-1';
+'{{ AssumeRolePolicyDocument }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssumeRolePolicyDocument": {},
- "Description": "{{ Description }}",
- "ManagedPolicyArns": [
-  "{{ ManagedPolicyArns[0] }}"
- ],
- "MaxSessionDuration": "{{ MaxSessionDuration }}",
- "Path": "{{ Path }}",
- "PermissionsBoundary": "{{ PermissionsBoundary }}",
- "Policies": [
-  {
-   "PolicyDocument": {},
-   "PolicyName": "{{ PolicyName }}"
-  }
- ],
- "RoleName": "{{ RoleName }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- role.iql (all properties)
 INSERT INTO aws.iam.roles (
  AssumeRolePolicyDocument,
  Description,
@@ -141,16 +114,56 @@ INSERT INTO aws.iam.roles (
  region
 )
 SELECT 
- {{ .AssumeRolePolicyDocument }},
- {{ .Description }},
- {{ .ManagedPolicyArns }},
- {{ .MaxSessionDuration }},
- {{ .Path }},
- {{ .PermissionsBoundary }},
- {{ .Policies }},
- {{ .RoleName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AssumeRolePolicyDocument }}',
+ '{{ Description }}',
+ '{{ ManagedPolicyArns }}',
+ '{{ MaxSessionDuration }}',
+ '{{ Path }}',
+ '{{ PermissionsBoundary }}',
+ '{{ Policies }}',
+ '{{ RoleName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: role
+    props:
+      - name: AssumeRolePolicyDocument
+        value: {}
+      - name: Description
+        value: '{{ Description }}'
+      - name: ManagedPolicyArns
+        value:
+          - '{{ ManagedPolicyArns[0] }}'
+      - name: MaxSessionDuration
+        value: '{{ MaxSessionDuration }}'
+      - name: Path
+        value: '{{ Path }}'
+      - name: PermissionsBoundary
+        value: '{{ PermissionsBoundary }}'
+      - name: Policies
+        value:
+          - PolicyDocument: {}
+            PolicyName: '{{ PolicyName }}'
+      - name: RoleName
+        value: '{{ RoleName }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

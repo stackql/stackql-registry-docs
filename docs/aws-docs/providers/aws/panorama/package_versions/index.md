@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>package_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PackageId": "{{ PackageId }}",
- "PackageVersion": "{{ PackageVersion }}",
- "PatchVersion": "{{ PatchVersion }}"
-}
->>>
---required properties only
+-- package_version.iql (required properties only)
 INSERT INTO aws.panorama.package_versions (
  PackageId,
  PackageVersion,
@@ -103,26 +99,16 @@ INSERT INTO aws.panorama.package_versions (
  region
 )
 SELECT 
-{{ .PackageId }},
- {{ .PackageVersion }},
- {{ .PatchVersion }},
-'us-east-1';
+'{{ PackageId }}',
+ '{{ PackageVersion }}',
+ '{{ PatchVersion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "OwnerAccount": "{{ OwnerAccount }}",
- "PackageId": "{{ PackageId }}",
- "PackageVersion": "{{ PackageVersion }}",
- "PatchVersion": "{{ PatchVersion }}",
- "MarkLatest": "{{ MarkLatest }}",
- "UpdatedLatestPatchVersion": null
-}
->>>
---all properties
+-- package_version.iql (all properties)
 INSERT INTO aws.panorama.package_versions (
  OwnerAccount,
  PackageId,
@@ -133,13 +119,42 @@ INSERT INTO aws.panorama.package_versions (
  region
 )
 SELECT 
- {{ .OwnerAccount }},
- {{ .PackageId }},
- {{ .PackageVersion }},
- {{ .PatchVersion }},
- {{ .MarkLatest }},
- {{ .UpdatedLatestPatchVersion }},
- 'us-east-1';
+ '{{ OwnerAccount }}',
+ '{{ PackageId }}',
+ '{{ PackageVersion }}',
+ '{{ PatchVersion }}',
+ '{{ MarkLatest }}',
+ '{{ UpdatedLatestPatchVersion }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: package_version
+    props:
+      - name: OwnerAccount
+        value: '{{ OwnerAccount }}'
+      - name: PackageId
+        value: '{{ PackageId }}'
+      - name: PackageVersion
+        value: '{{ PackageVersion }}'
+      - name: PatchVersion
+        value: '{{ PatchVersion }}'
+      - name: MarkLatest
+        value: '{{ MarkLatest }}'
+      - name: UpdatedLatestPatchVersion
+        value: null
+
 ```
 </TabItem>
 </Tabs>

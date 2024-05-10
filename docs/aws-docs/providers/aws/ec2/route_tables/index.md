@@ -74,55 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>route_table</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- route_table.iql (required properties only)
 INSERT INTO aws.ec2.route_tables (
  VpcId,
  region
 )
 SELECT 
-{{ .VpcId }},
-'us-east-1';
+'{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VpcId": "{{ VpcId }}"
-}
->>>
---all properties
+-- route_table.iql (all properties)
 INSERT INTO aws.ec2.route_tables (
  Tags,
  VpcId,
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .VpcId }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ VpcId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: route_table
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+
 ```
 </TabItem>
 </Tabs>

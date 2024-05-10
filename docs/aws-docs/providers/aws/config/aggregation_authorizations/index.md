@@ -76,50 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>aggregation_authorization</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AuthorizedAccountId": "{{ AuthorizedAccountId }}",
- "AuthorizedAwsRegion": "{{ AuthorizedAwsRegion }}"
-}
->>>
---required properties only
+-- aggregation_authorization.iql (required properties only)
 INSERT INTO aws.config.aggregation_authorizations (
  AuthorizedAccountId,
  AuthorizedAwsRegion,
  region
 )
 SELECT 
-{{ .AuthorizedAccountId }},
- {{ .AuthorizedAwsRegion }},
-'us-east-1';
+'{{ AuthorizedAccountId }}',
+ '{{ AuthorizedAwsRegion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AuthorizedAccountId": "{{ AuthorizedAccountId }}",
- "AuthorizedAwsRegion": "{{ AuthorizedAwsRegion }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- aggregation_authorization.iql (all properties)
 INSERT INTO aws.config.aggregation_authorizations (
  AuthorizedAccountId,
  AuthorizedAwsRegion,
@@ -127,10 +112,35 @@ INSERT INTO aws.config.aggregation_authorizations (
  region
 )
 SELECT 
- {{ .AuthorizedAccountId }},
- {{ .AuthorizedAwsRegion }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AuthorizedAccountId }}',
+ '{{ AuthorizedAwsRegion }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: aggregation_authorization
+    props:
+      - name: AuthorizedAccountId
+        value: '{{ AuthorizedAccountId }}'
+      - name: AuthorizedAwsRegion
+        value: '{{ AuthorizedAwsRegion }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

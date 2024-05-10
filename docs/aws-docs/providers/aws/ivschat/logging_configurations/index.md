@@ -74,67 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>logging_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DestinationConfiguration": {
-  "CloudWatchLogs": {
-   "LogGroupName": "{{ LogGroupName }}"
-  },
-  "Firehose": {
-   "DeliveryStreamName": "{{ DeliveryStreamName }}"
-  },
-  "S3": {
-   "BucketName": "{{ BucketName }}"
-  }
- }
-}
->>>
---required properties only
+-- logging_configuration.iql (required properties only)
 INSERT INTO aws.ivschat.logging_configurations (
  DestinationConfiguration,
  region
 )
 SELECT 
-{{ .DestinationConfiguration }},
-'us-east-1';
+'{{ DestinationConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DestinationConfiguration": {
-  "CloudWatchLogs": {
-   "LogGroupName": "{{ LogGroupName }}"
-  },
-  "Firehose": {
-   "DeliveryStreamName": "{{ DeliveryStreamName }}"
-  },
-  "S3": {
-   "BucketName": "{{ BucketName }}"
-  }
- },
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- logging_configuration.iql (all properties)
 INSERT INTO aws.ivschat.logging_configurations (
  DestinationConfiguration,
  Name,
@@ -142,10 +108,41 @@ INSERT INTO aws.ivschat.logging_configurations (
  region
 )
 SELECT 
- {{ .DestinationConfiguration }},
- {{ .Name }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DestinationConfiguration }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: logging_configuration
+    props:
+      - name: DestinationConfiguration
+        value:
+          CloudWatchLogs:
+            LogGroupName: '{{ LogGroupName }}'
+          Firehose:
+            DeliveryStreamName: '{{ DeliveryStreamName }}'
+          S3:
+            BucketName: '{{ BucketName }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

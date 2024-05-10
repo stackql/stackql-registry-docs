@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>outpost_resolver</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "OutpostArn": "{{ OutpostArn }}",
- "PreferredInstanceType": "{{ PreferredInstanceType }}"
-}
->>>
---required properties only
+-- outpost_resolver.iql (required properties only)
 INSERT INTO aws.route53resolver.outpost_resolvers (
  Name,
  OutpostArn,
@@ -99,30 +95,16 @@ INSERT INTO aws.route53resolver.outpost_resolvers (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .OutpostArn }},
- {{ .PreferredInstanceType }},
-'us-east-1';
+'{{ Name }}',
+ '{{ OutpostArn }}',
+ '{{ PreferredInstanceType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "OutpostArn": "{{ OutpostArn }}",
- "PreferredInstanceType": "{{ PreferredInstanceType }}",
- "InstanceCount": "{{ InstanceCount }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- outpost_resolver.iql (all properties)
 INSERT INTO aws.route53resolver.outpost_resolvers (
  Name,
  OutpostArn,
@@ -132,12 +114,41 @@ INSERT INTO aws.route53resolver.outpost_resolvers (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .OutpostArn }},
- {{ .PreferredInstanceType }},
- {{ .InstanceCount }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ OutpostArn }}',
+ '{{ PreferredInstanceType }}',
+ '{{ InstanceCount }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: outpost_resolver
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: OutpostArn
+        value: '{{ OutpostArn }}'
+      - name: PreferredInstanceType
+        value: '{{ PreferredInstanceType }}'
+      - name: InstanceCount
+        value: '{{ InstanceCount }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

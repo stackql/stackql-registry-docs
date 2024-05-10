@@ -74,61 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>location_azure_blob</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AgentArns": [
-  "{{ AgentArns[0] }}"
- ],
- "AzureBlobAuthenticationType": "{{ AzureBlobAuthenticationType }}"
-}
->>>
---required properties only
+-- location_azure_blob.iql (required properties only)
 INSERT INTO aws.datasync.location_azure_blobs (
  AgentArns,
  AzureBlobAuthenticationType,
  region
 )
 SELECT 
-{{ .AgentArns }},
- {{ .AzureBlobAuthenticationType }},
-'us-east-1';
+'{{ AgentArns }}',
+ '{{ AzureBlobAuthenticationType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AgentArns": [
-  "{{ AgentArns[0] }}"
- ],
- "AzureBlobAuthenticationType": "{{ AzureBlobAuthenticationType }}",
- "AzureBlobSasConfiguration": {
-  "AzureBlobSasToken": "{{ AzureBlobSasToken }}"
- },
- "AzureBlobContainerUrl": "{{ AzureBlobContainerUrl }}",
- "AzureBlobType": "{{ AzureBlobType }}",
- "AzureAccessTier": "{{ AzureAccessTier }}",
- "Subdirectory": "{{ Subdirectory }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- location_azure_blob.iql (all properties)
 INSERT INTO aws.datasync.location_azure_blobs (
  AgentArns,
  AzureBlobAuthenticationType,
@@ -141,15 +115,52 @@ INSERT INTO aws.datasync.location_azure_blobs (
  region
 )
 SELECT 
- {{ .AgentArns }},
- {{ .AzureBlobAuthenticationType }},
- {{ .AzureBlobSasConfiguration }},
- {{ .AzureBlobContainerUrl }},
- {{ .AzureBlobType }},
- {{ .AzureAccessTier }},
- {{ .Subdirectory }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AgentArns }}',
+ '{{ AzureBlobAuthenticationType }}',
+ '{{ AzureBlobSasConfiguration }}',
+ '{{ AzureBlobContainerUrl }}',
+ '{{ AzureBlobType }}',
+ '{{ AzureAccessTier }}',
+ '{{ Subdirectory }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: location_azure_blob
+    props:
+      - name: AgentArns
+        value:
+          - '{{ AgentArns[0] }}'
+      - name: AzureBlobAuthenticationType
+        value: '{{ AzureBlobAuthenticationType }}'
+      - name: AzureBlobSasConfiguration
+        value:
+          AzureBlobSasToken: '{{ AzureBlobSasToken }}'
+      - name: AzureBlobContainerUrl
+        value: '{{ AzureBlobContainerUrl }}'
+      - name: AzureBlobType
+        value: '{{ AzureBlobType }}'
+      - name: AzureAccessTier
+        value: '{{ AzureAccessTier }}'
+      - name: Subdirectory
+        value: '{{ Subdirectory }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

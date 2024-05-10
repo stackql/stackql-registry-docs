@@ -74,50 +74,63 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>index</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- index.iql (required properties only)
 INSERT INTO aws.resourceexplorer2.indices (
  Type,
  region
 )
 SELECT 
-{{ .Type }},
-'us-east-1';
+'{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": {},
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- index.iql (all properties)
 INSERT INTO aws.resourceexplorer2.indices (
  Tags,
  Type,
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .Type }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: index
+    props:
+      - name: Tags
+        value: {}
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,59 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>target_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IpAddressType": "{{ IpAddressType }}",
- "HealthCheckIntervalSeconds": "{{ HealthCheckIntervalSeconds }}",
- "Matcher": {
-  "GrpcCode": "{{ GrpcCode }}",
-  "HttpCode": "{{ HttpCode }}"
- },
- "HealthCheckPath": "{{ HealthCheckPath }}",
- "Port": "{{ Port }}",
- "Targets": [
-  {
-   "AvailabilityZone": "{{ AvailabilityZone }}",
-   "Id": "{{ Id }}",
-   "Port": "{{ Port }}"
-  }
- ],
- "HealthCheckEnabled": "{{ HealthCheckEnabled }}",
- "ProtocolVersion": "{{ ProtocolVersion }}",
- "UnhealthyThresholdCount": "{{ UnhealthyThresholdCount }}",
- "HealthCheckTimeoutSeconds": "{{ HealthCheckTimeoutSeconds }}",
- "Name": "{{ Name }}",
- "VpcId": "{{ VpcId }}",
- "HealthyThresholdCount": "{{ HealthyThresholdCount }}",
- "HealthCheckProtocol": "{{ HealthCheckProtocol }}",
- "TargetGroupAttributes": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "TargetType": "{{ TargetType }}",
- "HealthCheckPort": "{{ HealthCheckPort }}",
- "Protocol": "{{ Protocol }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---required properties only
+-- target_group.iql (required properties only)
 INSERT INTO aws.elasticloadbalancingv2.target_groups (
  IpAddressType,
  HealthCheckIntervalSeconds,
@@ -150,74 +111,32 @@ INSERT INTO aws.elasticloadbalancingv2.target_groups (
  region
 )
 SELECT 
-{{ .IpAddressType }},
- {{ .HealthCheckIntervalSeconds }},
- {{ .Matcher }},
- {{ .HealthCheckPath }},
- {{ .Port }},
- {{ .Targets }},
- {{ .HealthCheckEnabled }},
- {{ .ProtocolVersion }},
- {{ .UnhealthyThresholdCount }},
- {{ .HealthCheckTimeoutSeconds }},
- {{ .Name }},
- {{ .VpcId }},
- {{ .HealthyThresholdCount }},
- {{ .HealthCheckProtocol }},
- {{ .TargetGroupAttributes }},
- {{ .TargetType }},
- {{ .HealthCheckPort }},
- {{ .Protocol }},
- {{ .Tags }},
-'us-east-1';
+'{{ IpAddressType }}',
+ '{{ HealthCheckIntervalSeconds }}',
+ '{{ Matcher }}',
+ '{{ HealthCheckPath }}',
+ '{{ Port }}',
+ '{{ Targets }}',
+ '{{ HealthCheckEnabled }}',
+ '{{ ProtocolVersion }}',
+ '{{ UnhealthyThresholdCount }}',
+ '{{ HealthCheckTimeoutSeconds }}',
+ '{{ Name }}',
+ '{{ VpcId }}',
+ '{{ HealthyThresholdCount }}',
+ '{{ HealthCheckProtocol }}',
+ '{{ TargetGroupAttributes }}',
+ '{{ TargetType }}',
+ '{{ HealthCheckPort }}',
+ '{{ Protocol }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IpAddressType": "{{ IpAddressType }}",
- "HealthCheckIntervalSeconds": "{{ HealthCheckIntervalSeconds }}",
- "Matcher": {
-  "GrpcCode": "{{ GrpcCode }}",
-  "HttpCode": "{{ HttpCode }}"
- },
- "HealthCheckPath": "{{ HealthCheckPath }}",
- "Port": "{{ Port }}",
- "Targets": [
-  {
-   "AvailabilityZone": "{{ AvailabilityZone }}",
-   "Id": "{{ Id }}",
-   "Port": "{{ Port }}"
-  }
- ],
- "HealthCheckEnabled": "{{ HealthCheckEnabled }}",
- "ProtocolVersion": "{{ ProtocolVersion }}",
- "UnhealthyThresholdCount": "{{ UnhealthyThresholdCount }}",
- "HealthCheckTimeoutSeconds": "{{ HealthCheckTimeoutSeconds }}",
- "Name": "{{ Name }}",
- "VpcId": "{{ VpcId }}",
- "HealthyThresholdCount": "{{ HealthyThresholdCount }}",
- "HealthCheckProtocol": "{{ HealthCheckProtocol }}",
- "TargetGroupAttributes": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "TargetType": "{{ TargetType }}",
- "HealthCheckPort": "{{ HealthCheckPort }}",
- "Protocol": "{{ Protocol }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- target_group.iql (all properties)
 INSERT INTO aws.elasticloadbalancingv2.target_groups (
  IpAddressType,
  HealthCheckIntervalSeconds,
@@ -241,26 +160,90 @@ INSERT INTO aws.elasticloadbalancingv2.target_groups (
  region
 )
 SELECT 
- {{ .IpAddressType }},
- {{ .HealthCheckIntervalSeconds }},
- {{ .Matcher }},
- {{ .HealthCheckPath }},
- {{ .Port }},
- {{ .Targets }},
- {{ .HealthCheckEnabled }},
- {{ .ProtocolVersion }},
- {{ .UnhealthyThresholdCount }},
- {{ .HealthCheckTimeoutSeconds }},
- {{ .Name }},
- {{ .VpcId }},
- {{ .HealthyThresholdCount }},
- {{ .HealthCheckProtocol }},
- {{ .TargetGroupAttributes }},
- {{ .TargetType }},
- {{ .HealthCheckPort }},
- {{ .Protocol }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ IpAddressType }}',
+ '{{ HealthCheckIntervalSeconds }}',
+ '{{ Matcher }}',
+ '{{ HealthCheckPath }}',
+ '{{ Port }}',
+ '{{ Targets }}',
+ '{{ HealthCheckEnabled }}',
+ '{{ ProtocolVersion }}',
+ '{{ UnhealthyThresholdCount }}',
+ '{{ HealthCheckTimeoutSeconds }}',
+ '{{ Name }}',
+ '{{ VpcId }}',
+ '{{ HealthyThresholdCount }}',
+ '{{ HealthCheckProtocol }}',
+ '{{ TargetGroupAttributes }}',
+ '{{ TargetType }}',
+ '{{ HealthCheckPort }}',
+ '{{ Protocol }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: target_group
+    props:
+      - name: IpAddressType
+        value: '{{ IpAddressType }}'
+      - name: HealthCheckIntervalSeconds
+        value: '{{ HealthCheckIntervalSeconds }}'
+      - name: Matcher
+        value:
+          GrpcCode: '{{ GrpcCode }}'
+          HttpCode: '{{ HttpCode }}'
+      - name: HealthCheckPath
+        value: '{{ HealthCheckPath }}'
+      - name: Port
+        value: '{{ Port }}'
+      - name: Targets
+        value:
+          - AvailabilityZone: '{{ AvailabilityZone }}'
+            Id: '{{ Id }}'
+            Port: '{{ Port }}'
+      - name: HealthCheckEnabled
+        value: '{{ HealthCheckEnabled }}'
+      - name: ProtocolVersion
+        value: '{{ ProtocolVersion }}'
+      - name: UnhealthyThresholdCount
+        value: '{{ UnhealthyThresholdCount }}'
+      - name: HealthCheckTimeoutSeconds
+        value: '{{ HealthCheckTimeoutSeconds }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: HealthyThresholdCount
+        value: '{{ HealthyThresholdCount }}'
+      - name: HealthCheckProtocol
+        value: '{{ HealthCheckProtocol }}'
+      - name: TargetGroupAttributes
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: TargetType
+        value: '{{ TargetType }}'
+      - name: HealthCheckPort
+        value: '{{ HealthCheckPort }}'
+      - name: Protocol
+        value: '{{ Protocol }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subnet_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubnetGroupName": "{{ SubnetGroupName }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ]
-}
->>>
---required properties only
+-- subnet_group.iql (required properties only)
 INSERT INTO aws.memorydb.subnet_groups (
  SubnetGroupName,
  SubnetIds,
  region
 )
 SELECT 
-{{ .SubnetGroupName }},
- {{ .SubnetIds }},
-'us-east-1';
+'{{ SubnetGroupName }}',
+ '{{ SubnetIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SubnetGroupName": "{{ SubnetGroupName }}",
- "Description": "{{ Description }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- subnet_group.iql (all properties)
 INSERT INTO aws.memorydb.subnet_groups (
  SubnetGroupName,
  Description,
@@ -131,11 +111,39 @@ INSERT INTO aws.memorydb.subnet_groups (
  region
 )
 SELECT 
- {{ .SubnetGroupName }},
- {{ .Description }},
- {{ .SubnetIds }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SubnetGroupName }}',
+ '{{ Description }}',
+ '{{ SubnetIds }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subnet_group
+    props:
+      - name: SubnetGroupName
+        value: '{{ SubnetGroupName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

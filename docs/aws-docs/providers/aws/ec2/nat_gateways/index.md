@@ -74,57 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>nat_gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---required properties only
+-- nat_gateway.iql (required properties only)
 INSERT INTO aws.ec2.nat_gateways (
  SubnetId,
  region
 )
 SELECT 
-{{ .SubnetId }},
-'us-east-1';
+'{{ SubnetId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SecondaryAllocationIds": [
-  "{{ SecondaryAllocationIds[0] }}"
- ],
- "PrivateIpAddress": "{{ PrivateIpAddress }}",
- "ConnectivityType": "{{ ConnectivityType }}",
- "SecondaryPrivateIpAddresses": [
-  "{{ SecondaryPrivateIpAddresses[0] }}"
- ],
- "SecondaryPrivateIpAddressCount": "{{ SecondaryPrivateIpAddressCount }}",
- "AllocationId": "{{ AllocationId }}",
- "SubnetId": "{{ SubnetId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "MaxDrainDurationSeconds": "{{ MaxDrainDurationSeconds }}"
-}
->>>
---all properties
+-- nat_gateway.iql (all properties)
 INSERT INTO aws.ec2.nat_gateways (
  SecondaryAllocationIds,
  PrivateIpAddress,
@@ -138,16 +114,55 @@ INSERT INTO aws.ec2.nat_gateways (
  region
 )
 SELECT 
- {{ .SecondaryAllocationIds }},
- {{ .PrivateIpAddress }},
- {{ .ConnectivityType }},
- {{ .SecondaryPrivateIpAddresses }},
- {{ .SecondaryPrivateIpAddressCount }},
- {{ .AllocationId }},
- {{ .SubnetId }},
- {{ .Tags }},
- {{ .MaxDrainDurationSeconds }},
- 'us-east-1';
+ '{{ SecondaryAllocationIds }}',
+ '{{ PrivateIpAddress }}',
+ '{{ ConnectivityType }}',
+ '{{ SecondaryPrivateIpAddresses }}',
+ '{{ SecondaryPrivateIpAddressCount }}',
+ '{{ AllocationId }}',
+ '{{ SubnetId }}',
+ '{{ Tags }}',
+ '{{ MaxDrainDurationSeconds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: nat_gateway
+    props:
+      - name: SecondaryAllocationIds
+        value:
+          - '{{ SecondaryAllocationIds[0] }}'
+      - name: PrivateIpAddress
+        value: '{{ PrivateIpAddress }}'
+      - name: ConnectivityType
+        value: '{{ ConnectivityType }}'
+      - name: SecondaryPrivateIpAddresses
+        value:
+          - '{{ SecondaryPrivateIpAddresses[0] }}'
+      - name: SecondaryPrivateIpAddressCount
+        value: '{{ SecondaryPrivateIpAddressCount }}'
+      - name: AllocationId
+        value: '{{ AllocationId }}'
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: MaxDrainDurationSeconds
+        value: '{{ MaxDrainDurationSeconds }}'
+
 ```
 </TabItem>
 </Tabs>

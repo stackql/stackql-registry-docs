@@ -74,69 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>identity_pool</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AllowUnauthenticatedIdentities": "{{ AllowUnauthenticatedIdentities }}"
-}
->>>
---required properties only
+-- identity_pool.iql (required properties only)
 INSERT INTO aws.cognito.identity_pools (
  AllowUnauthenticatedIdentities,
  region
 )
 SELECT 
-{{ .AllowUnauthenticatedIdentities }},
-'us-east-1';
+'{{ AllowUnauthenticatedIdentities }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PushSync": {
-  "ApplicationArns": [
-   "{{ ApplicationArns[0] }}"
-  ],
-  "RoleArn": "{{ RoleArn }}"
- },
- "CognitoIdentityProviders": [
-  {
-   "ServerSideTokenCheck": "{{ ServerSideTokenCheck }}",
-   "ProviderName": "{{ ProviderName }}",
-   "ClientId": "{{ ClientId }}"
-  }
- ],
- "DeveloperProviderName": "{{ DeveloperProviderName }}",
- "CognitoStreams": {
-  "StreamingStatus": "{{ StreamingStatus }}",
-  "StreamName": "{{ StreamName }}",
-  "RoleArn": "{{ RoleArn }}"
- },
- "SupportedLoginProviders": {},
- "CognitoEvents": {},
- "IdentityPoolName": "{{ IdentityPoolName }}",
- "AllowUnauthenticatedIdentities": "{{ AllowUnauthenticatedIdentities }}",
- "SamlProviderARNs": [
-  "{{ SamlProviderARNs[0] }}"
- ],
- "OpenIdConnectProviderARNs": [
-  "{{ OpenIdConnectProviderARNs[0] }}"
- ],
- "AllowClassicFlow": "{{ AllowClassicFlow }}"
-}
->>>
---all properties
+-- identity_pool.iql (all properties)
 INSERT INTO aws.cognito.identity_pools (
  PushSync,
  CognitoIdentityProviders,
@@ -152,18 +116,68 @@ INSERT INTO aws.cognito.identity_pools (
  region
 )
 SELECT 
- {{ .PushSync }},
- {{ .CognitoIdentityProviders }},
- {{ .DeveloperProviderName }},
- {{ .CognitoStreams }},
- {{ .SupportedLoginProviders }},
- {{ .CognitoEvents }},
- {{ .IdentityPoolName }},
- {{ .AllowUnauthenticatedIdentities }},
- {{ .SamlProviderARNs }},
- {{ .OpenIdConnectProviderARNs }},
- {{ .AllowClassicFlow }},
- 'us-east-1';
+ '{{ PushSync }}',
+ '{{ CognitoIdentityProviders }}',
+ '{{ DeveloperProviderName }}',
+ '{{ CognitoStreams }}',
+ '{{ SupportedLoginProviders }}',
+ '{{ CognitoEvents }}',
+ '{{ IdentityPoolName }}',
+ '{{ AllowUnauthenticatedIdentities }}',
+ '{{ SamlProviderARNs }}',
+ '{{ OpenIdConnectProviderARNs }}',
+ '{{ AllowClassicFlow }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: identity_pool
+    props:
+      - name: PushSync
+        value:
+          ApplicationArns:
+            - '{{ ApplicationArns[0] }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: CognitoIdentityProviders
+        value:
+          - ServerSideTokenCheck: '{{ ServerSideTokenCheck }}'
+            ProviderName: '{{ ProviderName }}'
+            ClientId: '{{ ClientId }}'
+      - name: DeveloperProviderName
+        value: '{{ DeveloperProviderName }}'
+      - name: CognitoStreams
+        value:
+          StreamingStatus: '{{ StreamingStatus }}'
+          StreamName: '{{ StreamName }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: SupportedLoginProviders
+        value: {}
+      - name: CognitoEvents
+        value: {}
+      - name: IdentityPoolName
+        value: '{{ IdentityPoolName }}'
+      - name: AllowUnauthenticatedIdentities
+        value: '{{ AllowUnauthenticatedIdentities }}'
+      - name: SamlProviderARNs
+        value:
+          - '{{ SamlProviderARNs[0] }}'
+      - name: OpenIdConnectProviderARNs
+        value:
+          - '{{ OpenIdConnectProviderARNs[0] }}'
+      - name: AllowClassicFlow
+        value: '{{ AllowClassicFlow }}'
+
 ```
 </TabItem>
 </Tabs>

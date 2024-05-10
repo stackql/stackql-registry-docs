@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>multiplex</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AvailabilityZones": [
-  "{{ AvailabilityZones[0] }}"
- ],
- "MultiplexSettings": {
-  "MaximumVideoBufferDelayMilliseconds": "{{ MaximumVideoBufferDelayMilliseconds }}",
-  "TransportStreamBitrate": "{{ TransportStreamBitrate }}",
-  "TransportStreamId": "{{ TransportStreamId }}",
-  "TransportStreamReservedBitrate": "{{ TransportStreamReservedBitrate }}"
- },
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- multiplex.iql (required properties only)
 INSERT INTO aws.medialive.multiplexes (
  AvailabilityZones,
  MultiplexSettings,
@@ -106,41 +95,16 @@ INSERT INTO aws.medialive.multiplexes (
  region
 )
 SELECT 
-{{ .AvailabilityZones }},
- {{ .MultiplexSettings }},
- {{ .Name }},
-'us-east-1';
+'{{ AvailabilityZones }}',
+ '{{ MultiplexSettings }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AvailabilityZones": [
-  "{{ AvailabilityZones[0] }}"
- ],
- "Destinations": [
-  {
-   "MultiplexMediaConnectOutputDestinationSettings": null
-  }
- ],
- "MultiplexSettings": {
-  "MaximumVideoBufferDelayMilliseconds": "{{ MaximumVideoBufferDelayMilliseconds }}",
-  "TransportStreamBitrate": "{{ TransportStreamBitrate }}",
-  "TransportStreamId": "{{ TransportStreamId }}",
-  "TransportStreamReservedBitrate": "{{ TransportStreamReservedBitrate }}"
- },
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- multiplex.iql (all properties)
 INSERT INTO aws.medialive.multiplexes (
  AvailabilityZones,
  Destinations,
@@ -150,12 +114,47 @@ INSERT INTO aws.medialive.multiplexes (
  region
 )
 SELECT 
- {{ .AvailabilityZones }},
- {{ .Destinations }},
- {{ .MultiplexSettings }},
- {{ .Name }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AvailabilityZones }}',
+ '{{ Destinations }}',
+ '{{ MultiplexSettings }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: multiplex
+    props:
+      - name: AvailabilityZones
+        value:
+          - '{{ AvailabilityZones[0] }}'
+      - name: Destinations
+        value:
+          - MultiplexMediaConnectOutputDestinationSettings: null
+      - name: MultiplexSettings
+        value:
+          MaximumVideoBufferDelayMilliseconds: '{{ MaximumVideoBufferDelayMilliseconds }}'
+          TransportStreamBitrate: '{{ TransportStreamBitrate }}'
+          TransportStreamId: '{{ TransportStreamId }}'
+          TransportStreamReservedBitrate: '{{ TransportStreamReservedBitrate }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

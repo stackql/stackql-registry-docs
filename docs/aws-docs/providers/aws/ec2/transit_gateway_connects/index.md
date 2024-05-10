@@ -74,54 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway_connect</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TransportTransitGatewayAttachmentId": "{{ TransportTransitGatewayAttachmentId }}",
- "Options": {
-  "Protocol": "{{ Protocol }}"
- }
-}
->>>
---required properties only
+-- transit_gateway_connect.iql (required properties only)
 INSERT INTO aws.ec2.transit_gateway_connects (
  TransportTransitGatewayAttachmentId,
  Options,
  region
 )
 SELECT 
-{{ .TransportTransitGatewayAttachmentId }},
- {{ .Options }},
-'us-east-1';
+'{{ TransportTransitGatewayAttachmentId }}',
+ '{{ Options }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TransportTransitGatewayAttachmentId": "{{ TransportTransitGatewayAttachmentId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Options": {
-  "Protocol": "{{ Protocol }}"
- }
-}
->>>
---all properties
+-- transit_gateway_connect.iql (all properties)
 INSERT INTO aws.ec2.transit_gateway_connects (
  TransportTransitGatewayAttachmentId,
  Tags,
@@ -129,10 +110,36 @@ INSERT INTO aws.ec2.transit_gateway_connects (
  region
 )
 SELECT 
- {{ .TransportTransitGatewayAttachmentId }},
- {{ .Tags }},
- {{ .Options }},
- 'us-east-1';
+ '{{ TransportTransitGatewayAttachmentId }}',
+ '{{ Tags }}',
+ '{{ Options }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway_connect
+    props:
+      - name: TransportTransitGatewayAttachmentId
+        value: '{{ TransportTransitGatewayAttachmentId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Options
+        value:
+          Protocol: '{{ Protocol }}'
+
 ```
 </TabItem>
 </Tabs>

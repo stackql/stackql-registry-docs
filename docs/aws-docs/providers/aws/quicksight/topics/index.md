@@ -76,214 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>topic</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "DataSets": [
-  {
-   "DatasetArn": "{{ DatasetArn }}",
-   "DatasetName": "{{ DatasetName }}",
-   "DatasetDescription": "{{ DatasetDescription }}",
-   "DataAggregation": {
-    "DatasetRowDateGranularity": "{{ DatasetRowDateGranularity }}",
-    "DefaultDateColumnName": "{{ DefaultDateColumnName }}"
-   },
-   "Filters": [
-    {
-     "FilterDescription": "{{ FilterDescription }}",
-     "FilterClass": "{{ FilterClass }}",
-     "FilterName": "{{ FilterName }}",
-     "FilterSynonyms": [
-      "{{ FilterSynonyms[0] }}"
-     ],
-     "OperandFieldName": "{{ OperandFieldName }}",
-     "FilterType": "{{ FilterType }}",
-     "CategoryFilter": {
-      "CategoryFilterFunction": "{{ CategoryFilterFunction }}",
-      "CategoryFilterType": "{{ CategoryFilterType }}",
-      "Constant": {
-       "ConstantType": "{{ ConstantType }}",
-       "SingularConstant": "{{ SingularConstant }}",
-       "CollectiveConstant": {
-        "ValueList": [
-         "{{ ValueList[0] }}"
-        ]
-       }
-      },
-      "Inverse": "{{ Inverse }}"
-     },
-     "NumericEqualityFilter": {
-      "Constant": {
-       "ConstantType": null,
-       "SingularConstant": "{{ SingularConstant }}"
-      },
-      "Aggregation": "{{ Aggregation }}"
-     },
-     "NumericRangeFilter": {
-      "Inclusive": "{{ Inclusive }}",
-      "Constant": {
-       "ConstantType": null,
-       "RangeConstant": {
-        "Minimum": "{{ Minimum }}",
-        "Maximum": "{{ Maximum }}"
-       }
-      },
-      "Aggregation": null
-     },
-     "DateRangeFilter": {
-      "Inclusive": "{{ Inclusive }}",
-      "Constant": null
-     },
-     "RelativeDateFilter": {
-      "TimeGranularity": null,
-      "RelativeDateFilterFunction": "{{ RelativeDateFilterFunction }}",
-      "Constant": null
-     }
-    }
-   ],
-   "Columns": [
-    {
-     "ColumnName": "{{ ColumnName }}",
-     "ColumnFriendlyName": "{{ ColumnFriendlyName }}",
-     "ColumnDescription": "{{ ColumnDescription }}",
-     "ColumnSynonyms": [
-      "{{ ColumnSynonyms[0] }}"
-     ],
-     "ColumnDataRole": "{{ ColumnDataRole }}",
-     "Aggregation": "{{ Aggregation }}",
-     "IsIncludedInTopic": "{{ IsIncludedInTopic }}",
-     "ComparativeOrder": {
-      "UseOrdering": "{{ UseOrdering }}",
-      "SpecifedOrder": [
-       "{{ SpecifedOrder[0] }}"
-      ],
-      "TreatUndefinedSpecifiedValues": "{{ TreatUndefinedSpecifiedValues }}"
-     },
-     "SemanticType": {
-      "TypeName": "{{ TypeName }}",
-      "SubTypeName": "{{ SubTypeName }}",
-      "TypeParameters": {},
-      "TruthyCellValue": "{{ TruthyCellValue }}",
-      "TruthyCellValueSynonyms": [
-       "{{ TruthyCellValueSynonyms[0] }}"
-      ],
-      "FalseyCellValue": "{{ FalseyCellValue }}",
-      "FalseyCellValueSynonyms": [
-       "{{ FalseyCellValueSynonyms[0] }}"
-      ]
-     },
-     "TimeGranularity": null,
-     "AllowedAggregations": [
-      "{{ AllowedAggregations[0] }}"
-     ],
-     "NotAllowedAggregations": [
-      null
-     ],
-     "DefaultFormatting": {
-      "DisplayFormat": "{{ DisplayFormat }}",
-      "DisplayFormatOptions": {
-       "UseBlankCellFormat": "{{ UseBlankCellFormat }}",
-       "BlankCellFormat": "{{ BlankCellFormat }}",
-       "DateFormat": "{{ DateFormat }}",
-       "DecimalSeparator": "{{ DecimalSeparator }}",
-       "GroupingSeparator": "{{ GroupingSeparator }}",
-       "UseGrouping": "{{ UseGrouping }}",
-       "FractionDigits": null,
-       "Prefix": "{{ Prefix }}",
-       "Suffix": "{{ Suffix }}",
-       "UnitScaler": "{{ UnitScaler }}",
-       "NegativeFormat": {
-        "Prefix": "{{ Prefix }}",
-        "Suffix": "{{ Suffix }}"
-       },
-       "CurrencySymbol": "{{ CurrencySymbol }}"
-      }
-     },
-     "NeverAggregateInFilter": "{{ NeverAggregateInFilter }}",
-     "NonAdditive": "{{ NonAdditive }}",
-     "CellValueSynonyms": [
-      {
-       "CellValue": "{{ CellValue }}",
-       "Synonyms": [
-        "{{ Synonyms[0] }}"
-       ]
-      }
-     ]
-    }
-   ],
-   "CalculatedFields": [
-    {
-     "CalculatedFieldName": "{{ CalculatedFieldName }}",
-     "CalculatedFieldDescription": "{{ CalculatedFieldDescription }}",
-     "Expression": "{{ Expression }}",
-     "CalculatedFieldSynonyms": [
-      "{{ CalculatedFieldSynonyms[0] }}"
-     ],
-     "IsIncludedInTopic": "{{ IsIncludedInTopic }}",
-     "ColumnDataRole": null,
-     "TimeGranularity": null,
-     "DefaultFormatting": null,
-     "Aggregation": null,
-     "ComparativeOrder": null,
-     "SemanticType": null,
-     "AllowedAggregations": [
-      null
-     ],
-     "NotAllowedAggregations": [
-      null
-     ],
-     "NeverAggregateInFilter": "{{ NeverAggregateInFilter }}",
-     "NonAdditive": "{{ NonAdditive }}",
-     "CellValueSynonyms": [
-      null
-     ]
-    }
-   ],
-   "NamedEntities": [
-    {
-     "EntityName": "{{ EntityName }}",
-     "EntityDescription": "{{ EntityDescription }}",
-     "EntitySynonyms": [
-      "{{ EntitySynonyms[0] }}"
-     ],
-     "SemanticEntityType": {
-      "TypeName": "{{ TypeName }}",
-      "SubTypeName": "{{ SubTypeName }}",
-      "TypeParameters": null
-     },
-     "Definition": [
-      {
-       "FieldName": "{{ FieldName }}",
-       "PropertyName": "{{ PropertyName }}",
-       "PropertyRole": "{{ PropertyRole }}",
-       "PropertyUsage": "{{ PropertyUsage }}",
-       "Metric": {
-        "Aggregation": "{{ Aggregation }}",
-        "AggregationFunctionParameters": {}
-       }
-      }
-     ]
-    }
-   ]
-  }
- ],
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "TopicId": "{{ TopicId }}",
- "UserExperienceVersion": "{{ UserExperienceVersion }}"
-}
->>>
---required properties only
+-- topic.iql (required properties only)
 INSERT INTO aws.quicksight.topics (
  AwsAccountId,
  DataSets,
@@ -294,216 +100,19 @@ INSERT INTO aws.quicksight.topics (
  region
 )
 SELECT 
-{{ .AwsAccountId }},
- {{ .DataSets }},
- {{ .Description }},
- {{ .Name }},
- {{ .TopicId }},
- {{ .UserExperienceVersion }},
-'us-east-1';
+'{{ AwsAccountId }}',
+ '{{ DataSets }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ TopicId }}',
+ '{{ UserExperienceVersion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "DataSets": [
-  {
-   "DatasetArn": "{{ DatasetArn }}",
-   "DatasetName": "{{ DatasetName }}",
-   "DatasetDescription": "{{ DatasetDescription }}",
-   "DataAggregation": {
-    "DatasetRowDateGranularity": "{{ DatasetRowDateGranularity }}",
-    "DefaultDateColumnName": "{{ DefaultDateColumnName }}"
-   },
-   "Filters": [
-    {
-     "FilterDescription": "{{ FilterDescription }}",
-     "FilterClass": "{{ FilterClass }}",
-     "FilterName": "{{ FilterName }}",
-     "FilterSynonyms": [
-      "{{ FilterSynonyms[0] }}"
-     ],
-     "OperandFieldName": "{{ OperandFieldName }}",
-     "FilterType": "{{ FilterType }}",
-     "CategoryFilter": {
-      "CategoryFilterFunction": "{{ CategoryFilterFunction }}",
-      "CategoryFilterType": "{{ CategoryFilterType }}",
-      "Constant": {
-       "ConstantType": "{{ ConstantType }}",
-       "SingularConstant": "{{ SingularConstant }}",
-       "CollectiveConstant": {
-        "ValueList": [
-         "{{ ValueList[0] }}"
-        ]
-       }
-      },
-      "Inverse": "{{ Inverse }}"
-     },
-     "NumericEqualityFilter": {
-      "Constant": {
-       "ConstantType": null,
-       "SingularConstant": "{{ SingularConstant }}"
-      },
-      "Aggregation": "{{ Aggregation }}"
-     },
-     "NumericRangeFilter": {
-      "Inclusive": "{{ Inclusive }}",
-      "Constant": {
-       "ConstantType": null,
-       "RangeConstant": {
-        "Minimum": "{{ Minimum }}",
-        "Maximum": "{{ Maximum }}"
-       }
-      },
-      "Aggregation": null
-     },
-     "DateRangeFilter": {
-      "Inclusive": "{{ Inclusive }}",
-      "Constant": null
-     },
-     "RelativeDateFilter": {
-      "TimeGranularity": null,
-      "RelativeDateFilterFunction": "{{ RelativeDateFilterFunction }}",
-      "Constant": null
-     }
-    }
-   ],
-   "Columns": [
-    {
-     "ColumnName": "{{ ColumnName }}",
-     "ColumnFriendlyName": "{{ ColumnFriendlyName }}",
-     "ColumnDescription": "{{ ColumnDescription }}",
-     "ColumnSynonyms": [
-      "{{ ColumnSynonyms[0] }}"
-     ],
-     "ColumnDataRole": "{{ ColumnDataRole }}",
-     "Aggregation": "{{ Aggregation }}",
-     "IsIncludedInTopic": "{{ IsIncludedInTopic }}",
-     "ComparativeOrder": {
-      "UseOrdering": "{{ UseOrdering }}",
-      "SpecifedOrder": [
-       "{{ SpecifedOrder[0] }}"
-      ],
-      "TreatUndefinedSpecifiedValues": "{{ TreatUndefinedSpecifiedValues }}"
-     },
-     "SemanticType": {
-      "TypeName": "{{ TypeName }}",
-      "SubTypeName": "{{ SubTypeName }}",
-      "TypeParameters": {},
-      "TruthyCellValue": "{{ TruthyCellValue }}",
-      "TruthyCellValueSynonyms": [
-       "{{ TruthyCellValueSynonyms[0] }}"
-      ],
-      "FalseyCellValue": "{{ FalseyCellValue }}",
-      "FalseyCellValueSynonyms": [
-       "{{ FalseyCellValueSynonyms[0] }}"
-      ]
-     },
-     "TimeGranularity": null,
-     "AllowedAggregations": [
-      "{{ AllowedAggregations[0] }}"
-     ],
-     "NotAllowedAggregations": [
-      null
-     ],
-     "DefaultFormatting": {
-      "DisplayFormat": "{{ DisplayFormat }}",
-      "DisplayFormatOptions": {
-       "UseBlankCellFormat": "{{ UseBlankCellFormat }}",
-       "BlankCellFormat": "{{ BlankCellFormat }}",
-       "DateFormat": "{{ DateFormat }}",
-       "DecimalSeparator": "{{ DecimalSeparator }}",
-       "GroupingSeparator": "{{ GroupingSeparator }}",
-       "UseGrouping": "{{ UseGrouping }}",
-       "FractionDigits": null,
-       "Prefix": "{{ Prefix }}",
-       "Suffix": "{{ Suffix }}",
-       "UnitScaler": "{{ UnitScaler }}",
-       "NegativeFormat": {
-        "Prefix": "{{ Prefix }}",
-        "Suffix": "{{ Suffix }}"
-       },
-       "CurrencySymbol": "{{ CurrencySymbol }}"
-      }
-     },
-     "NeverAggregateInFilter": "{{ NeverAggregateInFilter }}",
-     "NonAdditive": "{{ NonAdditive }}",
-     "CellValueSynonyms": [
-      {
-       "CellValue": "{{ CellValue }}",
-       "Synonyms": [
-        "{{ Synonyms[0] }}"
-       ]
-      }
-     ]
-    }
-   ],
-   "CalculatedFields": [
-    {
-     "CalculatedFieldName": "{{ CalculatedFieldName }}",
-     "CalculatedFieldDescription": "{{ CalculatedFieldDescription }}",
-     "Expression": "{{ Expression }}",
-     "CalculatedFieldSynonyms": [
-      "{{ CalculatedFieldSynonyms[0] }}"
-     ],
-     "IsIncludedInTopic": "{{ IsIncludedInTopic }}",
-     "ColumnDataRole": null,
-     "TimeGranularity": null,
-     "DefaultFormatting": null,
-     "Aggregation": null,
-     "ComparativeOrder": null,
-     "SemanticType": null,
-     "AllowedAggregations": [
-      null
-     ],
-     "NotAllowedAggregations": [
-      null
-     ],
-     "NeverAggregateInFilter": "{{ NeverAggregateInFilter }}",
-     "NonAdditive": "{{ NonAdditive }}",
-     "CellValueSynonyms": [
-      null
-     ]
-    }
-   ],
-   "NamedEntities": [
-    {
-     "EntityName": "{{ EntityName }}",
-     "EntityDescription": "{{ EntityDescription }}",
-     "EntitySynonyms": [
-      "{{ EntitySynonyms[0] }}"
-     ],
-     "SemanticEntityType": {
-      "TypeName": "{{ TypeName }}",
-      "SubTypeName": "{{ SubTypeName }}",
-      "TypeParameters": null
-     },
-     "Definition": [
-      {
-       "FieldName": "{{ FieldName }}",
-       "PropertyName": "{{ PropertyName }}",
-       "PropertyRole": "{{ PropertyRole }}",
-       "PropertyUsage": "{{ PropertyUsage }}",
-       "Metric": {
-        "Aggregation": "{{ Aggregation }}",
-        "AggregationFunctionParameters": {}
-       }
-      }
-     ]
-    }
-   ]
-  }
- ],
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "TopicId": "{{ TopicId }}",
- "UserExperienceVersion": "{{ UserExperienceVersion }}"
-}
->>>
---all properties
+-- topic.iql (all properties)
 INSERT INTO aws.quicksight.topics (
  AwsAccountId,
  DataSets,
@@ -514,13 +123,176 @@ INSERT INTO aws.quicksight.topics (
  region
 )
 SELECT 
- {{ .AwsAccountId }},
- {{ .DataSets }},
- {{ .Description }},
- {{ .Name }},
- {{ .TopicId }},
- {{ .UserExperienceVersion }},
- 'us-east-1';
+ '{{ AwsAccountId }}',
+ '{{ DataSets }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ TopicId }}',
+ '{{ UserExperienceVersion }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: topic
+    props:
+      - name: AwsAccountId
+        value: '{{ AwsAccountId }}'
+      - name: DataSets
+        value:
+          - DatasetArn: '{{ DatasetArn }}'
+            DatasetName: '{{ DatasetName }}'
+            DatasetDescription: '{{ DatasetDescription }}'
+            DataAggregation:
+              DatasetRowDateGranularity: '{{ DatasetRowDateGranularity }}'
+              DefaultDateColumnName: '{{ DefaultDateColumnName }}'
+            Filters:
+              - FilterDescription: '{{ FilterDescription }}'
+                FilterClass: '{{ FilterClass }}'
+                FilterName: '{{ FilterName }}'
+                FilterSynonyms:
+                  - '{{ FilterSynonyms[0] }}'
+                OperandFieldName: '{{ OperandFieldName }}'
+                FilterType: '{{ FilterType }}'
+                CategoryFilter:
+                  CategoryFilterFunction: '{{ CategoryFilterFunction }}'
+                  CategoryFilterType: '{{ CategoryFilterType }}'
+                  Constant:
+                    ConstantType: '{{ ConstantType }}'
+                    SingularConstant: '{{ SingularConstant }}'
+                    CollectiveConstant:
+                      ValueList:
+                        - '{{ ValueList[0] }}'
+                  Inverse: '{{ Inverse }}'
+                NumericEqualityFilter:
+                  Constant:
+                    ConstantType: null
+                    SingularConstant: '{{ SingularConstant }}'
+                  Aggregation: '{{ Aggregation }}'
+                NumericRangeFilter:
+                  Inclusive: '{{ Inclusive }}'
+                  Constant:
+                    ConstantType: null
+                    RangeConstant:
+                      Minimum: '{{ Minimum }}'
+                      Maximum: '{{ Maximum }}'
+                  Aggregation: null
+                DateRangeFilter:
+                  Inclusive: '{{ Inclusive }}'
+                  Constant: null
+                RelativeDateFilter:
+                  TimeGranularity: null
+                  RelativeDateFilterFunction: '{{ RelativeDateFilterFunction }}'
+                  Constant: null
+            Columns:
+              - ColumnName: '{{ ColumnName }}'
+                ColumnFriendlyName: '{{ ColumnFriendlyName }}'
+                ColumnDescription: '{{ ColumnDescription }}'
+                ColumnSynonyms:
+                  - '{{ ColumnSynonyms[0] }}'
+                ColumnDataRole: '{{ ColumnDataRole }}'
+                Aggregation: '{{ Aggregation }}'
+                IsIncludedInTopic: '{{ IsIncludedInTopic }}'
+                ComparativeOrder:
+                  UseOrdering: '{{ UseOrdering }}'
+                  SpecifedOrder:
+                    - '{{ SpecifedOrder[0] }}'
+                  TreatUndefinedSpecifiedValues: '{{ TreatUndefinedSpecifiedValues }}'
+                SemanticType:
+                  TypeName: '{{ TypeName }}'
+                  SubTypeName: '{{ SubTypeName }}'
+                  TypeParameters: {}
+                  TruthyCellValue: '{{ TruthyCellValue }}'
+                  TruthyCellValueSynonyms:
+                    - '{{ TruthyCellValueSynonyms[0] }}'
+                  FalseyCellValue: '{{ FalseyCellValue }}'
+                  FalseyCellValueSynonyms:
+                    - '{{ FalseyCellValueSynonyms[0] }}'
+                TimeGranularity: null
+                AllowedAggregations:
+                  - '{{ AllowedAggregations[0] }}'
+                NotAllowedAggregations:
+                  - null
+                DefaultFormatting:
+                  DisplayFormat: '{{ DisplayFormat }}'
+                  DisplayFormatOptions:
+                    UseBlankCellFormat: '{{ UseBlankCellFormat }}'
+                    BlankCellFormat: '{{ BlankCellFormat }}'
+                    DateFormat: '{{ DateFormat }}'
+                    DecimalSeparator: '{{ DecimalSeparator }}'
+                    GroupingSeparator: '{{ GroupingSeparator }}'
+                    UseGrouping: '{{ UseGrouping }}'
+                    FractionDigits: null
+                    Prefix: '{{ Prefix }}'
+                    Suffix: '{{ Suffix }}'
+                    UnitScaler: '{{ UnitScaler }}'
+                    NegativeFormat:
+                      Prefix: '{{ Prefix }}'
+                      Suffix: '{{ Suffix }}'
+                    CurrencySymbol: '{{ CurrencySymbol }}'
+                NeverAggregateInFilter: '{{ NeverAggregateInFilter }}'
+                NonAdditive: '{{ NonAdditive }}'
+                CellValueSynonyms:
+                  - CellValue: '{{ CellValue }}'
+                    Synonyms:
+                      - '{{ Synonyms[0] }}'
+            CalculatedFields:
+              - CalculatedFieldName: '{{ CalculatedFieldName }}'
+                CalculatedFieldDescription: '{{ CalculatedFieldDescription }}'
+                Expression: '{{ Expression }}'
+                CalculatedFieldSynonyms:
+                  - '{{ CalculatedFieldSynonyms[0] }}'
+                IsIncludedInTopic: '{{ IsIncludedInTopic }}'
+                ColumnDataRole: null
+                TimeGranularity: null
+                DefaultFormatting: null
+                Aggregation: null
+                ComparativeOrder: null
+                SemanticType: null
+                AllowedAggregations:
+                  - null
+                NotAllowedAggregations:
+                  - null
+                NeverAggregateInFilter: '{{ NeverAggregateInFilter }}'
+                NonAdditive: '{{ NonAdditive }}'
+                CellValueSynonyms:
+                  - null
+            NamedEntities:
+              - EntityName: '{{ EntityName }}'
+                EntityDescription: '{{ EntityDescription }}'
+                EntitySynonyms:
+                  - '{{ EntitySynonyms[0] }}'
+                SemanticEntityType:
+                  TypeName: '{{ TypeName }}'
+                  SubTypeName: '{{ SubTypeName }}'
+                  TypeParameters: null
+                Definition:
+                  - FieldName: '{{ FieldName }}'
+                    PropertyName: '{{ PropertyName }}'
+                    PropertyRole: '{{ PropertyRole }}'
+                    PropertyUsage: '{{ PropertyUsage }}'
+                    Metric:
+                      Aggregation: '{{ Aggregation }}'
+                      AggregationFunctionParameters: {}
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: TopicId
+        value: '{{ TopicId }}'
+      - name: UserExperienceVersion
+        value: '{{ UserExperienceVersion }}'
+
 ```
 </TabItem>
 </Tabs>

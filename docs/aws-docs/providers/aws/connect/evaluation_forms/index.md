@@ -74,89 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>evaluation_form</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Title": "{{ Title }}",
- "InstanceArn": "{{ InstanceArn }}",
- "Items": [
-  {
-   "Section": {
-    "Title": "{{ Title }}",
-    "Instructions": "{{ Instructions }}",
-    "RefId": "{{ RefId }}",
-    "Items": [
-     {
-      "Section": null,
-      "Question": {
-       "Title": "{{ Title }}",
-       "Instructions": "{{ Instructions }}",
-       "RefId": null,
-       "NotApplicableEnabled": "{{ NotApplicableEnabled }}",
-       "QuestionType": "{{ QuestionType }}",
-       "QuestionTypeProperties": {
-        "Numeric": {
-         "MinValue": "{{ MinValue }}",
-         "MaxValue": "{{ MaxValue }}",
-         "Options": [
-          {
-           "MinValue": "{{ MinValue }}",
-           "MaxValue": "{{ MaxValue }}",
-           "Score": "{{ Score }}",
-           "AutomaticFail": "{{ AutomaticFail }}"
-          }
-         ],
-         "Automation": {
-          "PropertyValue": {
-           "Label": "{{ Label }}"
-          }
-         }
-        },
-        "SingleSelect": {
-         "Options": [
-          {
-           "RefId": null,
-           "Text": "{{ Text }}",
-           "Score": null,
-           "AutomaticFail": "{{ AutomaticFail }}"
-          }
-         ],
-         "DisplayAs": "{{ DisplayAs }}",
-         "Automation": {
-          "Options": [
-           {
-            "RuleCategory": {
-             "Category": "{{ Category }}",
-             "Condition": "{{ Condition }}",
-             "OptionRefId": null
-            }
-           }
-          ],
-          "DefaultOptionRefId": null
-         }
-        }
-       },
-       "Weight": null
-      }
-     }
-    ],
-    "Weight": null
-   }
-  }
- ],
- "Status": "{{ Status }}"
-}
->>>
---required properties only
+-- evaluation_form.iql (required properties only)
 INSERT INTO aws.connect.evaluation_forms (
  Title,
  InstanceArn,
@@ -165,100 +96,17 @@ INSERT INTO aws.connect.evaluation_forms (
  region
 )
 SELECT 
-{{ .Title }},
- {{ .InstanceArn }},
- {{ .Items }},
- {{ .Status }},
-'us-east-1';
+'{{ Title }}',
+ '{{ InstanceArn }}',
+ '{{ Items }}',
+ '{{ Status }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Title": "{{ Title }}",
- "Description": "{{ Description }}",
- "InstanceArn": "{{ InstanceArn }}",
- "Items": [
-  {
-   "Section": {
-    "Title": "{{ Title }}",
-    "Instructions": "{{ Instructions }}",
-    "RefId": "{{ RefId }}",
-    "Items": [
-     {
-      "Section": null,
-      "Question": {
-       "Title": "{{ Title }}",
-       "Instructions": "{{ Instructions }}",
-       "RefId": null,
-       "NotApplicableEnabled": "{{ NotApplicableEnabled }}",
-       "QuestionType": "{{ QuestionType }}",
-       "QuestionTypeProperties": {
-        "Numeric": {
-         "MinValue": "{{ MinValue }}",
-         "MaxValue": "{{ MaxValue }}",
-         "Options": [
-          {
-           "MinValue": "{{ MinValue }}",
-           "MaxValue": "{{ MaxValue }}",
-           "Score": "{{ Score }}",
-           "AutomaticFail": "{{ AutomaticFail }}"
-          }
-         ],
-         "Automation": {
-          "PropertyValue": {
-           "Label": "{{ Label }}"
-          }
-         }
-        },
-        "SingleSelect": {
-         "Options": [
-          {
-           "RefId": null,
-           "Text": "{{ Text }}",
-           "Score": null,
-           "AutomaticFail": "{{ AutomaticFail }}"
-          }
-         ],
-         "DisplayAs": "{{ DisplayAs }}",
-         "Automation": {
-          "Options": [
-           {
-            "RuleCategory": {
-             "Category": "{{ Category }}",
-             "Condition": "{{ Condition }}",
-             "OptionRefId": null
-            }
-           }
-          ],
-          "DefaultOptionRefId": null
-         }
-        }
-       },
-       "Weight": null
-      }
-     }
-    ],
-    "Weight": null
-   }
-  }
- ],
- "ScoringStrategy": {
-  "Mode": "{{ Mode }}",
-  "Status": "{{ Status }}"
- },
- "Status": "{{ Status }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- evaluation_form.iql (all properties)
 INSERT INTO aws.connect.evaluation_forms (
  Title,
  Description,
@@ -270,14 +118,89 @@ INSERT INTO aws.connect.evaluation_forms (
  region
 )
 SELECT 
- {{ .Title }},
- {{ .Description }},
- {{ .InstanceArn }},
- {{ .Items }},
- {{ .ScoringStrategy }},
- {{ .Status }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Title }}',
+ '{{ Description }}',
+ '{{ InstanceArn }}',
+ '{{ Items }}',
+ '{{ ScoringStrategy }}',
+ '{{ Status }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: evaluation_form
+    props:
+      - name: Title
+        value: '{{ Title }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Items
+        value:
+          - Section:
+              Title: '{{ Title }}'
+              Instructions: '{{ Instructions }}'
+              RefId: '{{ RefId }}'
+              Items:
+                - Section: null
+                  Question:
+                    Title: '{{ Title }}'
+                    Instructions: '{{ Instructions }}'
+                    RefId: null
+                    NotApplicableEnabled: '{{ NotApplicableEnabled }}'
+                    QuestionType: '{{ QuestionType }}'
+                    QuestionTypeProperties:
+                      Numeric:
+                        MinValue: '{{ MinValue }}'
+                        MaxValue: '{{ MaxValue }}'
+                        Options:
+                          - MinValue: '{{ MinValue }}'
+                            MaxValue: '{{ MaxValue }}'
+                            Score: '{{ Score }}'
+                            AutomaticFail: '{{ AutomaticFail }}'
+                        Automation:
+                          PropertyValue:
+                            Label: '{{ Label }}'
+                      SingleSelect:
+                        Options:
+                          - RefId: null
+                            Text: '{{ Text }}'
+                            Score: null
+                            AutomaticFail: '{{ AutomaticFail }}'
+                        DisplayAs: '{{ DisplayAs }}'
+                        Automation:
+                          Options:
+                            - RuleCategory:
+                                Category: '{{ Category }}'
+                                Condition: '{{ Condition }}'
+                                OptionRefId: null
+                          DefaultOptionRefId: null
+                    Weight: null
+              Weight: null
+      - name: ScoringStrategy
+        value:
+          Mode: '{{ Mode }}'
+          Status: '{{ Status }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,40 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>collaboration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CreatorDisplayName": "{{ CreatorDisplayName }}",
- "CreatorMemberAbilities": [
-  "{{ CreatorMemberAbilities[0] }}"
- ],
- "Description": "{{ Description }}",
- "Members": [
-  {
-   "AccountId": "{{ AccountId }}",
-   "MemberAbilities": null,
-   "DisplayName": null,
-   "PaymentConfiguration": {
-    "QueryCompute": {
-     "IsResponsible": "{{ IsResponsible }}"
-    }
-   }
-  }
- ],
- "Name": "{{ Name }}",
- "QueryLogStatus": "{{ QueryLogStatus }}"
-}
->>>
---required properties only
+-- collaboration.iql (required properties only)
 INSERT INTO aws.cleanrooms.collaborations (
  CreatorDisplayName,
  CreatorMemberAbilities,
@@ -118,55 +98,19 @@ INSERT INTO aws.cleanrooms.collaborations (
  region
 )
 SELECT 
-{{ .CreatorDisplayName }},
- {{ .CreatorMemberAbilities }},
- {{ .Description }},
- {{ .Members }},
- {{ .Name }},
- {{ .QueryLogStatus }},
-'us-east-1';
+'{{ CreatorDisplayName }}',
+ '{{ CreatorMemberAbilities }}',
+ '{{ Description }}',
+ '{{ Members }}',
+ '{{ Name }}',
+ '{{ QueryLogStatus }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CreatorDisplayName": "{{ CreatorDisplayName }}",
- "CreatorMemberAbilities": [
-  "{{ CreatorMemberAbilities[0] }}"
- ],
- "DataEncryptionMetadata": {
-  "AllowCleartext": "{{ AllowCleartext }}",
-  "AllowDuplicates": "{{ AllowDuplicates }}",
-  "AllowJoinsOnColumnsWithDifferentNames": "{{ AllowJoinsOnColumnsWithDifferentNames }}",
-  "PreserveNulls": "{{ PreserveNulls }}"
- },
- "Description": "{{ Description }}",
- "Members": [
-  {
-   "AccountId": "{{ AccountId }}",
-   "MemberAbilities": null,
-   "DisplayName": null,
-   "PaymentConfiguration": {
-    "QueryCompute": {
-     "IsResponsible": "{{ IsResponsible }}"
-    }
-   }
-  }
- ],
- "Name": "{{ Name }}",
- "QueryLogStatus": "{{ QueryLogStatus }}",
- "CreatorPaymentConfiguration": null
-}
->>>
---all properties
+-- collaboration.iql (all properties)
 INSERT INTO aws.cleanrooms.collaborations (
  Tags,
  CreatorDisplayName,
@@ -180,16 +124,64 @@ INSERT INTO aws.cleanrooms.collaborations (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .CreatorDisplayName }},
- {{ .CreatorMemberAbilities }},
- {{ .DataEncryptionMetadata }},
- {{ .Description }},
- {{ .Members }},
- {{ .Name }},
- {{ .QueryLogStatus }},
- {{ .CreatorPaymentConfiguration }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ CreatorDisplayName }}',
+ '{{ CreatorMemberAbilities }}',
+ '{{ DataEncryptionMetadata }}',
+ '{{ Description }}',
+ '{{ Members }}',
+ '{{ Name }}',
+ '{{ QueryLogStatus }}',
+ '{{ CreatorPaymentConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: collaboration
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CreatorDisplayName
+        value: '{{ CreatorDisplayName }}'
+      - name: CreatorMemberAbilities
+        value:
+          - '{{ CreatorMemberAbilities[0] }}'
+      - name: DataEncryptionMetadata
+        value:
+          AllowCleartext: '{{ AllowCleartext }}'
+          AllowDuplicates: '{{ AllowDuplicates }}'
+          AllowJoinsOnColumnsWithDifferentNames: '{{ AllowJoinsOnColumnsWithDifferentNames }}'
+          PreserveNulls: '{{ PreserveNulls }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Members
+        value:
+          - AccountId: '{{ AccountId }}'
+            MemberAbilities: null
+            DisplayName: null
+            PaymentConfiguration:
+              QueryCompute:
+                IsResponsible: '{{ IsResponsible }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: QueryLogStatus
+        value: '{{ QueryLogStatus }}'
+      - name: CreatorPaymentConfiguration
+        value: null
+
 ```
 </TabItem>
 </Tabs>

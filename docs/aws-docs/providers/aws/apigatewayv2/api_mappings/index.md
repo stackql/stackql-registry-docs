@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>api_mapping</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "Stage": "{{ Stage }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---required properties only
+-- api_mapping.iql (required properties only)
 INSERT INTO aws.apigatewayv2.api_mappings (
  DomainName,
  Stage,
@@ -101,24 +97,16 @@ INSERT INTO aws.apigatewayv2.api_mappings (
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .Stage }},
- {{ .ApiId }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ Stage }}',
+ '{{ ApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "Stage": "{{ Stage }}",
- "ApiMappingKey": "{{ ApiMappingKey }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---all properties
+-- api_mapping.iql (all properties)
 INSERT INTO aws.apigatewayv2.api_mappings (
  DomainName,
  Stage,
@@ -127,11 +115,36 @@ INSERT INTO aws.apigatewayv2.api_mappings (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .Stage }},
- {{ .ApiMappingKey }},
- {{ .ApiId }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ Stage }}',
+ '{{ ApiMappingKey }}',
+ '{{ ApiId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: api_mapping
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: Stage
+        value: '{{ Stage }}'
+      - name: ApiMappingKey
+        value: '{{ ApiMappingKey }}'
+      - name: ApiId
+        value: '{{ ApiId }}'
+
 ```
 </TabItem>
 </Tabs>

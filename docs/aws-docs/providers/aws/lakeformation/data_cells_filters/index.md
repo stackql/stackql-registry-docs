@@ -80,25 +80,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_cells_filter</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TableCatalogId": "{{ TableCatalogId }}",
- "DatabaseName": "{{ DatabaseName }}",
- "TableName": null,
- "Name": null
-}
->>>
---required properties only
+-- data_cells_filter.iql (required properties only)
 INSERT INTO aws.lakeformation.data_cells_filters (
  TableCatalogId,
  DatabaseName,
@@ -107,35 +102,17 @@ INSERT INTO aws.lakeformation.data_cells_filters (
  region
 )
 SELECT 
-{{ .TableCatalogId }},
- {{ .DatabaseName }},
- {{ .TableName }},
- {{ .Name }},
-'us-east-1';
+'{{ TableCatalogId }}',
+ '{{ DatabaseName }}',
+ '{{ TableName }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TableCatalogId": "{{ TableCatalogId }}",
- "DatabaseName": "{{ DatabaseName }}",
- "TableName": null,
- "Name": null,
- "RowFilter": {
-  "FilterExpression": "{{ FilterExpression }}",
-  "AllRowsWildcard": {}
- },
- "ColumnNames": [
-  null
- ],
- "ColumnWildcard": {
-  "ExcludedColumnNames": null
- }
-}
->>>
---all properties
+-- data_cells_filter.iql (all properties)
 INSERT INTO aws.lakeformation.data_cells_filters (
  TableCatalogId,
  DatabaseName,
@@ -147,14 +124,49 @@ INSERT INTO aws.lakeformation.data_cells_filters (
  region
 )
 SELECT 
- {{ .TableCatalogId }},
- {{ .DatabaseName }},
- {{ .TableName }},
- {{ .Name }},
- {{ .RowFilter }},
- {{ .ColumnNames }},
- {{ .ColumnWildcard }},
- 'us-east-1';
+ '{{ TableCatalogId }}',
+ '{{ DatabaseName }}',
+ '{{ TableName }}',
+ '{{ Name }}',
+ '{{ RowFilter }}',
+ '{{ ColumnNames }}',
+ '{{ ColumnWildcard }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_cells_filter
+    props:
+      - name: TableCatalogId
+        value: '{{ TableCatalogId }}'
+      - name: DatabaseName
+        value: '{{ DatabaseName }}'
+      - name: TableName
+        value: null
+      - name: Name
+        value: null
+      - name: RowFilter
+        value:
+          FilterExpression: '{{ FilterExpression }}'
+          AllRowsWildcard: {}
+      - name: ColumnNames
+        value:
+          - null
+      - name: ColumnWildcard
+        value:
+          ExcludedColumnNames: null
+
 ```
 </TabItem>
 </Tabs>

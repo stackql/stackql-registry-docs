@@ -74,42 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>queue</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
- "DeduplicationScope": "{{ DeduplicationScope }}",
- "DelaySeconds": "{{ DelaySeconds }}",
- "FifoQueue": "{{ FifoQueue }}",
- "FifoThroughputLimit": "{{ FifoThroughputLimit }}",
- "KmsDataKeyReusePeriodSeconds": "{{ KmsDataKeyReusePeriodSeconds }}",
- "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
- "SqsManagedSseEnabled": "{{ SqsManagedSseEnabled }}",
- "MaximumMessageSize": "{{ MaximumMessageSize }}",
- "MessageRetentionPeriod": "{{ MessageRetentionPeriod }}",
- "QueueName": "{{ QueueName }}",
- "ReceiveMessageWaitTimeSeconds": "{{ ReceiveMessageWaitTimeSeconds }}",
- "RedriveAllowPolicy": {},
- "RedrivePolicy": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VisibilityTimeout": "{{ VisibilityTimeout }}"
-}
->>>
---required properties only
+-- queue.iql (required properties only)
 INSERT INTO aws.sqs.queues (
  ContentBasedDeduplication,
  DeduplicationScope,
@@ -130,54 +108,29 @@ INSERT INTO aws.sqs.queues (
  region
 )
 SELECT 
-{{ .ContentBasedDeduplication }},
- {{ .DeduplicationScope }},
- {{ .DelaySeconds }},
- {{ .FifoQueue }},
- {{ .FifoThroughputLimit }},
- {{ .KmsDataKeyReusePeriodSeconds }},
- {{ .KmsMasterKeyId }},
- {{ .SqsManagedSseEnabled }},
- {{ .MaximumMessageSize }},
- {{ .MessageRetentionPeriod }},
- {{ .QueueName }},
- {{ .ReceiveMessageWaitTimeSeconds }},
- {{ .RedriveAllowPolicy }},
- {{ .RedrivePolicy }},
- {{ .Tags }},
- {{ .VisibilityTimeout }},
-'us-east-1';
+'{{ ContentBasedDeduplication }}',
+ '{{ DeduplicationScope }}',
+ '{{ DelaySeconds }}',
+ '{{ FifoQueue }}',
+ '{{ FifoThroughputLimit }}',
+ '{{ KmsDataKeyReusePeriodSeconds }}',
+ '{{ KmsMasterKeyId }}',
+ '{{ SqsManagedSseEnabled }}',
+ '{{ MaximumMessageSize }}',
+ '{{ MessageRetentionPeriod }}',
+ '{{ QueueName }}',
+ '{{ ReceiveMessageWaitTimeSeconds }}',
+ '{{ RedriveAllowPolicy }}',
+ '{{ RedrivePolicy }}',
+ '{{ Tags }}',
+ '{{ VisibilityTimeout }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
- "DeduplicationScope": "{{ DeduplicationScope }}",
- "DelaySeconds": "{{ DelaySeconds }}",
- "FifoQueue": "{{ FifoQueue }}",
- "FifoThroughputLimit": "{{ FifoThroughputLimit }}",
- "KmsDataKeyReusePeriodSeconds": "{{ KmsDataKeyReusePeriodSeconds }}",
- "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
- "SqsManagedSseEnabled": "{{ SqsManagedSseEnabled }}",
- "MaximumMessageSize": "{{ MaximumMessageSize }}",
- "MessageRetentionPeriod": "{{ MessageRetentionPeriod }}",
- "QueueName": "{{ QueueName }}",
- "ReceiveMessageWaitTimeSeconds": "{{ ReceiveMessageWaitTimeSeconds }}",
- "RedriveAllowPolicy": {},
- "RedrivePolicy": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VisibilityTimeout": "{{ VisibilityTimeout }}"
-}
->>>
---all properties
+-- queue.iql (all properties)
 INSERT INTO aws.sqs.queues (
  ContentBasedDeduplication,
  DeduplicationScope,
@@ -198,23 +151,74 @@ INSERT INTO aws.sqs.queues (
  region
 )
 SELECT 
- {{ .ContentBasedDeduplication }},
- {{ .DeduplicationScope }},
- {{ .DelaySeconds }},
- {{ .FifoQueue }},
- {{ .FifoThroughputLimit }},
- {{ .KmsDataKeyReusePeriodSeconds }},
- {{ .KmsMasterKeyId }},
- {{ .SqsManagedSseEnabled }},
- {{ .MaximumMessageSize }},
- {{ .MessageRetentionPeriod }},
- {{ .QueueName }},
- {{ .ReceiveMessageWaitTimeSeconds }},
- {{ .RedriveAllowPolicy }},
- {{ .RedrivePolicy }},
- {{ .Tags }},
- {{ .VisibilityTimeout }},
- 'us-east-1';
+ '{{ ContentBasedDeduplication }}',
+ '{{ DeduplicationScope }}',
+ '{{ DelaySeconds }}',
+ '{{ FifoQueue }}',
+ '{{ FifoThroughputLimit }}',
+ '{{ KmsDataKeyReusePeriodSeconds }}',
+ '{{ KmsMasterKeyId }}',
+ '{{ SqsManagedSseEnabled }}',
+ '{{ MaximumMessageSize }}',
+ '{{ MessageRetentionPeriod }}',
+ '{{ QueueName }}',
+ '{{ ReceiveMessageWaitTimeSeconds }}',
+ '{{ RedriveAllowPolicy }}',
+ '{{ RedrivePolicy }}',
+ '{{ Tags }}',
+ '{{ VisibilityTimeout }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: queue
+    props:
+      - name: ContentBasedDeduplication
+        value: '{{ ContentBasedDeduplication }}'
+      - name: DeduplicationScope
+        value: '{{ DeduplicationScope }}'
+      - name: DelaySeconds
+        value: '{{ DelaySeconds }}'
+      - name: FifoQueue
+        value: '{{ FifoQueue }}'
+      - name: FifoThroughputLimit
+        value: '{{ FifoThroughputLimit }}'
+      - name: KmsDataKeyReusePeriodSeconds
+        value: '{{ KmsDataKeyReusePeriodSeconds }}'
+      - name: KmsMasterKeyId
+        value: '{{ KmsMasterKeyId }}'
+      - name: SqsManagedSseEnabled
+        value: '{{ SqsManagedSseEnabled }}'
+      - name: MaximumMessageSize
+        value: '{{ MaximumMessageSize }}'
+      - name: MessageRetentionPeriod
+        value: '{{ MessageRetentionPeriod }}'
+      - name: QueueName
+        value: '{{ QueueName }}'
+      - name: ReceiveMessageWaitTimeSeconds
+        value: '{{ ReceiveMessageWaitTimeSeconds }}'
+      - name: RedriveAllowPolicy
+        value: {}
+      - name: RedrivePolicy
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VisibilityTimeout
+        value: '{{ VisibilityTimeout }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,47 +74,59 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>organization_admin</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccountId": "{{ AccountId }}"
-}
->>>
---required properties only
+-- organization_admin.iql (required properties only)
 INSERT INTO aws.detective.organization_admins (
  AccountId,
  region
 )
 SELECT 
-{{ .AccountId }},
-'us-east-1';
+'{{ AccountId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccountId": "{{ AccountId }}"
-}
->>>
---all properties
+-- organization_admin.iql (all properties)
 INSERT INTO aws.detective.organization_admins (
  AccountId,
  region
 )
 SELECT 
- {{ .AccountId }},
- 'us-east-1';
+ '{{ AccountId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: organization_admin
+    props:
+      - name: AccountId
+        value: '{{ AccountId }}'
+
 ```
 </TabItem>
 </Tabs>

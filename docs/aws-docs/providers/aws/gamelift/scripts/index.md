@@ -74,58 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>script</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StorageLocation": {
-  "Bucket": "{{ Bucket }}",
-  "Key": "{{ Key }}",
-  "ObjectVersion": "{{ ObjectVersion }}",
-  "RoleArn": "{{ RoleArn }}"
- }
-}
->>>
---required properties only
+-- script.iql (required properties only)
 INSERT INTO aws.gamelift.scripts (
  StorageLocation,
  region
 )
 SELECT 
-{{ .StorageLocation }},
-'us-east-1';
+'{{ StorageLocation }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "StorageLocation": {
-  "Bucket": "{{ Bucket }}",
-  "Key": "{{ Key }}",
-  "ObjectVersion": "{{ ObjectVersion }}",
-  "RoleArn": "{{ RoleArn }}"
- },
- "Version": "{{ Version }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- script.iql (all properties)
 INSERT INTO aws.gamelift.scripts (
  Name,
  StorageLocation,
@@ -134,11 +109,42 @@ INSERT INTO aws.gamelift.scripts (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .StorageLocation }},
- {{ .Version }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ StorageLocation }}',
+ '{{ Version }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: script
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: StorageLocation
+        value:
+          Bucket: '{{ Bucket }}'
+          Key: '{{ Key }}'
+          ObjectVersion: '{{ ObjectVersion }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: Version
+        value: '{{ Version }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

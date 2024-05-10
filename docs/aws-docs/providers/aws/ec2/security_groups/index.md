@@ -74,74 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>security_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GroupDescription": "{{ GroupDescription }}"
-}
->>>
---required properties only
+-- security_group.iql (required properties only)
 INSERT INTO aws.ec2.security_groups (
  GroupDescription,
  region
 )
 SELECT 
-{{ .GroupDescription }},
-'us-east-1';
+'{{ GroupDescription }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GroupDescription": "{{ GroupDescription }}",
- "GroupName": "{{ GroupName }}",
- "VpcId": "{{ VpcId }}",
- "SecurityGroupIngress": [
-  {
-   "CidrIp": "{{ CidrIp }}",
-   "CidrIpv6": "{{ CidrIpv6 }}",
-   "Description": "{{ Description }}",
-   "FromPort": "{{ FromPort }}",
-   "SourceSecurityGroupName": "{{ SourceSecurityGroupName }}",
-   "ToPort": "{{ ToPort }}",
-   "SourceSecurityGroupOwnerId": "{{ SourceSecurityGroupOwnerId }}",
-   "IpProtocol": "{{ IpProtocol }}",
-   "SourceSecurityGroupId": "{{ SourceSecurityGroupId }}",
-   "SourcePrefixListId": "{{ SourcePrefixListId }}"
-  }
- ],
- "SecurityGroupEgress": [
-  {
-   "CidrIp": "{{ CidrIp }}",
-   "CidrIpv6": "{{ CidrIpv6 }}",
-   "Description": "{{ Description }}",
-   "FromPort": "{{ FromPort }}",
-   "ToPort": "{{ ToPort }}",
-   "IpProtocol": "{{ IpProtocol }}",
-   "DestinationSecurityGroupId": "{{ DestinationSecurityGroupId }}",
-   "DestinationPrefixListId": "{{ DestinationPrefixListId }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- security_group.iql (all properties)
 INSERT INTO aws.ec2.security_groups (
  GroupDescription,
  GroupName,
@@ -152,13 +111,62 @@ INSERT INTO aws.ec2.security_groups (
  region
 )
 SELECT 
- {{ .GroupDescription }},
- {{ .GroupName }},
- {{ .VpcId }},
- {{ .SecurityGroupIngress }},
- {{ .SecurityGroupEgress }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ GroupDescription }}',
+ '{{ GroupName }}',
+ '{{ VpcId }}',
+ '{{ SecurityGroupIngress }}',
+ '{{ SecurityGroupEgress }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: security_group
+    props:
+      - name: GroupDescription
+        value: '{{ GroupDescription }}'
+      - name: GroupName
+        value: '{{ GroupName }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: SecurityGroupIngress
+        value:
+          - CidrIp: '{{ CidrIp }}'
+            CidrIpv6: '{{ CidrIpv6 }}'
+            Description: '{{ Description }}'
+            FromPort: '{{ FromPort }}'
+            SourceSecurityGroupName: '{{ SourceSecurityGroupName }}'
+            ToPort: '{{ ToPort }}'
+            SourceSecurityGroupOwnerId: '{{ SourceSecurityGroupOwnerId }}'
+            IpProtocol: '{{ IpProtocol }}'
+            SourceSecurityGroupId: '{{ SourceSecurityGroupId }}'
+            SourcePrefixListId: '{{ SourcePrefixListId }}'
+      - name: SecurityGroupEgress
+        value:
+          - CidrIp: '{{ CidrIp }}'
+            CidrIpv6: '{{ CidrIpv6 }}'
+            Description: '{{ Description }}'
+            FromPort: '{{ FromPort }}'
+            ToPort: '{{ ToPort }}'
+            IpProtocol: '{{ IpProtocol }}'
+            DestinationSecurityGroupId: '{{ DestinationSecurityGroupId }}'
+            DestinationPrefixListId: '{{ DestinationPrefixListId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

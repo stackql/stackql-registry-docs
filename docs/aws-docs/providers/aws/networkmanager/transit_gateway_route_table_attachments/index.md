@@ -74,57 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway_route_table_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PeeringId": "{{ PeeringId }}",
- "TransitGatewayRouteTableArn": "{{ TransitGatewayRouteTableArn }}"
-}
->>>
---required properties only
+-- transit_gateway_route_table_attachment.iql (required properties only)
 INSERT INTO aws.networkmanager.transit_gateway_route_table_attachments (
  PeeringId,
  TransitGatewayRouteTableArn,
  region
 )
 SELECT 
-{{ .PeeringId }},
- {{ .TransitGatewayRouteTableArn }},
-'us-east-1';
+'{{ PeeringId }}',
+ '{{ TransitGatewayRouteTableArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PeeringId": "{{ PeeringId }}",
- "TransitGatewayRouteTableArn": "{{ TransitGatewayRouteTableArn }}",
- "ProposedSegmentChange": {
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "AttachmentPolicyRuleNumber": "{{ AttachmentPolicyRuleNumber }}",
-  "SegmentName": "{{ SegmentName }}"
- },
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- transit_gateway_route_table_attachment.iql (all properties)
 INSERT INTO aws.networkmanager.transit_gateway_route_table_attachments (
  PeeringId,
  TransitGatewayRouteTableArn,
@@ -133,11 +111,42 @@ INSERT INTO aws.networkmanager.transit_gateway_route_table_attachments (
  region
 )
 SELECT 
- {{ .PeeringId }},
- {{ .TransitGatewayRouteTableArn }},
- {{ .ProposedSegmentChange }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ PeeringId }}',
+ '{{ TransitGatewayRouteTableArn }}',
+ '{{ ProposedSegmentChange }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway_route_table_attachment
+    props:
+      - name: PeeringId
+        value: '{{ PeeringId }}'
+      - name: TransitGatewayRouteTableArn
+        value: '{{ TransitGatewayRouteTableArn }}'
+      - name: ProposedSegmentChange
+        value:
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          AttachmentPolicyRuleNumber: '{{ AttachmentPolicyRuleNumber }}'
+          SegmentName: '{{ SegmentName }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

@@ -74,100 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>schedule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FlexibleTimeWindow": {
-  "Mode": "{{ Mode }}",
-  "MaximumWindowInMinutes": null
- },
- "ScheduleExpression": "{{ ScheduleExpression }}",
- "Target": {
-  "Arn": "{{ Arn }}",
-  "RoleArn": "{{ RoleArn }}",
-  "DeadLetterConfig": {
-   "Arn": "{{ Arn }}"
-  },
-  "RetryPolicy": {
-   "MaximumEventAgeInSeconds": null,
-   "MaximumRetryAttempts": null
-  },
-  "Input": "{{ Input }}",
-  "EcsParameters": {
-   "TaskDefinitionArn": "{{ TaskDefinitionArn }}",
-   "TaskCount": null,
-   "LaunchType": "{{ LaunchType }}",
-   "NetworkConfiguration": {
-    "AwsvpcConfiguration": {
-     "Subnets": [
-      "{{ Subnets[0] }}"
-     ],
-     "SecurityGroups": [
-      "{{ SecurityGroups[0] }}"
-     ],
-     "AssignPublicIp": "{{ AssignPublicIp }}"
-    }
-   },
-   "PlatformVersion": "{{ PlatformVersion }}",
-   "Group": "{{ Group }}",
-   "CapacityProviderStrategy": [
-    {
-     "CapacityProvider": "{{ CapacityProvider }}",
-     "Weight": null,
-     "Base": null
-    }
-   ],
-   "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
-   "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
-   "PlacementConstraints": [
-    {
-     "Type": "{{ Type }}",
-     "Expression": "{{ Expression }}"
-    }
-   ],
-   "PlacementStrategy": [
-    {
-     "Type": "{{ Type }}",
-     "Field": "{{ Field }}"
-    }
-   ],
-   "PropagateTags": "{{ PropagateTags }}",
-   "ReferenceId": "{{ ReferenceId }}",
-   "Tags": [
-    {}
-   ]
-  },
-  "EventBridgeParameters": {
-   "DetailType": "{{ DetailType }}",
-   "Source": "{{ Source }}"
-  },
-  "KinesisParameters": {
-   "PartitionKey": "{{ PartitionKey }}"
-  },
-  "SageMakerPipelineParameters": {
-   "PipelineParameterList": [
-    {
-     "Name": "{{ Name }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "SqsParameters": {
-   "MessageGroupId": "{{ MessageGroupId }}"
-  }
- }
-}
->>>
---required properties only
+-- schedule.iql (required properties only)
 INSERT INTO aws.scheduler.schedules (
  FlexibleTimeWindow,
  ScheduleExpression,
@@ -175,107 +95,16 @@ INSERT INTO aws.scheduler.schedules (
  region
 )
 SELECT 
-{{ .FlexibleTimeWindow }},
- {{ .ScheduleExpression }},
- {{ .Target }},
-'us-east-1';
+'{{ FlexibleTimeWindow }}',
+ '{{ ScheduleExpression }}',
+ '{{ Target }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "EndDate": "{{ EndDate }}",
- "FlexibleTimeWindow": {
-  "Mode": "{{ Mode }}",
-  "MaximumWindowInMinutes": null
- },
- "GroupName": "{{ GroupName }}",
- "KmsKeyArn": "{{ KmsKeyArn }}",
- "Name": "{{ Name }}",
- "ScheduleExpression": "{{ ScheduleExpression }}",
- "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
- "StartDate": "{{ StartDate }}",
- "State": "{{ State }}",
- "Target": {
-  "Arn": "{{ Arn }}",
-  "RoleArn": "{{ RoleArn }}",
-  "DeadLetterConfig": {
-   "Arn": "{{ Arn }}"
-  },
-  "RetryPolicy": {
-   "MaximumEventAgeInSeconds": null,
-   "MaximumRetryAttempts": null
-  },
-  "Input": "{{ Input }}",
-  "EcsParameters": {
-   "TaskDefinitionArn": "{{ TaskDefinitionArn }}",
-   "TaskCount": null,
-   "LaunchType": "{{ LaunchType }}",
-   "NetworkConfiguration": {
-    "AwsvpcConfiguration": {
-     "Subnets": [
-      "{{ Subnets[0] }}"
-     ],
-     "SecurityGroups": [
-      "{{ SecurityGroups[0] }}"
-     ],
-     "AssignPublicIp": "{{ AssignPublicIp }}"
-    }
-   },
-   "PlatformVersion": "{{ PlatformVersion }}",
-   "Group": "{{ Group }}",
-   "CapacityProviderStrategy": [
-    {
-     "CapacityProvider": "{{ CapacityProvider }}",
-     "Weight": null,
-     "Base": null
-    }
-   ],
-   "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
-   "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
-   "PlacementConstraints": [
-    {
-     "Type": "{{ Type }}",
-     "Expression": "{{ Expression }}"
-    }
-   ],
-   "PlacementStrategy": [
-    {
-     "Type": "{{ Type }}",
-     "Field": "{{ Field }}"
-    }
-   ],
-   "PropagateTags": "{{ PropagateTags }}",
-   "ReferenceId": "{{ ReferenceId }}",
-   "Tags": [
-    {}
-   ]
-  },
-  "EventBridgeParameters": {
-   "DetailType": "{{ DetailType }}",
-   "Source": "{{ Source }}"
-  },
-  "KinesisParameters": {
-   "PartitionKey": "{{ PartitionKey }}"
-  },
-  "SageMakerPipelineParameters": {
-   "PipelineParameterList": [
-    {
-     "Name": "{{ Name }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "SqsParameters": {
-   "MessageGroupId": "{{ MessageGroupId }}"
-  }
- }
-}
->>>
---all properties
+-- schedule.iql (all properties)
 INSERT INTO aws.scheduler.schedules (
  Description,
  EndDate,
@@ -291,18 +120,107 @@ INSERT INTO aws.scheduler.schedules (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .EndDate }},
- {{ .FlexibleTimeWindow }},
- {{ .GroupName }},
- {{ .KmsKeyArn }},
- {{ .Name }},
- {{ .ScheduleExpression }},
- {{ .ScheduleExpressionTimezone }},
- {{ .StartDate }},
- {{ .State }},
- {{ .Target }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ EndDate }}',
+ '{{ FlexibleTimeWindow }}',
+ '{{ GroupName }}',
+ '{{ KmsKeyArn }}',
+ '{{ Name }}',
+ '{{ ScheduleExpression }}',
+ '{{ ScheduleExpressionTimezone }}',
+ '{{ StartDate }}',
+ '{{ State }}',
+ '{{ Target }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: schedule
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: EndDate
+        value: '{{ EndDate }}'
+      - name: FlexibleTimeWindow
+        value:
+          Mode: '{{ Mode }}'
+          MaximumWindowInMinutes: null
+      - name: GroupName
+        value: '{{ GroupName }}'
+      - name: KmsKeyArn
+        value: '{{ KmsKeyArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ScheduleExpression
+        value: '{{ ScheduleExpression }}'
+      - name: ScheduleExpressionTimezone
+        value: '{{ ScheduleExpressionTimezone }}'
+      - name: StartDate
+        value: '{{ StartDate }}'
+      - name: State
+        value: '{{ State }}'
+      - name: Target
+        value:
+          Arn: '{{ Arn }}'
+          RoleArn: '{{ RoleArn }}'
+          DeadLetterConfig:
+            Arn: '{{ Arn }}'
+          RetryPolicy:
+            MaximumEventAgeInSeconds: null
+            MaximumRetryAttempts: null
+          Input: '{{ Input }}'
+          EcsParameters:
+            TaskDefinitionArn: '{{ TaskDefinitionArn }}'
+            TaskCount: null
+            LaunchType: '{{ LaunchType }}'
+            NetworkConfiguration:
+              AwsvpcConfiguration:
+                Subnets:
+                  - '{{ Subnets[0] }}'
+                SecurityGroups:
+                  - '{{ SecurityGroups[0] }}'
+                AssignPublicIp: '{{ AssignPublicIp }}'
+            PlatformVersion: '{{ PlatformVersion }}'
+            Group: '{{ Group }}'
+            CapacityProviderStrategy:
+              - CapacityProvider: '{{ CapacityProvider }}'
+                Weight: null
+                Base: null
+            EnableECSManagedTags: '{{ EnableECSManagedTags }}'
+            EnableExecuteCommand: '{{ EnableExecuteCommand }}'
+            PlacementConstraints:
+              - Type: '{{ Type }}'
+                Expression: '{{ Expression }}'
+            PlacementStrategy:
+              - Type: '{{ Type }}'
+                Field: '{{ Field }}'
+            PropagateTags: '{{ PropagateTags }}'
+            ReferenceId: '{{ ReferenceId }}'
+            Tags:
+              - {}
+          EventBridgeParameters:
+            DetailType: '{{ DetailType }}'
+            Source: '{{ Source }}'
+          KinesisParameters:
+            PartitionKey: '{{ PartitionKey }}'
+          SageMakerPipelineParameters:
+            PipelineParameterList:
+              - Name: '{{ Name }}'
+                Value: '{{ Value }}'
+          SqsParameters:
+            MessageGroupId: '{{ MessageGroupId }}'
+
 ```
 </TabItem>
 </Tabs>

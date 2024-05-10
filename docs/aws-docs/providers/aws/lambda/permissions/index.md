@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>permission</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Action": "{{ Action }}",
- "FunctionName": "{{ FunctionName }}",
- "Principal": "{{ Principal }}"
-}
->>>
---required properties only
+-- permission.iql (required properties only)
 INSERT INTO aws.lambda.permissions (
  Action,
  FunctionName,
@@ -101,28 +97,16 @@ INSERT INTO aws.lambda.permissions (
  region
 )
 SELECT 
-{{ .Action }},
- {{ .FunctionName }},
- {{ .Principal }},
-'us-east-1';
+'{{ Action }}',
+ '{{ FunctionName }}',
+ '{{ Principal }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Action": "{{ Action }}",
- "EventSourceToken": "{{ EventSourceToken }}",
- "FunctionName": "{{ FunctionName }}",
- "FunctionUrlAuthType": "{{ FunctionUrlAuthType }}",
- "Principal": "{{ Principal }}",
- "PrincipalOrgID": "{{ PrincipalOrgID }}",
- "SourceAccount": "{{ SourceAccount }}",
- "SourceArn": "{{ SourceArn }}"
-}
->>>
---all properties
+-- permission.iql (all properties)
 INSERT INTO aws.lambda.permissions (
  Action,
  EventSourceToken,
@@ -135,15 +119,48 @@ INSERT INTO aws.lambda.permissions (
  region
 )
 SELECT 
- {{ .Action }},
- {{ .EventSourceToken }},
- {{ .FunctionName }},
- {{ .FunctionUrlAuthType }},
- {{ .Principal }},
- {{ .PrincipalOrgID }},
- {{ .SourceAccount }},
- {{ .SourceArn }},
- 'us-east-1';
+ '{{ Action }}',
+ '{{ EventSourceToken }}',
+ '{{ FunctionName }}',
+ '{{ FunctionUrlAuthType }}',
+ '{{ Principal }}',
+ '{{ PrincipalOrgID }}',
+ '{{ SourceAccount }}',
+ '{{ SourceArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: permission
+    props:
+      - name: Action
+        value: '{{ Action }}'
+      - name: EventSourceToken
+        value: '{{ EventSourceToken }}'
+      - name: FunctionName
+        value: '{{ FunctionName }}'
+      - name: FunctionUrlAuthType
+        value: '{{ FunctionUrlAuthType }}'
+      - name: Principal
+        value: '{{ Principal }}'
+      - name: PrincipalOrgID
+        value: '{{ PrincipalOrgID }}'
+      - name: SourceAccount
+        value: '{{ SourceAccount }}'
+      - name: SourceArn
+        value: '{{ SourceArn }}'
+
 ```
 </TabItem>
 </Tabs>

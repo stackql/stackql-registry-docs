@@ -76,42 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>deployment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApiId": "{{ ApiId }}"
-}
->>>
---required properties only
+-- deployment.iql (required properties only)
 INSERT INTO aws.apigatewayv2.deployments (
  ApiId,
  region
 )
 SELECT 
-{{ .ApiId }},
-'us-east-1';
+'{{ ApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "StageName": "{{ StageName }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---all properties
+-- deployment.iql (all properties)
 INSERT INTO aws.apigatewayv2.deployments (
  Description,
  StageName,
@@ -119,10 +110,33 @@ INSERT INTO aws.apigatewayv2.deployments (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .StageName }},
- {{ .ApiId }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ StageName }}',
+ '{{ ApiId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: deployment
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: StageName
+        value: '{{ StageName }}'
+      - name: ApiId
+        value: '{{ ApiId }}'
+
 ```
 </TabItem>
 </Tabs>

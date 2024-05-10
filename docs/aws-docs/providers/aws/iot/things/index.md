@@ -74,57 +74,66 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>thing</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AttributePayload": {
-  "Attributes": {}
- },
- "ThingName": "{{ ThingName }}"
-}
->>>
---required properties only
+-- thing.iql (required properties only)
 INSERT INTO aws.iot.things (
  AttributePayload,
  ThingName,
  region
 )
 SELECT 
-{{ .AttributePayload }},
- {{ .ThingName }},
-'us-east-1';
+'{{ AttributePayload }}',
+ '{{ ThingName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AttributePayload": {
-  "Attributes": {}
- },
- "ThingName": "{{ ThingName }}"
-}
->>>
---all properties
+-- thing.iql (all properties)
 INSERT INTO aws.iot.things (
  AttributePayload,
  ThingName,
  region
 )
 SELECT 
- {{ .AttributePayload }},
- {{ .ThingName }},
- 'us-east-1';
+ '{{ AttributePayload }}',
+ '{{ ThingName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: thing
+    props:
+      - name: AttributePayload
+        value:
+          Attributes: {}
+      - name: ThingName
+        value: '{{ ThingName }}'
+
 ```
 </TabItem>
 </Tabs>

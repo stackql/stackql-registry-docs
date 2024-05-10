@@ -74,73 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>game_session_queue</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- game_session_queue.iql (required properties only)
 INSERT INTO aws.gamelift.game_session_queues (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
- "Destinations": [
-  {
-   "DestinationArn": "{{ DestinationArn }}"
-  }
- ],
- "PlayerLatencyPolicies": [
-  {
-   "MaximumIndividualPlayerLatencyMilliseconds": "{{ MaximumIndividualPlayerLatencyMilliseconds }}",
-   "PolicyDurationSeconds": "{{ PolicyDurationSeconds }}"
-  }
- ],
- "CustomEventData": "{{ CustomEventData }}",
- "NotificationTarget": "{{ NotificationTarget }}",
- "FilterConfiguration": {
-  "AllowedLocations": [
-   "{{ AllowedLocations[0] }}"
-  ]
- },
- "PriorityConfiguration": {
-  "LocationOrder": [
-   "{{ LocationOrder[0] }}"
-  ],
-  "PriorityOrder": [
-   "{{ PriorityOrder[0] }}"
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- game_session_queue.iql (all properties)
 INSERT INTO aws.gamelift.game_session_queues (
  Name,
  TimeoutInSeconds,
@@ -154,16 +114,62 @@ INSERT INTO aws.gamelift.game_session_queues (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .TimeoutInSeconds }},
- {{ .Destinations }},
- {{ .PlayerLatencyPolicies }},
- {{ .CustomEventData }},
- {{ .NotificationTarget }},
- {{ .FilterConfiguration }},
- {{ .PriorityConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ TimeoutInSeconds }}',
+ '{{ Destinations }}',
+ '{{ PlayerLatencyPolicies }}',
+ '{{ CustomEventData }}',
+ '{{ NotificationTarget }}',
+ '{{ FilterConfiguration }}',
+ '{{ PriorityConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: game_session_queue
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: TimeoutInSeconds
+        value: '{{ TimeoutInSeconds }}'
+      - name: Destinations
+        value:
+          - DestinationArn: '{{ DestinationArn }}'
+      - name: PlayerLatencyPolicies
+        value:
+          - MaximumIndividualPlayerLatencyMilliseconds: '{{ MaximumIndividualPlayerLatencyMilliseconds }}'
+            PolicyDurationSeconds: '{{ PolicyDurationSeconds }}'
+      - name: CustomEventData
+        value: '{{ CustomEventData }}'
+      - name: NotificationTarget
+        value: '{{ NotificationTarget }}'
+      - name: FilterConfiguration
+        value:
+          AllowedLocations:
+            - '{{ AllowedLocations[0] }}'
+      - name: PriorityConfiguration
+        value:
+          LocationOrder:
+            - '{{ LocationOrder[0] }}'
+          PriorityOrder:
+            - '{{ PriorityOrder[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

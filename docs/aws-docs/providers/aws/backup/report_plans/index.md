@@ -74,92 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>report_plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ReportDeliveryChannel": {
-  "Formats": [
-   "{{ Formats[0] }}"
-  ],
-  "S3BucketName": "{{ S3BucketName }}",
-  "S3KeyPrefix": "{{ S3KeyPrefix }}"
- },
- "ReportSetting": {
-  "ReportTemplate": "{{ ReportTemplate }}",
-  "FrameworkArns": [
-   "{{ FrameworkArns[0] }}"
-  ],
-  "Accounts": [
-   "{{ Accounts[0] }}"
-  ],
-  "OrganizationUnits": [
-   "{{ OrganizationUnits[0] }}"
-  ],
-  "Regions": [
-   "{{ Regions[0] }}"
-  ]
- }
-}
->>>
---required properties only
+-- report_plan.iql (required properties only)
 INSERT INTO aws.backup.report_plans (
  ReportDeliveryChannel,
  ReportSetting,
  region
 )
 SELECT 
-{{ .ReportDeliveryChannel }},
- {{ .ReportSetting }},
-'us-east-1';
+'{{ ReportDeliveryChannel }}',
+ '{{ ReportSetting }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ReportPlanName": "{{ ReportPlanName }}",
- "ReportPlanDescription": "{{ ReportPlanDescription }}",
- "ReportPlanTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ReportDeliveryChannel": {
-  "Formats": [
-   "{{ Formats[0] }}"
-  ],
-  "S3BucketName": "{{ S3BucketName }}",
-  "S3KeyPrefix": "{{ S3KeyPrefix }}"
- },
- "ReportSetting": {
-  "ReportTemplate": "{{ ReportTemplate }}",
-  "FrameworkArns": [
-   "{{ FrameworkArns[0] }}"
-  ],
-  "Accounts": [
-   "{{ Accounts[0] }}"
-  ],
-  "OrganizationUnits": [
-   "{{ OrganizationUnits[0] }}"
-  ],
-  "Regions": [
-   "{{ Regions[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- report_plan.iql (all properties)
 INSERT INTO aws.backup.report_plans (
  ReportPlanName,
  ReportPlanDescription,
@@ -169,12 +112,54 @@ INSERT INTO aws.backup.report_plans (
  region
 )
 SELECT 
- {{ .ReportPlanName }},
- {{ .ReportPlanDescription }},
- {{ .ReportPlanTags }},
- {{ .ReportDeliveryChannel }},
- {{ .ReportSetting }},
- 'us-east-1';
+ '{{ ReportPlanName }}',
+ '{{ ReportPlanDescription }}',
+ '{{ ReportPlanTags }}',
+ '{{ ReportDeliveryChannel }}',
+ '{{ ReportSetting }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: report_plan
+    props:
+      - name: ReportPlanName
+        value: '{{ ReportPlanName }}'
+      - name: ReportPlanDescription
+        value: '{{ ReportPlanDescription }}'
+      - name: ReportPlanTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ReportDeliveryChannel
+        value:
+          Formats:
+            - '{{ Formats[0] }}'
+          S3BucketName: '{{ S3BucketName }}'
+          S3KeyPrefix: '{{ S3KeyPrefix }}'
+      - name: ReportSetting
+        value:
+          ReportTemplate: '{{ ReportTemplate }}'
+          FrameworkArns:
+            - '{{ FrameworkArns[0] }}'
+          Accounts:
+            - '{{ Accounts[0] }}'
+          OrganizationUnits:
+            - '{{ OrganizationUnits[0] }}'
+          Regions:
+            - '{{ Regions[0] }}'
+
 ```
 </TabItem>
 </Tabs>

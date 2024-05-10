@@ -74,50 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>influxdb_instance</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Username": "{{ Username }}",
- "Password": "{{ Password }}",
- "Organization": "{{ Organization }}",
- "Bucket": "{{ Bucket }}",
- "DbInstanceType": "{{ DbInstanceType }}",
- "VpcSubnetIds": [
-  "{{ VpcSubnetIds[0] }}"
- ],
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ],
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "DbStorageType": "{{ DbStorageType }}",
- "AllocatedStorage": "{{ AllocatedStorage }}",
- "DbParameterGroupIdentifier": "{{ DbParameterGroupIdentifier }}",
- "LogDeliveryConfiguration": {
-  "S3Configuration": {
-   "BucketName": "{{ BucketName }}",
-   "Enabled": "{{ Enabled }}"
-  }
- },
- "Name": "{{ Name }}",
- "DeploymentType": "{{ DeploymentType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- influxdb_instance.iql (required properties only)
 INSERT INTO aws.timestream.influxdb_instances (
  Username,
  Password,
@@ -137,61 +107,28 @@ INSERT INTO aws.timestream.influxdb_instances (
  region
 )
 SELECT 
-{{ .Username }},
- {{ .Password }},
- {{ .Organization }},
- {{ .Bucket }},
- {{ .DbInstanceType }},
- {{ .VpcSubnetIds }},
- {{ .VpcSecurityGroupIds }},
- {{ .PubliclyAccessible }},
- {{ .DbStorageType }},
- {{ .AllocatedStorage }},
- {{ .DbParameterGroupIdentifier }},
- {{ .LogDeliveryConfiguration }},
- {{ .Name }},
- {{ .DeploymentType }},
- {{ .Tags }},
-'us-east-1';
+'{{ Username }}',
+ '{{ Password }}',
+ '{{ Organization }}',
+ '{{ Bucket }}',
+ '{{ DbInstanceType }}',
+ '{{ VpcSubnetIds }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ PubliclyAccessible }}',
+ '{{ DbStorageType }}',
+ '{{ AllocatedStorage }}',
+ '{{ DbParameterGroupIdentifier }}',
+ '{{ LogDeliveryConfiguration }}',
+ '{{ Name }}',
+ '{{ DeploymentType }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Username": "{{ Username }}",
- "Password": "{{ Password }}",
- "Organization": "{{ Organization }}",
- "Bucket": "{{ Bucket }}",
- "DbInstanceType": "{{ DbInstanceType }}",
- "VpcSubnetIds": [
-  "{{ VpcSubnetIds[0] }}"
- ],
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ],
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "DbStorageType": "{{ DbStorageType }}",
- "AllocatedStorage": "{{ AllocatedStorage }}",
- "DbParameterGroupIdentifier": "{{ DbParameterGroupIdentifier }}",
- "LogDeliveryConfiguration": {
-  "S3Configuration": {
-   "BucketName": "{{ BucketName }}",
-   "Enabled": "{{ Enabled }}"
-  }
- },
- "Name": "{{ Name }}",
- "DeploymentType": "{{ DeploymentType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- influxdb_instance.iql (all properties)
 INSERT INTO aws.timestream.influxdb_instances (
  Username,
  Password,
@@ -211,22 +148,76 @@ INSERT INTO aws.timestream.influxdb_instances (
  region
 )
 SELECT 
- {{ .Username }},
- {{ .Password }},
- {{ .Organization }},
- {{ .Bucket }},
- {{ .DbInstanceType }},
- {{ .VpcSubnetIds }},
- {{ .VpcSecurityGroupIds }},
- {{ .PubliclyAccessible }},
- {{ .DbStorageType }},
- {{ .AllocatedStorage }},
- {{ .DbParameterGroupIdentifier }},
- {{ .LogDeliveryConfiguration }},
- {{ .Name }},
- {{ .DeploymentType }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Username }}',
+ '{{ Password }}',
+ '{{ Organization }}',
+ '{{ Bucket }}',
+ '{{ DbInstanceType }}',
+ '{{ VpcSubnetIds }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ PubliclyAccessible }}',
+ '{{ DbStorageType }}',
+ '{{ AllocatedStorage }}',
+ '{{ DbParameterGroupIdentifier }}',
+ '{{ LogDeliveryConfiguration }}',
+ '{{ Name }}',
+ '{{ DeploymentType }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: influxdb_instance
+    props:
+      - name: Username
+        value: '{{ Username }}'
+      - name: Password
+        value: '{{ Password }}'
+      - name: Organization
+        value: '{{ Organization }}'
+      - name: Bucket
+        value: '{{ Bucket }}'
+      - name: DbInstanceType
+        value: '{{ DbInstanceType }}'
+      - name: VpcSubnetIds
+        value:
+          - '{{ VpcSubnetIds[0] }}'
+      - name: VpcSecurityGroupIds
+        value:
+          - '{{ VpcSecurityGroupIds[0] }}'
+      - name: PubliclyAccessible
+        value: '{{ PubliclyAccessible }}'
+      - name: DbStorageType
+        value: '{{ DbStorageType }}'
+      - name: AllocatedStorage
+        value: '{{ AllocatedStorage }}'
+      - name: DbParameterGroupIdentifier
+        value: '{{ DbParameterGroupIdentifier }}'
+      - name: LogDeliveryConfiguration
+        value:
+          S3Configuration:
+            BucketName: '{{ BucketName }}'
+            Enabled: '{{ Enabled }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: DeploymentType
+        value: '{{ DeploymentType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

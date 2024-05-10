@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>private_graph_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GraphIdentifier": "{{ GraphIdentifier }}",
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- private_graph_endpoint.iql (required properties only)
 INSERT INTO aws.neptunegraph.private_graph_endpoints (
  GraphIdentifier,
  VpcId,
  region
 )
 SELECT 
-{{ .GraphIdentifier }},
- {{ .VpcId }},
-'us-east-1';
+'{{ GraphIdentifier }}',
+ '{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GraphIdentifier": "{{ GraphIdentifier }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "VpcId": "{{ VpcId }}"
-}
->>>
---all properties
+-- private_graph_endpoint.iql (all properties)
 INSERT INTO aws.neptunegraph.private_graph_endpoints (
  GraphIdentifier,
  SecurityGroupIds,
@@ -126,11 +111,38 @@ INSERT INTO aws.neptunegraph.private_graph_endpoints (
  region
 )
 SELECT 
- {{ .GraphIdentifier }},
- {{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .VpcId }},
- 'us-east-1';
+ '{{ GraphIdentifier }}',
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ VpcId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: private_graph_endpoint
+    props:
+      - name: GraphIdentifier
+        value: '{{ GraphIdentifier }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+
 ```
 </TabItem>
 </Tabs>

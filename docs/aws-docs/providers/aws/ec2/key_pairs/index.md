@@ -74,49 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>key_pair</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KeyName": "{{ KeyName }}"
-}
->>>
---required properties only
+-- key_pair.iql (required properties only)
 INSERT INTO aws.ec2.key_pairs (
  KeyName,
  region
 )
 SELECT 
-{{ .KeyName }},
-'us-east-1';
+'{{ KeyName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "KeyName": "{{ KeyName }}",
- "KeyType": "{{ KeyType }}",
- "KeyFormat": "{{ KeyFormat }}",
- "PublicKeyMaterial": "{{ PublicKeyMaterial }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- key_pair.iql (all properties)
 INSERT INTO aws.ec2.key_pairs (
  KeyName,
  KeyType,
@@ -126,12 +110,41 @@ INSERT INTO aws.ec2.key_pairs (
  region
 )
 SELECT 
- {{ .KeyName }},
- {{ .KeyType }},
- {{ .KeyFormat }},
- {{ .PublicKeyMaterial }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ KeyName }}',
+ '{{ KeyType }}',
+ '{{ KeyFormat }}',
+ '{{ PublicKeyMaterial }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: key_pair
+    props:
+      - name: KeyName
+        value: '{{ KeyName }}'
+      - name: KeyType
+        value: '{{ KeyType }}'
+      - name: KeyFormat
+        value: '{{ KeyFormat }}'
+      - name: PublicKeyMaterial
+        value: '{{ PublicKeyMaterial }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

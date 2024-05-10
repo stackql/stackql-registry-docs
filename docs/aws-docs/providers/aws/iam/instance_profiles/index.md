@@ -74,46 +74,33 @@ FROM aws.iam.instance_profiles
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>instance_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Roles": [
-  "{{ Roles[0] }}"
- ]
-}
->>>
---required properties only
+-- instance_profile.iql (required properties only)
 INSERT INTO aws.iam.instance_profiles (
  Roles,
  region
 )
 SELECT 
-{{ .Roles }},
-'us-east-1';
+'{{ Roles }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Path": "{{ Path }}",
- "Roles": [
-  "{{ Roles[0] }}"
- ],
- "InstanceProfileName": "{{ InstanceProfileName }}"
-}
->>>
---all properties
+-- instance_profile.iql (all properties)
 INSERT INTO aws.iam.instance_profiles (
  Path,
  Roles,
@@ -121,10 +108,34 @@ INSERT INTO aws.iam.instance_profiles (
  region
 )
 SELECT 
- {{ .Path }},
- {{ .Roles }},
- {{ .InstanceProfileName }},
- 'us-east-1';
+ '{{ Path }}',
+ '{{ Roles }}',
+ '{{ InstanceProfileName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: instance_profile
+    props:
+      - name: Path
+        value: '{{ Path }}'
+      - name: Roles
+        value:
+          - '{{ Roles[0] }}'
+      - name: InstanceProfileName
+        value: '{{ InstanceProfileName }}'
+
 ```
 </TabItem>
 </Tabs>

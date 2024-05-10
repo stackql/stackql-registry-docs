@@ -74,146 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>workflow</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Steps": [
-  {
-   "CopyStepDetails": {
-    "DestinationFileLocation": {
-     "S3FileLocation": {
-      "Bucket": "{{ Bucket }}",
-      "Key": "{{ Key }}"
-     }
-    },
-    "Name": "{{ Name }}",
-    "OverwriteExisting": "{{ OverwriteExisting }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "CustomStepDetails": {
-    "Name": "{{ Name }}",
-    "Target": "{{ Target }}",
-    "TimeoutSeconds": "{{ TimeoutSeconds }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "DecryptStepDetails": {
-    "DestinationFileLocation": {
-     "S3FileLocation": null,
-     "EfsFileLocation": {
-      "FileSystemId": "{{ FileSystemId }}",
-      "Path": "{{ Path }}"
-     }
-    },
-    "Name": "{{ Name }}",
-    "Type": "{{ Type }}",
-    "OverwriteExisting": "{{ OverwriteExisting }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "DeleteStepDetails": {
-    "Name": "{{ Name }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "TagStepDetails": {
-    "Name": "{{ Name }}",
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ],
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "Type": "{{ Type }}"
-  }
- ]
-}
->>>
---required properties only
+-- workflow.iql (required properties only)
 INSERT INTO aws.transfer.workflows (
  Steps,
  region
 )
 SELECT 
-{{ .Steps }},
-'us-east-1';
+'{{ Steps }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "OnExceptionSteps": [
-  {
-   "CopyStepDetails": {
-    "DestinationFileLocation": {
-     "S3FileLocation": {
-      "Bucket": "{{ Bucket }}",
-      "Key": "{{ Key }}"
-     }
-    },
-    "Name": "{{ Name }}",
-    "OverwriteExisting": "{{ OverwriteExisting }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "CustomStepDetails": {
-    "Name": "{{ Name }}",
-    "Target": "{{ Target }}",
-    "TimeoutSeconds": "{{ TimeoutSeconds }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "DecryptStepDetails": {
-    "DestinationFileLocation": {
-     "S3FileLocation": null,
-     "EfsFileLocation": {
-      "FileSystemId": "{{ FileSystemId }}",
-      "Path": "{{ Path }}"
-     }
-    },
-    "Name": "{{ Name }}",
-    "Type": "{{ Type }}",
-    "OverwriteExisting": "{{ OverwriteExisting }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "DeleteStepDetails": {
-    "Name": "{{ Name }}",
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "TagStepDetails": {
-    "Name": "{{ Name }}",
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ],
-    "SourceFileLocation": "{{ SourceFileLocation }}"
-   },
-   "Type": "{{ Type }}"
-  }
- ],
- "Steps": [
-  null
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- workflow.iql (all properties)
 INSERT INTO aws.transfer.workflows (
  OnExceptionSteps,
  Steps,
@@ -222,11 +109,72 @@ INSERT INTO aws.transfer.workflows (
  region
 )
 SELECT 
- {{ .OnExceptionSteps }},
- {{ .Steps }},
- {{ .Tags }},
- {{ .Description }},
- 'us-east-1';
+ '{{ OnExceptionSteps }}',
+ '{{ Steps }}',
+ '{{ Tags }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: workflow
+    props:
+      - name: OnExceptionSteps
+        value:
+          - CopyStepDetails:
+              DestinationFileLocation:
+                S3FileLocation:
+                  Bucket: '{{ Bucket }}'
+                  Key: '{{ Key }}'
+              Name: '{{ Name }}'
+              OverwriteExisting: '{{ OverwriteExisting }}'
+              SourceFileLocation: '{{ SourceFileLocation }}'
+            CustomStepDetails:
+              Name: '{{ Name }}'
+              Target: '{{ Target }}'
+              TimeoutSeconds: '{{ TimeoutSeconds }}'
+              SourceFileLocation: '{{ SourceFileLocation }}'
+            DecryptStepDetails:
+              DestinationFileLocation:
+                S3FileLocation: null
+                EfsFileLocation:
+                  FileSystemId: '{{ FileSystemId }}'
+                  Path: '{{ Path }}'
+              Name: '{{ Name }}'
+              Type: '{{ Type }}'
+              OverwriteExisting: '{{ OverwriteExisting }}'
+              SourceFileLocation: '{{ SourceFileLocation }}'
+            DeleteStepDetails:
+              Name: '{{ Name }}'
+              SourceFileLocation: '{{ SourceFileLocation }}'
+            TagStepDetails:
+              Name: '{{ Name }}'
+              Tags:
+                - Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+              SourceFileLocation: '{{ SourceFileLocation }}'
+            Type: '{{ Type }}'
+      - name: Steps
+        value:
+          - null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,52 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>authorizer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AuthorizerFunctionArn": "{{ AuthorizerFunctionArn }}"
-}
->>>
---required properties only
+-- authorizer.iql (required properties only)
 INSERT INTO aws.iot.authorizers (
  AuthorizerFunctionArn,
  region
 )
 SELECT 
-{{ .AuthorizerFunctionArn }},
-'us-east-1';
+'{{ AuthorizerFunctionArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AuthorizerFunctionArn": "{{ AuthorizerFunctionArn }}",
- "AuthorizerName": "{{ AuthorizerName }}",
- "SigningDisabled": "{{ SigningDisabled }}",
- "Status": "{{ Status }}",
- "TokenKeyName": "{{ TokenKeyName }}",
- "TokenSigningPublicKeys": {},
- "EnableCachingForHttp": "{{ EnableCachingForHttp }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- authorizer.iql (all properties)
 INSERT INTO aws.iot.authorizers (
  AuthorizerFunctionArn,
  AuthorizerName,
@@ -132,15 +113,50 @@ INSERT INTO aws.iot.authorizers (
  region
 )
 SELECT 
- {{ .AuthorizerFunctionArn }},
- {{ .AuthorizerName }},
- {{ .SigningDisabled }},
- {{ .Status }},
- {{ .TokenKeyName }},
- {{ .TokenSigningPublicKeys }},
- {{ .EnableCachingForHttp }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AuthorizerFunctionArn }}',
+ '{{ AuthorizerName }}',
+ '{{ SigningDisabled }}',
+ '{{ Status }}',
+ '{{ TokenKeyName }}',
+ '{{ TokenSigningPublicKeys }}',
+ '{{ EnableCachingForHttp }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: authorizer
+    props:
+      - name: AuthorizerFunctionArn
+        value: '{{ AuthorizerFunctionArn }}'
+      - name: AuthorizerName
+        value: '{{ AuthorizerName }}'
+      - name: SigningDisabled
+        value: '{{ SigningDisabled }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: TokenKeyName
+        value: '{{ TokenKeyName }}'
+      - name: TokenSigningPublicKeys
+        value: {}
+      - name: EnableCachingForHttp
+        value: '{{ EnableCachingForHttp }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

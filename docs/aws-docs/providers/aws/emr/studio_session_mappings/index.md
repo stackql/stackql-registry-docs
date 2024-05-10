@@ -78,25 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>studio_session_mapping</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IdentityName": "{{ IdentityName }}",
- "IdentityType": "{{ IdentityType }}",
- "SessionPolicyArn": "{{ SessionPolicyArn }}",
- "StudioId": "{{ StudioId }}"
-}
->>>
---required properties only
+-- studio_session_mapping.iql (required properties only)
 INSERT INTO aws.emr.studio_session_mappings (
  IdentityName,
  IdentityType,
@@ -105,25 +100,17 @@ INSERT INTO aws.emr.studio_session_mappings (
  region
 )
 SELECT 
-{{ .IdentityName }},
- {{ .IdentityType }},
- {{ .SessionPolicyArn }},
- {{ .StudioId }},
-'us-east-1';
+'{{ IdentityName }}',
+ '{{ IdentityType }}',
+ '{{ SessionPolicyArn }}',
+ '{{ StudioId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IdentityName": "{{ IdentityName }}",
- "IdentityType": "{{ IdentityType }}",
- "SessionPolicyArn": "{{ SessionPolicyArn }}",
- "StudioId": "{{ StudioId }}"
-}
->>>
---all properties
+-- studio_session_mapping.iql (all properties)
 INSERT INTO aws.emr.studio_session_mappings (
  IdentityName,
  IdentityType,
@@ -132,11 +119,36 @@ INSERT INTO aws.emr.studio_session_mappings (
  region
 )
 SELECT 
- {{ .IdentityName }},
- {{ .IdentityType }},
- {{ .SessionPolicyArn }},
- {{ .StudioId }},
- 'us-east-1';
+ '{{ IdentityName }}',
+ '{{ IdentityType }}',
+ '{{ SessionPolicyArn }}',
+ '{{ StudioId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: studio_session_mapping
+    props:
+      - name: IdentityName
+        value: '{{ IdentityName }}'
+      - name: IdentityType
+        value: '{{ IdentityType }}'
+      - name: SessionPolicyArn
+        value: '{{ SessionPolicyArn }}'
+      - name: StudioId
+        value: '{{ StudioId }}'
+
 ```
 </TabItem>
 </Tabs>

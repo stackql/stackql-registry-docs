@@ -74,57 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_analyzer_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- network_analyzer_configuration.iql (required properties only)
 INSERT INTO aws.iotwireless.network_analyzer_configurations (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "TraceContent": {
-  "WirelessDeviceFrameInfo": "{{ WirelessDeviceFrameInfo }}",
-  "LogLevel": "{{ LogLevel }}"
- },
- "WirelessDevices": [
-  "{{ WirelessDevices[0] }}"
- ],
- "WirelessGateways": [
-  "{{ WirelessGateways[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- network_analyzer_configuration.iql (all properties)
 INSERT INTO aws.iotwireless.network_analyzer_configurations (
  Name,
  Description,
@@ -135,13 +111,48 @@ INSERT INTO aws.iotwireless.network_analyzer_configurations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .TraceContent }},
- {{ .WirelessDevices }},
- {{ .WirelessGateways }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ TraceContent }}',
+ '{{ WirelessDevices }}',
+ '{{ WirelessGateways }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_analyzer_configuration
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: TraceContent
+        value:
+          WirelessDeviceFrameInfo: '{{ WirelessDeviceFrameInfo }}'
+          LogLevel: '{{ LogLevel }}'
+      - name: WirelessDevices
+        value:
+          - '{{ WirelessDevices[0] }}'
+      - name: WirelessGateways
+        value:
+          - '{{ WirelessGateways[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

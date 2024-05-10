@@ -76,56 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user_pool_user</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "UserPoolId": "{{ UserPoolId }}"
-}
->>>
---required properties only
+-- user_pool_user.iql (required properties only)
 INSERT INTO aws.cognito.user_pool_users (
  UserPoolId,
  region
 )
 SELECT 
-{{ .UserPoolId }},
-'us-east-1';
+'{{ UserPoolId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DesiredDeliveryMediums": [
-  "{{ DesiredDeliveryMediums[0] }}"
- ],
- "ForceAliasCreation": "{{ ForceAliasCreation }}",
- "UserAttributes": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "MessageAction": "{{ MessageAction }}",
- "Username": "{{ Username }}",
- "UserPoolId": "{{ UserPoolId }}",
- "ValidationData": [
-  null
- ],
- "ClientMetadata": {}
-}
->>>
---all properties
+-- user_pool_user.iql (all properties)
 INSERT INTO aws.cognito.user_pool_users (
  DesiredDeliveryMediums,
  ForceAliasCreation,
@@ -138,15 +115,52 @@ INSERT INTO aws.cognito.user_pool_users (
  region
 )
 SELECT 
- {{ .DesiredDeliveryMediums }},
- {{ .ForceAliasCreation }},
- {{ .UserAttributes }},
- {{ .MessageAction }},
- {{ .Username }},
- {{ .UserPoolId }},
- {{ .ValidationData }},
- {{ .ClientMetadata }},
- 'us-east-1';
+ '{{ DesiredDeliveryMediums }}',
+ '{{ ForceAliasCreation }}',
+ '{{ UserAttributes }}',
+ '{{ MessageAction }}',
+ '{{ Username }}',
+ '{{ UserPoolId }}',
+ '{{ ValidationData }}',
+ '{{ ClientMetadata }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user_pool_user
+    props:
+      - name: DesiredDeliveryMediums
+        value:
+          - '{{ DesiredDeliveryMediums[0] }}'
+      - name: ForceAliasCreation
+        value: '{{ ForceAliasCreation }}'
+      - name: UserAttributes
+        value:
+          - Name: '{{ Name }}'
+            Value: '{{ Value }}'
+      - name: MessageAction
+        value: '{{ MessageAction }}'
+      - name: Username
+        value: '{{ Username }}'
+      - name: UserPoolId
+        value: '{{ UserPoolId }}'
+      - name: ValidationData
+        value:
+          - null
+      - name: ClientMetadata
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

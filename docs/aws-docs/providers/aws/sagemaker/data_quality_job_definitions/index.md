@@ -74,79 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_quality_job_definition</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DataQualityAppSpecification": {
-  "ContainerArguments": [
-   "{{ ContainerArguments[0] }}"
-  ],
-  "ContainerEntrypoint": [
-   "{{ ContainerEntrypoint[0] }}"
-  ],
-  "ImageUri": "{{ ImageUri }}",
-  "PostAnalyticsProcessorSourceUri": "{{ PostAnalyticsProcessorSourceUri }}",
-  "RecordPreprocessorSourceUri": null,
-  "Environment": {}
- },
- "DataQualityJobInput": {
-  "EndpointInput": {
-   "EndpointName": "{{ EndpointName }}",
-   "LocalPath": "{{ LocalPath }}",
-   "S3DataDistributionType": "{{ S3DataDistributionType }}",
-   "S3InputMode": "{{ S3InputMode }}",
-   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-  },
-  "BatchTransformInput": {
-   "DataCapturedDestinationS3Uri": "{{ DataCapturedDestinationS3Uri }}",
-   "DatasetFormat": {
-    "Csv": {
-     "Header": "{{ Header }}"
-    },
-    "Json": {
-     "Line": "{{ Line }}"
-    },
-    "Parquet": "{{ Parquet }}"
-   },
-   "LocalPath": "{{ LocalPath }}",
-   "S3DataDistributionType": "{{ S3DataDistributionType }}",
-   "S3InputMode": "{{ S3InputMode }}",
-   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-  }
- },
- "DataQualityJobOutputConfig": {
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "MonitoringOutputs": [
-   {
-    "S3Output": {
-     "LocalPath": "{{ LocalPath }}",
-     "S3UploadMode": "{{ S3UploadMode }}",
-     "S3Uri": "{{ S3Uri }}"
-    }
-   }
-  ]
- },
- "JobResources": {
-  "ClusterConfig": {
-   "InstanceCount": "{{ InstanceCount }}",
-   "InstanceType": "{{ InstanceType }}",
-   "VolumeKmsKeyId": "{{ VolumeKmsKeyId }}",
-   "VolumeSizeInGB": "{{ VolumeSizeInGB }}"
-  }
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- data_quality_job_definition.iql (required properties only)
 INSERT INTO aws.sagemaker.data_quality_job_definitions (
  DataQualityAppSpecification,
  DataQualityJobInput,
@@ -156,112 +97,18 @@ INSERT INTO aws.sagemaker.data_quality_job_definitions (
  region
 )
 SELECT 
-{{ .DataQualityAppSpecification }},
- {{ .DataQualityJobInput }},
- {{ .DataQualityJobOutputConfig }},
- {{ .JobResources }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ DataQualityAppSpecification }}',
+ '{{ DataQualityJobInput }}',
+ '{{ DataQualityJobOutputConfig }}',
+ '{{ JobResources }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "JobDefinitionName": "{{ JobDefinitionName }}",
- "DataQualityBaselineConfig": {
-  "BaseliningJobName": "{{ BaseliningJobName }}",
-  "ConstraintsResource": {
-   "S3Uri": "{{ S3Uri }}"
-  },
-  "StatisticsResource": {
-   "S3Uri": null
-  }
- },
- "DataQualityAppSpecification": {
-  "ContainerArguments": [
-   "{{ ContainerArguments[0] }}"
-  ],
-  "ContainerEntrypoint": [
-   "{{ ContainerEntrypoint[0] }}"
-  ],
-  "ImageUri": "{{ ImageUri }}",
-  "PostAnalyticsProcessorSourceUri": null,
-  "RecordPreprocessorSourceUri": null,
-  "Environment": {}
- },
- "DataQualityJobInput": {
-  "EndpointInput": {
-   "EndpointName": "{{ EndpointName }}",
-   "LocalPath": "{{ LocalPath }}",
-   "S3DataDistributionType": "{{ S3DataDistributionType }}",
-   "S3InputMode": "{{ S3InputMode }}",
-   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-  },
-  "BatchTransformInput": {
-   "DataCapturedDestinationS3Uri": "{{ DataCapturedDestinationS3Uri }}",
-   "DatasetFormat": {
-    "Csv": {
-     "Header": "{{ Header }}"
-    },
-    "Json": {
-     "Line": "{{ Line }}"
-    },
-    "Parquet": "{{ Parquet }}"
-   },
-   "LocalPath": "{{ LocalPath }}",
-   "S3DataDistributionType": "{{ S3DataDistributionType }}",
-   "S3InputMode": "{{ S3InputMode }}",
-   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
-  }
- },
- "DataQualityJobOutputConfig": {
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "MonitoringOutputs": [
-   {
-    "S3Output": {
-     "LocalPath": "{{ LocalPath }}",
-     "S3UploadMode": "{{ S3UploadMode }}",
-     "S3Uri": "{{ S3Uri }}"
-    }
-   }
-  ]
- },
- "JobResources": {
-  "ClusterConfig": {
-   "InstanceCount": "{{ InstanceCount }}",
-   "InstanceType": "{{ InstanceType }}",
-   "VolumeKmsKeyId": "{{ VolumeKmsKeyId }}",
-   "VolumeSizeInGB": "{{ VolumeSizeInGB }}"
-  }
- },
- "NetworkConfig": {
-  "EnableInterContainerTrafficEncryption": "{{ EnableInterContainerTrafficEncryption }}",
-  "EnableNetworkIsolation": "{{ EnableNetworkIsolation }}",
-  "VpcConfig": {
-   "SecurityGroupIds": [
-    "{{ SecurityGroupIds[0] }}"
-   ],
-   "Subnets": [
-    "{{ Subnets[0] }}"
-   ]
-  }
- },
- "EndpointName": null,
- "RoleArn": "{{ RoleArn }}",
- "StoppingCondition": {
-  "MaxRuntimeInSeconds": "{{ MaxRuntimeInSeconds }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- data_quality_job_definition.iql (all properties)
 INSERT INTO aws.sagemaker.data_quality_job_definitions (
  JobDefinitionName,
  DataQualityBaselineConfig,
@@ -277,18 +124,109 @@ INSERT INTO aws.sagemaker.data_quality_job_definitions (
  region
 )
 SELECT 
- {{ .JobDefinitionName }},
- {{ .DataQualityBaselineConfig }},
- {{ .DataQualityAppSpecification }},
- {{ .DataQualityJobInput }},
- {{ .DataQualityJobOutputConfig }},
- {{ .JobResources }},
- {{ .NetworkConfig }},
- {{ .EndpointName }},
- {{ .RoleArn }},
- {{ .StoppingCondition }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ JobDefinitionName }}',
+ '{{ DataQualityBaselineConfig }}',
+ '{{ DataQualityAppSpecification }}',
+ '{{ DataQualityJobInput }}',
+ '{{ DataQualityJobOutputConfig }}',
+ '{{ JobResources }}',
+ '{{ NetworkConfig }}',
+ '{{ EndpointName }}',
+ '{{ RoleArn }}',
+ '{{ StoppingCondition }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_quality_job_definition
+    props:
+      - name: JobDefinitionName
+        value: '{{ JobDefinitionName }}'
+      - name: DataQualityBaselineConfig
+        value:
+          BaseliningJobName: '{{ BaseliningJobName }}'
+          ConstraintsResource:
+            S3Uri: '{{ S3Uri }}'
+          StatisticsResource:
+            S3Uri: null
+      - name: DataQualityAppSpecification
+        value:
+          ContainerArguments:
+            - '{{ ContainerArguments[0] }}'
+          ContainerEntrypoint:
+            - '{{ ContainerEntrypoint[0] }}'
+          ImageUri: '{{ ImageUri }}'
+          PostAnalyticsProcessorSourceUri: null
+          RecordPreprocessorSourceUri: null
+          Environment: {}
+      - name: DataQualityJobInput
+        value:
+          EndpointInput:
+            EndpointName: '{{ EndpointName }}'
+            LocalPath: '{{ LocalPath }}'
+            S3DataDistributionType: '{{ S3DataDistributionType }}'
+            S3InputMode: '{{ S3InputMode }}'
+            ExcludeFeaturesAttribute: '{{ ExcludeFeaturesAttribute }}'
+          BatchTransformInput:
+            DataCapturedDestinationS3Uri: '{{ DataCapturedDestinationS3Uri }}'
+            DatasetFormat:
+              Csv:
+                Header: '{{ Header }}'
+              Json:
+                Line: '{{ Line }}'
+              Parquet: '{{ Parquet }}'
+            LocalPath: '{{ LocalPath }}'
+            S3DataDistributionType: '{{ S3DataDistributionType }}'
+            S3InputMode: '{{ S3InputMode }}'
+            ExcludeFeaturesAttribute: '{{ ExcludeFeaturesAttribute }}'
+      - name: DataQualityJobOutputConfig
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+          MonitoringOutputs:
+            - S3Output:
+                LocalPath: '{{ LocalPath }}'
+                S3UploadMode: '{{ S3UploadMode }}'
+                S3Uri: '{{ S3Uri }}'
+      - name: JobResources
+        value:
+          ClusterConfig:
+            InstanceCount: '{{ InstanceCount }}'
+            InstanceType: '{{ InstanceType }}'
+            VolumeKmsKeyId: '{{ VolumeKmsKeyId }}'
+            VolumeSizeInGB: '{{ VolumeSizeInGB }}'
+      - name: NetworkConfig
+        value:
+          EnableInterContainerTrafficEncryption: '{{ EnableInterContainerTrafficEncryption }}'
+          EnableNetworkIsolation: '{{ EnableNetworkIsolation }}'
+          VpcConfig:
+            SecurityGroupIds:
+              - '{{ SecurityGroupIds[0] }}'
+            Subnets:
+              - '{{ Subnets[0] }}'
+      - name: EndpointName
+        value: null
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: StoppingCondition
+        value:
+          MaxRuntimeInSeconds: '{{ MaxRuntimeInSeconds }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

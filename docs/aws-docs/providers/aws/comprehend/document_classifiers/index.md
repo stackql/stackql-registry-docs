@@ -74,51 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>document_classifier</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
- "InputDataConfig": {
-  "AugmentedManifests": [
-   {
-    "AttributeNames": [
-     "{{ AttributeNames[0] }}"
-    ],
-    "S3Uri": "{{ S3Uri }}",
-    "Split": "{{ Split }}"
-   }
-  ],
-  "DataFormat": "{{ DataFormat }}",
-  "LabelDelimiter": "{{ LabelDelimiter }}",
-  "DocumentType": "{{ DocumentType }}",
-  "Documents": {
-   "S3Uri": null,
-   "TestS3Uri": null
-  },
-  "DocumentReaderConfig": {
-   "DocumentReadAction": "{{ DocumentReadAction }}",
-   "DocumentReadMode": "{{ DocumentReadMode }}",
-   "FeatureTypes": [
-    "{{ FeatureTypes[0] }}"
-   ]
-  },
-  "S3Uri": null,
-  "TestS3Uri": null
- },
- "LanguageCode": "{{ LanguageCode }}",
- "DocumentClassifierName": "{{ DocumentClassifierName }}"
-}
->>>
---required properties only
+-- document_classifier.iql (required properties only)
 INSERT INTO aws.comprehend.document_classifiers (
  DataAccessRoleArn,
  InputDataConfig,
@@ -127,74 +96,17 @@ INSERT INTO aws.comprehend.document_classifiers (
  region
 )
 SELECT 
-{{ .DataAccessRoleArn }},
- {{ .InputDataConfig }},
- {{ .LanguageCode }},
- {{ .DocumentClassifierName }},
-'us-east-1';
+'{{ DataAccessRoleArn }}',
+ '{{ InputDataConfig }}',
+ '{{ LanguageCode }}',
+ '{{ DocumentClassifierName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
- "InputDataConfig": {
-  "AugmentedManifests": [
-   {
-    "AttributeNames": [
-     "{{ AttributeNames[0] }}"
-    ],
-    "S3Uri": "{{ S3Uri }}",
-    "Split": "{{ Split }}"
-   }
-  ],
-  "DataFormat": "{{ DataFormat }}",
-  "LabelDelimiter": "{{ LabelDelimiter }}",
-  "DocumentType": "{{ DocumentType }}",
-  "Documents": {
-   "S3Uri": null,
-   "TestS3Uri": null
-  },
-  "DocumentReaderConfig": {
-   "DocumentReadAction": "{{ DocumentReadAction }}",
-   "DocumentReadMode": "{{ DocumentReadMode }}",
-   "FeatureTypes": [
-    "{{ FeatureTypes[0] }}"
-   ]
-  },
-  "S3Uri": null,
-  "TestS3Uri": null
- },
- "OutputDataConfig": {
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "S3Uri": null
- },
- "LanguageCode": "{{ LanguageCode }}",
- "ModelKmsKeyId": null,
- "ModelPolicy": "{{ ModelPolicy }}",
- "DocumentClassifierName": "{{ DocumentClassifierName }}",
- "Mode": "{{ Mode }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VersionName": "{{ VersionName }}",
- "VolumeKmsKeyId": null,
- "VpcConfig": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "Subnets": [
-   "{{ Subnets[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- document_classifier.iql (all properties)
 INSERT INTO aws.comprehend.document_classifiers (
  DataAccessRoleArn,
  InputDataConfig,
@@ -211,19 +123,86 @@ INSERT INTO aws.comprehend.document_classifiers (
  region
 )
 SELECT 
- {{ .DataAccessRoleArn }},
- {{ .InputDataConfig }},
- {{ .OutputDataConfig }},
- {{ .LanguageCode }},
- {{ .ModelKmsKeyId }},
- {{ .ModelPolicy }},
- {{ .DocumentClassifierName }},
- {{ .Mode }},
- {{ .Tags }},
- {{ .VersionName }},
- {{ .VolumeKmsKeyId }},
- {{ .VpcConfig }},
- 'us-east-1';
+ '{{ DataAccessRoleArn }}',
+ '{{ InputDataConfig }}',
+ '{{ OutputDataConfig }}',
+ '{{ LanguageCode }}',
+ '{{ ModelKmsKeyId }}',
+ '{{ ModelPolicy }}',
+ '{{ DocumentClassifierName }}',
+ '{{ Mode }}',
+ '{{ Tags }}',
+ '{{ VersionName }}',
+ '{{ VolumeKmsKeyId }}',
+ '{{ VpcConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: document_classifier
+    props:
+      - name: DataAccessRoleArn
+        value: '{{ DataAccessRoleArn }}'
+      - name: InputDataConfig
+        value:
+          AugmentedManifests:
+            - AttributeNames:
+                - '{{ AttributeNames[0] }}'
+              S3Uri: '{{ S3Uri }}'
+              Split: '{{ Split }}'
+          DataFormat: '{{ DataFormat }}'
+          LabelDelimiter: '{{ LabelDelimiter }}'
+          DocumentType: '{{ DocumentType }}'
+          Documents:
+            S3Uri: null
+            TestS3Uri: null
+          DocumentReaderConfig:
+            DocumentReadAction: '{{ DocumentReadAction }}'
+            DocumentReadMode: '{{ DocumentReadMode }}'
+            FeatureTypes:
+              - '{{ FeatureTypes[0] }}'
+          S3Uri: null
+          TestS3Uri: null
+      - name: OutputDataConfig
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+          S3Uri: null
+      - name: LanguageCode
+        value: '{{ LanguageCode }}'
+      - name: ModelKmsKeyId
+        value: null
+      - name: ModelPolicy
+        value: '{{ ModelPolicy }}'
+      - name: DocumentClassifierName
+        value: '{{ DocumentClassifierName }}'
+      - name: Mode
+        value: '{{ Mode }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VersionName
+        value: '{{ VersionName }}'
+      - name: VolumeKmsKeyId
+        value: null
+      - name: VpcConfig
+        value:
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          Subnets:
+            - '{{ Subnets[0] }}'
+
 ```
 </TabItem>
 </Tabs>

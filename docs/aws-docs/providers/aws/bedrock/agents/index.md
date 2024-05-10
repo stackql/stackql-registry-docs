@@ -74,90 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>agent</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AgentName": "{{ AgentName }}"
-}
->>>
---required properties only
+-- agent.iql (required properties only)
 INSERT INTO aws.bedrock.agents (
  AgentName,
  region
 )
 SELECT 
-{{ .AgentName }},
-'us-east-1';
+'{{ AgentName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ActionGroups": [
-  {
-   "ActionGroupName": "{{ ActionGroupName }}",
-   "Description": "{{ Description }}",
-   "ParentActionGroupSignature": "{{ ParentActionGroupSignature }}",
-   "ActionGroupExecutor": {
-    "Lambda": "{{ Lambda }}"
-   },
-   "ApiSchema": null,
-   "ActionGroupState": "{{ ActionGroupState }}",
-   "SkipResourceInUseCheckOnDelete": "{{ SkipResourceInUseCheckOnDelete }}"
-  }
- ],
- "AgentName": "{{ AgentName }}",
- "AgentResourceRoleArn": "{{ AgentResourceRoleArn }}",
- "AutoPrepare": "{{ AutoPrepare }}",
- "CustomerEncryptionKeyArn": "{{ CustomerEncryptionKeyArn }}",
- "SkipResourceInUseCheckOnDelete": "{{ SkipResourceInUseCheckOnDelete }}",
- "Description": "{{ Description }}",
- "FoundationModel": "{{ FoundationModel }}",
- "IdleSessionTTLInSeconds": null,
- "Instruction": "{{ Instruction }}",
- "KnowledgeBases": [
-  {
-   "KnowledgeBaseId": "{{ KnowledgeBaseId }}",
-   "Description": "{{ Description }}",
-   "KnowledgeBaseState": "{{ KnowledgeBaseState }}"
-  }
- ],
- "PromptOverrideConfiguration": {
-  "PromptConfigurations": [
-   {
-    "PromptType": "{{ PromptType }}",
-    "PromptCreationMode": "{{ PromptCreationMode }}",
-    "PromptState": "{{ PromptState }}",
-    "BasePromptTemplate": "{{ BasePromptTemplate }}",
-    "InferenceConfiguration": {
-     "Temperature": null,
-     "TopP": null,
-     "TopK": null,
-     "MaximumLength": null,
-     "StopSequences": [
-      "{{ StopSequences[0] }}"
-     ]
-    },
-    "ParserMode": null
-   }
-  ],
-  "OverrideLambda": "{{ OverrideLambda }}"
- },
- "Tags": {}
-}
->>>
---all properties
+-- agent.iql (all properties)
 INSERT INTO aws.bedrock.agents (
  ActionGroups,
  AgentName,
@@ -175,20 +118,88 @@ INSERT INTO aws.bedrock.agents (
  region
 )
 SELECT 
- {{ .ActionGroups }},
- {{ .AgentName }},
- {{ .AgentResourceRoleArn }},
- {{ .AutoPrepare }},
- {{ .CustomerEncryptionKeyArn }},
- {{ .SkipResourceInUseCheckOnDelete }},
- {{ .Description }},
- {{ .FoundationModel }},
- {{ .IdleSessionTTLInSeconds }},
- {{ .Instruction }},
- {{ .KnowledgeBases }},
- {{ .PromptOverrideConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ActionGroups }}',
+ '{{ AgentName }}',
+ '{{ AgentResourceRoleArn }}',
+ '{{ AutoPrepare }}',
+ '{{ CustomerEncryptionKeyArn }}',
+ '{{ SkipResourceInUseCheckOnDelete }}',
+ '{{ Description }}',
+ '{{ FoundationModel }}',
+ '{{ IdleSessionTTLInSeconds }}',
+ '{{ Instruction }}',
+ '{{ KnowledgeBases }}',
+ '{{ PromptOverrideConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: agent
+    props:
+      - name: ActionGroups
+        value:
+          - ActionGroupName: '{{ ActionGroupName }}'
+            Description: '{{ Description }}'
+            ParentActionGroupSignature: '{{ ParentActionGroupSignature }}'
+            ActionGroupExecutor:
+              Lambda: '{{ Lambda }}'
+            ApiSchema: null
+            ActionGroupState: '{{ ActionGroupState }}'
+            SkipResourceInUseCheckOnDelete: '{{ SkipResourceInUseCheckOnDelete }}'
+      - name: AgentName
+        value: '{{ AgentName }}'
+      - name: AgentResourceRoleArn
+        value: '{{ AgentResourceRoleArn }}'
+      - name: AutoPrepare
+        value: '{{ AutoPrepare }}'
+      - name: CustomerEncryptionKeyArn
+        value: '{{ CustomerEncryptionKeyArn }}'
+      - name: SkipResourceInUseCheckOnDelete
+        value: '{{ SkipResourceInUseCheckOnDelete }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FoundationModel
+        value: '{{ FoundationModel }}'
+      - name: IdleSessionTTLInSeconds
+        value: null
+      - name: Instruction
+        value: '{{ Instruction }}'
+      - name: KnowledgeBases
+        value:
+          - KnowledgeBaseId: '{{ KnowledgeBaseId }}'
+            Description: '{{ Description }}'
+            KnowledgeBaseState: '{{ KnowledgeBaseState }}'
+      - name: PromptOverrideConfiguration
+        value:
+          PromptConfigurations:
+            - PromptType: '{{ PromptType }}'
+              PromptCreationMode: '{{ PromptCreationMode }}'
+              PromptState: '{{ PromptState }}'
+              BasePromptTemplate: '{{ BasePromptTemplate }}'
+              InferenceConfiguration:
+                Temperature: null
+                TopP: null
+                TopK: null
+                MaximumLength: null
+                StopSequences:
+                  - '{{ StopSequences[0] }}'
+              ParserMode: null
+          OverrideLambda: '{{ OverrideLambda }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

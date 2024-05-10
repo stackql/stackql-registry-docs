@@ -74,47 +74,59 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>registry_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PolicyText": {}
-}
->>>
---required properties only
+-- registry_policy.iql (required properties only)
 INSERT INTO aws.ecr.registry_policies (
  PolicyText,
  region
 )
 SELECT 
-{{ .PolicyText }},
-'us-east-1';
+'{{ PolicyText }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyText": {}
-}
->>>
---all properties
+-- registry_policy.iql (all properties)
 INSERT INTO aws.ecr.registry_policies (
  PolicyText,
  region
 )
 SELECT 
- {{ .PolicyText }},
- 'us-east-1';
+ '{{ PolicyText }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: registry_policy
+    props:
+      - name: PolicyText
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

@@ -74,49 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FunctionName": "{{ FunctionName }}"
-}
->>>
---required properties only
+-- version.iql (required properties only)
 INSERT INTO aws.lambda.versions (
  FunctionName,
  region
 )
 SELECT 
-{{ .FunctionName }},
-'us-east-1';
+'{{ FunctionName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CodeSha256": "{{ CodeSha256 }}",
- "Description": "{{ Description }}",
- "FunctionName": "{{ FunctionName }}",
- "ProvisionedConcurrencyConfig": {
-  "ProvisionedConcurrentExecutions": "{{ ProvisionedConcurrentExecutions }}"
- },
- "RuntimePolicy": {
-  "RuntimeVersionArn": "{{ RuntimeVersionArn }}",
-  "UpdateRuntimeOn": "{{ UpdateRuntimeOn }}"
- }
-}
->>>
---all properties
+-- version.iql (all properties)
 INSERT INTO aws.lambda.versions (
  CodeSha256,
  Description,
@@ -126,12 +110,42 @@ INSERT INTO aws.lambda.versions (
  region
 )
 SELECT 
- {{ .CodeSha256 }},
- {{ .Description }},
- {{ .FunctionName }},
- {{ .ProvisionedConcurrencyConfig }},
- {{ .RuntimePolicy }},
- 'us-east-1';
+ '{{ CodeSha256 }}',
+ '{{ Description }}',
+ '{{ FunctionName }}',
+ '{{ ProvisionedConcurrencyConfig }}',
+ '{{ RuntimePolicy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: version
+    props:
+      - name: CodeSha256
+        value: '{{ CodeSha256 }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FunctionName
+        value: '{{ FunctionName }}'
+      - name: ProvisionedConcurrencyConfig
+        value:
+          ProvisionedConcurrentExecutions: '{{ ProvisionedConcurrentExecutions }}'
+      - name: RuntimePolicy
+        value:
+          RuntimeVersionArn: '{{ RuntimeVersionArn }}'
+          UpdateRuntimeOn: '{{ UpdateRuntimeOn }}'
+
 ```
 </TabItem>
 </Tabs>

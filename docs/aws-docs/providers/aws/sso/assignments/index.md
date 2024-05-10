@@ -84,27 +84,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>assignment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "TargetId": "{{ TargetId }}",
- "TargetType": "{{ TargetType }}",
- "PermissionSetArn": "{{ PermissionSetArn }}",
- "PrincipalType": "{{ PrincipalType }}",
- "PrincipalId": "{{ PrincipalId }}"
-}
->>>
---required properties only
+-- assignment.iql (required properties only)
 INSERT INTO aws.sso.assignments (
  InstanceArn,
  TargetId,
@@ -115,29 +108,19 @@ INSERT INTO aws.sso.assignments (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .TargetId }},
- {{ .TargetType }},
- {{ .PermissionSetArn }},
- {{ .PrincipalType }},
- {{ .PrincipalId }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ TargetId }}',
+ '{{ TargetType }}',
+ '{{ PermissionSetArn }}',
+ '{{ PrincipalType }}',
+ '{{ PrincipalId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "TargetId": "{{ TargetId }}",
- "TargetType": "{{ TargetType }}",
- "PermissionSetArn": "{{ PermissionSetArn }}",
- "PrincipalType": "{{ PrincipalType }}",
- "PrincipalId": "{{ PrincipalId }}"
-}
->>>
---all properties
+-- assignment.iql (all properties)
 INSERT INTO aws.sso.assignments (
  InstanceArn,
  TargetId,
@@ -148,13 +131,42 @@ INSERT INTO aws.sso.assignments (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .TargetId }},
- {{ .TargetType }},
- {{ .PermissionSetArn }},
- {{ .PrincipalType }},
- {{ .PrincipalId }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ TargetId }}',
+ '{{ TargetType }}',
+ '{{ PermissionSetArn }}',
+ '{{ PrincipalType }}',
+ '{{ PrincipalId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: assignment
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: TargetId
+        value: '{{ TargetId }}'
+      - name: TargetType
+        value: '{{ TargetType }}'
+      - name: PermissionSetArn
+        value: '{{ PermissionSetArn }}'
+      - name: PrincipalType
+        value: '{{ PrincipalType }}'
+      - name: PrincipalId
+        value: '{{ PrincipalId }}'
+
 ```
 </TabItem>
 </Tabs>

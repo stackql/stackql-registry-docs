@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>ipam_resource_discovery_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IpamResourceDiscoveryId": "{{ IpamResourceDiscoveryId }}",
- "IpamId": "{{ IpamId }}"
-}
->>>
---required properties only
+-- ipam_resource_discovery_association.iql (required properties only)
 INSERT INTO aws.ec2.ipam_resource_discovery_associations (
  IpamResourceDiscoveryId,
  IpamId,
  region
 )
 SELECT 
-{{ .IpamResourceDiscoveryId }},
- {{ .IpamId }},
-'us-east-1';
+'{{ IpamResourceDiscoveryId }}',
+ '{{ IpamId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IpamResourceDiscoveryId": "{{ IpamResourceDiscoveryId }}",
- "IpamId": "{{ IpamId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- ipam_resource_discovery_association.iql (all properties)
 INSERT INTO aws.ec2.ipam_resource_discovery_associations (
  IpamResourceDiscoveryId,
  IpamId,
@@ -125,10 +110,35 @@ INSERT INTO aws.ec2.ipam_resource_discovery_associations (
  region
 )
 SELECT 
- {{ .IpamResourceDiscoveryId }},
- {{ .IpamId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ IpamResourceDiscoveryId }}',
+ '{{ IpamId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ipam_resource_discovery_association
+    props:
+      - name: IpamResourceDiscoveryId
+        value: '{{ IpamResourceDiscoveryId }}'
+      - name: IpamId
+        value: '{{ IpamId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

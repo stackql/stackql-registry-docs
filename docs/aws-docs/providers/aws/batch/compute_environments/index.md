@@ -74,90 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>compute_environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- compute_environment.iql (required properties only)
 INSERT INTO aws.batch.compute_environments (
  Type,
  region
 )
 SELECT 
-{{ .Type }},
-'us-east-1';
+'{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ComputeEnvironmentName": "{{ ComputeEnvironmentName }}",
- "ComputeResources": {
-  "AllocationStrategy": "{{ AllocationStrategy }}",
-  "BidPercentage": "{{ BidPercentage }}",
-  "DesiredvCpus": "{{ DesiredvCpus }}",
-  "Ec2Configuration": [
-   {
-    "ImageIdOverride": "{{ ImageIdOverride }}",
-    "ImageType": "{{ ImageType }}",
-    "ImageKubernetesVersion": "{{ ImageKubernetesVersion }}"
-   }
-  ],
-  "Ec2KeyPair": "{{ Ec2KeyPair }}",
-  "ImageId": "{{ ImageId }}",
-  "InstanceRole": "{{ InstanceRole }}",
-  "InstanceTypes": [
-   "{{ InstanceTypes[0] }}"
-  ],
-  "LaunchTemplate": {
-   "LaunchTemplateId": "{{ LaunchTemplateId }}",
-   "LaunchTemplateName": "{{ LaunchTemplateName }}",
-   "Version": "{{ Version }}"
-  },
-  "MaxvCpus": "{{ MaxvCpus }}",
-  "MinvCpus": "{{ MinvCpus }}",
-  "PlacementGroup": "{{ PlacementGroup }}",
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SpotIamFleetRole": "{{ SpotIamFleetRole }}",
-  "Subnets": [
-   "{{ Subnets[0] }}"
-  ],
-  "Tags": {},
-  "Type": "{{ Type }}",
-  "UpdateToLatestImageVersion": "{{ UpdateToLatestImageVersion }}"
- },
- "ReplaceComputeEnvironment": "{{ ReplaceComputeEnvironment }}",
- "ServiceRole": "{{ ServiceRole }}",
- "State": "{{ State }}",
- "Tags": {},
- "Type": "{{ Type }}",
- "UpdatePolicy": {
-  "TerminateJobsOnUpdate": "{{ TerminateJobsOnUpdate }}",
-  "JobExecutionTimeoutMinutes": "{{ JobExecutionTimeoutMinutes }}"
- },
- "UnmanagedvCpus": "{{ UnmanagedvCpus }}",
- "EksConfiguration": {
-  "EksClusterArn": "{{ EksClusterArn }}",
-  "KubernetesNamespace": "{{ KubernetesNamespace }}"
- }
-}
->>>
---all properties
+-- compute_environment.iql (all properties)
 INSERT INTO aws.batch.compute_environments (
  ComputeEnvironmentName,
  ComputeResources,
@@ -172,17 +115,85 @@ INSERT INTO aws.batch.compute_environments (
  region
 )
 SELECT 
- {{ .ComputeEnvironmentName }},
- {{ .ComputeResources }},
- {{ .ReplaceComputeEnvironment }},
- {{ .ServiceRole }},
- {{ .State }},
- {{ .Tags }},
- {{ .Type }},
- {{ .UpdatePolicy }},
- {{ .UnmanagedvCpus }},
- {{ .EksConfiguration }},
- 'us-east-1';
+ '{{ ComputeEnvironmentName }}',
+ '{{ ComputeResources }}',
+ '{{ ReplaceComputeEnvironment }}',
+ '{{ ServiceRole }}',
+ '{{ State }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ UpdatePolicy }}',
+ '{{ UnmanagedvCpus }}',
+ '{{ EksConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: compute_environment
+    props:
+      - name: ComputeEnvironmentName
+        value: '{{ ComputeEnvironmentName }}'
+      - name: ComputeResources
+        value:
+          AllocationStrategy: '{{ AllocationStrategy }}'
+          BidPercentage: '{{ BidPercentage }}'
+          DesiredvCpus: '{{ DesiredvCpus }}'
+          Ec2Configuration:
+            - ImageIdOverride: '{{ ImageIdOverride }}'
+              ImageType: '{{ ImageType }}'
+              ImageKubernetesVersion: '{{ ImageKubernetesVersion }}'
+          Ec2KeyPair: '{{ Ec2KeyPair }}'
+          ImageId: '{{ ImageId }}'
+          InstanceRole: '{{ InstanceRole }}'
+          InstanceTypes:
+            - '{{ InstanceTypes[0] }}'
+          LaunchTemplate:
+            LaunchTemplateId: '{{ LaunchTemplateId }}'
+            LaunchTemplateName: '{{ LaunchTemplateName }}'
+            Version: '{{ Version }}'
+          MaxvCpus: '{{ MaxvCpus }}'
+          MinvCpus: '{{ MinvCpus }}'
+          PlacementGroup: '{{ PlacementGroup }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SpotIamFleetRole: '{{ SpotIamFleetRole }}'
+          Subnets:
+            - '{{ Subnets[0] }}'
+          Tags: {}
+          Type: '{{ Type }}'
+          UpdateToLatestImageVersion: '{{ UpdateToLatestImageVersion }}'
+      - name: ReplaceComputeEnvironment
+        value: '{{ ReplaceComputeEnvironment }}'
+      - name: ServiceRole
+        value: '{{ ServiceRole }}'
+      - name: State
+        value: '{{ State }}'
+      - name: Tags
+        value: {}
+      - name: Type
+        value: '{{ Type }}'
+      - name: UpdatePolicy
+        value:
+          TerminateJobsOnUpdate: '{{ TerminateJobsOnUpdate }}'
+          JobExecutionTimeoutMinutes: '{{ JobExecutionTimeoutMinutes }}'
+      - name: UnmanagedvCpus
+        value: '{{ UnmanagedvCpus }}'
+      - name: EksConfiguration
+        value:
+          EksClusterArn: '{{ EksClusterArn }}'
+          KubernetesNamespace: '{{ KubernetesNamespace }}'
+
 ```
 </TabItem>
 </Tabs>

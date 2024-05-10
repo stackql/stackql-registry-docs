@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resolver_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceId": "{{ ResourceId }}",
- "AutodefinedReverseFlag": "{{ AutodefinedReverseFlag }}"
-}
->>>
---required properties only
+-- resolver_config.iql (required properties only)
 INSERT INTO aws.route53resolver.resolver_configs (
  ResourceId,
  AutodefinedReverseFlag,
  region
 )
 SELECT 
-{{ .ResourceId }},
- {{ .AutodefinedReverseFlag }},
-'us-east-1';
+'{{ ResourceId }}',
+ '{{ AutodefinedReverseFlag }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceId": "{{ ResourceId }}",
- "AutodefinedReverseFlag": "{{ AutodefinedReverseFlag }}"
-}
->>>
---all properties
+-- resolver_config.iql (all properties)
 INSERT INTO aws.route53resolver.resolver_configs (
  ResourceId,
  AutodefinedReverseFlag,
  region
 )
 SELECT 
- {{ .ResourceId }},
- {{ .AutodefinedReverseFlag }},
- 'us-east-1';
+ '{{ ResourceId }}',
+ '{{ AutodefinedReverseFlag }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resolver_config
+    props:
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+      - name: AutodefinedReverseFlag
+        value: '{{ AutodefinedReverseFlag }}'
+
 ```
 </TabItem>
 </Tabs>

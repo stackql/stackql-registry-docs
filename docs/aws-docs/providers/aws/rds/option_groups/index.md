@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>option_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "OptionGroupDescription": "{{ OptionGroupDescription }}",
- "EngineName": "{{ EngineName }}",
- "MajorEngineVersion": "{{ MajorEngineVersion }}"
-}
->>>
---required properties only
+-- option_group.iql (required properties only)
 INSERT INTO aws.rds.option_groups (
  OptionGroupDescription,
  EngineName,
@@ -99,49 +95,16 @@ INSERT INTO aws.rds.option_groups (
  region
 )
 SELECT 
-{{ .OptionGroupDescription }},
- {{ .EngineName }},
- {{ .MajorEngineVersion }},
-'us-east-1';
+'{{ OptionGroupDescription }}',
+ '{{ EngineName }}',
+ '{{ MajorEngineVersion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "OptionGroupName": "{{ OptionGroupName }}",
- "OptionGroupDescription": "{{ OptionGroupDescription }}",
- "EngineName": "{{ EngineName }}",
- "MajorEngineVersion": "{{ MajorEngineVersion }}",
- "OptionConfigurations": [
-  {
-   "DBSecurityGroupMemberships": [
-    "{{ DBSecurityGroupMemberships[0] }}"
-   ],
-   "OptionName": "{{ OptionName }}",
-   "OptionSettings": [
-    {
-     "Name": "{{ Name }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "OptionVersion": "{{ OptionVersion }}",
-   "Port": "{{ Port }}",
-   "VpcSecurityGroupMemberships": [
-    "{{ VpcSecurityGroupMemberships[0] }}"
-   ]
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- option_group.iql (all properties)
 INSERT INTO aws.rds.option_groups (
  OptionGroupName,
  OptionGroupDescription,
@@ -152,13 +115,54 @@ INSERT INTO aws.rds.option_groups (
  region
 )
 SELECT 
- {{ .OptionGroupName }},
- {{ .OptionGroupDescription }},
- {{ .EngineName }},
- {{ .MajorEngineVersion }},
- {{ .OptionConfigurations }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ OptionGroupName }}',
+ '{{ OptionGroupDescription }}',
+ '{{ EngineName }}',
+ '{{ MajorEngineVersion }}',
+ '{{ OptionConfigurations }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: option_group
+    props:
+      - name: OptionGroupName
+        value: '{{ OptionGroupName }}'
+      - name: OptionGroupDescription
+        value: '{{ OptionGroupDescription }}'
+      - name: EngineName
+        value: '{{ EngineName }}'
+      - name: MajorEngineVersion
+        value: '{{ MajorEngineVersion }}'
+      - name: OptionConfigurations
+        value:
+          - DBSecurityGroupMemberships:
+              - '{{ DBSecurityGroupMemberships[0] }}'
+            OptionName: '{{ OptionName }}'
+            OptionSettings:
+              - Name: '{{ Name }}'
+                Value: '{{ Value }}'
+            OptionVersion: '{{ OptionVersion }}'
+            Port: '{{ Port }}'
+            VpcSecurityGroupMemberships:
+              - '{{ VpcSecurityGroupMemberships[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

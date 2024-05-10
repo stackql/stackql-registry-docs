@@ -74,59 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>ca_certificate</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CACertificatePem": "{{ CACertificatePem }}",
- "Status": "{{ Status }}"
-}
->>>
---required properties only
+-- ca_certificate.iql (required properties only)
 INSERT INTO aws.iot.ca_certificates (
  CACertificatePem,
  Status,
  region
 )
 SELECT 
-{{ .CACertificatePem }},
- {{ .Status }},
-'us-east-1';
+'{{ CACertificatePem }}',
+ '{{ Status }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CACertificatePem": "{{ CACertificatePem }}",
- "VerificationCertificatePem": "{{ VerificationCertificatePem }}",
- "Status": "{{ Status }}",
- "CertificateMode": "{{ CertificateMode }}",
- "AutoRegistrationStatus": "{{ AutoRegistrationStatus }}",
- "RemoveAutoRegistration": "{{ RemoveAutoRegistration }}",
- "RegistrationConfig": {
-  "TemplateBody": "{{ TemplateBody }}",
-  "RoleArn": "{{ RoleArn }}",
-  "TemplateName": "{{ TemplateName }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- ca_certificate.iql (all properties)
 INSERT INTO aws.iot.ca_certificates (
  CACertificatePem,
  VerificationCertificatePem,
@@ -139,15 +115,53 @@ INSERT INTO aws.iot.ca_certificates (
  region
 )
 SELECT 
- {{ .CACertificatePem }},
- {{ .VerificationCertificatePem }},
- {{ .Status }},
- {{ .CertificateMode }},
- {{ .AutoRegistrationStatus }},
- {{ .RemoveAutoRegistration }},
- {{ .RegistrationConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CACertificatePem }}',
+ '{{ VerificationCertificatePem }}',
+ '{{ Status }}',
+ '{{ CertificateMode }}',
+ '{{ AutoRegistrationStatus }}',
+ '{{ RemoveAutoRegistration }}',
+ '{{ RegistrationConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ca_certificate
+    props:
+      - name: CACertificatePem
+        value: '{{ CACertificatePem }}'
+      - name: VerificationCertificatePem
+        value: '{{ VerificationCertificatePem }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: CertificateMode
+        value: '{{ CertificateMode }}'
+      - name: AutoRegistrationStatus
+        value: '{{ AutoRegistrationStatus }}'
+      - name: RemoveAutoRegistration
+        value: '{{ RemoveAutoRegistration }}'
+      - name: RegistrationConfig
+        value:
+          TemplateBody: '{{ TemplateBody }}'
+          RoleArn: '{{ RoleArn }}'
+          TemplateName: '{{ TemplateName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

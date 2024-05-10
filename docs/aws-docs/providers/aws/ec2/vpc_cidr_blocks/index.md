@@ -76,48 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_cidr_block</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- vpc_cidr_block.iql (required properties only)
 INSERT INTO aws.ec2.vpc_cidr_blocks (
  VpcId,
  region
 )
 SELECT 
-{{ .VpcId }},
-'us-east-1';
+'{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CidrBlock": "{{ CidrBlock }}",
- "Ipv6Pool": "{{ Ipv6Pool }}",
- "VpcId": "{{ VpcId }}",
- "Ipv6CidrBlock": "{{ Ipv6CidrBlock }}",
- "Ipv4IpamPoolId": "{{ Ipv4IpamPoolId }}",
- "Ipv4NetmaskLength": "{{ Ipv4NetmaskLength }}",
- "Ipv6IpamPoolId": "{{ Ipv6IpamPoolId }}",
- "Ipv6NetmaskLength": "{{ Ipv6NetmaskLength }}",
- "AmazonProvidedIpv6CidrBlock": "{{ AmazonProvidedIpv6CidrBlock }}"
-}
->>>
---all properties
+-- vpc_cidr_block.iql (all properties)
 INSERT INTO aws.ec2.vpc_cidr_blocks (
  CidrBlock,
  Ipv6Pool,
@@ -131,16 +116,51 @@ INSERT INTO aws.ec2.vpc_cidr_blocks (
  region
 )
 SELECT 
- {{ .CidrBlock }},
- {{ .Ipv6Pool }},
- {{ .VpcId }},
- {{ .Ipv6CidrBlock }},
- {{ .Ipv4IpamPoolId }},
- {{ .Ipv4NetmaskLength }},
- {{ .Ipv6IpamPoolId }},
- {{ .Ipv6NetmaskLength }},
- {{ .AmazonProvidedIpv6CidrBlock }},
- 'us-east-1';
+ '{{ CidrBlock }}',
+ '{{ Ipv6Pool }}',
+ '{{ VpcId }}',
+ '{{ Ipv6CidrBlock }}',
+ '{{ Ipv4IpamPoolId }}',
+ '{{ Ipv4NetmaskLength }}',
+ '{{ Ipv6IpamPoolId }}',
+ '{{ Ipv6NetmaskLength }}',
+ '{{ AmazonProvidedIpv6CidrBlock }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_cidr_block
+    props:
+      - name: CidrBlock
+        value: '{{ CidrBlock }}'
+      - name: Ipv6Pool
+        value: '{{ Ipv6Pool }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: Ipv6CidrBlock
+        value: '{{ Ipv6CidrBlock }}'
+      - name: Ipv4IpamPoolId
+        value: '{{ Ipv4IpamPoolId }}'
+      - name: Ipv4NetmaskLength
+        value: '{{ Ipv4NetmaskLength }}'
+      - name: Ipv6IpamPoolId
+        value: '{{ Ipv6IpamPoolId }}'
+      - name: Ipv6NetmaskLength
+        value: '{{ Ipv6NetmaskLength }}'
+      - name: AmazonProvidedIpv6CidrBlock
+        value: '{{ AmazonProvidedIpv6CidrBlock }}'
+
 ```
 </TabItem>
 </Tabs>

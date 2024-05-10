@@ -76,26 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_source</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "Name": "{{ Name }}",
- "ProjectIdentifier": "{{ ProjectIdentifier }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- data_source.iql (required properties only)
 INSERT INTO aws.datazone.data_sources (
  DomainIdentifier,
  EnvironmentIdentifier,
@@ -105,46 +99,18 @@ INSERT INTO aws.datazone.data_sources (
  region
 )
 SELECT 
-{{ .DomainIdentifier }},
- {{ .EnvironmentIdentifier }},
- {{ .Name }},
- {{ .ProjectIdentifier }},
- {{ .Type }},
-'us-east-1';
+'{{ DomainIdentifier }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ Name }}',
+ '{{ ProjectIdentifier }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssetFormsInput": [
-  {
-   "FormName": "{{ FormName }}",
-   "TypeIdentifier": "{{ TypeIdentifier }}",
-   "TypeRevision": "{{ TypeRevision }}",
-   "Content": "{{ Content }}"
-  }
- ],
- "Description": "{{ Description }}",
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnableSetting": "{{ EnableSetting }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "Configuration": null,
- "Name": "{{ Name }}",
- "ProjectIdentifier": "{{ ProjectIdentifier }}",
- "PublishOnImport": "{{ PublishOnImport }}",
- "Recommendation": {
-  "EnableBusinessNameGeneration": "{{ EnableBusinessNameGeneration }}"
- },
- "Schedule": {
-  "Timezone": "{{ Timezone }}",
-  "Schedule": "{{ Schedule }}"
- },
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- data_source.iql (all properties)
 INSERT INTO aws.datazone.data_sources (
  AssetFormsInput,
  Description,
@@ -161,19 +127,67 @@ INSERT INTO aws.datazone.data_sources (
  region
 )
 SELECT 
- {{ .AssetFormsInput }},
- {{ .Description }},
- {{ .DomainIdentifier }},
- {{ .EnableSetting }},
- {{ .EnvironmentIdentifier }},
- {{ .Configuration }},
- {{ .Name }},
- {{ .ProjectIdentifier }},
- {{ .PublishOnImport }},
- {{ .Recommendation }},
- {{ .Schedule }},
- {{ .Type }},
- 'us-east-1';
+ '{{ AssetFormsInput }}',
+ '{{ Description }}',
+ '{{ DomainIdentifier }}',
+ '{{ EnableSetting }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ Configuration }}',
+ '{{ Name }}',
+ '{{ ProjectIdentifier }}',
+ '{{ PublishOnImport }}',
+ '{{ Recommendation }}',
+ '{{ Schedule }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_source
+    props:
+      - name: AssetFormsInput
+        value:
+          - FormName: '{{ FormName }}'
+            TypeIdentifier: '{{ TypeIdentifier }}'
+            TypeRevision: '{{ TypeRevision }}'
+            Content: '{{ Content }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DomainIdentifier
+        value: '{{ DomainIdentifier }}'
+      - name: EnableSetting
+        value: '{{ EnableSetting }}'
+      - name: EnvironmentIdentifier
+        value: '{{ EnvironmentIdentifier }}'
+      - name: Configuration
+        value: null
+      - name: Name
+        value: '{{ Name }}'
+      - name: ProjectIdentifier
+        value: '{{ ProjectIdentifier }}'
+      - name: PublishOnImport
+        value: '{{ PublishOnImport }}'
+      - name: Recommendation
+        value:
+          EnableBusinessNameGeneration: '{{ EnableBusinessNameGeneration }}'
+      - name: Schedule
+        value:
+          Timezone: '{{ Timezone }}'
+          Schedule: '{{ Schedule }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

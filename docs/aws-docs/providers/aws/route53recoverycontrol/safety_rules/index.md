@@ -74,65 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>safety_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- safety_rule.iql (required properties only)
 INSERT INTO aws.route53recoverycontrol.safety_rules (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssertionRule": {
-  "WaitPeriodMs": "{{ WaitPeriodMs }}",
-  "AssertedControls": [
-   "{{ AssertedControls[0] }}"
-  ]
- },
- "GatingRule": {
-  "GatingControls": [
-   "{{ GatingControls[0] }}"
-  ],
-  "TargetControls": [
-   "{{ TargetControls[0] }}"
-  ],
-  "WaitPeriodMs": "{{ WaitPeriodMs }}"
- },
- "Name": "{{ Name }}",
- "ControlPanelArn": "{{ ControlPanelArn }}",
- "RuleConfig": {
-  "Type": "{{ Type }}",
-  "Threshold": "{{ Threshold }}",
-  "Inverted": "{{ Inverted }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- safety_rule.iql (all properties)
 INSERT INTO aws.route53recoverycontrol.safety_rules (
  AssertionRule,
  GatingRule,
@@ -143,13 +111,55 @@ INSERT INTO aws.route53recoverycontrol.safety_rules (
  region
 )
 SELECT 
- {{ .AssertionRule }},
- {{ .GatingRule }},
- {{ .Name }},
- {{ .ControlPanelArn }},
- {{ .RuleConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AssertionRule }}',
+ '{{ GatingRule }}',
+ '{{ Name }}',
+ '{{ ControlPanelArn }}',
+ '{{ RuleConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: safety_rule
+    props:
+      - name: AssertionRule
+        value:
+          WaitPeriodMs: '{{ WaitPeriodMs }}'
+          AssertedControls:
+            - '{{ AssertedControls[0] }}'
+      - name: GatingRule
+        value:
+          GatingControls:
+            - '{{ GatingControls[0] }}'
+          TargetControls:
+            - '{{ TargetControls[0] }}'
+          WaitPeriodMs: '{{ WaitPeriodMs }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ControlPanelArn
+        value: '{{ ControlPanelArn }}'
+      - name: RuleConfig
+        value:
+          Type: '{{ Type }}'
+          Threshold: '{{ Threshold }}'
+          Inverted: '{{ Inverted }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

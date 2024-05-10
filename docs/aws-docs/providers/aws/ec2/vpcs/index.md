@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceTenancy": "{{ InstanceTenancy }}",
- "Ipv4NetmaskLength": "{{ Ipv4NetmaskLength }}",
- "CidrBlock": "{{ CidrBlock }}",
- "Ipv4IpamPoolId": "{{ Ipv4IpamPoolId }}",
- "EnableDnsSupport": "{{ EnableDnsSupport }}",
- "EnableDnsHostnames": "{{ EnableDnsHostnames }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- vpc.iql (required properties only)
 INSERT INTO aws.ec2.vpcs (
  InstanceTenancy,
  Ipv4NetmaskLength,
@@ -112,36 +99,20 @@ INSERT INTO aws.ec2.vpcs (
  region
 )
 SELECT 
-{{ .InstanceTenancy }},
- {{ .Ipv4NetmaskLength }},
- {{ .CidrBlock }},
- {{ .Ipv4IpamPoolId }},
- {{ .EnableDnsSupport }},
- {{ .EnableDnsHostnames }},
- {{ .Tags }},
-'us-east-1';
+'{{ InstanceTenancy }}',
+ '{{ Ipv4NetmaskLength }}',
+ '{{ CidrBlock }}',
+ '{{ Ipv4IpamPoolId }}',
+ '{{ EnableDnsSupport }}',
+ '{{ EnableDnsHostnames }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceTenancy": "{{ InstanceTenancy }}",
- "Ipv4NetmaskLength": "{{ Ipv4NetmaskLength }}",
- "CidrBlock": "{{ CidrBlock }}",
- "Ipv4IpamPoolId": "{{ Ipv4IpamPoolId }}",
- "EnableDnsSupport": "{{ EnableDnsSupport }}",
- "EnableDnsHostnames": "{{ EnableDnsHostnames }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- vpc.iql (all properties)
 INSERT INTO aws.ec2.vpcs (
  InstanceTenancy,
  Ipv4NetmaskLength,
@@ -153,14 +124,47 @@ INSERT INTO aws.ec2.vpcs (
  region
 )
 SELECT 
- {{ .InstanceTenancy }},
- {{ .Ipv4NetmaskLength }},
- {{ .CidrBlock }},
- {{ .Ipv4IpamPoolId }},
- {{ .EnableDnsSupport }},
- {{ .EnableDnsHostnames }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceTenancy }}',
+ '{{ Ipv4NetmaskLength }}',
+ '{{ CidrBlock }}',
+ '{{ Ipv4IpamPoolId }}',
+ '{{ EnableDnsSupport }}',
+ '{{ EnableDnsHostnames }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc
+    props:
+      - name: InstanceTenancy
+        value: '{{ InstanceTenancy }}'
+      - name: Ipv4NetmaskLength
+        value: '{{ Ipv4NetmaskLength }}'
+      - name: CidrBlock
+        value: '{{ CidrBlock }}'
+      - name: Ipv4IpamPoolId
+        value: '{{ Ipv4IpamPoolId }}'
+      - name: EnableDnsSupport
+        value: '{{ EnableDnsSupport }}'
+      - name: EnableDnsHostnames
+        value: '{{ EnableDnsHostnames }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

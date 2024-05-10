@@ -74,70 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>container_recipe</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Version": "{{ Version }}",
- "Components": [
-  {
-   "ComponentArn": "{{ ComponentArn }}",
-   "Parameters": [
-    {
-     "Name": "{{ Name }}",
-     "Value": [
-      "{{ Value[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "InstanceConfiguration": {
-  "Image": "{{ Image }}",
-  "BlockDeviceMappings": [
-   {
-    "DeviceName": "{{ DeviceName }}",
-    "VirtualName": "{{ VirtualName }}",
-    "NoDevice": "{{ NoDevice }}",
-    "Ebs": {
-     "Encrypted": "{{ Encrypted }}",
-     "DeleteOnTermination": "{{ DeleteOnTermination }}",
-     "Iops": "{{ Iops }}",
-     "KmsKeyId": "{{ KmsKeyId }}",
-     "SnapshotId": "{{ SnapshotId }}",
-     "Throughput": "{{ Throughput }}",
-     "VolumeSize": "{{ VolumeSize }}",
-     "VolumeType": "{{ VolumeType }}"
-    }
-   }
-  ]
- },
- "DockerfileTemplateData": "{{ DockerfileTemplateData }}",
- "DockerfileTemplateUri": "{{ DockerfileTemplateUri }}",
- "PlatformOverride": "{{ PlatformOverride }}",
- "ContainerType": "{{ ContainerType }}",
- "ImageOsVersionOverride": "{{ ImageOsVersionOverride }}",
- "TargetRepository": {
-  "Service": "{{ Service }}",
-  "RepositoryName": "{{ RepositoryName }}"
- },
- "KmsKeyId": "{{ KmsKeyId }}",
- "ParentImage": "{{ ParentImage }}",
- "WorkingDirectory": "{{ WorkingDirectory }}",
- "Tags": {}
-}
->>>
---required properties only
+-- container_recipe.iql (required properties only)
 INSERT INTO aws.imagebuilder.container_recipes (
  Name,
  Description,
@@ -157,81 +107,28 @@ INSERT INTO aws.imagebuilder.container_recipes (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Description }},
- {{ .Version }},
- {{ .Components }},
- {{ .InstanceConfiguration }},
- {{ .DockerfileTemplateData }},
- {{ .DockerfileTemplateUri }},
- {{ .PlatformOverride }},
- {{ .ContainerType }},
- {{ .ImageOsVersionOverride }},
- {{ .TargetRepository }},
- {{ .KmsKeyId }},
- {{ .ParentImage }},
- {{ .WorkingDirectory }},
- {{ .Tags }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Description }}',
+ '{{ Version }}',
+ '{{ Components }}',
+ '{{ InstanceConfiguration }}',
+ '{{ DockerfileTemplateData }}',
+ '{{ DockerfileTemplateUri }}',
+ '{{ PlatformOverride }}',
+ '{{ ContainerType }}',
+ '{{ ImageOsVersionOverride }}',
+ '{{ TargetRepository }}',
+ '{{ KmsKeyId }}',
+ '{{ ParentImage }}',
+ '{{ WorkingDirectory }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Version": "{{ Version }}",
- "Components": [
-  {
-   "ComponentArn": "{{ ComponentArn }}",
-   "Parameters": [
-    {
-     "Name": "{{ Name }}",
-     "Value": [
-      "{{ Value[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "InstanceConfiguration": {
-  "Image": "{{ Image }}",
-  "BlockDeviceMappings": [
-   {
-    "DeviceName": "{{ DeviceName }}",
-    "VirtualName": "{{ VirtualName }}",
-    "NoDevice": "{{ NoDevice }}",
-    "Ebs": {
-     "Encrypted": "{{ Encrypted }}",
-     "DeleteOnTermination": "{{ DeleteOnTermination }}",
-     "Iops": "{{ Iops }}",
-     "KmsKeyId": "{{ KmsKeyId }}",
-     "SnapshotId": "{{ SnapshotId }}",
-     "Throughput": "{{ Throughput }}",
-     "VolumeSize": "{{ VolumeSize }}",
-     "VolumeType": "{{ VolumeType }}"
-    }
-   }
-  ]
- },
- "DockerfileTemplateData": "{{ DockerfileTemplateData }}",
- "DockerfileTemplateUri": "{{ DockerfileTemplateUri }}",
- "PlatformOverride": "{{ PlatformOverride }}",
- "ContainerType": "{{ ContainerType }}",
- "ImageOsVersionOverride": "{{ ImageOsVersionOverride }}",
- "TargetRepository": {
-  "Service": "{{ Service }}",
-  "RepositoryName": "{{ RepositoryName }}"
- },
- "KmsKeyId": "{{ KmsKeyId }}",
- "ParentImage": "{{ ParentImage }}",
- "WorkingDirectory": "{{ WorkingDirectory }}",
- "Tags": {}
-}
->>>
---all properties
+-- container_recipe.iql (all properties)
 INSERT INTO aws.imagebuilder.container_recipes (
  Name,
  Description,
@@ -251,22 +148,90 @@ INSERT INTO aws.imagebuilder.container_recipes (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Version }},
- {{ .Components }},
- {{ .InstanceConfiguration }},
- {{ .DockerfileTemplateData }},
- {{ .DockerfileTemplateUri }},
- {{ .PlatformOverride }},
- {{ .ContainerType }},
- {{ .ImageOsVersionOverride }},
- {{ .TargetRepository }},
- {{ .KmsKeyId }},
- {{ .ParentImage }},
- {{ .WorkingDirectory }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Version }}',
+ '{{ Components }}',
+ '{{ InstanceConfiguration }}',
+ '{{ DockerfileTemplateData }}',
+ '{{ DockerfileTemplateUri }}',
+ '{{ PlatformOverride }}',
+ '{{ ContainerType }}',
+ '{{ ImageOsVersionOverride }}',
+ '{{ TargetRepository }}',
+ '{{ KmsKeyId }}',
+ '{{ ParentImage }}',
+ '{{ WorkingDirectory }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: container_recipe
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Version
+        value: '{{ Version }}'
+      - name: Components
+        value:
+          - ComponentArn: '{{ ComponentArn }}'
+            Parameters:
+              - Name: '{{ Name }}'
+                Value:
+                  - '{{ Value[0] }}'
+      - name: InstanceConfiguration
+        value:
+          Image: '{{ Image }}'
+          BlockDeviceMappings:
+            - DeviceName: '{{ DeviceName }}'
+              VirtualName: '{{ VirtualName }}'
+              NoDevice: '{{ NoDevice }}'
+              Ebs:
+                Encrypted: '{{ Encrypted }}'
+                DeleteOnTermination: '{{ DeleteOnTermination }}'
+                Iops: '{{ Iops }}'
+                KmsKeyId: '{{ KmsKeyId }}'
+                SnapshotId: '{{ SnapshotId }}'
+                Throughput: '{{ Throughput }}'
+                VolumeSize: '{{ VolumeSize }}'
+                VolumeType: '{{ VolumeType }}'
+      - name: DockerfileTemplateData
+        value: '{{ DockerfileTemplateData }}'
+      - name: DockerfileTemplateUri
+        value: '{{ DockerfileTemplateUri }}'
+      - name: PlatformOverride
+        value: '{{ PlatformOverride }}'
+      - name: ContainerType
+        value: '{{ ContainerType }}'
+      - name: ImageOsVersionOverride
+        value: '{{ ImageOsVersionOverride }}'
+      - name: TargetRepository
+        value:
+          Service: '{{ Service }}'
+          RepositoryName: '{{ RepositoryName }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: ParentImage
+        value: '{{ ParentImage }}'
+      - name: WorkingDirectory
+        value: '{{ WorkingDirectory }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

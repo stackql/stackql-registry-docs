@@ -74,46 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>signaling_channel</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- signaling_channel.iql (required properties only)
 INSERT INTO aws.kinesisvideo.signaling_channels (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "MessageTtlSeconds": "{{ MessageTtlSeconds }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- signaling_channel.iql (all properties)
 INSERT INTO aws.kinesisvideo.signaling_channels (
  Name,
  Type,
@@ -122,11 +109,38 @@ INSERT INTO aws.kinesisvideo.signaling_channels (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Type }},
- {{ .MessageTtlSeconds }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ MessageTtlSeconds }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: signaling_channel
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: MessageTtlSeconds
+        value: '{{ MessageTtlSeconds }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

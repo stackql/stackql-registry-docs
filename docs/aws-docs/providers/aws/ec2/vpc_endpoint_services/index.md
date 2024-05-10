@@ -74,30 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_endpoint_service</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "NetworkLoadBalancerArns": [
-  "{{ NetworkLoadBalancerArns[0] }}"
- ],
- "ContributorInsightsEnabled": "{{ ContributorInsightsEnabled }}",
- "PayerResponsibility": "{{ PayerResponsibility }}",
- "AcceptanceRequired": "{{ AcceptanceRequired }}",
- "GatewayLoadBalancerArns": [
-  "{{ GatewayLoadBalancerArns[0] }}"
- ]
-}
->>>
---required properties only
+-- vpc_endpoint_service.iql (required properties only)
 INSERT INTO aws.ec2.vpc_endpoint_services (
  NetworkLoadBalancerArns,
  ContributorInsightsEnabled,
@@ -107,31 +97,18 @@ INSERT INTO aws.ec2.vpc_endpoint_services (
  region
 )
 SELECT 
-{{ .NetworkLoadBalancerArns }},
- {{ .ContributorInsightsEnabled }},
- {{ .PayerResponsibility }},
- {{ .AcceptanceRequired }},
- {{ .GatewayLoadBalancerArns }},
-'us-east-1';
+'{{ NetworkLoadBalancerArns }}',
+ '{{ ContributorInsightsEnabled }}',
+ '{{ PayerResponsibility }}',
+ '{{ AcceptanceRequired }}',
+ '{{ GatewayLoadBalancerArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "NetworkLoadBalancerArns": [
-  "{{ NetworkLoadBalancerArns[0] }}"
- ],
- "ContributorInsightsEnabled": "{{ ContributorInsightsEnabled }}",
- "PayerResponsibility": "{{ PayerResponsibility }}",
- "AcceptanceRequired": "{{ AcceptanceRequired }}",
- "GatewayLoadBalancerArns": [
-  "{{ GatewayLoadBalancerArns[0] }}"
- ]
-}
->>>
---all properties
+-- vpc_endpoint_service.iql (all properties)
 INSERT INTO aws.ec2.vpc_endpoint_services (
  NetworkLoadBalancerArns,
  ContributorInsightsEnabled,
@@ -141,12 +118,41 @@ INSERT INTO aws.ec2.vpc_endpoint_services (
  region
 )
 SELECT 
- {{ .NetworkLoadBalancerArns }},
- {{ .ContributorInsightsEnabled }},
- {{ .PayerResponsibility }},
- {{ .AcceptanceRequired }},
- {{ .GatewayLoadBalancerArns }},
- 'us-east-1';
+ '{{ NetworkLoadBalancerArns }}',
+ '{{ ContributorInsightsEnabled }}',
+ '{{ PayerResponsibility }}',
+ '{{ AcceptanceRequired }}',
+ '{{ GatewayLoadBalancerArns }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_endpoint_service
+    props:
+      - name: NetworkLoadBalancerArns
+        value:
+          - '{{ NetworkLoadBalancerArns[0] }}'
+      - name: ContributorInsightsEnabled
+        value: '{{ ContributorInsightsEnabled }}'
+      - name: PayerResponsibility
+        value: '{{ PayerResponsibility }}'
+      - name: AcceptanceRequired
+        value: '{{ AcceptanceRequired }}'
+      - name: GatewayLoadBalancerArns
+        value:
+          - '{{ GatewayLoadBalancerArns[0] }}'
+
 ```
 </TabItem>
 </Tabs>

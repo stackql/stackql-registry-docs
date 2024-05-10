@@ -74,57 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>findings_filter</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "FindingCriteria": {
-  "Criterion": {}
- }
-}
->>>
---required properties only
+-- findings_filter.iql (required properties only)
 INSERT INTO aws.macie.findings_filters (
  Name,
  FindingCriteria,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .FindingCriteria }},
-'us-east-1';
+'{{ Name }}',
+ '{{ FindingCriteria }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "FindingCriteria": {
-  "Criterion": {}
- },
- "Action": "{{ Action }}",
- "Position": "{{ Position }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- findings_filter.iql (all properties)
 INSERT INTO aws.macie.findings_filters (
  Name,
  Description,
@@ -135,13 +113,45 @@ INSERT INTO aws.macie.findings_filters (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .FindingCriteria }},
- {{ .Action }},
- {{ .Position }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ FindingCriteria }}',
+ '{{ Action }}',
+ '{{ Position }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: findings_filter
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FindingCriteria
+        value:
+          Criterion: {}
+      - name: Action
+        value: '{{ Action }}'
+      - name: Position
+        value: '{{ Position }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

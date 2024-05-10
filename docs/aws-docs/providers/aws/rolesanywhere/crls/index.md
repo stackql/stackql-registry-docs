@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>crl</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CrlData": "{{ CrlData }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- crl.iql (required properties only)
 INSERT INTO aws.rolesanywhere.crls (
  CrlData,
  Name,
  region
 )
 SELECT 
-{{ .CrlData }},
- {{ .Name }},
-'us-east-1';
+'{{ CrlData }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CrlData": "{{ CrlData }}",
- "Enabled": "{{ Enabled }}",
- "Name": "{{ Name }}",
- "TrustAnchorArn": "{{ TrustAnchorArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- crl.iql (all properties)
 INSERT INTO aws.rolesanywhere.crls (
  CrlData,
  Enabled,
@@ -129,12 +112,41 @@ INSERT INTO aws.rolesanywhere.crls (
  region
 )
 SELECT 
- {{ .CrlData }},
- {{ .Enabled }},
- {{ .Name }},
- {{ .TrustAnchorArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CrlData }}',
+ '{{ Enabled }}',
+ '{{ Name }}',
+ '{{ TrustAnchorArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: crl
+    props:
+      - name: CrlData
+        value: '{{ CrlData }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: TrustAnchorArn
+        value: '{{ TrustAnchorArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

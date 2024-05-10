@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>hook_default_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TypeVersionArn": "{{ TypeVersionArn }}",
- "TypeName": "{{ TypeName }}",
- "VersionId": "{{ VersionId }}"
-}
->>>
---required properties only
+-- hook_default_version.iql (required properties only)
 INSERT INTO aws.cloudformation.hook_default_versions (
  TypeVersionArn,
  TypeName,
@@ -99,23 +95,16 @@ INSERT INTO aws.cloudformation.hook_default_versions (
  region
 )
 SELECT 
-{{ .TypeVersionArn }},
- {{ .TypeName }},
- {{ .VersionId }},
-'us-east-1';
+'{{ TypeVersionArn }}',
+ '{{ TypeName }}',
+ '{{ VersionId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TypeVersionArn": "{{ TypeVersionArn }}",
- "TypeName": "{{ TypeName }}",
- "VersionId": "{{ VersionId }}"
-}
->>>
---all properties
+-- hook_default_version.iql (all properties)
 INSERT INTO aws.cloudformation.hook_default_versions (
  TypeVersionArn,
  TypeName,
@@ -123,10 +112,33 @@ INSERT INTO aws.cloudformation.hook_default_versions (
  region
 )
 SELECT 
- {{ .TypeVersionArn }},
- {{ .TypeName }},
- {{ .VersionId }},
- 'us-east-1';
+ '{{ TypeVersionArn }}',
+ '{{ TypeName }}',
+ '{{ VersionId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: hook_default_version
+    props:
+      - name: TypeVersionArn
+        value: '{{ TypeVersionArn }}'
+      - name: TypeName
+        value: '{{ TypeName }}'
+      - name: VersionId
+        value: '{{ VersionId }}'
+
 ```
 </TabItem>
 </Tabs>

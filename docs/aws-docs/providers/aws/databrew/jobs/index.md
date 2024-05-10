@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>job</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- job.iql (required properties only)
 INSERT INTO aws.databrew.jobs (
  Name,
  Type,
@@ -99,153 +95,16 @@ INSERT INTO aws.databrew.jobs (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Type }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Type }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DatasetName": "{{ DatasetName }}",
- "EncryptionKeyArn": "{{ EncryptionKeyArn }}",
- "EncryptionMode": "{{ EncryptionMode }}",
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "LogSubscription": "{{ LogSubscription }}",
- "MaxCapacity": "{{ MaxCapacity }}",
- "MaxRetries": "{{ MaxRetries }}",
- "Outputs": [
-  {
-   "CompressionFormat": "{{ CompressionFormat }}",
-   "Format": "{{ Format }}",
-   "FormatOptions": {
-    "Csv": {
-     "Delimiter": "{{ Delimiter }}"
-    }
-   },
-   "PartitionColumns": [
-    "{{ PartitionColumns[0] }}"
-   ],
-   "Location": {
-    "Bucket": "{{ Bucket }}",
-    "Key": "{{ Key }}"
-   },
-   "Overwrite": "{{ Overwrite }}",
-   "MaxOutputFiles": "{{ MaxOutputFiles }}"
-  }
- ],
- "DataCatalogOutputs": [
-  {
-   "CatalogId": "{{ CatalogId }}",
-   "DatabaseName": "{{ DatabaseName }}",
-   "TableName": "{{ TableName }}",
-   "S3Options": {
-    "Location": null
-   },
-   "DatabaseOptions": {
-    "TempDirectory": null,
-    "TableName": "{{ TableName }}"
-   },
-   "Overwrite": "{{ Overwrite }}"
-  }
- ],
- "DatabaseOutputs": [
-  {
-   "GlueConnectionName": "{{ GlueConnectionName }}",
-   "DatabaseOutputMode": "{{ DatabaseOutputMode }}",
-   "DatabaseOptions": null
-  }
- ],
- "OutputLocation": {
-  "Bucket": "{{ Bucket }}",
-  "Key": "{{ Key }}",
-  "BucketOwner": "{{ BucketOwner }}"
- },
- "ProjectName": "{{ ProjectName }}",
- "Recipe": {
-  "Description": "{{ Description }}",
-  "Name": "{{ Name }}",
-  "Steps": [
-   {
-    "Action": {
-     "Operation": "{{ Operation }}",
-     "Parameters": null
-    },
-    "ConditionExpressions": [
-     {
-      "Condition": "{{ Condition }}",
-      "Value": "{{ Value }}",
-      "TargetColumn": "{{ TargetColumn }}"
-     }
-    ]
-   }
-  ],
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  null
- ],
- "Timeout": "{{ Timeout }}",
- "JobSample": {
-  "Mode": "{{ Mode }}",
-  "Size": "{{ Size }}"
- },
- "ProfileConfiguration": {
-  "DatasetStatisticsConfiguration": {
-   "IncludedStatistics": [
-    "{{ IncludedStatistics[0] }}"
-   ],
-   "Overrides": [
-    {
-     "Statistic": null,
-     "Parameters": {}
-    }
-   ]
-  },
-  "ProfileColumns": [
-   {
-    "Regex": "{{ Regex }}",
-    "Name": "{{ Name }}"
-   }
-  ],
-  "ColumnStatisticsConfigurations": [
-   {
-    "Selectors": [
-     null
-    ],
-    "Statistics": null
-   }
-  ],
-  "EntityDetectorConfiguration": {
-   "EntityTypes": [
-    "{{ EntityTypes[0] }}"
-   ],
-   "AllowedStatistics": {
-    "Statistics": [
-     null
-    ]
-   }
-  }
- },
- "ValidationConfigurations": [
-  {
-   "RulesetArn": "{{ RulesetArn }}",
-   "ValidationMode": "{{ ValidationMode }}"
-  }
- ]
-}
->>>
---all properties
+-- job.iql (all properties)
 INSERT INTO aws.databrew.jobs (
  DatasetName,
  EncryptionKeyArn,
@@ -270,27 +129,148 @@ INSERT INTO aws.databrew.jobs (
  region
 )
 SELECT 
- {{ .DatasetName }},
- {{ .EncryptionKeyArn }},
- {{ .EncryptionMode }},
- {{ .Name }},
- {{ .Type }},
- {{ .LogSubscription }},
- {{ .MaxCapacity }},
- {{ .MaxRetries }},
- {{ .Outputs }},
- {{ .DataCatalogOutputs }},
- {{ .DatabaseOutputs }},
- {{ .OutputLocation }},
- {{ .ProjectName }},
- {{ .Recipe }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .Timeout }},
- {{ .JobSample }},
- {{ .ProfileConfiguration }},
- {{ .ValidationConfigurations }},
- 'us-east-1';
+ '{{ DatasetName }}',
+ '{{ EncryptionKeyArn }}',
+ '{{ EncryptionMode }}',
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ LogSubscription }}',
+ '{{ MaxCapacity }}',
+ '{{ MaxRetries }}',
+ '{{ Outputs }}',
+ '{{ DataCatalogOutputs }}',
+ '{{ DatabaseOutputs }}',
+ '{{ OutputLocation }}',
+ '{{ ProjectName }}',
+ '{{ Recipe }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ Timeout }}',
+ '{{ JobSample }}',
+ '{{ ProfileConfiguration }}',
+ '{{ ValidationConfigurations }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: job
+    props:
+      - name: DatasetName
+        value: '{{ DatasetName }}'
+      - name: EncryptionKeyArn
+        value: '{{ EncryptionKeyArn }}'
+      - name: EncryptionMode
+        value: '{{ EncryptionMode }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: LogSubscription
+        value: '{{ LogSubscription }}'
+      - name: MaxCapacity
+        value: '{{ MaxCapacity }}'
+      - name: MaxRetries
+        value: '{{ MaxRetries }}'
+      - name: Outputs
+        value:
+          - CompressionFormat: '{{ CompressionFormat }}'
+            Format: '{{ Format }}'
+            FormatOptions:
+              Csv:
+                Delimiter: '{{ Delimiter }}'
+            PartitionColumns:
+              - '{{ PartitionColumns[0] }}'
+            Location:
+              Bucket: '{{ Bucket }}'
+              Key: '{{ Key }}'
+            Overwrite: '{{ Overwrite }}'
+            MaxOutputFiles: '{{ MaxOutputFiles }}'
+      - name: DataCatalogOutputs
+        value:
+          - CatalogId: '{{ CatalogId }}'
+            DatabaseName: '{{ DatabaseName }}'
+            TableName: '{{ TableName }}'
+            S3Options:
+              Location: null
+            DatabaseOptions:
+              TempDirectory: null
+              TableName: '{{ TableName }}'
+            Overwrite: '{{ Overwrite }}'
+      - name: DatabaseOutputs
+        value:
+          - GlueConnectionName: '{{ GlueConnectionName }}'
+            DatabaseOutputMode: '{{ DatabaseOutputMode }}'
+            DatabaseOptions: null
+      - name: OutputLocation
+        value:
+          Bucket: '{{ Bucket }}'
+          Key: '{{ Key }}'
+          BucketOwner: '{{ BucketOwner }}'
+      - name: ProjectName
+        value: '{{ ProjectName }}'
+      - name: Recipe
+        value:
+          Description: '{{ Description }}'
+          Name: '{{ Name }}'
+          Steps:
+            - Action:
+                Operation: '{{ Operation }}'
+                Parameters: null
+              ConditionExpressions:
+                - Condition: '{{ Condition }}'
+                  Value: '{{ Value }}'
+                  TargetColumn: '{{ TargetColumn }}'
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - null
+      - name: Timeout
+        value: '{{ Timeout }}'
+      - name: JobSample
+        value:
+          Mode: '{{ Mode }}'
+          Size: '{{ Size }}'
+      - name: ProfileConfiguration
+        value:
+          DatasetStatisticsConfiguration:
+            IncludedStatistics:
+              - '{{ IncludedStatistics[0] }}'
+            Overrides:
+              - Statistic: null
+                Parameters: {}
+          ProfileColumns:
+            - Regex: '{{ Regex }}'
+              Name: '{{ Name }}'
+          ColumnStatisticsConfigurations:
+            - Selectors:
+                - null
+              Statistics: null
+          EntityDetectorConfiguration:
+            EntityTypes:
+              - '{{ EntityTypes[0] }}'
+            AllowedStatistics:
+              Statistics:
+                - null
+      - name: ValidationConfigurations
+        value:
+          - RulesetArn: '{{ RulesetArn }}'
+            ValidationMode: '{{ ValidationMode }}'
+
 ```
 </TabItem>
 </Tabs>

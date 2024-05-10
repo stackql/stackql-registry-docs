@@ -74,60 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_type</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "EventVariables": [
-  {
-   "Arn": "{{ Arn }}",
-   "Inline": "{{ Inline }}",
-   "Name": "{{ Name }}",
-   "DataSource": "{{ DataSource }}",
-   "DataType": "{{ DataType }}",
-   "DefaultValue": "{{ DefaultValue }}",
-   "VariableType": "{{ VariableType }}",
-   "Description": "{{ Description }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "CreatedTime": "{{ CreatedTime }}",
-   "LastUpdatedTime": "{{ LastUpdatedTime }}"
-  }
- ],
- "Labels": [
-  {
-   "Name": "{{ Name }}"
-  }
- ],
- "EntityTypes": [
-  {
-   "Arn": "{{ Arn }}",
-   "Inline": "{{ Inline }}",
-   "Name": "{{ Name }}",
-   "Description": "{{ Description }}",
-   "Tags": [
-    null
-   ],
-   "CreatedTime": "{{ CreatedTime }}",
-   "LastUpdatedTime": "{{ LastUpdatedTime }}"
-  }
- ]
-}
->>>
---required properties only
+-- event_type.iql (required properties only)
 INSERT INTO aws.frauddetector.event_types (
  Name,
  EventVariables,
@@ -136,68 +96,17 @@ INSERT INTO aws.frauddetector.event_types (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .EventVariables }},
- {{ .Labels }},
- {{ .EntityTypes }},
-'us-east-1';
+'{{ Name }}',
+ '{{ EventVariables }}',
+ '{{ Labels }}',
+ '{{ EntityTypes }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Description": "{{ Description }}",
- "EventVariables": [
-  {
-   "Arn": "{{ Arn }}",
-   "Inline": "{{ Inline }}",
-   "Name": "{{ Name }}",
-   "DataSource": "{{ DataSource }}",
-   "DataType": "{{ DataType }}",
-   "DefaultValue": "{{ DefaultValue }}",
-   "VariableType": "{{ VariableType }}",
-   "Description": "{{ Description }}",
-   "Tags": [
-    null
-   ],
-   "CreatedTime": "{{ CreatedTime }}",
-   "LastUpdatedTime": "{{ LastUpdatedTime }}"
-  }
- ],
- "Labels": [
-  {
-   "Name": "{{ Name }}",
-   "Tags": [
-    null
-   ],
-   "Description": "{{ Description }}"
-  }
- ],
- "EntityTypes": [
-  {
-   "Arn": "{{ Arn }}",
-   "Inline": "{{ Inline }}",
-   "Name": "{{ Name }}",
-   "Description": "{{ Description }}",
-   "Tags": [
-    null
-   ],
-   "CreatedTime": "{{ CreatedTime }}",
-   "LastUpdatedTime": "{{ LastUpdatedTime }}"
-  }
- ]
-}
->>>
---all properties
+-- event_type.iql (all properties)
 INSERT INTO aws.frauddetector.event_types (
  Name,
  Tags,
@@ -208,13 +117,68 @@ INSERT INTO aws.frauddetector.event_types (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Tags }},
- {{ .Description }},
- {{ .EventVariables }},
- {{ .Labels }},
- {{ .EntityTypes }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ Description }}',
+ '{{ EventVariables }}',
+ '{{ Labels }}',
+ '{{ EntityTypes }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_type
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EventVariables
+        value:
+          - Arn: '{{ Arn }}'
+            Inline: '{{ Inline }}'
+            Name: '{{ Name }}'
+            DataSource: '{{ DataSource }}'
+            DataType: '{{ DataType }}'
+            DefaultValue: '{{ DefaultValue }}'
+            VariableType: '{{ VariableType }}'
+            Description: '{{ Description }}'
+            Tags:
+              - null
+            CreatedTime: '{{ CreatedTime }}'
+            LastUpdatedTime: '{{ LastUpdatedTime }}'
+      - name: Labels
+        value:
+          - Name: '{{ Name }}'
+            Tags:
+              - null
+            Description: '{{ Description }}'
+      - name: EntityTypes
+        value:
+          - Arn: '{{ Arn }}'
+            Inline: '{{ Inline }}'
+            Name: '{{ Name }}'
+            Description: '{{ Description }}'
+            Tags:
+              - null
+            CreatedTime: '{{ CreatedTime }}'
+            LastUpdatedTime: '{{ LastUpdatedTime }}'
+
 ```
 </TabItem>
 </Tabs>

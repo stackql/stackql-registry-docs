@@ -76,53 +76,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>approved_origin</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Origin": "{{ Origin }}",
- "InstanceId": "{{ InstanceId }}"
-}
->>>
---required properties only
+-- approved_origin.iql (required properties only)
 INSERT INTO aws.connect.approved_origins (
  Origin,
  InstanceId,
  region
 )
 SELECT 
-{{ .Origin }},
- {{ .InstanceId }},
-'us-east-1';
+'{{ Origin }}',
+ '{{ InstanceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Origin": "{{ Origin }}",
- "InstanceId": "{{ InstanceId }}"
-}
->>>
---all properties
+-- approved_origin.iql (all properties)
 INSERT INTO aws.connect.approved_origins (
  Origin,
  InstanceId,
  region
 )
 SELECT 
- {{ .Origin }},
- {{ .InstanceId }},
- 'us-east-1';
+ '{{ Origin }}',
+ '{{ InstanceId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: approved_origin
+    props:
+      - name: Origin
+        value: '{{ Origin }}'
+      - name: InstanceId
+        value: '{{ InstanceId }}'
+
 ```
 </TabItem>
 </Tabs>

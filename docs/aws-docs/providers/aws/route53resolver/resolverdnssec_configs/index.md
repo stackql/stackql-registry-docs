@@ -74,47 +74,59 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resolverdnssec_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceId": "{{ ResourceId }}"
-}
->>>
---required properties only
+-- resolverdnssec_config.iql (required properties only)
 INSERT INTO aws.route53resolver.resolverdnssec_configs (
  ResourceId,
  region
 )
 SELECT 
-{{ .ResourceId }},
-'us-east-1';
+'{{ ResourceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceId": "{{ ResourceId }}"
-}
->>>
---all properties
+-- resolverdnssec_config.iql (all properties)
 INSERT INTO aws.route53resolver.resolverdnssec_configs (
  ResourceId,
  region
 )
 SELECT 
- {{ .ResourceId }},
- 'us-east-1';
+ '{{ ResourceId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resolverdnssec_config
+    props:
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+
 ```
 </TabItem>
 </Tabs>

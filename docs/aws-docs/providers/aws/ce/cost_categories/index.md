@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cost_category</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RuleVersion": "{{ RuleVersion }}",
- "Rules": "{{ Rules }}"
-}
->>>
---required properties only
+-- cost_category.iql (required properties only)
 INSERT INTO aws.ce.cost_categories (
  Name,
  RuleVersion,
@@ -99,25 +95,16 @@ INSERT INTO aws.ce.cost_categories (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RuleVersion }},
- {{ .Rules }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RuleVersion }}',
+ '{{ Rules }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RuleVersion": "{{ RuleVersion }}",
- "Rules": "{{ Rules }}",
- "SplitChargeRules": "{{ SplitChargeRules }}",
- "DefaultValue": "{{ DefaultValue }}"
-}
->>>
---all properties
+-- cost_category.iql (all properties)
 INSERT INTO aws.ce.cost_categories (
  Name,
  RuleVersion,
@@ -127,12 +114,39 @@ INSERT INTO aws.ce.cost_categories (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .RuleVersion }},
- {{ .Rules }},
- {{ .SplitChargeRules }},
- {{ .DefaultValue }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ RuleVersion }}',
+ '{{ Rules }}',
+ '{{ SplitChargeRules }}',
+ '{{ DefaultValue }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cost_category
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: RuleVersion
+        value: '{{ RuleVersion }}'
+      - name: Rules
+        value: '{{ Rules }}'
+      - name: SplitChargeRules
+        value: '{{ SplitChargeRules }}'
+      - name: DefaultValue
+        value: '{{ DefaultValue }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>flow_entitlement</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FlowArn": "{{ FlowArn }}",
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "Subscribers": [
-  "{{ Subscribers[0] }}"
- ]
-}
->>>
---required properties only
+-- flow_entitlement.iql (required properties only)
 INSERT INTO aws.mediaconnect.flow_entitlements (
  FlowArn,
  Description,
@@ -103,40 +96,17 @@ INSERT INTO aws.mediaconnect.flow_entitlements (
  region
 )
 SELECT 
-{{ .FlowArn }},
- {{ .Description }},
- {{ .Name }},
- {{ .Subscribers }},
-'us-east-1';
+'{{ FlowArn }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ Subscribers }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FlowArn": "{{ FlowArn }}",
- "DataTransferSubscriberFeePercent": "{{ DataTransferSubscriberFeePercent }}",
- "Description": "{{ Description }}",
- "Encryption": {
-  "Algorithm": "{{ Algorithm }}",
-  "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
-  "DeviceId": "{{ DeviceId }}",
-  "KeyType": "{{ KeyType }}",
-  "Region": "{{ Region }}",
-  "ResourceId": "{{ ResourceId }}",
-  "RoleArn": "{{ RoleArn }}",
-  "SecretArn": "{{ SecretArn }}",
-  "Url": "{{ Url }}"
- },
- "EntitlementStatus": "{{ EntitlementStatus }}",
- "Name": "{{ Name }}",
- "Subscribers": [
-  "{{ Subscribers[0] }}"
- ]
-}
->>>
---all properties
+-- flow_entitlement.iql (all properties)
 INSERT INTO aws.mediaconnect.flow_entitlements (
  FlowArn,
  DataTransferSubscriberFeePercent,
@@ -148,14 +118,55 @@ INSERT INTO aws.mediaconnect.flow_entitlements (
  region
 )
 SELECT 
- {{ .FlowArn }},
- {{ .DataTransferSubscriberFeePercent }},
- {{ .Description }},
- {{ .Encryption }},
- {{ .EntitlementStatus }},
- {{ .Name }},
- {{ .Subscribers }},
- 'us-east-1';
+ '{{ FlowArn }}',
+ '{{ DataTransferSubscriberFeePercent }}',
+ '{{ Description }}',
+ '{{ Encryption }}',
+ '{{ EntitlementStatus }}',
+ '{{ Name }}',
+ '{{ Subscribers }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: flow_entitlement
+    props:
+      - name: FlowArn
+        value: '{{ FlowArn }}'
+      - name: DataTransferSubscriberFeePercent
+        value: '{{ DataTransferSubscriberFeePercent }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Encryption
+        value:
+          Algorithm: '{{ Algorithm }}'
+          ConstantInitializationVector: '{{ ConstantInitializationVector }}'
+          DeviceId: '{{ DeviceId }}'
+          KeyType: '{{ KeyType }}'
+          Region: '{{ Region }}'
+          ResourceId: '{{ ResourceId }}'
+          RoleArn: '{{ RoleArn }}'
+          SecretArn: '{{ SecretArn }}'
+          Url: '{{ Url }}'
+      - name: EntitlementStatus
+        value: '{{ EntitlementStatus }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Subscribers
+        value:
+          - '{{ Subscribers[0] }}'
+
 ```
 </TabItem>
 </Tabs>

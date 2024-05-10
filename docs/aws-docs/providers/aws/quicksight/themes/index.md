@@ -76,76 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>theme</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "BaseThemeId": "{{ BaseThemeId }}",
- "Configuration": {
-  "DataColorPalette": {
-   "Colors": [
-    "{{ Colors[0] }}"
-   ],
-   "MinMaxGradient": [
-    "{{ MinMaxGradient[0] }}"
-   ],
-   "EmptyFillColor": "{{ EmptyFillColor }}"
-  },
-  "UIColorPalette": {
-   "PrimaryForeground": "{{ PrimaryForeground }}",
-   "PrimaryBackground": "{{ PrimaryBackground }}",
-   "SecondaryForeground": "{{ SecondaryForeground }}",
-   "SecondaryBackground": "{{ SecondaryBackground }}",
-   "Accent": "{{ Accent }}",
-   "AccentForeground": "{{ AccentForeground }}",
-   "Danger": "{{ Danger }}",
-   "DangerForeground": "{{ DangerForeground }}",
-   "Warning": "{{ Warning }}",
-   "WarningForeground": "{{ WarningForeground }}",
-   "Success": "{{ Success }}",
-   "SuccessForeground": "{{ SuccessForeground }}",
-   "Dimension": "{{ Dimension }}",
-   "DimensionForeground": "{{ DimensionForeground }}",
-   "Measure": "{{ Measure }}",
-   "MeasureForeground": "{{ MeasureForeground }}"
-  },
-  "Sheet": {
-   "Tile": {
-    "Border": {
-     "Show": "{{ Show }}"
-    }
-   },
-   "TileLayout": {
-    "Gutter": {
-     "Show": "{{ Show }}"
-    },
-    "Margin": {
-     "Show": "{{ Show }}"
-    }
-   }
-  },
-  "Typography": {
-   "FontFamilies": [
-    {
-     "FontFamily": "{{ FontFamily }}"
-    }
-   ]
-  }
- },
- "Name": "{{ Name }}",
- "ThemeId": "{{ ThemeId }}"
-}
->>>
---required properties only
+-- theme.iql (required properties only)
 INSERT INTO aws.quicksight.themes (
  AwsAccountId,
  BaseThemeId,
@@ -155,92 +99,18 @@ INSERT INTO aws.quicksight.themes (
  region
 )
 SELECT 
-{{ .AwsAccountId }},
- {{ .BaseThemeId }},
- {{ .Configuration }},
- {{ .Name }},
- {{ .ThemeId }},
-'us-east-1';
+'{{ AwsAccountId }}',
+ '{{ BaseThemeId }}',
+ '{{ Configuration }}',
+ '{{ Name }}',
+ '{{ ThemeId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "BaseThemeId": "{{ BaseThemeId }}",
- "Configuration": {
-  "DataColorPalette": {
-   "Colors": [
-    "{{ Colors[0] }}"
-   ],
-   "MinMaxGradient": [
-    "{{ MinMaxGradient[0] }}"
-   ],
-   "EmptyFillColor": "{{ EmptyFillColor }}"
-  },
-  "UIColorPalette": {
-   "PrimaryForeground": "{{ PrimaryForeground }}",
-   "PrimaryBackground": "{{ PrimaryBackground }}",
-   "SecondaryForeground": "{{ SecondaryForeground }}",
-   "SecondaryBackground": "{{ SecondaryBackground }}",
-   "Accent": "{{ Accent }}",
-   "AccentForeground": "{{ AccentForeground }}",
-   "Danger": "{{ Danger }}",
-   "DangerForeground": "{{ DangerForeground }}",
-   "Warning": "{{ Warning }}",
-   "WarningForeground": "{{ WarningForeground }}",
-   "Success": "{{ Success }}",
-   "SuccessForeground": "{{ SuccessForeground }}",
-   "Dimension": "{{ Dimension }}",
-   "DimensionForeground": "{{ DimensionForeground }}",
-   "Measure": "{{ Measure }}",
-   "MeasureForeground": "{{ MeasureForeground }}"
-  },
-  "Sheet": {
-   "Tile": {
-    "Border": {
-     "Show": "{{ Show }}"
-    }
-   },
-   "TileLayout": {
-    "Gutter": {
-     "Show": "{{ Show }}"
-    },
-    "Margin": {
-     "Show": "{{ Show }}"
-    }
-   }
-  },
-  "Typography": {
-   "FontFamilies": [
-    {
-     "FontFamily": "{{ FontFamily }}"
-    }
-   ]
-  }
- },
- "Name": "{{ Name }}",
- "Permissions": [
-  {
-   "Principal": "{{ Principal }}",
-   "Actions": [
-    "{{ Actions[0] }}"
-   ]
-  }
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "ThemeId": "{{ ThemeId }}",
- "VersionDescription": "{{ VersionDescription }}"
-}
->>>
---all properties
+-- theme.iql (all properties)
 INSERT INTO aws.quicksight.themes (
  AwsAccountId,
  BaseThemeId,
@@ -253,15 +123,88 @@ INSERT INTO aws.quicksight.themes (
  region
 )
 SELECT 
- {{ .AwsAccountId }},
- {{ .BaseThemeId }},
- {{ .Configuration }},
- {{ .Name }},
- {{ .Permissions }},
- {{ .Tags }},
- {{ .ThemeId }},
- {{ .VersionDescription }},
- 'us-east-1';
+ '{{ AwsAccountId }}',
+ '{{ BaseThemeId }}',
+ '{{ Configuration }}',
+ '{{ Name }}',
+ '{{ Permissions }}',
+ '{{ Tags }}',
+ '{{ ThemeId }}',
+ '{{ VersionDescription }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: theme
+    props:
+      - name: AwsAccountId
+        value: '{{ AwsAccountId }}'
+      - name: BaseThemeId
+        value: '{{ BaseThemeId }}'
+      - name: Configuration
+        value:
+          DataColorPalette:
+            Colors:
+              - '{{ Colors[0] }}'
+            MinMaxGradient:
+              - '{{ MinMaxGradient[0] }}'
+            EmptyFillColor: '{{ EmptyFillColor }}'
+          UIColorPalette:
+            PrimaryForeground: '{{ PrimaryForeground }}'
+            PrimaryBackground: '{{ PrimaryBackground }}'
+            SecondaryForeground: '{{ SecondaryForeground }}'
+            SecondaryBackground: '{{ SecondaryBackground }}'
+            Accent: '{{ Accent }}'
+            AccentForeground: '{{ AccentForeground }}'
+            Danger: '{{ Danger }}'
+            DangerForeground: '{{ DangerForeground }}'
+            Warning: '{{ Warning }}'
+            WarningForeground: '{{ WarningForeground }}'
+            Success: '{{ Success }}'
+            SuccessForeground: '{{ SuccessForeground }}'
+            Dimension: '{{ Dimension }}'
+            DimensionForeground: '{{ DimensionForeground }}'
+            Measure: '{{ Measure }}'
+            MeasureForeground: '{{ MeasureForeground }}'
+          Sheet:
+            Tile:
+              Border:
+                Show: '{{ Show }}'
+            TileLayout:
+              Gutter:
+                Show: '{{ Show }}'
+              Margin:
+                Show: '{{ Show }}'
+          Typography:
+            FontFamilies:
+              - FontFamily: '{{ FontFamily }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Permissions
+        value:
+          - Principal: '{{ Principal }}'
+            Actions:
+              - '{{ Actions[0] }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: ThemeId
+        value: '{{ ThemeId }}'
+      - name: VersionDescription
+        value: '{{ VersionDescription }}'
+
 ```
 </TabItem>
 </Tabs>

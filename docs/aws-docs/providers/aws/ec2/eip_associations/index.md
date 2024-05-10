@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>eip_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AllocationId": "{{ AllocationId }}",
- "NetworkInterfaceId": "{{ NetworkInterfaceId }}",
- "InstanceId": "{{ InstanceId }}",
- "PrivateIpAddress": "{{ PrivateIpAddress }}",
- "EIP": "{{ EIP }}"
-}
->>>
---required properties only
+-- eip_association.iql (required properties only)
 INSERT INTO aws.ec2.eip_associations (
  AllocationId,
  NetworkInterfaceId,
@@ -103,27 +97,18 @@ INSERT INTO aws.ec2.eip_associations (
  region
 )
 SELECT 
-{{ .AllocationId }},
- {{ .NetworkInterfaceId }},
- {{ .InstanceId }},
- {{ .PrivateIpAddress }},
- {{ .EIP }},
-'us-east-1';
+'{{ AllocationId }}',
+ '{{ NetworkInterfaceId }}',
+ '{{ InstanceId }}',
+ '{{ PrivateIpAddress }}',
+ '{{ EIP }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AllocationId": "{{ AllocationId }}",
- "NetworkInterfaceId": "{{ NetworkInterfaceId }}",
- "InstanceId": "{{ InstanceId }}",
- "PrivateIpAddress": "{{ PrivateIpAddress }}",
- "EIP": "{{ EIP }}"
-}
->>>
---all properties
+-- eip_association.iql (all properties)
 INSERT INTO aws.ec2.eip_associations (
  AllocationId,
  NetworkInterfaceId,
@@ -133,12 +118,39 @@ INSERT INTO aws.ec2.eip_associations (
  region
 )
 SELECT 
- {{ .AllocationId }},
- {{ .NetworkInterfaceId }},
- {{ .InstanceId }},
- {{ .PrivateIpAddress }},
- {{ .EIP }},
- 'us-east-1';
+ '{{ AllocationId }}',
+ '{{ NetworkInterfaceId }}',
+ '{{ InstanceId }}',
+ '{{ PrivateIpAddress }}',
+ '{{ EIP }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: eip_association
+    props:
+      - name: AllocationId
+        value: '{{ AllocationId }}'
+      - name: NetworkInterfaceId
+        value: '{{ NetworkInterfaceId }}'
+      - name: InstanceId
+        value: '{{ InstanceId }}'
+      - name: PrivateIpAddress
+        value: '{{ PrivateIpAddress }}'
+      - name: EIP
+        value: '{{ EIP }}'
+
 ```
 </TabItem>
 </Tabs>

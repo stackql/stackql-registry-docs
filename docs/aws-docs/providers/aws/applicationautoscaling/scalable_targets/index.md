@@ -78,26 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scalable_target</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MaxCapacity": "{{ MaxCapacity }}",
- "MinCapacity": "{{ MinCapacity }}",
- "ResourceId": "{{ ResourceId }}",
- "ScalableDimension": "{{ ScalableDimension }}",
- "ServiceNamespace": "{{ ServiceNamespace }}"
-}
->>>
---required properties only
+-- scalable_target.iql (required properties only)
 INSERT INTO aws.applicationautoscaling.scalable_targets (
  MaxCapacity,
  MinCapacity,
@@ -107,46 +101,18 @@ INSERT INTO aws.applicationautoscaling.scalable_targets (
  region
 )
 SELECT 
-{{ .MaxCapacity }},
- {{ .MinCapacity }},
- {{ .ResourceId }},
- {{ .ScalableDimension }},
- {{ .ServiceNamespace }},
-'us-east-1';
+'{{ MaxCapacity }}',
+ '{{ MinCapacity }}',
+ '{{ ResourceId }}',
+ '{{ ScalableDimension }}',
+ '{{ ServiceNamespace }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MaxCapacity": "{{ MaxCapacity }}",
- "MinCapacity": "{{ MinCapacity }}",
- "ResourceId": "{{ ResourceId }}",
- "RoleARN": "{{ RoleARN }}",
- "ScalableDimension": "{{ ScalableDimension }}",
- "ScheduledActions": [
-  {
-   "Timezone": "{{ Timezone }}",
-   "ScheduledActionName": "{{ ScheduledActionName }}",
-   "EndTime": "{{ EndTime }}",
-   "Schedule": "{{ Schedule }}",
-   "StartTime": "{{ StartTime }}",
-   "ScalableTargetAction": {
-    "MinCapacity": "{{ MinCapacity }}",
-    "MaxCapacity": "{{ MaxCapacity }}"
-   }
-  }
- ],
- "ServiceNamespace": "{{ ServiceNamespace }}",
- "SuspendedState": {
-  "ScheduledScalingSuspended": "{{ ScheduledScalingSuspended }}",
-  "DynamicScalingOutSuspended": "{{ DynamicScalingOutSuspended }}",
-  "DynamicScalingInSuspended": "{{ DynamicScalingInSuspended }}"
- }
-}
->>>
---all properties
+-- scalable_target.iql (all properties)
 INSERT INTO aws.applicationautoscaling.scalable_targets (
  MaxCapacity,
  MinCapacity,
@@ -159,15 +125,59 @@ INSERT INTO aws.applicationautoscaling.scalable_targets (
  region
 )
 SELECT 
- {{ .MaxCapacity }},
- {{ .MinCapacity }},
- {{ .ResourceId }},
- {{ .RoleARN }},
- {{ .ScalableDimension }},
- {{ .ScheduledActions }},
- {{ .ServiceNamespace }},
- {{ .SuspendedState }},
- 'us-east-1';
+ '{{ MaxCapacity }}',
+ '{{ MinCapacity }}',
+ '{{ ResourceId }}',
+ '{{ RoleARN }}',
+ '{{ ScalableDimension }}',
+ '{{ ScheduledActions }}',
+ '{{ ServiceNamespace }}',
+ '{{ SuspendedState }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scalable_target
+    props:
+      - name: MaxCapacity
+        value: '{{ MaxCapacity }}'
+      - name: MinCapacity
+        value: '{{ MinCapacity }}'
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+      - name: RoleARN
+        value: '{{ RoleARN }}'
+      - name: ScalableDimension
+        value: '{{ ScalableDimension }}'
+      - name: ScheduledActions
+        value:
+          - Timezone: '{{ Timezone }}'
+            ScheduledActionName: '{{ ScheduledActionName }}'
+            EndTime: '{{ EndTime }}'
+            Schedule: '{{ Schedule }}'
+            StartTime: '{{ StartTime }}'
+            ScalableTargetAction:
+              MinCapacity: '{{ MinCapacity }}'
+              MaxCapacity: '{{ MaxCapacity }}'
+      - name: ServiceNamespace
+        value: '{{ ServiceNamespace }}'
+      - name: SuspendedState
+        value:
+          ScheduledScalingSuspended: '{{ ScheduledScalingSuspended }}'
+          DynamicScalingOutSuspended: '{{ DynamicScalingOutSuspended }}'
+          DynamicScalingInSuspended: '{{ DynamicScalingInSuspended }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>database</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RelationalDatabaseName": "{{ RelationalDatabaseName }}",
- "RelationalDatabaseBlueprintId": "{{ RelationalDatabaseBlueprintId }}",
- "RelationalDatabaseBundleId": "{{ RelationalDatabaseBundleId }}",
- "MasterDatabaseName": "{{ MasterDatabaseName }}",
- "MasterUsername": "{{ MasterUsername }}"
-}
->>>
---required properties only
+-- database.iql (required properties only)
 INSERT INTO aws.lightsail.databases (
  RelationalDatabaseName,
  RelationalDatabaseBlueprintId,
@@ -103,53 +97,18 @@ INSERT INTO aws.lightsail.databases (
  region
 )
 SELECT 
-{{ .RelationalDatabaseName }},
- {{ .RelationalDatabaseBlueprintId }},
- {{ .RelationalDatabaseBundleId }},
- {{ .MasterDatabaseName }},
- {{ .MasterUsername }},
-'us-east-1';
+'{{ RelationalDatabaseName }}',
+ '{{ RelationalDatabaseBlueprintId }}',
+ '{{ RelationalDatabaseBundleId }}',
+ '{{ MasterDatabaseName }}',
+ '{{ MasterUsername }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RelationalDatabaseName": "{{ RelationalDatabaseName }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "RelationalDatabaseBlueprintId": "{{ RelationalDatabaseBlueprintId }}",
- "RelationalDatabaseBundleId": "{{ RelationalDatabaseBundleId }}",
- "MasterDatabaseName": "{{ MasterDatabaseName }}",
- "MasterUsername": "{{ MasterUsername }}",
- "MasterUserPassword": "{{ MasterUserPassword }}",
- "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "CaCertificateIdentifier": "{{ CaCertificateIdentifier }}",
- "BackupRetention": "{{ BackupRetention }}",
- "RotateMasterUserPassword": "{{ RotateMasterUserPassword }}",
- "RelationalDatabaseParameters": [
-  {
-   "AllowedValues": "{{ AllowedValues }}",
-   "ApplyMethod": "{{ ApplyMethod }}",
-   "ApplyType": "{{ ApplyType }}",
-   "DataType": "{{ DataType }}",
-   "Description": "{{ Description }}",
-   "IsModifiable": "{{ IsModifiable }}",
-   "ParameterName": "{{ ParameterName }}",
-   "ParameterValue": "{{ ParameterValue }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- database.iql (all properties)
 INSERT INTO aws.lightsail.databases (
  RelationalDatabaseName,
  AvailabilityZone,
@@ -169,22 +128,79 @@ INSERT INTO aws.lightsail.databases (
  region
 )
 SELECT 
- {{ .RelationalDatabaseName }},
- {{ .AvailabilityZone }},
- {{ .RelationalDatabaseBlueprintId }},
- {{ .RelationalDatabaseBundleId }},
- {{ .MasterDatabaseName }},
- {{ .MasterUsername }},
- {{ .MasterUserPassword }},
- {{ .PreferredBackupWindow }},
- {{ .PreferredMaintenanceWindow }},
- {{ .PubliclyAccessible }},
- {{ .CaCertificateIdentifier }},
- {{ .BackupRetention }},
- {{ .RotateMasterUserPassword }},
- {{ .RelationalDatabaseParameters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ RelationalDatabaseName }}',
+ '{{ AvailabilityZone }}',
+ '{{ RelationalDatabaseBlueprintId }}',
+ '{{ RelationalDatabaseBundleId }}',
+ '{{ MasterDatabaseName }}',
+ '{{ MasterUsername }}',
+ '{{ MasterUserPassword }}',
+ '{{ PreferredBackupWindow }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ PubliclyAccessible }}',
+ '{{ CaCertificateIdentifier }}',
+ '{{ BackupRetention }}',
+ '{{ RotateMasterUserPassword }}',
+ '{{ RelationalDatabaseParameters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: database
+    props:
+      - name: RelationalDatabaseName
+        value: '{{ RelationalDatabaseName }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: RelationalDatabaseBlueprintId
+        value: '{{ RelationalDatabaseBlueprintId }}'
+      - name: RelationalDatabaseBundleId
+        value: '{{ RelationalDatabaseBundleId }}'
+      - name: MasterDatabaseName
+        value: '{{ MasterDatabaseName }}'
+      - name: MasterUsername
+        value: '{{ MasterUsername }}'
+      - name: MasterUserPassword
+        value: '{{ MasterUserPassword }}'
+      - name: PreferredBackupWindow
+        value: '{{ PreferredBackupWindow }}'
+      - name: PreferredMaintenanceWindow
+        value: '{{ PreferredMaintenanceWindow }}'
+      - name: PubliclyAccessible
+        value: '{{ PubliclyAccessible }}'
+      - name: CaCertificateIdentifier
+        value: '{{ CaCertificateIdentifier }}'
+      - name: BackupRetention
+        value: '{{ BackupRetention }}'
+      - name: RotateMasterUserPassword
+        value: '{{ RotateMasterUserPassword }}'
+      - name: RelationalDatabaseParameters
+        value:
+          - AllowedValues: '{{ AllowedValues }}'
+            ApplyMethod: '{{ ApplyMethod }}'
+            ApplyType: '{{ ApplyType }}'
+            DataType: '{{ DataType }}'
+            Description: '{{ Description }}'
+            IsModifiable: '{{ IsModifiable }}'
+            ParameterName: '{{ ParameterName }}'
+            ParameterValue: '{{ ParameterValue }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,62 +74,68 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>export</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Export": {
-  "Export": null
- }
-}
->>>
---required properties only
+-- export.iql (required properties only)
 INSERT INTO aws.bcmdataexports.exports (
  Export,
  region
 )
 SELECT 
-{{ .Export }},
-'us-east-1';
+'{{ Export }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Export": {
-  "Export": null,
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- export.iql (all properties)
 INSERT INTO aws.bcmdataexports.exports (
  Export,
  Tags,
  region
 )
 SELECT 
- {{ .Export }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Export }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: export
+    props:
+      - name: Export
+        value:
+          Export: null
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

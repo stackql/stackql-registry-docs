@@ -74,58 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>provisioning_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ProvisioningRoleArn": "{{ ProvisioningRoleArn }}",
- "TemplateBody": "{{ TemplateBody }}"
-}
->>>
---required properties only
+-- provisioning_template.iql (required properties only)
 INSERT INTO aws.iot.provisioning_templates (
  ProvisioningRoleArn,
  TemplateBody,
  region
 )
 SELECT 
-{{ .ProvisioningRoleArn }},
- {{ .TemplateBody }},
-'us-east-1';
+'{{ ProvisioningRoleArn }}',
+ '{{ TemplateBody }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TemplateName": "{{ TemplateName }}",
- "Description": "{{ Description }}",
- "Enabled": "{{ Enabled }}",
- "ProvisioningRoleArn": "{{ ProvisioningRoleArn }}",
- "TemplateBody": "{{ TemplateBody }}",
- "TemplateType": "{{ TemplateType }}",
- "PreProvisioningHook": {
-  "TargetArn": "{{ TargetArn }}",
-  "PayloadVersion": "{{ PayloadVersion }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- provisioning_template.iql (all properties)
 INSERT INTO aws.iot.provisioning_templates (
  TemplateName,
  Description,
@@ -138,15 +115,52 @@ INSERT INTO aws.iot.provisioning_templates (
  region
 )
 SELECT 
- {{ .TemplateName }},
- {{ .Description }},
- {{ .Enabled }},
- {{ .ProvisioningRoleArn }},
- {{ .TemplateBody }},
- {{ .TemplateType }},
- {{ .PreProvisioningHook }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ TemplateName }}',
+ '{{ Description }}',
+ '{{ Enabled }}',
+ '{{ ProvisioningRoleArn }}',
+ '{{ TemplateBody }}',
+ '{{ TemplateType }}',
+ '{{ PreProvisioningHook }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: provisioning_template
+    props:
+      - name: TemplateName
+        value: '{{ TemplateName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: ProvisioningRoleArn
+        value: '{{ ProvisioningRoleArn }}'
+      - name: TemplateBody
+        value: '{{ TemplateBody }}'
+      - name: TemplateType
+        value: '{{ TemplateType }}'
+      - name: PreProvisioningHook
+        value:
+          TargetArn: '{{ TargetArn }}'
+          PayloadVersion: '{{ PayloadVersion }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

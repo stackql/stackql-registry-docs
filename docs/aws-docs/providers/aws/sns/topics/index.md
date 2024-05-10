@@ -74,50 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>topic</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DisplayName": "{{ DisplayName }}",
- "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
- "DataProtectionPolicy": {},
- "Subscription": [
-  {
-   "Endpoint": "{{ Endpoint }}",
-   "Protocol": "{{ Protocol }}"
-  }
- ],
- "FifoTopic": "{{ FifoTopic }}",
- "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
- "ArchivePolicy": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TopicName": "{{ TopicName }}",
- "SignatureVersion": "{{ SignatureVersion }}",
- "TracingConfig": "{{ TracingConfig }}",
- "DeliveryStatusLogging": [
-  {
-   "Protocol": "{{ Protocol }}",
-   "SuccessFeedbackRoleArn": "{{ SuccessFeedbackRoleArn }}",
-   "SuccessFeedbackSampleRate": "{{ SuccessFeedbackSampleRate }}",
-   "FailureFeedbackRoleArn": "{{ FailureFeedbackRoleArn }}"
-  }
- ]
-}
->>>
---required properties only
+-- topic.iql (required properties only)
 INSERT INTO aws.sns.topics (
  DisplayName,
  KmsMasterKeyId,
@@ -134,58 +104,25 @@ INSERT INTO aws.sns.topics (
  region
 )
 SELECT 
-{{ .DisplayName }},
- {{ .KmsMasterKeyId }},
- {{ .DataProtectionPolicy }},
- {{ .Subscription }},
- {{ .FifoTopic }},
- {{ .ContentBasedDeduplication }},
- {{ .ArchivePolicy }},
- {{ .Tags }},
- {{ .TopicName }},
- {{ .SignatureVersion }},
- {{ .TracingConfig }},
- {{ .DeliveryStatusLogging }},
-'us-east-1';
+'{{ DisplayName }}',
+ '{{ KmsMasterKeyId }}',
+ '{{ DataProtectionPolicy }}',
+ '{{ Subscription }}',
+ '{{ FifoTopic }}',
+ '{{ ContentBasedDeduplication }}',
+ '{{ ArchivePolicy }}',
+ '{{ Tags }}',
+ '{{ TopicName }}',
+ '{{ SignatureVersion }}',
+ '{{ TracingConfig }}',
+ '{{ DeliveryStatusLogging }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DisplayName": "{{ DisplayName }}",
- "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
- "DataProtectionPolicy": {},
- "Subscription": [
-  {
-   "Endpoint": "{{ Endpoint }}",
-   "Protocol": "{{ Protocol }}"
-  }
- ],
- "FifoTopic": "{{ FifoTopic }}",
- "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
- "ArchivePolicy": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TopicName": "{{ TopicName }}",
- "SignatureVersion": "{{ SignatureVersion }}",
- "TracingConfig": "{{ TracingConfig }}",
- "DeliveryStatusLogging": [
-  {
-   "Protocol": "{{ Protocol }}",
-   "SuccessFeedbackRoleArn": "{{ SuccessFeedbackRoleArn }}",
-   "SuccessFeedbackSampleRate": "{{ SuccessFeedbackSampleRate }}",
-   "FailureFeedbackRoleArn": "{{ FailureFeedbackRoleArn }}"
-  }
- ]
-}
->>>
---all properties
+-- topic.iql (all properties)
 INSERT INTO aws.sns.topics (
  DisplayName,
  KmsMasterKeyId,
@@ -202,19 +139,68 @@ INSERT INTO aws.sns.topics (
  region
 )
 SELECT 
- {{ .DisplayName }},
- {{ .KmsMasterKeyId }},
- {{ .DataProtectionPolicy }},
- {{ .Subscription }},
- {{ .FifoTopic }},
- {{ .ContentBasedDeduplication }},
- {{ .ArchivePolicy }},
- {{ .Tags }},
- {{ .TopicName }},
- {{ .SignatureVersion }},
- {{ .TracingConfig }},
- {{ .DeliveryStatusLogging }},
- 'us-east-1';
+ '{{ DisplayName }}',
+ '{{ KmsMasterKeyId }}',
+ '{{ DataProtectionPolicy }}',
+ '{{ Subscription }}',
+ '{{ FifoTopic }}',
+ '{{ ContentBasedDeduplication }}',
+ '{{ ArchivePolicy }}',
+ '{{ Tags }}',
+ '{{ TopicName }}',
+ '{{ SignatureVersion }}',
+ '{{ TracingConfig }}',
+ '{{ DeliveryStatusLogging }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: topic
+    props:
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: KmsMasterKeyId
+        value: '{{ KmsMasterKeyId }}'
+      - name: DataProtectionPolicy
+        value: {}
+      - name: Subscription
+        value:
+          - Endpoint: '{{ Endpoint }}'
+            Protocol: '{{ Protocol }}'
+      - name: FifoTopic
+        value: '{{ FifoTopic }}'
+      - name: ContentBasedDeduplication
+        value: '{{ ContentBasedDeduplication }}'
+      - name: ArchivePolicy
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TopicName
+        value: '{{ TopicName }}'
+      - name: SignatureVersion
+        value: '{{ SignatureVersion }}'
+      - name: TracingConfig
+        value: '{{ TracingConfig }}'
+      - name: DeliveryStatusLogging
+        value:
+          - Protocol: '{{ Protocol }}'
+            SuccessFeedbackRoleArn: '{{ SuccessFeedbackRoleArn }}'
+            SuccessFeedbackSampleRate: '{{ SuccessFeedbackSampleRate }}'
+            FailureFeedbackRoleArn: '{{ FailureFeedbackRoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

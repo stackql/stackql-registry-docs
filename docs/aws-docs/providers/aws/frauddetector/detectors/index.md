@@ -74,84 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>detector</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DetectorId": "{{ DetectorId }}",
- "Rules": [
-  {
-   "RuleId": "{{ RuleId }}",
-   "RuleVersion": "{{ RuleVersion }}",
-   "DetectorId": "{{ DetectorId }}",
-   "Expression": "{{ Expression }}",
-   "Language": "{{ Language }}",
-   "Outcomes": [
-    {
-     "Name": "{{ Name }}"
-    }
-   ],
-   "Arn": "{{ Arn }}",
-   "Description": "{{ Description }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "CreatedTime": "{{ CreatedTime }}",
-   "LastUpdatedTime": "{{ LastUpdatedTime }}"
-  }
- ],
- "EventType": {
-  "Name": "{{ Name }}",
-  "EventVariables": [
-   {
-    "Arn": "{{ Arn }}",
-    "Inline": "{{ Inline }}",
-    "Name": "{{ Name }}",
-    "DataSource": "{{ DataSource }}",
-    "DataType": "{{ DataType }}",
-    "DefaultValue": "{{ DefaultValue }}",
-    "VariableType": "{{ VariableType }}",
-    "Description": "{{ Description }}",
-    "Tags": [
-     null
-    ],
-    "CreatedTime": "{{ CreatedTime }}",
-    "LastUpdatedTime": "{{ LastUpdatedTime }}"
-   }
-  ],
-  "Labels": [
-   {
-    "Name": "{{ Name }}"
-   }
-  ],
-  "EntityTypes": [
-   {
-    "Arn": "{{ Arn }}",
-    "Inline": "{{ Inline }}",
-    "Name": "{{ Name }}",
-    "Description": "{{ Description }}",
-    "Tags": [
-     null
-    ],
-    "CreatedTime": "{{ CreatedTime }}",
-    "LastUpdatedTime": "{{ LastUpdatedTime }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- detector.iql (required properties only)
 INSERT INTO aws.frauddetector.detectors (
  DetectorId,
  Rules,
@@ -159,106 +95,16 @@ INSERT INTO aws.frauddetector.detectors (
  region
 )
 SELECT 
-{{ .DetectorId }},
- {{ .Rules }},
- {{ .EventType }},
-'us-east-1';
+'{{ DetectorId }}',
+ '{{ Rules }}',
+ '{{ EventType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DetectorId": "{{ DetectorId }}",
- "DetectorVersionStatus": "{{ DetectorVersionStatus }}",
- "RuleExecutionMode": "{{ RuleExecutionMode }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Description": "{{ Description }}",
- "Rules": [
-  {
-   "RuleId": "{{ RuleId }}",
-   "RuleVersion": "{{ RuleVersion }}",
-   "DetectorId": "{{ DetectorId }}",
-   "Expression": "{{ Expression }}",
-   "Language": "{{ Language }}",
-   "Outcomes": [
-    {
-     "Name": "{{ Name }}",
-     "Tags": [
-      null
-     ],
-     "Description": "{{ Description }}"
-    }
-   ],
-   "Arn": "{{ Arn }}",
-   "Description": "{{ Description }}",
-   "Tags": [
-    null
-   ],
-   "CreatedTime": "{{ CreatedTime }}",
-   "LastUpdatedTime": "{{ LastUpdatedTime }}"
-  }
- ],
- "EventType": {
-  "Name": "{{ Name }}",
-  "Tags": [
-   null
-  ],
-  "Description": "{{ Description }}",
-  "EventVariables": [
-   {
-    "Arn": "{{ Arn }}",
-    "Inline": "{{ Inline }}",
-    "Name": "{{ Name }}",
-    "DataSource": "{{ DataSource }}",
-    "DataType": "{{ DataType }}",
-    "DefaultValue": "{{ DefaultValue }}",
-    "VariableType": "{{ VariableType }}",
-    "Description": "{{ Description }}",
-    "Tags": [
-     null
-    ],
-    "CreatedTime": "{{ CreatedTime }}",
-    "LastUpdatedTime": "{{ LastUpdatedTime }}"
-   }
-  ],
-  "Labels": [
-   {
-    "Name": "{{ Name }}",
-    "Tags": [
-     null
-    ],
-    "Description": "{{ Description }}"
-   }
-  ],
-  "EntityTypes": [
-   {
-    "Arn": "{{ Arn }}",
-    "Inline": "{{ Inline }}",
-    "Name": "{{ Name }}",
-    "Description": "{{ Description }}",
-    "Tags": [
-     null
-    ],
-    "CreatedTime": "{{ CreatedTime }}",
-    "LastUpdatedTime": "{{ LastUpdatedTime }}"
-   }
-  ]
- },
- "AssociatedModels": [
-  {
-   "Arn": "{{ Arn }}"
-  }
- ]
-}
->>>
---all properties
+-- detector.iql (all properties)
 INSERT INTO aws.frauddetector.detectors (
  DetectorId,
  DetectorVersionStatus,
@@ -271,15 +117,98 @@ INSERT INTO aws.frauddetector.detectors (
  region
 )
 SELECT 
- {{ .DetectorId }},
- {{ .DetectorVersionStatus }},
- {{ .RuleExecutionMode }},
- {{ .Tags }},
- {{ .Description }},
- {{ .Rules }},
- {{ .EventType }},
- {{ .AssociatedModels }},
- 'us-east-1';
+ '{{ DetectorId }}',
+ '{{ DetectorVersionStatus }}',
+ '{{ RuleExecutionMode }}',
+ '{{ Tags }}',
+ '{{ Description }}',
+ '{{ Rules }}',
+ '{{ EventType }}',
+ '{{ AssociatedModels }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: detector
+    props:
+      - name: DetectorId
+        value: '{{ DetectorId }}'
+      - name: DetectorVersionStatus
+        value: '{{ DetectorVersionStatus }}'
+      - name: RuleExecutionMode
+        value: '{{ RuleExecutionMode }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Rules
+        value:
+          - RuleId: '{{ RuleId }}'
+            RuleVersion: '{{ RuleVersion }}'
+            DetectorId: '{{ DetectorId }}'
+            Expression: '{{ Expression }}'
+            Language: '{{ Language }}'
+            Outcomes:
+              - Name: '{{ Name }}'
+                Tags:
+                  - null
+                Description: '{{ Description }}'
+            Arn: '{{ Arn }}'
+            Description: '{{ Description }}'
+            Tags:
+              - null
+            CreatedTime: '{{ CreatedTime }}'
+            LastUpdatedTime: '{{ LastUpdatedTime }}'
+      - name: EventType
+        value:
+          Name: '{{ Name }}'
+          Tags:
+            - null
+          Description: '{{ Description }}'
+          EventVariables:
+            - Arn: '{{ Arn }}'
+              Inline: '{{ Inline }}'
+              Name: '{{ Name }}'
+              DataSource: '{{ DataSource }}'
+              DataType: '{{ DataType }}'
+              DefaultValue: '{{ DefaultValue }}'
+              VariableType: '{{ VariableType }}'
+              Description: '{{ Description }}'
+              Tags:
+                - null
+              CreatedTime: '{{ CreatedTime }}'
+              LastUpdatedTime: '{{ LastUpdatedTime }}'
+          Labels:
+            - Name: '{{ Name }}'
+              Tags:
+                - null
+              Description: '{{ Description }}'
+          EntityTypes:
+            - Arn: '{{ Arn }}'
+              Inline: '{{ Inline }}'
+              Name: '{{ Name }}'
+              Description: '{{ Description }}'
+              Tags:
+                - null
+              CreatedTime: '{{ CreatedTime }}'
+              LastUpdatedTime: '{{ LastUpdatedTime }}'
+      - name: AssociatedModels
+        value:
+          - Arn: '{{ Arn }}'
+
 ```
 </TabItem>
 </Tabs>

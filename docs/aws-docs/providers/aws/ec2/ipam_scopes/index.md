@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>ipam_scope</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IpamId": "{{ IpamId }}"
-}
->>>
---required properties only
+-- ipam_scope.iql (required properties only)
 INSERT INTO aws.ec2.ipam_scopes (
  IpamId,
  region
 )
 SELECT 
-{{ .IpamId }},
-'us-east-1';
+'{{ IpamId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IpamId": "{{ IpamId }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- ipam_scope.iql (all properties)
 INSERT INTO aws.ec2.ipam_scopes (
  IpamId,
  Description,
@@ -122,10 +108,35 @@ INSERT INTO aws.ec2.ipam_scopes (
  region
 )
 SELECT 
- {{ .IpamId }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ IpamId }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ipam_scope
+    props:
+      - name: IpamId
+        value: '{{ IpamId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

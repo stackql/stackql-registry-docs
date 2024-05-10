@@ -74,91 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>app</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- app.iql (required properties only)
 INSERT INTO aws.amplify.apps (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessToken": "{{ AccessToken }}",
- "AutoBranchCreationConfig": {
-  "AutoBranchCreationPatterns": [
-   "{{ AutoBranchCreationPatterns[0] }}"
-  ],
-  "BasicAuthConfig": {
-   "EnableBasicAuth": "{{ EnableBasicAuth }}",
-   "Username": "{{ Username }}",
-   "Password": "{{ Password }}"
-  },
-  "BuildSpec": "{{ BuildSpec }}",
-  "EnableAutoBranchCreation": "{{ EnableAutoBranchCreation }}",
-  "EnableAutoBuild": "{{ EnableAutoBuild }}",
-  "EnablePerformanceMode": "{{ EnablePerformanceMode }}",
-  "EnablePullRequestPreview": "{{ EnablePullRequestPreview }}",
-  "EnvironmentVariables": [
-   {
-    "Name": "{{ Name }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "Framework": "{{ Framework }}",
-  "PullRequestEnvironmentName": "{{ PullRequestEnvironmentName }}",
-  "Stage": "{{ Stage }}"
- },
- "BasicAuthConfig": null,
- "BuildSpec": "{{ BuildSpec }}",
- "CustomHeaders": "{{ CustomHeaders }}",
- "CustomRules": [
-  {
-   "Condition": "{{ Condition }}",
-   "Status": "{{ Status }}",
-   "Target": "{{ Target }}",
-   "Source": "{{ Source }}"
-  }
- ],
- "Description": "{{ Description }}",
- "EnableBranchAutoDeletion": "{{ EnableBranchAutoDeletion }}",
- "EnvironmentVariables": [
-  null
- ],
- "IAMServiceRole": "{{ IAMServiceRole }}",
- "Name": "{{ Name }}",
- "OauthToken": "{{ OauthToken }}",
- "Platform": "{{ Platform }}",
- "Repository": "{{ Repository }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- app.iql (all properties)
 INSERT INTO aws.amplify.apps (
  AccessToken,
  AutoBranchCreationConfig,
@@ -178,22 +120,93 @@ INSERT INTO aws.amplify.apps (
  region
 )
 SELECT 
- {{ .AccessToken }},
- {{ .AutoBranchCreationConfig }},
- {{ .BasicAuthConfig }},
- {{ .BuildSpec }},
- {{ .CustomHeaders }},
- {{ .CustomRules }},
- {{ .Description }},
- {{ .EnableBranchAutoDeletion }},
- {{ .EnvironmentVariables }},
- {{ .IAMServiceRole }},
- {{ .Name }},
- {{ .OauthToken }},
- {{ .Platform }},
- {{ .Repository }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AccessToken }}',
+ '{{ AutoBranchCreationConfig }}',
+ '{{ BasicAuthConfig }}',
+ '{{ BuildSpec }}',
+ '{{ CustomHeaders }}',
+ '{{ CustomRules }}',
+ '{{ Description }}',
+ '{{ EnableBranchAutoDeletion }}',
+ '{{ EnvironmentVariables }}',
+ '{{ IAMServiceRole }}',
+ '{{ Name }}',
+ '{{ OauthToken }}',
+ '{{ Platform }}',
+ '{{ Repository }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: app
+    props:
+      - name: AccessToken
+        value: '{{ AccessToken }}'
+      - name: AutoBranchCreationConfig
+        value:
+          AutoBranchCreationPatterns:
+            - '{{ AutoBranchCreationPatterns[0] }}'
+          BasicAuthConfig:
+            EnableBasicAuth: '{{ EnableBasicAuth }}'
+            Username: '{{ Username }}'
+            Password: '{{ Password }}'
+          BuildSpec: '{{ BuildSpec }}'
+          EnableAutoBranchCreation: '{{ EnableAutoBranchCreation }}'
+          EnableAutoBuild: '{{ EnableAutoBuild }}'
+          EnablePerformanceMode: '{{ EnablePerformanceMode }}'
+          EnablePullRequestPreview: '{{ EnablePullRequestPreview }}'
+          EnvironmentVariables:
+            - Name: '{{ Name }}'
+              Value: '{{ Value }}'
+          Framework: '{{ Framework }}'
+          PullRequestEnvironmentName: '{{ PullRequestEnvironmentName }}'
+          Stage: '{{ Stage }}'
+      - name: BasicAuthConfig
+        value: null
+      - name: BuildSpec
+        value: '{{ BuildSpec }}'
+      - name: CustomHeaders
+        value: '{{ CustomHeaders }}'
+      - name: CustomRules
+        value:
+          - Condition: '{{ Condition }}'
+            Status: '{{ Status }}'
+            Target: '{{ Target }}'
+            Source: '{{ Source }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EnableBranchAutoDeletion
+        value: '{{ EnableBranchAutoDeletion }}'
+      - name: EnvironmentVariables
+        value:
+          - null
+      - name: IAMServiceRole
+        value: '{{ IAMServiceRole }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: OauthToken
+        value: '{{ OauthToken }}'
+      - name: Platform
+        value: '{{ Platform }}'
+      - name: Repository
+        value: '{{ Repository }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_integration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "EventBridgeBus": "{{ EventBridgeBus }}",
- "EventFilter": {
-  "Source": "{{ Source }}"
- }
-}
->>>
---required properties only
+-- event_integration.iql (required properties only)
 INSERT INTO aws.appintegrations.event_integrations (
  Name,
  EventBridgeBus,
@@ -101,32 +95,16 @@ INSERT INTO aws.appintegrations.event_integrations (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .EventBridgeBus }},
- {{ .EventFilter }},
-'us-east-1';
+'{{ Name }}',
+ '{{ EventBridgeBus }}',
+ '{{ EventFilter }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "EventBridgeBus": "{{ EventBridgeBus }}",
- "EventFilter": {
-  "Source": "{{ Source }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- event_integration.iql (all properties)
 INSERT INTO aws.appintegrations.event_integrations (
  Description,
  Name,
@@ -136,12 +114,42 @@ INSERT INTO aws.appintegrations.event_integrations (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .EventBridgeBus }},
- {{ .EventFilter }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ EventBridgeBus }}',
+ '{{ EventFilter }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_integration
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: EventBridgeBus
+        value: '{{ EventBridgeBus }}'
+      - name: EventFilter
+        value:
+          Source: '{{ Source }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

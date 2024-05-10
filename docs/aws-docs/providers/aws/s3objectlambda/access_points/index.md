@@ -74,78 +74,71 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_point</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ObjectLambdaConfiguration": {
-  "SupportingAccessPoint": "{{ SupportingAccessPoint }}",
-  "AllowedFeatures": [
-   "{{ AllowedFeatures[0] }}"
-  ],
-  "CloudWatchMetricsEnabled": "{{ CloudWatchMetricsEnabled }}",
-  "TransformationConfigurations": [
-   {
-    "Actions": [
-     "{{ Actions[0] }}"
-    ],
-    "ContentTransformation": {}
-   }
-  ]
- }
-}
->>>
---required properties only
+-- access_point.iql (required properties only)
 INSERT INTO aws.s3objectlambda.access_points (
  ObjectLambdaConfiguration,
  region
 )
 SELECT 
-{{ .ObjectLambdaConfiguration }},
-'us-east-1';
+'{{ ObjectLambdaConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ObjectLambdaConfiguration": {
-  "SupportingAccessPoint": "{{ SupportingAccessPoint }}",
-  "AllowedFeatures": [
-   "{{ AllowedFeatures[0] }}"
-  ],
-  "CloudWatchMetricsEnabled": "{{ CloudWatchMetricsEnabled }}",
-  "TransformationConfigurations": [
-   {
-    "Actions": [
-     "{{ Actions[0] }}"
-    ],
-    "ContentTransformation": {}
-   }
-  ]
- }
-}
->>>
---all properties
+-- access_point.iql (all properties)
 INSERT INTO aws.s3objectlambda.access_points (
  Name,
  ObjectLambdaConfiguration,
  region
 )
 SELECT 
- {{ .Name }},
- {{ .ObjectLambdaConfiguration }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ ObjectLambdaConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_point
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: ObjectLambdaConfiguration
+        value:
+          SupportingAccessPoint: '{{ SupportingAccessPoint }}'
+          AllowedFeatures:
+            - '{{ AllowedFeatures[0] }}'
+          CloudWatchMetricsEnabled: '{{ CloudWatchMetricsEnabled }}'
+          TransformationConfigurations:
+            - Actions:
+                - '{{ Actions[0] }}'
+              ContentTransformation: {}
+
 ```
 </TabItem>
 </Tabs>

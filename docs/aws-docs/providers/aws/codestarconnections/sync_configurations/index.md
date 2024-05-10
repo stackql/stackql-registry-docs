@@ -76,27 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>sync_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceName": "{{ ResourceName }}",
- "Branch": "{{ Branch }}",
- "ConfigFile": "{{ ConfigFile }}",
- "SyncType": "{{ SyncType }}",
- "RoleArn": "{{ RoleArn }}",
- "RepositoryLinkId": "{{ RepositoryLinkId }}"
-}
->>>
---required properties only
+-- sync_configuration.iql (required properties only)
 INSERT INTO aws.codestarconnections.sync_configurations (
  ResourceName,
  Branch,
@@ -107,31 +100,19 @@ INSERT INTO aws.codestarconnections.sync_configurations (
  region
 )
 SELECT 
-{{ .ResourceName }},
- {{ .Branch }},
- {{ .ConfigFile }},
- {{ .SyncType }},
- {{ .RoleArn }},
- {{ .RepositoryLinkId }},
-'us-east-1';
+'{{ ResourceName }}',
+ '{{ Branch }}',
+ '{{ ConfigFile }}',
+ '{{ SyncType }}',
+ '{{ RoleArn }}',
+ '{{ RepositoryLinkId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceName": "{{ ResourceName }}",
- "Branch": "{{ Branch }}",
- "ConfigFile": "{{ ConfigFile }}",
- "SyncType": "{{ SyncType }}",
- "RoleArn": "{{ RoleArn }}",
- "PublishDeploymentStatus": "{{ PublishDeploymentStatus }}",
- "TriggerResourceUpdateOn": "{{ TriggerResourceUpdateOn }}",
- "RepositoryLinkId": "{{ RepositoryLinkId }}"
-}
->>>
---all properties
+-- sync_configuration.iql (all properties)
 INSERT INTO aws.codestarconnections.sync_configurations (
  ResourceName,
  Branch,
@@ -144,15 +125,48 @@ INSERT INTO aws.codestarconnections.sync_configurations (
  region
 )
 SELECT 
- {{ .ResourceName }},
- {{ .Branch }},
- {{ .ConfigFile }},
- {{ .SyncType }},
- {{ .RoleArn }},
- {{ .PublishDeploymentStatus }},
- {{ .TriggerResourceUpdateOn }},
- {{ .RepositoryLinkId }},
- 'us-east-1';
+ '{{ ResourceName }}',
+ '{{ Branch }}',
+ '{{ ConfigFile }}',
+ '{{ SyncType }}',
+ '{{ RoleArn }}',
+ '{{ PublishDeploymentStatus }}',
+ '{{ TriggerResourceUpdateOn }}',
+ '{{ RepositoryLinkId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: sync_configuration
+    props:
+      - name: ResourceName
+        value: '{{ ResourceName }}'
+      - name: Branch
+        value: '{{ Branch }}'
+      - name: ConfigFile
+        value: '{{ ConfigFile }}'
+      - name: SyncType
+        value: '{{ SyncType }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: PublishDeploymentStatus
+        value: '{{ PublishDeploymentStatus }}'
+      - name: TriggerResourceUpdateOn
+        value: '{{ TriggerResourceUpdateOn }}'
+      - name: RepositoryLinkId
+        value: '{{ RepositoryLinkId }}'
+
 ```
 </TabItem>
 </Tabs>

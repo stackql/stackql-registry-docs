@@ -74,72 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>analyzer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- analyzer.iql (required properties only)
 INSERT INTO aws.accessanalyzer.analyzers (
  Type,
  region
 )
 SELECT 
-{{ .Type }},
-'us-east-1';
+'{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AnalyzerName": "{{ AnalyzerName }}",
- "ArchiveRules": [
-  {
-   "Filter": [
-    {
-     "Contains": [
-      "{{ Contains[0] }}"
-     ],
-     "Eq": [
-      "{{ Eq[0] }}"
-     ],
-     "Exists": "{{ Exists }}",
-     "Property": "{{ Property }}",
-     "Neq": [
-      "{{ Neq[0] }}"
-     ]
-    }
-   ],
-   "RuleName": "{{ RuleName }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Type": "{{ Type }}",
- "AnalyzerConfiguration": {
-  "UnusedAccessConfiguration": {
-   "UnusedAccessAge": "{{ UnusedAccessAge }}"
-  }
- }
-}
->>>
---all properties
+-- analyzer.iql (all properties)
 INSERT INTO aws.accessanalyzer.analyzers (
  AnalyzerName,
  ArchiveRules,
@@ -149,12 +110,53 @@ INSERT INTO aws.accessanalyzer.analyzers (
  region
 )
 SELECT 
- {{ .AnalyzerName }},
- {{ .ArchiveRules }},
- {{ .Tags }},
- {{ .Type }},
- {{ .AnalyzerConfiguration }},
- 'us-east-1';
+ '{{ AnalyzerName }}',
+ '{{ ArchiveRules }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ AnalyzerConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: analyzer
+    props:
+      - name: AnalyzerName
+        value: '{{ AnalyzerName }}'
+      - name: ArchiveRules
+        value:
+          - Filter:
+              - Contains:
+                  - '{{ Contains[0] }}'
+                Eq:
+                  - '{{ Eq[0] }}'
+                Exists: '{{ Exists }}'
+                Property: '{{ Property }}'
+                Neq:
+                  - '{{ Neq[0] }}'
+            RuleName: '{{ RuleName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: AnalyzerConfiguration
+        value:
+          UnusedAccessConfiguration:
+            UnusedAccessAge: '{{ UnusedAccessAge }}'
+
 ```
 </TabItem>
 </Tabs>

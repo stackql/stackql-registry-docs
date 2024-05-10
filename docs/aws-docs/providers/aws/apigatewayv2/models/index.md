@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>model</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Schema": {},
- "ApiId": "{{ ApiId }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- model.iql (required properties only)
 INSERT INTO aws.apigatewayv2.models (
  Schema,
  ApiId,
@@ -101,25 +97,16 @@ INSERT INTO aws.apigatewayv2.models (
  region
 )
 SELECT 
-{{ .Schema }},
- {{ .ApiId }},
- {{ .Name }},
-'us-east-1';
+'{{ Schema }}',
+ '{{ ApiId }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "ContentType": "{{ ContentType }}",
- "Schema": {},
- "ApiId": "{{ ApiId }}",
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- model.iql (all properties)
 INSERT INTO aws.apigatewayv2.models (
  Description,
  ContentType,
@@ -129,12 +116,39 @@ INSERT INTO aws.apigatewayv2.models (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .ContentType }},
- {{ .Schema }},
- {{ .ApiId }},
- {{ .Name }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ ContentType }}',
+ '{{ Schema }}',
+ '{{ ApiId }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: model
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: ContentType
+        value: '{{ ContentType }}'
+      - name: Schema
+        value: {}
+      - name: ApiId
+        value: '{{ ApiId }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

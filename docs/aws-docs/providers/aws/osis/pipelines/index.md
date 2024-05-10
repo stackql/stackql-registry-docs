@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pipeline</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MaxUnits": "{{ MaxUnits }}",
- "MinUnits": "{{ MinUnits }}",
- "PipelineConfigurationBody": "{{ PipelineConfigurationBody }}",
- "PipelineName": "{{ PipelineName }}"
-}
->>>
---required properties only
+-- pipeline.iql (required properties only)
 INSERT INTO aws.osis.pipelines (
  MaxUnits,
  MinUnits,
@@ -101,51 +96,17 @@ INSERT INTO aws.osis.pipelines (
  region
 )
 SELECT 
-{{ .MaxUnits }},
- {{ .MinUnits }},
- {{ .PipelineConfigurationBody }},
- {{ .PipelineName }},
-'us-east-1';
+'{{ MaxUnits }}',
+ '{{ MinUnits }}',
+ '{{ PipelineConfigurationBody }}',
+ '{{ PipelineName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BufferOptions": {
-  "PersistentBufferEnabled": "{{ PersistentBufferEnabled }}"
- },
- "EncryptionAtRestOptions": {
-  "KmsKeyArn": "{{ KmsKeyArn }}"
- },
- "LogPublishingOptions": {
-  "IsLoggingEnabled": "{{ IsLoggingEnabled }}",
-  "CloudWatchLogDestination": {
-   "LogGroup": "{{ LogGroup }}"
-  }
- },
- "MaxUnits": "{{ MaxUnits }}",
- "MinUnits": "{{ MinUnits }}",
- "PipelineConfigurationBody": "{{ PipelineConfigurationBody }}",
- "PipelineName": "{{ PipelineName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VpcOptions": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- pipeline.iql (all properties)
 INSERT INTO aws.osis.pipelines (
  BufferOptions,
  EncryptionAtRestOptions,
@@ -159,16 +120,62 @@ INSERT INTO aws.osis.pipelines (
  region
 )
 SELECT 
- {{ .BufferOptions }},
- {{ .EncryptionAtRestOptions }},
- {{ .LogPublishingOptions }},
- {{ .MaxUnits }},
- {{ .MinUnits }},
- {{ .PipelineConfigurationBody }},
- {{ .PipelineName }},
- {{ .Tags }},
- {{ .VpcOptions }},
- 'us-east-1';
+ '{{ BufferOptions }}',
+ '{{ EncryptionAtRestOptions }}',
+ '{{ LogPublishingOptions }}',
+ '{{ MaxUnits }}',
+ '{{ MinUnits }}',
+ '{{ PipelineConfigurationBody }}',
+ '{{ PipelineName }}',
+ '{{ Tags }}',
+ '{{ VpcOptions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pipeline
+    props:
+      - name: BufferOptions
+        value:
+          PersistentBufferEnabled: '{{ PersistentBufferEnabled }}'
+      - name: EncryptionAtRestOptions
+        value:
+          KmsKeyArn: '{{ KmsKeyArn }}'
+      - name: LogPublishingOptions
+        value:
+          IsLoggingEnabled: '{{ IsLoggingEnabled }}'
+          CloudWatchLogDestination:
+            LogGroup: '{{ LogGroup }}'
+      - name: MaxUnits
+        value: '{{ MaxUnits }}'
+      - name: MinUnits
+        value: '{{ MinUnits }}'
+      - name: PipelineConfigurationBody
+        value: '{{ PipelineConfigurationBody }}'
+      - name: PipelineName
+        value: '{{ PipelineName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VpcOptions
+        value:
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>package</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PackageName": "{{ PackageName }}"
-}
->>>
---required properties only
+-- package.iql (required properties only)
 INSERT INTO aws.panorama.packages (
  PackageName,
  region
 )
 SELECT 
-{{ .PackageName }},
-'us-east-1';
+'{{ PackageName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PackageName": "{{ PackageName }}",
- "StorageLocation": {
-  "Bucket": "{{ Bucket }}",
-  "RepoPrefixLocation": "{{ RepoPrefixLocation }}",
-  "GeneratedPrefixLocation": "{{ GeneratedPrefixLocation }}",
-  "BinaryPrefixLocation": "{{ BinaryPrefixLocation }}",
-  "ManifestPrefixLocation": "{{ ManifestPrefixLocation }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- package.iql (all properties)
 INSERT INTO aws.panorama.packages (
  PackageName,
  StorageLocation,
@@ -128,10 +108,40 @@ INSERT INTO aws.panorama.packages (
  region
 )
 SELECT 
- {{ .PackageName }},
- {{ .StorageLocation }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ PackageName }}',
+ '{{ StorageLocation }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: package
+    props:
+      - name: PackageName
+        value: '{{ PackageName }}'
+      - name: StorageLocation
+        value:
+          Bucket: '{{ Bucket }}'
+          RepoPrefixLocation: '{{ RepoPrefixLocation }}'
+          GeneratedPrefixLocation: '{{ GeneratedPrefixLocation }}'
+          BinaryPrefixLocation: '{{ BinaryPrefixLocation }}'
+          ManifestPrefixLocation: '{{ ManifestPrefixLocation }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

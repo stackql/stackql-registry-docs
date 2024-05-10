@@ -74,48 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>custom_metric</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MetricType": "{{ MetricType }}"
-}
->>>
---required properties only
+-- custom_metric.iql (required properties only)
 INSERT INTO aws.iot.custom_metrics (
  MetricType,
  region
 )
 SELECT 
-{{ .MetricType }},
-'us-east-1';
+'{{ MetricType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MetricName": "{{ MetricName }}",
- "DisplayName": "{{ DisplayName }}",
- "MetricType": "{{ MetricType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- custom_metric.iql (all properties)
 INSERT INTO aws.iot.custom_metrics (
  MetricName,
  DisplayName,
@@ -124,11 +109,38 @@ INSERT INTO aws.iot.custom_metrics (
  region
 )
 SELECT 
- {{ .MetricName }},
- {{ .DisplayName }},
- {{ .MetricType }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ MetricName }}',
+ '{{ DisplayName }}',
+ '{{ MetricType }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: custom_metric
+    props:
+      - name: MetricName
+        value: '{{ MetricName }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: MetricType
+        value: '{{ MetricType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

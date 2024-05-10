@@ -74,254 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>flow</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FlowName": "{{ FlowName }}",
- "TriggerConfig": {
-  "TriggerType": "{{ TriggerType }}",
-  "TriggerProperties": {
-   "ScheduleExpression": "{{ ScheduleExpression }}",
-   "DataPullMode": "{{ DataPullMode }}",
-   "ScheduleStartTime": null,
-   "ScheduleEndTime": null,
-   "FirstExecutionFrom": null,
-   "TimeZone": "{{ TimeZone }}",
-   "ScheduleOffset": null,
-   "FlowErrorDeactivationThreshold": "{{ FlowErrorDeactivationThreshold }}"
-  }
- },
- "SourceFlowConfig": {
-  "ConnectorType": "{{ ConnectorType }}",
-  "ApiVersion": "{{ ApiVersion }}",
-  "ConnectorProfileName": "{{ ConnectorProfileName }}",
-  "SourceConnectorProperties": {
-   "Amplitude": {
-    "Object": "{{ Object }}"
-   },
-   "Datadog": {
-    "Object": null
-   },
-   "Dynatrace": {
-    "Object": null
-   },
-   "GoogleAnalytics": {
-    "Object": null
-   },
-   "InforNexus": {
-    "Object": null
-   },
-   "Marketo": {
-    "Object": null
-   },
-   "S3": {
-    "BucketName": "{{ BucketName }}",
-    "BucketPrefix": "{{ BucketPrefix }}",
-    "S3InputFormatConfig": {
-     "S3InputFileType": "{{ S3InputFileType }}"
-    }
-   },
-   "SAPOData": {
-    "ObjectPath": null,
-    "parallelismConfig": {
-     "maxParallelism": "{{ maxParallelism }}"
-    },
-    "paginationConfig": {
-     "maxPageSize": "{{ maxPageSize }}"
-    }
-   },
-   "Salesforce": {
-    "Object": null,
-    "EnableDynamicFieldUpdate": "{{ EnableDynamicFieldUpdate }}",
-    "IncludeDeletedRecords": "{{ IncludeDeletedRecords }}",
-    "DataTransferApi": "{{ DataTransferApi }}"
-   },
-   "Pardot": {
-    "Object": null
-   },
-   "ServiceNow": {
-    "Object": null
-   },
-   "Singular": {
-    "Object": null
-   },
-   "Slack": {
-    "Object": null
-   },
-   "Trendmicro": {
-    "Object": null
-   },
-   "Veeva": {
-    "Object": null,
-    "DocumentType": "{{ DocumentType }}",
-    "IncludeSourceFiles": "{{ IncludeSourceFiles }}",
-    "IncludeRenditions": "{{ IncludeRenditions }}",
-    "IncludeAllVersions": "{{ IncludeAllVersions }}"
-   },
-   "Zendesk": {
-    "Object": null
-   },
-   "CustomConnector": {
-    "EntityName": "{{ EntityName }}",
-    "CustomProperties": {},
-    "DataTransferApi": {
-     "Name": "{{ Name }}",
-     "Type": "{{ Type }}"
-    }
-   }
-  },
-  "IncrementalPullConfig": {
-   "DatetimeTypeFieldName": "{{ DatetimeTypeFieldName }}"
-  }
- },
- "DestinationFlowConfigList": [
-  {
-   "ConnectorType": null,
-   "ApiVersion": null,
-   "ConnectorProfileName": null,
-   "DestinationConnectorProperties": {
-    "Redshift": {
-     "Object": null,
-     "IntermediateBucketName": null,
-     "BucketPrefix": null,
-     "ErrorHandlingConfig": {
-      "FailOnFirstError": "{{ FailOnFirstError }}",
-      "BucketPrefix": null,
-      "BucketName": null
-     }
-    },
-    "S3": {
-     "BucketName": null,
-     "BucketPrefix": null,
-     "S3OutputFormatConfig": {
-      "FileType": "{{ FileType }}",
-      "PrefixConfig": {
-       "PrefixType": "{{ PrefixType }}",
-       "PrefixFormat": "{{ PrefixFormat }}",
-       "PathPrefixHierarchy": [
-        "{{ PathPrefixHierarchy[0] }}"
-       ]
-      },
-      "AggregationConfig": {
-       "AggregationType": "{{ AggregationType }}",
-       "TargetFileSize": "{{ TargetFileSize }}"
-      },
-      "PreserveSourceDataTyping": "{{ PreserveSourceDataTyping }}"
-     }
-    },
-    "Salesforce": {
-     "Object": null,
-     "ErrorHandlingConfig": null,
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "WriteOperationType": "{{ WriteOperationType }}",
-     "DataTransferApi": null
-    },
-    "Snowflake": {
-     "Object": null,
-     "IntermediateBucketName": null,
-     "BucketPrefix": null,
-     "ErrorHandlingConfig": null
-    },
-    "EventBridge": {
-     "Object": null,
-     "ErrorHandlingConfig": null
-    },
-    "Upsolver": {
-     "BucketName": "{{ BucketName }}",
-     "BucketPrefix": null,
-     "S3OutputFormatConfig": {
-      "FileType": null,
-      "PrefixConfig": null,
-      "AggregationConfig": null
-     }
-    },
-    "LookoutMetrics": {
-     "Object": null
-    },
-    "Marketo": {
-     "Object": null,
-     "ErrorHandlingConfig": null
-    },
-    "Zendesk": {
-     "Object": null,
-     "ErrorHandlingConfig": null,
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "WriteOperationType": null
-    },
-    "CustomConnector": {
-     "EntityName": null,
-     "ErrorHandlingConfig": null,
-     "WriteOperationType": null,
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "CustomProperties": null
-    },
-    "SAPOData": {
-     "ObjectPath": null,
-     "ErrorHandlingConfig": null,
-     "SuccessResponseHandlingConfig": {
-      "BucketPrefix": null,
-      "BucketName": null
-     },
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "WriteOperationType": null
-    }
-   }
-  }
- ],
- "Tasks": [
-  {
-   "SourceFields": [
-    "{{ SourceFields[0] }}"
-   ],
-   "ConnectorOperator": {
-    "Amplitude": "{{ Amplitude }}",
-    "Datadog": "{{ Datadog }}",
-    "Dynatrace": "{{ Dynatrace }}",
-    "GoogleAnalytics": "{{ GoogleAnalytics }}",
-    "InforNexus": "{{ InforNexus }}",
-    "Marketo": "{{ Marketo }}",
-    "S3": "{{ S3 }}",
-    "SAPOData": "{{ SAPOData }}",
-    "Salesforce": "{{ Salesforce }}",
-    "Pardot": "{{ Pardot }}",
-    "ServiceNow": "{{ ServiceNow }}",
-    "Singular": "{{ Singular }}",
-    "Slack": "{{ Slack }}",
-    "Trendmicro": "{{ Trendmicro }}",
-    "Veeva": "{{ Veeva }}",
-    "Zendesk": "{{ Zendesk }}",
-    "CustomConnector": "{{ CustomConnector }}"
-   },
-   "DestinationField": "{{ DestinationField }}",
-   "TaskType": "{{ TaskType }}",
-   "TaskProperties": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ]
-}
->>>
---required properties only
+-- flow.iql (required properties only)
 INSERT INTO aws.appflow.flows (
  FlowName,
  TriggerConfig,
@@ -331,271 +97,18 @@ INSERT INTO aws.appflow.flows (
  region
 )
 SELECT 
-{{ .FlowName }},
- {{ .TriggerConfig }},
- {{ .SourceFlowConfig }},
- {{ .DestinationFlowConfigList }},
- {{ .Tasks }},
-'us-east-1';
+'{{ FlowName }}',
+ '{{ TriggerConfig }}',
+ '{{ SourceFlowConfig }}',
+ '{{ DestinationFlowConfigList }}',
+ '{{ Tasks }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FlowName": "{{ FlowName }}",
- "Description": "{{ Description }}",
- "KMSArn": "{{ KMSArn }}",
- "TriggerConfig": {
-  "TriggerType": "{{ TriggerType }}",
-  "TriggerProperties": {
-   "ScheduleExpression": "{{ ScheduleExpression }}",
-   "DataPullMode": "{{ DataPullMode }}",
-   "ScheduleStartTime": null,
-   "ScheduleEndTime": null,
-   "FirstExecutionFrom": null,
-   "TimeZone": "{{ TimeZone }}",
-   "ScheduleOffset": null,
-   "FlowErrorDeactivationThreshold": "{{ FlowErrorDeactivationThreshold }}"
-  }
- },
- "FlowStatus": "{{ FlowStatus }}",
- "SourceFlowConfig": {
-  "ConnectorType": "{{ ConnectorType }}",
-  "ApiVersion": "{{ ApiVersion }}",
-  "ConnectorProfileName": "{{ ConnectorProfileName }}",
-  "SourceConnectorProperties": {
-   "Amplitude": {
-    "Object": "{{ Object }}"
-   },
-   "Datadog": {
-    "Object": null
-   },
-   "Dynatrace": {
-    "Object": null
-   },
-   "GoogleAnalytics": {
-    "Object": null
-   },
-   "InforNexus": {
-    "Object": null
-   },
-   "Marketo": {
-    "Object": null
-   },
-   "S3": {
-    "BucketName": "{{ BucketName }}",
-    "BucketPrefix": "{{ BucketPrefix }}",
-    "S3InputFormatConfig": {
-     "S3InputFileType": "{{ S3InputFileType }}"
-    }
-   },
-   "SAPOData": {
-    "ObjectPath": null,
-    "parallelismConfig": {
-     "maxParallelism": "{{ maxParallelism }}"
-    },
-    "paginationConfig": {
-     "maxPageSize": "{{ maxPageSize }}"
-    }
-   },
-   "Salesforce": {
-    "Object": null,
-    "EnableDynamicFieldUpdate": "{{ EnableDynamicFieldUpdate }}",
-    "IncludeDeletedRecords": "{{ IncludeDeletedRecords }}",
-    "DataTransferApi": "{{ DataTransferApi }}"
-   },
-   "Pardot": {
-    "Object": null
-   },
-   "ServiceNow": {
-    "Object": null
-   },
-   "Singular": {
-    "Object": null
-   },
-   "Slack": {
-    "Object": null
-   },
-   "Trendmicro": {
-    "Object": null
-   },
-   "Veeva": {
-    "Object": null,
-    "DocumentType": "{{ DocumentType }}",
-    "IncludeSourceFiles": "{{ IncludeSourceFiles }}",
-    "IncludeRenditions": "{{ IncludeRenditions }}",
-    "IncludeAllVersions": "{{ IncludeAllVersions }}"
-   },
-   "Zendesk": {
-    "Object": null
-   },
-   "CustomConnector": {
-    "EntityName": "{{ EntityName }}",
-    "CustomProperties": {},
-    "DataTransferApi": {
-     "Name": "{{ Name }}",
-     "Type": "{{ Type }}"
-    }
-   }
-  },
-  "IncrementalPullConfig": {
-   "DatetimeTypeFieldName": "{{ DatetimeTypeFieldName }}"
-  }
- },
- "DestinationFlowConfigList": [
-  {
-   "ConnectorType": null,
-   "ApiVersion": null,
-   "ConnectorProfileName": null,
-   "DestinationConnectorProperties": {
-    "Redshift": {
-     "Object": null,
-     "IntermediateBucketName": null,
-     "BucketPrefix": null,
-     "ErrorHandlingConfig": {
-      "FailOnFirstError": "{{ FailOnFirstError }}",
-      "BucketPrefix": null,
-      "BucketName": null
-     }
-    },
-    "S3": {
-     "BucketName": null,
-     "BucketPrefix": null,
-     "S3OutputFormatConfig": {
-      "FileType": "{{ FileType }}",
-      "PrefixConfig": {
-       "PrefixType": "{{ PrefixType }}",
-       "PrefixFormat": "{{ PrefixFormat }}",
-       "PathPrefixHierarchy": [
-        "{{ PathPrefixHierarchy[0] }}"
-       ]
-      },
-      "AggregationConfig": {
-       "AggregationType": "{{ AggregationType }}",
-       "TargetFileSize": "{{ TargetFileSize }}"
-      },
-      "PreserveSourceDataTyping": "{{ PreserveSourceDataTyping }}"
-     }
-    },
-    "Salesforce": {
-     "Object": null,
-     "ErrorHandlingConfig": null,
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "WriteOperationType": "{{ WriteOperationType }}",
-     "DataTransferApi": null
-    },
-    "Snowflake": {
-     "Object": null,
-     "IntermediateBucketName": null,
-     "BucketPrefix": null,
-     "ErrorHandlingConfig": null
-    },
-    "EventBridge": {
-     "Object": null,
-     "ErrorHandlingConfig": null
-    },
-    "Upsolver": {
-     "BucketName": "{{ BucketName }}",
-     "BucketPrefix": null,
-     "S3OutputFormatConfig": {
-      "FileType": null,
-      "PrefixConfig": null,
-      "AggregationConfig": null
-     }
-    },
-    "LookoutMetrics": {
-     "Object": null
-    },
-    "Marketo": {
-     "Object": null,
-     "ErrorHandlingConfig": null
-    },
-    "Zendesk": {
-     "Object": null,
-     "ErrorHandlingConfig": null,
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "WriteOperationType": null
-    },
-    "CustomConnector": {
-     "EntityName": null,
-     "ErrorHandlingConfig": null,
-     "WriteOperationType": null,
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "CustomProperties": null
-    },
-    "SAPOData": {
-     "ObjectPath": null,
-     "ErrorHandlingConfig": null,
-     "SuccessResponseHandlingConfig": {
-      "BucketPrefix": null,
-      "BucketName": null
-     },
-     "IdFieldNames": [
-      "{{ IdFieldNames[0] }}"
-     ],
-     "WriteOperationType": null
-    }
-   }
-  }
- ],
- "Tasks": [
-  {
-   "SourceFields": [
-    "{{ SourceFields[0] }}"
-   ],
-   "ConnectorOperator": {
-    "Amplitude": "{{ Amplitude }}",
-    "Datadog": "{{ Datadog }}",
-    "Dynatrace": "{{ Dynatrace }}",
-    "GoogleAnalytics": "{{ GoogleAnalytics }}",
-    "InforNexus": "{{ InforNexus }}",
-    "Marketo": "{{ Marketo }}",
-    "S3": "{{ S3 }}",
-    "SAPOData": "{{ SAPOData }}",
-    "Salesforce": "{{ Salesforce }}",
-    "Pardot": "{{ Pardot }}",
-    "ServiceNow": "{{ ServiceNow }}",
-    "Singular": "{{ Singular }}",
-    "Slack": "{{ Slack }}",
-    "Trendmicro": "{{ Trendmicro }}",
-    "Veeva": "{{ Veeva }}",
-    "Zendesk": "{{ Zendesk }}",
-    "CustomConnector": "{{ CustomConnector }}"
-   },
-   "DestinationField": "{{ DestinationField }}",
-   "TaskType": "{{ TaskType }}",
-   "TaskProperties": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "MetadataCatalogConfig": {
-  "GlueDataCatalog": {
-   "RoleArn": "{{ RoleArn }}",
-   "DatabaseName": "{{ DatabaseName }}",
-   "TablePrefix": "{{ TablePrefix }}"
-  }
- }
-}
->>>
---all properties
+-- flow.iql (all properties)
 INSERT INTO aws.appflow.flows (
  FlowName,
  Description,
@@ -610,17 +123,228 @@ INSERT INTO aws.appflow.flows (
  region
 )
 SELECT 
- {{ .FlowName }},
- {{ .Description }},
- {{ .KMSArn }},
- {{ .TriggerConfig }},
- {{ .FlowStatus }},
- {{ .SourceFlowConfig }},
- {{ .DestinationFlowConfigList }},
- {{ .Tasks }},
- {{ .Tags }},
- {{ .MetadataCatalogConfig }},
- 'us-east-1';
+ '{{ FlowName }}',
+ '{{ Description }}',
+ '{{ KMSArn }}',
+ '{{ TriggerConfig }}',
+ '{{ FlowStatus }}',
+ '{{ SourceFlowConfig }}',
+ '{{ DestinationFlowConfigList }}',
+ '{{ Tasks }}',
+ '{{ Tags }}',
+ '{{ MetadataCatalogConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: flow
+    props:
+      - name: FlowName
+        value: '{{ FlowName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: KMSArn
+        value: '{{ KMSArn }}'
+      - name: TriggerConfig
+        value:
+          TriggerType: '{{ TriggerType }}'
+          TriggerProperties:
+            ScheduleExpression: '{{ ScheduleExpression }}'
+            DataPullMode: '{{ DataPullMode }}'
+            ScheduleStartTime: null
+            ScheduleEndTime: null
+            FirstExecutionFrom: null
+            TimeZone: '{{ TimeZone }}'
+            ScheduleOffset: null
+            FlowErrorDeactivationThreshold: '{{ FlowErrorDeactivationThreshold }}'
+      - name: FlowStatus
+        value: '{{ FlowStatus }}'
+      - name: SourceFlowConfig
+        value:
+          ConnectorType: '{{ ConnectorType }}'
+          ApiVersion: '{{ ApiVersion }}'
+          ConnectorProfileName: '{{ ConnectorProfileName }}'
+          SourceConnectorProperties:
+            Amplitude:
+              Object: '{{ Object }}'
+            Datadog:
+              Object: null
+            Dynatrace:
+              Object: null
+            GoogleAnalytics:
+              Object: null
+            InforNexus:
+              Object: null
+            Marketo:
+              Object: null
+            S3:
+              BucketName: '{{ BucketName }}'
+              BucketPrefix: '{{ BucketPrefix }}'
+              S3InputFormatConfig:
+                S3InputFileType: '{{ S3InputFileType }}'
+            SAPOData:
+              ObjectPath: null
+              parallelismConfig:
+                maxParallelism: '{{ maxParallelism }}'
+              paginationConfig:
+                maxPageSize: '{{ maxPageSize }}'
+            Salesforce:
+              Object: null
+              EnableDynamicFieldUpdate: '{{ EnableDynamicFieldUpdate }}'
+              IncludeDeletedRecords: '{{ IncludeDeletedRecords }}'
+              DataTransferApi: '{{ DataTransferApi }}'
+            Pardot:
+              Object: null
+            ServiceNow:
+              Object: null
+            Singular:
+              Object: null
+            Slack:
+              Object: null
+            Trendmicro:
+              Object: null
+            Veeva:
+              Object: null
+              DocumentType: '{{ DocumentType }}'
+              IncludeSourceFiles: '{{ IncludeSourceFiles }}'
+              IncludeRenditions: '{{ IncludeRenditions }}'
+              IncludeAllVersions: '{{ IncludeAllVersions }}'
+            Zendesk:
+              Object: null
+            CustomConnector:
+              EntityName: '{{ EntityName }}'
+              CustomProperties: {}
+              DataTransferApi:
+                Name: '{{ Name }}'
+                Type: '{{ Type }}'
+          IncrementalPullConfig:
+            DatetimeTypeFieldName: '{{ DatetimeTypeFieldName }}'
+      - name: DestinationFlowConfigList
+        value:
+          - ConnectorType: null
+            ApiVersion: null
+            ConnectorProfileName: null
+            DestinationConnectorProperties:
+              Redshift:
+                Object: null
+                IntermediateBucketName: null
+                BucketPrefix: null
+                ErrorHandlingConfig:
+                  FailOnFirstError: '{{ FailOnFirstError }}'
+                  BucketPrefix: null
+                  BucketName: null
+              S3:
+                BucketName: null
+                BucketPrefix: null
+                S3OutputFormatConfig:
+                  FileType: '{{ FileType }}'
+                  PrefixConfig:
+                    PrefixType: '{{ PrefixType }}'
+                    PrefixFormat: '{{ PrefixFormat }}'
+                    PathPrefixHierarchy:
+                      - '{{ PathPrefixHierarchy[0] }}'
+                  AggregationConfig:
+                    AggregationType: '{{ AggregationType }}'
+                    TargetFileSize: '{{ TargetFileSize }}'
+                  PreserveSourceDataTyping: '{{ PreserveSourceDataTyping }}'
+              Salesforce:
+                Object: null
+                ErrorHandlingConfig: null
+                IdFieldNames:
+                  - '{{ IdFieldNames[0] }}'
+                WriteOperationType: '{{ WriteOperationType }}'
+                DataTransferApi: null
+              Snowflake:
+                Object: null
+                IntermediateBucketName: null
+                BucketPrefix: null
+                ErrorHandlingConfig: null
+              EventBridge:
+                Object: null
+                ErrorHandlingConfig: null
+              Upsolver:
+                BucketName: '{{ BucketName }}'
+                BucketPrefix: null
+                S3OutputFormatConfig:
+                  FileType: null
+                  PrefixConfig: null
+                  AggregationConfig: null
+              LookoutMetrics:
+                Object: null
+              Marketo:
+                Object: null
+                ErrorHandlingConfig: null
+              Zendesk:
+                Object: null
+                ErrorHandlingConfig: null
+                IdFieldNames:
+                  - '{{ IdFieldNames[0] }}'
+                WriteOperationType: null
+              CustomConnector:
+                EntityName: null
+                ErrorHandlingConfig: null
+                WriteOperationType: null
+                IdFieldNames:
+                  - '{{ IdFieldNames[0] }}'
+                CustomProperties: null
+              SAPOData:
+                ObjectPath: null
+                ErrorHandlingConfig: null
+                SuccessResponseHandlingConfig:
+                  BucketPrefix: null
+                  BucketName: null
+                IdFieldNames:
+                  - '{{ IdFieldNames[0] }}'
+                WriteOperationType: null
+      - name: Tasks
+        value:
+          - SourceFields:
+              - '{{ SourceFields[0] }}'
+            ConnectorOperator:
+              Amplitude: '{{ Amplitude }}'
+              Datadog: '{{ Datadog }}'
+              Dynatrace: '{{ Dynatrace }}'
+              GoogleAnalytics: '{{ GoogleAnalytics }}'
+              InforNexus: '{{ InforNexus }}'
+              Marketo: '{{ Marketo }}'
+              S3: '{{ S3 }}'
+              SAPOData: '{{ SAPOData }}'
+              Salesforce: '{{ Salesforce }}'
+              Pardot: '{{ Pardot }}'
+              ServiceNow: '{{ ServiceNow }}'
+              Singular: '{{ Singular }}'
+              Slack: '{{ Slack }}'
+              Trendmicro: '{{ Trendmicro }}'
+              Veeva: '{{ Veeva }}'
+              Zendesk: '{{ Zendesk }}'
+              CustomConnector: '{{ CustomConnector }}'
+            DestinationField: '{{ DestinationField }}'
+            TaskType: '{{ TaskType }}'
+            TaskProperties:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: MetadataCatalogConfig
+        value:
+          GlueDataCatalog:
+            RoleArn: '{{ RoleArn }}'
+            DatabaseName: '{{ DatabaseName }}'
+            TablePrefix: '{{ TablePrefix }}'
+
 ```
 </TabItem>
 </Tabs>

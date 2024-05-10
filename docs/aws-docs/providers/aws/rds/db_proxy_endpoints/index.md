@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>db_proxy_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DBProxyEndpointName": "{{ DBProxyEndpointName }}",
- "DBProxyName": "{{ DBProxyName }}",
- "VpcSubnetIds": [
-  "{{ VpcSubnetIds[0] }}"
- ]
-}
->>>
---required properties only
+-- db_proxy_endpoint.iql (required properties only)
 INSERT INTO aws.rds.db_proxy_endpoints (
  DBProxyEndpointName,
  DBProxyName,
@@ -101,35 +95,16 @@ INSERT INTO aws.rds.db_proxy_endpoints (
  region
 )
 SELECT 
-{{ .DBProxyEndpointName }},
- {{ .DBProxyName }},
- {{ .VpcSubnetIds }},
-'us-east-1';
+'{{ DBProxyEndpointName }}',
+ '{{ DBProxyName }}',
+ '{{ VpcSubnetIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DBProxyEndpointName": "{{ DBProxyEndpointName }}",
- "DBProxyName": "{{ DBProxyName }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ],
- "VpcSubnetIds": [
-  "{{ VpcSubnetIds[0] }}"
- ],
- "TargetRole": "{{ TargetRole }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- db_proxy_endpoint.iql (all properties)
 INSERT INTO aws.rds.db_proxy_endpoints (
  DBProxyEndpointName,
  DBProxyName,
@@ -140,13 +115,46 @@ INSERT INTO aws.rds.db_proxy_endpoints (
  region
 )
 SELECT 
- {{ .DBProxyEndpointName }},
- {{ .DBProxyName }},
- {{ .VpcSecurityGroupIds }},
- {{ .VpcSubnetIds }},
- {{ .TargetRole }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DBProxyEndpointName }}',
+ '{{ DBProxyName }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ VpcSubnetIds }}',
+ '{{ TargetRole }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: db_proxy_endpoint
+    props:
+      - name: DBProxyEndpointName
+        value: '{{ DBProxyEndpointName }}'
+      - name: DBProxyName
+        value: '{{ DBProxyName }}'
+      - name: VpcSecurityGroupIds
+        value:
+          - '{{ VpcSecurityGroupIds[0] }}'
+      - name: VpcSubnetIds
+        value:
+          - '{{ VpcSubnetIds[0] }}'
+      - name: TargetRole
+        value: '{{ TargetRole }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,125 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>asset_model</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AssetModelName": "{{ AssetModelName }}"
-}
->>>
---required properties only
+-- asset_model.iql (required properties only)
 INSERT INTO aws.iotsitewise.asset_models (
  AssetModelName,
  region
 )
 SELECT 
-{{ .AssetModelName }},
-'us-east-1';
+'{{ AssetModelName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssetModelType": "{{ AssetModelType }}",
- "AssetModelExternalId": "{{ AssetModelExternalId }}",
- "AssetModelName": "{{ AssetModelName }}",
- "AssetModelDescription": "{{ AssetModelDescription }}",
- "AssetModelProperties": [
-  {
-   "LogicalId": "{{ LogicalId }}",
-   "Id": "{{ Id }}",
-   "ExternalId": "{{ ExternalId }}",
-   "Name": "{{ Name }}",
-   "DataType": "{{ DataType }}",
-   "DataTypeSpec": "{{ DataTypeSpec }}",
-   "Unit": "{{ Unit }}",
-   "Type": {
-    "TypeName": "{{ TypeName }}",
-    "Attribute": {
-     "DefaultValue": "{{ DefaultValue }}"
-    },
-    "Transform": {
-     "Expression": "{{ Expression }}",
-     "Variables": [
-      {
-       "Name": "{{ Name }}",
-       "Value": {
-        "PropertyLogicalId": "{{ PropertyLogicalId }}",
-        "PropertyId": "{{ PropertyId }}",
-        "PropertyExternalId": "{{ PropertyExternalId }}",
-        "PropertyPath": [
-         {
-          "Name": "{{ Name }}"
-         }
-        ],
-        "HierarchyLogicalId": "{{ HierarchyLogicalId }}",
-        "HierarchyId": "{{ HierarchyId }}",
-        "HierarchyExternalId": "{{ HierarchyExternalId }}"
-       }
-      }
-     ]
-    },
-    "Metric": {
-     "Expression": "{{ Expression }}",
-     "Variables": [
-      null
-     ],
-     "Window": {
-      "Tumbling": {
-       "Interval": "{{ Interval }}",
-       "Offset": "{{ Offset }}"
-      }
-     }
-    }
-   }
-  }
- ],
- "AssetModelCompositeModels": [
-  {
-   "Id": "{{ Id }}",
-   "ExternalId": "{{ ExternalId }}",
-   "ComposedAssetModelId": "{{ ComposedAssetModelId }}",
-   "ParentAssetModelCompositeModelExternalId": "{{ ParentAssetModelCompositeModelExternalId }}",
-   "Path": [
-    "{{ Path[0] }}"
-   ],
-   "Description": "{{ Description }}",
-   "Name": "{{ Name }}",
-   "Type": "{{ Type }}",
-   "CompositeModelProperties": [
-    null
-   ]
-  }
- ],
- "AssetModelHierarchies": [
-  {
-   "Id": "{{ Id }}",
-   "ExternalId": "{{ ExternalId }}",
-   "LogicalId": "{{ LogicalId }}",
-   "Name": "{{ Name }}",
-   "ChildAssetModelId": "{{ ChildAssetModelId }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- asset_model.iql (all properties)
 INSERT INTO aws.iotsitewise.asset_models (
  AssetModelType,
  AssetModelExternalId,
@@ -205,15 +113,98 @@ INSERT INTO aws.iotsitewise.asset_models (
  region
 )
 SELECT 
- {{ .AssetModelType }},
- {{ .AssetModelExternalId }},
- {{ .AssetModelName }},
- {{ .AssetModelDescription }},
- {{ .AssetModelProperties }},
- {{ .AssetModelCompositeModels }},
- {{ .AssetModelHierarchies }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AssetModelType }}',
+ '{{ AssetModelExternalId }}',
+ '{{ AssetModelName }}',
+ '{{ AssetModelDescription }}',
+ '{{ AssetModelProperties }}',
+ '{{ AssetModelCompositeModels }}',
+ '{{ AssetModelHierarchies }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: asset_model
+    props:
+      - name: AssetModelType
+        value: '{{ AssetModelType }}'
+      - name: AssetModelExternalId
+        value: '{{ AssetModelExternalId }}'
+      - name: AssetModelName
+        value: '{{ AssetModelName }}'
+      - name: AssetModelDescription
+        value: '{{ AssetModelDescription }}'
+      - name: AssetModelProperties
+        value:
+          - LogicalId: '{{ LogicalId }}'
+            Id: '{{ Id }}'
+            ExternalId: '{{ ExternalId }}'
+            Name: '{{ Name }}'
+            DataType: '{{ DataType }}'
+            DataTypeSpec: '{{ DataTypeSpec }}'
+            Unit: '{{ Unit }}'
+            Type:
+              TypeName: '{{ TypeName }}'
+              Attribute:
+                DefaultValue: '{{ DefaultValue }}'
+              Transform:
+                Expression: '{{ Expression }}'
+                Variables:
+                  - Name: '{{ Name }}'
+                    Value:
+                      PropertyLogicalId: '{{ PropertyLogicalId }}'
+                      PropertyId: '{{ PropertyId }}'
+                      PropertyExternalId: '{{ PropertyExternalId }}'
+                      PropertyPath:
+                        - Name: '{{ Name }}'
+                      HierarchyLogicalId: '{{ HierarchyLogicalId }}'
+                      HierarchyId: '{{ HierarchyId }}'
+                      HierarchyExternalId: '{{ HierarchyExternalId }}'
+              Metric:
+                Expression: '{{ Expression }}'
+                Variables:
+                  - null
+                Window:
+                  Tumbling:
+                    Interval: '{{ Interval }}'
+                    Offset: '{{ Offset }}'
+      - name: AssetModelCompositeModels
+        value:
+          - Id: '{{ Id }}'
+            ExternalId: '{{ ExternalId }}'
+            ComposedAssetModelId: '{{ ComposedAssetModelId }}'
+            ParentAssetModelCompositeModelExternalId: '{{ ParentAssetModelCompositeModelExternalId }}'
+            Path:
+              - '{{ Path[0] }}'
+            Description: '{{ Description }}'
+            Name: '{{ Name }}'
+            Type: '{{ Type }}'
+            CompositeModelProperties:
+              - null
+      - name: AssetModelHierarchies
+        value:
+          - Id: '{{ Id }}'
+            ExternalId: '{{ ExternalId }}'
+            LogicalId: '{{ LogicalId }}'
+            Name: '{{ Name }}'
+            ChildAssetModelId: '{{ ChildAssetModelId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

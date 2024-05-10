@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>billing_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BillingGroupName": "{{ BillingGroupName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "BillingGroupProperties": {
-  "BillingGroupDescription": "{{ BillingGroupDescription }}"
- }
-}
->>>
---required properties only
+-- billing_group.iql (required properties only)
 INSERT INTO aws.iot.billing_groups (
  BillingGroupName,
  Tags,
@@ -106,30 +95,16 @@ INSERT INTO aws.iot.billing_groups (
  region
 )
 SELECT 
-{{ .BillingGroupName }},
- {{ .Tags }},
- {{ .BillingGroupProperties }},
-'us-east-1';
+'{{ BillingGroupName }}',
+ '{{ Tags }}',
+ '{{ BillingGroupProperties }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BillingGroupName": "{{ BillingGroupName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "BillingGroupProperties": {
-  "BillingGroupDescription": "{{ BillingGroupDescription }}"
- }
-}
->>>
---all properties
+-- billing_group.iql (all properties)
 INSERT INTO aws.iot.billing_groups (
  BillingGroupName,
  Tags,
@@ -137,10 +112,36 @@ INSERT INTO aws.iot.billing_groups (
  region
 )
 SELECT 
- {{ .BillingGroupName }},
- {{ .Tags }},
- {{ .BillingGroupProperties }},
- 'us-east-1';
+ '{{ BillingGroupName }}',
+ '{{ Tags }}',
+ '{{ BillingGroupProperties }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: billing_group
+    props:
+      - name: BillingGroupName
+        value: '{{ BillingGroupName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: BillingGroupProperties
+        value:
+          BillingGroupDescription: '{{ BillingGroupDescription }}'
+
 ```
 </TabItem>
 </Tabs>

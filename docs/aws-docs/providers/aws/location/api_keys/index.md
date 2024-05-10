@@ -74,75 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>api_key</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KeyName": "{{ KeyName }}",
- "Restrictions": {
-  "AllowActions": [
-   "{{ AllowActions[0] }}"
-  ],
-  "AllowResources": [
-   "{{ AllowResources[0] }}"
-  ],
-  "AllowReferers": [
-   "{{ AllowReferers[0] }}"
-  ]
- }
-}
->>>
---required properties only
+-- api_key.iql (required properties only)
 INSERT INTO aws.location.api_keys (
  KeyName,
  Restrictions,
  region
 )
 SELECT 
-{{ .KeyName }},
- {{ .Restrictions }},
-'us-east-1';
+'{{ KeyName }}',
+ '{{ Restrictions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "ExpireTime": "{{ ExpireTime }}",
- "ForceUpdate": "{{ ForceUpdate }}",
- "KeyName": "{{ KeyName }}",
- "NoExpiry": "{{ NoExpiry }}",
- "Restrictions": {
-  "AllowActions": [
-   "{{ AllowActions[0] }}"
-  ],
-  "AllowResources": [
-   "{{ AllowResources[0] }}"
-  ],
-  "AllowReferers": [
-   "{{ AllowReferers[0] }}"
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ForceDelete": "{{ ForceDelete }}"
-}
->>>
---all properties
+-- api_key.iql (all properties)
 INSERT INTO aws.location.api_keys (
  Description,
  ExpireTime,
@@ -155,15 +115,56 @@ INSERT INTO aws.location.api_keys (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .ExpireTime }},
- {{ .ForceUpdate }},
- {{ .KeyName }},
- {{ .NoExpiry }},
- {{ .Restrictions }},
- {{ .Tags }},
- {{ .ForceDelete }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ ExpireTime }}',
+ '{{ ForceUpdate }}',
+ '{{ KeyName }}',
+ '{{ NoExpiry }}',
+ '{{ Restrictions }}',
+ '{{ Tags }}',
+ '{{ ForceDelete }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: api_key
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: ExpireTime
+        value: '{{ ExpireTime }}'
+      - name: ForceUpdate
+        value: '{{ ForceUpdate }}'
+      - name: KeyName
+        value: '{{ KeyName }}'
+      - name: NoExpiry
+        value: '{{ NoExpiry }}'
+      - name: Restrictions
+        value:
+          AllowActions:
+            - '{{ AllowActions[0] }}'
+          AllowResources:
+            - '{{ AllowResources[0] }}'
+          AllowReferers:
+            - '{{ AllowReferers[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ForceDelete
+        value: '{{ ForceDelete }}'
+
 ```
 </TabItem>
 </Tabs>

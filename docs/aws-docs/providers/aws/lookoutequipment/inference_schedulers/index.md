@@ -74,42 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>inference_scheduler</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DataInputConfiguration": {
-  "InputTimeZoneOffset": "{{ InputTimeZoneOffset }}",
-  "InferenceInputNameConfiguration": {
-   "ComponentTimestampDelimiter": "{{ ComponentTimestampDelimiter }}",
-   "TimestampFormat": "{{ TimestampFormat }}"
-  },
-  "S3InputConfiguration": {
-   "Bucket": "{{ Bucket }}",
-   "Prefix": "{{ Prefix }}"
-  }
- },
- "DataOutputConfiguration": {
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "S3OutputConfiguration": {
-   "Bucket": null,
-   "Prefix": null
-  }
- },
- "DataUploadFrequency": "{{ DataUploadFrequency }}",
- "ModelName": "{{ ModelName }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- inference_scheduler.iql (required properties only)
 INSERT INTO aws.lookoutequipment.inference_schedulers (
  DataInputConfiguration,
  DataOutputConfiguration,
@@ -119,52 +97,18 @@ INSERT INTO aws.lookoutequipment.inference_schedulers (
  region
 )
 SELECT 
-{{ .DataInputConfiguration }},
- {{ .DataOutputConfiguration }},
- {{ .DataUploadFrequency }},
- {{ .ModelName }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ DataInputConfiguration }}',
+ '{{ DataOutputConfiguration }}',
+ '{{ DataUploadFrequency }}',
+ '{{ ModelName }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DataDelayOffsetInMinutes": "{{ DataDelayOffsetInMinutes }}",
- "DataInputConfiguration": {
-  "InputTimeZoneOffset": "{{ InputTimeZoneOffset }}",
-  "InferenceInputNameConfiguration": {
-   "ComponentTimestampDelimiter": "{{ ComponentTimestampDelimiter }}",
-   "TimestampFormat": "{{ TimestampFormat }}"
-  },
-  "S3InputConfiguration": {
-   "Bucket": "{{ Bucket }}",
-   "Prefix": "{{ Prefix }}"
-  }
- },
- "DataOutputConfiguration": {
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "S3OutputConfiguration": {
-   "Bucket": null,
-   "Prefix": null
-  }
- },
- "DataUploadFrequency": "{{ DataUploadFrequency }}",
- "InferenceSchedulerName": "{{ InferenceSchedulerName }}",
- "ModelName": "{{ ModelName }}",
- "RoleArn": "{{ RoleArn }}",
- "ServerSideKmsKeyId": "{{ ServerSideKmsKeyId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- inference_scheduler.iql (all properties)
 INSERT INTO aws.lookoutequipment.inference_schedulers (
  DataDelayOffsetInMinutes,
  DataInputConfiguration,
@@ -178,16 +122,64 @@ INSERT INTO aws.lookoutequipment.inference_schedulers (
  region
 )
 SELECT 
- {{ .DataDelayOffsetInMinutes }},
- {{ .DataInputConfiguration }},
- {{ .DataOutputConfiguration }},
- {{ .DataUploadFrequency }},
- {{ .InferenceSchedulerName }},
- {{ .ModelName }},
- {{ .RoleArn }},
- {{ .ServerSideKmsKeyId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DataDelayOffsetInMinutes }}',
+ '{{ DataInputConfiguration }}',
+ '{{ DataOutputConfiguration }}',
+ '{{ DataUploadFrequency }}',
+ '{{ InferenceSchedulerName }}',
+ '{{ ModelName }}',
+ '{{ RoleArn }}',
+ '{{ ServerSideKmsKeyId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: inference_scheduler
+    props:
+      - name: DataDelayOffsetInMinutes
+        value: '{{ DataDelayOffsetInMinutes }}'
+      - name: DataInputConfiguration
+        value:
+          InputTimeZoneOffset: '{{ InputTimeZoneOffset }}'
+          InferenceInputNameConfiguration:
+            ComponentTimestampDelimiter: '{{ ComponentTimestampDelimiter }}'
+            TimestampFormat: '{{ TimestampFormat }}'
+          S3InputConfiguration:
+            Bucket: '{{ Bucket }}'
+            Prefix: '{{ Prefix }}'
+      - name: DataOutputConfiguration
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+          S3OutputConfiguration:
+            Bucket: null
+            Prefix: null
+      - name: DataUploadFrequency
+        value: '{{ DataUploadFrequency }}'
+      - name: InferenceSchedulerName
+        value: '{{ InferenceSchedulerName }}'
+      - name: ModelName
+        value: '{{ ModelName }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: ServerSideKmsKeyId
+        value: '{{ ServerSideKmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

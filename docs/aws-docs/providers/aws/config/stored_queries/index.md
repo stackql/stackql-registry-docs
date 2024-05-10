@@ -74,51 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>stored_query</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "QueryName": "{{ QueryName }}",
- "QueryExpression": "{{ QueryExpression }}"
-}
->>>
---required properties only
+-- stored_query.iql (required properties only)
 INSERT INTO aws.config.stored_queries (
  QueryName,
  QueryExpression,
  region
 )
 SELECT 
-{{ .QueryName }},
- {{ .QueryExpression }},
-'us-east-1';
+'{{ QueryName }}',
+ '{{ QueryExpression }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "QueryName": "{{ QueryName }}",
- "QueryDescription": "{{ QueryDescription }}",
- "QueryExpression": "{{ QueryExpression }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- stored_query.iql (all properties)
 INSERT INTO aws.config.stored_queries (
  QueryName,
  QueryDescription,
@@ -127,11 +111,38 @@ INSERT INTO aws.config.stored_queries (
  region
 )
 SELECT 
- {{ .QueryName }},
- {{ .QueryDescription }},
- {{ .QueryExpression }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ QueryName }}',
+ '{{ QueryDescription }}',
+ '{{ QueryExpression }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: stored_query
+    props:
+      - name: QueryName
+        value: '{{ QueryName }}'
+      - name: QueryDescription
+        value: '{{ QueryDescription }}'
+      - name: QueryExpression
+        value: '{{ QueryExpression }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

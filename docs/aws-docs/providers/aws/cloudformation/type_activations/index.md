@@ -74,34 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>type_activation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "PublisherId": "{{ PublisherId }}",
- "LoggingConfig": {
-  "LogGroupName": "{{ LogGroupName }}",
-  "LogRoleArn": "{{ LogRoleArn }}"
- },
- "PublicTypeArn": "{{ PublicTypeArn }}",
- "AutoUpdate": "{{ AutoUpdate }}",
- "TypeNameAlias": "{{ TypeNameAlias }}",
- "VersionBump": "{{ VersionBump }}",
- "MajorVersion": "{{ MajorVersion }}",
- "TypeName": "{{ TypeName }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- type_activation.iql (required properties only)
 INSERT INTO aws.cloudformation.type_activations (
  ExecutionRoleArn,
  PublisherId,
@@ -116,40 +102,23 @@ INSERT INTO aws.cloudformation.type_activations (
  region
 )
 SELECT 
-{{ .ExecutionRoleArn }},
- {{ .PublisherId }},
- {{ .LoggingConfig }},
- {{ .PublicTypeArn }},
- {{ .AutoUpdate }},
- {{ .TypeNameAlias }},
- {{ .VersionBump }},
- {{ .MajorVersion }},
- {{ .TypeName }},
- {{ .Type }},
-'us-east-1';
+'{{ ExecutionRoleArn }}',
+ '{{ PublisherId }}',
+ '{{ LoggingConfig }}',
+ '{{ PublicTypeArn }}',
+ '{{ AutoUpdate }}',
+ '{{ TypeNameAlias }}',
+ '{{ VersionBump }}',
+ '{{ MajorVersion }}',
+ '{{ TypeName }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "PublisherId": "{{ PublisherId }}",
- "LoggingConfig": {
-  "LogGroupName": "{{ LogGroupName }}",
-  "LogRoleArn": "{{ LogRoleArn }}"
- },
- "PublicTypeArn": "{{ PublicTypeArn }}",
- "AutoUpdate": "{{ AutoUpdate }}",
- "TypeNameAlias": "{{ TypeNameAlias }}",
- "VersionBump": "{{ VersionBump }}",
- "MajorVersion": "{{ MajorVersion }}",
- "TypeName": "{{ TypeName }}",
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- type_activation.iql (all properties)
 INSERT INTO aws.cloudformation.type_activations (
  ExecutionRoleArn,
  PublisherId,
@@ -164,17 +133,56 @@ INSERT INTO aws.cloudformation.type_activations (
  region
 )
 SELECT 
- {{ .ExecutionRoleArn }},
- {{ .PublisherId }},
- {{ .LoggingConfig }},
- {{ .PublicTypeArn }},
- {{ .AutoUpdate }},
- {{ .TypeNameAlias }},
- {{ .VersionBump }},
- {{ .MajorVersion }},
- {{ .TypeName }},
- {{ .Type }},
- 'us-east-1';
+ '{{ ExecutionRoleArn }}',
+ '{{ PublisherId }}',
+ '{{ LoggingConfig }}',
+ '{{ PublicTypeArn }}',
+ '{{ AutoUpdate }}',
+ '{{ TypeNameAlias }}',
+ '{{ VersionBump }}',
+ '{{ MajorVersion }}',
+ '{{ TypeName }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: type_activation
+    props:
+      - name: ExecutionRoleArn
+        value: '{{ ExecutionRoleArn }}'
+      - name: PublisherId
+        value: '{{ PublisherId }}'
+      - name: LoggingConfig
+        value:
+          LogGroupName: '{{ LogGroupName }}'
+          LogRoleArn: '{{ LogRoleArn }}'
+      - name: PublicTypeArn
+        value: '{{ PublicTypeArn }}'
+      - name: AutoUpdate
+        value: '{{ AutoUpdate }}'
+      - name: TypeNameAlias
+        value: '{{ TypeNameAlias }}'
+      - name: VersionBump
+        value: '{{ VersionBump }}'
+      - name: MajorVersion
+        value: '{{ MajorVersion }}'
+      - name: TypeName
+        value: '{{ TypeName }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

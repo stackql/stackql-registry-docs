@@ -74,78 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>app_image_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AppImageConfigName": "{{ AppImageConfigName }}"
-}
->>>
---required properties only
+-- app_image_config.iql (required properties only)
 INSERT INTO aws.sagemaker.app_image_configs (
  AppImageConfigName,
  region
 )
 SELECT 
-{{ .AppImageConfigName }},
-'us-east-1';
+'{{ AppImageConfigName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AppImageConfigName": "{{ AppImageConfigName }}",
- "KernelGatewayImageConfig": {
-  "FileSystemConfig": {
-   "DefaultGid": "{{ DefaultGid }}",
-   "DefaultUid": "{{ DefaultUid }}",
-   "MountPath": "{{ MountPath }}"
-  },
-  "KernelSpecs": [
-   {
-    "DisplayName": "{{ DisplayName }}",
-    "Name": "{{ Name }}"
-   }
-  ]
- },
- "JupyterLabAppImageConfig": {
-  "ContainerConfig": {
-   "ContainerArguments": [
-    "{{ ContainerArguments[0] }}"
-   ],
-   "ContainerEntrypoint": [
-    "{{ ContainerEntrypoint[0] }}"
-   ],
-   "ContainerEnvironmentVariables": [
-    {
-     "Value": "{{ Value }}",
-     "Key": "{{ Key }}"
-    }
-   ]
-  }
- },
- "CodeEditorAppImageConfig": {
-  "ContainerConfig": null
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- app_image_config.iql (all properties)
 INSERT INTO aws.sagemaker.app_image_configs (
  AppImageConfigName,
  KernelGatewayImageConfig,
@@ -155,12 +110,57 @@ INSERT INTO aws.sagemaker.app_image_configs (
  region
 )
 SELECT 
- {{ .AppImageConfigName }},
- {{ .KernelGatewayImageConfig }},
- {{ .JupyterLabAppImageConfig }},
- {{ .CodeEditorAppImageConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AppImageConfigName }}',
+ '{{ KernelGatewayImageConfig }}',
+ '{{ JupyterLabAppImageConfig }}',
+ '{{ CodeEditorAppImageConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: app_image_config
+    props:
+      - name: AppImageConfigName
+        value: '{{ AppImageConfigName }}'
+      - name: KernelGatewayImageConfig
+        value:
+          FileSystemConfig:
+            DefaultGid: '{{ DefaultGid }}'
+            DefaultUid: '{{ DefaultUid }}'
+            MountPath: '{{ MountPath }}'
+          KernelSpecs:
+            - DisplayName: '{{ DisplayName }}'
+              Name: '{{ Name }}'
+      - name: JupyterLabAppImageConfig
+        value:
+          ContainerConfig:
+            ContainerArguments:
+              - '{{ ContainerArguments[0] }}'
+            ContainerEntrypoint:
+              - '{{ ContainerEntrypoint[0] }}'
+            ContainerEnvironmentVariables:
+              - Value: '{{ Value }}'
+                Key: '{{ Key }}'
+      - name: CodeEditorAppImageConfig
+        value:
+          ContainerConfig: null
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>organizational_unit</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ParentId": "{{ ParentId }}"
-}
->>>
---required properties only
+-- organizational_unit.iql (required properties only)
 INSERT INTO aws.organizations.organizational_units (
  Name,
  ParentId,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ParentId }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ParentId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ParentId": "{{ ParentId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- organizational_unit.iql (all properties)
 INSERT INTO aws.organizations.organizational_units (
  Name,
  ParentId,
@@ -125,10 +110,35 @@ INSERT INTO aws.organizations.organizational_units (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .ParentId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ ParentId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: organizational_unit
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: ParentId
+        value: '{{ ParentId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

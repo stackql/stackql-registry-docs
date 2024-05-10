@@ -74,36 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>db_proxy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Auth": [
-  {
-   "AuthScheme": "{{ AuthScheme }}",
-   "Description": "{{ Description }}",
-   "IAMAuth": "{{ IAMAuth }}",
-   "SecretArn": "{{ SecretArn }}",
-   "ClientPasswordAuthType": "{{ ClientPasswordAuthType }}"
-  }
- ],
- "DBProxyName": "{{ DBProxyName }}",
- "EngineFamily": "{{ EngineFamily }}",
- "RoleArn": "{{ RoleArn }}",
- "VpcSubnetIds": [
-  "{{ VpcSubnetIds[0] }}"
- ]
-}
->>>
---required properties only
+-- db_proxy.iql (required properties only)
 INSERT INTO aws.rds.db_proxies (
  Auth,
  DBProxyName,
@@ -113,49 +97,18 @@ INSERT INTO aws.rds.db_proxies (
  region
 )
 SELECT 
-{{ .Auth }},
- {{ .DBProxyName }},
- {{ .EngineFamily }},
- {{ .RoleArn }},
- {{ .VpcSubnetIds }},
-'us-east-1';
+'{{ Auth }}',
+ '{{ DBProxyName }}',
+ '{{ EngineFamily }}',
+ '{{ RoleArn }}',
+ '{{ VpcSubnetIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Auth": [
-  {
-   "AuthScheme": "{{ AuthScheme }}",
-   "Description": "{{ Description }}",
-   "IAMAuth": "{{ IAMAuth }}",
-   "SecretArn": "{{ SecretArn }}",
-   "ClientPasswordAuthType": "{{ ClientPasswordAuthType }}"
-  }
- ],
- "DBProxyName": "{{ DBProxyName }}",
- "DebugLogging": "{{ DebugLogging }}",
- "EngineFamily": "{{ EngineFamily }}",
- "IdleClientTimeout": "{{ IdleClientTimeout }}",
- "RequireTLS": "{{ RequireTLS }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ],
- "VpcSubnetIds": [
-  "{{ VpcSubnetIds[0] }}"
- ]
-}
->>>
---all properties
+-- db_proxy.iql (all properties)
 INSERT INTO aws.rds.db_proxies (
  Auth,
  DBProxyName,
@@ -170,17 +123,63 @@ INSERT INTO aws.rds.db_proxies (
  region
 )
 SELECT 
- {{ .Auth }},
- {{ .DBProxyName }},
- {{ .DebugLogging }},
- {{ .EngineFamily }},
- {{ .IdleClientTimeout }},
- {{ .RequireTLS }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .VpcSecurityGroupIds }},
- {{ .VpcSubnetIds }},
- 'us-east-1';
+ '{{ Auth }}',
+ '{{ DBProxyName }}',
+ '{{ DebugLogging }}',
+ '{{ EngineFamily }}',
+ '{{ IdleClientTimeout }}',
+ '{{ RequireTLS }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ VpcSubnetIds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: db_proxy
+    props:
+      - name: Auth
+        value:
+          - AuthScheme: '{{ AuthScheme }}'
+            Description: '{{ Description }}'
+            IAMAuth: '{{ IAMAuth }}'
+            SecretArn: '{{ SecretArn }}'
+            ClientPasswordAuthType: '{{ ClientPasswordAuthType }}'
+      - name: DBProxyName
+        value: '{{ DBProxyName }}'
+      - name: DebugLogging
+        value: '{{ DebugLogging }}'
+      - name: EngineFamily
+        value: '{{ EngineFamily }}'
+      - name: IdleClientTimeout
+        value: '{{ IdleClientTimeout }}'
+      - name: RequireTLS
+        value: '{{ RequireTLS }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VpcSecurityGroupIds
+        value:
+          - '{{ VpcSecurityGroupIds[0] }}'
+      - name: VpcSubnetIds
+        value:
+          - '{{ VpcSubnetIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

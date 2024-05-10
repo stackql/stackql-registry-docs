@@ -74,82 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>serverless_cach</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ServerlessCacheName": "{{ ServerlessCacheName }}",
- "Engine": "{{ Engine }}"
-}
->>>
---required properties only
+-- serverless_cach.iql (required properties only)
 INSERT INTO aws.elasticache.serverless_caches (
  ServerlessCacheName,
  Engine,
  region
 )
 SELECT 
-{{ .ServerlessCacheName }},
- {{ .Engine }},
-'us-east-1';
+'{{ ServerlessCacheName }}',
+ '{{ Engine }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ServerlessCacheName": "{{ ServerlessCacheName }}",
- "Description": "{{ Description }}",
- "Engine": "{{ Engine }}",
- "MajorEngineVersion": "{{ MajorEngineVersion }}",
- "CacheUsageLimits": {
-  "DataStorage": {
-   "Minimum": "{{ Minimum }}",
-   "Maximum": "{{ Maximum }}",
-   "Unit": "{{ Unit }}"
-  },
-  "ECPUPerSecond": {
-   "Minimum": "{{ Minimum }}",
-   "Maximum": "{{ Maximum }}"
-  }
- },
- "KmsKeyId": "{{ KmsKeyId }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SnapshotArnsToRestore": [
-  "{{ SnapshotArnsToRestore[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "UserGroupId": "{{ UserGroupId }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "SnapshotRetentionLimit": "{{ SnapshotRetentionLimit }}",
- "DailySnapshotTime": "{{ DailySnapshotTime }}",
- "Endpoint": {
-  "Address": "{{ Address }}",
-  "Port": "{{ Port }}"
- },
- "ReaderEndpoint": null,
- "FinalSnapshotName": "{{ FinalSnapshotName }}"
-}
->>>
---all properties
+-- serverless_cach.iql (all properties)
 INSERT INTO aws.elasticache.serverless_caches (
  ServerlessCacheName,
  Description,
@@ -170,23 +123,86 @@ INSERT INTO aws.elasticache.serverless_caches (
  region
 )
 SELECT 
- {{ .ServerlessCacheName }},
- {{ .Description }},
- {{ .Engine }},
- {{ .MajorEngineVersion }},
- {{ .CacheUsageLimits }},
- {{ .KmsKeyId }},
- {{ .SecurityGroupIds }},
- {{ .SnapshotArnsToRestore }},
- {{ .Tags }},
- {{ .UserGroupId }},
- {{ .SubnetIds }},
- {{ .SnapshotRetentionLimit }},
- {{ .DailySnapshotTime }},
- {{ .Endpoint }},
- {{ .ReaderEndpoint }},
- {{ .FinalSnapshotName }},
- 'us-east-1';
+ '{{ ServerlessCacheName }}',
+ '{{ Description }}',
+ '{{ Engine }}',
+ '{{ MajorEngineVersion }}',
+ '{{ CacheUsageLimits }}',
+ '{{ KmsKeyId }}',
+ '{{ SecurityGroupIds }}',
+ '{{ SnapshotArnsToRestore }}',
+ '{{ Tags }}',
+ '{{ UserGroupId }}',
+ '{{ SubnetIds }}',
+ '{{ SnapshotRetentionLimit }}',
+ '{{ DailySnapshotTime }}',
+ '{{ Endpoint }}',
+ '{{ ReaderEndpoint }}',
+ '{{ FinalSnapshotName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: serverless_cach
+    props:
+      - name: ServerlessCacheName
+        value: '{{ ServerlessCacheName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Engine
+        value: '{{ Engine }}'
+      - name: MajorEngineVersion
+        value: '{{ MajorEngineVersion }}'
+      - name: CacheUsageLimits
+        value:
+          DataStorage:
+            Minimum: '{{ Minimum }}'
+            Maximum: '{{ Maximum }}'
+            Unit: '{{ Unit }}'
+          ECPUPerSecond:
+            Minimum: '{{ Minimum }}'
+            Maximum: '{{ Maximum }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SnapshotArnsToRestore
+        value:
+          - '{{ SnapshotArnsToRestore[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: UserGroupId
+        value: '{{ UserGroupId }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: SnapshotRetentionLimit
+        value: '{{ SnapshotRetentionLimit }}'
+      - name: DailySnapshotTime
+        value: '{{ DailySnapshotTime }}'
+      - name: Endpoint
+        value:
+          Address: '{{ Address }}'
+          Port: '{{ Port }}'
+      - name: ReaderEndpoint
+        value: null
+      - name: FinalSnapshotName
+        value: '{{ FinalSnapshotName }}'
+
 ```
 </TabItem>
 </Tabs>

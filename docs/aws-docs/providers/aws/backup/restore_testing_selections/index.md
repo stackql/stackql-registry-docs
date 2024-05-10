@@ -76,25 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>restore_testing_selection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IamRoleArn": "{{ IamRoleArn }}",
- "ProtectedResourceType": "{{ ProtectedResourceType }}",
- "RestoreTestingPlanName": "{{ RestoreTestingPlanName }}",
- "RestoreTestingSelectionName": "{{ RestoreTestingSelectionName }}"
-}
->>>
---required properties only
+-- restore_testing_selection.iql (required properties only)
 INSERT INTO aws.backup.restore_testing_selections (
  IamRoleArn,
  ProtectedResourceType,
@@ -103,41 +98,17 @@ INSERT INTO aws.backup.restore_testing_selections (
  region
 )
 SELECT 
-{{ .IamRoleArn }},
- {{ .ProtectedResourceType }},
- {{ .RestoreTestingPlanName }},
- {{ .RestoreTestingSelectionName }},
-'us-east-1';
+'{{ IamRoleArn }}',
+ '{{ ProtectedResourceType }}',
+ '{{ RestoreTestingPlanName }}',
+ '{{ RestoreTestingSelectionName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IamRoleArn": "{{ IamRoleArn }}",
- "ProtectedResourceArns": [
-  "{{ ProtectedResourceArns[0] }}"
- ],
- "ProtectedResourceConditions": {
-  "StringEquals": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "StringNotEquals": [
-   null
-  ]
- },
- "ProtectedResourceType": "{{ ProtectedResourceType }}",
- "RestoreMetadataOverrides": {},
- "RestoreTestingPlanName": "{{ RestoreTestingPlanName }}",
- "RestoreTestingSelectionName": "{{ RestoreTestingSelectionName }}",
- "ValidationWindowHours": "{{ ValidationWindowHours }}"
-}
->>>
---all properties
+-- restore_testing_selection.iql (all properties)
 INSERT INTO aws.backup.restore_testing_selections (
  IamRoleArn,
  ProtectedResourceArns,
@@ -150,15 +121,54 @@ INSERT INTO aws.backup.restore_testing_selections (
  region
 )
 SELECT 
- {{ .IamRoleArn }},
- {{ .ProtectedResourceArns }},
- {{ .ProtectedResourceConditions }},
- {{ .ProtectedResourceType }},
- {{ .RestoreMetadataOverrides }},
- {{ .RestoreTestingPlanName }},
- {{ .RestoreTestingSelectionName }},
- {{ .ValidationWindowHours }},
- 'us-east-1';
+ '{{ IamRoleArn }}',
+ '{{ ProtectedResourceArns }}',
+ '{{ ProtectedResourceConditions }}',
+ '{{ ProtectedResourceType }}',
+ '{{ RestoreMetadataOverrides }}',
+ '{{ RestoreTestingPlanName }}',
+ '{{ RestoreTestingSelectionName }}',
+ '{{ ValidationWindowHours }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: restore_testing_selection
+    props:
+      - name: IamRoleArn
+        value: '{{ IamRoleArn }}'
+      - name: ProtectedResourceArns
+        value:
+          - '{{ ProtectedResourceArns[0] }}'
+      - name: ProtectedResourceConditions
+        value:
+          StringEquals:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          StringNotEquals:
+            - null
+      - name: ProtectedResourceType
+        value: '{{ ProtectedResourceType }}'
+      - name: RestoreMetadataOverrides
+        value: {}
+      - name: RestoreTestingPlanName
+        value: '{{ RestoreTestingPlanName }}'
+      - name: RestoreTestingSelectionName
+        value: '{{ RestoreTestingSelectionName }}'
+      - name: ValidationWindowHours
+        value: '{{ ValidationWindowHours }}'
+
 ```
 </TabItem>
 </Tabs>

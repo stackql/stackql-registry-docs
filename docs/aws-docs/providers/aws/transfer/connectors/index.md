@@ -74,68 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connector</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccessRole": "{{ AccessRole }}",
- "Url": "{{ Url }}"
-}
->>>
---required properties only
+-- connector.iql (required properties only)
 INSERT INTO aws.transfer.connectors (
  AccessRole,
  Url,
  region
 )
 SELECT 
-{{ .AccessRole }},
- {{ .Url }},
-'us-east-1';
+'{{ AccessRole }}',
+ '{{ Url }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessRole": "{{ AccessRole }}",
- "As2Config": {
-  "LocalProfileId": "{{ LocalProfileId }}",
-  "PartnerProfileId": "{{ PartnerProfileId }}",
-  "MessageSubject": "{{ MessageSubject }}",
-  "Compression": "{{ Compression }}",
-  "EncryptionAlgorithm": "{{ EncryptionAlgorithm }}",
-  "SigningAlgorithm": "{{ SigningAlgorithm }}",
-  "MdnSigningAlgorithm": "{{ MdnSigningAlgorithm }}",
-  "MdnResponse": "{{ MdnResponse }}",
-  "BasicAuthSecretId": "{{ BasicAuthSecretId }}"
- },
- "SftpConfig": {
-  "UserSecretId": "{{ UserSecretId }}",
-  "TrustedHostKeys": [
-   "{{ TrustedHostKeys[0] }}"
-  ]
- },
- "LoggingRole": "{{ LoggingRole }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Url": "{{ Url }}"
-}
->>>
---all properties
+-- connector.iql (all properties)
 INSERT INTO aws.transfer.connectors (
  AccessRole,
  As2Config,
@@ -146,13 +113,56 @@ INSERT INTO aws.transfer.connectors (
  region
 )
 SELECT 
- {{ .AccessRole }},
- {{ .As2Config }},
- {{ .SftpConfig }},
- {{ .LoggingRole }},
- {{ .Tags }},
- {{ .Url }},
- 'us-east-1';
+ '{{ AccessRole }}',
+ '{{ As2Config }}',
+ '{{ SftpConfig }}',
+ '{{ LoggingRole }}',
+ '{{ Tags }}',
+ '{{ Url }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connector
+    props:
+      - name: AccessRole
+        value: '{{ AccessRole }}'
+      - name: As2Config
+        value:
+          LocalProfileId: '{{ LocalProfileId }}'
+          PartnerProfileId: '{{ PartnerProfileId }}'
+          MessageSubject: '{{ MessageSubject }}'
+          Compression: '{{ Compression }}'
+          EncryptionAlgorithm: '{{ EncryptionAlgorithm }}'
+          SigningAlgorithm: '{{ SigningAlgorithm }}'
+          MdnSigningAlgorithm: '{{ MdnSigningAlgorithm }}'
+          MdnResponse: '{{ MdnResponse }}'
+          BasicAuthSecretId: '{{ BasicAuthSecretId }}'
+      - name: SftpConfig
+        value:
+          UserSecretId: '{{ UserSecretId }}'
+          TrustedHostKeys:
+            - '{{ TrustedHostKeys[0] }}'
+      - name: LoggingRole
+        value: '{{ LoggingRole }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Url
+        value: '{{ Url }}'
+
 ```
 </TabItem>
 </Tabs>

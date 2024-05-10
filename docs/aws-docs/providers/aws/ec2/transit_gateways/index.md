@@ -74,40 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "AssociationDefaultRouteTableId": "{{ AssociationDefaultRouteTableId }}",
- "AutoAcceptSharedAttachments": "{{ AutoAcceptSharedAttachments }}",
- "DefaultRouteTablePropagation": "{{ DefaultRouteTablePropagation }}",
- "TransitGatewayCidrBlocks": [
-  "{{ TransitGatewayCidrBlocks[0] }}"
- ],
- "PropagationDefaultRouteTableId": "{{ PropagationDefaultRouteTableId }}",
- "DefaultRouteTableAssociation": "{{ DefaultRouteTableAssociation }}",
- "VpnEcmpSupport": "{{ VpnEcmpSupport }}",
- "DnsSupport": "{{ DnsSupport }}",
- "MulticastSupport": "{{ MulticastSupport }}",
- "AmazonSideAsn": "{{ AmazonSideAsn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- transit_gateway.iql (required properties only)
 INSERT INTO aws.ec2.transit_gateways (
  Description,
  AssociationDefaultRouteTableId,
@@ -124,48 +104,25 @@ INSERT INTO aws.ec2.transit_gateways (
  region
 )
 SELECT 
-{{ .Description }},
- {{ .AssociationDefaultRouteTableId }},
- {{ .AutoAcceptSharedAttachments }},
- {{ .DefaultRouteTablePropagation }},
- {{ .TransitGatewayCidrBlocks }},
- {{ .PropagationDefaultRouteTableId }},
- {{ .DefaultRouteTableAssociation }},
- {{ .VpnEcmpSupport }},
- {{ .DnsSupport }},
- {{ .MulticastSupport }},
- {{ .AmazonSideAsn }},
- {{ .Tags }},
-'us-east-1';
+'{{ Description }}',
+ '{{ AssociationDefaultRouteTableId }}',
+ '{{ AutoAcceptSharedAttachments }}',
+ '{{ DefaultRouteTablePropagation }}',
+ '{{ TransitGatewayCidrBlocks }}',
+ '{{ PropagationDefaultRouteTableId }}',
+ '{{ DefaultRouteTableAssociation }}',
+ '{{ VpnEcmpSupport }}',
+ '{{ DnsSupport }}',
+ '{{ MulticastSupport }}',
+ '{{ AmazonSideAsn }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "AssociationDefaultRouteTableId": "{{ AssociationDefaultRouteTableId }}",
- "AutoAcceptSharedAttachments": "{{ AutoAcceptSharedAttachments }}",
- "DefaultRouteTablePropagation": "{{ DefaultRouteTablePropagation }}",
- "TransitGatewayCidrBlocks": [
-  "{{ TransitGatewayCidrBlocks[0] }}"
- ],
- "PropagationDefaultRouteTableId": "{{ PropagationDefaultRouteTableId }}",
- "DefaultRouteTableAssociation": "{{ DefaultRouteTableAssociation }}",
- "VpnEcmpSupport": "{{ VpnEcmpSupport }}",
- "DnsSupport": "{{ DnsSupport }}",
- "MulticastSupport": "{{ MulticastSupport }}",
- "AmazonSideAsn": "{{ AmazonSideAsn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- transit_gateway.iql (all properties)
 INSERT INTO aws.ec2.transit_gateways (
  Description,
  AssociationDefaultRouteTableId,
@@ -182,19 +139,63 @@ INSERT INTO aws.ec2.transit_gateways (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .AssociationDefaultRouteTableId }},
- {{ .AutoAcceptSharedAttachments }},
- {{ .DefaultRouteTablePropagation }},
- {{ .TransitGatewayCidrBlocks }},
- {{ .PropagationDefaultRouteTableId }},
- {{ .DefaultRouteTableAssociation }},
- {{ .VpnEcmpSupport }},
- {{ .DnsSupport }},
- {{ .MulticastSupport }},
- {{ .AmazonSideAsn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ AssociationDefaultRouteTableId }}',
+ '{{ AutoAcceptSharedAttachments }}',
+ '{{ DefaultRouteTablePropagation }}',
+ '{{ TransitGatewayCidrBlocks }}',
+ '{{ PropagationDefaultRouteTableId }}',
+ '{{ DefaultRouteTableAssociation }}',
+ '{{ VpnEcmpSupport }}',
+ '{{ DnsSupport }}',
+ '{{ MulticastSupport }}',
+ '{{ AmazonSideAsn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: AssociationDefaultRouteTableId
+        value: '{{ AssociationDefaultRouteTableId }}'
+      - name: AutoAcceptSharedAttachments
+        value: '{{ AutoAcceptSharedAttachments }}'
+      - name: DefaultRouteTablePropagation
+        value: '{{ DefaultRouteTablePropagation }}'
+      - name: TransitGatewayCidrBlocks
+        value:
+          - '{{ TransitGatewayCidrBlocks[0] }}'
+      - name: PropagationDefaultRouteTableId
+        value: '{{ PropagationDefaultRouteTableId }}'
+      - name: DefaultRouteTableAssociation
+        value: '{{ DefaultRouteTableAssociation }}'
+      - name: VpnEcmpSupport
+        value: '{{ VpnEcmpSupport }}'
+      - name: DnsSupport
+        value: '{{ DnsSupport }}'
+      - name: MulticastSupport
+        value: '{{ MulticastSupport }}'
+      - name: AmazonSideAsn
+        value: '{{ AmazonSideAsn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

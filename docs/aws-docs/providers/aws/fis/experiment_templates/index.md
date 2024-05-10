@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>experiment_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Targets": {},
- "StopConditions": [
-  {
-   "Source": "{{ Source }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "RoleArn": "{{ RoleArn }}",
- "Tags": {}
-}
->>>
---required properties only
+-- experiment_template.iql (required properties only)
 INSERT INTO aws.fis.experiment_templates (
  Description,
  Targets,
@@ -108,47 +97,18 @@ INSERT INTO aws.fis.experiment_templates (
  region
 )
 SELECT 
-{{ .Description }},
- {{ .Targets }},
- {{ .StopConditions }},
- {{ .RoleArn }},
- {{ .Tags }},
-'us-east-1';
+'{{ Description }}',
+ '{{ Targets }}',
+ '{{ StopConditions }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Targets": {},
- "Actions": {},
- "StopConditions": [
-  {
-   "Source": "{{ Source }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "LogConfiguration": {
-  "CloudWatchLogsConfiguration": {
-   "LogGroupArn": "{{ LogGroupArn }}"
-  },
-  "S3Configuration": {
-   "BucketName": "{{ BucketName }}",
-   "Prefix": "{{ Prefix }}"
-  },
-  "LogSchemaVersion": "{{ LogSchemaVersion }}"
- },
- "RoleArn": "{{ RoleArn }}",
- "Tags": {},
- "ExperimentOptions": {
-  "AccountTargeting": "{{ AccountTargeting }}",
-  "EmptyTargetResolutionMode": "{{ EmptyTargetResolutionMode }}"
- }
-}
->>>
---all properties
+-- experiment_template.iql (all properties)
 INSERT INTO aws.fis.experiment_templates (
  Description,
  Targets,
@@ -161,15 +121,58 @@ INSERT INTO aws.fis.experiment_templates (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Targets }},
- {{ .Actions }},
- {{ .StopConditions }},
- {{ .LogConfiguration }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .ExperimentOptions }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Targets }}',
+ '{{ Actions }}',
+ '{{ StopConditions }}',
+ '{{ LogConfiguration }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ ExperimentOptions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: experiment_template
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Targets
+        value: {}
+      - name: Actions
+        value: {}
+      - name: StopConditions
+        value:
+          - Source: '{{ Source }}'
+            Value: '{{ Value }}'
+      - name: LogConfiguration
+        value:
+          CloudWatchLogsConfiguration:
+            LogGroupArn: '{{ LogGroupArn }}'
+          S3Configuration:
+            BucketName: '{{ BucketName }}'
+            Prefix: '{{ Prefix }}'
+          LogSchemaVersion: '{{ LogSchemaVersion }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value: {}
+      - name: ExperimentOptions
+        value:
+          AccountTargeting: '{{ AccountTargeting }}'
+          EmptyTargetResolutionMode: '{{ EmptyTargetResolutionMode }}'
+
 ```
 </TabItem>
 </Tabs>

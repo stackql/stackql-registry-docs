@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>customer_gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BgpAsn": "{{ BgpAsn }}",
- "IpAddress": "{{ IpAddress }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- customer_gateway.iql (required properties only)
 INSERT INTO aws.ec2.customer_gateways (
  BgpAsn,
  IpAddress,
@@ -99,31 +95,16 @@ INSERT INTO aws.ec2.customer_gateways (
  region
 )
 SELECT 
-{{ .BgpAsn }},
- {{ .IpAddress }},
- {{ .Type }},
-'us-east-1';
+'{{ BgpAsn }}',
+ '{{ IpAddress }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CertificateArn": "{{ CertificateArn }}",
- "BgpAsn": "{{ BgpAsn }}",
- "IpAddress": "{{ IpAddress }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Type": "{{ Type }}",
- "DeviceName": "{{ DeviceName }}"
-}
->>>
---all properties
+-- customer_gateway.iql (all properties)
 INSERT INTO aws.ec2.customer_gateways (
  CertificateArn,
  BgpAsn,
@@ -134,13 +115,44 @@ INSERT INTO aws.ec2.customer_gateways (
  region
 )
 SELECT 
- {{ .CertificateArn }},
- {{ .BgpAsn }},
- {{ .IpAddress }},
- {{ .Tags }},
- {{ .Type }},
- {{ .DeviceName }},
- 'us-east-1';
+ '{{ CertificateArn }}',
+ '{{ BgpAsn }}',
+ '{{ IpAddress }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ DeviceName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: customer_gateway
+    props:
+      - name: CertificateArn
+        value: '{{ CertificateArn }}'
+      - name: BgpAsn
+        value: '{{ BgpAsn }}'
+      - name: IpAddress
+        value: '{{ IpAddress }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: DeviceName
+        value: '{{ DeviceName }}'
+
 ```
 </TabItem>
 </Tabs>

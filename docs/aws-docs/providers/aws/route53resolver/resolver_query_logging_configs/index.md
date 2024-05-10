@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resolver_query_logging_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DestinationArn": "{{ DestinationArn }}"
-}
->>>
---required properties only
+-- resolver_query_logging_config.iql (required properties only)
 INSERT INTO aws.route53resolver.resolver_query_logging_configs (
  Name,
  DestinationArn,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .DestinationArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ DestinationArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DestinationArn": "{{ DestinationArn }}"
-}
->>>
---all properties
+-- resolver_query_logging_config.iql (all properties)
 INSERT INTO aws.route53resolver.resolver_query_logging_configs (
  Name,
  DestinationArn,
  region
 )
 SELECT 
- {{ .Name }},
- {{ .DestinationArn }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ DestinationArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resolver_query_logging_config
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: DestinationArn
+        value: '{{ DestinationArn }}'
+
 ```
 </TabItem>
 </Tabs>

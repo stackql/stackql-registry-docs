@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>variable</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DataSource": "{{ DataSource }}",
- "DataType": "{{ DataType }}",
- "DefaultValue": "{{ DefaultValue }}"
-}
->>>
---required properties only
+-- variable.iql (required properties only)
 INSERT INTO aws.frauddetector.variables (
  Name,
  DataSource,
@@ -101,33 +96,17 @@ INSERT INTO aws.frauddetector.variables (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .DataSource }},
- {{ .DataType }},
- {{ .DefaultValue }},
-'us-east-1';
+'{{ Name }}',
+ '{{ DataSource }}',
+ '{{ DataType }}',
+ '{{ DefaultValue }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DataSource": "{{ DataSource }}",
- "DataType": "{{ DataType }}",
- "DefaultValue": "{{ DefaultValue }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VariableType": "{{ VariableType }}"
-}
->>>
---all properties
+-- variable.iql (all properties)
 INSERT INTO aws.frauddetector.variables (
  Name,
  DataSource,
@@ -139,14 +118,47 @@ INSERT INTO aws.frauddetector.variables (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .DataSource }},
- {{ .DataType }},
- {{ .DefaultValue }},
- {{ .Description }},
- {{ .Tags }},
- {{ .VariableType }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ DataSource }}',
+ '{{ DataType }}',
+ '{{ DefaultValue }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ VariableType }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: variable
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: DataSource
+        value: '{{ DataSource }}'
+      - name: DataType
+        value: '{{ DataType }}'
+      - name: DefaultValue
+        value: '{{ DefaultValue }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VariableType
+        value: '{{ VariableType }}'
+
 ```
 </TabItem>
 </Tabs>

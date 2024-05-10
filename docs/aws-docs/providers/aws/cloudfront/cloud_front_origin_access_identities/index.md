@@ -74,51 +74,60 @@ FROM aws.cloudfront.cloud_front_origin_access_identities
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cloud_front_origin_access_identity</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CloudFrontOriginAccessIdentityConfig": {
-  "Comment": "{{ Comment }}"
- }
-}
->>>
---required properties only
+-- cloud_front_origin_access_identity.iql (required properties only)
 INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
  CloudFrontOriginAccessIdentityConfig,
  region
 )
 SELECT 
-{{ .CloudFrontOriginAccessIdentityConfig }},
-'us-east-1';
+'{{ CloudFrontOriginAccessIdentityConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CloudFrontOriginAccessIdentityConfig": {
-  "Comment": "{{ Comment }}"
- }
-}
->>>
---all properties
+-- cloud_front_origin_access_identity.iql (all properties)
 INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
  CloudFrontOriginAccessIdentityConfig,
  region
 )
 SELECT 
- {{ .CloudFrontOriginAccessIdentityConfig }},
- 'us-east-1';
+ '{{ CloudFrontOriginAccessIdentityConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cloud_front_origin_access_identity
+    props:
+      - name: CloudFrontOriginAccessIdentityConfig
+        value:
+          Comment: '{{ Comment }}'
+
 ```
 </TabItem>
 </Tabs>

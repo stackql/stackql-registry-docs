@@ -74,51 +74,33 @@ FROM aws.globalaccelerator.accelerators
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>accelerator</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- accelerator.iql (required properties only)
 INSERT INTO aws.globalaccelerator.accelerators (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "IpAddressType": "{{ IpAddressType }}",
- "IpAddresses": [
-  "{{ IpAddresses[0] }}"
- ],
- "Enabled": "{{ Enabled }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- accelerator.iql (all properties)
 INSERT INTO aws.globalaccelerator.accelerators (
  Name,
  IpAddressType,
@@ -128,12 +110,42 @@ INSERT INTO aws.globalaccelerator.accelerators (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .IpAddressType }},
- {{ .IpAddresses }},
- {{ .Enabled }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ IpAddressType }}',
+ '{{ IpAddresses }}',
+ '{{ Enabled }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: accelerator
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: IpAddressType
+        value: '{{ IpAddressType }}'
+      - name: IpAddresses
+        value:
+          - '{{ IpAddresses[0] }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

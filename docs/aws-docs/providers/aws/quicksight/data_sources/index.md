@@ -76,162 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_source</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AlternateDataSourceParameters": [
-  {
-   "AuroraPostgreSqlParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "TeradataParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "RdsParameters": {
-    "InstanceId": "{{ InstanceId }}",
-    "Database": "{{ Database }}"
-   },
-   "AthenaParameters": {
-    "WorkGroup": "{{ WorkGroup }}",
-    "RoleArn": "{{ RoleArn }}"
-   },
-   "SparkParameters": {
-    "Port": null,
-    "Host": "{{ Host }}"
-   },
-   "MariaDbParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "OracleParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "PrestoParameters": {
-    "Port": null,
-    "Host": "{{ Host }}",
-    "Catalog": "{{ Catalog }}"
-   },
-   "RedshiftParameters": {
-    "ClusterId": "{{ ClusterId }}",
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "MySqlParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "SqlServerParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "SnowflakeParameters": {
-    "Warehouse": "{{ Warehouse }}",
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "AmazonElasticsearchParameters": {
-    "Domain": "{{ Domain }}"
-   },
-   "AmazonOpenSearchParameters": {
-    "Domain": "{{ Domain }}"
-   },
-   "PostgreSqlParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "AuroraParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "S3Parameters": {
-    "ManifestFileLocation": {
-     "Bucket": "{{ Bucket }}",
-     "Key": "{{ Key }}"
-    },
-    "RoleArn": "{{ RoleArn }}"
-   },
-   "DatabricksParameters": {
-    "Host": "{{ Host }}",
-    "Port": null,
-    "SqlEndpointPath": "{{ SqlEndpointPath }}"
-   },
-   "StarburstParameters": {
-    "Host": "{{ Host }}",
-    "Port": null,
-    "Catalog": "{{ Catalog }}",
-    "ProductType": "{{ ProductType }}"
-   },
-   "TrinoParameters": {
-    "Host": "{{ Host }}",
-    "Port": null,
-    "Catalog": "{{ Catalog }}"
-   }
-  }
- ],
- "AwsAccountId": "{{ AwsAccountId }}",
- "Credentials": {
-  "CopySourceArn": "{{ CopySourceArn }}",
-  "CredentialPair": {
-   "AlternateDataSourceParameters": [
-    null
-   ],
-   "Username": "{{ Username }}",
-   "Password": "{{ Password }}"
-  },
-  "SecretArn": "{{ SecretArn }}"
- },
- "DataSourceId": "{{ DataSourceId }}",
- "DataSourceParameters": null,
- "ErrorInfo": {
-  "Type": "{{ Type }}",
-  "Message": "{{ Message }}"
- },
- "Name": "{{ Name }}",
- "Permissions": [
-  {
-   "Principal": "{{ Principal }}",
-   "Actions": [
-    "{{ Actions[0] }}"
-   ]
-  }
- ],
- "SslProperties": {
-  "DisableSsl": "{{ DisableSsl }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Type": "{{ Type }}",
- "VpcConnectionProperties": {
-  "VpcConnectionArn": "{{ VpcConnectionArn }}"
- }
-}
->>>
---required properties only
+-- data_source.iql (required properties only)
 INSERT INTO aws.quicksight.data_sources (
  AlternateDataSourceParameters,
  AwsAccountId,
@@ -248,170 +106,25 @@ INSERT INTO aws.quicksight.data_sources (
  region
 )
 SELECT 
-{{ .AlternateDataSourceParameters }},
- {{ .AwsAccountId }},
- {{ .Credentials }},
- {{ .DataSourceId }},
- {{ .DataSourceParameters }},
- {{ .ErrorInfo }},
- {{ .Name }},
- {{ .Permissions }},
- {{ .SslProperties }},
- {{ .Tags }},
- {{ .Type }},
- {{ .VpcConnectionProperties }},
-'us-east-1';
+'{{ AlternateDataSourceParameters }}',
+ '{{ AwsAccountId }}',
+ '{{ Credentials }}',
+ '{{ DataSourceId }}',
+ '{{ DataSourceParameters }}',
+ '{{ ErrorInfo }}',
+ '{{ Name }}',
+ '{{ Permissions }}',
+ '{{ SslProperties }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ VpcConnectionProperties }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AlternateDataSourceParameters": [
-  {
-   "AuroraPostgreSqlParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "TeradataParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "RdsParameters": {
-    "InstanceId": "{{ InstanceId }}",
-    "Database": "{{ Database }}"
-   },
-   "AthenaParameters": {
-    "WorkGroup": "{{ WorkGroup }}",
-    "RoleArn": "{{ RoleArn }}"
-   },
-   "SparkParameters": {
-    "Port": null,
-    "Host": "{{ Host }}"
-   },
-   "MariaDbParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "OracleParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "PrestoParameters": {
-    "Port": null,
-    "Host": "{{ Host }}",
-    "Catalog": "{{ Catalog }}"
-   },
-   "RedshiftParameters": {
-    "ClusterId": "{{ ClusterId }}",
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "MySqlParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "SqlServerParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "SnowflakeParameters": {
-    "Warehouse": "{{ Warehouse }}",
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "AmazonElasticsearchParameters": {
-    "Domain": "{{ Domain }}"
-   },
-   "AmazonOpenSearchParameters": {
-    "Domain": "{{ Domain }}"
-   },
-   "PostgreSqlParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "AuroraParameters": {
-    "Port": null,
-    "Database": "{{ Database }}",
-    "Host": "{{ Host }}"
-   },
-   "S3Parameters": {
-    "ManifestFileLocation": {
-     "Bucket": "{{ Bucket }}",
-     "Key": "{{ Key }}"
-    },
-    "RoleArn": "{{ RoleArn }}"
-   },
-   "DatabricksParameters": {
-    "Host": "{{ Host }}",
-    "Port": null,
-    "SqlEndpointPath": "{{ SqlEndpointPath }}"
-   },
-   "StarburstParameters": {
-    "Host": "{{ Host }}",
-    "Port": null,
-    "Catalog": "{{ Catalog }}",
-    "ProductType": "{{ ProductType }}"
-   },
-   "TrinoParameters": {
-    "Host": "{{ Host }}",
-    "Port": null,
-    "Catalog": "{{ Catalog }}"
-   }
-  }
- ],
- "AwsAccountId": "{{ AwsAccountId }}",
- "Credentials": {
-  "CopySourceArn": "{{ CopySourceArn }}",
-  "CredentialPair": {
-   "AlternateDataSourceParameters": [
-    null
-   ],
-   "Username": "{{ Username }}",
-   "Password": "{{ Password }}"
-  },
-  "SecretArn": "{{ SecretArn }}"
- },
- "DataSourceId": "{{ DataSourceId }}",
- "DataSourceParameters": null,
- "ErrorInfo": {
-  "Type": "{{ Type }}",
-  "Message": "{{ Message }}"
- },
- "Name": "{{ Name }}",
- "Permissions": [
-  {
-   "Principal": "{{ Principal }}",
-   "Actions": [
-    "{{ Actions[0] }}"
-   ]
-  }
- ],
- "SslProperties": {
-  "DisableSsl": "{{ DisableSsl }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Type": "{{ Type }}",
- "VpcConnectionProperties": {
-  "VpcConnectionArn": "{{ VpcConnectionArn }}"
- }
-}
->>>
---all properties
+-- data_source.iql (all properties)
 INSERT INTO aws.quicksight.data_sources (
  AlternateDataSourceParameters,
  AwsAccountId,
@@ -428,19 +141,152 @@ INSERT INTO aws.quicksight.data_sources (
  region
 )
 SELECT 
- {{ .AlternateDataSourceParameters }},
- {{ .AwsAccountId }},
- {{ .Credentials }},
- {{ .DataSourceId }},
- {{ .DataSourceParameters }},
- {{ .ErrorInfo }},
- {{ .Name }},
- {{ .Permissions }},
- {{ .SslProperties }},
- {{ .Tags }},
- {{ .Type }},
- {{ .VpcConnectionProperties }},
- 'us-east-1';
+ '{{ AlternateDataSourceParameters }}',
+ '{{ AwsAccountId }}',
+ '{{ Credentials }}',
+ '{{ DataSourceId }}',
+ '{{ DataSourceParameters }}',
+ '{{ ErrorInfo }}',
+ '{{ Name }}',
+ '{{ Permissions }}',
+ '{{ SslProperties }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ VpcConnectionProperties }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_source
+    props:
+      - name: AlternateDataSourceParameters
+        value:
+          - AuroraPostgreSqlParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            TeradataParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            RdsParameters:
+              InstanceId: '{{ InstanceId }}'
+              Database: '{{ Database }}'
+            AthenaParameters:
+              WorkGroup: '{{ WorkGroup }}'
+              RoleArn: '{{ RoleArn }}'
+            SparkParameters:
+              Port: null
+              Host: '{{ Host }}'
+            MariaDbParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            OracleParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            PrestoParameters:
+              Port: null
+              Host: '{{ Host }}'
+              Catalog: '{{ Catalog }}'
+            RedshiftParameters:
+              ClusterId: '{{ ClusterId }}'
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            MySqlParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            SqlServerParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            SnowflakeParameters:
+              Warehouse: '{{ Warehouse }}'
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            AmazonElasticsearchParameters:
+              Domain: '{{ Domain }}'
+            AmazonOpenSearchParameters:
+              Domain: '{{ Domain }}'
+            PostgreSqlParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            AuroraParameters:
+              Port: null
+              Database: '{{ Database }}'
+              Host: '{{ Host }}'
+            S3Parameters:
+              ManifestFileLocation:
+                Bucket: '{{ Bucket }}'
+                Key: '{{ Key }}'
+              RoleArn: '{{ RoleArn }}'
+            DatabricksParameters:
+              Host: '{{ Host }}'
+              Port: null
+              SqlEndpointPath: '{{ SqlEndpointPath }}'
+            StarburstParameters:
+              Host: '{{ Host }}'
+              Port: null
+              Catalog: '{{ Catalog }}'
+              ProductType: '{{ ProductType }}'
+            TrinoParameters:
+              Host: '{{ Host }}'
+              Port: null
+              Catalog: '{{ Catalog }}'
+      - name: AwsAccountId
+        value: '{{ AwsAccountId }}'
+      - name: Credentials
+        value:
+          CopySourceArn: '{{ CopySourceArn }}'
+          CredentialPair:
+            AlternateDataSourceParameters:
+              - null
+            Username: '{{ Username }}'
+            Password: '{{ Password }}'
+          SecretArn: '{{ SecretArn }}'
+      - name: DataSourceId
+        value: '{{ DataSourceId }}'
+      - name: DataSourceParameters
+        value: null
+      - name: ErrorInfo
+        value:
+          Type: '{{ Type }}'
+          Message: '{{ Message }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Permissions
+        value:
+          - Principal: '{{ Principal }}'
+            Actions:
+              - '{{ Actions[0] }}'
+      - name: SslProperties
+        value:
+          DisableSsl: '{{ DisableSsl }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: VpcConnectionProperties
+        value:
+          VpcConnectionArn: '{{ VpcConnectionArn }}'
+
 ```
 </TabItem>
 </Tabs>

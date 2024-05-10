@@ -74,51 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>storage_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "S3": {
-  "BucketName": "{{ BucketName }}"
- }
-}
->>>
---required properties only
+-- storage_configuration.iql (required properties only)
 INSERT INTO aws.ivs.storage_configurations (
  S3,
  region
 )
 SELECT 
-{{ .S3 }},
-'us-east-1';
+'{{ S3 }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "S3": {
-  "BucketName": "{{ BucketName }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- storage_configuration.iql (all properties)
 INSERT INTO aws.ivs.storage_configurations (
  Name,
  S3,
@@ -126,10 +108,36 @@ INSERT INTO aws.ivs.storage_configurations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .S3 }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ S3 }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: storage_configuration
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: S3
+        value:
+          BucketName: '{{ BucketName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

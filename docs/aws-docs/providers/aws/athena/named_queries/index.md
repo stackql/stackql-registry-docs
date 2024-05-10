@@ -74,47 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>named_query</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Database": "{{ Database }}",
- "QueryString": "{{ QueryString }}"
-}
->>>
---required properties only
+-- named_query.iql (required properties only)
 INSERT INTO aws.athena.named_queries (
  Database,
  QueryString,
  region
 )
 SELECT 
-{{ .Database }},
- {{ .QueryString }},
-'us-east-1';
+'{{ Database }}',
+ '{{ QueryString }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Database": "{{ Database }}",
- "Description": "{{ Description }}",
- "QueryString": "{{ QueryString }}",
- "WorkGroup": "{{ WorkGroup }}"
-}
->>>
---all properties
+-- named_query.iql (all properties)
 INSERT INTO aws.athena.named_queries (
  Name,
  Database,
@@ -124,12 +112,39 @@ INSERT INTO aws.athena.named_queries (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Database }},
- {{ .Description }},
- {{ .QueryString }},
- {{ .WorkGroup }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Database }}',
+ '{{ Description }}',
+ '{{ QueryString }}',
+ '{{ WorkGroup }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: named_query
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Database
+        value: '{{ Database }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: QueryString
+        value: '{{ QueryString }}'
+      - name: WorkGroup
+        value: '{{ WorkGroup }}'
+
 ```
 </TabItem>
 </Tabs>

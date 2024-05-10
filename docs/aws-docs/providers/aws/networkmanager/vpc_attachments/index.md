@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CoreNetworkId": "{{ CoreNetworkId }}",
- "VpcArn": "{{ VpcArn }}",
- "SubnetArns": [
-  "{{ SubnetArns[0] }}"
- ]
-}
->>>
---required properties only
+-- vpc_attachment.iql (required properties only)
 INSERT INTO aws.networkmanager.vpc_attachments (
  CoreNetworkId,
  VpcArn,
@@ -101,42 +95,16 @@ INSERT INTO aws.networkmanager.vpc_attachments (
  region
 )
 SELECT 
-{{ .CoreNetworkId }},
- {{ .VpcArn }},
- {{ .SubnetArns }},
-'us-east-1';
+'{{ CoreNetworkId }}',
+ '{{ VpcArn }}',
+ '{{ SubnetArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CoreNetworkId": "{{ CoreNetworkId }}",
- "VpcArn": "{{ VpcArn }}",
- "ProposedSegmentChange": {
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "AttachmentPolicyRuleNumber": "{{ AttachmentPolicyRuleNumber }}",
-  "SegmentName": "{{ SegmentName }}"
- },
- "Tags": [
-  null
- ],
- "SubnetArns": [
-  "{{ SubnetArns[0] }}"
- ],
- "Options": {
-  "Ipv6Support": "{{ Ipv6Support }}",
-  "ApplianceModeSupport": "{{ ApplianceModeSupport }}"
- }
-}
->>>
---all properties
+-- vpc_attachment.iql (all properties)
 INSERT INTO aws.networkmanager.vpc_attachments (
  CoreNetworkId,
  VpcArn,
@@ -147,13 +115,51 @@ INSERT INTO aws.networkmanager.vpc_attachments (
  region
 )
 SELECT 
- {{ .CoreNetworkId }},
- {{ .VpcArn }},
- {{ .ProposedSegmentChange }},
- {{ .Tags }},
- {{ .SubnetArns }},
- {{ .Options }},
- 'us-east-1';
+ '{{ CoreNetworkId }}',
+ '{{ VpcArn }}',
+ '{{ ProposedSegmentChange }}',
+ '{{ Tags }}',
+ '{{ SubnetArns }}',
+ '{{ Options }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_attachment
+    props:
+      - name: CoreNetworkId
+        value: '{{ CoreNetworkId }}'
+      - name: VpcArn
+        value: '{{ VpcArn }}'
+      - name: ProposedSegmentChange
+        value:
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          AttachmentPolicyRuleNumber: '{{ AttachmentPolicyRuleNumber }}'
+          SegmentName: '{{ SegmentName }}'
+      - name: Tags
+        value:
+          - null
+      - name: SubnetArns
+        value:
+          - '{{ SubnetArns[0] }}'
+      - name: Options
+        value:
+          Ipv6Support: '{{ Ipv6Support }}'
+          ApplianceModeSupport: '{{ ApplianceModeSupport }}'
+
 ```
 </TabItem>
 </Tabs>

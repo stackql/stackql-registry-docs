@@ -74,138 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>instance</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Tenancy": "{{ Tenancy }}",
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "PrivateIpAddress": "{{ PrivateIpAddress }}",
- "UserData": "{{ UserData }}",
- "BlockDeviceMappings": [
-  {
-   "DeviceName": "{{ DeviceName }}",
-   "Ebs": {
-    "DeleteOnTermination": "{{ DeleteOnTermination }}",
-    "Encrypted": "{{ Encrypted }}",
-    "Iops": "{{ Iops }}",
-    "SnapshotId": "{{ SnapshotId }}",
-    "VolumeSize": "{{ VolumeSize }}",
-    "VolumeType": "{{ VolumeType }}"
-   },
-   "NoDevice": "{{ NoDevice }}",
-   "VirtualName": "{{ VirtualName }}"
-  }
- ],
- "IamInstanceProfile": "{{ IamInstanceProfile }}",
- "Ipv6Addresses": [
-  {
-   "Ipv6Address": "{{ Ipv6Address }}"
-  }
- ],
- "KernelId": "{{ KernelId }}",
- "SubnetId": "{{ SubnetId }}",
- "EbsOptimized": "{{ EbsOptimized }}",
- "PropagateTagsToVolumeOnCreation": "{{ PropagateTagsToVolumeOnCreation }}",
- "ElasticGpuSpecifications": [
-  {
-   "Type": "{{ Type }}"
-  }
- ],
- "ElasticInferenceAccelerators": [
-  {
-   "Type": "{{ Type }}",
-   "Count": "{{ Count }}"
-  }
- ],
- "Volumes": [
-  {
-   "AvailabilityZone": "{{ AvailabilityZone }}"
-  }
- ],
- "Ipv6AddressCount": "{{ Ipv6AddressCount }}",
- "LaunchTemplate": {
-  "LaunchTemplateName": "{{ LaunchTemplateName }}",
-  "Version": "{{ Version }}",
-  "LaunchTemplateId": "{{ LaunchTemplateId }}"
- },
- "EnclaveOptions": {
-  "Enabled": "{{ Enabled }}"
- },
- "NetworkInterfaces": [
-  {
-   "SubnetId": "{{ SubnetId }}"
-  }
- ],
- "ImageId": "{{ ImageId }}",
- "InstanceType": "{{ InstanceType }}",
- "Monitoring": "{{ Monitoring }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AdditionalInfo": "{{ AdditionalInfo }}",
- "HibernationOptions": {
-  "Configured": "{{ Configured }}"
- },
- "LicenseSpecifications": [
-  {
-   "LicenseConfigurationArn": "{{ LicenseConfigurationArn }}"
-  }
- ],
- "InstanceInitiatedShutdownBehavior": "{{ InstanceInitiatedShutdownBehavior }}",
- "CpuOptions": {
-  "ThreadsPerCore": "{{ ThreadsPerCore }}",
-  "CoreCount": "{{ CoreCount }}"
- },
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "PrivateDnsNameOptions": {
-  "EnableResourceNameDnsARecord": "{{ EnableResourceNameDnsARecord }}",
-  "HostnameType": "{{ HostnameType }}",
-  "EnableResourceNameDnsAAAARecord": "{{ EnableResourceNameDnsAAAARecord }}"
- },
- "HostId": "{{ HostId }}",
- "HostResourceGroupArn": "{{ HostResourceGroupArn }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "DisableApiTermination": "{{ DisableApiTermination }}",
- "KeyName": "{{ KeyName }}",
- "RamdiskId": "{{ RamdiskId }}",
- "SourceDestCheck": "{{ SourceDestCheck }}",
- "PlacementGroupName": "{{ PlacementGroupName }}",
- "SsmAssociations": [
-  {
-   "AssociationParameters": [
-    {
-     "Value": [
-      "{{ Value[0] }}"
-     ],
-     "Key": "{{ Key }}"
-    }
-   ],
-   "DocumentName": "{{ DocumentName }}"
-  }
- ],
- "Affinity": "{{ Affinity }}",
- "CreditSpecification": {
-  "CPUCredits": "{{ CPUCredits }}"
- }
-}
->>>
---required properties only
+-- instance.iql (required properties only)
 INSERT INTO aws.ec2.instances (
  Tenancy,
  SecurityGroups,
@@ -250,226 +132,53 @@ INSERT INTO aws.ec2.instances (
  region
 )
 SELECT 
-{{ .Tenancy }},
- {{ .SecurityGroups }},
- {{ .PrivateIpAddress }},
- {{ .UserData }},
- {{ .BlockDeviceMappings }},
- {{ .IamInstanceProfile }},
- {{ .Ipv6Addresses }},
- {{ .KernelId }},
- {{ .SubnetId }},
- {{ .EbsOptimized }},
- {{ .PropagateTagsToVolumeOnCreation }},
- {{ .ElasticGpuSpecifications }},
- {{ .ElasticInferenceAccelerators }},
- {{ .Volumes }},
- {{ .Ipv6AddressCount }},
- {{ .LaunchTemplate }},
- {{ .EnclaveOptions }},
- {{ .NetworkInterfaces }},
- {{ .ImageId }},
- {{ .InstanceType }},
- {{ .Monitoring }},
- {{ .Tags }},
- {{ .AdditionalInfo }},
- {{ .HibernationOptions }},
- {{ .LicenseSpecifications }},
- {{ .InstanceInitiatedShutdownBehavior }},
- {{ .CpuOptions }},
- {{ .AvailabilityZone }},
- {{ .PrivateDnsNameOptions }},
- {{ .HostId }},
- {{ .HostResourceGroupArn }},
- {{ .SecurityGroupIds }},
- {{ .DisableApiTermination }},
- {{ .KeyName }},
- {{ .RamdiskId }},
- {{ .SourceDestCheck }},
- {{ .PlacementGroupName }},
- {{ .SsmAssociations }},
- {{ .Affinity }},
- {{ .CreditSpecification }},
-'us-east-1';
+'{{ Tenancy }}',
+ '{{ SecurityGroups }}',
+ '{{ PrivateIpAddress }}',
+ '{{ UserData }}',
+ '{{ BlockDeviceMappings }}',
+ '{{ IamInstanceProfile }}',
+ '{{ Ipv6Addresses }}',
+ '{{ KernelId }}',
+ '{{ SubnetId }}',
+ '{{ EbsOptimized }}',
+ '{{ PropagateTagsToVolumeOnCreation }}',
+ '{{ ElasticGpuSpecifications }}',
+ '{{ ElasticInferenceAccelerators }}',
+ '{{ Volumes }}',
+ '{{ Ipv6AddressCount }}',
+ '{{ LaunchTemplate }}',
+ '{{ EnclaveOptions }}',
+ '{{ NetworkInterfaces }}',
+ '{{ ImageId }}',
+ '{{ InstanceType }}',
+ '{{ Monitoring }}',
+ '{{ Tags }}',
+ '{{ AdditionalInfo }}',
+ '{{ HibernationOptions }}',
+ '{{ LicenseSpecifications }}',
+ '{{ InstanceInitiatedShutdownBehavior }}',
+ '{{ CpuOptions }}',
+ '{{ AvailabilityZone }}',
+ '{{ PrivateDnsNameOptions }}',
+ '{{ HostId }}',
+ '{{ HostResourceGroupArn }}',
+ '{{ SecurityGroupIds }}',
+ '{{ DisableApiTermination }}',
+ '{{ KeyName }}',
+ '{{ RamdiskId }}',
+ '{{ SourceDestCheck }}',
+ '{{ PlacementGroupName }}',
+ '{{ SsmAssociations }}',
+ '{{ Affinity }}',
+ '{{ CreditSpecification }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tenancy": "{{ Tenancy }}",
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "PrivateIpAddress": "{{ PrivateIpAddress }}",
- "UserData": "{{ UserData }}",
- "BlockDeviceMappings": [
-  {
-   "DeviceName": "{{ DeviceName }}",
-   "Ebs": {
-    "DeleteOnTermination": "{{ DeleteOnTermination }}",
-    "Encrypted": "{{ Encrypted }}",
-    "Iops": "{{ Iops }}",
-    "SnapshotId": "{{ SnapshotId }}",
-    "VolumeSize": "{{ VolumeSize }}",
-    "VolumeType": "{{ VolumeType }}"
-   },
-   "NoDevice": "{{ NoDevice }}",
-   "VirtualName": "{{ VirtualName }}"
-  }
- ],
- "IamInstanceProfile": "{{ IamInstanceProfile }}",
- "Ipv6Addresses": [
-  {
-   "Ipv6Address": "{{ Ipv6Address }}"
-  }
- ],
- "KernelId": "{{ KernelId }}",
- "SubnetId": "{{ SubnetId }}",
- "EbsOptimized": "{{ EbsOptimized }}",
- "PropagateTagsToVolumeOnCreation": "{{ PropagateTagsToVolumeOnCreation }}",
- "ElasticGpuSpecifications": [
-  {
-   "Type": "{{ Type }}"
-  }
- ],
- "ElasticInferenceAccelerators": [
-  {
-   "Type": "{{ Type }}",
-   "Count": "{{ Count }}"
-  }
- ],
- "Volumes": [
-  {
-   "MultiAttachEnabled": "{{ MultiAttachEnabled }}",
-   "KmsKeyId": "{{ KmsKeyId }}",
-   "Encrypted": "{{ Encrypted }}",
-   "Size": "{{ Size }}",
-   "AutoEnableIO": "{{ AutoEnableIO }}",
-   "OutpostArn": "{{ OutpostArn }}",
-   "AvailabilityZone": "{{ AvailabilityZone }}",
-   "Throughput": "{{ Throughput }}",
-   "Iops": "{{ Iops }}",
-   "SnapshotId": "{{ SnapshotId }}",
-   "VolumeType": "{{ VolumeType }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "Ipv6AddressCount": "{{ Ipv6AddressCount }}",
- "LaunchTemplate": {
-  "LaunchTemplateName": "{{ LaunchTemplateName }}",
-  "Version": "{{ Version }}",
-  "LaunchTemplateId": "{{ LaunchTemplateId }}"
- },
- "EnclaveOptions": {
-  "Enabled": "{{ Enabled }}"
- },
- "NetworkInterfaces": [
-  {
-   "Description": "{{ Description }}",
-   "PrivateIpAddress": "{{ PrivateIpAddress }}",
-   "PrivateIpAddresses": [
-    {
-     "Primary": "{{ Primary }}",
-     "PrivateIpAddress": "{{ PrivateIpAddress }}"
-    }
-   ],
-   "SecondaryPrivateIpAddressCount": "{{ SecondaryPrivateIpAddressCount }}",
-   "Ipv4Prefixes": [
-    {
-     "Ipv4Prefix": "{{ Ipv4Prefix }}"
-    }
-   ],
-   "Ipv4PrefixCount": "{{ Ipv4PrefixCount }}",
-   "GroupSet": [
-    "{{ GroupSet[0] }}"
-   ],
-   "Ipv6Addresses": [
-    null
-   ],
-   "Ipv6Prefixes": [
-    {
-     "Ipv6Prefix": "{{ Ipv6Prefix }}"
-    }
-   ],
-   "Ipv6PrefixCount": "{{ Ipv6PrefixCount }}",
-   "SubnetId": "{{ SubnetId }}",
-   "SourceDestCheck": "{{ SourceDestCheck }}",
-   "InterfaceType": "{{ InterfaceType }}",
-   "Ipv6AddressCount": "{{ Ipv6AddressCount }}",
-   "EnablePrimaryIpv6": "{{ EnablePrimaryIpv6 }}",
-   "ConnectionTrackingSpecification": {
-    "TcpEstablishedTimeout": "{{ TcpEstablishedTimeout }}",
-    "UdpStreamTimeout": "{{ UdpStreamTimeout }}",
-    "UdpTimeout": "{{ UdpTimeout }}"
-   },
-   "Tags": [
-    null
-   ]
-  }
- ],
- "ImageId": "{{ ImageId }}",
- "InstanceType": "{{ InstanceType }}",
- "Monitoring": "{{ Monitoring }}",
- "Tags": [
-  null
- ],
- "AdditionalInfo": "{{ AdditionalInfo }}",
- "HibernationOptions": {
-  "Configured": "{{ Configured }}"
- },
- "LicenseSpecifications": [
-  {
-   "LicenseConfigurationArn": "{{ LicenseConfigurationArn }}"
-  }
- ],
- "InstanceInitiatedShutdownBehavior": "{{ InstanceInitiatedShutdownBehavior }}",
- "CpuOptions": {
-  "ThreadsPerCore": "{{ ThreadsPerCore }}",
-  "CoreCount": "{{ CoreCount }}"
- },
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "PrivateDnsNameOptions": {
-  "EnableResourceNameDnsARecord": "{{ EnableResourceNameDnsARecord }}",
-  "HostnameType": "{{ HostnameType }}",
-  "EnableResourceNameDnsAAAARecord": "{{ EnableResourceNameDnsAAAARecord }}"
- },
- "HostId": "{{ HostId }}",
- "HostResourceGroupArn": "{{ HostResourceGroupArn }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "DisableApiTermination": "{{ DisableApiTermination }}",
- "KeyName": "{{ KeyName }}",
- "RamdiskId": "{{ RamdiskId }}",
- "SourceDestCheck": "{{ SourceDestCheck }}",
- "PlacementGroupName": "{{ PlacementGroupName }}",
- "SsmAssociations": [
-  {
-   "AssociationParameters": [
-    {
-     "Value": [
-      "{{ Value[0] }}"
-     ],
-     "Key": "{{ Key }}"
-    }
-   ],
-   "DocumentName": "{{ DocumentName }}"
-  }
- ],
- "Affinity": "{{ Affinity }}",
- "CreditSpecification": {
-  "CPUCredits": "{{ CPUCredits }}"
- }
-}
->>>
---all properties
+-- instance.iql (all properties)
 INSERT INTO aws.ec2.instances (
  Tenancy,
  SecurityGroups,
@@ -514,47 +223,219 @@ INSERT INTO aws.ec2.instances (
  region
 )
 SELECT 
- {{ .Tenancy }},
- {{ .SecurityGroups }},
- {{ .PrivateIpAddress }},
- {{ .UserData }},
- {{ .BlockDeviceMappings }},
- {{ .IamInstanceProfile }},
- {{ .Ipv6Addresses }},
- {{ .KernelId }},
- {{ .SubnetId }},
- {{ .EbsOptimized }},
- {{ .PropagateTagsToVolumeOnCreation }},
- {{ .ElasticGpuSpecifications }},
- {{ .ElasticInferenceAccelerators }},
- {{ .Volumes }},
- {{ .Ipv6AddressCount }},
- {{ .LaunchTemplate }},
- {{ .EnclaveOptions }},
- {{ .NetworkInterfaces }},
- {{ .ImageId }},
- {{ .InstanceType }},
- {{ .Monitoring }},
- {{ .Tags }},
- {{ .AdditionalInfo }},
- {{ .HibernationOptions }},
- {{ .LicenseSpecifications }},
- {{ .InstanceInitiatedShutdownBehavior }},
- {{ .CpuOptions }},
- {{ .AvailabilityZone }},
- {{ .PrivateDnsNameOptions }},
- {{ .HostId }},
- {{ .HostResourceGroupArn }},
- {{ .SecurityGroupIds }},
- {{ .DisableApiTermination }},
- {{ .KeyName }},
- {{ .RamdiskId }},
- {{ .SourceDestCheck }},
- {{ .PlacementGroupName }},
- {{ .SsmAssociations }},
- {{ .Affinity }},
- {{ .CreditSpecification }},
- 'us-east-1';
+ '{{ Tenancy }}',
+ '{{ SecurityGroups }}',
+ '{{ PrivateIpAddress }}',
+ '{{ UserData }}',
+ '{{ BlockDeviceMappings }}',
+ '{{ IamInstanceProfile }}',
+ '{{ Ipv6Addresses }}',
+ '{{ KernelId }}',
+ '{{ SubnetId }}',
+ '{{ EbsOptimized }}',
+ '{{ PropagateTagsToVolumeOnCreation }}',
+ '{{ ElasticGpuSpecifications }}',
+ '{{ ElasticInferenceAccelerators }}',
+ '{{ Volumes }}',
+ '{{ Ipv6AddressCount }}',
+ '{{ LaunchTemplate }}',
+ '{{ EnclaveOptions }}',
+ '{{ NetworkInterfaces }}',
+ '{{ ImageId }}',
+ '{{ InstanceType }}',
+ '{{ Monitoring }}',
+ '{{ Tags }}',
+ '{{ AdditionalInfo }}',
+ '{{ HibernationOptions }}',
+ '{{ LicenseSpecifications }}',
+ '{{ InstanceInitiatedShutdownBehavior }}',
+ '{{ CpuOptions }}',
+ '{{ AvailabilityZone }}',
+ '{{ PrivateDnsNameOptions }}',
+ '{{ HostId }}',
+ '{{ HostResourceGroupArn }}',
+ '{{ SecurityGroupIds }}',
+ '{{ DisableApiTermination }}',
+ '{{ KeyName }}',
+ '{{ RamdiskId }}',
+ '{{ SourceDestCheck }}',
+ '{{ PlacementGroupName }}',
+ '{{ SsmAssociations }}',
+ '{{ Affinity }}',
+ '{{ CreditSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: instance
+    props:
+      - name: Tenancy
+        value: '{{ Tenancy }}'
+      - name: SecurityGroups
+        value:
+          - '{{ SecurityGroups[0] }}'
+      - name: PrivateIpAddress
+        value: '{{ PrivateIpAddress }}'
+      - name: UserData
+        value: '{{ UserData }}'
+      - name: BlockDeviceMappings
+        value:
+          - DeviceName: '{{ DeviceName }}'
+            Ebs:
+              DeleteOnTermination: '{{ DeleteOnTermination }}'
+              Encrypted: '{{ Encrypted }}'
+              Iops: '{{ Iops }}'
+              SnapshotId: '{{ SnapshotId }}'
+              VolumeSize: '{{ VolumeSize }}'
+              VolumeType: '{{ VolumeType }}'
+            NoDevice: '{{ NoDevice }}'
+            VirtualName: '{{ VirtualName }}'
+      - name: IamInstanceProfile
+        value: '{{ IamInstanceProfile }}'
+      - name: Ipv6Addresses
+        value:
+          - Ipv6Address: '{{ Ipv6Address }}'
+      - name: KernelId
+        value: '{{ KernelId }}'
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+      - name: EbsOptimized
+        value: '{{ EbsOptimized }}'
+      - name: PropagateTagsToVolumeOnCreation
+        value: '{{ PropagateTagsToVolumeOnCreation }}'
+      - name: ElasticGpuSpecifications
+        value:
+          - Type: '{{ Type }}'
+      - name: ElasticInferenceAccelerators
+        value:
+          - Type: '{{ Type }}'
+            Count: '{{ Count }}'
+      - name: Volumes
+        value:
+          - MultiAttachEnabled: '{{ MultiAttachEnabled }}'
+            KmsKeyId: '{{ KmsKeyId }}'
+            Encrypted: '{{ Encrypted }}'
+            Size: '{{ Size }}'
+            AutoEnableIO: '{{ AutoEnableIO }}'
+            OutpostArn: '{{ OutpostArn }}'
+            AvailabilityZone: '{{ AvailabilityZone }}'
+            Throughput: '{{ Throughput }}'
+            Iops: '{{ Iops }}'
+            SnapshotId: '{{ SnapshotId }}'
+            VolumeType: '{{ VolumeType }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+      - name: Ipv6AddressCount
+        value: '{{ Ipv6AddressCount }}'
+      - name: LaunchTemplate
+        value:
+          LaunchTemplateName: '{{ LaunchTemplateName }}'
+          Version: '{{ Version }}'
+          LaunchTemplateId: '{{ LaunchTemplateId }}'
+      - name: EnclaveOptions
+        value:
+          Enabled: '{{ Enabled }}'
+      - name: NetworkInterfaces
+        value:
+          - Description: '{{ Description }}'
+            PrivateIpAddress: '{{ PrivateIpAddress }}'
+            PrivateIpAddresses:
+              - Primary: '{{ Primary }}'
+                PrivateIpAddress: '{{ PrivateIpAddress }}'
+            SecondaryPrivateIpAddressCount: '{{ SecondaryPrivateIpAddressCount }}'
+            Ipv4Prefixes:
+              - Ipv4Prefix: '{{ Ipv4Prefix }}'
+            Ipv4PrefixCount: '{{ Ipv4PrefixCount }}'
+            GroupSet:
+              - '{{ GroupSet[0] }}'
+            Ipv6Addresses:
+              - null
+            Ipv6Prefixes:
+              - Ipv6Prefix: '{{ Ipv6Prefix }}'
+            Ipv6PrefixCount: '{{ Ipv6PrefixCount }}'
+            SubnetId: '{{ SubnetId }}'
+            SourceDestCheck: '{{ SourceDestCheck }}'
+            InterfaceType: '{{ InterfaceType }}'
+            Ipv6AddressCount: '{{ Ipv6AddressCount }}'
+            EnablePrimaryIpv6: '{{ EnablePrimaryIpv6 }}'
+            ConnectionTrackingSpecification:
+              TcpEstablishedTimeout: '{{ TcpEstablishedTimeout }}'
+              UdpStreamTimeout: '{{ UdpStreamTimeout }}'
+              UdpTimeout: '{{ UdpTimeout }}'
+            Tags:
+              - null
+      - name: ImageId
+        value: '{{ ImageId }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: Monitoring
+        value: '{{ Monitoring }}'
+      - name: Tags
+        value:
+          - null
+      - name: AdditionalInfo
+        value: '{{ AdditionalInfo }}'
+      - name: HibernationOptions
+        value:
+          Configured: '{{ Configured }}'
+      - name: LicenseSpecifications
+        value:
+          - LicenseConfigurationArn: '{{ LicenseConfigurationArn }}'
+      - name: InstanceInitiatedShutdownBehavior
+        value: '{{ InstanceInitiatedShutdownBehavior }}'
+      - name: CpuOptions
+        value:
+          ThreadsPerCore: '{{ ThreadsPerCore }}'
+          CoreCount: '{{ CoreCount }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: PrivateDnsNameOptions
+        value:
+          EnableResourceNameDnsARecord: '{{ EnableResourceNameDnsARecord }}'
+          HostnameType: '{{ HostnameType }}'
+          EnableResourceNameDnsAAAARecord: '{{ EnableResourceNameDnsAAAARecord }}'
+      - name: HostId
+        value: '{{ HostId }}'
+      - name: HostResourceGroupArn
+        value: '{{ HostResourceGroupArn }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: DisableApiTermination
+        value: '{{ DisableApiTermination }}'
+      - name: KeyName
+        value: '{{ KeyName }}'
+      - name: RamdiskId
+        value: '{{ RamdiskId }}'
+      - name: SourceDestCheck
+        value: '{{ SourceDestCheck }}'
+      - name: PlacementGroupName
+        value: '{{ PlacementGroupName }}'
+      - name: SsmAssociations
+        value:
+          - AssociationParameters:
+              - Value:
+                  - '{{ Value[0] }}'
+                Key: '{{ Key }}'
+            DocumentName: '{{ DocumentName }}'
+      - name: Affinity
+        value: '{{ Affinity }}'
+      - name: CreditSpecification
+        value:
+          CPUCredits: '{{ CPUCredits }}'
+
 ```
 </TabItem>
 </Tabs>

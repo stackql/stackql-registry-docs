@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>prepared_statement</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StatementName": "{{ StatementName }}",
- "WorkGroup": "{{ WorkGroup }}",
- "QueryStatement": "{{ QueryStatement }}"
-}
->>>
---required properties only
+-- prepared_statement.iql (required properties only)
 INSERT INTO aws.athena.prepared_statements (
  StatementName,
  WorkGroup,
@@ -101,24 +97,16 @@ INSERT INTO aws.athena.prepared_statements (
  region
 )
 SELECT 
-{{ .StatementName }},
- {{ .WorkGroup }},
- {{ .QueryStatement }},
-'us-east-1';
+'{{ StatementName }}',
+ '{{ WorkGroup }}',
+ '{{ QueryStatement }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "StatementName": "{{ StatementName }}",
- "WorkGroup": "{{ WorkGroup }}",
- "Description": "{{ Description }}",
- "QueryStatement": "{{ QueryStatement }}"
-}
->>>
---all properties
+-- prepared_statement.iql (all properties)
 INSERT INTO aws.athena.prepared_statements (
  StatementName,
  WorkGroup,
@@ -127,11 +115,36 @@ INSERT INTO aws.athena.prepared_statements (
  region
 )
 SELECT 
- {{ .StatementName }},
- {{ .WorkGroup }},
- {{ .Description }},
- {{ .QueryStatement }},
- 'us-east-1';
+ '{{ StatementName }}',
+ '{{ WorkGroup }}',
+ '{{ Description }}',
+ '{{ QueryStatement }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: prepared_statement
+    props:
+      - name: StatementName
+        value: '{{ StatementName }}'
+      - name: WorkGroup
+        value: '{{ WorkGroup }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: QueryStatement
+        value: '{{ QueryStatement }}'
+
 ```
 </TabItem>
 </Tabs>

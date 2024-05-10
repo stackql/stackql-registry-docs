@@ -74,117 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>storage_lens_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Filter": {
-  "MatchAnyPrefix": [
-   "{{ MatchAnyPrefix[0] }}"
-  ],
-  "MatchAnySuffix": [
-   "{{ MatchAnySuffix[0] }}"
-  ],
-  "MatchAnyTag": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "MatchObjectSize": {
-   "BytesGreaterThan": "{{ BytesGreaterThan }}",
-   "BytesLessThan": "{{ BytesLessThan }}"
-  },
-  "MatchObjectAge": {
-   "DaysGreaterThan": "{{ DaysGreaterThan }}",
-   "DaysLessThan": "{{ DaysLessThan }}"
-  },
-  "And": {
-   "MatchAnyPrefix": null,
-   "MatchAnySuffix": null,
-   "MatchAnyTag": null,
-   "MatchObjectSize": null,
-   "MatchObjectAge": null
-  },
-  "Or": {
-   "MatchAnyPrefix": null,
-   "MatchAnySuffix": null,
-   "MatchAnyTag": null,
-   "MatchObjectSize": null,
-   "MatchObjectAge": null
-  }
- }
-}
->>>
---required properties only
+-- storage_lens_group.iql (required properties only)
 INSERT INTO aws.s3.storage_lens_groups (
  Name,
  Filter,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Filter }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Filter }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Filter": {
-  "MatchAnyPrefix": [
-   "{{ MatchAnyPrefix[0] }}"
-  ],
-  "MatchAnySuffix": [
-   "{{ MatchAnySuffix[0] }}"
-  ],
-  "MatchAnyTag": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "MatchObjectSize": {
-   "BytesGreaterThan": "{{ BytesGreaterThan }}",
-   "BytesLessThan": "{{ BytesLessThan }}"
-  },
-  "MatchObjectAge": {
-   "DaysGreaterThan": "{{ DaysGreaterThan }}",
-   "DaysLessThan": "{{ DaysLessThan }}"
-  },
-  "And": {
-   "MatchAnyPrefix": null,
-   "MatchAnySuffix": null,
-   "MatchAnyTag": null,
-   "MatchObjectSize": null,
-   "MatchObjectAge": null
-  },
-  "Or": {
-   "MatchAnyPrefix": null,
-   "MatchAnySuffix": null,
-   "MatchAnyTag": null,
-   "MatchObjectSize": null,
-   "MatchObjectAge": null
-  }
- },
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- storage_lens_group.iql (all properties)
 INSERT INTO aws.s3.storage_lens_groups (
  Name,
  Filter,
@@ -192,10 +110,59 @@ INSERT INTO aws.s3.storage_lens_groups (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Filter }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Filter }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: storage_lens_group
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Filter
+        value:
+          MatchAnyPrefix:
+            - '{{ MatchAnyPrefix[0] }}'
+          MatchAnySuffix:
+            - '{{ MatchAnySuffix[0] }}'
+          MatchAnyTag:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          MatchObjectSize:
+            BytesGreaterThan: '{{ BytesGreaterThan }}'
+            BytesLessThan: '{{ BytesLessThan }}'
+          MatchObjectAge:
+            DaysGreaterThan: '{{ DaysGreaterThan }}'
+            DaysLessThan: '{{ DaysLessThan }}'
+          And:
+            MatchAnyPrefix: null
+            MatchAnySuffix: null
+            MatchAnyTag: null
+            MatchObjectSize: null
+            MatchObjectAge: null
+          Or:
+            MatchAnyPrefix: null
+            MatchAnySuffix: null
+            MatchAnyTag: null
+            MatchObjectSize: null
+            MatchObjectAge: null
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

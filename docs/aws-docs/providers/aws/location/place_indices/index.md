@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>place_index</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DataSource": "{{ DataSource }}",
- "IndexName": "{{ IndexName }}"
-}
->>>
---required properties only
+-- place_index.iql (required properties only)
 INSERT INTO aws.location.place_indices (
  DataSource,
  IndexName,
  region
 )
 SELECT 
-{{ .DataSource }},
- {{ .IndexName }},
-'us-east-1';
+'{{ DataSource }}',
+ '{{ IndexName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DataSource": "{{ DataSource }}",
- "DataSourceConfiguration": {
-  "IntendedUse": "{{ IntendedUse }}"
- },
- "Description": "{{ Description }}",
- "IndexName": "{{ IndexName }}",
- "PricingPlan": "{{ PricingPlan }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- place_index.iql (all properties)
 INSERT INTO aws.location.place_indices (
  DataSource,
  DataSourceConfiguration,
@@ -133,13 +113,45 @@ INSERT INTO aws.location.place_indices (
  region
 )
 SELECT 
- {{ .DataSource }},
- {{ .DataSourceConfiguration }},
- {{ .Description }},
- {{ .IndexName }},
- {{ .PricingPlan }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DataSource }}',
+ '{{ DataSourceConfiguration }}',
+ '{{ Description }}',
+ '{{ IndexName }}',
+ '{{ PricingPlan }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: place_index
+    props:
+      - name: DataSource
+        value: '{{ DataSource }}'
+      - name: DataSourceConfiguration
+        value:
+          IntendedUse: '{{ IntendedUse }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: IndexName
+        value: '{{ IndexName }}'
+      - name: PricingPlan
+        value: '{{ PricingPlan }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,61 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>replication_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Regions": [
-  {
-   "RegionName": "{{ RegionName }}",
-   "RegionConfiguration": {
-    "SseKmsKeyId": "{{ SseKmsKeyId }}"
-   }
-  }
- ]
-}
->>>
---required properties only
+-- replication_set.iql (required properties only)
 INSERT INTO aws.ssmincidents.replication_sets (
  Regions,
  region
 )
 SELECT 
-{{ .Regions }},
-'us-east-1';
+'{{ Regions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Regions": [
-  {
-   "RegionName": "{{ RegionName }}",
-   "RegionConfiguration": {
-    "SseKmsKeyId": "{{ SseKmsKeyId }}"
-   }
-  }
- ],
- "DeletionProtected": "{{ DeletionProtected }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- replication_set.iql (all properties)
 INSERT INTO aws.ssmincidents.replication_sets (
  Regions,
  DeletionProtected,
@@ -136,10 +108,38 @@ INSERT INTO aws.ssmincidents.replication_sets (
  region
 )
 SELECT 
- {{ .Regions }},
- {{ .DeletionProtected }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Regions }}',
+ '{{ DeletionProtected }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: replication_set
+    props:
+      - name: Regions
+        value:
+          - RegionName: '{{ RegionName }}'
+            RegionConfiguration:
+              SseKmsKeyId: '{{ SseKmsKeyId }}'
+      - name: DeletionProtected
+        value: '{{ DeletionProtected }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,51 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>security_group_egress</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IpProtocol": "{{ IpProtocol }}",
- "GroupId": "{{ GroupId }}"
-}
->>>
---required properties only
+-- security_group_egress.iql (required properties only)
 INSERT INTO aws.ec2.security_group_egresses (
  IpProtocol,
  GroupId,
  region
 )
 SELECT 
-{{ .IpProtocol }},
- {{ .GroupId }},
-'us-east-1';
+'{{ IpProtocol }}',
+ '{{ GroupId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CidrIp": "{{ CidrIp }}",
- "CidrIpv6": "{{ CidrIpv6 }}",
- "Description": "{{ Description }}",
- "FromPort": "{{ FromPort }}",
- "ToPort": "{{ ToPort }}",
- "IpProtocol": "{{ IpProtocol }}",
- "DestinationSecurityGroupId": "{{ DestinationSecurityGroupId }}",
- "DestinationPrefixListId": "{{ DestinationPrefixListId }}",
- "GroupId": "{{ GroupId }}"
-}
->>>
---all properties
+-- security_group_egress.iql (all properties)
 INSERT INTO aws.ec2.security_group_egresses (
  CidrIp,
  CidrIpv6,
@@ -132,16 +116,51 @@ INSERT INTO aws.ec2.security_group_egresses (
  region
 )
 SELECT 
- {{ .CidrIp }},
- {{ .CidrIpv6 }},
- {{ .Description }},
- {{ .FromPort }},
- {{ .ToPort }},
- {{ .IpProtocol }},
- {{ .DestinationSecurityGroupId }},
- {{ .DestinationPrefixListId }},
- {{ .GroupId }},
- 'us-east-1';
+ '{{ CidrIp }}',
+ '{{ CidrIpv6 }}',
+ '{{ Description }}',
+ '{{ FromPort }}',
+ '{{ ToPort }}',
+ '{{ IpProtocol }}',
+ '{{ DestinationSecurityGroupId }}',
+ '{{ DestinationPrefixListId }}',
+ '{{ GroupId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: security_group_egress
+    props:
+      - name: CidrIp
+        value: '{{ CidrIp }}'
+      - name: CidrIpv6
+        value: '{{ CidrIpv6 }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FromPort
+        value: '{{ FromPort }}'
+      - name: ToPort
+        value: '{{ ToPort }}'
+      - name: IpProtocol
+        value: '{{ IpProtocol }}'
+      - name: DestinationSecurityGroupId
+        value: '{{ DestinationSecurityGroupId }}'
+      - name: DestinationPrefixListId
+        value: '{{ DestinationPrefixListId }}'
+      - name: GroupId
+        value: '{{ GroupId }}'
+
 ```
 </TabItem>
 </Tabs>

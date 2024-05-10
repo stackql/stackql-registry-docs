@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scene</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SceneId": "{{ SceneId }}",
- "ContentLocation": "{{ ContentLocation }}",
- "WorkspaceId": "{{ WorkspaceId }}"
-}
->>>
---required properties only
+-- scene.iql (required properties only)
 INSERT INTO aws.iottwinmaker.scenes (
  SceneId,
  ContentLocation,
@@ -101,29 +97,16 @@ INSERT INTO aws.iottwinmaker.scenes (
  region
 )
 SELECT 
-{{ .SceneId }},
- {{ .ContentLocation }},
- {{ .WorkspaceId }},
-'us-east-1';
+'{{ SceneId }}',
+ '{{ ContentLocation }}',
+ '{{ WorkspaceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SceneId": "{{ SceneId }}",
- "Description": "{{ Description }}",
- "ContentLocation": "{{ ContentLocation }}",
- "Tags": {},
- "WorkspaceId": "{{ WorkspaceId }}",
- "Capabilities": [
-  "{{ Capabilities[0] }}"
- ],
- "SceneMetadata": {}
-}
->>>
---all properties
+-- scene.iql (all properties)
 INSERT INTO aws.iottwinmaker.scenes (
  SceneId,
  Description,
@@ -135,14 +118,46 @@ INSERT INTO aws.iottwinmaker.scenes (
  region
 )
 SELECT 
- {{ .SceneId }},
- {{ .Description }},
- {{ .ContentLocation }},
- {{ .Tags }},
- {{ .WorkspaceId }},
- {{ .Capabilities }},
- {{ .SceneMetadata }},
- 'us-east-1';
+ '{{ SceneId }}',
+ '{{ Description }}',
+ '{{ ContentLocation }}',
+ '{{ Tags }}',
+ '{{ WorkspaceId }}',
+ '{{ Capabilities }}',
+ '{{ SceneMetadata }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scene
+    props:
+      - name: SceneId
+        value: '{{ SceneId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ContentLocation
+        value: '{{ ContentLocation }}'
+      - name: Tags
+        value: {}
+      - name: WorkspaceId
+        value: '{{ WorkspaceId }}'
+      - name: Capabilities
+        value:
+          - '{{ Capabilities[0] }}'
+      - name: SceneMetadata
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

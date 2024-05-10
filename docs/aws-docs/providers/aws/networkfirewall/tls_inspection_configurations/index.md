@@ -74,61 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>tls_inspection_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
- "TLSInspectionConfiguration": {
-  "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
-  "TLSInspectionConfiguration": null
- }
-}
->>>
---required properties only
+-- tls_inspection_configuration.iql (required properties only)
 INSERT INTO aws.networkfirewall.tls_inspection_configurations (
  TLSInspectionConfigurationName,
  TLSInspectionConfiguration,
  region
 )
 SELECT 
-{{ .TLSInspectionConfigurationName }},
- {{ .TLSInspectionConfiguration }},
-'us-east-1';
+'{{ TLSInspectionConfigurationName }}',
+ '{{ TLSInspectionConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
- "TLSInspectionConfiguration": {
-  "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
-  "TLSInspectionConfiguration": null,
-  "Description": "{{ Description }}",
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "Description": "{{ Description }}",
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- tls_inspection_configuration.iql (all properties)
 INSERT INTO aws.networkfirewall.tls_inspection_configurations (
  TLSInspectionConfigurationName,
  TLSInspectionConfiguration,
@@ -137,11 +111,43 @@ INSERT INTO aws.networkfirewall.tls_inspection_configurations (
  region
 )
 SELECT 
- {{ .TLSInspectionConfigurationName }},
- {{ .TLSInspectionConfiguration }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ TLSInspectionConfigurationName }}',
+ '{{ TLSInspectionConfiguration }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: tls_inspection_configuration
+    props:
+      - name: TLSInspectionConfigurationName
+        value: '{{ TLSInspectionConfigurationName }}'
+      - name: TLSInspectionConfiguration
+        value:
+          TLSInspectionConfigurationName: '{{ TLSInspectionConfigurationName }}'
+          TLSInspectionConfiguration: null
+          Description: '{{ Description }}'
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

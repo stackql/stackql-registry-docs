@@ -74,46 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>certificate_authority_activation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "Certificate": "{{ Certificate }}"
-}
->>>
---required properties only
+-- certificate_authority_activation.iql (required properties only)
 INSERT INTO aws.acmpca.certificate_authority_activations (
  CertificateAuthorityArn,
  Certificate,
  region
 )
 SELECT 
-{{ .CertificateAuthorityArn }},
- {{ .Certificate }},
-'us-east-1';
+'{{ CertificateAuthorityArn }}',
+ '{{ Certificate }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "Certificate": "{{ Certificate }}",
- "CertificateChain": "{{ CertificateChain }}",
- "Status": "{{ Status }}"
-}
->>>
---all properties
+-- certificate_authority_activation.iql (all properties)
 INSERT INTO aws.acmpca.certificate_authority_activations (
  CertificateAuthorityArn,
  Certificate,
@@ -122,11 +111,36 @@ INSERT INTO aws.acmpca.certificate_authority_activations (
  region
 )
 SELECT 
- {{ .CertificateAuthorityArn }},
- {{ .Certificate }},
- {{ .CertificateChain }},
- {{ .Status }},
- 'us-east-1';
+ '{{ CertificateAuthorityArn }}',
+ '{{ Certificate }}',
+ '{{ CertificateChain }}',
+ '{{ Status }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: certificate_authority_activation
+    props:
+      - name: CertificateAuthorityArn
+        value: '{{ CertificateAuthorityArn }}'
+      - name: Certificate
+        value: '{{ Certificate }}'
+      - name: CertificateChain
+        value: '{{ CertificateChain }}'
+      - name: Status
+        value: '{{ Status }}'
+
 ```
 </TabItem>
 </Tabs>

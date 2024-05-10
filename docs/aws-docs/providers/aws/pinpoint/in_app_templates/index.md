@@ -74,77 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>in_app_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TemplateName": "{{ TemplateName }}"
-}
->>>
---required properties only
+-- in_app_template.iql (required properties only)
 INSERT INTO aws.pinpoint.in_app_templates (
  TemplateName,
  region
 )
 SELECT 
-{{ .TemplateName }},
-'us-east-1';
+'{{ TemplateName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Content": [
-  {
-   "BackgroundColor": "{{ BackgroundColor }}",
-   "BodyConfig": {
-    "Alignment": "{{ Alignment }}",
-    "Body": "{{ Body }}",
-    "TextColor": "{{ TextColor }}"
-   },
-   "HeaderConfig": {
-    "Alignment": null,
-    "Header": "{{ Header }}",
-    "TextColor": "{{ TextColor }}"
-   },
-   "ImageUrl": "{{ ImageUrl }}",
-   "PrimaryBtn": {
-    "Android": {
-     "ButtonAction": "{{ ButtonAction }}",
-     "Link": "{{ Link }}"
-    },
-    "DefaultConfig": {
-     "BackgroundColor": "{{ BackgroundColor }}",
-     "BorderRadius": "{{ BorderRadius }}",
-     "ButtonAction": null,
-     "Link": "{{ Link }}",
-     "Text": "{{ Text }}",
-     "TextColor": "{{ TextColor }}"
-    },
-    "IOS": null,
-    "Web": null
-   },
-   "SecondaryBtn": null
-  }
- ],
- "CustomConfig": {},
- "Layout": "{{ Layout }}",
- "Tags": {},
- "TemplateDescription": "{{ TemplateDescription }}",
- "TemplateName": "{{ TemplateName }}"
-}
->>>
---all properties
+-- in_app_template.iql (all properties)
 INSERT INTO aws.pinpoint.in_app_templates (
  Content,
  CustomConfig,
@@ -155,13 +111,66 @@ INSERT INTO aws.pinpoint.in_app_templates (
  region
 )
 SELECT 
- {{ .Content }},
- {{ .CustomConfig }},
- {{ .Layout }},
- {{ .Tags }},
- {{ .TemplateDescription }},
- {{ .TemplateName }},
- 'us-east-1';
+ '{{ Content }}',
+ '{{ CustomConfig }}',
+ '{{ Layout }}',
+ '{{ Tags }}',
+ '{{ TemplateDescription }}',
+ '{{ TemplateName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: in_app_template
+    props:
+      - name: Content
+        value:
+          - BackgroundColor: '{{ BackgroundColor }}'
+            BodyConfig:
+              Alignment: '{{ Alignment }}'
+              Body: '{{ Body }}'
+              TextColor: '{{ TextColor }}'
+            HeaderConfig:
+              Alignment: null
+              Header: '{{ Header }}'
+              TextColor: '{{ TextColor }}'
+            ImageUrl: '{{ ImageUrl }}'
+            PrimaryBtn:
+              Android:
+                ButtonAction: '{{ ButtonAction }}'
+                Link: '{{ Link }}'
+              DefaultConfig:
+                BackgroundColor: '{{ BackgroundColor }}'
+                BorderRadius: '{{ BorderRadius }}'
+                ButtonAction: null
+                Link: '{{ Link }}'
+                Text: '{{ Text }}'
+                TextColor: '{{ TextColor }}'
+              IOS: null
+              Web: null
+            SecondaryBtn: null
+      - name: CustomConfig
+        value: {}
+      - name: Layout
+        value: '{{ Layout }}'
+      - name: Tags
+        value: {}
+      - name: TemplateDescription
+        value: '{{ TemplateDescription }}'
+      - name: TemplateName
+        value: '{{ TemplateName }}'
+
 ```
 </TabItem>
 </Tabs>

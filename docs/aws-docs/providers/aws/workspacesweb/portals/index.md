@@ -74,37 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>portal</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AdditionalEncryptionContext": {},
- "AuthenticationType": "{{ AuthenticationType }}",
- "BrowserSettingsArn": "{{ BrowserSettingsArn }}",
- "CustomerManagedKey": "{{ CustomerManagedKey }}",
- "DisplayName": "{{ DisplayName }}",
- "IpAccessSettingsArn": "{{ IpAccessSettingsArn }}",
- "NetworkSettingsArn": "{{ NetworkSettingsArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TrustStoreArn": "{{ TrustStoreArn }}",
- "UserAccessLoggingSettingsArn": "{{ UserAccessLoggingSettingsArn }}",
- "UserSettingsArn": "{{ UserSettingsArn }}"
-}
->>>
---required properties only
+-- portal.iql (required properties only)
 INSERT INTO aws.workspacesweb.portals (
  AdditionalEncryptionContext,
  AuthenticationType,
@@ -120,44 +103,24 @@ INSERT INTO aws.workspacesweb.portals (
  region
 )
 SELECT 
-{{ .AdditionalEncryptionContext }},
- {{ .AuthenticationType }},
- {{ .BrowserSettingsArn }},
- {{ .CustomerManagedKey }},
- {{ .DisplayName }},
- {{ .IpAccessSettingsArn }},
- {{ .NetworkSettingsArn }},
- {{ .Tags }},
- {{ .TrustStoreArn }},
- {{ .UserAccessLoggingSettingsArn }},
- {{ .UserSettingsArn }},
-'us-east-1';
+'{{ AdditionalEncryptionContext }}',
+ '{{ AuthenticationType }}',
+ '{{ BrowserSettingsArn }}',
+ '{{ CustomerManagedKey }}',
+ '{{ DisplayName }}',
+ '{{ IpAccessSettingsArn }}',
+ '{{ NetworkSettingsArn }}',
+ '{{ Tags }}',
+ '{{ TrustStoreArn }}',
+ '{{ UserAccessLoggingSettingsArn }}',
+ '{{ UserSettingsArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AdditionalEncryptionContext": {},
- "AuthenticationType": "{{ AuthenticationType }}",
- "BrowserSettingsArn": "{{ BrowserSettingsArn }}",
- "CustomerManagedKey": "{{ CustomerManagedKey }}",
- "DisplayName": "{{ DisplayName }}",
- "IpAccessSettingsArn": "{{ IpAccessSettingsArn }}",
- "NetworkSettingsArn": "{{ NetworkSettingsArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TrustStoreArn": "{{ TrustStoreArn }}",
- "UserAccessLoggingSettingsArn": "{{ UserAccessLoggingSettingsArn }}",
- "UserSettingsArn": "{{ UserSettingsArn }}"
-}
->>>
---all properties
+-- portal.iql (all properties)
 INSERT INTO aws.workspacesweb.portals (
  AdditionalEncryptionContext,
  AuthenticationType,
@@ -173,18 +136,59 @@ INSERT INTO aws.workspacesweb.portals (
  region
 )
 SELECT 
- {{ .AdditionalEncryptionContext }},
- {{ .AuthenticationType }},
- {{ .BrowserSettingsArn }},
- {{ .CustomerManagedKey }},
- {{ .DisplayName }},
- {{ .IpAccessSettingsArn }},
- {{ .NetworkSettingsArn }},
- {{ .Tags }},
- {{ .TrustStoreArn }},
- {{ .UserAccessLoggingSettingsArn }},
- {{ .UserSettingsArn }},
- 'us-east-1';
+ '{{ AdditionalEncryptionContext }}',
+ '{{ AuthenticationType }}',
+ '{{ BrowserSettingsArn }}',
+ '{{ CustomerManagedKey }}',
+ '{{ DisplayName }}',
+ '{{ IpAccessSettingsArn }}',
+ '{{ NetworkSettingsArn }}',
+ '{{ Tags }}',
+ '{{ TrustStoreArn }}',
+ '{{ UserAccessLoggingSettingsArn }}',
+ '{{ UserSettingsArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: portal
+    props:
+      - name: AdditionalEncryptionContext
+        value: {}
+      - name: AuthenticationType
+        value: '{{ AuthenticationType }}'
+      - name: BrowserSettingsArn
+        value: '{{ BrowserSettingsArn }}'
+      - name: CustomerManagedKey
+        value: '{{ CustomerManagedKey }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: IpAccessSettingsArn
+        value: '{{ IpAccessSettingsArn }}'
+      - name: NetworkSettingsArn
+        value: '{{ NetworkSettingsArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TrustStoreArn
+        value: '{{ TrustStoreArn }}'
+      - name: UserAccessLoggingSettingsArn
+        value: '{{ UserAccessLoggingSettingsArn }}'
+      - name: UserSettingsArn
+        value: '{{ UserSettingsArn }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,73 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_insights_access_scope</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "MatchPaths": [
-  {
-   "Source": {
-    "PacketHeaderStatement": {
-     "SourceAddresses": [
-      "{{ SourceAddresses[0] }}"
-     ],
-     "DestinationAddresses": [
-      "{{ DestinationAddresses[0] }}"
-     ],
-     "SourcePorts": [
-      "{{ SourcePorts[0] }}"
-     ],
-     "DestinationPorts": [
-      "{{ DestinationPorts[0] }}"
-     ],
-     "SourcePrefixLists": [
-      "{{ SourcePrefixLists[0] }}"
-     ],
-     "DestinationPrefixLists": [
-      "{{ DestinationPrefixLists[0] }}"
-     ],
-     "Protocols": [
-      "{{ Protocols[0] }}"
-     ]
-    },
-    "ResourceStatement": {
-     "Resources": [
-      "{{ Resources[0] }}"
-     ],
-     "ResourceTypes": [
-      "{{ ResourceTypes[0] }}"
-     ]
-    }
-   },
-   "Destination": null,
-   "ThroughResources": [
-    {
-     "ResourceStatement": null
-    }
-   ]
-  }
- ],
- "ExcludePaths": [
-  null
- ]
-}
->>>
---required properties only
+-- network_insights_access_scope.iql (required properties only)
 INSERT INTO aws.ec2.network_insights_access_scopes (
  Tags,
  MatchPaths,
@@ -148,72 +95,16 @@ INSERT INTO aws.ec2.network_insights_access_scopes (
  region
 )
 SELECT 
-{{ .Tags }},
- {{ .MatchPaths }},
- {{ .ExcludePaths }},
-'us-east-1';
+'{{ Tags }}',
+ '{{ MatchPaths }}',
+ '{{ ExcludePaths }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "MatchPaths": [
-  {
-   "Source": {
-    "PacketHeaderStatement": {
-     "SourceAddresses": [
-      "{{ SourceAddresses[0] }}"
-     ],
-     "DestinationAddresses": [
-      "{{ DestinationAddresses[0] }}"
-     ],
-     "SourcePorts": [
-      "{{ SourcePorts[0] }}"
-     ],
-     "DestinationPorts": [
-      "{{ DestinationPorts[0] }}"
-     ],
-     "SourcePrefixLists": [
-      "{{ SourcePrefixLists[0] }}"
-     ],
-     "DestinationPrefixLists": [
-      "{{ DestinationPrefixLists[0] }}"
-     ],
-     "Protocols": [
-      "{{ Protocols[0] }}"
-     ]
-    },
-    "ResourceStatement": {
-     "Resources": [
-      "{{ Resources[0] }}"
-     ],
-     "ResourceTypes": [
-      "{{ ResourceTypes[0] }}"
-     ]
-    }
-   },
-   "Destination": null,
-   "ThroughResources": [
-    {
-     "ResourceStatement": null
-    }
-   ]
-  }
- ],
- "ExcludePaths": [
-  null
- ]
-}
->>>
---all properties
+-- network_insights_access_scope.iql (all properties)
 INSERT INTO aws.ec2.network_insights_access_scopes (
  Tags,
  MatchPaths,
@@ -221,10 +112,60 @@ INSERT INTO aws.ec2.network_insights_access_scopes (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .MatchPaths }},
- {{ .ExcludePaths }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ MatchPaths }}',
+ '{{ ExcludePaths }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_insights_access_scope
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: MatchPaths
+        value:
+          - Source:
+              PacketHeaderStatement:
+                SourceAddresses:
+                  - '{{ SourceAddresses[0] }}'
+                DestinationAddresses:
+                  - '{{ DestinationAddresses[0] }}'
+                SourcePorts:
+                  - '{{ SourcePorts[0] }}'
+                DestinationPorts:
+                  - '{{ DestinationPorts[0] }}'
+                SourcePrefixLists:
+                  - '{{ SourcePrefixLists[0] }}'
+                DestinationPrefixLists:
+                  - '{{ DestinationPrefixLists[0] }}'
+                Protocols:
+                  - '{{ Protocols[0] }}'
+              ResourceStatement:
+                Resources:
+                  - '{{ Resources[0] }}'
+                ResourceTypes:
+                  - '{{ ResourceTypes[0] }}'
+            Destination: null
+            ThroughResources:
+              - ResourceStatement: null
+      - name: ExcludePaths
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

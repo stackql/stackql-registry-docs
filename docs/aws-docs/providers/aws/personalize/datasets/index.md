@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>dataset</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DatasetType": "{{ DatasetType }}",
- "DatasetGroupArn": "{{ DatasetGroupArn }}",
- "SchemaArn": "{{ SchemaArn }}"
-}
->>>
---required properties only
+-- dataset.iql (required properties only)
 INSERT INTO aws.personalize.datasets (
  Name,
  DatasetType,
@@ -101,34 +96,17 @@ INSERT INTO aws.personalize.datasets (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .DatasetType }},
- {{ .DatasetGroupArn }},
- {{ .SchemaArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ DatasetType }}',
+ '{{ DatasetGroupArn }}',
+ '{{ SchemaArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DatasetType": "{{ DatasetType }}",
- "DatasetGroupArn": "{{ DatasetGroupArn }}",
- "SchemaArn": "{{ SchemaArn }}",
- "DatasetImportJob": {
-  "JobName": "{{ JobName }}",
-  "DatasetImportJobArn": "{{ DatasetImportJobArn }}",
-  "DatasetArn": "{{ DatasetArn }}",
-  "DataSource": {
-   "DataLocation": "{{ DataLocation }}"
-  },
-  "RoleArn": "{{ RoleArn }}"
- }
-}
->>>
---all properties
+-- dataset.iql (all properties)
 INSERT INTO aws.personalize.datasets (
  Name,
  DatasetType,
@@ -138,12 +116,45 @@ INSERT INTO aws.personalize.datasets (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .DatasetType }},
- {{ .DatasetGroupArn }},
- {{ .SchemaArn }},
- {{ .DatasetImportJob }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ DatasetType }}',
+ '{{ DatasetGroupArn }}',
+ '{{ SchemaArn }}',
+ '{{ DatasetImportJob }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: dataset
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: DatasetType
+        value: '{{ DatasetType }}'
+      - name: DatasetGroupArn
+        value: '{{ DatasetGroupArn }}'
+      - name: SchemaArn
+        value: '{{ SchemaArn }}'
+      - name: DatasetImportJob
+        value:
+          JobName: '{{ JobName }}'
+          DatasetImportJobArn: '{{ DatasetImportJobArn }}'
+          DatasetArn: '{{ DatasetArn }}'
+          DataSource:
+            DataLocation: '{{ DataLocation }}'
+          RoleArn: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

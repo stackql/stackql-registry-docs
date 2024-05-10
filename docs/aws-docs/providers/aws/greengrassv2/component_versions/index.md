@@ -74,76 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>component_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InlineRecipe": "{{ InlineRecipe }}",
- "LambdaFunction": {
-  "LambdaArn": "{{ LambdaArn }}",
-  "ComponentName": "{{ ComponentName }}",
-  "ComponentVersion": "{{ ComponentVersion }}",
-  "ComponentPlatforms": [
-   {
-    "Name": "{{ Name }}",
-    "Attributes": {}
-   }
-  ],
-  "ComponentDependencies": {},
-  "ComponentLambdaParameters": {
-   "EventSources": [
-    {
-     "Topic": "{{ Topic }}",
-     "Type": "{{ Type }}"
-    }
-   ],
-   "MaxQueueSize": "{{ MaxQueueSize }}",
-   "MaxInstancesCount": "{{ MaxInstancesCount }}",
-   "MaxIdleTimeInSeconds": "{{ MaxIdleTimeInSeconds }}",
-   "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
-   "StatusTimeoutInSeconds": "{{ StatusTimeoutInSeconds }}",
-   "Pinned": "{{ Pinned }}",
-   "InputPayloadEncodingType": "{{ InputPayloadEncodingType }}",
-   "ExecArgs": [
-    "{{ ExecArgs[0] }}"
-   ],
-   "EnvironmentVariables": {},
-   "LinuxProcessParams": {
-    "IsolationMode": "{{ IsolationMode }}",
-    "ContainerParams": {
-     "MemorySizeInKB": "{{ MemorySizeInKB }}",
-     "MountROSysfs": "{{ MountROSysfs }}",
-     "Volumes": [
-      {
-       "SourcePath": "{{ SourcePath }}",
-       "DestinationPath": null,
-       "Permission": "{{ Permission }}",
-       "AddGroupOwner": "{{ AddGroupOwner }}"
-      }
-     ],
-     "Devices": [
-      {
-       "Path": null,
-       "Permission": null,
-       "AddGroupOwner": null
-      }
-     ]
-    }
-   }
-  }
- },
- "Tags": {}
-}
->>>
---required properties only
+-- component_version.iql (required properties only)
 INSERT INTO aws.greengrassv2.component_versions (
  InlineRecipe,
  LambdaFunction,
@@ -151,75 +95,16 @@ INSERT INTO aws.greengrassv2.component_versions (
  region
 )
 SELECT 
-{{ .InlineRecipe }},
- {{ .LambdaFunction }},
- {{ .Tags }},
-'us-east-1';
+'{{ InlineRecipe }}',
+ '{{ LambdaFunction }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InlineRecipe": "{{ InlineRecipe }}",
- "LambdaFunction": {
-  "LambdaArn": "{{ LambdaArn }}",
-  "ComponentName": "{{ ComponentName }}",
-  "ComponentVersion": "{{ ComponentVersion }}",
-  "ComponentPlatforms": [
-   {
-    "Name": "{{ Name }}",
-    "Attributes": {}
-   }
-  ],
-  "ComponentDependencies": {},
-  "ComponentLambdaParameters": {
-   "EventSources": [
-    {
-     "Topic": "{{ Topic }}",
-     "Type": "{{ Type }}"
-    }
-   ],
-   "MaxQueueSize": "{{ MaxQueueSize }}",
-   "MaxInstancesCount": "{{ MaxInstancesCount }}",
-   "MaxIdleTimeInSeconds": "{{ MaxIdleTimeInSeconds }}",
-   "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
-   "StatusTimeoutInSeconds": "{{ StatusTimeoutInSeconds }}",
-   "Pinned": "{{ Pinned }}",
-   "InputPayloadEncodingType": "{{ InputPayloadEncodingType }}",
-   "ExecArgs": [
-    "{{ ExecArgs[0] }}"
-   ],
-   "EnvironmentVariables": {},
-   "LinuxProcessParams": {
-    "IsolationMode": "{{ IsolationMode }}",
-    "ContainerParams": {
-     "MemorySizeInKB": "{{ MemorySizeInKB }}",
-     "MountROSysfs": "{{ MountROSysfs }}",
-     "Volumes": [
-      {
-       "SourcePath": "{{ SourcePath }}",
-       "DestinationPath": null,
-       "Permission": "{{ Permission }}",
-       "AddGroupOwner": "{{ AddGroupOwner }}"
-      }
-     ],
-     "Devices": [
-      {
-       "Path": null,
-       "Permission": null,
-       "AddGroupOwner": null
-      }
-     ]
-    }
-   }
-  }
- },
- "Tags": {}
-}
->>>
---all properties
+-- component_version.iql (all properties)
 INSERT INTO aws.greengrassv2.component_versions (
  InlineRecipe,
  LambdaFunction,
@@ -227,10 +112,68 @@ INSERT INTO aws.greengrassv2.component_versions (
  region
 )
 SELECT 
- {{ .InlineRecipe }},
- {{ .LambdaFunction }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InlineRecipe }}',
+ '{{ LambdaFunction }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: component_version
+    props:
+      - name: InlineRecipe
+        value: '{{ InlineRecipe }}'
+      - name: LambdaFunction
+        value:
+          LambdaArn: '{{ LambdaArn }}'
+          ComponentName: '{{ ComponentName }}'
+          ComponentVersion: '{{ ComponentVersion }}'
+          ComponentPlatforms:
+            - Name: '{{ Name }}'
+              Attributes: {}
+          ComponentDependencies: {}
+          ComponentLambdaParameters:
+            EventSources:
+              - Topic: '{{ Topic }}'
+                Type: '{{ Type }}'
+            MaxQueueSize: '{{ MaxQueueSize }}'
+            MaxInstancesCount: '{{ MaxInstancesCount }}'
+            MaxIdleTimeInSeconds: '{{ MaxIdleTimeInSeconds }}'
+            TimeoutInSeconds: '{{ TimeoutInSeconds }}'
+            StatusTimeoutInSeconds: '{{ StatusTimeoutInSeconds }}'
+            Pinned: '{{ Pinned }}'
+            InputPayloadEncodingType: '{{ InputPayloadEncodingType }}'
+            ExecArgs:
+              - '{{ ExecArgs[0] }}'
+            EnvironmentVariables: {}
+            LinuxProcessParams:
+              IsolationMode: '{{ IsolationMode }}'
+              ContainerParams:
+                MemorySizeInKB: '{{ MemorySizeInKB }}'
+                MountROSysfs: '{{ MountROSysfs }}'
+                Volumes:
+                  - SourcePath: '{{ SourcePath }}'
+                    DestinationPath: null
+                    Permission: '{{ Permission }}'
+                    AddGroupOwner: '{{ AddGroupOwner }}'
+                Devices:
+                  - Path: null
+                    Permission: null
+                    AddGroupOwner: null
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

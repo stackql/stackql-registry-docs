@@ -74,63 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>image_pipeline</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ImageTestsConfiguration": {
-  "ImageTestsEnabled": "{{ ImageTestsEnabled }}",
-  "TimeoutMinutes": "{{ TimeoutMinutes }}"
- },
- "Status": "{{ Status }}",
- "Schedule": {
-  "ScheduleExpression": "{{ ScheduleExpression }}",
-  "PipelineExecutionStartCondition": "{{ PipelineExecutionStartCondition }}"
- },
- "ImageRecipeArn": "{{ ImageRecipeArn }}",
- "ContainerRecipeArn": "{{ ContainerRecipeArn }}",
- "DistributionConfigurationArn": "{{ DistributionConfigurationArn }}",
- "InfrastructureConfigurationArn": "{{ InfrastructureConfigurationArn }}",
- "Workflows": [
-  {
-   "WorkflowArn": "{{ WorkflowArn }}",
-   "Parameters": [
-    {
-     "Name": "{{ Name }}",
-     "Value": [
-      "{{ Value[0] }}"
-     ]
-    }
-   ],
-   "ParallelGroup": "{{ ParallelGroup }}",
-   "OnFailure": "{{ OnFailure }}"
-  }
- ],
- "EnhancedImageMetadataEnabled": "{{ EnhancedImageMetadataEnabled }}",
- "ImageScanningConfiguration": {
-  "EcrConfiguration": {
-   "ContainerTags": [
-    "{{ ContainerTags[0] }}"
-   ],
-   "RepositoryName": "{{ RepositoryName }}"
-  },
-  "ImageScanningEnabled": "{{ ImageScanningEnabled }}"
- },
- "ExecutionRole": "{{ ExecutionRole }}",
- "Tags": {}
-}
->>>
---required properties only
+-- image_pipeline.iql (required properties only)
 INSERT INTO aws.imagebuilder.image_pipelines (
  Name,
  Description,
@@ -149,73 +106,27 @@ INSERT INTO aws.imagebuilder.image_pipelines (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Description }},
- {{ .ImageTestsConfiguration }},
- {{ .Status }},
- {{ .Schedule }},
- {{ .ImageRecipeArn }},
- {{ .ContainerRecipeArn }},
- {{ .DistributionConfigurationArn }},
- {{ .InfrastructureConfigurationArn }},
- {{ .Workflows }},
- {{ .EnhancedImageMetadataEnabled }},
- {{ .ImageScanningConfiguration }},
- {{ .ExecutionRole }},
- {{ .Tags }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Description }}',
+ '{{ ImageTestsConfiguration }}',
+ '{{ Status }}',
+ '{{ Schedule }}',
+ '{{ ImageRecipeArn }}',
+ '{{ ContainerRecipeArn }}',
+ '{{ DistributionConfigurationArn }}',
+ '{{ InfrastructureConfigurationArn }}',
+ '{{ Workflows }}',
+ '{{ EnhancedImageMetadataEnabled }}',
+ '{{ ImageScanningConfiguration }}',
+ '{{ ExecutionRole }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ImageTestsConfiguration": {
-  "ImageTestsEnabled": "{{ ImageTestsEnabled }}",
-  "TimeoutMinutes": "{{ TimeoutMinutes }}"
- },
- "Status": "{{ Status }}",
- "Schedule": {
-  "ScheduleExpression": "{{ ScheduleExpression }}",
-  "PipelineExecutionStartCondition": "{{ PipelineExecutionStartCondition }}"
- },
- "ImageRecipeArn": "{{ ImageRecipeArn }}",
- "ContainerRecipeArn": "{{ ContainerRecipeArn }}",
- "DistributionConfigurationArn": "{{ DistributionConfigurationArn }}",
- "InfrastructureConfigurationArn": "{{ InfrastructureConfigurationArn }}",
- "Workflows": [
-  {
-   "WorkflowArn": "{{ WorkflowArn }}",
-   "Parameters": [
-    {
-     "Name": "{{ Name }}",
-     "Value": [
-      "{{ Value[0] }}"
-     ]
-    }
-   ],
-   "ParallelGroup": "{{ ParallelGroup }}",
-   "OnFailure": "{{ OnFailure }}"
-  }
- ],
- "EnhancedImageMetadataEnabled": "{{ EnhancedImageMetadataEnabled }}",
- "ImageScanningConfiguration": {
-  "EcrConfiguration": {
-   "ContainerTags": [
-    "{{ ContainerTags[0] }}"
-   ],
-   "RepositoryName": "{{ RepositoryName }}"
-  },
-  "ImageScanningEnabled": "{{ ImageScanningEnabled }}"
- },
- "ExecutionRole": "{{ ExecutionRole }}",
- "Tags": {}
-}
->>>
---all properties
+-- image_pipeline.iql (all properties)
 INSERT INTO aws.imagebuilder.image_pipelines (
  Name,
  Description,
@@ -234,21 +145,82 @@ INSERT INTO aws.imagebuilder.image_pipelines (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .ImageTestsConfiguration }},
- {{ .Status }},
- {{ .Schedule }},
- {{ .ImageRecipeArn }},
- {{ .ContainerRecipeArn }},
- {{ .DistributionConfigurationArn }},
- {{ .InfrastructureConfigurationArn }},
- {{ .Workflows }},
- {{ .EnhancedImageMetadataEnabled }},
- {{ .ImageScanningConfiguration }},
- {{ .ExecutionRole }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ ImageTestsConfiguration }}',
+ '{{ Status }}',
+ '{{ Schedule }}',
+ '{{ ImageRecipeArn }}',
+ '{{ ContainerRecipeArn }}',
+ '{{ DistributionConfigurationArn }}',
+ '{{ InfrastructureConfigurationArn }}',
+ '{{ Workflows }}',
+ '{{ EnhancedImageMetadataEnabled }}',
+ '{{ ImageScanningConfiguration }}',
+ '{{ ExecutionRole }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: image_pipeline
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ImageTestsConfiguration
+        value:
+          ImageTestsEnabled: '{{ ImageTestsEnabled }}'
+          TimeoutMinutes: '{{ TimeoutMinutes }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: Schedule
+        value:
+          ScheduleExpression: '{{ ScheduleExpression }}'
+          PipelineExecutionStartCondition: '{{ PipelineExecutionStartCondition }}'
+      - name: ImageRecipeArn
+        value: '{{ ImageRecipeArn }}'
+      - name: ContainerRecipeArn
+        value: '{{ ContainerRecipeArn }}'
+      - name: DistributionConfigurationArn
+        value: '{{ DistributionConfigurationArn }}'
+      - name: InfrastructureConfigurationArn
+        value: '{{ InfrastructureConfigurationArn }}'
+      - name: Workflows
+        value:
+          - WorkflowArn: '{{ WorkflowArn }}'
+            Parameters:
+              - Name: '{{ Name }}'
+                Value:
+                  - '{{ Value[0] }}'
+            ParallelGroup: '{{ ParallelGroup }}'
+            OnFailure: '{{ OnFailure }}'
+      - name: EnhancedImageMetadataEnabled
+        value: '{{ EnhancedImageMetadataEnabled }}'
+      - name: ImageScanningConfiguration
+        value:
+          EcrConfiguration:
+            ContainerTags:
+              - '{{ ContainerTags[0] }}'
+            RepositoryName: '{{ RepositoryName }}'
+          ImageScanningEnabled: '{{ ImageScanningEnabled }}'
+      - name: ExecutionRole
+        value: '{{ ExecutionRole }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

@@ -74,53 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "As2Id": "{{ As2Id }}",
- "ProfileType": "{{ ProfileType }}"
-}
->>>
---required properties only
+-- profile.iql (required properties only)
 INSERT INTO aws.transfer.profiles (
  As2Id,
  ProfileType,
  region
 )
 SELECT 
-{{ .As2Id }},
- {{ .ProfileType }},
-'us-east-1';
+'{{ As2Id }}',
+ '{{ ProfileType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "As2Id": "{{ As2Id }}",
- "ProfileType": "{{ ProfileType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CertificateIds": [
-  "{{ CertificateIds[0] }}"
- ]
-}
->>>
---all properties
+-- profile.iql (all properties)
 INSERT INTO aws.transfer.profiles (
  As2Id,
  ProfileType,
@@ -129,11 +111,39 @@ INSERT INTO aws.transfer.profiles (
  region
 )
 SELECT 
- {{ .As2Id }},
- {{ .ProfileType }},
- {{ .Tags }},
- {{ .CertificateIds }},
- 'us-east-1';
+ '{{ As2Id }}',
+ '{{ ProfileType }}',
+ '{{ Tags }}',
+ '{{ CertificateIds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: profile
+    props:
+      - name: As2Id
+        value: '{{ As2Id }}'
+      - name: ProfileType
+        value: '{{ ProfileType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CertificateIds
+        value:
+          - '{{ CertificateIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>sync_job</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "WorkspaceId": "{{ WorkspaceId }}",
- "SyncSource": "{{ SyncSource }}",
- "SyncRole": "{{ SyncRole }}"
-}
->>>
---required properties only
+-- sync_job.iql (required properties only)
 INSERT INTO aws.iottwinmaker.sync_jobs (
  WorkspaceId,
  SyncSource,
@@ -101,24 +97,16 @@ INSERT INTO aws.iottwinmaker.sync_jobs (
  region
 )
 SELECT 
-{{ .WorkspaceId }},
- {{ .SyncSource }},
- {{ .SyncRole }},
-'us-east-1';
+'{{ WorkspaceId }}',
+ '{{ SyncSource }}',
+ '{{ SyncRole }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "WorkspaceId": "{{ WorkspaceId }}",
- "SyncSource": "{{ SyncSource }}",
- "SyncRole": "{{ SyncRole }}",
- "Tags": {}
-}
->>>
---all properties
+-- sync_job.iql (all properties)
 INSERT INTO aws.iottwinmaker.sync_jobs (
  WorkspaceId,
  SyncSource,
@@ -127,11 +115,36 @@ INSERT INTO aws.iottwinmaker.sync_jobs (
  region
 )
 SELECT 
- {{ .WorkspaceId }},
- {{ .SyncSource }},
- {{ .SyncRole }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ WorkspaceId }}',
+ '{{ SyncSource }}',
+ '{{ SyncRole }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: sync_job
+    props:
+      - name: WorkspaceId
+        value: '{{ WorkspaceId }}'
+      - name: SyncSource
+        value: '{{ SyncSource }}'
+      - name: SyncRole
+        value: '{{ SyncRole }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

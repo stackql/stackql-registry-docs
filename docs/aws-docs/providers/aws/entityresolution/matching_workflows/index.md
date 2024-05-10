@@ -74,64 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>matching_workflow</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "WorkflowName": "{{ WorkflowName }}",
- "InputSourceConfig": [
-  {
-   "InputSourceARN": "{{ InputSourceARN }}",
-   "SchemaArn": "{{ SchemaArn }}",
-   "ApplyNormalization": "{{ ApplyNormalization }}"
-  }
- ],
- "OutputSourceConfig": [
-  {
-   "OutputS3Path": "{{ OutputS3Path }}",
-   "Output": [
-    {
-     "Name": "{{ Name }}",
-     "Hashed": "{{ Hashed }}"
-    }
-   ],
-   "KMSArn": "{{ KMSArn }}",
-   "ApplyNormalization": "{{ ApplyNormalization }}"
-  }
- ],
- "ResolutionTechniques": {
-  "ResolutionType": "{{ ResolutionType }}",
-  "RuleBasedProperties": {
-   "Rules": [
-    {
-     "RuleName": "{{ RuleName }}",
-     "MatchingKeys": [
-      null
-     ]
-    }
-   ],
-   "AttributeMatchingModel": "{{ AttributeMatchingModel }}"
-  },
-  "ProviderProperties": {
-   "ProviderServiceArn": "{{ ProviderServiceArn }}",
-   "ProviderConfiguration": {},
-   "IntermediateSourceConfiguration": {
-    "IntermediateS3Path": "{{ IntermediateS3Path }}"
-   }
-  }
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- matching_workflow.iql (required properties only)
 INSERT INTO aws.entityresolution.matching_workflows (
  WorkflowName,
  InputSourceConfig,
@@ -141,72 +97,18 @@ INSERT INTO aws.entityresolution.matching_workflows (
  region
 )
 SELECT 
-{{ .WorkflowName }},
- {{ .InputSourceConfig }},
- {{ .OutputSourceConfig }},
- {{ .ResolutionTechniques }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ WorkflowName }}',
+ '{{ InputSourceConfig }}',
+ '{{ OutputSourceConfig }}',
+ '{{ ResolutionTechniques }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "WorkflowName": "{{ WorkflowName }}",
- "Description": "{{ Description }}",
- "InputSourceConfig": [
-  {
-   "InputSourceARN": "{{ InputSourceARN }}",
-   "SchemaArn": "{{ SchemaArn }}",
-   "ApplyNormalization": "{{ ApplyNormalization }}"
-  }
- ],
- "OutputSourceConfig": [
-  {
-   "OutputS3Path": "{{ OutputS3Path }}",
-   "Output": [
-    {
-     "Name": "{{ Name }}",
-     "Hashed": "{{ Hashed }}"
-    }
-   ],
-   "KMSArn": "{{ KMSArn }}",
-   "ApplyNormalization": "{{ ApplyNormalization }}"
-  }
- ],
- "ResolutionTechniques": {
-  "ResolutionType": "{{ ResolutionType }}",
-  "RuleBasedProperties": {
-   "Rules": [
-    {
-     "RuleName": "{{ RuleName }}",
-     "MatchingKeys": [
-      null
-     ]
-    }
-   ],
-   "AttributeMatchingModel": "{{ AttributeMatchingModel }}"
-  },
-  "ProviderProperties": {
-   "ProviderServiceArn": "{{ ProviderServiceArn }}",
-   "ProviderConfiguration": {},
-   "IntermediateSourceConfiguration": {
-    "IntermediateS3Path": "{{ IntermediateS3Path }}"
-   }
-  }
- },
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- matching_workflow.iql (all properties)
 INSERT INTO aws.entityresolution.matching_workflows (
  WorkflowName,
  Description,
@@ -218,14 +120,68 @@ INSERT INTO aws.entityresolution.matching_workflows (
  region
 )
 SELECT 
- {{ .WorkflowName }},
- {{ .Description }},
- {{ .InputSourceConfig }},
- {{ .OutputSourceConfig }},
- {{ .ResolutionTechniques }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ WorkflowName }}',
+ '{{ Description }}',
+ '{{ InputSourceConfig }}',
+ '{{ OutputSourceConfig }}',
+ '{{ ResolutionTechniques }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: matching_workflow
+    props:
+      - name: WorkflowName
+        value: '{{ WorkflowName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: InputSourceConfig
+        value:
+          - InputSourceARN: '{{ InputSourceARN }}'
+            SchemaArn: '{{ SchemaArn }}'
+            ApplyNormalization: '{{ ApplyNormalization }}'
+      - name: OutputSourceConfig
+        value:
+          - OutputS3Path: '{{ OutputS3Path }}'
+            Output:
+              - Name: '{{ Name }}'
+                Hashed: '{{ Hashed }}'
+            KMSArn: '{{ KMSArn }}'
+            ApplyNormalization: '{{ ApplyNormalization }}'
+      - name: ResolutionTechniques
+        value:
+          ResolutionType: '{{ ResolutionType }}'
+          RuleBasedProperties:
+            Rules:
+              - RuleName: '{{ RuleName }}'
+                MatchingKeys:
+                  - null
+            AttributeMatchingModel: '{{ AttributeMatchingModel }}'
+          ProviderProperties:
+            ProviderServiceArn: '{{ ProviderServiceArn }}'
+            ProviderConfiguration: {}
+            IntermediateSourceConfiguration:
+              IntermediateS3Path: '{{ IntermediateS3Path }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

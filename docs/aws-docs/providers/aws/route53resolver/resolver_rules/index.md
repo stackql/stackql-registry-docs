@@ -74,60 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resolver_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "RuleType": "{{ RuleType }}"
-}
->>>
---required properties only
+-- resolver_rule.iql (required properties only)
 INSERT INTO aws.route53resolver.resolver_rules (
  DomainName,
  RuleType,
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .RuleType }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ RuleType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResolverEndpointId": "{{ ResolverEndpointId }}",
- "DomainName": "{{ DomainName }}",
- "Name": "{{ Name }}",
- "RuleType": "{{ RuleType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TargetIps": [
-  {
-   "Ip": "{{ Ip }}",
-   "Ipv6": "{{ Ipv6 }}",
-   "Port": "{{ Port }}",
-   "Protocol": "{{ Protocol }}"
-  }
- ]
-}
->>>
---all properties
+-- resolver_rule.iql (all properties)
 INSERT INTO aws.route53resolver.resolver_rules (
  ResolverEndpointId,
  DomainName,
@@ -138,13 +113,48 @@ INSERT INTO aws.route53resolver.resolver_rules (
  region
 )
 SELECT 
- {{ .ResolverEndpointId }},
- {{ .DomainName }},
- {{ .Name }},
- {{ .RuleType }},
- {{ .Tags }},
- {{ .TargetIps }},
- 'us-east-1';
+ '{{ ResolverEndpointId }}',
+ '{{ DomainName }}',
+ '{{ Name }}',
+ '{{ RuleType }}',
+ '{{ Tags }}',
+ '{{ TargetIps }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resolver_rule
+    props:
+      - name: ResolverEndpointId
+        value: '{{ ResolverEndpointId }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RuleType
+        value: '{{ RuleType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TargetIps
+        value:
+          - Ip: '{{ Ip }}'
+            Ipv6: '{{ Ipv6 }}'
+            Port: '{{ Port }}'
+            Protocol: '{{ Protocol }}'
+
 ```
 </TabItem>
 </Tabs>

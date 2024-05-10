@@ -76,32 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>eip</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Domain": "{{ Domain }}",
- "NetworkBorderGroup": "{{ NetworkBorderGroup }}",
- "TransferAddress": "{{ TransferAddress }}",
- "InstanceId": "{{ InstanceId }}",
- "PublicIpv4Pool": "{{ PublicIpv4Pool }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- eip.iql (required properties only)
 INSERT INTO aws.ec2.eips (
  Domain,
  NetworkBorderGroup,
@@ -112,34 +100,19 @@ INSERT INTO aws.ec2.eips (
  region
 )
 SELECT 
-{{ .Domain }},
- {{ .NetworkBorderGroup }},
- {{ .TransferAddress }},
- {{ .InstanceId }},
- {{ .PublicIpv4Pool }},
- {{ .Tags }},
-'us-east-1';
+'{{ Domain }}',
+ '{{ NetworkBorderGroup }}',
+ '{{ TransferAddress }}',
+ '{{ InstanceId }}',
+ '{{ PublicIpv4Pool }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Domain": "{{ Domain }}",
- "NetworkBorderGroup": "{{ NetworkBorderGroup }}",
- "TransferAddress": "{{ TransferAddress }}",
- "InstanceId": "{{ InstanceId }}",
- "PublicIpv4Pool": "{{ PublicIpv4Pool }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- eip.iql (all properties)
 INSERT INTO aws.ec2.eips (
  Domain,
  NetworkBorderGroup,
@@ -150,13 +123,44 @@ INSERT INTO aws.ec2.eips (
  region
 )
 SELECT 
- {{ .Domain }},
- {{ .NetworkBorderGroup }},
- {{ .TransferAddress }},
- {{ .InstanceId }},
- {{ .PublicIpv4Pool }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Domain }}',
+ '{{ NetworkBorderGroup }}',
+ '{{ TransferAddress }}',
+ '{{ InstanceId }}',
+ '{{ PublicIpv4Pool }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: eip
+    props:
+      - name: Domain
+        value: '{{ Domain }}'
+      - name: NetworkBorderGroup
+        value: '{{ NetworkBorderGroup }}'
+      - name: TransferAddress
+        value: '{{ TransferAddress }}'
+      - name: InstanceId
+        value: '{{ InstanceId }}'
+      - name: PublicIpv4Pool
+        value: '{{ PublicIpv4Pool }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

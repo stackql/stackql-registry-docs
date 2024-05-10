@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>directory_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "OrganizationalUnitDistinguishedNames": [
-  "{{ OrganizationalUnitDistinguishedNames[0] }}"
- ],
- "ServiceAccountCredentials": {
-  "AccountName": "{{ AccountName }}",
-  "AccountPassword": "{{ AccountPassword }}"
- },
- "DirectoryName": "{{ DirectoryName }}"
-}
->>>
---required properties only
+-- directory_config.iql (required properties only)
 INSERT INTO aws.appstream.directory_configs (
  OrganizationalUnitDistinguishedNames,
  ServiceAccountCredentials,
@@ -104,32 +95,16 @@ INSERT INTO aws.appstream.directory_configs (
  region
 )
 SELECT 
-{{ .OrganizationalUnitDistinguishedNames }},
- {{ .ServiceAccountCredentials }},
- {{ .DirectoryName }},
-'us-east-1';
+'{{ OrganizationalUnitDistinguishedNames }}',
+ '{{ ServiceAccountCredentials }}',
+ '{{ DirectoryName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "OrganizationalUnitDistinguishedNames": [
-  "{{ OrganizationalUnitDistinguishedNames[0] }}"
- ],
- "ServiceAccountCredentials": {
-  "AccountName": "{{ AccountName }}",
-  "AccountPassword": "{{ AccountPassword }}"
- },
- "DirectoryName": "{{ DirectoryName }}",
- "CertificateBasedAuthProperties": {
-  "Status": "{{ Status }}",
-  "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}"
- }
-}
->>>
---all properties
+-- directory_config.iql (all properties)
 INSERT INTO aws.appstream.directory_configs (
  OrganizationalUnitDistinguishedNames,
  ServiceAccountCredentials,
@@ -138,11 +113,41 @@ INSERT INTO aws.appstream.directory_configs (
  region
 )
 SELECT 
- {{ .OrganizationalUnitDistinguishedNames }},
- {{ .ServiceAccountCredentials }},
- {{ .DirectoryName }},
- {{ .CertificateBasedAuthProperties }},
- 'us-east-1';
+ '{{ OrganizationalUnitDistinguishedNames }}',
+ '{{ ServiceAccountCredentials }}',
+ '{{ DirectoryName }}',
+ '{{ CertificateBasedAuthProperties }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: directory_config
+    props:
+      - name: OrganizationalUnitDistinguishedNames
+        value:
+          - '{{ OrganizationalUnitDistinguishedNames[0] }}'
+      - name: ServiceAccountCredentials
+        value:
+          AccountName: '{{ AccountName }}'
+          AccountPassword: '{{ AccountPassword }}'
+      - name: DirectoryName
+        value: '{{ DirectoryName }}'
+      - name: CertificateBasedAuthProperties
+        value:
+          Status: '{{ Status }}'
+          CertificateAuthorityArn: '{{ CertificateAuthorityArn }}'
+
 ```
 </TabItem>
 </Tabs>

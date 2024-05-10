@@ -74,58 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>location_object_storage</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AgentArns": [
-  "{{ AgentArns[0] }}"
- ]
-}
->>>
---required properties only
+-- location_object_storage.iql (required properties only)
 INSERT INTO aws.datasync.location_object_storages (
  AgentArns,
  region
 )
 SELECT 
-{{ .AgentArns }},
-'us-east-1';
+'{{ AgentArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessKey": "{{ AccessKey }}",
- "AgentArns": [
-  "{{ AgentArns[0] }}"
- ],
- "BucketName": "{{ BucketName }}",
- "SecretKey": "{{ SecretKey }}",
- "ServerCertificate": "{{ ServerCertificate }}",
- "ServerHostname": "{{ ServerHostname }}",
- "ServerPort": "{{ ServerPort }}",
- "ServerProtocol": "{{ ServerProtocol }}",
- "Subdirectory": "{{ Subdirectory }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- location_object_storage.iql (all properties)
 INSERT INTO aws.datasync.location_object_storages (
  AccessKey,
  AgentArns,
@@ -140,17 +115,57 @@ INSERT INTO aws.datasync.location_object_storages (
  region
 )
 SELECT 
- {{ .AccessKey }},
- {{ .AgentArns }},
- {{ .BucketName }},
- {{ .SecretKey }},
- {{ .ServerCertificate }},
- {{ .ServerHostname }},
- {{ .ServerPort }},
- {{ .ServerProtocol }},
- {{ .Subdirectory }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AccessKey }}',
+ '{{ AgentArns }}',
+ '{{ BucketName }}',
+ '{{ SecretKey }}',
+ '{{ ServerCertificate }}',
+ '{{ ServerHostname }}',
+ '{{ ServerPort }}',
+ '{{ ServerProtocol }}',
+ '{{ Subdirectory }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: location_object_storage
+    props:
+      - name: AccessKey
+        value: '{{ AccessKey }}'
+      - name: AgentArns
+        value:
+          - '{{ AgentArns[0] }}'
+      - name: BucketName
+        value: '{{ BucketName }}'
+      - name: SecretKey
+        value: '{{ SecretKey }}'
+      - name: ServerCertificate
+        value: '{{ ServerCertificate }}'
+      - name: ServerHostname
+        value: '{{ ServerHostname }}'
+      - name: ServerPort
+        value: '{{ ServerPort }}'
+      - name: ServerProtocol
+        value: '{{ ServerProtocol }}'
+      - name: Subdirectory
+        value: '{{ Subdirectory }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

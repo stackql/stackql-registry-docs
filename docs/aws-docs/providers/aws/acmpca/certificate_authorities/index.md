@@ -74,46 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>certificate_authority</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "KeyAlgorithm": "{{ KeyAlgorithm }}",
- "SigningAlgorithm": "{{ SigningAlgorithm }}",
- "Subject": {
-  "Country": "{{ Country }}",
-  "Organization": "{{ Organization }}",
-  "OrganizationalUnit": "{{ OrganizationalUnit }}",
-  "DistinguishedNameQualifier": "{{ DistinguishedNameQualifier }}",
-  "State": "{{ State }}",
-  "CommonName": "{{ CommonName }}",
-  "SerialNumber": "{{ SerialNumber }}",
-  "Locality": "{{ Locality }}",
-  "Title": "{{ Title }}",
-  "Surname": "{{ Surname }}",
-  "GivenName": "{{ GivenName }}",
-  "Initials": "{{ Initials }}",
-  "Pseudonym": "{{ Pseudonym }}",
-  "GenerationQualifier": "{{ GenerationQualifier }}",
-  "CustomAttributes": [
-   {
-    "ObjectIdentifier": "{{ ObjectIdentifier }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- certificate_authority.iql (required properties only)
 INSERT INTO aws.acmpca.certificate_authorities (
  Type,
  KeyAlgorithm,
@@ -122,107 +96,17 @@ INSERT INTO aws.acmpca.certificate_authorities (
  region
 )
 SELECT 
-{{ .Type }},
- {{ .KeyAlgorithm }},
- {{ .SigningAlgorithm }},
- {{ .Subject }},
-'us-east-1';
+'{{ Type }}',
+ '{{ KeyAlgorithm }}',
+ '{{ SigningAlgorithm }}',
+ '{{ Subject }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "KeyAlgorithm": "{{ KeyAlgorithm }}",
- "SigningAlgorithm": "{{ SigningAlgorithm }}",
- "Subject": {
-  "Country": "{{ Country }}",
-  "Organization": "{{ Organization }}",
-  "OrganizationalUnit": "{{ OrganizationalUnit }}",
-  "DistinguishedNameQualifier": "{{ DistinguishedNameQualifier }}",
-  "State": "{{ State }}",
-  "CommonName": "{{ CommonName }}",
-  "SerialNumber": "{{ SerialNumber }}",
-  "Locality": "{{ Locality }}",
-  "Title": "{{ Title }}",
-  "Surname": "{{ Surname }}",
-  "GivenName": "{{ GivenName }}",
-  "Initials": "{{ Initials }}",
-  "Pseudonym": "{{ Pseudonym }}",
-  "GenerationQualifier": "{{ GenerationQualifier }}",
-  "CustomAttributes": [
-   {
-    "ObjectIdentifier": "{{ ObjectIdentifier }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "RevocationConfiguration": {
-  "CrlConfiguration": {
-   "Enabled": "{{ Enabled }}",
-   "ExpirationInDays": "{{ ExpirationInDays }}",
-   "CustomCname": "{{ CustomCname }}",
-   "S3BucketName": "{{ S3BucketName }}",
-   "S3ObjectAcl": "{{ S3ObjectAcl }}",
-   "CrlDistributionPointExtensionConfiguration": {
-    "OmitExtension": "{{ OmitExtension }}"
-   }
-  },
-  "OcspConfiguration": {
-   "Enabled": "{{ Enabled }}",
-   "OcspCustomCname": "{{ OcspCustomCname }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CsrExtensions": {
-  "KeyUsage": {
-   "DigitalSignature": "{{ DigitalSignature }}",
-   "NonRepudiation": "{{ NonRepudiation }}",
-   "KeyEncipherment": "{{ KeyEncipherment }}",
-   "DataEncipherment": "{{ DataEncipherment }}",
-   "KeyAgreement": "{{ KeyAgreement }}",
-   "KeyCertSign": "{{ KeyCertSign }}",
-   "CRLSign": "{{ CRLSign }}",
-   "EncipherOnly": "{{ EncipherOnly }}",
-   "DecipherOnly": "{{ DecipherOnly }}"
-  },
-  "SubjectInformationAccess": [
-   {
-    "AccessMethod": {
-     "CustomObjectIdentifier": null,
-     "AccessMethodType": "{{ AccessMethodType }}"
-    },
-    "AccessLocation": {
-     "OtherName": {
-      "TypeId": null,
-      "Value": "{{ Value }}"
-     },
-     "Rfc822Name": "{{ Rfc822Name }}",
-     "DnsName": "{{ DnsName }}",
-     "DirectoryName": null,
-     "EdiPartyName": {
-      "PartyName": "{{ PartyName }}",
-      "NameAssigner": "{{ NameAssigner }}"
-     },
-     "UniformResourceIdentifier": "{{ UniformResourceIdentifier }}",
-     "IpAddress": "{{ IpAddress }}",
-     "RegisteredId": null
-    }
-   }
-  ]
- },
- "KeyStorageSecurityStandard": "{{ KeyStorageSecurityStandard }}",
- "UsageMode": "{{ UsageMode }}"
-}
->>>
---all properties
+-- certificate_authority.iql (all properties)
 INSERT INTO aws.acmpca.certificate_authorities (
  Type,
  KeyAlgorithm,
@@ -236,16 +120,108 @@ INSERT INTO aws.acmpca.certificate_authorities (
  region
 )
 SELECT 
- {{ .Type }},
- {{ .KeyAlgorithm }},
- {{ .SigningAlgorithm }},
- {{ .Subject }},
- {{ .RevocationConfiguration }},
- {{ .Tags }},
- {{ .CsrExtensions }},
- {{ .KeyStorageSecurityStandard }},
- {{ .UsageMode }},
- 'us-east-1';
+ '{{ Type }}',
+ '{{ KeyAlgorithm }}',
+ '{{ SigningAlgorithm }}',
+ '{{ Subject }}',
+ '{{ RevocationConfiguration }}',
+ '{{ Tags }}',
+ '{{ CsrExtensions }}',
+ '{{ KeyStorageSecurityStandard }}',
+ '{{ UsageMode }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: certificate_authority
+    props:
+      - name: Type
+        value: '{{ Type }}'
+      - name: KeyAlgorithm
+        value: '{{ KeyAlgorithm }}'
+      - name: SigningAlgorithm
+        value: '{{ SigningAlgorithm }}'
+      - name: Subject
+        value:
+          Country: '{{ Country }}'
+          Organization: '{{ Organization }}'
+          OrganizationalUnit: '{{ OrganizationalUnit }}'
+          DistinguishedNameQualifier: '{{ DistinguishedNameQualifier }}'
+          State: '{{ State }}'
+          CommonName: '{{ CommonName }}'
+          SerialNumber: '{{ SerialNumber }}'
+          Locality: '{{ Locality }}'
+          Title: '{{ Title }}'
+          Surname: '{{ Surname }}'
+          GivenName: '{{ GivenName }}'
+          Initials: '{{ Initials }}'
+          Pseudonym: '{{ Pseudonym }}'
+          GenerationQualifier: '{{ GenerationQualifier }}'
+          CustomAttributes:
+            - ObjectIdentifier: '{{ ObjectIdentifier }}'
+              Value: '{{ Value }}'
+      - name: RevocationConfiguration
+        value:
+          CrlConfiguration:
+            Enabled: '{{ Enabled }}'
+            ExpirationInDays: '{{ ExpirationInDays }}'
+            CustomCname: '{{ CustomCname }}'
+            S3BucketName: '{{ S3BucketName }}'
+            S3ObjectAcl: '{{ S3ObjectAcl }}'
+            CrlDistributionPointExtensionConfiguration:
+              OmitExtension: '{{ OmitExtension }}'
+          OcspConfiguration:
+            Enabled: '{{ Enabled }}'
+            OcspCustomCname: '{{ OcspCustomCname }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CsrExtensions
+        value:
+          KeyUsage:
+            DigitalSignature: '{{ DigitalSignature }}'
+            NonRepudiation: '{{ NonRepudiation }}'
+            KeyEncipherment: '{{ KeyEncipherment }}'
+            DataEncipherment: '{{ DataEncipherment }}'
+            KeyAgreement: '{{ KeyAgreement }}'
+            KeyCertSign: '{{ KeyCertSign }}'
+            CRLSign: '{{ CRLSign }}'
+            EncipherOnly: '{{ EncipherOnly }}'
+            DecipherOnly: '{{ DecipherOnly }}'
+          SubjectInformationAccess:
+            - AccessMethod:
+                CustomObjectIdentifier: null
+                AccessMethodType: '{{ AccessMethodType }}'
+              AccessLocation:
+                OtherName:
+                  TypeId: null
+                  Value: '{{ Value }}'
+                Rfc822Name: '{{ Rfc822Name }}'
+                DnsName: '{{ DnsName }}'
+                DirectoryName: null
+                EdiPartyName:
+                  PartyName: '{{ PartyName }}'
+                  NameAssigner: '{{ NameAssigner }}'
+                UniformResourceIdentifier: '{{ UniformResourceIdentifier }}'
+                IpAddress: '{{ IpAddress }}'
+                RegisteredId: null
+      - name: KeyStorageSecurityStandard
+        value: '{{ KeyStorageSecurityStandard }}'
+      - name: UsageMode
+        value: '{{ UsageMode }}'
+
 ```
 </TabItem>
 </Tabs>

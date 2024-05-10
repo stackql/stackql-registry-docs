@@ -74,59 +74,67 @@ FROM aws.cloudfront.monitoring_subscriptions
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>monitoring_subscription</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DistributionId": "{{ DistributionId }}",
- "MonitoringSubscription": {
-  "DistributionId": "{{ DistributionId }}",
-  "MonitoringSubscription": null
- }
-}
->>>
---required properties only
+-- monitoring_subscription.iql (required properties only)
 INSERT INTO aws.cloudfront.monitoring_subscriptions (
  DistributionId,
  MonitoringSubscription,
  region
 )
 SELECT 
-{{ .DistributionId }},
- {{ .MonitoringSubscription }},
-'us-east-1';
+'{{ DistributionId }}',
+ '{{ MonitoringSubscription }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DistributionId": "{{ DistributionId }}",
- "MonitoringSubscription": {
-  "DistributionId": "{{ DistributionId }}",
-  "MonitoringSubscription": null
- }
-}
->>>
---all properties
+-- monitoring_subscription.iql (all properties)
 INSERT INTO aws.cloudfront.monitoring_subscriptions (
  DistributionId,
  MonitoringSubscription,
  region
 )
 SELECT 
- {{ .DistributionId }},
- {{ .MonitoringSubscription }},
- 'us-east-1';
+ '{{ DistributionId }}',
+ '{{ MonitoringSubscription }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: monitoring_subscription
+    props:
+      - name: DistributionId
+        value: '{{ DistributionId }}'
+      - name: MonitoringSubscription
+        value:
+          DistributionId: '{{ DistributionId }}'
+          MonitoringSubscription: null
+
 ```
 </TabItem>
 </Tabs>

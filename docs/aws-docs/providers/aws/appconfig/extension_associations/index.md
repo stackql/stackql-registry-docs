@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>extension_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ExtensionIdentifier": "{{ ExtensionIdentifier }}",
- "ResourceIdentifier": "{{ ResourceIdentifier }}",
- "ExtensionVersionNumber": "{{ ExtensionVersionNumber }}",
- "Parameters": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- extension_association.iql (required properties only)
 INSERT INTO aws.appconfig.extension_associations (
  ExtensionIdentifier,
  ResourceIdentifier,
@@ -108,32 +97,18 @@ INSERT INTO aws.appconfig.extension_associations (
  region
 )
 SELECT 
-{{ .ExtensionIdentifier }},
- {{ .ResourceIdentifier }},
- {{ .ExtensionVersionNumber }},
- {{ .Parameters }},
- {{ .Tags }},
-'us-east-1';
+'{{ ExtensionIdentifier }}',
+ '{{ ResourceIdentifier }}',
+ '{{ ExtensionVersionNumber }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ExtensionIdentifier": "{{ ExtensionIdentifier }}",
- "ResourceIdentifier": "{{ ResourceIdentifier }}",
- "ExtensionVersionNumber": "{{ ExtensionVersionNumber }}",
- "Parameters": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- extension_association.iql (all properties)
 INSERT INTO aws.appconfig.extension_associations (
  ExtensionIdentifier,
  ResourceIdentifier,
@@ -143,12 +118,41 @@ INSERT INTO aws.appconfig.extension_associations (
  region
 )
 SELECT 
- {{ .ExtensionIdentifier }},
- {{ .ResourceIdentifier }},
- {{ .ExtensionVersionNumber }},
- {{ .Parameters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ExtensionIdentifier }}',
+ '{{ ResourceIdentifier }}',
+ '{{ ExtensionVersionNumber }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: extension_association
+    props:
+      - name: ExtensionIdentifier
+        value: '{{ ExtensionIdentifier }}'
+      - name: ResourceIdentifier
+        value: '{{ ResourceIdentifier }}'
+      - name: ExtensionVersionNumber
+        value: '{{ ExtensionVersionNumber }}'
+      - name: Parameters
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

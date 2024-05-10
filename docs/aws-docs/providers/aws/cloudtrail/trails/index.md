@@ -74,110 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>trail</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IsLogging": "{{ IsLogging }}",
- "S3BucketName": "{{ S3BucketName }}"
-}
->>>
---required properties only
+-- trail.iql (required properties only)
 INSERT INTO aws.cloudtrail.trails (
  IsLogging,
  S3BucketName,
  region
 )
 SELECT 
-{{ .IsLogging }},
- {{ .S3BucketName }},
-'us-east-1';
+'{{ IsLogging }}',
+ '{{ S3BucketName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CloudWatchLogsLogGroupArn": "{{ CloudWatchLogsLogGroupArn }}",
- "CloudWatchLogsRoleArn": "{{ CloudWatchLogsRoleArn }}",
- "EnableLogFileValidation": "{{ EnableLogFileValidation }}",
- "AdvancedEventSelectors": [
-  {
-   "Name": "{{ Name }}",
-   "FieldSelectors": [
-    {
-     "Field": "{{ Field }}",
-     "Equals": [
-      "{{ Equals[0] }}"
-     ],
-     "StartsWith": [
-      "{{ StartsWith[0] }}"
-     ],
-     "EndsWith": [
-      "{{ EndsWith[0] }}"
-     ],
-     "NotEquals": [
-      "{{ NotEquals[0] }}"
-     ],
-     "NotStartsWith": [
-      "{{ NotStartsWith[0] }}"
-     ],
-     "NotEndsWith": [
-      "{{ NotEndsWith[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "EventSelectors": [
-  {
-   "DataResources": [
-    {
-     "Type": "{{ Type }}",
-     "Values": [
-      "{{ Values[0] }}"
-     ]
-    }
-   ],
-   "IncludeManagementEvents": "{{ IncludeManagementEvents }}",
-   "ReadWriteType": "{{ ReadWriteType }}",
-   "ExcludeManagementEventSources": [
-    "{{ ExcludeManagementEventSources[0] }}"
-   ]
-  }
- ],
- "IncludeGlobalServiceEvents": "{{ IncludeGlobalServiceEvents }}",
- "IsLogging": "{{ IsLogging }}",
- "IsMultiRegionTrail": "{{ IsMultiRegionTrail }}",
- "IsOrganizationTrail": "{{ IsOrganizationTrail }}",
- "KMSKeyId": "{{ KMSKeyId }}",
- "S3BucketName": "{{ S3BucketName }}",
- "S3KeyPrefix": "{{ S3KeyPrefix }}",
- "SnsTopicName": "{{ SnsTopicName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TrailName": "{{ TrailName }}",
- "InsightSelectors": [
-  {
-   "InsightType": "{{ InsightType }}"
-  }
- ]
-}
->>>
---all properties
+-- trail.iql (all properties)
 INSERT INTO aws.cloudtrail.trails (
  CloudWatchLogsLogGroupArn,
  CloudWatchLogsRoleArn,
@@ -198,23 +123,98 @@ INSERT INTO aws.cloudtrail.trails (
  region
 )
 SELECT 
- {{ .CloudWatchLogsLogGroupArn }},
- {{ .CloudWatchLogsRoleArn }},
- {{ .EnableLogFileValidation }},
- {{ .AdvancedEventSelectors }},
- {{ .EventSelectors }},
- {{ .IncludeGlobalServiceEvents }},
- {{ .IsLogging }},
- {{ .IsMultiRegionTrail }},
- {{ .IsOrganizationTrail }},
- {{ .KMSKeyId }},
- {{ .S3BucketName }},
- {{ .S3KeyPrefix }},
- {{ .SnsTopicName }},
- {{ .Tags }},
- {{ .TrailName }},
- {{ .InsightSelectors }},
- 'us-east-1';
+ '{{ CloudWatchLogsLogGroupArn }}',
+ '{{ CloudWatchLogsRoleArn }}',
+ '{{ EnableLogFileValidation }}',
+ '{{ AdvancedEventSelectors }}',
+ '{{ EventSelectors }}',
+ '{{ IncludeGlobalServiceEvents }}',
+ '{{ IsLogging }}',
+ '{{ IsMultiRegionTrail }}',
+ '{{ IsOrganizationTrail }}',
+ '{{ KMSKeyId }}',
+ '{{ S3BucketName }}',
+ '{{ S3KeyPrefix }}',
+ '{{ SnsTopicName }}',
+ '{{ Tags }}',
+ '{{ TrailName }}',
+ '{{ InsightSelectors }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: trail
+    props:
+      - name: CloudWatchLogsLogGroupArn
+        value: '{{ CloudWatchLogsLogGroupArn }}'
+      - name: CloudWatchLogsRoleArn
+        value: '{{ CloudWatchLogsRoleArn }}'
+      - name: EnableLogFileValidation
+        value: '{{ EnableLogFileValidation }}'
+      - name: AdvancedEventSelectors
+        value:
+          - Name: '{{ Name }}'
+            FieldSelectors:
+              - Field: '{{ Field }}'
+                Equals:
+                  - '{{ Equals[0] }}'
+                StartsWith:
+                  - '{{ StartsWith[0] }}'
+                EndsWith:
+                  - '{{ EndsWith[0] }}'
+                NotEquals:
+                  - '{{ NotEquals[0] }}'
+                NotStartsWith:
+                  - '{{ NotStartsWith[0] }}'
+                NotEndsWith:
+                  - '{{ NotEndsWith[0] }}'
+      - name: EventSelectors
+        value:
+          - DataResources:
+              - Type: '{{ Type }}'
+                Values:
+                  - '{{ Values[0] }}'
+            IncludeManagementEvents: '{{ IncludeManagementEvents }}'
+            ReadWriteType: '{{ ReadWriteType }}'
+            ExcludeManagementEventSources:
+              - '{{ ExcludeManagementEventSources[0] }}'
+      - name: IncludeGlobalServiceEvents
+        value: '{{ IncludeGlobalServiceEvents }}'
+      - name: IsLogging
+        value: '{{ IsLogging }}'
+      - name: IsMultiRegionTrail
+        value: '{{ IsMultiRegionTrail }}'
+      - name: IsOrganizationTrail
+        value: '{{ IsOrganizationTrail }}'
+      - name: KMSKeyId
+        value: '{{ KMSKeyId }}'
+      - name: S3BucketName
+        value: '{{ S3BucketName }}'
+      - name: S3KeyPrefix
+        value: '{{ S3KeyPrefix }}'
+      - name: SnsTopicName
+        value: '{{ SnsTopicName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TrailName
+        value: '{{ TrailName }}'
+      - name: InsightSelectors
+        value:
+          - InsightType: '{{ InsightType }}'
+
 ```
 </TabItem>
 </Tabs>

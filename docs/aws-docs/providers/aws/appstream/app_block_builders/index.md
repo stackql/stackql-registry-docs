@@ -74,32 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>app_block_builder</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Platform": "{{ Platform }}",
- "VpcConfig": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "InstanceType": "{{ InstanceType }}"
-}
->>>
---required properties only
+-- app_block_builder.iql (required properties only)
 INSERT INTO aws.appstream.app_block_builders (
  Name,
  Platform,
@@ -108,51 +96,17 @@ INSERT INTO aws.appstream.app_block_builders (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Platform }},
- {{ .VpcConfig }},
- {{ .InstanceType }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Platform }}',
+ '{{ VpcConfig }}',
+ '{{ InstanceType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "DisplayName": "{{ DisplayName }}",
- "Platform": "{{ Platform }}",
- "AccessEndpoints": [
-  {
-   "EndpointType": "{{ EndpointType }}",
-   "VpceId": "{{ VpceId }}"
-  }
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "VpcConfig": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "EnableDefaultInternetAccess": "{{ EnableDefaultInternetAccess }}",
- "IamRoleArn": "{{ IamRoleArn }}",
- "InstanceType": "{{ InstanceType }}",
- "AppBlockArns": [
-  "{{ AppBlockArns[0] }}"
- ]
-}
->>>
---all properties
+-- app_block_builder.iql (all properties)
 INSERT INTO aws.appstream.app_block_builders (
  Name,
  Description,
@@ -168,18 +122,66 @@ INSERT INTO aws.appstream.app_block_builders (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .DisplayName }},
- {{ .Platform }},
- {{ .AccessEndpoints }},
- {{ .Tags }},
- {{ .VpcConfig }},
- {{ .EnableDefaultInternetAccess }},
- {{ .IamRoleArn }},
- {{ .InstanceType }},
- {{ .AppBlockArns }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ DisplayName }}',
+ '{{ Platform }}',
+ '{{ AccessEndpoints }}',
+ '{{ Tags }}',
+ '{{ VpcConfig }}',
+ '{{ EnableDefaultInternetAccess }}',
+ '{{ IamRoleArn }}',
+ '{{ InstanceType }}',
+ '{{ AppBlockArns }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: app_block_builder
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: Platform
+        value: '{{ Platform }}'
+      - name: AccessEndpoints
+        value:
+          - EndpointType: '{{ EndpointType }}'
+            VpceId: '{{ VpceId }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: VpcConfig
+        value:
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+      - name: EnableDefaultInternetAccess
+        value: '{{ EnableDefaultInternetAccess }}'
+      - name: IamRoleArn
+        value: '{{ IamRoleArn }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: AppBlockArns
+        value:
+          - '{{ AppBlockArns[0] }}'
+
 ```
 </TabItem>
 </Tabs>

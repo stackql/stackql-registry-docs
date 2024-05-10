@@ -76,45 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>member</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Email": "{{ Email }}"
-}
->>>
---required properties only
+-- member.iql (required properties only)
 INSERT INTO aws.guardduty.members (
  Email,
  region
 )
 SELECT 
-{{ .Email }},
-'us-east-1';
+'{{ Email }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Status": "{{ Status }}",
- "MemberId": "{{ MemberId }}",
- "Email": "{{ Email }}",
- "Message": "{{ Message }}",
- "DisableEmailNotification": "{{ DisableEmailNotification }}",
- "DetectorId": "{{ DetectorId }}"
-}
->>>
---all properties
+-- member.iql (all properties)
 INSERT INTO aws.guardduty.members (
  Status,
  MemberId,
@@ -125,13 +113,42 @@ INSERT INTO aws.guardduty.members (
  region
 )
 SELECT 
- {{ .Status }},
- {{ .MemberId }},
- {{ .Email }},
- {{ .Message }},
- {{ .DisableEmailNotification }},
- {{ .DetectorId }},
- 'us-east-1';
+ '{{ Status }}',
+ '{{ MemberId }}',
+ '{{ Email }}',
+ '{{ Message }}',
+ '{{ DisableEmailNotification }}',
+ '{{ DetectorId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: member
+    props:
+      - name: Status
+        value: '{{ Status }}'
+      - name: MemberId
+        value: '{{ MemberId }}'
+      - name: Email
+        value: '{{ Email }}'
+      - name: Message
+        value: '{{ Message }}'
+      - name: DisableEmailNotification
+        value: '{{ DisableEmailNotification }}'
+      - name: DetectorId
+        value: '{{ DetectorId }}'
+
 ```
 </TabItem>
 </Tabs>

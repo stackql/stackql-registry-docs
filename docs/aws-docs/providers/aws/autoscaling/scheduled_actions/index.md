@@ -76,47 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scheduled_action</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}"
-}
->>>
---required properties only
+-- scheduled_action.iql (required properties only)
 INSERT INTO aws.autoscaling.scheduled_actions (
  AutoScalingGroupName,
  region
 )
 SELECT 
-{{ .AutoScalingGroupName }},
-'us-east-1';
+'{{ AutoScalingGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MinSize": "{{ MinSize }}",
- "Recurrence": "{{ Recurrence }}",
- "TimeZone": "{{ TimeZone }}",
- "EndTime": "{{ EndTime }}",
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
- "StartTime": "{{ StartTime }}",
- "DesiredCapacity": "{{ DesiredCapacity }}",
- "MaxSize": "{{ MaxSize }}"
-}
->>>
---all properties
+-- scheduled_action.iql (all properties)
 INSERT INTO aws.autoscaling.scheduled_actions (
  MinSize,
  Recurrence,
@@ -129,15 +115,48 @@ INSERT INTO aws.autoscaling.scheduled_actions (
  region
 )
 SELECT 
- {{ .MinSize }},
- {{ .Recurrence }},
- {{ .TimeZone }},
- {{ .EndTime }},
- {{ .AutoScalingGroupName }},
- {{ .StartTime }},
- {{ .DesiredCapacity }},
- {{ .MaxSize }},
- 'us-east-1';
+ '{{ MinSize }}',
+ '{{ Recurrence }}',
+ '{{ TimeZone }}',
+ '{{ EndTime }}',
+ '{{ AutoScalingGroupName }}',
+ '{{ StartTime }}',
+ '{{ DesiredCapacity }}',
+ '{{ MaxSize }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scheduled_action
+    props:
+      - name: MinSize
+        value: '{{ MinSize }}'
+      - name: Recurrence
+        value: '{{ Recurrence }}'
+      - name: TimeZone
+        value: '{{ TimeZone }}'
+      - name: EndTime
+        value: '{{ EndTime }}'
+      - name: AutoScalingGroupName
+        value: '{{ AutoScalingGroupName }}'
+      - name: StartTime
+        value: '{{ StartTime }}'
+      - name: DesiredCapacity
+        value: '{{ DesiredCapacity }}'
+      - name: MaxSize
+        value: '{{ MaxSize }}'
+
 ```
 </TabItem>
 </Tabs>

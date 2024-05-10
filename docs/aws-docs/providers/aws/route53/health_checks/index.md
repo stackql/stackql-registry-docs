@@ -74,105 +74,86 @@ FROM aws.route53.health_checks
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>health_check</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "HealthCheckConfig": {
-  "AlarmIdentifier": {
-   "Name": "{{ Name }}",
-   "Region": "{{ Region }}"
-  },
-  "ChildHealthChecks": [
-   "{{ ChildHealthChecks[0] }}"
-  ],
-  "EnableSNI": "{{ EnableSNI }}",
-  "FailureThreshold": "{{ FailureThreshold }}",
-  "FullyQualifiedDomainName": "{{ FullyQualifiedDomainName }}",
-  "HealthThreshold": "{{ HealthThreshold }}",
-  "InsufficientDataHealthStatus": "{{ InsufficientDataHealthStatus }}",
-  "Inverted": "{{ Inverted }}",
-  "IPAddress": "{{ IPAddress }}",
-  "MeasureLatency": "{{ MeasureLatency }}",
-  "Port": "{{ Port }}",
-  "Regions": [
-   "{{ Regions[0] }}"
-  ],
-  "RequestInterval": "{{ RequestInterval }}",
-  "ResourcePath": "{{ ResourcePath }}",
-  "SearchString": "{{ SearchString }}",
-  "RoutingControlArn": "{{ RoutingControlArn }}",
-  "Type": "{{ Type }}"
- }
-}
->>>
---required properties only
+-- health_check.iql (required properties only)
 INSERT INTO aws.route53.health_checks (
  HealthCheckConfig,
  region
 )
 SELECT 
-{{ .HealthCheckConfig }},
-'us-east-1';
+'{{ HealthCheckConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "HealthCheckConfig": {
-  "AlarmIdentifier": {
-   "Name": "{{ Name }}",
-   "Region": "{{ Region }}"
-  },
-  "ChildHealthChecks": [
-   "{{ ChildHealthChecks[0] }}"
-  ],
-  "EnableSNI": "{{ EnableSNI }}",
-  "FailureThreshold": "{{ FailureThreshold }}",
-  "FullyQualifiedDomainName": "{{ FullyQualifiedDomainName }}",
-  "HealthThreshold": "{{ HealthThreshold }}",
-  "InsufficientDataHealthStatus": "{{ InsufficientDataHealthStatus }}",
-  "Inverted": "{{ Inverted }}",
-  "IPAddress": "{{ IPAddress }}",
-  "MeasureLatency": "{{ MeasureLatency }}",
-  "Port": "{{ Port }}",
-  "Regions": [
-   "{{ Regions[0] }}"
-  ],
-  "RequestInterval": "{{ RequestInterval }}",
-  "ResourcePath": "{{ ResourcePath }}",
-  "SearchString": "{{ SearchString }}",
-  "RoutingControlArn": "{{ RoutingControlArn }}",
-  "Type": "{{ Type }}"
- },
- "HealthCheckTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- health_check.iql (all properties)
 INSERT INTO aws.route53.health_checks (
  HealthCheckConfig,
  HealthCheckTags,
  region
 )
 SELECT 
- {{ .HealthCheckConfig }},
- {{ .HealthCheckTags }},
- 'us-east-1';
+ '{{ HealthCheckConfig }}',
+ '{{ HealthCheckTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: health_check
+    props:
+      - name: HealthCheckConfig
+        value:
+          AlarmIdentifier:
+            Name: '{{ Name }}'
+            Region: '{{ Region }}'
+          ChildHealthChecks:
+            - '{{ ChildHealthChecks[0] }}'
+          EnableSNI: '{{ EnableSNI }}'
+          FailureThreshold: '{{ FailureThreshold }}'
+          FullyQualifiedDomainName: '{{ FullyQualifiedDomainName }}'
+          HealthThreshold: '{{ HealthThreshold }}'
+          InsufficientDataHealthStatus: '{{ InsufficientDataHealthStatus }}'
+          Inverted: '{{ Inverted }}'
+          IPAddress: '{{ IPAddress }}'
+          MeasureLatency: '{{ MeasureLatency }}'
+          Port: '{{ Port }}'
+          Regions:
+            - '{{ Regions[0] }}'
+          RequestInterval: '{{ RequestInterval }}'
+          ResourcePath: '{{ ResourcePath }}'
+          SearchString: '{{ SearchString }}'
+          RoutingControlArn: '{{ RoutingControlArn }}'
+          Type: '{{ Type }}'
+      - name: HealthCheckTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

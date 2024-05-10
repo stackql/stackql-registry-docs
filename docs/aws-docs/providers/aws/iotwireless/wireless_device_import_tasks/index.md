@@ -74,64 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>wireless_device_import_task</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DestinationName": "{{ DestinationName }}",
- "Sidewalk": {
-  "SidewalkManufacturingSn": "{{ SidewalkManufacturingSn }}",
-  "DeviceCreationFile": "{{ DeviceCreationFile }}",
-  "DeviceCreationFileList": [
-   "{{ DeviceCreationFileList[0] }}"
-  ],
-  "Role": "{{ Role }}"
- }
-}
->>>
---required properties only
+-- wireless_device_import_task.iql (required properties only)
 INSERT INTO aws.iotwireless.wireless_device_import_tasks (
  DestinationName,
  Sidewalk,
  region
 )
 SELECT 
-{{ .DestinationName }},
- {{ .Sidewalk }},
-'us-east-1';
+'{{ DestinationName }}',
+ '{{ Sidewalk }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DestinationName": "{{ DestinationName }}",
- "Sidewalk": {
-  "SidewalkManufacturingSn": "{{ SidewalkManufacturingSn }}",
-  "DeviceCreationFile": "{{ DeviceCreationFile }}",
-  "DeviceCreationFileList": [
-   "{{ DeviceCreationFileList[0] }}"
-  ],
-  "Role": "{{ Role }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- wireless_device_import_task.iql (all properties)
 INSERT INTO aws.iotwireless.wireless_device_import_tasks (
  DestinationName,
  Sidewalk,
@@ -139,10 +110,40 @@ INSERT INTO aws.iotwireless.wireless_device_import_tasks (
  region
 )
 SELECT 
- {{ .DestinationName }},
- {{ .Sidewalk }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DestinationName }}',
+ '{{ Sidewalk }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: wireless_device_import_task
+    props:
+      - name: DestinationName
+        value: '{{ DestinationName }}'
+      - name: Sidewalk
+        value:
+          SidewalkManufacturingSn: '{{ SidewalkManufacturingSn }}'
+          DeviceCreationFile: '{{ DeviceCreationFile }}'
+          DeviceCreationFileList:
+            - '{{ DeviceCreationFileList[0] }}'
+          Role: '{{ Role }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

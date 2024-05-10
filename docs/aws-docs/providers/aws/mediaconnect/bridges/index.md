@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>bridge</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "PlacementArn": "{{ PlacementArn }}",
- "Sources": [
-  {
-   "Name": "{{ Name }}",
-   "BridgeArn": "{{ BridgeArn }}"
-  }
- ]
-}
->>>
---required properties only
+-- bridge.iql (required properties only)
 INSERT INTO aws.mediaconnect.bridges (
  Name,
  PlacementArn,
@@ -104,68 +95,16 @@ INSERT INTO aws.mediaconnect.bridges (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .PlacementArn }},
- {{ .Sources }},
-'us-east-1';
+'{{ Name }}',
+ '{{ PlacementArn }}',
+ '{{ Sources }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "PlacementArn": "{{ PlacementArn }}",
- "SourceFailoverConfig": {
-  "State": "{{ State }}",
-  "RecoveryWindow": "{{ RecoveryWindow }}",
-  "FailoverMode": "{{ FailoverMode }}",
-  "SourcePriority": {
-   "PrimarySource": "{{ PrimarySource }}"
-  }
- },
- "Outputs": [
-  {
-   "BridgeArn": "{{ BridgeArn }}",
-   "NetworkOutput": {
-    "Protocol": "{{ Protocol }}",
-    "IpAddress": "{{ IpAddress }}",
-    "Port": "{{ Port }}",
-    "NetworkName": "{{ NetworkName }}",
-    "Ttl": "{{ Ttl }}"
-   },
-   "Name": "{{ Name }}"
-  }
- ],
- "Sources": [
-  {
-   "Name": "{{ Name }}",
-   "BridgeArn": "{{ BridgeArn }}",
-   "FlowSource": {
-    "FlowArn": "{{ FlowArn }}",
-    "FlowVpcInterfaceAttachment": {
-     "VpcInterfaceName": "{{ VpcInterfaceName }}"
-    }
-   },
-   "NetworkSource": {
-    "Protocol": "{{ Protocol }}",
-    "MulticastIp": "{{ MulticastIp }}",
-    "Port": "{{ Port }}",
-    "NetworkName": "{{ NetworkName }}"
-   }
-  }
- ],
- "IngressGatewayBridge": {
-  "MaxBitrate": "{{ MaxBitrate }}",
-  "MaxOutputs": "{{ MaxOutputs }}"
- },
- "EgressGatewayBridge": {
-  "MaxBitrate": "{{ MaxBitrate }}"
- }
-}
->>>
---all properties
+-- bridge.iql (all properties)
 INSERT INTO aws.mediaconnect.bridges (
  Name,
  PlacementArn,
@@ -177,14 +116,72 @@ INSERT INTO aws.mediaconnect.bridges (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .PlacementArn }},
- {{ .SourceFailoverConfig }},
- {{ .Outputs }},
- {{ .Sources }},
- {{ .IngressGatewayBridge }},
- {{ .EgressGatewayBridge }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ PlacementArn }}',
+ '{{ SourceFailoverConfig }}',
+ '{{ Outputs }}',
+ '{{ Sources }}',
+ '{{ IngressGatewayBridge }}',
+ '{{ EgressGatewayBridge }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: bridge
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: PlacementArn
+        value: '{{ PlacementArn }}'
+      - name: SourceFailoverConfig
+        value:
+          State: '{{ State }}'
+          RecoveryWindow: '{{ RecoveryWindow }}'
+          FailoverMode: '{{ FailoverMode }}'
+          SourcePriority:
+            PrimarySource: '{{ PrimarySource }}'
+      - name: Outputs
+        value:
+          - BridgeArn: '{{ BridgeArn }}'
+            NetworkOutput:
+              Protocol: '{{ Protocol }}'
+              IpAddress: '{{ IpAddress }}'
+              Port: '{{ Port }}'
+              NetworkName: '{{ NetworkName }}'
+              Ttl: '{{ Ttl }}'
+            Name: '{{ Name }}'
+      - name: Sources
+        value:
+          - Name: '{{ Name }}'
+            BridgeArn: '{{ BridgeArn }}'
+            FlowSource:
+              FlowArn: '{{ FlowArn }}'
+              FlowVpcInterfaceAttachment:
+                VpcInterfaceName: '{{ VpcInterfaceName }}'
+            NetworkSource:
+              Protocol: '{{ Protocol }}'
+              MulticastIp: '{{ MulticastIp }}'
+              Port: '{{ Port }}'
+              NetworkName: '{{ NetworkName }}'
+      - name: IngressGatewayBridge
+        value:
+          MaxBitrate: '{{ MaxBitrate }}'
+          MaxOutputs: '{{ MaxOutputs }}'
+      - name: EgressGatewayBridge
+        value:
+          MaxBitrate: '{{ MaxBitrate }}'
+
 ```
 </TabItem>
 </Tabs>

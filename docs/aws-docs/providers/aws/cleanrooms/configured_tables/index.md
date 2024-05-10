@@ -74,32 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configured_table</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AllowedColumns": [
-  "{{ AllowedColumns[0] }}"
- ],
- "AnalysisMethod": "{{ AnalysisMethod }}",
- "Name": "{{ Name }}",
- "TableReference": {
-  "Glue": {
-   "TableName": "{{ TableName }}",
-   "DatabaseName": "{{ DatabaseName }}"
-  }
- }
-}
->>>
---required properties only
+-- configured_table.iql (required properties only)
 INSERT INTO aws.cleanrooms.configured_tables (
  AllowedColumns,
  AnalysisMethod,
@@ -108,47 +96,17 @@ INSERT INTO aws.cleanrooms.configured_tables (
  region
 )
 SELECT 
-{{ .AllowedColumns }},
- {{ .AnalysisMethod }},
- {{ .Name }},
- {{ .TableReference }},
-'us-east-1';
+'{{ AllowedColumns }}',
+ '{{ AnalysisMethod }}',
+ '{{ Name }}',
+ '{{ TableReference }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AllowedColumns": [
-  "{{ AllowedColumns[0] }}"
- ],
- "AnalysisMethod": "{{ AnalysisMethod }}",
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "AnalysisRules": [
-  {
-   "Type": "{{ Type }}",
-   "Policy": {
-    "V1": null
-   }
-  }
- ],
- "TableReference": {
-  "Glue": {
-   "TableName": "{{ TableName }}",
-   "DatabaseName": "{{ DatabaseName }}"
-  }
- }
-}
->>>
---all properties
+-- configured_table.iql (all properties)
 INSERT INTO aws.cleanrooms.configured_tables (
  Tags,
  AllowedColumns,
@@ -160,14 +118,54 @@ INSERT INTO aws.cleanrooms.configured_tables (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .AllowedColumns }},
- {{ .AnalysisMethod }},
- {{ .Description }},
- {{ .Name }},
- {{ .AnalysisRules }},
- {{ .TableReference }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ AllowedColumns }}',
+ '{{ AnalysisMethod }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ AnalysisRules }}',
+ '{{ TableReference }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configured_table
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AllowedColumns
+        value:
+          - '{{ AllowedColumns[0] }}'
+      - name: AnalysisMethod
+        value: '{{ AnalysisMethod }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: AnalysisRules
+        value:
+          - Type: '{{ Type }}'
+            Policy:
+              V1: null
+      - name: TableReference
+        value:
+          Glue:
+            TableName: '{{ TableName }}'
+            DatabaseName: '{{ DatabaseName }}'
+
 ```
 </TabItem>
 </Tabs>

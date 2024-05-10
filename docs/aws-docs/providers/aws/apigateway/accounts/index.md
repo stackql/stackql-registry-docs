@@ -74,47 +74,59 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>account</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CloudWatchRoleArn": "{{ CloudWatchRoleArn }}"
-}
->>>
---required properties only
+-- account.iql (required properties only)
 INSERT INTO aws.apigateway.accounts (
  CloudWatchRoleArn,
  region
 )
 SELECT 
-{{ .CloudWatchRoleArn }},
-'us-east-1';
+'{{ CloudWatchRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CloudWatchRoleArn": "{{ CloudWatchRoleArn }}"
-}
->>>
---all properties
+-- account.iql (all properties)
 INSERT INTO aws.apigateway.accounts (
  CloudWatchRoleArn,
  region
 )
 SELECT 
- {{ .CloudWatchRoleArn }},
- 'us-east-1';
+ '{{ CloudWatchRoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: account
+    props:
+      - name: CloudWatchRoleArn
+        value: '{{ CloudWatchRoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

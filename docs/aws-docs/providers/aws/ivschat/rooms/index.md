@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>room</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- room.iql (required properties only)
 INSERT INTO aws.ivschat.rooms (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "LoggingConfigurationIdentifiers": [
-  "{{ LoggingConfigurationIdentifiers[0] }}"
- ],
- "MaximumMessageLength": "{{ MaximumMessageLength }}",
- "MaximumMessageRatePerSecond": "{{ MaximumMessageRatePerSecond }}",
- "MessageReviewHandler": {
-  "FallbackResult": "{{ FallbackResult }}",
-  "Uri": "{{ Uri }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- room.iql (all properties)
 INSERT INTO aws.ivschat.rooms (
  Name,
  LoggingConfigurationIdentifiers,
@@ -131,13 +111,47 @@ INSERT INTO aws.ivschat.rooms (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .LoggingConfigurationIdentifiers }},
- {{ .MaximumMessageLength }},
- {{ .MaximumMessageRatePerSecond }},
- {{ .MessageReviewHandler }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ LoggingConfigurationIdentifiers }}',
+ '{{ MaximumMessageLength }}',
+ '{{ MaximumMessageRatePerSecond }}',
+ '{{ MessageReviewHandler }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: room
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: LoggingConfigurationIdentifiers
+        value:
+          - '{{ LoggingConfigurationIdentifiers[0] }}'
+      - name: MaximumMessageLength
+        value: '{{ MaximumMessageLength }}'
+      - name: MaximumMessageRatePerSecond
+        value: '{{ MaximumMessageRatePerSecond }}'
+      - name: MessageReviewHandler
+        value:
+          FallbackResult: '{{ FallbackResult }}'
+          Uri: '{{ Uri }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

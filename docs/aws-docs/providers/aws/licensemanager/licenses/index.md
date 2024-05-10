@@ -74,52 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>license</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Issuer": {
-  "Name": "{{ Name }}",
-  "SignKey": "{{ SignKey }}"
- },
- "LicenseName": "{{ LicenseName }}",
- "ProductName": "{{ ProductName }}",
- "HomeRegion": "{{ HomeRegion }}",
- "Validity": {
-  "Begin": "{{ Begin }}",
-  "End": "{{ End }}"
- },
- "Entitlements": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}",
-   "MaxCount": "{{ MaxCount }}",
-   "Overage": "{{ Overage }}",
-   "Unit": "{{ Unit }}",
-   "AllowCheckIn": "{{ AllowCheckIn }}"
-  }
- ],
- "ConsumptionConfiguration": {
-  "RenewType": "{{ RenewType }}",
-  "ProvisionalConfiguration": {
-   "MaxTimeToLiveInMinutes": "{{ MaxTimeToLiveInMinutes }}"
-  },
-  "BorrowConfiguration": {
-   "MaxTimeToLiveInMinutes": "{{ MaxTimeToLiveInMinutes }}",
-   "AllowEarlyCheckIn": "{{ AllowEarlyCheckIn }}"
-  }
- }
-}
->>>
---required properties only
+-- license.iql (required properties only)
 INSERT INTO aws.licensemanager.licenses (
  Issuer,
  LicenseName,
@@ -131,64 +99,20 @@ INSERT INTO aws.licensemanager.licenses (
  region
 )
 SELECT 
-{{ .Issuer }},
- {{ .LicenseName }},
- {{ .ProductName }},
- {{ .HomeRegion }},
- {{ .Validity }},
- {{ .Entitlements }},
- {{ .ConsumptionConfiguration }},
-'us-east-1';
+'{{ Issuer }}',
+ '{{ LicenseName }}',
+ '{{ ProductName }}',
+ '{{ HomeRegion }}',
+ '{{ Validity }}',
+ '{{ Entitlements }}',
+ '{{ ConsumptionConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ProductSKU": "{{ ProductSKU }}",
- "Issuer": {
-  "Name": "{{ Name }}",
-  "SignKey": "{{ SignKey }}"
- },
- "LicenseName": "{{ LicenseName }}",
- "ProductName": "{{ ProductName }}",
- "HomeRegion": "{{ HomeRegion }}",
- "Validity": {
-  "Begin": "{{ Begin }}",
-  "End": "{{ End }}"
- },
- "Entitlements": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}",
-   "MaxCount": "{{ MaxCount }}",
-   "Overage": "{{ Overage }}",
-   "Unit": "{{ Unit }}",
-   "AllowCheckIn": "{{ AllowCheckIn }}"
-  }
- ],
- "Beneficiary": "{{ Beneficiary }}",
- "ConsumptionConfiguration": {
-  "RenewType": "{{ RenewType }}",
-  "ProvisionalConfiguration": {
-   "MaxTimeToLiveInMinutes": "{{ MaxTimeToLiveInMinutes }}"
-  },
-  "BorrowConfiguration": {
-   "MaxTimeToLiveInMinutes": "{{ MaxTimeToLiveInMinutes }}",
-   "AllowEarlyCheckIn": "{{ AllowEarlyCheckIn }}"
-  }
- },
- "LicenseMetadata": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Status": "{{ Status }}"
-}
->>>
---all properties
+-- license.iql (all properties)
 INSERT INTO aws.licensemanager.licenses (
  ProductSKU,
  Issuer,
@@ -204,18 +128,75 @@ INSERT INTO aws.licensemanager.licenses (
  region
 )
 SELECT 
- {{ .ProductSKU }},
- {{ .Issuer }},
- {{ .LicenseName }},
- {{ .ProductName }},
- {{ .HomeRegion }},
- {{ .Validity }},
- {{ .Entitlements }},
- {{ .Beneficiary }},
- {{ .ConsumptionConfiguration }},
- {{ .LicenseMetadata }},
- {{ .Status }},
- 'us-east-1';
+ '{{ ProductSKU }}',
+ '{{ Issuer }}',
+ '{{ LicenseName }}',
+ '{{ ProductName }}',
+ '{{ HomeRegion }}',
+ '{{ Validity }}',
+ '{{ Entitlements }}',
+ '{{ Beneficiary }}',
+ '{{ ConsumptionConfiguration }}',
+ '{{ LicenseMetadata }}',
+ '{{ Status }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: license
+    props:
+      - name: ProductSKU
+        value: '{{ ProductSKU }}'
+      - name: Issuer
+        value:
+          Name: '{{ Name }}'
+          SignKey: '{{ SignKey }}'
+      - name: LicenseName
+        value: '{{ LicenseName }}'
+      - name: ProductName
+        value: '{{ ProductName }}'
+      - name: HomeRegion
+        value: '{{ HomeRegion }}'
+      - name: Validity
+        value:
+          Begin: '{{ Begin }}'
+          End: '{{ End }}'
+      - name: Entitlements
+        value:
+          - Name: '{{ Name }}'
+            Value: '{{ Value }}'
+            MaxCount: '{{ MaxCount }}'
+            Overage: '{{ Overage }}'
+            Unit: '{{ Unit }}'
+            AllowCheckIn: '{{ AllowCheckIn }}'
+      - name: Beneficiary
+        value: '{{ Beneficiary }}'
+      - name: ConsumptionConfiguration
+        value:
+          RenewType: '{{ RenewType }}'
+          ProvisionalConfiguration:
+            MaxTimeToLiveInMinutes: '{{ MaxTimeToLiveInMinutes }}'
+          BorrowConfiguration:
+            MaxTimeToLiveInMinutes: '{{ MaxTimeToLiveInMinutes }}'
+            AllowEarlyCheckIn: '{{ AllowEarlyCheckIn }}'
+      - name: LicenseMetadata
+        value:
+          - Name: '{{ Name }}'
+            Value: '{{ Value }}'
+      - name: Status
+        value: '{{ Status }}'
+
 ```
 </TabItem>
 </Tabs>

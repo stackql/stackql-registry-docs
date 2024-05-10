@@ -74,44 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>certificate</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Status": "{{ Status }}"
-}
->>>
---required properties only
+-- certificate.iql (required properties only)
 INSERT INTO aws.iot.certificates (
  Status,
  region
 )
 SELECT 
-{{ .Status }},
-'us-east-1';
+'{{ Status }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CACertificatePem": "{{ CACertificatePem }}",
- "CertificatePem": "{{ CertificatePem }}",
- "CertificateSigningRequest": "{{ CertificateSigningRequest }}",
- "CertificateMode": "{{ CertificateMode }}",
- "Status": "{{ Status }}"
-}
->>>
---all properties
+-- certificate.iql (all properties)
 INSERT INTO aws.iot.certificates (
  CACertificatePem,
  CertificatePem,
@@ -121,12 +110,39 @@ INSERT INTO aws.iot.certificates (
  region
 )
 SELECT 
- {{ .CACertificatePem }},
- {{ .CertificatePem }},
- {{ .CertificateSigningRequest }},
- {{ .CertificateMode }},
- {{ .Status }},
- 'us-east-1';
+ '{{ CACertificatePem }}',
+ '{{ CertificatePem }}',
+ '{{ CertificateSigningRequest }}',
+ '{{ CertificateMode }}',
+ '{{ Status }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: certificate
+    props:
+      - name: CACertificatePem
+        value: '{{ CACertificatePem }}'
+      - name: CertificatePem
+        value: '{{ CertificatePem }}'
+      - name: CertificateSigningRequest
+        value: '{{ CertificateSigningRequest }}'
+      - name: CertificateMode
+        value: '{{ CertificateMode }}'
+      - name: Status
+        value: '{{ Status }}'
+
 ```
 </TabItem>
 </Tabs>

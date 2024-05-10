@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "Content": {}
-}
->>>
---required properties only
+-- policy.iql (required properties only)
 INSERT INTO aws.organizations.policies (
  Name,
  Type,
@@ -99,33 +95,16 @@ INSERT INTO aws.organizations.policies (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Type }},
- {{ .Content }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Type }}',
+ '{{ Content }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "Content": {},
- "Description": "{{ Description }}",
- "TargetIds": [
-  "{{ TargetIds[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- policy.iql (all properties)
 INSERT INTO aws.organizations.policies (
  Name,
  Type,
@@ -136,13 +115,45 @@ INSERT INTO aws.organizations.policies (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Type }},
- {{ .Content }},
- {{ .Description }},
- {{ .TargetIds }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ Content }}',
+ '{{ Description }}',
+ '{{ TargetIds }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: policy
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Content
+        value: {}
+      - name: Description
+        value: '{{ Description }}'
+      - name: TargetIds
+        value:
+          - '{{ TargetIds[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

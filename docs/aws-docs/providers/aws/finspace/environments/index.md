@@ -74,70 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- environment.iql (required properties only)
 INSERT INTO aws.finspace.environments (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "FederationMode": "{{ FederationMode }}",
- "FederationParameters": {
-  "SamlMetadataURL": "{{ SamlMetadataURL }}",
-  "FederationProviderName": "{{ FederationProviderName }}",
-  "SamlMetadataDocument": "{{ SamlMetadataDocument }}",
-  "ApplicationCallBackURL": "{{ ApplicationCallBackURL }}",
-  "FederationURN": "{{ FederationURN }}",
-  "AttributeMap": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "SuperuserParameters": {
-  "FirstName": "{{ FirstName }}",
-  "LastName": "{{ LastName }}",
-  "EmailAddress": "{{ EmailAddress }}"
- },
- "DataBundles": [
-  "{{ DataBundles[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- environment.iql (all properties)
 INSERT INTO aws.finspace.environments (
  Name,
  Description,
@@ -150,15 +113,62 @@ INSERT INTO aws.finspace.environments (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .KmsKeyId }},
- {{ .FederationMode }},
- {{ .FederationParameters }},
- {{ .SuperuserParameters }},
- {{ .DataBundles }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ KmsKeyId }}',
+ '{{ FederationMode }}',
+ '{{ FederationParameters }}',
+ '{{ SuperuserParameters }}',
+ '{{ DataBundles }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: FederationMode
+        value: '{{ FederationMode }}'
+      - name: FederationParameters
+        value:
+          SamlMetadataURL: '{{ SamlMetadataURL }}'
+          FederationProviderName: '{{ FederationProviderName }}'
+          SamlMetadataDocument: '{{ SamlMetadataDocument }}'
+          ApplicationCallBackURL: '{{ ApplicationCallBackURL }}'
+          FederationURN: '{{ FederationURN }}'
+          AttributeMap:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: SuperuserParameters
+        value:
+          FirstName: '{{ FirstName }}'
+          LastName: '{{ LastName }}'
+          EmailAddress: '{{ EmailAddress }}'
+      - name: DataBundles
+        value:
+          - '{{ DataBundles[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

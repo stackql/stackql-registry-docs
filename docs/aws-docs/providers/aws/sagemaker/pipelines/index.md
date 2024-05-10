@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pipeline</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PipelineName": "{{ PipelineName }}",
- "PipelineDefinition": {},
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- pipeline.iql (required properties only)
 INSERT INTO aws.sagemaker.pipelines (
  PipelineName,
  PipelineDefinition,
@@ -99,34 +95,16 @@ INSERT INTO aws.sagemaker.pipelines (
  region
 )
 SELECT 
-{{ .PipelineName }},
- {{ .PipelineDefinition }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ PipelineName }}',
+ '{{ PipelineDefinition }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PipelineName": "{{ PipelineName }}",
- "PipelineDisplayName": "{{ PipelineDisplayName }}",
- "PipelineDescription": "{{ PipelineDescription }}",
- "PipelineDefinition": {},
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "ParallelismConfiguration": {
-  "MaxParallelExecutionSteps": "{{ MaxParallelExecutionSteps }}"
- }
-}
->>>
---all properties
+-- pipeline.iql (all properties)
 INSERT INTO aws.sagemaker.pipelines (
  PipelineName,
  PipelineDisplayName,
@@ -138,14 +116,48 @@ INSERT INTO aws.sagemaker.pipelines (
  region
 )
 SELECT 
- {{ .PipelineName }},
- {{ .PipelineDisplayName }},
- {{ .PipelineDescription }},
- {{ .PipelineDefinition }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .ParallelismConfiguration }},
- 'us-east-1';
+ '{{ PipelineName }}',
+ '{{ PipelineDisplayName }}',
+ '{{ PipelineDescription }}',
+ '{{ PipelineDefinition }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ ParallelismConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pipeline
+    props:
+      - name: PipelineName
+        value: '{{ PipelineName }}'
+      - name: PipelineDisplayName
+        value: '{{ PipelineDisplayName }}'
+      - name: PipelineDescription
+        value: '{{ PipelineDescription }}'
+      - name: PipelineDefinition
+        value: {}
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: ParallelismConfiguration
+        value:
+          MaxParallelExecutionSteps: '{{ MaxParallelExecutionSteps }}'
+
 ```
 </TabItem>
 </Tabs>

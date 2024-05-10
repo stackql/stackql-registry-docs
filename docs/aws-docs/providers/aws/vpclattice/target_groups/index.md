@@ -74,75 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>target_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- target_group.iql (required properties only)
 INSERT INTO aws.vpclattice.target_groups (
  Type,
  region
 )
 SELECT 
-{{ .Type }},
-'us-east-1';
+'{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Config": {
-  "Port": "{{ Port }}",
-  "Protocol": "{{ Protocol }}",
-  "ProtocolVersion": "{{ ProtocolVersion }}",
-  "IpAddressType": "{{ IpAddressType }}",
-  "LambdaEventStructureVersion": "{{ LambdaEventStructureVersion }}",
-  "VpcIdentifier": "{{ VpcIdentifier }}",
-  "HealthCheck": {
-   "Enabled": "{{ Enabled }}",
-   "Protocol": "{{ Protocol }}",
-   "ProtocolVersion": "{{ ProtocolVersion }}",
-   "Port": "{{ Port }}",
-   "Path": "{{ Path }}",
-   "HealthCheckIntervalSeconds": "{{ HealthCheckIntervalSeconds }}",
-   "HealthCheckTimeoutSeconds": "{{ HealthCheckTimeoutSeconds }}",
-   "HealthyThresholdCount": "{{ HealthyThresholdCount }}",
-   "UnhealthyThresholdCount": "{{ UnhealthyThresholdCount }}",
-   "Matcher": {
-    "HttpCode": "{{ HttpCode }}"
-   }
-  }
- },
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "Targets": [
-  {
-   "Id": "{{ Id }}",
-   "Port": "{{ Port }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- target_group.iql (all properties)
 INSERT INTO aws.vpclattice.target_groups (
  Config,
  Name,
@@ -152,12 +110,61 @@ INSERT INTO aws.vpclattice.target_groups (
  region
 )
 SELECT 
- {{ .Config }},
- {{ .Name }},
- {{ .Type }},
- {{ .Targets }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Config }}',
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ Targets }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: target_group
+    props:
+      - name: Config
+        value:
+          Port: '{{ Port }}'
+          Protocol: '{{ Protocol }}'
+          ProtocolVersion: '{{ ProtocolVersion }}'
+          IpAddressType: '{{ IpAddressType }}'
+          LambdaEventStructureVersion: '{{ LambdaEventStructureVersion }}'
+          VpcIdentifier: '{{ VpcIdentifier }}'
+          HealthCheck:
+            Enabled: '{{ Enabled }}'
+            Protocol: '{{ Protocol }}'
+            ProtocolVersion: '{{ ProtocolVersion }}'
+            Port: '{{ Port }}'
+            Path: '{{ Path }}'
+            HealthCheckIntervalSeconds: '{{ HealthCheckIntervalSeconds }}'
+            HealthCheckTimeoutSeconds: '{{ HealthCheckTimeoutSeconds }}'
+            HealthyThresholdCount: '{{ HealthyThresholdCount }}'
+            UnhealthyThresholdCount: '{{ UnhealthyThresholdCount }}'
+            Matcher:
+              HttpCode: '{{ HttpCode }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Targets
+        value:
+          - Id: '{{ Id }}'
+            Port: '{{ Port }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

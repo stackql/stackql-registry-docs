@@ -76,51 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_invoke_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FunctionName": "{{ FunctionName }}",
- "Qualifier": "{{ Qualifier }}"
-}
->>>
---required properties only
+-- event_invoke_config.iql (required properties only)
 INSERT INTO aws.lambda.event_invoke_configs (
  FunctionName,
  Qualifier,
  region
 )
 SELECT 
-{{ .FunctionName }},
- {{ .Qualifier }},
-'us-east-1';
+'{{ FunctionName }}',
+ '{{ Qualifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DestinationConfig": {
-  "OnFailure": {
-   "Destination": "{{ Destination }}"
-  }
- },
- "FunctionName": "{{ FunctionName }}",
- "MaximumEventAgeInSeconds": "{{ MaximumEventAgeInSeconds }}",
- "MaximumRetryAttempts": "{{ MaximumRetryAttempts }}",
- "Qualifier": "{{ Qualifier }}"
-}
->>>
---all properties
+-- event_invoke_config.iql (all properties)
 INSERT INTO aws.lambda.event_invoke_configs (
  DestinationConfig,
  FunctionName,
@@ -130,12 +114,41 @@ INSERT INTO aws.lambda.event_invoke_configs (
  region
 )
 SELECT 
- {{ .DestinationConfig }},
- {{ .FunctionName }},
- {{ .MaximumEventAgeInSeconds }},
- {{ .MaximumRetryAttempts }},
- {{ .Qualifier }},
- 'us-east-1';
+ '{{ DestinationConfig }}',
+ '{{ FunctionName }}',
+ '{{ MaximumEventAgeInSeconds }}',
+ '{{ MaximumRetryAttempts }}',
+ '{{ Qualifier }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_invoke_config
+    props:
+      - name: DestinationConfig
+        value:
+          OnFailure:
+            Destination: '{{ Destination }}'
+      - name: FunctionName
+        value: '{{ FunctionName }}'
+      - name: MaximumEventAgeInSeconds
+        value: '{{ MaximumEventAgeInSeconds }}'
+      - name: MaximumRetryAttempts
+        value: '{{ MaximumRetryAttempts }}'
+      - name: Qualifier
+        value: '{{ Qualifier }}'
+
 ```
 </TabItem>
 </Tabs>

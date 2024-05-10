@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>flywheel</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
- "DataLakeS3Uri": "{{ DataLakeS3Uri }}",
- "FlywheelName": "{{ FlywheelName }}"
-}
->>>
---required properties only
+-- flywheel.iql (required properties only)
 INSERT INTO aws.comprehend.flywheels (
  DataAccessRoleArn,
  DataLakeS3Uri,
@@ -99,60 +95,16 @@ INSERT INTO aws.comprehend.flywheels (
  region
 )
 SELECT 
-{{ .DataAccessRoleArn }},
- {{ .DataLakeS3Uri }},
- {{ .FlywheelName }},
-'us-east-1';
+'{{ DataAccessRoleArn }}',
+ '{{ DataLakeS3Uri }}',
+ '{{ FlywheelName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ActiveModelArn": "{{ ActiveModelArn }}",
- "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
- "DataLakeS3Uri": "{{ DataLakeS3Uri }}",
- "DataSecurityConfig": {
-  "ModelKmsKeyId": "{{ ModelKmsKeyId }}",
-  "VolumeKmsKeyId": null,
-  "DataLakeKmsKeyId": null,
-  "VpcConfig": {
-   "SecurityGroupIds": [
-    "{{ SecurityGroupIds[0] }}"
-   ],
-   "Subnets": [
-    "{{ Subnets[0] }}"
-   ]
-  }
- },
- "FlywheelName": "{{ FlywheelName }}",
- "ModelType": "{{ ModelType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TaskConfig": {
-  "LanguageCode": "{{ LanguageCode }}",
-  "DocumentClassificationConfig": {
-   "Mode": "{{ Mode }}",
-   "Labels": [
-    "{{ Labels[0] }}"
-   ]
-  },
-  "EntityRecognitionConfig": {
-   "EntityTypes": [
-    {
-     "Type": "{{ Type }}"
-    }
-   ]
-  }
- }
-}
->>>
---all properties
+-- flywheel.iql (all properties)
 INSERT INTO aws.comprehend.flywheels (
  ActiveModelArn,
  DataAccessRoleArn,
@@ -165,15 +117,66 @@ INSERT INTO aws.comprehend.flywheels (
  region
 )
 SELECT 
- {{ .ActiveModelArn }},
- {{ .DataAccessRoleArn }},
- {{ .DataLakeS3Uri }},
- {{ .DataSecurityConfig }},
- {{ .FlywheelName }},
- {{ .ModelType }},
- {{ .Tags }},
- {{ .TaskConfig }},
- 'us-east-1';
+ '{{ ActiveModelArn }}',
+ '{{ DataAccessRoleArn }}',
+ '{{ DataLakeS3Uri }}',
+ '{{ DataSecurityConfig }}',
+ '{{ FlywheelName }}',
+ '{{ ModelType }}',
+ '{{ Tags }}',
+ '{{ TaskConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: flywheel
+    props:
+      - name: ActiveModelArn
+        value: '{{ ActiveModelArn }}'
+      - name: DataAccessRoleArn
+        value: '{{ DataAccessRoleArn }}'
+      - name: DataLakeS3Uri
+        value: '{{ DataLakeS3Uri }}'
+      - name: DataSecurityConfig
+        value:
+          ModelKmsKeyId: '{{ ModelKmsKeyId }}'
+          VolumeKmsKeyId: null
+          DataLakeKmsKeyId: null
+          VpcConfig:
+            SecurityGroupIds:
+              - '{{ SecurityGroupIds[0] }}'
+            Subnets:
+              - '{{ Subnets[0] }}'
+      - name: FlywheelName
+        value: '{{ FlywheelName }}'
+      - name: ModelType
+        value: '{{ ModelType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TaskConfig
+        value:
+          LanguageCode: '{{ LanguageCode }}'
+          DocumentClassificationConfig:
+            Mode: '{{ Mode }}'
+            Labels:
+              - '{{ Labels[0] }}'
+          EntityRecognitionConfig:
+            EntityTypes:
+              - Type: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

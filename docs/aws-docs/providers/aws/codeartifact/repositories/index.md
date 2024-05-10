@@ -74,58 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>repository</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RepositoryName": "{{ RepositoryName }}",
- "DomainName": "{{ DomainName }}"
-}
->>>
---required properties only
+-- repository.iql (required properties only)
 INSERT INTO aws.codeartifact.repositories (
  RepositoryName,
  DomainName,
  region
 )
 SELECT 
-{{ .RepositoryName }},
- {{ .DomainName }},
-'us-east-1';
+'{{ RepositoryName }}',
+ '{{ DomainName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RepositoryName": "{{ RepositoryName }}",
- "DomainName": "{{ DomainName }}",
- "Description": "{{ Description }}",
- "ExternalConnections": [
-  "{{ ExternalConnections[0] }}"
- ],
- "Upstreams": [
-  "{{ Upstreams[0] }}"
- ],
- "PermissionsPolicyDocument": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- repository.iql (all properties)
 INSERT INTO aws.codeartifact.repositories (
  RepositoryName,
  DomainName,
@@ -137,14 +114,49 @@ INSERT INTO aws.codeartifact.repositories (
  region
 )
 SELECT 
- {{ .RepositoryName }},
- {{ .DomainName }},
- {{ .Description }},
- {{ .ExternalConnections }},
- {{ .Upstreams }},
- {{ .PermissionsPolicyDocument }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ RepositoryName }}',
+ '{{ DomainName }}',
+ '{{ Description }}',
+ '{{ ExternalConnections }}',
+ '{{ Upstreams }}',
+ '{{ PermissionsPolicyDocument }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: repository
+    props:
+      - name: RepositoryName
+        value: '{{ RepositoryName }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ExternalConnections
+        value:
+          - '{{ ExternalConnections[0] }}'
+      - name: Upstreams
+        value:
+          - '{{ Upstreams[0] }}'
+      - name: PermissionsPolicyDocument
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

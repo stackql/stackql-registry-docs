@@ -74,73 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>global_replication_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Members": [
-  {
-   "ReplicationGroupId": "{{ ReplicationGroupId }}",
-   "ReplicationGroupRegion": "{{ ReplicationGroupRegion }}",
-   "Role": "{{ Role }}"
-  }
- ]
-}
->>>
---required properties only
+-- global_replication_group.iql (required properties only)
 INSERT INTO aws.elasticache.global_replication_groups (
  Members,
  region
 )
 SELECT 
-{{ .Members }},
-'us-east-1';
+'{{ Members }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GlobalReplicationGroupIdSuffix": "{{ GlobalReplicationGroupIdSuffix }}",
- "AutomaticFailoverEnabled": "{{ AutomaticFailoverEnabled }}",
- "CacheNodeType": "{{ CacheNodeType }}",
- "EngineVersion": "{{ EngineVersion }}",
- "CacheParameterGroupName": "{{ CacheParameterGroupName }}",
- "GlobalNodeGroupCount": "{{ GlobalNodeGroupCount }}",
- "GlobalReplicationGroupDescription": "{{ GlobalReplicationGroupDescription }}",
- "Members": [
-  {
-   "ReplicationGroupId": "{{ ReplicationGroupId }}",
-   "ReplicationGroupRegion": "{{ ReplicationGroupRegion }}",
-   "Role": "{{ Role }}"
-  }
- ],
- "RegionalConfigurations": [
-  {
-   "ReplicationGroupId": "{{ ReplicationGroupId }}",
-   "ReplicationGroupRegion": "{{ ReplicationGroupRegion }}",
-   "ReshardingConfigurations": [
-    {
-     "NodeGroupId": "{{ NodeGroupId }}",
-     "PreferredAvailabilityZones": [
-      "{{ PreferredAvailabilityZones[0] }}"
-     ]
-    }
-   ]
-  }
- ]
-}
->>>
---all properties
+-- global_replication_group.iql (all properties)
 INSERT INTO aws.elasticache.global_replication_groups (
  GlobalReplicationGroupIdSuffix,
  AutomaticFailoverEnabled,
@@ -154,16 +114,60 @@ INSERT INTO aws.elasticache.global_replication_groups (
  region
 )
 SELECT 
- {{ .GlobalReplicationGroupIdSuffix }},
- {{ .AutomaticFailoverEnabled }},
- {{ .CacheNodeType }},
- {{ .EngineVersion }},
- {{ .CacheParameterGroupName }},
- {{ .GlobalNodeGroupCount }},
- {{ .GlobalReplicationGroupDescription }},
- {{ .Members }},
- {{ .RegionalConfigurations }},
- 'us-east-1';
+ '{{ GlobalReplicationGroupIdSuffix }}',
+ '{{ AutomaticFailoverEnabled }}',
+ '{{ CacheNodeType }}',
+ '{{ EngineVersion }}',
+ '{{ CacheParameterGroupName }}',
+ '{{ GlobalNodeGroupCount }}',
+ '{{ GlobalReplicationGroupDescription }}',
+ '{{ Members }}',
+ '{{ RegionalConfigurations }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: global_replication_group
+    props:
+      - name: GlobalReplicationGroupIdSuffix
+        value: '{{ GlobalReplicationGroupIdSuffix }}'
+      - name: AutomaticFailoverEnabled
+        value: '{{ AutomaticFailoverEnabled }}'
+      - name: CacheNodeType
+        value: '{{ CacheNodeType }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: CacheParameterGroupName
+        value: '{{ CacheParameterGroupName }}'
+      - name: GlobalNodeGroupCount
+        value: '{{ GlobalNodeGroupCount }}'
+      - name: GlobalReplicationGroupDescription
+        value: '{{ GlobalReplicationGroupDescription }}'
+      - name: Members
+        value:
+          - ReplicationGroupId: '{{ ReplicationGroupId }}'
+            ReplicationGroupRegion: '{{ ReplicationGroupRegion }}'
+            Role: '{{ Role }}'
+      - name: RegionalConfigurations
+        value:
+          - ReplicationGroupId: '{{ ReplicationGroupId }}'
+            ReplicationGroupRegion: '{{ ReplicationGroupRegion }}'
+            ReshardingConfigurations:
+              - NodeGroupId: '{{ NodeGroupId }}'
+                PreferredAvailabilityZones:
+                  - '{{ PreferredAvailabilityZones[0] }}'
+
 ```
 </TabItem>
 </Tabs>

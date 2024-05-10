@@ -74,128 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scaling_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}"
-}
->>>
---required properties only
+-- scaling_policy.iql (required properties only)
 INSERT INTO aws.autoscaling.scaling_policies (
  AutoScalingGroupName,
  region
 )
 SELECT 
-{{ .AutoScalingGroupName }},
-'us-east-1';
+'{{ AutoScalingGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MetricAggregationType": "{{ MetricAggregationType }}",
- "PolicyType": "{{ PolicyType }}",
- "PredictiveScalingConfiguration": {
-  "MetricSpecifications": [
-   {
-    "CustomizedCapacityMetricSpecification": {
-     "MetricDataQueries": [
-      {
-       "Label": "{{ Label }}",
-       "MetricStat": {
-        "Metric": {
-         "MetricName": "{{ MetricName }}",
-         "Dimensions": [
-          {
-           "Value": "{{ Value }}",
-           "Name": "{{ Name }}"
-          }
-         ],
-         "Namespace": "{{ Namespace }}"
-        },
-        "Stat": "{{ Stat }}",
-        "Unit": "{{ Unit }}"
-       },
-       "Id": "{{ Id }}",
-       "ReturnData": "{{ ReturnData }}",
-       "Expression": "{{ Expression }}"
-      }
-     ]
-    },
-    "CustomizedLoadMetricSpecification": {
-     "MetricDataQueries": [
-      null
-     ]
-    },
-    "CustomizedScalingMetricSpecification": {
-     "MetricDataQueries": [
-      null
-     ]
-    },
-    "PredefinedLoadMetricSpecification": {
-     "ResourceLabel": "{{ ResourceLabel }}",
-     "PredefinedMetricType": "{{ PredefinedMetricType }}"
-    },
-    "TargetValue": null,
-    "PredefinedScalingMetricSpecification": {
-     "ResourceLabel": "{{ ResourceLabel }}",
-     "PredefinedMetricType": "{{ PredefinedMetricType }}"
-    },
-    "PredefinedMetricPairSpecification": {
-     "ResourceLabel": "{{ ResourceLabel }}",
-     "PredefinedMetricType": "{{ PredefinedMetricType }}"
-    }
-   }
-  ],
-  "MaxCapacityBreachBehavior": "{{ MaxCapacityBreachBehavior }}",
-  "MaxCapacityBuffer": "{{ MaxCapacityBuffer }}",
-  "SchedulingBufferTime": "{{ SchedulingBufferTime }}",
-  "Mode": "{{ Mode }}"
- },
- "ScalingAdjustment": "{{ ScalingAdjustment }}",
- "Cooldown": "{{ Cooldown }}",
- "StepAdjustments": [
-  {
-   "MetricIntervalUpperBound": null,
-   "MetricIntervalLowerBound": null,
-   "ScalingAdjustment": "{{ ScalingAdjustment }}"
-  }
- ],
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
- "MinAdjustmentMagnitude": "{{ MinAdjustmentMagnitude }}",
- "TargetTrackingConfiguration": {
-  "CustomizedMetricSpecification": {
-   "MetricName": "{{ MetricName }}",
-   "Dimensions": [
-    null
-   ],
-   "Statistic": "{{ Statistic }}",
-   "Unit": "{{ Unit }}",
-   "Namespace": "{{ Namespace }}"
-  },
-  "TargetValue": null,
-  "DisableScaleIn": "{{ DisableScaleIn }}",
-  "PredefinedMetricSpecification": {
-   "ResourceLabel": "{{ ResourceLabel }}",
-   "PredefinedMetricType": "{{ PredefinedMetricType }}"
-  }
- },
- "EstimatedInstanceWarmup": "{{ EstimatedInstanceWarmup }}",
- "AdjustmentType": "{{ AdjustmentType }}"
-}
->>>
---all properties
+-- scaling_policy.iql (all properties)
 INSERT INTO aws.autoscaling.scaling_policies (
  MetricAggregationType,
  PolicyType,
@@ -211,18 +116,108 @@ INSERT INTO aws.autoscaling.scaling_policies (
  region
 )
 SELECT 
- {{ .MetricAggregationType }},
- {{ .PolicyType }},
- {{ .PredictiveScalingConfiguration }},
- {{ .ScalingAdjustment }},
- {{ .Cooldown }},
- {{ .StepAdjustments }},
- {{ .AutoScalingGroupName }},
- {{ .MinAdjustmentMagnitude }},
- {{ .TargetTrackingConfiguration }},
- {{ .EstimatedInstanceWarmup }},
- {{ .AdjustmentType }},
- 'us-east-1';
+ '{{ MetricAggregationType }}',
+ '{{ PolicyType }}',
+ '{{ PredictiveScalingConfiguration }}',
+ '{{ ScalingAdjustment }}',
+ '{{ Cooldown }}',
+ '{{ StepAdjustments }}',
+ '{{ AutoScalingGroupName }}',
+ '{{ MinAdjustmentMagnitude }}',
+ '{{ TargetTrackingConfiguration }}',
+ '{{ EstimatedInstanceWarmup }}',
+ '{{ AdjustmentType }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scaling_policy
+    props:
+      - name: MetricAggregationType
+        value: '{{ MetricAggregationType }}'
+      - name: PolicyType
+        value: '{{ PolicyType }}'
+      - name: PredictiveScalingConfiguration
+        value:
+          MetricSpecifications:
+            - CustomizedCapacityMetricSpecification:
+                MetricDataQueries:
+                  - Label: '{{ Label }}'
+                    MetricStat:
+                      Metric:
+                        MetricName: '{{ MetricName }}'
+                        Dimensions:
+                          - Value: '{{ Value }}'
+                            Name: '{{ Name }}'
+                        Namespace: '{{ Namespace }}'
+                      Stat: '{{ Stat }}'
+                      Unit: '{{ Unit }}'
+                    Id: '{{ Id }}'
+                    ReturnData: '{{ ReturnData }}'
+                    Expression: '{{ Expression }}'
+              CustomizedLoadMetricSpecification:
+                MetricDataQueries:
+                  - null
+              CustomizedScalingMetricSpecification:
+                MetricDataQueries:
+                  - null
+              PredefinedLoadMetricSpecification:
+                ResourceLabel: '{{ ResourceLabel }}'
+                PredefinedMetricType: '{{ PredefinedMetricType }}'
+              TargetValue: null
+              PredefinedScalingMetricSpecification:
+                ResourceLabel: '{{ ResourceLabel }}'
+                PredefinedMetricType: '{{ PredefinedMetricType }}'
+              PredefinedMetricPairSpecification:
+                ResourceLabel: '{{ ResourceLabel }}'
+                PredefinedMetricType: '{{ PredefinedMetricType }}'
+          MaxCapacityBreachBehavior: '{{ MaxCapacityBreachBehavior }}'
+          MaxCapacityBuffer: '{{ MaxCapacityBuffer }}'
+          SchedulingBufferTime: '{{ SchedulingBufferTime }}'
+          Mode: '{{ Mode }}'
+      - name: ScalingAdjustment
+        value: '{{ ScalingAdjustment }}'
+      - name: Cooldown
+        value: '{{ Cooldown }}'
+      - name: StepAdjustments
+        value:
+          - MetricIntervalUpperBound: null
+            MetricIntervalLowerBound: null
+            ScalingAdjustment: '{{ ScalingAdjustment }}'
+      - name: AutoScalingGroupName
+        value: '{{ AutoScalingGroupName }}'
+      - name: MinAdjustmentMagnitude
+        value: '{{ MinAdjustmentMagnitude }}'
+      - name: TargetTrackingConfiguration
+        value:
+          CustomizedMetricSpecification:
+            MetricName: '{{ MetricName }}'
+            Dimensions:
+              - null
+            Statistic: '{{ Statistic }}'
+            Unit: '{{ Unit }}'
+            Namespace: '{{ Namespace }}'
+          TargetValue: null
+          DisableScaleIn: '{{ DisableScaleIn }}'
+          PredefinedMetricSpecification:
+            ResourceLabel: '{{ ResourceLabel }}'
+            PredefinedMetricType: '{{ PredefinedMetricType }}'
+      - name: EstimatedInstanceWarmup
+        value: '{{ EstimatedInstanceWarmup }}'
+      - name: AdjustmentType
+        value: '{{ AdjustmentType }}'
+
 ```
 </TabItem>
 </Tabs>

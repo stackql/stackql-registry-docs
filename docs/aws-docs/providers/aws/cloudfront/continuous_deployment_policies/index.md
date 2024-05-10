@@ -74,103 +74,79 @@ FROM aws.cloudfront.continuous_deployment_policies
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>continuous_deployment_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ContinuousDeploymentPolicyConfig": {
-  "Enabled": "{{ Enabled }}",
-  "SingleHeaderPolicyConfig": {
-   "Header": "{{ Header }}",
-   "Value": "{{ Value }}"
-  },
-  "SingleWeightPolicyConfig": {
-   "SessionStickinessConfig": {
-    "IdleTTL": "{{ IdleTTL }}",
-    "MaximumTTL": "{{ MaximumTTL }}"
-   },
-   "Weight": null
-  },
-  "StagingDistributionDnsNames": [
-   "{{ StagingDistributionDnsNames[0] }}"
-  ],
-  "TrafficConfig": {
-   "SingleHeaderConfig": {
-    "Header": "{{ Header }}",
-    "Value": "{{ Value }}"
-   },
-   "SingleWeightConfig": {
-    "SessionStickinessConfig": null,
-    "Weight": null
-   },
-   "Type": "{{ Type }}"
-  },
-  "Type": "{{ Type }}"
- }
-}
->>>
---required properties only
+-- continuous_deployment_policy.iql (required properties only)
 INSERT INTO aws.cloudfront.continuous_deployment_policies (
  ContinuousDeploymentPolicyConfig,
  region
 )
 SELECT 
-{{ .ContinuousDeploymentPolicyConfig }},
-'us-east-1';
+'{{ ContinuousDeploymentPolicyConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ContinuousDeploymentPolicyConfig": {
-  "Enabled": "{{ Enabled }}",
-  "SingleHeaderPolicyConfig": {
-   "Header": "{{ Header }}",
-   "Value": "{{ Value }}"
-  },
-  "SingleWeightPolicyConfig": {
-   "SessionStickinessConfig": {
-    "IdleTTL": "{{ IdleTTL }}",
-    "MaximumTTL": "{{ MaximumTTL }}"
-   },
-   "Weight": null
-  },
-  "StagingDistributionDnsNames": [
-   "{{ StagingDistributionDnsNames[0] }}"
-  ],
-  "TrafficConfig": {
-   "SingleHeaderConfig": {
-    "Header": "{{ Header }}",
-    "Value": "{{ Value }}"
-   },
-   "SingleWeightConfig": {
-    "SessionStickinessConfig": null,
-    "Weight": null
-   },
-   "Type": "{{ Type }}"
-  },
-  "Type": "{{ Type }}"
- }
-}
->>>
---all properties
+-- continuous_deployment_policy.iql (all properties)
 INSERT INTO aws.cloudfront.continuous_deployment_policies (
  ContinuousDeploymentPolicyConfig,
  region
 )
 SELECT 
- {{ .ContinuousDeploymentPolicyConfig }},
- 'us-east-1';
+ '{{ ContinuousDeploymentPolicyConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: continuous_deployment_policy
+    props:
+      - name: ContinuousDeploymentPolicyConfig
+        value:
+          Enabled: '{{ Enabled }}'
+          SingleHeaderPolicyConfig:
+            Header: '{{ Header }}'
+            Value: '{{ Value }}'
+          SingleWeightPolicyConfig:
+            SessionStickinessConfig:
+              IdleTTL: '{{ IdleTTL }}'
+              MaximumTTL: '{{ MaximumTTL }}'
+            Weight: null
+          StagingDistributionDnsNames:
+            - '{{ StagingDistributionDnsNames[0] }}'
+          TrafficConfig:
+            SingleHeaderConfig:
+              Header: '{{ Header }}'
+              Value: '{{ Value }}'
+            SingleWeightConfig:
+              SessionStickinessConfig: null
+              Weight: null
+            Type: '{{ Type }}'
+          Type: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

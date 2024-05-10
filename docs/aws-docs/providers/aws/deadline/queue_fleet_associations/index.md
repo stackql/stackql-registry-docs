@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>queue_fleet_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FarmId": "{{ FarmId }}",
- "FleetId": "{{ FleetId }}",
- "QueueId": "{{ QueueId }}"
-}
->>>
---required properties only
+-- queue_fleet_association.iql (required properties only)
 INSERT INTO aws.deadline.queue_fleet_associations (
  FarmId,
  FleetId,
@@ -103,23 +99,16 @@ INSERT INTO aws.deadline.queue_fleet_associations (
  region
 )
 SELECT 
-{{ .FarmId }},
- {{ .FleetId }},
- {{ .QueueId }},
-'us-east-1';
+'{{ FarmId }}',
+ '{{ FleetId }}',
+ '{{ QueueId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FarmId": "{{ FarmId }}",
- "FleetId": "{{ FleetId }}",
- "QueueId": "{{ QueueId }}"
-}
->>>
---all properties
+-- queue_fleet_association.iql (all properties)
 INSERT INTO aws.deadline.queue_fleet_associations (
  FarmId,
  FleetId,
@@ -127,10 +116,33 @@ INSERT INTO aws.deadline.queue_fleet_associations (
  region
 )
 SELECT 
- {{ .FarmId }},
- {{ .FleetId }},
- {{ .QueueId }},
- 'us-east-1';
+ '{{ FarmId }}',
+ '{{ FleetId }}',
+ '{{ QueueId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: queue_fleet_association
+    props:
+      - name: FarmId
+        value: '{{ FarmId }}'
+      - name: FleetId
+        value: '{{ FleetId }}'
+      - name: QueueId
+        value: '{{ QueueId }}'
+
 ```
 </TabItem>
 </Tabs>

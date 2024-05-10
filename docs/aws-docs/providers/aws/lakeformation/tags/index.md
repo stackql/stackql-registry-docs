@@ -74,49 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>tag</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TagKey": "{{ TagKey }}",
- "TagValues": [
-  "{{ TagValues[0] }}"
- ]
-}
->>>
---required properties only
+-- tag.iql (required properties only)
 INSERT INTO aws.lakeformation.tags (
  TagKey,
  TagValues,
  region
 )
 SELECT 
-{{ .TagKey }},
- {{ .TagValues }},
-'us-east-1';
+'{{ TagKey }}',
+ '{{ TagValues }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CatalogId": "{{ CatalogId }}",
- "TagKey": "{{ TagKey }}",
- "TagValues": [
-  "{{ TagValues[0] }}"
- ]
-}
->>>
---all properties
+-- tag.iql (all properties)
 INSERT INTO aws.lakeformation.tags (
  CatalogId,
  TagKey,
@@ -124,10 +110,34 @@ INSERT INTO aws.lakeformation.tags (
  region
 )
 SELECT 
- {{ .CatalogId }},
- {{ .TagKey }},
- {{ .TagValues }},
- 'us-east-1';
+ '{{ CatalogId }}',
+ '{{ TagKey }}',
+ '{{ TagValues }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: tag
+    props:
+      - name: CatalogId
+        value: '{{ CatalogId }}'
+      - name: TagKey
+        value: '{{ TagKey }}'
+      - name: TagValues
+        value:
+          - '{{ TagValues[0] }}'
+
 ```
 </TabItem>
 </Tabs>

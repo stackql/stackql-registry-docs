@@ -74,45 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>directory_bucket</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LocationName": "{{ LocationName }}",
- "DataRedundancy": "{{ DataRedundancy }}"
-}
->>>
---required properties only
+-- directory_bucket.iql (required properties only)
 INSERT INTO aws.s3express.directory_buckets (
  LocationName,
  DataRedundancy,
  region
 )
 SELECT 
-{{ .LocationName }},
- {{ .DataRedundancy }},
-'us-east-1';
+'{{ LocationName }}',
+ '{{ DataRedundancy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BucketName": "{{ BucketName }}",
- "LocationName": "{{ LocationName }}",
- "DataRedundancy": "{{ DataRedundancy }}"
-}
->>>
---all properties
+-- directory_bucket.iql (all properties)
 INSERT INTO aws.s3express.directory_buckets (
  BucketName,
  LocationName,
@@ -120,10 +110,33 @@ INSERT INTO aws.s3express.directory_buckets (
  region
 )
 SELECT 
- {{ .BucketName }},
- {{ .LocationName }},
- {{ .DataRedundancy }},
- 'us-east-1';
+ '{{ BucketName }}',
+ '{{ LocationName }}',
+ '{{ DataRedundancy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: directory_bucket
+    props:
+      - name: BucketName
+        value: '{{ BucketName }}'
+      - name: LocationName
+        value: '{{ LocationName }}'
+      - name: DataRedundancy
+        value: '{{ DataRedundancy }}'
+
 ```
 </TabItem>
 </Tabs>

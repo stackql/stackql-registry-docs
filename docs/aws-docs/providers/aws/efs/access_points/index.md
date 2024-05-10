@@ -74,62 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_point</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FileSystemId": "{{ FileSystemId }}"
-}
->>>
---required properties only
+-- access_point.iql (required properties only)
 INSERT INTO aws.efs.access_points (
  FileSystemId,
  region
 )
 SELECT 
-{{ .FileSystemId }},
-'us-east-1';
+'{{ FileSystemId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClientToken": "{{ ClientToken }}",
- "AccessPointTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "FileSystemId": "{{ FileSystemId }}",
- "PosixUser": {
-  "Uid": "{{ Uid }}",
-  "Gid": "{{ Gid }}",
-  "SecondaryGids": [
-   "{{ SecondaryGids[0] }}"
-  ]
- },
- "RootDirectory": {
-  "Path": "{{ Path }}",
-  "CreationInfo": {
-   "OwnerUid": "{{ OwnerUid }}",
-   "OwnerGid": "{{ OwnerGid }}",
-   "Permissions": "{{ Permissions }}"
-  }
- }
-}
->>>
---all properties
+-- access_point.iql (all properties)
 INSERT INTO aws.efs.access_points (
  ClientToken,
  AccessPointTags,
@@ -139,12 +110,50 @@ INSERT INTO aws.efs.access_points (
  region
 )
 SELECT 
- {{ .ClientToken }},
- {{ .AccessPointTags }},
- {{ .FileSystemId }},
- {{ .PosixUser }},
- {{ .RootDirectory }},
- 'us-east-1';
+ '{{ ClientToken }}',
+ '{{ AccessPointTags }}',
+ '{{ FileSystemId }}',
+ '{{ PosixUser }}',
+ '{{ RootDirectory }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_point
+    props:
+      - name: ClientToken
+        value: '{{ ClientToken }}'
+      - name: AccessPointTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: FileSystemId
+        value: '{{ FileSystemId }}'
+      - name: PosixUser
+        value:
+          Uid: '{{ Uid }}'
+          Gid: '{{ Gid }}'
+          SecondaryGids:
+            - '{{ SecondaryGids[0] }}'
+      - name: RootDirectory
+        value:
+          Path: '{{ Path }}'
+          CreationInfo:
+            OwnerUid: '{{ OwnerUid }}'
+            OwnerGid: '{{ OwnerGid }}'
+            Permissions: '{{ Permissions }}'
+
 ```
 </TabItem>
 </Tabs>

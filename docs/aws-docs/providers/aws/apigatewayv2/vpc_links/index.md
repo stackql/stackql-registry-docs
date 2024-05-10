@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_link</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- vpc_link.iql (required properties only)
 INSERT INTO aws.apigatewayv2.vpc_links (
  SubnetIds,
  Name,
  region
 )
 SELECT 
-{{ .SubnetIds }},
- {{ .Name }},
-'us-east-1';
+'{{ SubnetIds }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "Tags": {},
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- vpc_link.iql (all properties)
 INSERT INTO aws.apigatewayv2.vpc_links (
  SubnetIds,
  SecurityGroupIds,
@@ -128,11 +111,38 @@ INSERT INTO aws.apigatewayv2.vpc_links (
  region
 )
 SELECT 
- {{ .SubnetIds }},
- {{ .SecurityGroupIds }},
- {{ .Tags }},
- {{ .Name }},
- 'us-east-1';
+ '{{ SubnetIds }}',
+ '{{ SecurityGroupIds }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_link
+    props:
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: Tags
+        value: {}
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

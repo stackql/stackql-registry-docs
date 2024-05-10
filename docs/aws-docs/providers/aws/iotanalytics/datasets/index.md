@@ -74,165 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>dataset</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Actions": [
-  {
-   "ActionName": "{{ ActionName }}",
-   "ContainerAction": {
-    "Variables": [
-     {
-      "VariableName": "{{ VariableName }}",
-      "DatasetContentVersionValue": {
-       "DatasetName": "{{ DatasetName }}"
-      },
-      "StringValue": "{{ StringValue }}",
-      "DoubleValue": null,
-      "OutputFileUriValue": {
-       "FileName": "{{ FileName }}"
-      }
-     }
-    ],
-    "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
-    "Image": "{{ Image }}",
-    "ResourceConfiguration": {
-     "VolumeSizeInGB": "{{ VolumeSizeInGB }}",
-     "ComputeType": "{{ ComputeType }}"
-    }
-   },
-   "QueryAction": {
-    "Filters": [
-     {
-      "Filter": "{{ Filter }}",
-      "Next": "{{ Next }}",
-      "Name": "{{ Name }}"
-     }
-    ],
-    "SqlQuery": "{{ SqlQuery }}"
-   }
-  }
- ]
-}
->>>
---required properties only
+-- dataset.iql (required properties only)
 INSERT INTO aws.iotanalytics.datasets (
  Actions,
  region
 )
 SELECT 
-{{ .Actions }},
-'us-east-1';
+'{{ Actions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Actions": [
-  {
-   "ActionName": "{{ ActionName }}",
-   "ContainerAction": {
-    "Variables": [
-     {
-      "VariableName": "{{ VariableName }}",
-      "DatasetContentVersionValue": {
-       "DatasetName": "{{ DatasetName }}"
-      },
-      "StringValue": "{{ StringValue }}",
-      "DoubleValue": null,
-      "OutputFileUriValue": {
-       "FileName": "{{ FileName }}"
-      }
-     }
-    ],
-    "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
-    "Image": "{{ Image }}",
-    "ResourceConfiguration": {
-     "VolumeSizeInGB": "{{ VolumeSizeInGB }}",
-     "ComputeType": "{{ ComputeType }}"
-    }
-   },
-   "QueryAction": {
-    "Filters": [
-     {
-      "Filter": "{{ Filter }}",
-      "Next": "{{ Next }}",
-      "Name": "{{ Name }}"
-     }
-    ],
-    "SqlQuery": "{{ SqlQuery }}"
-   }
-  }
- ],
- "LateDataRules": [
-  {
-   "RuleConfiguration": {
-    "DeltaTimeSessionWindowConfiguration": {
-     "TimeoutInMinutes": "{{ TimeoutInMinutes }}"
-    }
-   },
-   "RuleName": "{{ RuleName }}"
-  }
- ],
- "DatasetName": "{{ DatasetName }}",
- "ContentDeliveryRules": [
-  {
-   "Destination": {
-    "IotEventsDestinationConfiguration": {
-     "InputName": "{{ InputName }}",
-     "RoleArn": "{{ RoleArn }}"
-    },
-    "S3DestinationConfiguration": {
-     "GlueConfiguration": {
-      "DatabaseName": "{{ DatabaseName }}",
-      "TableName": "{{ TableName }}"
-     },
-     "Bucket": "{{ Bucket }}",
-     "Key": "{{ Key }}",
-     "RoleArn": "{{ RoleArn }}"
-    }
-   },
-   "EntryName": "{{ EntryName }}"
-  }
- ],
- "Triggers": [
-  {
-   "TriggeringDataset": {
-    "DatasetName": "{{ DatasetName }}"
-   },
-   "Schedule": {
-    "ScheduleExpression": "{{ ScheduleExpression }}"
-   }
-  }
- ],
- "VersioningConfiguration": {
-  "Unlimited": "{{ Unlimited }}",
-  "MaxVersions": "{{ MaxVersions }}"
- },
- "RetentionPeriod": {
-  "NumberOfDays": "{{ NumberOfDays }}",
-  "Unlimited": "{{ Unlimited }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- dataset.iql (all properties)
 INSERT INTO aws.iotanalytics.datasets (
  Actions,
  LateDataRules,
@@ -245,15 +113,95 @@ INSERT INTO aws.iotanalytics.datasets (
  region
 )
 SELECT 
- {{ .Actions }},
- {{ .LateDataRules }},
- {{ .DatasetName }},
- {{ .ContentDeliveryRules }},
- {{ .Triggers }},
- {{ .VersioningConfiguration }},
- {{ .RetentionPeriod }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Actions }}',
+ '{{ LateDataRules }}',
+ '{{ DatasetName }}',
+ '{{ ContentDeliveryRules }}',
+ '{{ Triggers }}',
+ '{{ VersioningConfiguration }}',
+ '{{ RetentionPeriod }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: dataset
+    props:
+      - name: Actions
+        value:
+          - ActionName: '{{ ActionName }}'
+            ContainerAction:
+              Variables:
+                - VariableName: '{{ VariableName }}'
+                  DatasetContentVersionValue:
+                    DatasetName: '{{ DatasetName }}'
+                  StringValue: '{{ StringValue }}'
+                  DoubleValue: null
+                  OutputFileUriValue:
+                    FileName: '{{ FileName }}'
+              ExecutionRoleArn: '{{ ExecutionRoleArn }}'
+              Image: '{{ Image }}'
+              ResourceConfiguration:
+                VolumeSizeInGB: '{{ VolumeSizeInGB }}'
+                ComputeType: '{{ ComputeType }}'
+            QueryAction:
+              Filters:
+                - Filter: '{{ Filter }}'
+                  Next: '{{ Next }}'
+                  Name: '{{ Name }}'
+              SqlQuery: '{{ SqlQuery }}'
+      - name: LateDataRules
+        value:
+          - RuleConfiguration:
+              DeltaTimeSessionWindowConfiguration:
+                TimeoutInMinutes: '{{ TimeoutInMinutes }}'
+            RuleName: '{{ RuleName }}'
+      - name: DatasetName
+        value: '{{ DatasetName }}'
+      - name: ContentDeliveryRules
+        value:
+          - Destination:
+              IotEventsDestinationConfiguration:
+                InputName: '{{ InputName }}'
+                RoleArn: '{{ RoleArn }}'
+              S3DestinationConfiguration:
+                GlueConfiguration:
+                  DatabaseName: '{{ DatabaseName }}'
+                  TableName: '{{ TableName }}'
+                Bucket: '{{ Bucket }}'
+                Key: '{{ Key }}'
+                RoleArn: '{{ RoleArn }}'
+            EntryName: '{{ EntryName }}'
+      - name: Triggers
+        value:
+          - TriggeringDataset:
+              DatasetName: '{{ DatasetName }}'
+            Schedule:
+              ScheduleExpression: '{{ ScheduleExpression }}'
+      - name: VersioningConfiguration
+        value:
+          Unlimited: '{{ Unlimited }}'
+          MaxVersions: '{{ MaxVersions }}'
+      - name: RetentionPeriod
+        value:
+          NumberOfDays: '{{ NumberOfDays }}'
+          Unlimited: '{{ Unlimited }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

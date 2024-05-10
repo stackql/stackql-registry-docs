@@ -78,26 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>queue_environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FarmId": "{{ FarmId }}",
- "Priority": "{{ Priority }}",
- "QueueId": "{{ QueueId }}",
- "Template": "{{ Template }}",
- "TemplateType": "{{ TemplateType }}"
-}
->>>
---required properties only
+-- queue_environment.iql (required properties only)
 INSERT INTO aws.deadline.queue_environments (
  FarmId,
  Priority,
@@ -107,27 +101,18 @@ INSERT INTO aws.deadline.queue_environments (
  region
 )
 SELECT 
-{{ .FarmId }},
- {{ .Priority }},
- {{ .QueueId }},
- {{ .Template }},
- {{ .TemplateType }},
-'us-east-1';
+'{{ FarmId }}',
+ '{{ Priority }}',
+ '{{ QueueId }}',
+ '{{ Template }}',
+ '{{ TemplateType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FarmId": "{{ FarmId }}",
- "Priority": "{{ Priority }}",
- "QueueId": "{{ QueueId }}",
- "Template": "{{ Template }}",
- "TemplateType": "{{ TemplateType }}"
-}
->>>
---all properties
+-- queue_environment.iql (all properties)
 INSERT INTO aws.deadline.queue_environments (
  FarmId,
  Priority,
@@ -137,12 +122,39 @@ INSERT INTO aws.deadline.queue_environments (
  region
 )
 SELECT 
- {{ .FarmId }},
- {{ .Priority }},
- {{ .QueueId }},
- {{ .Template }},
- {{ .TemplateType }},
- 'us-east-1';
+ '{{ FarmId }}',
+ '{{ Priority }}',
+ '{{ QueueId }}',
+ '{{ Template }}',
+ '{{ TemplateType }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: queue_environment
+    props:
+      - name: FarmId
+        value: '{{ FarmId }}'
+      - name: Priority
+        value: '{{ Priority }}'
+      - name: QueueId
+        value: '{{ QueueId }}'
+      - name: Template
+        value: '{{ Template }}'
+      - name: TemplateType
+        value: '{{ TemplateType }}'
+
 ```
 </TabItem>
 </Tabs>

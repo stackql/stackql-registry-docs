@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>fuota_task</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LoRaWAN": {
-  "RfRegion": "{{ RfRegion }}",
-  "DlClass": "{{ DlClass }}",
-  "NumberOfDevicesRequested": "{{ NumberOfDevicesRequested }}",
-  "NumberOfDevicesInGroup": "{{ NumberOfDevicesInGroup }}"
- },
- "FirmwareUpdateImage": "{{ FirmwareUpdateImage }}",
- "FirmwareUpdateRole": "{{ FirmwareUpdateRole }}"
-}
->>>
---required properties only
+-- fuota_task.iql (required properties only)
 INSERT INTO aws.iotwireless.fuota_tasks (
  LoRaWAN,
  FirmwareUpdateImage,
@@ -104,40 +95,16 @@ INSERT INTO aws.iotwireless.fuota_tasks (
  region
 )
 SELECT 
-{{ .LoRaWAN }},
- {{ .FirmwareUpdateImage }},
- {{ .FirmwareUpdateRole }},
-'us-east-1';
+'{{ LoRaWAN }}',
+ '{{ FirmwareUpdateImage }}',
+ '{{ FirmwareUpdateRole }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "LoRaWAN": {
-  "RfRegion": "{{ RfRegion }}",
-  "DlClass": "{{ DlClass }}",
-  "NumberOfDevicesRequested": "{{ NumberOfDevicesRequested }}",
-  "NumberOfDevicesInGroup": "{{ NumberOfDevicesInGroup }}"
- },
- "FirmwareUpdateImage": "{{ FirmwareUpdateImage }}",
- "FirmwareUpdateRole": "{{ FirmwareUpdateRole }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AssociateWirelessDevice": "{{ AssociateWirelessDevice }}",
- "DisassociateWirelessDevice": "{{ DisassociateWirelessDevice }}",
- "AssociateMulticastGroup": "{{ AssociateMulticastGroup }}",
- "DisassociateMulticastGroup": "{{ DisassociateMulticastGroup }}"
-}
->>>
---all properties
+-- fuota_task.iql (all properties)
 INSERT INTO aws.iotwireless.fuota_tasks (
  Name,
  Description,
@@ -152,17 +119,60 @@ INSERT INTO aws.iotwireless.fuota_tasks (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .LoRaWAN }},
- {{ .FirmwareUpdateImage }},
- {{ .FirmwareUpdateRole }},
- {{ .Tags }},
- {{ .AssociateWirelessDevice }},
- {{ .DisassociateWirelessDevice }},
- {{ .AssociateMulticastGroup }},
- {{ .DisassociateMulticastGroup }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ LoRaWAN }}',
+ '{{ FirmwareUpdateImage }}',
+ '{{ FirmwareUpdateRole }}',
+ '{{ Tags }}',
+ '{{ AssociateWirelessDevice }}',
+ '{{ DisassociateWirelessDevice }}',
+ '{{ AssociateMulticastGroup }}',
+ '{{ DisassociateMulticastGroup }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: fuota_task
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: LoRaWAN
+        value:
+          RfRegion: '{{ RfRegion }}'
+          DlClass: '{{ DlClass }}'
+          NumberOfDevicesRequested: '{{ NumberOfDevicesRequested }}'
+          NumberOfDevicesInGroup: '{{ NumberOfDevicesInGroup }}'
+      - name: FirmwareUpdateImage
+        value: '{{ FirmwareUpdateImage }}'
+      - name: FirmwareUpdateRole
+        value: '{{ FirmwareUpdateRole }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AssociateWirelessDevice
+        value: '{{ AssociateWirelessDevice }}'
+      - name: DisassociateWirelessDevice
+        value: '{{ DisassociateWirelessDevice }}'
+      - name: AssociateMulticastGroup
+        value: '{{ AssociateMulticastGroup }}'
+      - name: DisassociateMulticastGroup
+        value: '{{ DisassociateMulticastGroup }}'
+
 ```
 </TabItem>
 </Tabs>

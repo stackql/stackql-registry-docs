@@ -76,50 +76,63 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>log_stream</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LogGroupName": "{{ LogGroupName }}"
-}
->>>
---required properties only
+-- log_stream.iql (required properties only)
 INSERT INTO aws.logs.log_streams (
  LogGroupName,
  region
 )
 SELECT 
-{{ .LogGroupName }},
-'us-east-1';
+'{{ LogGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LogStreamName": "{{ LogStreamName }}",
- "LogGroupName": "{{ LogGroupName }}"
-}
->>>
---all properties
+-- log_stream.iql (all properties)
 INSERT INTO aws.logs.log_streams (
  LogStreamName,
  LogGroupName,
  region
 )
 SELECT 
- {{ .LogStreamName }},
- {{ .LogGroupName }},
- 'us-east-1';
+ '{{ LogStreamName }}',
+ '{{ LogGroupName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: log_stream
+    props:
+      - name: LogStreamName
+        value: '{{ LogStreamName }}'
+      - name: LogGroupName
+        value: '{{ LogGroupName }}'
+
 ```
 </TabItem>
 </Tabs>

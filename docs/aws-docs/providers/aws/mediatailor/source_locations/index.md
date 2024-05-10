@@ -74,71 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>source_location</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "HttpConfiguration": {
-  "BaseUrl": "{{ BaseUrl }}"
- },
- "SourceLocationName": "{{ SourceLocationName }}"
-}
->>>
---required properties only
+-- source_location.iql (required properties only)
 INSERT INTO aws.mediatailor.source_locations (
  HttpConfiguration,
  SourceLocationName,
  region
 )
 SELECT 
-{{ .HttpConfiguration }},
- {{ .SourceLocationName }},
-'us-east-1';
+'{{ HttpConfiguration }}',
+ '{{ SourceLocationName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessConfiguration": {
-  "AccessType": "{{ AccessType }}",
-  "SecretsManagerAccessTokenConfiguration": {
-   "HeaderName": "{{ HeaderName }}",
-   "SecretArn": "{{ SecretArn }}",
-   "SecretStringKey": "{{ SecretStringKey }}"
-  }
- },
- "DefaultSegmentDeliveryConfiguration": {
-  "BaseUrl": "{{ BaseUrl }}"
- },
- "HttpConfiguration": {
-  "BaseUrl": "{{ BaseUrl }}"
- },
- "SegmentDeliveryConfigurations": [
-  {
-   "BaseUrl": "{{ BaseUrl }}",
-   "Name": "{{ Name }}"
-  }
- ],
- "SourceLocationName": "{{ SourceLocationName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- source_location.iql (all properties)
 INSERT INTO aws.mediatailor.source_locations (
  AccessConfiguration,
  DefaultSegmentDeliveryConfiguration,
@@ -149,13 +113,53 @@ INSERT INTO aws.mediatailor.source_locations (
  region
 )
 SELECT 
- {{ .AccessConfiguration }},
- {{ .DefaultSegmentDeliveryConfiguration }},
- {{ .HttpConfiguration }},
- {{ .SegmentDeliveryConfigurations }},
- {{ .SourceLocationName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AccessConfiguration }}',
+ '{{ DefaultSegmentDeliveryConfiguration }}',
+ '{{ HttpConfiguration }}',
+ '{{ SegmentDeliveryConfigurations }}',
+ '{{ SourceLocationName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: source_location
+    props:
+      - name: AccessConfiguration
+        value:
+          AccessType: '{{ AccessType }}'
+          SecretsManagerAccessTokenConfiguration:
+            HeaderName: '{{ HeaderName }}'
+            SecretArn: '{{ SecretArn }}'
+            SecretStringKey: '{{ SecretStringKey }}'
+      - name: DefaultSegmentDeliveryConfiguration
+        value:
+          BaseUrl: '{{ BaseUrl }}'
+      - name: HttpConfiguration
+        value:
+          BaseUrl: '{{ BaseUrl }}'
+      - name: SegmentDeliveryConfigurations
+        value:
+          - BaseUrl: '{{ BaseUrl }}'
+            Name: '{{ Name }}'
+      - name: SourceLocationName
+        value: '{{ SourceLocationName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

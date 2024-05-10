@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>assessment_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AssessmentTargetArn": "{{ AssessmentTargetArn }}",
- "DurationInSeconds": "{{ DurationInSeconds }}",
- "RulesPackageArns": [
-  "{{ RulesPackageArns[0] }}"
- ]
-}
->>>
---required properties only
+-- assessment_template.iql (required properties only)
 INSERT INTO aws.inspector.assessment_templates (
  AssessmentTargetArn,
  DurationInSeconds,
@@ -101,32 +95,16 @@ INSERT INTO aws.inspector.assessment_templates (
  region
 )
 SELECT 
-{{ .AssessmentTargetArn }},
- {{ .DurationInSeconds }},
- {{ .RulesPackageArns }},
-'us-east-1';
+'{{ AssessmentTargetArn }}',
+ '{{ DurationInSeconds }}',
+ '{{ RulesPackageArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssessmentTargetArn": "{{ AssessmentTargetArn }}",
- "DurationInSeconds": "{{ DurationInSeconds }}",
- "AssessmentTemplateName": "{{ AssessmentTemplateName }}",
- "RulesPackageArns": [
-  "{{ RulesPackageArns[0] }}"
- ],
- "UserAttributesForFindings": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- assessment_template.iql (all properties)
 INSERT INTO aws.inspector.assessment_templates (
  AssessmentTargetArn,
  DurationInSeconds,
@@ -136,12 +114,42 @@ INSERT INTO aws.inspector.assessment_templates (
  region
 )
 SELECT 
- {{ .AssessmentTargetArn }},
- {{ .DurationInSeconds }},
- {{ .AssessmentTemplateName }},
- {{ .RulesPackageArns }},
- {{ .UserAttributesForFindings }},
- 'us-east-1';
+ '{{ AssessmentTargetArn }}',
+ '{{ DurationInSeconds }}',
+ '{{ AssessmentTemplateName }}',
+ '{{ RulesPackageArns }}',
+ '{{ UserAttributesForFindings }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: assessment_template
+    props:
+      - name: AssessmentTargetArn
+        value: '{{ AssessmentTargetArn }}'
+      - name: DurationInSeconds
+        value: '{{ DurationInSeconds }}'
+      - name: AssessmentTemplateName
+        value: '{{ AssessmentTemplateName }}'
+      - name: RulesPackageArns
+        value:
+          - '{{ RulesPackageArns[0] }}'
+      - name: UserAttributesForFindings
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

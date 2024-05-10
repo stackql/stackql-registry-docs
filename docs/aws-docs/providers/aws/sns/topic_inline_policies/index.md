@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>topic_inline_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PolicyDocument": {},
- "TopicArn": "{{ TopicArn }}"
-}
->>>
---required properties only
+-- topic_inline_policy.iql (required properties only)
 INSERT INTO aws.sns.topic_inline_policies (
  PolicyDocument,
  TopicArn,
  region
 )
 SELECT 
-{{ .PolicyDocument }},
- {{ .TopicArn }},
-'us-east-1';
+'{{ PolicyDocument }}',
+ '{{ TopicArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyDocument": {},
- "TopicArn": "{{ TopicArn }}"
-}
->>>
---all properties
+-- topic_inline_policy.iql (all properties)
 INSERT INTO aws.sns.topic_inline_policies (
  PolicyDocument,
  TopicArn,
  region
 )
 SELECT 
- {{ .PolicyDocument }},
- {{ .TopicArn }},
- 'us-east-1';
+ '{{ PolicyDocument }}',
+ '{{ TopicArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: topic_inline_policy
+    props:
+      - name: PolicyDocument
+        value: {}
+      - name: TopicArn
+        value: '{{ TopicArn }}'
+
 ```
 </TabItem>
 </Tabs>

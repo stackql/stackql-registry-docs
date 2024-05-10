@@ -76,32 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_source</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DataSourceConfiguration": {
-  "Type": "{{ Type }}",
-  "S3Configuration": {
-   "BucketArn": "{{ BucketArn }}",
-   "InclusionPrefixes": [
-    "{{ InclusionPrefixes[0] }}"
-   ]
-  }
- },
- "KnowledgeBaseId": "{{ KnowledgeBaseId }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- data_source.iql (required properties only)
 INSERT INTO aws.bedrock.data_sources (
  DataSourceConfiguration,
  KnowledgeBaseId,
@@ -109,44 +97,16 @@ INSERT INTO aws.bedrock.data_sources (
  region
 )
 SELECT 
-{{ .DataSourceConfiguration }},
- {{ .KnowledgeBaseId }},
- {{ .Name }},
-'us-east-1';
+'{{ DataSourceConfiguration }}',
+ '{{ KnowledgeBaseId }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DataSourceConfiguration": {
-  "Type": "{{ Type }}",
-  "S3Configuration": {
-   "BucketArn": "{{ BucketArn }}",
-   "InclusionPrefixes": [
-    "{{ InclusionPrefixes[0] }}"
-   ]
-  }
- },
- "Description": "{{ Description }}",
- "KnowledgeBaseId": "{{ KnowledgeBaseId }}",
- "Name": "{{ Name }}",
- "ServerSideEncryptionConfiguration": {
-  "KmsKeyArn": "{{ KmsKeyArn }}"
- },
- "VectorIngestionConfiguration": {
-  "ChunkingConfiguration": {
-   "ChunkingStrategy": "{{ ChunkingStrategy }}",
-   "FixedSizeChunkingConfiguration": {
-    "MaxTokens": "{{ MaxTokens }}",
-    "OverlapPercentage": "{{ OverlapPercentage }}"
-   }
-  }
- }
-}
->>>
---all properties
+-- data_source.iql (all properties)
 INSERT INTO aws.bedrock.data_sources (
  DataSourceConfiguration,
  Description,
@@ -157,13 +117,53 @@ INSERT INTO aws.bedrock.data_sources (
  region
 )
 SELECT 
- {{ .DataSourceConfiguration }},
- {{ .Description }},
- {{ .KnowledgeBaseId }},
- {{ .Name }},
- {{ .ServerSideEncryptionConfiguration }},
- {{ .VectorIngestionConfiguration }},
- 'us-east-1';
+ '{{ DataSourceConfiguration }}',
+ '{{ Description }}',
+ '{{ KnowledgeBaseId }}',
+ '{{ Name }}',
+ '{{ ServerSideEncryptionConfiguration }}',
+ '{{ VectorIngestionConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_source
+    props:
+      - name: DataSourceConfiguration
+        value:
+          Type: '{{ Type }}'
+          S3Configuration:
+            BucketArn: '{{ BucketArn }}'
+            InclusionPrefixes:
+              - '{{ InclusionPrefixes[0] }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: KnowledgeBaseId
+        value: '{{ KnowledgeBaseId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ServerSideEncryptionConfiguration
+        value:
+          KmsKeyArn: '{{ KmsKeyArn }}'
+      - name: VectorIngestionConfiguration
+        value:
+          ChunkingConfiguration:
+            ChunkingStrategy: '{{ ChunkingStrategy }}'
+            FixedSizeChunkingConfiguration:
+              MaxTokens: '{{ MaxTokens }}'
+              OverlapPercentage: '{{ OverlapPercentage }}'
+
 ```
 </TabItem>
 </Tabs>

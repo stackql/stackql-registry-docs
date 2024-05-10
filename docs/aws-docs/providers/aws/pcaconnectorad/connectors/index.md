@@ -74,28 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connector</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "DirectoryId": "{{ DirectoryId }}",
- "VpcInformation": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ]
- }
-}
->>>
---required properties only
+-- connector.iql (required properties only)
 INSERT INTO aws.pcaconnectorad.connectors (
  CertificateAuthorityArn,
  DirectoryId,
@@ -103,28 +95,16 @@ INSERT INTO aws.pcaconnectorad.connectors (
  region
 )
 SELECT 
-{{ .CertificateAuthorityArn }},
- {{ .DirectoryId }},
- {{ .VpcInformation }},
-'us-east-1';
+'{{ CertificateAuthorityArn }}',
+ '{{ DirectoryId }}',
+ '{{ VpcInformation }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "DirectoryId": "{{ DirectoryId }}",
- "Tags": {},
- "VpcInformation": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- connector.iql (all properties)
 INSERT INTO aws.pcaconnectorad.connectors (
  CertificateAuthorityArn,
  DirectoryId,
@@ -133,11 +113,38 @@ INSERT INTO aws.pcaconnectorad.connectors (
  region
 )
 SELECT 
- {{ .CertificateAuthorityArn }},
- {{ .DirectoryId }},
- {{ .Tags }},
- {{ .VpcInformation }},
- 'us-east-1';
+ '{{ CertificateAuthorityArn }}',
+ '{{ DirectoryId }}',
+ '{{ Tags }}',
+ '{{ VpcInformation }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connector
+    props:
+      - name: CertificateAuthorityArn
+        value: '{{ CertificateAuthorityArn }}'
+      - name: DirectoryId
+        value: '{{ DirectoryId }}'
+      - name: Tags
+        value: {}
+      - name: VpcInformation
+        value:
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

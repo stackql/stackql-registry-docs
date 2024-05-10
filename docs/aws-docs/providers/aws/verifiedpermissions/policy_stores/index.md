@@ -74,48 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>policy_store</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ValidationSettings": {
-  "Mode": "{{ Mode }}"
- }
-}
->>>
---required properties only
+-- policy_store.iql (required properties only)
 INSERT INTO aws.verifiedpermissions.policy_stores (
  ValidationSettings,
  region
 )
 SELECT 
-{{ .ValidationSettings }},
-'us-east-1';
+'{{ ValidationSettings }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "ValidationSettings": {
-  "Mode": "{{ Mode }}"
- },
- "Schema": {
-  "CedarJson": "{{ CedarJson }}"
- }
-}
->>>
---all properties
+-- policy_store.iql (all properties)
 INSERT INTO aws.verifiedpermissions.policy_stores (
  Description,
  ValidationSettings,
@@ -123,10 +108,35 @@ INSERT INTO aws.verifiedpermissions.policy_stores (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .ValidationSettings }},
- {{ .Schema }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ ValidationSettings }}',
+ '{{ Schema }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: policy_store
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: ValidationSettings
+        value:
+          Mode: '{{ Mode }}'
+      - name: Schema
+        value:
+          CedarJson: '{{ CedarJson }}'
+
 ```
 </TabItem>
 </Tabs>

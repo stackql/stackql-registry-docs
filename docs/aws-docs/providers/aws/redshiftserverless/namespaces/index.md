@@ -74,70 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>namespace</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "NamespaceName": "{{ NamespaceName }}"
-}
->>>
---required properties only
+-- namespace.iql (required properties only)
 INSERT INTO aws.redshiftserverless.namespaces (
  NamespaceName,
  region
 )
 SELECT 
-{{ .NamespaceName }},
-'us-east-1';
+'{{ NamespaceName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AdminPasswordSecretKmsKeyId": "{{ AdminPasswordSecretKmsKeyId }}",
- "AdminUserPassword": "{{ AdminUserPassword }}",
- "AdminUsername": "{{ AdminUsername }}",
- "DbName": "{{ DbName }}",
- "DefaultIamRoleArn": "{{ DefaultIamRoleArn }}",
- "IamRoles": [
-  "{{ IamRoles[0] }}"
- ],
- "KmsKeyId": "{{ KmsKeyId }}",
- "LogExports": [
-  "{{ LogExports[0] }}"
- ],
- "ManageAdminPassword": "{{ ManageAdminPassword }}",
- "NamespaceName": "{{ NamespaceName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "FinalSnapshotName": "{{ FinalSnapshotName }}",
- "FinalSnapshotRetentionPeriod": "{{ FinalSnapshotRetentionPeriod }}",
- "NamespaceResourcePolicy": {},
- "RedshiftIdcApplicationArn": "{{ RedshiftIdcApplicationArn }}",
- "SnapshotCopyConfigurations": [
-  {
-   "DestinationRegion": "{{ DestinationRegion }}",
-   "DestinationKmsKeyId": "{{ DestinationKmsKeyId }}",
-   "SnapshotRetentionPeriod": "{{ SnapshotRetentionPeriod }}"
-  }
- ]
-}
->>>
---all properties
+-- namespace.iql (all properties)
 INSERT INTO aws.redshiftserverless.namespaces (
  AdminPasswordSecretKmsKeyId,
  AdminUserPassword,
@@ -158,23 +121,79 @@ INSERT INTO aws.redshiftserverless.namespaces (
  region
 )
 SELECT 
- {{ .AdminPasswordSecretKmsKeyId }},
- {{ .AdminUserPassword }},
- {{ .AdminUsername }},
- {{ .DbName }},
- {{ .DefaultIamRoleArn }},
- {{ .IamRoles }},
- {{ .KmsKeyId }},
- {{ .LogExports }},
- {{ .ManageAdminPassword }},
- {{ .NamespaceName }},
- {{ .Tags }},
- {{ .FinalSnapshotName }},
- {{ .FinalSnapshotRetentionPeriod }},
- {{ .NamespaceResourcePolicy }},
- {{ .RedshiftIdcApplicationArn }},
- {{ .SnapshotCopyConfigurations }},
- 'us-east-1';
+ '{{ AdminPasswordSecretKmsKeyId }}',
+ '{{ AdminUserPassword }}',
+ '{{ AdminUsername }}',
+ '{{ DbName }}',
+ '{{ DefaultIamRoleArn }}',
+ '{{ IamRoles }}',
+ '{{ KmsKeyId }}',
+ '{{ LogExports }}',
+ '{{ ManageAdminPassword }}',
+ '{{ NamespaceName }}',
+ '{{ Tags }}',
+ '{{ FinalSnapshotName }}',
+ '{{ FinalSnapshotRetentionPeriod }}',
+ '{{ NamespaceResourcePolicy }}',
+ '{{ RedshiftIdcApplicationArn }}',
+ '{{ SnapshotCopyConfigurations }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: namespace
+    props:
+      - name: AdminPasswordSecretKmsKeyId
+        value: '{{ AdminPasswordSecretKmsKeyId }}'
+      - name: AdminUserPassword
+        value: '{{ AdminUserPassword }}'
+      - name: AdminUsername
+        value: '{{ AdminUsername }}'
+      - name: DbName
+        value: '{{ DbName }}'
+      - name: DefaultIamRoleArn
+        value: '{{ DefaultIamRoleArn }}'
+      - name: IamRoles
+        value:
+          - '{{ IamRoles[0] }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: LogExports
+        value:
+          - '{{ LogExports[0] }}'
+      - name: ManageAdminPassword
+        value: '{{ ManageAdminPassword }}'
+      - name: NamespaceName
+        value: '{{ NamespaceName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: FinalSnapshotName
+        value: '{{ FinalSnapshotName }}'
+      - name: FinalSnapshotRetentionPeriod
+        value: '{{ FinalSnapshotRetentionPeriod }}'
+      - name: NamespaceResourcePolicy
+        value: {}
+      - name: RedshiftIdcApplicationArn
+        value: '{{ RedshiftIdcApplicationArn }}'
+      - name: SnapshotCopyConfigurations
+        value:
+          - DestinationRegion: '{{ DestinationRegion }}'
+            DestinationKmsKeyId: '{{ DestinationKmsKeyId }}'
+            SnapshotRetentionPeriod: '{{ SnapshotRetentionPeriod }}'
+
 ```
 </TabItem>
 </Tabs>

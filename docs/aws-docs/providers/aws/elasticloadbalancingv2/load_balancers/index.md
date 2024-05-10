@@ -74,52 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>load_balancer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IpAddressType": "{{ IpAddressType }}",
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "LoadBalancerAttributes": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Scheme": "{{ Scheme }}",
- "Name": "{{ Name }}",
- "Subnets": [
-  "{{ Subnets[0] }}"
- ],
- "Type": "{{ Type }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "SubnetMappings": [
-  {
-   "SubnetId": "{{ SubnetId }}",
-   "AllocationId": "{{ AllocationId }}",
-   "PrivateIPv4Address": "{{ PrivateIPv4Address }}",
-   "IPv6Address": "{{ IPv6Address }}"
-  }
- ],
- "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": "{{ EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }}"
-}
->>>
---required properties only
+-- load_balancer.iql (required properties only)
 INSERT INTO aws.elasticloadbalancingv2.load_balancers (
  IpAddressType,
  SecurityGroups,
@@ -134,58 +102,23 @@ INSERT INTO aws.elasticloadbalancingv2.load_balancers (
  region
 )
 SELECT 
-{{ .IpAddressType }},
- {{ .SecurityGroups }},
- {{ .LoadBalancerAttributes }},
- {{ .Scheme }},
- {{ .Name }},
- {{ .Subnets }},
- {{ .Type }},
- {{ .Tags }},
- {{ .SubnetMappings }},
- {{ .EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }},
-'us-east-1';
+'{{ IpAddressType }}',
+ '{{ SecurityGroups }}',
+ '{{ LoadBalancerAttributes }}',
+ '{{ Scheme }}',
+ '{{ Name }}',
+ '{{ Subnets }}',
+ '{{ Type }}',
+ '{{ Tags }}',
+ '{{ SubnetMappings }}',
+ '{{ EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IpAddressType": "{{ IpAddressType }}",
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "LoadBalancerAttributes": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Scheme": "{{ Scheme }}",
- "Name": "{{ Name }}",
- "Subnets": [
-  "{{ Subnets[0] }}"
- ],
- "Type": "{{ Type }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "SubnetMappings": [
-  {
-   "SubnetId": "{{ SubnetId }}",
-   "AllocationId": "{{ AllocationId }}",
-   "PrivateIPv4Address": "{{ PrivateIPv4Address }}",
-   "IPv6Address": "{{ IPv6Address }}"
-  }
- ],
- "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": "{{ EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }}"
-}
->>>
---all properties
+-- load_balancer.iql (all properties)
 INSERT INTO aws.elasticloadbalancingv2.load_balancers (
  IpAddressType,
  SecurityGroups,
@@ -200,17 +133,64 @@ INSERT INTO aws.elasticloadbalancingv2.load_balancers (
  region
 )
 SELECT 
- {{ .IpAddressType }},
- {{ .SecurityGroups }},
- {{ .LoadBalancerAttributes }},
- {{ .Scheme }},
- {{ .Name }},
- {{ .Subnets }},
- {{ .Type }},
- {{ .Tags }},
- {{ .SubnetMappings }},
- {{ .EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }},
- 'us-east-1';
+ '{{ IpAddressType }}',
+ '{{ SecurityGroups }}',
+ '{{ LoadBalancerAttributes }}',
+ '{{ Scheme }}',
+ '{{ Name }}',
+ '{{ Subnets }}',
+ '{{ Type }}',
+ '{{ Tags }}',
+ '{{ SubnetMappings }}',
+ '{{ EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: load_balancer
+    props:
+      - name: IpAddressType
+        value: '{{ IpAddressType }}'
+      - name: SecurityGroups
+        value:
+          - '{{ SecurityGroups[0] }}'
+      - name: LoadBalancerAttributes
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Scheme
+        value: '{{ Scheme }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Subnets
+        value:
+          - '{{ Subnets[0] }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: SubnetMappings
+        value:
+          - SubnetId: '{{ SubnetId }}'
+            AllocationId: '{{ AllocationId }}'
+            PrivateIPv4Address: '{{ PrivateIPv4Address }}'
+            IPv6Address: '{{ IPv6Address }}'
+      - name: EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+        value: '{{ EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,95 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>stream_processor</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RoleArn": "{{ RoleArn }}",
- "KinesisVideoStream": {
-  "Arn": "{{ Arn }}"
- }
-}
->>>
---required properties only
+-- stream_processor.iql (required properties only)
 INSERT INTO aws.rekognition.stream_processors (
  RoleArn,
  KinesisVideoStream,
  region
 )
 SELECT 
-{{ .RoleArn }},
- {{ .KinesisVideoStream }},
-'us-east-1';
+'{{ RoleArn }}',
+ '{{ KinesisVideoStream }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "RoleArn": "{{ RoleArn }}",
- "KinesisVideoStream": {
-  "Arn": "{{ Arn }}"
- },
- "FaceSearchSettings": {
-  "CollectionId": "{{ CollectionId }}",
-  "FaceMatchThreshold": null
- },
- "ConnectedHomeSettings": {
-  "Labels": [
-   "{{ Labels[0] }}"
-  ],
-  "MinConfidence": null
- },
- "KinesisDataStream": {
-  "Arn": "{{ Arn }}"
- },
- "S3Destination": {
-  "BucketName": "{{ BucketName }}",
-  "ObjectKeyPrefix": "{{ ObjectKeyPrefix }}"
- },
- "NotificationChannel": {
-  "Arn": "{{ Arn }}"
- },
- "DataSharingPreference": {
-  "OptIn": "{{ OptIn }}"
- },
- "PolygonRegionsOfInterest": [
-  [
-   {
-    "X": null,
-    "Y": null
-   }
-  ]
- ],
- "BoundingBoxRegionsOfInterest": [
-  {
-   "Height": null,
-   "Width": null,
-   "Left": null,
-   "Top": null
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- stream_processor.iql (all properties)
 INSERT INTO aws.rekognition.stream_processors (
  Name,
  KmsKeyId,
@@ -180,20 +120,82 @@ INSERT INTO aws.rekognition.stream_processors (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .KmsKeyId }},
- {{ .RoleArn }},
- {{ .KinesisVideoStream }},
- {{ .FaceSearchSettings }},
- {{ .ConnectedHomeSettings }},
- {{ .KinesisDataStream }},
- {{ .S3Destination }},
- {{ .NotificationChannel }},
- {{ .DataSharingPreference }},
- {{ .PolygonRegionsOfInterest }},
- {{ .BoundingBoxRegionsOfInterest }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ KmsKeyId }}',
+ '{{ RoleArn }}',
+ '{{ KinesisVideoStream }}',
+ '{{ FaceSearchSettings }}',
+ '{{ ConnectedHomeSettings }}',
+ '{{ KinesisDataStream }}',
+ '{{ S3Destination }}',
+ '{{ NotificationChannel }}',
+ '{{ DataSharingPreference }}',
+ '{{ PolygonRegionsOfInterest }}',
+ '{{ BoundingBoxRegionsOfInterest }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: stream_processor
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: KinesisVideoStream
+        value:
+          Arn: '{{ Arn }}'
+      - name: FaceSearchSettings
+        value:
+          CollectionId: '{{ CollectionId }}'
+          FaceMatchThreshold: null
+      - name: ConnectedHomeSettings
+        value:
+          Labels:
+            - '{{ Labels[0] }}'
+          MinConfidence: null
+      - name: KinesisDataStream
+        value:
+          Arn: '{{ Arn }}'
+      - name: S3Destination
+        value:
+          BucketName: '{{ BucketName }}'
+          ObjectKeyPrefix: '{{ ObjectKeyPrefix }}'
+      - name: NotificationChannel
+        value:
+          Arn: '{{ Arn }}'
+      - name: DataSharingPreference
+        value:
+          OptIn: '{{ OptIn }}'
+      - name: PolygonRegionsOfInterest
+        value:
+          - - X: null
+              'Y': null
+      - name: BoundingBoxRegionsOfInterest
+        value:
+          - Height: null
+            Width: null
+            Left: null
+            Top: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

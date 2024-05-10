@@ -74,125 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>flow</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Source": {
-  "SourceArn": "{{ SourceArn }}",
-  "Decryption": {
-   "Algorithm": "{{ Algorithm }}",
-   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
-   "DeviceId": "{{ DeviceId }}",
-   "KeyType": "{{ KeyType }}",
-   "Region": "{{ Region }}",
-   "ResourceId": "{{ ResourceId }}",
-   "RoleArn": "{{ RoleArn }}",
-   "SecretArn": "{{ SecretArn }}",
-   "Url": "{{ Url }}"
-  },
-  "Description": "{{ Description }}",
-  "EntitlementArn": "{{ EntitlementArn }}",
-  "GatewayBridgeSource": {
-   "BridgeArn": "{{ BridgeArn }}",
-   "VpcInterfaceAttachment": {
-    "VpcInterfaceName": "{{ VpcInterfaceName }}"
-   }
-  },
-  "IngestIp": "{{ IngestIp }}",
-  "IngestPort": "{{ IngestPort }}",
-  "MaxBitrate": "{{ MaxBitrate }}",
-  "MaxLatency": "{{ MaxLatency }}",
-  "MinLatency": "{{ MinLatency }}",
-  "Name": "{{ Name }}",
-  "Protocol": "{{ Protocol }}",
-  "SenderIpAddress": "{{ SenderIpAddress }}",
-  "SenderControlPort": "{{ SenderControlPort }}",
-  "StreamId": "{{ StreamId }}",
-  "SourceIngestPort": "{{ SourceIngestPort }}",
-  "SourceListenerAddress": "{{ SourceListenerAddress }}",
-  "SourceListenerPort": "{{ SourceListenerPort }}",
-  "VpcInterfaceName": "{{ VpcInterfaceName }}",
-  "WhitelistCidr": "{{ WhitelistCidr }}"
- }
-}
->>>
---required properties only
+-- flow.iql (required properties only)
 INSERT INTO aws.mediaconnect.flows (
  Name,
  Source,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Source }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Source }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "Source": {
-  "SourceArn": "{{ SourceArn }}",
-  "Decryption": {
-   "Algorithm": "{{ Algorithm }}",
-   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
-   "DeviceId": "{{ DeviceId }}",
-   "KeyType": "{{ KeyType }}",
-   "Region": "{{ Region }}",
-   "ResourceId": "{{ ResourceId }}",
-   "RoleArn": "{{ RoleArn }}",
-   "SecretArn": "{{ SecretArn }}",
-   "Url": "{{ Url }}"
-  },
-  "Description": "{{ Description }}",
-  "EntitlementArn": "{{ EntitlementArn }}",
-  "GatewayBridgeSource": {
-   "BridgeArn": "{{ BridgeArn }}",
-   "VpcInterfaceAttachment": {
-    "VpcInterfaceName": "{{ VpcInterfaceName }}"
-   }
-  },
-  "IngestIp": "{{ IngestIp }}",
-  "IngestPort": "{{ IngestPort }}",
-  "MaxBitrate": "{{ MaxBitrate }}",
-  "MaxLatency": "{{ MaxLatency }}",
-  "MinLatency": "{{ MinLatency }}",
-  "Name": "{{ Name }}",
-  "Protocol": "{{ Protocol }}",
-  "SenderIpAddress": "{{ SenderIpAddress }}",
-  "SenderControlPort": "{{ SenderControlPort }}",
-  "StreamId": "{{ StreamId }}",
-  "SourceIngestPort": "{{ SourceIngestPort }}",
-  "SourceListenerAddress": "{{ SourceListenerAddress }}",
-  "SourceListenerPort": "{{ SourceListenerPort }}",
-  "VpcInterfaceName": "{{ VpcInterfaceName }}",
-  "WhitelistCidr": "{{ WhitelistCidr }}"
- },
- "SourceFailoverConfig": {
-  "State": "{{ State }}",
-  "RecoveryWindow": "{{ RecoveryWindow }}",
-  "FailoverMode": "{{ FailoverMode }}",
-  "SourcePriority": {
-   "PrimarySource": "{{ PrimarySource }}"
-  }
- }
-}
->>>
---all properties
+-- flow.iql (all properties)
 INSERT INTO aws.mediaconnect.flows (
  Name,
  AvailabilityZone,
@@ -201,11 +111,73 @@ INSERT INTO aws.mediaconnect.flows (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .AvailabilityZone }},
- {{ .Source }},
- {{ .SourceFailoverConfig }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ AvailabilityZone }}',
+ '{{ Source }}',
+ '{{ SourceFailoverConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: flow
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: Source
+        value:
+          SourceArn: '{{ SourceArn }}'
+          Decryption:
+            Algorithm: '{{ Algorithm }}'
+            ConstantInitializationVector: '{{ ConstantInitializationVector }}'
+            DeviceId: '{{ DeviceId }}'
+            KeyType: '{{ KeyType }}'
+            Region: '{{ Region }}'
+            ResourceId: '{{ ResourceId }}'
+            RoleArn: '{{ RoleArn }}'
+            SecretArn: '{{ SecretArn }}'
+            Url: '{{ Url }}'
+          Description: '{{ Description }}'
+          EntitlementArn: '{{ EntitlementArn }}'
+          GatewayBridgeSource:
+            BridgeArn: '{{ BridgeArn }}'
+            VpcInterfaceAttachment:
+              VpcInterfaceName: '{{ VpcInterfaceName }}'
+          IngestIp: '{{ IngestIp }}'
+          IngestPort: '{{ IngestPort }}'
+          MaxBitrate: '{{ MaxBitrate }}'
+          MaxLatency: '{{ MaxLatency }}'
+          MinLatency: '{{ MinLatency }}'
+          Name: '{{ Name }}'
+          Protocol: '{{ Protocol }}'
+          SenderIpAddress: '{{ SenderIpAddress }}'
+          SenderControlPort: '{{ SenderControlPort }}'
+          StreamId: '{{ StreamId }}'
+          SourceIngestPort: '{{ SourceIngestPort }}'
+          SourceListenerAddress: '{{ SourceListenerAddress }}'
+          SourceListenerPort: '{{ SourceListenerPort }}'
+          VpcInterfaceName: '{{ VpcInterfaceName }}'
+          WhitelistCidr: '{{ WhitelistCidr }}'
+      - name: SourceFailoverConfig
+        value:
+          State: '{{ State }}'
+          RecoveryWindow: '{{ RecoveryWindow }}'
+          FailoverMode: '{{ FailoverMode }}'
+          SourcePriority:
+            PrimarySource: '{{ PrimarySource }}'
+
 ```
 </TabItem>
 </Tabs>

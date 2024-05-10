@@ -74,67 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>infrastructure_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "InstanceProfileName": "{{ InstanceProfileName }}"
-}
->>>
---required properties only
+-- infrastructure_configuration.iql (required properties only)
 INSERT INTO aws.imagebuilder.infrastructure_configurations (
  Name,
  InstanceProfileName,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .InstanceProfileName }},
-'us-east-1';
+'{{ Name }}',
+ '{{ InstanceProfileName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "InstanceTypes": [
-  "{{ InstanceTypes[0] }}"
- ],
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "Logging": {
-  "S3Logs": {
-   "S3BucketName": "{{ S3BucketName }}",
-   "S3KeyPrefix": "{{ S3KeyPrefix }}"
-  }
- },
- "SubnetId": "{{ SubnetId }}",
- "KeyPair": "{{ KeyPair }}",
- "TerminateInstanceOnFailure": "{{ TerminateInstanceOnFailure }}",
- "InstanceProfileName": "{{ InstanceProfileName }}",
- "InstanceMetadataOptions": {
-  "HttpPutResponseHopLimit": "{{ HttpPutResponseHopLimit }}",
-  "HttpTokens": "{{ HttpTokens }}"
- },
- "SnsTopicArn": "{{ SnsTopicArn }}",
- "ResourceTags": {},
- "Tags": {}
-}
->>>
---all properties
+-- infrastructure_configuration.iql (all properties)
 INSERT INTO aws.imagebuilder.infrastructure_configurations (
  Name,
  Description,
@@ -152,20 +120,70 @@ INSERT INTO aws.imagebuilder.infrastructure_configurations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .InstanceTypes }},
- {{ .SecurityGroupIds }},
- {{ .Logging }},
- {{ .SubnetId }},
- {{ .KeyPair }},
- {{ .TerminateInstanceOnFailure }},
- {{ .InstanceProfileName }},
- {{ .InstanceMetadataOptions }},
- {{ .SnsTopicArn }},
- {{ .ResourceTags }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ InstanceTypes }}',
+ '{{ SecurityGroupIds }}',
+ '{{ Logging }}',
+ '{{ SubnetId }}',
+ '{{ KeyPair }}',
+ '{{ TerminateInstanceOnFailure }}',
+ '{{ InstanceProfileName }}',
+ '{{ InstanceMetadataOptions }}',
+ '{{ SnsTopicArn }}',
+ '{{ ResourceTags }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: infrastructure_configuration
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: InstanceTypes
+        value:
+          - '{{ InstanceTypes[0] }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: Logging
+        value:
+          S3Logs:
+            S3BucketName: '{{ S3BucketName }}'
+            S3KeyPrefix: '{{ S3KeyPrefix }}'
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+      - name: KeyPair
+        value: '{{ KeyPair }}'
+      - name: TerminateInstanceOnFailure
+        value: '{{ TerminateInstanceOnFailure }}'
+      - name: InstanceProfileName
+        value: '{{ InstanceProfileName }}'
+      - name: InstanceMetadataOptions
+        value:
+          HttpPutResponseHopLimit: '{{ HttpPutResponseHopLimit }}'
+          HttpTokens: '{{ HttpTokens }}'
+      - name: SnsTopicArn
+        value: '{{ SnsTopicArn }}'
+      - name: ResourceTags
+        value: {}
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

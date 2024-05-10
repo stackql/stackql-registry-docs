@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>local_gateway_route_table_virtual_interface_group_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LocalGatewayRouteTableId": "{{ LocalGatewayRouteTableId }}",
- "LocalGatewayVirtualInterfaceGroupId": "{{ LocalGatewayVirtualInterfaceGroupId }}"
-}
->>>
---required properties only
+-- local_gateway_route_table_virtual_interface_group_association.iql (required properties only)
 INSERT INTO aws.ec2.local_gateway_route_table_virtual_interface_group_associations (
  LocalGatewayRouteTableId,
  LocalGatewayVirtualInterfaceGroupId,
  region
 )
 SELECT 
-{{ .LocalGatewayRouteTableId }},
- {{ .LocalGatewayVirtualInterfaceGroupId }},
-'us-east-1';
+'{{ LocalGatewayRouteTableId }}',
+ '{{ LocalGatewayVirtualInterfaceGroupId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LocalGatewayRouteTableId": "{{ LocalGatewayRouteTableId }}",
- "LocalGatewayVirtualInterfaceGroupId": "{{ LocalGatewayVirtualInterfaceGroupId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- local_gateway_route_table_virtual_interface_group_association.iql (all properties)
 INSERT INTO aws.ec2.local_gateway_route_table_virtual_interface_group_associations (
  LocalGatewayRouteTableId,
  LocalGatewayVirtualInterfaceGroupId,
@@ -125,10 +110,35 @@ INSERT INTO aws.ec2.local_gateway_route_table_virtual_interface_group_associatio
  region
 )
 SELECT 
- {{ .LocalGatewayRouteTableId }},
- {{ .LocalGatewayVirtualInterfaceGroupId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ LocalGatewayRouteTableId }}',
+ '{{ LocalGatewayVirtualInterfaceGroupId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: local_gateway_route_table_virtual_interface_group_association
+    props:
+      - name: LocalGatewayRouteTableId
+        value: '{{ LocalGatewayRouteTableId }}'
+      - name: LocalGatewayVirtualInterfaceGroupId
+        value: '{{ LocalGatewayVirtualInterfaceGroupId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

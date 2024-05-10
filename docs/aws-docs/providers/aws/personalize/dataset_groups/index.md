@@ -74,43 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>dataset_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- dataset_group.iql (required properties only)
 INSERT INTO aws.personalize.dataset_groups (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "KmsKeyArn": "{{ KmsKeyArn }}",
- "RoleArn": "{{ RoleArn }}",
- "Domain": "{{ Domain }}"
-}
->>>
---all properties
+-- dataset_group.iql (all properties)
 INSERT INTO aws.personalize.dataset_groups (
  Name,
  KmsKeyArn,
@@ -119,11 +109,36 @@ INSERT INTO aws.personalize.dataset_groups (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .KmsKeyArn }},
- {{ .RoleArn }},
- {{ .Domain }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ KmsKeyArn }}',
+ '{{ RoleArn }}',
+ '{{ Domain }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: dataset_group
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: KmsKeyArn
+        value: '{{ KmsKeyArn }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Domain
+        value: '{{ Domain }}'
+
 ```
 </TabItem>
 </Tabs>

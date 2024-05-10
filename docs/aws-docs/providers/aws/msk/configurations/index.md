@@ -74,53 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ServerProperties": "{{ ServerProperties }}"
-}
->>>
---required properties only
+-- configuration.iql (required properties only)
 INSERT INTO aws.msk.configurations (
  Name,
  ServerProperties,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ServerProperties }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ServerProperties }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ServerProperties": "{{ ServerProperties }}",
- "KafkaVersionsList": [
-  "{{ KafkaVersionsList[0] }}"
- ],
- "LatestRevision": {
-  "CreationTime": "{{ CreationTime }}",
-  "Description": "{{ Description }}",
-  "Revision": "{{ Revision }}"
- }
-}
->>>
---all properties
+-- configuration.iql (all properties)
 INSERT INTO aws.msk.configurations (
  Name,
  Description,
@@ -130,12 +112,43 @@ INSERT INTO aws.msk.configurations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .ServerProperties }},
- {{ .KafkaVersionsList }},
- {{ .LatestRevision }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ ServerProperties }}',
+ '{{ KafkaVersionsList }}',
+ '{{ LatestRevision }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configuration
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ServerProperties
+        value: '{{ ServerProperties }}'
+      - name: KafkaVersionsList
+        value:
+          - '{{ KafkaVersionsList[0] }}'
+      - name: LatestRevision
+        value:
+          CreationTime: '{{ CreationTime }}'
+          Description: '{{ Description }}'
+          Revision: '{{ Revision }}'
+
 ```
 </TabItem>
 </Tabs>

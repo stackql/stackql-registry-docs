@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>bot</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "DataPrivacy": {
-  "ChildDirected": "{{ ChildDirected }}"
- },
- "IdleSessionTTLInSeconds": "{{ IdleSessionTTLInSeconds }}"
-}
->>>
---required properties only
+-- bot.iql (required properties only)
 INSERT INTO aws.lex.bots (
  Name,
  RoleArn,
@@ -103,383 +96,17 @@ INSERT INTO aws.lex.bots (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RoleArn }},
- {{ .DataPrivacy }},
- {{ .IdleSessionTTLInSeconds }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ DataPrivacy }}',
+ '{{ IdleSessionTTLInSeconds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "RoleArn": "{{ RoleArn }}",
- "DataPrivacy": {
-  "ChildDirected": "{{ ChildDirected }}"
- },
- "IdleSessionTTLInSeconds": "{{ IdleSessionTTLInSeconds }}",
- "BotLocales": [
-  {
-   "LocaleId": "{{ LocaleId }}",
-   "Description": null,
-   "VoiceSettings": {
-    "VoiceId": "{{ VoiceId }}",
-    "Engine": "{{ Engine }}"
-   },
-   "NluConfidenceThreshold": null,
-   "Intents": [
-    {
-     "Name": null,
-     "Description": null,
-     "ParentIntentSignature": "{{ ParentIntentSignature }}",
-     "SampleUtterances": [
-      {
-       "Utterance": "{{ Utterance }}"
-      }
-     ],
-     "DialogCodeHook": {
-      "Enabled": "{{ Enabled }}"
-     },
-     "FulfillmentCodeHook": {
-      "FulfillmentUpdatesSpecification": {
-       "StartResponse": {
-        "MessageGroups": [
-         {
-          "Message": {
-           "PlainTextMessage": {
-            "Value": "{{ Value }}"
-           },
-           "CustomPayload": {
-            "Value": "{{ Value }}"
-           },
-           "SSMLMessage": {
-            "Value": "{{ Value }}"
-           },
-           "ImageResponseCard": {
-            "Title": "{{ Title }}",
-            "Subtitle": null,
-            "ImageUrl": "{{ ImageUrl }}",
-            "Buttons": [
-             {
-              "Text": "{{ Text }}",
-              "Value": "{{ Value }}"
-             }
-            ]
-           }
-          },
-          "Variations": [
-           null
-          ]
-         }
-        ],
-        "DelayInSeconds": "{{ DelayInSeconds }}",
-        "AllowInterrupt": "{{ AllowInterrupt }}"
-       },
-       "UpdateResponse": {
-        "MessageGroups": null,
-        "FrequencyInSeconds": "{{ FrequencyInSeconds }}",
-        "AllowInterrupt": "{{ AllowInterrupt }}"
-       },
-       "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
-       "Active": "{{ Active }}"
-      },
-      "PostFulfillmentStatusSpecification": {
-       "SuccessResponse": {
-        "MessageGroupsList": null,
-        "AllowInterrupt": "{{ AllowInterrupt }}"
-       },
-       "SuccessNextStep": {
-        "DialogAction": {
-         "Type": "{{ Type }}",
-         "SlotToElicit": null,
-         "SuppressNextMessage": "{{ SuppressNextMessage }}"
-        },
-        "Intent": {
-         "Name": null,
-         "Slots": [
-          {
-           "SlotName": null,
-           "SlotValueOverride": {
-            "Shape": "{{ Shape }}",
-            "Value": {
-             "InterpretedValue": "{{ InterpretedValue }}"
-            },
-            "Values": [
-             null
-            ]
-           }
-          }
-         ]
-        },
-        "SessionAttributes": [
-         {
-          "Key": "{{ Key }}",
-          "Value": "{{ Value }}"
-         }
-        ]
-       },
-       "SuccessConditional": {
-        "IsActive": "{{ IsActive }}",
-        "ConditionalBranches": [
-         {
-          "Name": null,
-          "Condition": {
-           "ExpressionString": "{{ ExpressionString }}"
-          },
-          "NextStep": null,
-          "Response": null
-         }
-        ],
-        "DefaultBranch": {
-         "NextStep": null,
-         "Response": null
-        }
-       },
-       "FailureResponse": null,
-       "FailureNextStep": null,
-       "FailureConditional": null,
-       "TimeoutResponse": null,
-       "TimeoutNextStep": null,
-       "TimeoutConditional": null
-      },
-      "Enabled": "{{ Enabled }}",
-      "IsActive": "{{ IsActive }}"
-     },
-     "IntentConfirmationSetting": {
-      "PromptSpecification": {
-       "MessageGroupsList": null,
-       "MaxRetries": "{{ MaxRetries }}",
-       "AllowInterrupt": "{{ AllowInterrupt }}",
-       "MessageSelectionStrategy": "{{ MessageSelectionStrategy }}",
-       "PromptAttemptsSpecification": {}
-      },
-      "IsActive": "{{ IsActive }}",
-      "ConfirmationResponse": null,
-      "ConfirmationNextStep": null,
-      "ConfirmationConditional": null,
-      "DeclinationResponse": null,
-      "DeclinationNextStep": null,
-      "DeclinationConditional": null,
-      "FailureResponse": null,
-      "FailureNextStep": null,
-      "FailureConditional": null,
-      "CodeHook": {
-       "EnableCodeHookInvocation": "{{ EnableCodeHookInvocation }}",
-       "IsActive": "{{ IsActive }}",
-       "InvocationLabel": null,
-       "PostCodeHookSpecification": {
-        "SuccessResponse": null,
-        "SuccessNextStep": null,
-        "SuccessConditional": null,
-        "FailureResponse": null,
-        "FailureNextStep": null,
-        "FailureConditional": null,
-        "TimeoutResponse": null,
-        "TimeoutNextStep": null,
-        "TimeoutConditional": null
-       }
-      },
-      "ElicitationCodeHook": {
-       "EnableCodeHookInvocation": "{{ EnableCodeHookInvocation }}",
-       "InvocationLabel": null
-      }
-     },
-     "IntentClosingSetting": {
-      "ClosingResponse": null,
-      "IsActive": "{{ IsActive }}",
-      "Conditional": null,
-      "NextStep": null
-     },
-     "InitialResponseSetting": {
-      "InitialResponse": null,
-      "NextStep": null,
-      "Conditional": null,
-      "CodeHook": null
-     },
-     "InputContexts": [
-      {
-       "Name": null
-      }
-     ],
-     "OutputContexts": [
-      {
-       "Name": null,
-       "TimeToLiveInSeconds": "{{ TimeToLiveInSeconds }}",
-       "TurnsToLive": "{{ TurnsToLive }}"
-      }
-     ],
-     "KendraConfiguration": {
-      "KendraIndex": "{{ KendraIndex }}",
-      "QueryFilterStringEnabled": "{{ QueryFilterStringEnabled }}",
-      "QueryFilterString": "{{ QueryFilterString }}"
-     },
-     "SlotPriorities": [
-      {
-       "Priority": "{{ Priority }}",
-       "SlotName": null
-      }
-     ],
-     "Slots": [
-      {
-       "Name": null,
-       "Description": null,
-       "SlotTypeName": "{{ SlotTypeName }}",
-       "ValueElicitationSetting": {
-        "DefaultValueSpecification": {
-         "DefaultValueList": [
-          {
-           "DefaultValue": "{{ DefaultValue }}"
-          }
-         ]
-        },
-        "SlotConstraint": "{{ SlotConstraint }}",
-        "PromptSpecification": null,
-        "SampleUtterances": null,
-        "WaitAndContinueSpecification": {
-         "WaitingResponse": null,
-         "ContinueResponse": null,
-         "StillWaitingResponse": {
-          "MessageGroupsList": null,
-          "FrequencyInSeconds": "{{ FrequencyInSeconds }}",
-          "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
-          "AllowInterrupt": "{{ AllowInterrupt }}"
-         },
-         "IsActive": "{{ IsActive }}"
-        },
-        "SlotCaptureSetting": {
-         "CaptureResponse": null,
-         "CaptureNextStep": null,
-         "CaptureConditional": null,
-         "FailureResponse": null,
-         "FailureNextStep": null,
-         "FailureConditional": null,
-         "CodeHook": null,
-         "ElicitationCodeHook": null
-        }
-       },
-       "ObfuscationSetting": {
-        "ObfuscationSettingType": "{{ ObfuscationSettingType }}"
-       },
-       "MultipleValuesSetting": {
-        "AllowMultipleValues": "{{ AllowMultipleValues }}"
-       }
-      }
-     ]
-    }
-   ],
-   "SlotTypes": [
-    {
-     "Name": null,
-     "Description": null,
-     "ParentSlotTypeSignature": "{{ ParentSlotTypeSignature }}",
-     "SlotTypeValues": [
-      {
-       "SampleValue": {
-        "Value": "{{ Value }}"
-       },
-       "Synonyms": [
-        null
-       ]
-      }
-     ],
-     "ValueSelectionSetting": {
-      "ResolutionStrategy": "{{ ResolutionStrategy }}",
-      "RegexFilter": {
-       "Pattern": "{{ Pattern }}"
-      },
-      "AdvancedRecognitionSetting": {
-       "AudioRecognitionStrategy": "{{ AudioRecognitionStrategy }}"
-      }
-     },
-     "ExternalSourceSetting": {
-      "GrammarSlotTypeSetting": {
-       "Source": {
-        "S3BucketName": "{{ S3BucketName }}",
-        "S3ObjectKey": "{{ S3ObjectKey }}",
-        "KmsKeyArn": "{{ KmsKeyArn }}"
-       }
-      }
-     }
-    }
-   ],
-   "CustomVocabulary": {
-    "CustomVocabularyItems": [
-     {
-      "Phrase": "{{ Phrase }}",
-      "Weight": "{{ Weight }}",
-      "DisplayAs": "{{ DisplayAs }}"
-     }
-    ]
-   }
-  }
- ],
- "BotFileS3Location": {
-  "S3Bucket": null,
-  "S3ObjectKey": null,
-  "S3ObjectVersion": "{{ S3ObjectVersion }}"
- },
- "BotTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TestBotAliasTags": [
-  null
- ],
- "AutoBuildBotLocales": "{{ AutoBuildBotLocales }}",
- "TestBotAliasSettings": {
-  "BotAliasLocaleSettings": [
-   {
-    "LocaleId": "{{ LocaleId }}",
-    "BotAliasLocaleSetting": {
-     "CodeHookSpecification": {
-      "LambdaCodeHook": {
-       "CodeHookInterfaceVersion": "{{ CodeHookInterfaceVersion }}",
-       "LambdaArn": "{{ LambdaArn }}"
-      }
-     },
-     "Enabled": "{{ Enabled }}"
-    }
-   }
-  ],
-  "ConversationLogSettings": {
-   "AudioLogSettings": [
-    {
-     "Destination": {
-      "S3Bucket": {
-       "S3BucketArn": "{{ S3BucketArn }}",
-       "LogPrefix": "{{ LogPrefix }}",
-       "KmsKeyArn": "{{ KmsKeyArn }}"
-      }
-     },
-     "Enabled": "{{ Enabled }}"
-    }
-   ],
-   "TextLogSettings": [
-    {
-     "Destination": {
-      "CloudWatch": {
-       "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}",
-       "LogPrefix": "{{ LogPrefix }}"
-      }
-     },
-     "Enabled": "{{ Enabled }}"
-    }
-   ]
-  },
-  "Description": null,
-  "SentimentAnalysisSettings": {
-   "DetectSentiment": "{{ DetectSentiment }}"
-  }
- }
-}
->>>
---all properties
+-- bot.iql (all properties)
 INSERT INTO aws.lex.bots (
  Name,
  Description,
@@ -495,18 +122,288 @@ INSERT INTO aws.lex.bots (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .RoleArn }},
- {{ .DataPrivacy }},
- {{ .IdleSessionTTLInSeconds }},
- {{ .BotLocales }},
- {{ .BotFileS3Location }},
- {{ .BotTags }},
- {{ .TestBotAliasTags }},
- {{ .AutoBuildBotLocales }},
- {{ .TestBotAliasSettings }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ RoleArn }}',
+ '{{ DataPrivacy }}',
+ '{{ IdleSessionTTLInSeconds }}',
+ '{{ BotLocales }}',
+ '{{ BotFileS3Location }}',
+ '{{ BotTags }}',
+ '{{ TestBotAliasTags }}',
+ '{{ AutoBuildBotLocales }}',
+ '{{ TestBotAliasSettings }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: bot
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: DataPrivacy
+        value:
+          ChildDirected: '{{ ChildDirected }}'
+      - name: IdleSessionTTLInSeconds
+        value: '{{ IdleSessionTTLInSeconds }}'
+      - name: BotLocales
+        value:
+          - LocaleId: '{{ LocaleId }}'
+            Description: null
+            VoiceSettings:
+              VoiceId: '{{ VoiceId }}'
+              Engine: '{{ Engine }}'
+            NluConfidenceThreshold: null
+            Intents:
+              - Name: null
+                Description: null
+                ParentIntentSignature: '{{ ParentIntentSignature }}'
+                SampleUtterances:
+                  - Utterance: '{{ Utterance }}'
+                DialogCodeHook:
+                  Enabled: '{{ Enabled }}'
+                FulfillmentCodeHook:
+                  FulfillmentUpdatesSpecification:
+                    StartResponse:
+                      MessageGroups:
+                        - Message:
+                            PlainTextMessage:
+                              Value: '{{ Value }}'
+                            CustomPayload:
+                              Value: '{{ Value }}'
+                            SSMLMessage:
+                              Value: '{{ Value }}'
+                            ImageResponseCard:
+                              Title: '{{ Title }}'
+                              Subtitle: null
+                              ImageUrl: '{{ ImageUrl }}'
+                              Buttons:
+                                - Text: '{{ Text }}'
+                                  Value: '{{ Value }}'
+                          Variations:
+                            - null
+                      DelayInSeconds: '{{ DelayInSeconds }}'
+                      AllowInterrupt: '{{ AllowInterrupt }}'
+                    UpdateResponse:
+                      MessageGroups: null
+                      FrequencyInSeconds: '{{ FrequencyInSeconds }}'
+                      AllowInterrupt: '{{ AllowInterrupt }}'
+                    TimeoutInSeconds: '{{ TimeoutInSeconds }}'
+                    Active: '{{ Active }}'
+                  PostFulfillmentStatusSpecification:
+                    SuccessResponse:
+                      MessageGroupsList: null
+                      AllowInterrupt: '{{ AllowInterrupt }}'
+                    SuccessNextStep:
+                      DialogAction:
+                        Type: '{{ Type }}'
+                        SlotToElicit: null
+                        SuppressNextMessage: '{{ SuppressNextMessage }}'
+                      Intent:
+                        Name: null
+                        Slots:
+                          - SlotName: null
+                            SlotValueOverride:
+                              Shape: '{{ Shape }}'
+                              Value:
+                                InterpretedValue: '{{ InterpretedValue }}'
+                              Values:
+                                - null
+                      SessionAttributes:
+                        - Key: '{{ Key }}'
+                          Value: '{{ Value }}'
+                    SuccessConditional:
+                      IsActive: '{{ IsActive }}'
+                      ConditionalBranches:
+                        - Name: null
+                          Condition:
+                            ExpressionString: '{{ ExpressionString }}'
+                          NextStep: null
+                          Response: null
+                      DefaultBranch:
+                        NextStep: null
+                        Response: null
+                    FailureResponse: null
+                    FailureNextStep: null
+                    FailureConditional: null
+                    TimeoutResponse: null
+                    TimeoutNextStep: null
+                    TimeoutConditional: null
+                  Enabled: '{{ Enabled }}'
+                  IsActive: '{{ IsActive }}'
+                IntentConfirmationSetting:
+                  PromptSpecification:
+                    MessageGroupsList: null
+                    MaxRetries: '{{ MaxRetries }}'
+                    AllowInterrupt: '{{ AllowInterrupt }}'
+                    MessageSelectionStrategy: '{{ MessageSelectionStrategy }}'
+                    PromptAttemptsSpecification: {}
+                  IsActive: '{{ IsActive }}'
+                  ConfirmationResponse: null
+                  ConfirmationNextStep: null
+                  ConfirmationConditional: null
+                  DeclinationResponse: null
+                  DeclinationNextStep: null
+                  DeclinationConditional: null
+                  FailureResponse: null
+                  FailureNextStep: null
+                  FailureConditional: null
+                  CodeHook:
+                    EnableCodeHookInvocation: '{{ EnableCodeHookInvocation }}'
+                    IsActive: '{{ IsActive }}'
+                    InvocationLabel: null
+                    PostCodeHookSpecification:
+                      SuccessResponse: null
+                      SuccessNextStep: null
+                      SuccessConditional: null
+                      FailureResponse: null
+                      FailureNextStep: null
+                      FailureConditional: null
+                      TimeoutResponse: null
+                      TimeoutNextStep: null
+                      TimeoutConditional: null
+                  ElicitationCodeHook:
+                    EnableCodeHookInvocation: '{{ EnableCodeHookInvocation }}'
+                    InvocationLabel: null
+                IntentClosingSetting:
+                  ClosingResponse: null
+                  IsActive: '{{ IsActive }}'
+                  Conditional: null
+                  NextStep: null
+                InitialResponseSetting:
+                  InitialResponse: null
+                  NextStep: null
+                  Conditional: null
+                  CodeHook: null
+                InputContexts:
+                  - Name: null
+                OutputContexts:
+                  - Name: null
+                    TimeToLiveInSeconds: '{{ TimeToLiveInSeconds }}'
+                    TurnsToLive: '{{ TurnsToLive }}'
+                KendraConfiguration:
+                  KendraIndex: '{{ KendraIndex }}'
+                  QueryFilterStringEnabled: '{{ QueryFilterStringEnabled }}'
+                  QueryFilterString: '{{ QueryFilterString }}'
+                SlotPriorities:
+                  - Priority: '{{ Priority }}'
+                    SlotName: null
+                Slots:
+                  - Name: null
+                    Description: null
+                    SlotTypeName: '{{ SlotTypeName }}'
+                    ValueElicitationSetting:
+                      DefaultValueSpecification:
+                        DefaultValueList:
+                          - DefaultValue: '{{ DefaultValue }}'
+                      SlotConstraint: '{{ SlotConstraint }}'
+                      PromptSpecification: null
+                      SampleUtterances: null
+                      WaitAndContinueSpecification:
+                        WaitingResponse: null
+                        ContinueResponse: null
+                        StillWaitingResponse:
+                          MessageGroupsList: null
+                          FrequencyInSeconds: '{{ FrequencyInSeconds }}'
+                          TimeoutInSeconds: '{{ TimeoutInSeconds }}'
+                          AllowInterrupt: '{{ AllowInterrupt }}'
+                        IsActive: '{{ IsActive }}'
+                      SlotCaptureSetting:
+                        CaptureResponse: null
+                        CaptureNextStep: null
+                        CaptureConditional: null
+                        FailureResponse: null
+                        FailureNextStep: null
+                        FailureConditional: null
+                        CodeHook: null
+                        ElicitationCodeHook: null
+                    ObfuscationSetting:
+                      ObfuscationSettingType: '{{ ObfuscationSettingType }}'
+                    MultipleValuesSetting:
+                      AllowMultipleValues: '{{ AllowMultipleValues }}'
+            SlotTypes:
+              - Name: null
+                Description: null
+                ParentSlotTypeSignature: '{{ ParentSlotTypeSignature }}'
+                SlotTypeValues:
+                  - SampleValue:
+                      Value: '{{ Value }}'
+                    Synonyms:
+                      - null
+                ValueSelectionSetting:
+                  ResolutionStrategy: '{{ ResolutionStrategy }}'
+                  RegexFilter:
+                    Pattern: '{{ Pattern }}'
+                  AdvancedRecognitionSetting:
+                    AudioRecognitionStrategy: '{{ AudioRecognitionStrategy }}'
+                ExternalSourceSetting:
+                  GrammarSlotTypeSetting:
+                    Source:
+                      S3BucketName: '{{ S3BucketName }}'
+                      S3ObjectKey: '{{ S3ObjectKey }}'
+                      KmsKeyArn: '{{ KmsKeyArn }}'
+            CustomVocabulary:
+              CustomVocabularyItems:
+                - Phrase: '{{ Phrase }}'
+                  Weight: '{{ Weight }}'
+                  DisplayAs: '{{ DisplayAs }}'
+      - name: BotFileS3Location
+        value:
+          S3Bucket: null
+          S3ObjectKey: null
+          S3ObjectVersion: '{{ S3ObjectVersion }}'
+      - name: BotTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TestBotAliasTags
+        value:
+          - null
+      - name: AutoBuildBotLocales
+        value: '{{ AutoBuildBotLocales }}'
+      - name: TestBotAliasSettings
+        value:
+          BotAliasLocaleSettings:
+            - LocaleId: '{{ LocaleId }}'
+              BotAliasLocaleSetting:
+                CodeHookSpecification:
+                  LambdaCodeHook:
+                    CodeHookInterfaceVersion: '{{ CodeHookInterfaceVersion }}'
+                    LambdaArn: '{{ LambdaArn }}'
+                Enabled: '{{ Enabled }}'
+          ConversationLogSettings:
+            AudioLogSettings:
+              - Destination:
+                  S3Bucket:
+                    S3BucketArn: '{{ S3BucketArn }}'
+                    LogPrefix: '{{ LogPrefix }}'
+                    KmsKeyArn: '{{ KmsKeyArn }}'
+                Enabled: '{{ Enabled }}'
+            TextLogSettings:
+              - Destination:
+                  CloudWatch:
+                    CloudWatchLogGroupArn: '{{ CloudWatchLogGroupArn }}'
+                    LogPrefix: '{{ LogPrefix }}'
+                Enabled: '{{ Enabled }}'
+          Description: null
+          SentimentAnalysisSettings:
+            DetectSentiment: '{{ DetectSentiment }}'
+
 ```
 </TabItem>
 </Tabs>

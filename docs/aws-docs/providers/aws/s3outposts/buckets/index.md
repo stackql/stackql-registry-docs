@@ -74,71 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>bucket</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BucketName": "{{ BucketName }}",
- "OutpostId": "{{ OutpostId }}"
-}
->>>
---required properties only
+-- bucket.iql (required properties only)
 INSERT INTO aws.s3outposts.buckets (
  BucketName,
  OutpostId,
  region
 )
 SELECT 
-{{ .BucketName }},
- {{ .OutpostId }},
-'us-east-1';
+'{{ BucketName }}',
+ '{{ OutpostId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BucketName": "{{ BucketName }}",
- "OutpostId": "{{ OutpostId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "LifecycleConfiguration": {
-  "Rules": [
-   {
-    "Status": "{{ Status }}",
-    "Id": "{{ Id }}",
-    "AbortIncompleteMultipartUpload": {
-     "DaysAfterInitiation": "{{ DaysAfterInitiation }}"
-    },
-    "ExpirationDate": "{{ ExpirationDate }}",
-    "ExpirationInDays": "{{ ExpirationInDays }}",
-    "Filter": {
-     "Prefix": "{{ Prefix }}",
-     "Tag": {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     },
-     "AndOperator": null
-    }
-   }
-  ]
- }
-}
->>>
---all properties
+-- bucket.iql (all properties)
 INSERT INTO aws.s3outposts.buckets (
  BucketName,
  OutpostId,
@@ -147,11 +111,51 @@ INSERT INTO aws.s3outposts.buckets (
  region
 )
 SELECT 
- {{ .BucketName }},
- {{ .OutpostId }},
- {{ .Tags }},
- {{ .LifecycleConfiguration }},
- 'us-east-1';
+ '{{ BucketName }}',
+ '{{ OutpostId }}',
+ '{{ Tags }}',
+ '{{ LifecycleConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: bucket
+    props:
+      - name: BucketName
+        value: '{{ BucketName }}'
+      - name: OutpostId
+        value: '{{ OutpostId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: LifecycleConfiguration
+        value:
+          Rules:
+            - Status: '{{ Status }}'
+              Id: '{{ Id }}'
+              AbortIncompleteMultipartUpload:
+                DaysAfterInitiation: '{{ DaysAfterInitiation }}'
+              ExpirationDate: '{{ ExpirationDate }}'
+              ExpirationInDays: '{{ ExpirationInDays }}'
+              Filter:
+                Prefix: '{{ Prefix }}'
+                Tag:
+                  Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+                AndOperator: null
+
 ```
 </TabItem>
 </Tabs>

@@ -76,29 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>stream</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LedgerName": "{{ LedgerName }}",
- "StreamName": "{{ StreamName }}",
- "RoleArn": "{{ RoleArn }}",
- "InclusiveStartTime": "{{ InclusiveStartTime }}",
- "KinesisConfiguration": {
-  "StreamArn": null,
-  "AggregationEnabled": "{{ AggregationEnabled }}"
- }
-}
->>>
---required properties only
+-- stream.iql (required properties only)
 INSERT INTO aws.qldb.streams (
  LedgerName,
  StreamName,
@@ -108,37 +99,18 @@ INSERT INTO aws.qldb.streams (
  region
 )
 SELECT 
-{{ .LedgerName }},
- {{ .StreamName }},
- {{ .RoleArn }},
- {{ .InclusiveStartTime }},
- {{ .KinesisConfiguration }},
-'us-east-1';
+'{{ LedgerName }}',
+ '{{ StreamName }}',
+ '{{ RoleArn }}',
+ '{{ InclusiveStartTime }}',
+ '{{ KinesisConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LedgerName": "{{ LedgerName }}",
- "StreamName": "{{ StreamName }}",
- "RoleArn": "{{ RoleArn }}",
- "InclusiveStartTime": "{{ InclusiveStartTime }}",
- "ExclusiveEndTime": "{{ ExclusiveEndTime }}",
- "KinesisConfiguration": {
-  "StreamArn": null,
-  "AggregationEnabled": "{{ AggregationEnabled }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- stream.iql (all properties)
 INSERT INTO aws.qldb.streams (
  LedgerName,
  StreamName,
@@ -150,14 +122,49 @@ INSERT INTO aws.qldb.streams (
  region
 )
 SELECT 
- {{ .LedgerName }},
- {{ .StreamName }},
- {{ .RoleArn }},
- {{ .InclusiveStartTime }},
- {{ .ExclusiveEndTime }},
- {{ .KinesisConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ LedgerName }}',
+ '{{ StreamName }}',
+ '{{ RoleArn }}',
+ '{{ InclusiveStartTime }}',
+ '{{ ExclusiveEndTime }}',
+ '{{ KinesisConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: stream
+    props:
+      - name: LedgerName
+        value: '{{ LedgerName }}'
+      - name: StreamName
+        value: '{{ StreamName }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: InclusiveStartTime
+        value: '{{ InclusiveStartTime }}'
+      - name: ExclusiveEndTime
+        value: '{{ ExclusiveEndTime }}'
+      - name: KinesisConfiguration
+        value:
+          StreamArn: null
+          AggregationEnabled: '{{ AggregationEnabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application_entitlement_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StackName": "{{ StackName }}",
- "EntitlementName": "{{ EntitlementName }}",
- "ApplicationIdentifier": "{{ ApplicationIdentifier }}"
-}
->>>
---required properties only
+-- application_entitlement_association.iql (required properties only)
 INSERT INTO aws.appstream.application_entitlement_associations (
  StackName,
  EntitlementName,
@@ -103,23 +99,16 @@ INSERT INTO aws.appstream.application_entitlement_associations (
  region
 )
 SELECT 
-{{ .StackName }},
- {{ .EntitlementName }},
- {{ .ApplicationIdentifier }},
-'us-east-1';
+'{{ StackName }}',
+ '{{ EntitlementName }}',
+ '{{ ApplicationIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "StackName": "{{ StackName }}",
- "EntitlementName": "{{ EntitlementName }}",
- "ApplicationIdentifier": "{{ ApplicationIdentifier }}"
-}
->>>
---all properties
+-- application_entitlement_association.iql (all properties)
 INSERT INTO aws.appstream.application_entitlement_associations (
  StackName,
  EntitlementName,
@@ -127,10 +116,33 @@ INSERT INTO aws.appstream.application_entitlement_associations (
  region
 )
 SELECT 
- {{ .StackName }},
- {{ .EntitlementName }},
- {{ .ApplicationIdentifier }},
- 'us-east-1';
+ '{{ StackName }}',
+ '{{ EntitlementName }}',
+ '{{ ApplicationIdentifier }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application_entitlement_association
+    props:
+      - name: StackName
+        value: '{{ StackName }}'
+      - name: EntitlementName
+        value: '{{ EntitlementName }}'
+      - name: ApplicationIdentifier
+        value: '{{ ApplicationIdentifier }}'
+
 ```
 </TabItem>
 </Tabs>

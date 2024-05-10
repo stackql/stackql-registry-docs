@@ -74,70 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>verified_access_trust_provider</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TrustProviderType": "{{ TrustProviderType }}",
- "PolicyReferenceName": "{{ PolicyReferenceName }}"
-}
->>>
---required properties only
+-- verified_access_trust_provider.iql (required properties only)
 INSERT INTO aws.ec2.verified_access_trust_providers (
  TrustProviderType,
  PolicyReferenceName,
  region
 )
 SELECT 
-{{ .TrustProviderType }},
- {{ .PolicyReferenceName }},
-'us-east-1';
+'{{ TrustProviderType }}',
+ '{{ PolicyReferenceName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TrustProviderType": "{{ TrustProviderType }}",
- "DeviceTrustProviderType": "{{ DeviceTrustProviderType }}",
- "UserTrustProviderType": "{{ UserTrustProviderType }}",
- "OidcOptions": {
-  "Issuer": "{{ Issuer }}",
-  "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-  "TokenEndpoint": "{{ TokenEndpoint }}",
-  "UserInfoEndpoint": "{{ UserInfoEndpoint }}",
-  "ClientId": "{{ ClientId }}",
-  "ClientSecret": "{{ ClientSecret }}",
-  "Scope": "{{ Scope }}"
- },
- "DeviceOptions": {
-  "TenantId": "{{ TenantId }}",
-  "PublicSigningKeyUrl": "{{ PublicSigningKeyUrl }}"
- },
- "PolicyReferenceName": "{{ PolicyReferenceName }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "SseSpecification": {
-  "KmsKeyArn": "{{ KmsKeyArn }}",
-  "CustomerManagedKeyEnabled": "{{ CustomerManagedKeyEnabled }}"
- }
-}
->>>
---all properties
+-- verified_access_trust_provider.iql (all properties)
 INSERT INTO aws.ec2.verified_access_trust_providers (
  TrustProviderType,
  DeviceTrustProviderType,
@@ -151,16 +116,64 @@ INSERT INTO aws.ec2.verified_access_trust_providers (
  region
 )
 SELECT 
- {{ .TrustProviderType }},
- {{ .DeviceTrustProviderType }},
- {{ .UserTrustProviderType }},
- {{ .OidcOptions }},
- {{ .DeviceOptions }},
- {{ .PolicyReferenceName }},
- {{ .Description }},
- {{ .Tags }},
- {{ .SseSpecification }},
- 'us-east-1';
+ '{{ TrustProviderType }}',
+ '{{ DeviceTrustProviderType }}',
+ '{{ UserTrustProviderType }}',
+ '{{ OidcOptions }}',
+ '{{ DeviceOptions }}',
+ '{{ PolicyReferenceName }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ SseSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: verified_access_trust_provider
+    props:
+      - name: TrustProviderType
+        value: '{{ TrustProviderType }}'
+      - name: DeviceTrustProviderType
+        value: '{{ DeviceTrustProviderType }}'
+      - name: UserTrustProviderType
+        value: '{{ UserTrustProviderType }}'
+      - name: OidcOptions
+        value:
+          Issuer: '{{ Issuer }}'
+          AuthorizationEndpoint: '{{ AuthorizationEndpoint }}'
+          TokenEndpoint: '{{ TokenEndpoint }}'
+          UserInfoEndpoint: '{{ UserInfoEndpoint }}'
+          ClientId: '{{ ClientId }}'
+          ClientSecret: '{{ ClientSecret }}'
+          Scope: '{{ Scope }}'
+      - name: DeviceOptions
+        value:
+          TenantId: '{{ TenantId }}'
+          PublicSigningKeyUrl: '{{ PublicSigningKeyUrl }}'
+      - name: PolicyReferenceName
+        value: '{{ PolicyReferenceName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: SseSpecification
+        value:
+          KmsKeyArn: '{{ KmsKeyArn }}'
+          CustomerManagedKeyEnabled: '{{ CustomerManagedKeyEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

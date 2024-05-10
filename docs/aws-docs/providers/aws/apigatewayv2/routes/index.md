@@ -76,56 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>route</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RouteKey": "{{ RouteKey }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---required properties only
+-- route.iql (required properties only)
 INSERT INTO aws.apigatewayv2.routes (
  RouteKey,
  ApiId,
  region
 )
 SELECT 
-{{ .RouteKey }},
- {{ .ApiId }},
-'us-east-1';
+'{{ RouteKey }}',
+ '{{ ApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RouteResponseSelectionExpression": "{{ RouteResponseSelectionExpression }}",
- "RequestModels": {},
- "OperationName": "{{ OperationName }}",
- "AuthorizationScopes": [
-  "{{ AuthorizationScopes[0] }}"
- ],
- "ApiKeyRequired": "{{ ApiKeyRequired }}",
- "RouteKey": "{{ RouteKey }}",
- "AuthorizationType": "{{ AuthorizationType }}",
- "ModelSelectionExpression": "{{ ModelSelectionExpression }}",
- "ApiId": "{{ ApiId }}",
- "RequestParameters": {},
- "Target": "{{ Target }}",
- "AuthorizerId": "{{ AuthorizerId }}"
-}
->>>
---all properties
+-- route.iql (all properties)
 INSERT INTO aws.apigatewayv2.routes (
  RouteResponseSelectionExpression,
  RequestModels,
@@ -142,19 +121,61 @@ INSERT INTO aws.apigatewayv2.routes (
  region
 )
 SELECT 
- {{ .RouteResponseSelectionExpression }},
- {{ .RequestModels }},
- {{ .OperationName }},
- {{ .AuthorizationScopes }},
- {{ .ApiKeyRequired }},
- {{ .RouteKey }},
- {{ .AuthorizationType }},
- {{ .ModelSelectionExpression }},
- {{ .ApiId }},
- {{ .RequestParameters }},
- {{ .Target }},
- {{ .AuthorizerId }},
- 'us-east-1';
+ '{{ RouteResponseSelectionExpression }}',
+ '{{ RequestModels }}',
+ '{{ OperationName }}',
+ '{{ AuthorizationScopes }}',
+ '{{ ApiKeyRequired }}',
+ '{{ RouteKey }}',
+ '{{ AuthorizationType }}',
+ '{{ ModelSelectionExpression }}',
+ '{{ ApiId }}',
+ '{{ RequestParameters }}',
+ '{{ Target }}',
+ '{{ AuthorizerId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: route
+    props:
+      - name: RouteResponseSelectionExpression
+        value: '{{ RouteResponseSelectionExpression }}'
+      - name: RequestModels
+        value: {}
+      - name: OperationName
+        value: '{{ OperationName }}'
+      - name: AuthorizationScopes
+        value:
+          - '{{ AuthorizationScopes[0] }}'
+      - name: ApiKeyRequired
+        value: '{{ ApiKeyRequired }}'
+      - name: RouteKey
+        value: '{{ RouteKey }}'
+      - name: AuthorizationType
+        value: '{{ AuthorizationType }}'
+      - name: ModelSelectionExpression
+        value: '{{ ModelSelectionExpression }}'
+      - name: ApiId
+        value: '{{ ApiId }}'
+      - name: RequestParameters
+        value: {}
+      - name: Target
+        value: '{{ Target }}'
+      - name: AuthorizerId
+        value: '{{ AuthorizerId }}'
+
 ```
 </TabItem>
 </Tabs>

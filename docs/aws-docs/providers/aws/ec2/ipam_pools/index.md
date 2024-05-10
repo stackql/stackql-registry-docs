@@ -74,74 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>ipam_pool</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AddressFamily": "{{ AddressFamily }}",
- "IpamScopeId": "{{ IpamScopeId }}"
-}
->>>
---required properties only
+-- ipam_pool.iql (required properties only)
 INSERT INTO aws.ec2.ipam_pools (
  AddressFamily,
  IpamScopeId,
  region
 )
 SELECT 
-{{ .AddressFamily }},
- {{ .IpamScopeId }},
-'us-east-1';
+'{{ AddressFamily }}',
+ '{{ IpamScopeId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AddressFamily": "{{ AddressFamily }}",
- "AllocationMinNetmaskLength": "{{ AllocationMinNetmaskLength }}",
- "AllocationDefaultNetmaskLength": "{{ AllocationDefaultNetmaskLength }}",
- "AllocationMaxNetmaskLength": "{{ AllocationMaxNetmaskLength }}",
- "AllocationResourceTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AutoImport": "{{ AutoImport }}",
- "AwsService": "{{ AwsService }}",
- "Description": "{{ Description }}",
- "IpamScopeId": "{{ IpamScopeId }}",
- "Locale": "{{ Locale }}",
- "ProvisionedCidrs": [
-  {
-   "Cidr": "{{ Cidr }}"
-  }
- ],
- "PublicIpSource": "{{ PublicIpSource }}",
- "PubliclyAdvertisable": "{{ PubliclyAdvertisable }}",
- "SourceIpamPoolId": "{{ SourceIpamPoolId }}",
- "SourceResource": {
-  "ResourceId": "{{ ResourceId }}",
-  "ResourceType": "{{ ResourceType }}",
-  "ResourceRegion": "{{ ResourceRegion }}",
-  "ResourceOwner": "{{ ResourceOwner }}"
- },
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- ipam_pool.iql (all properties)
 INSERT INTO aws.ec2.ipam_pools (
  AddressFamily,
  AllocationMinNetmaskLength,
@@ -162,23 +123,80 @@ INSERT INTO aws.ec2.ipam_pools (
  region
 )
 SELECT 
- {{ .AddressFamily }},
- {{ .AllocationMinNetmaskLength }},
- {{ .AllocationDefaultNetmaskLength }},
- {{ .AllocationMaxNetmaskLength }},
- {{ .AllocationResourceTags }},
- {{ .AutoImport }},
- {{ .AwsService }},
- {{ .Description }},
- {{ .IpamScopeId }},
- {{ .Locale }},
- {{ .ProvisionedCidrs }},
- {{ .PublicIpSource }},
- {{ .PubliclyAdvertisable }},
- {{ .SourceIpamPoolId }},
- {{ .SourceResource }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AddressFamily }}',
+ '{{ AllocationMinNetmaskLength }}',
+ '{{ AllocationDefaultNetmaskLength }}',
+ '{{ AllocationMaxNetmaskLength }}',
+ '{{ AllocationResourceTags }}',
+ '{{ AutoImport }}',
+ '{{ AwsService }}',
+ '{{ Description }}',
+ '{{ IpamScopeId }}',
+ '{{ Locale }}',
+ '{{ ProvisionedCidrs }}',
+ '{{ PublicIpSource }}',
+ '{{ PubliclyAdvertisable }}',
+ '{{ SourceIpamPoolId }}',
+ '{{ SourceResource }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ipam_pool
+    props:
+      - name: AddressFamily
+        value: '{{ AddressFamily }}'
+      - name: AllocationMinNetmaskLength
+        value: '{{ AllocationMinNetmaskLength }}'
+      - name: AllocationDefaultNetmaskLength
+        value: '{{ AllocationDefaultNetmaskLength }}'
+      - name: AllocationMaxNetmaskLength
+        value: '{{ AllocationMaxNetmaskLength }}'
+      - name: AllocationResourceTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AutoImport
+        value: '{{ AutoImport }}'
+      - name: AwsService
+        value: '{{ AwsService }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: IpamScopeId
+        value: '{{ IpamScopeId }}'
+      - name: Locale
+        value: '{{ Locale }}'
+      - name: ProvisionedCidrs
+        value:
+          - Cidr: '{{ Cidr }}'
+      - name: PublicIpSource
+        value: '{{ PublicIpSource }}'
+      - name: PubliclyAdvertisable
+        value: '{{ PubliclyAdvertisable }}'
+      - name: SourceIpamPoolId
+        value: '{{ SourceIpamPoolId }}'
+      - name: SourceResource
+        value:
+          ResourceId: '{{ ResourceId }}'
+          ResourceType: '{{ ResourceType }}'
+          ResourceRegion: '{{ ResourceRegion }}'
+          ResourceOwner: '{{ ResourceOwner }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

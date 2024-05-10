@@ -74,68 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subnet</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- subnet.iql (required properties only)
 INSERT INTO aws.ec2.subnets (
  VpcId,
  region
 )
 SELECT 
-{{ .VpcId }},
-'us-east-1';
+'{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssignIpv6AddressOnCreation": "{{ AssignIpv6AddressOnCreation }}",
- "VpcId": "{{ VpcId }}",
- "MapPublicIpOnLaunch": "{{ MapPublicIpOnLaunch }}",
- "EnableLniAtDeviceIndex": "{{ EnableLniAtDeviceIndex }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "AvailabilityZoneId": "{{ AvailabilityZoneId }}",
- "CidrBlock": "{{ CidrBlock }}",
- "Ipv6CidrBlocks": [
-  "{{ Ipv6CidrBlocks[0] }}"
- ],
- "Ipv6CidrBlock": "{{ Ipv6CidrBlock }}",
- "OutpostArn": "{{ OutpostArn }}",
- "Ipv6Native": "{{ Ipv6Native }}",
- "EnableDns64": "{{ EnableDns64 }}",
- "PrivateDnsNameOptionsOnLaunch": {
-  "HostnameType": "{{ HostnameType }}",
-  "EnableResourceNameDnsARecord": "{{ EnableResourceNameDnsARecord }}",
-  "EnableResourceNameDnsAAAARecord": "{{ EnableResourceNameDnsAAAARecord }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Ipv4IpamPoolId": "{{ Ipv4IpamPoolId }}",
- "Ipv4NetmaskLength": "{{ Ipv4NetmaskLength }}",
- "Ipv6IpamPoolId": "{{ Ipv6IpamPoolId }}",
- "Ipv6NetmaskLength": "{{ Ipv6NetmaskLength }}"
-}
->>>
---all properties
+-- subnet.iql (all properties)
 INSERT INTO aws.ec2.subnets (
  AssignIpv6AddressOnCreation,
  VpcId,
@@ -158,25 +123,84 @@ INSERT INTO aws.ec2.subnets (
  region
 )
 SELECT 
- {{ .AssignIpv6AddressOnCreation }},
- {{ .VpcId }},
- {{ .MapPublicIpOnLaunch }},
- {{ .EnableLniAtDeviceIndex }},
- {{ .AvailabilityZone }},
- {{ .AvailabilityZoneId }},
- {{ .CidrBlock }},
- {{ .Ipv6CidrBlocks }},
- {{ .Ipv6CidrBlock }},
- {{ .OutpostArn }},
- {{ .Ipv6Native }},
- {{ .EnableDns64 }},
- {{ .PrivateDnsNameOptionsOnLaunch }},
- {{ .Tags }},
- {{ .Ipv4IpamPoolId }},
- {{ .Ipv4NetmaskLength }},
- {{ .Ipv6IpamPoolId }},
- {{ .Ipv6NetmaskLength }},
- 'us-east-1';
+ '{{ AssignIpv6AddressOnCreation }}',
+ '{{ VpcId }}',
+ '{{ MapPublicIpOnLaunch }}',
+ '{{ EnableLniAtDeviceIndex }}',
+ '{{ AvailabilityZone }}',
+ '{{ AvailabilityZoneId }}',
+ '{{ CidrBlock }}',
+ '{{ Ipv6CidrBlocks }}',
+ '{{ Ipv6CidrBlock }}',
+ '{{ OutpostArn }}',
+ '{{ Ipv6Native }}',
+ '{{ EnableDns64 }}',
+ '{{ PrivateDnsNameOptionsOnLaunch }}',
+ '{{ Tags }}',
+ '{{ Ipv4IpamPoolId }}',
+ '{{ Ipv4NetmaskLength }}',
+ '{{ Ipv6IpamPoolId }}',
+ '{{ Ipv6NetmaskLength }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subnet
+    props:
+      - name: AssignIpv6AddressOnCreation
+        value: '{{ AssignIpv6AddressOnCreation }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: MapPublicIpOnLaunch
+        value: '{{ MapPublicIpOnLaunch }}'
+      - name: EnableLniAtDeviceIndex
+        value: '{{ EnableLniAtDeviceIndex }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: AvailabilityZoneId
+        value: '{{ AvailabilityZoneId }}'
+      - name: CidrBlock
+        value: '{{ CidrBlock }}'
+      - name: Ipv6CidrBlocks
+        value:
+          - '{{ Ipv6CidrBlocks[0] }}'
+      - name: Ipv6CidrBlock
+        value: '{{ Ipv6CidrBlock }}'
+      - name: OutpostArn
+        value: '{{ OutpostArn }}'
+      - name: Ipv6Native
+        value: '{{ Ipv6Native }}'
+      - name: EnableDns64
+        value: '{{ EnableDns64 }}'
+      - name: PrivateDnsNameOptionsOnLaunch
+        value:
+          HostnameType: '{{ HostnameType }}'
+          EnableResourceNameDnsARecord: '{{ EnableResourceNameDnsARecord }}'
+          EnableResourceNameDnsAAAARecord: '{{ EnableResourceNameDnsAAAARecord }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Ipv4IpamPoolId
+        value: '{{ Ipv4IpamPoolId }}'
+      - name: Ipv4NetmaskLength
+        value: '{{ Ipv4NetmaskLength }}'
+      - name: Ipv6IpamPoolId
+        value: '{{ Ipv6IpamPoolId }}'
+      - name: Ipv6NetmaskLength
+        value: '{{ Ipv6NetmaskLength }}'
+
 ```
 </TabItem>
 </Tabs>

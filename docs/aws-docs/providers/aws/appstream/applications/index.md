@@ -74,34 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "LaunchPath": "{{ LaunchPath }}",
- "InstanceFamilies": [
-  "{{ InstanceFamilies[0] }}"
- ],
- "IconS3Location": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- },
- "AppBlockArn": "{{ AppBlockArn }}",
- "Platforms": [
-  "{{ Platforms[0] }}"
- ]
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.appstream.applications (
  Name,
  LaunchPath,
@@ -112,49 +98,19 @@ INSERT INTO aws.appstream.applications (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .LaunchPath }},
- {{ .InstanceFamilies }},
- {{ .IconS3Location }},
- {{ .AppBlockArn }},
- {{ .Platforms }},
-'us-east-1';
+'{{ Name }}',
+ '{{ LaunchPath }}',
+ '{{ InstanceFamilies }}',
+ '{{ IconS3Location }}',
+ '{{ AppBlockArn }}',
+ '{{ Platforms }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DisplayName": "{{ DisplayName }}",
- "Description": "{{ Description }}",
- "LaunchPath": "{{ LaunchPath }}",
- "LaunchParameters": "{{ LaunchParameters }}",
- "WorkingDirectory": "{{ WorkingDirectory }}",
- "InstanceFamilies": [
-  "{{ InstanceFamilies[0] }}"
- ],
- "IconS3Location": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- },
- "AppBlockArn": "{{ AppBlockArn }}",
- "Platforms": [
-  "{{ Platforms[0] }}"
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "AttributesToDelete": [
-  "{{ AttributesToDelete[0] }}"
- ]
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.appstream.applications (
  Name,
  DisplayName,
@@ -171,19 +127,67 @@ INSERT INTO aws.appstream.applications (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .DisplayName }},
- {{ .Description }},
- {{ .LaunchPath }},
- {{ .LaunchParameters }},
- {{ .WorkingDirectory }},
- {{ .InstanceFamilies }},
- {{ .IconS3Location }},
- {{ .AppBlockArn }},
- {{ .Platforms }},
- {{ .Tags }},
- {{ .AttributesToDelete }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ DisplayName }}',
+ '{{ Description }}',
+ '{{ LaunchPath }}',
+ '{{ LaunchParameters }}',
+ '{{ WorkingDirectory }}',
+ '{{ InstanceFamilies }}',
+ '{{ IconS3Location }}',
+ '{{ AppBlockArn }}',
+ '{{ Platforms }}',
+ '{{ Tags }}',
+ '{{ AttributesToDelete }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: LaunchPath
+        value: '{{ LaunchPath }}'
+      - name: LaunchParameters
+        value: '{{ LaunchParameters }}'
+      - name: WorkingDirectory
+        value: '{{ WorkingDirectory }}'
+      - name: InstanceFamilies
+        value:
+          - '{{ InstanceFamilies[0] }}'
+      - name: IconS3Location
+        value:
+          S3Bucket: '{{ S3Bucket }}'
+          S3Key: '{{ S3Key }}'
+      - name: AppBlockArn
+        value: '{{ AppBlockArn }}'
+      - name: Platforms
+        value:
+          - '{{ Platforms[0] }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: AttributesToDelete
+        value:
+          - '{{ AttributesToDelete[0] }}'
+
 ```
 </TabItem>
 </Tabs>

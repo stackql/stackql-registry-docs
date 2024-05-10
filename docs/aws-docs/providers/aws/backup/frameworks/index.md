@@ -74,93 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>framework</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FrameworkControls": [
-  {
-   "ControlName": "{{ ControlName }}",
-   "ControlInputParameters": [
-    {
-     "ParameterName": "{{ ParameterName }}",
-     "ParameterValue": "{{ ParameterValue }}"
-    }
-   ],
-   "ControlScope": {
-    "ComplianceResourceIds": [
-     "{{ ComplianceResourceIds[0] }}"
-    ],
-    "ComplianceResourceTypes": [
-     "{{ ComplianceResourceTypes[0] }}"
-    ],
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  }
- ]
-}
->>>
---required properties only
+-- framework.iql (required properties only)
 INSERT INTO aws.backup.frameworks (
  FrameworkControls,
  region
 )
 SELECT 
-{{ .FrameworkControls }},
-'us-east-1';
+'{{ FrameworkControls }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FrameworkName": "{{ FrameworkName }}",
- "FrameworkDescription": "{{ FrameworkDescription }}",
- "FrameworkControls": [
-  {
-   "ControlName": "{{ ControlName }}",
-   "ControlInputParameters": [
-    {
-     "ParameterName": "{{ ParameterName }}",
-     "ParameterValue": "{{ ParameterValue }}"
-    }
-   ],
-   "ControlScope": {
-    "ComplianceResourceIds": [
-     "{{ ComplianceResourceIds[0] }}"
-    ],
-    "ComplianceResourceTypes": [
-     "{{ ComplianceResourceTypes[0] }}"
-    ],
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  }
- ],
- "FrameworkTags": [
-  null
- ]
-}
->>>
---all properties
+-- framework.iql (all properties)
 INSERT INTO aws.backup.frameworks (
  FrameworkName,
  FrameworkDescription,
@@ -169,11 +109,49 @@ INSERT INTO aws.backup.frameworks (
  region
 )
 SELECT 
- {{ .FrameworkName }},
- {{ .FrameworkDescription }},
- {{ .FrameworkControls }},
- {{ .FrameworkTags }},
- 'us-east-1';
+ '{{ FrameworkName }}',
+ '{{ FrameworkDescription }}',
+ '{{ FrameworkControls }}',
+ '{{ FrameworkTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: framework
+    props:
+      - name: FrameworkName
+        value: '{{ FrameworkName }}'
+      - name: FrameworkDescription
+        value: '{{ FrameworkDescription }}'
+      - name: FrameworkControls
+        value:
+          - ControlName: '{{ ControlName }}'
+            ControlInputParameters:
+              - ParameterName: '{{ ParameterName }}'
+                ParameterValue: '{{ ParameterValue }}'
+            ControlScope:
+              ComplianceResourceIds:
+                - '{{ ComplianceResourceIds[0] }}'
+              ComplianceResourceTypes:
+                - '{{ ComplianceResourceTypes[0] }}'
+              Tags:
+                - Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+      - name: FrameworkTags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

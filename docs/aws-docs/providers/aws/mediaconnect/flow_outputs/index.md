@@ -74,70 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>flow_output</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FlowArn": "{{ FlowArn }}",
- "Protocol": "{{ Protocol }}"
-}
->>>
---required properties only
+-- flow_output.iql (required properties only)
 INSERT INTO aws.mediaconnect.flow_outputs (
  FlowArn,
  Protocol,
  region
 )
 SELECT 
-{{ .FlowArn }},
- {{ .Protocol }},
-'us-east-1';
+'{{ FlowArn }}',
+ '{{ Protocol }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FlowArn": "{{ FlowArn }}",
- "CidrAllowList": [
-  "{{ CidrAllowList[0] }}"
- ],
- "Encryption": {
-  "Algorithm": "{{ Algorithm }}",
-  "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
-  "DeviceId": "{{ DeviceId }}",
-  "KeyType": "{{ KeyType }}",
-  "Region": "{{ Region }}",
-  "ResourceId": "{{ ResourceId }}",
-  "RoleArn": "{{ RoleArn }}",
-  "SecretArn": "{{ SecretArn }}",
-  "Url": "{{ Url }}"
- },
- "Description": "{{ Description }}",
- "Destination": "{{ Destination }}",
- "MaxLatency": "{{ MaxLatency }}",
- "MinLatency": "{{ MinLatency }}",
- "Name": "{{ Name }}",
- "Port": "{{ Port }}",
- "Protocol": "{{ Protocol }}",
- "RemoteId": "{{ RemoteId }}",
- "SmoothingLatency": "{{ SmoothingLatency }}",
- "StreamId": "{{ StreamId }}",
- "VpcInterfaceAttachment": {
-  "VpcInterfaceName": "{{ VpcInterfaceName }}"
- }
-}
->>>
---all properties
+-- flow_output.iql (all properties)
 INSERT INTO aws.mediaconnect.flow_outputs (
  FlowArn,
  CidrAllowList,
@@ -156,21 +121,77 @@ INSERT INTO aws.mediaconnect.flow_outputs (
  region
 )
 SELECT 
- {{ .FlowArn }},
- {{ .CidrAllowList }},
- {{ .Encryption }},
- {{ .Description }},
- {{ .Destination }},
- {{ .MaxLatency }},
- {{ .MinLatency }},
- {{ .Name }},
- {{ .Port }},
- {{ .Protocol }},
- {{ .RemoteId }},
- {{ .SmoothingLatency }},
- {{ .StreamId }},
- {{ .VpcInterfaceAttachment }},
- 'us-east-1';
+ '{{ FlowArn }}',
+ '{{ CidrAllowList }}',
+ '{{ Encryption }}',
+ '{{ Description }}',
+ '{{ Destination }}',
+ '{{ MaxLatency }}',
+ '{{ MinLatency }}',
+ '{{ Name }}',
+ '{{ Port }}',
+ '{{ Protocol }}',
+ '{{ RemoteId }}',
+ '{{ SmoothingLatency }}',
+ '{{ StreamId }}',
+ '{{ VpcInterfaceAttachment }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: flow_output
+    props:
+      - name: FlowArn
+        value: '{{ FlowArn }}'
+      - name: CidrAllowList
+        value:
+          - '{{ CidrAllowList[0] }}'
+      - name: Encryption
+        value:
+          Algorithm: '{{ Algorithm }}'
+          ConstantInitializationVector: '{{ ConstantInitializationVector }}'
+          DeviceId: '{{ DeviceId }}'
+          KeyType: '{{ KeyType }}'
+          Region: '{{ Region }}'
+          ResourceId: '{{ ResourceId }}'
+          RoleArn: '{{ RoleArn }}'
+          SecretArn: '{{ SecretArn }}'
+          Url: '{{ Url }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Destination
+        value: '{{ Destination }}'
+      - name: MaxLatency
+        value: '{{ MaxLatency }}'
+      - name: MinLatency
+        value: '{{ MinLatency }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Port
+        value: '{{ Port }}'
+      - name: Protocol
+        value: '{{ Protocol }}'
+      - name: RemoteId
+        value: '{{ RemoteId }}'
+      - name: SmoothingLatency
+        value: '{{ SmoothingLatency }}'
+      - name: StreamId
+        value: '{{ StreamId }}'
+      - name: VpcInterfaceAttachment
+        value:
+          VpcInterfaceName: '{{ VpcInterfaceName }}'
+
 ```
 </TabItem>
 </Tabs>

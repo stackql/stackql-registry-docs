@@ -74,32 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resiliency_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "Tier": "{{ Tier }}",
- "Policy": {
-  "AZ": {
-   "RtoInSecs": "{{ RtoInSecs }}",
-   "RpoInSecs": "{{ RpoInSecs }}"
-  },
-  "Hardware": null,
-  "Software": null,
-  "Region": null
- }
-}
->>>
---required properties only
+-- resiliency_policy.iql (required properties only)
 INSERT INTO aws.resiliencehub.resiliency_policies (
  PolicyName,
  Tier,
@@ -107,34 +95,16 @@ INSERT INTO aws.resiliencehub.resiliency_policies (
  region
 )
 SELECT 
-{{ .PolicyName }},
- {{ .Tier }},
- {{ .Policy }},
-'us-east-1';
+'{{ PolicyName }}',
+ '{{ Tier }}',
+ '{{ Policy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "PolicyDescription": "{{ PolicyDescription }}",
- "DataLocationConstraint": "{{ DataLocationConstraint }}",
- "Tier": "{{ Tier }}",
- "Policy": {
-  "AZ": {
-   "RtoInSecs": "{{ RtoInSecs }}",
-   "RpoInSecs": "{{ RpoInSecs }}"
-  },
-  "Hardware": null,
-  "Software": null,
-  "Region": null
- },
- "Tags": {}
-}
->>>
---all properties
+-- resiliency_policy.iql (all properties)
 INSERT INTO aws.resiliencehub.resiliency_policies (
  PolicyName,
  PolicyDescription,
@@ -145,13 +115,48 @@ INSERT INTO aws.resiliencehub.resiliency_policies (
  region
 )
 SELECT 
- {{ .PolicyName }},
- {{ .PolicyDescription }},
- {{ .DataLocationConstraint }},
- {{ .Tier }},
- {{ .Policy }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ PolicyName }}',
+ '{{ PolicyDescription }}',
+ '{{ DataLocationConstraint }}',
+ '{{ Tier }}',
+ '{{ Policy }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resiliency_policy
+    props:
+      - name: PolicyName
+        value: '{{ PolicyName }}'
+      - name: PolicyDescription
+        value: '{{ PolicyDescription }}'
+      - name: DataLocationConstraint
+        value: '{{ DataLocationConstraint }}'
+      - name: Tier
+        value: '{{ Tier }}'
+      - name: Policy
+        value:
+          AZ:
+            RtoInSecs: '{{ RtoInSecs }}'
+            RpoInSecs: '{{ RpoInSecs }}'
+          Hardware: null
+          Software: null
+          Region: null
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

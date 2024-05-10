@@ -76,25 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>slack_channel_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TeamId": "{{ TeamId }}",
- "ChannelId": "{{ ChannelId }}",
- "NotifyOnCaseSeverity": "{{ NotifyOnCaseSeverity }}",
- "ChannelRoleArn": "{{ ChannelRoleArn }}"
-}
->>>
---required properties only
+-- slack_channel_configuration.iql (required properties only)
 INSERT INTO aws.supportapp.slack_channel_configurations (
  TeamId,
  ChannelId,
@@ -103,29 +98,17 @@ INSERT INTO aws.supportapp.slack_channel_configurations (
  region
 )
 SELECT 
-{{ .TeamId }},
- {{ .ChannelId }},
- {{ .NotifyOnCaseSeverity }},
- {{ .ChannelRoleArn }},
-'us-east-1';
+'{{ TeamId }}',
+ '{{ ChannelId }}',
+ '{{ NotifyOnCaseSeverity }}',
+ '{{ ChannelRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TeamId": "{{ TeamId }}",
- "ChannelId": "{{ ChannelId }}",
- "ChannelName": "{{ ChannelName }}",
- "NotifyOnCreateOrReopenCase": "{{ NotifyOnCreateOrReopenCase }}",
- "NotifyOnAddCorrespondenceToCase": "{{ NotifyOnAddCorrespondenceToCase }}",
- "NotifyOnResolveCase": "{{ NotifyOnResolveCase }}",
- "NotifyOnCaseSeverity": "{{ NotifyOnCaseSeverity }}",
- "ChannelRoleArn": "{{ ChannelRoleArn }}"
-}
->>>
---all properties
+-- slack_channel_configuration.iql (all properties)
 INSERT INTO aws.supportapp.slack_channel_configurations (
  TeamId,
  ChannelId,
@@ -138,15 +121,48 @@ INSERT INTO aws.supportapp.slack_channel_configurations (
  region
 )
 SELECT 
- {{ .TeamId }},
- {{ .ChannelId }},
- {{ .ChannelName }},
- {{ .NotifyOnCreateOrReopenCase }},
- {{ .NotifyOnAddCorrespondenceToCase }},
- {{ .NotifyOnResolveCase }},
- {{ .NotifyOnCaseSeverity }},
- {{ .ChannelRoleArn }},
- 'us-east-1';
+ '{{ TeamId }}',
+ '{{ ChannelId }}',
+ '{{ ChannelName }}',
+ '{{ NotifyOnCreateOrReopenCase }}',
+ '{{ NotifyOnAddCorrespondenceToCase }}',
+ '{{ NotifyOnResolveCase }}',
+ '{{ NotifyOnCaseSeverity }}',
+ '{{ ChannelRoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: slack_channel_configuration
+    props:
+      - name: TeamId
+        value: '{{ TeamId }}'
+      - name: ChannelId
+        value: '{{ ChannelId }}'
+      - name: ChannelName
+        value: '{{ ChannelName }}'
+      - name: NotifyOnCreateOrReopenCase
+        value: '{{ NotifyOnCreateOrReopenCase }}'
+      - name: NotifyOnAddCorrespondenceToCase
+        value: '{{ NotifyOnAddCorrespondenceToCase }}'
+      - name: NotifyOnResolveCase
+        value: '{{ NotifyOnResolveCase }}'
+      - name: NotifyOnCaseSeverity
+        value: '{{ NotifyOnCaseSeverity }}'
+      - name: ChannelRoleArn
+        value: '{{ ChannelRoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

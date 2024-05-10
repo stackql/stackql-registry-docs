@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>channel_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ChannelName": "{{ ChannelName }}",
- "Policy": {}
-}
->>>
---required properties only
+-- channel_policy.iql (required properties only)
 INSERT INTO aws.mediatailor.channel_policies (
  ChannelName,
  Policy,
  region
 )
 SELECT 
-{{ .ChannelName }},
- {{ .Policy }},
-'us-east-1';
+'{{ ChannelName }}',
+ '{{ Policy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ChannelName": "{{ ChannelName }}",
- "Policy": {}
-}
->>>
---all properties
+-- channel_policy.iql (all properties)
 INSERT INTO aws.mediatailor.channel_policies (
  ChannelName,
  Policy,
  region
 )
 SELECT 
- {{ .ChannelName }},
- {{ .Policy }},
- 'us-east-1';
+ '{{ ChannelName }}',
+ '{{ Policy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: channel_policy
+    props:
+      - name: ChannelName
+        value: '{{ ChannelName }}'
+      - name: Policy
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

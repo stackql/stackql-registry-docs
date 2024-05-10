@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pipe</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RoleArn": "{{ RoleArn }}",
- "Source": "{{ Source }}",
- "Target": "{{ Target }}"
-}
->>>
---required properties only
+-- pipe.iql (required properties only)
 INSERT INTO aws.pipes.pipes (
  RoleArn,
  Source,
@@ -99,313 +95,16 @@ INSERT INTO aws.pipes.pipes (
  region
 )
 SELECT 
-{{ .RoleArn }},
- {{ .Source }},
- {{ .Target }},
-'us-east-1';
+'{{ RoleArn }}',
+ '{{ Source }}',
+ '{{ Target }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DesiredState": "{{ DesiredState }}",
- "Enrichment": "{{ Enrichment }}",
- "EnrichmentParameters": {
-  "InputTemplate": "{{ InputTemplate }}",
-  "HttpParameters": {
-   "PathParameterValues": [
-    "{{ PathParameterValues[0] }}"
-   ],
-   "HeaderParameters": {},
-   "QueryStringParameters": {}
-  }
- },
- "LogConfiguration": {
-  "S3LogDestination": {
-   "BucketName": "{{ BucketName }}",
-   "Prefix": "{{ Prefix }}",
-   "BucketOwner": "{{ BucketOwner }}",
-   "OutputFormat": "{{ OutputFormat }}"
-  },
-  "FirehoseLogDestination": {
-   "DeliveryStreamArn": "{{ DeliveryStreamArn }}"
-  },
-  "CloudwatchLogsLogDestination": {
-   "LogGroupArn": "{{ LogGroupArn }}"
-  },
-  "Level": "{{ Level }}",
-  "IncludeExecutionData": [
-   "{{ IncludeExecutionData[0] }}"
-  ]
- },
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "Source": "{{ Source }}",
- "SourceParameters": {
-  "FilterCriteria": {
-   "Filters": [
-    {
-     "Pattern": "{{ Pattern }}"
-    }
-   ]
-  },
-  "KinesisStreamParameters": {
-   "BatchSize": "{{ BatchSize }}",
-   "DeadLetterConfig": {
-    "Arn": "{{ Arn }}"
-   },
-   "OnPartialBatchItemFailure": "{{ OnPartialBatchItemFailure }}",
-   "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}",
-   "MaximumRecordAgeInSeconds": "{{ MaximumRecordAgeInSeconds }}",
-   "MaximumRetryAttempts": "{{ MaximumRetryAttempts }}",
-   "ParallelizationFactor": "{{ ParallelizationFactor }}",
-   "StartingPosition": "{{ StartingPosition }}",
-   "StartingPositionTimestamp": "{{ StartingPositionTimestamp }}"
-  },
-  "DynamoDBStreamParameters": {
-   "BatchSize": "{{ BatchSize }}",
-   "DeadLetterConfig": null,
-   "OnPartialBatchItemFailure": null,
-   "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}",
-   "MaximumRecordAgeInSeconds": "{{ MaximumRecordAgeInSeconds }}",
-   "MaximumRetryAttempts": "{{ MaximumRetryAttempts }}",
-   "ParallelizationFactor": "{{ ParallelizationFactor }}",
-   "StartingPosition": "{{ StartingPosition }}"
-  },
-  "SqsQueueParameters": {
-   "BatchSize": "{{ BatchSize }}",
-   "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}"
-  },
-  "ActiveMQBrokerParameters": {
-   "Credentials": null,
-   "QueueName": "{{ QueueName }}",
-   "BatchSize": "{{ BatchSize }}",
-   "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}"
-  },
-  "RabbitMQBrokerParameters": {
-   "Credentials": null,
-   "QueueName": "{{ QueueName }}",
-   "VirtualHost": "{{ VirtualHost }}",
-   "BatchSize": "{{ BatchSize }}",
-   "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}"
-  },
-  "ManagedStreamingKafkaParameters": {
-   "TopicName": "{{ TopicName }}",
-   "StartingPosition": "{{ StartingPosition }}",
-   "BatchSize": "{{ BatchSize }}",
-   "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}",
-   "ConsumerGroupID": "{{ ConsumerGroupID }}",
-   "Credentials": null
-  },
-  "SelfManagedKafkaParameters": {
-   "TopicName": "{{ TopicName }}",
-   "StartingPosition": "{{ StartingPosition }}",
-   "AdditionalBootstrapServers": [
-    "{{ AdditionalBootstrapServers[0] }}"
-   ],
-   "BatchSize": "{{ BatchSize }}",
-   "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}",
-   "ConsumerGroupID": "{{ ConsumerGroupID }}",
-   "Credentials": null,
-   "ServerRootCaCertificate": "{{ ServerRootCaCertificate }}",
-   "Vpc": {
-    "Subnets": [
-     "{{ Subnets[0] }}"
-    ],
-    "SecurityGroup": [
-     "{{ SecurityGroup[0] }}"
-    ]
-   }
-  }
- },
- "Tags": {},
- "Target": "{{ Target }}",
- "TargetParameters": {
-  "InputTemplate": "{{ InputTemplate }}",
-  "LambdaFunctionParameters": {
-   "InvocationType": "{{ InvocationType }}"
-  },
-  "StepFunctionStateMachineParameters": {
-   "InvocationType": null
-  },
-  "KinesisStreamParameters": {
-   "PartitionKey": "{{ PartitionKey }}"
-  },
-  "EcsTaskParameters": {
-   "TaskDefinitionArn": "{{ TaskDefinitionArn }}",
-   "TaskCount": "{{ TaskCount }}",
-   "LaunchType": "{{ LaunchType }}",
-   "NetworkConfiguration": {
-    "AwsvpcConfiguration": {
-     "Subnets": [
-      "{{ Subnets[0] }}"
-     ],
-     "SecurityGroups": [
-      "{{ SecurityGroups[0] }}"
-     ],
-     "AssignPublicIp": "{{ AssignPublicIp }}"
-    }
-   },
-   "PlatformVersion": "{{ PlatformVersion }}",
-   "Group": "{{ Group }}",
-   "CapacityProviderStrategy": [
-    {
-     "CapacityProvider": "{{ CapacityProvider }}",
-     "Weight": "{{ Weight }}",
-     "Base": "{{ Base }}"
-    }
-   ],
-   "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
-   "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
-   "PlacementConstraints": [
-    {
-     "Type": "{{ Type }}",
-     "Expression": "{{ Expression }}"
-    }
-   ],
-   "PlacementStrategy": [
-    {
-     "Type": "{{ Type }}",
-     "Field": "{{ Field }}"
-    }
-   ],
-   "PropagateTags": "{{ PropagateTags }}",
-   "ReferenceId": "{{ ReferenceId }}",
-   "Overrides": {
-    "ContainerOverrides": [
-     {
-      "Command": [
-       "{{ Command[0] }}"
-      ],
-      "Cpu": "{{ Cpu }}",
-      "Environment": [
-       {
-        "Name": "{{ Name }}",
-        "Value": "{{ Value }}"
-       }
-      ],
-      "EnvironmentFiles": [
-       {
-        "Type": "{{ Type }}",
-        "Value": "{{ Value }}"
-       }
-      ],
-      "Memory": "{{ Memory }}",
-      "MemoryReservation": "{{ MemoryReservation }}",
-      "Name": "{{ Name }}",
-      "ResourceRequirements": [
-       {
-        "Type": "{{ Type }}",
-        "Value": "{{ Value }}"
-       }
-      ]
-     }
-    ],
-    "Cpu": "{{ Cpu }}",
-    "EphemeralStorage": {
-     "SizeInGiB": "{{ SizeInGiB }}"
-    },
-    "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
-    "InferenceAcceleratorOverrides": [
-     {
-      "DeviceName": "{{ DeviceName }}",
-      "DeviceType": "{{ DeviceType }}"
-     }
-    ],
-    "Memory": "{{ Memory }}",
-    "TaskRoleArn": "{{ TaskRoleArn }}"
-   },
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "BatchJobParameters": {
-   "JobDefinition": "{{ JobDefinition }}",
-   "JobName": "{{ JobName }}",
-   "ArrayProperties": {
-    "Size": "{{ Size }}"
-   },
-   "RetryStrategy": {
-    "Attempts": "{{ Attempts }}"
-   },
-   "ContainerOverrides": {
-    "Command": [
-     "{{ Command[0] }}"
-    ],
-    "Environment": [
-     {
-      "Name": "{{ Name }}",
-      "Value": "{{ Value }}"
-     }
-    ],
-    "InstanceType": "{{ InstanceType }}",
-    "ResourceRequirements": [
-     {
-      "Type": "{{ Type }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   },
-   "DependsOn": [
-    {
-     "JobId": "{{ JobId }}",
-     "Type": "{{ Type }}"
-    }
-   ],
-   "Parameters": {}
-  },
-  "SqsQueueParameters": {
-   "MessageGroupId": "{{ MessageGroupId }}",
-   "MessageDeduplicationId": "{{ MessageDeduplicationId }}"
-  },
-  "HttpParameters": {
-   "PathParameterValues": [
-    "{{ PathParameterValues[0] }}"
-   ],
-   "HeaderParameters": null,
-   "QueryStringParameters": null
-  },
-  "RedshiftDataParameters": {
-   "SecretManagerArn": "{{ SecretManagerArn }}",
-   "Database": "{{ Database }}",
-   "DbUser": "{{ DbUser }}",
-   "StatementName": "{{ StatementName }}",
-   "WithEvent": "{{ WithEvent }}",
-   "Sqls": [
-    "{{ Sqls[0] }}"
-   ]
-  },
-  "SageMakerPipelineParameters": {
-   "PipelineParameterList": [
-    {
-     "Name": "{{ Name }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "EventBridgeEventBusParameters": {
-   "EndpointId": "{{ EndpointId }}",
-   "DetailType": "{{ DetailType }}",
-   "Source": "{{ Source }}",
-   "Resources": [
-    "{{ Resources[0] }}"
-   ],
-   "Time": "{{ Time }}"
-  },
-  "CloudWatchLogsParameters": {
-   "LogStreamName": "{{ LogStreamName }}",
-   "Timestamp": "{{ Timestamp }}"
-  }
- }
-}
->>>
---all properties
+-- pipe.iql (all properties)
 INSERT INTO aws.pipes.pipes (
  Description,
  DesiredState,
@@ -422,19 +121,251 @@ INSERT INTO aws.pipes.pipes (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DesiredState }},
- {{ .Enrichment }},
- {{ .EnrichmentParameters }},
- {{ .LogConfiguration }},
- {{ .Name }},
- {{ .RoleArn }},
- {{ .Source }},
- {{ .SourceParameters }},
- {{ .Tags }},
- {{ .Target }},
- {{ .TargetParameters }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DesiredState }}',
+ '{{ Enrichment }}',
+ '{{ EnrichmentParameters }}',
+ '{{ LogConfiguration }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ Source }}',
+ '{{ SourceParameters }}',
+ '{{ Tags }}',
+ '{{ Target }}',
+ '{{ TargetParameters }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pipe
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DesiredState
+        value: '{{ DesiredState }}'
+      - name: Enrichment
+        value: '{{ Enrichment }}'
+      - name: EnrichmentParameters
+        value:
+          InputTemplate: '{{ InputTemplate }}'
+          HttpParameters:
+            PathParameterValues:
+              - '{{ PathParameterValues[0] }}'
+            HeaderParameters: {}
+            QueryStringParameters: {}
+      - name: LogConfiguration
+        value:
+          S3LogDestination:
+            BucketName: '{{ BucketName }}'
+            Prefix: '{{ Prefix }}'
+            BucketOwner: '{{ BucketOwner }}'
+            OutputFormat: '{{ OutputFormat }}'
+          FirehoseLogDestination:
+            DeliveryStreamArn: '{{ DeliveryStreamArn }}'
+          CloudwatchLogsLogDestination:
+            LogGroupArn: '{{ LogGroupArn }}'
+          Level: '{{ Level }}'
+          IncludeExecutionData:
+            - '{{ IncludeExecutionData[0] }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Source
+        value: '{{ Source }}'
+      - name: SourceParameters
+        value:
+          FilterCriteria:
+            Filters:
+              - Pattern: '{{ Pattern }}'
+          KinesisStreamParameters:
+            BatchSize: '{{ BatchSize }}'
+            DeadLetterConfig:
+              Arn: '{{ Arn }}'
+            OnPartialBatchItemFailure: '{{ OnPartialBatchItemFailure }}'
+            MaximumBatchingWindowInSeconds: '{{ MaximumBatchingWindowInSeconds }}'
+            MaximumRecordAgeInSeconds: '{{ MaximumRecordAgeInSeconds }}'
+            MaximumRetryAttempts: '{{ MaximumRetryAttempts }}'
+            ParallelizationFactor: '{{ ParallelizationFactor }}'
+            StartingPosition: '{{ StartingPosition }}'
+            StartingPositionTimestamp: '{{ StartingPositionTimestamp }}'
+          DynamoDBStreamParameters:
+            BatchSize: '{{ BatchSize }}'
+            DeadLetterConfig: null
+            OnPartialBatchItemFailure: null
+            MaximumBatchingWindowInSeconds: '{{ MaximumBatchingWindowInSeconds }}'
+            MaximumRecordAgeInSeconds: '{{ MaximumRecordAgeInSeconds }}'
+            MaximumRetryAttempts: '{{ MaximumRetryAttempts }}'
+            ParallelizationFactor: '{{ ParallelizationFactor }}'
+            StartingPosition: '{{ StartingPosition }}'
+          SqsQueueParameters:
+            BatchSize: '{{ BatchSize }}'
+            MaximumBatchingWindowInSeconds: '{{ MaximumBatchingWindowInSeconds }}'
+          ActiveMQBrokerParameters:
+            Credentials: null
+            QueueName: '{{ QueueName }}'
+            BatchSize: '{{ BatchSize }}'
+            MaximumBatchingWindowInSeconds: '{{ MaximumBatchingWindowInSeconds }}'
+          RabbitMQBrokerParameters:
+            Credentials: null
+            QueueName: '{{ QueueName }}'
+            VirtualHost: '{{ VirtualHost }}'
+            BatchSize: '{{ BatchSize }}'
+            MaximumBatchingWindowInSeconds: '{{ MaximumBatchingWindowInSeconds }}'
+          ManagedStreamingKafkaParameters:
+            TopicName: '{{ TopicName }}'
+            StartingPosition: '{{ StartingPosition }}'
+            BatchSize: '{{ BatchSize }}'
+            MaximumBatchingWindowInSeconds: '{{ MaximumBatchingWindowInSeconds }}'
+            ConsumerGroupID: '{{ ConsumerGroupID }}'
+            Credentials: null
+          SelfManagedKafkaParameters:
+            TopicName: '{{ TopicName }}'
+            StartingPosition: '{{ StartingPosition }}'
+            AdditionalBootstrapServers:
+              - '{{ AdditionalBootstrapServers[0] }}'
+            BatchSize: '{{ BatchSize }}'
+            MaximumBatchingWindowInSeconds: '{{ MaximumBatchingWindowInSeconds }}'
+            ConsumerGroupID: '{{ ConsumerGroupID }}'
+            Credentials: null
+            ServerRootCaCertificate: '{{ ServerRootCaCertificate }}'
+            Vpc:
+              Subnets:
+                - '{{ Subnets[0] }}'
+              SecurityGroup:
+                - '{{ SecurityGroup[0] }}'
+      - name: Tags
+        value: {}
+      - name: Target
+        value: '{{ Target }}'
+      - name: TargetParameters
+        value:
+          InputTemplate: '{{ InputTemplate }}'
+          LambdaFunctionParameters:
+            InvocationType: '{{ InvocationType }}'
+          StepFunctionStateMachineParameters:
+            InvocationType: null
+          KinesisStreamParameters:
+            PartitionKey: '{{ PartitionKey }}'
+          EcsTaskParameters:
+            TaskDefinitionArn: '{{ TaskDefinitionArn }}'
+            TaskCount: '{{ TaskCount }}'
+            LaunchType: '{{ LaunchType }}'
+            NetworkConfiguration:
+              AwsvpcConfiguration:
+                Subnets:
+                  - '{{ Subnets[0] }}'
+                SecurityGroups:
+                  - '{{ SecurityGroups[0] }}'
+                AssignPublicIp: '{{ AssignPublicIp }}'
+            PlatformVersion: '{{ PlatformVersion }}'
+            Group: '{{ Group }}'
+            CapacityProviderStrategy:
+              - CapacityProvider: '{{ CapacityProvider }}'
+                Weight: '{{ Weight }}'
+                Base: '{{ Base }}'
+            EnableECSManagedTags: '{{ EnableECSManagedTags }}'
+            EnableExecuteCommand: '{{ EnableExecuteCommand }}'
+            PlacementConstraints:
+              - Type: '{{ Type }}'
+                Expression: '{{ Expression }}'
+            PlacementStrategy:
+              - Type: '{{ Type }}'
+                Field: '{{ Field }}'
+            PropagateTags: '{{ PropagateTags }}'
+            ReferenceId: '{{ ReferenceId }}'
+            Overrides:
+              ContainerOverrides:
+                - Command:
+                    - '{{ Command[0] }}'
+                  Cpu: '{{ Cpu }}'
+                  Environment:
+                    - Name: '{{ Name }}'
+                      Value: '{{ Value }}'
+                  EnvironmentFiles:
+                    - Type: '{{ Type }}'
+                      Value: '{{ Value }}'
+                  Memory: '{{ Memory }}'
+                  MemoryReservation: '{{ MemoryReservation }}'
+                  Name: '{{ Name }}'
+                  ResourceRequirements:
+                    - Type: '{{ Type }}'
+                      Value: '{{ Value }}'
+              Cpu: '{{ Cpu }}'
+              EphemeralStorage:
+                SizeInGiB: '{{ SizeInGiB }}'
+              ExecutionRoleArn: '{{ ExecutionRoleArn }}'
+              InferenceAcceleratorOverrides:
+                - DeviceName: '{{ DeviceName }}'
+                  DeviceType: '{{ DeviceType }}'
+              Memory: '{{ Memory }}'
+              TaskRoleArn: '{{ TaskRoleArn }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+          BatchJobParameters:
+            JobDefinition: '{{ JobDefinition }}'
+            JobName: '{{ JobName }}'
+            ArrayProperties:
+              Size: '{{ Size }}'
+            RetryStrategy:
+              Attempts: '{{ Attempts }}'
+            ContainerOverrides:
+              Command:
+                - '{{ Command[0] }}'
+              Environment:
+                - Name: '{{ Name }}'
+                  Value: '{{ Value }}'
+              InstanceType: '{{ InstanceType }}'
+              ResourceRequirements:
+                - Type: '{{ Type }}'
+                  Value: '{{ Value }}'
+            DependsOn:
+              - JobId: '{{ JobId }}'
+                Type: '{{ Type }}'
+            Parameters: {}
+          SqsQueueParameters:
+            MessageGroupId: '{{ MessageGroupId }}'
+            MessageDeduplicationId: '{{ MessageDeduplicationId }}'
+          HttpParameters:
+            PathParameterValues:
+              - '{{ PathParameterValues[0] }}'
+            HeaderParameters: null
+            QueryStringParameters: null
+          RedshiftDataParameters:
+            SecretManagerArn: '{{ SecretManagerArn }}'
+            Database: '{{ Database }}'
+            DbUser: '{{ DbUser }}'
+            StatementName: '{{ StatementName }}'
+            WithEvent: '{{ WithEvent }}'
+            Sqls:
+              - '{{ Sqls[0] }}'
+          SageMakerPipelineParameters:
+            PipelineParameterList:
+              - Name: '{{ Name }}'
+                Value: '{{ Value }}'
+          EventBridgeEventBusParameters:
+            EndpointId: '{{ EndpointId }}'
+            DetailType: '{{ DetailType }}'
+            Source: '{{ Source }}'
+            Resources:
+              - '{{ Resources[0] }}'
+            Time: '{{ Time }}'
+          CloudWatchLogsParameters:
+            LogStreamName: '{{ LogStreamName }}'
+            Timestamp: '{{ Timestamp }}'
+
 ```
 </TabItem>
 </Tabs>

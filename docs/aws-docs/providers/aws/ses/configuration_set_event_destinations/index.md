@@ -74,97 +74,79 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configuration_set_event_destination</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConfigurationSetName": "{{ ConfigurationSetName }}",
- "EventDestination": {
-  "Name": "{{ Name }}",
-  "Enabled": "{{ Enabled }}",
-  "MatchingEventTypes": [
-   "{{ MatchingEventTypes[0] }}"
-  ],
-  "CloudWatchDestination": {
-   "DimensionConfigurations": [
-    {
-     "DimensionValueSource": "{{ DimensionValueSource }}",
-     "DefaultDimensionValue": "{{ DefaultDimensionValue }}",
-     "DimensionName": "{{ DimensionName }}"
-    }
-   ]
-  },
-  "KinesisFirehoseDestination": {
-   "IAMRoleARN": "{{ IAMRoleARN }}",
-   "DeliveryStreamARN": "{{ DeliveryStreamARN }}"
-  },
-  "SnsDestination": {
-   "TopicARN": "{{ TopicARN }}"
-  }
- }
-}
->>>
---required properties only
+-- configuration_set_event_destination.iql (required properties only)
 INSERT INTO aws.ses.configuration_set_event_destinations (
  ConfigurationSetName,
  EventDestination,
  region
 )
 SELECT 
-{{ .ConfigurationSetName }},
- {{ .EventDestination }},
-'us-east-1';
+'{{ ConfigurationSetName }}',
+ '{{ EventDestination }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConfigurationSetName": "{{ ConfigurationSetName }}",
- "EventDestination": {
-  "Name": "{{ Name }}",
-  "Enabled": "{{ Enabled }}",
-  "MatchingEventTypes": [
-   "{{ MatchingEventTypes[0] }}"
-  ],
-  "CloudWatchDestination": {
-   "DimensionConfigurations": [
-    {
-     "DimensionValueSource": "{{ DimensionValueSource }}",
-     "DefaultDimensionValue": "{{ DefaultDimensionValue }}",
-     "DimensionName": "{{ DimensionName }}"
-    }
-   ]
-  },
-  "KinesisFirehoseDestination": {
-   "IAMRoleARN": "{{ IAMRoleARN }}",
-   "DeliveryStreamARN": "{{ DeliveryStreamARN }}"
-  },
-  "SnsDestination": {
-   "TopicARN": "{{ TopicARN }}"
-  }
- }
-}
->>>
---all properties
+-- configuration_set_event_destination.iql (all properties)
 INSERT INTO aws.ses.configuration_set_event_destinations (
  ConfigurationSetName,
  EventDestination,
  region
 )
 SELECT 
- {{ .ConfigurationSetName }},
- {{ .EventDestination }},
- 'us-east-1';
+ '{{ ConfigurationSetName }}',
+ '{{ EventDestination }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configuration_set_event_destination
+    props:
+      - name: ConfigurationSetName
+        value: '{{ ConfigurationSetName }}'
+      - name: EventDestination
+        value:
+          Name: '{{ Name }}'
+          Enabled: '{{ Enabled }}'
+          MatchingEventTypes:
+            - '{{ MatchingEventTypes[0] }}'
+          CloudWatchDestination:
+            DimensionConfigurations:
+              - DimensionValueSource: '{{ DimensionValueSource }}'
+                DefaultDimensionValue: '{{ DefaultDimensionValue }}'
+                DimensionName: '{{ DimensionName }}'
+          KinesisFirehoseDestination:
+            IAMRoleARN: '{{ IAMRoleARN }}'
+            DeliveryStreamARN: '{{ DeliveryStreamARN }}'
+          SnsDestination:
+            TopicARN: '{{ TopicARN }}'
+
 ```
 </TabItem>
 </Tabs>

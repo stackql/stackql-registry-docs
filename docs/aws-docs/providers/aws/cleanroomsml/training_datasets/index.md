@@ -74,45 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>training_dataset</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "TrainingData": [
-  {
-   "Type": "{{ Type }}",
-   "InputConfig": {
-    "Schema": [
-     {
-      "ColumnName": "{{ ColumnName }}",
-      "ColumnTypes": [
-       "{{ ColumnTypes[0] }}"
-      ]
-     }
-    ],
-    "DataSource": {
-     "GlueDataSource": {
-      "TableName": "{{ TableName }}",
-      "DatabaseName": "{{ DatabaseName }}",
-      "CatalogId": "{{ CatalogId }}"
-     }
-    }
-   }
-  }
- ]
-}
->>>
---required properties only
+-- training_dataset.iql (required properties only)
 INSERT INTO aws.cleanroomsml.training_datasets (
  Name,
  RoleArn,
@@ -120,51 +95,16 @@ INSERT INTO aws.cleanroomsml.training_datasets (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RoleArn }},
- {{ .TrainingData }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ TrainingData }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TrainingData": [
-  {
-   "Type": "{{ Type }}",
-   "InputConfig": {
-    "Schema": [
-     {
-      "ColumnName": "{{ ColumnName }}",
-      "ColumnTypes": [
-       "{{ ColumnTypes[0] }}"
-      ]
-     }
-    ],
-    "DataSource": {
-     "GlueDataSource": {
-      "TableName": "{{ TableName }}",
-      "DatabaseName": "{{ DatabaseName }}",
-      "CatalogId": "{{ CatalogId }}"
-     }
-    }
-   }
-  }
- ]
-}
->>>
---all properties
+-- training_dataset.iql (all properties)
 INSERT INTO aws.cleanroomsml.training_datasets (
  Description,
  Name,
@@ -174,12 +114,52 @@ INSERT INTO aws.cleanroomsml.training_datasets (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .TrainingData }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ TrainingData }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: training_dataset
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TrainingData
+        value:
+          - Type: '{{ Type }}'
+            InputConfig:
+              Schema:
+                - ColumnName: '{{ ColumnName }}'
+                  ColumnTypes:
+                    - '{{ ColumnTypes[0] }}'
+              DataSource:
+                GlueDataSource:
+                  TableName: '{{ TableName }}'
+                  DatabaseName: '{{ DatabaseName }}'
+                  CatalogId: '{{ CatalogId }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,60 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>input</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InputDefinition": {
-  "Attributes": [
-   {
-    "JsonPath": "{{ JsonPath }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- input.iql (required properties only)
 INSERT INTO aws.iotevents.inputs (
  InputDefinition,
  region
 )
 SELECT 
-{{ .InputDefinition }},
-'us-east-1';
+'{{ InputDefinition }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InputDefinition": {
-  "Attributes": [
-   {
-    "JsonPath": "{{ JsonPath }}"
-   }
-  ]
- },
- "InputDescription": "{{ InputDescription }}",
- "InputName": "{{ InputName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- input.iql (all properties)
 INSERT INTO aws.iotevents.inputs (
  InputDefinition,
  InputDescription,
@@ -136,11 +109,40 @@ INSERT INTO aws.iotevents.inputs (
  region
 )
 SELECT 
- {{ .InputDefinition }},
- {{ .InputDescription }},
- {{ .InputName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InputDefinition }}',
+ '{{ InputDescription }}',
+ '{{ InputName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: input
+    props:
+      - name: InputDefinition
+        value:
+          Attributes:
+            - JsonPath: '{{ JsonPath }}'
+      - name: InputDescription
+        value: '{{ InputDescription }}'
+      - name: InputName
+        value: '{{ InputName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

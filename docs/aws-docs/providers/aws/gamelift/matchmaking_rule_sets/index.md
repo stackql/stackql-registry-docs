@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>matchmaking_rule_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RuleSetBody": "{{ RuleSetBody }}"
-}
->>>
---required properties only
+-- matchmaking_rule_set.iql (required properties only)
 INSERT INTO aws.gamelift.matchmaking_rule_sets (
  Name,
  RuleSetBody,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RuleSetBody }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RuleSetBody }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RuleSetBody": "{{ RuleSetBody }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- matchmaking_rule_set.iql (all properties)
 INSERT INTO aws.gamelift.matchmaking_rule_sets (
  Name,
  RuleSetBody,
@@ -125,10 +110,35 @@ INSERT INTO aws.gamelift.matchmaking_rule_sets (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .RuleSetBody }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ RuleSetBody }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: matchmaking_rule_set
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: RuleSetBody
+        value: '{{ RuleSetBody }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

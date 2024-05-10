@@ -74,32 +74,20 @@ FROM aws.cloudfront.functions
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>function</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FunctionCode": "{{ FunctionCode }}",
- "FunctionConfig": {
-  "Comment": "{{ Comment }}",
-  "Runtime": "{{ Runtime }}",
-  "KeyValueStoreAssociations": [
-   {
-    "KeyValueStoreARN": "{{ KeyValueStoreARN }}"
-   }
-  ]
- },
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- function.iql (required properties only)
 INSERT INTO aws.cloudfront.functions (
  FunctionCode,
  FunctionConfig,
@@ -107,35 +95,16 @@ INSERT INTO aws.cloudfront.functions (
  region
 )
 SELECT 
-{{ .FunctionCode }},
- {{ .FunctionConfig }},
- {{ .Name }},
-'us-east-1';
+'{{ FunctionCode }}',
+ '{{ FunctionConfig }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AutoPublish": "{{ AutoPublish }}",
- "FunctionCode": "{{ FunctionCode }}",
- "FunctionConfig": {
-  "Comment": "{{ Comment }}",
-  "Runtime": "{{ Runtime }}",
-  "KeyValueStoreAssociations": [
-   {
-    "KeyValueStoreARN": "{{ KeyValueStoreARN }}"
-   }
-  ]
- },
- "FunctionMetadata": {
-  "FunctionARN": "{{ FunctionARN }}"
- },
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- function.iql (all properties)
 INSERT INTO aws.cloudfront.functions (
  AutoPublish,
  FunctionCode,
@@ -145,12 +114,44 @@ INSERT INTO aws.cloudfront.functions (
  region
 )
 SELECT 
- {{ .AutoPublish }},
- {{ .FunctionCode }},
- {{ .FunctionConfig }},
- {{ .FunctionMetadata }},
- {{ .Name }},
- 'us-east-1';
+ '{{ AutoPublish }}',
+ '{{ FunctionCode }}',
+ '{{ FunctionConfig }}',
+ '{{ FunctionMetadata }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: function
+    props:
+      - name: AutoPublish
+        value: '{{ AutoPublish }}'
+      - name: FunctionCode
+        value: '{{ FunctionCode }}'
+      - name: FunctionConfig
+        value:
+          Comment: '{{ Comment }}'
+          Runtime: '{{ Runtime }}'
+          KeyValueStoreAssociations:
+            - KeyValueStoreARN: '{{ KeyValueStoreARN }}'
+      - name: FunctionMetadata
+        value:
+          FunctionARN: '{{ FunctionARN }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

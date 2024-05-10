@@ -74,24 +74,20 @@ FROM aws.shield.protection_groups
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>protection_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ProtectionGroupId": "{{ ProtectionGroupId }}",
- "Aggregation": "{{ Aggregation }}",
- "Pattern": "{{ Pattern }}"
-}
->>>
---required properties only
+-- protection_group.iql (required properties only)
 INSERT INTO aws.shield.protection_groups (
  ProtectionGroupId,
  Aggregation,
@@ -99,33 +95,16 @@ INSERT INTO aws.shield.protection_groups (
  region
 )
 SELECT 
-{{ .ProtectionGroupId }},
- {{ .Aggregation }},
- {{ .Pattern }},
-'us-east-1';
+'{{ ProtectionGroupId }}',
+ '{{ Aggregation }}',
+ '{{ Pattern }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ProtectionGroupId": "{{ ProtectionGroupId }}",
- "Aggregation": "{{ Aggregation }}",
- "Pattern": "{{ Pattern }}",
- "Members": [
-  "{{ Members[0] }}"
- ],
- "ResourceType": "{{ ResourceType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- protection_group.iql (all properties)
 INSERT INTO aws.shield.protection_groups (
  ProtectionGroupId,
  Aggregation,
@@ -136,13 +115,45 @@ INSERT INTO aws.shield.protection_groups (
  region
 )
 SELECT 
- {{ .ProtectionGroupId }},
- {{ .Aggregation }},
- {{ .Pattern }},
- {{ .Members }},
- {{ .ResourceType }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ProtectionGroupId }}',
+ '{{ Aggregation }}',
+ '{{ Pattern }}',
+ '{{ Members }}',
+ '{{ ResourceType }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: protection_group
+    props:
+      - name: ProtectionGroupId
+        value: '{{ ProtectionGroupId }}'
+      - name: Aggregation
+        value: '{{ Aggregation }}'
+      - name: Pattern
+        value: '{{ Pattern }}'
+      - name: Members
+        value:
+          - '{{ Members[0] }}'
+      - name: ResourceType
+        value: '{{ ResourceType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,72 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>branch</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "BranchName": "{{ BranchName }}"
-}
->>>
---required properties only
+-- branch.iql (required properties only)
 INSERT INTO aws.amplify.branches (
  AppId,
  BranchName,
  region
 )
 SELECT 
-{{ .AppId }},
- {{ .BranchName }},
-'us-east-1';
+'{{ AppId }}',
+ '{{ BranchName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "BasicAuthConfig": {
-  "EnableBasicAuth": "{{ EnableBasicAuth }}",
-  "Username": "{{ Username }}",
-  "Password": "{{ Password }}"
- },
- "Backend": {
-  "StackArn": "{{ StackArn }}"
- },
- "BranchName": "{{ BranchName }}",
- "BuildSpec": "{{ BuildSpec }}",
- "Description": "{{ Description }}",
- "EnableAutoBuild": "{{ EnableAutoBuild }}",
- "EnablePerformanceMode": "{{ EnablePerformanceMode }}",
- "EnablePullRequestPreview": "{{ EnablePullRequestPreview }}",
- "EnvironmentVariables": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Framework": "{{ Framework }}",
- "PullRequestEnvironmentName": "{{ PullRequestEnvironmentName }}",
- "Stage": "{{ Stage }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- branch.iql (all properties)
 INSERT INTO aws.amplify.branches (
  AppId,
  BasicAuthConfig,
@@ -158,21 +121,74 @@ INSERT INTO aws.amplify.branches (
  region
 )
 SELECT 
- {{ .AppId }},
- {{ .BasicAuthConfig }},
- {{ .Backend }},
- {{ .BranchName }},
- {{ .BuildSpec }},
- {{ .Description }},
- {{ .EnableAutoBuild }},
- {{ .EnablePerformanceMode }},
- {{ .EnablePullRequestPreview }},
- {{ .EnvironmentVariables }},
- {{ .Framework }},
- {{ .PullRequestEnvironmentName }},
- {{ .Stage }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AppId }}',
+ '{{ BasicAuthConfig }}',
+ '{{ Backend }}',
+ '{{ BranchName }}',
+ '{{ BuildSpec }}',
+ '{{ Description }}',
+ '{{ EnableAutoBuild }}',
+ '{{ EnablePerformanceMode }}',
+ '{{ EnablePullRequestPreview }}',
+ '{{ EnvironmentVariables }}',
+ '{{ Framework }}',
+ '{{ PullRequestEnvironmentName }}',
+ '{{ Stage }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: branch
+    props:
+      - name: AppId
+        value: '{{ AppId }}'
+      - name: BasicAuthConfig
+        value:
+          EnableBasicAuth: '{{ EnableBasicAuth }}'
+          Username: '{{ Username }}'
+          Password: '{{ Password }}'
+      - name: Backend
+        value:
+          StackArn: '{{ StackArn }}'
+      - name: BranchName
+        value: '{{ BranchName }}'
+      - name: BuildSpec
+        value: '{{ BuildSpec }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EnableAutoBuild
+        value: '{{ EnableAutoBuild }}'
+      - name: EnablePerformanceMode
+        value: '{{ EnablePerformanceMode }}'
+      - name: EnablePullRequestPreview
+        value: '{{ EnablePullRequestPreview }}'
+      - name: EnvironmentVariables
+        value:
+          - Name: '{{ Name }}'
+            Value: '{{ Value }}'
+      - name: Framework
+        value: '{{ Framework }}'
+      - name: PullRequestEnvironmentName
+        value: '{{ PullRequestEnvironmentName }}'
+      - name: Stage
+        value: '{{ Stage }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

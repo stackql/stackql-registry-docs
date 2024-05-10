@@ -74,56 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ServiceName": "{{ ServiceName }}",
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- vpc_endpoint.iql (required properties only)
 INSERT INTO aws.ec2.vpc_endpoints (
  ServiceName,
  VpcId,
  region
 )
 SELECT 
-{{ .ServiceName }},
- {{ .VpcId }},
-'us-east-1';
+'{{ ServiceName }}',
+ '{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyDocument": {},
- "PrivateDnsEnabled": "{{ PrivateDnsEnabled }}",
- "RouteTableIds": [
-  "{{ RouteTableIds[0] }}"
- ],
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "ServiceName": "{{ ServiceName }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "VpcEndpointType": "{{ VpcEndpointType }}",
- "VpcId": "{{ VpcId }}"
-}
->>>
---all properties
+-- vpc_endpoint.iql (all properties)
 INSERT INTO aws.ec2.vpc_endpoints (
  PolicyDocument,
  PrivateDnsEnabled,
@@ -136,15 +115,51 @@ INSERT INTO aws.ec2.vpc_endpoints (
  region
 )
 SELECT 
- {{ .PolicyDocument }},
- {{ .PrivateDnsEnabled }},
- {{ .RouteTableIds }},
- {{ .SecurityGroupIds }},
- {{ .ServiceName }},
- {{ .SubnetIds }},
- {{ .VpcEndpointType }},
- {{ .VpcId }},
- 'us-east-1';
+ '{{ PolicyDocument }}',
+ '{{ PrivateDnsEnabled }}',
+ '{{ RouteTableIds }}',
+ '{{ SecurityGroupIds }}',
+ '{{ ServiceName }}',
+ '{{ SubnetIds }}',
+ '{{ VpcEndpointType }}',
+ '{{ VpcId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_endpoint
+    props:
+      - name: PolicyDocument
+        value: {}
+      - name: PrivateDnsEnabled
+        value: '{{ PrivateDnsEnabled }}'
+      - name: RouteTableIds
+        value:
+          - '{{ RouteTableIds[0] }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: ServiceName
+        value: '{{ ServiceName }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: VpcEndpointType
+        value: '{{ VpcEndpointType }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+
 ```
 </TabItem>
 </Tabs>

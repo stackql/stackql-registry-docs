@@ -74,150 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EventBusName": "{{ EventBusName }}",
- "EventPattern": {},
- "ScheduleExpression": "{{ ScheduleExpression }}",
- "Description": "{{ Description }}",
- "State": "{{ State }}",
- "Targets": [
-  {
-   "InputPath": "{{ InputPath }}",
-   "HttpParameters": {
-    "PathParameterValues": [
-     "{{ PathParameterValues[0] }}"
-    ],
-    "HeaderParameters": {},
-    "QueryStringParameters": {}
-   },
-   "DeadLetterConfig": {
-    "Arn": "{{ Arn }}"
-   },
-   "RunCommandParameters": {
-    "RunCommandTargets": [
-     {
-      "Values": [
-       "{{ Values[0] }}"
-      ],
-      "Key": "{{ Key }}"
-     }
-    ]
-   },
-   "InputTransformer": {
-    "InputPathsMap": {},
-    "InputTemplate": "{{ InputTemplate }}"
-   },
-   "KinesisParameters": {
-    "PartitionKeyPath": "{{ PartitionKeyPath }}"
-   },
-   "RoleArn": "{{ RoleArn }}",
-   "RedshiftDataParameters": {
-    "StatementName": "{{ StatementName }}",
-    "Sqls": [
-     "{{ Sqls[0] }}"
-    ],
-    "Database": "{{ Database }}",
-    "SecretManagerArn": "{{ SecretManagerArn }}",
-    "DbUser": "{{ DbUser }}",
-    "Sql": "{{ Sql }}",
-    "WithEvent": "{{ WithEvent }}"
-   },
-   "AppSyncParameters": {
-    "GraphQLOperation": "{{ GraphQLOperation }}"
-   },
-   "Input": "{{ Input }}",
-   "SqsParameters": {
-    "MessageGroupId": "{{ MessageGroupId }}"
-   },
-   "EcsParameters": {
-    "PlatformVersion": "{{ PlatformVersion }}",
-    "Group": "{{ Group }}",
-    "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
-    "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
-    "PlacementConstraints": [
-     {
-      "Type": "{{ Type }}",
-      "Expression": "{{ Expression }}"
-     }
-    ],
-    "PropagateTags": "{{ PropagateTags }}",
-    "TaskCount": "{{ TaskCount }}",
-    "PlacementStrategies": [
-     {
-      "Field": "{{ Field }}",
-      "Type": "{{ Type }}"
-     }
-    ],
-    "CapacityProviderStrategy": [
-     {
-      "CapacityProvider": "{{ CapacityProvider }}",
-      "Base": "{{ Base }}",
-      "Weight": "{{ Weight }}"
-     }
-    ],
-    "LaunchType": "{{ LaunchType }}",
-    "ReferenceId": "{{ ReferenceId }}",
-    "TagList": [
-     {
-      "Value": "{{ Value }}",
-      "Key": "{{ Key }}"
-     }
-    ],
-    "NetworkConfiguration": {
-     "AwsVpcConfiguration": {
-      "SecurityGroups": [
-       "{{ SecurityGroups[0] }}"
-      ],
-      "Subnets": [
-       "{{ Subnets[0] }}"
-      ],
-      "AssignPublicIp": "{{ AssignPublicIp }}"
-     }
-    },
-    "TaskDefinitionArn": "{{ TaskDefinitionArn }}"
-   },
-   "BatchParameters": {
-    "ArrayProperties": {
-     "Size": "{{ Size }}"
-    },
-    "JobName": "{{ JobName }}",
-    "RetryStrategy": {
-     "Attempts": "{{ Attempts }}"
-    },
-    "JobDefinition": "{{ JobDefinition }}"
-   },
-   "Id": "{{ Id }}",
-   "Arn": "{{ Arn }}",
-   "SageMakerPipelineParameters": {
-    "PipelineParameterList": [
-     {
-      "Value": "{{ Value }}",
-      "Name": "{{ Name }}"
-     }
-    ]
-   },
-   "RetryPolicy": {
-    "MaximumRetryAttempts": "{{ MaximumRetryAttempts }}",
-    "MaximumEventAgeInSeconds": "{{ MaximumEventAgeInSeconds }}"
-   }
-  }
- ],
- "RoleArn": "{{ RoleArn }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- rule.iql (required properties only)
 INSERT INTO aws.events.rules (
  EventBusName,
  EventPattern,
@@ -230,154 +100,21 @@ INSERT INTO aws.events.rules (
  region
 )
 SELECT 
-{{ .EventBusName }},
- {{ .EventPattern }},
- {{ .ScheduleExpression }},
- {{ .Description }},
- {{ .State }},
- {{ .Targets }},
- {{ .RoleArn }},
- {{ .Name }},
-'us-east-1';
+'{{ EventBusName }}',
+ '{{ EventPattern }}',
+ '{{ ScheduleExpression }}',
+ '{{ Description }}',
+ '{{ State }}',
+ '{{ Targets }}',
+ '{{ RoleArn }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EventBusName": "{{ EventBusName }}",
- "EventPattern": {},
- "ScheduleExpression": "{{ ScheduleExpression }}",
- "Description": "{{ Description }}",
- "State": "{{ State }}",
- "Targets": [
-  {
-   "InputPath": "{{ InputPath }}",
-   "HttpParameters": {
-    "PathParameterValues": [
-     "{{ PathParameterValues[0] }}"
-    ],
-    "HeaderParameters": {},
-    "QueryStringParameters": {}
-   },
-   "DeadLetterConfig": {
-    "Arn": "{{ Arn }}"
-   },
-   "RunCommandParameters": {
-    "RunCommandTargets": [
-     {
-      "Values": [
-       "{{ Values[0] }}"
-      ],
-      "Key": "{{ Key }}"
-     }
-    ]
-   },
-   "InputTransformer": {
-    "InputPathsMap": {},
-    "InputTemplate": "{{ InputTemplate }}"
-   },
-   "KinesisParameters": {
-    "PartitionKeyPath": "{{ PartitionKeyPath }}"
-   },
-   "RoleArn": "{{ RoleArn }}",
-   "RedshiftDataParameters": {
-    "StatementName": "{{ StatementName }}",
-    "Sqls": [
-     "{{ Sqls[0] }}"
-    ],
-    "Database": "{{ Database }}",
-    "SecretManagerArn": "{{ SecretManagerArn }}",
-    "DbUser": "{{ DbUser }}",
-    "Sql": "{{ Sql }}",
-    "WithEvent": "{{ WithEvent }}"
-   },
-   "AppSyncParameters": {
-    "GraphQLOperation": "{{ GraphQLOperation }}"
-   },
-   "Input": "{{ Input }}",
-   "SqsParameters": {
-    "MessageGroupId": "{{ MessageGroupId }}"
-   },
-   "EcsParameters": {
-    "PlatformVersion": "{{ PlatformVersion }}",
-    "Group": "{{ Group }}",
-    "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
-    "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
-    "PlacementConstraints": [
-     {
-      "Type": "{{ Type }}",
-      "Expression": "{{ Expression }}"
-     }
-    ],
-    "PropagateTags": "{{ PropagateTags }}",
-    "TaskCount": "{{ TaskCount }}",
-    "PlacementStrategies": [
-     {
-      "Field": "{{ Field }}",
-      "Type": "{{ Type }}"
-     }
-    ],
-    "CapacityProviderStrategy": [
-     {
-      "CapacityProvider": "{{ CapacityProvider }}",
-      "Base": "{{ Base }}",
-      "Weight": "{{ Weight }}"
-     }
-    ],
-    "LaunchType": "{{ LaunchType }}",
-    "ReferenceId": "{{ ReferenceId }}",
-    "TagList": [
-     {
-      "Value": "{{ Value }}",
-      "Key": "{{ Key }}"
-     }
-    ],
-    "NetworkConfiguration": {
-     "AwsVpcConfiguration": {
-      "SecurityGroups": [
-       "{{ SecurityGroups[0] }}"
-      ],
-      "Subnets": [
-       "{{ Subnets[0] }}"
-      ],
-      "AssignPublicIp": "{{ AssignPublicIp }}"
-     }
-    },
-    "TaskDefinitionArn": "{{ TaskDefinitionArn }}"
-   },
-   "BatchParameters": {
-    "ArrayProperties": {
-     "Size": "{{ Size }}"
-    },
-    "JobName": "{{ JobName }}",
-    "RetryStrategy": {
-     "Attempts": "{{ Attempts }}"
-    },
-    "JobDefinition": "{{ JobDefinition }}"
-   },
-   "Id": "{{ Id }}",
-   "Arn": "{{ Arn }}",
-   "SageMakerPipelineParameters": {
-    "PipelineParameterList": [
-     {
-      "Value": "{{ Value }}",
-      "Name": "{{ Name }}"
-     }
-    ]
-   },
-   "RetryPolicy": {
-    "MaximumRetryAttempts": "{{ MaximumRetryAttempts }}",
-    "MaximumEventAgeInSeconds": "{{ MaximumEventAgeInSeconds }}"
-   }
-  }
- ],
- "RoleArn": "{{ RoleArn }}",
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- rule.iql (all properties)
 INSERT INTO aws.events.rules (
  EventBusName,
  EventPattern,
@@ -390,15 +127,127 @@ INSERT INTO aws.events.rules (
  region
 )
 SELECT 
- {{ .EventBusName }},
- {{ .EventPattern }},
- {{ .ScheduleExpression }},
- {{ .Description }},
- {{ .State }},
- {{ .Targets }},
- {{ .RoleArn }},
- {{ .Name }},
- 'us-east-1';
+ '{{ EventBusName }}',
+ '{{ EventPattern }}',
+ '{{ ScheduleExpression }}',
+ '{{ Description }}',
+ '{{ State }}',
+ '{{ Targets }}',
+ '{{ RoleArn }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: rule
+    props:
+      - name: EventBusName
+        value: '{{ EventBusName }}'
+      - name: EventPattern
+        value: {}
+      - name: ScheduleExpression
+        value: '{{ ScheduleExpression }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: State
+        value: '{{ State }}'
+      - name: Targets
+        value:
+          - InputPath: '{{ InputPath }}'
+            HttpParameters:
+              PathParameterValues:
+                - '{{ PathParameterValues[0] }}'
+              HeaderParameters: {}
+              QueryStringParameters: {}
+            DeadLetterConfig:
+              Arn: '{{ Arn }}'
+            RunCommandParameters:
+              RunCommandTargets:
+                - Values:
+                    - '{{ Values[0] }}'
+                  Key: '{{ Key }}'
+            InputTransformer:
+              InputPathsMap: {}
+              InputTemplate: '{{ InputTemplate }}'
+            KinesisParameters:
+              PartitionKeyPath: '{{ PartitionKeyPath }}'
+            RoleArn: '{{ RoleArn }}'
+            RedshiftDataParameters:
+              StatementName: '{{ StatementName }}'
+              Sqls:
+                - '{{ Sqls[0] }}'
+              Database: '{{ Database }}'
+              SecretManagerArn: '{{ SecretManagerArn }}'
+              DbUser: '{{ DbUser }}'
+              Sql: '{{ Sql }}'
+              WithEvent: '{{ WithEvent }}'
+            AppSyncParameters:
+              GraphQLOperation: '{{ GraphQLOperation }}'
+            Input: '{{ Input }}'
+            SqsParameters:
+              MessageGroupId: '{{ MessageGroupId }}'
+            EcsParameters:
+              PlatformVersion: '{{ PlatformVersion }}'
+              Group: '{{ Group }}'
+              EnableECSManagedTags: '{{ EnableECSManagedTags }}'
+              EnableExecuteCommand: '{{ EnableExecuteCommand }}'
+              PlacementConstraints:
+                - Type: '{{ Type }}'
+                  Expression: '{{ Expression }}'
+              PropagateTags: '{{ PropagateTags }}'
+              TaskCount: '{{ TaskCount }}'
+              PlacementStrategies:
+                - Field: '{{ Field }}'
+                  Type: '{{ Type }}'
+              CapacityProviderStrategy:
+                - CapacityProvider: '{{ CapacityProvider }}'
+                  Base: '{{ Base }}'
+                  Weight: '{{ Weight }}'
+              LaunchType: '{{ LaunchType }}'
+              ReferenceId: '{{ ReferenceId }}'
+              TagList:
+                - Value: '{{ Value }}'
+                  Key: '{{ Key }}'
+              NetworkConfiguration:
+                AwsVpcConfiguration:
+                  SecurityGroups:
+                    - '{{ SecurityGroups[0] }}'
+                  Subnets:
+                    - '{{ Subnets[0] }}'
+                  AssignPublicIp: '{{ AssignPublicIp }}'
+              TaskDefinitionArn: '{{ TaskDefinitionArn }}'
+            BatchParameters:
+              ArrayProperties:
+                Size: '{{ Size }}'
+              JobName: '{{ JobName }}'
+              RetryStrategy:
+                Attempts: '{{ Attempts }}'
+              JobDefinition: '{{ JobDefinition }}'
+            Id: '{{ Id }}'
+            Arn: '{{ Arn }}'
+            SageMakerPipelineParameters:
+              PipelineParameterList:
+                - Value: '{{ Value }}'
+                  Name: '{{ Name }}'
+            RetryPolicy:
+              MaximumRetryAttempts: '{{ MaximumRetryAttempts }}'
+              MaximumEventAgeInSeconds: '{{ MaximumEventAgeInSeconds }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

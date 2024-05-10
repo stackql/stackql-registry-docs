@@ -74,54 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_connector</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Subnets": [
-  "{{ Subnets[0] }}"
- ]
-}
->>>
---required properties only
+-- vpc_connector.iql (required properties only)
 INSERT INTO aws.apprunner.vpc_connectors (
  Subnets,
  region
 )
 SELECT 
-{{ .Subnets }},
-'us-east-1';
+'{{ Subnets }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VpcConnectorName": "{{ VpcConnectorName }}",
- "Subnets": [
-  "{{ Subnets[0] }}"
- ],
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- vpc_connector.iql (all properties)
 INSERT INTO aws.apprunner.vpc_connectors (
  VpcConnectorName,
  Subnets,
@@ -130,11 +109,40 @@ INSERT INTO aws.apprunner.vpc_connectors (
  region
 )
 SELECT 
- {{ .VpcConnectorName }},
- {{ .Subnets }},
- {{ .SecurityGroups }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ VpcConnectorName }}',
+ '{{ Subnets }}',
+ '{{ SecurityGroups }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_connector
+    props:
+      - name: VpcConnectorName
+        value: '{{ VpcConnectorName }}'
+      - name: Subnets
+        value:
+          - '{{ Subnets[0] }}'
+      - name: SecurityGroups
+        value:
+          - '{{ SecurityGroups[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

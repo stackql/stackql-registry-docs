@@ -74,58 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Action": {
-  "Forward": {
-   "TargetGroups": [
-    {
-     "TargetGroupIdentifier": "{{ TargetGroupIdentifier }}",
-     "Weight": "{{ Weight }}"
-    }
-   ]
-  },
-  "FixedResponse": {
-   "StatusCode": "{{ StatusCode }}"
-  }
- },
- "Match": {
-  "HttpMatch": {
-   "Method": "{{ Method }}",
-   "PathMatch": {
-    "Match": {
-     "Exact": "{{ Exact }}",
-     "Prefix": "{{ Prefix }}"
-    },
-    "CaseSensitive": "{{ CaseSensitive }}"
-   },
-   "HeaderMatches": [
-    {
-     "Name": "{{ Name }}",
-     "Match": {
-      "Exact": "{{ Exact }}",
-      "Prefix": "{{ Prefix }}",
-      "Contains": "{{ Contains }}"
-     },
-     "CaseSensitive": "{{ CaseSensitive }}"
-    }
-   ]
-  }
- },
- "Priority": "{{ Priority }}"
-}
->>>
---required properties only
+-- rule.iql (required properties only)
 INSERT INTO aws.vpclattice.rules (
  Action,
  Match,
@@ -133,66 +95,16 @@ INSERT INTO aws.vpclattice.rules (
  region
 )
 SELECT 
-{{ .Action }},
- {{ .Match }},
- {{ .Priority }},
-'us-east-1';
+'{{ Action }}',
+ '{{ Match }}',
+ '{{ Priority }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Action": {
-  "Forward": {
-   "TargetGroups": [
-    {
-     "TargetGroupIdentifier": "{{ TargetGroupIdentifier }}",
-     "Weight": "{{ Weight }}"
-    }
-   ]
-  },
-  "FixedResponse": {
-   "StatusCode": "{{ StatusCode }}"
-  }
- },
- "ListenerIdentifier": "{{ ListenerIdentifier }}",
- "Match": {
-  "HttpMatch": {
-   "Method": "{{ Method }}",
-   "PathMatch": {
-    "Match": {
-     "Exact": "{{ Exact }}",
-     "Prefix": "{{ Prefix }}"
-    },
-    "CaseSensitive": "{{ CaseSensitive }}"
-   },
-   "HeaderMatches": [
-    {
-     "Name": "{{ Name }}",
-     "Match": {
-      "Exact": "{{ Exact }}",
-      "Prefix": "{{ Prefix }}",
-      "Contains": "{{ Contains }}"
-     },
-     "CaseSensitive": "{{ CaseSensitive }}"
-    }
-   ]
-  }
- },
- "Name": "{{ Name }}",
- "Priority": "{{ Priority }}",
- "ServiceIdentifier": "{{ ServiceIdentifier }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- rule.iql (all properties)
 INSERT INTO aws.vpclattice.rules (
  Action,
  ListenerIdentifier,
@@ -204,14 +116,67 @@ INSERT INTO aws.vpclattice.rules (
  region
 )
 SELECT 
- {{ .Action }},
- {{ .ListenerIdentifier }},
- {{ .Match }},
- {{ .Name }},
- {{ .Priority }},
- {{ .ServiceIdentifier }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Action }}',
+ '{{ ListenerIdentifier }}',
+ '{{ Match }}',
+ '{{ Name }}',
+ '{{ Priority }}',
+ '{{ ServiceIdentifier }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: rule
+    props:
+      - name: Action
+        value:
+          Forward:
+            TargetGroups:
+              - TargetGroupIdentifier: '{{ TargetGroupIdentifier }}'
+                Weight: '{{ Weight }}'
+          FixedResponse:
+            StatusCode: '{{ StatusCode }}'
+      - name: ListenerIdentifier
+        value: '{{ ListenerIdentifier }}'
+      - name: Match
+        value:
+          HttpMatch:
+            Method: '{{ Method }}'
+            PathMatch:
+              Match:
+                Exact: '{{ Exact }}'
+                Prefix: '{{ Prefix }}'
+              CaseSensitive: '{{ CaseSensitive }}'
+            HeaderMatches:
+              - Name: '{{ Name }}'
+                Match:
+                  Exact: '{{ Exact }}'
+                  Prefix: '{{ Prefix }}'
+                  Contains: '{{ Contains }}'
+                CaseSensitive: '{{ CaseSensitive }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Priority
+        value: '{{ Priority }}'
+      - name: ServiceIdentifier
+        value: '{{ ServiceIdentifier }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

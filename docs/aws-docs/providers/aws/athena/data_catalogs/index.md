@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_catalog</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- data_catalog.iql (required properties only)
 INSERT INTO aws.athena.data_catalogs (
  Name,
  Type,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Type }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Parameters": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- data_catalog.iql (all properties)
 INSERT INTO aws.athena.data_catalogs (
  Name,
  Description,
@@ -129,12 +112,41 @@ INSERT INTO aws.athena.data_catalogs (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Parameters }},
- {{ .Tags }},
- {{ .Type }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_catalog
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Parameters
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

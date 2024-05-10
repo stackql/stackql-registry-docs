@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_point_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ObjectLambdaAccessPoint": "{{ ObjectLambdaAccessPoint }}",
- "PolicyDocument": {}
-}
->>>
---required properties only
+-- access_point_policy.iql (required properties only)
 INSERT INTO aws.s3objectlambda.access_point_policies (
  ObjectLambdaAccessPoint,
  PolicyDocument,
  region
 )
 SELECT 
-{{ .ObjectLambdaAccessPoint }},
- {{ .PolicyDocument }},
-'us-east-1';
+'{{ ObjectLambdaAccessPoint }}',
+ '{{ PolicyDocument }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ObjectLambdaAccessPoint": "{{ ObjectLambdaAccessPoint }}",
- "PolicyDocument": {}
-}
->>>
---all properties
+-- access_point_policy.iql (all properties)
 INSERT INTO aws.s3objectlambda.access_point_policies (
  ObjectLambdaAccessPoint,
  PolicyDocument,
  region
 )
 SELECT 
- {{ .ObjectLambdaAccessPoint }},
- {{ .PolicyDocument }},
- 'us-east-1';
+ '{{ ObjectLambdaAccessPoint }}',
+ '{{ PolicyDocument }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_point_policy
+    props:
+      - name: ObjectLambdaAccessPoint
+        value: '{{ ObjectLambdaAccessPoint }}'
+      - name: PolicyDocument
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

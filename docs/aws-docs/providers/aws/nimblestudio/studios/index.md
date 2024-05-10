@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>studio</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AdminRoleArn": "{{ AdminRoleArn }}",
- "DisplayName": "{{ DisplayName }}",
- "StudioName": "{{ StudioName }}",
- "UserRoleArn": "{{ UserRoleArn }}"
-}
->>>
---required properties only
+-- studio.iql (required properties only)
 INSERT INTO aws.nimblestudio.studios (
  AdminRoleArn,
  DisplayName,
@@ -101,30 +96,17 @@ INSERT INTO aws.nimblestudio.studios (
  region
 )
 SELECT 
-{{ .AdminRoleArn }},
- {{ .DisplayName }},
- {{ .StudioName }},
- {{ .UserRoleArn }},
-'us-east-1';
+'{{ AdminRoleArn }}',
+ '{{ DisplayName }}',
+ '{{ StudioName }}',
+ '{{ UserRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AdminRoleArn": "{{ AdminRoleArn }}",
- "DisplayName": "{{ DisplayName }}",
- "StudioEncryptionConfiguration": {
-  "KeyType": "{{ KeyType }}",
-  "KeyArn": "{{ KeyArn }}"
- },
- "StudioName": "{{ StudioName }}",
- "Tags": {},
- "UserRoleArn": "{{ UserRoleArn }}"
-}
->>>
---all properties
+-- studio.iql (all properties)
 INSERT INTO aws.nimblestudio.studios (
  AdminRoleArn,
  DisplayName,
@@ -135,13 +117,44 @@ INSERT INTO aws.nimblestudio.studios (
  region
 )
 SELECT 
- {{ .AdminRoleArn }},
- {{ .DisplayName }},
- {{ .StudioEncryptionConfiguration }},
- {{ .StudioName }},
- {{ .Tags }},
- {{ .UserRoleArn }},
- 'us-east-1';
+ '{{ AdminRoleArn }}',
+ '{{ DisplayName }}',
+ '{{ StudioEncryptionConfiguration }}',
+ '{{ StudioName }}',
+ '{{ Tags }}',
+ '{{ UserRoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: studio
+    props:
+      - name: AdminRoleArn
+        value: '{{ AdminRoleArn }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: StudioEncryptionConfiguration
+        value:
+          KeyType: '{{ KeyType }}'
+          KeyArn: '{{ KeyArn }}'
+      - name: StudioName
+        value: '{{ StudioName }}'
+      - name: Tags
+        value: {}
+      - name: UserRoleArn
+        value: '{{ UserRoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

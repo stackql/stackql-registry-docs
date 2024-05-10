@@ -74,141 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>dataset</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Input": {
-  "S3InputDefinition": {
-   "Bucket": "{{ Bucket }}",
-   "Key": "{{ Key }}"
-  },
-  "DataCatalogInputDefinition": {
-   "CatalogId": "{{ CatalogId }}",
-   "DatabaseName": "{{ DatabaseName }}",
-   "TableName": "{{ TableName }}",
-   "TempDirectory": null
-  },
-  "DatabaseInputDefinition": {
-   "GlueConnectionName": "{{ GlueConnectionName }}",
-   "DatabaseTableName": "{{ DatabaseTableName }}",
-   "TempDirectory": null,
-   "QueryString": "{{ QueryString }}"
-  },
-  "Metadata": {
-   "SourceArn": "{{ SourceArn }}"
-  }
- }
-}
->>>
---required properties only
+-- dataset.iql (required properties only)
 INSERT INTO aws.databrew.datasets (
  Name,
  Input,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Input }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Input }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Format": "{{ Format }}",
- "FormatOptions": {
-  "Json": {
-   "MultiLine": "{{ MultiLine }}"
-  },
-  "Excel": {
-   "SheetNames": [
-    "{{ SheetNames[0] }}"
-   ],
-   "SheetIndexes": [
-    "{{ SheetIndexes[0] }}"
-   ],
-   "HeaderRow": "{{ HeaderRow }}"
-  },
-  "Csv": {
-   "Delimiter": "{{ Delimiter }}",
-   "HeaderRow": "{{ HeaderRow }}"
-  }
- },
- "Input": {
-  "S3InputDefinition": {
-   "Bucket": "{{ Bucket }}",
-   "Key": "{{ Key }}"
-  },
-  "DataCatalogInputDefinition": {
-   "CatalogId": "{{ CatalogId }}",
-   "DatabaseName": "{{ DatabaseName }}",
-   "TableName": "{{ TableName }}",
-   "TempDirectory": null
-  },
-  "DatabaseInputDefinition": {
-   "GlueConnectionName": "{{ GlueConnectionName }}",
-   "DatabaseTableName": "{{ DatabaseTableName }}",
-   "TempDirectory": null,
-   "QueryString": "{{ QueryString }}"
-  },
-  "Metadata": {
-   "SourceArn": "{{ SourceArn }}"
-  }
- },
- "PathOptions": {
-  "FilesLimit": {
-   "MaxFiles": "{{ MaxFiles }}",
-   "OrderedBy": "{{ OrderedBy }}",
-   "Order": "{{ Order }}"
-  },
-  "LastModifiedDateCondition": {
-   "Expression": "{{ Expression }}",
-   "ValuesMap": [
-    {
-     "ValueReference": "{{ ValueReference }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "Parameters": [
-   {
-    "PathParameterName": "{{ PathParameterName }}",
-    "DatasetParameter": {
-     "Name": null,
-     "Type": "{{ Type }}",
-     "DatetimeOptions": {
-      "Format": "{{ Format }}",
-      "TimezoneOffset": "{{ TimezoneOffset }}",
-      "LocaleCode": "{{ LocaleCode }}"
-     },
-     "CreateColumn": "{{ CreateColumn }}",
-     "Filter": null
-    }
-   }
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- dataset.iql (all properties)
 INSERT INTO aws.databrew.datasets (
  Name,
  Format,
@@ -219,13 +113,90 @@ INSERT INTO aws.databrew.datasets (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Format }},
- {{ .FormatOptions }},
- {{ .Input }},
- {{ .PathOptions }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Format }}',
+ '{{ FormatOptions }}',
+ '{{ Input }}',
+ '{{ PathOptions }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: dataset
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Format
+        value: '{{ Format }}'
+      - name: FormatOptions
+        value:
+          Json:
+            MultiLine: '{{ MultiLine }}'
+          Excel:
+            SheetNames:
+              - '{{ SheetNames[0] }}'
+            SheetIndexes:
+              - '{{ SheetIndexes[0] }}'
+            HeaderRow: '{{ HeaderRow }}'
+          Csv:
+            Delimiter: '{{ Delimiter }}'
+            HeaderRow: '{{ HeaderRow }}'
+      - name: Input
+        value:
+          S3InputDefinition:
+            Bucket: '{{ Bucket }}'
+            Key: '{{ Key }}'
+          DataCatalogInputDefinition:
+            CatalogId: '{{ CatalogId }}'
+            DatabaseName: '{{ DatabaseName }}'
+            TableName: '{{ TableName }}'
+            TempDirectory: null
+          DatabaseInputDefinition:
+            GlueConnectionName: '{{ GlueConnectionName }}'
+            DatabaseTableName: '{{ DatabaseTableName }}'
+            TempDirectory: null
+            QueryString: '{{ QueryString }}'
+          Metadata:
+            SourceArn: '{{ SourceArn }}'
+      - name: PathOptions
+        value:
+          FilesLimit:
+            MaxFiles: '{{ MaxFiles }}'
+            OrderedBy: '{{ OrderedBy }}'
+            Order: '{{ Order }}'
+          LastModifiedDateCondition:
+            Expression: '{{ Expression }}'
+            ValuesMap:
+              - ValueReference: '{{ ValueReference }}'
+                Value: '{{ Value }}'
+          Parameters:
+            - PathParameterName: '{{ PathParameterName }}'
+              DatasetParameter:
+                Name: null
+                Type: '{{ Type }}'
+                DatetimeOptions:
+                  Format: '{{ Format }}'
+                  TimezoneOffset: '{{ TimezoneOffset }}'
+                  LocaleCode: '{{ LocaleCode }}'
+                CreateColumn: '{{ CreateColumn }}'
+                Filter: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

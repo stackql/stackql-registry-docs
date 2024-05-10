@@ -74,35 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AuthType": "{{ AuthType }}",
- "DnsEntry": {
-  "DomainName": "{{ DomainName }}",
-  "HostedZoneId": "{{ HostedZoneId }}"
- },
- "Name": "{{ Name }}",
- "CertificateArn": "{{ CertificateArn }}",
- "CustomDomainName": "{{ CustomDomainName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- service.iql (required properties only)
 INSERT INTO aws.vpclattice.services (
  AuthType,
  DnsEntry,
@@ -113,37 +98,19 @@ INSERT INTO aws.vpclattice.services (
  region
 )
 SELECT 
-{{ .AuthType }},
- {{ .DnsEntry }},
- {{ .Name }},
- {{ .CertificateArn }},
- {{ .CustomDomainName }},
- {{ .Tags }},
-'us-east-1';
+'{{ AuthType }}',
+ '{{ DnsEntry }}',
+ '{{ Name }}',
+ '{{ CertificateArn }}',
+ '{{ CustomDomainName }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AuthType": "{{ AuthType }}",
- "DnsEntry": {
-  "DomainName": "{{ DomainName }}",
-  "HostedZoneId": "{{ HostedZoneId }}"
- },
- "Name": "{{ Name }}",
- "CertificateArn": "{{ CertificateArn }}",
- "CustomDomainName": "{{ CustomDomainName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- service.iql (all properties)
 INSERT INTO aws.vpclattice.services (
  AuthType,
  DnsEntry,
@@ -154,13 +121,46 @@ INSERT INTO aws.vpclattice.services (
  region
 )
 SELECT 
- {{ .AuthType }},
- {{ .DnsEntry }},
- {{ .Name }},
- {{ .CertificateArn }},
- {{ .CustomDomainName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AuthType }}',
+ '{{ DnsEntry }}',
+ '{{ Name }}',
+ '{{ CertificateArn }}',
+ '{{ CustomDomainName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service
+    props:
+      - name: AuthType
+        value: '{{ AuthType }}'
+      - name: DnsEntry
+        value:
+          DomainName: '{{ DomainName }}'
+          HostedZoneId: '{{ HostedZoneId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: CertificateArn
+        value: '{{ CertificateArn }}'
+      - name: CustomDomainName
+        value: '{{ CustomDomainName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

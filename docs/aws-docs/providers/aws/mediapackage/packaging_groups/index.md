@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>packaging_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}"
-}
->>>
---required properties only
+-- packaging_group.iql (required properties only)
 INSERT INTO aws.mediapackage.packaging_groups (
  Id,
  region
 )
 SELECT 
-{{ .Id }},
-'us-east-1';
+'{{ Id }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}",
- "Authorization": {
-  "CdnIdentifierSecret": "{{ CdnIdentifierSecret }}",
-  "SecretsRoleArn": "{{ SecretsRoleArn }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "EgressAccessLogs": {
-  "LogGroupName": "{{ LogGroupName }}"
- }
-}
->>>
---all properties
+-- packaging_group.iql (all properties)
 INSERT INTO aws.mediapackage.packaging_groups (
  Id,
  Authorization,
@@ -129,11 +109,41 @@ INSERT INTO aws.mediapackage.packaging_groups (
  region
 )
 SELECT 
- {{ .Id }},
- {{ .Authorization }},
- {{ .Tags }},
- {{ .EgressAccessLogs }},
- 'us-east-1';
+ '{{ Id }}',
+ '{{ Authorization }}',
+ '{{ Tags }}',
+ '{{ EgressAccessLogs }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: packaging_group
+    props:
+      - name: Id
+        value: '{{ Id }}'
+      - name: Authorization
+        value:
+          CdnIdentifierSecret: '{{ CdnIdentifierSecret }}'
+          SecretsRoleArn: '{{ SecretsRoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: EgressAccessLogs
+        value:
+          LogGroupName: '{{ LogGroupName }}'
+
 ```
 </TabItem>
 </Tabs>

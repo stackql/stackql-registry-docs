@@ -74,76 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RoutingConfig": {
-  "FailoverConfig": {
-   "Primary": {
-    "HealthCheck": "{{ HealthCheck }}"
-   },
-   "Secondary": {
-    "Route": "{{ Route }}"
-   }
-  }
- },
- "EventBuses": [
-  {
-   "EventBusArn": "{{ EventBusArn }}"
-  }
- ]
-}
->>>
---required properties only
+-- endpoint.iql (required properties only)
 INSERT INTO aws.events.endpoints (
  RoutingConfig,
  EventBuses,
  region
 )
 SELECT 
-{{ .RoutingConfig }},
- {{ .EventBuses }},
-'us-east-1';
+'{{ RoutingConfig }}',
+ '{{ EventBuses }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "Description": "{{ Description }}",
- "RoutingConfig": {
-  "FailoverConfig": {
-   "Primary": {
-    "HealthCheck": "{{ HealthCheck }}"
-   },
-   "Secondary": {
-    "Route": "{{ Route }}"
-   }
-  }
- },
- "ReplicationConfig": {
-  "State": "{{ State }}"
- },
- "EventBuses": [
-  {
-   "EventBusArn": "{{ EventBusArn }}"
-  }
- ]
-}
->>>
---all properties
+-- endpoint.iql (all properties)
 INSERT INTO aws.events.endpoints (
  Name,
  RoleArn,
@@ -154,13 +113,49 @@ INSERT INTO aws.events.endpoints (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .RoleArn }},
- {{ .Description }},
- {{ .RoutingConfig }},
- {{ .ReplicationConfig }},
- {{ .EventBuses }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ Description }}',
+ '{{ RoutingConfig }}',
+ '{{ ReplicationConfig }}',
+ '{{ EventBuses }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: endpoint
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RoutingConfig
+        value:
+          FailoverConfig:
+            Primary:
+              HealthCheck: '{{ HealthCheck }}'
+            Secondary:
+              Route: '{{ Route }}'
+      - name: ReplicationConfig
+        value:
+          State: '{{ State }}'
+      - name: EventBuses
+        value:
+          - EventBusArn: '{{ EventBusArn }}'
+
 ```
 </TabItem>
 </Tabs>

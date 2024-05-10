@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>tracker</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TrackerName": "{{ TrackerName }}"
-}
->>>
---required properties only
+-- tracker.iql (required properties only)
 INSERT INTO aws.location.trackers (
  TrackerName,
  region
 )
 SELECT 
-{{ .TrackerName }},
-'us-east-1';
+'{{ TrackerName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "EventBridgeEnabled": "{{ EventBridgeEnabled }}",
- "KmsKeyEnableGeospatialQueries": "{{ KmsKeyEnableGeospatialQueries }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "PositionFiltering": "{{ PositionFiltering }}",
- "PricingPlan": "{{ PricingPlan }}",
- "PricingPlanDataSource": "{{ PricingPlanDataSource }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TrackerName": "{{ TrackerName }}"
-}
->>>
---all properties
+-- tracker.iql (all properties)
 INSERT INTO aws.location.trackers (
  Description,
  EventBridgeEnabled,
@@ -134,16 +114,53 @@ INSERT INTO aws.location.trackers (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .EventBridgeEnabled }},
- {{ .KmsKeyEnableGeospatialQueries }},
- {{ .KmsKeyId }},
- {{ .PositionFiltering }},
- {{ .PricingPlan }},
- {{ .PricingPlanDataSource }},
- {{ .Tags }},
- {{ .TrackerName }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ EventBridgeEnabled }}',
+ '{{ KmsKeyEnableGeospatialQueries }}',
+ '{{ KmsKeyId }}',
+ '{{ PositionFiltering }}',
+ '{{ PricingPlan }}',
+ '{{ PricingPlanDataSource }}',
+ '{{ Tags }}',
+ '{{ TrackerName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: tracker
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: EventBridgeEnabled
+        value: '{{ EventBridgeEnabled }}'
+      - name: KmsKeyEnableGeospatialQueries
+        value: '{{ KmsKeyEnableGeospatialQueries }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: PositionFiltering
+        value: '{{ PositionFiltering }}'
+      - name: PricingPlan
+        value: '{{ PricingPlan }}'
+      - name: PricingPlanDataSource
+        value: '{{ PricingPlanDataSource }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TrackerName
+        value: '{{ TrackerName }}'
+
 ```
 </TabItem>
 </Tabs>

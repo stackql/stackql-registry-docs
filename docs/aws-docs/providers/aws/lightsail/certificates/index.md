@@ -74,53 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>certificate</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CertificateName": "{{ CertificateName }}",
- "DomainName": "{{ DomainName }}"
-}
->>>
---required properties only
+-- certificate.iql (required properties only)
 INSERT INTO aws.lightsail.certificates (
  CertificateName,
  DomainName,
  region
 )
 SELECT 
-{{ .CertificateName }},
- {{ .DomainName }},
-'us-east-1';
+'{{ CertificateName }}',
+ '{{ DomainName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CertificateName": "{{ CertificateName }}",
- "DomainName": "{{ DomainName }}",
- "SubjectAlternativeNames": [
-  "{{ SubjectAlternativeNames[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- certificate.iql (all properties)
 INSERT INTO aws.lightsail.certificates (
  CertificateName,
  DomainName,
@@ -129,11 +111,39 @@ INSERT INTO aws.lightsail.certificates (
  region
 )
 SELECT 
- {{ .CertificateName }},
- {{ .DomainName }},
- {{ .SubjectAlternativeNames }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CertificateName }}',
+ '{{ DomainName }}',
+ '{{ SubjectAlternativeNames }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: certificate
+    props:
+      - name: CertificateName
+        value: '{{ CertificateName }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: SubjectAlternativeNames
+        value:
+          - '{{ SubjectAlternativeNames[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

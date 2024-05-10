@@ -74,30 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>global_network</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CreatedAt": "{{ CreatedAt }}",
- "State": "{{ State }}"
-}
->>>
---required properties only
+-- global_network.iql (required properties only)
 INSERT INTO aws.networkmanager.global_networks (
  Description,
  Tags,
@@ -106,30 +96,17 @@ INSERT INTO aws.networkmanager.global_networks (
  region
 )
 SELECT 
-{{ .Description }},
- {{ .Tags }},
- {{ .CreatedAt }},
- {{ .State }},
-'us-east-1';
+'{{ Description }}',
+ '{{ Tags }}',
+ '{{ CreatedAt }}',
+ '{{ State }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CreatedAt": "{{ CreatedAt }}",
- "State": "{{ State }}"
-}
->>>
---all properties
+-- global_network.iql (all properties)
 INSERT INTO aws.networkmanager.global_networks (
  Description,
  Tags,
@@ -138,11 +115,38 @@ INSERT INTO aws.networkmanager.global_networks (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Tags }},
- {{ .CreatedAt }},
- {{ .State }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ CreatedAt }}',
+ '{{ State }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: global_network
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CreatedAt
+        value: '{{ CreatedAt }}'
+      - name: State
+        value: '{{ State }}'
+
 ```
 </TabItem>
 </Tabs>

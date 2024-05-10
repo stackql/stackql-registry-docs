@@ -76,94 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>deployment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---required properties only
+-- deployment.iql (required properties only)
 INSERT INTO aws.apigateway.deployments (
  RestApiId,
  region
 )
 SELECT 
-{{ .RestApiId }},
-'us-east-1';
+'{{ RestApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DeploymentCanarySettings": {
-  "PercentTraffic": null,
-  "StageVariableOverrides": {},
-  "UseStageCache": "{{ UseStageCache }}"
- },
- "Description": "{{ Description }}",
- "RestApiId": "{{ RestApiId }}",
- "StageDescription": {
-  "AccessLogSetting": {
-   "DestinationArn": "{{ DestinationArn }}",
-   "Format": "{{ Format }}"
-  },
-  "CacheClusterEnabled": "{{ CacheClusterEnabled }}",
-  "CacheClusterSize": "{{ CacheClusterSize }}",
-  "CacheDataEncrypted": "{{ CacheDataEncrypted }}",
-  "CacheTtlInSeconds": "{{ CacheTtlInSeconds }}",
-  "CachingEnabled": "{{ CachingEnabled }}",
-  "CanarySetting": {
-   "DeploymentId": "{{ DeploymentId }}",
-   "PercentTraffic": null,
-   "StageVariableOverrides": {},
-   "UseStageCache": "{{ UseStageCache }}"
-  },
-  "ClientCertificateId": "{{ ClientCertificateId }}",
-  "DataTraceEnabled": "{{ DataTraceEnabled }}",
-  "Description": "{{ Description }}",
-  "DocumentationVersion": "{{ DocumentationVersion }}",
-  "LoggingLevel": "{{ LoggingLevel }}",
-  "MethodSettings": [
-   {
-    "CacheDataEncrypted": "{{ CacheDataEncrypted }}",
-    "CacheTtlInSeconds": "{{ CacheTtlInSeconds }}",
-    "CachingEnabled": "{{ CachingEnabled }}",
-    "DataTraceEnabled": "{{ DataTraceEnabled }}",
-    "HttpMethod": "{{ HttpMethod }}",
-    "LoggingLevel": "{{ LoggingLevel }}",
-    "MetricsEnabled": "{{ MetricsEnabled }}",
-    "ResourcePath": "{{ ResourcePath }}",
-    "ThrottlingBurstLimit": "{{ ThrottlingBurstLimit }}",
-    "ThrottlingRateLimit": null
-   }
-  ],
-  "MetricsEnabled": "{{ MetricsEnabled }}",
-  "Tags": [
-   {
-    "Value": "{{ Value }}",
-    "Key": "{{ Key }}"
-   }
-  ],
-  "ThrottlingBurstLimit": "{{ ThrottlingBurstLimit }}",
-  "ThrottlingRateLimit": null,
-  "TracingEnabled": "{{ TracingEnabled }}",
-  "Variables": {}
- },
- "StageName": "{{ StageName }}"
-}
->>>
---all properties
+-- deployment.iql (all properties)
 INSERT INTO aws.apigateway.deployments (
  DeploymentCanarySettings,
  Description,
@@ -173,12 +112,79 @@ INSERT INTO aws.apigateway.deployments (
  region
 )
 SELECT 
- {{ .DeploymentCanarySettings }},
- {{ .Description }},
- {{ .RestApiId }},
- {{ .StageDescription }},
- {{ .StageName }},
- 'us-east-1';
+ '{{ DeploymentCanarySettings }}',
+ '{{ Description }}',
+ '{{ RestApiId }}',
+ '{{ StageDescription }}',
+ '{{ StageName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: deployment
+    props:
+      - name: DeploymentCanarySettings
+        value:
+          PercentTraffic: null
+          StageVariableOverrides: {}
+          UseStageCache: '{{ UseStageCache }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+      - name: StageDescription
+        value:
+          AccessLogSetting:
+            DestinationArn: '{{ DestinationArn }}'
+            Format: '{{ Format }}'
+          CacheClusterEnabled: '{{ CacheClusterEnabled }}'
+          CacheClusterSize: '{{ CacheClusterSize }}'
+          CacheDataEncrypted: '{{ CacheDataEncrypted }}'
+          CacheTtlInSeconds: '{{ CacheTtlInSeconds }}'
+          CachingEnabled: '{{ CachingEnabled }}'
+          CanarySetting:
+            DeploymentId: '{{ DeploymentId }}'
+            PercentTraffic: null
+            StageVariableOverrides: {}
+            UseStageCache: '{{ UseStageCache }}'
+          ClientCertificateId: '{{ ClientCertificateId }}'
+          DataTraceEnabled: '{{ DataTraceEnabled }}'
+          Description: '{{ Description }}'
+          DocumentationVersion: '{{ DocumentationVersion }}'
+          LoggingLevel: '{{ LoggingLevel }}'
+          MethodSettings:
+            - CacheDataEncrypted: '{{ CacheDataEncrypted }}'
+              CacheTtlInSeconds: '{{ CacheTtlInSeconds }}'
+              CachingEnabled: '{{ CachingEnabled }}'
+              DataTraceEnabled: '{{ DataTraceEnabled }}'
+              HttpMethod: '{{ HttpMethod }}'
+              LoggingLevel: '{{ LoggingLevel }}'
+              MetricsEnabled: '{{ MetricsEnabled }}'
+              ResourcePath: '{{ ResourcePath }}'
+              ThrottlingBurstLimit: '{{ ThrottlingBurstLimit }}'
+              ThrottlingRateLimit: null
+          MetricsEnabled: '{{ MetricsEnabled }}'
+          Tags:
+            - Value: '{{ Value }}'
+              Key: '{{ Key }}'
+          ThrottlingBurstLimit: '{{ ThrottlingBurstLimit }}'
+          ThrottlingRateLimit: null
+          TracingEnabled: '{{ TracingEnabled }}'
+          Variables: {}
+      - name: StageName
+        value: '{{ StageName }}'
+
 ```
 </TabItem>
 </Tabs>

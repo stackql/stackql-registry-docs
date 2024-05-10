@@ -74,58 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connect_peer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PeerAddress": "{{ PeerAddress }}",
- "ConnectAttachmentId": "{{ ConnectAttachmentId }}"
-}
->>>
---required properties only
+-- connect_peer.iql (required properties only)
 INSERT INTO aws.networkmanager.connect_peers (
  PeerAddress,
  ConnectAttachmentId,
  region
 )
 SELECT 
-{{ .PeerAddress }},
- {{ .ConnectAttachmentId }},
-'us-east-1';
+'{{ PeerAddress }}',
+ '{{ ConnectAttachmentId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PeerAddress": "{{ PeerAddress }}",
- "CoreNetworkAddress": "{{ CoreNetworkAddress }}",
- "BgpOptions": {
-  "PeerAsn": null
- },
- "InsideCidrBlocks": [
-  "{{ InsideCidrBlocks[0] }}"
- ],
- "ConnectAttachmentId": "{{ ConnectAttachmentId }}",
- "SubnetArn": "{{ SubnetArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- connect_peer.iql (all properties)
 INSERT INTO aws.networkmanager.connect_peers (
  PeerAddress,
  CoreNetworkAddress,
@@ -137,14 +114,49 @@ INSERT INTO aws.networkmanager.connect_peers (
  region
 )
 SELECT 
- {{ .PeerAddress }},
- {{ .CoreNetworkAddress }},
- {{ .BgpOptions }},
- {{ .InsideCidrBlocks }},
- {{ .ConnectAttachmentId }},
- {{ .SubnetArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ PeerAddress }}',
+ '{{ CoreNetworkAddress }}',
+ '{{ BgpOptions }}',
+ '{{ InsideCidrBlocks }}',
+ '{{ ConnectAttachmentId }}',
+ '{{ SubnetArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connect_peer
+    props:
+      - name: PeerAddress
+        value: '{{ PeerAddress }}'
+      - name: CoreNetworkAddress
+        value: '{{ CoreNetworkAddress }}'
+      - name: BgpOptions
+        value:
+          PeerAsn: null
+      - name: InsideCidrBlocks
+        value:
+          - '{{ InsideCidrBlocks[0] }}'
+      - name: ConnectAttachmentId
+        value: '{{ ConnectAttachmentId }}'
+      - name: SubnetArn
+        value: '{{ SubnetArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

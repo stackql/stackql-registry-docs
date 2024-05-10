@@ -74,42 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>repository</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EmptyOnDelete": "{{ EmptyOnDelete }}",
- "LifecyclePolicy": {
-  "LifecyclePolicyText": "{{ LifecyclePolicyText }}",
-  "RegistryId": "{{ RegistryId }}"
- },
- "RepositoryName": "{{ RepositoryName }}",
- "RepositoryPolicyText": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ImageTagMutability": "{{ ImageTagMutability }}",
- "ImageScanningConfiguration": {
-  "ScanOnPush": "{{ ScanOnPush }}"
- },
- "EncryptionConfiguration": {
-  "EncryptionType": "{{ EncryptionType }}",
-  "KmsKey": "{{ KmsKey }}"
- }
-}
->>>
---required properties only
+-- repository.iql (required properties only)
 INSERT INTO aws.ecr.repositories (
  EmptyOnDelete,
  LifecyclePolicy,
@@ -122,46 +100,21 @@ INSERT INTO aws.ecr.repositories (
  region
 )
 SELECT 
-{{ .EmptyOnDelete }},
- {{ .LifecyclePolicy }},
- {{ .RepositoryName }},
- {{ .RepositoryPolicyText }},
- {{ .Tags }},
- {{ .ImageTagMutability }},
- {{ .ImageScanningConfiguration }},
- {{ .EncryptionConfiguration }},
-'us-east-1';
+'{{ EmptyOnDelete }}',
+ '{{ LifecyclePolicy }}',
+ '{{ RepositoryName }}',
+ '{{ RepositoryPolicyText }}',
+ '{{ Tags }}',
+ '{{ ImageTagMutability }}',
+ '{{ ImageScanningConfiguration }}',
+ '{{ EncryptionConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EmptyOnDelete": "{{ EmptyOnDelete }}",
- "LifecyclePolicy": {
-  "LifecyclePolicyText": "{{ LifecyclePolicyText }}",
-  "RegistryId": "{{ RegistryId }}"
- },
- "RepositoryName": "{{ RepositoryName }}",
- "RepositoryPolicyText": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ImageTagMutability": "{{ ImageTagMutability }}",
- "ImageScanningConfiguration": {
-  "ScanOnPush": "{{ ScanOnPush }}"
- },
- "EncryptionConfiguration": {
-  "EncryptionType": "{{ EncryptionType }}",
-  "KmsKey": "{{ KmsKey }}"
- }
-}
->>>
---all properties
+-- repository.iql (all properties)
 INSERT INTO aws.ecr.repositories (
  EmptyOnDelete,
  LifecyclePolicy,
@@ -174,15 +127,55 @@ INSERT INTO aws.ecr.repositories (
  region
 )
 SELECT 
- {{ .EmptyOnDelete }},
- {{ .LifecyclePolicy }},
- {{ .RepositoryName }},
- {{ .RepositoryPolicyText }},
- {{ .Tags }},
- {{ .ImageTagMutability }},
- {{ .ImageScanningConfiguration }},
- {{ .EncryptionConfiguration }},
- 'us-east-1';
+ '{{ EmptyOnDelete }}',
+ '{{ LifecyclePolicy }}',
+ '{{ RepositoryName }}',
+ '{{ RepositoryPolicyText }}',
+ '{{ Tags }}',
+ '{{ ImageTagMutability }}',
+ '{{ ImageScanningConfiguration }}',
+ '{{ EncryptionConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: repository
+    props:
+      - name: EmptyOnDelete
+        value: '{{ EmptyOnDelete }}'
+      - name: LifecyclePolicy
+        value:
+          LifecyclePolicyText: '{{ LifecyclePolicyText }}'
+          RegistryId: '{{ RegistryId }}'
+      - name: RepositoryName
+        value: '{{ RepositoryName }}'
+      - name: RepositoryPolicyText
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ImageTagMutability
+        value: '{{ ImageTagMutability }}'
+      - name: ImageScanningConfiguration
+        value:
+          ScanOnPush: '{{ ScanOnPush }}'
+      - name: EncryptionConfiguration
+        value:
+          EncryptionType: '{{ EncryptionType }}'
+          KmsKey: '{{ KmsKey }}'
+
 ```
 </TabItem>
 </Tabs>

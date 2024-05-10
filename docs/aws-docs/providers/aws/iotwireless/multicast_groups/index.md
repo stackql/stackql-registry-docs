@@ -74,60 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>multicast_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LoRaWAN": {
-  "RfRegion": "{{ RfRegion }}",
-  "DlClass": "{{ DlClass }}",
-  "NumberOfDevicesRequested": "{{ NumberOfDevicesRequested }}",
-  "NumberOfDevicesInGroup": "{{ NumberOfDevicesInGroup }}"
- }
-}
->>>
---required properties only
+-- multicast_group.iql (required properties only)
 INSERT INTO aws.iotwireless.multicast_groups (
  LoRaWAN,
  region
 )
 SELECT 
-{{ .LoRaWAN }},
-'us-east-1';
+'{{ LoRaWAN }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "LoRaWAN": {
-  "RfRegion": "{{ RfRegion }}",
-  "DlClass": "{{ DlClass }}",
-  "NumberOfDevicesRequested": "{{ NumberOfDevicesRequested }}",
-  "NumberOfDevicesInGroup": "{{ NumberOfDevicesInGroup }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AssociateWirelessDevice": "{{ AssociateWirelessDevice }}",
- "DisassociateWirelessDevice": "{{ DisassociateWirelessDevice }}"
-}
->>>
---all properties
+-- multicast_group.iql (all properties)
 INSERT INTO aws.iotwireless.multicast_groups (
  Name,
  Description,
@@ -138,13 +111,48 @@ INSERT INTO aws.iotwireless.multicast_groups (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .LoRaWAN }},
- {{ .Tags }},
- {{ .AssociateWirelessDevice }},
- {{ .DisassociateWirelessDevice }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ LoRaWAN }}',
+ '{{ Tags }}',
+ '{{ AssociateWirelessDevice }}',
+ '{{ DisassociateWirelessDevice }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: multicast_group
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: LoRaWAN
+        value:
+          RfRegion: '{{ RfRegion }}'
+          DlClass: '{{ DlClass }}'
+          NumberOfDevicesRequested: '{{ NumberOfDevicesRequested }}'
+          NumberOfDevicesInGroup: '{{ NumberOfDevicesInGroup }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AssociateWirelessDevice
+        value: '{{ AssociateWirelessDevice }}'
+      - name: DisassociateWirelessDevice
+        value: '{{ DisassociateWirelessDevice }}'
+
 ```
 </TabItem>
 </Tabs>

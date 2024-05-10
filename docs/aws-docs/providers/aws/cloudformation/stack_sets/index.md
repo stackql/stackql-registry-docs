@@ -74,102 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>stack_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StackSetName": "{{ StackSetName }}",
- "PermissionModel": "{{ PermissionModel }}"
-}
->>>
---required properties only
+-- stack_set.iql (required properties only)
 INSERT INTO aws.cloudformation.stack_sets (
  StackSetName,
  PermissionModel,
  region
 )
 SELECT 
-{{ .StackSetName }},
- {{ .PermissionModel }},
-'us-east-1';
+'{{ StackSetName }}',
+ '{{ PermissionModel }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "StackSetName": "{{ StackSetName }}",
- "AdministrationRoleARN": "{{ AdministrationRoleARN }}",
- "AutoDeployment": {
-  "Enabled": "{{ Enabled }}",
-  "RetainStacksOnAccountRemoval": "{{ RetainStacksOnAccountRemoval }}"
- },
- "Capabilities": [
-  "{{ Capabilities[0] }}"
- ],
- "Description": "{{ Description }}",
- "ExecutionRoleName": "{{ ExecutionRoleName }}",
- "OperationPreferences": {
-  "FailureToleranceCount": "{{ FailureToleranceCount }}",
-  "FailureTolerancePercentage": "{{ FailureTolerancePercentage }}",
-  "MaxConcurrentCount": "{{ MaxConcurrentCount }}",
-  "MaxConcurrentPercentage": "{{ MaxConcurrentPercentage }}",
-  "RegionOrder": [
-   "{{ RegionOrder[0] }}"
-  ],
-  "RegionConcurrencyType": "{{ RegionConcurrencyType }}"
- },
- "StackInstancesGroup": [
-  {
-   "DeploymentTargets": {
-    "Accounts": [
-     "{{ Accounts[0] }}"
-    ],
-    "AccountsUrl": "{{ AccountsUrl }}",
-    "OrganizationalUnitIds": [
-     "{{ OrganizationalUnitIds[0] }}"
-    ],
-    "AccountFilterType": "{{ AccountFilterType }}"
-   },
-   "Regions": [
-    null
-   ],
-   "ParameterOverrides": [
-    {
-     "ParameterKey": "{{ ParameterKey }}",
-     "ParameterValue": "{{ ParameterValue }}"
-    }
-   ]
-  }
- ],
- "Parameters": [
-  null
- ],
- "PermissionModel": "{{ PermissionModel }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TemplateBody": "{{ TemplateBody }}",
- "TemplateURL": "{{ TemplateURL }}",
- "CallAs": "{{ CallAs }}",
- "ManagedExecution": {
-  "Active": "{{ Active }}"
- }
-}
->>>
---all properties
+-- stack_set.iql (all properties)
 INSERT INTO aws.cloudformation.stack_sets (
  StackSetName,
  AdministrationRoleARN,
@@ -189,22 +122,95 @@ INSERT INTO aws.cloudformation.stack_sets (
  region
 )
 SELECT 
- {{ .StackSetName }},
- {{ .AdministrationRoleARN }},
- {{ .AutoDeployment }},
- {{ .Capabilities }},
- {{ .Description }},
- {{ .ExecutionRoleName }},
- {{ .OperationPreferences }},
- {{ .StackInstancesGroup }},
- {{ .Parameters }},
- {{ .PermissionModel }},
- {{ .Tags }},
- {{ .TemplateBody }},
- {{ .TemplateURL }},
- {{ .CallAs }},
- {{ .ManagedExecution }},
- 'us-east-1';
+ '{{ StackSetName }}',
+ '{{ AdministrationRoleARN }}',
+ '{{ AutoDeployment }}',
+ '{{ Capabilities }}',
+ '{{ Description }}',
+ '{{ ExecutionRoleName }}',
+ '{{ OperationPreferences }}',
+ '{{ StackInstancesGroup }}',
+ '{{ Parameters }}',
+ '{{ PermissionModel }}',
+ '{{ Tags }}',
+ '{{ TemplateBody }}',
+ '{{ TemplateURL }}',
+ '{{ CallAs }}',
+ '{{ ManagedExecution }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: stack_set
+    props:
+      - name: StackSetName
+        value: '{{ StackSetName }}'
+      - name: AdministrationRoleARN
+        value: '{{ AdministrationRoleARN }}'
+      - name: AutoDeployment
+        value:
+          Enabled: '{{ Enabled }}'
+          RetainStacksOnAccountRemoval: '{{ RetainStacksOnAccountRemoval }}'
+      - name: Capabilities
+        value:
+          - '{{ Capabilities[0] }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ExecutionRoleName
+        value: '{{ ExecutionRoleName }}'
+      - name: OperationPreferences
+        value:
+          FailureToleranceCount: '{{ FailureToleranceCount }}'
+          FailureTolerancePercentage: '{{ FailureTolerancePercentage }}'
+          MaxConcurrentCount: '{{ MaxConcurrentCount }}'
+          MaxConcurrentPercentage: '{{ MaxConcurrentPercentage }}'
+          RegionOrder:
+            - '{{ RegionOrder[0] }}'
+          RegionConcurrencyType: '{{ RegionConcurrencyType }}'
+      - name: StackInstancesGroup
+        value:
+          - DeploymentTargets:
+              Accounts:
+                - '{{ Accounts[0] }}'
+              AccountsUrl: '{{ AccountsUrl }}'
+              OrganizationalUnitIds:
+                - '{{ OrganizationalUnitIds[0] }}'
+              AccountFilterType: '{{ AccountFilterType }}'
+            Regions:
+              - null
+            ParameterOverrides:
+              - ParameterKey: '{{ ParameterKey }}'
+                ParameterValue: '{{ ParameterValue }}'
+      - name: Parameters
+        value:
+          - null
+      - name: PermissionModel
+        value: '{{ PermissionModel }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TemplateBody
+        value: '{{ TemplateBody }}'
+      - name: TemplateURL
+        value: '{{ TemplateURL }}'
+      - name: CallAs
+        value: '{{ CallAs }}'
+      - name: ManagedExecution
+        value:
+          Active: '{{ Active }}'
+
 ```
 </TabItem>
 </Tabs>

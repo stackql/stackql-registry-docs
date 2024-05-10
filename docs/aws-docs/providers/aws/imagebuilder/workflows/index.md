@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>workflow</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Version": "{{ Version }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- workflow.iql (required properties only)
 INSERT INTO aws.imagebuilder.workflows (
  Name,
  Version,
@@ -99,29 +95,16 @@ INSERT INTO aws.imagebuilder.workflows (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Version }},
- {{ .Type }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Version }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Version": "{{ Version }}",
- "Description": "{{ Description }}",
- "ChangeDescription": "{{ ChangeDescription }}",
- "Type": "{{ Type }}",
- "Data": "{{ Data }}",
- "Uri": "{{ Uri }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "Tags": {}
-}
->>>
---all properties
+-- workflow.iql (all properties)
 INSERT INTO aws.imagebuilder.workflows (
  Name,
  Version,
@@ -135,16 +118,51 @@ INSERT INTO aws.imagebuilder.workflows (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Version }},
- {{ .Description }},
- {{ .ChangeDescription }},
- {{ .Type }},
- {{ .Data }},
- {{ .Uri }},
- {{ .KmsKeyId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Version }}',
+ '{{ Description }}',
+ '{{ ChangeDescription }}',
+ '{{ Type }}',
+ '{{ Data }}',
+ '{{ Uri }}',
+ '{{ KmsKeyId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: workflow
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Version
+        value: '{{ Version }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ChangeDescription
+        value: '{{ ChangeDescription }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Data
+        value: '{{ Data }}'
+      - name: Uri
+        value: '{{ Uri }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

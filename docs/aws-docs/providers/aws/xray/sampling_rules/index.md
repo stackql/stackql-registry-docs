@@ -74,54 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>sampling_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SamplingRule": {
-  "SamplingRule": null,
-  "SamplingRuleRecord": {
-   "CreatedAt": "{{ CreatedAt }}",
-   "ModifiedAt": "{{ ModifiedAt }}",
-   "SamplingRule": null
-  },
-  "SamplingRuleUpdate": {
-   "Attributes": {},
-   "FixedRate": null,
-   "Host": "{{ Host }}",
-   "HTTPMethod": "{{ HTTPMethod }}",
-   "Priority": "{{ Priority }}",
-   "ReservoirSize": "{{ ReservoirSize }}",
-   "ResourceARN": "{{ ResourceARN }}",
-   "RuleARN": "{{ RuleARN }}",
-   "RuleName": "{{ RuleName }}",
-   "ServiceName": "{{ ServiceName }}",
-   "ServiceType": "{{ ServiceType }}",
-   "URLPath": "{{ URLPath }}"
-  },
-  "RuleName": null,
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "SamplingRuleRecord": null,
- "SamplingRuleUpdate": null,
- "RuleName": null,
- "Tags": null
-}
->>>
---required properties only
+-- sampling_rule.iql (required properties only)
 INSERT INTO aws.xray.sampling_rules (
  SamplingRule,
  SamplingRuleRecord,
@@ -131,55 +97,18 @@ INSERT INTO aws.xray.sampling_rules (
  region
 )
 SELECT 
-{{ .SamplingRule }},
- {{ .SamplingRuleRecord }},
- {{ .SamplingRuleUpdate }},
- {{ .RuleName }},
- {{ .Tags }},
-'us-east-1';
+'{{ SamplingRule }}',
+ '{{ SamplingRuleRecord }}',
+ '{{ SamplingRuleUpdate }}',
+ '{{ RuleName }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SamplingRule": {
-  "SamplingRule": null,
-  "SamplingRuleRecord": {
-   "CreatedAt": "{{ CreatedAt }}",
-   "ModifiedAt": "{{ ModifiedAt }}",
-   "SamplingRule": null
-  },
-  "SamplingRuleUpdate": {
-   "Attributes": {},
-   "FixedRate": null,
-   "Host": "{{ Host }}",
-   "HTTPMethod": "{{ HTTPMethod }}",
-   "Priority": "{{ Priority }}",
-   "ReservoirSize": "{{ ReservoirSize }}",
-   "ResourceARN": "{{ ResourceARN }}",
-   "RuleARN": "{{ RuleARN }}",
-   "RuleName": "{{ RuleName }}",
-   "ServiceName": "{{ ServiceName }}",
-   "ServiceType": "{{ ServiceType }}",
-   "URLPath": "{{ URLPath }}"
-  },
-  "RuleName": null,
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "SamplingRuleRecord": null,
- "SamplingRuleUpdate": null,
- "RuleName": null,
- "Tags": null
-}
->>>
---all properties
+-- sampling_rule.iql (all properties)
 INSERT INTO aws.xray.sampling_rules (
  SamplingRule,
  SamplingRuleRecord,
@@ -189,12 +118,61 @@ INSERT INTO aws.xray.sampling_rules (
  region
 )
 SELECT 
- {{ .SamplingRule }},
- {{ .SamplingRuleRecord }},
- {{ .SamplingRuleUpdate }},
- {{ .RuleName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SamplingRule }}',
+ '{{ SamplingRuleRecord }}',
+ '{{ SamplingRuleUpdate }}',
+ '{{ RuleName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: sampling_rule
+    props:
+      - name: SamplingRule
+        value:
+          SamplingRule: null
+          SamplingRuleRecord:
+            CreatedAt: '{{ CreatedAt }}'
+            ModifiedAt: '{{ ModifiedAt }}'
+            SamplingRule: null
+          SamplingRuleUpdate:
+            Attributes: {}
+            FixedRate: null
+            Host: '{{ Host }}'
+            HTTPMethod: '{{ HTTPMethod }}'
+            Priority: '{{ Priority }}'
+            ReservoirSize: '{{ ReservoirSize }}'
+            ResourceARN: '{{ ResourceARN }}'
+            RuleARN: '{{ RuleARN }}'
+            RuleName: '{{ RuleName }}'
+            ServiceName: '{{ ServiceName }}'
+            ServiceType: '{{ ServiceType }}'
+            URLPath: '{{ URLPath }}'
+          RuleName: null
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: SamplingRuleRecord
+        value: null
+      - name: SamplingRuleUpdate
+        value: null
+      - name: RuleName
+        value: null
+      - name: Tags
+        value: null
+
 ```
 </TabItem>
 </Tabs>

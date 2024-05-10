@@ -76,56 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>enabled_control</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ControlIdentifier": "{{ ControlIdentifier }}",
- "TargetIdentifier": "{{ TargetIdentifier }}"
-}
->>>
---required properties only
+-- enabled_control.iql (required properties only)
 INSERT INTO aws.controltower.enabled_controls (
  ControlIdentifier,
  TargetIdentifier,
  region
 )
 SELECT 
-{{ .ControlIdentifier }},
- {{ .TargetIdentifier }},
-'us-east-1';
+'{{ ControlIdentifier }}',
+ '{{ TargetIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ControlIdentifier": "{{ ControlIdentifier }}",
- "TargetIdentifier": "{{ TargetIdentifier }}",
- "Parameters": [
-  {
-   "Value": null,
-   "Key": "{{ Key }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- enabled_control.iql (all properties)
 INSERT INTO aws.controltower.enabled_controls (
  ControlIdentifier,
  TargetIdentifier,
@@ -134,11 +113,40 @@ INSERT INTO aws.controltower.enabled_controls (
  region
 )
 SELECT 
- {{ .ControlIdentifier }},
- {{ .TargetIdentifier }},
- {{ .Parameters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ControlIdentifier }}',
+ '{{ TargetIdentifier }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: enabled_control
+    props:
+      - name: ControlIdentifier
+        value: '{{ ControlIdentifier }}'
+      - name: TargetIdentifier
+        value: '{{ TargetIdentifier }}'
+      - name: Parameters
+        value:
+          - Value: null
+            Key: '{{ Key }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

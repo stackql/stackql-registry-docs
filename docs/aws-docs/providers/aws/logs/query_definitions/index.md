@@ -74,47 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>query_definition</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "QueryString": "{{ QueryString }}"
-}
->>>
---required properties only
+-- query_definition.iql (required properties only)
 INSERT INTO aws.logs.query_definitions (
  Name,
  QueryString,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .QueryString }},
-'us-east-1';
+'{{ Name }}',
+ '{{ QueryString }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "QueryString": "{{ QueryString }}",
- "LogGroupNames": [
-  "{{ LogGroupNames[0] }}"
- ]
-}
->>>
---all properties
+-- query_definition.iql (all properties)
 INSERT INTO aws.logs.query_definitions (
  Name,
  QueryString,
@@ -122,10 +110,34 @@ INSERT INTO aws.logs.query_definitions (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .QueryString }},
- {{ .LogGroupNames }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ QueryString }}',
+ '{{ LogGroupNames }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: query_definition
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: QueryString
+        value: '{{ QueryString }}'
+      - name: LogGroupNames
+        value:
+          - '{{ LogGroupNames[0] }}'
+
 ```
 </TabItem>
 </Tabs>

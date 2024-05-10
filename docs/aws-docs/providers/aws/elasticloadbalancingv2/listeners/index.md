@@ -74,170 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>listener</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LoadBalancerArn": "{{ LoadBalancerArn }}",
- "DefaultActions": [
-  {
-   "Order": "{{ Order }}",
-   "TargetGroupArn": "{{ TargetGroupArn }}",
-   "FixedResponseConfig": {
-    "ContentType": "{{ ContentType }}",
-    "StatusCode": "{{ StatusCode }}",
-    "MessageBody": "{{ MessageBody }}"
-   },
-   "AuthenticateCognitoConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "UserPoolClientId": "{{ UserPoolClientId }}",
-    "UserPoolDomain": "{{ UserPoolDomain }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UserPoolArn": "{{ UserPoolArn }}",
-    "AuthenticationRequestExtraParams": {}
-   },
-   "Type": "{{ Type }}",
-   "RedirectConfig": {
-    "Path": "{{ Path }}",
-    "Query": "{{ Query }}",
-    "Port": "{{ Port }}",
-    "Host": "{{ Host }}",
-    "Protocol": "{{ Protocol }}",
-    "StatusCode": "{{ StatusCode }}"
-   },
-   "ForwardConfig": {
-    "TargetGroupStickinessConfig": {
-     "Enabled": "{{ Enabled }}",
-     "DurationSeconds": "{{ DurationSeconds }}"
-    },
-    "TargetGroups": [
-     {
-      "TargetGroupArn": "{{ TargetGroupArn }}",
-      "Weight": "{{ Weight }}"
-     }
-    ]
-   },
-   "AuthenticateOidcConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "TokenEndpoint": "{{ TokenEndpoint }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "Issuer": "{{ Issuer }}",
-    "ClientSecret": "{{ ClientSecret }}",
-    "UserInfoEndpoint": "{{ UserInfoEndpoint }}",
-    "ClientId": "{{ ClientId }}",
-    "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UseExistingClientSecret": "{{ UseExistingClientSecret }}",
-    "AuthenticationRequestExtraParams": {}
-   }
-  }
- ]
-}
->>>
---required properties only
+-- listener.iql (required properties only)
 INSERT INTO aws.elasticloadbalancingv2.listeners (
  LoadBalancerArn,
  DefaultActions,
  region
 )
 SELECT 
-{{ .LoadBalancerArn }},
- {{ .DefaultActions }},
-'us-east-1';
+'{{ LoadBalancerArn }}',
+ '{{ DefaultActions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SslPolicy": "{{ SslPolicy }}",
- "LoadBalancerArn": "{{ LoadBalancerArn }}",
- "DefaultActions": [
-  {
-   "Order": "{{ Order }}",
-   "TargetGroupArn": "{{ TargetGroupArn }}",
-   "FixedResponseConfig": {
-    "ContentType": "{{ ContentType }}",
-    "StatusCode": "{{ StatusCode }}",
-    "MessageBody": "{{ MessageBody }}"
-   },
-   "AuthenticateCognitoConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "UserPoolClientId": "{{ UserPoolClientId }}",
-    "UserPoolDomain": "{{ UserPoolDomain }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UserPoolArn": "{{ UserPoolArn }}",
-    "AuthenticationRequestExtraParams": {}
-   },
-   "Type": "{{ Type }}",
-   "RedirectConfig": {
-    "Path": "{{ Path }}",
-    "Query": "{{ Query }}",
-    "Port": "{{ Port }}",
-    "Host": "{{ Host }}",
-    "Protocol": "{{ Protocol }}",
-    "StatusCode": "{{ StatusCode }}"
-   },
-   "ForwardConfig": {
-    "TargetGroupStickinessConfig": {
-     "Enabled": "{{ Enabled }}",
-     "DurationSeconds": "{{ DurationSeconds }}"
-    },
-    "TargetGroups": [
-     {
-      "TargetGroupArn": "{{ TargetGroupArn }}",
-      "Weight": "{{ Weight }}"
-     }
-    ]
-   },
-   "AuthenticateOidcConfig": {
-    "OnUnauthenticatedRequest": "{{ OnUnauthenticatedRequest }}",
-    "TokenEndpoint": "{{ TokenEndpoint }}",
-    "SessionTimeout": "{{ SessionTimeout }}",
-    "Scope": "{{ Scope }}",
-    "Issuer": "{{ Issuer }}",
-    "ClientSecret": "{{ ClientSecret }}",
-    "UserInfoEndpoint": "{{ UserInfoEndpoint }}",
-    "ClientId": "{{ ClientId }}",
-    "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-    "SessionCookieName": "{{ SessionCookieName }}",
-    "UseExistingClientSecret": "{{ UseExistingClientSecret }}",
-    "AuthenticationRequestExtraParams": {}
-   }
-  }
- ],
- "Port": "{{ Port }}",
- "Certificates": [
-  {
-   "CertificateArn": "{{ CertificateArn }}"
-  }
- ],
- "Protocol": "{{ Protocol }}",
- "AlpnPolicy": [
-  "{{ AlpnPolicy[0] }}"
- ],
- "MutualAuthentication": {
-  "Mode": "{{ Mode }}",
-  "TrustStoreArn": "{{ TrustStoreArn }}",
-  "IgnoreClientCertificateExpiry": "{{ IgnoreClientCertificateExpiry }}"
- }
-}
->>>
---all properties
+-- listener.iql (all properties)
 INSERT INTO aws.elasticloadbalancingv2.listeners (
  SslPolicy,
  LoadBalancerArn,
@@ -250,15 +115,96 @@ INSERT INTO aws.elasticloadbalancingv2.listeners (
  region
 )
 SELECT 
- {{ .SslPolicy }},
- {{ .LoadBalancerArn }},
- {{ .DefaultActions }},
- {{ .Port }},
- {{ .Certificates }},
- {{ .Protocol }},
- {{ .AlpnPolicy }},
- {{ .MutualAuthentication }},
- 'us-east-1';
+ '{{ SslPolicy }}',
+ '{{ LoadBalancerArn }}',
+ '{{ DefaultActions }}',
+ '{{ Port }}',
+ '{{ Certificates }}',
+ '{{ Protocol }}',
+ '{{ AlpnPolicy }}',
+ '{{ MutualAuthentication }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: listener
+    props:
+      - name: SslPolicy
+        value: '{{ SslPolicy }}'
+      - name: LoadBalancerArn
+        value: '{{ LoadBalancerArn }}'
+      - name: DefaultActions
+        value:
+          - Order: '{{ Order }}'
+            TargetGroupArn: '{{ TargetGroupArn }}'
+            FixedResponseConfig:
+              ContentType: '{{ ContentType }}'
+              StatusCode: '{{ StatusCode }}'
+              MessageBody: '{{ MessageBody }}'
+            AuthenticateCognitoConfig:
+              OnUnauthenticatedRequest: '{{ OnUnauthenticatedRequest }}'
+              UserPoolClientId: '{{ UserPoolClientId }}'
+              UserPoolDomain: '{{ UserPoolDomain }}'
+              SessionTimeout: '{{ SessionTimeout }}'
+              Scope: '{{ Scope }}'
+              SessionCookieName: '{{ SessionCookieName }}'
+              UserPoolArn: '{{ UserPoolArn }}'
+              AuthenticationRequestExtraParams: {}
+            Type: '{{ Type }}'
+            RedirectConfig:
+              Path: '{{ Path }}'
+              Query: '{{ Query }}'
+              Port: '{{ Port }}'
+              Host: '{{ Host }}'
+              Protocol: '{{ Protocol }}'
+              StatusCode: '{{ StatusCode }}'
+            ForwardConfig:
+              TargetGroupStickinessConfig:
+                Enabled: '{{ Enabled }}'
+                DurationSeconds: '{{ DurationSeconds }}'
+              TargetGroups:
+                - TargetGroupArn: '{{ TargetGroupArn }}'
+                  Weight: '{{ Weight }}'
+            AuthenticateOidcConfig:
+              OnUnauthenticatedRequest: '{{ OnUnauthenticatedRequest }}'
+              TokenEndpoint: '{{ TokenEndpoint }}'
+              SessionTimeout: '{{ SessionTimeout }}'
+              Scope: '{{ Scope }}'
+              Issuer: '{{ Issuer }}'
+              ClientSecret: '{{ ClientSecret }}'
+              UserInfoEndpoint: '{{ UserInfoEndpoint }}'
+              ClientId: '{{ ClientId }}'
+              AuthorizationEndpoint: '{{ AuthorizationEndpoint }}'
+              SessionCookieName: '{{ SessionCookieName }}'
+              UseExistingClientSecret: '{{ UseExistingClientSecret }}'
+              AuthenticationRequestExtraParams: {}
+      - name: Port
+        value: '{{ Port }}'
+      - name: Certificates
+        value:
+          - CertificateArn: '{{ CertificateArn }}'
+      - name: Protocol
+        value: '{{ Protocol }}'
+      - name: AlpnPolicy
+        value:
+          - '{{ AlpnPolicy[0] }}'
+      - name: MutualAuthentication
+        value:
+          Mode: '{{ Mode }}'
+          TrustStoreArn: '{{ TrustStoreArn }}'
+          IgnoreClientCertificateExpiry: '{{ IgnoreClientCertificateExpiry }}'
+
 ```
 </TabItem>
 </Tabs>

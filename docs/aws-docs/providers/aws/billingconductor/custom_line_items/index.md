@@ -74,77 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>custom_line_item</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "BillingGroupArn": "{{ BillingGroupArn }}"
-}
->>>
---required properties only
+-- custom_line_item.iql (required properties only)
 INSERT INTO aws.billingconductor.custom_line_items (
  Name,
  BillingGroupArn,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .BillingGroupArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ BillingGroupArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "CustomLineItemChargeDetails": {
-  "Flat": {
-   "ChargeValue": null
-  },
-  "Percentage": {
-   "ChildAssociatedResources": [
-    "{{ ChildAssociatedResources[0] }}"
-   ],
-   "PercentageValue": null
-  },
-  "Type": "{{ Type }}",
-  "LineItemFilters": [
-   {
-    "Attribute": "{{ Attribute }}",
-    "MatchOption": "{{ MatchOption }}",
-    "Values": [
-     "{{ Values[0] }}"
-    ]
-   }
-  ]
- },
- "BillingGroupArn": "{{ BillingGroupArn }}",
- "BillingPeriodRange": {
-  "InclusiveStartBillingPeriod": "{{ InclusiveStartBillingPeriod }}",
-  "ExclusiveEndBillingPeriod": "{{ ExclusiveEndBillingPeriod }}"
- },
- "AccountId": "{{ AccountId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- custom_line_item.iql (all properties)
 INSERT INTO aws.billingconductor.custom_line_items (
  Name,
  Description,
@@ -156,14 +114,61 @@ INSERT INTO aws.billingconductor.custom_line_items (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .CustomLineItemChargeDetails }},
- {{ .BillingGroupArn }},
- {{ .BillingPeriodRange }},
- {{ .AccountId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ CustomLineItemChargeDetails }}',
+ '{{ BillingGroupArn }}',
+ '{{ BillingPeriodRange }}',
+ '{{ AccountId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: custom_line_item
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: CustomLineItemChargeDetails
+        value:
+          Flat:
+            ChargeValue: null
+          Percentage:
+            ChildAssociatedResources:
+              - '{{ ChildAssociatedResources[0] }}'
+            PercentageValue: null
+          Type: '{{ Type }}'
+          LineItemFilters:
+            - Attribute: '{{ Attribute }}'
+              MatchOption: '{{ MatchOption }}'
+              Values:
+                - '{{ Values[0] }}'
+      - name: BillingGroupArn
+        value: '{{ BillingGroupArn }}'
+      - name: BillingPeriodRange
+        value:
+          InclusiveStartBillingPeriod: '{{ InclusiveStartBillingPeriod }}'
+          ExclusiveEndBillingPeriod: '{{ ExclusiveEndBillingPeriod }}'
+      - name: AccountId
+        value: '{{ AccountId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

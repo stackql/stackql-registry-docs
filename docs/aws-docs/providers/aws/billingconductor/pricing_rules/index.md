@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pricing_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Scope": "{{ Scope }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- pricing_rule.iql (required properties only)
 INSERT INTO aws.billingconductor.pricing_rules (
  Name,
  Scope,
@@ -99,40 +95,16 @@ INSERT INTO aws.billingconductor.pricing_rules (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Scope }},
- {{ .Type }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Scope }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Scope": "{{ Scope }}",
- "Type": "{{ Type }}",
- "ModifierPercentage": null,
- "Service": "{{ Service }}",
- "BillingEntity": "{{ BillingEntity }}",
- "Tiering": {
-  "FreeTier": {
-   "Activated": "{{ Activated }}"
-  }
- },
- "UsageType": "{{ UsageType }}",
- "Operation": "{{ Operation }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- pricing_rule.iql (all properties)
 INSERT INTO aws.billingconductor.pricing_rules (
  Name,
  Description,
@@ -148,18 +120,61 @@ INSERT INTO aws.billingconductor.pricing_rules (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Scope }},
- {{ .Type }},
- {{ .ModifierPercentage }},
- {{ .Service }},
- {{ .BillingEntity }},
- {{ .Tiering }},
- {{ .UsageType }},
- {{ .Operation }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Scope }}',
+ '{{ Type }}',
+ '{{ ModifierPercentage }}',
+ '{{ Service }}',
+ '{{ BillingEntity }}',
+ '{{ Tiering }}',
+ '{{ UsageType }}',
+ '{{ Operation }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pricing_rule
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Scope
+        value: '{{ Scope }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: ModifierPercentage
+        value: null
+      - name: Service
+        value: '{{ Service }}'
+      - name: BillingEntity
+        value: '{{ BillingEntity }}'
+      - name: Tiering
+        value:
+          FreeTier:
+            Activated: '{{ Activated }}'
+      - name: UsageType
+        value: '{{ UsageType }}'
+      - name: Operation
+        value: '{{ Operation }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

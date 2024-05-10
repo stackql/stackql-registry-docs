@@ -74,54 +74,33 @@ FROM aws.iam.oidc_providers
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>oidc_provider</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ThumbprintList": [
-  "{{ ThumbprintList[0] }}"
- ]
-}
->>>
---required properties only
+-- oidc_provider.iql (required properties only)
 INSERT INTO aws.iam.oidc_providers (
  ThumbprintList,
  region
 )
 SELECT 
-{{ .ThumbprintList }},
-'us-east-1';
+'{{ ThumbprintList }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClientIdList": [
-  "{{ ClientIdList[0] }}"
- ],
- "Url": "{{ Url }}",
- "ThumbprintList": [
-  "{{ ThumbprintList[0] }}"
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- oidc_provider.iql (all properties)
 INSERT INTO aws.iam.oidc_providers (
  ClientIdList,
  Url,
@@ -130,11 +109,40 @@ INSERT INTO aws.iam.oidc_providers (
  region
 )
 SELECT 
- {{ .ClientIdList }},
- {{ .Url }},
- {{ .ThumbprintList }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClientIdList }}',
+ '{{ Url }}',
+ '{{ ThumbprintList }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: oidc_provider
+    props:
+      - name: ClientIdList
+        value:
+          - '{{ ClientIdList[0] }}'
+      - name: Url
+        value: '{{ Url }}'
+      - name: ThumbprintList
+        value:
+          - '{{ ThumbprintList[0] }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

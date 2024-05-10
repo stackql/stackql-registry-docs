@@ -74,70 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>state_machine</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- state_machine.iql (required properties only)
 INSERT INTO aws.stepfunctions.state_machines (
  RoleArn,
  region
 )
 SELECT 
-{{ .RoleArn }},
-'us-east-1';
+'{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DefinitionSubstitutions": {},
- "Definition": {},
- "RoleArn": "{{ RoleArn }}",
- "StateMachineType": "{{ StateMachineType }}",
- "TracingConfiguration": {
-  "Enabled": "{{ Enabled }}"
- },
- "DefinitionString": "{{ DefinitionString }}",
- "LoggingConfiguration": {
-  "IncludeExecutionData": "{{ IncludeExecutionData }}",
-  "Destinations": [
-   {
-    "CloudWatchLogsLogGroup": {
-     "LogGroupArn": "{{ LogGroupArn }}"
-    }
-   }
-  ],
-  "Level": "{{ Level }}"
- },
- "DefinitionS3Location": {
-  "Bucket": "{{ Bucket }}",
-  "Version": "{{ Version }}",
-  "Key": "{{ Key }}"
- },
- "StateMachineName": "{{ StateMachineName }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- state_machine.iql (all properties)
 INSERT INTO aws.stepfunctions.state_machines (
  DefinitionSubstitutions,
  Definition,
@@ -152,17 +115,65 @@ INSERT INTO aws.stepfunctions.state_machines (
  region
 )
 SELECT 
- {{ .DefinitionSubstitutions }},
- {{ .Definition }},
- {{ .RoleArn }},
- {{ .StateMachineType }},
- {{ .TracingConfiguration }},
- {{ .DefinitionString }},
- {{ .LoggingConfiguration }},
- {{ .DefinitionS3Location }},
- {{ .StateMachineName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DefinitionSubstitutions }}',
+ '{{ Definition }}',
+ '{{ RoleArn }}',
+ '{{ StateMachineType }}',
+ '{{ TracingConfiguration }}',
+ '{{ DefinitionString }}',
+ '{{ LoggingConfiguration }}',
+ '{{ DefinitionS3Location }}',
+ '{{ StateMachineName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: state_machine
+    props:
+      - name: DefinitionSubstitutions
+        value: {}
+      - name: Definition
+        value: {}
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: StateMachineType
+        value: '{{ StateMachineType }}'
+      - name: TracingConfiguration
+        value:
+          Enabled: '{{ Enabled }}'
+      - name: DefinitionString
+        value: '{{ DefinitionString }}'
+      - name: LoggingConfiguration
+        value:
+          IncludeExecutionData: '{{ IncludeExecutionData }}'
+          Destinations:
+            - CloudWatchLogsLogGroup:
+                LogGroupArn: '{{ LogGroupArn }}'
+          Level: '{{ Level }}'
+      - name: DefinitionS3Location
+        value:
+          Bucket: '{{ Bucket }}'
+          Version: '{{ Version }}'
+          Key: '{{ Key }}'
+      - name: StateMachineName
+        value: '{{ StateMachineName }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

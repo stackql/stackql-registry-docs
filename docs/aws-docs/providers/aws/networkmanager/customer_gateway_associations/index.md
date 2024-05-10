@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>customer_gateway_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GlobalNetworkId": "{{ GlobalNetworkId }}",
- "CustomerGatewayArn": "{{ CustomerGatewayArn }}",
- "DeviceId": "{{ DeviceId }}"
-}
->>>
---required properties only
+-- customer_gateway_association.iql (required properties only)
 INSERT INTO aws.networkmanager.customer_gateway_associations (
  GlobalNetworkId,
  CustomerGatewayArn,
@@ -101,24 +97,16 @@ INSERT INTO aws.networkmanager.customer_gateway_associations (
  region
 )
 SELECT 
-{{ .GlobalNetworkId }},
- {{ .CustomerGatewayArn }},
- {{ .DeviceId }},
-'us-east-1';
+'{{ GlobalNetworkId }}',
+ '{{ CustomerGatewayArn }}',
+ '{{ DeviceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GlobalNetworkId": "{{ GlobalNetworkId }}",
- "CustomerGatewayArn": "{{ CustomerGatewayArn }}",
- "DeviceId": "{{ DeviceId }}",
- "LinkId": "{{ LinkId }}"
-}
->>>
---all properties
+-- customer_gateway_association.iql (all properties)
 INSERT INTO aws.networkmanager.customer_gateway_associations (
  GlobalNetworkId,
  CustomerGatewayArn,
@@ -127,11 +115,36 @@ INSERT INTO aws.networkmanager.customer_gateway_associations (
  region
 )
 SELECT 
- {{ .GlobalNetworkId }},
- {{ .CustomerGatewayArn }},
- {{ .DeviceId }},
- {{ .LinkId }},
- 'us-east-1';
+ '{{ GlobalNetworkId }}',
+ '{{ CustomerGatewayArn }}',
+ '{{ DeviceId }}',
+ '{{ LinkId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: customer_gateway_association
+    props:
+      - name: GlobalNetworkId
+        value: '{{ GlobalNetworkId }}'
+      - name: CustomerGatewayArn
+        value: '{{ CustomerGatewayArn }}'
+      - name: DeviceId
+        value: '{{ DeviceId }}'
+      - name: LinkId
+        value: '{{ LinkId }}'
+
 ```
 </TabItem>
 </Tabs>

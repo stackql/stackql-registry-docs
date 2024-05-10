@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>logging_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FirewallArn": "{{ FirewallArn }}",
- "LoggingConfiguration": {
-  "FirewallArn": null,
-  "LoggingConfiguration": null
- }
-}
->>>
---required properties only
+-- logging_configuration.iql (required properties only)
 INSERT INTO aws.networkfirewall.logging_configurations (
  FirewallArn,
  LoggingConfiguration,
  region
 )
 SELECT 
-{{ .FirewallArn }},
- {{ .LoggingConfiguration }},
-'us-east-1';
+'{{ FirewallArn }}',
+ '{{ LoggingConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FirewallName": "{{ FirewallName }}",
- "FirewallArn": "{{ FirewallArn }}",
- "LoggingConfiguration": {
-  "FirewallName": "{{ FirewallName }}",
-  "FirewallArn": null,
-  "LoggingConfiguration": null
- }
-}
->>>
---all properties
+-- logging_configuration.iql (all properties)
 INSERT INTO aws.networkfirewall.logging_configurations (
  FirewallName,
  FirewallArn,
@@ -127,10 +110,36 @@ INSERT INTO aws.networkfirewall.logging_configurations (
  region
 )
 SELECT 
- {{ .FirewallName }},
- {{ .FirewallArn }},
- {{ .LoggingConfiguration }},
- 'us-east-1';
+ '{{ FirewallName }}',
+ '{{ FirewallArn }}',
+ '{{ LoggingConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: logging_configuration
+    props:
+      - name: FirewallName
+        value: '{{ FirewallName }}'
+      - name: FirewallArn
+        value: '{{ FirewallArn }}'
+      - name: LoggingConfiguration
+        value:
+          FirewallName: '{{ FirewallName }}'
+          FirewallArn: null
+          LoggingConfiguration: null
+
 ```
 </TabItem>
 </Tabs>

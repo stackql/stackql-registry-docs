@@ -74,295 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>ec2fleet</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TargetCapacitySpecification": {
-  "DefaultTargetCapacityType": "{{ DefaultTargetCapacityType }}",
-  "TargetCapacityUnitType": "{{ TargetCapacityUnitType }}",
-  "TotalTargetCapacity": "{{ TotalTargetCapacity }}",
-  "OnDemandTargetCapacity": "{{ OnDemandTargetCapacity }}",
-  "SpotTargetCapacity": "{{ SpotTargetCapacity }}"
- },
- "LaunchTemplateConfigs": [
-  {
-   "LaunchTemplateSpecification": {
-    "LaunchTemplateName": "{{ LaunchTemplateName }}",
-    "LaunchTemplateId": "{{ LaunchTemplateId }}",
-    "Version": "{{ Version }}"
-   },
-   "Overrides": [
-    {
-     "WeightedCapacity": null,
-     "Placement": {
-      "GroupName": "{{ GroupName }}",
-      "Tenancy": "{{ Tenancy }}",
-      "SpreadDomain": "{{ SpreadDomain }}",
-      "PartitionNumber": "{{ PartitionNumber }}",
-      "AvailabilityZone": "{{ AvailabilityZone }}",
-      "Affinity": "{{ Affinity }}",
-      "HostId": "{{ HostId }}",
-      "HostResourceGroupArn": "{{ HostResourceGroupArn }}",
-      "GroupId": "{{ GroupId }}"
-     },
-     "Priority": null,
-     "AvailabilityZone": "{{ AvailabilityZone }}",
-     "SubnetId": "{{ SubnetId }}",
-     "InstanceType": "{{ InstanceType }}",
-     "InstanceRequirements": {
-      "VCpuCount": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "MemoryMiB": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "CpuManufacturers": [
-       "{{ CpuManufacturers[0] }}"
-      ],
-      "MemoryGiBPerVCpu": {
-       "Min": null,
-       "Max": null
-      },
-      "AllowedInstanceTypes": [
-       "{{ AllowedInstanceTypes[0] }}"
-      ],
-      "ExcludedInstanceTypes": [
-       "{{ ExcludedInstanceTypes[0] }}"
-      ],
-      "InstanceGenerations": [
-       "{{ InstanceGenerations[0] }}"
-      ],
-      "SpotMaxPricePercentageOverLowestPrice": "{{ SpotMaxPricePercentageOverLowestPrice }}",
-      "OnDemandMaxPricePercentageOverLowestPrice": "{{ OnDemandMaxPricePercentageOverLowestPrice }}",
-      "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": "{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}",
-      "BareMetal": "{{ BareMetal }}",
-      "BurstablePerformance": "{{ BurstablePerformance }}",
-      "RequireHibernateSupport": "{{ RequireHibernateSupport }}",
-      "NetworkBandwidthGbps": {
-       "Min": null,
-       "Max": null
-      },
-      "NetworkInterfaceCount": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "LocalStorage": "{{ LocalStorage }}",
-      "LocalStorageTypes": [
-       "{{ LocalStorageTypes[0] }}"
-      ],
-      "TotalLocalStorageGB": {
-       "Min": null,
-       "Max": null
-      },
-      "BaselineEbsBandwidthMbps": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "AcceleratorTypes": [
-       "{{ AcceleratorTypes[0] }}"
-      ],
-      "AcceleratorCount": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "AcceleratorManufacturers": [
-       "{{ AcceleratorManufacturers[0] }}"
-      ],
-      "AcceleratorNames": [
-       "{{ AcceleratorNames[0] }}"
-      ],
-      "AcceleratorTotalMemoryMiB": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      }
-     },
-     "MaxPrice": "{{ MaxPrice }}"
-    }
-   ]
-  }
- ]
-}
->>>
---required properties only
+-- ec2fleet.iql (required properties only)
 INSERT INTO aws.ec2.ec2fleets (
  TargetCapacitySpecification,
  LaunchTemplateConfigs,
  region
 )
 SELECT 
-{{ .TargetCapacitySpecification }},
- {{ .LaunchTemplateConfigs }},
-'us-east-1';
+'{{ TargetCapacitySpecification }}',
+ '{{ LaunchTemplateConfigs }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TargetCapacitySpecification": {
-  "DefaultTargetCapacityType": "{{ DefaultTargetCapacityType }}",
-  "TargetCapacityUnitType": "{{ TargetCapacityUnitType }}",
-  "TotalTargetCapacity": "{{ TotalTargetCapacity }}",
-  "OnDemandTargetCapacity": "{{ OnDemandTargetCapacity }}",
-  "SpotTargetCapacity": "{{ SpotTargetCapacity }}"
- },
- "OnDemandOptions": {
-  "SingleAvailabilityZone": "{{ SingleAvailabilityZone }}",
-  "AllocationStrategy": "{{ AllocationStrategy }}",
-  "SingleInstanceType": "{{ SingleInstanceType }}",
-  "MinTargetCapacity": "{{ MinTargetCapacity }}",
-  "MaxTotalPrice": "{{ MaxTotalPrice }}",
-  "CapacityReservationOptions": {
-   "UsageStrategy": "{{ UsageStrategy }}"
-  }
- },
- "Type": "{{ Type }}",
- "ExcessCapacityTerminationPolicy": "{{ ExcessCapacityTerminationPolicy }}",
- "TagSpecifications": [
-  {
-   "ResourceType": "{{ ResourceType }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "SpotOptions": {
-  "MaintenanceStrategies": {
-   "CapacityRebalance": {
-    "ReplacementStrategy": "{{ ReplacementStrategy }}",
-    "TerminationDelay": "{{ TerminationDelay }}"
-   }
-  },
-  "SingleAvailabilityZone": "{{ SingleAvailabilityZone }}",
-  "AllocationStrategy": "{{ AllocationStrategy }}",
-  "SingleInstanceType": "{{ SingleInstanceType }}",
-  "MinTargetCapacity": "{{ MinTargetCapacity }}",
-  "MaxTotalPrice": "{{ MaxTotalPrice }}",
-  "InstanceInterruptionBehavior": "{{ InstanceInterruptionBehavior }}",
-  "InstancePoolsToUseCount": "{{ InstancePoolsToUseCount }}"
- },
- "ValidFrom": "{{ ValidFrom }}",
- "ReplaceUnhealthyInstances": "{{ ReplaceUnhealthyInstances }}",
- "LaunchTemplateConfigs": [
-  {
-   "LaunchTemplateSpecification": {
-    "LaunchTemplateName": "{{ LaunchTemplateName }}",
-    "LaunchTemplateId": "{{ LaunchTemplateId }}",
-    "Version": "{{ Version }}"
-   },
-   "Overrides": [
-    {
-     "WeightedCapacity": null,
-     "Placement": {
-      "GroupName": "{{ GroupName }}",
-      "Tenancy": "{{ Tenancy }}",
-      "SpreadDomain": "{{ SpreadDomain }}",
-      "PartitionNumber": "{{ PartitionNumber }}",
-      "AvailabilityZone": "{{ AvailabilityZone }}",
-      "Affinity": "{{ Affinity }}",
-      "HostId": "{{ HostId }}",
-      "HostResourceGroupArn": "{{ HostResourceGroupArn }}",
-      "GroupId": "{{ GroupId }}"
-     },
-     "Priority": null,
-     "AvailabilityZone": "{{ AvailabilityZone }}",
-     "SubnetId": "{{ SubnetId }}",
-     "InstanceType": "{{ InstanceType }}",
-     "InstanceRequirements": {
-      "VCpuCount": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "MemoryMiB": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "CpuManufacturers": [
-       "{{ CpuManufacturers[0] }}"
-      ],
-      "MemoryGiBPerVCpu": {
-       "Min": null,
-       "Max": null
-      },
-      "AllowedInstanceTypes": [
-       "{{ AllowedInstanceTypes[0] }}"
-      ],
-      "ExcludedInstanceTypes": [
-       "{{ ExcludedInstanceTypes[0] }}"
-      ],
-      "InstanceGenerations": [
-       "{{ InstanceGenerations[0] }}"
-      ],
-      "SpotMaxPricePercentageOverLowestPrice": "{{ SpotMaxPricePercentageOverLowestPrice }}",
-      "OnDemandMaxPricePercentageOverLowestPrice": "{{ OnDemandMaxPricePercentageOverLowestPrice }}",
-      "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": "{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}",
-      "BareMetal": "{{ BareMetal }}",
-      "BurstablePerformance": "{{ BurstablePerformance }}",
-      "RequireHibernateSupport": "{{ RequireHibernateSupport }}",
-      "NetworkBandwidthGbps": {
-       "Min": null,
-       "Max": null
-      },
-      "NetworkInterfaceCount": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "LocalStorage": "{{ LocalStorage }}",
-      "LocalStorageTypes": [
-       "{{ LocalStorageTypes[0] }}"
-      ],
-      "TotalLocalStorageGB": {
-       "Min": null,
-       "Max": null
-      },
-      "BaselineEbsBandwidthMbps": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "AcceleratorTypes": [
-       "{{ AcceleratorTypes[0] }}"
-      ],
-      "AcceleratorCount": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      },
-      "AcceleratorManufacturers": [
-       "{{ AcceleratorManufacturers[0] }}"
-      ],
-      "AcceleratorNames": [
-       "{{ AcceleratorNames[0] }}"
-      ],
-      "AcceleratorTotalMemoryMiB": {
-       "Min": "{{ Min }}",
-       "Max": "{{ Max }}"
-      }
-     },
-     "MaxPrice": "{{ MaxPrice }}"
-    }
-   ]
-  }
- ],
- "TerminateInstancesWithExpiration": "{{ TerminateInstancesWithExpiration }}",
- "ValidUntil": "{{ ValidUntil }}",
- "Context": "{{ Context }}"
-}
->>>
---all properties
+-- ec2fleet.iql (all properties)
 INSERT INTO aws.ec2.ec2fleets (
  TargetCapacitySpecification,
  OnDemandOptions,
@@ -379,19 +119,159 @@ INSERT INTO aws.ec2.ec2fleets (
  region
 )
 SELECT 
- {{ .TargetCapacitySpecification }},
- {{ .OnDemandOptions }},
- {{ .Type }},
- {{ .ExcessCapacityTerminationPolicy }},
- {{ .TagSpecifications }},
- {{ .SpotOptions }},
- {{ .ValidFrom }},
- {{ .ReplaceUnhealthyInstances }},
- {{ .LaunchTemplateConfigs }},
- {{ .TerminateInstancesWithExpiration }},
- {{ .ValidUntil }},
- {{ .Context }},
- 'us-east-1';
+ '{{ TargetCapacitySpecification }}',
+ '{{ OnDemandOptions }}',
+ '{{ Type }}',
+ '{{ ExcessCapacityTerminationPolicy }}',
+ '{{ TagSpecifications }}',
+ '{{ SpotOptions }}',
+ '{{ ValidFrom }}',
+ '{{ ReplaceUnhealthyInstances }}',
+ '{{ LaunchTemplateConfigs }}',
+ '{{ TerminateInstancesWithExpiration }}',
+ '{{ ValidUntil }}',
+ '{{ Context }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ec2fleet
+    props:
+      - name: TargetCapacitySpecification
+        value:
+          DefaultTargetCapacityType: '{{ DefaultTargetCapacityType }}'
+          TargetCapacityUnitType: '{{ TargetCapacityUnitType }}'
+          TotalTargetCapacity: '{{ TotalTargetCapacity }}'
+          OnDemandTargetCapacity: '{{ OnDemandTargetCapacity }}'
+          SpotTargetCapacity: '{{ SpotTargetCapacity }}'
+      - name: OnDemandOptions
+        value:
+          SingleAvailabilityZone: '{{ SingleAvailabilityZone }}'
+          AllocationStrategy: '{{ AllocationStrategy }}'
+          SingleInstanceType: '{{ SingleInstanceType }}'
+          MinTargetCapacity: '{{ MinTargetCapacity }}'
+          MaxTotalPrice: '{{ MaxTotalPrice }}'
+          CapacityReservationOptions:
+            UsageStrategy: '{{ UsageStrategy }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: ExcessCapacityTerminationPolicy
+        value: '{{ ExcessCapacityTerminationPolicy }}'
+      - name: TagSpecifications
+        value:
+          - ResourceType: '{{ ResourceType }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+      - name: SpotOptions
+        value:
+          MaintenanceStrategies:
+            CapacityRebalance:
+              ReplacementStrategy: '{{ ReplacementStrategy }}'
+              TerminationDelay: '{{ TerminationDelay }}'
+          SingleAvailabilityZone: '{{ SingleAvailabilityZone }}'
+          AllocationStrategy: '{{ AllocationStrategy }}'
+          SingleInstanceType: '{{ SingleInstanceType }}'
+          MinTargetCapacity: '{{ MinTargetCapacity }}'
+          MaxTotalPrice: '{{ MaxTotalPrice }}'
+          InstanceInterruptionBehavior: '{{ InstanceInterruptionBehavior }}'
+          InstancePoolsToUseCount: '{{ InstancePoolsToUseCount }}'
+      - name: ValidFrom
+        value: '{{ ValidFrom }}'
+      - name: ReplaceUnhealthyInstances
+        value: '{{ ReplaceUnhealthyInstances }}'
+      - name: LaunchTemplateConfigs
+        value:
+          - LaunchTemplateSpecification:
+              LaunchTemplateName: '{{ LaunchTemplateName }}'
+              LaunchTemplateId: '{{ LaunchTemplateId }}'
+              Version: '{{ Version }}'
+            Overrides:
+              - WeightedCapacity: null
+                Placement:
+                  GroupName: '{{ GroupName }}'
+                  Tenancy: '{{ Tenancy }}'
+                  SpreadDomain: '{{ SpreadDomain }}'
+                  PartitionNumber: '{{ PartitionNumber }}'
+                  AvailabilityZone: '{{ AvailabilityZone }}'
+                  Affinity: '{{ Affinity }}'
+                  HostId: '{{ HostId }}'
+                  HostResourceGroupArn: '{{ HostResourceGroupArn }}'
+                  GroupId: '{{ GroupId }}'
+                Priority: null
+                AvailabilityZone: '{{ AvailabilityZone }}'
+                SubnetId: '{{ SubnetId }}'
+                InstanceType: '{{ InstanceType }}'
+                InstanceRequirements:
+                  VCpuCount:
+                    Min: '{{ Min }}'
+                    Max: '{{ Max }}'
+                  MemoryMiB:
+                    Min: '{{ Min }}'
+                    Max: '{{ Max }}'
+                  CpuManufacturers:
+                    - '{{ CpuManufacturers[0] }}'
+                  MemoryGiBPerVCpu:
+                    Min: null
+                    Max: null
+                  AllowedInstanceTypes:
+                    - '{{ AllowedInstanceTypes[0] }}'
+                  ExcludedInstanceTypes:
+                    - '{{ ExcludedInstanceTypes[0] }}'
+                  InstanceGenerations:
+                    - '{{ InstanceGenerations[0] }}'
+                  SpotMaxPricePercentageOverLowestPrice: '{{ SpotMaxPricePercentageOverLowestPrice }}'
+                  OnDemandMaxPricePercentageOverLowestPrice: '{{ OnDemandMaxPricePercentageOverLowestPrice }}'
+                  MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: '{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}'
+                  BareMetal: '{{ BareMetal }}'
+                  BurstablePerformance: '{{ BurstablePerformance }}'
+                  RequireHibernateSupport: '{{ RequireHibernateSupport }}'
+                  NetworkBandwidthGbps:
+                    Min: null
+                    Max: null
+                  NetworkInterfaceCount:
+                    Min: '{{ Min }}'
+                    Max: '{{ Max }}'
+                  LocalStorage: '{{ LocalStorage }}'
+                  LocalStorageTypes:
+                    - '{{ LocalStorageTypes[0] }}'
+                  TotalLocalStorageGB:
+                    Min: null
+                    Max: null
+                  BaselineEbsBandwidthMbps:
+                    Min: '{{ Min }}'
+                    Max: '{{ Max }}'
+                  AcceleratorTypes:
+                    - '{{ AcceleratorTypes[0] }}'
+                  AcceleratorCount:
+                    Min: '{{ Min }}'
+                    Max: '{{ Max }}'
+                  AcceleratorManufacturers:
+                    - '{{ AcceleratorManufacturers[0] }}'
+                  AcceleratorNames:
+                    - '{{ AcceleratorNames[0] }}'
+                  AcceleratorTotalMemoryMiB:
+                    Min: '{{ Min }}'
+                    Max: '{{ Max }}'
+                MaxPrice: '{{ MaxPrice }}'
+      - name: TerminateInstancesWithExpiration
+        value: '{{ TerminateInstancesWithExpiration }}'
+      - name: ValidUntil
+        value: '{{ ValidUntil }}'
+      - name: Context
+        value: '{{ Context }}'
+
 ```
 </TabItem>
 </Tabs>

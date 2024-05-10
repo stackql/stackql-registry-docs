@@ -74,48 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>discoverer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SourceArn": "{{ SourceArn }}"
-}
->>>
---required properties only
+-- discoverer.iql (required properties only)
 INSERT INTO aws.eventschemas.discoverers (
  SourceArn,
  region
 )
 SELECT 
-{{ .SourceArn }},
-'us-east-1';
+'{{ SourceArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "SourceArn": "{{ SourceArn }}",
- "CrossAccount": "{{ CrossAccount }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- discoverer.iql (all properties)
 INSERT INTO aws.eventschemas.discoverers (
  Description,
  SourceArn,
@@ -124,11 +109,38 @@ INSERT INTO aws.eventschemas.discoverers (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .SourceArn }},
- {{ .CrossAccount }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ SourceArn }}',
+ '{{ CrossAccount }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: discoverer
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: SourceArn
+        value: '{{ SourceArn }}'
+      - name: CrossAccount
+        value: '{{ CrossAccount }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

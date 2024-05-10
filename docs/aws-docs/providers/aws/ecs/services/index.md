@@ -76,165 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CapacityProviderStrategy": [
-  {
-   "Base": "{{ Base }}",
-   "CapacityProvider": "{{ CapacityProvider }}",
-   "Weight": "{{ Weight }}"
-  }
- ],
- "Cluster": "{{ Cluster }}",
- "DeploymentConfiguration": {
-  "DeploymentCircuitBreaker": {
-   "Enable": "{{ Enable }}",
-   "Rollback": "{{ Rollback }}"
-  },
-  "MaximumPercent": "{{ MaximumPercent }}",
-  "MinimumHealthyPercent": "{{ MinimumHealthyPercent }}",
-  "Alarms": {
-   "AlarmNames": [
-    "{{ AlarmNames[0] }}"
-   ],
-   "Rollback": "{{ Rollback }}",
-   "Enable": "{{ Enable }}"
-  }
- },
- "DeploymentController": {
-  "Type": "{{ Type }}"
- },
- "DesiredCount": "{{ DesiredCount }}",
- "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
- "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
- "HealthCheckGracePeriodSeconds": "{{ HealthCheckGracePeriodSeconds }}",
- "LaunchType": "{{ LaunchType }}",
- "LoadBalancers": [
-  {
-   "ContainerName": "{{ ContainerName }}",
-   "ContainerPort": "{{ ContainerPort }}",
-   "TargetGroupArn": "{{ TargetGroupArn }}"
-  }
- ],
- "NetworkConfiguration": {
-  "AwsVpcConfiguration": {
-   "AssignPublicIp": "{{ AssignPublicIp }}",
-   "SecurityGroups": [
-    "{{ SecurityGroups[0] }}"
-   ],
-   "Subnets": [
-    "{{ Subnets[0] }}"
-   ]
-  }
- },
- "PlacementConstraints": [
-  {
-   "Expression": "{{ Expression }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "PlacementStrategies": [
-  {
-   "Field": "{{ Field }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "PlatformVersion": "{{ PlatformVersion }}",
- "PropagateTags": "{{ PropagateTags }}",
- "Role": "{{ Role }}",
- "SchedulingStrategy": "{{ SchedulingStrategy }}",
- "ServiceConnectConfiguration": {
-  "Enabled": "{{ Enabled }}",
-  "Namespace": "{{ Namespace }}",
-  "Services": [
-   {
-    "PortName": "{{ PortName }}",
-    "DiscoveryName": "{{ DiscoveryName }}",
-    "ClientAliases": [
-     {
-      "Port": "{{ Port }}",
-      "DnsName": "{{ DnsName }}"
-     }
-    ],
-    "IngressPortOverride": "{{ IngressPortOverride }}",
-    "Tls": {
-     "IssuerCertificateAuthority": {
-      "AwsPcaAuthorityArn": "{{ AwsPcaAuthorityArn }}"
-     },
-     "KmsKey": "{{ KmsKey }}",
-     "RoleArn": "{{ RoleArn }}"
-    },
-    "Timeout": {
-     "IdleTimeoutSeconds": "{{ IdleTimeoutSeconds }}",
-     "PerRequestTimeoutSeconds": "{{ PerRequestTimeoutSeconds }}"
-    }
-   }
-  ],
-  "LogConfiguration": {
-   "LogDriver": "{{ LogDriver }}",
-   "Options": {},
-   "SecretOptions": [
-    {
-     "Name": "{{ Name }}",
-     "ValueFrom": "{{ ValueFrom }}"
-    }
-   ]
-  }
- },
- "ServiceName": "{{ ServiceName }}",
- "ServiceRegistries": [
-  {
-   "ContainerName": "{{ ContainerName }}",
-   "ContainerPort": "{{ ContainerPort }}",
-   "Port": "{{ Port }}",
-   "RegistryArn": "{{ RegistryArn }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TaskDefinition": "{{ TaskDefinition }}",
- "VolumeConfigurations": [
-  {
-   "Name": "{{ Name }}",
-   "ManagedEBSVolume": {
-    "Encrypted": "{{ Encrypted }}",
-    "KmsKeyId": "{{ KmsKeyId }}",
-    "VolumeType": "{{ VolumeType }}",
-    "SizeInGiB": "{{ SizeInGiB }}",
-    "SnapshotId": "{{ SnapshotId }}",
-    "Iops": "{{ Iops }}",
-    "Throughput": "{{ Throughput }}",
-    "TagSpecifications": [
-     {
-      "ResourceType": "{{ ResourceType }}",
-      "Tags": [
-       null
-      ],
-      "PropagateTags": "{{ PropagateTags }}"
-     }
-    ],
-    "RoleArn": "{{ RoleArn }}",
-    "FilesystemType": "{{ FilesystemType }}"
-   }
-  }
- ]
-}
->>>
---required properties only
+-- service.iql (required properties only)
 INSERT INTO aws.ecs.services (
  CapacityProviderStrategy,
  Cluster,
@@ -262,184 +117,36 @@ INSERT INTO aws.ecs.services (
  region
 )
 SELECT 
-{{ .CapacityProviderStrategy }},
- {{ .Cluster }},
- {{ .DeploymentConfiguration }},
- {{ .DeploymentController }},
- {{ .DesiredCount }},
- {{ .EnableECSManagedTags }},
- {{ .EnableExecuteCommand }},
- {{ .HealthCheckGracePeriodSeconds }},
- {{ .LaunchType }},
- {{ .LoadBalancers }},
- {{ .NetworkConfiguration }},
- {{ .PlacementConstraints }},
- {{ .PlacementStrategies }},
- {{ .PlatformVersion }},
- {{ .PropagateTags }},
- {{ .Role }},
- {{ .SchedulingStrategy }},
- {{ .ServiceConnectConfiguration }},
- {{ .ServiceName }},
- {{ .ServiceRegistries }},
- {{ .Tags }},
- {{ .TaskDefinition }},
- {{ .VolumeConfigurations }},
-'us-east-1';
+'{{ CapacityProviderStrategy }}',
+ '{{ Cluster }}',
+ '{{ DeploymentConfiguration }}',
+ '{{ DeploymentController }}',
+ '{{ DesiredCount }}',
+ '{{ EnableECSManagedTags }}',
+ '{{ EnableExecuteCommand }}',
+ '{{ HealthCheckGracePeriodSeconds }}',
+ '{{ LaunchType }}',
+ '{{ LoadBalancers }}',
+ '{{ NetworkConfiguration }}',
+ '{{ PlacementConstraints }}',
+ '{{ PlacementStrategies }}',
+ '{{ PlatformVersion }}',
+ '{{ PropagateTags }}',
+ '{{ Role }}',
+ '{{ SchedulingStrategy }}',
+ '{{ ServiceConnectConfiguration }}',
+ '{{ ServiceName }}',
+ '{{ ServiceRegistries }}',
+ '{{ Tags }}',
+ '{{ TaskDefinition }}',
+ '{{ VolumeConfigurations }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CapacityProviderStrategy": [
-  {
-   "Base": "{{ Base }}",
-   "CapacityProvider": "{{ CapacityProvider }}",
-   "Weight": "{{ Weight }}"
-  }
- ],
- "Cluster": "{{ Cluster }}",
- "DeploymentConfiguration": {
-  "DeploymentCircuitBreaker": {
-   "Enable": "{{ Enable }}",
-   "Rollback": "{{ Rollback }}"
-  },
-  "MaximumPercent": "{{ MaximumPercent }}",
-  "MinimumHealthyPercent": "{{ MinimumHealthyPercent }}",
-  "Alarms": {
-   "AlarmNames": [
-    "{{ AlarmNames[0] }}"
-   ],
-   "Rollback": "{{ Rollback }}",
-   "Enable": "{{ Enable }}"
-  }
- },
- "DeploymentController": {
-  "Type": "{{ Type }}"
- },
- "DesiredCount": "{{ DesiredCount }}",
- "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
- "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
- "HealthCheckGracePeriodSeconds": "{{ HealthCheckGracePeriodSeconds }}",
- "LaunchType": "{{ LaunchType }}",
- "LoadBalancers": [
-  {
-   "ContainerName": "{{ ContainerName }}",
-   "ContainerPort": "{{ ContainerPort }}",
-   "TargetGroupArn": "{{ TargetGroupArn }}"
-  }
- ],
- "NetworkConfiguration": {
-  "AwsVpcConfiguration": {
-   "AssignPublicIp": "{{ AssignPublicIp }}",
-   "SecurityGroups": [
-    "{{ SecurityGroups[0] }}"
-   ],
-   "Subnets": [
-    "{{ Subnets[0] }}"
-   ]
-  }
- },
- "PlacementConstraints": [
-  {
-   "Expression": "{{ Expression }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "PlacementStrategies": [
-  {
-   "Field": "{{ Field }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "PlatformVersion": "{{ PlatformVersion }}",
- "PropagateTags": "{{ PropagateTags }}",
- "Role": "{{ Role }}",
- "SchedulingStrategy": "{{ SchedulingStrategy }}",
- "ServiceConnectConfiguration": {
-  "Enabled": "{{ Enabled }}",
-  "Namespace": "{{ Namespace }}",
-  "Services": [
-   {
-    "PortName": "{{ PortName }}",
-    "DiscoveryName": "{{ DiscoveryName }}",
-    "ClientAliases": [
-     {
-      "Port": "{{ Port }}",
-      "DnsName": "{{ DnsName }}"
-     }
-    ],
-    "IngressPortOverride": "{{ IngressPortOverride }}",
-    "Tls": {
-     "IssuerCertificateAuthority": {
-      "AwsPcaAuthorityArn": "{{ AwsPcaAuthorityArn }}"
-     },
-     "KmsKey": "{{ KmsKey }}",
-     "RoleArn": "{{ RoleArn }}"
-    },
-    "Timeout": {
-     "IdleTimeoutSeconds": "{{ IdleTimeoutSeconds }}",
-     "PerRequestTimeoutSeconds": "{{ PerRequestTimeoutSeconds }}"
-    }
-   }
-  ],
-  "LogConfiguration": {
-   "LogDriver": "{{ LogDriver }}",
-   "Options": {},
-   "SecretOptions": [
-    {
-     "Name": "{{ Name }}",
-     "ValueFrom": "{{ ValueFrom }}"
-    }
-   ]
-  }
- },
- "ServiceName": "{{ ServiceName }}",
- "ServiceRegistries": [
-  {
-   "ContainerName": "{{ ContainerName }}",
-   "ContainerPort": "{{ ContainerPort }}",
-   "Port": "{{ Port }}",
-   "RegistryArn": "{{ RegistryArn }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TaskDefinition": "{{ TaskDefinition }}",
- "VolumeConfigurations": [
-  {
-   "Name": "{{ Name }}",
-   "ManagedEBSVolume": {
-    "Encrypted": "{{ Encrypted }}",
-    "KmsKeyId": "{{ KmsKeyId }}",
-    "VolumeType": "{{ VolumeType }}",
-    "SizeInGiB": "{{ SizeInGiB }}",
-    "SnapshotId": "{{ SnapshotId }}",
-    "Iops": "{{ Iops }}",
-    "Throughput": "{{ Throughput }}",
-    "TagSpecifications": [
-     {
-      "ResourceType": "{{ ResourceType }}",
-      "Tags": [
-       null
-      ],
-      "PropagateTags": "{{ PropagateTags }}"
-     }
-    ],
-    "RoleArn": "{{ RoleArn }}",
-    "FilesystemType": "{{ FilesystemType }}"
-   }
-  }
- ]
-}
->>>
---all properties
+-- service.iql (all properties)
 INSERT INTO aws.ecs.services (
  CapacityProviderStrategy,
  Cluster,
@@ -467,30 +174,165 @@ INSERT INTO aws.ecs.services (
  region
 )
 SELECT 
- {{ .CapacityProviderStrategy }},
- {{ .Cluster }},
- {{ .DeploymentConfiguration }},
- {{ .DeploymentController }},
- {{ .DesiredCount }},
- {{ .EnableECSManagedTags }},
- {{ .EnableExecuteCommand }},
- {{ .HealthCheckGracePeriodSeconds }},
- {{ .LaunchType }},
- {{ .LoadBalancers }},
- {{ .NetworkConfiguration }},
- {{ .PlacementConstraints }},
- {{ .PlacementStrategies }},
- {{ .PlatformVersion }},
- {{ .PropagateTags }},
- {{ .Role }},
- {{ .SchedulingStrategy }},
- {{ .ServiceConnectConfiguration }},
- {{ .ServiceName }},
- {{ .ServiceRegistries }},
- {{ .Tags }},
- {{ .TaskDefinition }},
- {{ .VolumeConfigurations }},
- 'us-east-1';
+ '{{ CapacityProviderStrategy }}',
+ '{{ Cluster }}',
+ '{{ DeploymentConfiguration }}',
+ '{{ DeploymentController }}',
+ '{{ DesiredCount }}',
+ '{{ EnableECSManagedTags }}',
+ '{{ EnableExecuteCommand }}',
+ '{{ HealthCheckGracePeriodSeconds }}',
+ '{{ LaunchType }}',
+ '{{ LoadBalancers }}',
+ '{{ NetworkConfiguration }}',
+ '{{ PlacementConstraints }}',
+ '{{ PlacementStrategies }}',
+ '{{ PlatformVersion }}',
+ '{{ PropagateTags }}',
+ '{{ Role }}',
+ '{{ SchedulingStrategy }}',
+ '{{ ServiceConnectConfiguration }}',
+ '{{ ServiceName }}',
+ '{{ ServiceRegistries }}',
+ '{{ Tags }}',
+ '{{ TaskDefinition }}',
+ '{{ VolumeConfigurations }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service
+    props:
+      - name: CapacityProviderStrategy
+        value:
+          - Base: '{{ Base }}'
+            CapacityProvider: '{{ CapacityProvider }}'
+            Weight: '{{ Weight }}'
+      - name: Cluster
+        value: '{{ Cluster }}'
+      - name: DeploymentConfiguration
+        value:
+          DeploymentCircuitBreaker:
+            Enable: '{{ Enable }}'
+            Rollback: '{{ Rollback }}'
+          MaximumPercent: '{{ MaximumPercent }}'
+          MinimumHealthyPercent: '{{ MinimumHealthyPercent }}'
+          Alarms:
+            AlarmNames:
+              - '{{ AlarmNames[0] }}'
+            Rollback: '{{ Rollback }}'
+            Enable: '{{ Enable }}'
+      - name: DeploymentController
+        value:
+          Type: '{{ Type }}'
+      - name: DesiredCount
+        value: '{{ DesiredCount }}'
+      - name: EnableECSManagedTags
+        value: '{{ EnableECSManagedTags }}'
+      - name: EnableExecuteCommand
+        value: '{{ EnableExecuteCommand }}'
+      - name: HealthCheckGracePeriodSeconds
+        value: '{{ HealthCheckGracePeriodSeconds }}'
+      - name: LaunchType
+        value: '{{ LaunchType }}'
+      - name: LoadBalancers
+        value:
+          - ContainerName: '{{ ContainerName }}'
+            ContainerPort: '{{ ContainerPort }}'
+            TargetGroupArn: '{{ TargetGroupArn }}'
+      - name: NetworkConfiguration
+        value:
+          AwsVpcConfiguration:
+            AssignPublicIp: '{{ AssignPublicIp }}'
+            SecurityGroups:
+              - '{{ SecurityGroups[0] }}'
+            Subnets:
+              - '{{ Subnets[0] }}'
+      - name: PlacementConstraints
+        value:
+          - Expression: '{{ Expression }}'
+            Type: '{{ Type }}'
+      - name: PlacementStrategies
+        value:
+          - Field: '{{ Field }}'
+            Type: '{{ Type }}'
+      - name: PlatformVersion
+        value: '{{ PlatformVersion }}'
+      - name: PropagateTags
+        value: '{{ PropagateTags }}'
+      - name: Role
+        value: '{{ Role }}'
+      - name: SchedulingStrategy
+        value: '{{ SchedulingStrategy }}'
+      - name: ServiceConnectConfiguration
+        value:
+          Enabled: '{{ Enabled }}'
+          Namespace: '{{ Namespace }}'
+          Services:
+            - PortName: '{{ PortName }}'
+              DiscoveryName: '{{ DiscoveryName }}'
+              ClientAliases:
+                - Port: '{{ Port }}'
+                  DnsName: '{{ DnsName }}'
+              IngressPortOverride: '{{ IngressPortOverride }}'
+              Tls:
+                IssuerCertificateAuthority:
+                  AwsPcaAuthorityArn: '{{ AwsPcaAuthorityArn }}'
+                KmsKey: '{{ KmsKey }}'
+                RoleArn: '{{ RoleArn }}'
+              Timeout:
+                IdleTimeoutSeconds: '{{ IdleTimeoutSeconds }}'
+                PerRequestTimeoutSeconds: '{{ PerRequestTimeoutSeconds }}'
+          LogConfiguration:
+            LogDriver: '{{ LogDriver }}'
+            Options: {}
+            SecretOptions:
+              - Name: '{{ Name }}'
+                ValueFrom: '{{ ValueFrom }}'
+      - name: ServiceName
+        value: '{{ ServiceName }}'
+      - name: ServiceRegistries
+        value:
+          - ContainerName: '{{ ContainerName }}'
+            ContainerPort: '{{ ContainerPort }}'
+            Port: '{{ Port }}'
+            RegistryArn: '{{ RegistryArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TaskDefinition
+        value: '{{ TaskDefinition }}'
+      - name: VolumeConfigurations
+        value:
+          - Name: '{{ Name }}'
+            ManagedEBSVolume:
+              Encrypted: '{{ Encrypted }}'
+              KmsKeyId: '{{ KmsKeyId }}'
+              VolumeType: '{{ VolumeType }}'
+              SizeInGiB: '{{ SizeInGiB }}'
+              SnapshotId: '{{ SnapshotId }}'
+              Iops: '{{ Iops }}'
+              Throughput: '{{ Throughput }}'
+              TagSpecifications:
+                - ResourceType: '{{ ResourceType }}'
+                  Tags:
+                    - null
+                  PropagateTags: '{{ PropagateTags }}'
+              RoleArn: '{{ RoleArn }}'
+              FilesystemType: '{{ FilesystemType }}'
+
 ```
 </TabItem>
 </Tabs>

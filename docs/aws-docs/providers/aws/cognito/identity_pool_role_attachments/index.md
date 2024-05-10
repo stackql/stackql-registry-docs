@@ -74,42 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>identity_pool_role_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IdentityPoolId": "{{ IdentityPoolId }}"
-}
->>>
---required properties only
+-- identity_pool_role_attachment.iql (required properties only)
 INSERT INTO aws.cognito.identity_pool_role_attachments (
  IdentityPoolId,
  region
 )
 SELECT 
-{{ .IdentityPoolId }},
-'us-east-1';
+'{{ IdentityPoolId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IdentityPoolId": "{{ IdentityPoolId }}",
- "Roles": null,
- "RoleMappings": null
-}
->>>
---all properties
+-- identity_pool_role_attachment.iql (all properties)
 INSERT INTO aws.cognito.identity_pool_role_attachments (
  IdentityPoolId,
  Roles,
@@ -117,10 +108,33 @@ INSERT INTO aws.cognito.identity_pool_role_attachments (
  region
 )
 SELECT 
- {{ .IdentityPoolId }},
- {{ .Roles }},
- {{ .RoleMappings }},
- 'us-east-1';
+ '{{ IdentityPoolId }}',
+ '{{ Roles }}',
+ '{{ RoleMappings }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: identity_pool_role_attachment
+    props:
+      - name: IdentityPoolId
+        value: '{{ IdentityPoolId }}'
+      - name: Roles
+        value: null
+      - name: RoleMappings
+        value: null
+
 ```
 </TabItem>
 </Tabs>

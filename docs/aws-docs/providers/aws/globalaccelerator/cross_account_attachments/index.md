@@ -74,55 +74,33 @@ FROM aws.globalaccelerator.cross_account_attachments
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cross_account_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- cross_account_attachment.iql (required properties only)
 INSERT INTO aws.globalaccelerator.cross_account_attachments (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Principals": [
-  "{{ Principals[0] }}"
- ],
- "Resources": [
-  {
-   "EndpointId": "{{ EndpointId }}",
-   "Region": "{{ Region }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- cross_account_attachment.iql (all properties)
 INSERT INTO aws.globalaccelerator.cross_account_attachments (
  Name,
  Principals,
@@ -131,11 +109,41 @@ INSERT INTO aws.globalaccelerator.cross_account_attachments (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Principals }},
- {{ .Resources }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Principals }}',
+ '{{ Resources }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cross_account_attachment
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Principals
+        value:
+          - '{{ Principals[0] }}'
+      - name: Resources
+        value:
+          - EndpointId: '{{ EndpointId }}'
+            Region: '{{ Region }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

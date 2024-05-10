@@ -74,51 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>launch</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Project": "{{ Project }}",
- "ScheduledSplitsConfig": [
-  {
-   "StartTime": "{{ StartTime }}",
-   "GroupWeights": [
-    {
-     "GroupName": "{{ GroupName }}",
-     "SplitWeight": "{{ SplitWeight }}"
-    }
-   ],
-   "SegmentOverrides": [
-    {
-     "Segment": "{{ Segment }}",
-     "EvaluationOrder": "{{ EvaluationOrder }}",
-     "Weights": [
-      null
-     ]
-    }
-   ]
-  }
- ],
- "Groups": [
-  {
-   "GroupName": "{{ GroupName }}",
-   "Description": "{{ Description }}",
-   "Feature": "{{ Feature }}",
-   "Variation": "{{ Variation }}"
-  }
- ]
-}
->>>
---required properties only
+-- launch.iql (required properties only)
 INSERT INTO aws.evidently.launches (
  Name,
  Project,
@@ -127,73 +96,17 @@ INSERT INTO aws.evidently.launches (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Project }},
- {{ .ScheduledSplitsConfig }},
- {{ .Groups }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Project }}',
+ '{{ ScheduledSplitsConfig }}',
+ '{{ Groups }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Project": "{{ Project }}",
- "Description": "{{ Description }}",
- "RandomizationSalt": "{{ RandomizationSalt }}",
- "ScheduledSplitsConfig": [
-  {
-   "StartTime": "{{ StartTime }}",
-   "GroupWeights": [
-    {
-     "GroupName": "{{ GroupName }}",
-     "SplitWeight": "{{ SplitWeight }}"
-    }
-   ],
-   "SegmentOverrides": [
-    {
-     "Segment": "{{ Segment }}",
-     "EvaluationOrder": "{{ EvaluationOrder }}",
-     "Weights": [
-      null
-     ]
-    }
-   ]
-  }
- ],
- "Groups": [
-  {
-   "GroupName": "{{ GroupName }}",
-   "Description": "{{ Description }}",
-   "Feature": "{{ Feature }}",
-   "Variation": "{{ Variation }}"
-  }
- ],
- "MetricMonitors": [
-  {
-   "MetricName": "{{ MetricName }}",
-   "EntityIdKey": "{{ EntityIdKey }}",
-   "ValueKey": "{{ ValueKey }}",
-   "EventPattern": "{{ EventPattern }}",
-   "UnitLabel": "{{ UnitLabel }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ExecutionStatus": {
-  "Status": "{{ Status }}",
-  "DesiredState": "{{ DesiredState }}",
-  "Reason": "{{ Reason }}"
- }
-}
->>>
---all properties
+-- launch.iql (all properties)
 INSERT INTO aws.evidently.launches (
  Name,
  Project,
@@ -207,16 +120,74 @@ INSERT INTO aws.evidently.launches (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Project }},
- {{ .Description }},
- {{ .RandomizationSalt }},
- {{ .ScheduledSplitsConfig }},
- {{ .Groups }},
- {{ .MetricMonitors }},
- {{ .Tags }},
- {{ .ExecutionStatus }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Project }}',
+ '{{ Description }}',
+ '{{ RandomizationSalt }}',
+ '{{ ScheduledSplitsConfig }}',
+ '{{ Groups }}',
+ '{{ MetricMonitors }}',
+ '{{ Tags }}',
+ '{{ ExecutionStatus }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: launch
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Project
+        value: '{{ Project }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RandomizationSalt
+        value: '{{ RandomizationSalt }}'
+      - name: ScheduledSplitsConfig
+        value:
+          - StartTime: '{{ StartTime }}'
+            GroupWeights:
+              - GroupName: '{{ GroupName }}'
+                SplitWeight: '{{ SplitWeight }}'
+            SegmentOverrides:
+              - Segment: '{{ Segment }}'
+                EvaluationOrder: '{{ EvaluationOrder }}'
+                Weights:
+                  - null
+      - name: Groups
+        value:
+          - GroupName: '{{ GroupName }}'
+            Description: '{{ Description }}'
+            Feature: '{{ Feature }}'
+            Variation: '{{ Variation }}'
+      - name: MetricMonitors
+        value:
+          - MetricName: '{{ MetricName }}'
+            EntityIdKey: '{{ EntityIdKey }}'
+            ValueKey: '{{ ValueKey }}'
+            EventPattern: '{{ EventPattern }}'
+            UnitLabel: '{{ UnitLabel }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ExecutionStatus
+        value:
+          Status: '{{ Status }}'
+          DesiredState: '{{ DesiredState }}'
+          Reason: '{{ Reason }}'
+
 ```
 </TabItem>
 </Tabs>

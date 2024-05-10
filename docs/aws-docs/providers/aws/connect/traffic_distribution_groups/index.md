@@ -74,51 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>traffic_distribution_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- traffic_distribution_group.iql (required properties only)
 INSERT INTO aws.connect.traffic_distribution_groups (
  InstanceArn,
  Name,
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .Name }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- traffic_distribution_group.iql (all properties)
 INSERT INTO aws.connect.traffic_distribution_groups (
  InstanceArn,
  Description,
@@ -127,11 +111,38 @@ INSERT INTO aws.connect.traffic_distribution_groups (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Description }},
- {{ .Name }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: traffic_distribution_group
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

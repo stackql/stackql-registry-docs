@@ -76,67 +76,69 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>trust_store_revocation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RevocationContents": [
-  {
-   "S3Bucket": "{{ S3Bucket }}",
-   "S3Key": "{{ S3Key }}",
-   "S3ObjectVersion": "{{ S3ObjectVersion }}",
-   "RevocationType": "{{ RevocationType }}"
-  }
- ],
- "TrustStoreArn": "{{ TrustStoreArn }}"
-}
->>>
---required properties only
+-- trust_store_revocation.iql (required properties only)
 INSERT INTO aws.elasticloadbalancingv2.trust_store_revocations (
  RevocationContents,
  TrustStoreArn,
  region
 )
 SELECT 
-{{ .RevocationContents }},
- {{ .TrustStoreArn }},
-'us-east-1';
+'{{ RevocationContents }}',
+ '{{ TrustStoreArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RevocationContents": [
-  {
-   "S3Bucket": "{{ S3Bucket }}",
-   "S3Key": "{{ S3Key }}",
-   "S3ObjectVersion": "{{ S3ObjectVersion }}",
-   "RevocationType": "{{ RevocationType }}"
-  }
- ],
- "TrustStoreArn": "{{ TrustStoreArn }}"
-}
->>>
---all properties
+-- trust_store_revocation.iql (all properties)
 INSERT INTO aws.elasticloadbalancingv2.trust_store_revocations (
  RevocationContents,
  TrustStoreArn,
  region
 )
 SELECT 
- {{ .RevocationContents }},
- {{ .TrustStoreArn }},
- 'us-east-1';
+ '{{ RevocationContents }}',
+ '{{ TrustStoreArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: trust_store_revocation
+    props:
+      - name: RevocationContents
+        value:
+          - S3Bucket: '{{ S3Bucket }}'
+            S3Key: '{{ S3Key }}'
+            S3ObjectVersion: '{{ S3ObjectVersion }}'
+            RevocationType: '{{ RevocationType }}'
+      - name: TrustStoreArn
+        value: '{{ TrustStoreArn }}'
+
 ```
 </TabItem>
 </Tabs>

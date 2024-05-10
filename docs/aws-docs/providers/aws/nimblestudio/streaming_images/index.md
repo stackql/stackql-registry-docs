@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>streaming_image</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Ec2ImageId": "{{ Ec2ImageId }}",
- "Name": "{{ Name }}",
- "StudioId": "{{ StudioId }}"
-}
->>>
---required properties only
+-- streaming_image.iql (required properties only)
 INSERT INTO aws.nimblestudio.streaming_images (
  Ec2ImageId,
  Name,
@@ -101,25 +97,16 @@ INSERT INTO aws.nimblestudio.streaming_images (
  region
 )
 SELECT 
-{{ .Ec2ImageId }},
- {{ .Name }},
- {{ .StudioId }},
-'us-east-1';
+'{{ Ec2ImageId }}',
+ '{{ Name }}',
+ '{{ StudioId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Ec2ImageId": "{{ Ec2ImageId }}",
- "Name": "{{ Name }}",
- "StudioId": "{{ StudioId }}",
- "Tags": {}
-}
->>>
---all properties
+-- streaming_image.iql (all properties)
 INSERT INTO aws.nimblestudio.streaming_images (
  Description,
  Ec2ImageId,
@@ -129,12 +116,39 @@ INSERT INTO aws.nimblestudio.streaming_images (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Ec2ImageId }},
- {{ .Name }},
- {{ .StudioId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Ec2ImageId }}',
+ '{{ Name }}',
+ '{{ StudioId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: streaming_image
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Ec2ImageId
+        value: '{{ Ec2ImageId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: StudioId
+        value: '{{ StudioId }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

@@ -74,58 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>load_balancer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LoadBalancerName": "{{ LoadBalancerName }}",
- "InstancePort": "{{ InstancePort }}"
-}
->>>
---required properties only
+-- load_balancer.iql (required properties only)
 INSERT INTO aws.lightsail.load_balancers (
  LoadBalancerName,
  InstancePort,
  region
 )
 SELECT 
-{{ .LoadBalancerName }},
- {{ .InstancePort }},
-'us-east-1';
+'{{ LoadBalancerName }}',
+ '{{ InstancePort }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LoadBalancerName": "{{ LoadBalancerName }}",
- "InstancePort": "{{ InstancePort }}",
- "IpAddressType": "{{ IpAddressType }}",
- "AttachedInstances": [
-  "{{ AttachedInstances[0] }}"
- ],
- "HealthCheckPath": "{{ HealthCheckPath }}",
- "SessionStickinessEnabled": "{{ SessionStickinessEnabled }}",
- "SessionStickinessLBCookieDurationSeconds": "{{ SessionStickinessLBCookieDurationSeconds }}",
- "TlsPolicyName": "{{ TlsPolicyName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- load_balancer.iql (all properties)
 INSERT INTO aws.lightsail.load_balancers (
  LoadBalancerName,
  InstancePort,
@@ -139,16 +116,54 @@ INSERT INTO aws.lightsail.load_balancers (
  region
 )
 SELECT 
- {{ .LoadBalancerName }},
- {{ .InstancePort }},
- {{ .IpAddressType }},
- {{ .AttachedInstances }},
- {{ .HealthCheckPath }},
- {{ .SessionStickinessEnabled }},
- {{ .SessionStickinessLBCookieDurationSeconds }},
- {{ .TlsPolicyName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ LoadBalancerName }}',
+ '{{ InstancePort }}',
+ '{{ IpAddressType }}',
+ '{{ AttachedInstances }}',
+ '{{ HealthCheckPath }}',
+ '{{ SessionStickinessEnabled }}',
+ '{{ SessionStickinessLBCookieDurationSeconds }}',
+ '{{ TlsPolicyName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: load_balancer
+    props:
+      - name: LoadBalancerName
+        value: '{{ LoadBalancerName }}'
+      - name: InstancePort
+        value: '{{ InstancePort }}'
+      - name: IpAddressType
+        value: '{{ IpAddressType }}'
+      - name: AttachedInstances
+        value:
+          - '{{ AttachedInstances[0] }}'
+      - name: HealthCheckPath
+        value: '{{ HealthCheckPath }}'
+      - name: SessionStickinessEnabled
+        value: '{{ SessionStickinessEnabled }}'
+      - name: SessionStickinessLBCookieDurationSeconds
+        value: '{{ SessionStickinessLBCookieDurationSeconds }}'
+      - name: TlsPolicyName
+        value: '{{ TlsPolicyName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>enabled_baseline</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BaselineIdentifier": "{{ BaselineIdentifier }}",
- "BaselineVersion": "{{ BaselineVersion }}",
- "TargetIdentifier": "{{ TargetIdentifier }}"
-}
->>>
---required properties only
+-- enabled_baseline.iql (required properties only)
 INSERT INTO aws.controltower.enabled_baselines (
  BaselineIdentifier,
  BaselineVersion,
@@ -99,35 +95,16 @@ INSERT INTO aws.controltower.enabled_baselines (
  region
 )
 SELECT 
-{{ .BaselineIdentifier }},
- {{ .BaselineVersion }},
- {{ .TargetIdentifier }},
-'us-east-1';
+'{{ BaselineIdentifier }}',
+ '{{ BaselineVersion }}',
+ '{{ TargetIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BaselineIdentifier": "{{ BaselineIdentifier }}",
- "BaselineVersion": "{{ BaselineVersion }}",
- "TargetIdentifier": "{{ TargetIdentifier }}",
- "Parameters": [
-  {
-   "Key": "{{ Key }}",
-   "Value": null
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- enabled_baseline.iql (all properties)
 INSERT INTO aws.controltower.enabled_baselines (
  BaselineIdentifier,
  BaselineVersion,
@@ -137,12 +114,43 @@ INSERT INTO aws.controltower.enabled_baselines (
  region
 )
 SELECT 
- {{ .BaselineIdentifier }},
- {{ .BaselineVersion }},
- {{ .TargetIdentifier }},
- {{ .Parameters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ BaselineIdentifier }}',
+ '{{ BaselineVersion }}',
+ '{{ TargetIdentifier }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: enabled_baseline
+    props:
+      - name: BaselineIdentifier
+        value: '{{ BaselineIdentifier }}'
+      - name: BaselineVersion
+        value: '{{ BaselineVersion }}'
+      - name: TargetIdentifier
+        value: '{{ TargetIdentifier }}'
+      - name: Parameters
+        value:
+          - Key: '{{ Key }}'
+            Value: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

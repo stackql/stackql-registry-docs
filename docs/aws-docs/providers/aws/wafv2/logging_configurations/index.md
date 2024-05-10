@@ -74,124 +74,35 @@ FROM aws.wafv2.logging_configurations
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>logging_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceArn": "{{ ResourceArn }}",
- "LogDestinationConfigs": [
-  "{{ LogDestinationConfigs[0] }}"
- ]
-}
->>>
---required properties only
+-- logging_configuration.iql (required properties only)
 INSERT INTO aws.wafv2.logging_configurations (
  ResourceArn,
  LogDestinationConfigs,
  region
 )
 SELECT 
-{{ .ResourceArn }},
- {{ .LogDestinationConfigs }},
-'us-east-1';
+'{{ ResourceArn }}',
+ '{{ LogDestinationConfigs }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResourceArn": "{{ ResourceArn }}",
- "LogDestinationConfigs": [
-  "{{ LogDestinationConfigs[0] }}"
- ],
- "RedactedFields": [
-  {
-   "SingleHeader": {
-    "Name": "{{ Name }}"
-   },
-   "SingleQueryArgument": {
-    "Name": "{{ Name }}"
-   },
-   "AllQueryArguments": {},
-   "UriPath": {},
-   "QueryString": {},
-   "Body": {
-    "OversizeHandling": "{{ OversizeHandling }}"
-   },
-   "Method": {},
-   "JsonBody": {
-    "MatchPattern": {
-     "All": {},
-     "IncludedPaths": [
-      "{{ IncludedPaths[0] }}"
-     ]
-    },
-    "MatchScope": "{{ MatchScope }}",
-    "InvalidFallbackBehavior": "{{ InvalidFallbackBehavior }}",
-    "OversizeHandling": null
-   },
-   "Headers": {
-    "MatchPattern": {
-     "All": {},
-     "IncludedHeaders": [
-      "{{ IncludedHeaders[0] }}"
-     ],
-     "ExcludedHeaders": [
-      "{{ ExcludedHeaders[0] }}"
-     ]
-    },
-    "MatchScope": "{{ MatchScope }}",
-    "OversizeHandling": null
-   },
-   "Cookies": {
-    "MatchPattern": {
-     "All": {},
-     "IncludedCookies": [
-      "{{ IncludedCookies[0] }}"
-     ],
-     "ExcludedCookies": [
-      "{{ ExcludedCookies[0] }}"
-     ]
-    },
-    "MatchScope": null,
-    "OversizeHandling": null
-   },
-   "JA3Fingerprint": {
-    "FallbackBehavior": "{{ FallbackBehavior }}"
-   }
-  }
- ],
- "LoggingFilter": {
-  "DefaultBehavior": "{{ DefaultBehavior }}",
-  "Filters": [
-   {
-    "Behavior": "{{ Behavior }}",
-    "Conditions": [
-     {
-      "ActionCondition": {
-       "Action": "{{ Action }}"
-      },
-      "LabelNameCondition": {
-       "LabelName": "{{ LabelName }}"
-      }
-     }
-    ],
-    "Requirement": "{{ Requirement }}"
-   }
-  ]
- }
-}
->>>
---all properties
+-- logging_configuration.iql (all properties)
 INSERT INTO aws.wafv2.logging_configurations (
  ResourceArn,
  LogDestinationConfigs,
@@ -200,11 +111,84 @@ INSERT INTO aws.wafv2.logging_configurations (
  region
 )
 SELECT 
- {{ .ResourceArn }},
- {{ .LogDestinationConfigs }},
- {{ .RedactedFields }},
- {{ .LoggingFilter }},
- 'us-east-1';
+ '{{ ResourceArn }}',
+ '{{ LogDestinationConfigs }}',
+ '{{ RedactedFields }}',
+ '{{ LoggingFilter }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: logging_configuration
+    props:
+      - name: ResourceArn
+        value: '{{ ResourceArn }}'
+      - name: LogDestinationConfigs
+        value:
+          - '{{ LogDestinationConfigs[0] }}'
+      - name: RedactedFields
+        value:
+          - SingleHeader:
+              Name: '{{ Name }}'
+            SingleQueryArgument:
+              Name: '{{ Name }}'
+            AllQueryArguments: {}
+            UriPath: {}
+            QueryString: {}
+            Body:
+              OversizeHandling: '{{ OversizeHandling }}'
+            Method: {}
+            JsonBody:
+              MatchPattern:
+                All: {}
+                IncludedPaths:
+                  - '{{ IncludedPaths[0] }}'
+              MatchScope: '{{ MatchScope }}'
+              InvalidFallbackBehavior: '{{ InvalidFallbackBehavior }}'
+              OversizeHandling: null
+            Headers:
+              MatchPattern:
+                All: {}
+                IncludedHeaders:
+                  - '{{ IncludedHeaders[0] }}'
+                ExcludedHeaders:
+                  - '{{ ExcludedHeaders[0] }}'
+              MatchScope: '{{ MatchScope }}'
+              OversizeHandling: null
+            Cookies:
+              MatchPattern:
+                All: {}
+                IncludedCookies:
+                  - '{{ IncludedCookies[0] }}'
+                ExcludedCookies:
+                  - '{{ ExcludedCookies[0] }}'
+              MatchScope: null
+              OversizeHandling: null
+            JA3Fingerprint:
+              FallbackBehavior: '{{ FallbackBehavior }}'
+      - name: LoggingFilter
+        value:
+          DefaultBehavior: '{{ DefaultBehavior }}'
+          Filters:
+            - Behavior: '{{ Behavior }}'
+              Conditions:
+                - ActionCondition:
+                    Action: '{{ Action }}'
+                  LabelNameCondition:
+                    LabelName: '{{ LabelName }}'
+              Requirement: '{{ Requirement }}'
+
 ```
 </TabItem>
 </Tabs>

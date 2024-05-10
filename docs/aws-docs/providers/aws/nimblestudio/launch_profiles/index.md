@@ -76,63 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>launch_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Ec2SubnetIds": [
-  "{{ Ec2SubnetIds[0] }}"
- ],
- "LaunchProfileProtocolVersions": [
-  "{{ LaunchProfileProtocolVersions[0] }}"
- ],
- "Name": "{{ Name }}",
- "StreamConfiguration": {
-  "ClipboardMode": "{{ ClipboardMode }}",
-  "Ec2InstanceTypes": [
-   "{{ Ec2InstanceTypes[0] }}"
-  ],
-  "MaxSessionLengthInMinutes": null,
-  "StreamingImageIds": [
-   "{{ StreamingImageIds[0] }}"
-  ],
-  "MaxStoppedSessionLengthInMinutes": null,
-  "SessionStorage": {
-   "Root": {
-    "Linux": "{{ Linux }}",
-    "Windows": "{{ Windows }}"
-   },
-   "Mode": [
-    "{{ Mode[0] }}"
-   ]
-  },
-  "SessionBackup": {
-   "Mode": "{{ Mode }}",
-   "MaxBackupsToRetain": null
-  },
-  "SessionPersistenceMode": "{{ SessionPersistenceMode }}",
-  "VolumeConfiguration": {
-   "Size": null,
-   "Throughput": null,
-   "Iops": null
-  },
-  "AutomaticTerminationMode": "{{ AutomaticTerminationMode }}"
- },
- "StudioComponentIds": [
-  "{{ StudioComponentIds[0] }}"
- ],
- "StudioId": "{{ StudioId }}"
-}
->>>
---required properties only
+-- launch_profile.iql (required properties only)
 INSERT INTO aws.nimblestudio.launch_profiles (
  Ec2SubnetIds,
  LaunchProfileProtocolVersions,
@@ -143,67 +100,19 @@ INSERT INTO aws.nimblestudio.launch_profiles (
  region
 )
 SELECT 
-{{ .Ec2SubnetIds }},
- {{ .LaunchProfileProtocolVersions }},
- {{ .Name }},
- {{ .StreamConfiguration }},
- {{ .StudioComponentIds }},
- {{ .StudioId }},
-'us-east-1';
+'{{ Ec2SubnetIds }}',
+ '{{ LaunchProfileProtocolVersions }}',
+ '{{ Name }}',
+ '{{ StreamConfiguration }}',
+ '{{ StudioComponentIds }}',
+ '{{ StudioId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Ec2SubnetIds": [
-  "{{ Ec2SubnetIds[0] }}"
- ],
- "LaunchProfileProtocolVersions": [
-  "{{ LaunchProfileProtocolVersions[0] }}"
- ],
- "Name": "{{ Name }}",
- "StreamConfiguration": {
-  "ClipboardMode": "{{ ClipboardMode }}",
-  "Ec2InstanceTypes": [
-   "{{ Ec2InstanceTypes[0] }}"
-  ],
-  "MaxSessionLengthInMinutes": null,
-  "StreamingImageIds": [
-   "{{ StreamingImageIds[0] }}"
-  ],
-  "MaxStoppedSessionLengthInMinutes": null,
-  "SessionStorage": {
-   "Root": {
-    "Linux": "{{ Linux }}",
-    "Windows": "{{ Windows }}"
-   },
-   "Mode": [
-    "{{ Mode[0] }}"
-   ]
-  },
-  "SessionBackup": {
-   "Mode": "{{ Mode }}",
-   "MaxBackupsToRetain": null
-  },
-  "SessionPersistenceMode": "{{ SessionPersistenceMode }}",
-  "VolumeConfiguration": {
-   "Size": null,
-   "Throughput": null,
-   "Iops": null
-  },
-  "AutomaticTerminationMode": "{{ AutomaticTerminationMode }}"
- },
- "StudioComponentIds": [
-  "{{ StudioComponentIds[0] }}"
- ],
- "StudioId": "{{ StudioId }}",
- "Tags": {}
-}
->>>
---all properties
+-- launch_profile.iql (all properties)
 INSERT INTO aws.nimblestudio.launch_profiles (
  Description,
  Ec2SubnetIds,
@@ -216,15 +125,73 @@ INSERT INTO aws.nimblestudio.launch_profiles (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Ec2SubnetIds }},
- {{ .LaunchProfileProtocolVersions }},
- {{ .Name }},
- {{ .StreamConfiguration }},
- {{ .StudioComponentIds }},
- {{ .StudioId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Ec2SubnetIds }}',
+ '{{ LaunchProfileProtocolVersions }}',
+ '{{ Name }}',
+ '{{ StreamConfiguration }}',
+ '{{ StudioComponentIds }}',
+ '{{ StudioId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: launch_profile
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Ec2SubnetIds
+        value:
+          - '{{ Ec2SubnetIds[0] }}'
+      - name: LaunchProfileProtocolVersions
+        value:
+          - '{{ LaunchProfileProtocolVersions[0] }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: StreamConfiguration
+        value:
+          ClipboardMode: '{{ ClipboardMode }}'
+          Ec2InstanceTypes:
+            - '{{ Ec2InstanceTypes[0] }}'
+          MaxSessionLengthInMinutes: null
+          StreamingImageIds:
+            - '{{ StreamingImageIds[0] }}'
+          MaxStoppedSessionLengthInMinutes: null
+          SessionStorage:
+            Root:
+              Linux: '{{ Linux }}'
+              Windows: '{{ Windows }}'
+            Mode:
+              - '{{ Mode[0] }}'
+          SessionBackup:
+            Mode: '{{ Mode }}'
+            MaxBackupsToRetain: null
+          SessionPersistenceMode: '{{ SessionPersistenceMode }}'
+          VolumeConfiguration:
+            Size: null
+            Throughput: null
+            Iops: null
+          AutomaticTerminationMode: '{{ AutomaticTerminationMode }}'
+      - name: StudioComponentIds
+        value:
+          - '{{ StudioComponentIds[0] }}'
+      - name: StudioId
+        value: '{{ StudioId }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

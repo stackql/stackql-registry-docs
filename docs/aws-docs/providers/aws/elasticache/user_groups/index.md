@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "UserGroupId": "{{ UserGroupId }}",
- "Engine": "{{ Engine }}",
- "UserIds": [
-  "{{ UserIds[0] }}"
- ]
-}
->>>
---required properties only
+-- user_group.iql (required properties only)
 INSERT INTO aws.elasticache.user_groups (
  UserGroupId,
  Engine,
@@ -101,31 +95,16 @@ INSERT INTO aws.elasticache.user_groups (
  region
 )
 SELECT 
-{{ .UserGroupId }},
- {{ .Engine }},
- {{ .UserIds }},
-'us-east-1';
+'{{ UserGroupId }}',
+ '{{ Engine }}',
+ '{{ UserIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "UserGroupId": "{{ UserGroupId }}",
- "Engine": "{{ Engine }}",
- "UserIds": [
-  "{{ UserIds[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- user_group.iql (all properties)
 INSERT INTO aws.elasticache.user_groups (
  UserGroupId,
  Engine,
@@ -134,11 +113,39 @@ INSERT INTO aws.elasticache.user_groups (
  region
 )
 SELECT 
- {{ .UserGroupId }},
- {{ .Engine }},
- {{ .UserIds }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ UserGroupId }}',
+ '{{ Engine }}',
+ '{{ UserIds }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user_group
+    props:
+      - name: UserGroupId
+        value: '{{ UserGroupId }}'
+      - name: Engine
+        value: '{{ Engine }}'
+      - name: UserIds
+        value:
+          - '{{ UserIds[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

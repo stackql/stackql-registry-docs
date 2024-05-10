@@ -74,30 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>report_definition</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ReportName": "{{ ReportName }}",
- "TimeUnit": "{{ TimeUnit }}",
- "Format": "{{ Format }}",
- "Compression": "{{ Compression }}",
- "S3Bucket": "{{ S3Bucket }}",
- "S3Prefix": "{{ S3Prefix }}",
- "S3Region": "{{ S3Region }}",
- "RefreshClosedReports": "{{ RefreshClosedReports }}",
- "ReportVersioning": "{{ ReportVersioning }}"
-}
->>>
---required properties only
+-- report_definition.iql (required properties only)
 INSERT INTO aws.cur.report_definitions (
  ReportName,
  TimeUnit,
@@ -111,42 +101,22 @@ INSERT INTO aws.cur.report_definitions (
  region
 )
 SELECT 
-{{ .ReportName }},
- {{ .TimeUnit }},
- {{ .Format }},
- {{ .Compression }},
- {{ .S3Bucket }},
- {{ .S3Prefix }},
- {{ .S3Region }},
- {{ .RefreshClosedReports }},
- {{ .ReportVersioning }},
-'us-east-1';
+'{{ ReportName }}',
+ '{{ TimeUnit }}',
+ '{{ Format }}',
+ '{{ Compression }}',
+ '{{ S3Bucket }}',
+ '{{ S3Prefix }}',
+ '{{ S3Region }}',
+ '{{ RefreshClosedReports }}',
+ '{{ ReportVersioning }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ReportName": "{{ ReportName }}",
- "TimeUnit": "{{ TimeUnit }}",
- "Format": "{{ Format }}",
- "Compression": "{{ Compression }}",
- "AdditionalSchemaElements": [
-  "{{ AdditionalSchemaElements[0] }}"
- ],
- "S3Bucket": "{{ S3Bucket }}",
- "S3Prefix": "{{ S3Prefix }}",
- "S3Region": "{{ S3Region }}",
- "AdditionalArtifacts": [
-  "{{ AdditionalArtifacts[0] }}"
- ],
- "RefreshClosedReports": "{{ RefreshClosedReports }}",
- "ReportVersioning": "{{ ReportVersioning }}",
- "BillingViewArn": "{{ BillingViewArn }}"
-}
->>>
---all properties
+-- report_definition.iql (all properties)
 INSERT INTO aws.cur.report_definitions (
  ReportName,
  TimeUnit,
@@ -163,19 +133,62 @@ INSERT INTO aws.cur.report_definitions (
  region
 )
 SELECT 
- {{ .ReportName }},
- {{ .TimeUnit }},
- {{ .Format }},
- {{ .Compression }},
- {{ .AdditionalSchemaElements }},
- {{ .S3Bucket }},
- {{ .S3Prefix }},
- {{ .S3Region }},
- {{ .AdditionalArtifacts }},
- {{ .RefreshClosedReports }},
- {{ .ReportVersioning }},
- {{ .BillingViewArn }},
- 'us-east-1';
+ '{{ ReportName }}',
+ '{{ TimeUnit }}',
+ '{{ Format }}',
+ '{{ Compression }}',
+ '{{ AdditionalSchemaElements }}',
+ '{{ S3Bucket }}',
+ '{{ S3Prefix }}',
+ '{{ S3Region }}',
+ '{{ AdditionalArtifacts }}',
+ '{{ RefreshClosedReports }}',
+ '{{ ReportVersioning }}',
+ '{{ BillingViewArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: report_definition
+    props:
+      - name: ReportName
+        value: '{{ ReportName }}'
+      - name: TimeUnit
+        value: '{{ TimeUnit }}'
+      - name: Format
+        value: '{{ Format }}'
+      - name: Compression
+        value: '{{ Compression }}'
+      - name: AdditionalSchemaElements
+        value:
+          - '{{ AdditionalSchemaElements[0] }}'
+      - name: S3Bucket
+        value: '{{ S3Bucket }}'
+      - name: S3Prefix
+        value: '{{ S3Prefix }}'
+      - name: S3Region
+        value: '{{ S3Region }}'
+      - name: AdditionalArtifacts
+        value:
+          - '{{ AdditionalArtifacts[0] }}'
+      - name: RefreshClosedReports
+        value: '{{ RefreshClosedReports }}'
+      - name: ReportVersioning
+        value: '{{ ReportVersioning }}'
+      - name: BillingViewArn
+        value: '{{ BillingViewArn }}'
+
 ```
 </TabItem>
 </Tabs>

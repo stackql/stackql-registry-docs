@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scheduled_action</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ScheduledActionName": "{{ ScheduledActionName }}"
-}
->>>
---required properties only
+-- scheduled_action.iql (required properties only)
 INSERT INTO aws.redshift.scheduled_actions (
  ScheduledActionName,
  region
 )
 SELECT 
-{{ .ScheduledActionName }},
-'us-east-1';
+'{{ ScheduledActionName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ScheduledActionName": "{{ ScheduledActionName }}",
- "TargetAction": {},
- "Schedule": "{{ Schedule }}",
- "IamRole": "{{ IamRole }}",
- "ScheduledActionDescription": "{{ ScheduledActionDescription }}",
- "StartTime": "{{ StartTime }}",
- "EndTime": null,
- "Enable": "{{ Enable }}"
-}
->>>
---all properties
+-- scheduled_action.iql (all properties)
 INSERT INTO aws.redshift.scheduled_actions (
  ScheduledActionName,
  TargetAction,
@@ -127,15 +113,48 @@ INSERT INTO aws.redshift.scheduled_actions (
  region
 )
 SELECT 
- {{ .ScheduledActionName }},
- {{ .TargetAction }},
- {{ .Schedule }},
- {{ .IamRole }},
- {{ .ScheduledActionDescription }},
- {{ .StartTime }},
- {{ .EndTime }},
- {{ .Enable }},
- 'us-east-1';
+ '{{ ScheduledActionName }}',
+ '{{ TargetAction }}',
+ '{{ Schedule }}',
+ '{{ IamRole }}',
+ '{{ ScheduledActionDescription }}',
+ '{{ StartTime }}',
+ '{{ EndTime }}',
+ '{{ Enable }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scheduled_action
+    props:
+      - name: ScheduledActionName
+        value: '{{ ScheduledActionName }}'
+      - name: TargetAction
+        value: {}
+      - name: Schedule
+        value: '{{ Schedule }}'
+      - name: IamRole
+        value: '{{ IamRole }}'
+      - name: ScheduledActionDescription
+        value: '{{ ScheduledActionDescription }}'
+      - name: StartTime
+        value: '{{ StartTime }}'
+      - name: EndTime
+        value: null
+      - name: Enable
+        value: '{{ Enable }}'
+
 ```
 </TabItem>
 </Tabs>

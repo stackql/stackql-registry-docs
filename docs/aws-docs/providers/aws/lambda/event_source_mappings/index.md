@@ -74,99 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_source_mapping</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FunctionName": "{{ FunctionName }}"
-}
->>>
---required properties only
+-- event_source_mapping.iql (required properties only)
 INSERT INTO aws.lambda.event_source_mappings (
  FunctionName,
  region
 )
 SELECT 
-{{ .FunctionName }},
-'us-east-1';
+'{{ FunctionName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BatchSize": "{{ BatchSize }}",
- "BisectBatchOnFunctionError": "{{ BisectBatchOnFunctionError }}",
- "DestinationConfig": {
-  "OnFailure": {
-   "Destination": "{{ Destination }}"
-  }
- },
- "Enabled": "{{ Enabled }}",
- "EventSourceArn": "{{ EventSourceArn }}",
- "FilterCriteria": {
-  "Filters": [
-   {
-    "Pattern": "{{ Pattern }}"
-   }
-  ]
- },
- "FunctionName": "{{ FunctionName }}",
- "MaximumBatchingWindowInSeconds": "{{ MaximumBatchingWindowInSeconds }}",
- "MaximumRecordAgeInSeconds": "{{ MaximumRecordAgeInSeconds }}",
- "MaximumRetryAttempts": "{{ MaximumRetryAttempts }}",
- "ParallelizationFactor": "{{ ParallelizationFactor }}",
- "StartingPosition": "{{ StartingPosition }}",
- "StartingPositionTimestamp": null,
- "Topics": [
-  "{{ Topics[0] }}"
- ],
- "Queues": [
-  "{{ Queues[0] }}"
- ],
- "SourceAccessConfigurations": [
-  {
-   "Type": "{{ Type }}",
-   "URI": "{{ URI }}"
-  }
- ],
- "TumblingWindowInSeconds": "{{ TumblingWindowInSeconds }}",
- "FunctionResponseTypes": [
-  "{{ FunctionResponseTypes[0] }}"
- ],
- "SelfManagedEventSource": {
-  "Endpoints": {
-   "KafkaBootstrapServers": [
-    "{{ KafkaBootstrapServers[0] }}"
-   ]
-  }
- },
- "AmazonManagedKafkaEventSourceConfig": {
-  "ConsumerGroupId": "{{ ConsumerGroupId }}"
- },
- "SelfManagedKafkaEventSourceConfig": {
-  "ConsumerGroupId": null
- },
- "ScalingConfig": {
-  "MaximumConcurrency": "{{ MaximumConcurrency }}"
- },
- "DocumentDBEventSourceConfig": {
-  "DatabaseName": "{{ DatabaseName }}",
-  "CollectionName": "{{ CollectionName }}",
-  "FullDocument": "{{ FullDocument }}"
- }
-}
->>>
---all properties
+-- event_source_mapping.iql (all properties)
 INSERT INTO aws.lambda.event_source_mappings (
  BatchSize,
  BisectBatchOnFunctionError,
@@ -194,30 +128,111 @@ INSERT INTO aws.lambda.event_source_mappings (
  region
 )
 SELECT 
- {{ .BatchSize }},
- {{ .BisectBatchOnFunctionError }},
- {{ .DestinationConfig }},
- {{ .Enabled }},
- {{ .EventSourceArn }},
- {{ .FilterCriteria }},
- {{ .FunctionName }},
- {{ .MaximumBatchingWindowInSeconds }},
- {{ .MaximumRecordAgeInSeconds }},
- {{ .MaximumRetryAttempts }},
- {{ .ParallelizationFactor }},
- {{ .StartingPosition }},
- {{ .StartingPositionTimestamp }},
- {{ .Topics }},
- {{ .Queues }},
- {{ .SourceAccessConfigurations }},
- {{ .TumblingWindowInSeconds }},
- {{ .FunctionResponseTypes }},
- {{ .SelfManagedEventSource }},
- {{ .AmazonManagedKafkaEventSourceConfig }},
- {{ .SelfManagedKafkaEventSourceConfig }},
- {{ .ScalingConfig }},
- {{ .DocumentDBEventSourceConfig }},
- 'us-east-1';
+ '{{ BatchSize }}',
+ '{{ BisectBatchOnFunctionError }}',
+ '{{ DestinationConfig }}',
+ '{{ Enabled }}',
+ '{{ EventSourceArn }}',
+ '{{ FilterCriteria }}',
+ '{{ FunctionName }}',
+ '{{ MaximumBatchingWindowInSeconds }}',
+ '{{ MaximumRecordAgeInSeconds }}',
+ '{{ MaximumRetryAttempts }}',
+ '{{ ParallelizationFactor }}',
+ '{{ StartingPosition }}',
+ '{{ StartingPositionTimestamp }}',
+ '{{ Topics }}',
+ '{{ Queues }}',
+ '{{ SourceAccessConfigurations }}',
+ '{{ TumblingWindowInSeconds }}',
+ '{{ FunctionResponseTypes }}',
+ '{{ SelfManagedEventSource }}',
+ '{{ AmazonManagedKafkaEventSourceConfig }}',
+ '{{ SelfManagedKafkaEventSourceConfig }}',
+ '{{ ScalingConfig }}',
+ '{{ DocumentDBEventSourceConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_source_mapping
+    props:
+      - name: BatchSize
+        value: '{{ BatchSize }}'
+      - name: BisectBatchOnFunctionError
+        value: '{{ BisectBatchOnFunctionError }}'
+      - name: DestinationConfig
+        value:
+          OnFailure:
+            Destination: '{{ Destination }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: EventSourceArn
+        value: '{{ EventSourceArn }}'
+      - name: FilterCriteria
+        value:
+          Filters:
+            - Pattern: '{{ Pattern }}'
+      - name: FunctionName
+        value: '{{ FunctionName }}'
+      - name: MaximumBatchingWindowInSeconds
+        value: '{{ MaximumBatchingWindowInSeconds }}'
+      - name: MaximumRecordAgeInSeconds
+        value: '{{ MaximumRecordAgeInSeconds }}'
+      - name: MaximumRetryAttempts
+        value: '{{ MaximumRetryAttempts }}'
+      - name: ParallelizationFactor
+        value: '{{ ParallelizationFactor }}'
+      - name: StartingPosition
+        value: '{{ StartingPosition }}'
+      - name: StartingPositionTimestamp
+        value: null
+      - name: Topics
+        value:
+          - '{{ Topics[0] }}'
+      - name: Queues
+        value:
+          - '{{ Queues[0] }}'
+      - name: SourceAccessConfigurations
+        value:
+          - Type: '{{ Type }}'
+            URI: '{{ URI }}'
+      - name: TumblingWindowInSeconds
+        value: '{{ TumblingWindowInSeconds }}'
+      - name: FunctionResponseTypes
+        value:
+          - '{{ FunctionResponseTypes[0] }}'
+      - name: SelfManagedEventSource
+        value:
+          Endpoints:
+            KafkaBootstrapServers:
+              - '{{ KafkaBootstrapServers[0] }}'
+      - name: AmazonManagedKafkaEventSourceConfig
+        value:
+          ConsumerGroupId: '{{ ConsumerGroupId }}'
+      - name: SelfManagedKafkaEventSourceConfig
+        value:
+          ConsumerGroupId: null
+      - name: ScalingConfig
+        value:
+          MaximumConcurrency: '{{ MaximumConcurrency }}'
+      - name: DocumentDBEventSourceConfig
+        value:
+          DatabaseName: '{{ DatabaseName }}'
+          CollectionName: '{{ CollectionName }}'
+          FullDocument: '{{ FullDocument }}'
+
 ```
 </TabItem>
 </Tabs>

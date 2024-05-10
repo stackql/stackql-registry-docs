@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>dashboard</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DashboardName": "{{ DashboardName }}",
- "DashboardDescription": "{{ DashboardDescription }}",
- "DashboardDefinition": "{{ DashboardDefinition }}"
-}
->>>
---required properties only
+-- dashboard.iql (required properties only)
 INSERT INTO aws.iotsitewise.dashboards (
  DashboardName,
  DashboardDescription,
@@ -99,30 +95,16 @@ INSERT INTO aws.iotsitewise.dashboards (
  region
 )
 SELECT 
-{{ .DashboardName }},
- {{ .DashboardDescription }},
- {{ .DashboardDefinition }},
-'us-east-1';
+'{{ DashboardName }}',
+ '{{ DashboardDescription }}',
+ '{{ DashboardDefinition }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ProjectId": "{{ ProjectId }}",
- "DashboardName": "{{ DashboardName }}",
- "DashboardDescription": "{{ DashboardDescription }}",
- "DashboardDefinition": "{{ DashboardDefinition }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- dashboard.iql (all properties)
 INSERT INTO aws.iotsitewise.dashboards (
  ProjectId,
  DashboardName,
@@ -132,12 +114,41 @@ INSERT INTO aws.iotsitewise.dashboards (
  region
 )
 SELECT 
- {{ .ProjectId }},
- {{ .DashboardName }},
- {{ .DashboardDescription }},
- {{ .DashboardDefinition }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ProjectId }}',
+ '{{ DashboardName }}',
+ '{{ DashboardDescription }}',
+ '{{ DashboardDefinition }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: dashboard
+    props:
+      - name: ProjectId
+        value: '{{ ProjectId }}'
+      - name: DashboardName
+        value: '{{ DashboardName }}'
+      - name: DashboardDescription
+        value: '{{ DashboardDescription }}'
+      - name: DashboardDefinition
+        value: '{{ DashboardDefinition }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

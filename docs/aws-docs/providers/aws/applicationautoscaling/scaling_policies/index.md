@@ -76,105 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scaling_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "PolicyType": "{{ PolicyType }}"
-}
->>>
---required properties only
+-- scaling_policy.iql (required properties only)
 INSERT INTO aws.applicationautoscaling.scaling_policies (
  PolicyName,
  PolicyType,
  region
 )
 SELECT 
-{{ .PolicyName }},
- {{ .PolicyType }},
-'us-east-1';
+'{{ PolicyName }}',
+ '{{ PolicyType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "PolicyType": "{{ PolicyType }}",
- "ResourceId": "{{ ResourceId }}",
- "ScalableDimension": "{{ ScalableDimension }}",
- "ScalingTargetId": "{{ ScalingTargetId }}",
- "ServiceNamespace": "{{ ServiceNamespace }}",
- "StepScalingPolicyConfiguration": {
-  "AdjustmentType": "{{ AdjustmentType }}",
-  "Cooldown": "{{ Cooldown }}",
-  "MetricAggregationType": "{{ MetricAggregationType }}",
-  "MinAdjustmentMagnitude": "{{ MinAdjustmentMagnitude }}",
-  "StepAdjustments": [
-   {
-    "MetricIntervalLowerBound": null,
-    "MetricIntervalUpperBound": null,
-    "ScalingAdjustment": "{{ ScalingAdjustment }}"
-   }
-  ]
- },
- "TargetTrackingScalingPolicyConfiguration": {
-  "CustomizedMetricSpecification": {
-   "Dimensions": [
-    {
-     "Name": "{{ Name }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "MetricName": "{{ MetricName }}",
-   "Namespace": "{{ Namespace }}",
-   "Statistic": "{{ Statistic }}",
-   "Unit": "{{ Unit }}",
-   "Metrics": [
-    {
-     "Expression": "{{ Expression }}",
-     "Id": "{{ Id }}",
-     "Label": "{{ Label }}",
-     "ReturnData": "{{ ReturnData }}",
-     "MetricStat": {
-      "Metric": {
-       "Dimensions": [
-        {
-         "Name": "{{ Name }}",
-         "Value": "{{ Value }}"
-        }
-       ],
-       "MetricName": "{{ MetricName }}",
-       "Namespace": "{{ Namespace }}"
-      },
-      "Stat": "{{ Stat }}",
-      "Unit": "{{ Unit }}"
-     }
-    }
-   ]
-  },
-  "DisableScaleIn": "{{ DisableScaleIn }}",
-  "PredefinedMetricSpecification": {
-   "PredefinedMetricType": "{{ PredefinedMetricType }}",
-   "ResourceLabel": "{{ ResourceLabel }}"
-  },
-  "ScaleInCooldown": "{{ ScaleInCooldown }}",
-  "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
-  "TargetValue": null
- }
-}
->>>
---all properties
+-- scaling_policy.iql (all properties)
 INSERT INTO aws.applicationautoscaling.scaling_policies (
  PolicyName,
  PolicyType,
@@ -187,15 +117,85 @@ INSERT INTO aws.applicationautoscaling.scaling_policies (
  region
 )
 SELECT 
- {{ .PolicyName }},
- {{ .PolicyType }},
- {{ .ResourceId }},
- {{ .ScalableDimension }},
- {{ .ScalingTargetId }},
- {{ .ServiceNamespace }},
- {{ .StepScalingPolicyConfiguration }},
- {{ .TargetTrackingScalingPolicyConfiguration }},
- 'us-east-1';
+ '{{ PolicyName }}',
+ '{{ PolicyType }}',
+ '{{ ResourceId }}',
+ '{{ ScalableDimension }}',
+ '{{ ScalingTargetId }}',
+ '{{ ServiceNamespace }}',
+ '{{ StepScalingPolicyConfiguration }}',
+ '{{ TargetTrackingScalingPolicyConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scaling_policy
+    props:
+      - name: PolicyName
+        value: '{{ PolicyName }}'
+      - name: PolicyType
+        value: '{{ PolicyType }}'
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+      - name: ScalableDimension
+        value: '{{ ScalableDimension }}'
+      - name: ScalingTargetId
+        value: '{{ ScalingTargetId }}'
+      - name: ServiceNamespace
+        value: '{{ ServiceNamespace }}'
+      - name: StepScalingPolicyConfiguration
+        value:
+          AdjustmentType: '{{ AdjustmentType }}'
+          Cooldown: '{{ Cooldown }}'
+          MetricAggregationType: '{{ MetricAggregationType }}'
+          MinAdjustmentMagnitude: '{{ MinAdjustmentMagnitude }}'
+          StepAdjustments:
+            - MetricIntervalLowerBound: null
+              MetricIntervalUpperBound: null
+              ScalingAdjustment: '{{ ScalingAdjustment }}'
+      - name: TargetTrackingScalingPolicyConfiguration
+        value:
+          CustomizedMetricSpecification:
+            Dimensions:
+              - Name: '{{ Name }}'
+                Value: '{{ Value }}'
+            MetricName: '{{ MetricName }}'
+            Namespace: '{{ Namespace }}'
+            Statistic: '{{ Statistic }}'
+            Unit: '{{ Unit }}'
+            Metrics:
+              - Expression: '{{ Expression }}'
+                Id: '{{ Id }}'
+                Label: '{{ Label }}'
+                ReturnData: '{{ ReturnData }}'
+                MetricStat:
+                  Metric:
+                    Dimensions:
+                      - Name: '{{ Name }}'
+                        Value: '{{ Value }}'
+                    MetricName: '{{ MetricName }}'
+                    Namespace: '{{ Namespace }}'
+                  Stat: '{{ Stat }}'
+                  Unit: '{{ Unit }}'
+          DisableScaleIn: '{{ DisableScaleIn }}'
+          PredefinedMetricSpecification:
+            PredefinedMetricType: '{{ PredefinedMetricType }}'
+            ResourceLabel: '{{ ResourceLabel }}'
+          ScaleInCooldown: '{{ ScaleInCooldown }}'
+          ScaleOutCooldown: '{{ ScaleOutCooldown }}'
+          TargetValue: null
+
 ```
 </TabItem>
 </Tabs>

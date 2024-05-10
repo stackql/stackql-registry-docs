@@ -76,57 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationId": "{{ ApplicationId }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- environment.iql (required properties only)
 INSERT INTO aws.appconfig.environments (
  ApplicationId,
  Name,
  region
 )
 SELECT 
-{{ .ApplicationId }},
- {{ .Name }},
-'us-east-1';
+'{{ ApplicationId }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Monitors": [
-  {
-   "AlarmArn": "{{ AlarmArn }}",
-   "AlarmRoleArn": "{{ AlarmRoleArn }}"
-  }
- ],
- "ApplicationId": "{{ ApplicationId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- environment.iql (all properties)
 INSERT INTO aws.appconfig.environments (
  Description,
  Monitors,
@@ -136,12 +114,43 @@ INSERT INTO aws.appconfig.environments (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Monitors }},
- {{ .ApplicationId }},
- {{ .Tags }},
- {{ .Name }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Monitors }}',
+ '{{ ApplicationId }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Monitors
+        value:
+          - AlarmArn: '{{ AlarmArn }}'
+            AlarmRoleArn: '{{ AlarmRoleArn }}'
+      - name: ApplicationId
+        value: '{{ ApplicationId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

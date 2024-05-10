@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>target_account_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ExperimentTemplateId": "{{ ExperimentTemplateId }}",
- "AccountId": "{{ AccountId }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- target_account_configuration.iql (required properties only)
 INSERT INTO aws.fis.target_account_configurations (
  ExperimentTemplateId,
  AccountId,
@@ -101,24 +97,16 @@ INSERT INTO aws.fis.target_account_configurations (
  region
 )
 SELECT 
-{{ .ExperimentTemplateId }},
- {{ .AccountId }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ ExperimentTemplateId }}',
+ '{{ AccountId }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ExperimentTemplateId": "{{ ExperimentTemplateId }}",
- "AccountId": "{{ AccountId }}",
- "RoleArn": "{{ RoleArn }}",
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- target_account_configuration.iql (all properties)
 INSERT INTO aws.fis.target_account_configurations (
  ExperimentTemplateId,
  AccountId,
@@ -127,11 +115,36 @@ INSERT INTO aws.fis.target_account_configurations (
  region
 )
 SELECT 
- {{ .ExperimentTemplateId }},
- {{ .AccountId }},
- {{ .RoleArn }},
- {{ .Description }},
- 'us-east-1';
+ '{{ ExperimentTemplateId }}',
+ '{{ AccountId }}',
+ '{{ RoleArn }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: target_account_configuration
+    props:
+      - name: ExperimentTemplateId
+        value: '{{ ExperimentTemplateId }}'
+      - name: AccountId
+        value: '{{ AccountId }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

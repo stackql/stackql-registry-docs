@@ -74,76 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connector</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Capacity": {
-  "AutoScaling": {
-   "MaxWorkerCount": "{{ MaxWorkerCount }}",
-   "MinWorkerCount": "{{ MinWorkerCount }}",
-   "ScaleInPolicy": {
-    "CpuUtilizationPercentage": "{{ CpuUtilizationPercentage }}"
-   },
-   "ScaleOutPolicy": {
-    "CpuUtilizationPercentage": "{{ CpuUtilizationPercentage }}"
-   },
-   "McuCount": "{{ McuCount }}"
-  },
-  "ProvisionedCapacity": {
-   "McuCount": "{{ McuCount }}",
-   "WorkerCount": "{{ WorkerCount }}"
-  }
- },
- "ConnectorConfiguration": {},
- "ConnectorName": "{{ ConnectorName }}",
- "KafkaCluster": {
-  "ApacheKafkaCluster": {
-   "BootstrapServers": "{{ BootstrapServers }}",
-   "Vpc": {
-    "SecurityGroups": [
-     "{{ SecurityGroups[0] }}"
-    ],
-    "Subnets": [
-     "{{ Subnets[0] }}"
-    ]
-   }
-  }
- },
- "KafkaClusterClientAuthentication": {
-  "AuthenticationType": "{{ AuthenticationType }}"
- },
- "KafkaClusterEncryptionInTransit": {
-  "EncryptionType": "{{ EncryptionType }}"
- },
- "KafkaConnectVersion": "{{ KafkaConnectVersion }}",
- "Plugins": [
-  {
-   "CustomPlugin": {
-    "Name": "{{ Name }}",
-    "ContentType": "{{ ContentType }}",
-    "Location": {
-     "S3Location": {
-      "BucketArn": "{{ BucketArn }}",
-      "FileKey": "{{ FileKey }}",
-      "ObjectVersion": "{{ ObjectVersion }}"
-     }
-    }
-   }
-  }
- ],
- "ServiceExecutionRoleArn": "{{ ServiceExecutionRoleArn }}"
-}
->>>
---required properties only
+-- connector.iql (required properties only)
 INSERT INTO aws.kafkaconnect.connectors (
  Capacity,
  ConnectorConfiguration,
@@ -157,117 +101,22 @@ INSERT INTO aws.kafkaconnect.connectors (
  region
 )
 SELECT 
-{{ .Capacity }},
- {{ .ConnectorConfiguration }},
- {{ .ConnectorName }},
- {{ .KafkaCluster }},
- {{ .KafkaClusterClientAuthentication }},
- {{ .KafkaClusterEncryptionInTransit }},
- {{ .KafkaConnectVersion }},
- {{ .Plugins }},
- {{ .ServiceExecutionRoleArn }},
-'us-east-1';
+'{{ Capacity }}',
+ '{{ ConnectorConfiguration }}',
+ '{{ ConnectorName }}',
+ '{{ KafkaCluster }}',
+ '{{ KafkaClusterClientAuthentication }}',
+ '{{ KafkaClusterEncryptionInTransit }}',
+ '{{ KafkaConnectVersion }}',
+ '{{ Plugins }}',
+ '{{ ServiceExecutionRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Capacity": {
-  "AutoScaling": {
-   "MaxWorkerCount": "{{ MaxWorkerCount }}",
-   "MinWorkerCount": "{{ MinWorkerCount }}",
-   "ScaleInPolicy": {
-    "CpuUtilizationPercentage": "{{ CpuUtilizationPercentage }}"
-   },
-   "ScaleOutPolicy": {
-    "CpuUtilizationPercentage": "{{ CpuUtilizationPercentage }}"
-   },
-   "McuCount": "{{ McuCount }}"
-  },
-  "ProvisionedCapacity": {
-   "McuCount": "{{ McuCount }}",
-   "WorkerCount": "{{ WorkerCount }}"
-  }
- },
- "ConnectorConfiguration": {},
- "ConnectorDescription": "{{ ConnectorDescription }}",
- "ConnectorName": "{{ ConnectorName }}",
- "KafkaCluster": {
-  "ApacheKafkaCluster": {
-   "BootstrapServers": "{{ BootstrapServers }}",
-   "Vpc": {
-    "SecurityGroups": [
-     "{{ SecurityGroups[0] }}"
-    ],
-    "Subnets": [
-     "{{ Subnets[0] }}"
-    ]
-   }
-  }
- },
- "KafkaClusterClientAuthentication": {
-  "AuthenticationType": "{{ AuthenticationType }}"
- },
- "KafkaClusterEncryptionInTransit": {
-  "EncryptionType": "{{ EncryptionType }}"
- },
- "KafkaConnectVersion": "{{ KafkaConnectVersion }}",
- "LogDelivery": {
-  "WorkerLogDelivery": {
-   "CloudWatchLogs": {
-    "Enabled": "{{ Enabled }}",
-    "LogGroup": "{{ LogGroup }}"
-   },
-   "Firehose": {
-    "DeliveryStream": "{{ DeliveryStream }}",
-    "Enabled": "{{ Enabled }}"
-   },
-   "S3": {
-    "Bucket": "{{ Bucket }}",
-    "Enabled": "{{ Enabled }}",
-    "Prefix": "{{ Prefix }}"
-   }
-  }
- },
- "Plugins": [
-  {
-   "CustomPlugin": {
-    "Name": "{{ Name }}",
-    "Description": "{{ Description }}",
-    "ContentType": "{{ ContentType }}",
-    "Location": {
-     "S3Location": {
-      "BucketArn": "{{ BucketArn }}",
-      "FileKey": "{{ FileKey }}",
-      "ObjectVersion": "{{ ObjectVersion }}"
-     }
-    },
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  }
- ],
- "ServiceExecutionRoleArn": "{{ ServiceExecutionRoleArn }}",
- "Tags": [
-  null
- ],
- "WorkerConfiguration": {
-  "Name": "{{ Name }}",
-  "Description": "{{ Description }}",
-  "PropertiesFileContent": "{{ PropertiesFileContent }}",
-  "Tags": [
-   null
-  ]
- }
-}
->>>
---all properties
+-- connector.iql (all properties)
 INSERT INTO aws.kafkaconnect.connectors (
  Capacity,
  ConnectorConfiguration,
@@ -285,20 +134,112 @@ INSERT INTO aws.kafkaconnect.connectors (
  region
 )
 SELECT 
- {{ .Capacity }},
- {{ .ConnectorConfiguration }},
- {{ .ConnectorDescription }},
- {{ .ConnectorName }},
- {{ .KafkaCluster }},
- {{ .KafkaClusterClientAuthentication }},
- {{ .KafkaClusterEncryptionInTransit }},
- {{ .KafkaConnectVersion }},
- {{ .LogDelivery }},
- {{ .Plugins }},
- {{ .ServiceExecutionRoleArn }},
- {{ .Tags }},
- {{ .WorkerConfiguration }},
- 'us-east-1';
+ '{{ Capacity }}',
+ '{{ ConnectorConfiguration }}',
+ '{{ ConnectorDescription }}',
+ '{{ ConnectorName }}',
+ '{{ KafkaCluster }}',
+ '{{ KafkaClusterClientAuthentication }}',
+ '{{ KafkaClusterEncryptionInTransit }}',
+ '{{ KafkaConnectVersion }}',
+ '{{ LogDelivery }}',
+ '{{ Plugins }}',
+ '{{ ServiceExecutionRoleArn }}',
+ '{{ Tags }}',
+ '{{ WorkerConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connector
+    props:
+      - name: Capacity
+        value:
+          AutoScaling:
+            MaxWorkerCount: '{{ MaxWorkerCount }}'
+            MinWorkerCount: '{{ MinWorkerCount }}'
+            ScaleInPolicy:
+              CpuUtilizationPercentage: '{{ CpuUtilizationPercentage }}'
+            ScaleOutPolicy:
+              CpuUtilizationPercentage: '{{ CpuUtilizationPercentage }}'
+            McuCount: '{{ McuCount }}'
+          ProvisionedCapacity:
+            McuCount: '{{ McuCount }}'
+            WorkerCount: '{{ WorkerCount }}'
+      - name: ConnectorConfiguration
+        value: {}
+      - name: ConnectorDescription
+        value: '{{ ConnectorDescription }}'
+      - name: ConnectorName
+        value: '{{ ConnectorName }}'
+      - name: KafkaCluster
+        value:
+          ApacheKafkaCluster:
+            BootstrapServers: '{{ BootstrapServers }}'
+            Vpc:
+              SecurityGroups:
+                - '{{ SecurityGroups[0] }}'
+              Subnets:
+                - '{{ Subnets[0] }}'
+      - name: KafkaClusterClientAuthentication
+        value:
+          AuthenticationType: '{{ AuthenticationType }}'
+      - name: KafkaClusterEncryptionInTransit
+        value:
+          EncryptionType: '{{ EncryptionType }}'
+      - name: KafkaConnectVersion
+        value: '{{ KafkaConnectVersion }}'
+      - name: LogDelivery
+        value:
+          WorkerLogDelivery:
+            CloudWatchLogs:
+              Enabled: '{{ Enabled }}'
+              LogGroup: '{{ LogGroup }}'
+            Firehose:
+              DeliveryStream: '{{ DeliveryStream }}'
+              Enabled: '{{ Enabled }}'
+            S3:
+              Bucket: '{{ Bucket }}'
+              Enabled: '{{ Enabled }}'
+              Prefix: '{{ Prefix }}'
+      - name: Plugins
+        value:
+          - CustomPlugin:
+              Name: '{{ Name }}'
+              Description: '{{ Description }}'
+              ContentType: '{{ ContentType }}'
+              Location:
+                S3Location:
+                  BucketArn: '{{ BucketArn }}'
+                  FileKey: '{{ FileKey }}'
+                  ObjectVersion: '{{ ObjectVersion }}'
+              Tags:
+                - Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+      - name: ServiceExecutionRoleArn
+        value: '{{ ServiceExecutionRoleArn }}'
+      - name: Tags
+        value:
+          - null
+      - name: WorkerConfiguration
+        value:
+          Name: '{{ Name }}'
+          Description: '{{ Description }}'
+          PropertiesFileContent: '{{ PropertiesFileContent }}'
+          Tags:
+            - null
+
 ```
 </TabItem>
 </Tabs>

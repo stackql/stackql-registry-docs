@@ -74,50 +74,63 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>publisher</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AcceptTermsAndConditions": "{{ AcceptTermsAndConditions }}"
-}
->>>
---required properties only
+-- publisher.iql (required properties only)
 INSERT INTO aws.cloudformation.publishers (
  AcceptTermsAndConditions,
  region
 )
 SELECT 
-{{ .AcceptTermsAndConditions }},
-'us-east-1';
+'{{ AcceptTermsAndConditions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AcceptTermsAndConditions": "{{ AcceptTermsAndConditions }}",
- "ConnectionArn": "{{ ConnectionArn }}"
-}
->>>
---all properties
+-- publisher.iql (all properties)
 INSERT INTO aws.cloudformation.publishers (
  AcceptTermsAndConditions,
  ConnectionArn,
  region
 )
 SELECT 
- {{ .AcceptTermsAndConditions }},
- {{ .ConnectionArn }},
- 'us-east-1';
+ '{{ AcceptTermsAndConditions }}',
+ '{{ ConnectionArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: publisher
+    props:
+      - name: AcceptTermsAndConditions
+        value: '{{ AcceptTermsAndConditions }}'
+      - name: ConnectionArn
+        value: '{{ ConnectionArn }}'
+
 ```
 </TabItem>
 </Tabs>
