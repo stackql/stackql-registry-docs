@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.iottwinmaker.scenes (
  region
 )
 SELECT 
-{{ SceneId }},
- {{ ContentLocation }},
- {{ WorkspaceId }},
+{{ .SceneId }},
+ {{ .ContentLocation }},
+ {{ .WorkspaceId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,16 +135,15 @@ INSERT INTO aws.iottwinmaker.scenes (
  region
 )
 SELECT 
- {{ SceneId }},
- {{ Description }},
- {{ ContentLocation }},
- {{ Tags }},
- {{ WorkspaceId }},
- {{ Capabilities }},
- {{ SceneMetadata }},
+ {{ .SceneId }},
+ {{ .Description }},
+ {{ .ContentLocation }},
+ {{ .Tags }},
+ {{ .WorkspaceId }},
+ {{ .Capabilities }},
+ {{ .SceneMetadata }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

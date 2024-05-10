@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.connect.security_profiles (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ SecurityProfileName }},
+{{ .InstanceArn }},
+ {{ .SecurityProfileName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -156,19 +154,18 @@ INSERT INTO aws.connect.security_profiles (
  region
 )
 SELECT 
- {{ AllowedAccessControlTags }},
- {{ Description }},
- {{ InstanceArn }},
- {{ Permissions }},
- {{ SecurityProfileName }},
- {{ TagRestrictedResources }},
- {{ HierarchyRestrictedResources }},
- {{ AllowedAccessControlHierarchyGroupId }},
- {{ Applications }},
- {{ Tags }},
+ {{ .AllowedAccessControlTags }},
+ {{ .Description }},
+ {{ .InstanceArn }},
+ {{ .Permissions }},
+ {{ .SecurityProfileName }},
+ {{ .TagRestrictedResources }},
+ {{ .HierarchyRestrictedResources }},
+ {{ .AllowedAccessControlHierarchyGroupId }},
+ {{ .Applications }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

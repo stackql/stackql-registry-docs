@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -120,12 +119,11 @@ INSERT INTO aws.iotsitewise.access_policies (
  region
 )
 SELECT 
-{{ AccessPolicyIdentity }},
- {{ AccessPolicyPermission }},
- {{ AccessPolicyResource }},
+{{ .AccessPolicyIdentity }},
+ {{ .AccessPolicyPermission }},
+ {{ .AccessPolicyResource }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -185,12 +183,11 @@ INSERT INTO aws.iotsitewise.access_policies (
  region
 )
 SELECT 
- {{ AccessPolicyIdentity }},
- {{ AccessPolicyPermission }},
- {{ AccessPolicyResource }},
+ {{ .AccessPolicyIdentity }},
+ {{ .AccessPolicyPermission }},
+ {{ .AccessPolicyResource }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

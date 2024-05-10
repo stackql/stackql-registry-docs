@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.backup.restore_testing_selections (
  region
 )
 SELECT 
-{{ IamRoleArn }},
- {{ ProtectedResourceType }},
- {{ RestoreTestingPlanName }},
- {{ RestoreTestingSelectionName }},
+{{ .IamRoleArn }},
+ {{ .ProtectedResourceType }},
+ {{ .RestoreTestingPlanName }},
+ {{ .RestoreTestingSelectionName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -152,17 +150,16 @@ INSERT INTO aws.backup.restore_testing_selections (
  region
 )
 SELECT 
- {{ IamRoleArn }},
- {{ ProtectedResourceArns }},
- {{ ProtectedResourceConditions }},
- {{ ProtectedResourceType }},
- {{ RestoreMetadataOverrides }},
- {{ RestoreTestingPlanName }},
- {{ RestoreTestingSelectionName }},
- {{ ValidationWindowHours }},
+ {{ .IamRoleArn }},
+ {{ .ProtectedResourceArns }},
+ {{ .ProtectedResourceConditions }},
+ {{ .ProtectedResourceType }},
+ {{ .RestoreMetadataOverrides }},
+ {{ .RestoreTestingPlanName }},
+ {{ .RestoreTestingSelectionName }},
+ {{ .ValidationWindowHours }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.appstream.image_builders (
  region
 )
 SELECT 
-{{ Name }},
- {{ InstanceType }},
+{{ .Name }},
+ {{ .InstanceType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -162,22 +160,21 @@ INSERT INTO aws.appstream.image_builders (
  region
 )
 SELECT 
- {{ Description }},
- {{ VpcConfig }},
- {{ EnableDefaultInternetAccess }},
- {{ DomainJoinInfo }},
- {{ AppstreamAgentVersion }},
- {{ Name }},
- {{ ImageName }},
- {{ DisplayName }},
- {{ IamRoleArn }},
- {{ InstanceType }},
- {{ Tags }},
- {{ ImageArn }},
- {{ AccessEndpoints }},
+ {{ .Description }},
+ {{ .VpcConfig }},
+ {{ .EnableDefaultInternetAccess }},
+ {{ .DomainJoinInfo }},
+ {{ .AppstreamAgentVersion }},
+ {{ .Name }},
+ {{ .ImageName }},
+ {{ .DisplayName }},
+ {{ .IamRoleArn }},
+ {{ .InstanceType }},
+ {{ .Tags }},
+ {{ .ImageArn }},
+ {{ .AccessEndpoints }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ FROM aws.cloudfront.realtime_log_configs
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -112,13 +111,12 @@ INSERT INTO aws.cloudfront.realtime_log_configs (
  region
 )
 SELECT 
-{{ EndPoints }},
- {{ Fields }},
- {{ Name }},
- {{ SamplingRate }},
+{{ .EndPoints }},
+ {{ .Fields }},
+ {{ .Name }},
+ {{ .SamplingRate }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -150,13 +148,12 @@ INSERT INTO aws.cloudfront.realtime_log_configs (
  region
 )
 SELECT 
- {{ EndPoints }},
- {{ Fields }},
- {{ Name }},
- {{ SamplingRate }},
+ {{ .EndPoints }},
+ {{ .Fields }},
+ {{ .Name }},
+ {{ .SamplingRate }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

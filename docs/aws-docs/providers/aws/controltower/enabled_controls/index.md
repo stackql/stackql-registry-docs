@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.controltower.enabled_controls (
  region
 )
 SELECT 
-{{ ControlIdentifier }},
- {{ TargetIdentifier }},
+{{ .ControlIdentifier }},
+ {{ .TargetIdentifier }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,13 +134,12 @@ INSERT INTO aws.controltower.enabled_controls (
  region
 )
 SELECT 
- {{ ControlIdentifier }},
- {{ TargetIdentifier }},
- {{ Parameters }},
- {{ Tags }},
+ {{ .ControlIdentifier }},
+ {{ .TargetIdentifier }},
+ {{ .Parameters }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

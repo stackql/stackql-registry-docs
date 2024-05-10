@@ -79,7 +79,6 @@ FROM aws.cloudfront.cloud_front_origin_access_identities
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
  region
 )
 SELECT 
-{{ CloudFrontOriginAccessIdentityConfig }},
+{{ .CloudFrontOriginAccessIdentityConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -119,10 +117,9 @@ INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
  region
 )
 SELECT 
- {{ CloudFrontOriginAccessIdentityConfig }},
+ {{ .CloudFrontOriginAccessIdentityConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

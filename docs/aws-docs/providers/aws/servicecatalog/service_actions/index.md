@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,12 +104,11 @@ INSERT INTO aws.servicecatalog.service_actions (
  region
 )
 SELECT 
-{{ Name }},
- {{ DefinitionType }},
- {{ Definition }},
+{{ .Name }},
+ {{ .DefinitionType }},
+ {{ .Definition }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,14 +137,13 @@ INSERT INTO aws.servicecatalog.service_actions (
  region
 )
 SELECT 
- {{ AcceptLanguage }},
- {{ Name }},
- {{ DefinitionType }},
- {{ Definition }},
- {{ Description }},
+ {{ .AcceptLanguage }},
+ {{ .Name }},
+ {{ .DefinitionType }},
+ {{ .Definition }},
+ {{ .Description }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

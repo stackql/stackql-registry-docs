@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -107,13 +106,12 @@ INSERT INTO aws.networkmanager.global_networks (
  region
 )
 SELECT 
-{{ Description }},
- {{ Tags }},
- {{ CreatedAt }},
- {{ State }},
+{{ .Description }},
+ {{ .Tags }},
+ {{ .CreatedAt }},
+ {{ .State }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,13 +138,12 @@ INSERT INTO aws.networkmanager.global_networks (
  region
 )
 SELECT 
- {{ Description }},
- {{ Tags }},
- {{ CreatedAt }},
- {{ State }},
+ {{ .Description }},
+ {{ .Tags }},
+ {{ .CreatedAt }},
+ {{ .State }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

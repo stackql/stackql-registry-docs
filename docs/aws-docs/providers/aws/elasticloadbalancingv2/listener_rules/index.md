@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -196,12 +195,11 @@ INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  region
 )
 SELECT 
-{{ Actions }},
- {{ Priority }},
- {{ Conditions }},
+{{ .Actions }},
+ {{ .Priority }},
+ {{ .Conditions }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -319,13 +317,12 @@ INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  region
 )
 SELECT 
- {{ ListenerArn }},
- {{ Actions }},
- {{ Priority }},
- {{ Conditions }},
+ {{ .ListenerArn }},
+ {{ .Actions }},
+ {{ .Priority }},
+ {{ .Conditions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

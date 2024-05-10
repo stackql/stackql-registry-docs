@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.entityresolution.id_namespaces (
  region
 )
 SELECT 
-{{ IdNamespaceName }},
- {{ Type }},
+{{ .IdNamespaceName }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -148,16 +146,15 @@ INSERT INTO aws.entityresolution.id_namespaces (
  region
 )
 SELECT 
- {{ IdNamespaceName }},
- {{ Description }},
- {{ InputSourceConfig }},
- {{ IdMappingWorkflowProperties }},
- {{ Type }},
- {{ RoleArn }},
- {{ Tags }},
+ {{ .IdNamespaceName }},
+ {{ .Description }},
+ {{ .InputSourceConfig }},
+ {{ .IdMappingWorkflowProperties }},
+ {{ .Type }},
+ {{ .RoleArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

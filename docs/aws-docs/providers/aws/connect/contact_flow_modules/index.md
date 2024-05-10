@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.connect.contact_flow_modules (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ Name }},
- {{ Content }},
+{{ .InstanceArn }},
+ {{ .Name }},
+ {{ .Content }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,15 +134,14 @@ INSERT INTO aws.connect.contact_flow_modules (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ Name }},
- {{ Content }},
- {{ Description }},
- {{ State }},
- {{ Tags }},
+ {{ .InstanceArn }},
+ {{ .Name }},
+ {{ .Content }},
+ {{ .Description }},
+ {{ .State }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

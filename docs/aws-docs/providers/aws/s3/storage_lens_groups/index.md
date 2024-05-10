@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -133,11 +132,10 @@ INSERT INTO aws.s3.storage_lens_groups (
  region
 )
 SELECT 
-{{ Name }},
- {{ Filter }},
+{{ .Name }},
+ {{ .Filter }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -194,12 +192,11 @@ INSERT INTO aws.s3.storage_lens_groups (
  region
 )
 SELECT 
- {{ Name }},
- {{ Filter }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Filter }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

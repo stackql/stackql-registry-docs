@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.apigateway.request_validators (
  region
 )
 SELECT 
-{{ RestApiId }},
+{{ .RestApiId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -123,13 +121,12 @@ INSERT INTO aws.apigateway.request_validators (
  region
 )
 SELECT 
- {{ Name }},
- {{ RestApiId }},
- {{ ValidateRequestBody }},
- {{ ValidateRequestParameters }},
+ {{ .Name }},
+ {{ .RestApiId }},
+ {{ .ValidateRequestBody }},
+ {{ .ValidateRequestParameters }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

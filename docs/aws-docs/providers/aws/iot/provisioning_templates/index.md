@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.iot.provisioning_templates (
  region
 )
 SELECT 
-{{ ProvisioningRoleArn }},
- {{ TemplateBody }},
+{{ .ProvisioningRoleArn }},
+ {{ .TemplateBody }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,17 +138,16 @@ INSERT INTO aws.iot.provisioning_templates (
  region
 )
 SELECT 
- {{ TemplateName }},
- {{ Description }},
- {{ Enabled }},
- {{ ProvisioningRoleArn }},
- {{ TemplateBody }},
- {{ TemplateType }},
- {{ PreProvisioningHook }},
- {{ Tags }},
+ {{ .TemplateName }},
+ {{ .Description }},
+ {{ .Enabled }},
+ {{ .ProvisioningRoleArn }},
+ {{ .TemplateBody }},
+ {{ .TemplateType }},
+ {{ .PreProvisioningHook }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.forecast.dataset_groups (
  region
 )
 SELECT 
-{{ DatasetGroupName }},
- {{ Domain }},
+{{ .DatasetGroupName }},
+ {{ .Domain }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,13 +129,12 @@ INSERT INTO aws.forecast.dataset_groups (
  region
 )
 SELECT 
- {{ DatasetArns }},
- {{ DatasetGroupName }},
- {{ Domain }},
- {{ Tags }},
+ {{ .DatasetArns }},
+ {{ .DatasetGroupName }},
+ {{ .Domain }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -111,14 +110,13 @@ INSERT INTO aws.connect.users (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ Username }},
- {{ RoutingProfileArn }},
- {{ PhoneConfig }},
- {{ SecurityProfileArns }},
+{{ .InstanceArn }},
+ {{ .Username }},
+ {{ .RoutingProfileArn }},
+ {{ .PhoneConfig }},
+ {{ .SecurityProfileArns }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -178,20 +176,19 @@ INSERT INTO aws.connect.users (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ DirectoryUserId }},
- {{ HierarchyGroupArn }},
- {{ Username }},
- {{ Password }},
- {{ RoutingProfileArn }},
- {{ IdentityInfo }},
- {{ PhoneConfig }},
- {{ SecurityProfileArns }},
- {{ Tags }},
- {{ UserProficiencies }},
+ {{ .InstanceArn }},
+ {{ .DirectoryUserId }},
+ {{ .HierarchyGroupArn }},
+ {{ .Username }},
+ {{ .Password }},
+ {{ .RoutingProfileArn }},
+ {{ .IdentityInfo }},
+ {{ .PhoneConfig }},
+ {{ .SecurityProfileArns }},
+ {{ .Tags }},
+ {{ .UserProficiencies }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

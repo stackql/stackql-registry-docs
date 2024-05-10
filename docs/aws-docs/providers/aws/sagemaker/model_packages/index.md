@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -293,33 +292,32 @@ INSERT INTO aws.sagemaker.model_packages (
  region
 )
 SELECT 
-{{ Tags }},
- {{ AdditionalInferenceSpecifications }},
- {{ CertifyForMarketplace }},
- {{ ClientToken }},
- {{ CustomerMetadataProperties }},
- {{ Domain }},
- {{ DriftCheckBaselines }},
- {{ InferenceSpecification }},
- {{ MetadataProperties }},
- {{ ModelApprovalStatus }},
- {{ ModelMetrics }},
- {{ ModelPackageDescription }},
- {{ ModelPackageGroupName }},
- {{ ModelPackageName }},
- {{ SamplePayloadUrl }},
- {{ SkipModelValidation }},
- {{ SourceAlgorithmSpecification }},
- {{ Task }},
- {{ ValidationSpecification }},
- {{ ApprovalDescription }},
- {{ LastModifiedTime }},
- {{ ModelPackageVersion }},
- {{ AdditionalInferenceSpecificationsToAdd }},
- {{ ModelPackageStatusDetails }},
+{{ .Tags }},
+ {{ .AdditionalInferenceSpecifications }},
+ {{ .CertifyForMarketplace }},
+ {{ .ClientToken }},
+ {{ .CustomerMetadataProperties }},
+ {{ .Domain }},
+ {{ .DriftCheckBaselines }},
+ {{ .InferenceSpecification }},
+ {{ .MetadataProperties }},
+ {{ .ModelApprovalStatus }},
+ {{ .ModelMetrics }},
+ {{ .ModelPackageDescription }},
+ {{ .ModelPackageGroupName }},
+ {{ .ModelPackageName }},
+ {{ .SamplePayloadUrl }},
+ {{ .SkipModelValidation }},
+ {{ .SourceAlgorithmSpecification }},
+ {{ .Task }},
+ {{ .ValidationSpecification }},
+ {{ .ApprovalDescription }},
+ {{ .LastModifiedTime }},
+ {{ .ModelPackageVersion }},
+ {{ .AdditionalInferenceSpecificationsToAdd }},
+ {{ .ModelPackageStatusDetails }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -532,33 +530,32 @@ INSERT INTO aws.sagemaker.model_packages (
  region
 )
 SELECT 
- {{ Tags }},
- {{ AdditionalInferenceSpecifications }},
- {{ CertifyForMarketplace }},
- {{ ClientToken }},
- {{ CustomerMetadataProperties }},
- {{ Domain }},
- {{ DriftCheckBaselines }},
- {{ InferenceSpecification }},
- {{ MetadataProperties }},
- {{ ModelApprovalStatus }},
- {{ ModelMetrics }},
- {{ ModelPackageDescription }},
- {{ ModelPackageGroupName }},
- {{ ModelPackageName }},
- {{ SamplePayloadUrl }},
- {{ SkipModelValidation }},
- {{ SourceAlgorithmSpecification }},
- {{ Task }},
- {{ ValidationSpecification }},
- {{ ApprovalDescription }},
- {{ LastModifiedTime }},
- {{ ModelPackageVersion }},
- {{ AdditionalInferenceSpecificationsToAdd }},
- {{ ModelPackageStatusDetails }},
+ {{ .Tags }},
+ {{ .AdditionalInferenceSpecifications }},
+ {{ .CertifyForMarketplace }},
+ {{ .ClientToken }},
+ {{ .CustomerMetadataProperties }},
+ {{ .Domain }},
+ {{ .DriftCheckBaselines }},
+ {{ .InferenceSpecification }},
+ {{ .MetadataProperties }},
+ {{ .ModelApprovalStatus }},
+ {{ .ModelMetrics }},
+ {{ .ModelPackageDescription }},
+ {{ .ModelPackageGroupName }},
+ {{ .ModelPackageName }},
+ {{ .SamplePayloadUrl }},
+ {{ .SkipModelValidation }},
+ {{ .SourceAlgorithmSpecification }},
+ {{ .Task }},
+ {{ .ValidationSpecification }},
+ {{ .ApprovalDescription }},
+ {{ .LastModifiedTime }},
+ {{ .ModelPackageVersion }},
+ {{ .AdditionalInferenceSpecificationsToAdd }},
+ {{ .ModelPackageStatusDetails }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

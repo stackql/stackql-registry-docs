@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,11 +103,10 @@ INSERT INTO aws.iotevents.alarm_models (
  region
 )
 SELECT 
-{{ RoleArn }},
- {{ AlarmRule }},
+{{ .RoleArn }},
+ {{ .AlarmRule }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -227,18 +225,17 @@ INSERT INTO aws.iotevents.alarm_models (
  region
 )
 SELECT 
- {{ AlarmModelName }},
- {{ AlarmModelDescription }},
- {{ RoleArn }},
- {{ Key }},
- {{ Severity }},
- {{ AlarmRule }},
- {{ AlarmEventActions }},
- {{ AlarmCapabilities }},
- {{ Tags }},
+ {{ .AlarmModelName }},
+ {{ .AlarmModelDescription }},
+ {{ .RoleArn }},
+ {{ .Key }},
+ {{ .Severity }},
+ {{ .AlarmRule }},
+ {{ .AlarmEventActions }},
+ {{ .AlarmCapabilities }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

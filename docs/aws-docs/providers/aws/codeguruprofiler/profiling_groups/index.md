@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.codeguruprofiler.profiling_groups (
  region
 )
 SELECT 
-{{ ProfilingGroupName }},
+{{ .ProfilingGroupName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,14 +135,13 @@ INSERT INTO aws.codeguruprofiler.profiling_groups (
  region
 )
 SELECT 
- {{ ProfilingGroupName }},
- {{ ComputePlatform }},
- {{ AgentPermissions }},
- {{ AnomalyDetectionNotificationConfiguration }},
- {{ Tags }},
+ {{ .ProfilingGroupName }},
+ {{ .ComputePlatform }},
+ {{ .AgentPermissions }},
+ {{ .AnomalyDetectionNotificationConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

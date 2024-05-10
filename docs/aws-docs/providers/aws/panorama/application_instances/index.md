@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.panorama.application_instances (
  region
 )
 SELECT 
-{{ DefaultRuntimeContextDevice }},
- {{ ManifestPayload }},
+{{ .DefaultRuntimeContextDevice }},
+ {{ .ManifestPayload }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,17 +141,16 @@ INSERT INTO aws.panorama.application_instances (
  region
 )
 SELECT 
- {{ DefaultRuntimeContextDevice }},
- {{ Description }},
- {{ ApplicationInstanceIdToReplace }},
- {{ ManifestOverridesPayload }},
- {{ RuntimeRoleArn }},
- {{ Name }},
- {{ ManifestPayload }},
- {{ Tags }},
+ {{ .DefaultRuntimeContextDevice }},
+ {{ .Description }},
+ {{ .ApplicationInstanceIdToReplace }},
+ {{ .ManifestOverridesPayload }},
+ {{ .RuntimeRoleArn }},
+ {{ .Name }},
+ {{ .ManifestPayload }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

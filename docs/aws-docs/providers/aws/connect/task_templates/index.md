@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.connect.task_templates (
  region
 )
 SELECT 
-{{ InstanceArn }},
+{{ .InstanceArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -170,19 +168,18 @@ INSERT INTO aws.connect.task_templates (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ Name }},
- {{ Description }},
- {{ ContactFlowArn }},
- {{ Constraints }},
- {{ Defaults }},
- {{ Fields }},
- {{ Status }},
- {{ ClientToken }},
- {{ Tags }},
+ {{ .InstanceArn }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .ContactFlowArn }},
+ {{ .Constraints }},
+ {{ .Defaults }},
+ {{ .Fields }},
+ {{ .Status }},
+ {{ .ClientToken }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

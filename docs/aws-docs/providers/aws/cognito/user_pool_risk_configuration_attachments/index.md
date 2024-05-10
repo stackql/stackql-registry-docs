@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.cognito.user_pool_risk_configuration_attachments (
  region
 )
 SELECT 
-{{ UserPoolId }},
- {{ ClientId }},
+{{ .UserPoolId }},
+ {{ .ClientId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -163,14 +161,13 @@ INSERT INTO aws.cognito.user_pool_risk_configuration_attachments (
  region
 )
 SELECT 
- {{ UserPoolId }},
- {{ ClientId }},
- {{ RiskExceptionConfiguration }},
- {{ CompromisedCredentialsRiskConfiguration }},
- {{ AccountTakeoverRiskConfiguration }},
+ {{ .UserPoolId }},
+ {{ .ClientId }},
+ {{ .RiskExceptionConfiguration }},
+ {{ .CompromisedCredentialsRiskConfiguration }},
+ {{ .AccountTakeoverRiskConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

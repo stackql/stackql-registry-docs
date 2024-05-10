@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.macie.allow_lists (
  region
 )
 SELECT 
-{{ Name }},
- {{ Criteria }},
+{{ .Name }},
+ {{ .Criteria }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,13 +127,12 @@ INSERT INTO aws.macie.allow_lists (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Criteria }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Criteria }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

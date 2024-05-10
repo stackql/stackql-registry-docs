@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.rds.event_subscriptions (
  region
 )
 SELECT 
-{{ SnsTopicArn }},
+{{ .SnsTopicArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,16 +134,15 @@ INSERT INTO aws.rds.event_subscriptions (
  region
 )
 SELECT 
- {{ Tags }},
- {{ SubscriptionName }},
- {{ Enabled }},
- {{ EventCategories }},
- {{ SnsTopicArn }},
- {{ SourceIds }},
- {{ SourceType }},
+ {{ .Tags }},
+ {{ .SubscriptionName }},
+ {{ .Enabled }},
+ {{ .EventCategories }},
+ {{ .SnsTopicArn }},
+ {{ .SourceIds }},
+ {{ .SourceType }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

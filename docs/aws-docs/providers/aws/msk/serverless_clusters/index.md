@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -115,12 +114,11 @@ INSERT INTO aws.msk.serverless_clusters (
  region
 )
 SELECT 
-{{ ClusterName }},
- {{ VpcConfigs }},
- {{ ClientAuthentication }},
+{{ .ClusterName }},
+ {{ .VpcConfigs }},
+ {{ .ClientAuthentication }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -157,13 +155,12 @@ INSERT INTO aws.msk.serverless_clusters (
  region
 )
 SELECT 
- {{ ClusterName }},
- {{ VpcConfigs }},
- {{ ClientAuthentication }},
- {{ Tags }},
+ {{ .ClusterName }},
+ {{ .VpcConfigs }},
+ {{ .ClientAuthentication }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

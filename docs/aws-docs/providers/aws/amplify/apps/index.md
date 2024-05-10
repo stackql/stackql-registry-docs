@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.amplify.apps (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -180,24 +178,23 @@ INSERT INTO aws.amplify.apps (
  region
 )
 SELECT 
- {{ AccessToken }},
- {{ AutoBranchCreationConfig }},
- {{ BasicAuthConfig }},
- {{ BuildSpec }},
- {{ CustomHeaders }},
- {{ CustomRules }},
- {{ Description }},
- {{ EnableBranchAutoDeletion }},
- {{ EnvironmentVariables }},
- {{ IAMServiceRole }},
- {{ Name }},
- {{ OauthToken }},
- {{ Platform }},
- {{ Repository }},
- {{ Tags }},
+ {{ .AccessToken }},
+ {{ .AutoBranchCreationConfig }},
+ {{ .BasicAuthConfig }},
+ {{ .BuildSpec }},
+ {{ .CustomHeaders }},
+ {{ .CustomRules }},
+ {{ .Description }},
+ {{ .EnableBranchAutoDeletion }},
+ {{ .EnvironmentVariables }},
+ {{ .IAMServiceRole }},
+ {{ .Name }},
+ {{ .OauthToken }},
+ {{ .Platform }},
+ {{ .Repository }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

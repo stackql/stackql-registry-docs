@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,13 +101,12 @@ INSERT INTO aws.appsync.source_api_associations (
  region
 )
 SELECT 
-{{ SourceApiIdentifier }},
- {{ MergedApiIdentifier }},
- {{ Description }},
- {{ SourceApiAssociationConfig }},
+{{ .SourceApiIdentifier }},
+ {{ .MergedApiIdentifier }},
+ {{ .Description }},
+ {{ .SourceApiAssociationConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -130,13 +128,12 @@ INSERT INTO aws.appsync.source_api_associations (
  region
 )
 SELECT 
- {{ SourceApiIdentifier }},
- {{ MergedApiIdentifier }},
- {{ Description }},
- {{ SourceApiAssociationConfig }},
+ {{ .SourceApiIdentifier }},
+ {{ .MergedApiIdentifier }},
+ {{ .Description }},
+ {{ .SourceApiAssociationConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.mediaconnect.flow_outputs (
  region
 )
 SELECT 
-{{ FlowArn }},
- {{ Protocol }},
+{{ .FlowArn }},
+ {{ .Protocol }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -158,23 +156,22 @@ INSERT INTO aws.mediaconnect.flow_outputs (
  region
 )
 SELECT 
- {{ FlowArn }},
- {{ CidrAllowList }},
- {{ Encryption }},
- {{ Description }},
- {{ Destination }},
- {{ MaxLatency }},
- {{ MinLatency }},
- {{ Name }},
- {{ Port }},
- {{ Protocol }},
- {{ RemoteId }},
- {{ SmoothingLatency }},
- {{ StreamId }},
- {{ VpcInterfaceAttachment }},
+ {{ .FlowArn }},
+ {{ .CidrAllowList }},
+ {{ .Encryption }},
+ {{ .Description }},
+ {{ .Destination }},
+ {{ .MaxLatency }},
+ {{ .MinLatency }},
+ {{ .Name }},
+ {{ .Port }},
+ {{ .Protocol }},
+ {{ .RemoteId }},
+ {{ .SmoothingLatency }},
+ {{ .StreamId }},
+ {{ .VpcInterfaceAttachment }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

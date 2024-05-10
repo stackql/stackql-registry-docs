@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -153,14 +152,13 @@ INSERT INTO aws.sagemaker.model_bias_job_definitions (
  region
 )
 SELECT 
-{{ ModelBiasAppSpecification }},
- {{ ModelBiasJobInput }},
- {{ ModelBiasJobOutputConfig }},
- {{ JobResources }},
- {{ RoleArn }},
+{{ .ModelBiasAppSpecification }},
+ {{ .ModelBiasJobInput }},
+ {{ .ModelBiasJobOutputConfig }},
+ {{ .JobResources }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -268,20 +266,19 @@ INSERT INTO aws.sagemaker.model_bias_job_definitions (
  region
 )
 SELECT 
- {{ JobDefinitionName }},
- {{ ModelBiasBaselineConfig }},
- {{ ModelBiasAppSpecification }},
- {{ ModelBiasJobInput }},
- {{ ModelBiasJobOutputConfig }},
- {{ JobResources }},
- {{ NetworkConfig }},
- {{ EndpointName }},
- {{ RoleArn }},
- {{ StoppingCondition }},
- {{ Tags }},
+ {{ .JobDefinitionName }},
+ {{ .ModelBiasBaselineConfig }},
+ {{ .ModelBiasAppSpecification }},
+ {{ .ModelBiasJobInput }},
+ {{ .ModelBiasJobOutputConfig }},
+ {{ .JobResources }},
+ {{ .NetworkConfig }},
+ {{ .EndpointName }},
+ {{ .RoleArn }},
+ {{ .StoppingCondition }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

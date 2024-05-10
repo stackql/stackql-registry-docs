@@ -79,7 +79,6 @@ FROM aws.iam.users
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -127,17 +126,16 @@ INSERT INTO aws.iam.users (
  region
 )
 SELECT 
-{{ Path }},
- {{ ManagedPolicyArns }},
- {{ Policies }},
- {{ UserName }},
- {{ Groups }},
- {{ LoginProfile }},
- {{ Tags }},
- {{ PermissionsBoundary }},
+{{ .Path }},
+ {{ .ManagedPolicyArns }},
+ {{ .Policies }},
+ {{ .UserName }},
+ {{ .Groups }},
+ {{ .LoginProfile }},
+ {{ .Tags }},
+ {{ .PermissionsBoundary }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -184,17 +182,16 @@ INSERT INTO aws.iam.users (
  region
 )
 SELECT 
- {{ Path }},
- {{ ManagedPolicyArns }},
- {{ Policies }},
- {{ UserName }},
- {{ Groups }},
- {{ LoginProfile }},
- {{ Tags }},
- {{ PermissionsBoundary }},
+ {{ .Path }},
+ {{ .ManagedPolicyArns }},
+ {{ .Policies }},
+ {{ .UserName }},
+ {{ .Groups }},
+ {{ .LoginProfile }},
+ {{ .Tags }},
+ {{ .PermissionsBoundary }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

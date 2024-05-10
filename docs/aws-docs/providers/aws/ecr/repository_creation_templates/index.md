@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.ecr.repository_creation_templates (
  region
 )
 SELECT 
-{{ Prefix }},
- {{ AppliedFor }},
+{{ .Prefix }},
+ {{ .AppliedFor }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,17 +142,16 @@ INSERT INTO aws.ecr.repository_creation_templates (
  region
 )
 SELECT 
- {{ Prefix }},
- {{ Description }},
- {{ ImageTagMutability }},
- {{ RepositoryPolicy }},
- {{ LifecyclePolicy }},
- {{ EncryptionConfiguration }},
- {{ ResourceTags }},
- {{ AppliedFor }},
+ {{ .Prefix }},
+ {{ .Description }},
+ {{ .ImageTagMutability }},
+ {{ .RepositoryPolicy }},
+ {{ .LifecyclePolicy }},
+ {{ .EncryptionConfiguration }},
+ {{ .ResourceTags }},
+ {{ .AppliedFor }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

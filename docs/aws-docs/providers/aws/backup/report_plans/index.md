@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -118,11 +117,10 @@ INSERT INTO aws.backup.report_plans (
  region
 )
 SELECT 
-{{ ReportDeliveryChannel }},
- {{ ReportSetting }},
+{{ .ReportDeliveryChannel }},
+ {{ .ReportSetting }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,14 +169,13 @@ INSERT INTO aws.backup.report_plans (
  region
 )
 SELECT 
- {{ ReportPlanName }},
- {{ ReportPlanDescription }},
- {{ ReportPlanTags }},
- {{ ReportDeliveryChannel }},
- {{ ReportSetting }},
+ {{ .ReportPlanName }},
+ {{ .ReportPlanDescription }},
+ {{ .ReportPlanTags }},
+ {{ .ReportDeliveryChannel }},
+ {{ .ReportSetting }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

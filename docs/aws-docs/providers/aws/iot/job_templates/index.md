@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.iot.job_templates (
  region
 )
 SELECT 
-{{ JobTemplateId }},
- {{ Description }},
+{{ .JobTemplateId }},
+ {{ .Description }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -382,22 +380,21 @@ INSERT INTO aws.iot.job_templates (
  region
 )
 SELECT 
- {{ JobArn }},
- {{ JobTemplateId }},
- {{ Description }},
- {{ Document }},
- {{ DocumentSource }},
- {{ TimeoutConfig }},
- {{ JobExecutionsRolloutConfig }},
- {{ AbortConfig }},
- {{ PresignedUrlConfig }},
- {{ JobExecutionsRetryConfig }},
- {{ MaintenanceWindows }},
- {{ DestinationPackageVersions }},
- {{ Tags }},
+ {{ .JobArn }},
+ {{ .JobTemplateId }},
+ {{ .Description }},
+ {{ .Document }},
+ {{ .DocumentSource }},
+ {{ .TimeoutConfig }},
+ {{ .JobExecutionsRolloutConfig }},
+ {{ .AbortConfig }},
+ {{ .PresignedUrlConfig }},
+ {{ .JobExecutionsRetryConfig }},
+ {{ .MaintenanceWindows }},
+ {{ .DestinationPackageVersions }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

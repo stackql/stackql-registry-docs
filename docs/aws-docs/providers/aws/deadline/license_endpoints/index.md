@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.deadline.license_endpoints (
  region
 )
 SELECT 
-{{ SecurityGroupIds }},
- {{ SubnetIds }},
- {{ VpcId }},
+{{ .SecurityGroupIds }},
+ {{ .SubnetIds }},
+ {{ .VpcId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,12 +131,11 @@ INSERT INTO aws.deadline.license_endpoints (
  region
 )
 SELECT 
- {{ SecurityGroupIds }},
- {{ SubnetIds }},
- {{ VpcId }},
+ {{ .SecurityGroupIds }},
+ {{ .SubnetIds }},
+ {{ .VpcId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

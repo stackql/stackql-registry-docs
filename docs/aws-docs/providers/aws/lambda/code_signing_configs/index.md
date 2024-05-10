@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,10 +99,9 @@ INSERT INTO aws.lambda.code_signing_configs (
  region
 )
 SELECT 
-{{ AllowedPublishers }},
+{{ .AllowedPublishers }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,12 +127,11 @@ INSERT INTO aws.lambda.code_signing_configs (
  region
 )
 SELECT 
- {{ Description }},
- {{ AllowedPublishers }},
- {{ CodeSigningPolicies }},
+ {{ .Description }},
+ {{ .AllowedPublishers }},
+ {{ .CodeSigningPolicies }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

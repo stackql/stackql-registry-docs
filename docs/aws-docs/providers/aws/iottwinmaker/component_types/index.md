@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.iottwinmaker.component_types (
  region
 )
 SELECT 
-{{ WorkspaceId }},
- {{ ComponentTypeId }},
+{{ .WorkspaceId }},
+ {{ .ComponentTypeId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,19 +138,18 @@ INSERT INTO aws.iottwinmaker.component_types (
  region
 )
 SELECT 
- {{ WorkspaceId }},
- {{ ComponentTypeId }},
- {{ Description }},
- {{ ExtendsFrom }},
- {{ Functions }},
- {{ IsSingleton }},
- {{ PropertyDefinitions }},
- {{ PropertyGroups }},
- {{ CompositeComponentTypes }},
- {{ Tags }},
+ {{ .WorkspaceId }},
+ {{ .ComponentTypeId }},
+ {{ .Description }},
+ {{ .ExtendsFrom }},
+ {{ .Functions }},
+ {{ .IsSingleton }},
+ {{ .PropertyDefinitions }},
+ {{ .PropertyGroups }},
+ {{ .CompositeComponentTypes }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

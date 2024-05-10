@@ -79,7 +79,6 @@ FROM aws.wafv2.logging_configurations
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.wafv2.logging_configurations (
  region
 )
 SELECT 
-{{ ResourceArn }},
- {{ LogDestinationConfigs }},
+{{ .ResourceArn }},
+ {{ .LogDestinationConfigs }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -202,13 +200,12 @@ INSERT INTO aws.wafv2.logging_configurations (
  region
 )
 SELECT 
- {{ ResourceArn }},
- {{ LogDestinationConfigs }},
- {{ RedactedFields }},
- {{ LoggingFilter }},
+ {{ .ResourceArn }},
+ {{ .LogDestinationConfigs }},
+ {{ .RedactedFields }},
+ {{ .LoggingFilter }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

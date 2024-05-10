@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.connect.queues (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ HoursOfOperationArn }},
- {{ Name }},
+{{ .InstanceArn }},
+ {{ .HoursOfOperationArn }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -148,18 +146,17 @@ INSERT INTO aws.connect.queues (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ Description }},
- {{ HoursOfOperationArn }},
- {{ MaxContacts }},
- {{ Name }},
- {{ OutboundCallerConfig }},
- {{ Status }},
- {{ QuickConnectArns }},
- {{ Tags }},
+ {{ .InstanceArn }},
+ {{ .Description }},
+ {{ .HoursOfOperationArn }},
+ {{ .MaxContacts }},
+ {{ .Name }},
+ {{ .OutboundCallerConfig }},
+ {{ .Status }},
+ {{ .QuickConnectArns }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

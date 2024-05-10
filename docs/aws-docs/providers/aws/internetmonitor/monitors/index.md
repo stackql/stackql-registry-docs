@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.internetmonitor.monitors (
  region
 )
 SELECT 
-{{ MonitorName }},
+{{ .MonitorName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -163,21 +161,20 @@ INSERT INTO aws.internetmonitor.monitors (
  region
 )
 SELECT 
- {{ MonitorName }},
- {{ LinkedAccountId }},
- {{ IncludeLinkedAccounts }},
- {{ Resources }},
- {{ ResourcesToAdd }},
- {{ ResourcesToRemove }},
- {{ Status }},
- {{ Tags }},
- {{ MaxCityNetworksToMonitor }},
- {{ TrafficPercentageToMonitor }},
- {{ InternetMeasurementsLogDelivery }},
- {{ HealthEventsConfig }},
+ {{ .MonitorName }},
+ {{ .LinkedAccountId }},
+ {{ .IncludeLinkedAccounts }},
+ {{ .Resources }},
+ {{ .ResourcesToAdd }},
+ {{ .ResourcesToRemove }},
+ {{ .Status }},
+ {{ .Tags }},
+ {{ .MaxCityNetworksToMonitor }},
+ {{ .TrafficPercentageToMonitor }},
+ {{ .InternetMeasurementsLogDelivery }},
+ {{ .HealthEventsConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -118,11 +117,10 @@ INSERT INTO aws.databrew.datasets (
  region
 )
 SELECT 
-{{ Name }},
- {{ Input }},
+{{ .Name }},
+ {{ .Input }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -221,15 +219,14 @@ INSERT INTO aws.databrew.datasets (
  region
 )
 SELECT 
- {{ Name }},
- {{ Format }},
- {{ FormatOptions }},
- {{ Input }},
- {{ PathOptions }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Format }},
+ {{ .FormatOptions }},
+ {{ .Input }},
+ {{ .PathOptions }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

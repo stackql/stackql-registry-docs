@@ -79,7 +79,6 @@ FROM aws.iam.service_linked_roles
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -94,10 +93,9 @@ INSERT INTO aws.iam.service_linked_roles (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -117,12 +115,11 @@ INSERT INTO aws.iam.service_linked_roles (
  region
 )
 SELECT 
- {{ CustomSuffix }},
- {{ Description }},
- {{ AWSServiceName }},
+ {{ .CustomSuffix }},
+ {{ .Description }},
+ {{ .AWSServiceName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

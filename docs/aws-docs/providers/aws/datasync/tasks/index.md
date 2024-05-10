@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.datasync.tasks (
  region
 )
 SELECT 
-{{ DestinationLocationArn }},
- {{ SourceLocationArn }},
+{{ .DestinationLocationArn }},
+ {{ .SourceLocationArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -204,20 +202,19 @@ INSERT INTO aws.datasync.tasks (
  region
 )
 SELECT 
- {{ Excludes }},
- {{ Includes }},
- {{ Tags }},
- {{ CloudWatchLogGroupArn }},
- {{ DestinationLocationArn }},
- {{ Name }},
- {{ Options }},
- {{ TaskReportConfig }},
- {{ ManifestConfig }},
- {{ Schedule }},
- {{ SourceLocationArn }},
+ {{ .Excludes }},
+ {{ .Includes }},
+ {{ .Tags }},
+ {{ .CloudWatchLogGroupArn }},
+ {{ .DestinationLocationArn }},
+ {{ .Name }},
+ {{ .Options }},
+ {{ .TaskReportConfig }},
+ {{ .ManifestConfig }},
+ {{ .Schedule }},
+ {{ .SourceLocationArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

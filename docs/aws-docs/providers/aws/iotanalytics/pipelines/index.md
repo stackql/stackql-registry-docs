@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -158,10 +157,9 @@ INSERT INTO aws.iotanalytics.pipelines (
  region
 )
 SELECT 
-{{ PipelineActivities }},
+{{ .PipelineActivities }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -248,12 +246,11 @@ INSERT INTO aws.iotanalytics.pipelines (
  region
 )
 SELECT 
- {{ PipelineName }},
- {{ Tags }},
- {{ PipelineActivities }},
+ {{ .PipelineName }},
+ {{ .Tags }},
+ {{ .PipelineActivities }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

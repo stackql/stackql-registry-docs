@@ -79,7 +79,6 @@ FROM aws.iam.oidc_providers
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.iam.oidc_providers (
  region
 )
 SELECT 
-{{ ThumbprintList }},
+{{ .ThumbprintList }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.iam.oidc_providers (
  region
 )
 SELECT 
- {{ ClientIdList }},
- {{ Url }},
- {{ ThumbprintList }},
- {{ Tags }},
+ {{ .ClientIdList }},
+ {{ .Url }},
+ {{ .ThumbprintList }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

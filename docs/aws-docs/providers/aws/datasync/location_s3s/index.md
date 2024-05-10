@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.datasync.location_s3s (
  region
 )
 SELECT 
-{{ S3Config }},
+{{ .S3Config }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,14 +130,13 @@ INSERT INTO aws.datasync.location_s3s (
  region
 )
 SELECT 
- {{ S3Config }},
- {{ S3BucketArn }},
- {{ Subdirectory }},
- {{ S3StorageClass }},
- {{ Tags }},
+ {{ .S3Config }},
+ {{ .S3BucketArn }},
+ {{ .Subdirectory }},
+ {{ .S3StorageClass }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

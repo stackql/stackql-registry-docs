@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -114,12 +113,11 @@ INSERT INTO aws.resiliencehub.apps (
  region
 )
 SELECT 
-{{ Name }},
- {{ AppTemplateBody }},
- {{ ResourceMappings }},
+{{ .Name }},
+ {{ .AppTemplateBody }},
+ {{ .ResourceMappings }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -177,18 +175,17 @@ INSERT INTO aws.resiliencehub.apps (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ ResiliencyPolicyArn }},
- {{ Tags }},
- {{ AppTemplateBody }},
- {{ ResourceMappings }},
- {{ AppAssessmentSchedule }},
- {{ PermissionModel }},
- {{ EventSubscriptions }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .ResiliencyPolicyArn }},
+ {{ .Tags }},
+ {{ .AppTemplateBody }},
+ {{ .ResourceMappings }},
+ {{ .AppAssessmentSchedule }},
+ {{ .PermissionModel }},
+ {{ .EventSubscriptions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

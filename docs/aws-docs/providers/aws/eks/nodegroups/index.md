@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.eks.nodegroups (
  region
 )
 SELECT 
-{{ ClusterName }},
- {{ NodeRole }},
- {{ Subnets }},
+{{ .ClusterName }},
+ {{ .NodeRole }},
+ {{ .Subnets }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -183,27 +181,26 @@ INSERT INTO aws.eks.nodegroups (
  region
 )
 SELECT 
- {{ AmiType }},
- {{ CapacityType }},
- {{ ClusterName }},
- {{ DiskSize }},
- {{ ForceUpdateEnabled }},
- {{ InstanceTypes }},
- {{ Labels }},
- {{ LaunchTemplate }},
- {{ NodegroupName }},
- {{ NodeRole }},
- {{ ReleaseVersion }},
- {{ RemoteAccess }},
- {{ ScalingConfig }},
- {{ Subnets }},
- {{ Tags }},
- {{ Taints }},
- {{ UpdateConfig }},
- {{ Version }},
+ {{ .AmiType }},
+ {{ .CapacityType }},
+ {{ .ClusterName }},
+ {{ .DiskSize }},
+ {{ .ForceUpdateEnabled }},
+ {{ .InstanceTypes }},
+ {{ .Labels }},
+ {{ .LaunchTemplate }},
+ {{ .NodegroupName }},
+ {{ .NodeRole }},
+ {{ .ReleaseVersion }},
+ {{ .RemoteAccess }},
+ {{ .ScalingConfig }},
+ {{ .Subnets }},
+ {{ .Tags }},
+ {{ .Taints }},
+ {{ .UpdateConfig }},
+ {{ .Version }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -94,10 +93,9 @@ INSERT INTO aws.iot.security_profiles (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -182,17 +180,16 @@ INSERT INTO aws.iot.security_profiles (
  region
 )
 SELECT 
- {{ SecurityProfileName }},
- {{ SecurityProfileDescription }},
- {{ Behaviors }},
- {{ AlertTargets }},
- {{ AdditionalMetricsToRetainV2 }},
- {{ MetricsExportConfig }},
- {{ Tags }},
- {{ TargetArns }},
+ {{ .SecurityProfileName }},
+ {{ .SecurityProfileDescription }},
+ {{ .Behaviors }},
+ {{ .AlertTargets }},
+ {{ .AdditionalMetricsToRetainV2 }},
+ {{ .MetricsExportConfig }},
+ {{ .Tags }},
+ {{ .TargetArns }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

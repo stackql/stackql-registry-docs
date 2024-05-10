@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -128,13 +127,12 @@ INSERT INTO aws.comprehend.document_classifiers (
  region
 )
 SELECT 
-{{ DataAccessRoleArn }},
- {{ InputDataConfig }},
- {{ LanguageCode }},
- {{ DocumentClassifierName }},
+{{ .DataAccessRoleArn }},
+ {{ .InputDataConfig }},
+ {{ .LanguageCode }},
+ {{ .DocumentClassifierName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -213,21 +211,20 @@ INSERT INTO aws.comprehend.document_classifiers (
  region
 )
 SELECT 
- {{ DataAccessRoleArn }},
- {{ InputDataConfig }},
- {{ OutputDataConfig }},
- {{ LanguageCode }},
- {{ ModelKmsKeyId }},
- {{ ModelPolicy }},
- {{ DocumentClassifierName }},
- {{ Mode }},
- {{ Tags }},
- {{ VersionName }},
- {{ VolumeKmsKeyId }},
- {{ VpcConfig }},
+ {{ .DataAccessRoleArn }},
+ {{ .InputDataConfig }},
+ {{ .OutputDataConfig }},
+ {{ .LanguageCode }},
+ {{ .ModelKmsKeyId }},
+ {{ .ModelPolicy }},
+ {{ .DocumentClassifierName }},
+ {{ .Mode }},
+ {{ .Tags }},
+ {{ .VersionName }},
+ {{ .VolumeKmsKeyId }},
+ {{ .VpcConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

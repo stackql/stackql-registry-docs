@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -121,12 +120,11 @@ INSERT INTO aws.cleanroomsml.training_datasets (
  region
 )
 SELECT 
-{{ Name }},
- {{ RoleArn }},
- {{ TrainingData }},
+{{ .Name }},
+ {{ .RoleArn }},
+ {{ .TrainingData }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -176,14 +174,13 @@ INSERT INTO aws.cleanroomsml.training_datasets (
  region
 )
 SELECT 
- {{ Description }},
- {{ Name }},
- {{ RoleArn }},
- {{ Tags }},
- {{ TrainingData }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .TrainingData }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

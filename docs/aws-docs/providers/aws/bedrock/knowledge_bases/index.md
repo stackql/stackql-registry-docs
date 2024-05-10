@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -139,13 +138,12 @@ INSERT INTO aws.bedrock.knowledge_bases (
  region
 )
 SELECT 
-{{ KnowledgeBaseConfiguration }},
- {{ Name }},
- {{ RoleArn }},
- {{ StorageConfiguration }},
+{{ .KnowledgeBaseConfiguration }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .StorageConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -208,15 +206,14 @@ INSERT INTO aws.bedrock.knowledge_bases (
  region
 )
 SELECT 
- {{ Description }},
- {{ KnowledgeBaseConfiguration }},
- {{ Name }},
- {{ RoleArn }},
- {{ StorageConfiguration }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .KnowledgeBaseConfiguration }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .StorageConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

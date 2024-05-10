@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.pipes.pipes (
  region
 )
 SELECT 
-{{ RoleArn }},
- {{ Source }},
- {{ Target }},
+{{ .RoleArn }},
+ {{ .Source }},
+ {{ .Target }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -424,21 +422,20 @@ INSERT INTO aws.pipes.pipes (
  region
 )
 SELECT 
- {{ Description }},
- {{ DesiredState }},
- {{ Enrichment }},
- {{ EnrichmentParameters }},
- {{ LogConfiguration }},
- {{ Name }},
- {{ RoleArn }},
- {{ Source }},
- {{ SourceParameters }},
- {{ Tags }},
- {{ Target }},
- {{ TargetParameters }},
+ {{ .Description }},
+ {{ .DesiredState }},
+ {{ .Enrichment }},
+ {{ .EnrichmentParameters }},
+ {{ .LogConfiguration }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .Source }},
+ {{ .SourceParameters }},
+ {{ .Tags }},
+ {{ .Target }},
+ {{ .TargetParameters }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

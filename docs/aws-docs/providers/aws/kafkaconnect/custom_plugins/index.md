@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,12 +105,11 @@ INSERT INTO aws.kafkaconnect.custom_plugins (
  region
 )
 SELECT 
-{{ Name }},
- {{ ContentType }},
- {{ Location }},
+{{ .Name }},
+ {{ .ContentType }},
+ {{ .Location }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -146,14 +144,13 @@ INSERT INTO aws.kafkaconnect.custom_plugins (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ ContentType }},
- {{ Location }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .ContentType }},
+ {{ .Location }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,13 +101,12 @@ INSERT INTO aws.deadline.fleets (
  region
 )
 SELECT 
-{{ Configuration }},
- {{ DisplayName }},
- {{ MaxWorkerCount }},
- {{ RoleArn }},
+{{ .Configuration }},
+ {{ .DisplayName }},
+ {{ .MaxWorkerCount }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,16 +134,15 @@ INSERT INTO aws.deadline.fleets (
  region
 )
 SELECT 
- {{ Configuration }},
- {{ Description }},
- {{ DisplayName }},
- {{ FarmId }},
- {{ MaxWorkerCount }},
- {{ MinWorkerCount }},
- {{ RoleArn }},
+ {{ .Configuration }},
+ {{ .Description }},
+ {{ .DisplayName }},
+ {{ .FarmId }},
+ {{ .MaxWorkerCount }},
+ {{ .MinWorkerCount }},
+ {{ .RoleArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

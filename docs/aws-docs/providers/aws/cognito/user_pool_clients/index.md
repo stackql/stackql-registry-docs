@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.cognito.user_pool_clients (
  region
 )
 SELECT 
-{{ UserPoolId }},
+{{ .UserPoolId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -185,31 +183,30 @@ INSERT INTO aws.cognito.user_pool_clients (
  region
 )
 SELECT 
- {{ ClientName }},
- {{ ExplicitAuthFlows }},
- {{ GenerateSecret }},
- {{ ReadAttributes }},
- {{ AuthSessionValidity }},
- {{ RefreshTokenValidity }},
- {{ AccessTokenValidity }},
- {{ IdTokenValidity }},
- {{ TokenValidityUnits }},
- {{ UserPoolId }},
- {{ WriteAttributes }},
- {{ AllowedOAuthFlows }},
- {{ AllowedOAuthFlowsUserPoolClient }},
- {{ AllowedOAuthScopes }},
- {{ CallbackURLs }},
- {{ DefaultRedirectURI }},
- {{ LogoutURLs }},
- {{ SupportedIdentityProviders }},
- {{ AnalyticsConfiguration }},
- {{ PreventUserExistenceErrors }},
- {{ EnableTokenRevocation }},
- {{ EnablePropagateAdditionalUserContextData }},
+ {{ .ClientName }},
+ {{ .ExplicitAuthFlows }},
+ {{ .GenerateSecret }},
+ {{ .ReadAttributes }},
+ {{ .AuthSessionValidity }},
+ {{ .RefreshTokenValidity }},
+ {{ .AccessTokenValidity }},
+ {{ .IdTokenValidity }},
+ {{ .TokenValidityUnits }},
+ {{ .UserPoolId }},
+ {{ .WriteAttributes }},
+ {{ .AllowedOAuthFlows }},
+ {{ .AllowedOAuthFlowsUserPoolClient }},
+ {{ .AllowedOAuthScopes }},
+ {{ .CallbackURLs }},
+ {{ .DefaultRedirectURI }},
+ {{ .LogoutURLs }},
+ {{ .SupportedIdentityProviders }},
+ {{ .AnalyticsConfiguration }},
+ {{ .PreventUserExistenceErrors }},
+ {{ .EnableTokenRevocation }},
+ {{ .EnablePropagateAdditionalUserContextData }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

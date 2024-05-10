@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.mwaa.environments (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -176,32 +174,31 @@ INSERT INTO aws.mwaa.environments (
  region
 )
 SELECT 
- {{ Name }},
- {{ ExecutionRoleArn }},
- {{ KmsKey }},
- {{ AirflowVersion }},
- {{ SourceBucketArn }},
- {{ DagS3Path }},
- {{ PluginsS3Path }},
- {{ PluginsS3ObjectVersion }},
- {{ RequirementsS3Path }},
- {{ RequirementsS3ObjectVersion }},
- {{ StartupScriptS3Path }},
- {{ StartupScriptS3ObjectVersion }},
- {{ AirflowConfigurationOptions }},
- {{ EnvironmentClass }},
- {{ MaxWorkers }},
- {{ MinWorkers }},
- {{ Schedulers }},
- {{ NetworkConfiguration }},
- {{ LoggingConfiguration }},
- {{ WeeklyMaintenanceWindowStart }},
- {{ Tags }},
- {{ WebserverAccessMode }},
- {{ EndpointManagement }},
+ {{ .Name }},
+ {{ .ExecutionRoleArn }},
+ {{ .KmsKey }},
+ {{ .AirflowVersion }},
+ {{ .SourceBucketArn }},
+ {{ .DagS3Path }},
+ {{ .PluginsS3Path }},
+ {{ .PluginsS3ObjectVersion }},
+ {{ .RequirementsS3Path }},
+ {{ .RequirementsS3ObjectVersion }},
+ {{ .StartupScriptS3Path }},
+ {{ .StartupScriptS3ObjectVersion }},
+ {{ .AirflowConfigurationOptions }},
+ {{ .EnvironmentClass }},
+ {{ .MaxWorkers }},
+ {{ .MinWorkers }},
+ {{ .Schedulers }},
+ {{ .NetworkConfiguration }},
+ {{ .LoggingConfiguration }},
+ {{ .WeeklyMaintenanceWindowStart }},
+ {{ .Tags }},
+ {{ .WebserverAccessMode }},
+ {{ .EndpointManagement }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

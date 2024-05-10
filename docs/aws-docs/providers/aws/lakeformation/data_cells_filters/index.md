@@ -85,7 +85,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,13 +107,12 @@ INSERT INTO aws.lakeformation.data_cells_filters (
  region
 )
 SELECT 
-{{ TableCatalogId }},
- {{ DatabaseName }},
- {{ TableName }},
- {{ Name }},
+{{ .TableCatalogId }},
+ {{ .DatabaseName }},
+ {{ .TableName }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,16 +147,15 @@ INSERT INTO aws.lakeformation.data_cells_filters (
  region
 )
 SELECT 
- {{ TableCatalogId }},
- {{ DatabaseName }},
- {{ TableName }},
- {{ Name }},
- {{ RowFilter }},
- {{ ColumnNames }},
- {{ ColumnWildcard }},
+ {{ .TableCatalogId }},
+ {{ .DatabaseName }},
+ {{ .TableName }},
+ {{ .Name }},
+ {{ .RowFilter }},
+ {{ .ColumnNames }},
+ {{ .ColumnWildcard }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.appsync.resolvers (
  region
 )
 SELECT 
-{{ ApiId }},
- {{ FieldName }},
- {{ TypeName }},
+{{ .ApiId }},
+ {{ .FieldName }},
+ {{ .TypeName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,26 +169,25 @@ INSERT INTO aws.appsync.resolvers (
  region
 )
 SELECT 
- {{ ApiId }},
- {{ CachingConfig }},
- {{ Code }},
- {{ CodeS3Location }},
- {{ DataSourceName }},
- {{ FieldName }},
- {{ Kind }},
- {{ MaxBatchSize }},
- {{ PipelineConfig }},
- {{ RequestMappingTemplate }},
- {{ RequestMappingTemplateS3Location }},
- {{ ResponseMappingTemplate }},
- {{ ResponseMappingTemplateS3Location }},
- {{ Runtime }},
- {{ SyncConfig }},
- {{ TypeName }},
- {{ MetricsConfig }},
+ {{ .ApiId }},
+ {{ .CachingConfig }},
+ {{ .Code }},
+ {{ .CodeS3Location }},
+ {{ .DataSourceName }},
+ {{ .FieldName }},
+ {{ .Kind }},
+ {{ .MaxBatchSize }},
+ {{ .PipelineConfig }},
+ {{ .RequestMappingTemplate }},
+ {{ .RequestMappingTemplateS3Location }},
+ {{ .ResponseMappingTemplate }},
+ {{ .ResponseMappingTemplateS3Location }},
+ {{ .Runtime }},
+ {{ .SyncConfig }},
+ {{ .TypeName }},
+ {{ .MetricsConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

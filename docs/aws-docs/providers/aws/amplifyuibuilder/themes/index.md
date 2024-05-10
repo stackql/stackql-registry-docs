@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -122,15 +121,14 @@ INSERT INTO aws.amplifyuibuilder.themes (
  region
 )
 SELECT 
-{{ AppId }},
- {{ EnvironmentName }},
- {{ Name }},
- {{ Overrides }},
- {{ Tags }},
- {{ Values }},
+{{ .AppId }},
+ {{ .EnvironmentName }},
+ {{ .Name }},
+ {{ .Overrides }},
+ {{ .Tags }},
+ {{ .Values }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -168,15 +166,14 @@ INSERT INTO aws.amplifyuibuilder.themes (
  region
 )
 SELECT 
- {{ AppId }},
- {{ EnvironmentName }},
- {{ Name }},
- {{ Overrides }},
- {{ Tags }},
- {{ Values }},
+ {{ .AppId }},
+ {{ .EnvironmentName }},
+ {{ .Name }},
+ {{ .Overrides }},
+ {{ .Tags }},
+ {{ .Values }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

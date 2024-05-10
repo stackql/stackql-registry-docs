@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,13 +101,12 @@ INSERT INTO aws.eks.pod_identity_associations (
  region
 )
 SELECT 
-{{ ClusterName }},
- {{ RoleArn }},
- {{ Namespace }},
- {{ ServiceAccount }},
+{{ .ClusterName }},
+ {{ .RoleArn }},
+ {{ .Namespace }},
+ {{ .ServiceAccount }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,14 +135,13 @@ INSERT INTO aws.eks.pod_identity_associations (
  region
 )
 SELECT 
- {{ ClusterName }},
- {{ RoleArn }},
- {{ Namespace }},
- {{ ServiceAccount }},
- {{ Tags }},
+ {{ .ClusterName }},
+ {{ .RoleArn }},
+ {{ .Namespace }},
+ {{ .ServiceAccount }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,10 +100,9 @@ INSERT INTO aws.gamelift.scripts (
  region
 )
 SELECT 
-{{ StorageLocation }},
+{{ .StorageLocation }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,13 +134,12 @@ INSERT INTO aws.gamelift.scripts (
  region
 )
 SELECT 
- {{ Name }},
- {{ StorageLocation }},
- {{ Version }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .StorageLocation }},
+ {{ .Version }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

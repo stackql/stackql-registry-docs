@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.sagemaker.user_profiles (
  region
 )
 SELECT 
-{{ DomainId }},
- {{ UserProfileName }},
+{{ .DomainId }},
+ {{ .UserProfileName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -209,15 +207,14 @@ INSERT INTO aws.sagemaker.user_profiles (
  region
 )
 SELECT 
- {{ DomainId }},
- {{ SingleSignOnUserIdentifier }},
- {{ SingleSignOnUserValue }},
- {{ UserProfileName }},
- {{ UserSettings }},
- {{ Tags }},
+ {{ .DomainId }},
+ {{ .SingleSignOnUserIdentifier }},
+ {{ .SingleSignOnUserValue }},
+ {{ .UserProfileName }},
+ {{ .UserSettings }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,12 +104,11 @@ INSERT INTO aws.appstream.directory_configs (
  region
 )
 SELECT 
-{{ OrganizationalUnitDistinguishedNames }},
- {{ ServiceAccountCredentials }},
- {{ DirectoryName }},
+{{ .OrganizationalUnitDistinguishedNames }},
+ {{ .ServiceAccountCredentials }},
+ {{ .DirectoryName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,13 +138,12 @@ INSERT INTO aws.appstream.directory_configs (
  region
 )
 SELECT 
- {{ OrganizationalUnitDistinguishedNames }},
- {{ ServiceAccountCredentials }},
- {{ DirectoryName }},
- {{ CertificateBasedAuthProperties }},
+ {{ .OrganizationalUnitDistinguishedNames }},
+ {{ .ServiceAccountCredentials }},
+ {{ .DirectoryName }},
+ {{ .CertificateBasedAuthProperties }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

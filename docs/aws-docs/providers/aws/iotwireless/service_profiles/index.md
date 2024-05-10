@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -94,10 +93,9 @@ INSERT INTO aws.iotwireless.service_profiles (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -142,12 +140,11 @@ INSERT INTO aws.iotwireless.service_profiles (
  region
 )
 SELECT 
- {{ Name }},
- {{ LoRaWAN }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .LoRaWAN }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

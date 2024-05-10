@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.b2bi.capabilities (
  region
 )
 SELECT 
-{{ Configuration }},
- {{ Name }},
- {{ Type }},
+{{ .Configuration }},
+ {{ .Name }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,14 +137,13 @@ INSERT INTO aws.b2bi.capabilities (
  region
 )
 SELECT 
- {{ Configuration }},
- {{ InstructionsDocuments }},
- {{ Name }},
- {{ Tags }},
- {{ Type }},
+ {{ .Configuration }},
+ {{ .InstructionsDocuments }},
+ {{ .Name }},
+ {{ .Tags }},
+ {{ .Type }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

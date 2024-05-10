@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -144,15 +143,14 @@ INSERT INTO aws.nimblestudio.launch_profiles (
  region
 )
 SELECT 
-{{ Ec2SubnetIds }},
- {{ LaunchProfileProtocolVersions }},
- {{ Name }},
- {{ StreamConfiguration }},
- {{ StudioComponentIds }},
- {{ StudioId }},
+{{ .Ec2SubnetIds }},
+ {{ .LaunchProfileProtocolVersions }},
+ {{ .Name }},
+ {{ .StreamConfiguration }},
+ {{ .StudioComponentIds }},
+ {{ .StudioId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -218,17 +216,16 @@ INSERT INTO aws.nimblestudio.launch_profiles (
  region
 )
 SELECT 
- {{ Description }},
- {{ Ec2SubnetIds }},
- {{ LaunchProfileProtocolVersions }},
- {{ Name }},
- {{ StreamConfiguration }},
- {{ StudioComponentIds }},
- {{ StudioId }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .Ec2SubnetIds }},
+ {{ .LaunchProfileProtocolVersions }},
+ {{ .Name }},
+ {{ .StreamConfiguration }},
+ {{ .StudioComponentIds }},
+ {{ .StudioId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

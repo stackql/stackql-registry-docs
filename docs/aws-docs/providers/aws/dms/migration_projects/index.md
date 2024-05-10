@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -136,21 +135,20 @@ INSERT INTO aws.dms.migration_projects (
  region
 )
 SELECT 
-{{ MigrationProjectName }},
- {{ MigrationProjectIdentifier }},
- {{ MigrationProjectCreationTime }},
- {{ InstanceProfileIdentifier }},
- {{ InstanceProfileName }},
- {{ InstanceProfileArn }},
- {{ TransformationRules }},
- {{ Description }},
- {{ SchemaConversionApplicationAttributes }},
- {{ SourceDataProviderDescriptors }},
- {{ TargetDataProviderDescriptors }},
- {{ Tags }},
+{{ .MigrationProjectName }},
+ {{ .MigrationProjectIdentifier }},
+ {{ .MigrationProjectCreationTime }},
+ {{ .InstanceProfileIdentifier }},
+ {{ .InstanceProfileName }},
+ {{ .InstanceProfileArn }},
+ {{ .TransformationRules }},
+ {{ .Description }},
+ {{ .SchemaConversionApplicationAttributes }},
+ {{ .SourceDataProviderDescriptors }},
+ {{ .TargetDataProviderDescriptors }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -206,21 +204,20 @@ INSERT INTO aws.dms.migration_projects (
  region
 )
 SELECT 
- {{ MigrationProjectName }},
- {{ MigrationProjectIdentifier }},
- {{ MigrationProjectCreationTime }},
- {{ InstanceProfileIdentifier }},
- {{ InstanceProfileName }},
- {{ InstanceProfileArn }},
- {{ TransformationRules }},
- {{ Description }},
- {{ SchemaConversionApplicationAttributes }},
- {{ SourceDataProviderDescriptors }},
- {{ TargetDataProviderDescriptors }},
- {{ Tags }},
+ {{ .MigrationProjectName }},
+ {{ .MigrationProjectIdentifier }},
+ {{ .MigrationProjectCreationTime }},
+ {{ .InstanceProfileIdentifier }},
+ {{ .InstanceProfileName }},
+ {{ .InstanceProfileArn }},
+ {{ .TransformationRules }},
+ {{ .Description }},
+ {{ .SchemaConversionApplicationAttributes }},
+ {{ .SourceDataProviderDescriptors }},
+ {{ .TargetDataProviderDescriptors }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

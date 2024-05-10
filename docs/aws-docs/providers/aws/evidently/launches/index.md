@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -128,13 +127,12 @@ INSERT INTO aws.evidently.launches (
  region
 )
 SELECT 
-{{ Name }},
- {{ Project }},
- {{ ScheduledSplitsConfig }},
- {{ Groups }},
+{{ .Name }},
+ {{ .Project }},
+ {{ .ScheduledSplitsConfig }},
+ {{ .Groups }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -209,18 +207,17 @@ INSERT INTO aws.evidently.launches (
  region
 )
 SELECT 
- {{ Name }},
- {{ Project }},
- {{ Description }},
- {{ RandomizationSalt }},
- {{ ScheduledSplitsConfig }},
- {{ Groups }},
- {{ MetricMonitors }},
- {{ Tags }},
- {{ ExecutionStatus }},
+ {{ .Name }},
+ {{ .Project }},
+ {{ .Description }},
+ {{ .RandomizationSalt }},
+ {{ .ScheduledSplitsConfig }},
+ {{ .Groups }},
+ {{ .MetricMonitors }},
+ {{ .Tags }},
+ {{ .ExecutionStatus }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

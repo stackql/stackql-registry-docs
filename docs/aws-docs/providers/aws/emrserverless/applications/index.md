@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.emrserverless.applications (
  region
 )
 SELECT 
-{{ ReleaseLabel }},
- {{ Type }},
+{{ .ReleaseLabel }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -191,23 +189,22 @@ INSERT INTO aws.emrserverless.applications (
  region
 )
 SELECT 
- {{ Architecture }},
- {{ Name }},
- {{ ReleaseLabel }},
- {{ Type }},
- {{ InitialCapacity }},
- {{ MaximumCapacity }},
- {{ Tags }},
- {{ AutoStartConfiguration }},
- {{ AutoStopConfiguration }},
- {{ ImageConfiguration }},
- {{ MonitoringConfiguration }},
- {{ RuntimeConfiguration }},
- {{ NetworkConfiguration }},
- {{ WorkerTypeSpecifications }},
+ {{ .Architecture }},
+ {{ .Name }},
+ {{ .ReleaseLabel }},
+ {{ .Type }},
+ {{ .InitialCapacity }},
+ {{ .MaximumCapacity }},
+ {{ .Tags }},
+ {{ .AutoStartConfiguration }},
+ {{ .AutoStopConfiguration }},
+ {{ .ImageConfiguration }},
+ {{ .MonitoringConfiguration }},
+ {{ .RuntimeConfiguration }},
+ {{ .NetworkConfiguration }},
+ {{ .WorkerTypeSpecifications }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

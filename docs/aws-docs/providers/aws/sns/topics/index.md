@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -135,21 +134,20 @@ INSERT INTO aws.sns.topics (
  region
 )
 SELECT 
-{{ DisplayName }},
- {{ KmsMasterKeyId }},
- {{ DataProtectionPolicy }},
- {{ Subscription }},
- {{ FifoTopic }},
- {{ ContentBasedDeduplication }},
- {{ ArchivePolicy }},
- {{ Tags }},
- {{ TopicName }},
- {{ SignatureVersion }},
- {{ TracingConfig }},
- {{ DeliveryStatusLogging }},
+{{ .DisplayName }},
+ {{ .KmsMasterKeyId }},
+ {{ .DataProtectionPolicy }},
+ {{ .Subscription }},
+ {{ .FifoTopic }},
+ {{ .ContentBasedDeduplication }},
+ {{ .ArchivePolicy }},
+ {{ .Tags }},
+ {{ .TopicName }},
+ {{ .SignatureVersion }},
+ {{ .TracingConfig }},
+ {{ .DeliveryStatusLogging }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -204,21 +202,20 @@ INSERT INTO aws.sns.topics (
  region
 )
 SELECT 
- {{ DisplayName }},
- {{ KmsMasterKeyId }},
- {{ DataProtectionPolicy }},
- {{ Subscription }},
- {{ FifoTopic }},
- {{ ContentBasedDeduplication }},
- {{ ArchivePolicy }},
- {{ Tags }},
- {{ TopicName }},
- {{ SignatureVersion }},
- {{ TracingConfig }},
- {{ DeliveryStatusLogging }},
+ {{ .DisplayName }},
+ {{ .KmsMasterKeyId }},
+ {{ .DataProtectionPolicy }},
+ {{ .Subscription }},
+ {{ .FifoTopic }},
+ {{ .ContentBasedDeduplication }},
+ {{ .ArchivePolicy }},
+ {{ .Tags }},
+ {{ .TopicName }},
+ {{ .SignatureVersion }},
+ {{ .TracingConfig }},
+ {{ .DeliveryStatusLogging }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

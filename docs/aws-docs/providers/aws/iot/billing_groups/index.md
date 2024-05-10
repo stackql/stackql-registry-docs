@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -107,12 +106,11 @@ INSERT INTO aws.iot.billing_groups (
  region
 )
 SELECT 
-{{ BillingGroupName }},
- {{ Tags }},
- {{ BillingGroupProperties }},
+{{ .BillingGroupName }},
+ {{ .Tags }},
+ {{ .BillingGroupProperties }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,12 +137,11 @@ INSERT INTO aws.iot.billing_groups (
  region
 )
 SELECT 
- {{ BillingGroupName }},
- {{ Tags }},
- {{ BillingGroupProperties }},
+ {{ .BillingGroupName }},
+ {{ .Tags }},
+ {{ .BillingGroupProperties }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,11 +103,10 @@ INSERT INTO aws.location.maps (
  region
 )
 SELECT 
-{{ Configuration }},
- {{ MapName }},
+{{ .Configuration }},
+ {{ .MapName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,14 +141,13 @@ INSERT INTO aws.location.maps (
  region
 )
 SELECT 
- {{ Configuration }},
- {{ Description }},
- {{ MapName }},
- {{ PricingPlan }},
- {{ Tags }},
+ {{ .Configuration }},
+ {{ .Description }},
+ {{ .MapName }},
+ {{ .PricingPlan }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

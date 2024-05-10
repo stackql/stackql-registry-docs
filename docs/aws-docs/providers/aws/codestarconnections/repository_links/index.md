@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.codestarconnections.repository_links (
  region
 )
 SELECT 
-{{ ConnectionArn }},
- {{ OwnerId }},
- {{ RepositoryName }},
+{{ .ConnectionArn }},
+ {{ .OwnerId }},
+ {{ .RepositoryName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,14 +132,13 @@ INSERT INTO aws.codestarconnections.repository_links (
  region
 )
 SELECT 
- {{ ConnectionArn }},
- {{ OwnerId }},
- {{ RepositoryName }},
- {{ EncryptionKeyArn }},
- {{ Tags }},
+ {{ .ConnectionArn }},
+ {{ .OwnerId }},
+ {{ .RepositoryName }},
+ {{ .EncryptionKeyArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

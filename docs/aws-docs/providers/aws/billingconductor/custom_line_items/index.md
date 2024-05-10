@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.billingconductor.custom_line_items (
  region
 )
 SELECT 
-{{ Name }},
- {{ BillingGroupArn }},
+{{ .Name }},
+ {{ .BillingGroupArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -158,16 +156,15 @@ INSERT INTO aws.billingconductor.custom_line_items (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ CustomLineItemChargeDetails }},
- {{ BillingGroupArn }},
- {{ BillingPeriodRange }},
- {{ AccountId }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .CustomLineItemChargeDetails }},
+ {{ .BillingGroupArn }},
+ {{ .BillingPeriodRange }},
+ {{ .AccountId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -114,15 +113,14 @@ INSERT INTO aws.vpclattice.services (
  region
 )
 SELECT 
-{{ AuthType }},
- {{ DnsEntry }},
- {{ Name }},
- {{ CertificateArn }},
- {{ CustomDomainName }},
- {{ Tags }},
+{{ .AuthType }},
+ {{ .DnsEntry }},
+ {{ .Name }},
+ {{ .CertificateArn }},
+ {{ .CustomDomainName }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -156,15 +154,14 @@ INSERT INTO aws.vpclattice.services (
  region
 )
 SELECT 
- {{ AuthType }},
- {{ DnsEntry }},
- {{ Name }},
- {{ CertificateArn }},
- {{ CustomDomainName }},
- {{ Tags }},
+ {{ .AuthType }},
+ {{ .DnsEntry }},
+ {{ .Name }},
+ {{ .CertificateArn }},
+ {{ .CustomDomainName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

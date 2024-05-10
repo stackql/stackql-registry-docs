@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.cloudwatch.composite_alarms (
  region
 )
 SELECT 
-{{ AlarmRule }},
+{{ .AlarmRule }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -146,20 +144,19 @@ INSERT INTO aws.cloudwatch.composite_alarms (
  region
 )
 SELECT 
- {{ AlarmName }},
- {{ AlarmRule }},
- {{ AlarmDescription }},
- {{ ActionsEnabled }},
- {{ OKActions }},
- {{ AlarmActions }},
- {{ InsufficientDataActions }},
- {{ ActionsSuppressor }},
- {{ ActionsSuppressorWaitPeriod }},
- {{ ActionsSuppressorExtensionPeriod }},
- {{ Tags }},
+ {{ .AlarmName }},
+ {{ .AlarmRule }},
+ {{ .AlarmDescription }},
+ {{ .ActionsEnabled }},
+ {{ .OKActions }},
+ {{ .AlarmActions }},
+ {{ .InsufficientDataActions }},
+ {{ .ActionsSuppressor }},
+ {{ .ActionsSuppressorWaitPeriod }},
+ {{ .ActionsSuppressorExtensionPeriod }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -162,12 +161,11 @@ INSERT INTO aws.dynamodb.global_tables (
  region
 )
 SELECT 
-{{ Replicas }},
- {{ AttributeDefinitions }},
- {{ KeySchema }},
+{{ .Replicas }},
+ {{ .AttributeDefinitions }},
+ {{ .KeySchema }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -303,20 +301,19 @@ INSERT INTO aws.dynamodb.global_tables (
  region
 )
 SELECT 
- {{ SSESpecification }},
- {{ StreamSpecification }},
- {{ Replicas }},
- {{ WriteProvisionedThroughputSettings }},
- {{ TableName }},
- {{ AttributeDefinitions }},
- {{ BillingMode }},
- {{ GlobalSecondaryIndexes }},
- {{ KeySchema }},
- {{ LocalSecondaryIndexes }},
- {{ TimeToLiveSpecification }},
+ {{ .SSESpecification }},
+ {{ .StreamSpecification }},
+ {{ .Replicas }},
+ {{ .WriteProvisionedThroughputSettings }},
+ {{ .TableName }},
+ {{ .AttributeDefinitions }},
+ {{ .BillingMode }},
+ {{ .GlobalSecondaryIndexes }},
+ {{ .KeySchema }},
+ {{ .LocalSecondaryIndexes }},
+ {{ .TimeToLiveSpecification }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

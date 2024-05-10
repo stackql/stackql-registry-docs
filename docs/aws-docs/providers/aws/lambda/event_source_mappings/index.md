@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.lambda.event_source_mappings (
  region
 )
 SELECT 
-{{ FunctionName }},
+{{ .FunctionName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -196,32 +194,31 @@ INSERT INTO aws.lambda.event_source_mappings (
  region
 )
 SELECT 
- {{ BatchSize }},
- {{ BisectBatchOnFunctionError }},
- {{ DestinationConfig }},
- {{ Enabled }},
- {{ EventSourceArn }},
- {{ FilterCriteria }},
- {{ FunctionName }},
- {{ MaximumBatchingWindowInSeconds }},
- {{ MaximumRecordAgeInSeconds }},
- {{ MaximumRetryAttempts }},
- {{ ParallelizationFactor }},
- {{ StartingPosition }},
- {{ StartingPositionTimestamp }},
- {{ Topics }},
- {{ Queues }},
- {{ SourceAccessConfigurations }},
- {{ TumblingWindowInSeconds }},
- {{ FunctionResponseTypes }},
- {{ SelfManagedEventSource }},
- {{ AmazonManagedKafkaEventSourceConfig }},
- {{ SelfManagedKafkaEventSourceConfig }},
- {{ ScalingConfig }},
- {{ DocumentDBEventSourceConfig }},
+ {{ .BatchSize }},
+ {{ .BisectBatchOnFunctionError }},
+ {{ .DestinationConfig }},
+ {{ .Enabled }},
+ {{ .EventSourceArn }},
+ {{ .FilterCriteria }},
+ {{ .FunctionName }},
+ {{ .MaximumBatchingWindowInSeconds }},
+ {{ .MaximumRecordAgeInSeconds }},
+ {{ .MaximumRetryAttempts }},
+ {{ .ParallelizationFactor }},
+ {{ .StartingPosition }},
+ {{ .StartingPositionTimestamp }},
+ {{ .Topics }},
+ {{ .Queues }},
+ {{ .SourceAccessConfigurations }},
+ {{ .TumblingWindowInSeconds }},
+ {{ .FunctionResponseTypes }},
+ {{ .SelfManagedEventSource }},
+ {{ .AmazonManagedKafkaEventSourceConfig }},
+ {{ .SelfManagedKafkaEventSourceConfig }},
+ {{ .ScalingConfig }},
+ {{ .DocumentDBEventSourceConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -116,15 +115,14 @@ INSERT INTO aws.kinesis.streams (
  region
 )
 SELECT 
-{{ StreamModeDetails }},
- {{ StreamEncryption }},
- {{ RetentionPeriodHours }},
- {{ Tags }},
- {{ Name }},
- {{ ShardCount }},
+{{ .StreamModeDetails }},
+ {{ .StreamEncryption }},
+ {{ .RetentionPeriodHours }},
+ {{ .Tags }},
+ {{ .Name }},
+ {{ .ShardCount }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -160,15 +158,14 @@ INSERT INTO aws.kinesis.streams (
  region
 )
 SELECT 
- {{ StreamModeDetails }},
- {{ StreamEncryption }},
- {{ RetentionPeriodHours }},
- {{ Tags }},
- {{ Name }},
- {{ ShardCount }},
+ {{ .StreamModeDetails }},
+ {{ .StreamEncryption }},
+ {{ .RetentionPeriodHours }},
+ {{ .Tags }},
+ {{ .Name }},
+ {{ .ShardCount }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.xray.groups (
  region
 )
 SELECT 
-{{ GroupName }},
+{{ .GroupName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,13 +127,12 @@ INSERT INTO aws.xray.groups (
  region
 )
 SELECT 
- {{ FilterExpression }},
- {{ GroupName }},
- {{ InsightsConfiguration }},
- {{ Tags }},
+ {{ .FilterExpression }},
+ {{ .GroupName }},
+ {{ .InsightsConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

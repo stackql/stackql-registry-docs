@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -128,16 +127,15 @@ INSERT INTO aws.ses.configuration_sets (
  region
 )
 SELECT 
-{{ Name }},
- {{ TrackingOptions }},
- {{ DeliveryOptions }},
- {{ ReputationOptions }},
- {{ SendingOptions }},
- {{ SuppressionOptions }},
- {{ VdmOptions }},
+{{ .Name }},
+ {{ .TrackingOptions }},
+ {{ .DeliveryOptions }},
+ {{ .ReputationOptions }},
+ {{ .SendingOptions }},
+ {{ .SuppressionOptions }},
+ {{ .VdmOptions }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -185,16 +183,15 @@ INSERT INTO aws.ses.configuration_sets (
  region
 )
 SELECT 
- {{ Name }},
- {{ TrackingOptions }},
- {{ DeliveryOptions }},
- {{ ReputationOptions }},
- {{ SendingOptions }},
- {{ SuppressionOptions }},
- {{ VdmOptions }},
+ {{ .Name }},
+ {{ .TrackingOptions }},
+ {{ .DeliveryOptions }},
+ {{ .ReputationOptions }},
+ {{ .SendingOptions }},
+ {{ .SuppressionOptions }},
+ {{ .VdmOptions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

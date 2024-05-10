@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.appsync.function_configurations (
  region
 )
 SELECT 
-{{ ApiId }},
- {{ DataSourceName }},
- {{ Name }},
+{{ .ApiId }},
+ {{ .DataSourceName }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -156,23 +154,22 @@ INSERT INTO aws.appsync.function_configurations (
  region
 )
 SELECT 
- {{ ApiId }},
- {{ Code }},
- {{ CodeS3Location }},
- {{ DataSourceName }},
- {{ Description }},
- {{ FunctionVersion }},
- {{ MaxBatchSize }},
- {{ Name }},
- {{ RequestMappingTemplate }},
- {{ RequestMappingTemplateS3Location }},
- {{ ResponseMappingTemplate }},
- {{ ResponseMappingTemplateS3Location }},
- {{ Runtime }},
- {{ SyncConfig }},
+ {{ .ApiId }},
+ {{ .Code }},
+ {{ .CodeS3Location }},
+ {{ .DataSourceName }},
+ {{ .Description }},
+ {{ .FunctionVersion }},
+ {{ .MaxBatchSize }},
+ {{ .Name }},
+ {{ .RequestMappingTemplate }},
+ {{ .RequestMappingTemplateS3Location }},
+ {{ .ResponseMappingTemplate }},
+ {{ .ResponseMappingTemplateS3Location }},
+ {{ .Runtime }},
+ {{ .SyncConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

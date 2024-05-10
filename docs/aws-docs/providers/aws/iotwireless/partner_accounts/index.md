@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -121,16 +120,15 @@ INSERT INTO aws.iotwireless.partner_accounts (
  region
 )
 SELECT 
-{{ Sidewalk }},
- {{ PartnerAccountId }},
- {{ PartnerType }},
- {{ SidewalkResponse }},
- {{ AccountLinked }},
- {{ SidewalkUpdate }},
- {{ Tags }},
+{{ .Sidewalk }},
+ {{ .PartnerAccountId }},
+ {{ .PartnerType }},
+ {{ .SidewalkResponse }},
+ {{ .AccountLinked }},
+ {{ .SidewalkUpdate }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,16 +169,15 @@ INSERT INTO aws.iotwireless.partner_accounts (
  region
 )
 SELECT 
- {{ Sidewalk }},
- {{ PartnerAccountId }},
- {{ PartnerType }},
- {{ SidewalkResponse }},
- {{ AccountLinked }},
- {{ SidewalkUpdate }},
- {{ Tags }},
+ {{ .Sidewalk }},
+ {{ .PartnerAccountId }},
+ {{ .PartnerType }},
+ {{ .SidewalkResponse }},
+ {{ .AccountLinked }},
+ {{ .SidewalkUpdate }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

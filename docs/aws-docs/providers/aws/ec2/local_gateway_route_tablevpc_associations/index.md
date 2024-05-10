@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ec2.local_gateway_route_tablevpc_associations (
  region
 )
 SELECT 
-{{ LocalGatewayRouteTableId }},
- {{ VpcId }},
+{{ .LocalGatewayRouteTableId }},
+ {{ .VpcId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,12 +125,11 @@ INSERT INTO aws.ec2.local_gateway_route_tablevpc_associations (
  region
 )
 SELECT 
- {{ LocalGatewayRouteTableId }},
- {{ VpcId }},
- {{ Tags }},
+ {{ .LocalGatewayRouteTableId }},
+ {{ .VpcId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

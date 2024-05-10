@@ -79,7 +79,6 @@ FROM aws.route53.hosted_zones
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -118,14 +117,13 @@ INSERT INTO aws.route53.hosted_zones (
  region
 )
 SELECT 
-{{ HostedZoneConfig }},
- {{ HostedZoneTags }},
- {{ Name }},
- {{ QueryLoggingConfig }},
- {{ VPCs }},
+{{ .HostedZoneConfig }},
+ {{ .HostedZoneTags }},
+ {{ .Name }},
+ {{ .QueryLoggingConfig }},
+ {{ .VPCs }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -163,14 +161,13 @@ INSERT INTO aws.route53.hosted_zones (
  region
 )
 SELECT 
- {{ HostedZoneConfig }},
- {{ HostedZoneTags }},
- {{ Name }},
- {{ QueryLoggingConfig }},
- {{ VPCs }},
+ {{ .HostedZoneConfig }},
+ {{ .HostedZoneTags }},
+ {{ .Name }},
+ {{ .QueryLoggingConfig }},
+ {{ .VPCs }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

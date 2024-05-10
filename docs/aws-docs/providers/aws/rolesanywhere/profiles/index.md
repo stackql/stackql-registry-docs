@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.rolesanywhere.profiles (
  region
 )
 SELECT 
-{{ Name }},
- {{ RoleArns }},
+{{ .Name }},
+ {{ .RoleArns }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,17 +141,16 @@ INSERT INTO aws.rolesanywhere.profiles (
  region
 )
 SELECT 
- {{ DurationSeconds }},
- {{ Enabled }},
- {{ ManagedPolicyArns }},
- {{ Name }},
- {{ RequireInstanceProperties }},
- {{ RoleArns }},
- {{ SessionPolicy }},
- {{ Tags }},
+ {{ .DurationSeconds }},
+ {{ .Enabled }},
+ {{ .ManagedPolicyArns }},
+ {{ .Name }},
+ {{ .RequireInstanceProperties }},
+ {{ .RoleArns }},
+ {{ .SessionPolicy }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

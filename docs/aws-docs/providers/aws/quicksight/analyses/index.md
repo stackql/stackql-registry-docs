@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.quicksight.analyses (
  region
 )
 SELECT 
-{{ AnalysisId }},
- {{ AwsAccountId }},
- {{ Name }},
+{{ .AnalysisId }},
+ {{ .AwsAccountId }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -2634,22 +2632,21 @@ INSERT INTO aws.quicksight.analyses (
  region
 )
 SELECT 
- {{ AnalysisId }},
- {{ AwsAccountId }},
- {{ Definition }},
- {{ Errors }},
- {{ Name }},
- {{ Parameters }},
- {{ Permissions }},
- {{ Sheets }},
- {{ SourceEntity }},
- {{ Status }},
- {{ Tags }},
- {{ ThemeArn }},
- {{ ValidationStrategy }},
+ {{ .AnalysisId }},
+ {{ .AwsAccountId }},
+ {{ .Definition }},
+ {{ .Errors }},
+ {{ .Name }},
+ {{ .Parameters }},
+ {{ .Permissions }},
+ {{ .Sheets }},
+ {{ .SourceEntity }},
+ {{ .Status }},
+ {{ .Tags }},
+ {{ .ThemeArn }},
+ {{ .ValidationStrategy }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

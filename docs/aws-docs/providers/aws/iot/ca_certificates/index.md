@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.iot.ca_certificates (
  region
 )
 SELECT 
-{{ CACertificatePem }},
- {{ Status }},
+{{ .CACertificatePem }},
+ {{ .Status }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -141,17 +139,16 @@ INSERT INTO aws.iot.ca_certificates (
  region
 )
 SELECT 
- {{ CACertificatePem }},
- {{ VerificationCertificatePem }},
- {{ Status }},
- {{ CertificateMode }},
- {{ AutoRegistrationStatus }},
- {{ RemoveAutoRegistration }},
- {{ RegistrationConfig }},
- {{ Tags }},
+ {{ .CACertificatePem }},
+ {{ .VerificationCertificatePem }},
+ {{ .Status }},
+ {{ .CertificateMode }},
+ {{ .AutoRegistrationStatus }},
+ {{ .RemoveAutoRegistration }},
+ {{ .RegistrationConfig }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

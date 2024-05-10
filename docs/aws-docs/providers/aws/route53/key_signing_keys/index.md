@@ -81,7 +81,6 @@ FROM aws.route53.key_signing_keys
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.route53.key_signing_keys (
  region
 )
 SELECT 
-{{ HostedZoneId }},
- {{ Status }},
- {{ Name }},
- {{ KeyManagementServiceArn }},
+{{ .HostedZoneId }},
+ {{ .Status }},
+ {{ .Name }},
+ {{ .KeyManagementServiceArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.route53.key_signing_keys (
  region
 )
 SELECT 
- {{ HostedZoneId }},
- {{ Status }},
- {{ Name }},
- {{ KeyManagementServiceArn }},
+ {{ .HostedZoneId }},
+ {{ .Status }},
+ {{ .Name }},
+ {{ .KeyManagementServiceArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

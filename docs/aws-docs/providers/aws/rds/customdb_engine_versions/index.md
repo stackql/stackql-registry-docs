@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.rds.customdb_engine_versions (
  region
 )
 SELECT 
-{{ Engine }},
- {{ EngineVersion }},
+{{ .Engine }},
+ {{ .EngineVersion }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -147,21 +145,20 @@ INSERT INTO aws.rds.customdb_engine_versions (
  region
 )
 SELECT 
- {{ DatabaseInstallationFilesS3BucketName }},
- {{ DatabaseInstallationFilesS3Prefix }},
- {{ Description }},
- {{ Engine }},
- {{ EngineVersion }},
- {{ KMSKeyId }},
- {{ Manifest }},
- {{ SourceCustomDbEngineVersionIdentifier }},
- {{ UseAwsProvidedLatestImage }},
- {{ ImageId }},
- {{ Status }},
- {{ Tags }},
+ {{ .DatabaseInstallationFilesS3BucketName }},
+ {{ .DatabaseInstallationFilesS3Prefix }},
+ {{ .Description }},
+ {{ .Engine }},
+ {{ .EngineVersion }},
+ {{ .KMSKeyId }},
+ {{ .Manifest }},
+ {{ .SourceCustomDbEngineVersionIdentifier }},
+ {{ .UseAwsProvidedLatestImage }},
+ {{ .ImageId }},
+ {{ .Status }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

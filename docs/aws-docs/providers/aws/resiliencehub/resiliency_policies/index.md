@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,12 +107,11 @@ INSERT INTO aws.resiliencehub.resiliency_policies (
  region
 )
 SELECT 
-{{ PolicyName }},
- {{ Tier }},
- {{ Policy }},
+{{ .PolicyName }},
+ {{ .Tier }},
+ {{ .Policy }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -147,15 +145,14 @@ INSERT INTO aws.resiliencehub.resiliency_policies (
  region
 )
 SELECT 
- {{ PolicyName }},
- {{ PolicyDescription }},
- {{ DataLocationConstraint }},
- {{ Tier }},
- {{ Policy }},
- {{ Tags }},
+ {{ .PolicyName }},
+ {{ .PolicyDescription }},
+ {{ .DataLocationConstraint }},
+ {{ .Tier }},
+ {{ .Policy }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

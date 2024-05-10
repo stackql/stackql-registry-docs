@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.config.aggregation_authorizations (
  region
 )
 SELECT 
-{{ AuthorizedAccountId }},
- {{ AuthorizedAwsRegion }},
+{{ .AuthorizedAccountId }},
+ {{ .AuthorizedAwsRegion }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,12 +127,11 @@ INSERT INTO aws.config.aggregation_authorizations (
  region
 )
 SELECT 
- {{ AuthorizedAccountId }},
- {{ AuthorizedAwsRegion }},
- {{ Tags }},
+ {{ .AuthorizedAccountId }},
+ {{ .AuthorizedAwsRegion }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

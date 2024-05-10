@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,11 +101,10 @@ INSERT INTO aws.eks.identity_provider_configs (
  region
 )
 SELECT 
-{{ ClusterName }},
- {{ Type }},
+{{ .ClusterName }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -148,14 +146,13 @@ INSERT INTO aws.eks.identity_provider_configs (
  region
 )
 SELECT 
- {{ ClusterName }},
- {{ Type }},
- {{ IdentityProviderConfigName }},
- {{ Oidc }},
- {{ Tags }},
+ {{ .ClusterName }},
+ {{ .Type }},
+ {{ .IdentityProviderConfigName }},
+ {{ .Oidc }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

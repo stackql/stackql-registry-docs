@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -114,13 +113,12 @@ INSERT INTO aws.imagebuilder.image_recipes (
  region
 )
 SELECT 
-{{ Name }},
- {{ Version }},
- {{ Components }},
- {{ ParentImage }},
+{{ .Name }},
+ {{ .Version }},
+ {{ .Components }},
+ {{ .ParentImage }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -185,18 +183,17 @@ INSERT INTO aws.imagebuilder.image_recipes (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Version }},
- {{ Components }},
- {{ BlockDeviceMappings }},
- {{ ParentImage }},
- {{ WorkingDirectory }},
- {{ AdditionalInstanceConfiguration }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Version }},
+ {{ .Components }},
+ {{ .BlockDeviceMappings }},
+ {{ .ParentImage }},
+ {{ .WorkingDirectory }},
+ {{ .AdditionalInstanceConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

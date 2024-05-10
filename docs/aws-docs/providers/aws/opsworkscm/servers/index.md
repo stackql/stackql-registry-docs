@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.opsworkscm.servers (
  region
 )
 SELECT 
-{{ ServiceRoleArn }},
- {{ InstanceProfileArn }},
- {{ InstanceType }},
+{{ .ServiceRoleArn }},
+ {{ .InstanceProfileArn }},
+ {{ .InstanceType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -173,29 +171,28 @@ INSERT INTO aws.opsworkscm.servers (
  region
 )
 SELECT 
- {{ KeyPair }},
- {{ EngineVersion }},
- {{ ServiceRoleArn }},
- {{ DisableAutomatedBackup }},
- {{ BackupId }},
- {{ EngineModel }},
- {{ PreferredMaintenanceWindow }},
- {{ AssociatePublicIpAddress }},
- {{ InstanceProfileArn }},
- {{ CustomCertificate }},
- {{ PreferredBackupWindow }},
- {{ SecurityGroupIds }},
- {{ SubnetIds }},
- {{ CustomDomain }},
- {{ CustomPrivateKey }},
- {{ EngineAttributes }},
- {{ BackupRetentionCount }},
- {{ InstanceType }},
- {{ Tags }},
- {{ Engine }},
+ {{ .KeyPair }},
+ {{ .EngineVersion }},
+ {{ .ServiceRoleArn }},
+ {{ .DisableAutomatedBackup }},
+ {{ .BackupId }},
+ {{ .EngineModel }},
+ {{ .PreferredMaintenanceWindow }},
+ {{ .AssociatePublicIpAddress }},
+ {{ .InstanceProfileArn }},
+ {{ .CustomCertificate }},
+ {{ .PreferredBackupWindow }},
+ {{ .SecurityGroupIds }},
+ {{ .SubnetIds }},
+ {{ .CustomDomain }},
+ {{ .CustomPrivateKey }},
+ {{ .EngineAttributes }},
+ {{ .BackupRetentionCount }},
+ {{ .InstanceType }},
+ {{ .Tags }},
+ {{ .Engine }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

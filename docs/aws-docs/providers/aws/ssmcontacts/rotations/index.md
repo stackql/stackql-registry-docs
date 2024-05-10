@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -135,14 +134,13 @@ INSERT INTO aws.ssmcontacts.rotations (
  region
 )
 SELECT 
-{{ Name }},
- {{ ContactIds }},
- {{ StartTime }},
- {{ TimeZoneId }},
- {{ Recurrence }},
+{{ .Name }},
+ {{ .ContactIds }},
+ {{ .StartTime }},
+ {{ .TimeZoneId }},
+ {{ .Recurrence }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -204,15 +202,14 @@ INSERT INTO aws.ssmcontacts.rotations (
  region
 )
 SELECT 
- {{ Name }},
- {{ ContactIds }},
- {{ StartTime }},
- {{ TimeZoneId }},
- {{ Recurrence }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .ContactIds }},
+ {{ .StartTime }},
+ {{ .TimeZoneId }},
+ {{ .Recurrence }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ FROM aws.shield.drt_accesses
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.shield.drt_accesses (
  region
 )
 SELECT 
-{{ RoleArn }},
+{{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -119,11 +117,10 @@ INSERT INTO aws.shield.drt_accesses (
  region
 )
 SELECT 
- {{ LogBucketList }},
- {{ RoleArn }},
+ {{ .LogBucketList }},
+ {{ .RoleArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

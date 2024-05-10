@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.guardduty.detectors (
  region
 )
 SELECT 
-{{ Enable }},
+{{ .Enable }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -153,14 +151,13 @@ INSERT INTO aws.guardduty.detectors (
  region
 )
 SELECT 
- {{ FindingPublishingFrequency }},
- {{ Enable }},
- {{ DataSources }},
- {{ Features }},
- {{ Tags }},
+ {{ .FindingPublishingFrequency }},
+ {{ .Enable }},
+ {{ .DataSources }},
+ {{ .Features }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

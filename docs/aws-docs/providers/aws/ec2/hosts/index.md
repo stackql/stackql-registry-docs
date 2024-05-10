@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ec2.hosts (
  region
 )
 SELECT 
-{{ AvailabilityZone }},
+{{ .AvailabilityZone }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,17 +127,16 @@ INSERT INTO aws.ec2.hosts (
  region
 )
 SELECT 
- {{ AutoPlacement }},
- {{ AvailabilityZone }},
- {{ HostRecovery }},
- {{ InstanceType }},
- {{ InstanceFamily }},
- {{ OutpostArn }},
- {{ HostMaintenance }},
- {{ AssetId }},
+ {{ .AutoPlacement }},
+ {{ .AvailabilityZone }},
+ {{ .HostRecovery }},
+ {{ .InstanceType }},
+ {{ .InstanceFamily }},
+ {{ .OutpostArn }},
+ {{ .HostMaintenance }},
+ {{ .AssetId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

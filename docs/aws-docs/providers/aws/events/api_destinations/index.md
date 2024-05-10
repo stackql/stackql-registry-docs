@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.events.api_destinations (
  region
 )
 SELECT 
-{{ ConnectionArn }},
- {{ InvocationEndpoint }},
- {{ HttpMethod }},
+{{ .ConnectionArn }},
+ {{ .InvocationEndpoint }},
+ {{ .HttpMethod }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,15 +129,14 @@ INSERT INTO aws.events.api_destinations (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ ConnectionArn }},
- {{ InvocationRateLimitPerSecond }},
- {{ InvocationEndpoint }},
- {{ HttpMethod }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .ConnectionArn }},
+ {{ .InvocationRateLimitPerSecond }},
+ {{ .InvocationEndpoint }},
+ {{ .HttpMethod }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

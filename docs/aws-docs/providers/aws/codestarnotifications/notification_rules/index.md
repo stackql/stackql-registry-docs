@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -111,14 +110,13 @@ INSERT INTO aws.codestarnotifications.notification_rules (
  region
 )
 SELECT 
-{{ EventTypeIds }},
- {{ DetailType }},
- {{ Resource }},
- {{ Targets }},
- {{ Name }},
+{{ .EventTypeIds }},
+ {{ .DetailType }},
+ {{ .Resource }},
+ {{ .Targets }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -159,19 +157,18 @@ INSERT INTO aws.codestarnotifications.notification_rules (
  region
 )
 SELECT 
- {{ EventTypeId }},
- {{ CreatedBy }},
- {{ TargetAddress }},
- {{ EventTypeIds }},
- {{ Status }},
- {{ DetailType }},
- {{ Resource }},
- {{ Targets }},
- {{ Tags }},
- {{ Name }},
+ {{ .EventTypeId }},
+ {{ .CreatedBy }},
+ {{ .TargetAddress }},
+ {{ .EventTypeIds }},
+ {{ .Status }},
+ {{ .DetailType }},
+ {{ .Resource }},
+ {{ .Targets }},
+ {{ .Tags }},
+ {{ .Name }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.route53recoverycontrol.control_panels (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -124,12 +122,11 @@ INSERT INTO aws.route53recoverycontrol.control_panels (
  region
 )
 SELECT 
- {{ ClusterArn }},
- {{ Name }},
- {{ Tags }},
+ {{ .ClusterArn }},
+ {{ .Name }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

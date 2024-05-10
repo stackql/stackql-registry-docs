@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -123,17 +122,16 @@ INSERT INTO aws.datazone.subscription_targets (
  region
 )
 SELECT 
-{{ ApplicableAssetTypes }},
- {{ AuthorizedPrincipals }},
- {{ DomainIdentifier }},
- {{ EnvironmentIdentifier }},
- {{ ManageAccessRole }},
- {{ Name }},
- {{ SubscriptionTargetConfig }},
- {{ Type }},
+{{ .ApplicableAssetTypes }},
+ {{ .AuthorizedPrincipals }},
+ {{ .DomainIdentifier }},
+ {{ .EnvironmentIdentifier }},
+ {{ .ManageAccessRole }},
+ {{ .Name }},
+ {{ .SubscriptionTargetConfig }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -174,18 +172,17 @@ INSERT INTO aws.datazone.subscription_targets (
  region
 )
 SELECT 
- {{ ApplicableAssetTypes }},
- {{ AuthorizedPrincipals }},
- {{ DomainIdentifier }},
- {{ EnvironmentIdentifier }},
- {{ ManageAccessRole }},
- {{ Name }},
- {{ Provider }},
- {{ SubscriptionTargetConfig }},
- {{ Type }},
+ {{ .ApplicableAssetTypes }},
+ {{ .AuthorizedPrincipals }},
+ {{ .DomainIdentifier }},
+ {{ .EnvironmentIdentifier }},
+ {{ .ManageAccessRole }},
+ {{ .Name }},
+ {{ .Provider }},
+ {{ .SubscriptionTargetConfig }},
+ {{ .Type }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

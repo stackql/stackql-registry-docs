@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,11 +100,10 @@ INSERT INTO aws.networkfirewall.logging_configurations (
  region
 )
 SELECT 
-{{ FirewallArn }},
- {{ LoggingConfiguration }},
+{{ .FirewallArn }},
+ {{ .LoggingConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,12 +127,11 @@ INSERT INTO aws.networkfirewall.logging_configurations (
  region
 )
 SELECT 
- {{ FirewallName }},
- {{ FirewallArn }},
- {{ LoggingConfiguration }},
+ {{ .FirewallName }},
+ {{ .FirewallArn }},
+ {{ .LoggingConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

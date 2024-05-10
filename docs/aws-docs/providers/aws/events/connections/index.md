@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -135,13 +134,12 @@ INSERT INTO aws.events.connections (
  region
 )
 SELECT 
-{{ Name }},
- {{ Description }},
- {{ AuthorizationType }},
- {{ AuthParameters }},
+{{ .Name }},
+ {{ .Description }},
+ {{ .AuthorizationType }},
+ {{ .AuthParameters }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -196,13 +194,12 @@ INSERT INTO aws.events.connections (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ AuthorizationType }},
- {{ AuthParameters }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .AuthorizationType }},
+ {{ .AuthParameters }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

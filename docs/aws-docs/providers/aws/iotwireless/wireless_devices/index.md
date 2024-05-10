@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.iotwireless.wireless_devices (
  region
 )
 SELECT 
-{{ Type }},
- {{ DestinationName }},
+{{ .Type }},
+ {{ .DestinationName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -177,18 +175,17 @@ INSERT INTO aws.iotwireless.wireless_devices (
  region
 )
 SELECT 
- {{ Type }},
- {{ Name }},
- {{ Description }},
- {{ DestinationName }},
- {{ LoRaWAN }},
- {{ Tags }},
- {{ ThingArn }},
- {{ LastUplinkReceivedAt }},
- {{ Positioning }},
+ {{ .Type }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .DestinationName }},
+ {{ .LoRaWAN }},
+ {{ .Tags }},
+ {{ .ThingArn }},
+ {{ .LastUplinkReceivedAt }},
+ {{ .Positioning }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

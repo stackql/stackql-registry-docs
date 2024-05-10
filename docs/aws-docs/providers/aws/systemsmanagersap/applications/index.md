@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.systemsmanagersap.applications (
  region
 )
 SELECT 
-{{ ApplicationId }},
- {{ ApplicationType }},
+{{ .ApplicationId }},
+ {{ .ApplicationType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,16 +141,15 @@ INSERT INTO aws.systemsmanagersap.applications (
  region
 )
 SELECT 
- {{ ApplicationId }},
- {{ ApplicationType }},
- {{ Credentials }},
- {{ Instances }},
- {{ SapInstanceNumber }},
- {{ Sid }},
- {{ Tags }},
+ {{ .ApplicationId }},
+ {{ .ApplicationType }},
+ {{ .Credentials }},
+ {{ .Instances }},
+ {{ .SapInstanceNumber }},
+ {{ .Sid }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -132,16 +131,15 @@ INSERT INTO aws.licensemanager.licenses (
  region
 )
 SELECT 
-{{ Issuer }},
- {{ LicenseName }},
- {{ ProductName }},
- {{ HomeRegion }},
- {{ Validity }},
- {{ Entitlements }},
- {{ ConsumptionConfiguration }},
+{{ .Issuer }},
+ {{ .LicenseName }},
+ {{ .ProductName }},
+ {{ .HomeRegion }},
+ {{ .Validity }},
+ {{ .Entitlements }},
+ {{ .ConsumptionConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -206,20 +204,19 @@ INSERT INTO aws.licensemanager.licenses (
  region
 )
 SELECT 
- {{ ProductSKU }},
- {{ Issuer }},
- {{ LicenseName }},
- {{ ProductName }},
- {{ HomeRegion }},
- {{ Validity }},
- {{ Entitlements }},
- {{ Beneficiary }},
- {{ ConsumptionConfiguration }},
- {{ LicenseMetadata }},
- {{ Status }},
+ {{ .ProductSKU }},
+ {{ .Issuer }},
+ {{ .LicenseName }},
+ {{ .ProductName }},
+ {{ .HomeRegion }},
+ {{ .Validity }},
+ {{ .Entitlements }},
+ {{ .Beneficiary }},
+ {{ .ConsumptionConfiguration }},
+ {{ .LicenseMetadata }},
+ {{ .Status }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

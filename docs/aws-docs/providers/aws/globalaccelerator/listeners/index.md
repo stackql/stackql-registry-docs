@@ -79,7 +79,6 @@ FROM aws.globalaccelerator.listeners
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,12 +104,11 @@ INSERT INTO aws.globalaccelerator.listeners (
  region
 )
 SELECT 
-{{ AcceleratorArn }},
- {{ PortRanges }},
- {{ Protocol }},
+{{ .AcceleratorArn }},
+ {{ .PortRanges }},
+ {{ .Protocol }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,13 +135,12 @@ INSERT INTO aws.globalaccelerator.listeners (
  region
 )
 SELECT 
- {{ AcceleratorArn }},
- {{ PortRanges }},
- {{ Protocol }},
- {{ ClientAffinity }},
+ {{ .AcceleratorArn }},
+ {{ .PortRanges }},
+ {{ .Protocol }},
+ {{ .ClientAffinity }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

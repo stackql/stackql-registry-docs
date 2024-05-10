@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -107,11 +106,10 @@ INSERT INTO aws.elasticloadbalancingv2.trust_store_revocations (
  region
 )
 SELECT 
-{{ RevocationContents }},
- {{ TrustStoreArn }},
+{{ .RevocationContents }},
+ {{ .TrustStoreArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,11 +134,10 @@ INSERT INTO aws.elasticloadbalancingv2.trust_store_revocations (
  region
 )
 SELECT 
- {{ RevocationContents }},
- {{ TrustStoreArn }},
+ {{ .RevocationContents }},
+ {{ .TrustStoreArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

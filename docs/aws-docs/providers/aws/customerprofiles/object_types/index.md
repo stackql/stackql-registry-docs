@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.customerprofiles.object_types (
  region
 )
 SELECT 
-{{ DomainName }},
- {{ ObjectTypeName }},
- {{ Description }},
+{{ .DomainName }},
+ {{ .ObjectTypeName }},
+ {{ .Description }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,20 +169,19 @@ INSERT INTO aws.customerprofiles.object_types (
  region
 )
 SELECT 
- {{ DomainName }},
- {{ ObjectTypeName }},
- {{ AllowProfileCreation }},
- {{ Description }},
- {{ EncryptionKey }},
- {{ ExpirationDays }},
- {{ Fields }},
- {{ Keys }},
- {{ SourceLastUpdatedTimestampFormat }},
- {{ Tags }},
- {{ TemplateId }},
+ {{ .DomainName }},
+ {{ .ObjectTypeName }},
+ {{ .AllowProfileCreation }},
+ {{ .Description }},
+ {{ .EncryptionKey }},
+ {{ .ExpirationDays }},
+ {{ .Fields }},
+ {{ .Keys }},
+ {{ .SourceLastUpdatedTimestampFormat }},
+ {{ .Tags }},
+ {{ .TemplateId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

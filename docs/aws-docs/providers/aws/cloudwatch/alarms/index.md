@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.cloudwatch.alarms (
  region
 )
 SELECT 
-{{ ComparisonOperator }},
- {{ EvaluationPeriods }},
+{{ .ComparisonOperator }},
+ {{ .EvaluationPeriods }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -197,31 +195,30 @@ INSERT INTO aws.cloudwatch.alarms (
  region
 )
 SELECT 
- {{ ThresholdMetricId }},
- {{ EvaluateLowSampleCountPercentile }},
- {{ ExtendedStatistic }},
- {{ ComparisonOperator }},
- {{ TreatMissingData }},
- {{ Dimensions }},
- {{ Period }},
- {{ EvaluationPeriods }},
- {{ Unit }},
- {{ Namespace }},
- {{ OKActions }},
- {{ AlarmActions }},
- {{ MetricName }},
- {{ ActionsEnabled }},
- {{ Metrics }},
- {{ AlarmDescription }},
- {{ AlarmName }},
- {{ Statistic }},
- {{ InsufficientDataActions }},
- {{ DatapointsToAlarm }},
- {{ Threshold }},
- {{ Tags }},
+ {{ .ThresholdMetricId }},
+ {{ .EvaluateLowSampleCountPercentile }},
+ {{ .ExtendedStatistic }},
+ {{ .ComparisonOperator }},
+ {{ .TreatMissingData }},
+ {{ .Dimensions }},
+ {{ .Period }},
+ {{ .EvaluationPeriods }},
+ {{ .Unit }},
+ {{ .Namespace }},
+ {{ .OKActions }},
+ {{ .AlarmActions }},
+ {{ .MetricName }},
+ {{ .ActionsEnabled }},
+ {{ .Metrics }},
+ {{ .AlarmDescription }},
+ {{ .AlarmName }},
+ {{ .Statistic }},
+ {{ .InsufficientDataActions }},
+ {{ .DatapointsToAlarm }},
+ {{ .Threshold }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  region
 )
 SELECT 
-{{ FirewallRuleGroupId }},
- {{ VpcId }},
- {{ Priority }},
+{{ .FirewallRuleGroupId }},
+ {{ .VpcId }},
+ {{ .Priority }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,15 +134,14 @@ INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  region
 )
 SELECT 
- {{ FirewallRuleGroupId }},
- {{ VpcId }},
- {{ Name }},
- {{ Priority }},
- {{ MutationProtection }},
- {{ Tags }},
+ {{ .FirewallRuleGroupId }},
+ {{ .VpcId }},
+ {{ .Name }},
+ {{ .Priority }},
+ {{ .MutationProtection }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

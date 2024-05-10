@@ -79,7 +79,6 @@ FROM aws.shield.proactive_engagements
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,11 +103,10 @@ INSERT INTO aws.shield.proactive_engagements (
  region
 )
 SELECT 
-{{ ProactiveEngagementStatus }},
- {{ EmergencyContactList }},
+{{ .ProactiveEngagementStatus }},
+ {{ .EmergencyContactList }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,11 +130,10 @@ INSERT INTO aws.shield.proactive_engagements (
  region
 )
 SELECT 
- {{ ProactiveEngagementStatus }},
- {{ EmergencyContactList }},
+ {{ .ProactiveEngagementStatus }},
+ {{ .EmergencyContactList }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

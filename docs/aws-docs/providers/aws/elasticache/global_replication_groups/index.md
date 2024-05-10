@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,10 +101,9 @@ INSERT INTO aws.elasticache.global_replication_groups (
  region
 )
 SELECT 
-{{ Members }},
+{{ .Members }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -156,18 +154,17 @@ INSERT INTO aws.elasticache.global_replication_groups (
  region
 )
 SELECT 
- {{ GlobalReplicationGroupIdSuffix }},
- {{ AutomaticFailoverEnabled }},
- {{ CacheNodeType }},
- {{ EngineVersion }},
- {{ CacheParameterGroupName }},
- {{ GlobalNodeGroupCount }},
- {{ GlobalReplicationGroupDescription }},
- {{ Members }},
- {{ RegionalConfigurations }},
+ {{ .GlobalReplicationGroupIdSuffix }},
+ {{ .AutomaticFailoverEnabled }},
+ {{ .CacheNodeType }},
+ {{ .EngineVersion }},
+ {{ .CacheParameterGroupName }},
+ {{ .GlobalNodeGroupCount }},
+ {{ .GlobalReplicationGroupDescription }},
+ {{ .Members }},
+ {{ .RegionalConfigurations }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

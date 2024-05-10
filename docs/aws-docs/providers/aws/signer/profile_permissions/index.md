@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.signer.profile_permissions (
  region
 )
 SELECT 
-{{ ProfileName }},
- {{ Action }},
- {{ Principal }},
- {{ StatementId }},
+{{ .ProfileName }},
+ {{ .Action }},
+ {{ .Principal }},
+ {{ .StatementId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,14 +132,13 @@ INSERT INTO aws.signer.profile_permissions (
  region
 )
 SELECT 
- {{ ProfileName }},
- {{ ProfileVersion }},
- {{ Action }},
- {{ Principal }},
- {{ StatementId }},
+ {{ .ProfileName }},
+ {{ .ProfileVersion }},
+ {{ .Action }},
+ {{ .Principal }},
+ {{ .StatementId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

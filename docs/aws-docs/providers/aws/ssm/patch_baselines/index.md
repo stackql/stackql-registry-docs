@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ssm.patch_baselines (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -179,23 +177,22 @@ INSERT INTO aws.ssm.patch_baselines (
  region
 )
 SELECT 
- {{ DefaultBaseline }},
- {{ OperatingSystem }},
- {{ Description }},
- {{ ApprovalRules }},
- {{ Sources }},
- {{ Name }},
- {{ RejectedPatches }},
- {{ ApprovedPatches }},
- {{ RejectedPatchesAction }},
- {{ PatchGroups }},
- {{ ApprovedPatchesComplianceLevel }},
- {{ ApprovedPatchesEnableNonSecurity }},
- {{ GlobalFilters }},
- {{ Tags }},
+ {{ .DefaultBaseline }},
+ {{ .OperatingSystem }},
+ {{ .Description }},
+ {{ .ApprovalRules }},
+ {{ .Sources }},
+ {{ .Name }},
+ {{ .RejectedPatches }},
+ {{ .ApprovedPatches }},
+ {{ .RejectedPatchesAction }},
+ {{ .PatchGroups }},
+ {{ .ApprovedPatchesComplianceLevel }},
+ {{ .ApprovedPatchesEnableNonSecurity }},
+ {{ .GlobalFilters }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

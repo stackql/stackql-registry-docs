@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.connect.views (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ Name }},
- {{ Template }},
- {{ Actions }},
+{{ .InstanceArn }},
+ {{ .Name }},
+ {{ .Template }},
+ {{ .Actions }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,15 +141,14 @@ INSERT INTO aws.connect.views (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ Name }},
- {{ Description }},
- {{ Template }},
- {{ Actions }},
- {{ Tags }},
+ {{ .InstanceArn }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Template }},
+ {{ .Actions }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

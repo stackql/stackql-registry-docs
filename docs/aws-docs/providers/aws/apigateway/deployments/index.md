@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.apigateway.deployments (
  region
 )
 SELECT 
-{{ RestApiId }},
+{{ .RestApiId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -175,14 +173,13 @@ INSERT INTO aws.apigateway.deployments (
  region
 )
 SELECT 
- {{ DeploymentCanarySettings }},
- {{ Description }},
- {{ RestApiId }},
- {{ StageDescription }},
- {{ StageName }},
+ {{ .DeploymentCanarySettings }},
+ {{ .Description }},
+ {{ .RestApiId }},
+ {{ .StageDescription }},
+ {{ .StageName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

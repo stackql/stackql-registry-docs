@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -110,11 +109,10 @@ INSERT INTO aws.eks.clusters (
  region
 )
 SELECT 
-{{ ResourcesVpcConfig }},
- {{ RoleArn }},
+{{ .ResourcesVpcConfig }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -197,19 +195,18 @@ INSERT INTO aws.eks.clusters (
  region
 )
 SELECT 
- {{ EncryptionConfig }},
- {{ KubernetesNetworkConfig }},
- {{ Logging }},
- {{ Name }},
- {{ ResourcesVpcConfig }},
- {{ OutpostConfig }},
- {{ AccessConfig }},
- {{ RoleArn }},
- {{ Version }},
- {{ Tags }},
+ {{ .EncryptionConfig }},
+ {{ .KubernetesNetworkConfig }},
+ {{ .Logging }},
+ {{ .Name }},
+ {{ .ResourcesVpcConfig }},
+ {{ .OutpostConfig }},
+ {{ .AccessConfig }},
+ {{ .RoleArn }},
+ {{ .Version }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

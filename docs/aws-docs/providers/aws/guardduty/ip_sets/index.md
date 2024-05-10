@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.guardduty.ip_sets (
  region
 )
 SELECT 
-{{ Format }},
- {{ Location }},
+{{ .Format }},
+ {{ .Location }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,15 +133,14 @@ INSERT INTO aws.guardduty.ip_sets (
  region
 )
 SELECT 
- {{ Format }},
- {{ Activate }},
- {{ DetectorId }},
- {{ Name }},
- {{ Location }},
- {{ Tags }},
+ {{ .Format }},
+ {{ .Activate }},
+ {{ .DetectorId }},
+ {{ .Name }},
+ {{ .Location }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.networkmanager.site_to_site_vpn_attachments (
  region
 )
 SELECT 
-{{ CoreNetworkId }},
- {{ VpnConnectionArn }},
+{{ .CoreNetworkId }},
+ {{ .VpnConnectionArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,13 +133,12 @@ INSERT INTO aws.networkmanager.site_to_site_vpn_attachments (
  region
 )
 SELECT 
- {{ CoreNetworkId }},
- {{ ProposedSegmentChange }},
- {{ Tags }},
- {{ VpnConnectionArn }},
+ {{ .CoreNetworkId }},
+ {{ .ProposedSegmentChange }},
+ {{ .Tags }},
+ {{ .VpnConnectionArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

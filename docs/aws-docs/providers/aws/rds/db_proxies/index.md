@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -114,14 +113,13 @@ INSERT INTO aws.rds.db_proxies (
  region
 )
 SELECT 
-{{ Auth }},
- {{ DBProxyName }},
- {{ EngineFamily }},
- {{ RoleArn }},
- {{ VpcSubnetIds }},
+{{ .Auth }},
+ {{ .DBProxyName }},
+ {{ .EngineFamily }},
+ {{ .RoleArn }},
+ {{ .VpcSubnetIds }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -172,19 +170,18 @@ INSERT INTO aws.rds.db_proxies (
  region
 )
 SELECT 
- {{ Auth }},
- {{ DBProxyName }},
- {{ DebugLogging }},
- {{ EngineFamily }},
- {{ IdleClientTimeout }},
- {{ RequireTLS }},
- {{ RoleArn }},
- {{ Tags }},
- {{ VpcSecurityGroupIds }},
- {{ VpcSubnetIds }},
+ {{ .Auth }},
+ {{ .DBProxyName }},
+ {{ .DebugLogging }},
+ {{ .EngineFamily }},
+ {{ .IdleClientTimeout }},
+ {{ .RequireTLS }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .VpcSecurityGroupIds }},
+ {{ .VpcSubnetIds }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

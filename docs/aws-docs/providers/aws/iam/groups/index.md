@@ -79,7 +79,6 @@ FROM aws.iam.groups
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -109,13 +108,12 @@ INSERT INTO aws.iam.groups (
  region
 )
 SELECT 
-{{ GroupName }},
- {{ ManagedPolicyArns }},
- {{ Path }},
- {{ Policies }},
+{{ .GroupName }},
+ {{ .ManagedPolicyArns }},
+ {{ .Path }},
+ {{ .Policies }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,13 +142,12 @@ INSERT INTO aws.iam.groups (
  region
 )
 SELECT 
- {{ GroupName }},
- {{ ManagedPolicyArns }},
- {{ Path }},
- {{ Policies }},
+ {{ .GroupName }},
+ {{ .ManagedPolicyArns }},
+ {{ .Path }},
+ {{ .Policies }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

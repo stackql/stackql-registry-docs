@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.apigatewayv2.route_responses (
  region
 )
 SELECT 
-{{ RouteResponseKey }},
- {{ RouteId }},
- {{ ApiId }},
+{{ .RouteResponseKey }},
+ {{ .RouteId }},
+ {{ .ApiId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,15 +133,14 @@ INSERT INTO aws.apigatewayv2.route_responses (
  region
 )
 SELECT 
- {{ RouteResponseKey }},
- {{ ResponseParameters }},
- {{ RouteId }},
- {{ ModelSelectionExpression }},
- {{ ApiId }},
- {{ ResponseModels }},
+ {{ .RouteResponseKey }},
+ {{ .ResponseParameters }},
+ {{ .RouteId }},
+ {{ .ModelSelectionExpression }},
+ {{ .ApiId }},
+ {{ .ResponseModels }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

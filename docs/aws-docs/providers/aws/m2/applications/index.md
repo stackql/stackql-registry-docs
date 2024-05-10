@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.m2.applications (
  region
 )
 SELECT 
-{{ Definition }},
- {{ EngineType }},
- {{ Name }},
+{{ .Definition }},
+ {{ .EngineType }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,16 +131,15 @@ INSERT INTO aws.m2.applications (
  region
 )
 SELECT 
- {{ Definition }},
- {{ Description }},
- {{ EngineType }},
- {{ KmsKeyId }},
- {{ Name }},
- {{ RoleArn }},
- {{ Tags }},
+ {{ .Definition }},
+ {{ .Description }},
+ {{ .EngineType }},
+ {{ .KmsKeyId }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -191,11 +190,10 @@ INSERT INTO aws.sagemaker.monitoring_schedules (
  region
 )
 SELECT 
-{{ MonitoringScheduleName }},
- {{ MonitoringScheduleConfig }},
+{{ .MonitoringScheduleName }},
+ {{ .MonitoringScheduleConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -330,16 +328,15 @@ INSERT INTO aws.sagemaker.monitoring_schedules (
  region
 )
 SELECT 
- {{ MonitoringScheduleName }},
- {{ MonitoringScheduleConfig }},
- {{ Tags }},
- {{ EndpointName }},
- {{ FailureReason }},
- {{ LastMonitoringExecutionSummary }},
- {{ MonitoringScheduleStatus }},
+ {{ .MonitoringScheduleName }},
+ {{ .MonitoringScheduleConfig }},
+ {{ .Tags }},
+ {{ .EndpointName }},
+ {{ .FailureReason }},
+ {{ .LastMonitoringExecutionSummary }},
+ {{ .MonitoringScheduleStatus }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

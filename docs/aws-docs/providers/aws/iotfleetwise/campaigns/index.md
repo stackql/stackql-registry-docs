@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,14 +103,13 @@ INSERT INTO aws.iotfleetwise.campaigns (
  region
 )
 SELECT 
-{{ Action }},
- {{ Name }},
- {{ SignalCatalogArn }},
- {{ TargetArn }},
- {{ CollectionScheme }},
+{{ .Action }},
+ {{ .Name }},
+ {{ .SignalCatalogArn }},
+ {{ .TargetArn }},
+ {{ .CollectionScheme }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -174,26 +172,25 @@ INSERT INTO aws.iotfleetwise.campaigns (
  region
 )
 SELECT 
- {{ Action }},
- {{ Compression }},
- {{ Description }},
- {{ Priority }},
- {{ SignalsToCollect }},
- {{ DataDestinationConfigs }},
- {{ StartTime }},
- {{ Name }},
- {{ ExpiryTime }},
- {{ SpoolingMode }},
- {{ SignalCatalogArn }},
- {{ PostTriggerCollectionDuration }},
- {{ DataExtraDimensions }},
- {{ DiagnosticsMode }},
- {{ TargetArn }},
- {{ CollectionScheme }},
- {{ Tags }},
+ {{ .Action }},
+ {{ .Compression }},
+ {{ .Description }},
+ {{ .Priority }},
+ {{ .SignalsToCollect }},
+ {{ .DataDestinationConfigs }},
+ {{ .StartTime }},
+ {{ .Name }},
+ {{ .ExpiryTime }},
+ {{ .SpoolingMode }},
+ {{ .SignalCatalogArn }},
+ {{ .PostTriggerCollectionDuration }},
+ {{ .DataExtraDimensions }},
+ {{ .DiagnosticsMode }},
+ {{ .TargetArn }},
+ {{ .CollectionScheme }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

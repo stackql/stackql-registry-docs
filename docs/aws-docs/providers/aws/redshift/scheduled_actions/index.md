@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.redshift.scheduled_actions (
  region
 )
 SELECT 
-{{ ScheduledActionName }},
+{{ .ScheduledActionName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,17 +127,16 @@ INSERT INTO aws.redshift.scheduled_actions (
  region
 )
 SELECT 
- {{ ScheduledActionName }},
- {{ TargetAction }},
- {{ Schedule }},
- {{ IamRole }},
- {{ ScheduledActionDescription }},
- {{ StartTime }},
- {{ EndTime }},
- {{ Enable }},
+ {{ .ScheduledActionName }},
+ {{ .TargetAction }},
+ {{ .Schedule }},
+ {{ .IamRole }},
+ {{ .ScheduledActionDescription }},
+ {{ .StartTime }},
+ {{ .EndTime }},
+ {{ .Enable }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

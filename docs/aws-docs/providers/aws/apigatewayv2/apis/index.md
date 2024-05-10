@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -148,26 +147,25 @@ INSERT INTO aws.apigatewayv2.apis (
  region
 )
 SELECT 
-{{ RouteSelectionExpression }},
- {{ BodyS3Location }},
- {{ Description }},
- {{ BasePath }},
- {{ FailOnWarnings }},
- {{ DisableExecuteApiEndpoint }},
- {{ DisableSchemaValidation }},
- {{ Name }},
- {{ Target }},
- {{ CredentialsArn }},
- {{ CorsConfiguration }},
- {{ Version }},
- {{ ProtocolType }},
- {{ RouteKey }},
- {{ Body }},
- {{ Tags }},
- {{ ApiKeySelectionExpression }},
+{{ .RouteSelectionExpression }},
+ {{ .BodyS3Location }},
+ {{ .Description }},
+ {{ .BasePath }},
+ {{ .FailOnWarnings }},
+ {{ .DisableExecuteApiEndpoint }},
+ {{ .DisableSchemaValidation }},
+ {{ .Name }},
+ {{ .Target }},
+ {{ .CredentialsArn }},
+ {{ .CorsConfiguration }},
+ {{ .Version }},
+ {{ .ProtocolType }},
+ {{ .RouteKey }},
+ {{ .Body }},
+ {{ .Tags }},
+ {{ .ApiKeySelectionExpression }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -235,26 +233,25 @@ INSERT INTO aws.apigatewayv2.apis (
  region
 )
 SELECT 
- {{ RouteSelectionExpression }},
- {{ BodyS3Location }},
- {{ Description }},
- {{ BasePath }},
- {{ FailOnWarnings }},
- {{ DisableExecuteApiEndpoint }},
- {{ DisableSchemaValidation }},
- {{ Name }},
- {{ Target }},
- {{ CredentialsArn }},
- {{ CorsConfiguration }},
- {{ Version }},
- {{ ProtocolType }},
- {{ RouteKey }},
- {{ Body }},
- {{ Tags }},
- {{ ApiKeySelectionExpression }},
+ {{ .RouteSelectionExpression }},
+ {{ .BodyS3Location }},
+ {{ .Description }},
+ {{ .BasePath }},
+ {{ .FailOnWarnings }},
+ {{ .DisableExecuteApiEndpoint }},
+ {{ .DisableSchemaValidation }},
+ {{ .Name }},
+ {{ .Target }},
+ {{ .CredentialsArn }},
+ {{ .CorsConfiguration }},
+ {{ .Version }},
+ {{ .ProtocolType }},
+ {{ .RouteKey }},
+ {{ .Body }},
+ {{ .Tags }},
+ {{ .ApiKeySelectionExpression }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

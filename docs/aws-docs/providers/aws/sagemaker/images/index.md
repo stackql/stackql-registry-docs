@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.sagemaker.images (
  region
 )
 SELECT 
-{{ ImageName }},
- {{ ImageRoleArn }},
+{{ .ImageName }},
+ {{ .ImageRoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,14 +129,13 @@ INSERT INTO aws.sagemaker.images (
  region
 )
 SELECT 
- {{ ImageName }},
- {{ ImageRoleArn }},
- {{ ImageDisplayName }},
- {{ ImageDescription }},
- {{ Tags }},
+ {{ .ImageName }},
+ {{ .ImageRoleArn }},
+ {{ .ImageDisplayName }},
+ {{ .ImageDescription }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

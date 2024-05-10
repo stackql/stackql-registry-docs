@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -112,18 +111,17 @@ INSERT INTO aws.omics.workflows (
  region
 )
 SELECT 
-{{ DefinitionUri }},
- {{ Description }},
- {{ Engine }},
- {{ Main }},
- {{ Name }},
- {{ ParameterTemplate }},
- {{ Accelerators }},
- {{ StorageCapacity }},
- {{ Tags }},
+{{ .DefinitionUri }},
+ {{ .Description }},
+ {{ .Engine }},
+ {{ .Main }},
+ {{ .Name }},
+ {{ .ParameterTemplate }},
+ {{ .Accelerators }},
+ {{ .StorageCapacity }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -155,18 +153,17 @@ INSERT INTO aws.omics.workflows (
  region
 )
 SELECT 
- {{ DefinitionUri }},
- {{ Description }},
- {{ Engine }},
- {{ Main }},
- {{ Name }},
- {{ ParameterTemplate }},
- {{ Accelerators }},
- {{ StorageCapacity }},
- {{ Tags }},
+ {{ .DefinitionUri }},
+ {{ .Description }},
+ {{ .Engine }},
+ {{ .Main }},
+ {{ .Name }},
+ {{ .ParameterTemplate }},
+ {{ .Accelerators }},
+ {{ .StorageCapacity }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

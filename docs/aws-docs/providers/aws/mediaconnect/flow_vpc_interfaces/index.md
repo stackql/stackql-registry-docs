@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,14 +107,13 @@ INSERT INTO aws.mediaconnect.flow_vpc_interfaces (
  region
 )
 SELECT 
-{{ FlowArn }},
- {{ Name }},
- {{ RoleArn }},
- {{ SecurityGroupIds }},
- {{ SubnetId }},
+{{ .FlowArn }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .SecurityGroupIds }},
+ {{ .SubnetId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -141,14 +139,13 @@ INSERT INTO aws.mediaconnect.flow_vpc_interfaces (
  region
 )
 SELECT 
- {{ FlowArn }},
- {{ Name }},
- {{ RoleArn }},
- {{ SecurityGroupIds }},
- {{ SubnetId }},
+ {{ .FlowArn }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .SecurityGroupIds }},
+ {{ .SubnetId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

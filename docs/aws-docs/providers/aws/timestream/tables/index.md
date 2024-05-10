@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.timestream.tables (
  region
 )
 SELECT 
-{{ DatabaseName }},
+{{ .DatabaseName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -153,15 +151,14 @@ INSERT INTO aws.timestream.tables (
  region
 )
 SELECT 
- {{ DatabaseName }},
- {{ TableName }},
- {{ RetentionProperties }},
- {{ Schema }},
- {{ MagneticStoreWriteProperties }},
- {{ Tags }},
+ {{ .DatabaseName }},
+ {{ .TableName }},
+ {{ .RetentionProperties }},
+ {{ .Schema }},
+ {{ .MagneticStoreWriteProperties }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

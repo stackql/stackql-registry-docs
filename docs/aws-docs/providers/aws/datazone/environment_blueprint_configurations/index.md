@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.datazone.environment_blueprint_configurations (
  region
 )
 SELECT 
-{{ EnabledRegions }},
- {{ EnvironmentBlueprintIdentifier }},
- {{ DomainIdentifier }},
+{{ .EnabledRegions }},
+ {{ .EnvironmentBlueprintIdentifier }},
+ {{ .DomainIdentifier }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -142,15 +140,14 @@ INSERT INTO aws.datazone.environment_blueprint_configurations (
  region
 )
 SELECT 
- {{ RegionalParameters }},
- {{ ProvisioningRoleArn }},
- {{ EnabledRegions }},
- {{ EnvironmentBlueprintIdentifier }},
- {{ DomainIdentifier }},
- {{ ManageAccessRoleArn }},
+ {{ .RegionalParameters }},
+ {{ .ProvisioningRoleArn }},
+ {{ .EnabledRegions }},
+ {{ .EnvironmentBlueprintIdentifier }},
+ {{ .DomainIdentifier }},
+ {{ .ManageAccessRoleArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

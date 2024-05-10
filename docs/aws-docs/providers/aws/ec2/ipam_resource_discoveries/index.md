@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -94,10 +93,9 @@ INSERT INTO aws.ec2.ipam_resource_discoveries (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -126,12 +124,11 @@ INSERT INTO aws.ec2.ipam_resource_discoveries (
  region
 )
 SELECT 
- {{ OperatingRegions }},
- {{ Description }},
- {{ Tags }},
+ {{ .OperatingRegions }},
+ {{ .Description }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ec2.ipam_pools (
  region
 )
 SELECT 
-{{ AddressFamily }},
- {{ IpamScopeId }},
+{{ .AddressFamily }},
+ {{ .IpamScopeId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -164,25 +162,24 @@ INSERT INTO aws.ec2.ipam_pools (
  region
 )
 SELECT 
- {{ AddressFamily }},
- {{ AllocationMinNetmaskLength }},
- {{ AllocationDefaultNetmaskLength }},
- {{ AllocationMaxNetmaskLength }},
- {{ AllocationResourceTags }},
- {{ AutoImport }},
- {{ AwsService }},
- {{ Description }},
- {{ IpamScopeId }},
- {{ Locale }},
- {{ ProvisionedCidrs }},
- {{ PublicIpSource }},
- {{ PubliclyAdvertisable }},
- {{ SourceIpamPoolId }},
- {{ SourceResource }},
- {{ Tags }},
+ {{ .AddressFamily }},
+ {{ .AllocationMinNetmaskLength }},
+ {{ .AllocationDefaultNetmaskLength }},
+ {{ .AllocationMaxNetmaskLength }},
+ {{ .AllocationResourceTags }},
+ {{ .AutoImport }},
+ {{ .AwsService }},
+ {{ .Description }},
+ {{ .IpamScopeId }},
+ {{ .Locale }},
+ {{ .ProvisionedCidrs }},
+ {{ .PublicIpSource }},
+ {{ .PubliclyAdvertisable }},
+ {{ .SourceIpamPoolId }},
+ {{ .SourceResource }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

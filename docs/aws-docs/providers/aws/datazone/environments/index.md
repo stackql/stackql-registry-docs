@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.datazone.environments (
  region
 )
 SELECT 
-{{ DomainIdentifier }},
- {{ EnvironmentProfileIdentifier }},
- {{ Name }},
- {{ ProjectIdentifier }},
+{{ .DomainIdentifier }},
+ {{ .EnvironmentProfileIdentifier }},
+ {{ .Name }},
+ {{ .ProjectIdentifier }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,16 +143,15 @@ INSERT INTO aws.datazone.environments (
  region
 )
 SELECT 
- {{ Description }},
- {{ DomainIdentifier }},
- {{ EnvironmentProfileIdentifier }},
- {{ GlossaryTerms }},
- {{ Name }},
- {{ ProjectIdentifier }},
- {{ UserParameters }},
+ {{ .Description }},
+ {{ .DomainIdentifier }},
+ {{ .EnvironmentProfileIdentifier }},
+ {{ .GlossaryTerms }},
+ {{ .Name }},
+ {{ .ProjectIdentifier }},
+ {{ .UserParameters }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

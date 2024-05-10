@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.msk.configurations (
  region
 )
 SELECT 
-{{ Name }},
- {{ ServerProperties }},
+{{ .Name }},
+ {{ .ServerProperties }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,14 +130,13 @@ INSERT INTO aws.msk.configurations (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ ServerProperties }},
- {{ KafkaVersionsList }},
- {{ LatestRevision }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .ServerProperties }},
+ {{ .KafkaVersionsList }},
+ {{ .LatestRevision }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

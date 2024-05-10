@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -113,15 +112,14 @@ INSERT INTO aws.appstream.applications (
  region
 )
 SELECT 
-{{ Name }},
- {{ LaunchPath }},
- {{ InstanceFamilies }},
- {{ IconS3Location }},
- {{ AppBlockArn }},
- {{ Platforms }},
+{{ .Name }},
+ {{ .LaunchPath }},
+ {{ .InstanceFamilies }},
+ {{ .IconS3Location }},
+ {{ .AppBlockArn }},
+ {{ .Platforms }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -173,21 +171,20 @@ INSERT INTO aws.appstream.applications (
  region
 )
 SELECT 
- {{ Name }},
- {{ DisplayName }},
- {{ Description }},
- {{ LaunchPath }},
- {{ LaunchParameters }},
- {{ WorkingDirectory }},
- {{ InstanceFamilies }},
- {{ IconS3Location }},
- {{ AppBlockArn }},
- {{ Platforms }},
- {{ Tags }},
- {{ AttributesToDelete }},
+ {{ .Name }},
+ {{ .DisplayName }},
+ {{ .Description }},
+ {{ .LaunchPath }},
+ {{ .LaunchParameters }},
+ {{ .WorkingDirectory }},
+ {{ .InstanceFamilies }},
+ {{ .IconS3Location }},
+ {{ .AppBlockArn }},
+ {{ .Platforms }},
+ {{ .Tags }},
+ {{ .AttributesToDelete }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

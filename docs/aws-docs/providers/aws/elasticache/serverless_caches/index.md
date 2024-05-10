@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.elasticache.serverless_caches (
  region
 )
 SELECT 
-{{ ServerlessCacheName }},
- {{ Engine }},
+{{ .ServerlessCacheName }},
+ {{ .Engine }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -172,25 +170,24 @@ INSERT INTO aws.elasticache.serverless_caches (
  region
 )
 SELECT 
- {{ ServerlessCacheName }},
- {{ Description }},
- {{ Engine }},
- {{ MajorEngineVersion }},
- {{ CacheUsageLimits }},
- {{ KmsKeyId }},
- {{ SecurityGroupIds }},
- {{ SnapshotArnsToRestore }},
- {{ Tags }},
- {{ UserGroupId }},
- {{ SubnetIds }},
- {{ SnapshotRetentionLimit }},
- {{ DailySnapshotTime }},
- {{ Endpoint }},
- {{ ReaderEndpoint }},
- {{ FinalSnapshotName }},
+ {{ .ServerlessCacheName }},
+ {{ .Description }},
+ {{ .Engine }},
+ {{ .MajorEngineVersion }},
+ {{ .CacheUsageLimits }},
+ {{ .KmsKeyId }},
+ {{ .SecurityGroupIds }},
+ {{ .SnapshotArnsToRestore }},
+ {{ .Tags }},
+ {{ .UserGroupId }},
+ {{ .SubnetIds }},
+ {{ .SnapshotRetentionLimit }},
+ {{ .DailySnapshotTime }},
+ {{ .Endpoint }},
+ {{ .ReaderEndpoint }},
+ {{ .FinalSnapshotName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.redshift.endpoint_authorizations (
  region
 )
 SELECT 
-{{ ClusterIdentifier }},
- {{ Account }},
+{{ .ClusterIdentifier }},
+ {{ .Account }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -128,13 +126,12 @@ INSERT INTO aws.redshift.endpoint_authorizations (
  region
 )
 SELECT 
- {{ ClusterIdentifier }},
- {{ Account }},
- {{ VpcIds }},
- {{ Force }},
+ {{ .ClusterIdentifier }},
+ {{ .Account }},
+ {{ .VpcIds }},
+ {{ .Force }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

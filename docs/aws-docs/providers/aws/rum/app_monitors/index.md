@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.rum.app_monitors (
  region
 )
 SELECT 
-{{ Name }},
- {{ Domain }},
+{{ .Name }},
+ {{ .Domain }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -168,15 +166,14 @@ INSERT INTO aws.rum.app_monitors (
  region
 )
 SELECT 
- {{ Name }},
- {{ Domain }},
- {{ CwLogEnabled }},
- {{ Tags }},
- {{ AppMonitorConfiguration }},
- {{ CustomEvents }},
+ {{ .Name }},
+ {{ .Domain }},
+ {{ .CwLogEnabled }},
+ {{ .Tags }},
+ {{ .AppMonitorConfiguration }},
+ {{ .CustomEvents }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

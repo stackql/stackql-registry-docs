@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.inspector.assessment_templates (
  region
 )
 SELECT 
-{{ AssessmentTargetArn }},
- {{ DurationInSeconds }},
- {{ RulesPackageArns }},
+{{ .AssessmentTargetArn }},
+ {{ .DurationInSeconds }},
+ {{ .RulesPackageArns }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,14 +136,13 @@ INSERT INTO aws.inspector.assessment_templates (
  region
 )
 SELECT 
- {{ AssessmentTargetArn }},
- {{ DurationInSeconds }},
- {{ AssessmentTemplateName }},
- {{ RulesPackageArns }},
- {{ UserAttributesForFindings }},
+ {{ .AssessmentTargetArn }},
+ {{ .DurationInSeconds }},
+ {{ .AssessmentTemplateName }},
+ {{ .RulesPackageArns }},
+ {{ .UserAttributesForFindings }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

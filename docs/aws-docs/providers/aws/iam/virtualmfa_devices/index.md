@@ -79,7 +79,6 @@ FROM aws.iam.virtualmfa_devices
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.iam.virtualmfa_devices (
  region
 )
 SELECT 
-{{ Users }},
+{{ .Users }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -130,13 +128,12 @@ INSERT INTO aws.iam.virtualmfa_devices (
  region
 )
 SELECT 
- {{ VirtualMfaDeviceName }},
- {{ Path }},
- {{ Users }},
- {{ Tags }},
+ {{ .VirtualMfaDeviceName }},
+ {{ .Path }},
+ {{ .Users }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

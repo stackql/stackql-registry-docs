@@ -83,7 +83,6 @@ FROM aws.wafv2.ip_sets
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,12 +105,11 @@ INSERT INTO aws.wafv2.ip_sets (
  region
 )
 SELECT 
-{{ Scope }},
- {{ IPAddressVersion }},
- {{ Addresses }},
+{{ .Scope }},
+ {{ .IPAddressVersion }},
+ {{ .Addresses }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,15 +142,14 @@ INSERT INTO aws.wafv2.ip_sets (
  region
 )
 SELECT 
- {{ Description }},
- {{ Name }},
- {{ Scope }},
- {{ IPAddressVersion }},
- {{ Addresses }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .Scope }},
+ {{ .IPAddressVersion }},
+ {{ .Addresses }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

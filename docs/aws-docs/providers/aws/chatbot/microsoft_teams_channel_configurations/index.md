@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,14 +103,13 @@ INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  region
 )
 SELECT 
-{{ TeamId }},
- {{ TeamsChannelId }},
- {{ TeamsTenantId }},
- {{ ConfigurationName }},
- {{ IamRoleArn }},
+{{ .TeamId }},
+ {{ .TeamsChannelId }},
+ {{ .TeamsTenantId }},
+ {{ .ConfigurationName }},
+ {{ .IamRoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -147,18 +145,17 @@ INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  region
 )
 SELECT 
- {{ TeamId }},
- {{ TeamsChannelId }},
- {{ TeamsTenantId }},
- {{ ConfigurationName }},
- {{ IamRoleArn }},
- {{ SnsTopicArns }},
- {{ LoggingLevel }},
- {{ GuardrailPolicies }},
- {{ UserRoleRequired }},
+ {{ .TeamId }},
+ {{ .TeamsChannelId }},
+ {{ .TeamsTenantId }},
+ {{ .ConfigurationName }},
+ {{ .IamRoleArn }},
+ {{ .SnsTopicArns }},
+ {{ .LoggingLevel }},
+ {{ .GuardrailPolicies }},
+ {{ .UserRoleRequired }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

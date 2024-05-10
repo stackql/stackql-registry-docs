@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.deadline.storage_profiles (
  region
 )
 SELECT 
-{{ DisplayName }},
- {{ OsFamily }},
+{{ .DisplayName }},
+ {{ .OsFamily }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.deadline.storage_profiles (
  region
 )
 SELECT 
- {{ DisplayName }},
- {{ FarmId }},
- {{ FileSystemLocations }},
- {{ OsFamily }},
+ {{ .DisplayName }},
+ {{ .FarmId }},
+ {{ .FileSystemLocations }},
+ {{ .OsFamily }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -81,7 +81,6 @@ FROM aws.wafv2.webacl_associations
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.wafv2.webacl_associations (
  region
 )
 SELECT 
-{{ ResourceArn }},
- {{ WebACLArn }},
+{{ .ResourceArn }},
+ {{ .WebACLArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -122,11 +120,10 @@ INSERT INTO aws.wafv2.webacl_associations (
  region
 )
 SELECT 
- {{ ResourceArn }},
- {{ WebACLArn }},
+ {{ .ResourceArn }},
+ {{ .WebACLArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

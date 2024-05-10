@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.logs.account_policies (
  region
 )
 SELECT 
-{{ PolicyName }},
- {{ PolicyDocument }},
- {{ PolicyType }},
+{{ .PolicyName }},
+ {{ .PolicyDocument }},
+ {{ .PolicyType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,14 +131,13 @@ INSERT INTO aws.logs.account_policies (
  region
 )
 SELECT 
- {{ PolicyName }},
- {{ PolicyDocument }},
- {{ PolicyType }},
- {{ Scope }},
- {{ SelectionCriteria }},
+ {{ .PolicyName }},
+ {{ .PolicyDocument }},
+ {{ .PolicyType }},
+ {{ .Scope }},
+ {{ .SelectionCriteria }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

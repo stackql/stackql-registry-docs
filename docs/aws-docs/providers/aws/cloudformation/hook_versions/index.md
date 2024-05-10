@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.cloudformation.hook_versions (
  region
 )
 SELECT 
-{{ SchemaHandlerPackage }},
- {{ TypeName }},
+{{ .SchemaHandlerPackage }},
+ {{ .TypeName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,13 +125,12 @@ INSERT INTO aws.cloudformation.hook_versions (
  region
 )
 SELECT 
- {{ ExecutionRoleArn }},
- {{ LoggingConfig }},
- {{ SchemaHandlerPackage }},
- {{ TypeName }},
+ {{ .ExecutionRoleArn }},
+ {{ .LoggingConfig }},
+ {{ .SchemaHandlerPackage }},
+ {{ .TypeName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -94,10 +93,9 @@ INSERT INTO aws.iot.domain_configurations (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,19 +143,18 @@ INSERT INTO aws.iot.domain_configurations (
  region
 )
 SELECT 
- {{ DomainConfigurationName }},
- {{ AuthorizerConfig }},
- {{ DomainName }},
- {{ ServerCertificateArns }},
- {{ ServiceType }},
- {{ ValidationCertificateArn }},
- {{ DomainConfigurationStatus }},
- {{ ServerCertificateConfig }},
- {{ TlsConfig }},
- {{ Tags }},
+ {{ .DomainConfigurationName }},
+ {{ .AuthorizerConfig }},
+ {{ .DomainName }},
+ {{ .ServerCertificateArns }},
+ {{ .ServiceType }},
+ {{ .ValidationCertificateArn }},
+ {{ .DomainConfigurationStatus }},
+ {{ .ServerCertificateConfig }},
+ {{ .TlsConfig }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

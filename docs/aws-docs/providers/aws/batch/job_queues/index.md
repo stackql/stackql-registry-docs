@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -103,11 +102,10 @@ INSERT INTO aws.batch.job_queues (
  region
 )
 SELECT 
-{{ ComputeEnvironmentOrder }},
- {{ Priority }},
+{{ .ComputeEnvironmentOrder }},
+ {{ .Priority }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -147,16 +145,15 @@ INSERT INTO aws.batch.job_queues (
  region
 )
 SELECT 
- {{ JobQueueName }},
- {{ ComputeEnvironmentOrder }},
- {{ JobStateTimeLimitActions }},
- {{ Priority }},
- {{ State }},
- {{ SchedulingPolicyArn }},
- {{ Tags }},
+ {{ .JobQueueName }},
+ {{ .ComputeEnvironmentOrder }},
+ {{ .JobStateTimeLimitActions }},
+ {{ .Priority }},
+ {{ .State }},
+ {{ .SchedulingPolicyArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

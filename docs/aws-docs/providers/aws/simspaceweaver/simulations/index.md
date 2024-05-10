@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.simspaceweaver.simulations (
  region
 )
 SELECT 
-{{ Name }},
- {{ RoleArn }},
+{{ .Name }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,14 +127,13 @@ INSERT INTO aws.simspaceweaver.simulations (
  region
 )
 SELECT 
- {{ Name }},
- {{ RoleArn }},
- {{ SchemaS3Location }},
- {{ MaximumDuration }},
- {{ SnapshotS3Location }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .SchemaS3Location }},
+ {{ .MaximumDuration }},
+ {{ .SnapshotS3Location }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

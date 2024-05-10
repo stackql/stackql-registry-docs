@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -112,18 +111,17 @@ INSERT INTO aws.cur.report_definitions (
  region
 )
 SELECT 
-{{ ReportName }},
- {{ TimeUnit }},
- {{ Format }},
- {{ Compression }},
- {{ S3Bucket }},
- {{ S3Prefix }},
- {{ S3Region }},
- {{ RefreshClosedReports }},
- {{ ReportVersioning }},
+{{ .ReportName }},
+ {{ .TimeUnit }},
+ {{ .Format }},
+ {{ .Compression }},
+ {{ .S3Bucket }},
+ {{ .S3Prefix }},
+ {{ .S3Region }},
+ {{ .RefreshClosedReports }},
+ {{ .ReportVersioning }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -165,21 +163,20 @@ INSERT INTO aws.cur.report_definitions (
  region
 )
 SELECT 
- {{ ReportName }},
- {{ TimeUnit }},
- {{ Format }},
- {{ Compression }},
- {{ AdditionalSchemaElements }},
- {{ S3Bucket }},
- {{ S3Prefix }},
- {{ S3Region }},
- {{ AdditionalArtifacts }},
- {{ RefreshClosedReports }},
- {{ ReportVersioning }},
- {{ BillingViewArn }},
+ {{ .ReportName }},
+ {{ .TimeUnit }},
+ {{ .Format }},
+ {{ .Compression }},
+ {{ .AdditionalSchemaElements }},
+ {{ .S3Bucket }},
+ {{ .S3Prefix }},
+ {{ .S3Region }},
+ {{ .AdditionalArtifacts }},
+ {{ .RefreshClosedReports }},
+ {{ .ReportVersioning }},
+ {{ .BillingViewArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.mediapackage.origin_endpoints (
  region
 )
 SELECT 
-{{ Id }},
- {{ ChannelId }},
+{{ .Id }},
+ {{ .ChannelId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -228,23 +226,22 @@ INSERT INTO aws.mediapackage.origin_endpoints (
  region
 )
 SELECT 
- {{ Id }},
- {{ ChannelId }},
- {{ Description }},
- {{ Whitelist }},
- {{ StartoverWindowSeconds }},
- {{ TimeDelaySeconds }},
- {{ ManifestName }},
- {{ Origination }},
- {{ Authorization }},
- {{ HlsPackage }},
- {{ DashPackage }},
- {{ MssPackage }},
- {{ CmafPackage }},
- {{ Tags }},
+ {{ .Id }},
+ {{ .ChannelId }},
+ {{ .Description }},
+ {{ .Whitelist }},
+ {{ .StartoverWindowSeconds }},
+ {{ .TimeDelaySeconds }},
+ {{ .ManifestName }},
+ {{ .Origination }},
+ {{ .Authorization }},
+ {{ .HlsPackage }},
+ {{ .DashPackage }},
+ {{ .MssPackage }},
+ {{ .CmafPackage }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

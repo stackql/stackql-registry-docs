@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -107,13 +106,12 @@ INSERT INTO aws.kendra.faqs (
  region
 )
 SELECT 
-{{ IndexId }},
- {{ Name }},
- {{ S3Path }},
- {{ RoleArn }},
+{{ .IndexId }},
+ {{ .Name }},
+ {{ .S3Path }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -151,17 +149,16 @@ INSERT INTO aws.kendra.faqs (
  region
 )
 SELECT 
- {{ IndexId }},
- {{ Name }},
- {{ Description }},
- {{ FileFormat }},
- {{ S3Path }},
- {{ RoleArn }},
- {{ Tags }},
- {{ LanguageCode }},
+ {{ .IndexId }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .FileFormat }},
+ {{ .S3Path }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .LanguageCode }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ FROM aws.iam.roles
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.iam.roles (
  region
 )
 SELECT 
-{{ AssumeRolePolicyDocument }},
+{{ .AssumeRolePolicyDocument }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,18 +141,17 @@ INSERT INTO aws.iam.roles (
  region
 )
 SELECT 
- {{ AssumeRolePolicyDocument }},
- {{ Description }},
- {{ ManagedPolicyArns }},
- {{ MaxSessionDuration }},
- {{ Path }},
- {{ PermissionsBoundary }},
- {{ Policies }},
- {{ RoleName }},
- {{ Tags }},
+ {{ .AssumeRolePolicyDocument }},
+ {{ .Description }},
+ {{ .ManagedPolicyArns }},
+ {{ .MaxSessionDuration }},
+ {{ .Path }},
+ {{ .PermissionsBoundary }},
+ {{ .Policies }},
+ {{ .RoleName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

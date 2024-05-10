@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.lex.bots (
  region
 )
 SELECT 
-{{ Name }},
- {{ RoleArn }},
- {{ DataPrivacy }},
- {{ IdleSessionTTLInSeconds }},
+{{ .Name }},
+ {{ .RoleArn }},
+ {{ .DataPrivacy }},
+ {{ .IdleSessionTTLInSeconds }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -497,20 +495,19 @@ INSERT INTO aws.lex.bots (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ RoleArn }},
- {{ DataPrivacy }},
- {{ IdleSessionTTLInSeconds }},
- {{ BotLocales }},
- {{ BotFileS3Location }},
- {{ BotTags }},
- {{ TestBotAliasTags }},
- {{ AutoBuildBotLocales }},
- {{ TestBotAliasSettings }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .RoleArn }},
+ {{ .DataPrivacy }},
+ {{ .IdleSessionTTLInSeconds }},
+ {{ .BotLocales }},
+ {{ .BotFileS3Location }},
+ {{ .BotTags }},
+ {{ .TestBotAliasTags }},
+ {{ .AutoBuildBotLocales }},
+ {{ .TestBotAliasSettings }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.cognito.identity_pools (
  region
 )
 SELECT 
-{{ AllowUnauthenticatedIdentities }},
+{{ .AllowUnauthenticatedIdentities }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -154,20 +152,19 @@ INSERT INTO aws.cognito.identity_pools (
  region
 )
 SELECT 
- {{ PushSync }},
- {{ CognitoIdentityProviders }},
- {{ DeveloperProviderName }},
- {{ CognitoStreams }},
- {{ SupportedLoginProviders }},
- {{ CognitoEvents }},
- {{ IdentityPoolName }},
- {{ AllowUnauthenticatedIdentities }},
- {{ SamlProviderARNs }},
- {{ OpenIdConnectProviderARNs }},
- {{ AllowClassicFlow }},
+ {{ .PushSync }},
+ {{ .CognitoIdentityProviders }},
+ {{ .DeveloperProviderName }},
+ {{ .CognitoStreams }},
+ {{ .SupportedLoginProviders }},
+ {{ .CognitoEvents }},
+ {{ .IdentityPoolName }},
+ {{ .AllowUnauthenticatedIdentities }},
+ {{ .SamlProviderARNs }},
+ {{ .OpenIdConnectProviderARNs }},
+ {{ .AllowClassicFlow }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

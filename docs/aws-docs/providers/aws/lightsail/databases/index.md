@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,14 +103,13 @@ INSERT INTO aws.lightsail.databases (
  region
 )
 SELECT 
-{{ RelationalDatabaseName }},
- {{ RelationalDatabaseBlueprintId }},
- {{ RelationalDatabaseBundleId }},
- {{ MasterDatabaseName }},
- {{ MasterUsername }},
+{{ .RelationalDatabaseName }},
+ {{ .RelationalDatabaseBlueprintId }},
+ {{ .RelationalDatabaseBundleId }},
+ {{ .MasterDatabaseName }},
+ {{ .MasterUsername }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,24 +169,23 @@ INSERT INTO aws.lightsail.databases (
  region
 )
 SELECT 
- {{ RelationalDatabaseName }},
- {{ AvailabilityZone }},
- {{ RelationalDatabaseBlueprintId }},
- {{ RelationalDatabaseBundleId }},
- {{ MasterDatabaseName }},
- {{ MasterUsername }},
- {{ MasterUserPassword }},
- {{ PreferredBackupWindow }},
- {{ PreferredMaintenanceWindow }},
- {{ PubliclyAccessible }},
- {{ CaCertificateIdentifier }},
- {{ BackupRetention }},
- {{ RotateMasterUserPassword }},
- {{ RelationalDatabaseParameters }},
- {{ Tags }},
+ {{ .RelationalDatabaseName }},
+ {{ .AvailabilityZone }},
+ {{ .RelationalDatabaseBlueprintId }},
+ {{ .RelationalDatabaseBundleId }},
+ {{ .MasterDatabaseName }},
+ {{ .MasterUsername }},
+ {{ .MasterUserPassword }},
+ {{ .PreferredBackupWindow }},
+ {{ .PreferredMaintenanceWindow }},
+ {{ .PubliclyAccessible }},
+ {{ .CaCertificateIdentifier }},
+ {{ .BackupRetention }},
+ {{ .RotateMasterUserPassword }},
+ {{ .RelationalDatabaseParameters }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

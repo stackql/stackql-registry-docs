@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.apigatewayv2.domain_names (
  region
 )
 SELECT 
-{{ DomainName }},
+{{ .DomainName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.apigatewayv2.domain_names (
  region
 )
 SELECT 
- {{ MutualTlsAuthentication }},
- {{ DomainName }},
- {{ DomainNameConfigurations }},
- {{ Tags }},
+ {{ .MutualTlsAuthentication }},
+ {{ .DomainName }},
+ {{ .DomainNameConfigurations }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

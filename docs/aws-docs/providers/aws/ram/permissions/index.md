@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.ram.permissions (
  region
 )
 SELECT 
-{{ Name }},
- {{ ResourceType }},
- {{ PolicyTemplate }},
+{{ .Name }},
+ {{ .ResourceType }},
+ {{ .PolicyTemplate }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.ram.permissions (
  region
 )
 SELECT 
- {{ Name }},
- {{ ResourceType }},
- {{ PolicyTemplate }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .ResourceType }},
+ {{ .PolicyTemplate }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

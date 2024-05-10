@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,12 +104,11 @@ INSERT INTO aws.amplify.domains (
  region
 )
 SELECT 
-{{ AppId }},
- {{ DomainName }},
- {{ SubDomainSettings }},
+{{ .AppId }},
+ {{ .DomainName }},
+ {{ .SubDomainSettings }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -148,16 +146,15 @@ INSERT INTO aws.amplify.domains (
  region
 )
 SELECT 
- {{ AppId }},
- {{ AutoSubDomainCreationPatterns }},
- {{ AutoSubDomainIAMRole }},
- {{ CertificateSettings }},
- {{ DomainName }},
- {{ EnableAutoSubDomain }},
- {{ SubDomainSettings }},
+ {{ .AppId }},
+ {{ .AutoSubDomainCreationPatterns }},
+ {{ .AutoSubDomainIAMRole }},
+ {{ .CertificateSettings }},
+ {{ .DomainName }},
+ {{ .EnableAutoSubDomain }},
+ {{ .SubDomainSettings }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

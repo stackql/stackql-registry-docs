@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.iot.scheduled_audits (
  region
 )
 SELECT 
-{{ Frequency }},
- {{ TargetCheckNames }},
+{{ .Frequency }},
+ {{ .TargetCheckNames }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,15 +135,14 @@ INSERT INTO aws.iot.scheduled_audits (
  region
 )
 SELECT 
- {{ ScheduledAuditName }},
- {{ Frequency }},
- {{ DayOfMonth }},
- {{ DayOfWeek }},
- {{ TargetCheckNames }},
- {{ Tags }},
+ {{ .ScheduledAuditName }},
+ {{ .Frequency }},
+ {{ .DayOfMonth }},
+ {{ .DayOfWeek }},
+ {{ .TargetCheckNames }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

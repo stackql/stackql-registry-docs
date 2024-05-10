@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.signer.signing_profiles (
  region
 )
 SELECT 
-{{ PlatformId }},
+{{ .PlatformId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,12 +125,11 @@ INSERT INTO aws.signer.signing_profiles (
  region
 )
 SELECT 
- {{ SignatureValidityPeriod }},
- {{ PlatformId }},
- {{ Tags }},
+ {{ .SignatureValidityPeriod }},
+ {{ .PlatformId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

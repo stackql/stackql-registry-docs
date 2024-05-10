@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -125,17 +124,16 @@ INSERT INTO aws.apigateway.domain_names (
  region
 )
 SELECT 
-{{ DomainName }},
- {{ EndpointConfiguration }},
- {{ MutualTlsAuthentication }},
- {{ CertificateArn }},
- {{ RegionalCertificateArn }},
- {{ OwnershipVerificationCertificateArn }},
- {{ SecurityPolicy }},
- {{ Tags }},
+{{ .DomainName }},
+ {{ .EndpointConfiguration }},
+ {{ .MutualTlsAuthentication }},
+ {{ .CertificateArn }},
+ {{ .RegionalCertificateArn }},
+ {{ .OwnershipVerificationCertificateArn }},
+ {{ .SecurityPolicy }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -180,17 +178,16 @@ INSERT INTO aws.apigateway.domain_names (
  region
 )
 SELECT 
- {{ DomainName }},
- {{ EndpointConfiguration }},
- {{ MutualTlsAuthentication }},
- {{ CertificateArn }},
- {{ RegionalCertificateArn }},
- {{ OwnershipVerificationCertificateArn }},
- {{ SecurityPolicy }},
- {{ Tags }},
+ {{ .DomainName }},
+ {{ .EndpointConfiguration }},
+ {{ .MutualTlsAuthentication }},
+ {{ .CertificateArn }},
+ {{ .RegionalCertificateArn }},
+ {{ .OwnershipVerificationCertificateArn }},
+ {{ .SecurityPolicy }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

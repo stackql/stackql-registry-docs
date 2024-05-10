@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.networkmanager.connect_attachments (
  region
 )
 SELECT 
-{{ CoreNetworkId }},
- {{ EdgeLocation }},
- {{ TransportAttachmentId }},
- {{ Options }},
+{{ .CoreNetworkId }},
+ {{ .EdgeLocation }},
+ {{ .TransportAttachmentId }},
+ {{ .Options }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,15 +147,14 @@ INSERT INTO aws.networkmanager.connect_attachments (
  region
 )
 SELECT 
- {{ CoreNetworkId }},
- {{ EdgeLocation }},
- {{ ProposedSegmentChange }},
- {{ Tags }},
- {{ TransportAttachmentId }},
- {{ Options }},
+ {{ .CoreNetworkId }},
+ {{ .EdgeLocation }},
+ {{ .ProposedSegmentChange }},
+ {{ .Tags }},
+ {{ .TransportAttachmentId }},
+ {{ .Options }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

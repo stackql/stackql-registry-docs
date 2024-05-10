@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.pcaconnectorad.templates (
  region
 )
 SELECT 
-{{ ConnectorArn }},
- {{ Definition }},
- {{ Name }},
+{{ .ConnectorArn }},
+ {{ .Definition }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,14 +127,13 @@ INSERT INTO aws.pcaconnectorad.templates (
  region
 )
 SELECT 
- {{ ConnectorArn }},
- {{ Definition }},
- {{ Name }},
- {{ ReenrollAllCertificateHolders }},
- {{ Tags }},
+ {{ .ConnectorArn }},
+ {{ .Definition }},
+ {{ .Name }},
+ {{ .ReenrollAllCertificateHolders }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

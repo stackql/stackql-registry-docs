@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.pinpoint.in_app_templates (
  region
 )
 SELECT 
-{{ TemplateName }},
+{{ .TemplateName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -157,15 +155,14 @@ INSERT INTO aws.pinpoint.in_app_templates (
  region
 )
 SELECT 
- {{ Content }},
- {{ CustomConfig }},
- {{ Layout }},
- {{ Tags }},
- {{ TemplateDescription }},
- {{ TemplateName }},
+ {{ .Content }},
+ {{ .CustomConfig }},
+ {{ .Layout }},
+ {{ .Tags }},
+ {{ .TemplateDescription }},
+ {{ .TemplateName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

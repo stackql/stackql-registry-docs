@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,14 +103,13 @@ INSERT INTO aws.cloudformation.public_type_versions (
  region
 )
 SELECT 
-{{ Arn }},
- {{ PublicVersionNumber }},
- {{ TypeName }},
- {{ LogDeliveryBucket }},
- {{ Type }},
+{{ .Arn }},
+ {{ .PublicVersionNumber }},
+ {{ .TypeName }},
+ {{ .LogDeliveryBucket }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,14 +133,13 @@ INSERT INTO aws.cloudformation.public_type_versions (
  region
 )
 SELECT 
- {{ Arn }},
- {{ PublicVersionNumber }},
- {{ TypeName }},
- {{ LogDeliveryBucket }},
- {{ Type }},
+ {{ .Arn }},
+ {{ .PublicVersionNumber }},
+ {{ .TypeName }},
+ {{ .LogDeliveryBucket }},
+ {{ .Type }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -109,13 +108,12 @@ INSERT INTO aws.appstream.app_block_builders (
  region
 )
 SELECT 
-{{ Name }},
- {{ Platform }},
- {{ VpcConfig }},
- {{ InstanceType }},
+{{ .Name }},
+ {{ .Platform }},
+ {{ .VpcConfig }},
+ {{ .InstanceType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -170,20 +168,19 @@ INSERT INTO aws.appstream.app_block_builders (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ DisplayName }},
- {{ Platform }},
- {{ AccessEndpoints }},
- {{ Tags }},
- {{ VpcConfig }},
- {{ EnableDefaultInternetAccess }},
- {{ IamRoleArn }},
- {{ InstanceType }},
- {{ AppBlockArns }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .DisplayName }},
+ {{ .Platform }},
+ {{ .AccessEndpoints }},
+ {{ .Tags }},
+ {{ .VpcConfig }},
+ {{ .EnableDefaultInternetAccess }},
+ {{ .IamRoleArn }},
+ {{ .InstanceType }},
+ {{ .AppBlockArns }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.appconfig.environments (
  region
 )
 SELECT 
-{{ ApplicationId }},
- {{ Name }},
+{{ .ApplicationId }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,14 +136,13 @@ INSERT INTO aws.appconfig.environments (
  region
 )
 SELECT 
- {{ Description }},
- {{ Monitors }},
- {{ ApplicationId }},
- {{ Tags }},
- {{ Name }},
+ {{ .Description }},
+ {{ .Monitors }},
+ {{ .ApplicationId }},
+ {{ .Tags }},
+ {{ .Name }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

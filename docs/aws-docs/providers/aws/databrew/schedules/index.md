@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.databrew.schedules (
  region
 )
 SELECT 
-{{ CronExpression }},
- {{ Name }},
+{{ .CronExpression }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,13 +129,12 @@ INSERT INTO aws.databrew.schedules (
  region
 )
 SELECT 
- {{ JobNames }},
- {{ CronExpression }},
- {{ Name }},
- {{ Tags }},
+ {{ .JobNames }},
+ {{ .CronExpression }},
+ {{ .Name }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

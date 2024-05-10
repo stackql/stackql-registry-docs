@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -183,11 +182,10 @@ INSERT INTO aws.lookoutmetrics.anomaly_detectors (
  region
 )
 SELECT 
-{{ AnomalyDetectorConfig }},
- {{ MetricSetList }},
+{{ .AnomalyDetectorConfig }},
+ {{ .MetricSetList }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -296,14 +294,13 @@ INSERT INTO aws.lookoutmetrics.anomaly_detectors (
  region
 )
 SELECT 
- {{ AnomalyDetectorName }},
- {{ AnomalyDetectorDescription }},
- {{ AnomalyDetectorConfig }},
- {{ MetricSetList }},
- {{ KmsKeyArn }},
+ {{ .AnomalyDetectorName }},
+ {{ .AnomalyDetectorDescription }},
+ {{ .AnomalyDetectorConfig }},
+ {{ .MetricSetList }},
+ {{ .KmsKeyArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

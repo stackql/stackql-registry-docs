@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.athena.work_groups (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -178,16 +176,15 @@ INSERT INTO aws.athena.work_groups (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Tags }},
- {{ WorkGroupConfiguration }},
- {{ WorkGroupConfigurationUpdates }},
- {{ State }},
- {{ RecursiveDeleteOption }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Tags }},
+ {{ .WorkGroupConfiguration }},
+ {{ .WorkGroupConfigurationUpdates }},
+ {{ .State }},
+ {{ .RecursiveDeleteOption }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

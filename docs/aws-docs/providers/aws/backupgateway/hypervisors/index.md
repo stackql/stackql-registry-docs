@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -113,16 +112,15 @@ INSERT INTO aws.backupgateway.hypervisors (
  region
 )
 SELECT 
-{{ Host }},
- {{ KmsKeyArn }},
- {{ LogGroupArn }},
- {{ Name }},
- {{ Password }},
- {{ Tags }},
- {{ Username }},
+{{ .Host }},
+ {{ .KmsKeyArn }},
+ {{ .LogGroupArn }},
+ {{ .Name }},
+ {{ .Password }},
+ {{ .Tags }},
+ {{ .Username }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -155,16 +153,15 @@ INSERT INTO aws.backupgateway.hypervisors (
  region
 )
 SELECT 
- {{ Host }},
- {{ KmsKeyArn }},
- {{ LogGroupArn }},
- {{ Name }},
- {{ Password }},
- {{ Tags }},
- {{ Username }},
+ {{ .Host }},
+ {{ .KmsKeyArn }},
+ {{ .LogGroupArn }},
+ {{ .Name }},
+ {{ .Password }},
+ {{ .Tags }},
+ {{ .Username }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

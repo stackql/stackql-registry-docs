@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -107,12 +106,11 @@ INSERT INTO aws.medialive.multiplexes (
  region
 )
 SELECT 
-{{ AvailabilityZones }},
- {{ MultiplexSettings }},
- {{ Name }},
+{{ .AvailabilityZones }},
+ {{ .MultiplexSettings }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -152,14 +150,13 @@ INSERT INTO aws.medialive.multiplexes (
  region
 )
 SELECT 
- {{ AvailabilityZones }},
- {{ Destinations }},
- {{ MultiplexSettings }},
- {{ Name }},
- {{ Tags }},
+ {{ .AvailabilityZones }},
+ {{ .Destinations }},
+ {{ .MultiplexSettings }},
+ {{ .Name }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

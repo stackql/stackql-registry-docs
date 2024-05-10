@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.efs.access_points (
  region
 )
 SELECT 
-{{ FileSystemId }},
+{{ .FileSystemId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -141,14 +139,13 @@ INSERT INTO aws.efs.access_points (
  region
 )
 SELECT 
- {{ ClientToken }},
- {{ AccessPointTags }},
- {{ FileSystemId }},
- {{ PosixUser }},
- {{ RootDirectory }},
+ {{ .ClientToken }},
+ {{ .AccessPointTags }},
+ {{ .FileSystemId }},
+ {{ .PosixUser }},
+ {{ .RootDirectory }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

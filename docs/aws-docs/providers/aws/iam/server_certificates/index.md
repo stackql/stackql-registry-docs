@@ -79,7 +79,6 @@ FROM aws.iam.server_certificates
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -111,15 +110,14 @@ INSERT INTO aws.iam.server_certificates (
  region
 )
 SELECT 
-{{ CertificateBody }},
- {{ CertificateChain }},
- {{ ServerCertificateName }},
- {{ Path }},
- {{ PrivateKey }},
- {{ Tags }},
+{{ .CertificateBody }},
+ {{ .CertificateChain }},
+ {{ .ServerCertificateName }},
+ {{ .Path }},
+ {{ .PrivateKey }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -150,15 +148,14 @@ INSERT INTO aws.iam.server_certificates (
  region
 )
 SELECT 
- {{ CertificateBody }},
- {{ CertificateChain }},
- {{ ServerCertificateName }},
- {{ Path }},
- {{ PrivateKey }},
- {{ Tags }},
+ {{ .CertificateBody }},
+ {{ .CertificateChain }},
+ {{ .ServerCertificateName }},
+ {{ .Path }},
+ {{ .PrivateKey }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

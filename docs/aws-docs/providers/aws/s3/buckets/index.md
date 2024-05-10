@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.s3.buckets (
  region
 )
 SELECT 
-{{ BucketName }},
+{{ .BucketName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -430,29 +428,28 @@ INSERT INTO aws.s3.buckets (
  region
 )
 SELECT 
- {{ AccelerateConfiguration }},
- {{ AccessControl }},
- {{ AnalyticsConfigurations }},
- {{ BucketEncryption }},
- {{ BucketName }},
- {{ CorsConfiguration }},
- {{ IntelligentTieringConfigurations }},
- {{ InventoryConfigurations }},
- {{ LifecycleConfiguration }},
- {{ LoggingConfiguration }},
- {{ MetricsConfigurations }},
- {{ NotificationConfiguration }},
- {{ ObjectLockConfiguration }},
- {{ ObjectLockEnabled }},
- {{ OwnershipControls }},
- {{ PublicAccessBlockConfiguration }},
- {{ ReplicationConfiguration }},
- {{ Tags }},
- {{ VersioningConfiguration }},
- {{ WebsiteConfiguration }},
+ {{ .AccelerateConfiguration }},
+ {{ .AccessControl }},
+ {{ .AnalyticsConfigurations }},
+ {{ .BucketEncryption }},
+ {{ .BucketName }},
+ {{ .CorsConfiguration }},
+ {{ .IntelligentTieringConfigurations }},
+ {{ .InventoryConfigurations }},
+ {{ .LifecycleConfiguration }},
+ {{ .LoggingConfiguration }},
+ {{ .MetricsConfigurations }},
+ {{ .NotificationConfiguration }},
+ {{ .ObjectLockConfiguration }},
+ {{ .ObjectLockEnabled }},
+ {{ .OwnershipControls }},
+ {{ .PublicAccessBlockConfiguration }},
+ {{ .ReplicationConfiguration }},
+ {{ .Tags }},
+ {{ .VersioningConfiguration }},
+ {{ .WebsiteConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

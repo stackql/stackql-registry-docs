@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.memorydb.clusters (
  region
 )
 SELECT 
-{{ ClusterName }},
- {{ NodeType }},
- {{ ACLName }},
+{{ .ClusterName }},
+ {{ .NodeType }},
+ {{ .ACLName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -181,34 +179,33 @@ INSERT INTO aws.memorydb.clusters (
  region
 )
 SELECT 
- {{ ClusterName }},
- {{ Description }},
- {{ NodeType }},
- {{ NumShards }},
- {{ NumReplicasPerShard }},
- {{ SubnetGroupName }},
- {{ SecurityGroupIds }},
- {{ MaintenanceWindow }},
- {{ ParameterGroupName }},
- {{ Port }},
- {{ SnapshotRetentionLimit }},
- {{ SnapshotWindow }},
- {{ ACLName }},
- {{ SnsTopicArn }},
- {{ SnsTopicStatus }},
- {{ TLSEnabled }},
- {{ DataTiering }},
- {{ KmsKeyId }},
- {{ SnapshotArns }},
- {{ SnapshotName }},
- {{ FinalSnapshotName }},
- {{ EngineVersion }},
- {{ ClusterEndpoint }},
- {{ AutoMinorVersionUpgrade }},
- {{ Tags }},
+ {{ .ClusterName }},
+ {{ .Description }},
+ {{ .NodeType }},
+ {{ .NumShards }},
+ {{ .NumReplicasPerShard }},
+ {{ .SubnetGroupName }},
+ {{ .SecurityGroupIds }},
+ {{ .MaintenanceWindow }},
+ {{ .ParameterGroupName }},
+ {{ .Port }},
+ {{ .SnapshotRetentionLimit }},
+ {{ .SnapshotWindow }},
+ {{ .ACLName }},
+ {{ .SnsTopicArn }},
+ {{ .SnsTopicStatus }},
+ {{ .TLSEnabled }},
+ {{ .DataTiering }},
+ {{ .KmsKeyId }},
+ {{ .SnapshotArns }},
+ {{ .SnapshotName }},
+ {{ .FinalSnapshotName }},
+ {{ .EngineVersion }},
+ {{ .ClusterEndpoint }},
+ {{ .AutoMinorVersionUpgrade }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

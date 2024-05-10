@@ -79,7 +79,6 @@ FROM aws.route53.cidr_collections
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.route53.cidr_collections (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -124,11 +122,10 @@ INSERT INTO aws.route53.cidr_collections (
  region
 )
 SELECT 
- {{ Name }},
- {{ Locations }},
+ {{ .Name }},
+ {{ .Locations }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

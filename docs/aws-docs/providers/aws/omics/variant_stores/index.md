@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.omics.variant_stores (
  region
 )
 SELECT 
-{{ Name }},
- {{ Reference }},
+{{ .Name }},
+ {{ .Reference }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,14 +131,13 @@ INSERT INTO aws.omics.variant_stores (
  region
 )
 SELECT 
- {{ Description }},
- {{ Name }},
- {{ Reference }},
- {{ SseConfig }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .Reference }},
+ {{ .SseConfig }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

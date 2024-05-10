@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -107,13 +106,12 @@ INSERT INTO aws.networkfirewall.firewalls (
  region
 )
 SELECT 
-{{ FirewallName }},
- {{ FirewallPolicyArn }},
- {{ VpcId }},
- {{ SubnetMappings }},
+{{ .FirewallName }},
+ {{ .FirewallPolicyArn }},
+ {{ .VpcId }},
+ {{ .SubnetMappings }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -155,18 +153,17 @@ INSERT INTO aws.networkfirewall.firewalls (
  region
 )
 SELECT 
- {{ FirewallName }},
- {{ FirewallPolicyArn }},
- {{ VpcId }},
- {{ SubnetMappings }},
- {{ DeleteProtection }},
- {{ SubnetChangeProtection }},
- {{ FirewallPolicyChangeProtection }},
- {{ Description }},
- {{ Tags }},
+ {{ .FirewallName }},
+ {{ .FirewallPolicyArn }},
+ {{ .VpcId }},
+ {{ .SubnetMappings }},
+ {{ .DeleteProtection }},
+ {{ .SubnetChangeProtection }},
+ {{ .FirewallPolicyChangeProtection }},
+ {{ .Description }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

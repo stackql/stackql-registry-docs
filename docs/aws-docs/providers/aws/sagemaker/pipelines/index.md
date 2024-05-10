@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.sagemaker.pipelines (
  region
 )
 SELECT 
-{{ PipelineName }},
- {{ PipelineDefinition }},
- {{ RoleArn }},
+{{ .PipelineName }},
+ {{ .PipelineDefinition }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,16 +138,15 @@ INSERT INTO aws.sagemaker.pipelines (
  region
 )
 SELECT 
- {{ PipelineName }},
- {{ PipelineDisplayName }},
- {{ PipelineDescription }},
- {{ PipelineDefinition }},
- {{ RoleArn }},
- {{ Tags }},
- {{ ParallelismConfiguration }},
+ {{ .PipelineName }},
+ {{ .PipelineDisplayName }},
+ {{ .PipelineDescription }},
+ {{ .PipelineDefinition }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .ParallelismConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

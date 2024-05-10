@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -132,18 +131,17 @@ INSERT INTO aws.ec2.capacity_reservation_fleets (
  region
 )
 SELECT 
-{{ AllocationStrategy }},
- {{ TagSpecifications }},
- {{ InstanceTypeSpecifications }},
- {{ TotalTargetCapacity }},
- {{ EndDate }},
- {{ InstanceMatchCriteria }},
- {{ Tenancy }},
- {{ RemoveEndDate }},
- {{ NoRemoveEndDate }},
+{{ .AllocationStrategy }},
+ {{ .TagSpecifications }},
+ {{ .InstanceTypeSpecifications }},
+ {{ .TotalTargetCapacity }},
+ {{ .EndDate }},
+ {{ .InstanceMatchCriteria }},
+ {{ .Tenancy }},
+ {{ .RemoveEndDate }},
+ {{ .NoRemoveEndDate }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -195,18 +193,17 @@ INSERT INTO aws.ec2.capacity_reservation_fleets (
  region
 )
 SELECT 
- {{ AllocationStrategy }},
- {{ TagSpecifications }},
- {{ InstanceTypeSpecifications }},
- {{ TotalTargetCapacity }},
- {{ EndDate }},
- {{ InstanceMatchCriteria }},
- {{ Tenancy }},
- {{ RemoveEndDate }},
- {{ NoRemoveEndDate }},
+ {{ .AllocationStrategy }},
+ {{ .TagSpecifications }},
+ {{ .InstanceTypeSpecifications }},
+ {{ .TotalTargetCapacity }},
+ {{ .EndDate }},
+ {{ .InstanceMatchCriteria }},
+ {{ .Tenancy }},
+ {{ .RemoveEndDate }},
+ {{ .NoRemoveEndDate }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.aps.rule_groups_namespaces (
  region
 )
 SELECT 
-{{ Workspace }},
- {{ Name }},
- {{ Data }},
+{{ .Workspace }},
+ {{ .Name }},
+ {{ .Data }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.aps.rule_groups_namespaces (
  region
 )
 SELECT 
- {{ Workspace }},
- {{ Name }},
- {{ Data }},
- {{ Tags }},
+ {{ .Workspace }},
+ {{ .Name }},
+ {{ .Data }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

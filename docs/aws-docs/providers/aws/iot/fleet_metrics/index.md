@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.iot.fleet_metrics (
  region
 )
 SELECT 
-{{ MetricName }},
+{{ .MetricName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,19 +141,18 @@ INSERT INTO aws.iot.fleet_metrics (
  region
 )
 SELECT 
- {{ MetricName }},
- {{ Description }},
- {{ QueryString }},
- {{ Period }},
- {{ AggregationField }},
- {{ QueryVersion }},
- {{ IndexName }},
- {{ Unit }},
- {{ AggregationType }},
- {{ Tags }},
+ {{ .MetricName }},
+ {{ .Description }},
+ {{ .QueryString }},
+ {{ .Period }},
+ {{ .AggregationField }},
+ {{ .QueryVersion }},
+ {{ .IndexName }},
+ {{ .Unit }},
+ {{ .AggregationType }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

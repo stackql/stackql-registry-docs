@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -158,18 +157,17 @@ INSERT INTO aws.kafkaconnect.connectors (
  region
 )
 SELECT 
-{{ Capacity }},
- {{ ConnectorConfiguration }},
- {{ ConnectorName }},
- {{ KafkaCluster }},
- {{ KafkaClusterClientAuthentication }},
- {{ KafkaClusterEncryptionInTransit }},
- {{ KafkaConnectVersion }},
- {{ Plugins }},
- {{ ServiceExecutionRoleArn }},
+{{ .Capacity }},
+ {{ .ConnectorConfiguration }},
+ {{ .ConnectorName }},
+ {{ .KafkaCluster }},
+ {{ .KafkaClusterClientAuthentication }},
+ {{ .KafkaClusterEncryptionInTransit }},
+ {{ .KafkaConnectVersion }},
+ {{ .Plugins }},
+ {{ .ServiceExecutionRoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -287,22 +285,21 @@ INSERT INTO aws.kafkaconnect.connectors (
  region
 )
 SELECT 
- {{ Capacity }},
- {{ ConnectorConfiguration }},
- {{ ConnectorDescription }},
- {{ ConnectorName }},
- {{ KafkaCluster }},
- {{ KafkaClusterClientAuthentication }},
- {{ KafkaClusterEncryptionInTransit }},
- {{ KafkaConnectVersion }},
- {{ LogDelivery }},
- {{ Plugins }},
- {{ ServiceExecutionRoleArn }},
- {{ Tags }},
- {{ WorkerConfiguration }},
+ {{ .Capacity }},
+ {{ .ConnectorConfiguration }},
+ {{ .ConnectorDescription }},
+ {{ .ConnectorName }},
+ {{ .KafkaCluster }},
+ {{ .KafkaClusterClientAuthentication }},
+ {{ .KafkaClusterEncryptionInTransit }},
+ {{ .KafkaConnectVersion }},
+ {{ .LogDelivery }},
+ {{ .Plugins }},
+ {{ .ServiceExecutionRoleArn }},
+ {{ .Tags }},
+ {{ .WorkerConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

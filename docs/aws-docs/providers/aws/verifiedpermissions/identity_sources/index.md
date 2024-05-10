@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -110,11 +109,10 @@ INSERT INTO aws.verifiedpermissions.identity_sources (
  region
 )
 SELECT 
-{{ Configuration }},
- {{ PolicyStoreId }},
+{{ .Configuration }},
+ {{ .PolicyStoreId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,12 +142,11 @@ INSERT INTO aws.verifiedpermissions.identity_sources (
  region
 )
 SELECT 
- {{ Configuration }},
- {{ PolicyStoreId }},
- {{ PrincipalEntityType }},
+ {{ .Configuration }},
+ {{ .PolicyStoreId }},
+ {{ .PrincipalEntityType }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

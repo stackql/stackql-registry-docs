@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -119,12 +118,11 @@ INSERT INTO aws.iot.account_audit_configurations (
  region
 )
 SELECT 
-{{ AccountId }},
- {{ AuditCheckConfigurations }},
- {{ RoleArn }},
+{{ .AccountId }},
+ {{ .AuditCheckConfigurations }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,13 +169,12 @@ INSERT INTO aws.iot.account_audit_configurations (
  region
 )
 SELECT 
- {{ AccountId }},
- {{ AuditCheckConfigurations }},
- {{ AuditNotificationTargetConfigurations }},
- {{ RoleArn }},
+ {{ .AccountId }},
+ {{ .AuditCheckConfigurations }},
+ {{ .AuditNotificationTargetConfigurations }},
+ {{ .RoleArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

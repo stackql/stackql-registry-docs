@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.resourcegroups.groups (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -160,15 +158,14 @@ INSERT INTO aws.resourcegroups.groups (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ ResourceQuery }},
- {{ Tags }},
- {{ Configuration }},
- {{ Resources }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .ResourceQuery }},
+ {{ .Tags }},
+ {{ .Configuration }},
+ {{ .Resources }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

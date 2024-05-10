@@ -79,7 +79,6 @@ FROM aws.cloudfront.monitoring_subscriptions
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,11 +100,10 @@ INSERT INTO aws.cloudfront.monitoring_subscriptions (
  region
 )
 SELECT 
-{{ DistributionId }},
- {{ MonitoringSubscription }},
+{{ .DistributionId }},
+ {{ .MonitoringSubscription }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -126,11 +124,10 @@ INSERT INTO aws.cloudfront.monitoring_subscriptions (
  region
 )
 SELECT 
- {{ DistributionId }},
- {{ MonitoringSubscription }},
+ {{ .DistributionId }},
+ {{ .MonitoringSubscription }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

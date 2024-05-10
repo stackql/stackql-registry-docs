@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.autoscaling.launch_configurations (
  region
 )
 SELECT 
-{{ ImageId }},
- {{ InstanceType }},
+{{ .ImageId }},
+ {{ .InstanceType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -177,28 +175,27 @@ INSERT INTO aws.autoscaling.launch_configurations (
  region
 )
 SELECT 
- {{ AssociatePublicIpAddress }},
- {{ BlockDeviceMappings }},
- {{ ClassicLinkVPCId }},
- {{ ClassicLinkVPCSecurityGroups }},
- {{ EbsOptimized }},
- {{ IamInstanceProfile }},
- {{ ImageId }},
- {{ InstanceId }},
- {{ InstanceMonitoring }},
- {{ InstanceType }},
- {{ KernelId }},
- {{ KeyName }},
- {{ LaunchConfigurationName }},
- {{ MetadataOptions }},
- {{ PlacementTenancy }},
- {{ RamDiskId }},
- {{ SecurityGroups }},
- {{ SpotPrice }},
- {{ UserData }},
+ {{ .AssociatePublicIpAddress }},
+ {{ .BlockDeviceMappings }},
+ {{ .ClassicLinkVPCId }},
+ {{ .ClassicLinkVPCSecurityGroups }},
+ {{ .EbsOptimized }},
+ {{ .IamInstanceProfile }},
+ {{ .ImageId }},
+ {{ .InstanceId }},
+ {{ .InstanceMonitoring }},
+ {{ .InstanceType }},
+ {{ .KernelId }},
+ {{ .KeyName }},
+ {{ .LaunchConfigurationName }},
+ {{ .MetadataOptions }},
+ {{ .PlacementTenancy }},
+ {{ .RamDiskId }},
+ {{ .SecurityGroups }},
+ {{ .SpotPrice }},
+ {{ .UserData }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

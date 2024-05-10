@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -202,11 +201,10 @@ INSERT INTO aws.ec2.ec2fleets (
  region
 )
 SELECT 
-{{ TargetCapacitySpecification }},
- {{ LaunchTemplateConfigs }},
+{{ .TargetCapacitySpecification }},
+ {{ .LaunchTemplateConfigs }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -381,21 +379,20 @@ INSERT INTO aws.ec2.ec2fleets (
  region
 )
 SELECT 
- {{ TargetCapacitySpecification }},
- {{ OnDemandOptions }},
- {{ Type }},
- {{ ExcessCapacityTerminationPolicy }},
- {{ TagSpecifications }},
- {{ SpotOptions }},
- {{ ValidFrom }},
- {{ ReplaceUnhealthyInstances }},
- {{ LaunchTemplateConfigs }},
- {{ TerminateInstancesWithExpiration }},
- {{ ValidUntil }},
- {{ Context }},
+ {{ .TargetCapacitySpecification }},
+ {{ .OnDemandOptions }},
+ {{ .Type }},
+ {{ .ExcessCapacityTerminationPolicy }},
+ {{ .TagSpecifications }},
+ {{ .SpotOptions }},
+ {{ .ValidFrom }},
+ {{ .ReplaceUnhealthyInstances }},
+ {{ .LaunchTemplateConfigs }},
+ {{ .TerminateInstancesWithExpiration }},
+ {{ .ValidUntil }},
+ {{ .Context }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

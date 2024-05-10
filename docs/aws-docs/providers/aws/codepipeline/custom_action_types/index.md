@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -111,14 +110,13 @@ INSERT INTO aws.codepipeline.custom_action_types (
  region
 )
 SELECT 
-{{ Category }},
- {{ InputArtifactDetails }},
- {{ OutputArtifactDetails }},
- {{ Provider }},
- {{ Version }},
+{{ .Category }},
+ {{ .InputArtifactDetails }},
+ {{ .OutputArtifactDetails }},
+ {{ .Provider }},
+ {{ .Version }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,17 +169,16 @@ INSERT INTO aws.codepipeline.custom_action_types (
  region
 )
 SELECT 
- {{ Category }},
- {{ ConfigurationProperties }},
- {{ InputArtifactDetails }},
- {{ OutputArtifactDetails }},
- {{ Provider }},
- {{ Settings }},
- {{ Tags }},
- {{ Version }},
+ {{ .Category }},
+ {{ .ConfigurationProperties }},
+ {{ .InputArtifactDetails }},
+ {{ .OutputArtifactDetails }},
+ {{ .Provider }},
+ {{ .Settings }},
+ {{ .Tags }},
+ {{ .Version }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

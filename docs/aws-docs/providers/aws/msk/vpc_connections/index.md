@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,14 +107,13 @@ INSERT INTO aws.msk.vpc_connections (
  region
 )
 SELECT 
-{{ Authentication }},
- {{ ClientSubnets }},
- {{ TargetClusterArn }},
- {{ SecurityGroups }},
- {{ VpcId }},
+{{ .Authentication }},
+ {{ .ClientSubnets }},
+ {{ .TargetClusterArn }},
+ {{ .SecurityGroups }},
+ {{ .VpcId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,15 +143,14 @@ INSERT INTO aws.msk.vpc_connections (
  region
 )
 SELECT 
- {{ Authentication }},
- {{ ClientSubnets }},
- {{ TargetClusterArn }},
- {{ SecurityGroups }},
- {{ Tags }},
- {{ VpcId }},
+ {{ .Authentication }},
+ {{ .ClientSubnets }},
+ {{ .TargetClusterArn }},
+ {{ .SecurityGroups }},
+ {{ .Tags }},
+ {{ .VpcId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

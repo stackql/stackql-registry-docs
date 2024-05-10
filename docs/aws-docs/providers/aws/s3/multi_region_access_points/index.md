@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,10 +100,9 @@ INSERT INTO aws.s3.multi_region_access_points (
  region
 )
 SELECT 
-{{ Regions }},
+{{ .Regions }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,12 +132,11 @@ INSERT INTO aws.s3.multi_region_access_points (
  region
 )
 SELECT 
- {{ Name }},
- {{ PublicAccessBlockConfiguration }},
- {{ Regions }},
+ {{ .Name }},
+ {{ .PublicAccessBlockConfiguration }},
+ {{ .Regions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

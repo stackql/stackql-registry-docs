@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -125,18 +124,17 @@ INSERT INTO aws.quicksight.vpc_connections (
  region
 )
 SELECT 
-{{ AwsAccountId }},
- {{ Name }},
- {{ VPCConnectionId }},
- {{ SecurityGroupIds }},
- {{ SubnetIds }},
- {{ DnsResolvers }},
- {{ AvailabilityStatus }},
- {{ RoleArn }},
- {{ Tags }},
+{{ .AwsAccountId }},
+ {{ .Name }},
+ {{ .VPCConnectionId }},
+ {{ .SecurityGroupIds }},
+ {{ .SubnetIds }},
+ {{ .DnsResolvers }},
+ {{ .AvailabilityStatus }},
+ {{ .RoleArn }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -179,18 +177,17 @@ INSERT INTO aws.quicksight.vpc_connections (
  region
 )
 SELECT 
- {{ AwsAccountId }},
- {{ Name }},
- {{ VPCConnectionId }},
- {{ SecurityGroupIds }},
- {{ SubnetIds }},
- {{ DnsResolvers }},
- {{ AvailabilityStatus }},
- {{ RoleArn }},
- {{ Tags }},
+ {{ .AwsAccountId }},
+ {{ .Name }},
+ {{ .VPCConnectionId }},
+ {{ .SecurityGroupIds }},
+ {{ .SubnetIds }},
+ {{ .DnsResolvers }},
+ {{ .AvailabilityStatus }},
+ {{ .RoleArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

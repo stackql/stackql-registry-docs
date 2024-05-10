@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -120,14 +119,13 @@ INSERT INTO aws.lookoutequipment.inference_schedulers (
  region
 )
 SELECT 
-{{ DataInputConfiguration }},
- {{ DataOutputConfiguration }},
- {{ DataUploadFrequency }},
- {{ ModelName }},
- {{ RoleArn }},
+{{ .DataInputConfiguration }},
+ {{ .DataOutputConfiguration }},
+ {{ .DataUploadFrequency }},
+ {{ .ModelName }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -180,18 +178,17 @@ INSERT INTO aws.lookoutequipment.inference_schedulers (
  region
 )
 SELECT 
- {{ DataDelayOffsetInMinutes }},
- {{ DataInputConfiguration }},
- {{ DataOutputConfiguration }},
- {{ DataUploadFrequency }},
- {{ InferenceSchedulerName }},
- {{ ModelName }},
- {{ RoleArn }},
- {{ ServerSideKmsKeyId }},
- {{ Tags }},
+ {{ .DataDelayOffsetInMinutes }},
+ {{ .DataInputConfiguration }},
+ {{ .DataOutputConfiguration }},
+ {{ .DataUploadFrequency }},
+ {{ .InferenceSchedulerName }},
+ {{ .ModelName }},
+ {{ .RoleArn }},
+ {{ .ServerSideKmsKeyId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

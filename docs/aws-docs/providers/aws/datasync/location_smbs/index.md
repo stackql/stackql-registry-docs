@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.datasync.location_smbs (
  region
 )
 SELECT 
-{{ AgentArns }},
- {{ User }},
+{{ .AgentArns }},
+ {{ .User }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,17 +141,16 @@ INSERT INTO aws.datasync.location_smbs (
  region
 )
 SELECT 
- {{ AgentArns }},
- {{ Domain }},
- {{ MountOptions }},
- {{ Password }},
- {{ ServerHostname }},
- {{ Subdirectory }},
- {{ User }},
- {{ Tags }},
+ {{ .AgentArns }},
+ {{ .Domain }},
+ {{ .MountOptions }},
+ {{ .Password }},
+ {{ .ServerHostname }},
+ {{ .Subdirectory }},
+ {{ .User }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

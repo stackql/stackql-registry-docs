@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.elasticache.user_groups (
  region
 )
 SELECT 
-{{ UserGroupId }},
- {{ Engine }},
- {{ UserIds }},
+{{ .UserGroupId }},
+ {{ .Engine }},
+ {{ .UserIds }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,13 +134,12 @@ INSERT INTO aws.elasticache.user_groups (
  region
 )
 SELECT 
- {{ UserGroupId }},
- {{ Engine }},
- {{ UserIds }},
- {{ Tags }},
+ {{ .UserGroupId }},
+ {{ .Engine }},
+ {{ .UserIds }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

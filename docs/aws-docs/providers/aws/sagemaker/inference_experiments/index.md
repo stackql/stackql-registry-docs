@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -116,14 +115,13 @@ INSERT INTO aws.sagemaker.inference_experiments (
  region
 )
 SELECT 
-{{ Name }},
- {{ Type }},
- {{ RoleArn }},
- {{ EndpointName }},
- {{ ModelVariants }},
+{{ .Name }},
+ {{ .Type }},
+ {{ .RoleArn }},
+ {{ .EndpointName }},
+ {{ .ModelVariants }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -202,22 +200,21 @@ INSERT INTO aws.sagemaker.inference_experiments (
  region
 )
 SELECT 
- {{ Name }},
- {{ Type }},
- {{ Description }},
- {{ RoleArn }},
- {{ EndpointName }},
- {{ Schedule }},
- {{ KmsKey }},
- {{ DataStorageConfig }},
- {{ ModelVariants }},
- {{ ShadowModeConfig }},
- {{ Tags }},
- {{ StatusReason }},
- {{ DesiredState }},
+ {{ .Name }},
+ {{ .Type }},
+ {{ .Description }},
+ {{ .RoleArn }},
+ {{ .EndpointName }},
+ {{ .Schedule }},
+ {{ .KmsKey }},
+ {{ .DataStorageConfig }},
+ {{ .ModelVariants }},
+ {{ .ShadowModeConfig }},
+ {{ .Tags }},
+ {{ .StatusReason }},
+ {{ .DesiredState }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

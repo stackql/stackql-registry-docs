@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -231,17 +230,16 @@ INSERT INTO aws.events.rules (
  region
 )
 SELECT 
-{{ EventBusName }},
- {{ EventPattern }},
- {{ ScheduleExpression }},
- {{ Description }},
- {{ State }},
- {{ Targets }},
- {{ RoleArn }},
- {{ Name }},
+{{ .EventBusName }},
+ {{ .EventPattern }},
+ {{ .ScheduleExpression }},
+ {{ .Description }},
+ {{ .State }},
+ {{ .Targets }},
+ {{ .RoleArn }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -392,17 +390,16 @@ INSERT INTO aws.events.rules (
  region
 )
 SELECT 
- {{ EventBusName }},
- {{ EventPattern }},
- {{ ScheduleExpression }},
- {{ Description }},
- {{ State }},
- {{ Targets }},
- {{ RoleArn }},
- {{ Name }},
+ {{ .EventBusName }},
+ {{ .EventPattern }},
+ {{ .ScheduleExpression }},
+ {{ .Description }},
+ {{ .State }},
+ {{ .Targets }},
+ {{ .RoleArn }},
+ {{ .Name }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

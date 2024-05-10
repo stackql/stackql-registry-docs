@@ -79,7 +79,6 @@ FROM aws.iam.saml_providers
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.iam.saml_providers (
  region
 )
 SELECT 
-{{ SamlMetadataDocument }},
+{{ .SamlMetadataDocument }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -124,12 +122,11 @@ INSERT INTO aws.iam.saml_providers (
  region
 )
 SELECT 
- {{ Name }},
- {{ SamlMetadataDocument }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .SamlMetadataDocument }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 
