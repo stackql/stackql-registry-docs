@@ -78,7 +78,7 @@ FROM aws.wafv2.ip_sets
 
 ## `INSERT` Example
 
-Use the following StackQL query and manifest file to create a new <code>ip_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+Use the following StackQL query and manifest file to create a new <code>ip_set</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
 <Tabs
     defaultValue="required"
