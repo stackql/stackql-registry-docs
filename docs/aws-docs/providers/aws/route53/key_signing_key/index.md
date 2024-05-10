@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>key_signing_key</code> resource, use <code>key_signing_keys</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>key_signing_key</code> resource, use <code>key_signing_keys</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>key_signing_key</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -75,6 +73,7 @@ FROM aws.route53.key_signing_key
 WHERE data__Identifier = '<HostedZoneId>|<Name>';
 ```
 
+
 ## Permissions
 
 To operate on the <code>key_signing_key</code> resource, the following permissions are required:
@@ -89,16 +88,6 @@ route53:GetDNSSEC
 route53:GetDNSSEC,
 route53:ActivateKeySigningKey,
 route53:DeactivateKeySigningKey,
-kms:DescribeKey,
-kms:GetPublicKey,
-kms:Sign,
-kms:CreateGrant
-```
-
-### Delete
-```json
-route53:DeactivateKeySigningKey,
-route53:DeleteKeySigningKey,
 kms:DescribeKey,
 kms:GetPublicKey,
 kms:Sign,

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>patch_baselines</code> in a region or create a <code>patch_baselines</code> resource, use <code>patch_baseline</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>patch_baselines</code> in a region or to create or delete a <code>patch_baselines</code> resource, use <code>patch_baseline</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>patch_baselines</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,142 @@ SELECT
 region,
 id
 FROM aws.ssm.patch_baselines
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ssm.patch_baselines (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DefaultBaseline": "{{ DefaultBaseline }}",
+ "OperatingSystem": "{{ OperatingSystem }}",
+ "Description": "{{ Description }}",
+ "ApprovalRules": {
+  "PatchRules": [
+   {
+    "ApproveUntilDate": "{{ ApproveUntilDate }}",
+    "EnableNonSecurity": "{{ EnableNonSecurity }}",
+    "PatchFilterGroup": {
+     "PatchFilters": [
+      {
+       "Values": [
+        "{{ Values[0] }}"
+       ],
+       "Key": "{{ Key }}"
+      }
+     ]
+    },
+    "ApproveAfterDays": "{{ ApproveAfterDays }}",
+    "ComplianceLevel": "{{ ComplianceLevel }}"
+   }
+  ]
+ },
+ "Sources": [
+  {
+   "Products": [
+    "{{ Products[0] }}"
+   ],
+   "Configuration": "{{ Configuration }}",
+   "Name": "{{ Name }}"
+  }
+ ],
+ "Name": "{{ Name }}",
+ "RejectedPatches": [
+  "{{ RejectedPatches[0] }}"
+ ],
+ "ApprovedPatches": [
+  "{{ ApprovedPatches[0] }}"
+ ],
+ "RejectedPatchesAction": "{{ RejectedPatchesAction }}",
+ "PatchGroups": [
+  "{{ PatchGroups[0] }}"
+ ],
+ "ApprovedPatchesComplianceLevel": "{{ ApprovedPatchesComplianceLevel }}",
+ "ApprovedPatchesEnableNonSecurity": "{{ ApprovedPatchesEnableNonSecurity }}",
+ "GlobalFilters": null,
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ssm.patch_baselines (
+ DefaultBaseline,
+ OperatingSystem,
+ Description,
+ ApprovalRules,
+ Sources,
+ Name,
+ RejectedPatches,
+ ApprovedPatches,
+ RejectedPatchesAction,
+ PatchGroups,
+ ApprovedPatchesComplianceLevel,
+ ApprovedPatchesEnableNonSecurity,
+ GlobalFilters,
+ Tags,
+ region
+)
+SELECT 
+ {{ DefaultBaseline }},
+ {{ OperatingSystem }},
+ {{ Description }},
+ {{ ApprovalRules }},
+ {{ Sources }},
+ {{ Name }},
+ {{ RejectedPatches }},
+ {{ ApprovedPatches }},
+ {{ RejectedPatchesAction }},
+ {{ PatchGroups }},
+ {{ ApprovedPatchesComplianceLevel }},
+ {{ ApprovedPatchesEnableNonSecurity }},
+ {{ GlobalFilters }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ssm.patch_baselines
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +220,13 @@ ssm:RemoveTagsFromResource,
 ssm:ListTagsForResource,
 ssm:GetDefaultPatchBaseline,
 ssm:RegisterDefaultPatchBaseline
+```
+
+### Delete
+```json
+ssm:DeletePatchBaseline,
+ssm:GetPatchBaseline,
+ssm:DeregisterPatchBaselineForPatchGroup
 ```
 
 ### List

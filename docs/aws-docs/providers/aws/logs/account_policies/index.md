@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>account_policies</code> in a region or create a <code>account_policies</code> resource, use <code>account_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>account_policies</code> in a region or to create or delete a <code>account_policies</code> resource, use <code>account_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>account_policies</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,83 @@ account_id,
 policy_type,
 policy_name
 FROM aws.logs.account_policies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PolicyName": "{{ PolicyName }}",
+ "PolicyDocument": "{{ PolicyDocument }}",
+ "PolicyType": "{{ PolicyType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.logs.account_policies (
+ PolicyName,
+ PolicyDocument,
+ PolicyType,
+ region
+)
+SELECT 
+{{ PolicyName }},
+ {{ PolicyDocument }},
+ {{ PolicyType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PolicyName": "{{ PolicyName }}",
+ "PolicyDocument": "{{ PolicyDocument }}",
+ "PolicyType": "{{ PolicyType }}",
+ "Scope": "{{ Scope }}",
+ "SelectionCriteria": "{{ SelectionCriteria }}"
+}
+>>>
+--all properties
+INSERT INTO aws.logs.account_policies (
+ PolicyName,
+ PolicyDocument,
+ PolicyType,
+ Scope,
+ SelectionCriteria,
+ region
+)
+SELECT 
+ {{ PolicyName }},
+ {{ PolicyDocument }},
+ {{ PolicyType }},
+ {{ Scope }},
+ {{ SelectionCriteria }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.logs.account_policies
+WHERE data__Identifier = '<AccountId|PolicyType|PolicyName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +165,15 @@ logs:CreateLogDelivery,
 s3:REST.PUT.OBJECT,
 firehose:TagDeliveryStream,
 logs:PutSubscriptionFilter,
+logs:DeleteSubscriptionFilter,
+iam:PassRole
+```
+
+### Delete
+```json
+logs:DeleteAccountPolicy,
+logs:DeleteDataProtectionPolicy,
+logs:DescribeAccountPolicies,
 logs:DeleteSubscriptionFilter,
 iam:PassRole
 ```

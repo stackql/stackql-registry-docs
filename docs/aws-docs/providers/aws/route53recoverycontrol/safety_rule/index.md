@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>safety_rule</code> resource, use <code>safety_rules</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>safety_rule</code> resource, use <code>safety_rules</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>safety_rule</code> resource, use <code>s
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ status,
 rule_config,
 tags
 FROM aws.route53recoverycontrol.safety_rule
-WHERE data__Identifier = '<SafetyRuleArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<SafetyRuleArn>';
 ```
+
 
 ## Permissions
 
@@ -100,11 +99,5 @@ route53-recovery-control-config:DescribeSafetyRule,
 route53-recovery-control-config:ListTagsForResource,
 route53-recovery-control-config:TagResource,
 route53-recovery-control-config:UntagResource
-```
-
-### Delete
-```json
-route53-recovery-control-config:DescribeSafetyRule,
-route53-recovery-control-config:DeleteSafetyRule
 ```
 

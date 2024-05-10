@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>network_insights_access_scope_analyses</code> in a region or create a <code>network_insights_access_scope_analyses</code> resource, use <code>network_insights_access_scope_analysis</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>network_insights_access_scope_analyses</code> in a region or to create or delete a <code>network_insights_access_scope_analyses</code> resource, use <code>network_insights_access_scope_analysis</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>network_insights_access_scope_analyses</code> i
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,73 @@ SELECT
 region,
 network_insights_access_scope_analysis_id
 FROM aws.ec2.network_insights_access_scope_analyses
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "NetworkInsightsAccessScopeId": "{{ NetworkInsightsAccessScopeId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.network_insights_access_scope_analyses (
+ NetworkInsightsAccessScopeId,
+ region
+)
+SELECT 
+{{ NetworkInsightsAccessScopeId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "NetworkInsightsAccessScopeId": "{{ NetworkInsightsAccessScopeId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.network_insights_access_scope_analyses (
+ NetworkInsightsAccessScopeId,
+ Tags,
+ region
+)
+SELECT 
+ {{ NetworkInsightsAccessScopeId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.network_insights_access_scope_analyses
+WHERE data__Identifier = '<NetworkInsightsAccessScopeAnalysisId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,6 +153,12 @@ directconnect:Describe*,
 tiros:CreateQuery,
 tiros:GetQueryAnswer,
 tiros:GetQueryExplanation
+```
+
+### Delete
+```json
+ec2:DeleteNetworkInsightsAccessScopeAnalysis,
+ec2:DeleteTags
 ```
 
 ### List

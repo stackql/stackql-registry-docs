@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>standard</code> resource, use <code>standards</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>standard</code> resource, use <code>standards</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -51,11 +54,6 @@ Gets or operates on an individual <code>standard</code> resource, use <code>stan
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -70,8 +68,9 @@ standards_subscription_arn,
 standards_arn,
 disabled_standards_controls
 FROM aws.securityhub.standard
-WHERE data__Identifier = '<StandardsSubscriptionArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<StandardsSubscriptionArn>';
 ```
+
 
 ## Permissions
 
@@ -87,11 +86,5 @@ securityhub:DescribeStandardsControls
 ```json
 securityhub:GetEnabledStandards,
 securityhub:UpdateStandardsControl
-```
-
-### Delete
-```json
-securityhub:GetEnabledStandards,
-securityhub:BatchDisableStandards
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>migration_projects</code> in a region or create a <code>migration_projects</code> resource, use <code>migration_project</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>migration_projects</code> in a region or to create or delete a <code>migration_projects</code> resource, use <code>migration_project</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>migration_projects</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,167 @@ SELECT
 region,
 migration_project_arn
 FROM aws.dms.migration_projects
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "MigrationProjectName": "{{ MigrationProjectName }}",
+ "MigrationProjectIdentifier": "{{ MigrationProjectIdentifier }}",
+ "MigrationProjectCreationTime": "{{ MigrationProjectCreationTime }}",
+ "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
+ "InstanceProfileName": "{{ InstanceProfileName }}",
+ "InstanceProfileArn": "{{ InstanceProfileArn }}",
+ "TransformationRules": "{{ TransformationRules }}",
+ "Description": "{{ Description }}",
+ "SchemaConversionApplicationAttributes": {
+  "S3BucketPath": "{{ S3BucketPath }}",
+  "S3BucketRoleArn": "{{ S3BucketRoleArn }}"
+ },
+ "SourceDataProviderDescriptors": [
+  {
+   "DataProviderIdentifier": "{{ DataProviderIdentifier }}",
+   "DataProviderName": "{{ DataProviderName }}",
+   "DataProviderArn": "{{ DataProviderArn }}",
+   "SecretsManagerSecretId": "{{ SecretsManagerSecretId }}",
+   "SecretsManagerAccessRoleArn": "{{ SecretsManagerAccessRoleArn }}"
+  }
+ ],
+ "TargetDataProviderDescriptors": [
+  null
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.dms.migration_projects (
+ MigrationProjectName,
+ MigrationProjectIdentifier,
+ MigrationProjectCreationTime,
+ InstanceProfileIdentifier,
+ InstanceProfileName,
+ InstanceProfileArn,
+ TransformationRules,
+ Description,
+ SchemaConversionApplicationAttributes,
+ SourceDataProviderDescriptors,
+ TargetDataProviderDescriptors,
+ Tags,
+ region
+)
+SELECT 
+{{ MigrationProjectName }},
+ {{ MigrationProjectIdentifier }},
+ {{ MigrationProjectCreationTime }},
+ {{ InstanceProfileIdentifier }},
+ {{ InstanceProfileName }},
+ {{ InstanceProfileArn }},
+ {{ TransformationRules }},
+ {{ Description }},
+ {{ SchemaConversionApplicationAttributes }},
+ {{ SourceDataProviderDescriptors }},
+ {{ TargetDataProviderDescriptors }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "MigrationProjectName": "{{ MigrationProjectName }}",
+ "MigrationProjectIdentifier": "{{ MigrationProjectIdentifier }}",
+ "MigrationProjectCreationTime": "{{ MigrationProjectCreationTime }}",
+ "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
+ "InstanceProfileName": "{{ InstanceProfileName }}",
+ "InstanceProfileArn": "{{ InstanceProfileArn }}",
+ "TransformationRules": "{{ TransformationRules }}",
+ "Description": "{{ Description }}",
+ "SchemaConversionApplicationAttributes": {
+  "S3BucketPath": "{{ S3BucketPath }}",
+  "S3BucketRoleArn": "{{ S3BucketRoleArn }}"
+ },
+ "SourceDataProviderDescriptors": [
+  {
+   "DataProviderIdentifier": "{{ DataProviderIdentifier }}",
+   "DataProviderName": "{{ DataProviderName }}",
+   "DataProviderArn": "{{ DataProviderArn }}",
+   "SecretsManagerSecretId": "{{ SecretsManagerSecretId }}",
+   "SecretsManagerAccessRoleArn": "{{ SecretsManagerAccessRoleArn }}"
+  }
+ ],
+ "TargetDataProviderDescriptors": [
+  null
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.dms.migration_projects (
+ MigrationProjectName,
+ MigrationProjectIdentifier,
+ MigrationProjectCreationTime,
+ InstanceProfileIdentifier,
+ InstanceProfileName,
+ InstanceProfileArn,
+ TransformationRules,
+ Description,
+ SchemaConversionApplicationAttributes,
+ SourceDataProviderDescriptors,
+ TargetDataProviderDescriptors,
+ Tags,
+ region
+)
+SELECT 
+ {{ MigrationProjectName }},
+ {{ MigrationProjectIdentifier }},
+ {{ MigrationProjectCreationTime }},
+ {{ InstanceProfileIdentifier }},
+ {{ InstanceProfileName }},
+ {{ InstanceProfileArn }},
+ {{ TransformationRules }},
+ {{ Description }},
+ {{ SchemaConversionApplicationAttributes }},
+ {{ SourceDataProviderDescriptors }},
+ {{ TargetDataProviderDescriptors }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.dms.migration_projects
+WHERE data__Identifier = '<MigrationProjectArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +244,11 @@ dms:DescribeMigrationProjects,
 dms:AddTagsToResource,
 dms:ListTagsForResource,
 iam:PassRole
+```
+
+### Delete
+```json
+dms:DeleteMigrationProject
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>model_package_groups</code> in a region or create a <code>model_package_groups</code> resource, use <code>model_package_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>model_package_groups</code> in a region or to create or delete a <code>model_package_groups</code> resource, use <code>model_package_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>model_package_groups</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,79 @@ SELECT
 region,
 model_package_group_arn
 FROM aws.sagemaker.model_package_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ModelPackageGroupName": "{{ ModelPackageGroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.model_package_groups (
+ ModelPackageGroupName,
+ region
+)
+SELECT 
+{{ ModelPackageGroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "ModelPackageGroupName": "{{ ModelPackageGroupName }}",
+ "ModelPackageGroupDescription": "{{ ModelPackageGroupDescription }}",
+ "ModelPackageGroupPolicy": {}
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.model_package_groups (
+ Tags,
+ ModelPackageGroupName,
+ ModelPackageGroupDescription,
+ ModelPackageGroupPolicy,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ ModelPackageGroupName }},
+ {{ ModelPackageGroupDescription }},
+ {{ ModelPackageGroupPolicy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.model_package_groups
+WHERE data__Identifier = '<ModelPackageGroupArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +156,14 @@ sagemaker:GetModelPackageGroupPolicy,
 sagemaker:PutModelPackageGroupPolicy,
 sagemaker:ListTags,
 sagemaker:AddTags
+```
+
+### Delete
+```json
+sagemaker:DeleteModelPackageGroup,
+sagemaker:DescribeModelPackageGroup,
+sagemaker:GetModelPackageGroupPolicy,
+sagemaker:DeleteModelPackageGroupPolicy
 ```
 
 ### List

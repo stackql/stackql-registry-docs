@@ -16,6 +16,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 List of snapshots by region (requires `aws` provider to be installed)
 
@@ -92,6 +95,7 @@ region
 FROM aws.ec2.snapshots
 WHERE region = '<region>';
 ```
+
 
 
 

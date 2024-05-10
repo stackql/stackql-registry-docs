@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>api_keys</code> in a region or create a <code>api_keys</code> resource, use <code>api_key</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>api_keys</code> in a region or to create or delete a <code>api_keys</code> resource, use <code>api_key</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>api_keys</code> in a region or create a <code>a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,127 @@ SELECT
 region,
 api_key_id
 FROM aws.apigateway.api_keys
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CustomerId": "{{ CustomerId }}",
+ "Description": "{{ Description }}",
+ "Enabled": "{{ Enabled }}",
+ "GenerateDistinctId": "{{ GenerateDistinctId }}",
+ "Name": "{{ Name }}",
+ "StageKeys": [
+  {
+   "RestApiId": "{{ RestApiId }}",
+   "StageName": "{{ StageName }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Value": "{{ Value }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.api_keys (
+ CustomerId,
+ Description,
+ Enabled,
+ GenerateDistinctId,
+ Name,
+ StageKeys,
+ Tags,
+ Value,
+ region
+)
+SELECT 
+{{ CustomerId }},
+ {{ Description }},
+ {{ Enabled }},
+ {{ GenerateDistinctId }},
+ {{ Name }},
+ {{ StageKeys }},
+ {{ Tags }},
+ {{ Value }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CustomerId": "{{ CustomerId }}",
+ "Description": "{{ Description }}",
+ "Enabled": "{{ Enabled }}",
+ "GenerateDistinctId": "{{ GenerateDistinctId }}",
+ "Name": "{{ Name }}",
+ "StageKeys": [
+  {
+   "RestApiId": "{{ RestApiId }}",
+   "StageName": "{{ StageName }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Value": "{{ Value }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.api_keys (
+ CustomerId,
+ Description,
+ Enabled,
+ GenerateDistinctId,
+ Name,
+ StageKeys,
+ Tags,
+ Value,
+ region
+)
+SELECT 
+ {{ CustomerId }},
+ {{ Description }},
+ {{ Enabled }},
+ {{ GenerateDistinctId }},
+ {{ Name }},
+ {{ StageKeys }},
+ {{ Tags }},
+ {{ Value }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.api_keys
+WHERE data__Identifier = '<APIKeyId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +201,12 @@ To operate on the <code>api_keys</code> resource, the following permissions are 
 apigateway:POST,
 apigateway:GET,
 apigateway:PUT
+```
+
+### Delete
+```json
+apigateway:DELETE,
+apigateway:GET
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>verified_access_endpoint</code> resource, use <code>verified_access_endpoints</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>verified_access_endpoint</code> resource, use <code>verified_access_endpoints</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -69,11 +72,6 @@ Gets or operates on an individual <code>verified_access_endpoint</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -106,8 +104,9 @@ policy_enabled,
 tags,
 sse_specification
 FROM aws.ec2.verified_access_endpoint
-WHERE data__Identifier = '<VerifiedAccessEndpointId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<VerifiedAccessEndpointId>';
 ```
+
 
 ## Permissions
 
@@ -178,42 +177,6 @@ ec2:CreateVerifiedAccessEndpoint,
 ec2:DeleteVerifiedAccessEndpoint,
 iam:CreateServiceLinkedRole,
 iam:ListRoles,
-kms:DescribeKey,
-kms:RetireGrant,
-kms:CreateGrant,
-kms:GenerateDataKey,
-kms:Decrypt
-```
-
-### Delete
-```json
-ec2:DescribeVerifiedAccessEndpoints,
-ec2:DescribeTags,
-ec2:DeleteVerifiedAccessEndpoint,
-ec2:DeleteTags,
-sso:DeleteManagedApplicationInstance,
-acm:DeleteCertificateRelation,
-acm:DescribeCertificate,
-acm:CreateCertificateRelation,
-acm:GetCertificateWithPK,
-ec2:CreateTags,
-ec2:CreateVerifiedAccessEndpoint,
-ec2:DescribeAccountAttributes,
-ec2:DescribeNetworkInterfaces,
-ec2:DescribeSecurityGroups,
-ec2:DescribeSubnets,
-ec2:GetVerifiedAccessEndpointPolicy,
-ec2:ModifyVerifiedAccessEndpoint,
-ec2:ModifyVerifiedAccessEndpointPolicy,
-elasticloadbalancing:DescribeListenerCertificates,
-elasticloadbalancing:DescribeListeners,
-elasticloadbalancing:DescribeLoadBalancers,
-iam:CreateServiceLinkedRole,
-iam:ListRoles,
-sso:CreateManagedApplicationInstance,
-sso:GetManagedApplicationInstance,
-sso:GetPeregrineStatus,
-sso:GetSharedSsoConfiguration,
 kms:DescribeKey,
 kms:RetireGrant,
 kms:CreateGrant,

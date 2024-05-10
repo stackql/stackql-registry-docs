@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>cluster</code> resource, use <code>clusters</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>cluster</code> resource, use <code>clusters</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -64,11 +67,6 @@ Gets or operates on an individual <code>cluster</code> resource, use <code>clust
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -96,8 +94,9 @@ kms_key_id,
 tags,
 auth_type
 FROM aws.docdbelastic.cluster
-WHERE data__Identifier = '<ClusterArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterArn>';
 ```
+
 
 ## Permissions
 
@@ -134,19 +133,5 @@ kms:DescribeKey,
 kms:CreateGrant,
 kms:GenerateDataKey,
 kms:Decrypt
-```
-
-### Delete
-```json
-docdb-elastic:DeleteCluster,
-docdb-elastic:GetCluster,
-ec2:DescribeVpcEndpoints,
-ec2:DeleteVpcEndpoints,
-ec2:ModifyVpcEndpoint,
-ec2:DescribeSecurityGroups,
-ec2:DescribeSubnets,
-ec2:DescribeVpcAttribute,
-ec2:DescribeVpcs,
-ec2:DescribeAvailabilityZones
 ```
 

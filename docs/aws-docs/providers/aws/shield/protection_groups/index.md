@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>protection_groups</code> in a region or create a <code>protection_groups</code> resource, use <code>protection_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>protection_groups</code> in a region or to create or delete a <code>protection_groups</code> resource, use <code>protection_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>protection_groups</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,93 @@ SELECT
 region,
 protection_group_arn
 FROM aws.shield.protection_groups
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ProtectionGroupId": "{{ ProtectionGroupId }}",
+ "Aggregation": "{{ Aggregation }}",
+ "Pattern": "{{ Pattern }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.shield.protection_groups (
+ ProtectionGroupId,
+ Aggregation,
+ Pattern,
+ region
+)
+SELECT 
+{{ ProtectionGroupId }},
+ {{ Aggregation }},
+ {{ Pattern }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ProtectionGroupId": "{{ ProtectionGroupId }}",
+ "Aggregation": "{{ Aggregation }}",
+ "Pattern": "{{ Pattern }}",
+ "Members": [
+  "{{ Members[0] }}"
+ ],
+ "ResourceType": "{{ ResourceType }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.shield.protection_groups (
+ ProtectionGroupId,
+ Aggregation,
+ Pattern,
+ Members,
+ ResourceType,
+ Tags,
+ region
+)
+SELECT 
+ {{ ProtectionGroupId }},
+ {{ Aggregation }},
+ {{ Pattern }},
+ {{ Members }},
+ {{ ResourceType }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.shield.protection_groups
+WHERE data__Identifier = '<ProtectionGroupArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +166,12 @@ To operate on the <code>protection_groups</code> resource, the following permiss
 ```json
 shield:CreateProtectionGroup,
 shield:TagResource
+```
+
+### Delete
+```json
+shield:DeleteProtectionGroup,
+shield:UntagResource
 ```
 
 ### List

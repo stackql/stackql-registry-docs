@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>application_versions</code> in a region or create a <code>application_versions</code> resource, use <code>application_version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>application_versions</code> in a region or to create or delete a <code>application_versions</code> resource, use <code>application_version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>application_versions</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,80 @@ region,
 application_name,
 id
 FROM aws.elasticbeanstalk.application_versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApplicationName": "{{ ApplicationName }}",
+ "SourceBundle": {
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.elasticbeanstalk.application_versions (
+ ApplicationName,
+ SourceBundle,
+ region
+)
+SELECT 
+{{ ApplicationName }},
+ {{ SourceBundle }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApplicationName": "{{ ApplicationName }}",
+ "Description": "{{ Description }}",
+ "SourceBundle": {
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.elasticbeanstalk.application_versions (
+ ApplicationName,
+ Description,
+ SourceBundle,
+ region
+)
+SELECT 
+ {{ ApplicationName }},
+ {{ Description }},
+ {{ SourceBundle }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.elasticbeanstalk.application_versions
+WHERE data__Identifier = '<ApplicationName|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +157,11 @@ elasticbeanstalk:CreateApplicationVersion,
 elasticbeanstalk:DescribeApplicationVersions,
 s3:GetObject,
 s3:PutObject
+```
+
+### Delete
+```json
+elasticbeanstalk:DeleteApplicationVersion
 ```
 
 ### List

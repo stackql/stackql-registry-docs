@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>cache_policies</code> in a region or create a <code>cache_policies</code> resource, use <code>cache_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>cache_policies</code> in a region or to create or delete a <code>cache_policies</code> resource, use <code>cache_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>cache_policies</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,121 @@ SELECT
 region,
 id
 FROM aws.cloudfront.cache_policies
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CachePolicyConfig": {
+  "Comment": "{{ Comment }}",
+  "DefaultTTL": null,
+  "MaxTTL": null,
+  "MinTTL": null,
+  "Name": "{{ Name }}",
+  "ParametersInCacheKeyAndForwardedToOrigin": {
+   "CookiesConfig": {
+    "CookieBehavior": "{{ CookieBehavior }}",
+    "Cookies": [
+     "{{ Cookies[0] }}"
+    ]
+   },
+   "EnableAcceptEncodingBrotli": "{{ EnableAcceptEncodingBrotli }}",
+   "EnableAcceptEncodingGzip": "{{ EnableAcceptEncodingGzip }}",
+   "HeadersConfig": {
+    "HeaderBehavior": "{{ HeaderBehavior }}",
+    "Headers": [
+     "{{ Headers[0] }}"
+    ]
+   },
+   "QueryStringsConfig": {
+    "QueryStringBehavior": "{{ QueryStringBehavior }}",
+    "QueryStrings": [
+     "{{ QueryStrings[0] }}"
+    ]
+   }
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudfront.cache_policies (
+ CachePolicyConfig,
+ region
+)
+SELECT 
+{{ CachePolicyConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CachePolicyConfig": {
+  "Comment": "{{ Comment }}",
+  "DefaultTTL": null,
+  "MaxTTL": null,
+  "MinTTL": null,
+  "Name": "{{ Name }}",
+  "ParametersInCacheKeyAndForwardedToOrigin": {
+   "CookiesConfig": {
+    "CookieBehavior": "{{ CookieBehavior }}",
+    "Cookies": [
+     "{{ Cookies[0] }}"
+    ]
+   },
+   "EnableAcceptEncodingBrotli": "{{ EnableAcceptEncodingBrotli }}",
+   "EnableAcceptEncodingGzip": "{{ EnableAcceptEncodingGzip }}",
+   "HeadersConfig": {
+    "HeaderBehavior": "{{ HeaderBehavior }}",
+    "Headers": [
+     "{{ Headers[0] }}"
+    ]
+   },
+   "QueryStringsConfig": {
+    "QueryStringBehavior": "{{ QueryStringBehavior }}",
+    "QueryStrings": [
+     "{{ QueryStrings[0] }}"
+    ]
+   }
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.cloudfront.cache_policies (
+ CachePolicyConfig,
+ region
+)
+SELECT 
+ {{ CachePolicyConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudfront.cache_policies
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +193,12 @@ To operate on the <code>cache_policies</code> resource, the following permission
 ### Create
 ```json
 cloudfront:CreateCachePolicy
+```
+
+### Delete
+```json
+cloudfront:DeleteCachePolicy,
+cloudfront:GetCachePolicy
 ```
 
 ### List

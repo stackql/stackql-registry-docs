@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>model_quality_job_definitions</code> in a region or create a <code>model_quality_job_definitions</code> resource, use <code>model_quality_job_definition</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>model_quality_job_definitions</code> in a region or to create or delete a <code>model_quality_job_definitions</code> resource, use <code>model_quality_job_definition</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>model_quality_job_definitions</code> in a regio
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,244 @@ SELECT
 region,
 job_definition_arn
 FROM aws.sagemaker.model_quality_job_definitions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ModelQualityAppSpecification": {
+  "ContainerArguments": [
+   "{{ ContainerArguments[0] }}"
+  ],
+  "ContainerEntrypoint": [
+   "{{ ContainerEntrypoint[0] }}"
+  ],
+  "ImageUri": "{{ ImageUri }}",
+  "PostAnalyticsProcessorSourceUri": "{{ PostAnalyticsProcessorSourceUri }}",
+  "RecordPreprocessorSourceUri": null,
+  "Environment": {},
+  "ProblemType": "{{ ProblemType }}"
+ },
+ "ModelQualityJobInput": {
+  "EndpointInput": {
+   "EndpointName": "{{ EndpointName }}",
+   "LocalPath": "{{ LocalPath }}",
+   "S3DataDistributionType": "{{ S3DataDistributionType }}",
+   "S3InputMode": "{{ S3InputMode }}",
+   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
+  },
+  "BatchTransformInput": {
+   "DataCapturedDestinationS3Uri": "{{ DataCapturedDestinationS3Uri }}",
+   "DatasetFormat": {
+    "Csv": {
+     "Header": "{{ Header }}"
+    },
+    "Json": {
+     "Line": "{{ Line }}"
+    },
+    "Parquet": "{{ Parquet }}"
+   },
+   "LocalPath": "{{ LocalPath }}",
+   "S3DataDistributionType": "{{ S3DataDistributionType }}",
+   "S3InputMode": "{{ S3InputMode }}",
+   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
+  },
+  "GroundTruthS3Input": {
+   "S3Uri": "{{ S3Uri }}"
+  }
+ },
+ "ModelQualityJobOutputConfig": {
+  "KmsKeyId": "{{ KmsKeyId }}",
+  "MonitoringOutputs": [
+   {
+    "S3Output": {
+     "LocalPath": "{{ LocalPath }}",
+     "S3UploadMode": "{{ S3UploadMode }}",
+     "S3Uri": "{{ S3Uri }}"
+    }
+   }
+  ]
+ },
+ "JobResources": {
+  "ClusterConfig": {
+   "InstanceCount": "{{ InstanceCount }}",
+   "InstanceType": "{{ InstanceType }}",
+   "VolumeKmsKeyId": "{{ VolumeKmsKeyId }}",
+   "VolumeSizeInGB": "{{ VolumeSizeInGB }}"
+  }
+ },
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.model_quality_job_definitions (
+ ModelQualityAppSpecification,
+ ModelQualityJobInput,
+ ModelQualityJobOutputConfig,
+ JobResources,
+ RoleArn,
+ region
+)
+SELECT 
+{{ ModelQualityAppSpecification }},
+ {{ ModelQualityJobInput }},
+ {{ ModelQualityJobOutputConfig }},
+ {{ JobResources }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "JobDefinitionName": "{{ JobDefinitionName }}",
+ "ModelQualityBaselineConfig": {
+  "BaseliningJobName": "{{ BaseliningJobName }}",
+  "ConstraintsResource": {
+   "S3Uri": "{{ S3Uri }}"
+  }
+ },
+ "ModelQualityAppSpecification": {
+  "ContainerArguments": [
+   "{{ ContainerArguments[0] }}"
+  ],
+  "ContainerEntrypoint": [
+   "{{ ContainerEntrypoint[0] }}"
+  ],
+  "ImageUri": "{{ ImageUri }}",
+  "PostAnalyticsProcessorSourceUri": null,
+  "RecordPreprocessorSourceUri": null,
+  "Environment": {},
+  "ProblemType": "{{ ProblemType }}"
+ },
+ "ModelQualityJobInput": {
+  "EndpointInput": {
+   "EndpointName": "{{ EndpointName }}",
+   "LocalPath": "{{ LocalPath }}",
+   "S3DataDistributionType": "{{ S3DataDistributionType }}",
+   "S3InputMode": "{{ S3InputMode }}",
+   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
+  },
+  "BatchTransformInput": {
+   "DataCapturedDestinationS3Uri": "{{ DataCapturedDestinationS3Uri }}",
+   "DatasetFormat": {
+    "Csv": {
+     "Header": "{{ Header }}"
+    },
+    "Json": {
+     "Line": "{{ Line }}"
+    },
+    "Parquet": "{{ Parquet }}"
+   },
+   "LocalPath": "{{ LocalPath }}",
+   "S3DataDistributionType": "{{ S3DataDistributionType }}",
+   "S3InputMode": "{{ S3InputMode }}",
+   "ExcludeFeaturesAttribute": "{{ ExcludeFeaturesAttribute }}"
+  },
+  "GroundTruthS3Input": {
+   "S3Uri": "{{ S3Uri }}"
+  }
+ },
+ "ModelQualityJobOutputConfig": {
+  "KmsKeyId": "{{ KmsKeyId }}",
+  "MonitoringOutputs": [
+   {
+    "S3Output": {
+     "LocalPath": "{{ LocalPath }}",
+     "S3UploadMode": "{{ S3UploadMode }}",
+     "S3Uri": "{{ S3Uri }}"
+    }
+   }
+  ]
+ },
+ "JobResources": {
+  "ClusterConfig": {
+   "InstanceCount": "{{ InstanceCount }}",
+   "InstanceType": "{{ InstanceType }}",
+   "VolumeKmsKeyId": "{{ VolumeKmsKeyId }}",
+   "VolumeSizeInGB": "{{ VolumeSizeInGB }}"
+  }
+ },
+ "NetworkConfig": {
+  "EnableInterContainerTrafficEncryption": "{{ EnableInterContainerTrafficEncryption }}",
+  "EnableNetworkIsolation": "{{ EnableNetworkIsolation }}",
+  "VpcConfig": {
+   "SecurityGroupIds": [
+    "{{ SecurityGroupIds[0] }}"
+   ],
+   "Subnets": [
+    "{{ Subnets[0] }}"
+   ]
+  }
+ },
+ "EndpointName": null,
+ "RoleArn": "{{ RoleArn }}",
+ "StoppingCondition": {
+  "MaxRuntimeInSeconds": "{{ MaxRuntimeInSeconds }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.model_quality_job_definitions (
+ JobDefinitionName,
+ ModelQualityBaselineConfig,
+ ModelQualityAppSpecification,
+ ModelQualityJobInput,
+ ModelQualityJobOutputConfig,
+ JobResources,
+ NetworkConfig,
+ EndpointName,
+ RoleArn,
+ StoppingCondition,
+ Tags,
+ region
+)
+SELECT 
+ {{ JobDefinitionName }},
+ {{ ModelQualityBaselineConfig }},
+ {{ ModelQualityAppSpecification }},
+ {{ ModelQualityJobInput }},
+ {{ ModelQualityJobOutputConfig }},
+ {{ JobResources }},
+ {{ NetworkConfig }},
+ {{ EndpointName }},
+ {{ RoleArn }},
+ {{ StoppingCondition }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.model_quality_job_definitions
+WHERE data__Identifier = '<JobDefinitionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +319,11 @@ sagemaker:CreateModelQualityJobDefinition,
 sagemaker:DescribeModelQualityJobDefinition,
 sagemaker:AddTags,
 iam:PassRole
+```
+
+### Delete
+```json
+sagemaker:DeleteModelQualityJobDefinition
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>event_types</code> in a region or create a <code>event_types</code> resource, use <code>event_type</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>event_types</code> in a region or to create or delete a <code>event_types</code> resource, use <code>event_type</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>event_types</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,165 @@ SELECT
 region,
 arn
 FROM aws.frauddetector.event_types
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "EventVariables": [
+  {
+   "Arn": "{{ Arn }}",
+   "Inline": "{{ Inline }}",
+   "Name": "{{ Name }}",
+   "DataSource": "{{ DataSource }}",
+   "DataType": "{{ DataType }}",
+   "DefaultValue": "{{ DefaultValue }}",
+   "VariableType": "{{ VariableType }}",
+   "Description": "{{ Description }}",
+   "Tags": [
+    {
+     "Key": "{{ Key }}",
+     "Value": "{{ Value }}"
+    }
+   ],
+   "CreatedTime": "{{ CreatedTime }}",
+   "LastUpdatedTime": "{{ LastUpdatedTime }}"
+  }
+ ],
+ "Labels": [
+  {
+   "Name": "{{ Name }}"
+  }
+ ],
+ "EntityTypes": [
+  {
+   "Arn": "{{ Arn }}",
+   "Inline": "{{ Inline }}",
+   "Name": "{{ Name }}",
+   "Description": "{{ Description }}",
+   "Tags": [
+    null
+   ],
+   "CreatedTime": "{{ CreatedTime }}",
+   "LastUpdatedTime": "{{ LastUpdatedTime }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.frauddetector.event_types (
+ Name,
+ EventVariables,
+ Labels,
+ EntityTypes,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ EventVariables }},
+ {{ Labels }},
+ {{ EntityTypes }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Description": "{{ Description }}",
+ "EventVariables": [
+  {
+   "Arn": "{{ Arn }}",
+   "Inline": "{{ Inline }}",
+   "Name": "{{ Name }}",
+   "DataSource": "{{ DataSource }}",
+   "DataType": "{{ DataType }}",
+   "DefaultValue": "{{ DefaultValue }}",
+   "VariableType": "{{ VariableType }}",
+   "Description": "{{ Description }}",
+   "Tags": [
+    null
+   ],
+   "CreatedTime": "{{ CreatedTime }}",
+   "LastUpdatedTime": "{{ LastUpdatedTime }}"
+  }
+ ],
+ "Labels": [
+  {
+   "Name": "{{ Name }}",
+   "Tags": [
+    null
+   ],
+   "Description": "{{ Description }}"
+  }
+ ],
+ "EntityTypes": [
+  {
+   "Arn": "{{ Arn }}",
+   "Inline": "{{ Inline }}",
+   "Name": "{{ Name }}",
+   "Description": "{{ Description }}",
+   "Tags": [
+    null
+   ],
+   "CreatedTime": "{{ CreatedTime }}",
+   "LastUpdatedTime": "{{ LastUpdatedTime }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.frauddetector.event_types (
+ Name,
+ Tags,
+ Description,
+ EventVariables,
+ Labels,
+ EntityTypes,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Tags }},
+ {{ Description }},
+ {{ EventVariables }},
+ {{ Labels }},
+ {{ EntityTypes }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.frauddetector.event_types
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +248,20 @@ frauddetector:GetLabels,
 frauddetector:GetEntityTypes,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource
+```
+
+### Delete
+```json
+frauddetector:BatchGetVariable,
+frauddetector:GetVariables,
+frauddetector:GetEventTypes,
+frauddetector:GetLabels,
+frauddetector:GetEntityTypes,
+frauddetector:DeleteEventType,
+frauddetector:DeleteVariable,
+frauddetector:DeleteLabel,
+frauddetector:DeleteEntityType,
+frauddetector:ListTagsForResource
 ```
 
 ### List

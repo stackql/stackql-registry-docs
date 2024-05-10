@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>scenes</code> in a region or create a <code>scenes</code> resource, use <code>scene</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>scenes</code> in a region or to create or delete a <code>scenes</code> resource, use <code>scene</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>scenes</code> in a region or create a <code>sce
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,91 @@ region,
 workspace_id,
 scene_id
 FROM aws.iottwinmaker.scenes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SceneId": "{{ SceneId }}",
+ "ContentLocation": "{{ ContentLocation }}",
+ "WorkspaceId": "{{ WorkspaceId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iottwinmaker.scenes (
+ SceneId,
+ ContentLocation,
+ WorkspaceId,
+ region
+)
+SELECT 
+{{ SceneId }},
+ {{ ContentLocation }},
+ {{ WorkspaceId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SceneId": "{{ SceneId }}",
+ "Description": "{{ Description }}",
+ "ContentLocation": "{{ ContentLocation }}",
+ "Tags": {},
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "Capabilities": [
+  "{{ Capabilities[0] }}"
+ ],
+ "SceneMetadata": {}
+}
+>>>
+--all properties
+INSERT INTO aws.iottwinmaker.scenes (
+ SceneId,
+ Description,
+ ContentLocation,
+ Tags,
+ WorkspaceId,
+ Capabilities,
+ SceneMetadata,
+ region
+)
+SELECT 
+ {{ SceneId }},
+ {{ Description }},
+ {{ ContentLocation }},
+ {{ Tags }},
+ {{ WorkspaceId }},
+ {{ Capabilities }},
+ {{ SceneMetadata }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iottwinmaker.scenes
+WHERE data__Identifier = '<WorkspaceId|SceneId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +169,13 @@ iottwinmaker:GetScene,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource
+```
+
+### Delete
+```json
+iottwinmaker:DeleteScene,
+iottwinmaker:GetScene,
+iottwinmaker:GetWorkspace
 ```
 
 ### List

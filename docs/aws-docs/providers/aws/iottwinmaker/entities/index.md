@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>entities</code> in a region or create a <code>entities</code> resource, use <code>entity</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>entities</code> in a region or to create or delete a <code>entities</code> resource, use <code>entity</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>entities</code> in a region or create a <code>e
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,89 @@ region,
 workspace_id,
 entity_id
 FROM aws.iottwinmaker.entities
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "EntityName": "{{ EntityName }}",
+ "WorkspaceId": "{{ WorkspaceId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iottwinmaker.entities (
+ EntityName,
+ WorkspaceId,
+ region
+)
+SELECT 
+{{ EntityName }},
+ {{ WorkspaceId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "EntityId": "{{ EntityId }}",
+ "EntityName": "{{ EntityName }}",
+ "ParentEntityId": "{{ ParentEntityId }}",
+ "Description": "{{ Description }}",
+ "Tags": {},
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "Components": {},
+ "CompositeComponents": {}
+}
+>>>
+--all properties
+INSERT INTO aws.iottwinmaker.entities (
+ EntityId,
+ EntityName,
+ ParentEntityId,
+ Description,
+ Tags,
+ WorkspaceId,
+ Components,
+ CompositeComponents,
+ region
+)
+SELECT 
+ {{ EntityId }},
+ {{ EntityName }},
+ {{ ParentEntityId }},
+ {{ Description }},
+ {{ Tags }},
+ {{ WorkspaceId }},
+ {{ Components }},
+ {{ CompositeComponents }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iottwinmaker.entities
+WHERE data__Identifier = '<WorkspaceId|EntityId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,6 +169,13 @@ iottwinmaker:ListComponents,
 iottwinmaker:ListProperties,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource
+```
+
+### Delete
+```json
+iottwinmaker:GetEntity,
+iottwinmaker:GetWorkspace,
+iottwinmaker:DeleteEntity
 ```
 
 ### List

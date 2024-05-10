@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>apps</code> in a region or create a <code>apps</code> resource, use <code>app</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>apps</code> in a region or to create or delete a <code>apps</code> resource, use <code>app</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>apps</code> in a region or create a <code>apps<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,144 @@ SELECT
 region,
 arn
 FROM aws.amplify.apps
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.amplify.apps (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessToken": "{{ AccessToken }}",
+ "AutoBranchCreationConfig": {
+  "AutoBranchCreationPatterns": [
+   "{{ AutoBranchCreationPatterns[0] }}"
+  ],
+  "BasicAuthConfig": {
+   "EnableBasicAuth": "{{ EnableBasicAuth }}",
+   "Username": "{{ Username }}",
+   "Password": "{{ Password }}"
+  },
+  "BuildSpec": "{{ BuildSpec }}",
+  "EnableAutoBranchCreation": "{{ EnableAutoBranchCreation }}",
+  "EnableAutoBuild": "{{ EnableAutoBuild }}",
+  "EnablePerformanceMode": "{{ EnablePerformanceMode }}",
+  "EnablePullRequestPreview": "{{ EnablePullRequestPreview }}",
+  "EnvironmentVariables": [
+   {
+    "Name": "{{ Name }}",
+    "Value": "{{ Value }}"
+   }
+  ],
+  "Framework": "{{ Framework }}",
+  "PullRequestEnvironmentName": "{{ PullRequestEnvironmentName }}",
+  "Stage": "{{ Stage }}"
+ },
+ "BasicAuthConfig": null,
+ "BuildSpec": "{{ BuildSpec }}",
+ "CustomHeaders": "{{ CustomHeaders }}",
+ "CustomRules": [
+  {
+   "Condition": "{{ Condition }}",
+   "Status": "{{ Status }}",
+   "Target": "{{ Target }}",
+   "Source": "{{ Source }}"
+  }
+ ],
+ "Description": "{{ Description }}",
+ "EnableBranchAutoDeletion": "{{ EnableBranchAutoDeletion }}",
+ "EnvironmentVariables": [
+  null
+ ],
+ "IAMServiceRole": "{{ IAMServiceRole }}",
+ "Name": "{{ Name }}",
+ "OauthToken": "{{ OauthToken }}",
+ "Platform": "{{ Platform }}",
+ "Repository": "{{ Repository }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.amplify.apps (
+ AccessToken,
+ AutoBranchCreationConfig,
+ BasicAuthConfig,
+ BuildSpec,
+ CustomHeaders,
+ CustomRules,
+ Description,
+ EnableBranchAutoDeletion,
+ EnvironmentVariables,
+ IAMServiceRole,
+ Name,
+ OauthToken,
+ Platform,
+ Repository,
+ Tags,
+ region
+)
+SELECT 
+ {{ AccessToken }},
+ {{ AutoBranchCreationConfig }},
+ {{ BasicAuthConfig }},
+ {{ BuildSpec }},
+ {{ CustomHeaders }},
+ {{ CustomRules }},
+ {{ Description }},
+ {{ EnableBranchAutoDeletion }},
+ {{ EnvironmentVariables }},
+ {{ IAMServiceRole }},
+ {{ Name }},
+ {{ OauthToken }},
+ {{ Platform }},
+ {{ Repository }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.amplify.apps
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +223,17 @@ codecommit:PutRepositoryTriggers,
 codecommit:GetRepositoryTriggers,
 sns:CreateTopic,
 sns:Subscribe,
+iam:PassRole
+```
+
+### Delete
+```json
+amplify:GetApp,
+amplify:DeleteApp,
+codecommit:GetRepository,
+codecommit:GetRepositoryTriggers,
+codecommit:PutRepositoryTriggers,
+sns:Unsubscribe,
 iam:PassRole
 ```
 

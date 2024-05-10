@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>resource_sets</code> in a region or create a <code>resource_sets</code> resource, use <code>resource_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>resource_sets</code> in a region or to create or delete a <code>resource_sets</code> resource, use <code>resource_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>resource_sets</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,128 @@ SELECT
 region,
 resource_set_name
 FROM aws.route53recoveryreadiness.resource_sets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Resources": [
+  {
+   "ResourceArn": "{{ ResourceArn }}",
+   "ComponentId": "{{ ComponentId }}",
+   "DnsTargetResource": {
+    "DomainName": "{{ DomainName }}",
+    "RecordSetId": "{{ RecordSetId }}",
+    "HostedZoneArn": "{{ HostedZoneArn }}",
+    "RecordType": "{{ RecordType }}",
+    "TargetResource": {
+     "NLBResource": {
+      "Arn": "{{ Arn }}"
+     },
+     "R53Resource": {
+      "DomainName": "{{ DomainName }}",
+      "RecordSetId": "{{ RecordSetId }}"
+     }
+    }
+   },
+   "ReadinessScopes": [
+    "{{ ReadinessScopes[0] }}"
+   ]
+  }
+ ],
+ "ResourceSetType": "{{ ResourceSetType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.route53recoveryreadiness.resource_sets (
+ Resources,
+ ResourceSetType,
+ region
+)
+SELECT 
+{{ Resources }},
+ {{ ResourceSetType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ResourceSetName": "{{ ResourceSetName }}",
+ "Resources": [
+  {
+   "ResourceArn": "{{ ResourceArn }}",
+   "ComponentId": "{{ ComponentId }}",
+   "DnsTargetResource": {
+    "DomainName": "{{ DomainName }}",
+    "RecordSetId": "{{ RecordSetId }}",
+    "HostedZoneArn": "{{ HostedZoneArn }}",
+    "RecordType": "{{ RecordType }}",
+    "TargetResource": {
+     "NLBResource": {
+      "Arn": "{{ Arn }}"
+     },
+     "R53Resource": {
+      "DomainName": "{{ DomainName }}",
+      "RecordSetId": "{{ RecordSetId }}"
+     }
+    }
+   },
+   "ReadinessScopes": [
+    "{{ ReadinessScopes[0] }}"
+   ]
+  }
+ ],
+ "ResourceSetType": "{{ ResourceSetType }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.route53recoveryreadiness.resource_sets (
+ ResourceSetName,
+ Resources,
+ ResourceSetType,
+ Tags,
+ region
+)
+SELECT 
+ {{ ResourceSetName }},
+ {{ Resources }},
+ {{ ResourceSetType }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53recoveryreadiness.resource_sets
+WHERE data__Identifier = '<ResourceSetName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +205,12 @@ route53-recovery-readiness:GetRecoveryGroup,
 route53-recovery-readiness:GetCell,
 route53-recovery-readiness:ListTagsForResources,
 route53-recovery-readiness:TagResource
+```
+
+### Delete
+```json
+route53-recovery-readiness:DeleteResourceSet,
+route53-recovery-readiness:GetResourceSet
 ```
 
 ### List

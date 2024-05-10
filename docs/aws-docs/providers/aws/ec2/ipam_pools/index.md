@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>ipam_pools</code> in a region or create a <code>ipam_pools</code> resource, use <code>ipam_pool</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>ipam_pools</code> in a region or to create or delete a <code>ipam_pools</code> resource, use <code>ipam_pool</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>ipam_pools</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,129 @@ SELECT
 region,
 ipam_pool_id
 FROM aws.ec2.ipam_pools
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AddressFamily": "{{ AddressFamily }}",
+ "IpamScopeId": "{{ IpamScopeId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.ipam_pools (
+ AddressFamily,
+ IpamScopeId,
+ region
+)
+SELECT 
+{{ AddressFamily }},
+ {{ IpamScopeId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AddressFamily": "{{ AddressFamily }}",
+ "AllocationMinNetmaskLength": "{{ AllocationMinNetmaskLength }}",
+ "AllocationDefaultNetmaskLength": "{{ AllocationDefaultNetmaskLength }}",
+ "AllocationMaxNetmaskLength": "{{ AllocationMaxNetmaskLength }}",
+ "AllocationResourceTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AutoImport": "{{ AutoImport }}",
+ "AwsService": "{{ AwsService }}",
+ "Description": "{{ Description }}",
+ "IpamScopeId": "{{ IpamScopeId }}",
+ "Locale": "{{ Locale }}",
+ "ProvisionedCidrs": [
+  {
+   "Cidr": "{{ Cidr }}"
+  }
+ ],
+ "PublicIpSource": "{{ PublicIpSource }}",
+ "PubliclyAdvertisable": "{{ PubliclyAdvertisable }}",
+ "SourceIpamPoolId": "{{ SourceIpamPoolId }}",
+ "SourceResource": {
+  "ResourceId": "{{ ResourceId }}",
+  "ResourceType": "{{ ResourceType }}",
+  "ResourceRegion": "{{ ResourceRegion }}",
+  "ResourceOwner": "{{ ResourceOwner }}"
+ },
+ "Tags": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.ipam_pools (
+ AddressFamily,
+ AllocationMinNetmaskLength,
+ AllocationDefaultNetmaskLength,
+ AllocationMaxNetmaskLength,
+ AllocationResourceTags,
+ AutoImport,
+ AwsService,
+ Description,
+ IpamScopeId,
+ Locale,
+ ProvisionedCidrs,
+ PublicIpSource,
+ PubliclyAdvertisable,
+ SourceIpamPoolId,
+ SourceResource,
+ Tags,
+ region
+)
+SELECT 
+ {{ AddressFamily }},
+ {{ AllocationMinNetmaskLength }},
+ {{ AllocationDefaultNetmaskLength }},
+ {{ AllocationMaxNetmaskLength }},
+ {{ AllocationResourceTags }},
+ {{ AutoImport }},
+ {{ AwsService }},
+ {{ Description }},
+ {{ IpamScopeId }},
+ {{ Locale }},
+ {{ ProvisionedCidrs }},
+ {{ PublicIpSource }},
+ {{ PubliclyAdvertisable }},
+ {{ SourceIpamPoolId }},
+ {{ SourceResource }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.ipam_pools
+WHERE data__Identifier = '<IpamPoolId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +205,15 @@ ec2:DescribeIpamPools,
 ec2:ProvisionIpamPoolCidr,
 ec2:GetIpamPoolCidrs,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DeleteIpamPool,
+ec2:DescribeIpamPools,
+ec2:GetIpamPoolCidrs,
+ec2:DeprovisionIpamPoolCidr,
+ec2:DeleteTags
 ```
 
 ### List

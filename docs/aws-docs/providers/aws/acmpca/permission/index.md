@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>permission</code> resource, use <code>permissions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>permission</code> resource, use <code>permissions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -47,11 +50,6 @@ Gets or operates on an individual <code>permission</code> resource, use <code>pe
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -67,8 +65,9 @@ certificate_authority_arn,
 principal,
 source_account
 FROM aws.acmpca.permission
-WHERE data__Identifier = '<CertificateAuthorityArn>|<Principal>';
+WHERE region = 'us-east-1' AND data__Identifier = '<CertificateAuthorityArn>|<Principal>';
 ```
+
 
 ## Permissions
 
@@ -77,10 +76,5 @@ To operate on the <code>permission</code> resource, the following permissions ar
 ### Read
 ```json
 acm-pca:ListPermissions
-```
-
-### Delete
-```json
-acm-pca:DeletePermission
 ```
 

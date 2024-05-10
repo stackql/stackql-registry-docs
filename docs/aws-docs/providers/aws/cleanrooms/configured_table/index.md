@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>configured_table</code> resource, use <code>configured_tables</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>configured_table</code> resource, use <code>configured_tables</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -57,11 +60,6 @@ Gets or operates on an individual <code>configured_table</code> resource, use <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -82,8 +80,9 @@ name,
 analysis_rules,
 table_reference
 FROM aws.cleanrooms.configured_table
-WHERE data__Identifier = '<ConfiguredTableIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ConfiguredTableIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -106,25 +105,6 @@ cleanrooms:GetConfiguredTableAnalysisRule,
 cleanrooms:DeleteConfiguredTableAnalysisRule,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:UntagResource,
-glue:GetDatabase,
-glue:GetDatabases,
-glue:GetTable,
-glue:GetTables,
-glue:GetPartition,
-glue:GetPartitions,
-glue:BatchGetPartition,
-glue:GetSchemaVersion
-```
-
-### Delete
-```json
-cleanrooms:DeleteConfiguredTable,
-cleanrooms:GetConfiguredTable,
-cleanrooms:ListConfiguredTables,
-cleanrooms:GetConfiguredTableAnalysisRule,
-cleanrooms:DeleteConfiguredTableAnalysisRule,
-cleanrooms:ListTagsForResource,
 cleanrooms:UntagResource,
 glue:GetDatabase,
 glue:GetDatabases,

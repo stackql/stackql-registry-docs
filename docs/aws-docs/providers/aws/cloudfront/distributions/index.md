@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>distributions</code> in a region or create a <code>distributions</code> resource, use <code>distribution</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>distributions</code> in a region or to create or delete a <code>distributions</code> resource, use <code>distribution</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>distributions</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,481 @@ SELECT
 region,
 id
 FROM aws.cloudfront.distributions
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DistributionConfig": {
+  "Aliases": [
+   "{{ Aliases[0] }}"
+  ],
+  "CNAMEs": [
+   "{{ CNAMEs[0] }}"
+  ],
+  "CacheBehaviors": [
+   {
+    "AllowedMethods": [
+     "{{ AllowedMethods[0] }}"
+    ],
+    "CachePolicyId": "{{ CachePolicyId }}",
+    "CachedMethods": [
+     "{{ CachedMethods[0] }}"
+    ],
+    "Compress": "{{ Compress }}",
+    "DefaultTTL": null,
+    "FieldLevelEncryptionId": "{{ FieldLevelEncryptionId }}",
+    "ForwardedValues": {
+     "Cookies": {
+      "Forward": "{{ Forward }}",
+      "WhitelistedNames": [
+       "{{ WhitelistedNames[0] }}"
+      ]
+     },
+     "Headers": [
+      "{{ Headers[0] }}"
+     ],
+     "QueryString": "{{ QueryString }}",
+     "QueryStringCacheKeys": [
+      "{{ QueryStringCacheKeys[0] }}"
+     ]
+    },
+    "FunctionAssociations": [
+     {
+      "EventType": "{{ EventType }}",
+      "FunctionARN": "{{ FunctionARN }}"
+     }
+    ],
+    "LambdaFunctionAssociations": [
+     {
+      "EventType": "{{ EventType }}",
+      "IncludeBody": "{{ IncludeBody }}",
+      "LambdaFunctionARN": "{{ LambdaFunctionARN }}"
+     }
+    ],
+    "MaxTTL": null,
+    "MinTTL": null,
+    "OriginRequestPolicyId": "{{ OriginRequestPolicyId }}",
+    "PathPattern": "{{ PathPattern }}",
+    "RealtimeLogConfigArn": "{{ RealtimeLogConfigArn }}",
+    "ResponseHeadersPolicyId": "{{ ResponseHeadersPolicyId }}",
+    "SmoothStreaming": "{{ SmoothStreaming }}",
+    "TargetOriginId": "{{ TargetOriginId }}",
+    "TrustedKeyGroups": [
+     "{{ TrustedKeyGroups[0] }}"
+    ],
+    "TrustedSigners": [
+     "{{ TrustedSigners[0] }}"
+    ],
+    "ViewerProtocolPolicy": "{{ ViewerProtocolPolicy }}"
+   }
+  ],
+  "Comment": "{{ Comment }}",
+  "ContinuousDeploymentPolicyId": "{{ ContinuousDeploymentPolicyId }}",
+  "CustomErrorResponses": [
+   {
+    "ErrorCachingMinTTL": null,
+    "ErrorCode": "{{ ErrorCode }}",
+    "ResponseCode": "{{ ResponseCode }}",
+    "ResponsePagePath": "{{ ResponsePagePath }}"
+   }
+  ],
+  "CustomOrigin": {
+   "DNSName": "{{ DNSName }}",
+   "HTTPPort": "{{ HTTPPort }}",
+   "HTTPSPort": "{{ HTTPSPort }}",
+   "OriginProtocolPolicy": "{{ OriginProtocolPolicy }}",
+   "OriginSSLProtocols": [
+    "{{ OriginSSLProtocols[0] }}"
+   ]
+  },
+  "DefaultCacheBehavior": {
+   "AllowedMethods": [
+    "{{ AllowedMethods[0] }}"
+   ],
+   "CachePolicyId": "{{ CachePolicyId }}",
+   "CachedMethods": [
+    "{{ CachedMethods[0] }}"
+   ],
+   "Compress": "{{ Compress }}",
+   "DefaultTTL": null,
+   "FieldLevelEncryptionId": "{{ FieldLevelEncryptionId }}",
+   "ForwardedValues": null,
+   "FunctionAssociations": [
+    null
+   ],
+   "LambdaFunctionAssociations": [
+    null
+   ],
+   "MaxTTL": null,
+   "MinTTL": null,
+   "OriginRequestPolicyId": "{{ OriginRequestPolicyId }}",
+   "RealtimeLogConfigArn": "{{ RealtimeLogConfigArn }}",
+   "ResponseHeadersPolicyId": "{{ ResponseHeadersPolicyId }}",
+   "SmoothStreaming": "{{ SmoothStreaming }}",
+   "TargetOriginId": "{{ TargetOriginId }}",
+   "TrustedKeyGroups": [
+    "{{ TrustedKeyGroups[0] }}"
+   ],
+   "TrustedSigners": [
+    "{{ TrustedSigners[0] }}"
+   ],
+   "ViewerProtocolPolicy": "{{ ViewerProtocolPolicy }}"
+  },
+  "DefaultRootObject": "{{ DefaultRootObject }}",
+  "Enabled": "{{ Enabled }}",
+  "HttpVersion": "{{ HttpVersion }}",
+  "IPV6Enabled": "{{ IPV6Enabled }}",
+  "Logging": {
+   "Bucket": "{{ Bucket }}",
+   "IncludeCookies": "{{ IncludeCookies }}",
+   "Prefix": "{{ Prefix }}"
+  },
+  "OriginGroups": {
+   "Items": [
+    {
+     "FailoverCriteria": {
+      "StatusCodes": {
+       "Items": [
+        "{{ Items[0] }}"
+       ],
+       "Quantity": "{{ Quantity }}"
+      }
+     },
+     "Id": "{{ Id }}",
+     "Members": {
+      "Items": [
+       {
+        "OriginId": "{{ OriginId }}"
+       }
+      ],
+      "Quantity": "{{ Quantity }}"
+     }
+    }
+   ],
+   "Quantity": "{{ Quantity }}"
+  },
+  "Origins": [
+   {
+    "ConnectionAttempts": "{{ ConnectionAttempts }}",
+    "ConnectionTimeout": "{{ ConnectionTimeout }}",
+    "CustomOriginConfig": {
+     "HTTPPort": "{{ HTTPPort }}",
+     "HTTPSPort": "{{ HTTPSPort }}",
+     "OriginKeepaliveTimeout": "{{ OriginKeepaliveTimeout }}",
+     "OriginProtocolPolicy": "{{ OriginProtocolPolicy }}",
+     "OriginReadTimeout": "{{ OriginReadTimeout }}",
+     "OriginSSLProtocols": [
+      "{{ OriginSSLProtocols[0] }}"
+     ]
+    },
+    "DomainName": "{{ DomainName }}",
+    "Id": "{{ Id }}",
+    "OriginAccessControlId": "{{ OriginAccessControlId }}",
+    "OriginCustomHeaders": [
+     {
+      "HeaderName": "{{ HeaderName }}",
+      "HeaderValue": "{{ HeaderValue }}"
+     }
+    ],
+    "OriginPath": "{{ OriginPath }}",
+    "OriginShield": {
+     "Enabled": "{{ Enabled }}",
+     "OriginShieldRegion": "{{ OriginShieldRegion }}"
+    },
+    "S3OriginConfig": {
+     "OriginAccessIdentity": "{{ OriginAccessIdentity }}"
+    }
+   }
+  ],
+  "PriceClass": "{{ PriceClass }}",
+  "Restrictions": {
+   "GeoRestriction": {
+    "Locations": [
+     "{{ Locations[0] }}"
+    ],
+    "RestrictionType": "{{ RestrictionType }}"
+   }
+  },
+  "S3Origin": {
+   "DNSName": "{{ DNSName }}",
+   "OriginAccessIdentity": "{{ OriginAccessIdentity }}"
+  },
+  "Staging": "{{ Staging }}",
+  "ViewerCertificate": {
+   "AcmCertificateArn": "{{ AcmCertificateArn }}",
+   "CloudFrontDefaultCertificate": "{{ CloudFrontDefaultCertificate }}",
+   "IamCertificateId": "{{ IamCertificateId }}",
+   "MinimumProtocolVersion": "{{ MinimumProtocolVersion }}",
+   "SslSupportMethod": "{{ SslSupportMethod }}"
+  },
+  "WebACLId": "{{ WebACLId }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudfront.distributions (
+ DistributionConfig,
+ region
+)
+SELECT 
+{{ DistributionConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DistributionConfig": {
+  "Aliases": [
+   "{{ Aliases[0] }}"
+  ],
+  "CNAMEs": [
+   "{{ CNAMEs[0] }}"
+  ],
+  "CacheBehaviors": [
+   {
+    "AllowedMethods": [
+     "{{ AllowedMethods[0] }}"
+    ],
+    "CachePolicyId": "{{ CachePolicyId }}",
+    "CachedMethods": [
+     "{{ CachedMethods[0] }}"
+    ],
+    "Compress": "{{ Compress }}",
+    "DefaultTTL": null,
+    "FieldLevelEncryptionId": "{{ FieldLevelEncryptionId }}",
+    "ForwardedValues": {
+     "Cookies": {
+      "Forward": "{{ Forward }}",
+      "WhitelistedNames": [
+       "{{ WhitelistedNames[0] }}"
+      ]
+     },
+     "Headers": [
+      "{{ Headers[0] }}"
+     ],
+     "QueryString": "{{ QueryString }}",
+     "QueryStringCacheKeys": [
+      "{{ QueryStringCacheKeys[0] }}"
+     ]
+    },
+    "FunctionAssociations": [
+     {
+      "EventType": "{{ EventType }}",
+      "FunctionARN": "{{ FunctionARN }}"
+     }
+    ],
+    "LambdaFunctionAssociations": [
+     {
+      "EventType": "{{ EventType }}",
+      "IncludeBody": "{{ IncludeBody }}",
+      "LambdaFunctionARN": "{{ LambdaFunctionARN }}"
+     }
+    ],
+    "MaxTTL": null,
+    "MinTTL": null,
+    "OriginRequestPolicyId": "{{ OriginRequestPolicyId }}",
+    "PathPattern": "{{ PathPattern }}",
+    "RealtimeLogConfigArn": "{{ RealtimeLogConfigArn }}",
+    "ResponseHeadersPolicyId": "{{ ResponseHeadersPolicyId }}",
+    "SmoothStreaming": "{{ SmoothStreaming }}",
+    "TargetOriginId": "{{ TargetOriginId }}",
+    "TrustedKeyGroups": [
+     "{{ TrustedKeyGroups[0] }}"
+    ],
+    "TrustedSigners": [
+     "{{ TrustedSigners[0] }}"
+    ],
+    "ViewerProtocolPolicy": "{{ ViewerProtocolPolicy }}"
+   }
+  ],
+  "Comment": "{{ Comment }}",
+  "ContinuousDeploymentPolicyId": "{{ ContinuousDeploymentPolicyId }}",
+  "CustomErrorResponses": [
+   {
+    "ErrorCachingMinTTL": null,
+    "ErrorCode": "{{ ErrorCode }}",
+    "ResponseCode": "{{ ResponseCode }}",
+    "ResponsePagePath": "{{ ResponsePagePath }}"
+   }
+  ],
+  "CustomOrigin": {
+   "DNSName": "{{ DNSName }}",
+   "HTTPPort": "{{ HTTPPort }}",
+   "HTTPSPort": "{{ HTTPSPort }}",
+   "OriginProtocolPolicy": "{{ OriginProtocolPolicy }}",
+   "OriginSSLProtocols": [
+    "{{ OriginSSLProtocols[0] }}"
+   ]
+  },
+  "DefaultCacheBehavior": {
+   "AllowedMethods": [
+    "{{ AllowedMethods[0] }}"
+   ],
+   "CachePolicyId": "{{ CachePolicyId }}",
+   "CachedMethods": [
+    "{{ CachedMethods[0] }}"
+   ],
+   "Compress": "{{ Compress }}",
+   "DefaultTTL": null,
+   "FieldLevelEncryptionId": "{{ FieldLevelEncryptionId }}",
+   "ForwardedValues": null,
+   "FunctionAssociations": [
+    null
+   ],
+   "LambdaFunctionAssociations": [
+    null
+   ],
+   "MaxTTL": null,
+   "MinTTL": null,
+   "OriginRequestPolicyId": "{{ OriginRequestPolicyId }}",
+   "RealtimeLogConfigArn": "{{ RealtimeLogConfigArn }}",
+   "ResponseHeadersPolicyId": "{{ ResponseHeadersPolicyId }}",
+   "SmoothStreaming": "{{ SmoothStreaming }}",
+   "TargetOriginId": "{{ TargetOriginId }}",
+   "TrustedKeyGroups": [
+    "{{ TrustedKeyGroups[0] }}"
+   ],
+   "TrustedSigners": [
+    "{{ TrustedSigners[0] }}"
+   ],
+   "ViewerProtocolPolicy": "{{ ViewerProtocolPolicy }}"
+  },
+  "DefaultRootObject": "{{ DefaultRootObject }}",
+  "Enabled": "{{ Enabled }}",
+  "HttpVersion": "{{ HttpVersion }}",
+  "IPV6Enabled": "{{ IPV6Enabled }}",
+  "Logging": {
+   "Bucket": "{{ Bucket }}",
+   "IncludeCookies": "{{ IncludeCookies }}",
+   "Prefix": "{{ Prefix }}"
+  },
+  "OriginGroups": {
+   "Items": [
+    {
+     "FailoverCriteria": {
+      "StatusCodes": {
+       "Items": [
+        "{{ Items[0] }}"
+       ],
+       "Quantity": "{{ Quantity }}"
+      }
+     },
+     "Id": "{{ Id }}",
+     "Members": {
+      "Items": [
+       {
+        "OriginId": "{{ OriginId }}"
+       }
+      ],
+      "Quantity": "{{ Quantity }}"
+     }
+    }
+   ],
+   "Quantity": "{{ Quantity }}"
+  },
+  "Origins": [
+   {
+    "ConnectionAttempts": "{{ ConnectionAttempts }}",
+    "ConnectionTimeout": "{{ ConnectionTimeout }}",
+    "CustomOriginConfig": {
+     "HTTPPort": "{{ HTTPPort }}",
+     "HTTPSPort": "{{ HTTPSPort }}",
+     "OriginKeepaliveTimeout": "{{ OriginKeepaliveTimeout }}",
+     "OriginProtocolPolicy": "{{ OriginProtocolPolicy }}",
+     "OriginReadTimeout": "{{ OriginReadTimeout }}",
+     "OriginSSLProtocols": [
+      "{{ OriginSSLProtocols[0] }}"
+     ]
+    },
+    "DomainName": "{{ DomainName }}",
+    "Id": "{{ Id }}",
+    "OriginAccessControlId": "{{ OriginAccessControlId }}",
+    "OriginCustomHeaders": [
+     {
+      "HeaderName": "{{ HeaderName }}",
+      "HeaderValue": "{{ HeaderValue }}"
+     }
+    ],
+    "OriginPath": "{{ OriginPath }}",
+    "OriginShield": {
+     "Enabled": "{{ Enabled }}",
+     "OriginShieldRegion": "{{ OriginShieldRegion }}"
+    },
+    "S3OriginConfig": {
+     "OriginAccessIdentity": "{{ OriginAccessIdentity }}"
+    }
+   }
+  ],
+  "PriceClass": "{{ PriceClass }}",
+  "Restrictions": {
+   "GeoRestriction": {
+    "Locations": [
+     "{{ Locations[0] }}"
+    ],
+    "RestrictionType": "{{ RestrictionType }}"
+   }
+  },
+  "S3Origin": {
+   "DNSName": "{{ DNSName }}",
+   "OriginAccessIdentity": "{{ OriginAccessIdentity }}"
+  },
+  "Staging": "{{ Staging }}",
+  "ViewerCertificate": {
+   "AcmCertificateArn": "{{ AcmCertificateArn }}",
+   "CloudFrontDefaultCertificate": "{{ CloudFrontDefaultCertificate }}",
+   "IamCertificateId": "{{ IamCertificateId }}",
+   "MinimumProtocolVersion": "{{ MinimumProtocolVersion }}",
+   "SslSupportMethod": "{{ SslSupportMethod }}"
+  },
+  "WebACLId": "{{ WebACLId }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.cloudfront.distributions (
+ DistributionConfig,
+ Tags,
+ region
+)
+SELECT 
+ {{ DistributionConfig }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudfront.distributions
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +557,13 @@ cloudfront:CreateDistributionWithTags,
 cloudfront:GetDistribution,
 cloudfront:GetDistributionConfig,
 cloudfront:TagResource
+```
+
+### Delete
+```json
+cloudfront:DeleteDistribution,
+cloudfront:GetDistribution,
+cloudfront:GetDistributionConfig
 ```
 
 ### List

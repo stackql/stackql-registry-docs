@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>base_path_mappings</code> in a region or create a <code>base_path_mappings</code> resource, use <code>base_path_mapping</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>base_path_mappings</code> in a region or to create or delete a <code>base_path_mappings</code> resource, use <code>base_path_mapping</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>base_path_mappings</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,74 @@ region,
 domain_name,
 base_path
 FROM aws.apigateway.base_path_mappings
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.base_path_mappings (
+ DomainName,
+ region
+)
+SELECT 
+{{ DomainName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BasePath": "{{ BasePath }}",
+ "DomainName": "{{ DomainName }}",
+ "RestApiId": "{{ RestApiId }}",
+ "Stage": "{{ Stage }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.base_path_mappings (
+ BasePath,
+ DomainName,
+ RestApiId,
+ Stage,
+ region
+)
+SELECT 
+ {{ BasePath }},
+ {{ DomainName }},
+ {{ RestApiId }},
+ {{ Stage }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.base_path_mappings
+WHERE data__Identifier = '<DomainName|BasePath>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +149,11 @@ To operate on the <code>base_path_mappings</code> resource, the following permis
 ```json
 apigateway:POST,
 apigateway:GET
+```
+
+### Delete
+```json
+apigateway:DELETE
 ```
 
 ### List

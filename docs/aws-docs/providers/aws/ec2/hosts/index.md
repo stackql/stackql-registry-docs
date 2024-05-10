@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>hosts</code> in a region or create a <code>hosts</code> resource, use <code>host</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>hosts</code> in a region or to create or delete a <code>hosts</code> resource, use <code>host</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>hosts</code> in a region or create a <code>host
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 host_id
 FROM aws.ec2.hosts
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AvailabilityZone": "{{ AvailabilityZone }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.hosts (
+ AvailabilityZone,
+ region
+)
+SELECT 
+{{ AvailabilityZone }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AutoPlacement": "{{ AutoPlacement }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "HostRecovery": "{{ HostRecovery }}",
+ "InstanceType": "{{ InstanceType }}",
+ "InstanceFamily": "{{ InstanceFamily }}",
+ "OutpostArn": "{{ OutpostArn }}",
+ "HostMaintenance": "{{ HostMaintenance }}",
+ "AssetId": "{{ AssetId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.hosts (
+ AutoPlacement,
+ AvailabilityZone,
+ HostRecovery,
+ InstanceType,
+ InstanceFamily,
+ OutpostArn,
+ HostMaintenance,
+ AssetId,
+ region
+)
+SELECT 
+ {{ AutoPlacement }},
+ {{ AvailabilityZone }},
+ {{ HostRecovery }},
+ {{ InstanceType }},
+ {{ InstanceFamily }},
+ {{ OutpostArn }},
+ {{ HostMaintenance }},
+ {{ AssetId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.hosts
+WHERE data__Identifier = '<HostId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +158,12 @@ To operate on the <code>hosts</code> resource, the following permissions are req
 ### Create
 ```json
 ec2:AllocateHosts,
+ec2:DescribeHosts
+```
+
+### Delete
+```json
+ec2:ReleaseHosts,
 ec2:DescribeHosts
 ```
 

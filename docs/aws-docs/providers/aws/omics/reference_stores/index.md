@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>reference_stores</code> in a region or create a <code>reference_stores</code> resource, use <code>reference_store</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>reference_stores</code> in a region or to create or delete a <code>reference_stores</code> resource, use <code>reference_store</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>reference_stores</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,77 @@ SELECT
 region,
 reference_store_id
 FROM aws.omics.reference_stores
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.omics.reference_stores (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "SseConfig": {
+  "Type": "{{ Type }}",
+  "KeyArn": "{{ KeyArn }}"
+ },
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.omics.reference_stores (
+ Description,
+ Name,
+ SseConfig,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Name }},
+ {{ SseConfig }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.omics.reference_stores
+WHERE data__Identifier = '<ReferenceStoreId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +150,11 @@ To operate on the <code>reference_stores</code> resource, the following permissi
 ```json
 omics:CreateReferenceStore,
 omics:TagResource
+```
+
+### Delete
+```json
+omics:DeleteReferenceStore
 ```
 
 ### List

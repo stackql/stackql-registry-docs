@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vehicles</code> in a region or create a <code>vehicles</code> resource, use <code>vehicle</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vehicles</code> in a region or to create or delete a <code>vehicles</code> resource, use <code>vehicle</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>vehicles</code> in a region or create a <code>v
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,91 @@ SELECT
 region,
 name
 FROM aws.iotfleetwise.vehicles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DecoderManifestArn": "{{ DecoderManifestArn }}",
+ "Name": "{{ Name }}",
+ "ModelManifestArn": "{{ ModelManifestArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iotfleetwise.vehicles (
+ DecoderManifestArn,
+ Name,
+ ModelManifestArn,
+ region
+)
+SELECT 
+{{ DecoderManifestArn }},
+ {{ Name }},
+ {{ ModelManifestArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AssociationBehavior": "{{ AssociationBehavior }}",
+ "Attributes": {},
+ "DecoderManifestArn": "{{ DecoderManifestArn }}",
+ "Name": "{{ Name }}",
+ "ModelManifestArn": "{{ ModelManifestArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotfleetwise.vehicles (
+ AssociationBehavior,
+ Attributes,
+ DecoderManifestArn,
+ Name,
+ ModelManifestArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ AssociationBehavior }},
+ {{ Attributes }},
+ {{ DecoderManifestArn }},
+ {{ Name }},
+ {{ ModelManifestArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotfleetwise.vehicles
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +169,12 @@ iot:DescribeThing,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:ListVehicles,
 iotfleetwise:TagResource
+```
+
+### Delete
+```json
+iotfleetwise:GetVehicle,
+iotfleetwise:DeleteVehicle
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>sync_jobs</code> in a region or create a <code>sync_jobs</code> resource, use <code>sync_job</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>sync_jobs</code> in a region or to create or delete a <code>sync_jobs</code> resource, use <code>sync_job</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>sync_jobs</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,80 @@ region,
 workspace_id,
 sync_source
 FROM aws.iottwinmaker.sync_jobs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "SyncSource": "{{ SyncSource }}",
+ "SyncRole": "{{ SyncRole }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iottwinmaker.sync_jobs (
+ WorkspaceId,
+ SyncSource,
+ SyncRole,
+ region
+)
+SELECT 
+{{ WorkspaceId }},
+ {{ SyncSource }},
+ {{ SyncRole }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "SyncSource": "{{ SyncSource }}",
+ "SyncRole": "{{ SyncRole }}",
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.iottwinmaker.sync_jobs (
+ WorkspaceId,
+ SyncSource,
+ SyncRole,
+ Tags,
+ region
+)
+SELECT 
+ {{ WorkspaceId }},
+ {{ SyncSource }},
+ {{ SyncRole }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iottwinmaker.sync_jobs
+WHERE data__Identifier = '<WorkspaceId|SyncSource>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +159,13 @@ iottwinmaker:GetSyncJob,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource
+```
+
+### Delete
+```json
+iottwinmaker:DeleteSyncJob,
+iottwinmaker:GetSyncJob,
+iottwinmaker:GetWorkspace
 ```
 
 ### List

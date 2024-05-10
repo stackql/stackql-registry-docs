@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>access_points</code> in a region or create a <code>access_points</code> resource, use <code>access_point</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>access_points</code> in a region or to create or delete a <code>access_points</code> resource, use <code>access_point</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>access_points</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,84 @@ SELECT
 region,
 arn
 FROM aws.s3outposts.access_points
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Bucket": "{{ Bucket }}",
+ "Name": "{{ Name }}",
+ "VpcConfiguration": {
+  "VpcId": "{{ VpcId }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.s3outposts.access_points (
+ Bucket,
+ Name,
+ VpcConfiguration,
+ region
+)
+SELECT 
+{{ Bucket }},
+ {{ Name }},
+ {{ VpcConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Bucket": "{{ Bucket }}",
+ "Name": "{{ Name }}",
+ "VpcConfiguration": {
+  "VpcId": "{{ VpcId }}"
+ },
+ "Policy": {}
+}
+>>>
+--all properties
+INSERT INTO aws.s3outposts.access_points (
+ Bucket,
+ Name,
+ VpcConfiguration,
+ Policy,
+ region
+)
+SELECT 
+ {{ Bucket }},
+ {{ Name }},
+ {{ VpcConfiguration }},
+ {{ Policy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.s3outposts.access_points
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +159,12 @@ s3-outposts:CreateAccessPoint,
 s3-outposts:GetAccessPoint,
 s3-outposts:PutAccessPointPolicy,
 s3-outposts:GetAccessPointPolicy
+```
+
+### Delete
+```json
+s3-outposts:DeleteAccessPoint,
+s3-outposts:DeleteAccessPointPolicy
 ```
 
 ### List

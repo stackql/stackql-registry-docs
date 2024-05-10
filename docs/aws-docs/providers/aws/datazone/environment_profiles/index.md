@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>environment_profiles</code> in a region or create a <code>environment_profiles</code> resource, use <code>environment_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>environment_profiles</code> in a region or to create or delete a <code>environment_profiles</code> resource, use <code>environment_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>environment_profiles</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,106 @@ region,
 domain_id,
 id
 FROM aws.datazone.environment_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "AwsAccountRegion": "{{ AwsAccountRegion }}",
+ "DomainIdentifier": "{{ DomainIdentifier }}",
+ "EnvironmentBlueprintIdentifier": "{{ EnvironmentBlueprintIdentifier }}",
+ "Name": "{{ Name }}",
+ "ProjectIdentifier": "{{ ProjectIdentifier }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.datazone.environment_profiles (
+ AwsAccountId,
+ AwsAccountRegion,
+ DomainIdentifier,
+ EnvironmentBlueprintIdentifier,
+ Name,
+ ProjectIdentifier,
+ region
+)
+SELECT 
+{{ AwsAccountId }},
+ {{ AwsAccountRegion }},
+ {{ DomainIdentifier }},
+ {{ EnvironmentBlueprintIdentifier }},
+ {{ Name }},
+ {{ ProjectIdentifier }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "AwsAccountRegion": "{{ AwsAccountRegion }}",
+ "Description": "{{ Description }}",
+ "DomainIdentifier": "{{ DomainIdentifier }}",
+ "EnvironmentBlueprintIdentifier": "{{ EnvironmentBlueprintIdentifier }}",
+ "Name": "{{ Name }}",
+ "ProjectIdentifier": "{{ ProjectIdentifier }}",
+ "UserParameters": [
+  {
+   "Name": "{{ Name }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.datazone.environment_profiles (
+ AwsAccountId,
+ AwsAccountRegion,
+ Description,
+ DomainIdentifier,
+ EnvironmentBlueprintIdentifier,
+ Name,
+ ProjectIdentifier,
+ UserParameters,
+ region
+)
+SELECT 
+ {{ AwsAccountId }},
+ {{ AwsAccountRegion }},
+ {{ Description }},
+ {{ DomainIdentifier }},
+ {{ EnvironmentBlueprintIdentifier }},
+ {{ Name }},
+ {{ ProjectIdentifier }},
+ {{ UserParameters }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.datazone.environment_profiles
+WHERE data__Identifier = '<DomainId|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +180,12 @@ To operate on the <code>environment_profiles</code> resource, the following perm
 ### Create
 ```json
 datazone:CreateEnvironmentProfile,
+datazone:GetEnvironmentProfile
+```
+
+### Delete
+```json
+datazone:DeleteEnvironmentProfile,
 datazone:GetEnvironmentProfile
 ```
 

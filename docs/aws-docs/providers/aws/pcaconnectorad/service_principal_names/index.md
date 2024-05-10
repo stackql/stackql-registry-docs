@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>service_principal_names</code> in a region or create a <code>service_principal_names</code> resource, use <code>service_principal_name</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>service_principal_names</code> in a region or to create or delete a <code>service_principal_names</code> resource, use <code>service_principal_name</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>service_principal_names</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,71 @@ region,
 connector_arn,
 directory_registration_arn
 FROM aws.pcaconnectorad.service_principal_names
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ConnectorArn": "{{ ConnectorArn }}",
+ "DirectoryRegistrationArn": "{{ DirectoryRegistrationArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.pcaconnectorad.service_principal_names (
+ ConnectorArn,
+ DirectoryRegistrationArn,
+ region
+)
+SELECT 
+{{ ConnectorArn }},
+ {{ DirectoryRegistrationArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ConnectorArn": "{{ ConnectorArn }}",
+ "DirectoryRegistrationArn": "{{ DirectoryRegistrationArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.pcaconnectorad.service_principal_names (
+ ConnectorArn,
+ DirectoryRegistrationArn,
+ region
+)
+SELECT 
+ {{ ConnectorArn }},
+ {{ DirectoryRegistrationArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.pcaconnectorad.service_principal_names
+WHERE data__Identifier = '<ConnectorArn|DirectoryRegistrationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +147,13 @@ To operate on the <code>service_principal_names</code> resource, the following p
 ds:UpdateAuthorizedApplication,
 pca-connector-ad:GetServicePrincipalName,
 pca-connector-ad:CreateServicePrincipalName
+```
+
+### Delete
+```json
+ds:UpdateAuthorizedApplication,
+pca-connector-ad:GetServicePrincipalName,
+pca-connector-ad:DeleteServicePrincipalName
 ```
 
 ### List

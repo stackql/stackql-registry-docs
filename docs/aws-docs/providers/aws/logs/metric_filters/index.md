@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>metric_filters</code> in a region or create a <code>metric_filters</code> resource, use <code>metric_filter</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>metric_filters</code> in a region or to create or delete a <code>metric_filters</code> resource, use <code>metric_filter</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>metric_filters</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,108 @@ region,
 log_group_name,
 filter_name
 FROM aws.logs.metric_filters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "MetricTransformations": [
+  {
+   "DefaultValue": null,
+   "MetricName": "{{ MetricName }}",
+   "MetricValue": "{{ MetricValue }}",
+   "MetricNamespace": "{{ MetricNamespace }}",
+   "Dimensions": [
+    {
+     "Value": "{{ Value }}",
+     "Key": "{{ Key }}"
+    }
+   ],
+   "Unit": "{{ Unit }}"
+  }
+ ],
+ "FilterPattern": "{{ FilterPattern }}",
+ "LogGroupName": "{{ LogGroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.logs.metric_filters (
+ MetricTransformations,
+ FilterPattern,
+ LogGroupName,
+ region
+)
+SELECT 
+{{ MetricTransformations }},
+ {{ FilterPattern }},
+ {{ LogGroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "MetricTransformations": [
+  {
+   "DefaultValue": null,
+   "MetricName": "{{ MetricName }}",
+   "MetricValue": "{{ MetricValue }}",
+   "MetricNamespace": "{{ MetricNamespace }}",
+   "Dimensions": [
+    {
+     "Value": "{{ Value }}",
+     "Key": "{{ Key }}"
+    }
+   ],
+   "Unit": "{{ Unit }}"
+  }
+ ],
+ "FilterPattern": "{{ FilterPattern }}",
+ "LogGroupName": "{{ LogGroupName }}",
+ "FilterName": "{{ FilterName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.logs.metric_filters (
+ MetricTransformations,
+ FilterPattern,
+ LogGroupName,
+ FilterName,
+ region
+)
+SELECT 
+ {{ MetricTransformations }},
+ {{ FilterPattern }},
+ {{ LogGroupName }},
+ {{ FilterName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.logs.metric_filters
+WHERE data__Identifier = '<LogGroupName|FilterName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,5 +188,10 @@ logs:DescribeMetricFilters
 ### List
 ```json
 logs:DescribeMetricFilters
+```
+
+### Delete
+```json
+logs:DeleteMetricFilter
 ```
 

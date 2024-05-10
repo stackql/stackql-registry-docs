@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>bot_aliases</code> in a region or create a <code>bot_aliases</code> resource, use <code>bot_alias</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>bot_aliases</code> in a region or to create or delete a <code>bot_aliases</code> resource, use <code>bot_alias</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>bot_aliases</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,144 @@ region,
 bot_alias_id,
 bot_id
 FROM aws.lex.bot_aliases
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "BotId": "{{ BotId }}",
+ "BotAliasName": "{{ BotAliasName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lex.bot_aliases (
+ BotId,
+ BotAliasName,
+ region
+)
+SELECT 
+{{ BotId }},
+ {{ BotAliasName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BotId": "{{ BotId }}",
+ "BotAliasLocaleSettings": [
+  {
+   "LocaleId": "{{ LocaleId }}",
+   "BotAliasLocaleSetting": {
+    "CodeHookSpecification": {
+     "LambdaCodeHook": {
+      "CodeHookInterfaceVersion": "{{ CodeHookInterfaceVersion }}",
+      "LambdaArn": "{{ LambdaArn }}"
+     }
+    },
+    "Enabled": "{{ Enabled }}"
+   }
+  }
+ ],
+ "BotAliasName": "{{ BotAliasName }}",
+ "BotVersion": {
+  "BotId": null,
+  "Description": "{{ Description }}",
+  "BotVersionLocaleSpecification": [
+   {
+    "LocaleId": "{{ LocaleId }}",
+    "BotVersionLocaleDetails": {
+     "SourceBotVersion": null
+    }
+   }
+  ]
+ },
+ "ConversationLogSettings": {
+  "AudioLogSettings": [
+   {
+    "Destination": {
+     "S3Bucket": {
+      "S3BucketArn": "{{ S3BucketArn }}",
+      "LogPrefix": "{{ LogPrefix }}",
+      "KmsKeyArn": "{{ KmsKeyArn }}"
+     }
+    },
+    "Enabled": "{{ Enabled }}"
+   }
+  ],
+  "TextLogSettings": [
+   {
+    "Destination": {
+     "CloudWatch": {
+      "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}",
+      "LogPrefix": "{{ LogPrefix }}"
+     }
+    },
+    "Enabled": "{{ Enabled }}"
+   }
+  ]
+ },
+ "Description": null,
+ "SentimentAnalysisSettings": {
+  "DetectSentiment": "{{ DetectSentiment }}"
+ },
+ "BotAliasTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lex.bot_aliases (
+ BotId,
+ BotAliasLocaleSettings,
+ BotAliasName,
+ BotVersion,
+ ConversationLogSettings,
+ Description,
+ SentimentAnalysisSettings,
+ BotAliasTags,
+ region
+)
+SELECT 
+ {{ BotId }},
+ {{ BotAliasLocaleSettings }},
+ {{ BotAliasName }},
+ {{ BotVersion }},
+ {{ ConversationLogSettings }},
+ {{ Description }},
+ {{ SentimentAnalysisSettings }},
+ {{ BotAliasTags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lex.bot_aliases
+WHERE data__Identifier = '<BotAliasId|BotId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +219,11 @@ To operate on the <code>bot_aliases</code> resource, the following permissions a
 ```json
 lex:CreateBotAlias,
 lex:DescribeBot
+```
+
+### Delete
+```json
+lex:DeleteBotAlias
 ```
 
 ### List

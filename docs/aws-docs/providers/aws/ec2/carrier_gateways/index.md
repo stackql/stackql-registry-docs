@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>carrier_gateways</code> in a region or create a <code>carrier_gateways</code> resource, use <code>carrier_gateway</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>carrier_gateways</code> in a region or to create or delete a <code>carrier_gateways</code> resource, use <code>carrier_gateway</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>carrier_gateways</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,73 @@ SELECT
 region,
 carrier_gateway_id
 FROM aws.ec2.carrier_gateways
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.carrier_gateways (
+ VpcId,
+ region
+)
+SELECT 
+{{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "VpcId": "{{ VpcId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.carrier_gateways (
+ VpcId,
+ Tags,
+ region
+)
+SELECT 
+ {{ VpcId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.carrier_gateways
+WHERE data__Identifier = '<CarrierGatewayId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +147,12 @@ To operate on the <code>carrier_gateways</code> resource, the following permissi
 ec2:CreateCarrierGateway,
 ec2:DescribeCarrierGateways,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DeleteCarrierGateway,
+ec2:DescribeCarrierGateways
 ```
 
 ### List

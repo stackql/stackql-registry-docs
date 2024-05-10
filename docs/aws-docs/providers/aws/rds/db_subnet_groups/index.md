@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>db_subnet_groups</code> in a region or create a <code>db_subnet_groups</code> resource, use <code>db_subnet_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>db_subnet_groups</code> in a region or to create or delete a <code>db_subnet_groups</code> resource, use <code>db_subnet_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>db_subnet_groups</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 db_subnet_group_name
 FROM aws.rds.db_subnet_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DBSubnetGroupDescription": "{{ DBSubnetGroupDescription }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.rds.db_subnet_groups (
+ DBSubnetGroupDescription,
+ SubnetIds,
+ region
+)
+SELECT 
+{{ DBSubnetGroupDescription }},
+ {{ SubnetIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DBSubnetGroupDescription": "{{ DBSubnetGroupDescription }}",
+ "DBSubnetGroupName": "{{ DBSubnetGroupName }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.rds.db_subnet_groups (
+ DBSubnetGroupDescription,
+ DBSubnetGroupName,
+ SubnetIds,
+ Tags,
+ region
+)
+SELECT 
+ {{ DBSubnetGroupDescription }},
+ {{ DBSubnetGroupName }},
+ {{ SubnetIds }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rds.db_subnet_groups
+WHERE data__Identifier = '<DBSubnetGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +162,13 @@ rds:CreateDBSubnetGroup,
 rds:DescribeDBSubnetGroups,
 rds:AddTagsToResource,
 rds:RemoveTagsFromResource,
+rds:ListTagsForResource
+```
+
+### Delete
+```json
+rds:DeleteDBSubnetGroup,
+rds:DescribeDBSubnetGroups,
 rds:ListTagsForResource
 ```
 

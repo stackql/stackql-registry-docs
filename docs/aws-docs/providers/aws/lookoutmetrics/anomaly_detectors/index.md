@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>anomaly_detectors</code> in a region or create a <code>anomaly_detectors</code> resource, use <code>anomaly_detector</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>anomaly_detectors</code> in a region or to create or delete a <code>anomaly_detectors</code> resource, use <code>anomaly_detector</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>anomaly_detectors</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,250 @@ SELECT
 region,
 arn
 FROM aws.lookoutmetrics.anomaly_detectors
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AnomalyDetectorConfig": {
+  "AnomalyDetectorFrequency": "{{ AnomalyDetectorFrequency }}"
+ },
+ "MetricSetList": [
+  {
+   "MetricSetName": "{{ MetricSetName }}",
+   "MetricSetDescription": "{{ MetricSetDescription }}",
+   "MetricSource": {
+    "S3SourceConfig": {
+     "RoleArn": "{{ RoleArn }}",
+     "TemplatedPathList": [
+      "{{ TemplatedPathList[0] }}"
+     ],
+     "HistoricalDataPathList": [
+      "{{ HistoricalDataPathList[0] }}"
+     ],
+     "FileFormatDescriptor": {
+      "CsvFormatDescriptor": {
+       "FileCompression": "{{ FileCompression }}",
+       "Charset": "{{ Charset }}",
+       "Delimiter": "{{ Delimiter }}",
+       "HeaderList": [
+        "{{ HeaderList[0] }}"
+       ],
+       "QuoteSymbol": "{{ QuoteSymbol }}",
+       "ContainsHeader": "{{ ContainsHeader }}"
+      },
+      "JsonFormatDescriptor": {
+       "FileCompression": "{{ FileCompression }}",
+       "Charset": null
+      }
+     }
+    },
+    "RDSSourceConfig": {
+     "DBInstanceIdentifier": "{{ DBInstanceIdentifier }}",
+     "DatabaseHost": "{{ DatabaseHost }}",
+     "DatabasePort": "{{ DatabasePort }}",
+     "SecretManagerArn": "{{ SecretManagerArn }}",
+     "DatabaseName": "{{ DatabaseName }}",
+     "TableName": "{{ TableName }}",
+     "RoleArn": null,
+     "VpcConfiguration": {
+      "SubnetIdList": [
+       "{{ SubnetIdList[0] }}"
+      ],
+      "SecurityGroupIdList": [
+       "{{ SecurityGroupIdList[0] }}"
+      ]
+     }
+    },
+    "RedshiftSourceConfig": {
+     "ClusterIdentifier": "{{ ClusterIdentifier }}",
+     "DatabaseHost": null,
+     "DatabasePort": null,
+     "SecretManagerArn": null,
+     "DatabaseName": "{{ DatabaseName }}",
+     "TableName": null,
+     "RoleArn": null,
+     "VpcConfiguration": null
+    },
+    "CloudwatchConfig": {
+     "RoleArn": null
+    },
+    "AppFlowConfig": {
+     "RoleArn": null,
+     "FlowName": "{{ FlowName }}"
+    }
+   },
+   "MetricList": [
+    {
+     "MetricName": null,
+     "AggregationFunction": "{{ AggregationFunction }}",
+     "Namespace": "{{ Namespace }}"
+    }
+   ],
+   "Offset": "{{ Offset }}",
+   "TimestampColumn": {
+    "ColumnName": null,
+    "ColumnFormat": "{{ ColumnFormat }}"
+   },
+   "DimensionList": [
+    null
+   ],
+   "MetricSetFrequency": "{{ MetricSetFrequency }}",
+   "Timezone": "{{ Timezone }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.lookoutmetrics.anomaly_detectors (
+ AnomalyDetectorConfig,
+ MetricSetList,
+ region
+)
+SELECT 
+{{ AnomalyDetectorConfig }},
+ {{ MetricSetList }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AnomalyDetectorName": "{{ AnomalyDetectorName }}",
+ "AnomalyDetectorDescription": "{{ AnomalyDetectorDescription }}",
+ "AnomalyDetectorConfig": {
+  "AnomalyDetectorFrequency": "{{ AnomalyDetectorFrequency }}"
+ },
+ "MetricSetList": [
+  {
+   "MetricSetName": "{{ MetricSetName }}",
+   "MetricSetDescription": "{{ MetricSetDescription }}",
+   "MetricSource": {
+    "S3SourceConfig": {
+     "RoleArn": "{{ RoleArn }}",
+     "TemplatedPathList": [
+      "{{ TemplatedPathList[0] }}"
+     ],
+     "HistoricalDataPathList": [
+      "{{ HistoricalDataPathList[0] }}"
+     ],
+     "FileFormatDescriptor": {
+      "CsvFormatDescriptor": {
+       "FileCompression": "{{ FileCompression }}",
+       "Charset": "{{ Charset }}",
+       "Delimiter": "{{ Delimiter }}",
+       "HeaderList": [
+        "{{ HeaderList[0] }}"
+       ],
+       "QuoteSymbol": "{{ QuoteSymbol }}",
+       "ContainsHeader": "{{ ContainsHeader }}"
+      },
+      "JsonFormatDescriptor": {
+       "FileCompression": "{{ FileCompression }}",
+       "Charset": null
+      }
+     }
+    },
+    "RDSSourceConfig": {
+     "DBInstanceIdentifier": "{{ DBInstanceIdentifier }}",
+     "DatabaseHost": "{{ DatabaseHost }}",
+     "DatabasePort": "{{ DatabasePort }}",
+     "SecretManagerArn": "{{ SecretManagerArn }}",
+     "DatabaseName": "{{ DatabaseName }}",
+     "TableName": "{{ TableName }}",
+     "RoleArn": null,
+     "VpcConfiguration": {
+      "SubnetIdList": [
+       "{{ SubnetIdList[0] }}"
+      ],
+      "SecurityGroupIdList": [
+       "{{ SecurityGroupIdList[0] }}"
+      ]
+     }
+    },
+    "RedshiftSourceConfig": {
+     "ClusterIdentifier": "{{ ClusterIdentifier }}",
+     "DatabaseHost": null,
+     "DatabasePort": null,
+     "SecretManagerArn": null,
+     "DatabaseName": "{{ DatabaseName }}",
+     "TableName": null,
+     "RoleArn": null,
+     "VpcConfiguration": null
+    },
+    "CloudwatchConfig": {
+     "RoleArn": null
+    },
+    "AppFlowConfig": {
+     "RoleArn": null,
+     "FlowName": "{{ FlowName }}"
+    }
+   },
+   "MetricList": [
+    {
+     "MetricName": null,
+     "AggregationFunction": "{{ AggregationFunction }}",
+     "Namespace": "{{ Namespace }}"
+    }
+   ],
+   "Offset": "{{ Offset }}",
+   "TimestampColumn": {
+    "ColumnName": null,
+    "ColumnFormat": "{{ ColumnFormat }}"
+   },
+   "DimensionList": [
+    null
+   ],
+   "MetricSetFrequency": "{{ MetricSetFrequency }}",
+   "Timezone": "{{ Timezone }}"
+  }
+ ],
+ "KmsKeyArn": "{{ KmsKeyArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.lookoutmetrics.anomaly_detectors (
+ AnomalyDetectorName,
+ AnomalyDetectorDescription,
+ AnomalyDetectorConfig,
+ MetricSetList,
+ KmsKeyArn,
+ region
+)
+SELECT 
+ {{ AnomalyDetectorName }},
+ {{ AnomalyDetectorDescription }},
+ {{ AnomalyDetectorConfig }},
+ {{ MetricSetList }},
+ {{ KmsKeyArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lookoutmetrics.anomaly_detectors
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +325,12 @@ lookoutmetrics:CreateAnomalyDetector,
 lookoutmetrics:DeleteAnomalyDetector,
 lookoutmetrics:CreateMetricSet,
 iam:PassRole
+```
+
+### Delete
+```json
+lookoutmetrics:DescribeAnomalyDetector,
+lookoutmetrics:DeleteAnomalyDetector
 ```
 
 ### List

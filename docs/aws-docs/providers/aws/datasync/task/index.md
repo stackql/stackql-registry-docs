@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>task</code> resource, use <code>tasks</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>task</code> resource, use <code>tasks</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -63,11 +66,6 @@ Gets or operates on an individual <code>task</code> resource, use <code>tasks</c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -94,8 +92,9 @@ status,
 source_network_interface_arns,
 destination_network_interface_arns
 FROM aws.datasync.task
-WHERE data__Identifier = '<TaskArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<TaskArn>';
 ```
+
 
 ## Permissions
 
@@ -116,18 +115,5 @@ datasync:TagResource,
 datasync:UntagResource,
 logs:DescribeLogGroups,
 iam:PassRole
-```
-
-### Delete
-```json
-datasync:DeleteTask,
-ec2:DescribeNetworkInterfaces,
-ec2:DeleteNetworkInterface,
-ec2:DescribeSecurityGroups,
-ec2:DescribeSubnets,
-fsx:DescribeFileSystems,
-elasticfilesystem:DescribeFileSystems,
-elasticfilesystem:DescribeMountTargets,
-iam:GetRole
 ```
 

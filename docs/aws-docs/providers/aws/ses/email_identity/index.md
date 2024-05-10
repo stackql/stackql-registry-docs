@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>email_identity</code> resource, use <code>email_identities</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>email_identity</code> resource, use <code>email_identities</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>email_identity</code> resource, use <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ dkim_dns_token_value1,
 dkim_dns_token_value2,
 dkim_dns_token_value3
 FROM aws.ses.email_identity
-WHERE data__Identifier = '<EmailIdentity>';
+WHERE region = 'us-east-1' AND data__Identifier = '<EmailIdentity>';
 ```
+
 
 ## Permissions
 
@@ -108,10 +107,5 @@ ses:PutEmailIdentityConfigurationSetAttributes,
 ses:PutEmailIdentityDkimSigningAttributes,
 ses:PutEmailIdentityDkimAttributes,
 ses:GetEmailIdentity
-```
-
-### Delete
-```json
-ses:DeleteEmailIdentity
 ```
 

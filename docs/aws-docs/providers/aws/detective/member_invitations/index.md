@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>member_invitations</code> in a region or create a <code>member_invitations</code> resource, use <code>member_invitation</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>member_invitations</code> in a region or to create or delete a <code>member_invitations</code> resource, use <code>member_invitation</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>member_invitations</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 graph_arn,
 member_id
 FROM aws.detective.member_invitations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "GraphArn": "{{ GraphArn }}",
+ "MemberId": "{{ MemberId }}",
+ "MemberEmailAddress": "{{ MemberEmailAddress }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.detective.member_invitations (
+ GraphArn,
+ MemberId,
+ MemberEmailAddress,
+ region
+)
+SELECT 
+{{ GraphArn }},
+ {{ MemberId }},
+ {{ MemberEmailAddress }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "GraphArn": "{{ GraphArn }}",
+ "MemberId": "{{ MemberId }}",
+ "MemberEmailAddress": "{{ MemberEmailAddress }}",
+ "DisableEmailNotification": "{{ DisableEmailNotification }}",
+ "Message": "{{ Message }}"
+}
+>>>
+--all properties
+INSERT INTO aws.detective.member_invitations (
+ GraphArn,
+ MemberId,
+ MemberEmailAddress,
+ DisableEmailNotification,
+ Message,
+ region
+)
+SELECT 
+ {{ GraphArn }},
+ {{ MemberId }},
+ {{ MemberEmailAddress }},
+ {{ DisableEmailNotification }},
+ {{ Message }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.detective.member_invitations
+WHERE data__Identifier = '<GraphArn|MemberId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +158,11 @@ To operate on the <code>member_invitations</code> resource, the following permis
 ```json
 detective:CreateMembers,
 detective:GetMembers
+```
+
+### Delete
+```json
+detective:DeleteMembers
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>namespaces</code> in a region or create a <code>namespaces</code> resource, use <code>namespace</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>namespaces</code> in a region or to create or delete a <code>namespaces</code> resource, use <code>namespace</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>namespaces</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,125 @@ SELECT
 region,
 namespace_name
 FROM aws.redshiftserverless.namespaces
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "NamespaceName": "{{ NamespaceName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.redshiftserverless.namespaces (
+ NamespaceName,
+ region
+)
+SELECT 
+{{ NamespaceName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AdminPasswordSecretKmsKeyId": "{{ AdminPasswordSecretKmsKeyId }}",
+ "AdminUserPassword": "{{ AdminUserPassword }}",
+ "AdminUsername": "{{ AdminUsername }}",
+ "DbName": "{{ DbName }}",
+ "DefaultIamRoleArn": "{{ DefaultIamRoleArn }}",
+ "IamRoles": [
+  "{{ IamRoles[0] }}"
+ ],
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "LogExports": [
+  "{{ LogExports[0] }}"
+ ],
+ "ManageAdminPassword": "{{ ManageAdminPassword }}",
+ "NamespaceName": "{{ NamespaceName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "FinalSnapshotName": "{{ FinalSnapshotName }}",
+ "FinalSnapshotRetentionPeriod": "{{ FinalSnapshotRetentionPeriod }}",
+ "NamespaceResourcePolicy": {},
+ "RedshiftIdcApplicationArn": "{{ RedshiftIdcApplicationArn }}",
+ "SnapshotCopyConfigurations": [
+  {
+   "DestinationRegion": "{{ DestinationRegion }}",
+   "DestinationKmsKeyId": "{{ DestinationKmsKeyId }}",
+   "SnapshotRetentionPeriod": "{{ SnapshotRetentionPeriod }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.redshiftserverless.namespaces (
+ AdminPasswordSecretKmsKeyId,
+ AdminUserPassword,
+ AdminUsername,
+ DbName,
+ DefaultIamRoleArn,
+ IamRoles,
+ KmsKeyId,
+ LogExports,
+ ManageAdminPassword,
+ NamespaceName,
+ Tags,
+ FinalSnapshotName,
+ FinalSnapshotRetentionPeriod,
+ NamespaceResourcePolicy,
+ RedshiftIdcApplicationArn,
+ SnapshotCopyConfigurations,
+ region
+)
+SELECT 
+ {{ AdminPasswordSecretKmsKeyId }},
+ {{ AdminUserPassword }},
+ {{ AdminUsername }},
+ {{ DbName }},
+ {{ DefaultIamRoleArn }},
+ {{ IamRoles }},
+ {{ KmsKeyId }},
+ {{ LogExports }},
+ {{ ManageAdminPassword }},
+ {{ NamespaceName }},
+ {{ Tags }},
+ {{ FinalSnapshotName }},
+ {{ FinalSnapshotRetentionPeriod }},
+ {{ NamespaceResourcePolicy }},
+ {{ RedshiftIdcApplicationArn }},
+ {{ SnapshotCopyConfigurations }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.redshiftserverless.namespaces
+WHERE data__Identifier = '<NamespaceName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -94,6 +220,17 @@ secretsmanager:CreateSecret,
 secretsmanager:TagResource,
 secretsmanager:RotateSecret,
 secretsmanager:DescribeSecret
+```
+
+### Delete
+```json
+iam:PassRole,
+redshift-serverless:DeleteNamespace,
+redshift-serverless:GetNamespace,
+kms:RetireGrant,
+secretsmanager:DescribeSecret,
+secretsmanager:DeleteSecret,
+redshift:DeleteResourcePolicy
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>trackers</code> in a region or create a <code>trackers</code> resource, use <code>tracker</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>trackers</code> in a region or to create or delete a <code>trackers</code> resource, use <code>tracker</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>trackers</code> in a region or create a <code>t
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,94 @@ SELECT
 region,
 tracker_name
 FROM aws.location.trackers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TrackerName": "{{ TrackerName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.location.trackers (
+ TrackerName,
+ region
+)
+SELECT 
+{{ TrackerName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "EventBridgeEnabled": "{{ EventBridgeEnabled }}",
+ "KmsKeyEnableGeospatialQueries": "{{ KmsKeyEnableGeospatialQueries }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "PositionFiltering": "{{ PositionFiltering }}",
+ "PricingPlan": "{{ PricingPlan }}",
+ "PricingPlanDataSource": "{{ PricingPlanDataSource }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TrackerName": "{{ TrackerName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.location.trackers (
+ Description,
+ EventBridgeEnabled,
+ KmsKeyEnableGeospatialQueries,
+ KmsKeyId,
+ PositionFiltering,
+ PricingPlan,
+ PricingPlanDataSource,
+ Tags,
+ TrackerName,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ EventBridgeEnabled }},
+ {{ KmsKeyEnableGeospatialQueries }},
+ {{ KmsKeyId }},
+ {{ PositionFiltering }},
+ {{ PricingPlan }},
+ {{ PricingPlanDataSource }},
+ {{ Tags }},
+ {{ TrackerName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.location.trackers
+WHERE data__Identifier = '<TrackerName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +171,12 @@ geo:TagResource,
 geo:UntagResource,
 kms:DescribeKey,
 kms:CreateGrant
+```
+
+### Delete
+```json
+geo:DeleteTracker,
+geo:DescribeTracker
 ```
 
 ### List

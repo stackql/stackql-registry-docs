@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>template_group_access_control_entries</code> in a region or create a <code>template_group_access_control_entries</code> resource, use <code>template_group_access_control_entry</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>template_group_access_control_entries</code> in a region or to create or delete a <code>template_group_access_control_entries</code> resource, use <code>template_group_access_control_entry</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>template_group_access_control_entries</code> in
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 group_security_identifier,
 template_arn
 FROM aws.pcaconnectorad.template_group_access_control_entries
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AccessRights": {
+  "Enroll": "{{ Enroll }}",
+  "AutoEnroll": null
+ },
+ "GroupDisplayName": "{{ GroupDisplayName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
+ AccessRights,
+ GroupDisplayName,
+ region
+)
+SELECT 
+{{ AccessRights }},
+ {{ GroupDisplayName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessRights": {
+  "Enroll": "{{ Enroll }}",
+  "AutoEnroll": null
+ },
+ "GroupDisplayName": "{{ GroupDisplayName }}",
+ "GroupSecurityIdentifier": "{{ GroupSecurityIdentifier }}",
+ "TemplateArn": "{{ TemplateArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
+ AccessRights,
+ GroupDisplayName,
+ GroupSecurityIdentifier,
+ TemplateArn,
+ region
+)
+SELECT 
+ {{ AccessRights }},
+ {{ GroupDisplayName }},
+ {{ GroupSecurityIdentifier }},
+ {{ TemplateArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.pcaconnectorad.template_group_access_control_entries
+WHERE data__Identifier = '<GroupSecurityIdentifier|TemplateArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,12 @@ To operate on the <code>template_group_access_control_entries</code> resource, t
 ### Create
 ```json
 pca-connector-ad:CreateTemplateGroupAccessControlEntry
+```
+
+### Delete
+```json
+pca-connector-ad:DeleteTemplateGroupAccessControlEntry,
+pca-connector-ad:GetTemplateGroupAccessControlEntry
 ```
 
 ### List

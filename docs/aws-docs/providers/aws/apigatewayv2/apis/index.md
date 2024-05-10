@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>apis</code> in a region or create a <code>apis</code> resource, use <code>api</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>apis</code> in a region or to create or delete a <code>apis</code> resource, use <code>api</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>apis</code> in a region or create a <code>apis<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,201 @@ SELECT
 region,
 api_id
 FROM aws.apigatewayv2.apis
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RouteSelectionExpression": "{{ RouteSelectionExpression }}",
+ "BodyS3Location": {
+  "Etag": "{{ Etag }}",
+  "Bucket": "{{ Bucket }}",
+  "Version": "{{ Version }}",
+  "Key": "{{ Key }}"
+ },
+ "Description": "{{ Description }}",
+ "BasePath": "{{ BasePath }}",
+ "FailOnWarnings": "{{ FailOnWarnings }}",
+ "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
+ "DisableSchemaValidation": "{{ DisableSchemaValidation }}",
+ "Name": "{{ Name }}",
+ "Target": "{{ Target }}",
+ "CredentialsArn": "{{ CredentialsArn }}",
+ "CorsConfiguration": {
+  "AllowOrigins": [
+   "{{ AllowOrigins[0] }}"
+  ],
+  "AllowCredentials": "{{ AllowCredentials }}",
+  "ExposeHeaders": [
+   "{{ ExposeHeaders[0] }}"
+  ],
+  "AllowHeaders": [
+   "{{ AllowHeaders[0] }}"
+  ],
+  "MaxAge": "{{ MaxAge }}",
+  "AllowMethods": [
+   "{{ AllowMethods[0] }}"
+  ]
+ },
+ "Version": "{{ Version }}",
+ "ProtocolType": "{{ ProtocolType }}",
+ "RouteKey": "{{ RouteKey }}",
+ "Body": {},
+ "Tags": {},
+ "ApiKeySelectionExpression": "{{ ApiKeySelectionExpression }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigatewayv2.apis (
+ RouteSelectionExpression,
+ BodyS3Location,
+ Description,
+ BasePath,
+ FailOnWarnings,
+ DisableExecuteApiEndpoint,
+ DisableSchemaValidation,
+ Name,
+ Target,
+ CredentialsArn,
+ CorsConfiguration,
+ Version,
+ ProtocolType,
+ RouteKey,
+ Body,
+ Tags,
+ ApiKeySelectionExpression,
+ region
+)
+SELECT 
+{{ RouteSelectionExpression }},
+ {{ BodyS3Location }},
+ {{ Description }},
+ {{ BasePath }},
+ {{ FailOnWarnings }},
+ {{ DisableExecuteApiEndpoint }},
+ {{ DisableSchemaValidation }},
+ {{ Name }},
+ {{ Target }},
+ {{ CredentialsArn }},
+ {{ CorsConfiguration }},
+ {{ Version }},
+ {{ ProtocolType }},
+ {{ RouteKey }},
+ {{ Body }},
+ {{ Tags }},
+ {{ ApiKeySelectionExpression }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RouteSelectionExpression": "{{ RouteSelectionExpression }}",
+ "BodyS3Location": {
+  "Etag": "{{ Etag }}",
+  "Bucket": "{{ Bucket }}",
+  "Version": "{{ Version }}",
+  "Key": "{{ Key }}"
+ },
+ "Description": "{{ Description }}",
+ "BasePath": "{{ BasePath }}",
+ "FailOnWarnings": "{{ FailOnWarnings }}",
+ "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
+ "DisableSchemaValidation": "{{ DisableSchemaValidation }}",
+ "Name": "{{ Name }}",
+ "Target": "{{ Target }}",
+ "CredentialsArn": "{{ CredentialsArn }}",
+ "CorsConfiguration": {
+  "AllowOrigins": [
+   "{{ AllowOrigins[0] }}"
+  ],
+  "AllowCredentials": "{{ AllowCredentials }}",
+  "ExposeHeaders": [
+   "{{ ExposeHeaders[0] }}"
+  ],
+  "AllowHeaders": [
+   "{{ AllowHeaders[0] }}"
+  ],
+  "MaxAge": "{{ MaxAge }}",
+  "AllowMethods": [
+   "{{ AllowMethods[0] }}"
+  ]
+ },
+ "Version": "{{ Version }}",
+ "ProtocolType": "{{ ProtocolType }}",
+ "RouteKey": "{{ RouteKey }}",
+ "Body": {},
+ "Tags": {},
+ "ApiKeySelectionExpression": "{{ ApiKeySelectionExpression }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigatewayv2.apis (
+ RouteSelectionExpression,
+ BodyS3Location,
+ Description,
+ BasePath,
+ FailOnWarnings,
+ DisableExecuteApiEndpoint,
+ DisableSchemaValidation,
+ Name,
+ Target,
+ CredentialsArn,
+ CorsConfiguration,
+ Version,
+ ProtocolType,
+ RouteKey,
+ Body,
+ Tags,
+ ApiKeySelectionExpression,
+ region
+)
+SELECT 
+ {{ RouteSelectionExpression }},
+ {{ BodyS3Location }},
+ {{ Description }},
+ {{ BasePath }},
+ {{ FailOnWarnings }},
+ {{ DisableExecuteApiEndpoint }},
+ {{ DisableSchemaValidation }},
+ {{ Name }},
+ {{ Target }},
+ {{ CredentialsArn }},
+ {{ CorsConfiguration }},
+ {{ Version }},
+ {{ ProtocolType }},
+ {{ RouteKey }},
+ {{ Body }},
+ {{ Tags }},
+ {{ ApiKeySelectionExpression }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigatewayv2.apis
+WHERE data__Identifier = '<ApiId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +274,13 @@ To operate on the <code>apis</code> resource, the following permissions are requ
 ```json
 apigateway:POST,
 apigateway:PUT,
+s3:getObject
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE,
 s3:getObject
 ```
 

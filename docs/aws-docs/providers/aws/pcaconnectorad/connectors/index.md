@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>connectors</code> in a region or create a <code>connectors</code> resource, use <code>connector</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>connectors</code> in a region or to create or delete a <code>connectors</code> resource, use <code>connector</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>connectors</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,88 @@ SELECT
 region,
 connector_arn
 FROM aws.pcaconnectorad.connectors
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
+ "DirectoryId": "{{ DirectoryId }}",
+ "VpcInformation": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.pcaconnectorad.connectors (
+ CertificateAuthorityArn,
+ DirectoryId,
+ VpcInformation,
+ region
+)
+SELECT 
+{{ CertificateAuthorityArn }},
+ {{ DirectoryId }},
+ {{ VpcInformation }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
+ "DirectoryId": "{{ DirectoryId }}",
+ "Tags": {},
+ "VpcInformation": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ]
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.pcaconnectorad.connectors (
+ CertificateAuthorityArn,
+ DirectoryId,
+ Tags,
+ VpcInformation,
+ region
+)
+SELECT 
+ {{ CertificateAuthorityArn }},
+ {{ DirectoryId }},
+ {{ Tags }},
+ {{ VpcInformation }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.pcaconnectorad.connectors
+WHERE data__Identifier = '<ConnectorArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +169,14 @@ ec2:CreateVpcEndpoint,
 ec2:DescribeVpcEndpoints,
 pca-connector-ad:CreateConnector,
 pca-connector-ad:GetConnector
+```
+
+### Delete
+```json
+pca-connector-ad:GetConnector,
+pca-connector-ad:DeleteConnector,
+ec2:DeleteVpcEndpoints,
+ec2:DescribeVpcEndpoints
 ```
 
 ### List

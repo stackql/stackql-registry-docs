@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>deployments</code> in a region or create a <code>deployments</code> resource, use <code>deployment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>deployments</code> in a region or to create or delete a <code>deployments</code> resource, use <code>deployment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>deployments</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,127 @@ region,
 deployment_id,
 rest_api_id
 FROM aws.apigateway.deployments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RestApiId": "{{ RestApiId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.deployments (
+ RestApiId,
+ region
+)
+SELECT 
+{{ RestApiId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DeploymentCanarySettings": {
+  "PercentTraffic": null,
+  "StageVariableOverrides": {},
+  "UseStageCache": "{{ UseStageCache }}"
+ },
+ "Description": "{{ Description }}",
+ "RestApiId": "{{ RestApiId }}",
+ "StageDescription": {
+  "AccessLogSetting": {
+   "DestinationArn": "{{ DestinationArn }}",
+   "Format": "{{ Format }}"
+  },
+  "CacheClusterEnabled": "{{ CacheClusterEnabled }}",
+  "CacheClusterSize": "{{ CacheClusterSize }}",
+  "CacheDataEncrypted": "{{ CacheDataEncrypted }}",
+  "CacheTtlInSeconds": "{{ CacheTtlInSeconds }}",
+  "CachingEnabled": "{{ CachingEnabled }}",
+  "CanarySetting": {
+   "DeploymentId": "{{ DeploymentId }}",
+   "PercentTraffic": null,
+   "StageVariableOverrides": {},
+   "UseStageCache": "{{ UseStageCache }}"
+  },
+  "ClientCertificateId": "{{ ClientCertificateId }}",
+  "DataTraceEnabled": "{{ DataTraceEnabled }}",
+  "Description": "{{ Description }}",
+  "DocumentationVersion": "{{ DocumentationVersion }}",
+  "LoggingLevel": "{{ LoggingLevel }}",
+  "MethodSettings": [
+   {
+    "CacheDataEncrypted": "{{ CacheDataEncrypted }}",
+    "CacheTtlInSeconds": "{{ CacheTtlInSeconds }}",
+    "CachingEnabled": "{{ CachingEnabled }}",
+    "DataTraceEnabled": "{{ DataTraceEnabled }}",
+    "HttpMethod": "{{ HttpMethod }}",
+    "LoggingLevel": "{{ LoggingLevel }}",
+    "MetricsEnabled": "{{ MetricsEnabled }}",
+    "ResourcePath": "{{ ResourcePath }}",
+    "ThrottlingBurstLimit": "{{ ThrottlingBurstLimit }}",
+    "ThrottlingRateLimit": null
+   }
+  ],
+  "MetricsEnabled": "{{ MetricsEnabled }}",
+  "Tags": [
+   {
+    "Value": "{{ Value }}",
+    "Key": "{{ Key }}"
+   }
+  ],
+  "ThrottlingBurstLimit": "{{ ThrottlingBurstLimit }}",
+  "ThrottlingRateLimit": null,
+  "TracingEnabled": "{{ TracingEnabled }}",
+  "Variables": {}
+ },
+ "StageName": "{{ StageName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.deployments (
+ DeploymentCanarySettings,
+ Description,
+ RestApiId,
+ StageDescription,
+ StageName,
+ region
+)
+SELECT 
+ {{ DeploymentCanarySettings }},
+ {{ Description }},
+ {{ RestApiId }},
+ {{ StageDescription }},
+ {{ StageName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.deployments
+WHERE data__Identifier = '<DeploymentId|RestApiId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +204,12 @@ apigateway:POST,
 apigateway:PATCH,
 apigateway:PUT,
 apigateway:GET
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE
 ```
 
 ### List

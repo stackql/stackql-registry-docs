@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpc_links</code> in a region or create a <code>vpc_links</code> resource, use <code>vpc_link</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpc_links</code> in a region or to create or delete a <code>vpc_links</code> resource, use <code>vpc_link</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>vpc_links</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 vpc_link_id
 FROM aws.apigatewayv2.vpc_links
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigatewayv2.vpc_links (
+ SubnetIds,
+ Name,
+ region
+)
+SELECT 
+{{ SubnetIds }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "Tags": {},
+ "Name": "{{ Name }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigatewayv2.vpc_links (
+ SubnetIds,
+ SecurityGroupIds,
+ Tags,
+ Name,
+ region
+)
+SELECT 
+ {{ SubnetIds }},
+ {{ SecurityGroupIds }},
+ {{ Tags }},
+ {{ Name }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigatewayv2.vpc_links
+WHERE data__Identifier = '<VpcLinkId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,15 @@ To operate on the <code>vpc_links</code> resource, the following permissions are
 apigateway:POST,
 apigateway:GET,
 apigateway:TagResource,
+iam:CreateServiceLinkedRole,
+iam:DeleteServiceLinkedRole,
+iam:GetServiceLinkedRoleDeletionStatus
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus

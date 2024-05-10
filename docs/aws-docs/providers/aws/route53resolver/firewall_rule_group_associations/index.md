@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>firewall_rule_group_associations</code> in a region or create a <code>firewall_rule_group_associations</code> resource, use <code>firewall_rule_group_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>firewall_rule_group_associations</code> in a region or to create or delete a <code>firewall_rule_group_associations</code> resource, use <code>firewall_rule_group_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>firewall_rule_group_associations</code> in a re
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,91 @@ SELECT
 region,
 id
 FROM aws.route53resolver.firewall_rule_group_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FirewallRuleGroupId": "{{ FirewallRuleGroupId }}",
+ "VpcId": "{{ VpcId }}",
+ "Priority": "{{ Priority }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.route53resolver.firewall_rule_group_associations (
+ FirewallRuleGroupId,
+ VpcId,
+ Priority,
+ region
+)
+SELECT 
+{{ FirewallRuleGroupId }},
+ {{ VpcId }},
+ {{ Priority }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FirewallRuleGroupId": "{{ FirewallRuleGroupId }}",
+ "VpcId": "{{ VpcId }}",
+ "Name": "{{ Name }}",
+ "Priority": "{{ Priority }}",
+ "MutationProtection": "{{ MutationProtection }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.route53resolver.firewall_rule_group_associations (
+ FirewallRuleGroupId,
+ VpcId,
+ Name,
+ Priority,
+ MutationProtection,
+ Tags,
+ region
+)
+SELECT 
+ {{ FirewallRuleGroupId }},
+ {{ VpcId }},
+ {{ Name }},
+ {{ Priority }},
+ {{ MutationProtection }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53resolver.firewall_rule_group_associations
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,6 +171,16 @@ s3:*
 ```
 
 ### List
+```json
+route53resolver:*,
+ec2:*,
+logs:*,
+iam:*,
+lambda:*,
+s3:*
+```
+
+### Delete
 ```json
 route53resolver:*,
 ec2:*,

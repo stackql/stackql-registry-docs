@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>users</code> in a region or create a <code>users</code> resource, use <code>user</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>users</code> in a region or to create or delete a <code>users</code> resource, use <code>user</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>users</code> in a region or create a <code>user
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,141 @@ SELECT
 region,
 user_name
 FROM aws.iam.users
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Path": "{{ Path }}",
+ "ManagedPolicyArns": [
+  "{{ ManagedPolicyArns[0] }}"
+ ],
+ "Policies": [
+  {
+   "PolicyDocument": {},
+   "PolicyName": "{{ PolicyName }}"
+  }
+ ],
+ "UserName": "{{ UserName }}",
+ "Groups": [
+  "{{ Groups[0] }}"
+ ],
+ "LoginProfile": {
+  "PasswordResetRequired": "{{ PasswordResetRequired }}",
+  "Password": "{{ Password }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "PermissionsBoundary": "{{ PermissionsBoundary }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iam.users (
+ Path,
+ ManagedPolicyArns,
+ Policies,
+ UserName,
+ Groups,
+ LoginProfile,
+ Tags,
+ PermissionsBoundary,
+ region
+)
+SELECT 
+{{ Path }},
+ {{ ManagedPolicyArns }},
+ {{ Policies }},
+ {{ UserName }},
+ {{ Groups }},
+ {{ LoginProfile }},
+ {{ Tags }},
+ {{ PermissionsBoundary }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Path": "{{ Path }}",
+ "ManagedPolicyArns": [
+  "{{ ManagedPolicyArns[0] }}"
+ ],
+ "Policies": [
+  {
+   "PolicyDocument": {},
+   "PolicyName": "{{ PolicyName }}"
+  }
+ ],
+ "UserName": "{{ UserName }}",
+ "Groups": [
+  "{{ Groups[0] }}"
+ ],
+ "LoginProfile": {
+  "PasswordResetRequired": "{{ PasswordResetRequired }}",
+  "Password": "{{ Password }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "PermissionsBoundary": "{{ PermissionsBoundary }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iam.users (
+ Path,
+ ManagedPolicyArns,
+ Policies,
+ UserName,
+ Groups,
+ LoginProfile,
+ Tags,
+ PermissionsBoundary,
+ region
+)
+SELECT 
+ {{ Path }},
+ {{ ManagedPolicyArns }},
+ {{ Policies }},
+ {{ UserName }},
+ {{ Groups }},
+ {{ LoginProfile }},
+ {{ Tags }},
+ {{ PermissionsBoundary }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iam.users
+WHERE data__Identifier = '<UserName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +219,23 @@ iam:AttachUserPolicy,
 iam:CreateUser,
 iam:GetUser,
 iam:TagUser
+```
+
+### Delete
+```json
+iam:DeleteAccessKey,
+iam:RemoveUserFromGroup,
+iam:DeleteUserPolicy,
+iam:DeleteUser,
+iam:DetachUserPolicy,
+iam:DeleteLoginProfile,
+iam:ListAccessKeys,
+iam:GetUserPolicy,
+iam:ListGroupsForUser,
+iam:ListAttachedUserPolicies,
+iam:ListUserPolicies,
+iam:GetUser,
+iam:GetLoginProfile
 ```
 
 ### List

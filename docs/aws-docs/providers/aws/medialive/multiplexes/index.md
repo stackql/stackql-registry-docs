@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>multiplexes</code> in a region or create a <code>multiplexes</code> resource, use <code>multiplex</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>multiplexes</code> in a region or to create or delete a <code>multiplexes</code> resource, use <code>multiplex</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>multiplexes</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,106 @@ SELECT
 region,
 id
 FROM aws.medialive.multiplexes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AvailabilityZones": [
+  "{{ AvailabilityZones[0] }}"
+ ],
+ "MultiplexSettings": {
+  "MaximumVideoBufferDelayMilliseconds": "{{ MaximumVideoBufferDelayMilliseconds }}",
+  "TransportStreamBitrate": "{{ TransportStreamBitrate }}",
+  "TransportStreamId": "{{ TransportStreamId }}",
+  "TransportStreamReservedBitrate": "{{ TransportStreamReservedBitrate }}"
+ },
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.medialive.multiplexes (
+ AvailabilityZones,
+ MultiplexSettings,
+ Name,
+ region
+)
+SELECT 
+{{ AvailabilityZones }},
+ {{ MultiplexSettings }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AvailabilityZones": [
+  "{{ AvailabilityZones[0] }}"
+ ],
+ "Destinations": [
+  {
+   "MultiplexMediaConnectOutputDestinationSettings": null
+  }
+ ],
+ "MultiplexSettings": {
+  "MaximumVideoBufferDelayMilliseconds": "{{ MaximumVideoBufferDelayMilliseconds }}",
+  "TransportStreamBitrate": "{{ TransportStreamBitrate }}",
+  "TransportStreamId": "{{ TransportStreamId }}",
+  "TransportStreamReservedBitrate": "{{ TransportStreamReservedBitrate }}"
+ },
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.medialive.multiplexes (
+ AvailabilityZones,
+ Destinations,
+ MultiplexSettings,
+ Name,
+ Tags,
+ region
+)
+SELECT 
+ {{ AvailabilityZones }},
+ {{ Destinations }},
+ {{ MultiplexSettings }},
+ {{ Name }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.medialive.multiplexes
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +180,12 @@ To operate on the <code>multiplexes</code> resource, the following permissions a
 medialive:CreateMultiplex,
 medialive:DescribeMultiplex,
 medialive:CreateTags
+```
+
+### Delete
+```json
+medialive:DeleteMultiplex,
+medialive:DescribeMultiplex
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>connections</code> in a region or create a <code>connections</code> resource, use <code>connection</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>connections</code> in a region or to create or delete a <code>connections</code> resource, use <code>connection</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>connections</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,149 @@ SELECT
 region,
 name
 FROM aws.events.connections
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "AuthorizationType": "{{ AuthorizationType }}",
+ "AuthParameters": {
+  "ApiKeyAuthParameters": {
+   "ApiKeyName": "{{ ApiKeyName }}",
+   "ApiKeyValue": "{{ ApiKeyValue }}"
+  },
+  "BasicAuthParameters": {
+   "Username": "{{ Username }}",
+   "Password": "{{ Password }}"
+  },
+  "OAuthParameters": {
+   "ClientParameters": {
+    "ClientID": "{{ ClientID }}",
+    "ClientSecret": "{{ ClientSecret }}"
+   },
+   "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
+   "HttpMethod": "{{ HttpMethod }}",
+   "OAuthHttpParameters": {
+    "HeaderParameters": [
+     {
+      "Key": "{{ Key }}",
+      "Value": "{{ Value }}",
+      "IsValueSecret": "{{ IsValueSecret }}"
+     }
+    ],
+    "QueryStringParameters": [
+     null
+    ],
+    "BodyParameters": [
+     null
+    ]
+   }
+  },
+  "InvocationHttpParameters": null
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.events.connections (
+ Name,
+ Description,
+ AuthorizationType,
+ AuthParameters,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Description }},
+ {{ AuthorizationType }},
+ {{ AuthParameters }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "AuthorizationType": "{{ AuthorizationType }}",
+ "AuthParameters": {
+  "ApiKeyAuthParameters": {
+   "ApiKeyName": "{{ ApiKeyName }}",
+   "ApiKeyValue": "{{ ApiKeyValue }}"
+  },
+  "BasicAuthParameters": {
+   "Username": "{{ Username }}",
+   "Password": "{{ Password }}"
+  },
+  "OAuthParameters": {
+   "ClientParameters": {
+    "ClientID": "{{ ClientID }}",
+    "ClientSecret": "{{ ClientSecret }}"
+   },
+   "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
+   "HttpMethod": "{{ HttpMethod }}",
+   "OAuthHttpParameters": {
+    "HeaderParameters": [
+     {
+      "Key": "{{ Key }}",
+      "Value": "{{ Value }}",
+      "IsValueSecret": "{{ IsValueSecret }}"
+     }
+    ],
+    "QueryStringParameters": [
+     null
+    ],
+    "BodyParameters": [
+     null
+    ]
+   }
+  },
+  "InvocationHttpParameters": null
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.events.connections (
+ Name,
+ Description,
+ AuthorizationType,
+ AuthParameters,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ AuthorizationType }},
+ {{ AuthParameters }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.events.connections
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +226,12 @@ secretsmanager:CreateSecret,
 secretsmanager:GetSecretValue,
 secretsmanager:PutSecretValue,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+events:DeleteConnection,
+events:DescribeConnection
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>global_replication_groups</code> in a region or create a <code>global_replication_groups</code> resource, use <code>global_replication_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>global_replication_groups</code> in a region or to create or delete a <code>global_replication_groups</code> resource, use <code>global_replication_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>global_replication_groups</code> in a region or
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,114 @@ SELECT
 region,
 global_replication_group_id
 FROM aws.elasticache.global_replication_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Members": [
+  {
+   "ReplicationGroupId": "{{ ReplicationGroupId }}",
+   "ReplicationGroupRegion": "{{ ReplicationGroupRegion }}",
+   "Role": "{{ Role }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.elasticache.global_replication_groups (
+ Members,
+ region
+)
+SELECT 
+{{ Members }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "GlobalReplicationGroupIdSuffix": "{{ GlobalReplicationGroupIdSuffix }}",
+ "AutomaticFailoverEnabled": "{{ AutomaticFailoverEnabled }}",
+ "CacheNodeType": "{{ CacheNodeType }}",
+ "EngineVersion": "{{ EngineVersion }}",
+ "CacheParameterGroupName": "{{ CacheParameterGroupName }}",
+ "GlobalNodeGroupCount": "{{ GlobalNodeGroupCount }}",
+ "GlobalReplicationGroupDescription": "{{ GlobalReplicationGroupDescription }}",
+ "Members": [
+  {
+   "ReplicationGroupId": "{{ ReplicationGroupId }}",
+   "ReplicationGroupRegion": "{{ ReplicationGroupRegion }}",
+   "Role": "{{ Role }}"
+  }
+ ],
+ "RegionalConfigurations": [
+  {
+   "ReplicationGroupId": "{{ ReplicationGroupId }}",
+   "ReplicationGroupRegion": "{{ ReplicationGroupRegion }}",
+   "ReshardingConfigurations": [
+    {
+     "NodeGroupId": "{{ NodeGroupId }}",
+     "PreferredAvailabilityZones": [
+      "{{ PreferredAvailabilityZones[0] }}"
+     ]
+    }
+   ]
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.elasticache.global_replication_groups (
+ GlobalReplicationGroupIdSuffix,
+ AutomaticFailoverEnabled,
+ CacheNodeType,
+ EngineVersion,
+ CacheParameterGroupName,
+ GlobalNodeGroupCount,
+ GlobalReplicationGroupDescription,
+ Members,
+ RegionalConfigurations,
+ region
+)
+SELECT 
+ {{ GlobalReplicationGroupIdSuffix }},
+ {{ AutomaticFailoverEnabled }},
+ {{ CacheNodeType }},
+ {{ EngineVersion }},
+ {{ CacheParameterGroupName }},
+ {{ GlobalNodeGroupCount }},
+ {{ GlobalReplicationGroupDescription }},
+ {{ Members }},
+ {{ RegionalConfigurations }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.elasticache.global_replication_groups
+WHERE data__Identifier = '<GlobalReplicationGroupId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +186,13 @@ To operate on the <code>global_replication_groups</code> resource, the following
 ### Create
 ```json
 elasticache:CreateGlobalReplicationGroup,
+elasticache:DescribeGlobalReplicationGroups
+```
+
+### Delete
+```json
+elasticache:DeleteGlobalReplicationGroup,
+elasticache:DisassociateGlobalReplicationGroup,
 elasticache:DescribeGlobalReplicationGroups
 ```
 

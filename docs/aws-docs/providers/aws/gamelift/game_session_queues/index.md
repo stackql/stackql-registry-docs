@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>game_session_queues</code> in a region or create a <code>game_session_queues</code> resource, use <code>game_session_queue</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>game_session_queues</code> in a region or to create or delete a <code>game_session_queues</code> resource, use <code>game_session_queue</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>game_session_queues</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,114 @@ SELECT
 region,
 name
 FROM aws.gamelift.game_session_queues
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.gamelift.game_session_queues (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
+ "Destinations": [
+  {
+   "DestinationArn": "{{ DestinationArn }}"
+  }
+ ],
+ "PlayerLatencyPolicies": [
+  {
+   "MaximumIndividualPlayerLatencyMilliseconds": "{{ MaximumIndividualPlayerLatencyMilliseconds }}",
+   "PolicyDurationSeconds": "{{ PolicyDurationSeconds }}"
+  }
+ ],
+ "CustomEventData": "{{ CustomEventData }}",
+ "NotificationTarget": "{{ NotificationTarget }}",
+ "FilterConfiguration": {
+  "AllowedLocations": [
+   "{{ AllowedLocations[0] }}"
+  ]
+ },
+ "PriorityConfiguration": {
+  "LocationOrder": [
+   "{{ LocationOrder[0] }}"
+  ],
+  "PriorityOrder": [
+   "{{ PriorityOrder[0] }}"
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.gamelift.game_session_queues (
+ Name,
+ TimeoutInSeconds,
+ Destinations,
+ PlayerLatencyPolicies,
+ CustomEventData,
+ NotificationTarget,
+ FilterConfiguration,
+ PriorityConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ TimeoutInSeconds }},
+ {{ Destinations }},
+ {{ PlayerLatencyPolicies }},
+ {{ CustomEventData }},
+ {{ NotificationTarget }},
+ {{ FilterConfiguration }},
+ {{ PriorityConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.gamelift.game_session_queues
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +188,12 @@ To operate on the <code>game_session_queues</code> resource, the following permi
 gamelift:CreateGameSessionQueue,
 gamelift:ListTagsForResource,
 gamelift:TagResource
+```
+
+### Delete
+```json
+gamelift:DescribeGameSessionQueues,
+gamelift:DeleteGameSessionQueue
 ```
 
 ### List

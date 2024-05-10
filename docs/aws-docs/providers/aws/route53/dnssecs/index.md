@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>dnssecs</code> in a region or create a <code>dnssecs</code> resource, use <code>dnssec</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>dnssecs</code> in a region or to create or delete a <code>dnssecs</code> resource, use <code>dnssec</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>dnssecs</code> in a region or create a <code>dn
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,65 @@ SELECT
 region,
 hosted_zone_id
 FROM aws.route53.dnssecs
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "HostedZoneId": "{{ HostedZoneId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.route53.dnssecs (
+ HostedZoneId,
+ region
+)
+SELECT 
+{{ HostedZoneId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "HostedZoneId": "{{ HostedZoneId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.route53.dnssecs (
+ HostedZoneId,
+ region
+)
+SELECT 
+ {{ HostedZoneId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53.dnssecs
+WHERE data__Identifier = '<HostedZoneId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +138,16 @@ To operate on the <code>dnssecs</code> resource, the following permissions are r
 ```json
 route53:GetDNSSEC,
 route53:EnableHostedZoneDNSSEC,
+kms:DescribeKey,
+kms:GetPublicKey,
+kms:Sign,
+kms:CreateGrant
+```
+
+### Delete
+```json
+route53:GetDNSSEC,
+route53:DisableHostedZoneDNSSEC,
 kms:DescribeKey,
 kms:GetPublicKey,
 kms:Sign,

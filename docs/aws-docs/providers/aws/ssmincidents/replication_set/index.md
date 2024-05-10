@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>replication_set</code> resource, use <code>replication_sets</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>replication_set</code> resource, use <code>replication_sets</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>replication_set</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ regions,
 deletion_protected,
 tags
 FROM aws.ssmincidents.replication_set
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -94,11 +93,5 @@ ssm-incidents:GetReplicationSet,
 ssm-incidents:TagResource,
 ssm-incidents:UntagResource,
 ssm-incidents:ListTagsForResource
-```
-
-### Delete
-```json
-ssm-incidents:DeleteReplicationSet,
-ssm-incidents:GetReplicationSet
 ```
 

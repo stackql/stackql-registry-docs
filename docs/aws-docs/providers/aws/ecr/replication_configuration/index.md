@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>replication_configuration</code> resource, use <code>replication_configurations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>replication_configuration</code> resource, use <code>replication_configurations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -50,11 +53,6 @@ Gets or operates on an individual <code>replication_configuration</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -68,8 +66,9 @@ region,
 replication_configuration,
 registry_id
 FROM aws.ecr.replication_configuration
-WHERE data__Identifier = '<RegistryId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<RegistryId>';
 ```
+
 
 ## Permissions
 
@@ -81,13 +80,6 @@ ecr:DescribeRegistry
 ```
 
 ### Update
-```json
-ecr:DescribeRegistry,
-ecr:PutReplicationConfiguration,
-iam:CreateServiceLinkedRole
-```
-
-### Delete
 ```json
 ecr:DescribeRegistry,
 ecr:PutReplicationConfiguration,

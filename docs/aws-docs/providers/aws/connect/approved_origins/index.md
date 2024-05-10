@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>approved_origins</code> in a region or create a <code>approved_origins</code> resource, use <code>approved_origin</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>approved_origins</code> in a region or to create or delete a <code>approved_origins</code> resource, use <code>approved_origin</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>approved_origins</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,71 @@ region,
 instance_id,
 origin
 FROM aws.connect.approved_origins
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Origin": "{{ Origin }}",
+ "InstanceId": "{{ InstanceId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.approved_origins (
+ Origin,
+ InstanceId,
+ region
+)
+SELECT 
+{{ Origin }},
+ {{ InstanceId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Origin": "{{ Origin }}",
+ "InstanceId": "{{ InstanceId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.connect.approved_origins (
+ Origin,
+ InstanceId,
+ region
+)
+SELECT 
+ {{ Origin }},
+ {{ InstanceId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.approved_origins
+WHERE data__Identifier = '<InstanceId|Origin>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +145,12 @@ To operate on the <code>approved_origins</code> resource, the following permissi
 ### Create
 ```json
 connect:AssociateApprovedOrigin,
+connect:ListApprovedOrigins
+```
+
+### Delete
+```json
+connect:DisassociateApprovedOrigin,
 connect:ListApprovedOrigins
 ```
 

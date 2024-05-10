@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>resolverdnssec_config</code> resource, use <code>resolverdnssec_configs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>resolverdnssec_config</code> resource, use <code>resolverdnssec_configs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -47,11 +50,6 @@ Gets or operates on an individual <code>resolverdnssec_config</code> resource, u
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -67,8 +65,9 @@ owner_id,
 resource_id,
 validation_status
 FROM aws.route53resolver.resolverdnssec_config
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -78,13 +77,5 @@ To operate on the <code>resolverdnssec_config</code> resource, the following per
 ```json
 resolverdnssec:GetConfig,
 route53resolver:ListResolverDnssecConfigs
-```
-
-### Delete
-```json
-resolverdnssec:DeleteConfig,
-route53resolver:UpdateResolverDnssecConfig,
-route53resolver:ListResolverDnssecConfigs,
-ec2:DescribeVpcs
 ```
 

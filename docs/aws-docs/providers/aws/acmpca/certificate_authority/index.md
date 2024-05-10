@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>certificate_authority</code> resource, use <code>certificate_authorities</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>certificate_authority</code> resource, use <code>certificate_authorities</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -59,11 +62,6 @@ Gets or operates on an individual <code>certificate_authority</code> resource, u
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -86,8 +84,9 @@ csr_extensions,
 key_storage_security_standard,
 usage_mode
 FROM aws.acmpca.certificate_authority
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -106,11 +105,5 @@ acm-pca:ListTags,
 acm-pca:TagCertificateAuthority,
 acm-pca:UntagCertificateAuthority,
 acm-pca:UpdateCertificateAuthority
-```
-
-### Delete
-```json
-acm-pca:DeleteCertificateAuthority,
-acm-pca:DescribeCertificateAuthority
 ```
 

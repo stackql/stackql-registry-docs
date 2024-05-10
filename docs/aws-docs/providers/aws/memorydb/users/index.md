@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>users</code> in a region or create a <code>users</code> resource, use <code>user</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>users</code> in a region or to create or delete a <code>users</code> resource, use <code>user</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>users</code> in a region or create a <code>user
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,84 @@ SELECT
 region,
 user_name
 FROM aws.memorydb.users
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "UserName": "{{ UserName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.memorydb.users (
+ UserName,
+ region
+)
+SELECT 
+{{ UserName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "UserName": "{{ UserName }}",
+ "AccessString": "{{ AccessString }}",
+ "AuthenticationMode": {
+  "Type": "{{ Type }}",
+  "Passwords": [
+   "{{ Passwords[0] }}"
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.memorydb.users (
+ UserName,
+ AccessString,
+ AuthenticationMode,
+ Tags,
+ region
+)
+SELECT 
+ {{ UserName }},
+ {{ AccessString }},
+ {{ AuthenticationMode }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.memorydb.users
+WHERE data__Identifier = '<UserName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +159,12 @@ memorydb:CreateUser,
 memorydb:DescribeUsers,
 memorydb:TagResource,
 memorydb:ListTags
+```
+
+### Delete
+```json
+memorydb:DeleteUser,
+memorydb:DescribeUsers
 ```
 
 ### List

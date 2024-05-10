@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>execution_plans</code> in a region or create a <code>execution_plans</code> resource, use <code>execution_plan</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>execution_plans</code> in a region or to create or delete a <code>execution_plans</code> resource, use <code>execution_plan</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>execution_plans</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,81 @@ SELECT
 region,
 id
 FROM aws.kendraranking.execution_plans
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.kendraranking.execution_plans (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Name": "{{ Name }}",
+ "CapacityUnits": {
+  "RescoreCapacityUnits": "{{ RescoreCapacityUnits }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.kendraranking.execution_plans (
+ Description,
+ Tags,
+ Name,
+ CapacityUnits,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Tags }},
+ {{ Name }},
+ {{ CapacityUnits }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kendraranking.execution_plans
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +157,12 @@ kendra-ranking:DescribeRescoreExecutionPlan,
 kendra-ranking:UpdateRescoreExecutionPlan,
 kendra-ranking:ListTagsForResource,
 kendra-ranking:TagResource
+```
+
+### Delete
+```json
+kendra-ranking:DescribeRescoreExecutionPlan,
+kendra-ranking:DeleteRescoreExecutionPlan
 ```
 
 ### List

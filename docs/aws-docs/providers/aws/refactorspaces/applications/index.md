@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>applications</code> in a region or create a <code>applications</code> resource, use <code>application</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>applications</code> in a region or to create or delete a <code>applications</code> resource, use <code>application</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>applications</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,97 @@ region,
 environment_identifier,
 application_identifier
 FROM aws.refactorspaces.applications
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "Name": "{{ Name }}",
+ "ProxyType": "{{ ProxyType }}",
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.refactorspaces.applications (
+ EnvironmentIdentifier,
+ Name,
+ ProxyType,
+ VpcId,
+ region
+)
+SELECT 
+{{ EnvironmentIdentifier }},
+ {{ Name }},
+ {{ ProxyType }},
+ {{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApiGatewayProxy": {
+  "StageName": "{{ StageName }}",
+  "EndpointType": "{{ EndpointType }}"
+ },
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "Name": "{{ Name }}",
+ "ProxyType": "{{ ProxyType }}",
+ "VpcId": "{{ VpcId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.refactorspaces.applications (
+ ApiGatewayProxy,
+ EnvironmentIdentifier,
+ Name,
+ ProxyType,
+ VpcId,
+ Tags,
+ region
+)
+SELECT 
+ {{ ApiGatewayProxy }},
+ {{ EnvironmentIdentifier }},
+ {{ Name }},
+ {{ ProxyType }},
+ {{ VpcId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.refactorspaces.applications
+WHERE data__Identifier = '<EnvironmentIdentifier|ApplicationIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -98,6 +196,26 @@ elasticloadbalancing:DescribeLoadBalancers,
 elasticloadbalancing:DescribeTags,
 elasticloadbalancing:AddTags,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+refactor-spaces:GetApplication,
+refactor-spaces:DeleteApplication,
+refactor-spaces:UntagResource,
+ec2:DescribeVpcEndpointServiceConfigurations,
+ec2:DeleteRoute,
+ec2:DeleteSecurityGroup,
+ec2:DeleteTransitGateway,
+ec2:DeleteTransitGatewayVpcAttachment,
+ec2:DeleteVpcEndpointServiceConfigurations,
+ec2:DeleteTags,
+ec2:RevokeSecurityGroupIngress,
+elasticloadbalancing:DeleteLoadBalancer,
+apigateway:Update*,
+apigateway:Delete*,
+apigateway:Get*,
+apigateway:Put*
 ```
 
 ### List

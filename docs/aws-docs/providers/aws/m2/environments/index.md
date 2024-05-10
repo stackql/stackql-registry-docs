@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>environments</code> in a region or create a <code>environments</code> resource, use <code>environment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>environments</code> in a region or to create or delete a <code>environments</code> resource, use <code>environment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>environments</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,115 @@ SELECT
 region,
 environment_arn
 FROM aws.m2.environments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "EngineType": "{{ EngineType }}",
+ "InstanceType": "{{ InstanceType }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.m2.environments (
+ EngineType,
+ InstanceType,
+ Name,
+ region
+)
+SELECT 
+{{ EngineType }},
+ {{ InstanceType }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "EngineType": "{{ EngineType }}",
+ "EngineVersion": "{{ EngineVersion }}",
+ "HighAvailabilityConfig": {
+  "DesiredCapacity": "{{ DesiredCapacity }}"
+ },
+ "InstanceType": "{{ InstanceType }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "Name": "{{ Name }}",
+ "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+ "PubliclyAccessible": "{{ PubliclyAccessible }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "StorageConfigurations": [
+  {}
+ ],
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.m2.environments (
+ Description,
+ EngineType,
+ EngineVersion,
+ HighAvailabilityConfig,
+ InstanceType,
+ KmsKeyId,
+ Name,
+ PreferredMaintenanceWindow,
+ PubliclyAccessible,
+ SecurityGroupIds,
+ StorageConfigurations,
+ SubnetIds,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ EngineType }},
+ {{ EngineVersion }},
+ {{ HighAvailabilityConfig }},
+ {{ InstanceType }},
+ {{ KmsKeyId }},
+ {{ Name }},
+ {{ PreferredMaintenanceWindow }},
+ {{ PubliclyAccessible }},
+ {{ SecurityGroupIds }},
+ {{ StorageConfigurations }},
+ {{ SubnetIds }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.m2.environments
+WHERE data__Identifier = '<EnvironmentArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -89,6 +205,13 @@ m2:CreateEnvironment,
 m2:GetEnvironment,
 m2:ListTagsForResource,
 m2:TagResource
+```
+
+### Delete
+```json
+elasticloadbalancing:DeleteLoadBalancer,
+m2:DeleteEnvironment,
+m2:GetEnvironment
 ```
 
 ### List

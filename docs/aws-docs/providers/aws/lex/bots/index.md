@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>bots</code> in a region or create a <code>bots</code> resource, use <code>bot</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>bots</code> in a region or to create or delete a <code>bots</code> resource, use <code>bot</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>bots</code> in a region or create a <code>bots<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,457 @@ SELECT
 region,
 id
 FROM aws.lex.bots
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "DataPrivacy": {
+  "ChildDirected": "{{ ChildDirected }}"
+ },
+ "IdleSessionTTLInSeconds": "{{ IdleSessionTTLInSeconds }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lex.bots (
+ Name,
+ RoleArn,
+ DataPrivacy,
+ IdleSessionTTLInSeconds,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ RoleArn }},
+ {{ DataPrivacy }},
+ {{ IdleSessionTTLInSeconds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "RoleArn": "{{ RoleArn }}",
+ "DataPrivacy": {
+  "ChildDirected": "{{ ChildDirected }}"
+ },
+ "IdleSessionTTLInSeconds": "{{ IdleSessionTTLInSeconds }}",
+ "BotLocales": [
+  {
+   "LocaleId": "{{ LocaleId }}",
+   "Description": null,
+   "VoiceSettings": {
+    "VoiceId": "{{ VoiceId }}",
+    "Engine": "{{ Engine }}"
+   },
+   "NluConfidenceThreshold": null,
+   "Intents": [
+    {
+     "Name": null,
+     "Description": null,
+     "ParentIntentSignature": "{{ ParentIntentSignature }}",
+     "SampleUtterances": [
+      {
+       "Utterance": "{{ Utterance }}"
+      }
+     ],
+     "DialogCodeHook": {
+      "Enabled": "{{ Enabled }}"
+     },
+     "FulfillmentCodeHook": {
+      "FulfillmentUpdatesSpecification": {
+       "StartResponse": {
+        "MessageGroups": [
+         {
+          "Message": {
+           "PlainTextMessage": {
+            "Value": "{{ Value }}"
+           },
+           "CustomPayload": {
+            "Value": "{{ Value }}"
+           },
+           "SSMLMessage": {
+            "Value": "{{ Value }}"
+           },
+           "ImageResponseCard": {
+            "Title": "{{ Title }}",
+            "Subtitle": null,
+            "ImageUrl": "{{ ImageUrl }}",
+            "Buttons": [
+             {
+              "Text": "{{ Text }}",
+              "Value": "{{ Value }}"
+             }
+            ]
+           }
+          },
+          "Variations": [
+           null
+          ]
+         }
+        ],
+        "DelayInSeconds": "{{ DelayInSeconds }}",
+        "AllowInterrupt": "{{ AllowInterrupt }}"
+       },
+       "UpdateResponse": {
+        "MessageGroups": null,
+        "FrequencyInSeconds": "{{ FrequencyInSeconds }}",
+        "AllowInterrupt": "{{ AllowInterrupt }}"
+       },
+       "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
+       "Active": "{{ Active }}"
+      },
+      "PostFulfillmentStatusSpecification": {
+       "SuccessResponse": {
+        "MessageGroupsList": null,
+        "AllowInterrupt": "{{ AllowInterrupt }}"
+       },
+       "SuccessNextStep": {
+        "DialogAction": {
+         "Type": "{{ Type }}",
+         "SlotToElicit": null,
+         "SuppressNextMessage": "{{ SuppressNextMessage }}"
+        },
+        "Intent": {
+         "Name": null,
+         "Slots": [
+          {
+           "SlotName": null,
+           "SlotValueOverride": {
+            "Shape": "{{ Shape }}",
+            "Value": {
+             "InterpretedValue": "{{ InterpretedValue }}"
+            },
+            "Values": [
+             null
+            ]
+           }
+          }
+         ]
+        },
+        "SessionAttributes": [
+         {
+          "Key": "{{ Key }}",
+          "Value": "{{ Value }}"
+         }
+        ]
+       },
+       "SuccessConditional": {
+        "IsActive": "{{ IsActive }}",
+        "ConditionalBranches": [
+         {
+          "Name": null,
+          "Condition": {
+           "ExpressionString": "{{ ExpressionString }}"
+          },
+          "NextStep": null,
+          "Response": null
+         }
+        ],
+        "DefaultBranch": {
+         "NextStep": null,
+         "Response": null
+        }
+       },
+       "FailureResponse": null,
+       "FailureNextStep": null,
+       "FailureConditional": null,
+       "TimeoutResponse": null,
+       "TimeoutNextStep": null,
+       "TimeoutConditional": null
+      },
+      "Enabled": "{{ Enabled }}",
+      "IsActive": "{{ IsActive }}"
+     },
+     "IntentConfirmationSetting": {
+      "PromptSpecification": {
+       "MessageGroupsList": null,
+       "MaxRetries": "{{ MaxRetries }}",
+       "AllowInterrupt": "{{ AllowInterrupt }}",
+       "MessageSelectionStrategy": "{{ MessageSelectionStrategy }}",
+       "PromptAttemptsSpecification": {}
+      },
+      "IsActive": "{{ IsActive }}",
+      "ConfirmationResponse": null,
+      "ConfirmationNextStep": null,
+      "ConfirmationConditional": null,
+      "DeclinationResponse": null,
+      "DeclinationNextStep": null,
+      "DeclinationConditional": null,
+      "FailureResponse": null,
+      "FailureNextStep": null,
+      "FailureConditional": null,
+      "CodeHook": {
+       "EnableCodeHookInvocation": "{{ EnableCodeHookInvocation }}",
+       "IsActive": "{{ IsActive }}",
+       "InvocationLabel": null,
+       "PostCodeHookSpecification": {
+        "SuccessResponse": null,
+        "SuccessNextStep": null,
+        "SuccessConditional": null,
+        "FailureResponse": null,
+        "FailureNextStep": null,
+        "FailureConditional": null,
+        "TimeoutResponse": null,
+        "TimeoutNextStep": null,
+        "TimeoutConditional": null
+       }
+      },
+      "ElicitationCodeHook": {
+       "EnableCodeHookInvocation": "{{ EnableCodeHookInvocation }}",
+       "InvocationLabel": null
+      }
+     },
+     "IntentClosingSetting": {
+      "ClosingResponse": null,
+      "IsActive": "{{ IsActive }}",
+      "Conditional": null,
+      "NextStep": null
+     },
+     "InitialResponseSetting": {
+      "InitialResponse": null,
+      "NextStep": null,
+      "Conditional": null,
+      "CodeHook": null
+     },
+     "InputContexts": [
+      {
+       "Name": null
+      }
+     ],
+     "OutputContexts": [
+      {
+       "Name": null,
+       "TimeToLiveInSeconds": "{{ TimeToLiveInSeconds }}",
+       "TurnsToLive": "{{ TurnsToLive }}"
+      }
+     ],
+     "KendraConfiguration": {
+      "KendraIndex": "{{ KendraIndex }}",
+      "QueryFilterStringEnabled": "{{ QueryFilterStringEnabled }}",
+      "QueryFilterString": "{{ QueryFilterString }}"
+     },
+     "SlotPriorities": [
+      {
+       "Priority": "{{ Priority }}",
+       "SlotName": null
+      }
+     ],
+     "Slots": [
+      {
+       "Name": null,
+       "Description": null,
+       "SlotTypeName": "{{ SlotTypeName }}",
+       "ValueElicitationSetting": {
+        "DefaultValueSpecification": {
+         "DefaultValueList": [
+          {
+           "DefaultValue": "{{ DefaultValue }}"
+          }
+         ]
+        },
+        "SlotConstraint": "{{ SlotConstraint }}",
+        "PromptSpecification": null,
+        "SampleUtterances": null,
+        "WaitAndContinueSpecification": {
+         "WaitingResponse": null,
+         "ContinueResponse": null,
+         "StillWaitingResponse": {
+          "MessageGroupsList": null,
+          "FrequencyInSeconds": "{{ FrequencyInSeconds }}",
+          "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
+          "AllowInterrupt": "{{ AllowInterrupt }}"
+         },
+         "IsActive": "{{ IsActive }}"
+        },
+        "SlotCaptureSetting": {
+         "CaptureResponse": null,
+         "CaptureNextStep": null,
+         "CaptureConditional": null,
+         "FailureResponse": null,
+         "FailureNextStep": null,
+         "FailureConditional": null,
+         "CodeHook": null,
+         "ElicitationCodeHook": null
+        }
+       },
+       "ObfuscationSetting": {
+        "ObfuscationSettingType": "{{ ObfuscationSettingType }}"
+       },
+       "MultipleValuesSetting": {
+        "AllowMultipleValues": "{{ AllowMultipleValues }}"
+       }
+      }
+     ]
+    }
+   ],
+   "SlotTypes": [
+    {
+     "Name": null,
+     "Description": null,
+     "ParentSlotTypeSignature": "{{ ParentSlotTypeSignature }}",
+     "SlotTypeValues": [
+      {
+       "SampleValue": {
+        "Value": "{{ Value }}"
+       },
+       "Synonyms": [
+        null
+       ]
+      }
+     ],
+     "ValueSelectionSetting": {
+      "ResolutionStrategy": "{{ ResolutionStrategy }}",
+      "RegexFilter": {
+       "Pattern": "{{ Pattern }}"
+      },
+      "AdvancedRecognitionSetting": {
+       "AudioRecognitionStrategy": "{{ AudioRecognitionStrategy }}"
+      }
+     },
+     "ExternalSourceSetting": {
+      "GrammarSlotTypeSetting": {
+       "Source": {
+        "S3BucketName": "{{ S3BucketName }}",
+        "S3ObjectKey": "{{ S3ObjectKey }}",
+        "KmsKeyArn": "{{ KmsKeyArn }}"
+       }
+      }
+     }
+    }
+   ],
+   "CustomVocabulary": {
+    "CustomVocabularyItems": [
+     {
+      "Phrase": "{{ Phrase }}",
+      "Weight": "{{ Weight }}",
+      "DisplayAs": "{{ DisplayAs }}"
+     }
+    ]
+   }
+  }
+ ],
+ "BotFileS3Location": {
+  "S3Bucket": null,
+  "S3ObjectKey": null,
+  "S3ObjectVersion": "{{ S3ObjectVersion }}"
+ },
+ "BotTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TestBotAliasTags": [
+  null
+ ],
+ "AutoBuildBotLocales": "{{ AutoBuildBotLocales }}",
+ "TestBotAliasSettings": {
+  "BotAliasLocaleSettings": [
+   {
+    "LocaleId": "{{ LocaleId }}",
+    "BotAliasLocaleSetting": {
+     "CodeHookSpecification": {
+      "LambdaCodeHook": {
+       "CodeHookInterfaceVersion": "{{ CodeHookInterfaceVersion }}",
+       "LambdaArn": "{{ LambdaArn }}"
+      }
+     },
+     "Enabled": "{{ Enabled }}"
+    }
+   }
+  ],
+  "ConversationLogSettings": {
+   "AudioLogSettings": [
+    {
+     "Destination": {
+      "S3Bucket": {
+       "S3BucketArn": "{{ S3BucketArn }}",
+       "LogPrefix": "{{ LogPrefix }}",
+       "KmsKeyArn": "{{ KmsKeyArn }}"
+      }
+     },
+     "Enabled": "{{ Enabled }}"
+    }
+   ],
+   "TextLogSettings": [
+    {
+     "Destination": {
+      "CloudWatch": {
+       "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}",
+       "LogPrefix": "{{ LogPrefix }}"
+      }
+     },
+     "Enabled": "{{ Enabled }}"
+    }
+   ]
+  },
+  "Description": null,
+  "SentimentAnalysisSettings": {
+   "DetectSentiment": "{{ DetectSentiment }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.lex.bots (
+ Name,
+ Description,
+ RoleArn,
+ DataPrivacy,
+ IdleSessionTTLInSeconds,
+ BotLocales,
+ BotFileS3Location,
+ BotTags,
+ TestBotAliasTags,
+ AutoBuildBotLocales,
+ TestBotAliasSettings,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ RoleArn }},
+ {{ DataPrivacy }},
+ {{ IdleSessionTTLInSeconds }},
+ {{ BotLocales }},
+ {{ BotFileS3Location }},
+ {{ BotTags }},
+ {{ TestBotAliasTags }},
+ {{ AutoBuildBotLocales }},
+ {{ TestBotAliasSettings }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lex.bots
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -100,6 +558,20 @@ lex:UpdateCustomVocabulary,
 lex:DeleteCustomVocabulary,
 s3:GetObject,
 lex:UpdateBotAlias
+```
+
+### Delete
+```json
+lex:DeleteBot,
+lex:DescribeBot,
+lex:DeleteBotLocale,
+lex:DeleteIntent,
+lex:DeleteSlotType,
+lex:DeleteSlot,
+lex:DeleteBotVersion,
+lex:DeleteBotChannel,
+lex:DeleteBotAlias,
+lex:DeleteCustomVocabulary
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>object_types</code> in a region or create a <code>object_types</code> resource, use <code>object_type</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>object_types</code> in a region or to create or delete a <code>object_types</code> resource, use <code>object_type</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>object_types</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,129 @@ region,
 domain_name,
 object_type_name
 FROM aws.customerprofiles.object_types
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "ObjectTypeName": "{{ ObjectTypeName }}",
+ "Description": "{{ Description }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.customerprofiles.object_types (
+ DomainName,
+ ObjectTypeName,
+ Description,
+ region
+)
+SELECT 
+{{ DomainName }},
+ {{ ObjectTypeName }},
+ {{ Description }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "ObjectTypeName": "{{ ObjectTypeName }}",
+ "AllowProfileCreation": "{{ AllowProfileCreation }}",
+ "Description": "{{ Description }}",
+ "EncryptionKey": "{{ EncryptionKey }}",
+ "ExpirationDays": "{{ ExpirationDays }}",
+ "Fields": [
+  {
+   "Name": "{{ Name }}",
+   "ObjectTypeField": {
+    "Source": "{{ Source }}",
+    "Target": "{{ Target }}",
+    "ContentType": "{{ ContentType }}"
+   }
+  }
+ ],
+ "Keys": [
+  {
+   "Name": "{{ Name }}",
+   "ObjectTypeKeyList": [
+    {
+     "FieldNames": [
+      "{{ FieldNames[0] }}"
+     ],
+     "StandardIdentifiers": [
+      "{{ StandardIdentifiers[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "SourceLastUpdatedTimestampFormat": "{{ SourceLastUpdatedTimestampFormat }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TemplateId": "{{ TemplateId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.customerprofiles.object_types (
+ DomainName,
+ ObjectTypeName,
+ AllowProfileCreation,
+ Description,
+ EncryptionKey,
+ ExpirationDays,
+ Fields,
+ Keys,
+ SourceLastUpdatedTimestampFormat,
+ Tags,
+ TemplateId,
+ region
+)
+SELECT 
+ {{ DomainName }},
+ {{ ObjectTypeName }},
+ {{ AllowProfileCreation }},
+ {{ Description }},
+ {{ EncryptionKey }},
+ {{ ExpirationDays }},
+ {{ Fields }},
+ {{ Keys }},
+ {{ SourceLastUpdatedTimestampFormat }},
+ {{ Tags }},
+ {{ TemplateId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.customerprofiles.object_types
+WHERE data__Identifier = '<DomainName|ObjectTypeName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +205,11 @@ To operate on the <code>object_types</code> resource, the following permissions 
 profile:GetProfileObjectType,
 profile:PutProfileObjectType,
 profile:TagResource
+```
+
+### Delete
+```json
+profile:DeleteProfileObjectType
 ```
 
 ### List

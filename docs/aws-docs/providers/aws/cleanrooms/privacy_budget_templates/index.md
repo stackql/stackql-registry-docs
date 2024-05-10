@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>privacy_budget_templates</code> in a region or create a <code>privacy_budget_templates</code> resource, use <code>privacy_budget_template</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>privacy_budget_templates</code> in a region or to create or delete a <code>privacy_budget_templates</code> resource, use <code>privacy_budget_template</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>privacy_budget_templates</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,97 @@ region,
 privacy_budget_template_identifier,
 membership_identifier
 FROM aws.cleanrooms.privacy_budget_templates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AutoRefresh": "{{ AutoRefresh }}",
+ "PrivacyBudgetType": "{{ PrivacyBudgetType }}",
+ "Parameters": {
+  "Epsilon": "{{ Epsilon }}",
+  "UsersNoisePerQuery": "{{ UsersNoisePerQuery }}"
+ },
+ "MembershipIdentifier": "{{ MembershipIdentifier }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cleanrooms.privacy_budget_templates (
+ AutoRefresh,
+ PrivacyBudgetType,
+ Parameters,
+ MembershipIdentifier,
+ region
+)
+SELECT 
+{{ AutoRefresh }},
+ {{ PrivacyBudgetType }},
+ {{ Parameters }},
+ {{ MembershipIdentifier }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AutoRefresh": "{{ AutoRefresh }}",
+ "PrivacyBudgetType": "{{ PrivacyBudgetType }}",
+ "Parameters": {
+  "Epsilon": "{{ Epsilon }}",
+  "UsersNoisePerQuery": "{{ UsersNoisePerQuery }}"
+ },
+ "MembershipIdentifier": "{{ MembershipIdentifier }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cleanrooms.privacy_budget_templates (
+ Tags,
+ AutoRefresh,
+ PrivacyBudgetType,
+ Parameters,
+ MembershipIdentifier,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ AutoRefresh }},
+ {{ PrivacyBudgetType }},
+ {{ Parameters }},
+ {{ MembershipIdentifier }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cleanrooms.privacy_budget_templates
+WHERE data__Identifier = '<PrivacyBudgetTemplateIdentifier|MembershipIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +175,15 @@ cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:GetPrivacyBudgetTemplate,
 cleanrooms:ListPrivacyBudgetTemplates
+```
+
+### Delete
+```json
+cleanrooms:DeletePrivacyBudgetTemplate,
+cleanrooms:GetPrivacyBudgetTemplate,
+cleanrooms:ListPrivacyBudgetTemplates,
+cleanrooms:ListTagsForResource,
+cleanrooms:UntagResource
 ```
 
 ### List

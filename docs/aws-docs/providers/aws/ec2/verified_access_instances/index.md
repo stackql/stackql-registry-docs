@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>verified_access_instances</code> in a region or create a <code>verified_access_instances</code> resource, use <code>verified_access_instance</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>verified_access_instances</code> in a region or to create or delete a <code>verified_access_instances</code> resource, use <code>verified_access_instance</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>verified_access_instances</code> in a region or
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,176 @@ SELECT
 region,
 verified_access_instance_id
 FROM aws.ec2.verified_access_instances
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "VerifiedAccessTrustProviders": [
+  {
+   "TrustProviderType": "{{ TrustProviderType }}",
+   "PolicyReferenceName": "{{ PolicyReferenceName }}"
+  }
+ ],
+ "VerifiedAccessTrustProviderIds": [
+  "{{ VerifiedAccessTrustProviderIds[0] }}"
+ ],
+ "Description": "{{ Description }}",
+ "LoggingConfigurations": {
+  "LogVersion": "{{ LogVersion }}",
+  "IncludeTrustContext": "{{ IncludeTrustContext }}",
+  "CloudWatchLogs": {
+   "Enabled": "{{ Enabled }}",
+   "LogGroup": "{{ LogGroup }}"
+  },
+  "KinesisDataFirehose": {
+   "Enabled": "{{ Enabled }}",
+   "DeliveryStream": "{{ DeliveryStream }}"
+  },
+  "S3": {
+   "Enabled": "{{ Enabled }}",
+   "BucketName": "{{ BucketName }}",
+   "BucketOwner": "{{ BucketOwner }}",
+   "Prefix": "{{ Prefix }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "FipsEnabled": "{{ FipsEnabled }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.verified_access_instances (
+ VerifiedAccessTrustProviders,
+ VerifiedAccessTrustProviderIds,
+ Description,
+ LoggingConfigurations,
+ Tags,
+ FipsEnabled,
+ region
+)
+SELECT 
+{{ VerifiedAccessTrustProviders }},
+ {{ VerifiedAccessTrustProviderIds }},
+ {{ Description }},
+ {{ LoggingConfigurations }},
+ {{ Tags }},
+ {{ FipsEnabled }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "VerifiedAccessTrustProviders": [
+  {
+   "TrustProviderType": "{{ TrustProviderType }}",
+   "DeviceTrustProviderType": "{{ DeviceTrustProviderType }}",
+   "UserTrustProviderType": "{{ UserTrustProviderType }}",
+   "OidcOptions": {
+    "Issuer": "{{ Issuer }}",
+    "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
+    "TokenEndpoint": "{{ TokenEndpoint }}",
+    "UserInfoEndpoint": "{{ UserInfoEndpoint }}",
+    "ClientId": "{{ ClientId }}",
+    "ClientSecret": "{{ ClientSecret }}",
+    "Scope": "{{ Scope }}"
+   },
+   "DeviceOptions": {
+    "TenantId": "{{ TenantId }}",
+    "PublicSigningKeyUrl": "{{ PublicSigningKeyUrl }}"
+   },
+   "PolicyReferenceName": "{{ PolicyReferenceName }}",
+   "Description": "{{ Description }}",
+   "Tags": [
+    {
+     "Key": "{{ Key }}",
+     "Value": "{{ Value }}"
+    }
+   ],
+   "SseSpecification": {
+    "KmsKeyArn": "{{ KmsKeyArn }}",
+    "CustomerManagedKeyEnabled": "{{ CustomerManagedKeyEnabled }}"
+   }
+  }
+ ],
+ "VerifiedAccessTrustProviderIds": [
+  "{{ VerifiedAccessTrustProviderIds[0] }}"
+ ],
+ "Description": "{{ Description }}",
+ "LoggingConfigurations": {
+  "LogVersion": "{{ LogVersion }}",
+  "IncludeTrustContext": "{{ IncludeTrustContext }}",
+  "CloudWatchLogs": {
+   "Enabled": "{{ Enabled }}",
+   "LogGroup": "{{ LogGroup }}"
+  },
+  "KinesisDataFirehose": {
+   "Enabled": "{{ Enabled }}",
+   "DeliveryStream": "{{ DeliveryStream }}"
+  },
+  "S3": {
+   "Enabled": "{{ Enabled }}",
+   "BucketName": "{{ BucketName }}",
+   "BucketOwner": "{{ BucketOwner }}",
+   "Prefix": "{{ Prefix }}"
+  }
+ },
+ "Tags": [
+  null
+ ],
+ "FipsEnabled": "{{ FipsEnabled }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.verified_access_instances (
+ VerifiedAccessTrustProviders,
+ VerifiedAccessTrustProviderIds,
+ Description,
+ LoggingConfigurations,
+ Tags,
+ FipsEnabled,
+ region
+)
+SELECT 
+ {{ VerifiedAccessTrustProviders }},
+ {{ VerifiedAccessTrustProviderIds }},
+ {{ Description }},
+ {{ LoggingConfigurations }},
+ {{ Tags }},
+ {{ FipsEnabled }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.verified_access_instances
+WHERE data__Identifier = '<VerifiedAccessInstanceId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -95,6 +272,20 @@ firehose:TagDeliveryStream,
 logs:DescribeResourcePolicies,
 iam:CreateServiceLinkedRole,
 verified-access:AllowVerifiedAccess
+```
+
+### Delete
+```json
+ec2:DeleteVerifiedAccessInstance,
+ec2:DeleteTags,
+ec2:DescribeVerifiedAccessInstances,
+ec2:DescribeVerifiedAccessInstanceLoggingConfigurations,
+ec2:DetachVerifiedAccessTrustProvider,
+ec2:GetVerifiedAccessGroupPolicy,
+ec2:DescribeTags,
+logs:ListLogDeliveries,
+logs:GetLogDelivery,
+logs:DeleteLogDelivery
 ```
 
 ### List

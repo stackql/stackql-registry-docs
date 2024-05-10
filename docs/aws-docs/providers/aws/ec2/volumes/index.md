@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>volumes</code> in a region or create a <code>volumes</code> resource, use <code>volume</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>volumes</code> in a region or to create or delete a <code>volumes</code> resource, use <code>volume</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>volumes</code> in a region or create a <code>vo
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,103 @@ SELECT
 region,
 volume_id
 FROM aws.ec2.volumes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AvailabilityZone": "{{ AvailabilityZone }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.volumes (
+ AvailabilityZone,
+ region
+)
+SELECT 
+{{ AvailabilityZone }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "MultiAttachEnabled": "{{ MultiAttachEnabled }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "Encrypted": "{{ Encrypted }}",
+ "Size": "{{ Size }}",
+ "AutoEnableIO": "{{ AutoEnableIO }}",
+ "OutpostArn": "{{ OutpostArn }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "Throughput": "{{ Throughput }}",
+ "Iops": "{{ Iops }}",
+ "SnapshotId": "{{ SnapshotId }}",
+ "VolumeType": "{{ VolumeType }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.volumes (
+ MultiAttachEnabled,
+ KmsKeyId,
+ Encrypted,
+ Size,
+ AutoEnableIO,
+ OutpostArn,
+ AvailabilityZone,
+ Throughput,
+ Iops,
+ SnapshotId,
+ VolumeType,
+ Tags,
+ region
+)
+SELECT 
+ {{ MultiAttachEnabled }},
+ {{ KmsKeyId }},
+ {{ Encrypted }},
+ {{ Size }},
+ {{ AutoEnableIO }},
+ {{ OutpostArn }},
+ {{ AvailabilityZone }},
+ {{ Throughput }},
+ {{ Iops }},
+ {{ SnapshotId }},
+ {{ VolumeType }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.volumes
+WHERE data__Identifier = '<VolumeId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +181,15 @@ ec2:ModifyVolumeAttribute,
 ec2:CreateTags,
 kms:GenerateDataKeyWithoutPlaintext,
 kms:CreateGrant
+```
+
+### Delete
+```json
+ec2:DeleteVolume,
+ec2:CreateSnapshot,
+ec2:DescribeSnapshots,
+ec2:DeleteTags,
+ec2:DescribeVolumes
 ```
 
 ### List

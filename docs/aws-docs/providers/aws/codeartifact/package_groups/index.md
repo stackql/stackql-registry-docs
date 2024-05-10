@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>package_groups</code> in a region or create a <code>package_groups</code> resource, use <code>package_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>package_groups</code> in a region or to create or delete a <code>package_groups</code> resource, use <code>package_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>package_groups</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,102 @@ SELECT
 region,
 arn
 FROM aws.codeartifact.package_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "Pattern": "{{ Pattern }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.codeartifact.package_groups (
+ DomainName,
+ Pattern,
+ region
+)
+SELECT 
+{{ DomainName }},
+ {{ Pattern }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "DomainOwner": "{{ DomainOwner }}",
+ "Pattern": "{{ Pattern }}",
+ "ContactInfo": "{{ ContactInfo }}",
+ "Description": "{{ Description }}",
+ "OriginConfiguration": {
+  "Restrictions": {
+   "Publish": {
+    "RestrictionMode": "{{ RestrictionMode }}",
+    "Repositories": [
+     "{{ Repositories[0] }}"
+    ]
+   },
+   "ExternalUpstream": null,
+   "InternalUpstream": null
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.codeartifact.package_groups (
+ DomainName,
+ DomainOwner,
+ Pattern,
+ ContactInfo,
+ Description,
+ OriginConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ DomainName }},
+ {{ DomainOwner }},
+ {{ Pattern }},
+ {{ ContactInfo }},
+ {{ Description }},
+ {{ OriginConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.codeartifact.package_groups
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +180,12 @@ codeartifact:UpdatePackageGroupOriginConfiguration,
 codeartifact:ListAllowedRepositoriesForGroup,
 codeartifact:ListTagsForResource,
 codeartifact:TagResource
+```
+
+### Delete
+```json
+codeartifact:DeletePackageGroup,
+codeartifact:DescribePackageGroup
 ```
 
 ### List

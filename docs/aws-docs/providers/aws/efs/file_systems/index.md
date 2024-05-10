@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>file_systems</code> in a region or create a <code>file_systems</code> resource, use <code>file_system</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>file_systems</code> in a region or to create or delete a <code>file_systems</code> resource, use <code>file_system</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>file_systems</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,185 @@ SELECT
 region,
 file_system_id
 FROM aws.efs.file_systems
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Encrypted": "{{ Encrypted }}",
+ "FileSystemTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "LifecyclePolicies": [
+  {
+   "TransitionToIA": "{{ TransitionToIA }}",
+   "TransitionToPrimaryStorageClass": "{{ TransitionToPrimaryStorageClass }}",
+   "TransitionToArchive": "{{ TransitionToArchive }}"
+  }
+ ],
+ "FileSystemProtection": {
+  "ReplicationOverwriteProtection": "{{ ReplicationOverwriteProtection }}"
+ },
+ "PerformanceMode": "{{ PerformanceMode }}",
+ "ProvisionedThroughputInMibps": null,
+ "ThroughputMode": "{{ ThroughputMode }}",
+ "FileSystemPolicy": {},
+ "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
+ "BackupPolicy": {
+  "Status": "{{ Status }}"
+ },
+ "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
+ "ReplicationConfiguration": {
+  "Destinations": [
+   {
+    "FileSystemId": "{{ FileSystemId }}",
+    "Region": "{{ Region }}",
+    "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
+    "KmsKeyId": "{{ KmsKeyId }}"
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.efs.file_systems (
+ Encrypted,
+ FileSystemTags,
+ KmsKeyId,
+ LifecyclePolicies,
+ FileSystemProtection,
+ PerformanceMode,
+ ProvisionedThroughputInMibps,
+ ThroughputMode,
+ FileSystemPolicy,
+ BypassPolicyLockoutSafetyCheck,
+ BackupPolicy,
+ AvailabilityZoneName,
+ ReplicationConfiguration,
+ region
+)
+SELECT 
+{{ Encrypted }},
+ {{ FileSystemTags }},
+ {{ KmsKeyId }},
+ {{ LifecyclePolicies }},
+ {{ FileSystemProtection }},
+ {{ PerformanceMode }},
+ {{ ProvisionedThroughputInMibps }},
+ {{ ThroughputMode }},
+ {{ FileSystemPolicy }},
+ {{ BypassPolicyLockoutSafetyCheck }},
+ {{ BackupPolicy }},
+ {{ AvailabilityZoneName }},
+ {{ ReplicationConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Encrypted": "{{ Encrypted }}",
+ "FileSystemTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "LifecyclePolicies": [
+  {
+   "TransitionToIA": "{{ TransitionToIA }}",
+   "TransitionToPrimaryStorageClass": "{{ TransitionToPrimaryStorageClass }}",
+   "TransitionToArchive": "{{ TransitionToArchive }}"
+  }
+ ],
+ "FileSystemProtection": {
+  "ReplicationOverwriteProtection": "{{ ReplicationOverwriteProtection }}"
+ },
+ "PerformanceMode": "{{ PerformanceMode }}",
+ "ProvisionedThroughputInMibps": null,
+ "ThroughputMode": "{{ ThroughputMode }}",
+ "FileSystemPolicy": {},
+ "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
+ "BackupPolicy": {
+  "Status": "{{ Status }}"
+ },
+ "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
+ "ReplicationConfiguration": {
+  "Destinations": [
+   {
+    "FileSystemId": "{{ FileSystemId }}",
+    "Region": "{{ Region }}",
+    "AvailabilityZoneName": "{{ AvailabilityZoneName }}",
+    "KmsKeyId": "{{ KmsKeyId }}"
+   }
+  ]
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.efs.file_systems (
+ Encrypted,
+ FileSystemTags,
+ KmsKeyId,
+ LifecyclePolicies,
+ FileSystemProtection,
+ PerformanceMode,
+ ProvisionedThroughputInMibps,
+ ThroughputMode,
+ FileSystemPolicy,
+ BypassPolicyLockoutSafetyCheck,
+ BackupPolicy,
+ AvailabilityZoneName,
+ ReplicationConfiguration,
+ region
+)
+SELECT 
+ {{ Encrypted }},
+ {{ FileSystemTags }},
+ {{ KmsKeyId }},
+ {{ LifecyclePolicies }},
+ {{ FileSystemProtection }},
+ {{ PerformanceMode }},
+ {{ ProvisionedThroughputInMibps }},
+ {{ ThroughputMode }},
+ {{ FileSystemPolicy }},
+ {{ BypassPolicyLockoutSafetyCheck }},
+ {{ BackupPolicy }},
+ {{ AvailabilityZoneName }},
+ {{ ReplicationConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.efs.file_systems
+WHERE data__Identifier = '<FileSystemId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +268,14 @@ elasticfilesystem:UpdateFileSystemProtection,
 kms:DescribeKey,
 kms:GenerateDataKeyWithoutPlaintext,
 kms:CreateGrant
+```
+
+### Delete
+```json
+elasticfilesystem:DescribeFileSystems,
+elasticfilesystem:DeleteFileSystem,
+elasticfilesystem:DeleteReplicationConfiguration,
+elasticfilesystem:DescribeReplicationConfigurations
 ```
 
 ### List

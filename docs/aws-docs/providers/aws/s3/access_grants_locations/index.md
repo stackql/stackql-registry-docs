@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>access_grants_locations</code> in a region or create a <code>access_grants_locations</code> resource, use <code>access_grants_location</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>access_grants_locations</code> in a region or to create or delete a <code>access_grants_locations</code> resource, use <code>access_grants_location</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>access_grants_locations</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,74 @@ SELECT
 region,
 access_grants_location_id
 FROM aws.s3.access_grants_locations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.s3.access_grants_locations (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IamRoleArn": "{{ IamRoleArn }}",
+ "LocationScope": "{{ LocationScope }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.s3.access_grants_locations (
+ IamRoleArn,
+ LocationScope,
+ Tags,
+ region
+)
+SELECT 
+ {{ IamRoleArn }},
+ {{ LocationScope }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.s3.access_grants_locations
+WHERE data__Identifier = '<AccessGrantsLocationId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +148,11 @@ To operate on the <code>access_grants_locations</code> resource, the following p
 s3:CreateAccessGrantsLocation,
 iam:PassRole,
 s3:TagResource
+```
+
+### Delete
+```json
+s3:DeleteAccessGrantsLocation
 ```
 
 ### List

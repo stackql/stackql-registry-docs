@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>spaces</code> in a region or create a <code>spaces</code> resource, use <code>space</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>spaces</code> in a region or to create or delete a <code>spaces</code> resource, use <code>space</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>spaces</code> in a region or create a <code>spa
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,137 @@ region,
 domain_id,
 space_name
 FROM aws.sagemaker.spaces
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainId": "{{ DomainId }}",
+ "SpaceName": "{{ SpaceName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.spaces (
+ DomainId,
+ SpaceName,
+ region
+)
+SELECT 
+{{ DomainId }},
+ {{ SpaceName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainId": "{{ DomainId }}",
+ "SpaceName": "{{ SpaceName }}",
+ "SpaceSettings": {
+  "JupyterServerAppSettings": {
+   "DefaultResourceSpec": {
+    "InstanceType": "{{ InstanceType }}",
+    "SageMakerImageArn": "{{ SageMakerImageArn }}",
+    "SageMakerImageVersionArn": "{{ SageMakerImageVersionArn }}"
+   }
+  },
+  "KernelGatewayAppSettings": {
+   "CustomImages": [
+    {
+     "AppImageConfigName": "{{ AppImageConfigName }}",
+     "ImageName": "{{ ImageName }}",
+     "ImageVersionNumber": "{{ ImageVersionNumber }}"
+    }
+   ],
+   "DefaultResourceSpec": null
+  },
+  "JupyterLabAppSettings": {
+   "DefaultResourceSpec": null,
+   "CodeRepositories": [
+    {
+     "RepositoryUrl": "{{ RepositoryUrl }}"
+    }
+   ]
+  },
+  "CodeEditorAppSettings": {
+   "DefaultResourceSpec": null
+  },
+  "SpaceStorageSettings": {
+   "EbsStorageSettings": {
+    "EbsVolumeSizeInGb": "{{ EbsVolumeSizeInGb }}"
+   }
+  },
+  "AppType": "{{ AppType }}",
+  "CustomFileSystems": [
+   {
+    "EFSFileSystem": {
+     "FileSystemId": "{{ FileSystemId }}"
+    }
+   }
+  ]
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "OwnershipSettings": {
+  "OwnerUserProfileName": "{{ OwnerUserProfileName }}"
+ },
+ "SpaceSharingSettings": {
+  "SharingType": "{{ SharingType }}"
+ },
+ "SpaceDisplayName": "{{ SpaceDisplayName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.spaces (
+ DomainId,
+ SpaceName,
+ SpaceSettings,
+ Tags,
+ OwnershipSettings,
+ SpaceSharingSettings,
+ SpaceDisplayName,
+ region
+)
+SELECT 
+ {{ DomainId }},
+ {{ SpaceName }},
+ {{ SpaceSettings }},
+ {{ Tags }},
+ {{ OwnershipSettings }},
+ {{ SpaceSharingSettings }},
+ {{ SpaceDisplayName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.spaces
+WHERE data__Identifier = '<DomainId|SpaceName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +211,12 @@ To operate on the <code>spaces</code> resource, the following permissions are re
 ### Create
 ```json
 sagemaker:CreateSpace,
+sagemaker:DescribeSpace
+```
+
+### Delete
+```json
+sagemaker:DeleteSpace,
 sagemaker:DescribeSpace
 ```
 

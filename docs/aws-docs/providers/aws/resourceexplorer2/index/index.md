@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>index</code> resource, use <code>indices</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>index</code> resource, use <code>indices</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>index</code> resource, use <code>indices
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ tags,
 type,
 index_state
 FROM aws.resourceexplorer2.index
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -86,13 +85,6 @@ resource-explorer-2:UpdateIndexType,
 resource-explorer-2:TagResource,
 resource-explorer-2:UntagResource,
 resource-explorer-2:ListTagsForResource
-```
-
-### Delete
-```json
-resource-explorer-2:DeleteIndex,
-resource-explorer-2:GetIndex,
-resource-explorer-2:UntagResource
 ```
 
 ### Read

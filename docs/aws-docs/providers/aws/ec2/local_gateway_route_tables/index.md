@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>local_gateway_route_tables</code> in a region or create a <code>local_gateway_route_tables</code> resource, use <code>local_gateway_route_table</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>local_gateway_route_tables</code> in a region or to create or delete a <code>local_gateway_route_tables</code> resource, use <code>local_gateway_route_table</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>local_gateway_route_tables</code> in a region o
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,76 @@ SELECT
 region,
 local_gateway_route_table_id
 FROM aws.ec2.local_gateway_route_tables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "LocalGatewayId": "{{ LocalGatewayId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.local_gateway_route_tables (
+ LocalGatewayId,
+ region
+)
+SELECT 
+{{ LocalGatewayId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "LocalGatewayId": "{{ LocalGatewayId }}",
+ "Mode": "{{ Mode }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.local_gateway_route_tables (
+ LocalGatewayId,
+ Mode,
+ Tags,
+ region
+)
+SELECT 
+ {{ LocalGatewayId }},
+ {{ Mode }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.local_gateway_route_tables
+WHERE data__Identifier = '<LocalGatewayRouteTableId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +150,13 @@ To operate on the <code>local_gateway_route_tables</code> resource, the followin
 ec2:CreateLocalGatewayRouteTable,
 ec2:DescribeLocalGatewayRouteTables,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DeleteLocalGatewayRouteTable,
+ec2:DescribeLocalGatewayRouteTables,
+ec2:DeleteTags
 ```
 
 ### List

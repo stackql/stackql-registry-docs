@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>scheduled_actions</code> in a region or create a <code>scheduled_actions</code> resource, use <code>scheduled_action</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>scheduled_actions</code> in a region or to create or delete a <code>scheduled_actions</code> resource, use <code>scheduled_action</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>scheduled_actions</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 scheduled_action_name
 FROM aws.redshift.scheduled_actions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ScheduledActionName": "{{ ScheduledActionName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.redshift.scheduled_actions (
+ ScheduledActionName,
+ region
+)
+SELECT 
+{{ ScheduledActionName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ScheduledActionName": "{{ ScheduledActionName }}",
+ "TargetAction": {},
+ "Schedule": "{{ Schedule }}",
+ "IamRole": "{{ IamRole }}",
+ "ScheduledActionDescription": "{{ ScheduledActionDescription }}",
+ "StartTime": "{{ StartTime }}",
+ "EndTime": null,
+ "Enable": "{{ Enable }}"
+}
+>>>
+--all properties
+INSERT INTO aws.redshift.scheduled_actions (
+ ScheduledActionName,
+ TargetAction,
+ Schedule,
+ IamRole,
+ ScheduledActionDescription,
+ StartTime,
+ EndTime,
+ Enable,
+ region
+)
+SELECT 
+ {{ ScheduledActionName }},
+ {{ TargetAction }},
+ {{ Schedule }},
+ {{ IamRole }},
+ {{ ScheduledActionDescription }},
+ {{ StartTime }},
+ {{ EndTime }},
+ {{ Enable }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.redshift.scheduled_actions
+WHERE data__Identifier = '<ScheduledActionName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +164,13 @@ redshift:PauseCluster,
 redshift:ResumeCluster,
 redshift:ResizeCluster,
 iam:PassRole
+```
+
+### Delete
+```json
+redshift:DescribeTags,
+redshift:DescribeScheduledActions,
+redshift:DeleteScheduledAction
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>instance_storage_config</code> resource, use <code>instance_storage_configs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>instance_storage_config</code> resource, use <code>instance_storage_configs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>instance_storage_config</code> resource,
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ kinesis_video_stream_config,
 kinesis_stream_config,
 kinesis_firehose_config
 FROM aws.connect.instance_storage_config
-WHERE data__Identifier = '<InstanceArn>|<AssociationId>|<ResourceType>';
+WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>|<AssociationId>|<ResourceType>';
 ```
+
 
 ## Permissions
 
@@ -109,14 +108,5 @@ kms:DescribeKey,
 kms:CreateGrant,
 kms:RetireGrant,
 firehose:DescribeDeliveryStream
-```
-
-### Delete
-```json
-connect:DisassociateInstanceStorageConfig,
-connect:DescribeInstance,
-s3:GetBucketAcl,
-s3:GetBucketLocation,
-kms:RetireGrant
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>application</code> resource, use <code>applications</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>application</code> resource, use <code>applications</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -51,11 +54,6 @@ Gets or operates on an individual <code>application</code> resource, use <code>a
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -70,8 +68,9 @@ application_name,
 compute_platform,
 tags
 FROM aws.codedeploy.application
-WHERE data__Identifier = '<ApplicationName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationName>';
 ```
+
 
 ## Permissions
 
@@ -81,12 +80,6 @@ To operate on the <code>application</code> resource, the following permissions a
 ```json
 codedeploy:GetApplication,
 codedeploy:ListTagsForResource
-```
-
-### Delete
-```json
-codedeploy:GetApplication,
-codedeploy:DeleteApplication
 ```
 
 ### Update

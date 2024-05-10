@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>component_type</code> resource, use <code>component_types</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>component_type</code> resource, use <code>component_types</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -64,11 +67,6 @@ Gets or operates on an individual <code>component_type</code> resource, use <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -96,8 +94,9 @@ is_abstract,
 is_schema_initialized,
 tags
 FROM aws.iottwinmaker.component_type
-WHERE data__Identifier = '<WorkspaceId>|<ComponentTypeId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>|<ComponentTypeId>';
 ```
+
 
 ## Permissions
 
@@ -118,12 +117,5 @@ iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource,
 iottwinmaker:UntagResource,
 iottwinmaker:UpdateComponentType
-```
-
-### Delete
-```json
-iottwinmaker:DeleteComponentType,
-iottwinmaker:GetComponentType,
-iottwinmaker:GetWorkspace
 ```
 

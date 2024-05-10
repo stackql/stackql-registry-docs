@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>verified_access_endpoints</code> in a region or create a <code>verified_access_endpoints</code> resource, use <code>verified_access_endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>verified_access_endpoints</code> in a region or to create or delete a <code>verified_access_endpoints</code> resource, use <code>verified_access_endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>verified_access_endpoints</code> in a region or
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,140 @@ SELECT
 region,
 verified_access_endpoint_id
 FROM aws.ec2.verified_access_endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "VerifiedAccessGroupId": "{{ VerifiedAccessGroupId }}",
+ "EndpointType": "{{ EndpointType }}",
+ "EndpointDomainPrefix": "{{ EndpointDomainPrefix }}",
+ "DomainCertificateArn": "{{ DomainCertificateArn }}",
+ "AttachmentType": "{{ AttachmentType }}",
+ "ApplicationDomain": "{{ ApplicationDomain }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.verified_access_endpoints (
+ VerifiedAccessGroupId,
+ EndpointType,
+ EndpointDomainPrefix,
+ DomainCertificateArn,
+ AttachmentType,
+ ApplicationDomain,
+ region
+)
+SELECT 
+{{ VerifiedAccessGroupId }},
+ {{ EndpointType }},
+ {{ EndpointDomainPrefix }},
+ {{ DomainCertificateArn }},
+ {{ AttachmentType }},
+ {{ ApplicationDomain }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "VerifiedAccessGroupId": "{{ VerifiedAccessGroupId }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "NetworkInterfaceOptions": {
+  "NetworkInterfaceId": "{{ NetworkInterfaceId }}",
+  "Port": "{{ Port }}",
+  "Protocol": "{{ Protocol }}"
+ },
+ "LoadBalancerOptions": {
+  "LoadBalancerArn": "{{ LoadBalancerArn }}",
+  "Port": "{{ Port }}",
+  "Protocol": "{{ Protocol }}",
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "EndpointType": "{{ EndpointType }}",
+ "EndpointDomainPrefix": "{{ EndpointDomainPrefix }}",
+ "DomainCertificateArn": "{{ DomainCertificateArn }}",
+ "AttachmentType": "{{ AttachmentType }}",
+ "ApplicationDomain": "{{ ApplicationDomain }}",
+ "Description": "{{ Description }}",
+ "PolicyDocument": "{{ PolicyDocument }}",
+ "PolicyEnabled": "{{ PolicyEnabled }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "SseSpecification": {
+  "KmsKeyArn": "{{ KmsKeyArn }}",
+  "CustomerManagedKeyEnabled": "{{ CustomerManagedKeyEnabled }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.verified_access_endpoints (
+ VerifiedAccessGroupId,
+ SecurityGroupIds,
+ NetworkInterfaceOptions,
+ LoadBalancerOptions,
+ EndpointType,
+ EndpointDomainPrefix,
+ DomainCertificateArn,
+ AttachmentType,
+ ApplicationDomain,
+ Description,
+ PolicyDocument,
+ PolicyEnabled,
+ Tags,
+ SseSpecification,
+ region
+)
+SELECT 
+ {{ VerifiedAccessGroupId }},
+ {{ SecurityGroupIds }},
+ {{ NetworkInterfaceOptions }},
+ {{ LoadBalancerOptions }},
+ {{ EndpointType }},
+ {{ EndpointDomainPrefix }},
+ {{ DomainCertificateArn }},
+ {{ AttachmentType }},
+ {{ ApplicationDomain }},
+ {{ Description }},
+ {{ PolicyDocument }},
+ {{ PolicyEnabled }},
+ {{ Tags }},
+ {{ SseSpecification }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.verified_access_endpoints
+WHERE data__Identifier = '<VerifiedAccessEndpointId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -97,6 +238,42 @@ ec2:GetVerifiedAccessEndpointPolicy,
 ec2:ModifyVerifiedAccessEndpoint,
 ec2:ModifyVerifiedAccessEndpointPolicy,
 sso:DeleteManagedApplicationInstance,
+kms:DescribeKey,
+kms:RetireGrant,
+kms:CreateGrant,
+kms:GenerateDataKey,
+kms:Decrypt
+```
+
+### Delete
+```json
+ec2:DescribeVerifiedAccessEndpoints,
+ec2:DescribeTags,
+ec2:DeleteVerifiedAccessEndpoint,
+ec2:DeleteTags,
+sso:DeleteManagedApplicationInstance,
+acm:DeleteCertificateRelation,
+acm:DescribeCertificate,
+acm:CreateCertificateRelation,
+acm:GetCertificateWithPK,
+ec2:CreateTags,
+ec2:CreateVerifiedAccessEndpoint,
+ec2:DescribeAccountAttributes,
+ec2:DescribeNetworkInterfaces,
+ec2:DescribeSecurityGroups,
+ec2:DescribeSubnets,
+ec2:GetVerifiedAccessEndpointPolicy,
+ec2:ModifyVerifiedAccessEndpoint,
+ec2:ModifyVerifiedAccessEndpointPolicy,
+elasticloadbalancing:DescribeListenerCertificates,
+elasticloadbalancing:DescribeListeners,
+elasticloadbalancing:DescribeLoadBalancers,
+iam:CreateServiceLinkedRole,
+iam:ListRoles,
+sso:CreateManagedApplicationInstance,
+sso:GetManagedApplicationInstance,
+sso:GetPeregrineStatus,
+sso:GetSharedSsoConfiguration,
 kms:DescribeKey,
 kms:RetireGrant,
 kms:CreateGrant,

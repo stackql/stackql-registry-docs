@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>account_audit_configurations</code> in a region or create a <code>account_audit_configurations</code> resource, use <code>account_audit_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>account_audit_configurations</code> in a region or to create or delete a <code>account_audit_configurations</code> resource, use <code>account_audit_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>account_audit_configurations</code> in a region
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,124 @@ SELECT
 region,
 account_id
 FROM aws.iot.account_audit_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AccountId": "{{ AccountId }}",
+ "AuditCheckConfigurations": {
+  "AuthenticatedCognitoRoleOverlyPermissiveCheck": {
+   "Enabled": "{{ Enabled }}"
+  },
+  "CaCertificateExpiringCheck": null,
+  "CaCertificateKeyQualityCheck": null,
+  "ConflictingClientIdsCheck": null,
+  "DeviceCertificateExpiringCheck": null,
+  "DeviceCertificateKeyQualityCheck": null,
+  "DeviceCertificateSharedCheck": null,
+  "IotPolicyOverlyPermissiveCheck": null,
+  "IotRoleAliasAllowsAccessToUnusedServicesCheck": null,
+  "IotRoleAliasOverlyPermissiveCheck": null,
+  "LoggingDisabledCheck": null,
+  "RevokedCaCertificateStillActiveCheck": null,
+  "RevokedDeviceCertificateStillActiveCheck": null,
+  "UnauthenticatedCognitoRoleOverlyPermissiveCheck": null,
+  "IntermediateCaRevokedForActiveDeviceCertificatesCheck": null,
+  "IoTPolicyPotentialMisConfigurationCheck": null
+ },
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.account_audit_configurations (
+ AccountId,
+ AuditCheckConfigurations,
+ RoleArn,
+ region
+)
+SELECT 
+{{ AccountId }},
+ {{ AuditCheckConfigurations }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccountId": "{{ AccountId }}",
+ "AuditCheckConfigurations": {
+  "AuthenticatedCognitoRoleOverlyPermissiveCheck": {
+   "Enabled": "{{ Enabled }}"
+  },
+  "CaCertificateExpiringCheck": null,
+  "CaCertificateKeyQualityCheck": null,
+  "ConflictingClientIdsCheck": null,
+  "DeviceCertificateExpiringCheck": null,
+  "DeviceCertificateKeyQualityCheck": null,
+  "DeviceCertificateSharedCheck": null,
+  "IotPolicyOverlyPermissiveCheck": null,
+  "IotRoleAliasAllowsAccessToUnusedServicesCheck": null,
+  "IotRoleAliasOverlyPermissiveCheck": null,
+  "LoggingDisabledCheck": null,
+  "RevokedCaCertificateStillActiveCheck": null,
+  "RevokedDeviceCertificateStillActiveCheck": null,
+  "UnauthenticatedCognitoRoleOverlyPermissiveCheck": null,
+  "IntermediateCaRevokedForActiveDeviceCertificatesCheck": null,
+  "IoTPolicyPotentialMisConfigurationCheck": null
+ },
+ "AuditNotificationTargetConfigurations": {
+  "Sns": {
+   "TargetArn": "{{ TargetArn }}",
+   "RoleArn": "{{ RoleArn }}",
+   "Enabled": "{{ Enabled }}"
+  }
+ },
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iot.account_audit_configurations (
+ AccountId,
+ AuditCheckConfigurations,
+ AuditNotificationTargetConfigurations,
+ RoleArn,
+ region
+)
+SELECT 
+ {{ AccountId }},
+ {{ AuditCheckConfigurations }},
+ {{ AuditNotificationTargetConfigurations }},
+ {{ RoleArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.account_audit_configurations
+WHERE data__Identifier = '<AccountId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +198,12 @@ To operate on the <code>account_audit_configurations</code> resource, the follow
 iot:UpdateAccountAuditConfiguration,
 iot:DescribeAccountAuditConfiguration,
 iam:PassRole
+```
+
+### Delete
+```json
+iot:DescribeAccountAuditConfiguration,
+iot:DeleteAccountAuditConfiguration
 ```
 
 ### List

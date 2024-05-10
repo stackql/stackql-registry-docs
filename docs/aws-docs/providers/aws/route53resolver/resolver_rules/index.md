@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>resolver_rules</code> in a region or create a <code>resolver_rules</code> resource, use <code>resolver_rule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>resolver_rules</code> in a region or to create or delete a <code>resolver_rules</code> resource, use <code>resolver_rule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>resolver_rules</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,95 @@ SELECT
 region,
 resolver_rule_id
 FROM aws.route53resolver.resolver_rules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "RuleType": "{{ RuleType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.route53resolver.resolver_rules (
+ DomainName,
+ RuleType,
+ region
+)
+SELECT 
+{{ DomainName }},
+ {{ RuleType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ResolverEndpointId": "{{ ResolverEndpointId }}",
+ "DomainName": "{{ DomainName }}",
+ "Name": "{{ Name }}",
+ "RuleType": "{{ RuleType }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TargetIps": [
+  {
+   "Ip": "{{ Ip }}",
+   "Ipv6": "{{ Ipv6 }}",
+   "Port": "{{ Port }}",
+   "Protocol": "{{ Protocol }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.route53resolver.resolver_rules (
+ ResolverEndpointId,
+ DomainName,
+ Name,
+ RuleType,
+ Tags,
+ TargetIps,
+ region
+)
+SELECT 
+ {{ ResolverEndpointId }},
+ {{ DomainName }},
+ {{ Name }},
+ {{ RuleType }},
+ {{ Tags }},
+ {{ TargetIps }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53resolver.resolver_rules
+WHERE data__Identifier = '<ResolverRuleId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +170,12 @@ route53resolver:CreateResolverRule,
 route53resolver:GetResolverRule,
 route53resolver:ListTagsForResource,
 route53resolver:TagResource
+```
+
+### Delete
+```json
+route53resolver:DeleteResolverRule,
+route53resolver:GetResolverRule
 ```
 
 ### List

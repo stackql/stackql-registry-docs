@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>portals</code> in a region or create a <code>portals</code> resource, use <code>portal</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>portals</code> in a region or to create or delete a <code>portals</code> resource, use <code>portal</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>portals</code> in a region or create a <code>po
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,135 @@ SELECT
 region,
 portal_arn
 FROM aws.workspacesweb.portals
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AdditionalEncryptionContext": {},
+ "AuthenticationType": "{{ AuthenticationType }}",
+ "BrowserSettingsArn": "{{ BrowserSettingsArn }}",
+ "CustomerManagedKey": "{{ CustomerManagedKey }}",
+ "DisplayName": "{{ DisplayName }}",
+ "IpAccessSettingsArn": "{{ IpAccessSettingsArn }}",
+ "NetworkSettingsArn": "{{ NetworkSettingsArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TrustStoreArn": "{{ TrustStoreArn }}",
+ "UserAccessLoggingSettingsArn": "{{ UserAccessLoggingSettingsArn }}",
+ "UserSettingsArn": "{{ UserSettingsArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.workspacesweb.portals (
+ AdditionalEncryptionContext,
+ AuthenticationType,
+ BrowserSettingsArn,
+ CustomerManagedKey,
+ DisplayName,
+ IpAccessSettingsArn,
+ NetworkSettingsArn,
+ Tags,
+ TrustStoreArn,
+ UserAccessLoggingSettingsArn,
+ UserSettingsArn,
+ region
+)
+SELECT 
+{{ AdditionalEncryptionContext }},
+ {{ AuthenticationType }},
+ {{ BrowserSettingsArn }},
+ {{ CustomerManagedKey }},
+ {{ DisplayName }},
+ {{ IpAccessSettingsArn }},
+ {{ NetworkSettingsArn }},
+ {{ Tags }},
+ {{ TrustStoreArn }},
+ {{ UserAccessLoggingSettingsArn }},
+ {{ UserSettingsArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AdditionalEncryptionContext": {},
+ "AuthenticationType": "{{ AuthenticationType }}",
+ "BrowserSettingsArn": "{{ BrowserSettingsArn }}",
+ "CustomerManagedKey": "{{ CustomerManagedKey }}",
+ "DisplayName": "{{ DisplayName }}",
+ "IpAccessSettingsArn": "{{ IpAccessSettingsArn }}",
+ "NetworkSettingsArn": "{{ NetworkSettingsArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TrustStoreArn": "{{ TrustStoreArn }}",
+ "UserAccessLoggingSettingsArn": "{{ UserAccessLoggingSettingsArn }}",
+ "UserSettingsArn": "{{ UserSettingsArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.workspacesweb.portals (
+ AdditionalEncryptionContext,
+ AuthenticationType,
+ BrowserSettingsArn,
+ CustomerManagedKey,
+ DisplayName,
+ IpAccessSettingsArn,
+ NetworkSettingsArn,
+ Tags,
+ TrustStoreArn,
+ UserAccessLoggingSettingsArn,
+ UserSettingsArn,
+ region
+)
+SELECT 
+ {{ AdditionalEncryptionContext }},
+ {{ AuthenticationType }},
+ {{ BrowserSettingsArn }},
+ {{ CustomerManagedKey }},
+ {{ DisplayName }},
+ {{ IpAccessSettingsArn }},
+ {{ NetworkSettingsArn }},
+ {{ Tags }},
+ {{ TrustStoreArn }},
+ {{ UserAccessLoggingSettingsArn }},
+ {{ UserSettingsArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.workspacesweb.portals
+WHERE data__Identifier = '<PortalArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -94,6 +230,20 @@ kinesis:PutRecords,
 kinesis:DescribeStreamSummary,
 sso:CreateManagedApplicationInstance,
 sso:DescribeRegisteredRegions
+```
+
+### Delete
+```json
+workspaces-web:GetPortal,
+workspaces-web:DeletePortal,
+workspaces-web:DisassociateBrowserSettings,
+workspaces-web:DisassociateIpAccessSettings,
+workspaces-web:DisassociateNetworkSettings,
+workspaces-web:DisassociateTrustStore,
+workspaces-web:DisassociateUserAccessLoggingSettings,
+workspaces-web:DisassociateUserSettings,
+kms:Decrypt,
+sso:DeleteManagedApplicationInstance
 ```
 
 ### List

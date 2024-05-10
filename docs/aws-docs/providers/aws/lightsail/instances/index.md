@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>instances</code> in a region or create a <code>instances</code> resource, use <code>instance</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>instances</code> in a region or to create or delete a <code>instances</code> resource, use <code>instance</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>instances</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,161 @@ SELECT
 region,
 instance_name
 FROM aws.lightsail.instances
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceName": "{{ InstanceName }}",
+ "BundleId": "{{ BundleId }}",
+ "BlueprintId": "{{ BlueprintId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lightsail.instances (
+ InstanceName,
+ BundleId,
+ BlueprintId,
+ region
+)
+SELECT 
+{{ InstanceName }},
+ {{ BundleId }},
+ {{ BlueprintId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Location": {
+  "AvailabilityZone": "{{ AvailabilityZone }}",
+  "RegionName": "{{ RegionName }}"
+ },
+ "Hardware": {
+  "CpuCount": "{{ CpuCount }}",
+  "RamSizeInGb": "{{ RamSizeInGb }}",
+  "Disks": [
+   {
+    "DiskName": "{{ DiskName }}",
+    "SizeInGb": "{{ SizeInGb }}",
+    "IsSystemDisk": "{{ IsSystemDisk }}",
+    "IOPS": "{{ IOPS }}",
+    "Path": "{{ Path }}",
+    "AttachedTo": "{{ AttachedTo }}",
+    "AttachmentState": "{{ AttachmentState }}"
+   }
+  ]
+ },
+ "State": {
+  "Code": "{{ Code }}",
+  "Name": "{{ Name }}"
+ },
+ "Networking": {
+  "Ports": [
+   {
+    "FromPort": "{{ FromPort }}",
+    "ToPort": "{{ ToPort }}",
+    "Protocol": "{{ Protocol }}",
+    "AccessFrom": "{{ AccessFrom }}",
+    "AccessType": "{{ AccessType }}",
+    "CommonName": "{{ CommonName }}",
+    "AccessDirection": "{{ AccessDirection }}",
+    "Ipv6Cidrs": [
+     "{{ Ipv6Cidrs[0] }}"
+    ],
+    "CidrListAliases": [
+     "{{ CidrListAliases[0] }}"
+    ],
+    "Cidrs": [
+     "{{ Cidrs[0] }}"
+    ]
+   }
+  ],
+  "MonthlyTransfer": {
+   "GbPerMonthAllocated": "{{ GbPerMonthAllocated }}"
+  }
+ },
+ "InstanceName": "{{ InstanceName }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "BundleId": "{{ BundleId }}",
+ "BlueprintId": "{{ BlueprintId }}",
+ "AddOns": [
+  {
+   "AddOnType": "{{ AddOnType }}",
+   "Status": "{{ Status }}",
+   "AutoSnapshotAddOnRequest": {
+    "SnapshotTimeOfDay": "{{ SnapshotTimeOfDay }}"
+   }
+  }
+ ],
+ "UserData": "{{ UserData }}",
+ "KeyPairName": "{{ KeyPairName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lightsail.instances (
+ Location,
+ Hardware,
+ State,
+ Networking,
+ InstanceName,
+ AvailabilityZone,
+ BundleId,
+ BlueprintId,
+ AddOns,
+ UserData,
+ KeyPairName,
+ Tags,
+ region
+)
+SELECT 
+ {{ Location }},
+ {{ Hardware }},
+ {{ State }},
+ {{ Networking }},
+ {{ InstanceName }},
+ {{ AvailabilityZone }},
+ {{ BundleId }},
+ {{ BlueprintId }},
+ {{ AddOns }},
+ {{ UserData }},
+ {{ KeyPairName }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lightsail.instances
+WHERE data__Identifier = '<InstanceName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -84,6 +246,13 @@ lightsail:GetDisk,
 lightsail:GetRegions,
 lightsail:TagResource,
 lightsail:UntagResource
+```
+
+### Delete
+```json
+lightsail:GetInstances,
+lightsail:GetInstance,
+lightsail:DeleteInstance
 ```
 
 ### List

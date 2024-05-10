@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>capacity_reservation_fleets</code> in a region or create a <code>capacity_reservation_fleets</code> resource, use <code>capacity_reservation_fleet</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>capacity_reservation_fleets</code> in a region or to create or delete a <code>capacity_reservation_fleets</code> resource, use <code>capacity_reservation_fleet</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>capacity_reservation_fleets</code> in a region 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,153 @@ SELECT
 region,
 capacity_reservation_fleet_id
 FROM aws.ec2.capacity_reservation_fleets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AllocationStrategy": "{{ AllocationStrategy }}",
+ "TagSpecifications": [
+  {
+   "ResourceType": "{{ ResourceType }}",
+   "Tags": [
+    {
+     "Key": "{{ Key }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  }
+ ],
+ "InstanceTypeSpecifications": [
+  {
+   "InstanceType": "{{ InstanceType }}",
+   "InstancePlatform": "{{ InstancePlatform }}",
+   "Weight": null,
+   "AvailabilityZone": "{{ AvailabilityZone }}",
+   "AvailabilityZoneId": "{{ AvailabilityZoneId }}",
+   "EbsOptimized": "{{ EbsOptimized }}",
+   "Priority": "{{ Priority }}"
+  }
+ ],
+ "TotalTargetCapacity": "{{ TotalTargetCapacity }}",
+ "EndDate": "{{ EndDate }}",
+ "InstanceMatchCriteria": "{{ InstanceMatchCriteria }}",
+ "Tenancy": "{{ Tenancy }}",
+ "RemoveEndDate": "{{ RemoveEndDate }}",
+ "NoRemoveEndDate": "{{ NoRemoveEndDate }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.capacity_reservation_fleets (
+ AllocationStrategy,
+ TagSpecifications,
+ InstanceTypeSpecifications,
+ TotalTargetCapacity,
+ EndDate,
+ InstanceMatchCriteria,
+ Tenancy,
+ RemoveEndDate,
+ NoRemoveEndDate,
+ region
+)
+SELECT 
+{{ AllocationStrategy }},
+ {{ TagSpecifications }},
+ {{ InstanceTypeSpecifications }},
+ {{ TotalTargetCapacity }},
+ {{ EndDate }},
+ {{ InstanceMatchCriteria }},
+ {{ Tenancy }},
+ {{ RemoveEndDate }},
+ {{ NoRemoveEndDate }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AllocationStrategy": "{{ AllocationStrategy }}",
+ "TagSpecifications": [
+  {
+   "ResourceType": "{{ ResourceType }}",
+   "Tags": [
+    {
+     "Key": "{{ Key }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  }
+ ],
+ "InstanceTypeSpecifications": [
+  {
+   "InstanceType": "{{ InstanceType }}",
+   "InstancePlatform": "{{ InstancePlatform }}",
+   "Weight": null,
+   "AvailabilityZone": "{{ AvailabilityZone }}",
+   "AvailabilityZoneId": "{{ AvailabilityZoneId }}",
+   "EbsOptimized": "{{ EbsOptimized }}",
+   "Priority": "{{ Priority }}"
+  }
+ ],
+ "TotalTargetCapacity": "{{ TotalTargetCapacity }}",
+ "EndDate": "{{ EndDate }}",
+ "InstanceMatchCriteria": "{{ InstanceMatchCriteria }}",
+ "Tenancy": "{{ Tenancy }}",
+ "RemoveEndDate": "{{ RemoveEndDate }}",
+ "NoRemoveEndDate": "{{ NoRemoveEndDate }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.capacity_reservation_fleets (
+ AllocationStrategy,
+ TagSpecifications,
+ InstanceTypeSpecifications,
+ TotalTargetCapacity,
+ EndDate,
+ InstanceMatchCriteria,
+ Tenancy,
+ RemoveEndDate,
+ NoRemoveEndDate,
+ region
+)
+SELECT 
+ {{ AllocationStrategy }},
+ {{ TagSpecifications }},
+ {{ InstanceTypeSpecifications }},
+ {{ TotalTargetCapacity }},
+ {{ EndDate }},
+ {{ InstanceMatchCriteria }},
+ {{ Tenancy }},
+ {{ RemoveEndDate }},
+ {{ NoRemoveEndDate }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.capacity_reservation_fleets
+WHERE data__Identifier = '<CapacityReservationFleetId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +234,18 @@ ec2:CancelCapacityReservation,
 ec2:DescribeInstances,
 ec2:CreateTags,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+ec2:CreateCapacityReservationFleet,
+ec2:ModifyCapacityReservationFleet,
+ec2:DescribeCapacityReservationFleets,
+ec2:CancelCapacityReservationFleets,
+ec2:CreateCapacityReservation,
+ec2:DescribeCapacityReservations,
+ec2:CancelCapacityReservation,
+ec2:DeleteTags
 ```
 
 ### List

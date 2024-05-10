@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>stacks</code> in a region or create a <code>stacks</code> resource, use <code>stack</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>stacks</code> in a region or to create or delete a <code>stacks</code> resource, use <code>stack</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>stacks</code> in a region or create a <code>sta
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,116 @@ SELECT
 region,
 stack_id
 FROM aws.cloudformation.stacks
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "StackName": "{{ StackName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudformation.stacks (
+ StackName,
+ region
+)
+SELECT 
+{{ StackName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Capabilities": [
+  "{{ Capabilities[0] }}"
+ ],
+ "RoleARN": "{{ RoleARN }}",
+ "Description": "{{ Description }}",
+ "DisableRollback": "{{ DisableRollback }}",
+ "EnableTerminationProtection": "{{ EnableTerminationProtection }}",
+ "NotificationARNs": [
+  "{{ NotificationARNs[0] }}"
+ ],
+ "Parameters": {},
+ "StackName": "{{ StackName }}",
+ "StackPolicyBody": {},
+ "StackPolicyURL": "{{ StackPolicyURL }}",
+ "StackStatusReason": "{{ StackStatusReason }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TemplateBody": {},
+ "TemplateURL": "{{ TemplateURL }}",
+ "TimeoutInMinutes": "{{ TimeoutInMinutes }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cloudformation.stacks (
+ Capabilities,
+ RoleARN,
+ Description,
+ DisableRollback,
+ EnableTerminationProtection,
+ NotificationARNs,
+ Parameters,
+ StackName,
+ StackPolicyBody,
+ StackPolicyURL,
+ StackStatusReason,
+ Tags,
+ TemplateBody,
+ TemplateURL,
+ TimeoutInMinutes,
+ region
+)
+SELECT 
+ {{ Capabilities }},
+ {{ RoleARN }},
+ {{ Description }},
+ {{ DisableRollback }},
+ {{ EnableTerminationProtection }},
+ {{ NotificationARNs }},
+ {{ Parameters }},
+ {{ StackName }},
+ {{ StackPolicyBody }},
+ {{ StackPolicyURL }},
+ {{ StackStatusReason }},
+ {{ Tags }},
+ {{ TemplateBody }},
+ {{ TemplateURL }},
+ {{ TimeoutInMinutes }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudformation.stacks
+WHERE data__Identifier = '<StackId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +190,12 @@ To operate on the <code>stacks</code> resource, the following permissions are re
 cloudformation:DescribeStacks,
 cloudformation:CreateStack,
 iam:PassRole
+```
+
+### Delete
+```json
+cloudformation:DescribeStacks,
+cloudformation:DeleteStack
 ```
 
 ### List

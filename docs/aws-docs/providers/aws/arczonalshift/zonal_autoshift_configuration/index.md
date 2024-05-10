@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>zonal_autoshift_configuration</code> resource, use <code>zonal_autoshift_configurations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>zonal_autoshift_configuration</code> resource, use <code>zonal_autoshift_configurations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -51,11 +54,6 @@ Gets or operates on an individual <code>zonal_autoshift_configuration</code> res
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -70,8 +68,9 @@ zonal_autoshift_status,
 practice_run_configuration,
 resource_identifier
 FROM aws.arczonalshift.zonal_autoshift_configuration
-WHERE data__Identifier = '<ResourceIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ResourceIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -88,12 +87,5 @@ arc-zonal-shift:GetManagedResource,
 arc-zonal-shift:UpdatePracticeRunConfiguration,
 arc-zonal-shift:UpdateZonalAutoshiftConfiguration,
 cloudwatch:DescribeAlarms
-```
-
-### Delete
-```json
-arc-zonal-shift:DeletePracticeRunConfiguration,
-arc-zonal-shift:GetManagedResource,
-arc-zonal-shift:UpdateZonalAutoshiftConfiguration
 ```
 

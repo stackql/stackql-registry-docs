@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>alerts</code> in a region or create a <code>alerts</code> resource, use <code>alert</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>alerts</code> in a region or to create or delete a <code>alerts</code> resource, use <code>alert</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>alerts</code> in a region or create a <code>ale
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,101 @@ SELECT
 region,
 arn
 FROM aws.lookoutmetrics.alerts
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AnomalyDetectorArn": "{{ AnomalyDetectorArn }}",
+ "AlertSensitivityThreshold": "{{ AlertSensitivityThreshold }}",
+ "Action": {
+  "SNSConfiguration": {
+   "RoleArn": "{{ RoleArn }}",
+   "SnsTopicArn": null
+  },
+  "LambdaConfiguration": {
+   "RoleArn": null,
+   "LambdaArn": null
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.lookoutmetrics.alerts (
+ AnomalyDetectorArn,
+ AlertSensitivityThreshold,
+ Action,
+ region
+)
+SELECT 
+{{ AnomalyDetectorArn }},
+ {{ AlertSensitivityThreshold }},
+ {{ Action }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AlertName": "{{ AlertName }}",
+ "AlertDescription": "{{ AlertDescription }}",
+ "AnomalyDetectorArn": "{{ AnomalyDetectorArn }}",
+ "AlertSensitivityThreshold": "{{ AlertSensitivityThreshold }}",
+ "Action": {
+  "SNSConfiguration": {
+   "RoleArn": "{{ RoleArn }}",
+   "SnsTopicArn": null
+  },
+  "LambdaConfiguration": {
+   "RoleArn": null,
+   "LambdaArn": null
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.lookoutmetrics.alerts (
+ AlertName,
+ AlertDescription,
+ AnomalyDetectorArn,
+ AlertSensitivityThreshold,
+ Action,
+ region
+)
+SELECT 
+ {{ AlertName }},
+ {{ AlertDescription }},
+ {{ AnomalyDetectorArn }},
+ {{ AlertSensitivityThreshold }},
+ {{ Action }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lookoutmetrics.alerts
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +174,11 @@ To operate on the <code>alerts</code> resource, the following permissions are re
 ```json
 lookoutmetrics:CreateAlert,
 iam:PassRole
+```
+
+### Delete
+```json
+lookoutmetrics:DeleteAlert
 ```
 
 ### List

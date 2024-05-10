@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>drt_accesses</code> in a region or create a <code>drt_accesses</code> resource, use <code>drt_access</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>drt_accesses</code> in a region or to create or delete a <code>drt_accesses</code> resource, use <code>drt_access</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>drt_accesses</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,70 @@ SELECT
 region,
 account_id
 FROM aws.shield.drt_accesses
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.shield.drt_accesses (
+ RoleArn,
+ region
+)
+SELECT 
+{{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "LogBucketList": [
+  "{{ LogBucketList[0] }}"
+ ],
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.shield.drt_accesses (
+ LogBucketList,
+ RoleArn,
+ region
+)
+SELECT 
+ {{ LogBucketList }},
+ {{ RoleArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.shield.drt_accesses
+WHERE data__Identifier = '<AccountId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,5 +149,18 @@ iam:GetRole,
 iam:ListAttachedRolePolicies,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy
+```
+
+### Delete
+```json
+shield:DescribeDRTAccess,
+shield:DisassociateDRTLogBucket,
+shield:DisassociateDRTRole,
+iam:PassRole,
+iam:GetRole,
+iam:ListAttachedRolePolicies,
+s3:GetBucketPolicy,
+s3:PutBucketPolicy,
+s3:DeleteBucketPolicy
 ```
 

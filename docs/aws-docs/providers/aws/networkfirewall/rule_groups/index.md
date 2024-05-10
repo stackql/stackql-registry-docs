@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>rule_groups</code> in a region or create a <code>rule_groups</code> resource, use <code>rule_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>rule_groups</code> in a region or to create or delete a <code>rule_groups</code> resource, use <code>rule_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>rule_groups</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,100 @@ SELECT
 region,
 rule_group_arn
 FROM aws.networkfirewall.rule_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RuleGroupName": "{{ RuleGroupName }}",
+ "Type": "{{ Type }}",
+ "Capacity": "{{ Capacity }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.networkfirewall.rule_groups (
+ RuleGroupName,
+ Type,
+ Capacity,
+ region
+)
+SELECT 
+{{ RuleGroupName }},
+ {{ Type }},
+ {{ Capacity }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RuleGroupName": "{{ RuleGroupName }}",
+ "RuleGroup": {
+  "RuleGroupName": "{{ RuleGroupName }}",
+  "RuleGroup": null,
+  "Type": "{{ Type }}",
+  "Capacity": "{{ Capacity }}",
+  "Description": "{{ Description }}",
+  "Tags": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ },
+ "Type": "{{ Type }}",
+ "Capacity": "{{ Capacity }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.networkfirewall.rule_groups (
+ RuleGroupName,
+ RuleGroup,
+ Type,
+ Capacity,
+ Description,
+ Tags,
+ region
+)
+SELECT 
+ {{ RuleGroupName }},
+ {{ RuleGroup }},
+ {{ Type }},
+ {{ Capacity }},
+ {{ Description }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.networkfirewall.rule_groups
+WHERE data__Identifier = '<RuleGroupArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +177,13 @@ network-firewall:TagResource,
 network-firewall:ListRuleGroups,
 iam:CreateServiceLinkedRole,
 ec2:GetManagedPrefixListEntries
+```
+
+### Delete
+```json
+network-firewall:DeleteRuleGroup,
+network-firewall:DescribeRuleGroup,
+network-firewall:UntagResource
 ```
 
 ### List

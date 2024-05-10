@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>members</code> in a region or create a <code>members</code> resource, use <code>member</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>members</code> in a region or to create or delete a <code>members</code> resource, use <code>member</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>members</code> in a region or create a <code>me
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,80 @@ region,
 detector_id,
 member_id
 FROM aws.guardduty.members
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Email": "{{ Email }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.guardduty.members (
+ Email,
+ region
+)
+SELECT 
+{{ Email }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Status": "{{ Status }}",
+ "MemberId": "{{ MemberId }}",
+ "Email": "{{ Email }}",
+ "Message": "{{ Message }}",
+ "DisableEmailNotification": "{{ DisableEmailNotification }}",
+ "DetectorId": "{{ DetectorId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.guardduty.members (
+ Status,
+ MemberId,
+ Email,
+ Message,
+ DisableEmailNotification,
+ DetectorId,
+ region
+)
+SELECT 
+ {{ Status }},
+ {{ MemberId }},
+ {{ Email }},
+ {{ Message }},
+ {{ DisableEmailNotification }},
+ {{ DetectorId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.guardduty.members
+WHERE data__Identifier = '<DetectorId|MemberId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +155,13 @@ To operate on the <code>members</code> resource, the following permissions are r
 ```json
 guardduty:CreateMembers,
 guardduty:GetMembers
+```
+
+### Delete
+```json
+guardduty:GetMembers,
+guardduty:DisassociateMembers,
+guardduty:DeleteMembers
 ```
 
 ### List

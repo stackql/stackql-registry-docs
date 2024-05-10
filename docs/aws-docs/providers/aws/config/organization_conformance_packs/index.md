@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>organization_conformance_packs</code> in a region or create a <code>organization_conformance_packs</code> resource, use <code>organization_conformance_pack</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>organization_conformance_packs</code> in a region or to create or delete a <code>organization_conformance_packs</code> resource, use <code>organization_conformance_pack</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>organization_conformance_packs</code> in a regi
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,90 @@ SELECT
 region,
 organization_conformance_pack_name
 FROM aws.config.organization_conformance_packs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "OrganizationConformancePackName": "{{ OrganizationConformancePackName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.config.organization_conformance_packs (
+ OrganizationConformancePackName,
+ region
+)
+SELECT 
+{{ OrganizationConformancePackName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "OrganizationConformancePackName": "{{ OrganizationConformancePackName }}",
+ "TemplateS3Uri": "{{ TemplateS3Uri }}",
+ "TemplateBody": "{{ TemplateBody }}",
+ "DeliveryS3Bucket": "{{ DeliveryS3Bucket }}",
+ "DeliveryS3KeyPrefix": "{{ DeliveryS3KeyPrefix }}",
+ "ConformancePackInputParameters": [
+  {
+   "ParameterName": "{{ ParameterName }}",
+   "ParameterValue": "{{ ParameterValue }}"
+  }
+ ],
+ "ExcludedAccounts": [
+  "{{ ExcludedAccounts[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.config.organization_conformance_packs (
+ OrganizationConformancePackName,
+ TemplateS3Uri,
+ TemplateBody,
+ DeliveryS3Bucket,
+ DeliveryS3KeyPrefix,
+ ConformancePackInputParameters,
+ ExcludedAccounts,
+ region
+)
+SELECT 
+ {{ OrganizationConformancePackName }},
+ {{ TemplateS3Uri }},
+ {{ TemplateBody }},
+ {{ DeliveryS3Bucket }},
+ {{ DeliveryS3KeyPrefix }},
+ {{ ConformancePackInputParameters }},
+ {{ ExcludedAccounts }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.config.organization_conformance_packs
+WHERE data__Identifier = '<OrganizationConformancePackName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +171,14 @@ iam:CreateServiceLinkedRole,
 iam:PassRole,
 organizations:ListDelegatedAdministrators,
 organizations:EnableAWSServiceAccess
+```
+
+### Delete
+```json
+config:DeleteOrganizationConformancePack,
+config:DescribeOrganizationConformancePackStatuses,
+config:GetOrganizationConformancePackDetailedStatus,
+organizations:ListDelegatedAdministrators
 ```
 
 ### List

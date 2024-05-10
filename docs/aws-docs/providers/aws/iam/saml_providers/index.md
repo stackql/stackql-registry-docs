@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>saml_providers</code> in a region or create a <code>saml_providers</code> resource, use <code>saml_provider</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>saml_providers</code> in a region or to create or delete a <code>saml_providers</code> resource, use <code>saml_provider</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>saml_providers</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,76 @@ SELECT
 region,
 arn
 FROM aws.iam.saml_providers
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SamlMetadataDocument": "{{ SamlMetadataDocument }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iam.saml_providers (
+ SamlMetadataDocument,
+ region
+)
+SELECT 
+{{ SamlMetadataDocument }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "SamlMetadataDocument": "{{ SamlMetadataDocument }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iam.saml_providers (
+ Name,
+ SamlMetadataDocument,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ SamlMetadataDocument }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iam.saml_providers
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +150,11 @@ To operate on the <code>saml_providers</code> resource, the following permission
 iam:CreateSAMLProvider,
 iam:GetSAMLProvider,
 iam:TagSAMLProvider
+```
+
+### Delete
+```json
+iam:DeleteSAMLProvider
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>branches</code> in a region or create a <code>branches</code> resource, use <code>branch</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>branches</code> in a region or to create or delete a <code>branches</code> resource, use <code>branch</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>branches</code> in a region or create a <code>b
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,123 @@ SELECT
 region,
 arn
 FROM aws.amplify.branches
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AppId": "{{ AppId }}",
+ "BranchName": "{{ BranchName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.amplify.branches (
+ AppId,
+ BranchName,
+ region
+)
+SELECT 
+{{ AppId }},
+ {{ BranchName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AppId": "{{ AppId }}",
+ "BasicAuthConfig": {
+  "EnableBasicAuth": "{{ EnableBasicAuth }}",
+  "Username": "{{ Username }}",
+  "Password": "{{ Password }}"
+ },
+ "Backend": {
+  "StackArn": "{{ StackArn }}"
+ },
+ "BranchName": "{{ BranchName }}",
+ "BuildSpec": "{{ BuildSpec }}",
+ "Description": "{{ Description }}",
+ "EnableAutoBuild": "{{ EnableAutoBuild }}",
+ "EnablePerformanceMode": "{{ EnablePerformanceMode }}",
+ "EnablePullRequestPreview": "{{ EnablePullRequestPreview }}",
+ "EnvironmentVariables": [
+  {
+   "Name": "{{ Name }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Framework": "{{ Framework }}",
+ "PullRequestEnvironmentName": "{{ PullRequestEnvironmentName }}",
+ "Stage": "{{ Stage }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.amplify.branches (
+ AppId,
+ BasicAuthConfig,
+ Backend,
+ BranchName,
+ BuildSpec,
+ Description,
+ EnableAutoBuild,
+ EnablePerformanceMode,
+ EnablePullRequestPreview,
+ EnvironmentVariables,
+ Framework,
+ PullRequestEnvironmentName,
+ Stage,
+ Tags,
+ region
+)
+SELECT 
+ {{ AppId }},
+ {{ BasicAuthConfig }},
+ {{ Backend }},
+ {{ BranchName }},
+ {{ BuildSpec }},
+ {{ Description }},
+ {{ EnableAutoBuild }},
+ {{ EnablePerformanceMode }},
+ {{ EnablePullRequestPreview }},
+ {{ EnvironmentVariables }},
+ {{ Framework }},
+ {{ PullRequestEnvironmentName }},
+ {{ Stage }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.amplify.branches
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +206,16 @@ s3:PutObject,
 s3:PutObjectAcl,
 sns:CreateTopic,
 sns:Subscribe,
+iam:PassRole
+```
+
+### Delete
+```json
+amplify:GetBranch,
+amplify:DeleteBranch,
+codecommit:GetRepository,
+codecommit:GetRepositoryTriggers,
+sns:Unsubscribe,
 iam:PassRole
 ```
 

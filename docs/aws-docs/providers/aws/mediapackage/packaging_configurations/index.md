@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>packaging_configurations</code> in a region or create a <code>packaging_configurations</code> resource, use <code>packaging_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>packaging_configurations</code> in a region or to create or delete a <code>packaging_configurations</code> resource, use <code>packaging_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>packaging_configurations</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,165 @@ SELECT
 region,
 id
 FROM aws.mediapackage.packaging_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Id": "{{ Id }}",
+ "PackagingGroupId": "{{ PackagingGroupId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.mediapackage.packaging_configurations (
+ Id,
+ PackagingGroupId,
+ region
+)
+SELECT 
+{{ Id }},
+ {{ PackagingGroupId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Id": "{{ Id }}",
+ "PackagingGroupId": "{{ PackagingGroupId }}",
+ "CmafPackage": {
+  "Encryption": {
+   "SpekeKeyProvider": {
+    "EncryptionContractConfiguration": {
+     "PresetSpeke20Audio": "{{ PresetSpeke20Audio }}",
+     "PresetSpeke20Video": "{{ PresetSpeke20Video }}"
+    },
+    "RoleArn": "{{ RoleArn }}",
+    "SystemIds": [
+     "{{ SystemIds[0] }}"
+    ],
+    "Url": "{{ Url }}"
+   }
+  },
+  "HlsManifests": [
+   {
+    "AdMarkers": "{{ AdMarkers }}",
+    "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}",
+    "ManifestName": "{{ ManifestName }}",
+    "ProgramDateTimeIntervalSeconds": "{{ ProgramDateTimeIntervalSeconds }}",
+    "RepeatExtXKey": "{{ RepeatExtXKey }}",
+    "StreamSelection": {
+     "MaxVideoBitsPerSecond": "{{ MaxVideoBitsPerSecond }}",
+     "MinVideoBitsPerSecond": "{{ MinVideoBitsPerSecond }}",
+     "StreamOrder": "{{ StreamOrder }}"
+    }
+   }
+  ],
+  "SegmentDurationSeconds": "{{ SegmentDurationSeconds }}",
+  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}"
+ },
+ "DashPackage": {
+  "DashManifests": [
+   {
+    "ManifestLayout": "{{ ManifestLayout }}",
+    "ManifestName": null,
+    "MinBufferTimeSeconds": "{{ MinBufferTimeSeconds }}",
+    "Profile": "{{ Profile }}",
+    "ScteMarkersSource": "{{ ScteMarkersSource }}",
+    "StreamSelection": null
+   }
+  ],
+  "Encryption": {
+   "SpekeKeyProvider": null
+  },
+  "PeriodTriggers": [
+   "{{ PeriodTriggers[0] }}"
+  ],
+  "SegmentDurationSeconds": null,
+  "SegmentTemplateFormat": "{{ SegmentTemplateFormat }}",
+  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}",
+  "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}"
+ },
+ "HlsPackage": {
+  "Encryption": {
+   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
+   "EncryptionMethod": "{{ EncryptionMethod }}",
+   "SpekeKeyProvider": null
+  },
+  "HlsManifests": [
+   null
+  ],
+  "IncludeDvbSubtitles": "{{ IncludeDvbSubtitles }}",
+  "SegmentDurationSeconds": null,
+  "UseAudioRenditionGroup": "{{ UseAudioRenditionGroup }}"
+ },
+ "MssPackage": {
+  "Encryption": {
+   "SpekeKeyProvider": null
+  },
+  "MssManifests": [
+   {
+    "ManifestName": null,
+    "StreamSelection": null
+   }
+  ],
+  "SegmentDurationSeconds": null
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.mediapackage.packaging_configurations (
+ Id,
+ PackagingGroupId,
+ CmafPackage,
+ DashPackage,
+ HlsPackage,
+ MssPackage,
+ Tags,
+ region
+)
+SELECT 
+ {{ Id }},
+ {{ PackagingGroupId }},
+ {{ CmafPackage }},
+ {{ DashPackage }},
+ {{ HlsPackage }},
+ {{ MssPackage }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediapackage.packaging_configurations
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +240,12 @@ mediapackage-vod:CreatePackagingConfiguration,
 mediapackage-vod:DescribePackagingConfiguration,
 mediapackage-vod:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+mediapackage-vod:DescribePackagingConfiguration,
+mediapackage-vod:DeletePackagingConfiguration
 ```
 
 ### List

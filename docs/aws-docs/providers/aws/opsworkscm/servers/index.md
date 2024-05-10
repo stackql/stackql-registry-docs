@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>servers</code> in a region or create a <code>servers</code> resource, use <code>server</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>servers</code> in a region or to create or delete a <code>servers</code> resource, use <code>server</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>servers</code> in a region or create a <code>se
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,142 @@ SELECT
 region,
 server_name
 FROM aws.opsworkscm.servers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ServiceRoleArn": "{{ ServiceRoleArn }}",
+ "InstanceProfileArn": "{{ InstanceProfileArn }}",
+ "InstanceType": "{{ InstanceType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.opsworkscm.servers (
+ ServiceRoleArn,
+ InstanceProfileArn,
+ InstanceType,
+ region
+)
+SELECT 
+{{ ServiceRoleArn }},
+ {{ InstanceProfileArn }},
+ {{ InstanceType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "KeyPair": "{{ KeyPair }}",
+ "EngineVersion": "{{ EngineVersion }}",
+ "ServiceRoleArn": "{{ ServiceRoleArn }}",
+ "DisableAutomatedBackup": "{{ DisableAutomatedBackup }}",
+ "BackupId": "{{ BackupId }}",
+ "EngineModel": "{{ EngineModel }}",
+ "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+ "AssociatePublicIpAddress": "{{ AssociatePublicIpAddress }}",
+ "InstanceProfileArn": "{{ InstanceProfileArn }}",
+ "CustomCertificate": "{{ CustomCertificate }}",
+ "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "CustomDomain": "{{ CustomDomain }}",
+ "CustomPrivateKey": "{{ CustomPrivateKey }}",
+ "EngineAttributes": [
+  {
+   "Value": "{{ Value }}",
+   "Name": "{{ Name }}"
+  }
+ ],
+ "BackupRetentionCount": "{{ BackupRetentionCount }}",
+ "InstanceType": "{{ InstanceType }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Engine": "{{ Engine }}"
+}
+>>>
+--all properties
+INSERT INTO aws.opsworkscm.servers (
+ KeyPair,
+ EngineVersion,
+ ServiceRoleArn,
+ DisableAutomatedBackup,
+ BackupId,
+ EngineModel,
+ PreferredMaintenanceWindow,
+ AssociatePublicIpAddress,
+ InstanceProfileArn,
+ CustomCertificate,
+ PreferredBackupWindow,
+ SecurityGroupIds,
+ SubnetIds,
+ CustomDomain,
+ CustomPrivateKey,
+ EngineAttributes,
+ BackupRetentionCount,
+ InstanceType,
+ Tags,
+ Engine,
+ region
+)
+SELECT 
+ {{ KeyPair }},
+ {{ EngineVersion }},
+ {{ ServiceRoleArn }},
+ {{ DisableAutomatedBackup }},
+ {{ BackupId }},
+ {{ EngineModel }},
+ {{ PreferredMaintenanceWindow }},
+ {{ AssociatePublicIpAddress }},
+ {{ InstanceProfileArn }},
+ {{ CustomCertificate }},
+ {{ PreferredBackupWindow }},
+ {{ SecurityGroupIds }},
+ {{ SubnetIds }},
+ {{ CustomDomain }},
+ {{ CustomPrivateKey }},
+ {{ EngineAttributes }},
+ {{ BackupRetentionCount }},
+ {{ InstanceType }},
+ {{ Tags }},
+ {{ Engine }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.opsworkscm.servers
+WHERE data__Identifier = '<ServerName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +216,12 @@ To operate on the <code>servers</code> resource, the following permissions are r
 opsworks-cm:CreateServer,
 opsworks-cm:DescribeServers,
 iam:PassRole
+```
+
+### Delete
+```json
+opsworks-cm:DeleteServer,
+opsworks-cm:DescribeServers
 ```
 
 ### List

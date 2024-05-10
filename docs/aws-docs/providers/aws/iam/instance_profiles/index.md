@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>instance_profiles</code> in a region or create a <code>instance_profiles</code> resource, use <code>instance_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>instance_profiles</code> in a region or to create or delete a <code>instance_profiles</code> resource, use <code>instance_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>instance_profiles</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,75 @@ SELECT
 region,
 instance_profile_name
 FROM aws.iam.instance_profiles
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Roles": [
+  "{{ Roles[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iam.instance_profiles (
+ Roles,
+ region
+)
+SELECT 
+{{ Roles }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Path": "{{ Path }}",
+ "Roles": [
+  "{{ Roles[0] }}"
+ ],
+ "InstanceProfileName": "{{ InstanceProfileName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iam.instance_profiles (
+ Path,
+ Roles,
+ InstanceProfileName,
+ region
+)
+SELECT 
+ {{ Path }},
+ {{ Roles }},
+ {{ InstanceProfileName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iam.instance_profiles
+WHERE data__Identifier = '<InstanceProfileName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +150,13 @@ iam:CreateInstanceProfile,
 iam:PassRole,
 iam:AddRoleToInstanceProfile,
 iam:GetInstanceProfile
+```
+
+### Delete
+```json
+iam:GetInstanceProfile,
+iam:RemoveRoleFromInstanceProfile,
+iam:DeleteInstanceProfile
 ```
 
 ### List

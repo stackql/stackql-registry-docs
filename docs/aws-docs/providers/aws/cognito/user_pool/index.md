@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>user_pool</code> resource, use <code>user_pools</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>user_pool</code> resource, use <code>user_pools</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -76,11 +79,6 @@ Gets or operates on an individual <code>user_pool</code> resource, use <code>use
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -120,8 +118,9 @@ provider_url,
 arn,
 user_pool_id
 FROM aws.cognito.user_pool
-WHERE data__Identifier = '<UserPoolId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>';
 ```
+
 
 ## Permissions
 
@@ -142,10 +141,5 @@ cognito-idp:SetUserPoolMfaConfig,
 cognito-idp:AddCustomAttributes,
 cognito-idp:DescribeUserPool,
 iam:PassRole
-```
-
-### Delete
-```json
-cognito-idp:DeleteUserPool
 ```
 

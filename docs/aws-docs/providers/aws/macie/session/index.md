@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>session</code> resource, use <code>sessions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>session</code> resource, use <code>sessions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>session</code> resource, use <code>sessi
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ status,
 finding_publishing_frequency,
 service_role
 FROM aws.macie.session
-WHERE data__Identifier = '<AwsAccountId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>';
 ```
+
 
 ## Permissions
 
@@ -88,10 +87,5 @@ macie2:GetMacieSession
 ```json
 macie2:GetMacieSession,
 macie2:UpdateMacieSession
-```
-
-### Delete
-```json
-macie2:DisableMacie
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>hosted_configuration_version</code> resource, use <code>hosted_configuration_versions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>hosted_configuration_version</code> resource, use <code>hosted_configuration_versions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -51,11 +54,6 @@ Gets or operates on an individual <code>hosted_configuration_version</code> reso
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -75,8 +73,9 @@ version_label,
 application_id,
 version_number
 FROM aws.appconfig.hosted_configuration_version
-WHERE data__Identifier = '<ApplicationId>|<ConfigurationProfileId>|<VersionNumber>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>|<ConfigurationProfileId>|<VersionNumber>';
 ```
+
 
 ## Permissions
 
@@ -85,10 +84,5 @@ To operate on the <code>hosted_configuration_version</code> resource, the follow
 ### Read
 ```json
 appconfig:GetHostedConfigurationVersion
-```
-
-### Delete
-```json
-appconfig:DeleteHostedConfigurationVersion
 ```
 

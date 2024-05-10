@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>tables</code> in a region or create a <code>tables</code> resource, use <code>table</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>tables</code> in a region or to create or delete a <code>tables</code> resource, use <code>table</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>tables</code> in a region or create a <code>tab
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,190 @@ SELECT
 region,
 table_name
 FROM aws.dynamodb.tables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "KeySchema": null
+}
+>>>
+--required properties only
+INSERT INTO aws.dynamodb.tables (
+ KeySchema,
+ region
+)
+SELECT 
+{{ KeySchema }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SSESpecification": {
+  "SSEEnabled": "{{ SSEEnabled }}",
+  "SSEType": "{{ SSEType }}",
+  "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
+ },
+ "KinesisStreamSpecification": {
+  "ApproximateCreationDateTimePrecision": "{{ ApproximateCreationDateTimePrecision }}",
+  "StreamArn": "{{ StreamArn }}"
+ },
+ "StreamSpecification": {
+  "StreamViewType": "{{ StreamViewType }}",
+  "ResourcePolicy": {
+   "PolicyDocument": {}
+  }
+ },
+ "ContributorInsightsSpecification": {
+  "Enabled": "{{ Enabled }}"
+ },
+ "ImportSourceSpecification": {
+  "S3BucketSource": {
+   "S3Bucket": "{{ S3Bucket }}",
+   "S3KeyPrefix": "{{ S3KeyPrefix }}",
+   "S3BucketOwner": "{{ S3BucketOwner }}"
+  },
+  "InputFormat": "{{ InputFormat }}",
+  "InputFormatOptions": {
+   "Csv": {
+    "Delimiter": "{{ Delimiter }}",
+    "HeaderList": [
+     "{{ HeaderList[0] }}"
+    ]
+   }
+  },
+  "InputCompressionType": "{{ InputCompressionType }}"
+ },
+ "PointInTimeRecoverySpecification": {
+  "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}"
+ },
+ "ProvisionedThroughput": {
+  "WriteCapacityUnits": "{{ WriteCapacityUnits }}",
+  "ReadCapacityUnits": "{{ ReadCapacityUnits }}"
+ },
+ "TableName": "{{ TableName }}",
+ "AttributeDefinitions": [
+  {
+   "AttributeType": "{{ AttributeType }}",
+   "AttributeName": "{{ AttributeName }}"
+  }
+ ],
+ "BillingMode": "{{ BillingMode }}",
+ "GlobalSecondaryIndexes": [
+  {
+   "IndexName": "{{ IndexName }}",
+   "ContributorInsightsSpecification": null,
+   "Projection": {
+    "NonKeyAttributes": [
+     "{{ NonKeyAttributes[0] }}"
+    ],
+    "ProjectionType": "{{ ProjectionType }}"
+   },
+   "ProvisionedThroughput": null,
+   "KeySchema": [
+    {
+     "KeyType": "{{ KeyType }}",
+     "AttributeName": "{{ AttributeName }}"
+    }
+   ]
+  }
+ ],
+ "ResourcePolicy": null,
+ "KeySchema": null,
+ "LocalSecondaryIndexes": [
+  {
+   "IndexName": "{{ IndexName }}",
+   "Projection": null,
+   "KeySchema": [
+    null
+   ]
+  }
+ ],
+ "DeletionProtectionEnabled": "{{ DeletionProtectionEnabled }}",
+ "TableClass": "{{ TableClass }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "TimeToLiveSpecification": {
+  "Enabled": "{{ Enabled }}",
+  "AttributeName": "{{ AttributeName }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.dynamodb.tables (
+ SSESpecification,
+ KinesisStreamSpecification,
+ StreamSpecification,
+ ContributorInsightsSpecification,
+ ImportSourceSpecification,
+ PointInTimeRecoverySpecification,
+ ProvisionedThroughput,
+ TableName,
+ AttributeDefinitions,
+ BillingMode,
+ GlobalSecondaryIndexes,
+ ResourcePolicy,
+ KeySchema,
+ LocalSecondaryIndexes,
+ DeletionProtectionEnabled,
+ TableClass,
+ Tags,
+ TimeToLiveSpecification,
+ region
+)
+SELECT 
+ {{ SSESpecification }},
+ {{ KinesisStreamSpecification }},
+ {{ StreamSpecification }},
+ {{ ContributorInsightsSpecification }},
+ {{ ImportSourceSpecification }},
+ {{ PointInTimeRecoverySpecification }},
+ {{ ProvisionedThroughput }},
+ {{ TableName }},
+ {{ AttributeDefinitions }},
+ {{ BillingMode }},
+ {{ GlobalSecondaryIndexes }},
+ {{ ResourcePolicy }},
+ {{ KeySchema }},
+ {{ LocalSecondaryIndexes }},
+ {{ DeletionProtectionEnabled }},
+ {{ TableClass }},
+ {{ Tags }},
+ {{ TimeToLiveSpecification }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.dynamodb.tables
+WHERE data__Identifier = '<TableName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -111,5 +302,11 @@ s3:ListBucket
 ### List
 ```json
 dynamodb:ListTables
+```
+
+### Delete
+```json
+dynamodb:DeleteTable,
+dynamodb:DescribeTable
 ```
 

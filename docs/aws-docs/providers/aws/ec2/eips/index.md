@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>eips</code> in a region or create a <code>eips</code> resource, use <code>eip</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>eips</code> in a region or to create or delete a <code>eips</code> resource, use <code>eip</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>eips</code> in a region or create a <code>eips<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,105 @@ region,
 public_ip,
 allocation_id
 FROM aws.ec2.eips
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Domain": "{{ Domain }}",
+ "NetworkBorderGroup": "{{ NetworkBorderGroup }}",
+ "TransferAddress": "{{ TransferAddress }}",
+ "InstanceId": "{{ InstanceId }}",
+ "PublicIpv4Pool": "{{ PublicIpv4Pool }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.eips (
+ Domain,
+ NetworkBorderGroup,
+ TransferAddress,
+ InstanceId,
+ PublicIpv4Pool,
+ Tags,
+ region
+)
+SELECT 
+{{ Domain }},
+ {{ NetworkBorderGroup }},
+ {{ TransferAddress }},
+ {{ InstanceId }},
+ {{ PublicIpv4Pool }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Domain": "{{ Domain }}",
+ "NetworkBorderGroup": "{{ NetworkBorderGroup }}",
+ "TransferAddress": "{{ TransferAddress }}",
+ "InstanceId": "{{ InstanceId }}",
+ "PublicIpv4Pool": "{{ PublicIpv4Pool }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.eips (
+ Domain,
+ NetworkBorderGroup,
+ TransferAddress,
+ InstanceId,
+ PublicIpv4Pool,
+ Tags,
+ region
+)
+SELECT 
+ {{ Domain }},
+ {{ NetworkBorderGroup }},
+ {{ TransferAddress }},
+ {{ InstanceId }},
+ {{ PublicIpv4Pool }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.eips
+WHERE data__Identifier = '<PublicIp|AllocationId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +183,13 @@ ec2:AcceptAddressTransfer,
 ec2:DescribeAddresses,
 ec2:AssociateAddress,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:ReleaseAddress,
+ec2:DescribeAddresses,
+ec2:DisassociateAddress
 ```
 
 ### List

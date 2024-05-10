@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>security_group_ingress</code> resource, use <code>security_group_ingresses</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>security_group_ingress</code> resource, use <code>security_group_ingresses</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>security_group_ingress</code> resource, 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ source_security_group_name,
 source_security_group_owner_id,
 to_port
 FROM aws.ec2.security_group_ingress
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -100,12 +99,6 @@ To operate on the <code>security_group_ingress</code> resource, the following pe
 ### Update
 ```json
 ec2:UpdateSecurityGroupRuleDescriptionsIngress
-```
-
-### Delete
-```json
-ec2:DescribeSecurityGroupRules,
-ec2:RevokeSecurityGroupIngress
 ```
 
 ### Read

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>trust_stores</code> in a region or create a <code>trust_stores</code> resource, use <code>trust_store</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>trust_stores</code> in a region or to create or delete a <code>trust_stores</code> resource, use <code>trust_store</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>trust_stores</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,77 @@ SELECT
 region,
 trust_store_arn
 FROM aws.workspacesweb.trust_stores
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CertificateList": [
+  "{{ CertificateList[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.workspacesweb.trust_stores (
+ CertificateList,
+ region
+)
+SELECT 
+{{ CertificateList }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CertificateList": [
+  "{{ CertificateList[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.workspacesweb.trust_stores (
+ CertificateList,
+ Tags,
+ region
+)
+SELECT 
+ {{ CertificateList }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.workspacesweb.trust_stores
+WHERE data__Identifier = '<TrustStoreArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +154,13 @@ workspaces-web:GetTrustStoreCertificate,
 workspaces-web:ListTrustStoreCertificates,
 workspaces-web:ListTagsForResource,
 workspaces-web:TagResource
+```
+
+### Delete
+```json
+workspaces-web:GetTrustStore,
+workspaces-web:GetTrustStoreCertificate,
+workspaces-web:DeleteTrustStore
 ```
 
 ### List

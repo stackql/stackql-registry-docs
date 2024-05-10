@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>groups</code> in a region or create a <code>groups</code> resource, use <code>group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>groups</code> in a region or to create or delete a <code>groups</code> resource, use <code>group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>groups</code> in a region or create a <code>gro
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,115 @@ SELECT
 region,
 name
 FROM aws.resourcegroups.groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.resourcegroups.groups (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "ResourceQuery": {
+  "Type": "{{ Type }}",
+  "Query": {
+   "ResourceTypeFilters": [
+    "{{ ResourceTypeFilters[0] }}"
+   ],
+   "StackIdentifier": "{{ StackIdentifier }}",
+   "TagFilters": [
+    {
+     "Key": "{{ Key }}",
+     "Values": [
+      "{{ Values[0] }}"
+     ]
+    }
+   ]
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Configuration": [
+  {
+   "Type": "{{ Type }}",
+   "Parameters": [
+    {
+     "Name": "{{ Name }}",
+     "Values": [
+      "{{ Values[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "Resources": [
+  "{{ Resources[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.resourcegroups.groups (
+ Name,
+ Description,
+ ResourceQuery,
+ Tags,
+ Configuration,
+ Resources,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ ResourceQuery }},
+ {{ Tags }},
+ {{ Configuration }},
+ {{ Resources }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.resourcegroups.groups
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +192,12 @@ cloudformation:DescribeStacks,
 cloudformation:ListStackResources,
 resource-groups:ListGroupResources,
 resource-groups:GroupResources
+```
+
+### Delete
+```json
+resource-groups:DeleteGroup,
+resource-groups:UnGroupResources
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>stream_processors</code> in a region or create a <code>stream_processors</code> resource, use <code>stream_processor</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>stream_processors</code> in a region or to create or delete a <code>stream_processors</code> resource, use <code>stream_processor</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>stream_processors</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,144 @@ SELECT
 region,
 name
 FROM aws.rekognition.stream_processors
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RoleArn": "{{ RoleArn }}",
+ "KinesisVideoStream": {
+  "Arn": "{{ Arn }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.rekognition.stream_processors (
+ RoleArn,
+ KinesisVideoStream,
+ region
+)
+SELECT 
+{{ RoleArn }},
+ {{ KinesisVideoStream }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "RoleArn": "{{ RoleArn }}",
+ "KinesisVideoStream": {
+  "Arn": "{{ Arn }}"
+ },
+ "FaceSearchSettings": {
+  "CollectionId": "{{ CollectionId }}",
+  "FaceMatchThreshold": null
+ },
+ "ConnectedHomeSettings": {
+  "Labels": [
+   "{{ Labels[0] }}"
+  ],
+  "MinConfidence": null
+ },
+ "KinesisDataStream": {
+  "Arn": "{{ Arn }}"
+ },
+ "S3Destination": {
+  "BucketName": "{{ BucketName }}",
+  "ObjectKeyPrefix": "{{ ObjectKeyPrefix }}"
+ },
+ "NotificationChannel": {
+  "Arn": "{{ Arn }}"
+ },
+ "DataSharingPreference": {
+  "OptIn": "{{ OptIn }}"
+ },
+ "PolygonRegionsOfInterest": [
+  [
+   {
+    "X": null,
+    "Y": null
+   }
+  ]
+ ],
+ "BoundingBoxRegionsOfInterest": [
+  {
+   "Height": null,
+   "Width": null,
+   "Left": null,
+   "Top": null
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.rekognition.stream_processors (
+ Name,
+ KmsKeyId,
+ RoleArn,
+ KinesisVideoStream,
+ FaceSearchSettings,
+ ConnectedHomeSettings,
+ KinesisDataStream,
+ S3Destination,
+ NotificationChannel,
+ DataSharingPreference,
+ PolygonRegionsOfInterest,
+ BoundingBoxRegionsOfInterest,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ KmsKeyId }},
+ {{ RoleArn }},
+ {{ KinesisVideoStream }},
+ {{ FaceSearchSettings }},
+ {{ ConnectedHomeSettings }},
+ {{ KinesisDataStream }},
+ {{ S3Destination }},
+ {{ NotificationChannel }},
+ {{ DataSharingPreference }},
+ {{ PolygonRegionsOfInterest }},
+ {{ BoundingBoxRegionsOfInterest }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rekognition.stream_processors
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +220,11 @@ iam:PassRole,
 rekognition:DescribeStreamProcessor,
 rekognition:ListTagsForResource,
 rekognition:TagResource
+```
+
+### Delete
+```json
+rekognition:DeleteStreamProcessor
 ```
 
 ### List

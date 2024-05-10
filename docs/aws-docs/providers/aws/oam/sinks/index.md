@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>sinks</code> in a region or create a <code>sinks</code> resource, use <code>sink</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>sinks</code> in a region or to create or delete a <code>sinks</code> resource, use <code>sink</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>sinks</code> in a region or create a <code>sink
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,71 @@ SELECT
 region,
 arn
 FROM aws.oam.sinks
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.oam.sinks (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Policy": {},
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.oam.sinks (
+ Name,
+ Policy,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Policy }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.oam.sinks
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +144,13 @@ To operate on the <code>sinks</code> resource, the following permissions are req
 ```json
 oam:CreateSink,
 oam:PutSinkPolicy,
+oam:GetSinkPolicy,
+oam:GetSink
+```
+
+### Delete
+```json
+oam:DeleteSink,
 oam:GetSinkPolicy,
 oam:GetSink
 ```

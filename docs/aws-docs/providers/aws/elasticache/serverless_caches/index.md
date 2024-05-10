@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>serverless_caches</code> in a region or create a <code>serverless_caches</code> resource, use <code>serverless_cach</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>serverless_caches</code> in a region or to create or delete a <code>serverless_caches</code> resource, use <code>serverless_cach</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>serverless_caches</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,137 @@ SELECT
 region,
 serverless_cache_name
 FROM aws.elasticache.serverless_caches
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ServerlessCacheName": "{{ ServerlessCacheName }}",
+ "Engine": "{{ Engine }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.elasticache.serverless_caches (
+ ServerlessCacheName,
+ Engine,
+ region
+)
+SELECT 
+{{ ServerlessCacheName }},
+ {{ Engine }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ServerlessCacheName": "{{ ServerlessCacheName }}",
+ "Description": "{{ Description }}",
+ "Engine": "{{ Engine }}",
+ "MajorEngineVersion": "{{ MajorEngineVersion }}",
+ "CacheUsageLimits": {
+  "DataStorage": {
+   "Minimum": "{{ Minimum }}",
+   "Maximum": "{{ Maximum }}",
+   "Unit": "{{ Unit }}"
+  },
+  "ECPUPerSecond": {
+   "Minimum": "{{ Minimum }}",
+   "Maximum": "{{ Maximum }}"
+  }
+ },
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SnapshotArnsToRestore": [
+  "{{ SnapshotArnsToRestore[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "UserGroupId": "{{ UserGroupId }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "SnapshotRetentionLimit": "{{ SnapshotRetentionLimit }}",
+ "DailySnapshotTime": "{{ DailySnapshotTime }}",
+ "Endpoint": {
+  "Address": "{{ Address }}",
+  "Port": "{{ Port }}"
+ },
+ "ReaderEndpoint": null,
+ "FinalSnapshotName": "{{ FinalSnapshotName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.elasticache.serverless_caches (
+ ServerlessCacheName,
+ Description,
+ Engine,
+ MajorEngineVersion,
+ CacheUsageLimits,
+ KmsKeyId,
+ SecurityGroupIds,
+ SnapshotArnsToRestore,
+ Tags,
+ UserGroupId,
+ SubnetIds,
+ SnapshotRetentionLimit,
+ DailySnapshotTime,
+ Endpoint,
+ ReaderEndpoint,
+ FinalSnapshotName,
+ region
+)
+SELECT 
+ {{ ServerlessCacheName }},
+ {{ Description }},
+ {{ Engine }},
+ {{ MajorEngineVersion }},
+ {{ CacheUsageLimits }},
+ {{ KmsKeyId }},
+ {{ SecurityGroupIds }},
+ {{ SnapshotArnsToRestore }},
+ {{ Tags }},
+ {{ UserGroupId }},
+ {{ SubnetIds }},
+ {{ SnapshotRetentionLimit }},
+ {{ DailySnapshotTime }},
+ {{ Endpoint }},
+ {{ ReaderEndpoint }},
+ {{ FinalSnapshotName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.elasticache.serverless_caches
+WHERE data__Identifier = '<ServerlessCacheName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +216,13 @@ ec2:CreateTags,
 ec2:CreateVpcEndpoint,
 kms:CreateGrant,
 kms:DescribeKey
+```
+
+### Delete
+```json
+elasticache:DeleteServerlessCache,
+elasticache:DescribeServerlessCaches,
+elasticache:ListTagsForResource
 ```
 
 ### List

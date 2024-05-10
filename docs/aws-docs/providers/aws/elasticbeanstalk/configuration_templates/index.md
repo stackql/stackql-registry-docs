@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>configuration_templates</code> in a region or create a <code>configuration_templates</code> resource, use <code>configuration_template</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>configuration_templates</code> in a region or to create or delete a <code>configuration_templates</code> resource, use <code>configuration_template</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>configuration_templates</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,93 @@ region,
 application_name,
 template_name
 FROM aws.elasticbeanstalk.configuration_templates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApplicationName": "{{ ApplicationName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.elasticbeanstalk.configuration_templates (
+ ApplicationName,
+ region
+)
+SELECT 
+{{ ApplicationName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApplicationName": "{{ ApplicationName }}",
+ "Description": "{{ Description }}",
+ "EnvironmentId": "{{ EnvironmentId }}",
+ "OptionSettings": [
+  {
+   "Namespace": "{{ Namespace }}",
+   "OptionName": "{{ OptionName }}",
+   "ResourceName": "{{ ResourceName }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "PlatformArn": "{{ PlatformArn }}",
+ "SolutionStackName": "{{ SolutionStackName }}",
+ "SourceConfiguration": {
+  "ApplicationName": "{{ ApplicationName }}",
+  "TemplateName": "{{ TemplateName }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.elasticbeanstalk.configuration_templates (
+ ApplicationName,
+ Description,
+ EnvironmentId,
+ OptionSettings,
+ PlatformArn,
+ SolutionStackName,
+ SourceConfiguration,
+ region
+)
+SELECT 
+ {{ ApplicationName }},
+ {{ Description }},
+ {{ EnvironmentId }},
+ {{ OptionSettings }},
+ {{ PlatformArn }},
+ {{ SolutionStackName }},
+ {{ SourceConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.elasticbeanstalk.configuration_templates
+WHERE data__Identifier = '<ApplicationName|TemplateName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +167,12 @@ To operate on the <code>configuration_templates</code> resource, the following p
 ### Create
 ```json
 elasticbeanstalk:CreateConfigurationTemplate
+```
+
+### Delete
+```json
+elasticbeanstalk:DeleteConfigurationTemplate,
+elasticbeanstalk:DescribeConfigurationSettings
 ```
 
 ### List

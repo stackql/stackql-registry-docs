@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>realtime_log_configs</code> in a region or create a <code>realtime_log_configs</code> resource, use <code>realtime_log_config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>realtime_log_configs</code> in a region or to create or delete a <code>realtime_log_configs</code> resource, use <code>realtime_log_config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>realtime_log_configs</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,103 @@ SELECT
 region,
 arn
 FROM aws.cloudfront.realtime_log_configs
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "EndPoints": [
+  {
+   "KinesisStreamConfig": {
+    "RoleArn": "{{ RoleArn }}",
+    "StreamArn": "{{ StreamArn }}"
+   },
+   "StreamType": "{{ StreamType }}"
+  }
+ ],
+ "Fields": [
+  "{{ Fields[0] }}"
+ ],
+ "Name": "{{ Name }}",
+ "SamplingRate": null
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudfront.realtime_log_configs (
+ EndPoints,
+ Fields,
+ Name,
+ SamplingRate,
+ region
+)
+SELECT 
+{{ EndPoints }},
+ {{ Fields }},
+ {{ Name }},
+ {{ SamplingRate }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "EndPoints": [
+  {
+   "KinesisStreamConfig": {
+    "RoleArn": "{{ RoleArn }}",
+    "StreamArn": "{{ StreamArn }}"
+   },
+   "StreamType": "{{ StreamType }}"
+  }
+ ],
+ "Fields": [
+  "{{ Fields[0] }}"
+ ],
+ "Name": "{{ Name }}",
+ "SamplingRate": null
+}
+>>>
+--all properties
+INSERT INTO aws.cloudfront.realtime_log_configs (
+ EndPoints,
+ Fields,
+ Name,
+ SamplingRate,
+ region
+)
+SELECT 
+ {{ EndPoints }},
+ {{ Fields }},
+ {{ Name }},
+ {{ SamplingRate }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudfront.realtime_log_configs
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +176,12 @@ To operate on the <code>realtime_log_configs</code> resource, the following perm
 ```json
 cloudfront:CreateRealtimeLogConfig,
 iam:PassRole
+```
+
+### Delete
+```json
+cloudfront:DeleteRealtimeLogConfig,
+cloudfront:GetRealtimeLogConfig
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>inference_schedulers</code> in a region or create a <code>inference_schedulers</code> resource, use <code>inference_scheduler</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>inference_schedulers</code> in a region or to create or delete a <code>inference_schedulers</code> resource, use <code>inference_scheduler</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>inference_schedulers</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,138 @@ SELECT
 region,
 inference_scheduler_name
 FROM aws.lookoutequipment.inference_schedulers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DataInputConfiguration": {
+  "InputTimeZoneOffset": "{{ InputTimeZoneOffset }}",
+  "InferenceInputNameConfiguration": {
+   "ComponentTimestampDelimiter": "{{ ComponentTimestampDelimiter }}",
+   "TimestampFormat": "{{ TimestampFormat }}"
+  },
+  "S3InputConfiguration": {
+   "Bucket": "{{ Bucket }}",
+   "Prefix": "{{ Prefix }}"
+  }
+ },
+ "DataOutputConfiguration": {
+  "KmsKeyId": "{{ KmsKeyId }}",
+  "S3OutputConfiguration": {
+   "Bucket": null,
+   "Prefix": null
+  }
+ },
+ "DataUploadFrequency": "{{ DataUploadFrequency }}",
+ "ModelName": "{{ ModelName }}",
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lookoutequipment.inference_schedulers (
+ DataInputConfiguration,
+ DataOutputConfiguration,
+ DataUploadFrequency,
+ ModelName,
+ RoleArn,
+ region
+)
+SELECT 
+{{ DataInputConfiguration }},
+ {{ DataOutputConfiguration }},
+ {{ DataUploadFrequency }},
+ {{ ModelName }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DataDelayOffsetInMinutes": "{{ DataDelayOffsetInMinutes }}",
+ "DataInputConfiguration": {
+  "InputTimeZoneOffset": "{{ InputTimeZoneOffset }}",
+  "InferenceInputNameConfiguration": {
+   "ComponentTimestampDelimiter": "{{ ComponentTimestampDelimiter }}",
+   "TimestampFormat": "{{ TimestampFormat }}"
+  },
+  "S3InputConfiguration": {
+   "Bucket": "{{ Bucket }}",
+   "Prefix": "{{ Prefix }}"
+  }
+ },
+ "DataOutputConfiguration": {
+  "KmsKeyId": "{{ KmsKeyId }}",
+  "S3OutputConfiguration": {
+   "Bucket": null,
+   "Prefix": null
+  }
+ },
+ "DataUploadFrequency": "{{ DataUploadFrequency }}",
+ "InferenceSchedulerName": "{{ InferenceSchedulerName }}",
+ "ModelName": "{{ ModelName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "ServerSideKmsKeyId": "{{ ServerSideKmsKeyId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lookoutequipment.inference_schedulers (
+ DataDelayOffsetInMinutes,
+ DataInputConfiguration,
+ DataOutputConfiguration,
+ DataUploadFrequency,
+ InferenceSchedulerName,
+ ModelName,
+ RoleArn,
+ ServerSideKmsKeyId,
+ Tags,
+ region
+)
+SELECT 
+ {{ DataDelayOffsetInMinutes }},
+ {{ DataInputConfiguration }},
+ {{ DataOutputConfiguration }},
+ {{ DataUploadFrequency }},
+ {{ InferenceSchedulerName }},
+ {{ ModelName }},
+ {{ RoleArn }},
+ {{ ServerSideKmsKeyId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lookoutequipment.inference_schedulers
+WHERE data__Identifier = '<InferenceSchedulerName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +211,13 @@ To operate on the <code>inference_schedulers</code> resource, the following perm
 ```json
 iam:PassRole,
 lookoutequipment:CreateInferenceScheduler,
+lookoutequipment:DescribeInferenceScheduler
+```
+
+### Delete
+```json
+lookoutequipment:DeleteInferenceScheduler,
+lookoutequipment:StopInferenceScheduler,
 lookoutequipment:DescribeInferenceScheduler
 ```
 

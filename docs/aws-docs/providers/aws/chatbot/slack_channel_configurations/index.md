@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>slack_channel_configurations</code> in a region or create a <code>slack_channel_configurations</code> resource, use <code>slack_channel_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>slack_channel_configurations</code> in a region or to create or delete a <code>slack_channel_configurations</code> resource, use <code>slack_channel_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>slack_channel_configurations</code> in a region
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,99 @@ SELECT
 region,
 arn
 FROM aws.chatbot.slack_channel_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SlackWorkspaceId": "{{ SlackWorkspaceId }}",
+ "SlackChannelId": "{{ SlackChannelId }}",
+ "ConfigurationName": "{{ ConfigurationName }}",
+ "IamRoleArn": "{{ IamRoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.chatbot.slack_channel_configurations (
+ SlackWorkspaceId,
+ SlackChannelId,
+ ConfigurationName,
+ IamRoleArn,
+ region
+)
+SELECT 
+{{ SlackWorkspaceId }},
+ {{ SlackChannelId }},
+ {{ ConfigurationName }},
+ {{ IamRoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SlackWorkspaceId": "{{ SlackWorkspaceId }}",
+ "SlackChannelId": "{{ SlackChannelId }}",
+ "ConfigurationName": "{{ ConfigurationName }}",
+ "IamRoleArn": "{{ IamRoleArn }}",
+ "SnsTopicArns": [
+  "{{ SnsTopicArns[0] }}"
+ ],
+ "LoggingLevel": "{{ LoggingLevel }}",
+ "GuardrailPolicies": [
+  "{{ GuardrailPolicies[0] }}"
+ ],
+ "UserRoleRequired": "{{ UserRoleRequired }}"
+}
+>>>
+--all properties
+INSERT INTO aws.chatbot.slack_channel_configurations (
+ SlackWorkspaceId,
+ SlackChannelId,
+ ConfigurationName,
+ IamRoleArn,
+ SnsTopicArns,
+ LoggingLevel,
+ GuardrailPolicies,
+ UserRoleRequired,
+ region
+)
+SELECT 
+ {{ SlackWorkspaceId }},
+ {{ SlackChannelId }},
+ {{ ConfigurationName }},
+ {{ IamRoleArn }},
+ {{ SnsTopicArns }},
+ {{ LoggingLevel }},
+ {{ GuardrailPolicies }},
+ {{ UserRoleRequired }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.chatbot.slack_channel_configurations
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +173,11 @@ To operate on the <code>slack_channel_configurations</code> resource, the follow
 chatbot:CreateSlackChannelConfiguration,
 iam:PassRole,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+chatbot:DeleteSlackChannelConfiguration
 ```
 
 ### List

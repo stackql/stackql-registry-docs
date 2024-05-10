@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>destination</code> resource, use <code>destinations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>destination</code> resource, use <code>destinations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -55,11 +58,6 @@ Gets or operates on an individual <code>destination</code> resource, use <code>d
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -78,8 +76,9 @@ tags,
 role_arn,
 arn
 FROM aws.iotwireless.destination
-WHERE data__Identifier = '<Name>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
+
 
 ## Permissions
 
@@ -97,10 +96,5 @@ iam:PassRole,
 iotwireless:UpdateDestination,
 iotwireless:UntagResource,
 iotwireless:ListTagsForResource
-```
-
-### Delete
-```json
-iotwireless:DeleteDestination
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>subscription_filters</code> in a region or create a <code>subscription_filters</code> resource, use <code>subscription_filter</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>subscription_filters</code> in a region or to create or delete a <code>subscription_filters</code> resource, use <code>subscription_filter</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>subscription_filters</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,86 @@ region,
 filter_name,
 log_group_name
 FROM aws.logs.subscription_filters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationArn": "{{ DestinationArn }}",
+ "FilterPattern": "{{ FilterPattern }}",
+ "LogGroupName": "{{ LogGroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.logs.subscription_filters (
+ DestinationArn,
+ FilterPattern,
+ LogGroupName,
+ region
+)
+SELECT 
+{{ DestinationArn }},
+ {{ FilterPattern }},
+ {{ LogGroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FilterName": "{{ FilterName }}",
+ "DestinationArn": "{{ DestinationArn }}",
+ "FilterPattern": "{{ FilterPattern }}",
+ "LogGroupName": "{{ LogGroupName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Distribution": "{{ Distribution }}"
+}
+>>>
+--all properties
+INSERT INTO aws.logs.subscription_filters (
+ FilterName,
+ DestinationArn,
+ FilterPattern,
+ LogGroupName,
+ RoleArn,
+ Distribution,
+ region
+)
+SELECT 
+ {{ FilterName }},
+ {{ DestinationArn }},
+ {{ FilterPattern }},
+ {{ LogGroupName }},
+ {{ RoleArn }},
+ {{ Distribution }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.logs.subscription_filters
+WHERE data__Identifier = '<FilterName|LogGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +162,11 @@ To operate on the <code>subscription_filters</code> resource, the following perm
 iam:PassRole,
 logs:PutSubscriptionFilter,
 logs:DescribeSubscriptionFilters
+```
+
+### Delete
+```json
+logs:DeleteSubscriptionFilter
 ```
 
 ### List

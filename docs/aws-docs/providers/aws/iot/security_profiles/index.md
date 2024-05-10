@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>security_profiles</code> in a region or create a <code>security_profiles</code> resource, use <code>security_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>security_profiles</code> in a region or to create or delete a <code>security_profiles</code> resource, use <code>security_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>security_profiles</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,139 @@ SELECT
 region,
 security_profile_name
 FROM aws.iot.security_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.iot.security_profiles (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SecurityProfileName": "{{ SecurityProfileName }}",
+ "SecurityProfileDescription": "{{ SecurityProfileDescription }}",
+ "Behaviors": [
+  {
+   "Name": "{{ Name }}",
+   "Metric": "{{ Metric }}",
+   "MetricDimension": {
+    "DimensionName": "{{ DimensionName }}",
+    "Operator": "{{ Operator }}"
+   },
+   "Criteria": {
+    "ComparisonOperator": "{{ ComparisonOperator }}",
+    "Value": {
+     "Count": "{{ Count }}",
+     "Cidrs": [
+      "{{ Cidrs[0] }}"
+     ],
+     "Ports": [
+      "{{ Ports[0] }}"
+     ],
+     "Number": null,
+     "Numbers": [
+      null
+     ],
+     "Strings": [
+      "{{ Strings[0] }}"
+     ]
+    },
+    "DurationSeconds": "{{ DurationSeconds }}",
+    "ConsecutiveDatapointsToAlarm": "{{ ConsecutiveDatapointsToAlarm }}",
+    "ConsecutiveDatapointsToClear": "{{ ConsecutiveDatapointsToClear }}",
+    "StatisticalThreshold": {
+     "Statistic": "{{ Statistic }}"
+    },
+    "MlDetectionConfig": {
+     "ConfidenceLevel": "{{ ConfidenceLevel }}"
+    }
+   },
+   "SuppressAlerts": "{{ SuppressAlerts }}",
+   "ExportMetric": "{{ ExportMetric }}"
+  }
+ ],
+ "AlertTargets": {},
+ "AdditionalMetricsToRetainV2": [
+  {
+   "Metric": "{{ Metric }}",
+   "MetricDimension": null,
+   "ExportMetric": null
+  }
+ ],
+ "MetricsExportConfig": {
+  "MqttTopic": "{{ MqttTopic }}",
+  "RoleArn": "{{ RoleArn }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TargetArns": [
+  "{{ TargetArns[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iot.security_profiles (
+ SecurityProfileName,
+ SecurityProfileDescription,
+ Behaviors,
+ AlertTargets,
+ AdditionalMetricsToRetainV2,
+ MetricsExportConfig,
+ Tags,
+ TargetArns,
+ region
+)
+SELECT 
+ {{ SecurityProfileName }},
+ {{ SecurityProfileDescription }},
+ {{ Behaviors }},
+ {{ AlertTargets }},
+ {{ AdditionalMetricsToRetainV2 }},
+ {{ MetricsExportConfig }},
+ {{ Tags }},
+ {{ TargetArns }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.security_profiles
+WHERE data__Identifier = '<SecurityProfileName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +215,12 @@ iot:AttachSecurityProfile,
 iot:DescribeSecurityProfile,
 iot:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+iot:DescribeSecurityProfile,
+iot:DeleteSecurityProfile
 ```
 
 ### List

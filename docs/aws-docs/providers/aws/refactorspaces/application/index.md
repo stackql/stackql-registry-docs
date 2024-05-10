@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>application</code> resource, use <code>applications</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>application</code> resource, use <code>applications</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -57,11 +60,6 @@ Gets or operates on an individual <code>application</code> resource, use <code>a
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -87,8 +85,9 @@ stage_name,
 proxy_url,
 tags
 FROM aws.refactorspaces.application
-WHERE data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -98,25 +97,5 @@ To operate on the <code>application</code> resource, the following permissions a
 ```json
 refactor-spaces:GetApplication,
 refactor-spaces:ListTagsForResource
-```
-
-### Delete
-```json
-refactor-spaces:GetApplication,
-refactor-spaces:DeleteApplication,
-refactor-spaces:UntagResource,
-ec2:DescribeVpcEndpointServiceConfigurations,
-ec2:DeleteRoute,
-ec2:DeleteSecurityGroup,
-ec2:DeleteTransitGateway,
-ec2:DeleteTransitGatewayVpcAttachment,
-ec2:DeleteVpcEndpointServiceConfigurations,
-ec2:DeleteTags,
-ec2:RevokeSecurityGroupIngress,
-elasticloadbalancing:DeleteLoadBalancer,
-apigateway:Update*,
-apigateway:Delete*,
-apigateway:Get*,
-apigateway:Put*
 ```
 

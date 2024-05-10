@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>ipam_resource_discovery</code> resource, use <code>ipam_resource_discoveries</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>ipam_resource_discovery</code> resource, use <code>ipam_resource_discoveries</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -57,11 +60,6 @@ Gets or operates on an individual <code>ipam_resource_discovery</code> resource,
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -82,8 +80,9 @@ ipam_resource_discovery_arn,
 state,
 tags
 FROM aws.ec2.ipam_resource_discovery
-WHERE data__Identifier = '<IpamResourceDiscoveryId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<IpamResourceDiscoveryId>';
 ```
+
 
 ## Permissions
 
@@ -99,13 +98,6 @@ ec2:DescribeIpamResourceDiscoveries
 ec2:ModifyIpamResourceDiscovery,
 ec2:DescribeIpamResourceDiscoveries,
 ec2:CreateTags,
-ec2:DeleteTags
-```
-
-### Delete
-```json
-ec2:DeleteIpamResourceDiscovery,
-ec2:DescribeIpamResourceDiscoveries,
 ec2:DeleteTags
 ```
 

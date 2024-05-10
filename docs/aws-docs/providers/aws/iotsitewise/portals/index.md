@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>portals</code> in a region or create a <code>portals</code> resource, use <code>portal</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>portals</code> in a region or to create or delete a <code>portals</code> resource, use <code>portal</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>portals</code> in a region or create a <code>po
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,100 @@ SELECT
 region,
 portal_id
 FROM aws.iotsitewise.portals
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PortalContactEmail": "{{ PortalContactEmail }}",
+ "PortalName": "{{ PortalName }}",
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iotsitewise.portals (
+ PortalContactEmail,
+ PortalName,
+ RoleArn,
+ region
+)
+SELECT 
+{{ PortalContactEmail }},
+ {{ PortalName }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PortalAuthMode": "{{ PortalAuthMode }}",
+ "PortalContactEmail": "{{ PortalContactEmail }}",
+ "PortalDescription": "{{ PortalDescription }}",
+ "PortalName": "{{ PortalName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "NotificationSenderEmail": "{{ NotificationSenderEmail }}",
+ "Alarms": {
+  "AlarmRoleArn": "{{ AlarmRoleArn }}",
+  "NotificationLambdaArn": "{{ NotificationLambdaArn }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotsitewise.portals (
+ PortalAuthMode,
+ PortalContactEmail,
+ PortalDescription,
+ PortalName,
+ RoleArn,
+ NotificationSenderEmail,
+ Alarms,
+ Tags,
+ region
+)
+SELECT 
+ {{ PortalAuthMode }},
+ {{ PortalContactEmail }},
+ {{ PortalDescription }},
+ {{ PortalName }},
+ {{ RoleArn }},
+ {{ NotificationSenderEmail }},
+ {{ Alarms }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotsitewise.portals
+WHERE data__Identifier = '<PortalId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +178,13 @@ iotsitewise:TagResource,
 iam:PassRole,
 sso:CreateManagedApplicationInstance,
 sso:DescribeRegisteredRegions
+```
+
+### Delete
+```json
+iotsitewise:DescribePortal,
+iotsitewise:DeletePortal,
+sso:DeleteManagedApplicationInstance
 ```
 
 ### List

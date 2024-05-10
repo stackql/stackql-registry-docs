@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>package_versions</code> in a region or create a <code>package_versions</code> resource, use <code>package_version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>package_versions</code> in a region or to create or delete a <code>package_versions</code> resource, use <code>package_version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>package_versions</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,86 @@ package_id,
 package_version,
 patch_version
 FROM aws.panorama.package_versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PackageId": "{{ PackageId }}",
+ "PackageVersion": "{{ PackageVersion }}",
+ "PatchVersion": "{{ PatchVersion }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.panorama.package_versions (
+ PackageId,
+ PackageVersion,
+ PatchVersion,
+ region
+)
+SELECT 
+{{ PackageId }},
+ {{ PackageVersion }},
+ {{ PatchVersion }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "OwnerAccount": "{{ OwnerAccount }}",
+ "PackageId": "{{ PackageId }}",
+ "PackageVersion": "{{ PackageVersion }}",
+ "PatchVersion": "{{ PatchVersion }}",
+ "MarkLatest": "{{ MarkLatest }}",
+ "UpdatedLatestPatchVersion": null
+}
+>>>
+--all properties
+INSERT INTO aws.panorama.package_versions (
+ OwnerAccount,
+ PackageId,
+ PackageVersion,
+ PatchVersion,
+ MarkLatest,
+ UpdatedLatestPatchVersion,
+ region
+)
+SELECT 
+ {{ OwnerAccount }},
+ {{ PackageId }},
+ {{ PackageVersion }},
+ {{ PatchVersion }},
+ {{ MarkLatest }},
+ {{ UpdatedLatestPatchVersion }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.panorama.package_versions
+WHERE data__Identifier = '<PackageId|PackageVersion|PatchVersion>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +165,18 @@ panorama:RegisterPackageVersion,
 panorama:DescribePackageVersion,
 s3:ListBucket,
 s3:PutObject,
+s3:GetObject,
+s3:GetObjectVersion
+```
+
+### Delete
+```json
+panorama:DeregisterPackageVersion,
+panorama:DescribePackageVersion,
+s3:DeleteObject,
+s3:DeleteObjectVersion,
+s3:DeleteObjectVersionTagging,
+s3:ListBucket,
 s3:GetObject,
 s3:GetObjectVersion
 ```

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>serverless_cache</code> resource, use <code>serverless_caches</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>serverless_cache</code> resource, use <code>serverless_caches</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -68,11 +71,6 @@ Gets or operates on an individual <code>serverless_cache</code> resource, use <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -104,8 +102,9 @@ reader_endpoint,
 arn,
 final_snapshot_name
 FROM aws.elasticache.serverless_cache
-WHERE data__Identifier = '<ServerlessCacheName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ServerlessCacheName>';
 ```
+
 
 ## Permissions
 
@@ -124,12 +123,5 @@ elasticache:DescribeServerlessCaches,
 elasticache:AddTagsToResource,
 elasticache:ListTagsForResource,
 elasticache:RemoveTagsFromResource
-```
-
-### Delete
-```json
-elasticache:DeleteServerlessCache,
-elasticache:DescribeServerlessCaches,
-elasticache:ListTagsForResource
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>jobs</code> in a region or create a <code>jobs</code> resource, use <code>job</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>jobs</code> in a region or to create or delete a <code>jobs</code> resource, use <code>job</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>jobs</code> in a region or create a <code>jobs<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,241 @@ SELECT
 region,
 name
 FROM aws.databrew.jobs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}",
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.databrew.jobs (
+ Name,
+ Type,
+ RoleArn,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Type }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DatasetName": "{{ DatasetName }}",
+ "EncryptionKeyArn": "{{ EncryptionKeyArn }}",
+ "EncryptionMode": "{{ EncryptionMode }}",
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}",
+ "LogSubscription": "{{ LogSubscription }}",
+ "MaxCapacity": "{{ MaxCapacity }}",
+ "MaxRetries": "{{ MaxRetries }}",
+ "Outputs": [
+  {
+   "CompressionFormat": "{{ CompressionFormat }}",
+   "Format": "{{ Format }}",
+   "FormatOptions": {
+    "Csv": {
+     "Delimiter": "{{ Delimiter }}"
+    }
+   },
+   "PartitionColumns": [
+    "{{ PartitionColumns[0] }}"
+   ],
+   "Location": {
+    "Bucket": "{{ Bucket }}",
+    "Key": "{{ Key }}"
+   },
+   "Overwrite": "{{ Overwrite }}",
+   "MaxOutputFiles": "{{ MaxOutputFiles }}"
+  }
+ ],
+ "DataCatalogOutputs": [
+  {
+   "CatalogId": "{{ CatalogId }}",
+   "DatabaseName": "{{ DatabaseName }}",
+   "TableName": "{{ TableName }}",
+   "S3Options": {
+    "Location": null
+   },
+   "DatabaseOptions": {
+    "TempDirectory": null,
+    "TableName": "{{ TableName }}"
+   },
+   "Overwrite": "{{ Overwrite }}"
+  }
+ ],
+ "DatabaseOutputs": [
+  {
+   "GlueConnectionName": "{{ GlueConnectionName }}",
+   "DatabaseOutputMode": "{{ DatabaseOutputMode }}",
+   "DatabaseOptions": null
+  }
+ ],
+ "OutputLocation": {
+  "Bucket": "{{ Bucket }}",
+  "Key": "{{ Key }}",
+  "BucketOwner": "{{ BucketOwner }}"
+ },
+ "ProjectName": "{{ ProjectName }}",
+ "Recipe": {
+  "Description": "{{ Description }}",
+  "Name": "{{ Name }}",
+  "Steps": [
+   {
+    "Action": {
+     "Operation": "{{ Operation }}",
+     "Parameters": null
+    },
+    "ConditionExpressions": [
+     {
+      "Condition": "{{ Condition }}",
+      "Value": "{{ Value }}",
+      "TargetColumn": "{{ TargetColumn }}"
+     }
+    ]
+   }
+  ],
+  "Tags": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ },
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  null
+ ],
+ "Timeout": "{{ Timeout }}",
+ "JobSample": {
+  "Mode": "{{ Mode }}",
+  "Size": "{{ Size }}"
+ },
+ "ProfileConfiguration": {
+  "DatasetStatisticsConfiguration": {
+   "IncludedStatistics": [
+    "{{ IncludedStatistics[0] }}"
+   ],
+   "Overrides": [
+    {
+     "Statistic": null,
+     "Parameters": {}
+    }
+   ]
+  },
+  "ProfileColumns": [
+   {
+    "Regex": "{{ Regex }}",
+    "Name": "{{ Name }}"
+   }
+  ],
+  "ColumnStatisticsConfigurations": [
+   {
+    "Selectors": [
+     null
+    ],
+    "Statistics": null
+   }
+  ],
+  "EntityDetectorConfiguration": {
+   "EntityTypes": [
+    "{{ EntityTypes[0] }}"
+   ],
+   "AllowedStatistics": {
+    "Statistics": [
+     null
+    ]
+   }
+  }
+ },
+ "ValidationConfigurations": [
+  {
+   "RulesetArn": "{{ RulesetArn }}",
+   "ValidationMode": "{{ ValidationMode }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.databrew.jobs (
+ DatasetName,
+ EncryptionKeyArn,
+ EncryptionMode,
+ Name,
+ Type,
+ LogSubscription,
+ MaxCapacity,
+ MaxRetries,
+ Outputs,
+ DataCatalogOutputs,
+ DatabaseOutputs,
+ OutputLocation,
+ ProjectName,
+ Recipe,
+ RoleArn,
+ Tags,
+ Timeout,
+ JobSample,
+ ProfileConfiguration,
+ ValidationConfigurations,
+ region
+)
+SELECT 
+ {{ DatasetName }},
+ {{ EncryptionKeyArn }},
+ {{ EncryptionMode }},
+ {{ Name }},
+ {{ Type }},
+ {{ LogSubscription }},
+ {{ MaxCapacity }},
+ {{ MaxRetries }},
+ {{ Outputs }},
+ {{ DataCatalogOutputs }},
+ {{ DatabaseOutputs }},
+ {{ OutputLocation }},
+ {{ ProjectName }},
+ {{ Recipe }},
+ {{ RoleArn }},
+ {{ Tags }},
+ {{ Timeout }},
+ {{ JobSample }},
+ {{ ProfileConfiguration }},
+ {{ ValidationConfigurations }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.databrew.jobs
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +317,11 @@ databrew:CreateRecipeJob,
 databrew:TagResource,
 databrew:UntagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+databrew:DeleteJob
 ```
 
 ### List

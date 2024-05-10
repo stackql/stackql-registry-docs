@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>db_instance</code> resource, use <code>db_instances</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>db_instance</code> resource, use <code>db_instances</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -127,11 +130,6 @@ Gets or operates on an individual <code>db_instance</code> resource, use <code>d
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -222,8 +220,9 @@ use_default_processor_features,
 use_latest_restorable_time,
 vpc_security_groups
 FROM aws.rds.db_instance
-WHERE data__Identifier = '<DBInstanceIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<DBInstanceIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -272,12 +271,5 @@ rds:StartDBInstanceAutomatedBackupsReplication,
 rds:StopDBInstanceAutomatedBackupsReplication,
 secretsmanager:CreateSecret,
 secretsmanager:TagResource
-```
-
-### Delete
-```json
-rds:CreateDBSnapshot,
-rds:DeleteDBInstance,
-rds:DescribeDBInstances
 ```
 

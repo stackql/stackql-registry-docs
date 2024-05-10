@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>route_responses</code> in a region or create a <code>route_responses</code> resource, use <code>route_response</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>route_responses</code> in a region or to create or delete a <code>route_responses</code> resource, use <code>route_response</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>route_responses</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,86 @@ api_id,
 route_id,
 route_response_id
 FROM aws.apigatewayv2.route_responses
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RouteResponseKey": "{{ RouteResponseKey }}",
+ "RouteId": "{{ RouteId }}",
+ "ApiId": "{{ ApiId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigatewayv2.route_responses (
+ RouteResponseKey,
+ RouteId,
+ ApiId,
+ region
+)
+SELECT 
+{{ RouteResponseKey }},
+ {{ RouteId }},
+ {{ ApiId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RouteResponseKey": "{{ RouteResponseKey }}",
+ "ResponseParameters": null,
+ "RouteId": "{{ RouteId }}",
+ "ModelSelectionExpression": "{{ ModelSelectionExpression }}",
+ "ApiId": "{{ ApiId }}",
+ "ResponseModels": {}
+}
+>>>
+--all properties
+INSERT INTO aws.apigatewayv2.route_responses (
+ RouteResponseKey,
+ ResponseParameters,
+ RouteId,
+ ModelSelectionExpression,
+ ApiId,
+ ResponseModels,
+ region
+)
+SELECT 
+ {{ RouteResponseKey }},
+ {{ ResponseParameters }},
+ {{ RouteId }},
+ {{ ModelSelectionExpression }},
+ {{ ApiId }},
+ {{ ResponseModels }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigatewayv2.route_responses
+WHERE data__Identifier = '<ApiId|RouteId|RouteResponseId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +162,12 @@ To operate on the <code>route_responses</code> resource, the following permissio
 ### Create
 ```json
 apigateway:POST
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE
 ```
 
 ### List

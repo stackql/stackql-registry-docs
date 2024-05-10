@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>schema</code> resource, use <code>schemata</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>schema</code> resource, use <code>schemata</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>schema</code> resource, use <code>schema
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,8 +82,9 @@ last_modified,
 version_created_date,
 tags
 FROM aws.eventschemas.schema
-WHERE data__Identifier = '<SchemaArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<SchemaArn>';
 ```
+
 
 ## Permissions
 
@@ -103,12 +102,5 @@ schemas:UpdateSchema,
 schemas:TagResource,
 schemas:UntagResource,
 schemas:ListTagsForResource
-```
-
-### Delete
-```json
-schemas:DescribeSchema,
-schemas:DeleteSchema,
-schemas:DeleteSchemaVersion
 ```
 

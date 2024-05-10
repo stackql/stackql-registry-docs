@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>integrations</code> in a region or create a <code>integrations</code> resource, use <code>integration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>integrations</code> in a region or to create or delete a <code>integrations</code> resource, use <code>integration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>integrations</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,157 @@ region,
 domain_name,
 uri
 FROM aws.customerprofiles.integrations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.customerprofiles.integrations (
+ DomainName,
+ region
+)
+SELECT 
+{{ DomainName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "Uri": "{{ Uri }}",
+ "FlowDefinition": {
+  "FlowName": "{{ FlowName }}",
+  "Description": "{{ Description }}",
+  "KmsArn": "{{ KmsArn }}",
+  "Tasks": [
+   {
+    "ConnectorOperator": {
+     "Marketo": "{{ Marketo }}",
+     "S3": "{{ S3 }}",
+     "Salesforce": "{{ Salesforce }}",
+     "ServiceNow": "{{ ServiceNow }}",
+     "Zendesk": "{{ Zendesk }}"
+    },
+    "SourceFields": [
+     "{{ SourceFields[0] }}"
+    ],
+    "DestinationField": "{{ DestinationField }}",
+    "TaskType": "{{ TaskType }}",
+    "TaskProperties": [
+     {
+      "OperatorPropertyKey": "{{ OperatorPropertyKey }}",
+      "Property": "{{ Property }}"
+     }
+    ]
+   }
+  ],
+  "TriggerConfig": {
+   "TriggerType": "{{ TriggerType }}",
+   "TriggerProperties": {
+    "Scheduled": {
+     "ScheduleExpression": "{{ ScheduleExpression }}",
+     "DataPullMode": "{{ DataPullMode }}",
+     "ScheduleStartTime": null,
+     "ScheduleEndTime": null,
+     "Timezone": "{{ Timezone }}",
+     "ScheduleOffset": "{{ ScheduleOffset }}",
+     "FirstExecutionFrom": null
+    }
+   }
+  },
+  "SourceFlowConfig": {
+   "ConnectorType": "{{ ConnectorType }}",
+   "ConnectorProfileName": "{{ ConnectorProfileName }}",
+   "IncrementalPullConfig": {
+    "DatetimeTypeFieldName": "{{ DatetimeTypeFieldName }}"
+   },
+   "SourceConnectorProperties": {
+    "Marketo": {
+     "Object": "{{ Object }}"
+    },
+    "S3": {
+     "BucketName": "{{ BucketName }}",
+     "BucketPrefix": "{{ BucketPrefix }}"
+    },
+    "Salesforce": {
+     "Object": null,
+     "EnableDynamicFieldUpdate": "{{ EnableDynamicFieldUpdate }}",
+     "IncludeDeletedRecords": "{{ IncludeDeletedRecords }}"
+    },
+    "ServiceNow": {
+     "Object": null
+    },
+    "Zendesk": {
+     "Object": null
+    }
+   }
+  }
+ },
+ "ObjectTypeName": "{{ ObjectTypeName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ObjectTypeNames": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.customerprofiles.integrations (
+ DomainName,
+ Uri,
+ FlowDefinition,
+ ObjectTypeName,
+ Tags,
+ ObjectTypeNames,
+ region
+)
+SELECT 
+ {{ DomainName }},
+ {{ Uri }},
+ {{ FlowDefinition }},
+ {{ ObjectTypeName }},
+ {{ Tags }},
+ {{ ObjectTypeNames }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.customerprofiles.integrations
+WHERE data__Identifier = '<DomainName|Uri>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +240,17 @@ events:PutRule,
 events:PutTargets,
 events:PutEvents,
 profile:TagResource
+```
+
+### Delete
+```json
+profile:DeleteIntegration,
+appflow:DeleteFlow,
+app-integrations:ListEventIntegrationAssociations,
+app-integrations:DeleteEventIntegrationAssociation,
+events:RemoveTargets,
+events:ListTargetsByRule,
+events:DeleteRule
 ```
 
 ### List

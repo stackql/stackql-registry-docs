@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>trails</code> in a region or create a <code>trails</code> resource, use <code>trail</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>trails</code> in a region or to create or delete a <code>trails</code> resource, use <code>trail</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>trails</code> in a region or create a <code>tra
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,165 @@ SELECT
 region,
 trail_name
 FROM aws.cloudtrail.trails
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IsLogging": "{{ IsLogging }}",
+ "S3BucketName": "{{ S3BucketName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudtrail.trails (
+ IsLogging,
+ S3BucketName,
+ region
+)
+SELECT 
+{{ IsLogging }},
+ {{ S3BucketName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CloudWatchLogsLogGroupArn": "{{ CloudWatchLogsLogGroupArn }}",
+ "CloudWatchLogsRoleArn": "{{ CloudWatchLogsRoleArn }}",
+ "EnableLogFileValidation": "{{ EnableLogFileValidation }}",
+ "AdvancedEventSelectors": [
+  {
+   "Name": "{{ Name }}",
+   "FieldSelectors": [
+    {
+     "Field": "{{ Field }}",
+     "Equals": [
+      "{{ Equals[0] }}"
+     ],
+     "StartsWith": [
+      "{{ StartsWith[0] }}"
+     ],
+     "EndsWith": [
+      "{{ EndsWith[0] }}"
+     ],
+     "NotEquals": [
+      "{{ NotEquals[0] }}"
+     ],
+     "NotStartsWith": [
+      "{{ NotStartsWith[0] }}"
+     ],
+     "NotEndsWith": [
+      "{{ NotEndsWith[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "EventSelectors": [
+  {
+   "DataResources": [
+    {
+     "Type": "{{ Type }}",
+     "Values": [
+      "{{ Values[0] }}"
+     ]
+    }
+   ],
+   "IncludeManagementEvents": "{{ IncludeManagementEvents }}",
+   "ReadWriteType": "{{ ReadWriteType }}",
+   "ExcludeManagementEventSources": [
+    "{{ ExcludeManagementEventSources[0] }}"
+   ]
+  }
+ ],
+ "IncludeGlobalServiceEvents": "{{ IncludeGlobalServiceEvents }}",
+ "IsLogging": "{{ IsLogging }}",
+ "IsMultiRegionTrail": "{{ IsMultiRegionTrail }}",
+ "IsOrganizationTrail": "{{ IsOrganizationTrail }}",
+ "KMSKeyId": "{{ KMSKeyId }}",
+ "S3BucketName": "{{ S3BucketName }}",
+ "S3KeyPrefix": "{{ S3KeyPrefix }}",
+ "SnsTopicName": "{{ SnsTopicName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TrailName": "{{ TrailName }}",
+ "InsightSelectors": [
+  {
+   "InsightType": "{{ InsightType }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.cloudtrail.trails (
+ CloudWatchLogsLogGroupArn,
+ CloudWatchLogsRoleArn,
+ EnableLogFileValidation,
+ AdvancedEventSelectors,
+ EventSelectors,
+ IncludeGlobalServiceEvents,
+ IsLogging,
+ IsMultiRegionTrail,
+ IsOrganizationTrail,
+ KMSKeyId,
+ S3BucketName,
+ S3KeyPrefix,
+ SnsTopicName,
+ Tags,
+ TrailName,
+ InsightSelectors,
+ region
+)
+SELECT 
+ {{ CloudWatchLogsLogGroupArn }},
+ {{ CloudWatchLogsRoleArn }},
+ {{ EnableLogFileValidation }},
+ {{ AdvancedEventSelectors }},
+ {{ EventSelectors }},
+ {{ IncludeGlobalServiceEvents }},
+ {{ IsLogging }},
+ {{ IsMultiRegionTrail }},
+ {{ IsOrganizationTrail }},
+ {{ KMSKeyId }},
+ {{ S3BucketName }},
+ {{ S3KeyPrefix }},
+ {{ SnsTopicName }},
+ {{ Tags }},
+ {{ TrailName }},
+ {{ InsightSelectors }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudtrail.trails
+WHERE data__Identifier = '<TrailName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +246,11 @@ iam:PassRole,
 iam:CreateServiceLinkedRole,
 organizations:DescribeOrganization,
 organizations:ListAWSServiceAccessForOrganization
+```
+
+### Delete
+```json
+CloudTrail:DeleteTrail
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>crl</code> resource, use <code>crls</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>crl</code> resource, use <code>crls</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>crl</code> resource, use <code>crls</cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ name,
 trust_anchor_arn,
 tags
 FROM aws.rolesanywhere.crl
-WHERE data__Identifier = '<CrlId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<CrlId>';
 ```
+
 
 ## Permissions
 
@@ -97,10 +96,5 @@ rolesanywhere:UpdateCrl,
 rolesanywhere:TagResource,
 rolesanywhere:UntagResource,
 rolesanywhere:ListTagsForResource
-```
-
-### Delete
-```json
-rolesanywhere:DeleteCrl
 ```
 

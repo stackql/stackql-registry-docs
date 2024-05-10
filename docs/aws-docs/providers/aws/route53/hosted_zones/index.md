@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>hosted_zones</code> in a region or create a <code>hosted_zones</code> resource, use <code>hosted_zone</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>hosted_zones</code> in a region or to create or delete a <code>hosted_zones</code> resource, use <code>hosted_zone</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>hosted_zones</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,117 @@ SELECT
 region,
 id
 FROM aws.route53.hosted_zones
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "HostedZoneConfig": {
+  "Comment": "{{ Comment }}"
+ },
+ "HostedZoneTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Name": "{{ Name }}",
+ "QueryLoggingConfig": {
+  "CloudWatchLogsLogGroupArn": "{{ CloudWatchLogsLogGroupArn }}"
+ },
+ "VPCs": [
+  {
+   "VPCId": "{{ VPCId }}",
+   "VPCRegion": "{{ VPCRegion }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.route53.hosted_zones (
+ HostedZoneConfig,
+ HostedZoneTags,
+ Name,
+ QueryLoggingConfig,
+ VPCs,
+ region
+)
+SELECT 
+{{ HostedZoneConfig }},
+ {{ HostedZoneTags }},
+ {{ Name }},
+ {{ QueryLoggingConfig }},
+ {{ VPCs }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "HostedZoneConfig": {
+  "Comment": "{{ Comment }}"
+ },
+ "HostedZoneTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Name": "{{ Name }}",
+ "QueryLoggingConfig": {
+  "CloudWatchLogsLogGroupArn": "{{ CloudWatchLogsLogGroupArn }}"
+ },
+ "VPCs": [
+  {
+   "VPCId": "{{ VPCId }}",
+   "VPCRegion": "{{ VPCRegion }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.route53.hosted_zones (
+ HostedZoneConfig,
+ HostedZoneTags,
+ Name,
+ QueryLoggingConfig,
+ VPCs,
+ region
+)
+SELECT 
+ {{ HostedZoneConfig }},
+ {{ HostedZoneTags }},
+ {{ Name }},
+ {{ QueryLoggingConfig }},
+ {{ VPCs }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53.hosted_zones
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +194,14 @@ route53:ChangeTagsForResource,
 route53:GetChange,
 route53:AssociateVPCWithHostedZone,
 ec2:DescribeVpcs
+```
+
+### Delete
+```json
+route53:DeleteHostedZone,
+route53:DeleteQueryLoggingConfig,
+route53:ListQueryLoggingConfigs,
+route53:GetChange
 ```
 
 ### List

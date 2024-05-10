@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>transit_gateway_multicast_domain_association</code> resource, use <code>transit_gateway_multicast_domain_associations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>transit_gateway_multicast_domain_association</code> resource, use <code>transit_gateway_multicast_domain_associations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -49,11 +52,6 @@ Gets or operates on an individual <code>transit_gateway_multicast_domain_associa
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -71,8 +69,9 @@ resource_type,
 state,
 subnet_id
 FROM aws.ec2.transit_gateway_multicast_domain_association
-WHERE data__Identifier = '<TransitGatewayMulticastDomainId>|<TransitGatewayAttachmentId>|<SubnetId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<TransitGatewayMulticastDomainId>|<TransitGatewayAttachmentId>|<SubnetId>';
 ```
+
 
 ## Permissions
 
@@ -80,12 +79,6 @@ To operate on the <code>transit_gateway_multicast_domain_association</code> reso
 
 ### Read
 ```json
-ec2:GetTransitGatewayMulticastDomainAssociations
-```
-
-### Delete
-```json
-ec2:DisassociateTransitGatewayMulticastDomain,
 ec2:GetTransitGatewayMulticastDomainAssociations
 ```
 

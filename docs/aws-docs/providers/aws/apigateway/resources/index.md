@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>resources</code> in a region or create a <code>resources</code> resource, use <code>resource</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>resources</code> in a region or to create or delete a <code>resources</code> resource, use <code>resource</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>resources</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,77 @@ region,
 rest_api_id,
 resource_id
 FROM aws.apigateway.resources
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RestApiId": "{{ RestApiId }}",
+ "ParentId": "{{ ParentId }}",
+ "PathPart": "{{ PathPart }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.resources (
+ RestApiId,
+ ParentId,
+ PathPart,
+ region
+)
+SELECT 
+{{ RestApiId }},
+ {{ ParentId }},
+ {{ PathPart }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RestApiId": "{{ RestApiId }}",
+ "ParentId": "{{ ParentId }}",
+ "PathPart": "{{ PathPart }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.resources (
+ RestApiId,
+ ParentId,
+ PathPart,
+ region
+)
+SELECT 
+ {{ RestApiId }},
+ {{ ParentId }},
+ {{ PathPart }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.resources
+WHERE data__Identifier = '<RestApiId|ResourceId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +151,11 @@ To operate on the <code>resources</code> resource, the following permissions are
 ### Create
 ```json
 apigateway:POST
+```
+
+### Delete
+```json
+apigateway:DELETE
 ```
 
 ### List

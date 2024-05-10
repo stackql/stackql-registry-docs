@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>rest_apis</code> in a region or create a <code>rest_apis</code> resource, use <code>rest_api</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>rest_apis</code> in a region or to create or delete a <code>rest_apis</code> resource, use <code>rest_api</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>rest_apis</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,187 @@ SELECT
 region,
 rest_api_id
 FROM aws.apigateway.rest_apis
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApiKeySourceType": "{{ ApiKeySourceType }}",
+ "BinaryMediaTypes": [
+  "{{ BinaryMediaTypes[0] }}"
+ ],
+ "Body": {},
+ "BodyS3Location": {
+  "Bucket": "{{ Bucket }}",
+  "ETag": "{{ ETag }}",
+  "Version": "{{ Version }}",
+  "Key": "{{ Key }}"
+ },
+ "CloneFrom": "{{ CloneFrom }}",
+ "EndpointConfiguration": {
+  "Types": [
+   "{{ Types[0] }}"
+  ],
+  "VpcEndpointIds": [
+   "{{ VpcEndpointIds[0] }}"
+  ]
+ },
+ "Description": "{{ Description }}",
+ "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
+ "FailOnWarnings": "{{ FailOnWarnings }}",
+ "Name": "{{ Name }}",
+ "MinimumCompressionSize": "{{ MinimumCompressionSize }}",
+ "Mode": "{{ Mode }}",
+ "Policy": {},
+ "Parameters": {},
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.rest_apis (
+ ApiKeySourceType,
+ BinaryMediaTypes,
+ Body,
+ BodyS3Location,
+ CloneFrom,
+ EndpointConfiguration,
+ Description,
+ DisableExecuteApiEndpoint,
+ FailOnWarnings,
+ Name,
+ MinimumCompressionSize,
+ Mode,
+ Policy,
+ Parameters,
+ Tags,
+ region
+)
+SELECT 
+{{ ApiKeySourceType }},
+ {{ BinaryMediaTypes }},
+ {{ Body }},
+ {{ BodyS3Location }},
+ {{ CloneFrom }},
+ {{ EndpointConfiguration }},
+ {{ Description }},
+ {{ DisableExecuteApiEndpoint }},
+ {{ FailOnWarnings }},
+ {{ Name }},
+ {{ MinimumCompressionSize }},
+ {{ Mode }},
+ {{ Policy }},
+ {{ Parameters }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApiKeySourceType": "{{ ApiKeySourceType }}",
+ "BinaryMediaTypes": [
+  "{{ BinaryMediaTypes[0] }}"
+ ],
+ "Body": {},
+ "BodyS3Location": {
+  "Bucket": "{{ Bucket }}",
+  "ETag": "{{ ETag }}",
+  "Version": "{{ Version }}",
+  "Key": "{{ Key }}"
+ },
+ "CloneFrom": "{{ CloneFrom }}",
+ "EndpointConfiguration": {
+  "Types": [
+   "{{ Types[0] }}"
+  ],
+  "VpcEndpointIds": [
+   "{{ VpcEndpointIds[0] }}"
+  ]
+ },
+ "Description": "{{ Description }}",
+ "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
+ "FailOnWarnings": "{{ FailOnWarnings }}",
+ "Name": "{{ Name }}",
+ "MinimumCompressionSize": "{{ MinimumCompressionSize }}",
+ "Mode": "{{ Mode }}",
+ "Policy": {},
+ "Parameters": {},
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.rest_apis (
+ ApiKeySourceType,
+ BinaryMediaTypes,
+ Body,
+ BodyS3Location,
+ CloneFrom,
+ EndpointConfiguration,
+ Description,
+ DisableExecuteApiEndpoint,
+ FailOnWarnings,
+ Name,
+ MinimumCompressionSize,
+ Mode,
+ Policy,
+ Parameters,
+ Tags,
+ region
+)
+SELECT 
+ {{ ApiKeySourceType }},
+ {{ BinaryMediaTypes }},
+ {{ Body }},
+ {{ BodyS3Location }},
+ {{ CloneFrom }},
+ {{ EndpointConfiguration }},
+ {{ Description }},
+ {{ DisableExecuteApiEndpoint }},
+ {{ FailOnWarnings }},
+ {{ Name }},
+ {{ MinimumCompressionSize }},
+ {{ Mode }},
+ {{ Policy }},
+ {{ Parameters }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.rest_apis
+WHERE data__Identifier = '<RestApiId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +265,11 @@ apigateway:PATCH,
 apigateway:UpdateRestApiPolicy,
 s3:GetObject,
 iam:PassRole
+```
+
+### Delete
+```json
+apigateway:DELETE
 ```
 
 ### List

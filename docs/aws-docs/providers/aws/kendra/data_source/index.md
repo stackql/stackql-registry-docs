@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>data_source</code> resource, use <code>data_sources</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>data_source</code> resource, use <code>data_sources</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>data_source</code> resource, use <code>d
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ tags,
 custom_document_enrichment_configuration,
 language_code
 FROM aws.kendra.data_source
-WHERE data__Identifier = '<Id>|<IndexId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<IndexId>';
 ```
+
 
 ## Permissions
 
@@ -99,12 +98,6 @@ To operate on the <code>data_source</code> resource, the following permissions a
 ```json
 kendra:DescribeDataSource,
 kendra:ListTagsForResource
-```
-
-### Delete
-```json
-kendra:DescribeDataSource,
-kendra:DeleteDataSource
 ```
 
 ### Update

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>keys</code> in a region or create a <code>keys</code> resource, use <code>key</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>keys</code> in a region or to create or delete a <code>keys</code> resource, use <code>key</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>keys</code> in a region or create a <code>keys<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,141 @@ SELECT
 region,
 key_id
 FROM aws.kms.keys
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Enabled": "{{ Enabled }}",
+ "EnableKeyRotation": "{{ EnableKeyRotation }}",
+ "KeyPolicy": {},
+ "KeyUsage": "{{ KeyUsage }}",
+ "Origin": "{{ Origin }}",
+ "KeySpec": "{{ KeySpec }}",
+ "MultiRegion": "{{ MultiRegion }}",
+ "PendingWindowInDays": "{{ PendingWindowInDays }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
+ "RotationPeriodInDays": "{{ RotationPeriodInDays }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.kms.keys (
+ Description,
+ Enabled,
+ EnableKeyRotation,
+ KeyPolicy,
+ KeyUsage,
+ Origin,
+ KeySpec,
+ MultiRegion,
+ PendingWindowInDays,
+ Tags,
+ BypassPolicyLockoutSafetyCheck,
+ RotationPeriodInDays,
+ region
+)
+SELECT 
+{{ Description }},
+ {{ Enabled }},
+ {{ EnableKeyRotation }},
+ {{ KeyPolicy }},
+ {{ KeyUsage }},
+ {{ Origin }},
+ {{ KeySpec }},
+ {{ MultiRegion }},
+ {{ PendingWindowInDays }},
+ {{ Tags }},
+ {{ BypassPolicyLockoutSafetyCheck }},
+ {{ RotationPeriodInDays }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Enabled": "{{ Enabled }}",
+ "EnableKeyRotation": "{{ EnableKeyRotation }}",
+ "KeyPolicy": {},
+ "KeyUsage": "{{ KeyUsage }}",
+ "Origin": "{{ Origin }}",
+ "KeySpec": "{{ KeySpec }}",
+ "MultiRegion": "{{ MultiRegion }}",
+ "PendingWindowInDays": "{{ PendingWindowInDays }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
+ "RotationPeriodInDays": "{{ RotationPeriodInDays }}"
+}
+>>>
+--all properties
+INSERT INTO aws.kms.keys (
+ Description,
+ Enabled,
+ EnableKeyRotation,
+ KeyPolicy,
+ KeyUsage,
+ Origin,
+ KeySpec,
+ MultiRegion,
+ PendingWindowInDays,
+ Tags,
+ BypassPolicyLockoutSafetyCheck,
+ RotationPeriodInDays,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Enabled }},
+ {{ EnableKeyRotation }},
+ {{ KeyPolicy }},
+ {{ KeyUsage }},
+ {{ Origin }},
+ {{ KeySpec }},
+ {{ MultiRegion }},
+ {{ PendingWindowInDays }},
+ {{ Tags }},
+ {{ BypassPolicyLockoutSafetyCheck }},
+ {{ RotationPeriodInDays }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kms.keys
+WHERE data__Identifier = '<KeyId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +217,12 @@ kms:EnableKeyRotation,
 kms:DisableKey,
 kms:TagResource,
 kms:PutKeyPolicy
+```
+
+### Delete
+```json
+kms:DescribeKey,
+kms:ScheduleKeyDeletion
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>global_table</code> resource, use <code>global_tables</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>global_table</code> resource, use <code>global_tables</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -62,11 +65,6 @@ Gets or operates on an individual <code>global_table</code> resource, use <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -92,8 +90,9 @@ arn,
 stream_arn,
 time_to_live_specification
 FROM aws.dynamodb.global_table
-WHERE data__Identifier = '<TableName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<TableName>';
 ```
+
 
 ## Permissions
 
@@ -152,18 +151,5 @@ kms:DescribeKey,
 kms:ListAliases,
 kms:RevokeGrant,
 cloudwatch:PutMetricData
-```
-
-### Delete
-```json
-dynamodb:Describe*,
-dynamodb:DeleteTable,
-application-autoscaling:DeleteScalingPolicy,
-application-autoscaling:DeleteScheduledAction,
-application-autoscaling:DeregisterScalableTarget,
-application-autoscaling:Describe*,
-application-autoscaling:PutScalingPolicy,
-application-autoscaling:PutScheduledAction,
-application-autoscaling:RegisterScalableTarget
 ```
 

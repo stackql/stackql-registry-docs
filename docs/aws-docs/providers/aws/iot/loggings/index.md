@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>loggings</code> in a region or create a <code>loggings</code> resource, use <code>logging</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>loggings</code> in a region or to create or delete a <code>loggings</code> resource, use <code>logging</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>loggings</code> in a region or create a <code>l
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,77 @@ SELECT
 region,
 account_id
 FROM aws.iot.loggings
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AccountId": "{{ AccountId }}",
+ "RoleArn": "{{ RoleArn }}",
+ "DefaultLogLevel": "{{ DefaultLogLevel }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.loggings (
+ AccountId,
+ RoleArn,
+ DefaultLogLevel,
+ region
+)
+SELECT 
+{{ AccountId }},
+ {{ RoleArn }},
+ {{ DefaultLogLevel }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccountId": "{{ AccountId }}",
+ "RoleArn": "{{ RoleArn }}",
+ "DefaultLogLevel": "{{ DefaultLogLevel }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iot.loggings (
+ AccountId,
+ RoleArn,
+ DefaultLogLevel,
+ region
+)
+SELECT 
+ {{ AccountId }},
+ {{ RoleArn }},
+ {{ DefaultLogLevel }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.loggings
+WHERE data__Identifier = '<AccountId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +151,12 @@ To operate on the <code>loggings</code> resource, the following permissions are 
 iot:SetV2LoggingOptions,
 iot:GetV2LoggingOptions,
 iam:PassRole
+```
+
+### Delete
+```json
+iot:SetV2LoggingOptions,
+iot:GetV2LoggingOptions
 ```
 
 ### List

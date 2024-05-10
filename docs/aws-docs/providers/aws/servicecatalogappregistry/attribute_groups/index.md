@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>attribute_groups</code> in a region or create a <code>attribute_groups</code> resource, use <code>attribute_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>attribute_groups</code> in a region or to create or delete a <code>attribute_groups</code> resource, use <code>attribute_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>attribute_groups</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,77 @@ SELECT
 region,
 id
 FROM aws.servicecatalogappregistry.attribute_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Attributes": {}
+}
+>>>
+--required properties only
+INSERT INTO aws.servicecatalogappregistry.attribute_groups (
+ Name,
+ Attributes,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Attributes }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Attributes": {},
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.servicecatalogappregistry.attribute_groups (
+ Name,
+ Description,
+ Attributes,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Attributes }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.servicecatalogappregistry.attribute_groups
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +150,11 @@ To operate on the <code>attribute_groups</code> resource, the following permissi
 ```json
 servicecatalog:CreateAttributeGroup,
 servicecatalog:TagResource
+```
+
+### Delete
+```json
+servicecatalog:DeleteAttributeGroup
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>nat_gateways</code> in a region or create a <code>nat_gateways</code> resource, use <code>nat_gateway</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>nat_gateways</code> in a region or to create or delete a <code>nat_gateways</code> resource, use <code>nat_gateway</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>nat_gateways</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,98 @@ SELECT
 region,
 nat_gateway_id
 FROM aws.ec2.nat_gateways
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SubnetId": "{{ SubnetId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.nat_gateways (
+ SubnetId,
+ region
+)
+SELECT 
+{{ SubnetId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SecondaryAllocationIds": [
+  "{{ SecondaryAllocationIds[0] }}"
+ ],
+ "PrivateIpAddress": "{{ PrivateIpAddress }}",
+ "ConnectivityType": "{{ ConnectivityType }}",
+ "SecondaryPrivateIpAddresses": [
+  "{{ SecondaryPrivateIpAddresses[0] }}"
+ ],
+ "SecondaryPrivateIpAddressCount": "{{ SecondaryPrivateIpAddressCount }}",
+ "AllocationId": "{{ AllocationId }}",
+ "SubnetId": "{{ SubnetId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "MaxDrainDurationSeconds": "{{ MaxDrainDurationSeconds }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.nat_gateways (
+ SecondaryAllocationIds,
+ PrivateIpAddress,
+ ConnectivityType,
+ SecondaryPrivateIpAddresses,
+ SecondaryPrivateIpAddressCount,
+ AllocationId,
+ SubnetId,
+ Tags,
+ MaxDrainDurationSeconds,
+ region
+)
+SELECT 
+ {{ SecondaryAllocationIds }},
+ {{ PrivateIpAddress }},
+ {{ ConnectivityType }},
+ {{ SecondaryPrivateIpAddresses }},
+ {{ SecondaryPrivateIpAddressCount }},
+ {{ AllocationId }},
+ {{ SubnetId }},
+ {{ Tags }},
+ {{ MaxDrainDurationSeconds }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.nat_gateways
+WHERE data__Identifier = '<NatGatewayId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +176,12 @@ ec2:CreateTags
 
 ### List
 ```json
+ec2:DescribeNatGateways
+```
+
+### Delete
+```json
+ec2:DeleteNatGateway,
 ec2:DescribeNatGateways
 ```
 

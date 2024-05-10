@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpc_endpoints</code> in a region or create a <code>vpc_endpoints</code> resource, use <code>vpc_endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpc_endpoints</code> in a region or to create or delete a <code>vpc_endpoints</code> resource, use <code>vpc_endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>vpc_endpoints</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,95 @@ SELECT
 region,
 id
 FROM aws.ec2.vpc_endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ServiceName": "{{ ServiceName }}",
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.vpc_endpoints (
+ ServiceName,
+ VpcId,
+ region
+)
+SELECT 
+{{ ServiceName }},
+ {{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PolicyDocument": {},
+ "PrivateDnsEnabled": "{{ PrivateDnsEnabled }}",
+ "RouteTableIds": [
+  "{{ RouteTableIds[0] }}"
+ ],
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "ServiceName": "{{ ServiceName }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "VpcEndpointType": "{{ VpcEndpointType }}",
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.vpc_endpoints (
+ PolicyDocument,
+ PrivateDnsEnabled,
+ RouteTableIds,
+ SecurityGroupIds,
+ ServiceName,
+ SubnetIds,
+ VpcEndpointType,
+ VpcId,
+ region
+)
+SELECT 
+ {{ PolicyDocument }},
+ {{ PrivateDnsEnabled }},
+ {{ RouteTableIds }},
+ {{ SecurityGroupIds }},
+ {{ ServiceName }},
+ {{ SubnetIds }},
+ {{ VpcEndpointType }},
+ {{ VpcId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.vpc_endpoints
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +167,12 @@ To operate on the <code>vpc_endpoints</code> resource, the following permissions
 ### Create
 ```json
 ec2:CreateVpcEndpoint,
+ec2:DescribeVpcEndpoints
+```
+
+### Delete
+```json
+ec2:DeleteVpcEndpoints,
 ec2:DescribeVpcEndpoints
 ```
 

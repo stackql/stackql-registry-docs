@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>campaigns</code> in a region or create a <code>campaigns</code> resource, use <code>campaign</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>campaigns</code> in a region or to create or delete a <code>campaigns</code> resource, use <code>campaign</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>campaigns</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,140 @@ SELECT
 region,
 name
 FROM aws.iotfleetwise.campaigns
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Action": "{{ Action }}",
+ "Name": "{{ Name }}",
+ "SignalCatalogArn": "{{ SignalCatalogArn }}",
+ "TargetArn": "{{ TargetArn }}",
+ "CollectionScheme": null
+}
+>>>
+--required properties only
+INSERT INTO aws.iotfleetwise.campaigns (
+ Action,
+ Name,
+ SignalCatalogArn,
+ TargetArn,
+ CollectionScheme,
+ region
+)
+SELECT 
+{{ Action }},
+ {{ Name }},
+ {{ SignalCatalogArn }},
+ {{ TargetArn }},
+ {{ CollectionScheme }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Action": "{{ Action }}",
+ "Compression": "{{ Compression }}",
+ "Description": "{{ Description }}",
+ "Priority": "{{ Priority }}",
+ "SignalsToCollect": [
+  {
+   "MaxSampleCount": null,
+   "Name": "{{ Name }}",
+   "MinimumSamplingIntervalMs": null
+  }
+ ],
+ "DataDestinationConfigs": [
+  null
+ ],
+ "StartTime": "{{ StartTime }}",
+ "Name": "{{ Name }}",
+ "ExpiryTime": "{{ ExpiryTime }}",
+ "SpoolingMode": "{{ SpoolingMode }}",
+ "SignalCatalogArn": "{{ SignalCatalogArn }}",
+ "PostTriggerCollectionDuration": null,
+ "DataExtraDimensions": [
+  "{{ DataExtraDimensions[0] }}"
+ ],
+ "DiagnosticsMode": "{{ DiagnosticsMode }}",
+ "TargetArn": "{{ TargetArn }}",
+ "CollectionScheme": null,
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotfleetwise.campaigns (
+ Action,
+ Compression,
+ Description,
+ Priority,
+ SignalsToCollect,
+ DataDestinationConfigs,
+ StartTime,
+ Name,
+ ExpiryTime,
+ SpoolingMode,
+ SignalCatalogArn,
+ PostTriggerCollectionDuration,
+ DataExtraDimensions,
+ DiagnosticsMode,
+ TargetArn,
+ CollectionScheme,
+ Tags,
+ region
+)
+SELECT 
+ {{ Action }},
+ {{ Compression }},
+ {{ Description }},
+ {{ Priority }},
+ {{ SignalsToCollect }},
+ {{ DataDestinationConfigs }},
+ {{ StartTime }},
+ {{ Name }},
+ {{ ExpiryTime }},
+ {{ SpoolingMode }},
+ {{ SignalCatalogArn }},
+ {{ PostTriggerCollectionDuration }},
+ {{ DataExtraDimensions }},
+ {{ DiagnosticsMode }},
+ {{ TargetArn }},
+ {{ CollectionScheme }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotfleetwise.campaigns
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +223,12 @@ timestream:DescribeTable
 ### List
 ```json
 iotfleetwise:ListCampaigns,
+iotfleetwise:GetCampaign
+```
+
+### Delete
+```json
+iotfleetwise:DeleteCampaign,
 iotfleetwise:GetCampaign
 ```
 

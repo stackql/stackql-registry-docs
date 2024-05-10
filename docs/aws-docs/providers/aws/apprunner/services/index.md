@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>services</code> in a region or create a <code>services</code> resource, use <code>service</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>services</code> in a region or to create or delete a <code>services</code> resource, use <code>service</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>services</code> in a region or create a <code>s
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,211 @@ SELECT
 region,
 service_arn
 FROM aws.apprunner.services
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SourceConfiguration": {
+  "CodeRepository": {
+   "RepositoryUrl": "{{ RepositoryUrl }}",
+   "SourceCodeVersion": {
+    "Type": "{{ Type }}",
+    "Value": "{{ Value }}"
+   },
+   "CodeConfiguration": {
+    "ConfigurationSource": "{{ ConfigurationSource }}",
+    "CodeConfigurationValues": {
+     "Runtime": "{{ Runtime }}",
+     "BuildCommand": "{{ BuildCommand }}",
+     "StartCommand": "{{ StartCommand }}",
+     "Port": "{{ Port }}",
+     "RuntimeEnvironmentVariables": [
+      {
+       "Name": "{{ Name }}",
+       "Value": "{{ Value }}"
+      }
+     ],
+     "RuntimeEnvironmentSecrets": [
+      null
+     ]
+    }
+   },
+   "SourceDirectory": "{{ SourceDirectory }}"
+  },
+  "ImageRepository": {
+   "ImageIdentifier": "{{ ImageIdentifier }}",
+   "ImageConfiguration": {
+    "StartCommand": "{{ StartCommand }}",
+    "Port": "{{ Port }}",
+    "RuntimeEnvironmentVariables": [
+     null
+    ],
+    "RuntimeEnvironmentSecrets": [
+     null
+    ]
+   },
+   "ImageRepositoryType": "{{ ImageRepositoryType }}"
+  },
+  "AutoDeploymentsEnabled": "{{ AutoDeploymentsEnabled }}",
+  "AuthenticationConfiguration": {
+   "ConnectionArn": "{{ ConnectionArn }}",
+   "AccessRoleArn": "{{ AccessRoleArn }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.apprunner.services (
+ SourceConfiguration,
+ region
+)
+SELECT 
+{{ SourceConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ServiceName": "{{ ServiceName }}",
+ "SourceConfiguration": {
+  "CodeRepository": {
+   "RepositoryUrl": "{{ RepositoryUrl }}",
+   "SourceCodeVersion": {
+    "Type": "{{ Type }}",
+    "Value": "{{ Value }}"
+   },
+   "CodeConfiguration": {
+    "ConfigurationSource": "{{ ConfigurationSource }}",
+    "CodeConfigurationValues": {
+     "Runtime": "{{ Runtime }}",
+     "BuildCommand": "{{ BuildCommand }}",
+     "StartCommand": "{{ StartCommand }}",
+     "Port": "{{ Port }}",
+     "RuntimeEnvironmentVariables": [
+      {
+       "Name": "{{ Name }}",
+       "Value": "{{ Value }}"
+      }
+     ],
+     "RuntimeEnvironmentSecrets": [
+      null
+     ]
+    }
+   },
+   "SourceDirectory": "{{ SourceDirectory }}"
+  },
+  "ImageRepository": {
+   "ImageIdentifier": "{{ ImageIdentifier }}",
+   "ImageConfiguration": {
+    "StartCommand": "{{ StartCommand }}",
+    "Port": "{{ Port }}",
+    "RuntimeEnvironmentVariables": [
+     null
+    ],
+    "RuntimeEnvironmentSecrets": [
+     null
+    ]
+   },
+   "ImageRepositoryType": "{{ ImageRepositoryType }}"
+  },
+  "AutoDeploymentsEnabled": "{{ AutoDeploymentsEnabled }}",
+  "AuthenticationConfiguration": {
+   "ConnectionArn": "{{ ConnectionArn }}",
+   "AccessRoleArn": "{{ AccessRoleArn }}"
+  }
+ },
+ "InstanceConfiguration": {
+  "Cpu": "{{ Cpu }}",
+  "Memory": "{{ Memory }}",
+  "InstanceRoleArn": null
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "EncryptionConfiguration": {
+  "KmsKey": "{{ KmsKey }}"
+ },
+ "HealthCheckConfiguration": {
+  "Protocol": "{{ Protocol }}",
+  "Path": "{{ Path }}",
+  "Interval": "{{ Interval }}",
+  "Timeout": "{{ Timeout }}",
+  "HealthyThreshold": "{{ HealthyThreshold }}",
+  "UnhealthyThreshold": "{{ UnhealthyThreshold }}"
+ },
+ "ObservabilityConfiguration": {
+  "ObservabilityEnabled": "{{ ObservabilityEnabled }}",
+  "ObservabilityConfigurationArn": "{{ ObservabilityConfigurationArn }}"
+ },
+ "AutoScalingConfigurationArn": "{{ AutoScalingConfigurationArn }}",
+ "NetworkConfiguration": {
+  "EgressConfiguration": {
+   "EgressType": "{{ EgressType }}",
+   "VpcConnectorArn": "{{ VpcConnectorArn }}"
+  },
+  "IngressConfiguration": {
+   "IsPubliclyAccessible": "{{ IsPubliclyAccessible }}"
+  },
+  "IpAddressType": "{{ IpAddressType }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.apprunner.services (
+ ServiceName,
+ SourceConfiguration,
+ InstanceConfiguration,
+ Tags,
+ EncryptionConfiguration,
+ HealthCheckConfiguration,
+ ObservabilityConfiguration,
+ AutoScalingConfigurationArn,
+ NetworkConfiguration,
+ region
+)
+SELECT 
+ {{ ServiceName }},
+ {{ SourceConfiguration }},
+ {{ InstanceConfiguration }},
+ {{ Tags }},
+ {{ EncryptionConfiguration }},
+ {{ HealthCheckConfiguration }},
+ {{ ObservabilityConfiguration }},
+ {{ AutoScalingConfigurationArn }},
+ {{ NetworkConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apprunner.services
+WHERE data__Identifier = '<ServiceArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +293,11 @@ logs:PutLogEvents,
 logs:DescribeLogStreams,
 events:PutRule,
 events:PutTargets
+```
+
+### Delete
+```json
+apprunner:DeleteService
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>studios</code> in a region or create a <code>studios</code> resource, use <code>studio</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>studios</code> in a region or to create or delete a <code>studios</code> resource, use <code>studio</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>studios</code> in a region or create a <code>st
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,92 @@ SELECT
 region,
 studio_id
 FROM aws.nimblestudio.studios
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AdminRoleArn": "{{ AdminRoleArn }}",
+ "DisplayName": "{{ DisplayName }}",
+ "StudioName": "{{ StudioName }}",
+ "UserRoleArn": "{{ UserRoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.nimblestudio.studios (
+ AdminRoleArn,
+ DisplayName,
+ StudioName,
+ UserRoleArn,
+ region
+)
+SELECT 
+{{ AdminRoleArn }},
+ {{ DisplayName }},
+ {{ StudioName }},
+ {{ UserRoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AdminRoleArn": "{{ AdminRoleArn }}",
+ "DisplayName": "{{ DisplayName }}",
+ "StudioEncryptionConfiguration": {
+  "KeyType": "{{ KeyType }}",
+  "KeyArn": "{{ KeyArn }}"
+ },
+ "StudioName": "{{ StudioName }}",
+ "Tags": {},
+ "UserRoleArn": "{{ UserRoleArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.nimblestudio.studios (
+ AdminRoleArn,
+ DisplayName,
+ StudioEncryptionConfiguration,
+ StudioName,
+ Tags,
+ UserRoleArn,
+ region
+)
+SELECT 
+ {{ AdminRoleArn }},
+ {{ DisplayName }},
+ {{ StudioEncryptionConfiguration }},
+ {{ StudioName }},
+ {{ Tags }},
+ {{ UserRoleArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.nimblestudio.studios
+WHERE data__Identifier = '<StudioId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +173,20 @@ kms:Decrypt,
 kms:CreateGrant,
 kms:ListGrants,
 kms:GenerateDataKey
+```
+
+### Delete
+```json
+nimble:DeleteStudio,
+nimble:GetStudio,
+nimble:UntagResource,
+kms:Encrypt,
+kms:Decrypt,
+kms:ListGrants,
+kms:RetireGrant,
+kms:GenerateDataKey,
+sso:DeleteManagedApplicationInstance,
+sso:GetManagedApplicationInstance
 ```
 
 ### List

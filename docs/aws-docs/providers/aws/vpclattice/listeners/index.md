@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>listeners</code> in a region or create a <code>listeners</code> resource, use <code>listener</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>listeners</code> in a region or to create or delete a <code>listeners</code> resource, use <code>listener</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>listeners</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,112 @@ SELECT
 region,
 arn
 FROM aws.vpclattice.listeners
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DefaultAction": {
+  "Forward": {
+   "TargetGroups": [
+    {
+     "TargetGroupIdentifier": "{{ TargetGroupIdentifier }}",
+     "Weight": "{{ Weight }}"
+    }
+   ]
+  },
+  "FixedResponse": {
+   "StatusCode": "{{ StatusCode }}"
+  }
+ },
+ "Protocol": "{{ Protocol }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.vpclattice.listeners (
+ DefaultAction,
+ Protocol,
+ region
+)
+SELECT 
+{{ DefaultAction }},
+ {{ Protocol }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DefaultAction": {
+  "Forward": {
+   "TargetGroups": [
+    {
+     "TargetGroupIdentifier": "{{ TargetGroupIdentifier }}",
+     "Weight": "{{ Weight }}"
+    }
+   ]
+  },
+  "FixedResponse": {
+   "StatusCode": "{{ StatusCode }}"
+  }
+ },
+ "Name": "{{ Name }}",
+ "Port": "{{ Port }}",
+ "Protocol": "{{ Protocol }}",
+ "ServiceIdentifier": "{{ ServiceIdentifier }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.vpclattice.listeners (
+ DefaultAction,
+ Name,
+ Port,
+ Protocol,
+ ServiceIdentifier,
+ Tags,
+ region
+)
+SELECT 
+ {{ DefaultAction }},
+ {{ Name }},
+ {{ Port }},
+ {{ Protocol }},
+ {{ ServiceIdentifier }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.vpclattice.listeners
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +187,11 @@ vpc-lattice:CreateListener,
 vpc-lattice:TagResource,
 vpc-lattice:GetListener,
 vpc-lattice:ListTagsForResource
+```
+
+### Delete
+```json
+vpc-lattice:DeleteListener
 ```
 
 ### List

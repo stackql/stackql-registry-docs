@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>wireless_gateways</code> in a region or create a <code>wireless_gateways</code> resource, use <code>wireless_gateway</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>wireless_gateways</code> in a region or to create or delete a <code>wireless_gateways</code> resource, use <code>wireless_gateway</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>wireless_gateways</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,94 @@ SELECT
 region,
 id
 FROM aws.iotwireless.wireless_gateways
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "LoRaWAN": {
+  "GatewayEui": "{{ GatewayEui }}",
+  "RfRegion": "{{ RfRegion }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.iotwireless.wireless_gateways (
+ LoRaWAN,
+ region
+)
+SELECT 
+{{ LoRaWAN }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "LoRaWAN": {
+  "GatewayEui": "{{ GatewayEui }}",
+  "RfRegion": "{{ RfRegion }}"
+ },
+ "ThingArn": "{{ ThingArn }}",
+ "ThingName": "{{ ThingName }}",
+ "LastUplinkReceivedAt": "{{ LastUplinkReceivedAt }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iotwireless.wireless_gateways (
+ Name,
+ Description,
+ Tags,
+ LoRaWAN,
+ ThingArn,
+ ThingName,
+ LastUplinkReceivedAt,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Tags }},
+ {{ LoRaWAN }},
+ {{ ThingArn }},
+ {{ ThingName }},
+ {{ LastUplinkReceivedAt }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotwireless.wireless_gateways
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +168,12 @@ To operate on the <code>wireless_gateways</code> resource, the following permiss
 iotwireless:CreateWirelessGateway,
 iotwireless:TagResource,
 iotwireless:ListTagsForResource
+```
+
+### Delete
+```json
+iotwireless:DeleteWirelessGateway,
+iotwireless:DisassociateWirelessGatewayFromThing
 ```
 
 ### List

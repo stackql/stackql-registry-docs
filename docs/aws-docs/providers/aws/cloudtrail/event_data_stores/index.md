@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>event_data_stores</code> in a region or create a <code>event_data_stores</code> resource, use <code>event_data_store</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>event_data_stores</code> in a region or to create or delete a <code>event_data_stores</code> resource, use <code>event_data_store</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>event_data_stores</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,138 @@ SELECT
 region,
 event_data_store_arn
 FROM aws.cloudtrail.event_data_stores
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.cloudtrail.event_data_stores (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AdvancedEventSelectors": [
+  {
+   "Name": "{{ Name }}",
+   "FieldSelectors": [
+    {
+     "Field": "{{ Field }}",
+     "Equals": [
+      "{{ Equals[0] }}"
+     ],
+     "StartsWith": [
+      "{{ StartsWith[0] }}"
+     ],
+     "EndsWith": [
+      "{{ EndsWith[0] }}"
+     ],
+     "NotEquals": [
+      "{{ NotEquals[0] }}"
+     ],
+     "NotStartsWith": [
+      "{{ NotStartsWith[0] }}"
+     ],
+     "NotEndsWith": [
+      "{{ NotEndsWith[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "FederationEnabled": "{{ FederationEnabled }}",
+ "FederationRoleArn": "{{ FederationRoleArn }}",
+ "MultiRegionEnabled": "{{ MultiRegionEnabled }}",
+ "Name": "{{ Name }}",
+ "OrganizationEnabled": "{{ OrganizationEnabled }}",
+ "BillingMode": "{{ BillingMode }}",
+ "RetentionPeriod": "{{ RetentionPeriod }}",
+ "TerminationProtectionEnabled": "{{ TerminationProtectionEnabled }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "InsightSelectors": [
+  {
+   "InsightType": "{{ InsightType }}"
+  }
+ ],
+ "InsightsDestination": "{{ InsightsDestination }}",
+ "IngestionEnabled": "{{ IngestionEnabled }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cloudtrail.event_data_stores (
+ AdvancedEventSelectors,
+ FederationEnabled,
+ FederationRoleArn,
+ MultiRegionEnabled,
+ Name,
+ OrganizationEnabled,
+ BillingMode,
+ RetentionPeriod,
+ TerminationProtectionEnabled,
+ KmsKeyId,
+ Tags,
+ InsightSelectors,
+ InsightsDestination,
+ IngestionEnabled,
+ region
+)
+SELECT 
+ {{ AdvancedEventSelectors }},
+ {{ FederationEnabled }},
+ {{ FederationRoleArn }},
+ {{ MultiRegionEnabled }},
+ {{ Name }},
+ {{ OrganizationEnabled }},
+ {{ BillingMode }},
+ {{ RetentionPeriod }},
+ {{ TerminationProtectionEnabled }},
+ {{ KmsKeyId }},
+ {{ Tags }},
+ {{ InsightSelectors }},
+ {{ InsightsDestination }},
+ {{ IngestionEnabled }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudtrail.event_data_stores
+WHERE data__Identifier = '<EventDataStoreArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -86,6 +225,15 @@ glue:CreateDatabase,
 glue:CreateTable,
 glue:PassConnection,
 lakeformation:RegisterResource
+```
+
+### Delete
+```json
+CloudTrail:DeleteEventDataStore,
+CloudTrail:GetEventDataStore,
+CloudTrail:DisableFederation,
+glue:DeleteTable,
+lakeformation:DeregisterResource
 ```
 
 ### List

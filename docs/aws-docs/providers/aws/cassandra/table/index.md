@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>table</code> resource, use <code>tables</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>table</code> resource, use <code>tables</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>table</code> resource, use <code>tables<
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ encryption_specification,
 auto_scaling_specifications,
 replica_specifications
 FROM aws.cassandra.table
-WHERE data__Identifier = '<KeyspaceName>|<TableName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<KeyspaceName>|<TableName>';
 ```
+
 
 ## Permissions
 
@@ -126,23 +125,6 @@ kms:CreateGrant,
 kms:DescribeKey,
 kms:Encrypt,
 kms:Decrypt,
-application-autoscaling:DescribeScalableTargets,
-application-autoscaling:DescribeScalingPolicies,
-application-autoscaling:DeregisterScalableTarget,
-application-autoscaling:RegisterScalableTarget,
-application-autoscaling:PutScalingPolicy,
-cloudwatch:DeleteAlarms,
-cloudwatch:DescribeAlarms,
-cloudwatch:GetMetricData,
-cloudwatch:PutMetricAlarm
-```
-
-### Delete
-```json
-cassandra:Drop,
-cassandra:DropMultiRegionResource,
-cassandra:Select,
-cassandra:SelectMultiRegionResource,
 application-autoscaling:DescribeScalableTargets,
 application-autoscaling:DescribeScalingPolicies,
 application-autoscaling:DeregisterScalableTarget,

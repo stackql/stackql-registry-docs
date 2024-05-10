@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>prefix_lists</code> in a region or create a <code>prefix_lists</code> resource, use <code>prefix_list</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>prefix_lists</code> in a region or to create or delete a <code>prefix_lists</code> resource, use <code>prefix_list</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>prefix_lists</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,90 @@ SELECT
 region,
 prefix_list_id
 FROM aws.ec2.prefix_lists
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PrefixListName": "{{ PrefixListName }}",
+ "AddressFamily": "{{ AddressFamily }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.prefix_lists (
+ PrefixListName,
+ AddressFamily,
+ region
+)
+SELECT 
+{{ PrefixListName }},
+ {{ AddressFamily }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PrefixListName": "{{ PrefixListName }}",
+ "AddressFamily": "{{ AddressFamily }}",
+ "MaxEntries": "{{ MaxEntries }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Entries": [
+  {
+   "Cidr": "{{ Cidr }}",
+   "Description": "{{ Description }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.prefix_lists (
+ PrefixListName,
+ AddressFamily,
+ MaxEntries,
+ Tags,
+ Entries,
+ region
+)
+SELECT 
+ {{ PrefixListName }},
+ {{ AddressFamily }},
+ {{ MaxEntries }},
+ {{ Tags }},
+ {{ Entries }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.prefix_lists
+WHERE data__Identifier = '<PrefixListId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +164,12 @@ To operate on the <code>prefix_lists</code> resource, the following permissions 
 EC2:CreateManagedPrefixList,
 EC2:DescribeManagedPrefixLists,
 EC2:CreateTags
+```
+
+### Delete
+```json
+EC2:DeleteManagedPrefixList,
+EC2:DescribeManagedPrefixLists
 ```
 
 ### List

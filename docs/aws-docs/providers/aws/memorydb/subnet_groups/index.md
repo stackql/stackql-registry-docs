@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>subnet_groups</code> in a region or create a <code>subnet_groups</code> resource, use <code>subnet_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>subnet_groups</code> in a region or to create or delete a <code>subnet_groups</code> resource, use <code>subnet_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>subnet_groups</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 subnet_group_name
 FROM aws.memorydb.subnet_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SubnetGroupName": "{{ SubnetGroupName }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.memorydb.subnet_groups (
+ SubnetGroupName,
+ SubnetIds,
+ region
+)
+SELECT 
+{{ SubnetGroupName }},
+ {{ SubnetIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SubnetGroupName": "{{ SubnetGroupName }}",
+ "Description": "{{ Description }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.memorydb.subnet_groups (
+ SubnetGroupName,
+ Description,
+ SubnetIds,
+ Tags,
+ region
+)
+SELECT 
+ {{ SubnetGroupName }},
+ {{ Description }},
+ {{ SubnetIds }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.memorydb.subnet_groups
+WHERE data__Identifier = '<SubnetGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +161,12 @@ memorydb:CreateSubnetGroup,
 memorydb:DescribeSubnetGroups,
 memorydb:TagResource,
 memorydb:ListTags
+```
+
+### Delete
+```json
+memorydb:DeleteSubnetGroup,
+memorydb:DescribeSubnetGroups
 ```
 
 ### List

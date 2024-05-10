@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>mount_targets</code> in a region or create a <code>mount_targets</code> resource, use <code>mount_target</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>mount_targets</code> in a region or to create or delete a <code>mount_targets</code> resource, use <code>mount_target</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>mount_targets</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,84 @@ SELECT
 region,
 id
 FROM aws.efs.mount_targets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FileSystemId": "{{ FileSystemId }}",
+ "SecurityGroups": [
+  "{{ SecurityGroups[0] }}"
+ ],
+ "SubnetId": "{{ SubnetId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.efs.mount_targets (
+ FileSystemId,
+ SecurityGroups,
+ SubnetId,
+ region
+)
+SELECT 
+{{ FileSystemId }},
+ {{ SecurityGroups }},
+ {{ SubnetId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IpAddress": "{{ IpAddress }}",
+ "FileSystemId": "{{ FileSystemId }}",
+ "SecurityGroups": [
+  "{{ SecurityGroups[0] }}"
+ ],
+ "SubnetId": "{{ SubnetId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.efs.mount_targets (
+ IpAddress,
+ FileSystemId,
+ SecurityGroups,
+ SubnetId,
+ region
+)
+SELECT 
+ {{ IpAddress }},
+ {{ FileSystemId }},
+ {{ SecurityGroups }},
+ {{ SubnetId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.efs.mount_targets
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +157,12 @@ To operate on the <code>mount_targets</code> resource, the following permissions
 ```json
 elasticfilesystem:CreateMountTarget,
 elasticfilesystem:DescribeMountTargets
+```
+
+### Delete
+```json
+elasticfilesystem:DescribeMountTargets,
+elasticfilesystem:DeleteMountTarget
 ```
 
 ### List

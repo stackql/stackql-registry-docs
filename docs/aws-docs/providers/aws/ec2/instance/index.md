@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>instance</code> resource, use <code>instances</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>instance</code> resource, use <code>instances</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -94,11 +97,6 @@ Gets or operates on an individual <code>instance</code> resource, use <code>inst
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -156,8 +154,9 @@ vpc_id,
 affinity,
 credit_specification
 FROM aws.ec2.instance
-WHERE data__Identifier = '<InstanceId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<InstanceId>';
 ```
+
 
 ## Permissions
 
@@ -209,22 +208,6 @@ ec2:UnmonitorInstances,
 elastic-inference:DescribeAccelerators,
 ssm:CreateAssociation,
 ssm:DeleteAssociation,
-ssm:DescribeAssociation,
-ssm:ListAssociations
-```
-
-### Delete
-```json
-ec2:DescribeInstances,
-ec2:TerminateInstances,
-ec2:DescribeElasticGpus,
-ec2:DescribeNetworkInterfaces,
-ec2:DescribeVolumes,
-ec2:DescribeInstances,
-ec2:DescribeInstanceAttribute,
-ec2:DescribeInstanceCreditSpecifications,
-ec2:DescribeLaunchTemplates,
-elastic-inference:DescribeAccelerators,
 ssm:DescribeAssociation,
 ssm:ListAssociations
 ```

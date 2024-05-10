@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>webacl_associations</code> in a region or create a <code>webacl_associations</code> resource, use <code>webacl_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>webacl_associations</code> in a region or to create or delete a <code>webacl_associations</code> resource, use <code>webacl_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>webacl_associations</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,71 @@ region,
 resource_arn,
 web_acl_arn
 FROM aws.wafv2.webacl_associations
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ResourceArn": "{{ ResourceArn }}",
+ "WebACLArn": null
+}
+>>>
+--required properties only
+INSERT INTO aws.wafv2.webacl_associations (
+ ResourceArn,
+ WebACLArn,
+ region
+)
+SELECT 
+{{ ResourceArn }},
+ {{ WebACLArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ResourceArn": "{{ ResourceArn }}",
+ "WebACLArn": null
+}
+>>>
+--all properties
+INSERT INTO aws.wafv2.webacl_associations (
+ ResourceArn,
+ WebACLArn,
+ region
+)
+SELECT 
+ {{ ResourceArn }},
+ {{ WebACLArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.wafv2.webacl_associations
+WHERE data__Identifier = '<ResourceArn|WebACLArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +143,27 @@ FROM aws.wafv2.webacl_associations
 To operate on the <code>webacl_associations</code> resource, the following permissions are required:
 
 ### Create
+```json
+wafv2:AssociateWebACL,
+wafv2:GetWebACLForResource,
+wafv2:GetWebACL,
+wafv2:DisassociateWebACL,
+elasticloadbalancing:SetWebACL,
+apigateway:SetWebACL,
+appsync:SetWebACL,
+cognito-idp:AssociateWebACL,
+cognito-idp:DisassociateWebACL,
+cognito-idp:GetWebACLForResource,
+apprunner:AssociateWebAcl,
+apprunner:DisassociateWebAcl,
+apprunner:DescribeWebAclForService,
+ec2:AssociateVerifiedAccessInstanceWebAcl,
+ec2:DisassociateVerifiedAccessInstanceWebAcl,
+ec2:DescribeVerifiedAccessInstanceWebAclAssociations,
+ec2:GetVerifiedAccessInstanceWebAcl
+```
+
+### Delete
 ```json
 wafv2:AssociateWebACL,
 wafv2:GetWebACLForResource,

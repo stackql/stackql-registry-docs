@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>access_grants</code> in a region or create a <code>access_grants</code> resource, use <code>access_grant</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>access_grants</code> in a region or to create or delete a <code>access_grants</code> resource, use <code>access_grant</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>access_grants</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,102 @@ SELECT
 region,
 access_grant_id
 FROM aws.s3.access_grants
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AccessGrantsLocationId": "{{ AccessGrantsLocationId }}",
+ "Permission": "{{ Permission }}",
+ "Grantee": {
+  "GranteeType": "{{ GranteeType }}",
+  "GranteeIdentifier": "{{ GranteeIdentifier }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.s3.access_grants (
+ AccessGrantsLocationId,
+ Permission,
+ Grantee,
+ region
+)
+SELECT 
+{{ AccessGrantsLocationId }},
+ {{ Permission }},
+ {{ Grantee }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessGrantsLocationId": "{{ AccessGrantsLocationId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Permission": "{{ Permission }}",
+ "ApplicationArn": "{{ ApplicationArn }}",
+ "S3PrefixType": "{{ S3PrefixType }}",
+ "Grantee": {
+  "GranteeType": "{{ GranteeType }}",
+  "GranteeIdentifier": "{{ GranteeIdentifier }}"
+ },
+ "AccessGrantsLocationConfiguration": {
+  "S3SubPrefix": "{{ S3SubPrefix }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.s3.access_grants (
+ AccessGrantsLocationId,
+ Tags,
+ Permission,
+ ApplicationArn,
+ S3PrefixType,
+ Grantee,
+ AccessGrantsLocationConfiguration,
+ region
+)
+SELECT 
+ {{ AccessGrantsLocationId }},
+ {{ Tags }},
+ {{ Permission }},
+ {{ ApplicationArn }},
+ {{ S3PrefixType }},
+ {{ Grantee }},
+ {{ AccessGrantsLocationConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.s3.access_grants
+WHERE data__Identifier = '<AccessGrantId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +175,11 @@ To operate on the <code>access_grants</code> resource, the following permissions
 ```json
 s3:CreateAccessGrant,
 s3:TagResource
+```
+
+### Delete
+```json
+s3:DeleteAccessGrant
 ```
 
 ### List

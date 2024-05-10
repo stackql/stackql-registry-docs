@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>capacity_reservation_fleet</code> resource, use <code>capacity_reservation_fleets</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>capacity_reservation_fleet</code> resource, use <code>capacity_reservation_fleets</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>capacity_reservation_fleet</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,24 +82,13 @@ tenancy,
 remove_end_date,
 no_remove_end_date
 FROM aws.ec2.capacity_reservation_fleet
-WHERE data__Identifier = '<CapacityReservationFleetId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<CapacityReservationFleetId>';
 ```
+
 
 ## Permissions
 
 To operate on the <code>capacity_reservation_fleet</code> resource, the following permissions are required:
-
-### Delete
-```json
-ec2:CreateCapacityReservationFleet,
-ec2:ModifyCapacityReservationFleet,
-ec2:DescribeCapacityReservationFleets,
-ec2:CancelCapacityReservationFleets,
-ec2:CreateCapacityReservation,
-ec2:DescribeCapacityReservations,
-ec2:CancelCapacityReservation,
-ec2:DeleteTags
-```
 
 ### Read
 ```json

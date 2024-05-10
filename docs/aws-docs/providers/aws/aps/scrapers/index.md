@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>scrapers</code> in a region or create a <code>scrapers</code> resource, use <code>scraper</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>scrapers</code> in a region or to create or delete a <code>scrapers</code> resource, use <code>scraper</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>scrapers</code> in a region or create a <code>s
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,120 @@ SELECT
 region,
 arn
 FROM aws.aps.scrapers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ScrapeConfiguration": {
+  "ConfigurationBlob": "{{ ConfigurationBlob }}"
+ },
+ "Source": {
+  "EksConfiguration": {
+   "ClusterArn": "{{ ClusterArn }}",
+   "SecurityGroupIds": [
+    "{{ SecurityGroupIds[0] }}"
+   ],
+   "SubnetIds": [
+    "{{ SubnetIds[0] }}"
+   ]
+  }
+ },
+ "Destination": {
+  "AmpConfiguration": {
+   "WorkspaceArn": "{{ WorkspaceArn }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.aps.scrapers (
+ ScrapeConfiguration,
+ Source,
+ Destination,
+ region
+)
+SELECT 
+{{ ScrapeConfiguration }},
+ {{ Source }},
+ {{ Destination }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Alias": "{{ Alias }}",
+ "ScrapeConfiguration": {
+  "ConfigurationBlob": "{{ ConfigurationBlob }}"
+ },
+ "Source": {
+  "EksConfiguration": {
+   "ClusterArn": "{{ ClusterArn }}",
+   "SecurityGroupIds": [
+    "{{ SecurityGroupIds[0] }}"
+   ],
+   "SubnetIds": [
+    "{{ SubnetIds[0] }}"
+   ]
+  }
+ },
+ "Destination": {
+  "AmpConfiguration": {
+   "WorkspaceArn": "{{ WorkspaceArn }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.aps.scrapers (
+ Alias,
+ ScrapeConfiguration,
+ Source,
+ Destination,
+ Tags,
+ region
+)
+SELECT 
+ {{ Alias }},
+ {{ ScrapeConfiguration }},
+ {{ Source }},
+ {{ Destination }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.aps.scrapers
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +201,18 @@ eks:DescribeCluster,
 ec2:DescribeSubnets,
 ec2:DescribeSecurityGroups,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+aps:DeleteScraper,
+aps:DescribeScraper,
+aps:DescribeWorkspace,
+eks:AssociateAccessPolicy,
+eks:DescribeCluster,
+ec2:DescribeSubnets,
+ec2:DescribeSecurityGroups,
+iam:DeleteServiceLinkedRole
 ```
 
 ### List

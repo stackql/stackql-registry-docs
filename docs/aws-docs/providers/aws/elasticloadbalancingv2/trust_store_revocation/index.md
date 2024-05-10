@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>trust_store_revocation</code> resource, use <code>trust_store_revocations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>trust_store_revocation</code> resource, use <code>trust_store_revocations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -47,11 +50,6 @@ Gets or operates on an individual <code>trust_store_revocation</code> resource, 
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -67,18 +65,13 @@ trust_store_arn,
 revocation_id,
 trust_store_revocations
 FROM aws.elasticloadbalancingv2.trust_store_revocation
-WHERE data__Identifier = '<RevocationId>|<TrustStoreArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<RevocationId>|<TrustStoreArn>';
 ```
+
 
 ## Permissions
 
 To operate on the <code>trust_store_revocation</code> resource, the following permissions are required:
-
-### Delete
-```json
-elasticloadbalancing:DescribeTrustStoreRevocations,
-elasticloadbalancing:RemoveTrustStoreRevocations
-```
 
 ### Read
 ```json

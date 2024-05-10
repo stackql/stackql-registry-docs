@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>rules</code> in a region or create a <code>rules</code> resource, use <code>rule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>rules</code> in a region or to create or delete a <code>rules</code> resource, use <code>rule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>rules</code> in a region or create a <code>rule
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,162 @@ SELECT
 region,
 arn
 FROM aws.vpclattice.rules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Action": {
+  "Forward": {
+   "TargetGroups": [
+    {
+     "TargetGroupIdentifier": "{{ TargetGroupIdentifier }}",
+     "Weight": "{{ Weight }}"
+    }
+   ]
+  },
+  "FixedResponse": {
+   "StatusCode": "{{ StatusCode }}"
+  }
+ },
+ "Match": {
+  "HttpMatch": {
+   "Method": "{{ Method }}",
+   "PathMatch": {
+    "Match": {
+     "Exact": "{{ Exact }}",
+     "Prefix": "{{ Prefix }}"
+    },
+    "CaseSensitive": "{{ CaseSensitive }}"
+   },
+   "HeaderMatches": [
+    {
+     "Name": "{{ Name }}",
+     "Match": {
+      "Exact": "{{ Exact }}",
+      "Prefix": "{{ Prefix }}",
+      "Contains": "{{ Contains }}"
+     },
+     "CaseSensitive": "{{ CaseSensitive }}"
+    }
+   ]
+  }
+ },
+ "Priority": "{{ Priority }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.vpclattice.rules (
+ Action,
+ Match,
+ Priority,
+ region
+)
+SELECT 
+{{ Action }},
+ {{ Match }},
+ {{ Priority }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Action": {
+  "Forward": {
+   "TargetGroups": [
+    {
+     "TargetGroupIdentifier": "{{ TargetGroupIdentifier }}",
+     "Weight": "{{ Weight }}"
+    }
+   ]
+  },
+  "FixedResponse": {
+   "StatusCode": "{{ StatusCode }}"
+  }
+ },
+ "ListenerIdentifier": "{{ ListenerIdentifier }}",
+ "Match": {
+  "HttpMatch": {
+   "Method": "{{ Method }}",
+   "PathMatch": {
+    "Match": {
+     "Exact": "{{ Exact }}",
+     "Prefix": "{{ Prefix }}"
+    },
+    "CaseSensitive": "{{ CaseSensitive }}"
+   },
+   "HeaderMatches": [
+    {
+     "Name": "{{ Name }}",
+     "Match": {
+      "Exact": "{{ Exact }}",
+      "Prefix": "{{ Prefix }}",
+      "Contains": "{{ Contains }}"
+     },
+     "CaseSensitive": "{{ CaseSensitive }}"
+    }
+   ]
+  }
+ },
+ "Name": "{{ Name }}",
+ "Priority": "{{ Priority }}",
+ "ServiceIdentifier": "{{ ServiceIdentifier }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.vpclattice.rules (
+ Action,
+ ListenerIdentifier,
+ Match,
+ Name,
+ Priority,
+ ServiceIdentifier,
+ Tags,
+ region
+)
+SELECT 
+ {{ Action }},
+ {{ ListenerIdentifier }},
+ {{ Match }},
+ {{ Name }},
+ {{ Priority }},
+ {{ ServiceIdentifier }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.vpclattice.rules
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +237,11 @@ vpc-lattice:CreateRule,
 vpc-lattice:GetRule,
 vpc-lattice:ListTagsForResource,
 vpc-lattice:TagResource
+```
+
+### Delete
+```json
+vpc-lattice:DeleteRule
 ```
 
 ### List

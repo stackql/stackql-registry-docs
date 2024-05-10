@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>local_gateway_routes</code> in a region or create a <code>local_gateway_routes</code> resource, use <code>local_gateway_route</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>local_gateway_routes</code> in a region or to create or delete a <code>local_gateway_routes</code> resource, use <code>local_gateway_route</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>local_gateway_routes</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 destination_cidr_block,
 local_gateway_route_table_id
 FROM aws.ec2.local_gateway_routes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationCidrBlock": "{{ DestinationCidrBlock }}",
+ "LocalGatewayRouteTableId": "{{ LocalGatewayRouteTableId }}",
+ "LocalGatewayVirtualInterfaceGroupId": "{{ LocalGatewayVirtualInterfaceGroupId }}",
+ "NetworkInterfaceId": "{{ NetworkInterfaceId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.local_gateway_routes (
+ DestinationCidrBlock,
+ LocalGatewayRouteTableId,
+ LocalGatewayVirtualInterfaceGroupId,
+ NetworkInterfaceId,
+ region
+)
+SELECT 
+{{ DestinationCidrBlock }},
+ {{ LocalGatewayRouteTableId }},
+ {{ LocalGatewayVirtualInterfaceGroupId }},
+ {{ NetworkInterfaceId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DestinationCidrBlock": "{{ DestinationCidrBlock }}",
+ "LocalGatewayRouteTableId": "{{ LocalGatewayRouteTableId }}",
+ "LocalGatewayVirtualInterfaceGroupId": "{{ LocalGatewayVirtualInterfaceGroupId }}",
+ "NetworkInterfaceId": "{{ NetworkInterfaceId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.local_gateway_routes (
+ DestinationCidrBlock,
+ LocalGatewayRouteTableId,
+ LocalGatewayVirtualInterfaceGroupId,
+ NetworkInterfaceId,
+ region
+)
+SELECT 
+ {{ DestinationCidrBlock }},
+ {{ LocalGatewayRouteTableId }},
+ {{ LocalGatewayVirtualInterfaceGroupId }},
+ {{ NetworkInterfaceId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.local_gateway_routes
+WHERE data__Identifier = '<DestinationCidrBlock|LocalGatewayRouteTableId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,12 @@ To operate on the <code>local_gateway_routes</code> resource, the following perm
 ### Create
 ```json
 ec2:CreateLocalGatewayRoute,
+ec2:SearchLocalGatewayRoutes
+```
+
+### Delete
+```json
+ec2:DeleteLocalGatewayRoute,
 ec2:SearchLocalGatewayRoutes
 ```
 

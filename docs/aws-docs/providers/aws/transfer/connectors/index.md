@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>connectors</code> in a region or create a <code>connectors</code> resource, use <code>connector</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>connectors</code> in a region or to create or delete a <code>connectors</code> resource, use <code>connector</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>connectors</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,103 @@ SELECT
 region,
 connector_id
 FROM aws.transfer.connectors
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AccessRole": "{{ AccessRole }}",
+ "Url": "{{ Url }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.transfer.connectors (
+ AccessRole,
+ Url,
+ region
+)
+SELECT 
+{{ AccessRole }},
+ {{ Url }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessRole": "{{ AccessRole }}",
+ "As2Config": {
+  "LocalProfileId": "{{ LocalProfileId }}",
+  "PartnerProfileId": "{{ PartnerProfileId }}",
+  "MessageSubject": "{{ MessageSubject }}",
+  "Compression": "{{ Compression }}",
+  "EncryptionAlgorithm": "{{ EncryptionAlgorithm }}",
+  "SigningAlgorithm": "{{ SigningAlgorithm }}",
+  "MdnSigningAlgorithm": "{{ MdnSigningAlgorithm }}",
+  "MdnResponse": "{{ MdnResponse }}",
+  "BasicAuthSecretId": "{{ BasicAuthSecretId }}"
+ },
+ "SftpConfig": {
+  "UserSecretId": "{{ UserSecretId }}",
+  "TrustedHostKeys": [
+   "{{ TrustedHostKeys[0] }}"
+  ]
+ },
+ "LoggingRole": "{{ LoggingRole }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Url": "{{ Url }}"
+}
+>>>
+--all properties
+INSERT INTO aws.transfer.connectors (
+ AccessRole,
+ As2Config,
+ SftpConfig,
+ LoggingRole,
+ Tags,
+ Url,
+ region
+)
+SELECT 
+ {{ AccessRole }},
+ {{ As2Config }},
+ {{ SftpConfig }},
+ {{ LoggingRole }},
+ {{ Tags }},
+ {{ Url }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.transfer.connectors
+WHERE data__Identifier = '<ConnectorId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +177,11 @@ To operate on the <code>connectors</code> resource, the following permissions ar
 transfer:CreateConnector,
 transfer:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+transfer:DeleteConnector
 ```
 
 ### List

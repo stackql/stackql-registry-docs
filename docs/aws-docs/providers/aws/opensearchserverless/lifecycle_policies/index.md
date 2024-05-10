@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>lifecycle_policies</code> in a region or create a <code>lifecycle_policies</code> resource, use <code>lifecycle_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>lifecycle_policies</code> in a region or to create or delete a <code>lifecycle_policies</code> resource, use <code>lifecycle_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>lifecycle_policies</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,80 @@ region,
 type,
 name
 FROM aws.opensearchserverless.lifecycle_policies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}",
+ "Policy": "{{ Policy }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.opensearchserverless.lifecycle_policies (
+ Name,
+ Type,
+ Policy,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Type }},
+ {{ Policy }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}",
+ "Description": "{{ Description }}",
+ "Policy": "{{ Policy }}"
+}
+>>>
+--all properties
+INSERT INTO aws.opensearchserverless.lifecycle_policies (
+ Name,
+ Type,
+ Description,
+ Policy,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Type }},
+ {{ Description }},
+ {{ Policy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.opensearchserverless.lifecycle_policies
+WHERE data__Identifier = '<Type|Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +154,11 @@ To operate on the <code>lifecycle_policies</code> resource, the following permis
 ### Create
 ```json
 aoss:CreateLifecyclePolicy
+```
+
+### Delete
+```json
+aoss:DeleteLifecyclePolicy
 ```
 
 ### List

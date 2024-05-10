@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>scheduled_actions</code> in a region or create a <code>scheduled_actions</code> resource, use <code>scheduled_action</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>scheduled_actions</code> in a region or to create or delete a <code>scheduled_actions</code> resource, use <code>scheduled_action</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>scheduled_actions</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,86 @@ region,
 scheduled_action_name,
 auto_scaling_group_name
 FROM aws.autoscaling.scheduled_actions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AutoScalingGroupName": "{{ AutoScalingGroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.autoscaling.scheduled_actions (
+ AutoScalingGroupName,
+ region
+)
+SELECT 
+{{ AutoScalingGroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "MinSize": "{{ MinSize }}",
+ "Recurrence": "{{ Recurrence }}",
+ "TimeZone": "{{ TimeZone }}",
+ "EndTime": "{{ EndTime }}",
+ "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
+ "StartTime": "{{ StartTime }}",
+ "DesiredCapacity": "{{ DesiredCapacity }}",
+ "MaxSize": "{{ MaxSize }}"
+}
+>>>
+--all properties
+INSERT INTO aws.autoscaling.scheduled_actions (
+ MinSize,
+ Recurrence,
+ TimeZone,
+ EndTime,
+ AutoScalingGroupName,
+ StartTime,
+ DesiredCapacity,
+ MaxSize,
+ region
+)
+SELECT 
+ {{ MinSize }},
+ {{ Recurrence }},
+ {{ TimeZone }},
+ {{ EndTime }},
+ {{ AutoScalingGroupName }},
+ {{ StartTime }},
+ {{ DesiredCapacity }},
+ {{ MaxSize }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.autoscaling.scheduled_actions
+WHERE data__Identifier = '<ScheduledActionName|AutoScalingGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +160,12 @@ To operate on the <code>scheduled_actions</code> resource, the following permiss
 ### Create
 ```json
 autoscaling:PutScheduledUpdateGroupAction,
+autoscaling:DescribeScheduledActions
+```
+
+### Delete
+```json
+autoscaling:DeleteScheduledAction,
 autoscaling:DescribeScheduledActions
 ```
 

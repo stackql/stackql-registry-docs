@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>vpc_link</code> resource, use <code>vpc_links</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>vpc_link</code> resource, use <code>vpc_links</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>vpc_link</code> resource, use <code>vpc_
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -74,8 +72,9 @@ tags,
 target_arns,
 vpc_link_id
 FROM aws.apigateway.vpc_link
-WHERE data__Identifier = '<VpcLinkId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<VpcLinkId>';
 ```
+
 
 ## Permissions
 
@@ -95,17 +94,6 @@ ec2:ModifyVpcEndpointServicePermissions
 ### Read
 ```json
 apigateway:GET,
-ec2:CreateVpcEndpointServiceConfiguration,
-ec2:DeleteVpcEndpointServiceConfigurations,
-ec2:DescribeVpcEndpointServiceConfigurations,
-ec2:ModifyVpcEndpointServicePermissions
-```
-
-### Delete
-```json
-apigateway:GET,
-apigateway:DELETE,
-apigateway:PUT,
 ec2:CreateVpcEndpointServiceConfiguration,
 ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DescribeVpcEndpointServiceConfigurations,

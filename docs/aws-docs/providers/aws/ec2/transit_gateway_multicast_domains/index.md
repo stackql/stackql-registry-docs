@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>transit_gateway_multicast_domains</code> in a region or create a <code>transit_gateway_multicast_domains</code> resource, use <code>transit_gateway_multicast_domain</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>transit_gateway_multicast_domains</code> in a region or to create or delete a <code>transit_gateway_multicast_domains</code> resource, use <code>transit_gateway_multicast_domain</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>transit_gateway_multicast_domains</code> in a r
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,80 @@ SELECT
 region,
 transit_gateway_multicast_domain_id
 FROM aws.ec2.transit_gateway_multicast_domains
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TransitGatewayId": "{{ TransitGatewayId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.transit_gateway_multicast_domains (
+ TransitGatewayId,
+ region
+)
+SELECT 
+{{ TransitGatewayId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TransitGatewayId": "{{ TransitGatewayId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Options": {
+  "AutoAcceptSharedAssociations": "{{ AutoAcceptSharedAssociations }}",
+  "Igmpv2Support": "{{ Igmpv2Support }}",
+  "StaticSourcesSupport": "{{ StaticSourcesSupport }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.transit_gateway_multicast_domains (
+ TransitGatewayId,
+ Tags,
+ Options,
+ region
+)
+SELECT 
+ {{ TransitGatewayId }},
+ {{ Tags }},
+ {{ Options }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.transit_gateway_multicast_domains
+WHERE data__Identifier = '<TransitGatewayMulticastDomainId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +154,13 @@ To operate on the <code>transit_gateway_multicast_domains</code> resource, the f
 ec2:DescribeTransitGatewayMulticastDomains,
 ec2:CreateTransitGatewayMulticastDomain,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DescribeTransitGatewayMulticastDomains,
+ec2:DeleteTransitGatewayMulticastDomain,
+ec2:DeleteTags
 ```
 
 ### List

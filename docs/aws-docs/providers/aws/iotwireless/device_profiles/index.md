@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>device_profiles</code> in a region or create a <code>device_profiles</code> resource, use <code>device_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>device_profiles</code> in a region or to create or delete a <code>device_profiles</code> resource, use <code>device_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>device_profiles</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,96 @@ SELECT
 region,
 id
 FROM aws.iotwireless.device_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.iotwireless.device_profiles (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "LoRaWAN": {
+  "SupportsClassB": "{{ SupportsClassB }}",
+  "ClassBTimeout": "{{ ClassBTimeout }}",
+  "PingSlotPeriod": "{{ PingSlotPeriod }}",
+  "PingSlotDr": "{{ PingSlotDr }}",
+  "PingSlotFreq": "{{ PingSlotFreq }}",
+  "SupportsClassC": "{{ SupportsClassC }}",
+  "ClassCTimeout": "{{ ClassCTimeout }}",
+  "MacVersion": "{{ MacVersion }}",
+  "RegParamsRevision": "{{ RegParamsRevision }}",
+  "RxDelay1": "{{ RxDelay1 }}",
+  "RxDrOffset1": "{{ RxDrOffset1 }}",
+  "RxFreq2": "{{ RxFreq2 }}",
+  "RxDataRate2": "{{ RxDataRate2 }}",
+  "FactoryPresetFreqsList": [
+   "{{ FactoryPresetFreqsList[0] }}"
+  ],
+  "MaxEirp": "{{ MaxEirp }}",
+  "MaxDutyCycle": "{{ MaxDutyCycle }}",
+  "SupportsJoin": "{{ SupportsJoin }}",
+  "RfRegion": "{{ RfRegion }}",
+  "Supports32BitFCnt": "{{ Supports32BitFCnt }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotwireless.device_profiles (
+ Name,
+ LoRaWAN,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ LoRaWAN }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotwireless.device_profiles
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +170,11 @@ To operate on the <code>device_profiles</code> resource, the following permissio
 iotwireless:CreateDeviceProfile,
 iotwireless:TagResource,
 iotwireless:ListTagsForResource
+```
+
+### Delete
+```json
+iotwireless:DeleteDeviceProfile
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>tables</code> in a region or create a <code>tables</code> resource, use <code>table</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>tables</code> in a region or to create or delete a <code>tables</code> resource, use <code>table</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>tables</code> in a region or create a <code>tab
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,106 @@ region,
 database_name,
 table_name
 FROM aws.timestream.tables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DatabaseName": "{{ DatabaseName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.timestream.tables (
+ DatabaseName,
+ region
+)
+SELECT 
+{{ DatabaseName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DatabaseName": "{{ DatabaseName }}",
+ "TableName": "{{ TableName }}",
+ "RetentionProperties": {
+  "MemoryStoreRetentionPeriodInHours": "{{ MemoryStoreRetentionPeriodInHours }}",
+  "MagneticStoreRetentionPeriodInDays": "{{ MagneticStoreRetentionPeriodInDays }}"
+ },
+ "Schema": {
+  "CompositePartitionKey": [
+   {
+    "Type": "{{ Type }}",
+    "Name": "{{ Name }}",
+    "EnforcementInRecord": "{{ EnforcementInRecord }}"
+   }
+  ]
+ },
+ "MagneticStoreWriteProperties": {
+  "EnableMagneticStoreWrites": "{{ EnableMagneticStoreWrites }}",
+  "MagneticStoreRejectedDataLocation": {
+   "S3Configuration": {
+    "BucketName": "{{ BucketName }}",
+    "ObjectKeyPrefix": "{{ ObjectKeyPrefix }}",
+    "EncryptionOption": "{{ EncryptionOption }}",
+    "KmsKeyId": "{{ KmsKeyId }}"
+   }
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.timestream.tables (
+ DatabaseName,
+ TableName,
+ RetentionProperties,
+ Schema,
+ MagneticStoreWriteProperties,
+ Tags,
+ region
+)
+SELECT 
+ {{ DatabaseName }},
+ {{ TableName }},
+ {{ RetentionProperties }},
+ {{ Schema }},
+ {{ MagneticStoreWriteProperties }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.timestream.tables
+WHERE data__Identifier = '<DatabaseName|TableName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +188,13 @@ s3:GetBucketAcl,
 kms:GenerateDataKey*,
 kms:DescribeKey,
 kms:Encrypt
+```
+
+### Delete
+```json
+timestream:DeleteTable,
+timestream:DescribeEndpoints,
+timestream:DescribeTable
 ```
 
 ### List

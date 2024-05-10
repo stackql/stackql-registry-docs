@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>package_version</code> resource, use <code>package_versions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>package_version</code> resource, use <code>package_versions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>package_version</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ status_description,
 registered_time,
 updated_latest_patch_version
 FROM aws.panorama.package_version
-WHERE data__Identifier = '<PackageId>|<PackageVersion>|<PatchVersion>';
+WHERE region = 'us-east-1' AND data__Identifier = '<PackageId>|<PackageVersion>|<PatchVersion>';
 ```
+
 
 ## Permissions
 
@@ -109,18 +108,6 @@ panorama:DescribePackageVersion,
 panorama:RegisterPackageVersion,
 s3:ListBucket,
 s3:PutObject,
-s3:GetObject,
-s3:GetObjectVersion
-```
-
-### Delete
-```json
-panorama:DeregisterPackageVersion,
-panorama:DescribePackageVersion,
-s3:DeleteObject,
-s3:DeleteObjectVersion,
-s3:DeleteObjectVersionTagging,
-s3:ListBucket,
 s3:GetObject,
 s3:GetObjectVersion
 ```

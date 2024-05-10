@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>deployment_configs</code> in a region or create a <code>deployment_configs</code> resource, use <code>deployment_config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>deployment_configs</code> in a region or to create or delete a <code>deployment_configs</code> resource, use <code>deployment_config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>deployment_configs</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,129 @@ SELECT
 region,
 deployment_config_name
 FROM aws.codedeploy.deployment_configs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ComputePlatform": "{{ ComputePlatform }}",
+ "DeploymentConfigName": "{{ DeploymentConfigName }}",
+ "MinimumHealthyHosts": {
+  "Value": "{{ Value }}",
+  "Type": "{{ Type }}"
+ },
+ "ZonalConfig": {
+  "FirstZoneMonitorDurationInSeconds": "{{ FirstZoneMonitorDurationInSeconds }}",
+  "MonitorDurationInSeconds": "{{ MonitorDurationInSeconds }}",
+  "MinimumHealthyHostsPerZone": {
+   "Value": "{{ Value }}",
+   "Type": "{{ Type }}"
+  }
+ },
+ "TrafficRoutingConfig": {
+  "Type": "{{ Type }}",
+  "TimeBasedLinear": {
+   "LinearInterval": "{{ LinearInterval }}",
+   "LinearPercentage": "{{ LinearPercentage }}"
+  },
+  "TimeBasedCanary": {
+   "CanaryPercentage": "{{ CanaryPercentage }}",
+   "CanaryInterval": "{{ CanaryInterval }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.codedeploy.deployment_configs (
+ ComputePlatform,
+ DeploymentConfigName,
+ MinimumHealthyHosts,
+ ZonalConfig,
+ TrafficRoutingConfig,
+ region
+)
+SELECT 
+{{ ComputePlatform }},
+ {{ DeploymentConfigName }},
+ {{ MinimumHealthyHosts }},
+ {{ ZonalConfig }},
+ {{ TrafficRoutingConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ComputePlatform": "{{ ComputePlatform }}",
+ "DeploymentConfigName": "{{ DeploymentConfigName }}",
+ "MinimumHealthyHosts": {
+  "Value": "{{ Value }}",
+  "Type": "{{ Type }}"
+ },
+ "ZonalConfig": {
+  "FirstZoneMonitorDurationInSeconds": "{{ FirstZoneMonitorDurationInSeconds }}",
+  "MonitorDurationInSeconds": "{{ MonitorDurationInSeconds }}",
+  "MinimumHealthyHostsPerZone": {
+   "Value": "{{ Value }}",
+   "Type": "{{ Type }}"
+  }
+ },
+ "TrafficRoutingConfig": {
+  "Type": "{{ Type }}",
+  "TimeBasedLinear": {
+   "LinearInterval": "{{ LinearInterval }}",
+   "LinearPercentage": "{{ LinearPercentage }}"
+  },
+  "TimeBasedCanary": {
+   "CanaryPercentage": "{{ CanaryPercentage }}",
+   "CanaryInterval": "{{ CanaryInterval }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.codedeploy.deployment_configs (
+ ComputePlatform,
+ DeploymentConfigName,
+ MinimumHealthyHosts,
+ ZonalConfig,
+ TrafficRoutingConfig,
+ region
+)
+SELECT 
+ {{ ComputePlatform }},
+ {{ DeploymentConfigName }},
+ {{ MinimumHealthyHosts }},
+ {{ ZonalConfig }},
+ {{ TrafficRoutingConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.codedeploy.deployment_configs
+WHERE data__Identifier = '<DeploymentConfigName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +201,12 @@ To operate on the <code>deployment_configs</code> resource, the following permis
 ### Create
 ```json
 codedeploy:CreateDeploymentConfig
+```
+
+### Delete
+```json
+codedeploy:GetDeploymentConfig,
+codedeploy:DeleteDeploymentConfig
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>playback_configurations</code> in a region or create a <code>playback_configurations</code> resource, use <code>playback_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>playback_configurations</code> in a region or to create or delete a <code>playback_configurations</code> resource, use <code>playback_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>playback_configurations</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,140 @@ SELECT
 region,
 name
 FROM aws.mediatailor.playback_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AdDecisionServerUrl": "{{ AdDecisionServerUrl }}",
+ "Name": "{{ Name }}",
+ "VideoContentSourceUrl": "{{ VideoContentSourceUrl }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.mediatailor.playback_configurations (
+ AdDecisionServerUrl,
+ Name,
+ VideoContentSourceUrl,
+ region
+)
+SELECT 
+{{ AdDecisionServerUrl }},
+ {{ Name }},
+ {{ VideoContentSourceUrl }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AdDecisionServerUrl": "{{ AdDecisionServerUrl }}",
+ "AvailSuppression": {
+  "Mode": "{{ Mode }}",
+  "Value": "{{ Value }}"
+ },
+ "Bumper": {
+  "StartUrl": "{{ StartUrl }}",
+  "EndUrl": "{{ EndUrl }}"
+ },
+ "CdnConfiguration": {
+  "AdSegmentUrlPrefix": "{{ AdSegmentUrlPrefix }}",
+  "ContentSegmentUrlPrefix": "{{ ContentSegmentUrlPrefix }}"
+ },
+ "ConfigurationAliases": null,
+ "DashConfiguration": {
+  "MpdLocation": "{{ MpdLocation }}",
+  "OriginManifestType": "{{ OriginManifestType }}",
+  "ManifestEndpointPrefix": "{{ ManifestEndpointPrefix }}"
+ },
+ "LivePreRollConfiguration": {
+  "AdDecisionServerUrl": "{{ AdDecisionServerUrl }}",
+  "MaxDurationSeconds": "{{ MaxDurationSeconds }}"
+ },
+ "ManifestProcessingRules": {
+  "AdMarkerPassthrough": {
+   "Enabled": "{{ Enabled }}"
+  }
+ },
+ "Name": "{{ Name }}",
+ "PersonalizationThresholdSeconds": "{{ PersonalizationThresholdSeconds }}",
+ "HlsConfiguration": {
+  "ManifestEndpointPrefix": "{{ ManifestEndpointPrefix }}"
+ },
+ "SlateAdUrl": "{{ SlateAdUrl }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TranscodeProfileName": "{{ TranscodeProfileName }}",
+ "VideoContentSourceUrl": "{{ VideoContentSourceUrl }}"
+}
+>>>
+--all properties
+INSERT INTO aws.mediatailor.playback_configurations (
+ AdDecisionServerUrl,
+ AvailSuppression,
+ Bumper,
+ CdnConfiguration,
+ ConfigurationAliases,
+ DashConfiguration,
+ LivePreRollConfiguration,
+ ManifestProcessingRules,
+ Name,
+ PersonalizationThresholdSeconds,
+ HlsConfiguration,
+ SlateAdUrl,
+ Tags,
+ TranscodeProfileName,
+ VideoContentSourceUrl,
+ region
+)
+SELECT 
+ {{ AdDecisionServerUrl }},
+ {{ AvailSuppression }},
+ {{ Bumper }},
+ {{ CdnConfiguration }},
+ {{ ConfigurationAliases }},
+ {{ DashConfiguration }},
+ {{ LivePreRollConfiguration }},
+ {{ ManifestProcessingRules }},
+ {{ Name }},
+ {{ PersonalizationThresholdSeconds }},
+ {{ HlsConfiguration }},
+ {{ SlateAdUrl }},
+ {{ Tags }},
+ {{ TranscodeProfileName }},
+ {{ VideoContentSourceUrl }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediatailor.playback_configurations
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +216,11 @@ mediatailor:ConfigureLogsForPlaybackConfiguration,
 iam:CreateServiceLinkedRole,
 mediatailor:UntagResource,
 mediatailor:TagResource
+```
+
+### Delete
+```json
+mediatailor:DeletePlaybackConfiguration
 ```
 
 ### List

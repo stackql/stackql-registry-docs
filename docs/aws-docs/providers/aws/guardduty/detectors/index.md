@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>detectors</code> in a region or create a <code>detectors</code> resource, use <code>detector</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>detectors</code> in a region or to create or delete a <code>detectors</code> resource, use <code>detector</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>detectors</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,107 @@ SELECT
 region,
 id
 FROM aws.guardduty.detectors
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Enable": "{{ Enable }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.guardduty.detectors (
+ Enable,
+ region
+)
+SELECT 
+{{ Enable }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FindingPublishingFrequency": "{{ FindingPublishingFrequency }}",
+ "Enable": "{{ Enable }}",
+ "DataSources": {
+  "S3Logs": {
+   "Enable": "{{ Enable }}"
+  },
+  "Kubernetes": {
+   "AuditLogs": {
+    "Enable": "{{ Enable }}"
+   }
+  },
+  "MalwareProtection": {
+   "ScanEc2InstanceWithFindings": {
+    "EbsVolumes": "{{ EbsVolumes }}"
+   }
+  }
+ },
+ "Features": [
+  {
+   "Name": "{{ Name }}",
+   "Status": "{{ Status }}",
+   "AdditionalConfiguration": [
+    {
+     "Name": "{{ Name }}",
+     "Status": "{{ Status }}"
+    }
+   ]
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.guardduty.detectors (
+ FindingPublishingFrequency,
+ Enable,
+ DataSources,
+ Features,
+ Tags,
+ region
+)
+SELECT 
+ {{ FindingPublishingFrequency }},
+ {{ Enable }},
+ {{ DataSources }},
+ {{ Features }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.guardduty.detectors
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +183,13 @@ guardduty:GetDetector,
 guardduty:TagResource,
 iam:CreateServiceLinkedRole,
 iam:GetRole
+```
+
+### Delete
+```json
+guardduty:ListDetectors,
+guardduty:DeleteDetector,
+guardduty:GetDetector
 ```
 
 ### List

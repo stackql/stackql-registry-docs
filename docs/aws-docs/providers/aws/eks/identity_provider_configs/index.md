@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>identity_provider_configs</code> in a region or create a <code>identity_provider_configs</code> resource, use <code>identity_provider_config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>identity_provider_configs</code> in a region or to create or delete a <code>identity_provider_configs</code> resource, use <code>identity_provider_config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>identity_provider_configs</code> in a region or
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,98 @@ identity_provider_config_name,
 cluster_name,
 type
 FROM aws.eks.identity_provider_configs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.eks.identity_provider_configs (
+ ClusterName,
+ Type,
+ region
+)
+SELECT 
+{{ ClusterName }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "Type": "{{ Type }}",
+ "IdentityProviderConfigName": "{{ IdentityProviderConfigName }}",
+ "Oidc": {
+  "ClientId": "{{ ClientId }}",
+  "GroupsClaim": "{{ GroupsClaim }}",
+  "GroupsPrefix": "{{ GroupsPrefix }}",
+  "IssuerUrl": "{{ IssuerUrl }}",
+  "RequiredClaims": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ],
+  "UsernameClaim": "{{ UsernameClaim }}",
+  "UsernamePrefix": "{{ UsernamePrefix }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.eks.identity_provider_configs (
+ ClusterName,
+ Type,
+ IdentityProviderConfigName,
+ Oidc,
+ Tags,
+ region
+)
+SELECT 
+ {{ ClusterName }},
+ {{ Type }},
+ {{ IdentityProviderConfigName }},
+ {{ Oidc }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.eks.identity_provider_configs
+WHERE data__Identifier = '<IdentityProviderConfigName|ClusterName|Type>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +177,12 @@ eks:DescribeUpdate,
 eks:AssociateIdentityProviderConfig,
 eks:DescribeIdentityProviderConfig,
 eks:TagResource
+```
+
+### Delete
+```json
+eks:DisassociateIdentityProviderConfig,
+eks:DescribeIdentityProviderConfig
 ```
 
 ### List

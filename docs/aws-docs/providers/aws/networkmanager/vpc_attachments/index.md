@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpc_attachments</code> in a region or create a <code>vpc_attachments</code> resource, use <code>vpc_attachment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpc_attachments</code> in a region or to create or delete a <code>vpc_attachments</code> resource, use <code>vpc_attachment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>vpc_attachments</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,104 @@ SELECT
 region,
 attachment_id
 FROM aws.networkmanager.vpc_attachments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CoreNetworkId": "{{ CoreNetworkId }}",
+ "VpcArn": "{{ VpcArn }}",
+ "SubnetArns": [
+  "{{ SubnetArns[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.networkmanager.vpc_attachments (
+ CoreNetworkId,
+ VpcArn,
+ SubnetArns,
+ region
+)
+SELECT 
+{{ CoreNetworkId }},
+ {{ VpcArn }},
+ {{ SubnetArns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CoreNetworkId": "{{ CoreNetworkId }}",
+ "VpcArn": "{{ VpcArn }}",
+ "ProposedSegmentChange": {
+  "Tags": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ],
+  "AttachmentPolicyRuleNumber": "{{ AttachmentPolicyRuleNumber }}",
+  "SegmentName": "{{ SegmentName }}"
+ },
+ "Tags": [
+  null
+ ],
+ "SubnetArns": [
+  "{{ SubnetArns[0] }}"
+ ],
+ "Options": {
+  "Ipv6Support": "{{ Ipv6Support }}",
+  "ApplianceModeSupport": "{{ ApplianceModeSupport }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.networkmanager.vpc_attachments (
+ CoreNetworkId,
+ VpcArn,
+ ProposedSegmentChange,
+ Tags,
+ SubnetArns,
+ Options,
+ region
+)
+SELECT 
+ {{ CoreNetworkId }},
+ {{ VpcArn }},
+ {{ ProposedSegmentChange }},
+ {{ Tags }},
+ {{ SubnetArns }},
+ {{ Options }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.networkmanager.vpc_attachments
+WHERE data__Identifier = '<AttachmentId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +180,14 @@ networkmanager:GetVpcAttachment,
 networkmanager:TagResource,
 ec2:DescribeRegions,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+networkmanager:DeleteAttachment,
+networkmanager:GetVpcAttachment,
+networkmanager:UntagResource,
+ec2:DescribeRegions
 ```
 
 ### List

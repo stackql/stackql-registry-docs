@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>replication_configs</code> in a region or create a <code>replication_configs</code> resource, use <code>replication_config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>replication_configs</code> in a region or to create or delete a <code>replication_configs</code> resource, use <code>replication_config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>replication_configs</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,159 @@ SELECT
 region,
 replication_config_arn
 FROM aws.dms.replication_configs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ReplicationConfigIdentifier": "{{ ReplicationConfigIdentifier }}",
+ "ReplicationConfigArn": "{{ ReplicationConfigArn }}",
+ "SourceEndpointArn": "{{ SourceEndpointArn }}",
+ "TargetEndpointArn": "{{ TargetEndpointArn }}",
+ "ReplicationType": "{{ ReplicationType }}",
+ "ComputeConfig": {
+  "AvailabilityZone": "{{ AvailabilityZone }}",
+  "DnsNameServers": "{{ DnsNameServers }}",
+  "KmsKeyId": "{{ KmsKeyId }}",
+  "MaxCapacityUnits": "{{ MaxCapacityUnits }}",
+  "MinCapacityUnits": "{{ MinCapacityUnits }}",
+  "MultiAZ": "{{ MultiAZ }}",
+  "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+  "ReplicationSubnetGroupId": "{{ ReplicationSubnetGroupId }}",
+  "VpcSecurityGroupIds": [
+   "{{ VpcSecurityGroupIds[0] }}"
+  ]
+ },
+ "ReplicationSettings": {},
+ "SupplementalSettings": {},
+ "ResourceIdentifier": "{{ ResourceIdentifier }}",
+ "TableMappings": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.dms.replication_configs (
+ ReplicationConfigIdentifier,
+ ReplicationConfigArn,
+ SourceEndpointArn,
+ TargetEndpointArn,
+ ReplicationType,
+ ComputeConfig,
+ ReplicationSettings,
+ SupplementalSettings,
+ ResourceIdentifier,
+ TableMappings,
+ Tags,
+ region
+)
+SELECT 
+{{ ReplicationConfigIdentifier }},
+ {{ ReplicationConfigArn }},
+ {{ SourceEndpointArn }},
+ {{ TargetEndpointArn }},
+ {{ ReplicationType }},
+ {{ ComputeConfig }},
+ {{ ReplicationSettings }},
+ {{ SupplementalSettings }},
+ {{ ResourceIdentifier }},
+ {{ TableMappings }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ReplicationConfigIdentifier": "{{ ReplicationConfigIdentifier }}",
+ "ReplicationConfigArn": "{{ ReplicationConfigArn }}",
+ "SourceEndpointArn": "{{ SourceEndpointArn }}",
+ "TargetEndpointArn": "{{ TargetEndpointArn }}",
+ "ReplicationType": "{{ ReplicationType }}",
+ "ComputeConfig": {
+  "AvailabilityZone": "{{ AvailabilityZone }}",
+  "DnsNameServers": "{{ DnsNameServers }}",
+  "KmsKeyId": "{{ KmsKeyId }}",
+  "MaxCapacityUnits": "{{ MaxCapacityUnits }}",
+  "MinCapacityUnits": "{{ MinCapacityUnits }}",
+  "MultiAZ": "{{ MultiAZ }}",
+  "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+  "ReplicationSubnetGroupId": "{{ ReplicationSubnetGroupId }}",
+  "VpcSecurityGroupIds": [
+   "{{ VpcSecurityGroupIds[0] }}"
+  ]
+ },
+ "ReplicationSettings": {},
+ "SupplementalSettings": {},
+ "ResourceIdentifier": "{{ ResourceIdentifier }}",
+ "TableMappings": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.dms.replication_configs (
+ ReplicationConfigIdentifier,
+ ReplicationConfigArn,
+ SourceEndpointArn,
+ TargetEndpointArn,
+ ReplicationType,
+ ComputeConfig,
+ ReplicationSettings,
+ SupplementalSettings,
+ ResourceIdentifier,
+ TableMappings,
+ Tags,
+ region
+)
+SELECT 
+ {{ ReplicationConfigIdentifier }},
+ {{ ReplicationConfigArn }},
+ {{ SourceEndpointArn }},
+ {{ TargetEndpointArn }},
+ {{ ReplicationType }},
+ {{ ComputeConfig }},
+ {{ ReplicationSettings }},
+ {{ SupplementalSettings }},
+ {{ ResourceIdentifier }},
+ {{ TableMappings }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.dms.replication_configs
+WHERE data__Identifier = '<ReplicationConfigArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -83,5 +243,14 @@ iam:UpdateRoleDescription
 ```json
 dms:DescribeReplicationConfigs,
 dms:ListTagsForResource
+```
+
+### Delete
+```json
+dms:DescribeReplicationConfigs,
+dms:DeleteReplicationConfig,
+dms:ListTagsForResource,
+iam:DeleteServiceLinkedRole,
+iam:GetServiceLinkedRoleDeletionStatus
 ```
 

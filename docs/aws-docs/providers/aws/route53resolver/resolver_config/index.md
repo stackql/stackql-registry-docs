@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>resolver_config</code> resource, use <code>resolver_configs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>resolver_config</code> resource, use <code>resolver_configs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -48,11 +51,6 @@ Gets or operates on an individual <code>resolver_config</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -69,8 +67,9 @@ resource_id,
 autodefined_reverse,
 autodefined_reverse_flag
 FROM aws.route53resolver.resolver_config
-WHERE data__Identifier = '<ResourceId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ResourceId>';
 ```
+
 
 ## Permissions
 
@@ -79,13 +78,6 @@ To operate on the <code>resolver_config</code> resource, the following permissio
 ### Read
 ```json
 route53resolver:GetResolverConfig,
-ec2:DescribeVpcs
-```
-
-### Delete
-```json
-route53resolver:UpdateResolverConfig,
-route53resolver:ListResolverConfigs,
 ec2:DescribeVpcs
 ```
 

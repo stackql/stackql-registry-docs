@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>dataset</code> resource, use <code>datasets</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>dataset</code> resource, use <code>datasets</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>dataset</code> resource, use <code>datas
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ dataset_group_arn,
 schema_arn,
 dataset_import_job
 FROM aws.personalize.dataset
-WHERE data__Identifier = '<DatasetArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<DatasetArn>';
 ```
+
 
 ## Permissions
 
@@ -94,11 +93,5 @@ personalize:DescribeDataset,
 personalize:CreateDatasetImportJob,
 personalize:DescribeDatasetImportJob,
 iam:PassRole
-```
-
-### Delete
-```json
-personalize:DeleteDataset,
-personalize:DescribeDataset
 ```
 

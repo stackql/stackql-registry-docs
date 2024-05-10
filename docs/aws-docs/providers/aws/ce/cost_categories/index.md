@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>cost_categories</code> in a region or create a <code>cost_categories</code> resource, use <code>cost_category</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>cost_categories</code> in a region or to create or delete a <code>cost_categories</code> resource, use <code>cost_category</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>cost_categories</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 arn
 FROM aws.ce.cost_categories
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "RuleVersion": "{{ RuleVersion }}",
+ "Rules": "{{ Rules }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ce.cost_categories (
+ Name,
+ RuleVersion,
+ Rules,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ RuleVersion }},
+ {{ Rules }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "RuleVersion": "{{ RuleVersion }}",
+ "Rules": "{{ Rules }}",
+ "SplitChargeRules": "{{ SplitChargeRules }}",
+ "DefaultValue": "{{ DefaultValue }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ce.cost_categories (
+ Name,
+ RuleVersion,
+ Rules,
+ SplitChargeRules,
+ DefaultValue,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ RuleVersion }},
+ {{ Rules }},
+ {{ SplitChargeRules }},
+ {{ DefaultValue }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ce.cost_categories
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +155,11 @@ To operate on the <code>cost_categories</code> resource, the following permissio
 ### Create
 ```json
 ce:CreateCostCategoryDefinition
+```
+
+### Delete
+```json
+ce:DeleteCostCategoryDefinition
 ```
 
 ### List

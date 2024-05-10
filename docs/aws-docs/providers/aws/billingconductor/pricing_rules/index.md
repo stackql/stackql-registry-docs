@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>pricing_rules</code> in a region or create a <code>pricing_rules</code> resource, use <code>pricing_rule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>pricing_rules</code> in a region or to create or delete a <code>pricing_rules</code> resource, use <code>pricing_rule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>pricing_rules</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,110 @@ SELECT
 region,
 arn
 FROM aws.billingconductor.pricing_rules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Scope": "{{ Scope }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.billingconductor.pricing_rules (
+ Name,
+ Scope,
+ Type,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Scope }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Scope": "{{ Scope }}",
+ "Type": "{{ Type }}",
+ "ModifierPercentage": null,
+ "Service": "{{ Service }}",
+ "BillingEntity": "{{ BillingEntity }}",
+ "Tiering": {
+  "FreeTier": {
+   "Activated": "{{ Activated }}"
+  }
+ },
+ "UsageType": "{{ UsageType }}",
+ "Operation": "{{ Operation }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.billingconductor.pricing_rules (
+ Name,
+ Description,
+ Scope,
+ Type,
+ ModifierPercentage,
+ Service,
+ BillingEntity,
+ Tiering,
+ UsageType,
+ Operation,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Scope }},
+ {{ Type }},
+ {{ ModifierPercentage }},
+ {{ Service }},
+ {{ BillingEntity }},
+ {{ Tiering }},
+ {{ UsageType }},
+ {{ Operation }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.billingconductor.pricing_rules
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +185,13 @@ billingconductor:CreatePricingRule,
 billingconductor:ListPricingRules,
 billingconductor:TagResource,
 billingconductor:ListTagsForResource
+```
+
+### Delete
+```json
+billingconductor:DeletePricingRule,
+billingconductor:ListPricingRules,
+billingconductor:UntagResource
 ```
 
 ### List

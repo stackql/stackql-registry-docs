@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>schema</code> resource, use <code>schemata</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>schema</code> resource, use <code>schemata</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -47,11 +50,6 @@ Gets or operates on an individual <code>schema</code> resource, use <code>schema
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -67,8 +65,9 @@ schema_arn,
 schema,
 domain
 FROM aws.personalize.schema
-WHERE data__Identifier = '<SchemaArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<SchemaArn>';
 ```
+
 
 ## Permissions
 
@@ -76,12 +75,6 @@ To operate on the <code>schema</code> resource, the following permissions are re
 
 ### Read
 ```json
-personalize:DescribeSchema
-```
-
-### Delete
-```json
-personalize:DeleteSchema,
 personalize:DescribeSchema
 ```
 

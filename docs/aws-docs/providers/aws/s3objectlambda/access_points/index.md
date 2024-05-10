@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>access_points</code> in a region or create a <code>access_points</code> resource, use <code>access_point</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>access_points</code> in a region or to create or delete a <code>access_points</code> resource, use <code>access_point</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>access_points</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,96 @@ SELECT
 region,
 name
 FROM aws.s3objectlambda.access_points
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ObjectLambdaConfiguration": {
+  "SupportingAccessPoint": "{{ SupportingAccessPoint }}",
+  "AllowedFeatures": [
+   "{{ AllowedFeatures[0] }}"
+  ],
+  "CloudWatchMetricsEnabled": "{{ CloudWatchMetricsEnabled }}",
+  "TransformationConfigurations": [
+   {
+    "Actions": [
+     "{{ Actions[0] }}"
+    ],
+    "ContentTransformation": {}
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.s3objectlambda.access_points (
+ ObjectLambdaConfiguration,
+ region
+)
+SELECT 
+{{ ObjectLambdaConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ObjectLambdaConfiguration": {
+  "SupportingAccessPoint": "{{ SupportingAccessPoint }}",
+  "AllowedFeatures": [
+   "{{ AllowedFeatures[0] }}"
+  ],
+  "CloudWatchMetricsEnabled": "{{ CloudWatchMetricsEnabled }}",
+  "TransformationConfigurations": [
+   {
+    "Actions": [
+     "{{ Actions[0] }}"
+    ],
+    "ContentTransformation": {}
+   }
+  ]
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.s3objectlambda.access_points (
+ Name,
+ ObjectLambdaConfiguration,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ ObjectLambdaConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.s3objectlambda.access_points
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +172,11 @@ s3:PutAccessPointConfigurationForObjectLambda,
 s3:GetAccessPointForObjectLambda,
 s3:GetAccessPointPolicyStatusForObjectLambda,
 s3:GetAccessPointConfigurationForObjectLambda
+```
+
+### Delete
+```json
+s3:DeleteAccessPointForObjectLambda
 ```
 
 ### List

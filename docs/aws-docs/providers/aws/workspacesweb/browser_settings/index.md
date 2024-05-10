@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>browser_settings</code> resource, use <code>browser_settings</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>browser_settings</code> resource, use <code>browser_settings</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>browser_settings</code> resource, use <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ browser_settings_arn,
 customer_managed_key,
 tags
 FROM aws.workspacesweb.browser_settings
-WHERE data__Identifier = '<BrowserSettingsArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<BrowserSettingsArn>';
 ```
+
 
 ## Permissions
 
@@ -102,16 +101,6 @@ workspaces-web:UntagResource,
 workspaces-web:GetBrowserSettings,
 workspaces-web:ListBrowserSettings,
 workspaces-web:ListTagsForResource,
-kms:CreateGrant,
-kms:DescribeKey,
-kms:GenerateDataKey,
-kms:Decrypt
-```
-
-### Delete
-```json
-workspaces-web:GetBrowserSettings,
-workspaces-web:DeleteBrowserSettings,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,

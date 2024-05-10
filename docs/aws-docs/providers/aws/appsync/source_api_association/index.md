@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>source_api_association</code> resource, use <code>source_api_associations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>source_api_association</code> resource, use <code>source_api_associations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>source_api_association</code> resource, 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ source_api_association_status,
 source_api_association_status_detail,
 last_successful_merge_date
 FROM aws.appsync.source_api_association
-WHERE data__Identifier = '<AssociationArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AssociationArn>';
 ```
+
 
 ## Permissions
 
@@ -108,13 +107,5 @@ appsync:ListSourceApiAssociations
 appsync:GetSourceApiAssociation,
 appsync:UpdateSourceApiAssociation,
 appsync:GetSourceApiAssociation
-```
-
-### Delete
-```json
-appsync:GetSourceApiAssociation,
-appsync:DisassociateSourceGraphqlApi,
-appsync:DisassociateMergedGraphqlApi,
-appsync:ListSourceApiAssociations
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>data_sets</code> in a region or create a <code>data_sets</code> resource, use <code>data_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>data_sets</code> in a region or to create or delete a <code>data_sets</code> resource, use <code>data_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>data_sets</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,385 @@ region,
 aws_account_id,
 data_set_id
 FROM aws.quicksight.data_sets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "ColumnGroups": [
+  {
+   "GeoSpatialColumnGroup": {
+    "Columns": [
+     "{{ Columns[0] }}"
+    ],
+    "CountryCode": "{{ CountryCode }}",
+    "Name": "{{ Name }}"
+   }
+  }
+ ],
+ "ColumnLevelPermissionRules": [
+  {
+   "ColumnNames": [
+    "{{ ColumnNames[0] }}"
+   ],
+   "Principals": [
+    "{{ Principals[0] }}"
+   ]
+  }
+ ],
+ "DataSetId": "{{ DataSetId }}",
+ "DatasetParameters": [
+  {
+   "StringDatasetParameter": {
+    "Id": "{{ Id }}",
+    "Name": "{{ Name }}",
+    "ValueType": "{{ ValueType }}",
+    "DefaultValues": {
+     "StaticValues": [
+      "{{ StaticValues[0] }}"
+     ]
+    }
+   },
+   "DecimalDatasetParameter": {
+    "Id": null,
+    "Name": null,
+    "ValueType": null,
+    "DefaultValues": {
+     "StaticValues": [
+      null
+     ]
+    }
+   },
+   "IntegerDatasetParameter": {
+    "Id": null,
+    "Name": null,
+    "ValueType": null,
+    "DefaultValues": {
+     "StaticValues": [
+      null
+     ]
+    }
+   },
+   "DateTimeDatasetParameter": {
+    "Id": null,
+    "Name": null,
+    "ValueType": null,
+    "TimeGranularity": "{{ TimeGranularity }}",
+    "DefaultValues": {
+     "StaticValues": [
+      "{{ StaticValues[0] }}"
+     ]
+    }
+   }
+  }
+ ],
+ "FieldFolders": {},
+ "ImportMode": "{{ ImportMode }}",
+ "LogicalTableMap": {},
+ "Name": "{{ Name }}",
+ "Permissions": [
+  {
+   "Principal": "{{ Principal }}",
+   "Actions": [
+    "{{ Actions[0] }}"
+   ]
+  }
+ ],
+ "PhysicalTableMap": {},
+ "RowLevelPermissionDataSet": {
+  "Arn": "{{ Arn }}",
+  "Namespace": "{{ Namespace }}",
+  "PermissionPolicy": "{{ PermissionPolicy }}",
+  "FormatVersion": "{{ FormatVersion }}",
+  "Status": "{{ Status }}"
+ },
+ "RowLevelPermissionTagConfiguration": {
+  "Status": null,
+  "TagRules": [
+   {
+    "ColumnName": "{{ ColumnName }}",
+    "TagKey": "{{ TagKey }}",
+    "MatchAllValue": "{{ MatchAllValue }}",
+    "TagMultiValueDelimiter": "{{ TagMultiValueDelimiter }}"
+   }
+  ],
+  "TagRuleConfigurations": [
+   [
+    "{{ 0[0] }}"
+   ]
+  ]
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "IngestionWaitPolicy": {
+  "WaitForSpiceIngestion": "{{ WaitForSpiceIngestion }}",
+  "IngestionWaitTimeInHours": null
+ },
+ "DataSetUsageConfiguration": {
+  "DisableUseAsDirectQuerySource": "{{ DisableUseAsDirectQuerySource }}",
+  "DisableUseAsImportedSource": "{{ DisableUseAsImportedSource }}"
+ },
+ "DataSetRefreshProperties": {
+  "RefreshConfiguration": {
+   "IncrementalRefresh": {
+    "LookbackWindow": {
+     "ColumnName": "{{ ColumnName }}",
+     "Size": null,
+     "SizeUnit": "{{ SizeUnit }}"
+    }
+   }
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.quicksight.data_sets (
+ AwsAccountId,
+ ColumnGroups,
+ ColumnLevelPermissionRules,
+ DataSetId,
+ DatasetParameters,
+ FieldFolders,
+ ImportMode,
+ LogicalTableMap,
+ Name,
+ Permissions,
+ PhysicalTableMap,
+ RowLevelPermissionDataSet,
+ RowLevelPermissionTagConfiguration,
+ Tags,
+ IngestionWaitPolicy,
+ DataSetUsageConfiguration,
+ DataSetRefreshProperties,
+ region
+)
+SELECT 
+{{ AwsAccountId }},
+ {{ ColumnGroups }},
+ {{ ColumnLevelPermissionRules }},
+ {{ DataSetId }},
+ {{ DatasetParameters }},
+ {{ FieldFolders }},
+ {{ ImportMode }},
+ {{ LogicalTableMap }},
+ {{ Name }},
+ {{ Permissions }},
+ {{ PhysicalTableMap }},
+ {{ RowLevelPermissionDataSet }},
+ {{ RowLevelPermissionTagConfiguration }},
+ {{ Tags }},
+ {{ IngestionWaitPolicy }},
+ {{ DataSetUsageConfiguration }},
+ {{ DataSetRefreshProperties }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "ColumnGroups": [
+  {
+   "GeoSpatialColumnGroup": {
+    "Columns": [
+     "{{ Columns[0] }}"
+    ],
+    "CountryCode": "{{ CountryCode }}",
+    "Name": "{{ Name }}"
+   }
+  }
+ ],
+ "ColumnLevelPermissionRules": [
+  {
+   "ColumnNames": [
+    "{{ ColumnNames[0] }}"
+   ],
+   "Principals": [
+    "{{ Principals[0] }}"
+   ]
+  }
+ ],
+ "DataSetId": "{{ DataSetId }}",
+ "DatasetParameters": [
+  {
+   "StringDatasetParameter": {
+    "Id": "{{ Id }}",
+    "Name": "{{ Name }}",
+    "ValueType": "{{ ValueType }}",
+    "DefaultValues": {
+     "StaticValues": [
+      "{{ StaticValues[0] }}"
+     ]
+    }
+   },
+   "DecimalDatasetParameter": {
+    "Id": null,
+    "Name": null,
+    "ValueType": null,
+    "DefaultValues": {
+     "StaticValues": [
+      null
+     ]
+    }
+   },
+   "IntegerDatasetParameter": {
+    "Id": null,
+    "Name": null,
+    "ValueType": null,
+    "DefaultValues": {
+     "StaticValues": [
+      null
+     ]
+    }
+   },
+   "DateTimeDatasetParameter": {
+    "Id": null,
+    "Name": null,
+    "ValueType": null,
+    "TimeGranularity": "{{ TimeGranularity }}",
+    "DefaultValues": {
+     "StaticValues": [
+      "{{ StaticValues[0] }}"
+     ]
+    }
+   }
+  }
+ ],
+ "FieldFolders": {},
+ "ImportMode": "{{ ImportMode }}",
+ "LogicalTableMap": {},
+ "Name": "{{ Name }}",
+ "Permissions": [
+  {
+   "Principal": "{{ Principal }}",
+   "Actions": [
+    "{{ Actions[0] }}"
+   ]
+  }
+ ],
+ "PhysicalTableMap": {},
+ "RowLevelPermissionDataSet": {
+  "Arn": "{{ Arn }}",
+  "Namespace": "{{ Namespace }}",
+  "PermissionPolicy": "{{ PermissionPolicy }}",
+  "FormatVersion": "{{ FormatVersion }}",
+  "Status": "{{ Status }}"
+ },
+ "RowLevelPermissionTagConfiguration": {
+  "Status": null,
+  "TagRules": [
+   {
+    "ColumnName": "{{ ColumnName }}",
+    "TagKey": "{{ TagKey }}",
+    "MatchAllValue": "{{ MatchAllValue }}",
+    "TagMultiValueDelimiter": "{{ TagMultiValueDelimiter }}"
+   }
+  ],
+  "TagRuleConfigurations": [
+   [
+    "{{ 0[0] }}"
+   ]
+  ]
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "IngestionWaitPolicy": {
+  "WaitForSpiceIngestion": "{{ WaitForSpiceIngestion }}",
+  "IngestionWaitTimeInHours": null
+ },
+ "DataSetUsageConfiguration": {
+  "DisableUseAsDirectQuerySource": "{{ DisableUseAsDirectQuerySource }}",
+  "DisableUseAsImportedSource": "{{ DisableUseAsImportedSource }}"
+ },
+ "DataSetRefreshProperties": {
+  "RefreshConfiguration": {
+   "IncrementalRefresh": {
+    "LookbackWindow": {
+     "ColumnName": "{{ ColumnName }}",
+     "Size": null,
+     "SizeUnit": "{{ SizeUnit }}"
+    }
+   }
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.quicksight.data_sets (
+ AwsAccountId,
+ ColumnGroups,
+ ColumnLevelPermissionRules,
+ DataSetId,
+ DatasetParameters,
+ FieldFolders,
+ ImportMode,
+ LogicalTableMap,
+ Name,
+ Permissions,
+ PhysicalTableMap,
+ RowLevelPermissionDataSet,
+ RowLevelPermissionTagConfiguration,
+ Tags,
+ IngestionWaitPolicy,
+ DataSetUsageConfiguration,
+ DataSetRefreshProperties,
+ region
+)
+SELECT 
+ {{ AwsAccountId }},
+ {{ ColumnGroups }},
+ {{ ColumnLevelPermissionRules }},
+ {{ DataSetId }},
+ {{ DatasetParameters }},
+ {{ FieldFolders }},
+ {{ ImportMode }},
+ {{ LogicalTableMap }},
+ {{ Name }},
+ {{ Permissions }},
+ {{ PhysicalTableMap }},
+ {{ RowLevelPermissionDataSet }},
+ {{ RowLevelPermissionTagConfiguration }},
+ {{ Tags }},
+ {{ IngestionWaitPolicy }},
+ {{ DataSetUsageConfiguration }},
+ {{ DataSetRefreshProperties }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.quicksight.data_sets
+WHERE data__Identifier = '<AwsAccountId|DataSetId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -83,6 +469,16 @@ quicksight:TagResource,
 quicksight:ListTagsForResource,
 quicksight:DescribeDataSetRefreshProperties,
 quicksight:PutDataSetRefreshProperties
+```
+
+### Delete
+```json
+quicksight:DescribeDataSet,
+quicksight:DeleteDataSet,
+quicksight:ListTagsForResource,
+quicksight:DescribeIngestion,
+quicksight:DeleteDataSetRefreshProperties,
+quicksight:DescribeDataSetRefreshProperties
 ```
 
 ### List

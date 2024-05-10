@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>variables</code> in a region or create a <code>variables</code> resource, use <code>variable</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>variables</code> in a region or to create or delete a <code>variables</code> resource, use <code>variable</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>variables</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,97 @@ SELECT
 region,
 arn
 FROM aws.frauddetector.variables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DataSource": "{{ DataSource }}",
+ "DataType": "{{ DataType }}",
+ "DefaultValue": "{{ DefaultValue }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.frauddetector.variables (
+ Name,
+ DataSource,
+ DataType,
+ DefaultValue,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ DataSource }},
+ {{ DataType }},
+ {{ DefaultValue }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DataSource": "{{ DataSource }}",
+ "DataType": "{{ DataType }}",
+ "DefaultValue": "{{ DefaultValue }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VariableType": "{{ VariableType }}"
+}
+>>>
+--all properties
+INSERT INTO aws.frauddetector.variables (
+ Name,
+ DataSource,
+ DataType,
+ DefaultValue,
+ Description,
+ Tags,
+ VariableType,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ DataSource }},
+ {{ DataType }},
+ {{ DefaultValue }},
+ {{ Description }},
+ {{ Tags }},
+ {{ VariableType }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.frauddetector.variables
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +172,12 @@ frauddetector:GetVariables,
 frauddetector:CreateVariable,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource
+```
+
+### Delete
+```json
+frauddetector:GetVariables,
+frauddetector:DeleteVariable
 ```
 
 ### List

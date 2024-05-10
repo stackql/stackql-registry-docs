@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>indices</code> in a region or create a <code>indices</code> resource, use <code>index</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>indices</code> in a region or to create or delete a <code>indices</code> resource, use <code>index</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>indices</code> in a region or create a <code>in
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,68 @@ SELECT
 region,
 arn
 FROM aws.resourceexplorer2.indices
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.resourceexplorer2.indices (
+ Type,
+ region
+)
+SELECT 
+{{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": {},
+ "Type": "{{ Type }}"
+}
+>>>
+--all properties
+INSERT INTO aws.resourceexplorer2.indices (
+ Tags,
+ Type,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ Type }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.resourceexplorer2.indices
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +145,13 @@ resource-explorer-2:TagResource,
 resource-explorer-2:UpdateIndexType,
 resource-explorer-2:DeleteIndex,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+resource-explorer-2:DeleteIndex,
+resource-explorer-2:GetIndex,
+resource-explorer-2:UntagResource
 ```
 
 ### List

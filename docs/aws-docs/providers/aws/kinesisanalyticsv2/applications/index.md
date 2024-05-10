@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>applications</code> in a region or create a <code>applications</code> resource, use <code>application</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>applications</code> in a region or to create or delete a <code>applications</code> resource, use <code>application</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>applications</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,230 @@ SELECT
 region,
 application_name
 FROM aws.kinesisanalyticsv2.applications
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RuntimeEnvironment": "{{ RuntimeEnvironment }}",
+ "ServiceExecutionRole": "{{ ServiceExecutionRole }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.kinesisanalyticsv2.applications (
+ RuntimeEnvironment,
+ ServiceExecutionRole,
+ region
+)
+SELECT 
+{{ RuntimeEnvironment }},
+ {{ ServiceExecutionRole }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApplicationConfiguration": {
+  "ApplicationCodeConfiguration": {
+   "CodeContent": {
+    "ZipFileContent": "{{ ZipFileContent }}",
+    "S3ContentLocation": {
+     "BucketARN": "{{ BucketARN }}",
+     "FileKey": "{{ FileKey }}",
+     "ObjectVersion": "{{ ObjectVersion }}"
+    },
+    "TextContent": "{{ TextContent }}"
+   },
+   "CodeContentType": "{{ CodeContentType }}"
+  },
+  "ApplicationSnapshotConfiguration": {
+   "SnapshotsEnabled": "{{ SnapshotsEnabled }}"
+  },
+  "EnvironmentProperties": {
+   "PropertyGroups": [
+    {
+     "PropertyGroupId": "{{ PropertyGroupId }}",
+     "PropertyMap": {}
+    }
+   ]
+  },
+  "FlinkApplicationConfiguration": {
+   "CheckpointConfiguration": {
+    "ConfigurationType": "{{ ConfigurationType }}",
+    "CheckpointingEnabled": "{{ CheckpointingEnabled }}",
+    "CheckpointInterval": "{{ CheckpointInterval }}",
+    "MinPauseBetweenCheckpoints": "{{ MinPauseBetweenCheckpoints }}"
+   },
+   "MonitoringConfiguration": {
+    "ConfigurationType": "{{ ConfigurationType }}",
+    "MetricsLevel": "{{ MetricsLevel }}",
+    "LogLevel": "{{ LogLevel }}"
+   },
+   "ParallelismConfiguration": {
+    "ConfigurationType": "{{ ConfigurationType }}",
+    "ParallelismPerKPU": "{{ ParallelismPerKPU }}",
+    "Parallelism": "{{ Parallelism }}",
+    "AutoScalingEnabled": "{{ AutoScalingEnabled }}"
+   }
+  },
+  "SqlApplicationConfiguration": {
+   "Inputs": [
+    {
+     "NamePrefix": "{{ NamePrefix }}",
+     "InputSchema": {
+      "RecordEncoding": "{{ RecordEncoding }}",
+      "RecordColumns": [
+       {
+        "Mapping": "{{ Mapping }}",
+        "Name": "{{ Name }}",
+        "SqlType": "{{ SqlType }}"
+       }
+      ],
+      "RecordFormat": {
+       "RecordFormatType": "{{ RecordFormatType }}",
+       "MappingParameters": {
+        "CSVMappingParameters": {
+         "RecordColumnDelimiter": "{{ RecordColumnDelimiter }}",
+         "RecordRowDelimiter": "{{ RecordRowDelimiter }}"
+        },
+        "JSONMappingParameters": {
+         "RecordRowPath": "{{ RecordRowPath }}"
+        }
+       }
+      }
+     },
+     "KinesisStreamsInput": {
+      "ResourceARN": null
+     },
+     "KinesisFirehoseInput": {
+      "ResourceARN": null
+     },
+     "InputProcessingConfiguration": {
+      "InputLambdaProcessor": {
+       "ResourceARN": null
+      }
+     },
+     "InputParallelism": {
+      "Count": "{{ Count }}"
+     }
+    }
+   ]
+  },
+  "ZeppelinApplicationConfiguration": {
+   "CatalogConfiguration": {
+    "GlueDataCatalogConfiguration": {
+     "DatabaseARN": null
+    }
+   },
+   "MonitoringConfiguration": {
+    "LogLevel": "{{ LogLevel }}"
+   },
+   "DeployAsApplicationConfiguration": {
+    "S3ContentLocation": {
+     "BucketARN": null,
+     "BasePath": "{{ BasePath }}"
+    }
+   },
+   "CustomArtifactsConfiguration": [
+    {
+     "ArtifactType": "{{ ArtifactType }}",
+     "MavenReference": {
+      "ArtifactId": "{{ ArtifactId }}",
+      "GroupId": "{{ GroupId }}",
+      "Version": "{{ Version }}"
+     },
+     "S3ContentLocation": null
+    }
+   ]
+  },
+  "VpcConfigurations": [
+   {
+    "SecurityGroupIds": [
+     "{{ SecurityGroupIds[0] }}"
+    ],
+    "SubnetIds": [
+     "{{ SubnetIds[0] }}"
+    ]
+   }
+  ]
+ },
+ "ApplicationDescription": "{{ ApplicationDescription }}",
+ "ApplicationMode": "{{ ApplicationMode }}",
+ "ApplicationName": "{{ ApplicationName }}",
+ "RuntimeEnvironment": "{{ RuntimeEnvironment }}",
+ "ServiceExecutionRole": null,
+ "RunConfiguration": {
+  "ApplicationRestoreConfiguration": {
+   "ApplicationRestoreType": "{{ ApplicationRestoreType }}",
+   "SnapshotName": "{{ SnapshotName }}"
+  },
+  "FlinkRunConfiguration": {
+   "AllowNonRestoredState": "{{ AllowNonRestoredState }}"
+  }
+ },
+ "ApplicationMaintenanceConfiguration": {
+  "ApplicationMaintenanceWindowStartTime": "{{ ApplicationMaintenanceWindowStartTime }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.kinesisanalyticsv2.applications (
+ ApplicationConfiguration,
+ ApplicationDescription,
+ ApplicationMode,
+ ApplicationName,
+ RuntimeEnvironment,
+ ServiceExecutionRole,
+ RunConfiguration,
+ ApplicationMaintenanceConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ ApplicationConfiguration }},
+ {{ ApplicationDescription }},
+ {{ ApplicationMode }},
+ {{ ApplicationName }},
+ {{ RuntimeEnvironment }},
+ {{ ServiceExecutionRole }},
+ {{ RunConfiguration }},
+ {{ ApplicationMaintenanceConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kinesisanalyticsv2.applications
+WHERE data__Identifier = '<ApplicationName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +306,12 @@ kinesisanalytics:CreateApplication,
 kinesisanalytics:DescribeApplication,
 kinesisanalytics:ListTagsForResource,
 kinesisanalytics:UpdateApplicationMaintenanceConfiguration
+```
+
+### Delete
+```json
+kinesisanalytics:DescribeApplication,
+kinesisanalytics:DeleteApplication
 ```
 
 ### List

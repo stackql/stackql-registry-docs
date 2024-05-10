@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>versions</code> in a region or create a <code>versions</code> resource, use <code>version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>versions</code> in a region or to create or delete a <code>versions</code> resource, use <code>version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>versions</code> in a region or create a <code>v
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,82 @@ SELECT
 region,
 function_arn
 FROM aws.lambda.versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FunctionName": "{{ FunctionName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lambda.versions (
+ FunctionName,
+ region
+)
+SELECT 
+{{ FunctionName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CodeSha256": "{{ CodeSha256 }}",
+ "Description": "{{ Description }}",
+ "FunctionName": "{{ FunctionName }}",
+ "ProvisionedConcurrencyConfig": {
+  "ProvisionedConcurrentExecutions": "{{ ProvisionedConcurrentExecutions }}"
+ },
+ "RuntimePolicy": {
+  "RuntimeVersionArn": "{{ RuntimeVersionArn }}",
+  "UpdateRuntimeOn": "{{ UpdateRuntimeOn }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.lambda.versions (
+ CodeSha256,
+ Description,
+ FunctionName,
+ ProvisionedConcurrencyConfig,
+ RuntimePolicy,
+ region
+)
+SELECT 
+ {{ CodeSha256 }},
+ {{ Description }},
+ {{ FunctionName }},
+ {{ ProvisionedConcurrencyConfig }},
+ {{ RuntimePolicy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lambda.versions
+WHERE data__Identifier = '<FunctionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +159,12 @@ lambda:PutProvisionedConcurrencyConfig,
 lambda:GetProvisionedConcurrencyConfig,
 lambda:PutRuntimeManagementConfig,
 lambda:GetRuntimeManagementConfig
+```
+
+### Delete
+```json
+lambda:GetFunctionConfiguration,
+lambda:DeleteFunction
 ```
 
 ### List

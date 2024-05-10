@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>routes</code> in a region or create a <code>routes</code> resource, use <code>route</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>routes</code> in a region or to create or delete a <code>routes</code> resource, use <code>route</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>routes</code> in a region or create a <code>rou
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,103 @@ region,
 api_id,
 route_id
 FROM aws.apigatewayv2.routes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RouteKey": "{{ RouteKey }}",
+ "ApiId": "{{ ApiId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigatewayv2.routes (
+ RouteKey,
+ ApiId,
+ region
+)
+SELECT 
+{{ RouteKey }},
+ {{ ApiId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RouteResponseSelectionExpression": "{{ RouteResponseSelectionExpression }}",
+ "RequestModels": {},
+ "OperationName": "{{ OperationName }}",
+ "AuthorizationScopes": [
+  "{{ AuthorizationScopes[0] }}"
+ ],
+ "ApiKeyRequired": "{{ ApiKeyRequired }}",
+ "RouteKey": "{{ RouteKey }}",
+ "AuthorizationType": "{{ AuthorizationType }}",
+ "ModelSelectionExpression": "{{ ModelSelectionExpression }}",
+ "ApiId": "{{ ApiId }}",
+ "RequestParameters": {},
+ "Target": "{{ Target }}",
+ "AuthorizerId": "{{ AuthorizerId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigatewayv2.routes (
+ RouteResponseSelectionExpression,
+ RequestModels,
+ OperationName,
+ AuthorizationScopes,
+ ApiKeyRequired,
+ RouteKey,
+ AuthorizationType,
+ ModelSelectionExpression,
+ ApiId,
+ RequestParameters,
+ Target,
+ AuthorizerId,
+ region
+)
+SELECT 
+ {{ RouteResponseSelectionExpression }},
+ {{ RequestModels }},
+ {{ OperationName }},
+ {{ AuthorizationScopes }},
+ {{ ApiKeyRequired }},
+ {{ RouteKey }},
+ {{ AuthorizationType }},
+ {{ ModelSelectionExpression }},
+ {{ ApiId }},
+ {{ RequestParameters }},
+ {{ Target }},
+ {{ AuthorizerId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigatewayv2.routes
+WHERE data__Identifier = '<ApiId|RouteId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +177,12 @@ To operate on the <code>routes</code> resource, the following permissions are re
 ### Create
 ```json
 apigateway:POST
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>streams</code> in a region or create a <code>streams</code> resource, use <code>stream</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>streams</code> in a region or to create or delete a <code>streams</code> resource, use <code>stream</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>streams</code> in a region or create a <code>st
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,106 @@ region,
 ledger_name,
 id
 FROM aws.qldb.streams
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "LedgerName": "{{ LedgerName }}",
+ "StreamName": "{{ StreamName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "InclusiveStartTime": "{{ InclusiveStartTime }}",
+ "KinesisConfiguration": {
+  "StreamArn": null,
+  "AggregationEnabled": "{{ AggregationEnabled }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.qldb.streams (
+ LedgerName,
+ StreamName,
+ RoleArn,
+ InclusiveStartTime,
+ KinesisConfiguration,
+ region
+)
+SELECT 
+{{ LedgerName }},
+ {{ StreamName }},
+ {{ RoleArn }},
+ {{ InclusiveStartTime }},
+ {{ KinesisConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "LedgerName": "{{ LedgerName }}",
+ "StreamName": "{{ StreamName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "InclusiveStartTime": "{{ InclusiveStartTime }}",
+ "ExclusiveEndTime": "{{ ExclusiveEndTime }}",
+ "KinesisConfiguration": {
+  "StreamArn": null,
+  "AggregationEnabled": "{{ AggregationEnabled }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.qldb.streams (
+ LedgerName,
+ StreamName,
+ RoleArn,
+ InclusiveStartTime,
+ ExclusiveEndTime,
+ KinesisConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ LedgerName }},
+ {{ StreamName }},
+ {{ RoleArn }},
+ {{ InclusiveStartTime }},
+ {{ ExclusiveEndTime }},
+ {{ KinesisConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.qldb.streams
+WHERE data__Identifier = '<LedgerName|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +181,12 @@ To operate on the <code>streams</code> resource, the following permissions are r
 ```json
 iam:PassRole,
 qldb:StreamJournalToKinesis,
+qldb:DescribeJournalKinesisStream
+```
+
+### Delete
+```json
+qldb:CancelJournalKinesisStream,
 qldb:DescribeJournalKinesisStream
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>enabled_controls</code> in a region or create a <code>enabled_controls</code> resource, use <code>enabled_control</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>enabled_controls</code> in a region or to create or delete a <code>enabled_controls</code> resource, use <code>enabled_control</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>enabled_controls</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,87 @@ region,
 target_identifier,
 control_identifier
 FROM aws.controltower.enabled_controls
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ControlIdentifier": "{{ ControlIdentifier }}",
+ "TargetIdentifier": "{{ TargetIdentifier }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.controltower.enabled_controls (
+ ControlIdentifier,
+ TargetIdentifier,
+ region
+)
+SELECT 
+{{ ControlIdentifier }},
+ {{ TargetIdentifier }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ControlIdentifier": "{{ ControlIdentifier }}",
+ "TargetIdentifier": "{{ TargetIdentifier }}",
+ "Parameters": [
+  {
+   "Value": null,
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.controltower.enabled_controls (
+ ControlIdentifier,
+ TargetIdentifier,
+ Parameters,
+ Tags,
+ region
+)
+SELECT 
+ {{ ControlIdentifier }},
+ {{ TargetIdentifier }},
+ {{ Parameters }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.controltower.enabled_controls
+WHERE data__Identifier = '<TargetIdentifier|ControlIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +166,20 @@ controltower:GetControlOperation,
 controltower:EnableControl,
 controltower:TagResource,
 organizations:UpdatePolicy,
+organizations:CreatePolicy,
+organizations:AttachPolicy,
+organizations:DetachPolicy,
+organizations:ListPoliciesForTarget,
+organizations:ListTargetsForPolicy,
+organizations:DescribePolicy
+```
+
+### Delete
+```json
+controltower:GetControlOperation,
+controltower:DisableControl,
+organizations:UpdatePolicy,
+organizations:DeletePolicy,
 organizations:CreatePolicy,
 organizations:AttachPolicy,
 organizations:DetachPolicy,

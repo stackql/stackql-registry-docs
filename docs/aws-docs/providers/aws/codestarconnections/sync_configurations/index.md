@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>sync_configurations</code> in a region or create a <code>sync_configurations</code> resource, use <code>sync_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>sync_configurations</code> in a region or to create or delete a <code>sync_configurations</code> resource, use <code>sync_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>sync_configurations</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,101 @@ region,
 resource_name,
 sync_type
 FROM aws.codestarconnections.sync_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ResourceName": "{{ ResourceName }}",
+ "Branch": "{{ Branch }}",
+ "ConfigFile": "{{ ConfigFile }}",
+ "SyncType": "{{ SyncType }}",
+ "RoleArn": "{{ RoleArn }}",
+ "RepositoryLinkId": "{{ RepositoryLinkId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.codestarconnections.sync_configurations (
+ ResourceName,
+ Branch,
+ ConfigFile,
+ SyncType,
+ RoleArn,
+ RepositoryLinkId,
+ region
+)
+SELECT 
+{{ ResourceName }},
+ {{ Branch }},
+ {{ ConfigFile }},
+ {{ SyncType }},
+ {{ RoleArn }},
+ {{ RepositoryLinkId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ResourceName": "{{ ResourceName }}",
+ "Branch": "{{ Branch }}",
+ "ConfigFile": "{{ ConfigFile }}",
+ "SyncType": "{{ SyncType }}",
+ "RoleArn": "{{ RoleArn }}",
+ "PublishDeploymentStatus": "{{ PublishDeploymentStatus }}",
+ "TriggerResourceUpdateOn": "{{ TriggerResourceUpdateOn }}",
+ "RepositoryLinkId": "{{ RepositoryLinkId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.codestarconnections.sync_configurations (
+ ResourceName,
+ Branch,
+ ConfigFile,
+ SyncType,
+ RoleArn,
+ PublishDeploymentStatus,
+ TriggerResourceUpdateOn,
+ RepositoryLinkId,
+ region
+)
+SELECT 
+ {{ ResourceName }},
+ {{ Branch }},
+ {{ ConfigFile }},
+ {{ SyncType }},
+ {{ RoleArn }},
+ {{ PublishDeploymentStatus }},
+ {{ TriggerResourceUpdateOn }},
+ {{ RepositoryLinkId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.codestarconnections.sync_configurations
+WHERE data__Identifier = '<ResourceName|SyncType>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +177,12 @@ To operate on the <code>sync_configurations</code> resource, the following permi
 codestar-connections:CreateSyncConfiguration,
 codestar-connections:PassRepository,
 iam:PassRole
+```
+
+### Delete
+```json
+codestar-connections:DeleteSyncConfiguration,
+codestar-connections:GetSyncConfiguration
 ```
 
 ### List

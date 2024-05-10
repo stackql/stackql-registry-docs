@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>cluster_subnet_group</code> resource, use <code>cluster_subnet_groups</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>cluster_subnet_group</code> resource, use <code>cluster_subnet_groups</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>cluster_subnet_group</code> resource, us
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ subnet_ids,
 tags,
 cluster_subnet_group_name
 FROM aws.redshift.cluster_subnet_group
-WHERE data__Identifier = '<ClusterSubnetGroupName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterSubnetGroupName>';
 ```
+
 
 ## Permissions
 
@@ -102,23 +101,6 @@ redshift:DescribeClusterSubnetGroups,
 redshift:DescribeTags,
 redshift:CreateTags,
 redshift:DeleteTags,
-ec2:AllocateAddress,
-ec2:AssociateAddress,
-ec2:AttachNetworkInterface,
-ec2:DescribeAccountAttributes,
-ec2:DescribeAddresses,
-ec2:DescribeAvailabilityZones,
-ec2:DescribeInternetGateways,
-ec2:DescribeSecurityGroups,
-ec2:DescribeSubnets,
-ec2:DescribeVpcs
-```
-
-### Delete
-```json
-redshift:DeleteClusterSubnetGroup,
-redshift:DescribeClusterSubnetGroups,
-redshift:DescribeTags,
 ec2:AllocateAddress,
 ec2:AssociateAddress,
 ec2:AttachNetworkInterface,

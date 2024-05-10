@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>addons</code> in a region or create a <code>addons</code> resource, use <code>addon</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>addons</code> in a region or to create or delete a <code>addons</code> resource, use <code>addon</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>addons</code> in a region or create a <code>add
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,94 @@ region,
 cluster_name,
 addon_name
 FROM aws.eks.addons
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "AddonName": "{{ AddonName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.eks.addons (
+ ClusterName,
+ AddonName,
+ region
+)
+SELECT 
+{{ ClusterName }},
+ {{ AddonName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "AddonName": "{{ AddonName }}",
+ "AddonVersion": "{{ AddonVersion }}",
+ "PreserveOnDelete": "{{ PreserveOnDelete }}",
+ "ResolveConflicts": "{{ ResolveConflicts }}",
+ "ServiceAccountRoleArn": "{{ ServiceAccountRoleArn }}",
+ "ConfigurationValues": "{{ ConfigurationValues }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.eks.addons (
+ ClusterName,
+ AddonName,
+ AddonVersion,
+ PreserveOnDelete,
+ ResolveConflicts,
+ ServiceAccountRoleArn,
+ ConfigurationValues,
+ Tags,
+ region
+)
+SELECT 
+ {{ ClusterName }},
+ {{ AddonName }},
+ {{ AddonVersion }},
+ {{ PreserveOnDelete }},
+ {{ ResolveConflicts }},
+ {{ ServiceAccountRoleArn }},
+ {{ ConfigurationValues }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.eks.addons
+WHERE data__Identifier = '<ClusterName|AddonName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +171,12 @@ eks:CreateAddon,
 eks:DescribeAddon,
 eks:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+eks:DeleteAddon,
+eks:DescribeAddon
 ```
 
 ### List

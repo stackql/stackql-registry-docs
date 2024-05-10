@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>tracker_consumer</code> resource, use <code>tracker_consumers</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>tracker_consumer</code> resource, use <code>tracker_consumers</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -45,11 +48,6 @@ Gets or operates on an individual <code>tracker_consumer</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -63,18 +61,13 @@ region,
 consumer_arn,
 tracker_name
 FROM aws.location.tracker_consumer
-WHERE data__Identifier = '<TrackerName>|<ConsumerArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<TrackerName>|<ConsumerArn>';
 ```
+
 
 ## Permissions
 
 To operate on the <code>tracker_consumer</code> resource, the following permissions are required:
-
-### Delete
-```json
-geo:DisassociateTrackerConsumer,
-geo:ListTrackerConsumers
-```
 
 ### Read
 ```json

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>policy_statements</code> in a region or create a <code>policy_statements</code> resource, use <code>policy_statement</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>policy_statements</code> in a region or to create or delete a <code>policy_statements</code> resource, use <code>policy_statement</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>policy_statements</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,87 @@ region,
 arn,
 statement_id
 FROM aws.entityresolution.policy_statements
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Arn": "{{ Arn }}",
+ "StatementId": "{{ StatementId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.entityresolution.policy_statements (
+ Arn,
+ StatementId,
+ region
+)
+SELECT 
+{{ Arn }},
+ {{ StatementId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Arn": "{{ Arn }}",
+ "StatementId": "{{ StatementId }}",
+ "Effect": "{{ Effect }}",
+ "Action": [
+  "{{ Action[0] }}"
+ ],
+ "Principal": [
+  "{{ Principal[0] }}"
+ ],
+ "Condition": "{{ Condition }}"
+}
+>>>
+--all properties
+INSERT INTO aws.entityresolution.policy_statements (
+ Arn,
+ StatementId,
+ Effect,
+ Action,
+ Principal,
+ Condition,
+ region
+)
+SELECT 
+ {{ Arn }},
+ {{ StatementId }},
+ {{ Effect }},
+ {{ Action }},
+ {{ Principal }},
+ {{ Condition }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.entityresolution.policy_statements
+WHERE data__Identifier = '<Arn|StatementId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +161,12 @@ To operate on the <code>policy_statements</code> resource, the following permiss
 ### Create
 ```json
 entityresolution:AddPolicyStatement
+```
+
+### Delete
+```json
+entityresolution:DeletePolicyStatement,
+entityresolution:GetPolicy
 ```
 
 ### List

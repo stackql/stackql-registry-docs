@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>alarms</code> in a region or create a <code>alarms</code> resource, use <code>alarm</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>alarms</code> in a region or to create or delete a <code>alarms</code> resource, use <code>alarm</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>alarms</code> in a region or create a <code>ala
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,168 @@ SELECT
 region,
 alarm_name
 FROM aws.cloudwatch.alarms
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ComparisonOperator": "{{ ComparisonOperator }}",
+ "EvaluationPeriods": "{{ EvaluationPeriods }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudwatch.alarms (
+ ComparisonOperator,
+ EvaluationPeriods,
+ region
+)
+SELECT 
+{{ ComparisonOperator }},
+ {{ EvaluationPeriods }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ThresholdMetricId": "{{ ThresholdMetricId }}",
+ "EvaluateLowSampleCountPercentile": "{{ EvaluateLowSampleCountPercentile }}",
+ "ExtendedStatistic": "{{ ExtendedStatistic }}",
+ "ComparisonOperator": "{{ ComparisonOperator }}",
+ "TreatMissingData": "{{ TreatMissingData }}",
+ "Dimensions": [
+  {
+   "Value": "{{ Value }}",
+   "Name": "{{ Name }}"
+  }
+ ],
+ "Period": "{{ Period }}",
+ "EvaluationPeriods": "{{ EvaluationPeriods }}",
+ "Unit": "{{ Unit }}",
+ "Namespace": "{{ Namespace }}",
+ "OKActions": [
+  "{{ OKActions[0] }}"
+ ],
+ "AlarmActions": [
+  "{{ AlarmActions[0] }}"
+ ],
+ "MetricName": "{{ MetricName }}",
+ "ActionsEnabled": "{{ ActionsEnabled }}",
+ "Metrics": [
+  {
+   "Label": "{{ Label }}",
+   "MetricStat": {
+    "Period": "{{ Period }}",
+    "Metric": {
+     "MetricName": "{{ MetricName }}",
+     "Dimensions": [
+      null
+     ],
+     "Namespace": "{{ Namespace }}"
+    },
+    "Stat": "{{ Stat }}",
+    "Unit": "{{ Unit }}"
+   },
+   "Id": "{{ Id }}",
+   "ReturnData": "{{ ReturnData }}",
+   "Expression": "{{ Expression }}",
+   "Period": "{{ Period }}",
+   "AccountId": "{{ AccountId }}"
+  }
+ ],
+ "AlarmDescription": "{{ AlarmDescription }}",
+ "AlarmName": "{{ AlarmName }}",
+ "Statistic": "{{ Statistic }}",
+ "InsufficientDataActions": [
+  "{{ InsufficientDataActions[0] }}"
+ ],
+ "DatapointsToAlarm": "{{ DatapointsToAlarm }}",
+ "Threshold": null,
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.cloudwatch.alarms (
+ ThresholdMetricId,
+ EvaluateLowSampleCountPercentile,
+ ExtendedStatistic,
+ ComparisonOperator,
+ TreatMissingData,
+ Dimensions,
+ Period,
+ EvaluationPeriods,
+ Unit,
+ Namespace,
+ OKActions,
+ AlarmActions,
+ MetricName,
+ ActionsEnabled,
+ Metrics,
+ AlarmDescription,
+ AlarmName,
+ Statistic,
+ InsufficientDataActions,
+ DatapointsToAlarm,
+ Threshold,
+ Tags,
+ region
+)
+SELECT 
+ {{ ThresholdMetricId }},
+ {{ EvaluateLowSampleCountPercentile }},
+ {{ ExtendedStatistic }},
+ {{ ComparisonOperator }},
+ {{ TreatMissingData }},
+ {{ Dimensions }},
+ {{ Period }},
+ {{ EvaluationPeriods }},
+ {{ Unit }},
+ {{ Namespace }},
+ {{ OKActions }},
+ {{ AlarmActions }},
+ {{ MetricName }},
+ {{ ActionsEnabled }},
+ {{ Metrics }},
+ {{ AlarmDescription }},
+ {{ AlarmName }},
+ {{ Statistic }},
+ {{ InsufficientDataActions }},
+ {{ DatapointsToAlarm }},
+ {{ Threshold }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudwatch.alarms
+WHERE data__Identifier = '<AlarmName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +242,12 @@ To operate on the <code>alarms</code> resource, the following permissions are re
 cloudwatch:PutMetricAlarm,
 cloudwatch:DescribeAlarms,
 cloudwatch:TagResource
+```
+
+### Delete
+```json
+cloudwatch:DeleteAlarms,
+cloudwatch:DescribeAlarms
 ```
 
 ### List

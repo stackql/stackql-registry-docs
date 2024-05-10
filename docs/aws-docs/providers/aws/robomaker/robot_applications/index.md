@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>robot_applications</code> in a region or create a <code>robot_applications</code> resource, use <code>robot_application</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>robot_applications</code> in a region or to create or delete a <code>robot_applications</code> resource, use <code>robot_application</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>robot_applications</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,92 @@ SELECT
 region,
 arn
 FROM aws.robomaker.robot_applications
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RobotSoftwareSuite": {
+  "Name": "{{ Name }}",
+  "Version": "{{ Version }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.robomaker.robot_applications (
+ RobotSoftwareSuite,
+ region
+)
+SELECT 
+{{ RobotSoftwareSuite }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Sources": [
+  {
+   "S3Bucket": "{{ S3Bucket }}",
+   "S3Key": "{{ S3Key }}",
+   "Architecture": "{{ Architecture }}"
+  }
+ ],
+ "Environment": "{{ Environment }}",
+ "RobotSoftwareSuite": {
+  "Name": "{{ Name }}",
+  "Version": "{{ Version }}"
+ },
+ "CurrentRevisionId": "{{ CurrentRevisionId }}",
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.robomaker.robot_applications (
+ Name,
+ Sources,
+ Environment,
+ RobotSoftwareSuite,
+ CurrentRevisionId,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Sources }},
+ {{ Environment }},
+ {{ RobotSoftwareSuite }},
+ {{ CurrentRevisionId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.robomaker.robot_applications
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +171,12 @@ ecr:GetAuthorizationToken,
 ecr:BatchCheckLayerAvailability,
 ecr-public:GetAuthorizationToken,
 sts:GetServiceBearerToken
+```
+
+### Delete
+```json
+robomaker:DescribeRobotApplication,
+robomaker:DeleteRobotApplication
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>topic_rule</code> resource, use <code>topic_rules</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>topic_rule</code> resource, use <code>topic_rules</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>topic_rule</code> resource, use <code>to
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ rule_name,
 topic_rule_payload,
 tags
 FROM aws.iot.topic_rule
-WHERE data__Identifier = '<RuleName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<RuleName>';
 ```
+
 
 ## Permissions
 
@@ -93,11 +92,5 @@ iot:ListTagsForResource,
 iot:ReplaceTopicRule,
 iot:TagResource,
 iot:UntagResource
-```
-
-### Delete
-```json
-iot:GetTopicRule,
-iot:DeleteTopicRule
 ```
 

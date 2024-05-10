@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>document_classifiers</code> in a region or create a <code>document_classifiers</code> resource, use <code>document_classifier</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>document_classifiers</code> in a region or to create or delete a <code>document_classifiers</code> resource, use <code>document_classifier</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>document_classifiers</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,174 @@ SELECT
 region,
 arn
 FROM aws.comprehend.document_classifiers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
+ "InputDataConfig": {
+  "AugmentedManifests": [
+   {
+    "AttributeNames": [
+     "{{ AttributeNames[0] }}"
+    ],
+    "S3Uri": "{{ S3Uri }}",
+    "Split": "{{ Split }}"
+   }
+  ],
+  "DataFormat": "{{ DataFormat }}",
+  "LabelDelimiter": "{{ LabelDelimiter }}",
+  "DocumentType": "{{ DocumentType }}",
+  "Documents": {
+   "S3Uri": null,
+   "TestS3Uri": null
+  },
+  "DocumentReaderConfig": {
+   "DocumentReadAction": "{{ DocumentReadAction }}",
+   "DocumentReadMode": "{{ DocumentReadMode }}",
+   "FeatureTypes": [
+    "{{ FeatureTypes[0] }}"
+   ]
+  },
+  "S3Uri": null,
+  "TestS3Uri": null
+ },
+ "LanguageCode": "{{ LanguageCode }}",
+ "DocumentClassifierName": "{{ DocumentClassifierName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.comprehend.document_classifiers (
+ DataAccessRoleArn,
+ InputDataConfig,
+ LanguageCode,
+ DocumentClassifierName,
+ region
+)
+SELECT 
+{{ DataAccessRoleArn }},
+ {{ InputDataConfig }},
+ {{ LanguageCode }},
+ {{ DocumentClassifierName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
+ "InputDataConfig": {
+  "AugmentedManifests": [
+   {
+    "AttributeNames": [
+     "{{ AttributeNames[0] }}"
+    ],
+    "S3Uri": "{{ S3Uri }}",
+    "Split": "{{ Split }}"
+   }
+  ],
+  "DataFormat": "{{ DataFormat }}",
+  "LabelDelimiter": "{{ LabelDelimiter }}",
+  "DocumentType": "{{ DocumentType }}",
+  "Documents": {
+   "S3Uri": null,
+   "TestS3Uri": null
+  },
+  "DocumentReaderConfig": {
+   "DocumentReadAction": "{{ DocumentReadAction }}",
+   "DocumentReadMode": "{{ DocumentReadMode }}",
+   "FeatureTypes": [
+    "{{ FeatureTypes[0] }}"
+   ]
+  },
+  "S3Uri": null,
+  "TestS3Uri": null
+ },
+ "OutputDataConfig": {
+  "KmsKeyId": "{{ KmsKeyId }}",
+  "S3Uri": null
+ },
+ "LanguageCode": "{{ LanguageCode }}",
+ "ModelKmsKeyId": null,
+ "ModelPolicy": "{{ ModelPolicy }}",
+ "DocumentClassifierName": "{{ DocumentClassifierName }}",
+ "Mode": "{{ Mode }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VersionName": "{{ VersionName }}",
+ "VolumeKmsKeyId": null,
+ "VpcConfig": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "Subnets": [
+   "{{ Subnets[0] }}"
+  ]
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.comprehend.document_classifiers (
+ DataAccessRoleArn,
+ InputDataConfig,
+ OutputDataConfig,
+ LanguageCode,
+ ModelKmsKeyId,
+ ModelPolicy,
+ DocumentClassifierName,
+ Mode,
+ Tags,
+ VersionName,
+ VolumeKmsKeyId,
+ VpcConfig,
+ region
+)
+SELECT 
+ {{ DataAccessRoleArn }},
+ {{ InputDataConfig }},
+ {{ OutputDataConfig }},
+ {{ LanguageCode }},
+ {{ ModelKmsKeyId }},
+ {{ ModelPolicy }},
+ {{ DocumentClassifierName }},
+ {{ Mode }},
+ {{ Tags }},
+ {{ VersionName }},
+ {{ VolumeKmsKeyId }},
+ {{ VpcConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.comprehend.document_classifiers
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +251,12 @@ comprehend:DescribeDocumentClassifier,
 comprehend:DescribeResourcePolicy,
 comprehend:ListTagsForResource,
 textract:DetectDocumentText
+```
+
+### Delete
+```json
+comprehend:DescribeDocumentClassifier,
+comprehend:DeleteDocumentClassifier
 ```
 
 ### List

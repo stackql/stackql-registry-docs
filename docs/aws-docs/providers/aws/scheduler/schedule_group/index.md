@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>schedule_group</code> resource, use <code>schedule_groups</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>schedule_group</code> resource, use <code>schedule_groups</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>schedule_group</code> resource, use <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ name,
 state,
 tags
 FROM aws.scheduler.schedule_group
-WHERE data__Identifier = '<Name>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
+
 
 ## Permissions
 
@@ -95,12 +94,5 @@ scheduler:TagResource,
 scheduler:UntagResource,
 scheduler:ListTagsForResource,
 scheduler:GetScheduleGroup
-```
-
-### Delete
-```json
-scheduler:DeleteScheduleGroup,
-scheduler:GetScheduleGroup,
-scheduler:DeleteSchedule
 ```
 

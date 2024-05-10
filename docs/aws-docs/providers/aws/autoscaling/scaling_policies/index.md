@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>scaling_policies</code> in a region or create a <code>scaling_policies</code> resource, use <code>scaling_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>scaling_policies</code> in a region or to create or delete a <code>scaling_policies</code> resource, use <code>scaling_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>scaling_policies</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,173 @@ SELECT
 region,
 arn
 FROM aws.autoscaling.scaling_policies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AutoScalingGroupName": "{{ AutoScalingGroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.autoscaling.scaling_policies (
+ AutoScalingGroupName,
+ region
+)
+SELECT 
+{{ AutoScalingGroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "MetricAggregationType": "{{ MetricAggregationType }}",
+ "PolicyType": "{{ PolicyType }}",
+ "PredictiveScalingConfiguration": {
+  "MetricSpecifications": [
+   {
+    "CustomizedCapacityMetricSpecification": {
+     "MetricDataQueries": [
+      {
+       "Label": "{{ Label }}",
+       "MetricStat": {
+        "Metric": {
+         "MetricName": "{{ MetricName }}",
+         "Dimensions": [
+          {
+           "Value": "{{ Value }}",
+           "Name": "{{ Name }}"
+          }
+         ],
+         "Namespace": "{{ Namespace }}"
+        },
+        "Stat": "{{ Stat }}",
+        "Unit": "{{ Unit }}"
+       },
+       "Id": "{{ Id }}",
+       "ReturnData": "{{ ReturnData }}",
+       "Expression": "{{ Expression }}"
+      }
+     ]
+    },
+    "CustomizedLoadMetricSpecification": {
+     "MetricDataQueries": [
+      null
+     ]
+    },
+    "CustomizedScalingMetricSpecification": {
+     "MetricDataQueries": [
+      null
+     ]
+    },
+    "PredefinedLoadMetricSpecification": {
+     "ResourceLabel": "{{ ResourceLabel }}",
+     "PredefinedMetricType": "{{ PredefinedMetricType }}"
+    },
+    "TargetValue": null,
+    "PredefinedScalingMetricSpecification": {
+     "ResourceLabel": "{{ ResourceLabel }}",
+     "PredefinedMetricType": "{{ PredefinedMetricType }}"
+    },
+    "PredefinedMetricPairSpecification": {
+     "ResourceLabel": "{{ ResourceLabel }}",
+     "PredefinedMetricType": "{{ PredefinedMetricType }}"
+    }
+   }
+  ],
+  "MaxCapacityBreachBehavior": "{{ MaxCapacityBreachBehavior }}",
+  "MaxCapacityBuffer": "{{ MaxCapacityBuffer }}",
+  "SchedulingBufferTime": "{{ SchedulingBufferTime }}",
+  "Mode": "{{ Mode }}"
+ },
+ "ScalingAdjustment": "{{ ScalingAdjustment }}",
+ "Cooldown": "{{ Cooldown }}",
+ "StepAdjustments": [
+  {
+   "MetricIntervalUpperBound": null,
+   "MetricIntervalLowerBound": null,
+   "ScalingAdjustment": "{{ ScalingAdjustment }}"
+  }
+ ],
+ "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
+ "MinAdjustmentMagnitude": "{{ MinAdjustmentMagnitude }}",
+ "TargetTrackingConfiguration": {
+  "CustomizedMetricSpecification": {
+   "MetricName": "{{ MetricName }}",
+   "Dimensions": [
+    null
+   ],
+   "Statistic": "{{ Statistic }}",
+   "Unit": "{{ Unit }}",
+   "Namespace": "{{ Namespace }}"
+  },
+  "TargetValue": null,
+  "DisableScaleIn": "{{ DisableScaleIn }}",
+  "PredefinedMetricSpecification": {
+   "ResourceLabel": "{{ ResourceLabel }}",
+   "PredefinedMetricType": "{{ PredefinedMetricType }}"
+  }
+ },
+ "EstimatedInstanceWarmup": "{{ EstimatedInstanceWarmup }}",
+ "AdjustmentType": "{{ AdjustmentType }}"
+}
+>>>
+--all properties
+INSERT INTO aws.autoscaling.scaling_policies (
+ MetricAggregationType,
+ PolicyType,
+ PredictiveScalingConfiguration,
+ ScalingAdjustment,
+ Cooldown,
+ StepAdjustments,
+ AutoScalingGroupName,
+ MinAdjustmentMagnitude,
+ TargetTrackingConfiguration,
+ EstimatedInstanceWarmup,
+ AdjustmentType,
+ region
+)
+SELECT 
+ {{ MetricAggregationType }},
+ {{ PolicyType }},
+ {{ PredictiveScalingConfiguration }},
+ {{ ScalingAdjustment }},
+ {{ Cooldown }},
+ {{ StepAdjustments }},
+ {{ AutoScalingGroupName }},
+ {{ MinAdjustmentMagnitude }},
+ {{ TargetTrackingConfiguration }},
+ {{ EstimatedInstanceWarmup }},
+ {{ AdjustmentType }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.autoscaling.scaling_policies
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +247,12 @@ To operate on the <code>scaling_policies</code> resource, the following permissi
 autoscaling:DescribePolicies,
 autoscaling:PutScalingPolicy,
 cloudwatch:GetMetricData
+```
+
+### Delete
+```json
+autoscaling:DeletePolicy,
+autoscaling:DescribePolicies
 ```
 
 ### List

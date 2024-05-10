@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>layer_version</code> resource, use <code>layer_versions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>layer_version</code> resource, use <code>layer_versions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -50,11 +53,6 @@ Gets or operates on an individual <code>layer_version</code> resource, use <code
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -73,8 +71,9 @@ content,
 layer_version_arn,
 compatible_architectures
 FROM aws.lambda.layer_version
-WHERE data__Identifier = '<LayerVersionArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<LayerVersionArn>';
 ```
+
 
 ## Permissions
 
@@ -83,11 +82,5 @@ To operate on the <code>layer_version</code> resource, the following permissions
 ### Read
 ```json
 lambda:GetLayerVersion
-```
-
-### Delete
-```json
-lambda:GetLayerVersion,
-lambda:DeleteLayerVersion
 ```
 

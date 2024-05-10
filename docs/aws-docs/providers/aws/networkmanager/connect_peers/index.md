@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>connect_peers</code> in a region or create a <code>connect_peers</code> resource, use <code>connect_peer</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>connect_peers</code> in a region or to create or delete a <code>connect_peers</code> resource, use <code>connect_peer</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>connect_peers</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,95 @@ SELECT
 region,
 connect_peer_id
 FROM aws.networkmanager.connect_peers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PeerAddress": "{{ PeerAddress }}",
+ "ConnectAttachmentId": "{{ ConnectAttachmentId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.networkmanager.connect_peers (
+ PeerAddress,
+ ConnectAttachmentId,
+ region
+)
+SELECT 
+{{ PeerAddress }},
+ {{ ConnectAttachmentId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PeerAddress": "{{ PeerAddress }}",
+ "CoreNetworkAddress": "{{ CoreNetworkAddress }}",
+ "BgpOptions": {
+  "PeerAsn": null
+ },
+ "InsideCidrBlocks": [
+  "{{ InsideCidrBlocks[0] }}"
+ ],
+ "ConnectAttachmentId": "{{ ConnectAttachmentId }}",
+ "SubnetArn": "{{ SubnetArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.networkmanager.connect_peers (
+ PeerAddress,
+ CoreNetworkAddress,
+ BgpOptions,
+ InsideCidrBlocks,
+ ConnectAttachmentId,
+ SubnetArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ PeerAddress }},
+ {{ CoreNetworkAddress }},
+ {{ BgpOptions }},
+ {{ InsideCidrBlocks }},
+ {{ ConnectAttachmentId }},
+ {{ SubnetArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.networkmanager.connect_peers
+WHERE data__Identifier = '<ConnectPeerId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +169,13 @@ To operate on the <code>connect_peers</code> resource, the following permissions
 networkmanager:GetConnectPeer,
 networkmanager:CreateConnectPeer,
 networkmanager:TagResource,
+ec2:DescribeRegions
+```
+
+### Delete
+```json
+networkmanager:GetConnectPeer,
+networkmanager:DeleteConnectPeer,
 ec2:DescribeRegions
 ```
 

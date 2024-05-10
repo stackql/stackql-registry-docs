@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>clusters</code> in a region or create a <code>clusters</code> resource, use <code>cluster</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>clusters</code> in a region or to create or delete a <code>clusters</code> resource, use <code>cluster</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>clusters</code> in a region or create a <code>c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,156 @@ SELECT
 region,
 name
 FROM aws.eks.clusters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ResourcesVpcConfig": {
+  "EndpointPrivateAccess": "{{ EndpointPrivateAccess }}",
+  "EndpointPublicAccess": "{{ EndpointPublicAccess }}",
+  "PublicAccessCidrs": [
+   "{{ PublicAccessCidrs[0] }}"
+  ],
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.eks.clusters (
+ ResourcesVpcConfig,
+ RoleArn,
+ region
+)
+SELECT 
+{{ ResourcesVpcConfig }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "EncryptionConfig": [
+  {
+   "Provider": {
+    "KeyArn": "{{ KeyArn }}"
+   },
+   "Resources": [
+    "{{ Resources[0] }}"
+   ]
+  }
+ ],
+ "KubernetesNetworkConfig": {
+  "ServiceIpv4Cidr": "{{ ServiceIpv4Cidr }}",
+  "ServiceIpv6Cidr": "{{ ServiceIpv6Cidr }}",
+  "IpFamily": "{{ IpFamily }}"
+ },
+ "Logging": {
+  "ClusterLogging": {
+   "EnabledTypes": [
+    {
+     "Type": "{{ Type }}"
+    }
+   ]
+  }
+ },
+ "Name": "{{ Name }}",
+ "ResourcesVpcConfig": {
+  "EndpointPrivateAccess": "{{ EndpointPrivateAccess }}",
+  "EndpointPublicAccess": "{{ EndpointPublicAccess }}",
+  "PublicAccessCidrs": [
+   "{{ PublicAccessCidrs[0] }}"
+  ],
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "OutpostConfig": {
+  "OutpostArns": [
+   "{{ OutpostArns[0] }}"
+  ],
+  "ControlPlaneInstanceType": "{{ ControlPlaneInstanceType }}",
+  "ControlPlanePlacement": {
+   "GroupName": "{{ GroupName }}"
+  }
+ },
+ "AccessConfig": {
+  "BootstrapClusterCreatorAdminPermissions": "{{ BootstrapClusterCreatorAdminPermissions }}",
+  "AuthenticationMode": "{{ AuthenticationMode }}"
+ },
+ "RoleArn": "{{ RoleArn }}",
+ "Version": "{{ Version }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.eks.clusters (
+ EncryptionConfig,
+ KubernetesNetworkConfig,
+ Logging,
+ Name,
+ ResourcesVpcConfig,
+ OutpostConfig,
+ AccessConfig,
+ RoleArn,
+ Version,
+ Tags,
+ region
+)
+SELECT 
+ {{ EncryptionConfig }},
+ {{ KubernetesNetworkConfig }},
+ {{ Logging }},
+ {{ Name }},
+ {{ ResourcesVpcConfig }},
+ {{ OutpostConfig }},
+ {{ AccessConfig }},
+ {{ RoleArn }},
+ {{ Version }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.eks.clusters
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -87,6 +244,12 @@ ec2:DescribeSubnets,
 ec2:DescribeVpcs,
 kms:DescribeKey,
 kms:CreateGrant
+```
+
+### Delete
+```json
+eks:DeleteCluster,
+eks:DescribeCluster
 ```
 
 ### List

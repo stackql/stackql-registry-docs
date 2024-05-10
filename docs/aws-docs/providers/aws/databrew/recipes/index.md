@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>recipes</code> in a region or create a <code>recipes</code> resource, use <code>recipe</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>recipes</code> in a region or to create or delete a <code>recipes</code> resource, use <code>recipe</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>recipes</code> in a region or create a <code>re
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,110 @@ SELECT
 region,
 name
 FROM aws.databrew.recipes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Steps": [
+  {
+   "Action": {
+    "Operation": "{{ Operation }}",
+    "Parameters": null
+   },
+   "ConditionExpressions": [
+    {
+     "Condition": "{{ Condition }}",
+     "Value": "{{ Value }}",
+     "TargetColumn": "{{ TargetColumn }}"
+    }
+   ]
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.databrew.recipes (
+ Name,
+ Steps,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Steps }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "Steps": [
+  {
+   "Action": {
+    "Operation": "{{ Operation }}",
+    "Parameters": null
+   },
+   "ConditionExpressions": [
+    {
+     "Condition": "{{ Condition }}",
+     "Value": "{{ Value }}",
+     "TargetColumn": "{{ TargetColumn }}"
+    }
+   ]
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.databrew.recipes (
+ Description,
+ Name,
+ Steps,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Name }},
+ {{ Steps }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.databrew.recipes
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +185,11 @@ databrew:CreateRecipe,
 databrew:TagResource,
 databrew:UntagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+databrew:DeleteRecipeVersion
 ```
 
 ### List

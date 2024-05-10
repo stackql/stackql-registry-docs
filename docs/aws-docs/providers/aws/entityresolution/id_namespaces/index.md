@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>id_namespaces</code> in a region or create a <code>id_namespaces</code> resource, use <code>id_namespace</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>id_namespaces</code> in a region or to create or delete a <code>id_namespaces</code> resource, use <code>id_namespace</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>id_namespaces</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,104 @@ SELECT
 region,
 id_namespace_name
 FROM aws.entityresolution.id_namespaces
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IdNamespaceName": "{{ IdNamespaceName }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.entityresolution.id_namespaces (
+ IdNamespaceName,
+ Type,
+ region
+)
+SELECT 
+{{ IdNamespaceName }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IdNamespaceName": "{{ IdNamespaceName }}",
+ "Description": "{{ Description }}",
+ "InputSourceConfig": [
+  {
+   "InputSourceARN": "{{ InputSourceARN }}",
+   "SchemaName": null
+  }
+ ],
+ "IdMappingWorkflowProperties": [
+  {
+   "IdMappingType": "{{ IdMappingType }}",
+   "ProviderProperties": {
+    "ProviderServiceArn": "{{ ProviderServiceArn }}",
+    "ProviderConfiguration": {}
+   }
+  }
+ ],
+ "Type": "{{ Type }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.entityresolution.id_namespaces (
+ IdNamespaceName,
+ Description,
+ InputSourceConfig,
+ IdMappingWorkflowProperties,
+ Type,
+ RoleArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ IdNamespaceName }},
+ {{ Description }},
+ {{ InputSourceConfig }},
+ {{ IdMappingWorkflowProperties }},
+ {{ Type }},
+ {{ RoleArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.entityresolution.id_namespaces
+WHERE data__Identifier = '<IdNamespaceName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +178,13 @@ To operate on the <code>id_namespaces</code> resource, the following permissions
 entityresolution:CreateIdNamespace,
 entityresolution:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+entityresolution:DeleteIdNamespace,
+entityresolution:GetIdNamespace,
+entityresolution:UntagResource
 ```
 
 ### List

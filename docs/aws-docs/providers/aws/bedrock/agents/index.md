@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>agents</code> in a region or create a <code>agents</code> resource, use <code>agent</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>agents</code> in a region or to create or delete a <code>agents</code> resource, use <code>agent</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>agents</code> in a region or create a <code>age
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,139 @@ SELECT
 region,
 agent_id
 FROM aws.bedrock.agents
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AgentName": "{{ AgentName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.bedrock.agents (
+ AgentName,
+ region
+)
+SELECT 
+{{ AgentName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ActionGroups": [
+  {
+   "ActionGroupName": "{{ ActionGroupName }}",
+   "Description": "{{ Description }}",
+   "ParentActionGroupSignature": "{{ ParentActionGroupSignature }}",
+   "ActionGroupExecutor": {
+    "Lambda": "{{ Lambda }}"
+   },
+   "ApiSchema": null,
+   "ActionGroupState": "{{ ActionGroupState }}",
+   "SkipResourceInUseCheckOnDelete": "{{ SkipResourceInUseCheckOnDelete }}"
+  }
+ ],
+ "AgentName": "{{ AgentName }}",
+ "AgentResourceRoleArn": "{{ AgentResourceRoleArn }}",
+ "AutoPrepare": "{{ AutoPrepare }}",
+ "CustomerEncryptionKeyArn": "{{ CustomerEncryptionKeyArn }}",
+ "SkipResourceInUseCheckOnDelete": "{{ SkipResourceInUseCheckOnDelete }}",
+ "Description": "{{ Description }}",
+ "FoundationModel": "{{ FoundationModel }}",
+ "IdleSessionTTLInSeconds": null,
+ "Instruction": "{{ Instruction }}",
+ "KnowledgeBases": [
+  {
+   "KnowledgeBaseId": "{{ KnowledgeBaseId }}",
+   "Description": "{{ Description }}",
+   "KnowledgeBaseState": "{{ KnowledgeBaseState }}"
+  }
+ ],
+ "PromptOverrideConfiguration": {
+  "PromptConfigurations": [
+   {
+    "PromptType": "{{ PromptType }}",
+    "PromptCreationMode": "{{ PromptCreationMode }}",
+    "PromptState": "{{ PromptState }}",
+    "BasePromptTemplate": "{{ BasePromptTemplate }}",
+    "InferenceConfiguration": {
+     "Temperature": null,
+     "TopP": null,
+     "TopK": null,
+     "MaximumLength": null,
+     "StopSequences": [
+      "{{ StopSequences[0] }}"
+     ]
+    },
+    "ParserMode": null
+   }
+  ],
+  "OverrideLambda": "{{ OverrideLambda }}"
+ },
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.bedrock.agents (
+ ActionGroups,
+ AgentName,
+ AgentResourceRoleArn,
+ AutoPrepare,
+ CustomerEncryptionKeyArn,
+ SkipResourceInUseCheckOnDelete,
+ Description,
+ FoundationModel,
+ IdleSessionTTLInSeconds,
+ Instruction,
+ KnowledgeBases,
+ PromptOverrideConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ ActionGroups }},
+ {{ AgentName }},
+ {{ AgentResourceRoleArn }},
+ {{ AutoPrepare }},
+ {{ CustomerEncryptionKeyArn }},
+ {{ SkipResourceInUseCheckOnDelete }},
+ {{ Description }},
+ {{ FoundationModel }},
+ {{ IdleSessionTTLInSeconds }},
+ {{ Instruction }},
+ {{ KnowledgeBases }},
+ {{ PromptOverrideConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.bedrock.agents
+WHERE data__Identifier = '<AgentId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +222,12 @@ bedrock:ListAgentActionGroups,
 bedrock:TagResource,
 bedrock:ListTagsForResource,
 iam:PassRole
+```
+
+### Delete
+```json
+bedrock:GetAgent,
+bedrock:DeleteAgent
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>query_definitions</code> in a region or create a <code>query_definitions</code> resource, use <code>query_definition</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>query_definitions</code> in a region or to create or delete a <code>query_definitions</code> resource, use <code>query_definition</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>query_definitions</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,76 @@ SELECT
 region,
 query_definition_id
 FROM aws.logs.query_definitions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "QueryString": "{{ QueryString }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.logs.query_definitions (
+ Name,
+ QueryString,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ QueryString }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "QueryString": "{{ QueryString }}",
+ "LogGroupNames": [
+  "{{ LogGroupNames[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.logs.query_definitions (
+ Name,
+ QueryString,
+ LogGroupNames,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ QueryString }},
+ {{ LogGroupNames }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.logs.query_definitions
+WHERE data__Identifier = '<QueryDefinitionId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +148,11 @@ To operate on the <code>query_definitions</code> resource, the following permiss
 ### Create
 ```json
 logs:PutQueryDefinition
+```
+
+### Delete
+```json
+logs:DeleteQueryDefinition
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>oidc_providers</code> in a region or create a <code>oidc_providers</code> resource, use <code>oidc_provider</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>oidc_providers</code> in a region or to create or delete a <code>oidc_providers</code> resource, use <code>oidc_provider</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>oidc_providers</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,85 @@ SELECT
 region,
 arn
 FROM aws.iam.oidc_providers
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ThumbprintList": [
+  "{{ ThumbprintList[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iam.oidc_providers (
+ ThumbprintList,
+ region
+)
+SELECT 
+{{ ThumbprintList }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClientIdList": [
+  "{{ ClientIdList[0] }}"
+ ],
+ "Url": "{{ Url }}",
+ "ThumbprintList": [
+  "{{ ThumbprintList[0] }}"
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iam.oidc_providers (
+ ClientIdList,
+ Url,
+ ThumbprintList,
+ Tags,
+ region
+)
+SELECT 
+ {{ ClientIdList }},
+ {{ Url }},
+ {{ ThumbprintList }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iam.oidc_providers
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +159,11 @@ To operate on the <code>oidc_providers</code> resource, the following permission
 iam:CreateOpenIDConnectProvider,
 iam:TagOpenIDConnectProvider,
 iam:GetOpenIDConnectProvider
+```
+
+### Delete
+```json
+iam:DeleteOpenIDConnectProvider
 ```
 
 ### List

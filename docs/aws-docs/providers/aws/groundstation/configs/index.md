@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>configs</code> in a region or create a <code>configs</code> resource, use <code>config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>configs</code> in a region or to create or delete a <code>configs</code> resource, use <code>config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>configs</code> in a region or create a <code>co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,179 @@ SELECT
 region,
 arn
 FROM aws.groundstation.configs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ConfigData": {
+  "AntennaDownlinkConfig": {
+   "SpectrumConfig": {
+    "CenterFrequency": {
+     "Value": null,
+     "Units": "{{ Units }}"
+    },
+    "Bandwidth": {
+     "Value": null,
+     "Units": "{{ Units }}"
+    },
+    "Polarization": "{{ Polarization }}"
+   }
+  },
+  "TrackingConfig": {
+   "Autotrack": "{{ Autotrack }}"
+  },
+  "DataflowEndpointConfig": {
+   "DataflowEndpointName": "{{ DataflowEndpointName }}",
+   "DataflowEndpointRegion": "{{ DataflowEndpointRegion }}"
+  },
+  "AntennaDownlinkDemodDecodeConfig": {
+   "SpectrumConfig": null,
+   "DemodulationConfig": {
+    "UnvalidatedJSON": "{{ UnvalidatedJSON }}"
+   },
+   "DecodeConfig": {
+    "UnvalidatedJSON": null
+   }
+  },
+  "AntennaUplinkConfig": {
+   "SpectrumConfig": {
+    "CenterFrequency": null,
+    "Polarization": null
+   },
+   "TargetEirp": {
+    "Value": null,
+    "Units": "{{ Units }}"
+   },
+   "TransmitDisabled": "{{ TransmitDisabled }}"
+  },
+  "UplinkEchoConfig": {
+   "Enabled": "{{ Enabled }}",
+   "AntennaUplinkConfigArn": "{{ AntennaUplinkConfigArn }}"
+  },
+  "S3RecordingConfig": {
+   "BucketArn": "{{ BucketArn }}",
+   "RoleArn": "{{ RoleArn }}",
+   "Prefix": "{{ Prefix }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.groundstation.configs (
+ Name,
+ ConfigData,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ ConfigData }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ConfigData": {
+  "AntennaDownlinkConfig": {
+   "SpectrumConfig": {
+    "CenterFrequency": {
+     "Value": null,
+     "Units": "{{ Units }}"
+    },
+    "Bandwidth": {
+     "Value": null,
+     "Units": "{{ Units }}"
+    },
+    "Polarization": "{{ Polarization }}"
+   }
+  },
+  "TrackingConfig": {
+   "Autotrack": "{{ Autotrack }}"
+  },
+  "DataflowEndpointConfig": {
+   "DataflowEndpointName": "{{ DataflowEndpointName }}",
+   "DataflowEndpointRegion": "{{ DataflowEndpointRegion }}"
+  },
+  "AntennaDownlinkDemodDecodeConfig": {
+   "SpectrumConfig": null,
+   "DemodulationConfig": {
+    "UnvalidatedJSON": "{{ UnvalidatedJSON }}"
+   },
+   "DecodeConfig": {
+    "UnvalidatedJSON": null
+   }
+  },
+  "AntennaUplinkConfig": {
+   "SpectrumConfig": {
+    "CenterFrequency": null,
+    "Polarization": null
+   },
+   "TargetEirp": {
+    "Value": null,
+    "Units": "{{ Units }}"
+   },
+   "TransmitDisabled": "{{ TransmitDisabled }}"
+  },
+  "UplinkEchoConfig": {
+   "Enabled": "{{ Enabled }}",
+   "AntennaUplinkConfigArn": "{{ AntennaUplinkConfigArn }}"
+  },
+  "S3RecordingConfig": {
+   "BucketArn": "{{ BucketArn }}",
+   "RoleArn": "{{ RoleArn }}",
+   "Prefix": "{{ Prefix }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.groundstation.configs (
+ Name,
+ Tags,
+ ConfigData,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Tags }},
+ {{ ConfigData }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.groundstation.configs
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +253,11 @@ To operate on the <code>configs</code> resource, the following permissions are r
 groundstation:CreateConfig,
 groundstation:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+groundstation:DeleteConfig
 ```
 
 ### List

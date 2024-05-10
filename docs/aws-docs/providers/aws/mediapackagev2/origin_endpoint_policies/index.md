@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>origin_endpoint_policies</code> in a region or create a <code>origin_endpoint_policies</code> resource, use <code>origin_endpoint_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>origin_endpoint_policies</code> in a region or to create or delete a <code>origin_endpoint_policies</code> resource, use <code>origin_endpoint_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>origin_endpoint_policies</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,83 @@ channel_group_name,
 channel_name,
 origin_endpoint_name
 FROM aws.mediapackagev2.origin_endpoint_policies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ChannelGroupName": "{{ ChannelGroupName }}",
+ "ChannelName": "{{ ChannelName }}",
+ "OriginEndpointName": "{{ OriginEndpointName }}",
+ "Policy": {}
+}
+>>>
+--required properties only
+INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
+ ChannelGroupName,
+ ChannelName,
+ OriginEndpointName,
+ Policy,
+ region
+)
+SELECT 
+{{ ChannelGroupName }},
+ {{ ChannelName }},
+ {{ OriginEndpointName }},
+ {{ Policy }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ChannelGroupName": "{{ ChannelGroupName }}",
+ "ChannelName": "{{ ChannelName }}",
+ "OriginEndpointName": "{{ OriginEndpointName }}",
+ "Policy": {}
+}
+>>>
+--all properties
+INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
+ ChannelGroupName,
+ ChannelName,
+ OriginEndpointName,
+ Policy,
+ region
+)
+SELECT 
+ {{ ChannelGroupName }},
+ {{ ChannelName }},
+ {{ OriginEndpointName }},
+ {{ Policy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediapackagev2.origin_endpoint_policies
+WHERE data__Identifier = '<ChannelGroupName|ChannelName|OriginEndpointName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,5 +160,11 @@ To operate on the <code>origin_endpoint_policies</code> resource, the following 
 ```json
 mediapackagev2:GetOriginEndpointPolicy,
 mediapackagev2:PutOriginEndpointPolicy
+```
+
+### Delete
+```json
+mediapackagev2:GetOriginEndpointPolicy,
+mediapackagev2:DeleteOriginEndpointPolicy
 ```
 

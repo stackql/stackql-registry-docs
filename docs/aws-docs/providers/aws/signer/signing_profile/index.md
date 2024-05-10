@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>signing_profile</code> resource, use <code>signing_profiles</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>signing_profile</code> resource, use <code>signing_profiles</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -55,11 +58,6 @@ Gets or operates on an individual <code>signing_profile</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -78,8 +76,9 @@ signature_validity_period,
 platform_id,
 tags
 FROM aws.signer.signing_profile
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -87,12 +86,6 @@ To operate on the <code>signing_profile</code> resource, the following permissio
 
 ### Read
 ```json
-signer:GetSigningProfile
-```
-
-### Delete
-```json
-signer:CancelSigningProfile,
 signer:GetSigningProfile
 ```
 

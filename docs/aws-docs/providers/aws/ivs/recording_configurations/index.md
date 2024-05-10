@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>recording_configurations</code> in a region or create a <code>recording_configurations</code> resource, use <code>recording_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>recording_configurations</code> in a region or to create or delete a <code>recording_configurations</code> resource, use <code>recording_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>recording_configurations</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,105 @@ SELECT
 region,
 arn
 FROM aws.ivs.recording_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationConfiguration": {
+  "S3": {
+   "BucketName": "{{ BucketName }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ivs.recording_configurations (
+ DestinationConfiguration,
+ region
+)
+SELECT 
+{{ DestinationConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "RecordingReconnectWindowSeconds": "{{ RecordingReconnectWindowSeconds }}",
+ "DestinationConfiguration": {
+  "S3": {
+   "BucketName": "{{ BucketName }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ThumbnailConfiguration": {
+  "RecordingMode": "{{ RecordingMode }}",
+  "TargetIntervalSeconds": "{{ TargetIntervalSeconds }}",
+  "Resolution": "{{ Resolution }}",
+  "Storage": [
+   "{{ Storage[0] }}"
+  ]
+ },
+ "RenditionConfiguration": {
+  "RenditionSelection": "{{ RenditionSelection }}",
+  "Renditions": [
+   "{{ Renditions[0] }}"
+  ]
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ivs.recording_configurations (
+ Name,
+ RecordingReconnectWindowSeconds,
+ DestinationConfiguration,
+ Tags,
+ ThumbnailConfiguration,
+ RenditionConfiguration,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ RecordingReconnectWindowSeconds }},
+ {{ DestinationConfiguration }},
+ {{ Tags }},
+ {{ ThumbnailConfiguration }},
+ {{ RenditionConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ivs.recording_configurations
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,6 +185,13 @@ iam:AttachRolePolicy,
 s3:ListBucket,
 s3:GetBucketLocation,
 cloudformation:ListExports
+```
+
+### Delete
+```json
+ivs:DeleteRecordingConfiguration,
+ivs:UntagResource,
+iam:CreateServiceLinkedRole
 ```
 
 ### List

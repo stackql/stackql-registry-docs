@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>directory_buckets</code> in a region or create a <code>directory_buckets</code> resource, use <code>directory_bucket</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>directory_buckets</code> in a region or to create or delete a <code>directory_buckets</code> resource, use <code>directory_bucket</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>directory_buckets</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,74 @@ SELECT
 region,
 bucket_name
 FROM aws.s3express.directory_buckets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "LocationName": "{{ LocationName }}",
+ "DataRedundancy": "{{ DataRedundancy }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.s3express.directory_buckets (
+ LocationName,
+ DataRedundancy,
+ region
+)
+SELECT 
+{{ LocationName }},
+ {{ DataRedundancy }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BucketName": "{{ BucketName }}",
+ "LocationName": "{{ LocationName }}",
+ "DataRedundancy": "{{ DataRedundancy }}"
+}
+>>>
+--all properties
+INSERT INTO aws.s3express.directory_buckets (
+ BucketName,
+ LocationName,
+ DataRedundancy,
+ region
+)
+SELECT 
+ {{ BucketName }},
+ {{ LocationName }},
+ {{ DataRedundancy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.s3express.directory_buckets
+WHERE data__Identifier = '<BucketName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +146,12 @@ To operate on the <code>directory_buckets</code> resource, the following permiss
 ### Create
 ```json
 s3express:CreateBucket,
+s3express:ListAllMyDirectoryBuckets
+```
+
+### Delete
+```json
+s3express:DeleteBucket,
 s3express:ListAllMyDirectoryBuckets
 ```
 

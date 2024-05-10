@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>layer_versions</code> in a region or create a <code>layer_versions</code> resource, use <code>layer_version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>layer_versions</code> in a region or to create or delete a <code>layer_versions</code> resource, use <code>layer_version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>layer_versions</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,92 @@ SELECT
 region,
 layer_version_arn
 FROM aws.lambda.layer_versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Content": {
+  "S3ObjectVersion": "{{ S3ObjectVersion }}",
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.lambda.layer_versions (
+ Content,
+ region
+)
+SELECT 
+{{ Content }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CompatibleRuntimes": [
+  "{{ CompatibleRuntimes[0] }}"
+ ],
+ "LicenseInfo": "{{ LicenseInfo }}",
+ "Description": "{{ Description }}",
+ "LayerName": "{{ LayerName }}",
+ "Content": {
+  "S3ObjectVersion": "{{ S3ObjectVersion }}",
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}"
+ },
+ "CompatibleArchitectures": [
+  "{{ CompatibleArchitectures[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lambda.layer_versions (
+ CompatibleRuntimes,
+ LicenseInfo,
+ Description,
+ LayerName,
+ Content,
+ CompatibleArchitectures,
+ region
+)
+SELECT 
+ {{ CompatibleRuntimes }},
+ {{ LicenseInfo }},
+ {{ Description }},
+ {{ LayerName }},
+ {{ Content }},
+ {{ CompatibleArchitectures }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lambda.layer_versions
+WHERE data__Identifier = '<LayerVersionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +166,12 @@ To operate on the <code>layer_versions</code> resource, the following permission
 lambda:PublishLayerVersion,
 s3:GetObject,
 s3:GetObjectVersion
+```
+
+### Delete
+```json
+lambda:GetLayerVersion,
+lambda:DeleteLayerVersion
 ```
 
 ### List

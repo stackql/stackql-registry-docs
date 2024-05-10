@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>ip_sets</code> in a region or create a <code>ip_sets</code> resource, use <code>ip_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>ip_sets</code> in a region or to create or delete a <code>ip_sets</code> resource, use <code>ip_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>ip_sets</code> in a region or create a <code>ip
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,95 @@ name,
 id,
 scope
 FROM aws.wafv2.ip_sets
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Scope": "{{ Scope }}",
+ "IPAddressVersion": "{{ IPAddressVersion }}",
+ "Addresses": [
+  "{{ Addresses[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.wafv2.ip_sets (
+ Scope,
+ IPAddressVersion,
+ Addresses,
+ region
+)
+SELECT 
+{{ Scope }},
+ {{ IPAddressVersion }},
+ {{ Addresses }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "Scope": "{{ Scope }}",
+ "IPAddressVersion": "{{ IPAddressVersion }}",
+ "Addresses": [
+  "{{ Addresses[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.wafv2.ip_sets (
+ Description,
+ Name,
+ Scope,
+ IPAddressVersion,
+ Addresses,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Name }},
+ {{ Scope }},
+ {{ IPAddressVersion }},
+ {{ Addresses }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.wafv2.ip_sets
+WHERE data__Identifier = '<Name|Id|Scope>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +173,12 @@ To operate on the <code>ip_sets</code> resource, the following permissions are r
 wafv2:CreateIPSet,
 wafv2:GetIPSet,
 wafv2:ListTagsForResource
+```
+
+### Delete
+```json
+wafv2:DeleteIPSet,
+wafv2:GetIPSet
 ```
 
 ### List

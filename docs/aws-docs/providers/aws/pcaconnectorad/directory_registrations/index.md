@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>directory_registrations</code> in a region or create a <code>directory_registrations</code> resource, use <code>directory_registration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>directory_registrations</code> in a region or to create or delete a <code>directory_registrations</code> resource, use <code>directory_registration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>directory_registrations</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,68 @@ SELECT
 region,
 directory_registration_arn
 FROM aws.pcaconnectorad.directory_registrations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DirectoryId": "{{ DirectoryId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.pcaconnectorad.directory_registrations (
+ DirectoryId,
+ region
+)
+SELECT 
+{{ DirectoryId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DirectoryId": "{{ DirectoryId }}",
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.pcaconnectorad.directory_registrations (
+ DirectoryId,
+ Tags,
+ region
+)
+SELECT 
+ {{ DirectoryId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.pcaconnectorad.directory_registrations
+WHERE data__Identifier = '<DirectoryRegistrationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +143,15 @@ pca-connector-ad:GetDirectoryRegistration,
 pca-connector-ad:CreateDirectoryRegistration,
 ds:AuthorizeApplication,
 ds:DescribeDirectories
+```
+
+### Delete
+```json
+pca-connector-ad:GetDirectoryRegistration,
+pca-connector-ad:DeleteDirectoryRegistration,
+ds:DescribeDirectories,
+ds:UnauthorizeApplication,
+ds:UpdateAuthorizedApplication
 ```
 
 ### List

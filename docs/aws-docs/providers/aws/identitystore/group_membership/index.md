@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>group_membership</code> resource, use <code>group_memberships</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>group_membership</code> resource, use <code>group_memberships</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -47,11 +50,6 @@ Gets or operates on an individual <code>group_membership</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -67,8 +65,9 @@ identity_store_id,
 member_id,
 membership_id
 FROM aws.identitystore.group_membership
-WHERE data__Identifier = '<MembershipId>|<IdentityStoreId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<MembershipId>|<IdentityStoreId>';
 ```
+
 
 ## Permissions
 
@@ -76,12 +75,6 @@ To operate on the <code>group_membership</code> resource, the following permissi
 
 ### Read
 ```json
-identitystore:DescribeGroupMembership
-```
-
-### Delete
-```json
-identitystore:DeleteGroupMembership,
 identitystore:DescribeGroupMembership
 ```
 

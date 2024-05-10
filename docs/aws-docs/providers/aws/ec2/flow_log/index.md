@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>flow_log</code> resource, use <code>flow_logs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>flow_log</code> resource, use <code>flow_logs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>flow_log</code> resource, use <code>flow
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ tags,
 traffic_type,
 destination_options
 FROM aws.ec2.flow_log
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -107,12 +106,5 @@ ec2:DescribeFlowLogs
 ec2:CreateTags,
 ec2:DeleteTags,
 ec2:DescribeFlowLogs
-```
-
-### Delete
-```json
-ec2:DeleteFlowLogs,
-ec2:DescribeFlowLogs,
-logs:DeleteLogDelivery
 ```
 

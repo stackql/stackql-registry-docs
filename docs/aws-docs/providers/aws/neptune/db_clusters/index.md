@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>db_clusters</code> in a region or create a <code>db_clusters</code> resource, use <code>db_cluster</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>db_clusters</code> in a region or to create or delete a <code>db_clusters</code> resource, use <code>db_cluster</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>db_clusters</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,247 @@ SELECT
 region,
 db_cluster_identifier
 FROM aws.neptune.db_clusters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AssociatedRoles": [
+  {
+   "FeatureName": "{{ FeatureName }}",
+   "RoleArn": "{{ RoleArn }}"
+  }
+ ],
+ "AvailabilityZones": [
+  "{{ AvailabilityZones[0] }}"
+ ],
+ "BackupRetentionPeriod": "{{ BackupRetentionPeriod }}",
+ "CopyTagsToSnapshot": "{{ CopyTagsToSnapshot }}",
+ "DBClusterIdentifier": "{{ DBClusterIdentifier }}",
+ "DBClusterParameterGroupName": "{{ DBClusterParameterGroupName }}",
+ "DBInstanceParameterGroupName": "{{ DBInstanceParameterGroupName }}",
+ "DBPort": "{{ DBPort }}",
+ "DBSubnetGroupName": "{{ DBSubnetGroupName }}",
+ "DeletionProtection": "{{ DeletionProtection }}",
+ "EnableCloudwatchLogsExports": [
+  "{{ EnableCloudwatchLogsExports[0] }}"
+ ],
+ "EngineVersion": "{{ EngineVersion }}",
+ "IamAuthEnabled": "{{ IamAuthEnabled }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
+ "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+ "RestoreToTime": "{{ RestoreToTime }}",
+ "RestoreType": "{{ RestoreType }}",
+ "ServerlessScalingConfiguration": {
+  "MinCapacity": null,
+  "MaxCapacity": null
+ },
+ "SnapshotIdentifier": "{{ SnapshotIdentifier }}",
+ "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
+ "StorageEncrypted": "{{ StorageEncrypted }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "UseLatestRestorableTime": "{{ UseLatestRestorableTime }}",
+ "VpcSecurityGroupIds": [
+  "{{ VpcSecurityGroupIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.neptune.db_clusters (
+ AssociatedRoles,
+ AvailabilityZones,
+ BackupRetentionPeriod,
+ CopyTagsToSnapshot,
+ DBClusterIdentifier,
+ DBClusterParameterGroupName,
+ DBInstanceParameterGroupName,
+ DBPort,
+ DBSubnetGroupName,
+ DeletionProtection,
+ EnableCloudwatchLogsExports,
+ EngineVersion,
+ IamAuthEnabled,
+ KmsKeyId,
+ PreferredBackupWindow,
+ PreferredMaintenanceWindow,
+ RestoreToTime,
+ RestoreType,
+ ServerlessScalingConfiguration,
+ SnapshotIdentifier,
+ SourceDBClusterIdentifier,
+ StorageEncrypted,
+ Tags,
+ UseLatestRestorableTime,
+ VpcSecurityGroupIds,
+ region
+)
+SELECT 
+{{ AssociatedRoles }},
+ {{ AvailabilityZones }},
+ {{ BackupRetentionPeriod }},
+ {{ CopyTagsToSnapshot }},
+ {{ DBClusterIdentifier }},
+ {{ DBClusterParameterGroupName }},
+ {{ DBInstanceParameterGroupName }},
+ {{ DBPort }},
+ {{ DBSubnetGroupName }},
+ {{ DeletionProtection }},
+ {{ EnableCloudwatchLogsExports }},
+ {{ EngineVersion }},
+ {{ IamAuthEnabled }},
+ {{ KmsKeyId }},
+ {{ PreferredBackupWindow }},
+ {{ PreferredMaintenanceWindow }},
+ {{ RestoreToTime }},
+ {{ RestoreType }},
+ {{ ServerlessScalingConfiguration }},
+ {{ SnapshotIdentifier }},
+ {{ SourceDBClusterIdentifier }},
+ {{ StorageEncrypted }},
+ {{ Tags }},
+ {{ UseLatestRestorableTime }},
+ {{ VpcSecurityGroupIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AssociatedRoles": [
+  {
+   "FeatureName": "{{ FeatureName }}",
+   "RoleArn": "{{ RoleArn }}"
+  }
+ ],
+ "AvailabilityZones": [
+  "{{ AvailabilityZones[0] }}"
+ ],
+ "BackupRetentionPeriod": "{{ BackupRetentionPeriod }}",
+ "CopyTagsToSnapshot": "{{ CopyTagsToSnapshot }}",
+ "DBClusterIdentifier": "{{ DBClusterIdentifier }}",
+ "DBClusterParameterGroupName": "{{ DBClusterParameterGroupName }}",
+ "DBInstanceParameterGroupName": "{{ DBInstanceParameterGroupName }}",
+ "DBPort": "{{ DBPort }}",
+ "DBSubnetGroupName": "{{ DBSubnetGroupName }}",
+ "DeletionProtection": "{{ DeletionProtection }}",
+ "EnableCloudwatchLogsExports": [
+  "{{ EnableCloudwatchLogsExports[0] }}"
+ ],
+ "EngineVersion": "{{ EngineVersion }}",
+ "IamAuthEnabled": "{{ IamAuthEnabled }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
+ "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+ "RestoreToTime": "{{ RestoreToTime }}",
+ "RestoreType": "{{ RestoreType }}",
+ "ServerlessScalingConfiguration": {
+  "MinCapacity": null,
+  "MaxCapacity": null
+ },
+ "SnapshotIdentifier": "{{ SnapshotIdentifier }}",
+ "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
+ "StorageEncrypted": "{{ StorageEncrypted }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "UseLatestRestorableTime": "{{ UseLatestRestorableTime }}",
+ "VpcSecurityGroupIds": [
+  "{{ VpcSecurityGroupIds[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.neptune.db_clusters (
+ AssociatedRoles,
+ AvailabilityZones,
+ BackupRetentionPeriod,
+ CopyTagsToSnapshot,
+ DBClusterIdentifier,
+ DBClusterParameterGroupName,
+ DBInstanceParameterGroupName,
+ DBPort,
+ DBSubnetGroupName,
+ DeletionProtection,
+ EnableCloudwatchLogsExports,
+ EngineVersion,
+ IamAuthEnabled,
+ KmsKeyId,
+ PreferredBackupWindow,
+ PreferredMaintenanceWindow,
+ RestoreToTime,
+ RestoreType,
+ ServerlessScalingConfiguration,
+ SnapshotIdentifier,
+ SourceDBClusterIdentifier,
+ StorageEncrypted,
+ Tags,
+ UseLatestRestorableTime,
+ VpcSecurityGroupIds,
+ region
+)
+SELECT 
+ {{ AssociatedRoles }},
+ {{ AvailabilityZones }},
+ {{ BackupRetentionPeriod }},
+ {{ CopyTagsToSnapshot }},
+ {{ DBClusterIdentifier }},
+ {{ DBClusterParameterGroupName }},
+ {{ DBInstanceParameterGroupName }},
+ {{ DBPort }},
+ {{ DBSubnetGroupName }},
+ {{ DeletionProtection }},
+ {{ EnableCloudwatchLogsExports }},
+ {{ EngineVersion }},
+ {{ IamAuthEnabled }},
+ {{ KmsKeyId }},
+ {{ PreferredBackupWindow }},
+ {{ PreferredMaintenanceWindow }},
+ {{ RestoreToTime }},
+ {{ RestoreType }},
+ {{ ServerlessScalingConfiguration }},
+ {{ SnapshotIdentifier }},
+ {{ SourceDBClusterIdentifier }},
+ {{ StorageEncrypted }},
+ {{ Tags }},
+ {{ UseLatestRestorableTime }},
+ {{ VpcSecurityGroupIds }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.neptune.db_clusters
+WHERE data__Identifier = '<DBClusterIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +328,18 @@ rds:ListTagsForResource,
 rds:ModifyDBCluster,
 rds:RestoreDBClusterFromSnapshot,
 rds:RestoreDBClusterToPointInTime,
+kms:*
+```
+
+### Delete
+```json
+rds:DeleteDBCluster,
+rds:DeleteDBInstance,
+rds:DescribeDBClusters,
+rds:DescribeGlobalClusters,
+rds:ListTagsForResource,
+rds:RemoveFromGlobalCluster,
+rds:CreateDBClusterSnapshot,
 kms:*
 ```
 

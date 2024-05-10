@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>proactive_engagements</code> in a region or create a <code>proactive_engagements</code> resource, use <code>proactive_engagement</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>proactive_engagements</code> in a region or to create or delete a <code>proactive_engagements</code> resource, use <code>proactive_engagement</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>proactive_engagements</code> in a region or cre
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 account_id
 FROM aws.shield.proactive_engagements
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ProactiveEngagementStatus": "{{ ProactiveEngagementStatus }}",
+ "EmergencyContactList": [
+  {
+   "ContactNotes": "{{ ContactNotes }}",
+   "EmailAddress": "{{ EmailAddress }}",
+   "PhoneNumber": "{{ PhoneNumber }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.shield.proactive_engagements (
+ ProactiveEngagementStatus,
+ EmergencyContactList,
+ region
+)
+SELECT 
+{{ ProactiveEngagementStatus }},
+ {{ EmergencyContactList }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ProactiveEngagementStatus": "{{ ProactiveEngagementStatus }}",
+ "EmergencyContactList": [
+  {
+   "ContactNotes": "{{ ContactNotes }}",
+   "EmailAddress": "{{ EmailAddress }}",
+   "PhoneNumber": "{{ PhoneNumber }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.shield.proactive_engagements (
+ ProactiveEngagementStatus,
+ EmergencyContactList,
+ region
+)
+SELECT 
+ {{ ProactiveEngagementStatus }},
+ {{ EmergencyContactList }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.shield.proactive_engagements
+WHERE data__Identifier = '<AccountId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +159,14 @@ shield:DescribeEmergencyContactSettings,
 shield:AssociateProactiveEngagementDetails,
 shield:UpdateEmergencyContactSettings,
 shield:EnableProactiveEngagement
+```
+
+### Delete
+```json
+shield:DescribeSubscription,
+shield:DescribeEmergencyContactSettings,
+shield:UpdateEmergencyContactSettings,
+shield:DisableProactiveEngagement
 ```
 
 ### List

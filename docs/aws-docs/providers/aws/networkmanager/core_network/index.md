@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>core_network</code> resource, use <code>core_networks</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>core_network</code> resource, use <code>core_networks</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -59,11 +62,6 @@ Gets or operates on an individual <code>core_network</code> resource, use <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -86,8 +84,9 @@ edges,
 owner_account,
 tags
 FROM aws.networkmanager.core_network
-WHERE data__Identifier = '<CoreNetworkId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<CoreNetworkId>';
 ```
+
 
 ## Permissions
 
@@ -109,15 +108,6 @@ networkmanager:GetCoreNetworkPolicy,
 networkmanager:ExecuteCoreNetworkChangeSet,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-ec2:DescribeRegions
-```
-
-### Delete
-```json
-networkmanager:DeleteCoreNetwork,
-networkmanager:UntagResource,
-networkmanager:GetCoreNetwork,
-networkmanager:GetCoreNetworkPolicy,
 ec2:DescribeRegions
 ```
 

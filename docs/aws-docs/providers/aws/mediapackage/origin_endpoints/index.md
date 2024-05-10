@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>origin_endpoints</code> in a region or create a <code>origin_endpoints</code> resource, use <code>origin_endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>origin_endpoints</code> in a region or to create or delete a <code>origin_endpoints</code> resource, use <code>origin_endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>origin_endpoints</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,191 @@ SELECT
 region,
 id
 FROM aws.mediapackage.origin_endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Id": "{{ Id }}",
+ "ChannelId": "{{ ChannelId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.mediapackage.origin_endpoints (
+ Id,
+ ChannelId,
+ region
+)
+SELECT 
+{{ Id }},
+ {{ ChannelId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Id": "{{ Id }}",
+ "ChannelId": "{{ ChannelId }}",
+ "Description": "{{ Description }}",
+ "Whitelist": [
+  "{{ Whitelist[0] }}"
+ ],
+ "StartoverWindowSeconds": "{{ StartoverWindowSeconds }}",
+ "TimeDelaySeconds": "{{ TimeDelaySeconds }}",
+ "ManifestName": "{{ ManifestName }}",
+ "Origination": "{{ Origination }}",
+ "Authorization": {
+  "CdnIdentifierSecret": "{{ CdnIdentifierSecret }}",
+  "SecretsRoleArn": "{{ SecretsRoleArn }}"
+ },
+ "HlsPackage": {
+  "Encryption": {
+   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
+   "EncryptionMethod": "{{ EncryptionMethod }}",
+   "SpekeKeyProvider": {
+    "EncryptionContractConfiguration": {
+     "PresetSpeke20Audio": "{{ PresetSpeke20Audio }}",
+     "PresetSpeke20Video": "{{ PresetSpeke20Video }}"
+    },
+    "RoleArn": "{{ RoleArn }}",
+    "SystemIds": [
+     "{{ SystemIds[0] }}"
+    ],
+    "Url": "{{ Url }}"
+   }
+  },
+  "HlsManifests": [
+   {
+    "AdMarkers": "{{ AdMarkers }}",
+    "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}",
+    "ManifestName": "{{ ManifestName }}",
+    "ProgramDateTimeIntervalSeconds": "{{ ProgramDateTimeIntervalSeconds }}",
+    "RepeatExtXKey": "{{ RepeatExtXKey }}",
+    "StreamSelection": {
+     "MaxVideoBitsPerSecond": "{{ MaxVideoBitsPerSecond }}",
+     "MinVideoBitsPerSecond": "{{ MinVideoBitsPerSecond }}",
+     "StreamOrder": "{{ StreamOrder }}"
+    }
+   }
+  ],
+  "IncludeDvbSubtitles": "{{ IncludeDvbSubtitles }}",
+  "SegmentDurationSeconds": "{{ SegmentDurationSeconds }}",
+  "UseAudioRenditionGroup": "{{ UseAudioRenditionGroup }}"
+ },
+ "DashPackage": {
+  "DashManifests": [
+   {
+    "ManifestLayout": "{{ ManifestLayout }}",
+    "ManifestName": null,
+    "MinBufferTimeSeconds": "{{ MinBufferTimeSeconds }}",
+    "Profile": "{{ Profile }}",
+    "ScteMarkersSource": "{{ ScteMarkersSource }}",
+    "StreamSelection": null
+   }
+  ],
+  "Encryption": {
+   "SpekeKeyProvider": null
+  },
+  "PeriodTriggers": [
+   "{{ PeriodTriggers[0] }}"
+  ],
+  "SegmentDurationSeconds": null,
+  "SegmentTemplateFormat": "{{ SegmentTemplateFormat }}",
+  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}",
+  "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}"
+ },
+ "MssPackage": {
+  "Encryption": {
+   "SpekeKeyProvider": null
+  },
+  "MssManifests": [
+   {
+    "ManifestName": null,
+    "StreamSelection": null
+   }
+  ],
+  "SegmentDurationSeconds": null
+ },
+ "CmafPackage": {
+  "Encryption": {
+   "SpekeKeyProvider": null
+  },
+  "HlsManifests": [
+   null
+  ],
+  "SegmentDurationSeconds": null,
+  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.mediapackage.origin_endpoints (
+ Id,
+ ChannelId,
+ Description,
+ Whitelist,
+ StartoverWindowSeconds,
+ TimeDelaySeconds,
+ ManifestName,
+ Origination,
+ Authorization,
+ HlsPackage,
+ DashPackage,
+ MssPackage,
+ CmafPackage,
+ Tags,
+ region
+)
+SELECT 
+ {{ Id }},
+ {{ ChannelId }},
+ {{ Description }},
+ {{ Whitelist }},
+ {{ StartoverWindowSeconds }},
+ {{ TimeDelaySeconds }},
+ {{ ManifestName }},
+ {{ Origination }},
+ {{ Authorization }},
+ {{ HlsPackage }},
+ {{ DashPackage }},
+ {{ MssPackage }},
+ {{ CmafPackage }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediapackage.origin_endpoints
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +268,11 @@ mediapackage:DescribeChannel,
 mediapackage:TagResource,
 iam:PassRole,
 acm:DescribeCertificate
+```
+
+### Delete
+```json
+mediapackage:DeleteOriginEndpoint
 ```
 
 ### List

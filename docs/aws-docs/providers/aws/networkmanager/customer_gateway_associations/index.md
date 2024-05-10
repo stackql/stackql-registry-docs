@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>customer_gateway_associations</code> in a region or create a <code>customer_gateway_associations</code> resource, use <code>customer_gateway_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>customer_gateway_associations</code> in a region or to create or delete a <code>customer_gateway_associations</code> resource, use <code>customer_gateway_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>customer_gateway_associations</code> in a regio
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,80 @@ region,
 global_network_id,
 customer_gateway_arn
 FROM aws.networkmanager.customer_gateway_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "GlobalNetworkId": "{{ GlobalNetworkId }}",
+ "CustomerGatewayArn": "{{ CustomerGatewayArn }}",
+ "DeviceId": "{{ DeviceId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.networkmanager.customer_gateway_associations (
+ GlobalNetworkId,
+ CustomerGatewayArn,
+ DeviceId,
+ region
+)
+SELECT 
+{{ GlobalNetworkId }},
+ {{ CustomerGatewayArn }},
+ {{ DeviceId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "GlobalNetworkId": "{{ GlobalNetworkId }}",
+ "CustomerGatewayArn": "{{ CustomerGatewayArn }}",
+ "DeviceId": "{{ DeviceId }}",
+ "LinkId": "{{ LinkId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.networkmanager.customer_gateway_associations (
+ GlobalNetworkId,
+ CustomerGatewayArn,
+ DeviceId,
+ LinkId,
+ region
+)
+SELECT 
+ {{ GlobalNetworkId }},
+ {{ CustomerGatewayArn }},
+ {{ DeviceId }},
+ {{ LinkId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.networkmanager.customer_gateway_associations
+WHERE data__Identifier = '<GlobalNetworkId|CustomerGatewayArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,5 +160,10 @@ networkmanager:AssociateCustomerGateway
 ### List
 ```json
 networkmanager:GetCustomerGatewayAssociations
+```
+
+### Delete
+```json
+networkmanager:DisassociateCustomerGateway
 ```
 

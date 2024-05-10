@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>flow_outputs</code> in a region or create a <code>flow_outputs</code> resource, use <code>flow_output</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>flow_outputs</code> in a region or to create or delete a <code>flow_outputs</code> resource, use <code>flow_output</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>flow_outputs</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,121 @@ SELECT
 region,
 output_arn
 FROM aws.mediaconnect.flow_outputs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FlowArn": "{{ FlowArn }}",
+ "Protocol": "{{ Protocol }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.mediaconnect.flow_outputs (
+ FlowArn,
+ Protocol,
+ region
+)
+SELECT 
+{{ FlowArn }},
+ {{ Protocol }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FlowArn": "{{ FlowArn }}",
+ "CidrAllowList": [
+  "{{ CidrAllowList[0] }}"
+ ],
+ "Encryption": {
+  "Algorithm": "{{ Algorithm }}",
+  "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
+  "DeviceId": "{{ DeviceId }}",
+  "KeyType": "{{ KeyType }}",
+  "Region": "{{ Region }}",
+  "ResourceId": "{{ ResourceId }}",
+  "RoleArn": "{{ RoleArn }}",
+  "SecretArn": "{{ SecretArn }}",
+  "Url": "{{ Url }}"
+ },
+ "Description": "{{ Description }}",
+ "Destination": "{{ Destination }}",
+ "MaxLatency": "{{ MaxLatency }}",
+ "MinLatency": "{{ MinLatency }}",
+ "Name": "{{ Name }}",
+ "Port": "{{ Port }}",
+ "Protocol": "{{ Protocol }}",
+ "RemoteId": "{{ RemoteId }}",
+ "SmoothingLatency": "{{ SmoothingLatency }}",
+ "StreamId": "{{ StreamId }}",
+ "VpcInterfaceAttachment": {
+  "VpcInterfaceName": "{{ VpcInterfaceName }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.mediaconnect.flow_outputs (
+ FlowArn,
+ CidrAllowList,
+ Encryption,
+ Description,
+ Destination,
+ MaxLatency,
+ MinLatency,
+ Name,
+ Port,
+ Protocol,
+ RemoteId,
+ SmoothingLatency,
+ StreamId,
+ VpcInterfaceAttachment,
+ region
+)
+SELECT 
+ {{ FlowArn }},
+ {{ CidrAllowList }},
+ {{ Encryption }},
+ {{ Description }},
+ {{ Destination }},
+ {{ MaxLatency }},
+ {{ MinLatency }},
+ {{ Name }},
+ {{ Port }},
+ {{ Protocol }},
+ {{ RemoteId }},
+ {{ SmoothingLatency }},
+ {{ StreamId }},
+ {{ VpcInterfaceAttachment }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediaconnect.flow_outputs
+WHERE data__Identifier = '<OutputArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +194,12 @@ To operate on the <code>flow_outputs</code> resource, the following permissions 
 ```json
 iam:PassRole,
 mediaconnect:AddFlowOutputs
+```
+
+### Delete
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:RemoveFlowOutput
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>service_templates</code> in a region or create a <code>service_templates</code> resource, use <code>service_template</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>service_templates</code> in a region or to create or delete a <code>service_templates</code> resource, use <code>service_template</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>service_templates</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,105 @@ SELECT
 region,
 arn
 FROM aws.proton.service_templates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "DisplayName": "{{ DisplayName }}",
+ "EncryptionKey": "{{ EncryptionKey }}",
+ "Name": "{{ Name }}",
+ "PipelineProvisioning": "{{ PipelineProvisioning }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.proton.service_templates (
+ Description,
+ DisplayName,
+ EncryptionKey,
+ Name,
+ PipelineProvisioning,
+ Tags,
+ region
+)
+SELECT 
+{{ Description }},
+ {{ DisplayName }},
+ {{ EncryptionKey }},
+ {{ Name }},
+ {{ PipelineProvisioning }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "DisplayName": "{{ DisplayName }}",
+ "EncryptionKey": "{{ EncryptionKey }}",
+ "Name": "{{ Name }}",
+ "PipelineProvisioning": "{{ PipelineProvisioning }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.proton.service_templates (
+ Description,
+ DisplayName,
+ EncryptionKey,
+ Name,
+ PipelineProvisioning,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ DisplayName }},
+ {{ EncryptionKey }},
+ {{ Name }},
+ {{ PipelineProvisioning }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.proton.service_templates
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +178,14 @@ To operate on the <code>service_templates</code> resource, the following permiss
 ```json
 proton:CreateServiceTemplate,
 proton:TagResource,
+kms:*,
+proton:GetServiceTemplate
+```
+
+### Delete
+```json
+proton:DeleteServiceTemplate,
+proton:UntagResource,
 kms:*,
 proton:GetServiceTemplate
 ```

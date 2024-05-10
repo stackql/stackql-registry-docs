@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>route_tables</code> in a region or create a <code>route_tables</code> resource, use <code>route_table</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>route_tables</code> in a region or to create or delete a <code>route_tables</code> resource, use <code>route_table</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>route_tables</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,73 @@ SELECT
 region,
 route_table_id
 FROM aws.ec2.route_tables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.route_tables (
+ VpcId,
+ region
+)
+SELECT 
+{{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.route_tables (
+ Tags,
+ VpcId,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ VpcId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.route_tables
+WHERE data__Identifier = '<RouteTableId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +147,12 @@ To operate on the <code>route_tables</code> resource, the following permissions 
 ec2:CreateRouteTable,
 ec2:CreateTags,
 ec2:DescribeRouteTables
+```
+
+### Delete
+```json
+ec2:DescribeRouteTables,
+ec2:DeleteRouteTable
 ```
 
 ### List

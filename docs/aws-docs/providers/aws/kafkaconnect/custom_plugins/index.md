@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>custom_plugins</code> in a region or create a <code>custom_plugins</code> resource, use <code>custom_plugin</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>custom_plugins</code> in a region or to create or delete a <code>custom_plugins</code> resource, use <code>custom_plugin</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>custom_plugins</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,100 @@ SELECT
 region,
 custom_plugin_arn
 FROM aws.kafkaconnect.custom_plugins
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ContentType": "{{ ContentType }}",
+ "Location": {
+  "S3Location": {
+   "BucketArn": "{{ BucketArn }}",
+   "FileKey": "{{ FileKey }}",
+   "ObjectVersion": "{{ ObjectVersion }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.kafkaconnect.custom_plugins (
+ Name,
+ ContentType,
+ Location,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ ContentType }},
+ {{ Location }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "ContentType": "{{ ContentType }}",
+ "Location": {
+  "S3Location": {
+   "BucketArn": "{{ BucketArn }}",
+   "FileKey": "{{ FileKey }}",
+   "ObjectVersion": "{{ ObjectVersion }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.kafkaconnect.custom_plugins (
+ Name,
+ Description,
+ ContentType,
+ Location,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ ContentType }},
+ {{ Location }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kafkaconnect.custom_plugins
+WHERE data__Identifier = '<CustomPluginArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +179,12 @@ s3:GetObject,
 s3:GetObjectVersion,
 s3:GetObjectAttributes,
 s3:GetObjectVersionAttributes
+```
+
+### Delete
+```json
+kafkaconnect:DeleteCustomPlugin,
+kafkaconnect:DescribeCustomPlugin
 ```
 
 ### List

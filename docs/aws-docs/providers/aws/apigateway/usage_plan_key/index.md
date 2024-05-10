@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>usage_plan_key</code> resource, use <code>usage_plan_keys</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>usage_plan_key</code> resource, use <code>usage_plan_keys</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -47,11 +50,6 @@ Gets or operates on an individual <code>usage_plan_key</code> resource, use <cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -67,8 +65,9 @@ key_type,
 usage_plan_id,
 id
 FROM aws.apigateway.usage_plan_key
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -76,12 +75,6 @@ To operate on the <code>usage_plan_key</code> resource, the following permission
 
 ### Read
 ```json
-apigateway:GET
-```
-
-### Delete
-```json
-apigateway:DELETE,
 apigateway:GET
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>db_proxies</code> in a region or create a <code>db_proxies</code> resource, use <code>db_proxy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>db_proxies</code> in a region or to create or delete a <code>db_proxies</code> resource, use <code>db_proxy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>db_proxies</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,131 @@ SELECT
 region,
 db_proxy_name
 FROM aws.rds.db_proxies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Auth": [
+  {
+   "AuthScheme": "{{ AuthScheme }}",
+   "Description": "{{ Description }}",
+   "IAMAuth": "{{ IAMAuth }}",
+   "SecretArn": "{{ SecretArn }}",
+   "ClientPasswordAuthType": "{{ ClientPasswordAuthType }}"
+  }
+ ],
+ "DBProxyName": "{{ DBProxyName }}",
+ "EngineFamily": "{{ EngineFamily }}",
+ "RoleArn": "{{ RoleArn }}",
+ "VpcSubnetIds": [
+  "{{ VpcSubnetIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.rds.db_proxies (
+ Auth,
+ DBProxyName,
+ EngineFamily,
+ RoleArn,
+ VpcSubnetIds,
+ region
+)
+SELECT 
+{{ Auth }},
+ {{ DBProxyName }},
+ {{ EngineFamily }},
+ {{ RoleArn }},
+ {{ VpcSubnetIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Auth": [
+  {
+   "AuthScheme": "{{ AuthScheme }}",
+   "Description": "{{ Description }}",
+   "IAMAuth": "{{ IAMAuth }}",
+   "SecretArn": "{{ SecretArn }}",
+   "ClientPasswordAuthType": "{{ ClientPasswordAuthType }}"
+  }
+ ],
+ "DBProxyName": "{{ DBProxyName }}",
+ "DebugLogging": "{{ DebugLogging }}",
+ "EngineFamily": "{{ EngineFamily }}",
+ "IdleClientTimeout": "{{ IdleClientTimeout }}",
+ "RequireTLS": "{{ RequireTLS }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VpcSecurityGroupIds": [
+  "{{ VpcSecurityGroupIds[0] }}"
+ ],
+ "VpcSubnetIds": [
+  "{{ VpcSubnetIds[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.rds.db_proxies (
+ Auth,
+ DBProxyName,
+ DebugLogging,
+ EngineFamily,
+ IdleClientTimeout,
+ RequireTLS,
+ RoleArn,
+ Tags,
+ VpcSecurityGroupIds,
+ VpcSubnetIds,
+ region
+)
+SELECT 
+ {{ Auth }},
+ {{ DBProxyName }},
+ {{ DebugLogging }},
+ {{ EngineFamily }},
+ {{ IdleClientTimeout }},
+ {{ RequireTLS }},
+ {{ RoleArn }},
+ {{ Tags }},
+ {{ VpcSecurityGroupIds }},
+ {{ VpcSubnetIds }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rds.db_proxies
+WHERE data__Identifier = '<DBProxyName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +205,12 @@ To operate on the <code>db_proxies</code> resource, the following permissions ar
 rds:CreateDBProxy,
 rds:DescribeDBProxies,
 iam:PassRole
+```
+
+### Delete
+```json
+rds:DescribeDBProxies,
+rds:DeleteDBProxy
 ```
 
 ### List

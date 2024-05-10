@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>certificates</code> in a region or create a <code>certificates</code> resource, use <code>certificate</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>certificates</code> in a region or to create or delete a <code>certificates</code> resource, use <code>certificate</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>certificates</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,178 @@ region,
 arn,
 certificate_authority_arn
 FROM aws.acmpca.certificates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
+ "CertificateSigningRequest": "{{ CertificateSigningRequest }}",
+ "SigningAlgorithm": "{{ SigningAlgorithm }}",
+ "Validity": {
+  "Value": null,
+  "Type": "{{ Type }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.acmpca.certificates (
+ CertificateAuthorityArn,
+ CertificateSigningRequest,
+ SigningAlgorithm,
+ Validity,
+ region
+)
+SELECT 
+{{ CertificateAuthorityArn }},
+ {{ CertificateSigningRequest }},
+ {{ SigningAlgorithm }},
+ {{ Validity }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApiPassthrough": {
+  "Extensions": {
+   "CertificatePolicies": [
+    {
+     "CertPolicyId": "{{ CertPolicyId }}",
+     "PolicyQualifiers": [
+      {
+       "PolicyQualifierId": "{{ PolicyQualifierId }}",
+       "Qualifier": {
+        "CpsUri": "{{ CpsUri }}"
+       }
+      }
+     ]
+    }
+   ],
+   "ExtendedKeyUsage": [
+    {
+     "ExtendedKeyUsageType": "{{ ExtendedKeyUsageType }}",
+     "ExtendedKeyUsageObjectIdentifier": null
+    }
+   ],
+   "KeyUsage": {
+    "DigitalSignature": "{{ DigitalSignature }}",
+    "NonRepudiation": "{{ NonRepudiation }}",
+    "KeyEncipherment": "{{ KeyEncipherment }}",
+    "DataEncipherment": "{{ DataEncipherment }}",
+    "KeyAgreement": "{{ KeyAgreement }}",
+    "KeyCertSign": "{{ KeyCertSign }}",
+    "CRLSign": "{{ CRLSign }}",
+    "EncipherOnly": "{{ EncipherOnly }}",
+    "DecipherOnly": "{{ DecipherOnly }}"
+   },
+   "SubjectAlternativeNames": [
+    {
+     "OtherName": {
+      "TypeId": null,
+      "Value": "{{ Value }}"
+     },
+     "Rfc822Name": "{{ Rfc822Name }}",
+     "DnsName": "{{ DnsName }}",
+     "DirectoryName": {
+      "Country": "{{ Country }}",
+      "Organization": "{{ Organization }}",
+      "OrganizationalUnit": "{{ OrganizationalUnit }}",
+      "DistinguishedNameQualifier": "{{ DistinguishedNameQualifier }}",
+      "State": "{{ State }}",
+      "CommonName": "{{ CommonName }}",
+      "SerialNumber": "{{ SerialNumber }}",
+      "Locality": "{{ Locality }}",
+      "Title": "{{ Title }}",
+      "Surname": "{{ Surname }}",
+      "GivenName": "{{ GivenName }}",
+      "Initials": "{{ Initials }}",
+      "Pseudonym": "{{ Pseudonym }}",
+      "GenerationQualifier": "{{ GenerationQualifier }}",
+      "CustomAttributes": [
+       {
+        "ObjectIdentifier": null,
+        "Value": "{{ Value }}"
+       }
+      ]
+     },
+     "EdiPartyName": {
+      "PartyName": "{{ PartyName }}",
+      "NameAssigner": "{{ NameAssigner }}"
+     },
+     "UniformResourceIdentifier": "{{ UniformResourceIdentifier }}",
+     "IpAddress": "{{ IpAddress }}",
+     "RegisteredId": null
+    }
+   ],
+   "CustomExtensions": [
+    {
+     "Critical": "{{ Critical }}",
+     "ObjectIdentifier": null,
+     "Value": "{{ Value }}"
+    }
+   ]
+  },
+  "Subject": null
+ },
+ "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
+ "CertificateSigningRequest": "{{ CertificateSigningRequest }}",
+ "SigningAlgorithm": "{{ SigningAlgorithm }}",
+ "TemplateArn": null,
+ "Validity": {
+  "Value": null,
+  "Type": "{{ Type }}"
+ },
+ "ValidityNotBefore": null
+}
+>>>
+--all properties
+INSERT INTO aws.acmpca.certificates (
+ ApiPassthrough,
+ CertificateAuthorityArn,
+ CertificateSigningRequest,
+ SigningAlgorithm,
+ TemplateArn,
+ Validity,
+ ValidityNotBefore,
+ region
+)
+SELECT 
+ {{ ApiPassthrough }},
+ {{ CertificateAuthorityArn }},
+ {{ CertificateSigningRequest }},
+ {{ SigningAlgorithm }},
+ {{ TemplateArn }},
+ {{ Validity }},
+ {{ ValidityNotBefore }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.acmpca.certificates
+WHERE data__Identifier = '<Arn|CertificateAuthorityArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +252,11 @@ To operate on the <code>certificates</code> resource, the following permissions 
 ### Create
 ```json
 acm-pca:IssueCertificate,
+acm-pca:GetCertificate
+```
+
+### Delete
+```json
 acm-pca:GetCertificate
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>graphs</code> in a region or create a <code>graphs</code> resource, use <code>graph</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>graphs</code> in a region or to create or delete a <code>graphs</code> resource, use <code>graph</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>graphs</code> in a region or create a <code>gra
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,90 @@ SELECT
 region,
 graph_id
 FROM aws.neptunegraph.graphs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ProvisionedMemory": "{{ ProvisionedMemory }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.neptunegraph.graphs (
+ ProvisionedMemory,
+ region
+)
+SELECT 
+{{ ProvisionedMemory }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DeletionProtection": "{{ DeletionProtection }}",
+ "GraphName": "{{ GraphName }}",
+ "ProvisionedMemory": "{{ ProvisionedMemory }}",
+ "PublicConnectivity": "{{ PublicConnectivity }}",
+ "ReplicaCount": "{{ ReplicaCount }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VectorSearchConfiguration": {
+  "VectorSearchDimension": "{{ VectorSearchDimension }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.neptunegraph.graphs (
+ DeletionProtection,
+ GraphName,
+ ProvisionedMemory,
+ PublicConnectivity,
+ ReplicaCount,
+ Tags,
+ VectorSearchConfiguration,
+ region
+)
+SELECT 
+ {{ DeletionProtection }},
+ {{ GraphName }},
+ {{ ProvisionedMemory }},
+ {{ PublicConnectivity }},
+ {{ ReplicaCount }},
+ {{ Tags }},
+ {{ VectorSearchConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.neptunegraph.graphs
+WHERE data__Identifier = '<GraphId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,6 +170,15 @@ kms:DescribeKey,
 kms:CreateGrant,
 kms:Decrypt,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+neptune-graph:DeleteGraph,
+neptune-graph:GetGraph,
+kms:DescribeKey,
+kms:CreateGrant,
+kms:Decrypt
 ```
 
 ### List

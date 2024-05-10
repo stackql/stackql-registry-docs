@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>key_signing_keys</code> in a region or create a <code>key_signing_keys</code> resource, use <code>key_signing_key</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>key_signing_keys</code> in a region or to create or delete a <code>key_signing_keys</code> resource, use <code>key_signing_key</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>key_signing_keys</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 hosted_zone_id,
 name
 FROM aws.route53.key_signing_keys
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "HostedZoneId": "{{ HostedZoneId }}",
+ "Status": "{{ Status }}",
+ "Name": "{{ Name }}",
+ "KeyManagementServiceArn": "{{ KeyManagementServiceArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.route53.key_signing_keys (
+ HostedZoneId,
+ Status,
+ Name,
+ KeyManagementServiceArn,
+ region
+)
+SELECT 
+{{ HostedZoneId }},
+ {{ Status }},
+ {{ Name }},
+ {{ KeyManagementServiceArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "HostedZoneId": "{{ HostedZoneId }}",
+ "Status": "{{ Status }}",
+ "Name": "{{ Name }}",
+ "KeyManagementServiceArn": "{{ KeyManagementServiceArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.route53.key_signing_keys (
+ HostedZoneId,
+ Status,
+ Name,
+ KeyManagementServiceArn,
+ region
+)
+SELECT 
+ {{ HostedZoneId }},
+ {{ Status }},
+ {{ Name }},
+ {{ KeyManagementServiceArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53.key_signing_keys
+WHERE data__Identifier = '<HostedZoneId|Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,16 @@ To operate on the <code>key_signing_keys</code> resource, the following permissi
 ### Create
 ```json
 route53:CreateKeySigningKey,
+kms:DescribeKey,
+kms:GetPublicKey,
+kms:Sign,
+kms:CreateGrant
+```
+
+### Delete
+```json
+route53:DeactivateKeySigningKey,
+route53:DeleteKeySigningKey,
 kms:DescribeKey,
 kms:GetPublicKey,
 kms:Sign,

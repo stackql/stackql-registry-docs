@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>webacl_association</code> resource, use <code>webacl_associations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>webacl_association</code> resource, use <code>webacl_associations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -50,11 +53,6 @@ Gets or operates on an individual <code>webacl_association</code> resource, use 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -71,30 +69,10 @@ FROM aws.wafv2.webacl_association
 WHERE data__Identifier = '<ResourceArn>|<WebACLArn>';
 ```
 
+
 ## Permissions
 
 To operate on the <code>webacl_association</code> resource, the following permissions are required:
-
-### Delete
-```json
-wafv2:AssociateWebACL,
-wafv2:GetWebACLForResource,
-wafv2:GetWebACL,
-wafv2:DisassociateWebACL,
-elasticloadbalancing:SetWebACL,
-apigateway:SetWebACL,
-appsync:SetWebACL,
-cognito-idp:AssociateWebACL,
-cognito-idp:DisassociateWebACL,
-cognito-idp:GetWebACLForResource,
-apprunner:AssociateWebAcl,
-apprunner:DisassociateWebAcl,
-apprunner:DescribeWebAclForService,
-ec2:AssociateVerifiedAccessInstanceWebAcl,
-ec2:DisassociateVerifiedAccessInstanceWebAcl,
-ec2:DescribeVerifiedAccessInstanceWebAclAssociations,
-ec2:GetVerifiedAccessInstanceWebAcl
-```
 
 ### Read
 ```json

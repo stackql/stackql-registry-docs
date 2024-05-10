@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>themes</code> in a region or create a <code>themes</code> resource, use <code>theme</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>themes</code> in a region or to create or delete a <code>themes</code> resource, use <code>theme</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>themes</code> in a region or create a <code>the
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,210 @@ region,
 theme_id,
 aws_account_id
 FROM aws.quicksight.themes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "BaseThemeId": "{{ BaseThemeId }}",
+ "Configuration": {
+  "DataColorPalette": {
+   "Colors": [
+    "{{ Colors[0] }}"
+   ],
+   "MinMaxGradient": [
+    "{{ MinMaxGradient[0] }}"
+   ],
+   "EmptyFillColor": "{{ EmptyFillColor }}"
+  },
+  "UIColorPalette": {
+   "PrimaryForeground": "{{ PrimaryForeground }}",
+   "PrimaryBackground": "{{ PrimaryBackground }}",
+   "SecondaryForeground": "{{ SecondaryForeground }}",
+   "SecondaryBackground": "{{ SecondaryBackground }}",
+   "Accent": "{{ Accent }}",
+   "AccentForeground": "{{ AccentForeground }}",
+   "Danger": "{{ Danger }}",
+   "DangerForeground": "{{ DangerForeground }}",
+   "Warning": "{{ Warning }}",
+   "WarningForeground": "{{ WarningForeground }}",
+   "Success": "{{ Success }}",
+   "SuccessForeground": "{{ SuccessForeground }}",
+   "Dimension": "{{ Dimension }}",
+   "DimensionForeground": "{{ DimensionForeground }}",
+   "Measure": "{{ Measure }}",
+   "MeasureForeground": "{{ MeasureForeground }}"
+  },
+  "Sheet": {
+   "Tile": {
+    "Border": {
+     "Show": "{{ Show }}"
+    }
+   },
+   "TileLayout": {
+    "Gutter": {
+     "Show": "{{ Show }}"
+    },
+    "Margin": {
+     "Show": "{{ Show }}"
+    }
+   }
+  },
+  "Typography": {
+   "FontFamilies": [
+    {
+     "FontFamily": "{{ FontFamily }}"
+    }
+   ]
+  }
+ },
+ "Name": "{{ Name }}",
+ "ThemeId": "{{ ThemeId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.quicksight.themes (
+ AwsAccountId,
+ BaseThemeId,
+ Configuration,
+ Name,
+ ThemeId,
+ region
+)
+SELECT 
+{{ AwsAccountId }},
+ {{ BaseThemeId }},
+ {{ Configuration }},
+ {{ Name }},
+ {{ ThemeId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "BaseThemeId": "{{ BaseThemeId }}",
+ "Configuration": {
+  "DataColorPalette": {
+   "Colors": [
+    "{{ Colors[0] }}"
+   ],
+   "MinMaxGradient": [
+    "{{ MinMaxGradient[0] }}"
+   ],
+   "EmptyFillColor": "{{ EmptyFillColor }}"
+  },
+  "UIColorPalette": {
+   "PrimaryForeground": "{{ PrimaryForeground }}",
+   "PrimaryBackground": "{{ PrimaryBackground }}",
+   "SecondaryForeground": "{{ SecondaryForeground }}",
+   "SecondaryBackground": "{{ SecondaryBackground }}",
+   "Accent": "{{ Accent }}",
+   "AccentForeground": "{{ AccentForeground }}",
+   "Danger": "{{ Danger }}",
+   "DangerForeground": "{{ DangerForeground }}",
+   "Warning": "{{ Warning }}",
+   "WarningForeground": "{{ WarningForeground }}",
+   "Success": "{{ Success }}",
+   "SuccessForeground": "{{ SuccessForeground }}",
+   "Dimension": "{{ Dimension }}",
+   "DimensionForeground": "{{ DimensionForeground }}",
+   "Measure": "{{ Measure }}",
+   "MeasureForeground": "{{ MeasureForeground }}"
+  },
+  "Sheet": {
+   "Tile": {
+    "Border": {
+     "Show": "{{ Show }}"
+    }
+   },
+   "TileLayout": {
+    "Gutter": {
+     "Show": "{{ Show }}"
+    },
+    "Margin": {
+     "Show": "{{ Show }}"
+    }
+   }
+  },
+  "Typography": {
+   "FontFamilies": [
+    {
+     "FontFamily": "{{ FontFamily }}"
+    }
+   ]
+  }
+ },
+ "Name": "{{ Name }}",
+ "Permissions": [
+  {
+   "Principal": "{{ Principal }}",
+   "Actions": [
+    "{{ Actions[0] }}"
+   ]
+  }
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "ThemeId": "{{ ThemeId }}",
+ "VersionDescription": "{{ VersionDescription }}"
+}
+>>>
+--all properties
+INSERT INTO aws.quicksight.themes (
+ AwsAccountId,
+ BaseThemeId,
+ Configuration,
+ Name,
+ Permissions,
+ Tags,
+ ThemeId,
+ VersionDescription,
+ region
+)
+SELECT 
+ {{ AwsAccountId }},
+ {{ BaseThemeId }},
+ {{ Configuration }},
+ {{ Name }},
+ {{ Permissions }},
+ {{ Tags }},
+ {{ ThemeId }},
+ {{ VersionDescription }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.quicksight.themes
+WHERE data__Identifier = '<ThemeId|AwsAccountId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -83,5 +294,11 @@ quicksight:ListTagsForResource
 ### List
 ```json
 quicksight:ListThemes
+```
+
+### Delete
+```json
+quicksight:DescribeTheme,
+quicksight:DeleteTheme
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>access_policies</code> in a region or create a <code>access_policies</code> resource, use <code>access_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>access_policies</code> in a region or to create or delete a <code>access_policies</code> resource, use <code>access_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>access_policies</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,137 @@ SELECT
 region,
 access_policy_id
 FROM aws.iotsitewise.access_policies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AccessPolicyIdentity": {
+  "User": {
+   "id": "{{ id }}"
+  },
+  "IamUser": {
+   "arn": "{{ arn }}"
+  },
+  "IamRole": {
+   "arn": "{{ arn }}"
+  }
+ },
+ "AccessPolicyPermission": "{{ AccessPolicyPermission }}",
+ "AccessPolicyResource": {
+  "Portal": {
+   "PortalContactEmail": "{{ PortalContactEmail }}",
+   "PortalName": "{{ PortalName }}",
+   "RoleArn": "{{ RoleArn }}"
+  },
+  "Project": {
+   "PortalId": "{{ PortalId }}",
+   "ProjectName": "{{ ProjectName }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.iotsitewise.access_policies (
+ AccessPolicyIdentity,
+ AccessPolicyPermission,
+ AccessPolicyResource,
+ region
+)
+SELECT 
+{{ AccessPolicyIdentity }},
+ {{ AccessPolicyPermission }},
+ {{ AccessPolicyResource }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessPolicyIdentity": {
+  "User": {
+   "id": "{{ id }}"
+  },
+  "IamUser": {
+   "arn": "{{ arn }}"
+  },
+  "IamRole": {
+   "arn": "{{ arn }}"
+  }
+ },
+ "AccessPolicyPermission": "{{ AccessPolicyPermission }}",
+ "AccessPolicyResource": {
+  "Portal": {
+   "PortalAuthMode": "{{ PortalAuthMode }}",
+   "PortalContactEmail": "{{ PortalContactEmail }}",
+   "PortalDescription": "{{ PortalDescription }}",
+   "PortalName": "{{ PortalName }}",
+   "RoleArn": "{{ RoleArn }}",
+   "NotificationSenderEmail": "{{ NotificationSenderEmail }}",
+   "Alarms": {
+    "AlarmRoleArn": "{{ AlarmRoleArn }}",
+    "NotificationLambdaArn": "{{ NotificationLambdaArn }}"
+   },
+   "Tags": [
+    {
+     "Key": "{{ Key }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  },
+  "Project": {
+   "PortalId": "{{ PortalId }}",
+   "ProjectName": "{{ ProjectName }}",
+   "ProjectDescription": "{{ ProjectDescription }}",
+   "AssetIds": [
+    "{{ AssetIds[0] }}"
+   ],
+   "Tags": [
+    null
+   ]
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.iotsitewise.access_policies (
+ AccessPolicyIdentity,
+ AccessPolicyPermission,
+ AccessPolicyResource,
+ region
+)
+SELECT 
+ {{ AccessPolicyIdentity }},
+ {{ AccessPolicyPermission }},
+ {{ AccessPolicyResource }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotsitewise.access_policies
+WHERE data__Identifier = '<AccessPolicyId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +209,12 @@ To operate on the <code>access_policies</code> resource, the following permissio
 ### Create
 ```json
 iotsitewise:CreateAccessPolicy
+```
+
+### Delete
+```json
+iotsitewise:DescribeAccessPolicy,
+iotsitewise:DeleteAccessPolicy
 ```
 
 ### List

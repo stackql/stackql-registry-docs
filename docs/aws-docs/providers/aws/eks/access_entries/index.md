@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>access_entries</code> in a region or create a <code>access_entries</code> resource, use <code>access_entry</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>access_entries</code> in a region or to create or delete a <code>access_entries</code> resource, use <code>access_entry</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>access_entries</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,103 @@ region,
 principal_arn,
 cluster_name
 FROM aws.eks.access_entries
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "PrincipalArn": "{{ PrincipalArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.eks.access_entries (
+ ClusterName,
+ PrincipalArn,
+ region
+)
+SELECT 
+{{ ClusterName }},
+ {{ PrincipalArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "PrincipalArn": "{{ PrincipalArn }}",
+ "Username": "{{ Username }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "KubernetesGroups": [
+  "{{ KubernetesGroups[0] }}"
+ ],
+ "AccessPolicies": [
+  {
+   "PolicyArn": "{{ PolicyArn }}",
+   "AccessScope": {
+    "Type": "{{ Type }}",
+    "Namespaces": [
+     "{{ Namespaces[0] }}"
+    ]
+   }
+  }
+ ],
+ "Type": "{{ Type }}"
+}
+>>>
+--all properties
+INSERT INTO aws.eks.access_entries (
+ ClusterName,
+ PrincipalArn,
+ Username,
+ Tags,
+ KubernetesGroups,
+ AccessPolicies,
+ Type,
+ region
+)
+SELECT 
+ {{ ClusterName }},
+ {{ PrincipalArn }},
+ {{ Username }},
+ {{ Tags }},
+ {{ KubernetesGroups }},
+ {{ AccessPolicies }},
+ {{ Type }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.eks.access_entries
+WHERE data__Identifier = '<PrincipalArn|ClusterName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +181,12 @@ eks:DescribeAccessEntry,
 eks:AssociateAccessPolicy,
 eks:TagResource,
 eks:ListAssociatedAccessPolicies
+```
+
+### Delete
+```json
+eks:DeleteAccessEntry,
+eks:DescribeAccessEntry
 ```
 
 ### List

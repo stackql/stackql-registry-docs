@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>permissions</code> in a region or create a <code>permissions</code> resource, use <code>permission</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>permissions</code> in a region or to create or delete a <code>permissions</code> resource, use <code>permission</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>permissions</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,84 @@ region,
 certificate_authority_arn,
 principal
 FROM aws.acmpca.permissions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Actions": [
+  "{{ Actions[0] }}"
+ ],
+ "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
+ "Principal": "{{ Principal }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.acmpca.permissions (
+ Actions,
+ CertificateAuthorityArn,
+ Principal,
+ region
+)
+SELECT 
+{{ Actions }},
+ {{ CertificateAuthorityArn }},
+ {{ Principal }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Actions": [
+  "{{ Actions[0] }}"
+ ],
+ "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
+ "Principal": "{{ Principal }}",
+ "SourceAccount": "{{ SourceAccount }}"
+}
+>>>
+--all properties
+INSERT INTO aws.acmpca.permissions (
+ Actions,
+ CertificateAuthorityArn,
+ Principal,
+ SourceAccount,
+ region
+)
+SELECT 
+ {{ Actions }},
+ {{ CertificateAuthorityArn }},
+ {{ Principal }},
+ {{ SourceAccount }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.acmpca.permissions
+WHERE data__Identifier = '<CertificateAuthorityArn|Principal>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,5 +159,10 @@ To operate on the <code>permissions</code> resource, the following permissions a
 ```json
 acm-pca:CreatePermission,
 acm-pca:ListPermissions
+```
+
+### Delete
+```json
+acm-pca:DeletePermission
 ```
 

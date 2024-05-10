@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>images</code> in a region or create a <code>images</code> resource, use <code>image</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>images</code> in a region or to create or delete a <code>images</code> resource, use <code>image</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>images</code> in a region or create a <code>ima
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,85 @@ SELECT
 region,
 image_arn
 FROM aws.sagemaker.images
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ImageName": "{{ ImageName }}",
+ "ImageRoleArn": "{{ ImageRoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.images (
+ ImageName,
+ ImageRoleArn,
+ region
+)
+SELECT 
+{{ ImageName }},
+ {{ ImageRoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ImageName": "{{ ImageName }}",
+ "ImageRoleArn": "{{ ImageRoleArn }}",
+ "ImageDisplayName": "{{ ImageDisplayName }}",
+ "ImageDescription": "{{ ImageDescription }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.images (
+ ImageName,
+ ImageRoleArn,
+ ImageDisplayName,
+ ImageDescription,
+ Tags,
+ region
+)
+SELECT 
+ {{ ImageName }},
+ {{ ImageRoleArn }},
+ {{ ImageDisplayName }},
+ {{ ImageDescription }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.images
+WHERE data__Identifier = '<ImageArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +161,12 @@ sagemaker:DescribeImage,
 iam:PassRole,
 sagemaker:AddTags,
 sagemaker:ListTags
+```
+
+### Delete
+```json
+sagemaker:DeleteImage,
+sagemaker:DescribeImage
 ```
 
 ### List

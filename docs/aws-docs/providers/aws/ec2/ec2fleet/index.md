@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>ec2fleet</code> resource, use <code>ec2fleets</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>ec2fleet</code> resource, use <code>ec2fleets</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>ec2fleet</code> resource, use <code>ec2f
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,18 +88,13 @@ terminate_instances_with_expiration,
 valid_until,
 context
 FROM aws.ec2.ec2fleet
-WHERE data__Identifier = '<FleetId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<FleetId>';
 ```
+
 
 ## Permissions
 
 To operate on the <code>ec2fleet</code> resource, the following permissions are required:
-
-### Delete
-```json
-ec2:DescribeFleets,
-ec2:DeleteFleets
-```
 
 ### Read
 ```json

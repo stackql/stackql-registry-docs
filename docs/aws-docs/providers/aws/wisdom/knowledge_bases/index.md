@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>knowledge_bases</code> in a region or create a <code>knowledge_bases</code> resource, use <code>knowledge_base</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>knowledge_bases</code> in a region or to create or delete a <code>knowledge_bases</code> resource, use <code>knowledge_base</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>knowledge_bases</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,102 @@ SELECT
 region,
 knowledge_base_id
 FROM aws.wisdom.knowledge_bases
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "KnowledgeBaseType": "{{ KnowledgeBaseType }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.wisdom.knowledge_bases (
+ KnowledgeBaseType,
+ Name,
+ region
+)
+SELECT 
+{{ KnowledgeBaseType }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "KnowledgeBaseType": "{{ KnowledgeBaseType }}",
+ "Name": "{{ Name }}",
+ "RenderingConfiguration": {
+  "TemplateUri": "{{ TemplateUri }}"
+ },
+ "ServerSideEncryptionConfiguration": {
+  "KmsKeyId": "{{ KmsKeyId }}"
+ },
+ "SourceConfiguration": {
+  "AppIntegrations": {
+   "ObjectFields": [
+    "{{ ObjectFields[0] }}"
+   ],
+   "AppIntegrationArn": "{{ AppIntegrationArn }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.wisdom.knowledge_bases (
+ Description,
+ KnowledgeBaseType,
+ Name,
+ RenderingConfiguration,
+ ServerSideEncryptionConfiguration,
+ SourceConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ KnowledgeBaseType }},
+ {{ Name }},
+ {{ RenderingConfiguration }},
+ {{ ServerSideEncryptionConfiguration }},
+ {{ SourceConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.wisdom.knowledge_bases
+WHERE data__Identifier = '<KnowledgeBaseId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +185,14 @@ kms:CreateGrant,
 kms:ListGrants,
 wisdom:CreateKnowledgeBase,
 wisdom:TagResource
+```
+
+### Delete
+```json
+appflow:DeleteFlow,
+appflow:StopFlow,
+app-integrations:DeleteDataIntegrationAssociation,
+wisdom:DeleteKnowledgeBase
 ```
 
 ### List

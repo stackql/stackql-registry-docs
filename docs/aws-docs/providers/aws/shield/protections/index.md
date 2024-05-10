@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>protections</code> in a region or create a <code>protections</code> resource, use <code>protection</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>protections</code> in a region or to create or delete a <code>protections</code> resource, use <code>protection</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>protections</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,90 @@ SELECT
 region,
 protection_arn
 FROM aws.shield.protections
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ResourceArn": "{{ ResourceArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.shield.protections (
+ Name,
+ ResourceArn,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ ResourceArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ResourceArn": "{{ ResourceArn }}",
+ "HealthCheckArns": [
+  "{{ HealthCheckArns[0] }}"
+ ],
+ "ApplicationLayerAutomaticResponseConfiguration": {
+  "Action": {},
+  "Status": "{{ Status }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.shield.protections (
+ Name,
+ ResourceArn,
+ HealthCheckArns,
+ ApplicationLayerAutomaticResponseConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ ResourceArn }},
+ {{ HealthCheckArns }},
+ {{ ApplicationLayerAutomaticResponseConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.shield.protections
+WHERE data__Identifier = '<ProtectionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -84,6 +175,12 @@ iam:GetRole,
 iam:CreateServiceLinkedRole,
 wafv2:GetWebACLForResource,
 wafv2:GetWebACL
+```
+
+### Delete
+```json
+shield:DeleteProtection,
+shield:UntagResource
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>buckets</code> in a region or create a <code>buckets</code> resource, use <code>bucket</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>buckets</code> in a region or to create or delete a <code>buckets</code> resource, use <code>bucket</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>buckets</code> in a region or create a <code>bu
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,399 @@ SELECT
 region,
 bucket_name
 FROM aws.s3.buckets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "BucketName": "{{ BucketName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.s3.buckets (
+ BucketName,
+ region
+)
+SELECT 
+{{ BucketName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccelerateConfiguration": {
+  "AccelerationStatus": "{{ AccelerationStatus }}"
+ },
+ "AccessControl": "{{ AccessControl }}",
+ "AnalyticsConfigurations": [
+  {
+   "TagFilters": [
+    {
+     "Value": "{{ Value }}",
+     "Key": "{{ Key }}"
+    }
+   ],
+   "StorageClassAnalysis": {
+    "DataExport": {
+     "S3BucketDestination": {
+      "OutputSchemaVersion": "{{ OutputSchemaVersion }}",
+      "Format": "{{ Format }}",
+      "AccountId": "{{ AccountId }}",
+      "Arn": "{{ Arn }}",
+      "Prefix": "{{ Prefix }}",
+      "Encryption": {}
+     },
+     "CloudWatchMetrics": {
+      "IsEnabled": "{{ IsEnabled }}"
+     }
+    }
+   },
+   "Id": "{{ Id }}",
+   "Prefix": "{{ Prefix }}"
+  }
+ ],
+ "BucketEncryption": {
+  "ServerSideEncryptionConfiguration": [
+   {
+    "BucketKeyEnabled": "{{ BucketKeyEnabled }}",
+    "ServerSideEncryptionByDefault": {
+     "KMSMasterKeyID": "{{ KMSMasterKeyID }}",
+     "SSEAlgorithm": "{{ SSEAlgorithm }}"
+    }
+   }
+  ]
+ },
+ "BucketName": "{{ BucketName }}",
+ "CorsConfiguration": {
+  "CorsRules": [
+   {
+    "AllowedHeaders": [
+     "{{ AllowedHeaders[0] }}"
+    ],
+    "AllowedMethods": [
+     "{{ AllowedMethods[0] }}"
+    ],
+    "AllowedOrigins": [
+     "{{ AllowedOrigins[0] }}"
+    ],
+    "ExposedHeaders": [
+     "{{ ExposedHeaders[0] }}"
+    ],
+    "Id": "{{ Id }}",
+    "MaxAge": "{{ MaxAge }}"
+   }
+  ]
+ },
+ "IntelligentTieringConfigurations": [
+  {
+   "Id": "{{ Id }}",
+   "Prefix": "{{ Prefix }}",
+   "Status": "{{ Status }}",
+   "TagFilters": [
+    null
+   ],
+   "Tierings": [
+    {
+     "AccessTier": "{{ AccessTier }}",
+     "Days": "{{ Days }}"
+    }
+   ]
+  }
+ ],
+ "InventoryConfigurations": [
+  {
+   "Destination": {
+    "BucketArn": "{{ BucketArn }}",
+    "BucketAccountId": "{{ BucketAccountId }}",
+    "Format": "{{ Format }}",
+    "Prefix": "{{ Prefix }}"
+   },
+   "Enabled": "{{ Enabled }}",
+   "Id": "{{ Id }}",
+   "IncludedObjectVersions": "{{ IncludedObjectVersions }}",
+   "OptionalFields": [
+    "{{ OptionalFields[0] }}"
+   ],
+   "Prefix": "{{ Prefix }}",
+   "ScheduleFrequency": "{{ ScheduleFrequency }}"
+  }
+ ],
+ "LifecycleConfiguration": {
+  "Rules": [
+   {
+    "AbortIncompleteMultipartUpload": {
+     "DaysAfterInitiation": "{{ DaysAfterInitiation }}"
+    },
+    "ExpirationDate": "{{ ExpirationDate }}",
+    "ExpirationInDays": "{{ ExpirationInDays }}",
+    "ExpiredObjectDeleteMarker": "{{ ExpiredObjectDeleteMarker }}",
+    "Id": "{{ Id }}",
+    "NoncurrentVersionExpirationInDays": "{{ NoncurrentVersionExpirationInDays }}",
+    "NoncurrentVersionExpiration": {
+     "NoncurrentDays": "{{ NoncurrentDays }}",
+     "NewerNoncurrentVersions": "{{ NewerNoncurrentVersions }}"
+    },
+    "NoncurrentVersionTransition": {
+     "StorageClass": "{{ StorageClass }}",
+     "TransitionInDays": "{{ TransitionInDays }}",
+     "NewerNoncurrentVersions": "{{ NewerNoncurrentVersions }}"
+    },
+    "NoncurrentVersionTransitions": [
+     null
+    ],
+    "Prefix": "{{ Prefix }}",
+    "Status": "{{ Status }}",
+    "TagFilters": [
+     null
+    ],
+    "ObjectSizeGreaterThan": "{{ ObjectSizeGreaterThan }}",
+    "ObjectSizeLessThan": "{{ ObjectSizeLessThan }}",
+    "Transition": {
+     "StorageClass": "{{ StorageClass }}",
+     "TransitionDate": null,
+     "TransitionInDays": "{{ TransitionInDays }}"
+    },
+    "Transitions": [
+     null
+    ]
+   }
+  ]
+ },
+ "LoggingConfiguration": {
+  "DestinationBucketName": "{{ DestinationBucketName }}",
+  "LogFilePrefix": "{{ LogFilePrefix }}",
+  "TargetObjectKeyFormat": {}
+ },
+ "MetricsConfigurations": [
+  {
+   "AccessPointArn": "{{ AccessPointArn }}",
+   "Id": "{{ Id }}",
+   "Prefix": "{{ Prefix }}",
+   "TagFilters": [
+    null
+   ]
+  }
+ ],
+ "NotificationConfiguration": {
+  "EventBridgeConfiguration": {
+   "EventBridgeEnabled": "{{ EventBridgeEnabled }}"
+  },
+  "LambdaConfigurations": [
+   {
+    "Event": "{{ Event }}",
+    "Filter": {
+     "S3Key": {
+      "Rules": [
+       {
+        "Name": "{{ Name }}",
+        "Value": "{{ Value }}"
+       }
+      ]
+     }
+    },
+    "Function": "{{ Function }}"
+   }
+  ],
+  "QueueConfigurations": [
+   {
+    "Event": "{{ Event }}",
+    "Filter": null,
+    "Queue": "{{ Queue }}"
+   }
+  ],
+  "TopicConfigurations": [
+   {
+    "Event": "{{ Event }}",
+    "Filter": null,
+    "Topic": "{{ Topic }}"
+   }
+  ]
+ },
+ "ObjectLockConfiguration": {
+  "ObjectLockEnabled": "{{ ObjectLockEnabled }}",
+  "Rule": {
+   "DefaultRetention": {
+    "Years": "{{ Years }}",
+    "Days": "{{ Days }}",
+    "Mode": "{{ Mode }}"
+   }
+  }
+ },
+ "ObjectLockEnabled": "{{ ObjectLockEnabled }}",
+ "OwnershipControls": {
+  "Rules": [
+   {
+    "ObjectOwnership": "{{ ObjectOwnership }}"
+   }
+  ]
+ },
+ "PublicAccessBlockConfiguration": {
+  "BlockPublicAcls": "{{ BlockPublicAcls }}",
+  "IgnorePublicAcls": "{{ IgnorePublicAcls }}",
+  "BlockPublicPolicy": "{{ BlockPublicPolicy }}",
+  "RestrictPublicBuckets": "{{ RestrictPublicBuckets }}"
+ },
+ "ReplicationConfiguration": {
+  "Role": "{{ Role }}",
+  "Rules": [
+   {
+    "DeleteMarkerReplication": {
+     "Status": "{{ Status }}"
+    },
+    "Destination": {
+     "AccessControlTranslation": {
+      "Owner": "{{ Owner }}"
+     },
+     "Account": "{{ Account }}",
+     "Bucket": "{{ Bucket }}",
+     "EncryptionConfiguration": {
+      "ReplicaKmsKeyID": "{{ ReplicaKmsKeyID }}"
+     },
+     "Metrics": {
+      "EventThreshold": {
+       "Minutes": "{{ Minutes }}"
+      },
+      "Status": "{{ Status }}"
+     },
+     "ReplicationTime": {
+      "Status": "{{ Status }}",
+      "Time": null
+     },
+     "StorageClass": "{{ StorageClass }}"
+    },
+    "Filter": {
+     "And": {
+      "Prefix": "{{ Prefix }}",
+      "TagFilters": [
+       null
+      ]
+     },
+     "Prefix": "{{ Prefix }}",
+     "TagFilter": null
+    },
+    "Id": "{{ Id }}",
+    "Prefix": "{{ Prefix }}",
+    "Priority": "{{ Priority }}",
+    "SourceSelectionCriteria": {
+     "ReplicaModifications": {
+      "Status": "{{ Status }}"
+     },
+     "SseKmsEncryptedObjects": {
+      "Status": "{{ Status }}"
+     }
+    },
+    "Status": "{{ Status }}"
+   }
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VersioningConfiguration": {
+  "Status": "{{ Status }}"
+ },
+ "WebsiteConfiguration": {
+  "ErrorDocument": "{{ ErrorDocument }}",
+  "IndexDocument": "{{ IndexDocument }}",
+  "RoutingRules": [
+   {
+    "RedirectRule": {
+     "HostName": "{{ HostName }}",
+     "HttpRedirectCode": "{{ HttpRedirectCode }}",
+     "Protocol": "{{ Protocol }}",
+     "ReplaceKeyPrefixWith": "{{ ReplaceKeyPrefixWith }}",
+     "ReplaceKeyWith": "{{ ReplaceKeyWith }}"
+    },
+    "RoutingRuleCondition": {
+     "KeyPrefixEquals": "{{ KeyPrefixEquals }}",
+     "HttpErrorCodeReturnedEquals": "{{ HttpErrorCodeReturnedEquals }}"
+    }
+   }
+  ],
+  "RedirectAllRequestsTo": {
+   "HostName": "{{ HostName }}",
+   "Protocol": "{{ Protocol }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.s3.buckets (
+ AccelerateConfiguration,
+ AccessControl,
+ AnalyticsConfigurations,
+ BucketEncryption,
+ BucketName,
+ CorsConfiguration,
+ IntelligentTieringConfigurations,
+ InventoryConfigurations,
+ LifecycleConfiguration,
+ LoggingConfiguration,
+ MetricsConfigurations,
+ NotificationConfiguration,
+ ObjectLockConfiguration,
+ ObjectLockEnabled,
+ OwnershipControls,
+ PublicAccessBlockConfiguration,
+ ReplicationConfiguration,
+ Tags,
+ VersioningConfiguration,
+ WebsiteConfiguration,
+ region
+)
+SELECT 
+ {{ AccelerateConfiguration }},
+ {{ AccessControl }},
+ {{ AnalyticsConfigurations }},
+ {{ BucketEncryption }},
+ {{ BucketName }},
+ {{ CorsConfiguration }},
+ {{ IntelligentTieringConfigurations }},
+ {{ InventoryConfigurations }},
+ {{ LifecycleConfiguration }},
+ {{ LoggingConfiguration }},
+ {{ MetricsConfigurations }},
+ {{ NotificationConfiguration }},
+ {{ ObjectLockConfiguration }},
+ {{ ObjectLockEnabled }},
+ {{ OwnershipControls }},
+ {{ PublicAccessBlockConfiguration }},
+ {{ ReplicationConfiguration }},
+ {{ Tags }},
+ {{ VersioningConfiguration }},
+ {{ WebsiteConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.s3.buckets
+WHERE data__Identifier = '<BucketName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -95,6 +495,12 @@ s3:PutBucketVersioning,
 s3:PutObjectLockConfiguration,
 s3:PutBucketOwnershipControls,
 s3:PutIntelligentTieringConfiguration
+```
+
+### Delete
+```json
+s3:DeleteBucket,
+s3:ListBucket
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>pipe</code> resource, use <code>pipes</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>pipe</code> resource, use <code>pipes</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -65,11 +68,6 @@ Gets or operates on an individual <code>pipe</code> resource, use <code>pipes</c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -98,8 +96,9 @@ tags,
 target,
 target_parameters
 FROM aws.pipes.pipe
-WHERE data__Identifier = '<Name>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
+
 
 ## Permissions
 
@@ -129,16 +128,5 @@ logs:ListLogDeliveries,
 s3:PutBucketPolicy,
 s3:GetBucketPolicy,
 firehose:TagDeliveryStream
-```
-
-### Delete
-```json
-pipes:DeletePipe,
-pipes:DescribePipe,
-logs:CreateLogDelivery,
-logs:UpdateLogDelivery,
-logs:DeleteLogDelivery,
-logs:GetLogDelivery,
-logs:ListLogDeliveries
 ```
 

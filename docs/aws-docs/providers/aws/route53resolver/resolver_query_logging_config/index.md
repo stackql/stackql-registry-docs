@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>resolver_query_logging_config</code> resource, use <code>resolver_query_logging_configs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>resolver_query_logging_config</code> resource, use <code>resolver_query_logging_configs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>resolver_query_logging_config</code> res
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -79,8 +77,9 @@ creator_request_id,
 destination_arn,
 creation_time
 FROM aws.route53resolver.resolver_query_logging_config
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -90,13 +89,5 @@ To operate on the <code>resolver_query_logging_config</code> resource, the follo
 ```json
 resolverquerylogging:GetConfig,
 route53resolver:GetResolverQueryLogConfig
-```
-
-### Delete
-```json
-resolverquerylogging:DeleteConfig,
-resolverquerylogging:ListConfig,
-route53resolver:DeleteResolverQueryLogConfig,
-route53resolver:ListResolverQueryLogConfigs
 ```
 

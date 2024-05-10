@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>aliases</code> in a region or create a <code>aliases</code> resource, use <code>alias</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>aliases</code> in a region or to create or delete a <code>aliases</code> resource, use <code>alias</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>aliases</code> in a region or create a <code>al
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,71 @@ SELECT
 region,
 alias_name
 FROM aws.kms.aliases
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TargetKeyId": "{{ TargetKeyId }}",
+ "AliasName": "{{ AliasName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.kms.aliases (
+ TargetKeyId,
+ AliasName,
+ region
+)
+SELECT 
+{{ TargetKeyId }},
+ {{ AliasName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TargetKeyId": "{{ TargetKeyId }}",
+ "AliasName": "{{ AliasName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.kms.aliases (
+ TargetKeyId,
+ AliasName,
+ region
+)
+SELECT 
+ {{ TargetKeyId }},
+ {{ AliasName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kms.aliases
+WHERE data__Identifier = '<AliasName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,5 +148,10 @@ kms:CreateAlias
 ### List
 ```json
 kms:ListAliases
+```
+
+### Delete
+```json
+kms:DeleteAlias
 ```
 

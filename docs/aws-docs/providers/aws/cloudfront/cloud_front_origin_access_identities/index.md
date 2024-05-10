@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>cloud_front_origin_access_identities</code> in a region or create a <code>cloud_front_origin_access_identities</code> resource, use <code>cloud_front_origin_access_identity</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>cloud_front_origin_access_identities</code> in a region or to create or delete a <code>cloud_front_origin_access_identities</code> resource, use <code>cloud_front_origin_access_identity</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>cloud_front_origin_access_identities</code> in 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,69 @@ SELECT
 region,
 id
 FROM aws.cloudfront.cloud_front_origin_access_identities
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CloudFrontOriginAccessIdentityConfig": {
+  "Comment": "{{ Comment }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
+ CloudFrontOriginAccessIdentityConfig,
+ region
+)
+SELECT 
+{{ CloudFrontOriginAccessIdentityConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CloudFrontOriginAccessIdentityConfig": {
+  "Comment": "{{ Comment }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
+ CloudFrontOriginAccessIdentityConfig,
+ region
+)
+SELECT 
+ {{ CloudFrontOriginAccessIdentityConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudfront.cloud_front_origin_access_identities
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +141,12 @@ To operate on the <code>cloud_front_origin_access_identities</code> resource, th
 ### Create
 ```json
 cloudfront:CreateCloudFrontOriginAccessIdentity
+```
+
+### Delete
+```json
+cloudfront:DeleteCloudFrontOriginAccessIdentity,
+cloudfront:GetCloudFrontOriginAccessIdentity
 ```
 
 ### List

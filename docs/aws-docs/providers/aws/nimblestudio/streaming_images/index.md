@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>streaming_images</code> in a region or create a <code>streaming_images</code> resource, use <code>streaming_image</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>streaming_images</code> in a region or to create or delete a <code>streaming_images</code> resource, use <code>streaming_image</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>streaming_images</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 studio_id,
 streaming_image_id
 FROM aws.nimblestudio.streaming_images
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Ec2ImageId": "{{ Ec2ImageId }}",
+ "Name": "{{ Name }}",
+ "StudioId": "{{ StudioId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.nimblestudio.streaming_images (
+ Ec2ImageId,
+ Name,
+ StudioId,
+ region
+)
+SELECT 
+{{ Ec2ImageId }},
+ {{ Name }},
+ {{ StudioId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Ec2ImageId": "{{ Ec2ImageId }}",
+ "Name": "{{ Name }}",
+ "StudioId": "{{ StudioId }}",
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.nimblestudio.streaming_images (
+ Description,
+ Ec2ImageId,
+ Name,
+ StudioId,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Ec2ImageId }},
+ {{ Name }},
+ {{ StudioId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.nimblestudio.streaming_images
+WHERE data__Identifier = '<StudioId|StreamingImageId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -86,6 +170,19 @@ kms:Decrypt,
 kms:CreateGrant,
 kms:ListGrants,
 kms:GenerateDataKey
+```
+
+### Delete
+```json
+nimble:DeleteStreamingImage,
+nimble:GetStreamingImage,
+nimble:UntagResource,
+ec2:ModifyInstanceAttribute,
+ec2:ModifySnapshotAttribute,
+ec2:DeregisterImage,
+ec2:DeleteSnapshot,
+kms:ListGrants,
+kms:RetireGrant
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>permissions</code> in a region or create a <code>permissions</code> resource, use <code>permission</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>permissions</code> in a region or to create or delete a <code>permissions</code> resource, use <code>permission</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>permissions</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,92 @@ region,
 function_name,
 id
 FROM aws.lambda.permissions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Action": "{{ Action }}",
+ "FunctionName": "{{ FunctionName }}",
+ "Principal": "{{ Principal }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lambda.permissions (
+ Action,
+ FunctionName,
+ Principal,
+ region
+)
+SELECT 
+{{ Action }},
+ {{ FunctionName }},
+ {{ Principal }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Action": "{{ Action }}",
+ "EventSourceToken": "{{ EventSourceToken }}",
+ "FunctionName": "{{ FunctionName }}",
+ "FunctionUrlAuthType": "{{ FunctionUrlAuthType }}",
+ "Principal": "{{ Principal }}",
+ "PrincipalOrgID": "{{ PrincipalOrgID }}",
+ "SourceAccount": "{{ SourceAccount }}",
+ "SourceArn": "{{ SourceArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.lambda.permissions (
+ Action,
+ EventSourceToken,
+ FunctionName,
+ FunctionUrlAuthType,
+ Principal,
+ PrincipalOrgID,
+ SourceAccount,
+ SourceArn,
+ region
+)
+SELECT 
+ {{ Action }},
+ {{ EventSourceToken }},
+ {{ FunctionName }},
+ {{ FunctionUrlAuthType }},
+ {{ Principal }},
+ {{ PrincipalOrgID }},
+ {{ SourceAccount }},
+ {{ SourceArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lambda.permissions
+WHERE data__Identifier = '<FunctionName|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +166,11 @@ To operate on the <code>permissions</code> resource, the following permissions a
 ### Create
 ```json
 lambda:AddPermission
+```
+
+### Delete
+```json
+lambda:RemovePermission
 ```
 
 ### List

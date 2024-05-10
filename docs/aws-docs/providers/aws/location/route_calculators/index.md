@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>route_calculators</code> in a region or create a <code>route_calculators</code> resource, use <code>route_calculator</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>route_calculators</code> in a region or to create or delete a <code>route_calculators</code> resource, use <code>route_calculator</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>route_calculators</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,85 @@ SELECT
 region,
 calculator_name
 FROM aws.location.route_calculators
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CalculatorName": "{{ CalculatorName }}",
+ "DataSource": "{{ DataSource }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.location.route_calculators (
+ CalculatorName,
+ DataSource,
+ region
+)
+SELECT 
+{{ CalculatorName }},
+ {{ DataSource }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CalculatorName": "{{ CalculatorName }}",
+ "DataSource": "{{ DataSource }}",
+ "Description": "{{ Description }}",
+ "PricingPlan": "{{ PricingPlan }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.location.route_calculators (
+ CalculatorName,
+ DataSource,
+ Description,
+ PricingPlan,
+ Tags,
+ region
+)
+SELECT 
+ {{ CalculatorName }},
+ {{ DataSource }},
+ {{ Description }},
+ {{ PricingPlan }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.location.route_calculators
+WHERE data__Identifier = '<CalculatorName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +160,12 @@ geo:CreateRouteCalculator,
 geo:DescribeRouteCalculator,
 geo:TagResource,
 geo:UntagResource
+```
+
+### Delete
+```json
+geo:DeleteRouteCalculator,
+geo:DescribeRouteCalculator
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>flow_vpc_interface</code> resource, use <code>flow_vpc_interfaces</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>flow_vpc_interface</code> resource, use <code>flow_vpc_interfaces</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>flow_vpc_interface</code> resource, use 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ security_group_ids,
 subnet_id,
 network_interface_ids
 FROM aws.mediaconnect.flow_vpc_interface
-WHERE data__Identifier = '<FlowArn>|<Name>';
+WHERE region = 'us-east-1' AND data__Identifier = '<FlowArn>|<Name>';
 ```
+
 
 ## Permissions
 
@@ -92,12 +91,6 @@ mediaconnect:DescribeFlow
 ```json
 mediaconnect:DescribeFlow,
 mediaconnect:AddFlowVpcInterfaces,
-mediaconnect:RemoveFlowVpcInterface
-```
-
-### Delete
-```json
-mediaconnect:DescribeFlow,
 mediaconnect:RemoveFlowVpcInterface
 ```
 

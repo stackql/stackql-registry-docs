@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>game_server_groups</code> in a region or create a <code>game_server_groups</code> resource, use <code>game_server_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>game_server_groups</code> in a region or to create or delete a <code>game_server_groups</code> resource, use <code>game_server_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>game_server_groups</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,130 @@ SELECT
 region,
 game_server_group_arn
 FROM aws.gamelift.game_server_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "GameServerGroupName": "{{ GameServerGroupName }}",
+ "InstanceDefinitions": [
+  {
+   "InstanceType": "{{ InstanceType }}",
+   "WeightedCapacity": "{{ WeightedCapacity }}"
+  }
+ ],
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.gamelift.game_server_groups (
+ GameServerGroupName,
+ InstanceDefinitions,
+ RoleArn,
+ region
+)
+SELECT 
+{{ GameServerGroupName }},
+ {{ InstanceDefinitions }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AutoScalingPolicy": {
+  "EstimatedInstanceWarmup": null,
+  "TargetTrackingConfiguration": {
+   "TargetValue": null
+  }
+ },
+ "BalancingStrategy": "{{ BalancingStrategy }}",
+ "DeleteOption": "{{ DeleteOption }}",
+ "GameServerGroupName": "{{ GameServerGroupName }}",
+ "GameServerProtectionPolicy": "{{ GameServerProtectionPolicy }}",
+ "InstanceDefinitions": [
+  {
+   "InstanceType": "{{ InstanceType }}",
+   "WeightedCapacity": "{{ WeightedCapacity }}"
+  }
+ ],
+ "LaunchTemplate": {
+  "LaunchTemplateId": "{{ LaunchTemplateId }}",
+  "LaunchTemplateName": "{{ LaunchTemplateName }}",
+  "Version": "{{ Version }}"
+ },
+ "MaxSize": null,
+ "MinSize": null,
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VpcSubnets": [
+  "{{ VpcSubnets[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.gamelift.game_server_groups (
+ AutoScalingPolicy,
+ BalancingStrategy,
+ DeleteOption,
+ GameServerGroupName,
+ GameServerProtectionPolicy,
+ InstanceDefinitions,
+ LaunchTemplate,
+ MaxSize,
+ MinSize,
+ RoleArn,
+ Tags,
+ VpcSubnets,
+ region
+)
+SELECT 
+ {{ AutoScalingPolicy }},
+ {{ BalancingStrategy }},
+ {{ DeleteOption }},
+ {{ GameServerGroupName }},
+ {{ GameServerProtectionPolicy }},
+ {{ InstanceDefinitions }},
+ {{ LaunchTemplate }},
+ {{ MaxSize }},
+ {{ MinSize }},
+ {{ RoleArn }},
+ {{ Tags }},
+ {{ VpcSubnets }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.gamelift.game_server_groups
+WHERE data__Identifier = '<GameServerGroupArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -93,6 +224,31 @@ autoscaling:PutScalingPolicy,
 autoscaling:ResumeProcesses,
 autoscaling:SetInstanceProtection,
 autoscaling:UpdateAutoScalingGroup,
+events:PutRule,
+events:PutTargets
+```
+
+### Delete
+```json
+gamelift:DeleteGameServerGroup,
+gamelift:DescribeGameServerGroup,
+iam:assumeRole,
+iam:PassRole,
+iam:CreateServiceLinkedRole,
+ec2:DescribeAvailabilityZones,
+ec2:DescribeSubnets,
+ec2:DescribeLaunchTemplateVersions,
+autoscaling:CreateAutoScalingGroup,
+autoscaling:DescribeLifecycleHooks,
+autoscaling:DescribeNotificationConfigurations,
+autoscaling:DescribeAutoScalingGroups,
+autoscaling:ExitStandby,
+autoscaling:PutLifecycleHook,
+autoscaling:PutScalingPolicy,
+autoscaling:ResumeProcesses,
+autoscaling:SetInstanceProtection,
+autoscaling:UpdateAutoScalingGroup,
+autoscaling:DeleteAutoScalingGroup,
 events:PutRule,
 events:PutTargets
 ```

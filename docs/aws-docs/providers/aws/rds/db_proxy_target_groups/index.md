@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>db_proxy_target_groups</code> in a region or create a <code>db_proxy_target_groups</code> resource, use <code>db_proxy_target_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>db_proxy_target_groups</code> in a region or to create or delete a <code>db_proxy_target_groups</code> resource, use <code>db_proxy_target_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>db_proxy_target_groups</code> in a region or cr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,92 @@ SELECT
 region,
 target_group_arn
 FROM aws.rds.db_proxy_target_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DBProxyName": "{{ DBProxyName }}",
+ "TargetGroupName": "{{ TargetGroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.rds.db_proxy_target_groups (
+ DBProxyName,
+ TargetGroupName,
+ region
+)
+SELECT 
+{{ DBProxyName }},
+ {{ TargetGroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DBProxyName": "{{ DBProxyName }}",
+ "TargetGroupName": "{{ TargetGroupName }}",
+ "ConnectionPoolConfigurationInfo": {
+  "MaxConnectionsPercent": "{{ MaxConnectionsPercent }}",
+  "MaxIdleConnectionsPercent": "{{ MaxIdleConnectionsPercent }}",
+  "ConnectionBorrowTimeout": "{{ ConnectionBorrowTimeout }}",
+  "SessionPinningFilters": [
+   "{{ SessionPinningFilters[0] }}"
+  ],
+  "InitQuery": "{{ InitQuery }}"
+ },
+ "DBInstanceIdentifiers": [
+  "{{ DBInstanceIdentifiers[0] }}"
+ ],
+ "DBClusterIdentifiers": [
+  "{{ DBClusterIdentifiers[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.rds.db_proxy_target_groups (
+ DBProxyName,
+ TargetGroupName,
+ ConnectionPoolConfigurationInfo,
+ DBInstanceIdentifiers,
+ DBClusterIdentifiers,
+ region
+)
+SELECT 
+ {{ DBProxyName }},
+ {{ TargetGroupName }},
+ {{ ConnectionPoolConfigurationInfo }},
+ {{ DBInstanceIdentifiers }},
+ {{ DBClusterIdentifiers }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rds.db_proxy_target_groups
+WHERE data__Identifier = '<TargetGroupArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +167,11 @@ rds:DescribeDBProxies,
 rds:DescribeDBProxyTargetGroups,
 rds:ModifyDBProxyTargetGroup,
 rds:RegisterDBProxyTargets
+```
+
+### Delete
+```json
+rds:DeregisterDBProxyTargets
 ```
 
 ### List

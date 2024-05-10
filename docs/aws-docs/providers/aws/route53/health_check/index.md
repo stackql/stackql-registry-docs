@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>health_check</code> resource, use <code>health_checks</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>health_check</code> resource, use <code>health_checks</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -51,11 +54,6 @@ Gets or operates on an individual <code>health_check</code> resource, use <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -73,6 +71,7 @@ FROM aws.route53.health_check
 WHERE data__Identifier = '<HealthCheckId>';
 ```
 
+
 ## Permissions
 
 To operate on the <code>health_check</code> resource, the following permissions are required:
@@ -89,10 +88,5 @@ route53:UpdateHealthCheck,
 route53:ChangeTagsForResource,
 route53:ListTagsForResource,
 cloudwatch:DescribeAlarms
-```
-
-### Delete
-```json
-route53:DeleteHealthCheck
 ```
 

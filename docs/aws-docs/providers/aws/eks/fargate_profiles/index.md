@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>fargate_profiles</code> in a region or create a <code>fargate_profiles</code> resource, use <code>fargate_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>fargate_profiles</code> in a region or to create or delete a <code>fargate_profiles</code> resource, use <code>fargate_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>fargate_profiles</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,113 @@ region,
 cluster_name,
 fargate_profile_name
 FROM aws.eks.fargate_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "PodExecutionRoleArn": "{{ PodExecutionRoleArn }}",
+ "Selectors": [
+  {
+   "Namespace": "{{ Namespace }}",
+   "Labels": [
+    {
+     "Key": "{{ Key }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.eks.fargate_profiles (
+ ClusterName,
+ PodExecutionRoleArn,
+ Selectors,
+ region
+)
+SELECT 
+{{ ClusterName }},
+ {{ PodExecutionRoleArn }},
+ {{ Selectors }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "FargateProfileName": "{{ FargateProfileName }}",
+ "PodExecutionRoleArn": "{{ PodExecutionRoleArn }}",
+ "Subnets": [
+  "{{ Subnets[0] }}"
+ ],
+ "Selectors": [
+  {
+   "Namespace": "{{ Namespace }}",
+   "Labels": [
+    {
+     "Key": "{{ Key }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.eks.fargate_profiles (
+ ClusterName,
+ FargateProfileName,
+ PodExecutionRoleArn,
+ Subnets,
+ Selectors,
+ Tags,
+ region
+)
+SELECT 
+ {{ ClusterName }},
+ {{ FargateProfileName }},
+ {{ PodExecutionRoleArn }},
+ {{ Subnets }},
+ {{ Selectors }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.eks.fargate_profiles
+WHERE data__Identifier = '<ClusterName|FargateProfileName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +192,12 @@ iam:GetRole,
 iam:PassRole,
 iam:CreateServiceLinkedRole,
 eks:TagResource
+```
+
+### Delete
+```json
+eks:DeleteFargateProfile,
+eks:DescribeFargateProfile
 ```
 
 ### List

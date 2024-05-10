@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>network_insights_access_scopes</code> in a region or create a <code>network_insights_access_scopes</code> resource, use <code>network_insights_access_scope</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>network_insights_access_scopes</code> in a region or to create or delete a <code>network_insights_access_scopes</code> resource, use <code>network_insights_access_scope</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>network_insights_access_scopes</code> in a regi
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,175 @@ SELECT
 region,
 network_insights_access_scope_id
 FROM aws.ec2.network_insights_access_scopes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "MatchPaths": [
+  {
+   "Source": {
+    "PacketHeaderStatement": {
+     "SourceAddresses": [
+      "{{ SourceAddresses[0] }}"
+     ],
+     "DestinationAddresses": [
+      "{{ DestinationAddresses[0] }}"
+     ],
+     "SourcePorts": [
+      "{{ SourcePorts[0] }}"
+     ],
+     "DestinationPorts": [
+      "{{ DestinationPorts[0] }}"
+     ],
+     "SourcePrefixLists": [
+      "{{ SourcePrefixLists[0] }}"
+     ],
+     "DestinationPrefixLists": [
+      "{{ DestinationPrefixLists[0] }}"
+     ],
+     "Protocols": [
+      "{{ Protocols[0] }}"
+     ]
+    },
+    "ResourceStatement": {
+     "Resources": [
+      "{{ Resources[0] }}"
+     ],
+     "ResourceTypes": [
+      "{{ ResourceTypes[0] }}"
+     ]
+    }
+   },
+   "Destination": null,
+   "ThroughResources": [
+    {
+     "ResourceStatement": null
+    }
+   ]
+  }
+ ],
+ "ExcludePaths": [
+  null
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.network_insights_access_scopes (
+ Tags,
+ MatchPaths,
+ ExcludePaths,
+ region
+)
+SELECT 
+{{ Tags }},
+ {{ MatchPaths }},
+ {{ ExcludePaths }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "MatchPaths": [
+  {
+   "Source": {
+    "PacketHeaderStatement": {
+     "SourceAddresses": [
+      "{{ SourceAddresses[0] }}"
+     ],
+     "DestinationAddresses": [
+      "{{ DestinationAddresses[0] }}"
+     ],
+     "SourcePorts": [
+      "{{ SourcePorts[0] }}"
+     ],
+     "DestinationPorts": [
+      "{{ DestinationPorts[0] }}"
+     ],
+     "SourcePrefixLists": [
+      "{{ SourcePrefixLists[0] }}"
+     ],
+     "DestinationPrefixLists": [
+      "{{ DestinationPrefixLists[0] }}"
+     ],
+     "Protocols": [
+      "{{ Protocols[0] }}"
+     ]
+    },
+    "ResourceStatement": {
+     "Resources": [
+      "{{ Resources[0] }}"
+     ],
+     "ResourceTypes": [
+      "{{ ResourceTypes[0] }}"
+     ]
+    }
+   },
+   "Destination": null,
+   "ThroughResources": [
+    {
+     "ResourceStatement": null
+    }
+   ]
+  }
+ ],
+ "ExcludePaths": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.network_insights_access_scopes (
+ Tags,
+ MatchPaths,
+ ExcludePaths,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ MatchPaths }},
+ {{ ExcludePaths }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.network_insights_access_scopes
+WHERE data__Identifier = '<NetworkInsightsAccessScopeId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +249,12 @@ To operate on the <code>network_insights_access_scopes</code> resource, the foll
 ec2:CreateNetworkInsightsAccessScope,
 ec2:CreateTags,
 tiros:CreateQuery
+```
+
+### Delete
+```json
+ec2:DeleteNetworkInsightsAccessScope,
+ec2:DeleteTags
 ```
 
 ### List

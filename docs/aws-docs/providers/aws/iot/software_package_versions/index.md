@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>software_package_versions</code> in a region or create a <code>software_package_versions</code> resource, use <code>software_package_version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>software_package_versions</code> in a region or to create or delete a <code>software_package_versions</code> resource, use <code>software_package_version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>software_package_versions</code> in a region or
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,82 @@ region,
 package_name,
 version_name
 FROM aws.iot.software_package_versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PackageName": "{{ PackageName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.software_package_versions (
+ PackageName,
+ region
+)
+SELECT 
+{{ PackageName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Attributes": {},
+ "Description": "{{ Description }}",
+ "PackageName": "{{ PackageName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VersionName": "{{ VersionName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iot.software_package_versions (
+ Attributes,
+ Description,
+ PackageName,
+ Tags,
+ VersionName,
+ region
+)
+SELECT 
+ {{ Attributes }},
+ {{ Description }},
+ {{ PackageName }},
+ {{ Tags }},
+ {{ VersionName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.software_package_versions
+WHERE data__Identifier = '<PackageName|VersionName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +158,14 @@ To operate on the <code>software_package_versions</code> resource, the following
 iot:CreatePackageVersion,
 iot:GetPackageVersion,
 iot:TagResource,
+iot:GetIndexingConfiguration
+```
+
+### Delete
+```json
+iot:DeletePackageVersion,
+iot:UpdatePackageVersion,
+iot:GetPackageVersion,
 iot:GetIndexingConfiguration
 ```
 

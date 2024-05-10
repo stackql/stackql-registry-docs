@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>location_object_storages</code> in a region or create a <code>location_object_storages</code> resource, use <code>location_object_storage</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>location_object_storages</code> in a region or to create or delete a <code>location_object_storages</code> resource, use <code>location_object_storage</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>location_object_storages</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,101 @@ SELECT
 region,
 location_arn
 FROM aws.datasync.location_object_storages
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AgentArns": [
+  "{{ AgentArns[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.datasync.location_object_storages (
+ AgentArns,
+ region
+)
+SELECT 
+{{ AgentArns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessKey": "{{ AccessKey }}",
+ "AgentArns": [
+  "{{ AgentArns[0] }}"
+ ],
+ "BucketName": "{{ BucketName }}",
+ "SecretKey": "{{ SecretKey }}",
+ "ServerCertificate": "{{ ServerCertificate }}",
+ "ServerHostname": "{{ ServerHostname }}",
+ "ServerPort": "{{ ServerPort }}",
+ "ServerProtocol": "{{ ServerProtocol }}",
+ "Subdirectory": "{{ Subdirectory }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.datasync.location_object_storages (
+ AccessKey,
+ AgentArns,
+ BucketName,
+ SecretKey,
+ ServerCertificate,
+ ServerHostname,
+ ServerPort,
+ ServerProtocol,
+ Subdirectory,
+ Tags,
+ region
+)
+SELECT 
+ {{ AccessKey }},
+ {{ AgentArns }},
+ {{ BucketName }},
+ {{ SecretKey }},
+ {{ ServerCertificate }},
+ {{ ServerHostname }},
+ {{ ServerPort }},
+ {{ ServerProtocol }},
+ {{ Subdirectory }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.datasync.location_object_storages
+WHERE data__Identifier = '<LocationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +176,11 @@ datasync:CreateLocationObjectStorage,
 datasync:DescribeLocationObjectStorage,
 datasync:ListTagsForResource,
 datasync:TagResource
+```
+
+### Delete
+```json
+datasync:DeleteLocation
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>hours_of_operations</code> in a region or create a <code>hours_of_operations</code> resource, use <code>hours_of_operation</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>hours_of_operations</code> in a region or to create or delete a <code>hours_of_operations</code> resource, use <code>hours_of_operation</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>hours_of_operations</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,112 @@ SELECT
 region,
 hours_of_operation_arn
 FROM aws.connect.hours_of_operations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "Name": "{{ Name }}",
+ "TimeZone": "{{ TimeZone }}",
+ "Config": [
+  {
+   "Day": "{{ Day }}",
+   "StartTime": {
+    "Hours": "{{ Hours }}",
+    "Minutes": "{{ Minutes }}"
+   },
+   "EndTime": null
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.hours_of_operations (
+ InstanceArn,
+ Name,
+ TimeZone,
+ Config,
+ region
+)
+SELECT 
+{{ InstanceArn }},
+ {{ Name }},
+ {{ TimeZone }},
+ {{ Config }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "TimeZone": "{{ TimeZone }}",
+ "Config": [
+  {
+   "Day": "{{ Day }}",
+   "StartTime": {
+    "Hours": "{{ Hours }}",
+    "Minutes": "{{ Minutes }}"
+   },
+   "EndTime": null
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.connect.hours_of_operations (
+ InstanceArn,
+ Name,
+ Description,
+ TimeZone,
+ Config,
+ Tags,
+ region
+)
+SELECT 
+ {{ InstanceArn }},
+ {{ Name }},
+ {{ Description }},
+ {{ TimeZone }},
+ {{ Config }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.hours_of_operations
+WHERE data__Identifier = '<HoursOfOperationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +185,12 @@ To operate on the <code>hours_of_operations</code> resource, the following permi
 ```json
 connect:CreateHoursOfOperation,
 connect:TagResource
+```
+
+### Delete
+```json
+connect:DeleteHoursOfOperation,
+connect:UntagResource
 ```
 
 ### List

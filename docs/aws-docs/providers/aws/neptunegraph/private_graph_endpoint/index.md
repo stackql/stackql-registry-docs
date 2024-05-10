@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>private_graph_endpoint</code> resource, use <code>private_graph_endpoints</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>private_graph_endpoint</code> resource, use <code>private_graph_endpoints</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>private_graph_endpoint</code> resource, 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ vpc_id,
 private_graph_endpoint_identifier,
 vpc_endpoint_id
 FROM aws.neptunegraph.private_graph_endpoint
-WHERE data__Identifier = '<PrivateGraphEndpointIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<PrivateGraphEndpointIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -91,21 +90,6 @@ neptune-graph:GetPrivateGraphEndpoint
 ### Update
 ```json
 iam:PassRole,
-neptune-graph:GetPrivateGraphEndpoint
-```
-
-### Delete
-```json
-ec2:DeleteVpcEndpoints,
-ec2:DescribeVpcEndpoints,
-ec2:DescribeSecurityGroups,
-ec2:DescribeSubnets,
-ec2:DescribeVpcs,
-ec2:DescribeVpcAttribute,
-ec2:DescribeAvailabilityZones,
-ec2:ModifyVpcEndpoint,
-route53:DisassociateVPCFromHostedZone,
-neptune-graph:DeletePrivateGraphEndpoint,
 neptune-graph:GetPrivateGraphEndpoint
 ```
 

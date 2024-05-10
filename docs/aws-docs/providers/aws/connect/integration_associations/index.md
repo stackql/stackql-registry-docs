@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>integration_associations</code> in a region or create a <code>integration_associations</code> resource, use <code>integration_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>integration_associations</code> in a region or to create or delete a <code>integration_associations</code> resource, use <code>integration_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>integration_associations</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,77 @@ instance_id,
 integration_type,
 integration_arn
 FROM aws.connect.integration_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceId": "{{ InstanceId }}",
+ "IntegrationArn": "{{ IntegrationArn }}",
+ "IntegrationType": "{{ IntegrationType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.integration_associations (
+ InstanceId,
+ IntegrationArn,
+ IntegrationType,
+ region
+)
+SELECT 
+{{ InstanceId }},
+ {{ IntegrationArn }},
+ {{ IntegrationType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InstanceId": "{{ InstanceId }}",
+ "IntegrationArn": "{{ IntegrationArn }}",
+ "IntegrationType": "{{ IntegrationType }}"
+}
+>>>
+--all properties
+INSERT INTO aws.connect.integration_associations (
+ InstanceId,
+ IntegrationArn,
+ IntegrationType,
+ region
+)
+SELECT 
+ {{ InstanceId }},
+ {{ IntegrationArn }},
+ {{ IntegrationType }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.integration_associations
+WHERE data__Identifier = '<InstanceId|IntegrationType|IntegrationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -103,6 +181,29 @@ app-integrations:CreateApplicationAssociation,
 iam:AttachRolePolicy,
 iam:CreateServiceLinkedRole,
 iam:GetRolePolicy,
+iam:PutRolePolicy
+```
+
+### Delete
+```json
+connect:DescribeInstance,
+ds:DescribeDirectories,
+app-integrations:DeleteEventIntegrationAssociation,
+app-integrations:DeleteApplicationAssociation,
+events:ListTargetsByRule,
+events:RemoveTargets,
+events:DeleteRule,
+connect:DisassociateBot,
+connect:DisassociateLambdaFunction,
+connect:DeleteIntegrationAssociation,
+connect:ListBots,
+connect:ListLambdaFunctions,
+connect:ListIntegrationAssociations,
+lex:DeleteResourcePolicy,
+lex:DeleteResourcePolicyStatement,
+lambda:RemovePermission,
+iam:GetRolePolicy,
+iam:DeleteRolePolicy,
 iam:PutRolePolicy
 ```
 

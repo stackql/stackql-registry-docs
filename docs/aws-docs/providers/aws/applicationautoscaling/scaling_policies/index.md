@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>scaling_policies</code> in a region or create a <code>scaling_policies</code> resource, use <code>scaling_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>scaling_policies</code> in a region or to create or delete a <code>scaling_policies</code> resource, use <code>scaling_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>scaling_policies</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,144 @@ region,
 arn,
 scalable_dimension
 FROM aws.applicationautoscaling.scaling_policies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PolicyName": "{{ PolicyName }}",
+ "PolicyType": "{{ PolicyType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.applicationautoscaling.scaling_policies (
+ PolicyName,
+ PolicyType,
+ region
+)
+SELECT 
+{{ PolicyName }},
+ {{ PolicyType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PolicyName": "{{ PolicyName }}",
+ "PolicyType": "{{ PolicyType }}",
+ "ResourceId": "{{ ResourceId }}",
+ "ScalableDimension": "{{ ScalableDimension }}",
+ "ScalingTargetId": "{{ ScalingTargetId }}",
+ "ServiceNamespace": "{{ ServiceNamespace }}",
+ "StepScalingPolicyConfiguration": {
+  "AdjustmentType": "{{ AdjustmentType }}",
+  "Cooldown": "{{ Cooldown }}",
+  "MetricAggregationType": "{{ MetricAggregationType }}",
+  "MinAdjustmentMagnitude": "{{ MinAdjustmentMagnitude }}",
+  "StepAdjustments": [
+   {
+    "MetricIntervalLowerBound": null,
+    "MetricIntervalUpperBound": null,
+    "ScalingAdjustment": "{{ ScalingAdjustment }}"
+   }
+  ]
+ },
+ "TargetTrackingScalingPolicyConfiguration": {
+  "CustomizedMetricSpecification": {
+   "Dimensions": [
+    {
+     "Name": "{{ Name }}",
+     "Value": "{{ Value }}"
+    }
+   ],
+   "MetricName": "{{ MetricName }}",
+   "Namespace": "{{ Namespace }}",
+   "Statistic": "{{ Statistic }}",
+   "Unit": "{{ Unit }}",
+   "Metrics": [
+    {
+     "Expression": "{{ Expression }}",
+     "Id": "{{ Id }}",
+     "Label": "{{ Label }}",
+     "ReturnData": "{{ ReturnData }}",
+     "MetricStat": {
+      "Metric": {
+       "Dimensions": [
+        {
+         "Name": "{{ Name }}",
+         "Value": "{{ Value }}"
+        }
+       ],
+       "MetricName": "{{ MetricName }}",
+       "Namespace": "{{ Namespace }}"
+      },
+      "Stat": "{{ Stat }}",
+      "Unit": "{{ Unit }}"
+     }
+    }
+   ]
+  },
+  "DisableScaleIn": "{{ DisableScaleIn }}",
+  "PredefinedMetricSpecification": {
+   "PredefinedMetricType": "{{ PredefinedMetricType }}",
+   "ResourceLabel": "{{ ResourceLabel }}"
+  },
+  "ScaleInCooldown": "{{ ScaleInCooldown }}",
+  "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
+  "TargetValue": null
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.applicationautoscaling.scaling_policies (
+ PolicyName,
+ PolicyType,
+ ResourceId,
+ ScalableDimension,
+ ScalingTargetId,
+ ServiceNamespace,
+ StepScalingPolicyConfiguration,
+ TargetTrackingScalingPolicyConfiguration,
+ region
+)
+SELECT 
+ {{ PolicyName }},
+ {{ PolicyType }},
+ {{ ResourceId }},
+ {{ ScalableDimension }},
+ {{ ScalingTargetId }},
+ {{ ServiceNamespace }},
+ {{ StepScalingPolicyConfiguration }},
+ {{ TargetTrackingScalingPolicyConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.applicationautoscaling.scaling_policies
+WHERE data__Identifier = '<Arn|ScalableDimension>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +219,12 @@ To operate on the <code>scaling_policies</code> resource, the following permissi
 ```json
 application-autoscaling:DescribeScalingPolicies,
 application-autoscaling:PutScalingPolicy
+```
+
+### Delete
+```json
+application-autoscaling:DescribeScalingPolicies,
+application-autoscaling:DeleteScalingPolicy
 ```
 
 ### List

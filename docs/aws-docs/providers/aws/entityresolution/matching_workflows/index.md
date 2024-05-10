@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>matching_workflows</code> in a region or create a <code>matching_workflows</code> resource, use <code>matching_workflow</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>matching_workflows</code> in a region or to create or delete a <code>matching_workflows</code> resource, use <code>matching_workflow</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>matching_workflows</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,176 @@ SELECT
 region,
 workflow_name
 FROM aws.entityresolution.matching_workflows
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "WorkflowName": "{{ WorkflowName }}",
+ "InputSourceConfig": [
+  {
+   "InputSourceARN": "{{ InputSourceARN }}",
+   "SchemaArn": "{{ SchemaArn }}",
+   "ApplyNormalization": "{{ ApplyNormalization }}"
+  }
+ ],
+ "OutputSourceConfig": [
+  {
+   "OutputS3Path": "{{ OutputS3Path }}",
+   "Output": [
+    {
+     "Name": "{{ Name }}",
+     "Hashed": "{{ Hashed }}"
+    }
+   ],
+   "KMSArn": "{{ KMSArn }}",
+   "ApplyNormalization": "{{ ApplyNormalization }}"
+  }
+ ],
+ "ResolutionTechniques": {
+  "ResolutionType": "{{ ResolutionType }}",
+  "RuleBasedProperties": {
+   "Rules": [
+    {
+     "RuleName": "{{ RuleName }}",
+     "MatchingKeys": [
+      null
+     ]
+    }
+   ],
+   "AttributeMatchingModel": "{{ AttributeMatchingModel }}"
+  },
+  "ProviderProperties": {
+   "ProviderServiceArn": "{{ ProviderServiceArn }}",
+   "ProviderConfiguration": {},
+   "IntermediateSourceConfiguration": {
+    "IntermediateS3Path": "{{ IntermediateS3Path }}"
+   }
+  }
+ },
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.entityresolution.matching_workflows (
+ WorkflowName,
+ InputSourceConfig,
+ OutputSourceConfig,
+ ResolutionTechniques,
+ RoleArn,
+ region
+)
+SELECT 
+{{ WorkflowName }},
+ {{ InputSourceConfig }},
+ {{ OutputSourceConfig }},
+ {{ ResolutionTechniques }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "WorkflowName": "{{ WorkflowName }}",
+ "Description": "{{ Description }}",
+ "InputSourceConfig": [
+  {
+   "InputSourceARN": "{{ InputSourceARN }}",
+   "SchemaArn": "{{ SchemaArn }}",
+   "ApplyNormalization": "{{ ApplyNormalization }}"
+  }
+ ],
+ "OutputSourceConfig": [
+  {
+   "OutputS3Path": "{{ OutputS3Path }}",
+   "Output": [
+    {
+     "Name": "{{ Name }}",
+     "Hashed": "{{ Hashed }}"
+    }
+   ],
+   "KMSArn": "{{ KMSArn }}",
+   "ApplyNormalization": "{{ ApplyNormalization }}"
+  }
+ ],
+ "ResolutionTechniques": {
+  "ResolutionType": "{{ ResolutionType }}",
+  "RuleBasedProperties": {
+   "Rules": [
+    {
+     "RuleName": "{{ RuleName }}",
+     "MatchingKeys": [
+      null
+     ]
+    }
+   ],
+   "AttributeMatchingModel": "{{ AttributeMatchingModel }}"
+  },
+  "ProviderProperties": {
+   "ProviderServiceArn": "{{ ProviderServiceArn }}",
+   "ProviderConfiguration": {},
+   "IntermediateSourceConfiguration": {
+    "IntermediateS3Path": "{{ IntermediateS3Path }}"
+   }
+  }
+ },
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.entityresolution.matching_workflows (
+ WorkflowName,
+ Description,
+ InputSourceConfig,
+ OutputSourceConfig,
+ ResolutionTechniques,
+ RoleArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ WorkflowName }},
+ {{ Description }},
+ {{ InputSourceConfig }},
+ {{ OutputSourceConfig }},
+ {{ ResolutionTechniques }},
+ {{ RoleArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.entityresolution.matching_workflows
+WHERE data__Identifier = '<WorkflowName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +253,13 @@ entityresolution:TagResource,
 kms:CreateGrant,
 kms:DescribeKey,
 iam:PassRole
+```
+
+### Delete
+```json
+entityresolution:DeleteMatchingWorkflow,
+entityresolution:GetMatchingWorkflow,
+entityresolution:UntagResource
 ```
 
 ### List

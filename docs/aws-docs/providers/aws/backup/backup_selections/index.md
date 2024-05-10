@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>backup_selections</code> in a region or create a <code>backup_selections</code> resource, use <code>backup_selection</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>backup_selections</code> in a region or to create or delete a <code>backup_selections</code> resource, use <code>backup_selection</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>backup_selections</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,12 +69,148 @@ SELECT
 region,
 id
 FROM aws.backup.backup_selections
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "BackupPlanId": "{{ BackupPlanId }}",
+ "BackupSelection": {
+  "IamRoleArn": "{{ IamRoleArn }}",
+  "ListOfTags": [
+   {
+    "ConditionKey": "{{ ConditionKey }}",
+    "ConditionValue": "{{ ConditionValue }}",
+    "ConditionType": "{{ ConditionType }}"
+   }
+  ],
+  "Resources": [
+   "{{ Resources[0] }}"
+  ],
+  "SelectionName": "{{ SelectionName }}",
+  "NotResources": [
+   "{{ NotResources[0] }}"
+  ],
+  "Conditions": {
+   "StringEquals": [
+    {
+     "ConditionKey": "{{ ConditionKey }}",
+     "ConditionValue": "{{ ConditionValue }}"
+    }
+   ],
+   "StringNotEquals": [
+    null
+   ],
+   "StringLike": [
+    null
+   ],
+   "StringNotLike": [
+    null
+   ]
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.backup.backup_selections (
+ BackupPlanId,
+ BackupSelection,
+ region
+)
+SELECT 
+{{ BackupPlanId }},
+ {{ BackupSelection }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BackupPlanId": "{{ BackupPlanId }}",
+ "BackupSelection": {
+  "IamRoleArn": "{{ IamRoleArn }}",
+  "ListOfTags": [
+   {
+    "ConditionKey": "{{ ConditionKey }}",
+    "ConditionValue": "{{ ConditionValue }}",
+    "ConditionType": "{{ ConditionType }}"
+   }
+  ],
+  "Resources": [
+   "{{ Resources[0] }}"
+  ],
+  "SelectionName": "{{ SelectionName }}",
+  "NotResources": [
+   "{{ NotResources[0] }}"
+  ],
+  "Conditions": {
+   "StringEquals": [
+    {
+     "ConditionKey": "{{ ConditionKey }}",
+     "ConditionValue": "{{ ConditionValue }}"
+    }
+   ],
+   "StringNotEquals": [
+    null
+   ],
+   "StringLike": [
+    null
+   ],
+   "StringNotLike": [
+    null
+   ]
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.backup.backup_selections (
+ BackupPlanId,
+ BackupSelection,
+ region
+)
+SELECT 
+ {{ BackupPlanId }},
+ {{ BackupSelection }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.backup.backup_selections
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
 
 To operate on the <code>backup_selections</code> resource, the following permissions are required:
+
+### Delete
+```json
+backup:GetBackupSelection,
+backup:DeleteBackupSelection
+```
 
 ### Create
 ```json

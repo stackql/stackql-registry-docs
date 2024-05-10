@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>asset</code> resource, use <code>assets</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>asset</code> resource, use <code>assets</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -57,11 +60,6 @@ Gets or operates on an individual <code>asset</code> resource, use <code>assets<
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -82,8 +80,9 @@ asset_properties,
 asset_hierarchies,
 tags
 FROM aws.iotsitewise.asset
-WHERE data__Identifier = '<AssetId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AssetId>';
 ```
+
 
 ## Permissions
 
@@ -115,19 +114,5 @@ iotsitewise:ListAssetModelProperties,
 iotsitewise:ListAssetProperties,
 iotsitewise:ListAssetModelCompositeModels,
 iotsitewise:UntagResource
-```
-
-### Delete
-```json
-iotsitewise:DeleteAsset,
-iotsitewise:DescribeAsset,
-iotsitewise:DescribeAssetModel,
-iotsitewise:DisassociateAssets,
-iotsitewise:ListAssociatedAssets,
-iotsitewise:ListAssetProperties,
-iotsitewise:ListTagsForResource,
-iotsitewise:ListAssetModelCompositeModels,
-iotsitewise:ListAssetModelProperties,
-iotsitewise:ListAssetProperties
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>user_pool_clients</code> in a region or create a <code>user_pool_clients</code> resource, use <code>user_pool_client</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>user_pool_clients</code> in a region or to create or delete a <code>user_pool_clients</code> resource, use <code>user_pool_client</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>user_pool_clients</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,154 @@ region,
 user_pool_id,
 client_id
 FROM aws.cognito.user_pool_clients
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "UserPoolId": "{{ UserPoolId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cognito.user_pool_clients (
+ UserPoolId,
+ region
+)
+SELECT 
+{{ UserPoolId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClientName": "{{ ClientName }}",
+ "ExplicitAuthFlows": [
+  "{{ ExplicitAuthFlows[0] }}"
+ ],
+ "GenerateSecret": "{{ GenerateSecret }}",
+ "ReadAttributes": [
+  "{{ ReadAttributes[0] }}"
+ ],
+ "AuthSessionValidity": "{{ AuthSessionValidity }}",
+ "RefreshTokenValidity": "{{ RefreshTokenValidity }}",
+ "AccessTokenValidity": "{{ AccessTokenValidity }}",
+ "IdTokenValidity": "{{ IdTokenValidity }}",
+ "TokenValidityUnits": {
+  "AccessToken": "{{ AccessToken }}",
+  "IdToken": "{{ IdToken }}",
+  "RefreshToken": "{{ RefreshToken }}"
+ },
+ "UserPoolId": "{{ UserPoolId }}",
+ "WriteAttributes": [
+  "{{ WriteAttributes[0] }}"
+ ],
+ "AllowedOAuthFlows": [
+  "{{ AllowedOAuthFlows[0] }}"
+ ],
+ "AllowedOAuthFlowsUserPoolClient": "{{ AllowedOAuthFlowsUserPoolClient }}",
+ "AllowedOAuthScopes": [
+  "{{ AllowedOAuthScopes[0] }}"
+ ],
+ "CallbackURLs": [
+  "{{ CallbackURLs[0] }}"
+ ],
+ "DefaultRedirectURI": "{{ DefaultRedirectURI }}",
+ "LogoutURLs": [
+  "{{ LogoutURLs[0] }}"
+ ],
+ "SupportedIdentityProviders": [
+  "{{ SupportedIdentityProviders[0] }}"
+ ],
+ "AnalyticsConfiguration": {
+  "ApplicationArn": "{{ ApplicationArn }}",
+  "ApplicationId": "{{ ApplicationId }}",
+  "ExternalId": "{{ ExternalId }}",
+  "RoleArn": "{{ RoleArn }}",
+  "UserDataShared": "{{ UserDataShared }}"
+ },
+ "PreventUserExistenceErrors": "{{ PreventUserExistenceErrors }}",
+ "EnableTokenRevocation": "{{ EnableTokenRevocation }}",
+ "EnablePropagateAdditionalUserContextData": "{{ EnablePropagateAdditionalUserContextData }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cognito.user_pool_clients (
+ ClientName,
+ ExplicitAuthFlows,
+ GenerateSecret,
+ ReadAttributes,
+ AuthSessionValidity,
+ RefreshTokenValidity,
+ AccessTokenValidity,
+ IdTokenValidity,
+ TokenValidityUnits,
+ UserPoolId,
+ WriteAttributes,
+ AllowedOAuthFlows,
+ AllowedOAuthFlowsUserPoolClient,
+ AllowedOAuthScopes,
+ CallbackURLs,
+ DefaultRedirectURI,
+ LogoutURLs,
+ SupportedIdentityProviders,
+ AnalyticsConfiguration,
+ PreventUserExistenceErrors,
+ EnableTokenRevocation,
+ EnablePropagateAdditionalUserContextData,
+ region
+)
+SELECT 
+ {{ ClientName }},
+ {{ ExplicitAuthFlows }},
+ {{ GenerateSecret }},
+ {{ ReadAttributes }},
+ {{ AuthSessionValidity }},
+ {{ RefreshTokenValidity }},
+ {{ AccessTokenValidity }},
+ {{ IdTokenValidity }},
+ {{ TokenValidityUnits }},
+ {{ UserPoolId }},
+ {{ WriteAttributes }},
+ {{ AllowedOAuthFlows }},
+ {{ AllowedOAuthFlowsUserPoolClient }},
+ {{ AllowedOAuthScopes }},
+ {{ CallbackURLs }},
+ {{ DefaultRedirectURI }},
+ {{ LogoutURLs }},
+ {{ SupportedIdentityProviders }},
+ {{ AnalyticsConfiguration }},
+ {{ PreventUserExistenceErrors }},
+ {{ EnableTokenRevocation }},
+ {{ EnablePropagateAdditionalUserContextData }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cognito.user_pool_clients
+WHERE data__Identifier = '<UserPoolId|ClientId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +231,13 @@ cognito-idp:CreateUserPoolClient,
 iam:PassRole,
 iam:PutRolePolicy,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+cognito-idp:DeleteUserPoolClient,
+iam:PutRolePolicy,
+iam:DeleteRolePolicy
 ```
 
 ### List

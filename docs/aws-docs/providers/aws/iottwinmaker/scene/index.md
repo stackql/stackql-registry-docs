@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>scene</code> resource, use <code>scenes</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>scene</code> resource, use <code>scenes</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -59,11 +62,6 @@ Gets or operates on an individual <code>scene</code> resource, use <code>scenes<
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -86,8 +84,9 @@ capabilities,
 scene_metadata,
 generated_scene_metadata
 FROM aws.iottwinmaker.scene
-WHERE data__Identifier = '<WorkspaceId>|<SceneId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>|<SceneId>';
 ```
+
 
 ## Permissions
 
@@ -108,12 +107,5 @@ iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource,
 iottwinmaker:UntagResource,
 iottwinmaker:UpdateScene
-```
-
-### Delete
-```json
-iottwinmaker:DeleteScene,
-iottwinmaker:GetScene,
-iottwinmaker:GetWorkspace
 ```
 

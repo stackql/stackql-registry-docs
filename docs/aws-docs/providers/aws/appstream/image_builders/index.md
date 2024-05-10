@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>image_builders</code> in a region or create a <code>image_builders</code> resource, use <code>image_builder</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>image_builders</code> in a region or to create or delete a <code>image_builders</code> resource, use <code>image_builder</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>image_builders</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,124 @@ SELECT
 region,
 name
 FROM aws.appstream.image_builders
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "InstanceType": "{{ InstanceType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appstream.image_builders (
+ Name,
+ InstanceType,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ InstanceType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "VpcConfig": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "EnableDefaultInternetAccess": "{{ EnableDefaultInternetAccess }}",
+ "DomainJoinInfo": {
+  "OrganizationalUnitDistinguishedName": "{{ OrganizationalUnitDistinguishedName }}",
+  "DirectoryName": "{{ DirectoryName }}"
+ },
+ "AppstreamAgentVersion": "{{ AppstreamAgentVersion }}",
+ "Name": "{{ Name }}",
+ "ImageName": "{{ ImageName }}",
+ "DisplayName": "{{ DisplayName }}",
+ "IamRoleArn": "{{ IamRoleArn }}",
+ "InstanceType": "{{ InstanceType }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "ImageArn": "{{ ImageArn }}",
+ "AccessEndpoints": [
+  {
+   "EndpointType": "{{ EndpointType }}",
+   "VpceId": "{{ VpceId }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.appstream.image_builders (
+ Description,
+ VpcConfig,
+ EnableDefaultInternetAccess,
+ DomainJoinInfo,
+ AppstreamAgentVersion,
+ Name,
+ ImageName,
+ DisplayName,
+ IamRoleArn,
+ InstanceType,
+ Tags,
+ ImageArn,
+ AccessEndpoints,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ VpcConfig }},
+ {{ EnableDefaultInternetAccess }},
+ {{ DomainJoinInfo }},
+ {{ AppstreamAgentVersion }},
+ {{ Name }},
+ {{ ImageName }},
+ {{ DisplayName }},
+ {{ IamRoleArn }},
+ {{ InstanceType }},
+ {{ Tags }},
+ {{ ImageArn }},
+ {{ AccessEndpoints }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appstream.image_builders
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -69,6 +194,20 @@ WHERE region = 'us-east-1'
 To operate on the <code>image_builders</code> resource, the following permissions are required:
 
 ### Create
+```json
+appstream:CreateImageBuilder,
+appstream:CreateImageBuilderStreamingURL,
+appstream:CreateStreamingURL,
+appstream:DeleteImageBuilder,
+appstream:DescribeImageBuilders,
+appstream:StartImageBuilder,
+appstream:StopImageBuilder,
+iam:CreateServiceLinkedRole,
+iam:DeleteServiceLinkedRole,
+iam:GetServiceLinkedRoleDeletionStatus
+```
+
+### Delete
 ```json
 appstream:CreateImageBuilder,
 appstream:CreateImageBuilderStreamingURL,

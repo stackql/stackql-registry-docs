@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>views</code> in a region or create a <code>views</code> resource, use <code>view</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>views</code> in a region or to create or delete a <code>views</code> resource, use <code>view</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>views</code> in a region or create a <code>view
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,98 @@ SELECT
 region,
 view_arn
 FROM aws.connect.views
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "Name": "{{ Name }}",
+ "Template": {},
+ "Actions": [
+  "{{ Actions[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.views (
+ InstanceArn,
+ Name,
+ Template,
+ Actions,
+ region
+)
+SELECT 
+{{ InstanceArn }},
+ {{ Name }},
+ {{ Template }},
+ {{ Actions }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Template": {},
+ "Actions": [
+  "{{ Actions[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.connect.views (
+ InstanceArn,
+ Name,
+ Description,
+ Template,
+ Actions,
+ Tags,
+ region
+)
+SELECT 
+ {{ InstanceArn }},
+ {{ Name }},
+ {{ Description }},
+ {{ Template }},
+ {{ Actions }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.views
+WHERE data__Identifier = '<ViewArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +171,12 @@ To operate on the <code>views</code> resource, the following permissions are req
 ```json
 connect:CreateView,
 connect:TagResource
+```
+
+### Delete
+```json
+connect:DeleteView,
+connect:UntagResource
 ```
 
 ### List

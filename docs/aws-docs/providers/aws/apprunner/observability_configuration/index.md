@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>observability_configuration</code> resource, use <code>observability_configurations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>observability_configuration</code> resource, use <code>observability_configurations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -49,11 +52,6 @@ Gets or operates on an individual <code>observability_configuration</code> resou
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -71,8 +69,9 @@ latest,
 trace_configuration,
 tags
 FROM aws.apprunner.observability_configuration
-WHERE data__Identifier = '<ObservabilityConfigurationArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ObservabilityConfigurationArn>';
 ```
+
 
 ## Permissions
 
@@ -81,10 +80,5 @@ To operate on the <code>observability_configuration</code> resource, the followi
 ### Read
 ```json
 apprunner:DescribeObservabilityConfiguration
-```
-
-### Delete
-```json
-apprunner:DeleteObservabilityConfiguration
 ```
 

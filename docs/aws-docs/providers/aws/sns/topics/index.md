@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>topics</code> in a region or create a <code>topics</code> resource, use <code>topic</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>topics</code> in a region or to create or delete a <code>topics</code> resource, use <code>topic</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>topics</code> in a region or create a <code>top
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,165 @@ SELECT
 region,
 topic_arn
 FROM aws.sns.topics
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DisplayName": "{{ DisplayName }}",
+ "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
+ "DataProtectionPolicy": {},
+ "Subscription": [
+  {
+   "Endpoint": "{{ Endpoint }}",
+   "Protocol": "{{ Protocol }}"
+  }
+ ],
+ "FifoTopic": "{{ FifoTopic }}",
+ "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
+ "ArchivePolicy": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TopicName": "{{ TopicName }}",
+ "SignatureVersion": "{{ SignatureVersion }}",
+ "TracingConfig": "{{ TracingConfig }}",
+ "DeliveryStatusLogging": [
+  {
+   "Protocol": "{{ Protocol }}",
+   "SuccessFeedbackRoleArn": "{{ SuccessFeedbackRoleArn }}",
+   "SuccessFeedbackSampleRate": "{{ SuccessFeedbackSampleRate }}",
+   "FailureFeedbackRoleArn": "{{ FailureFeedbackRoleArn }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.sns.topics (
+ DisplayName,
+ KmsMasterKeyId,
+ DataProtectionPolicy,
+ Subscription,
+ FifoTopic,
+ ContentBasedDeduplication,
+ ArchivePolicy,
+ Tags,
+ TopicName,
+ SignatureVersion,
+ TracingConfig,
+ DeliveryStatusLogging,
+ region
+)
+SELECT 
+{{ DisplayName }},
+ {{ KmsMasterKeyId }},
+ {{ DataProtectionPolicy }},
+ {{ Subscription }},
+ {{ FifoTopic }},
+ {{ ContentBasedDeduplication }},
+ {{ ArchivePolicy }},
+ {{ Tags }},
+ {{ TopicName }},
+ {{ SignatureVersion }},
+ {{ TracingConfig }},
+ {{ DeliveryStatusLogging }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DisplayName": "{{ DisplayName }}",
+ "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
+ "DataProtectionPolicy": {},
+ "Subscription": [
+  {
+   "Endpoint": "{{ Endpoint }}",
+   "Protocol": "{{ Protocol }}"
+  }
+ ],
+ "FifoTopic": "{{ FifoTopic }}",
+ "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
+ "ArchivePolicy": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TopicName": "{{ TopicName }}",
+ "SignatureVersion": "{{ SignatureVersion }}",
+ "TracingConfig": "{{ TracingConfig }}",
+ "DeliveryStatusLogging": [
+  {
+   "Protocol": "{{ Protocol }}",
+   "SuccessFeedbackRoleArn": "{{ SuccessFeedbackRoleArn }}",
+   "SuccessFeedbackSampleRate": "{{ SuccessFeedbackSampleRate }}",
+   "FailureFeedbackRoleArn": "{{ FailureFeedbackRoleArn }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sns.topics (
+ DisplayName,
+ KmsMasterKeyId,
+ DataProtectionPolicy,
+ Subscription,
+ FifoTopic,
+ ContentBasedDeduplication,
+ ArchivePolicy,
+ Tags,
+ TopicName,
+ SignatureVersion,
+ TracingConfig,
+ DeliveryStatusLogging,
+ region
+)
+SELECT 
+ {{ DisplayName }},
+ {{ KmsMasterKeyId }},
+ {{ DataProtectionPolicy }},
+ {{ Subscription }},
+ {{ FifoTopic }},
+ {{ ContentBasedDeduplication }},
+ {{ ArchivePolicy }},
+ {{ Tags }},
+ {{ TopicName }},
+ {{ SignatureVersion }},
+ {{ TracingConfig }},
+ {{ DeliveryStatusLogging }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sns.topics
+WHERE data__Identifier = '<TopicArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +243,12 @@ sns:GetTopicAttributes,
 sns:PutDataProtectionPolicy,
 iam:GetRole,
 iam:PassRole
+```
+
+### Delete
+```json
+sns:GetTopicAttributes,
+sns:DeleteTopic
 ```
 
 ### List

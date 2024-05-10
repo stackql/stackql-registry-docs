@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>stages</code> in a region or create a <code>stages</code> resource, use <code>stage</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>stages</code> in a region or to create or delete a <code>stages</code> resource, use <code>stage</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>stages</code> in a region or create a <code>sta
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,130 @@ region,
 rest_api_id,
 stage_name
 FROM aws.apigateway.stages
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RestApiId": "{{ RestApiId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.stages (
+ RestApiId,
+ region
+)
+SELECT 
+{{ RestApiId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessLogSetting": {
+  "DestinationArn": "{{ DestinationArn }}",
+  "Format": "{{ Format }}"
+ },
+ "CacheClusterEnabled": "{{ CacheClusterEnabled }}",
+ "CacheClusterSize": "{{ CacheClusterSize }}",
+ "CanarySetting": {
+  "DeploymentId": "{{ DeploymentId }}",
+  "PercentTraffic": null,
+  "StageVariableOverrides": {},
+  "UseStageCache": "{{ UseStageCache }}"
+ },
+ "ClientCertificateId": "{{ ClientCertificateId }}",
+ "DeploymentId": "{{ DeploymentId }}",
+ "Description": "{{ Description }}",
+ "DocumentationVersion": "{{ DocumentationVersion }}",
+ "MethodSettings": [
+  {
+   "CacheDataEncrypted": "{{ CacheDataEncrypted }}",
+   "CacheTtlInSeconds": "{{ CacheTtlInSeconds }}",
+   "CachingEnabled": "{{ CachingEnabled }}",
+   "DataTraceEnabled": "{{ DataTraceEnabled }}",
+   "HttpMethod": "{{ HttpMethod }}",
+   "LoggingLevel": "{{ LoggingLevel }}",
+   "MetricsEnabled": "{{ MetricsEnabled }}",
+   "ResourcePath": "{{ ResourcePath }}",
+   "ThrottlingBurstLimit": "{{ ThrottlingBurstLimit }}",
+   "ThrottlingRateLimit": null
+  }
+ ],
+ "RestApiId": "{{ RestApiId }}",
+ "StageName": "{{ StageName }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "TracingEnabled": "{{ TracingEnabled }}",
+ "Variables": {}
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.stages (
+ AccessLogSetting,
+ CacheClusterEnabled,
+ CacheClusterSize,
+ CanarySetting,
+ ClientCertificateId,
+ DeploymentId,
+ Description,
+ DocumentationVersion,
+ MethodSettings,
+ RestApiId,
+ StageName,
+ Tags,
+ TracingEnabled,
+ Variables,
+ region
+)
+SELECT 
+ {{ AccessLogSetting }},
+ {{ CacheClusterEnabled }},
+ {{ CacheClusterSize }},
+ {{ CanarySetting }},
+ {{ ClientCertificateId }},
+ {{ DeploymentId }},
+ {{ Description }},
+ {{ DocumentationVersion }},
+ {{ MethodSettings }},
+ {{ RestApiId }},
+ {{ StageName }},
+ {{ Tags }},
+ {{ TracingEnabled }},
+ {{ Variables }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.stages
+WHERE data__Identifier = '<RestApiId|StageName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +207,11 @@ apigateway:POST,
 apigateway:PATCH,
 apigateway:GET,
 apigateway:PUT
+```
+
+### Delete
+```json
+apigateway:DELETE
 ```
 
 ### List

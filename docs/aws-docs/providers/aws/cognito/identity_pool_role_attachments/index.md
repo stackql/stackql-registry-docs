@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>identity_pool_role_attachments</code> in a region or create a <code>identity_pool_role_attachments</code> resource, use <code>identity_pool_role_attachment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>identity_pool_role_attachments</code> in a region or to create or delete a <code>identity_pool_role_attachments</code> resource, use <code>identity_pool_role_attachment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>identity_pool_role_attachments</code> in a regi
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,71 @@ SELECT
 region,
 id
 FROM aws.cognito.identity_pool_role_attachments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IdentityPoolId": "{{ IdentityPoolId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cognito.identity_pool_role_attachments (
+ IdentityPoolId,
+ region
+)
+SELECT 
+{{ IdentityPoolId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IdentityPoolId": "{{ IdentityPoolId }}",
+ "Roles": null,
+ "RoleMappings": null
+}
+>>>
+--all properties
+INSERT INTO aws.cognito.identity_pool_role_attachments (
+ IdentityPoolId,
+ Roles,
+ RoleMappings,
+ region
+)
+SELECT 
+ {{ IdentityPoolId }},
+ {{ Roles }},
+ {{ RoleMappings }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cognito.identity_pool_role_attachments
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +145,12 @@ To operate on the <code>identity_pool_role_attachments</code> resource, the foll
 cognito-identity:GetIdentityPoolRoles,
 cognito-identity:SetIdentityPoolRoles,
 iam:PassRole
+```
+
+### Delete
+```json
+cognito-identity:GetIdentityPoolRoles,
+cognito-identity:SetIdentityPoolRoles
 ```
 
 ### List

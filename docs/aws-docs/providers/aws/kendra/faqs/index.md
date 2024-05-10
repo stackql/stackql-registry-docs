@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>faqs</code> in a region or create a <code>faqs</code> resource, use <code>faq</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>faqs</code> in a region or to create or delete a <code>faqs</code> resource, use <code>faq</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>faqs</code> in a region or create a <code>faqs<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,106 @@ region,
 id,
 index_id
 FROM aws.kendra.faqs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IndexId": "{{ IndexId }}",
+ "Name": "{{ Name }}",
+ "S3Path": {
+  "Bucket": "{{ Bucket }}",
+  "Key": "{{ Key }}"
+ },
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.kendra.faqs (
+ IndexId,
+ Name,
+ S3Path,
+ RoleArn,
+ region
+)
+SELECT 
+{{ IndexId }},
+ {{ Name }},
+ {{ S3Path }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IndexId": "{{ IndexId }}",
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "FileFormat": "{{ FileFormat }}",
+ "S3Path": {
+  "Bucket": "{{ Bucket }}",
+  "Key": "{{ Key }}"
+ },
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "LanguageCode": "{{ LanguageCode }}"
+}
+>>>
+--all properties
+INSERT INTO aws.kendra.faqs (
+ IndexId,
+ Name,
+ Description,
+ FileFormat,
+ S3Path,
+ RoleArn,
+ Tags,
+ LanguageCode,
+ region
+)
+SELECT 
+ {{ IndexId }},
+ {{ Name }},
+ {{ Description }},
+ {{ FileFormat }},
+ {{ S3Path }},
+ {{ RoleArn }},
+ {{ Tags }},
+ {{ LanguageCode }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kendra.faqs
+WHERE data__Identifier = '<Id|IndexId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +184,12 @@ kendra:DescribeFaq,
 iam:PassRole,
 kendra:ListTagsForResource,
 kendra:TagResource
+```
+
+### Delete
+```json
+kendra:DeleteFaq,
+kendra:DescribeFaq
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>crls</code> in a region or create a <code>crls</code> resource, use <code>crl</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>crls</code> in a region or to create or delete a <code>crls</code> resource, use <code>crl</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>crls</code> in a region or create a <code>crls<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,85 @@ SELECT
 region,
 crl_id
 FROM aws.rolesanywhere.crls
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CrlData": "{{ CrlData }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.rolesanywhere.crls (
+ CrlData,
+ Name,
+ region
+)
+SELECT 
+{{ CrlData }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CrlData": "{{ CrlData }}",
+ "Enabled": "{{ Enabled }}",
+ "Name": "{{ Name }}",
+ "TrustAnchorArn": "{{ TrustAnchorArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.rolesanywhere.crls (
+ CrlData,
+ Enabled,
+ Name,
+ TrustAnchorArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ CrlData }},
+ {{ Enabled }},
+ {{ Name }},
+ {{ TrustAnchorArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rolesanywhere.crls
+WHERE data__Identifier = '<CrlId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +159,11 @@ To operate on the <code>crls</code> resource, the following permissions are requ
 rolesanywhere:ImportCrl,
 rolesanywhere:TagResource,
 rolesanywhere:ListTagsForResource
+```
+
+### Delete
+```json
+rolesanywhere:DeleteCrl
 ```
 
 ### List

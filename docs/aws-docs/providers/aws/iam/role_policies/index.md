@@ -16,6 +16,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 List of policies by RoleName (requires `aws` provider to be installed)
 
@@ -64,6 +67,7 @@ region
 FROM aws.iam.role_policies
 WHERE RoleName = '<RoleName>';
 ```
+
 
 
 

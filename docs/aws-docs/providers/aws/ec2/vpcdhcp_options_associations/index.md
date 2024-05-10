@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpcdhcp_options_associations</code> in a region or create a <code>vpcdhcp_options_associations</code> resource, use <code>vpcdhcp_options_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpcdhcp_options_associations</code> in a region or to create or delete a <code>vpcdhcp_options_associations</code> resource, use <code>vpcdhcp_options_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>vpcdhcp_options_associations</code> in a region
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,71 @@ region,
 dhcp_options_id,
 vpc_id
 FROM aws.ec2.vpcdhcp_options_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DhcpOptionsId": "{{ DhcpOptionsId }}",
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.vpcdhcp_options_associations (
+ DhcpOptionsId,
+ VpcId,
+ region
+)
+SELECT 
+{{ DhcpOptionsId }},
+ {{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DhcpOptionsId": "{{ DhcpOptionsId }}",
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.vpcdhcp_options_associations (
+ DhcpOptionsId,
+ VpcId,
+ region
+)
+SELECT 
+ {{ DhcpOptionsId }},
+ {{ VpcId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.vpcdhcp_options_associations
+WHERE data__Identifier = '<DhcpOptionsId|VpcId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +143,11 @@ WHERE region = 'us-east-1'
 To operate on the <code>vpcdhcp_options_associations</code> resource, the following permissions are required:
 
 ### Create
+```json
+ec2:AssociateDhcpOptions
+```
+
+### Delete
 ```json
 ec2:AssociateDhcpOptions
 ```

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>configured_tables</code> in a region or create a <code>configured_tables</code> resource, use <code>configured_table</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>configured_tables</code> in a region or to create or delete a <code>configured_tables</code> resource, use <code>configured_table</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>configured_tables</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,118 @@ SELECT
 region,
 configured_table_identifier
 FROM aws.cleanrooms.configured_tables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AllowedColumns": [
+  "{{ AllowedColumns[0] }}"
+ ],
+ "AnalysisMethod": "{{ AnalysisMethod }}",
+ "Name": "{{ Name }}",
+ "TableReference": {
+  "Glue": {
+   "TableName": "{{ TableName }}",
+   "DatabaseName": "{{ DatabaseName }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.cleanrooms.configured_tables (
+ AllowedColumns,
+ AnalysisMethod,
+ Name,
+ TableReference,
+ region
+)
+SELECT 
+{{ AllowedColumns }},
+ {{ AnalysisMethod }},
+ {{ Name }},
+ {{ TableReference }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AllowedColumns": [
+  "{{ AllowedColumns[0] }}"
+ ],
+ "AnalysisMethod": "{{ AnalysisMethod }}",
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "AnalysisRules": [
+  {
+   "Type": "{{ Type }}",
+   "Policy": {
+    "V1": null
+   }
+  }
+ ],
+ "TableReference": {
+  "Glue": {
+   "TableName": "{{ TableName }}",
+   "DatabaseName": "{{ DatabaseName }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.cleanrooms.configured_tables (
+ Tags,
+ AllowedColumns,
+ AnalysisMethod,
+ Description,
+ Name,
+ AnalysisRules,
+ TableReference,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ AllowedColumns }},
+ {{ AnalysisMethod }},
+ {{ Description }},
+ {{ Name }},
+ {{ AnalysisRules }},
+ {{ TableReference }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cleanrooms.configured_tables
+WHERE data__Identifier = '<ConfiguredTableIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -87,6 +206,25 @@ glue:GetSchemaVersion,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:ListConfiguredTables
+```
+
+### Delete
+```json
+cleanrooms:DeleteConfiguredTable,
+cleanrooms:GetConfiguredTable,
+cleanrooms:ListConfiguredTables,
+cleanrooms:GetConfiguredTableAnalysisRule,
+cleanrooms:DeleteConfiguredTableAnalysisRule,
+cleanrooms:ListTagsForResource,
+cleanrooms:UntagResource,
+glue:GetDatabase,
+glue:GetDatabases,
+glue:GetTable,
+glue:GetTables,
+glue:GetPartition,
+glue:GetPartitions,
+glue:BatchGetPartition,
+glue:GetSchemaVersion
 ```
 
 ### List

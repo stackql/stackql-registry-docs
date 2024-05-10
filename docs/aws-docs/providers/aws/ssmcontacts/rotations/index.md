@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>rotations</code> in a region or create a <code>rotations</code> resource, use <code>rotation</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>rotations</code> in a region or to create or delete a <code>rotations</code> resource, use <code>rotation</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>rotations</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,159 @@ SELECT
 region,
 arn
 FROM aws.ssmcontacts.rotations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ContactIds": [
+  "{{ ContactIds[0] }}"
+ ],
+ "StartTime": "{{ StartTime }}",
+ "TimeZoneId": "{{ TimeZoneId }}",
+ "Recurrence": {
+  "MonthlySettings": [
+   {
+    "DayOfMonth": "{{ DayOfMonth }}",
+    "HandOffTime": "{{ HandOffTime }}"
+   }
+  ],
+  "WeeklySettings": [
+   {
+    "DayOfWeek": "{{ DayOfWeek }}",
+    "HandOffTime": null
+   }
+  ],
+  "DailySettings": [
+   null
+  ],
+  "NumberOfOnCalls": "{{ NumberOfOnCalls }}",
+  "RecurrenceMultiplier": "{{ RecurrenceMultiplier }}",
+  "ShiftCoverages": [
+   {
+    "DayOfWeek": null,
+    "CoverageTimes": [
+     {
+      "StartTime": null,
+      "EndTime": null
+     }
+    ]
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ssmcontacts.rotations (
+ Name,
+ ContactIds,
+ StartTime,
+ TimeZoneId,
+ Recurrence,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ ContactIds }},
+ {{ StartTime }},
+ {{ TimeZoneId }},
+ {{ Recurrence }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ContactIds": [
+  "{{ ContactIds[0] }}"
+ ],
+ "StartTime": "{{ StartTime }}",
+ "TimeZoneId": "{{ TimeZoneId }}",
+ "Recurrence": {
+  "MonthlySettings": [
+   {
+    "DayOfMonth": "{{ DayOfMonth }}",
+    "HandOffTime": "{{ HandOffTime }}"
+   }
+  ],
+  "WeeklySettings": [
+   {
+    "DayOfWeek": "{{ DayOfWeek }}",
+    "HandOffTime": null
+   }
+  ],
+  "DailySettings": [
+   null
+  ],
+  "NumberOfOnCalls": "{{ NumberOfOnCalls }}",
+  "RecurrenceMultiplier": "{{ RecurrenceMultiplier }}",
+  "ShiftCoverages": [
+   {
+    "DayOfWeek": null,
+    "CoverageTimes": [
+     {
+      "StartTime": null,
+      "EndTime": null
+     }
+    ]
+   }
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ssmcontacts.rotations (
+ Name,
+ ContactIds,
+ StartTime,
+ TimeZoneId,
+ Recurrence,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ ContactIds }},
+ {{ StartTime }},
+ {{ TimeZoneId }},
+ {{ Recurrence }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ssmcontacts.rotations
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +233,14 @@ To operate on the <code>rotations</code> resource, the following permissions are
 ssm-contacts:CreateRotation,
 ssm-contacts:GetRotation,
 ssm-contacts:TagResource,
+ssm-contacts:ListTagsForResource,
+ssm-contacts:UntagResource
+```
+
+### Delete
+```json
+ssm-contacts:DeleteRotation,
+ssm-contacts:GetRotation,
 ssm-contacts:ListTagsForResource,
 ssm-contacts:UntagResource
 ```

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>nat_gateway</code> resource, use <code>nat_gateways</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>nat_gateway</code> resource, use <code>nat_gateways</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>nat_gateway</code> resource, use <code>n
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,8 +82,9 @@ nat_gateway_id,
 tags,
 max_drain_duration_seconds
 FROM aws.ec2.nat_gateway
-WHERE data__Identifier = '<NatGatewayId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<NatGatewayId>';
 ```
+
 
 ## Permissions
 
@@ -105,11 +104,5 @@ ec2:AssociateNatGatewayAddress,
 ec2:DisassociateNatGatewayAddress,
 ec2:AssignPrivateNatGatewayAddress,
 ec2:UnassignPrivateNatGatewayAddress
-```
-
-### Delete
-```json
-ec2:DeleteNatGateway,
-ec2:DescribeNatGateways
 ```
 
