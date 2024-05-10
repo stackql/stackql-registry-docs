@@ -74,7 +74,6 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
-<>
 <Tabs
     defaultValue="required"
     values={[
@@ -97,7 +96,7 @@ INSERT INTO aws.accessanalyzer.analyzers (
  region
 )
 SELECT 
-{{ Type }},
+&#123;&#123; Type &#125;&#125;,
 'us-east-1';
 ```
 
@@ -152,17 +151,16 @@ INSERT INTO aws.accessanalyzer.analyzers (
  region
 )
 SELECT 
- {{ AnalyzerName }},
- {{ ArchiveRules }},
- {{ Tags }},
- {{ Type }},
- {{ AnalyzerConfiguration }},
+ &#123;&#123; AnalyzerName &#125;&#125;,
+ &#123;&#123; ArchiveRules &#125;&#125;,
+ &#123;&#123; Tags &#125;&#125;,
+ &#123;&#123; Type &#125;&#125;,
+ &#123;&#123; AnalyzerConfiguration &#125;&#125;,
  'us-east-1';
 ```
 
 </TabItem>
 </Tabs>
-</>
 
 ## `DELETE` Example
 
