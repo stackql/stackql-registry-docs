@@ -86,9 +86,9 @@ WHERE region = 'us-east-1';
 
 ```sql
 <<<json
-{
+&#123;
  "Type": "{{ Type }}"
-}
+&#125;
 >>>
 --required properties only
 INSERT INTO aws.accessanalyzer.analyzers (
@@ -105,12 +105,12 @@ SELECT
 
 ```sql
 <<<json
-{
+&#123;
  "AnalyzerName": "{{ AnalyzerName }}",
  "ArchiveRules": [
-  {
+  &#123;
    "Filter": [
-    {
+    &#123;
      "Contains": [
       "{{ Contains[0] }}"
      ],
@@ -122,24 +122,24 @@ SELECT
      "Neq": [
       "{{ Neq[0] }}"
      ]
-    }
+    &#125;
    ],
    "RuleName": "{{ RuleName }}"
-  }
+  &#125;
  ],
  "Tags": [
-  {
+  &#123;
    "Key": "{{ Key }}",
    "Value": "{{ Value }}"
-  }
+  &#125;
  ],
  "Type": "{{ Type }}",
- "AnalyzerConfiguration": {
-  "UnusedAccessConfiguration": {
+ "AnalyzerConfiguration": &#123;
+  "UnusedAccessConfiguration": &#123;
    "UnusedAccessAge": "{{ UnusedAccessAge }}"
-  }
- }
-}
+  &#125;
+ &#125;
+&#125;
 >>>
 --all properties
 INSERT INTO aws.accessanalyzer.analyzers (
