@@ -79,7 +79,6 @@ FROM aws.globalaccelerator.cross_account_attachments
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.globalaccelerator.cross_account_attachments (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,13 +131,12 @@ INSERT INTO aws.globalaccelerator.cross_account_attachments (
  region
 )
 SELECT 
- {{ Name }},
- {{ Principals }},
- {{ Resources }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Principals }},
+ {{ .Resources }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

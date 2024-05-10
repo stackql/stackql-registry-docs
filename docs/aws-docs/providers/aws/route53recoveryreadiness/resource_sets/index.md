@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -121,11 +120,10 @@ INSERT INTO aws.route53recoveryreadiness.resource_sets (
  region
 )
 SELECT 
-{{ Resources }},
- {{ ResourceSetType }},
+{{ .Resources }},
+ {{ .ResourceSetType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -175,13 +173,12 @@ INSERT INTO aws.route53recoveryreadiness.resource_sets (
  region
 )
 SELECT 
- {{ ResourceSetName }},
- {{ Resources }},
- {{ ResourceSetType }},
- {{ Tags }},
+ {{ .ResourceSetName }},
+ {{ .Resources }},
+ {{ .ResourceSetType }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

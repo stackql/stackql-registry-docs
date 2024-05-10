@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -157,14 +156,13 @@ INSERT INTO aws.sagemaker.data_quality_job_definitions (
  region
 )
 SELECT 
-{{ DataQualityAppSpecification }},
- {{ DataQualityJobInput }},
- {{ DataQualityJobOutputConfig }},
- {{ JobResources }},
- {{ RoleArn }},
+{{ .DataQualityAppSpecification }},
+ {{ .DataQualityJobInput }},
+ {{ .DataQualityJobOutputConfig }},
+ {{ .JobResources }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -279,20 +277,19 @@ INSERT INTO aws.sagemaker.data_quality_job_definitions (
  region
 )
 SELECT 
- {{ JobDefinitionName }},
- {{ DataQualityBaselineConfig }},
- {{ DataQualityAppSpecification }},
- {{ DataQualityJobInput }},
- {{ DataQualityJobOutputConfig }},
- {{ JobResources }},
- {{ NetworkConfig }},
- {{ EndpointName }},
- {{ RoleArn }},
- {{ StoppingCondition }},
- {{ Tags }},
+ {{ .JobDefinitionName }},
+ {{ .DataQualityBaselineConfig }},
+ {{ .DataQualityAppSpecification }},
+ {{ .DataQualityJobInput }},
+ {{ .DataQualityJobOutputConfig }},
+ {{ .JobResources }},
+ {{ .NetworkConfig }},
+ {{ .EndpointName }},
+ {{ .RoleArn }},
+ {{ .StoppingCondition }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

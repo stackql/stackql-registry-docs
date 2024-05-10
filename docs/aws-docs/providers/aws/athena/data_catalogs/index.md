@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.athena.data_catalogs (
  region
 )
 SELECT 
-{{ Name }},
- {{ Type }},
+{{ .Name }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,14 +129,13 @@ INSERT INTO aws.athena.data_catalogs (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Parameters }},
- {{ Tags }},
- {{ Type }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Parameters }},
+ {{ .Tags }},
+ {{ .Type }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

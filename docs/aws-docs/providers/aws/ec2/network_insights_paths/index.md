@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ec2.network_insights_paths (
  region
 )
 SELECT 
-{{ Source }},
- {{ Protocol }},
+{{ .Source }},
+ {{ .Protocol }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -147,18 +145,17 @@ INSERT INTO aws.ec2.network_insights_paths (
  region
 )
 SELECT 
- {{ SourceIp }},
- {{ FilterAtSource }},
- {{ FilterAtDestination }},
- {{ DestinationIp }},
- {{ Source }},
- {{ Destination }},
- {{ Protocol }},
- {{ DestinationPort }},
- {{ Tags }},
+ {{ .SourceIp }},
+ {{ .FilterAtSource }},
+ {{ .FilterAtDestination }},
+ {{ .DestinationIp }},
+ {{ .Source }},
+ {{ .Destination }},
+ {{ .Protocol }},
+ {{ .DestinationPort }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

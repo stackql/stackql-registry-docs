@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -128,11 +127,10 @@ INSERT INTO aws.lakeformation.tag_associations (
  region
 )
 SELECT 
-{{ Resource }},
- {{ LFTags }},
+{{ .Resource }},
+ {{ .LFTags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -178,11 +176,10 @@ INSERT INTO aws.lakeformation.tag_associations (
  region
 )
 SELECT 
- {{ Resource }},
- {{ LFTags }},
+ {{ .Resource }},
+ {{ .LFTags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

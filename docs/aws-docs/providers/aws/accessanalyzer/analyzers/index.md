@@ -79,38 +79,36 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
 
 ```sql
-&lt;&lt;&lt;json
-&#123;
+<<<json
+{
  "Type": "{{ Type }}"
-&#125;
-&gt;&gt;&gt;
+}
+>>>
 --required properties only
 INSERT INTO aws.accessanalyzer.analyzers (
  Type,
  region
 )
 SELECT 
-&#123;&#123; Type &#125;&#125;,
+{{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
 ```sql
-&lt;&lt;&lt;json
-&#123;
+<<<json
+{
  "AnalyzerName": "{{ AnalyzerName }}",
  "ArchiveRules": [
-  &#123;
+  {
    "Filter": [
-    &#123;
+    {
      "Contains": [
       "{{ Contains[0] }}"
      ],
@@ -122,25 +120,25 @@ SELECT
      "Neq": [
       "{{ Neq[0] }}"
      ]
-    &#125;
+    }
    ],
    "RuleName": "{{ RuleName }}"
-  &#125;
+  }
  ],
  "Tags": [
-  &#123;
+  {
    "Key": "{{ Key }}",
    "Value": "{{ Value }}"
-  &#125;
+  }
  ],
  "Type": "{{ Type }}",
- "AnalyzerConfiguration": &#123;
-  "UnusedAccessConfiguration": &#123;
+ "AnalyzerConfiguration": {
+  "UnusedAccessConfiguration": {
    "UnusedAccessAge": "{{ UnusedAccessAge }}"
-  &#125;
- &#125;
-&#125;
-&gt;&gt;&gt;
+  }
+ }
+}
+>>>
 --all properties
 INSERT INTO aws.accessanalyzer.analyzers (
  AnalyzerName,
@@ -151,14 +149,13 @@ INSERT INTO aws.accessanalyzer.analyzers (
  region
 )
 SELECT 
- &#123;&#123; AnalyzerName &#125;&#125;,
- &#123;&#123; ArchiveRules &#125;&#125;,
- &#123;&#123; Tags &#125;&#125;,
- &#123;&#123; Type &#125;&#125;,
- &#123;&#123; AnalyzerConfiguration &#125;&#125;,
+ {{ .AnalyzerName }},
+ {{ .ArchiveRules }},
+ {{ .Tags }},
+ {{ .Type }},
+ {{ .AnalyzerConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

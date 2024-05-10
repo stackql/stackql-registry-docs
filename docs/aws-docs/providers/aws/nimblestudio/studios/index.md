@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,13 +101,12 @@ INSERT INTO aws.nimblestudio.studios (
  region
 )
 SELECT 
-{{ AdminRoleArn }},
- {{ DisplayName }},
- {{ StudioName }},
- {{ UserRoleArn }},
+{{ .AdminRoleArn }},
+ {{ .DisplayName }},
+ {{ .StudioName }},
+ {{ .UserRoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,15 +135,14 @@ INSERT INTO aws.nimblestudio.studios (
  region
 )
 SELECT 
- {{ AdminRoleArn }},
- {{ DisplayName }},
- {{ StudioEncryptionConfiguration }},
- {{ StudioName }},
- {{ Tags }},
- {{ UserRoleArn }},
+ {{ .AdminRoleArn }},
+ {{ .DisplayName }},
+ {{ .StudioEncryptionConfiguration }},
+ {{ .StudioName }},
+ {{ .Tags }},
+ {{ .UserRoleArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

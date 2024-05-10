@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -110,11 +109,10 @@ INSERT INTO aws.lex.bot_versions (
  region
 )
 SELECT 
-{{ BotId }},
- {{ BotVersionLocaleSpecification }},
+{{ .BotId }},
+ {{ .BotVersionLocaleSpecification }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,12 +143,11 @@ INSERT INTO aws.lex.bot_versions (
  region
 )
 SELECT 
- {{ BotId }},
- {{ Description }},
- {{ BotVersionLocaleSpecification }},
+ {{ .BotId }},
+ {{ .Description }},
+ {{ .BotVersionLocaleSpecification }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

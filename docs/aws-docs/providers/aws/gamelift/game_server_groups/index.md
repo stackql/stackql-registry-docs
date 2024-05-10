@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,12 +104,11 @@ INSERT INTO aws.gamelift.game_server_groups (
  region
 )
 SELECT 
-{{ GameServerGroupName }},
- {{ InstanceDefinitions }},
- {{ RoleArn }},
+{{ .GameServerGroupName }},
+ {{ .InstanceDefinitions }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -169,21 +167,20 @@ INSERT INTO aws.gamelift.game_server_groups (
  region
 )
 SELECT 
- {{ AutoScalingPolicy }},
- {{ BalancingStrategy }},
- {{ DeleteOption }},
- {{ GameServerGroupName }},
- {{ GameServerProtectionPolicy }},
- {{ InstanceDefinitions }},
- {{ LaunchTemplate }},
- {{ MaxSize }},
- {{ MinSize }},
- {{ RoleArn }},
- {{ Tags }},
- {{ VpcSubnets }},
+ {{ .AutoScalingPolicy }},
+ {{ .BalancingStrategy }},
+ {{ .DeleteOption }},
+ {{ .GameServerGroupName }},
+ {{ .GameServerProtectionPolicy }},
+ {{ .InstanceDefinitions }},
+ {{ .LaunchTemplate }},
+ {{ .MaxSize }},
+ {{ .MinSize }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .VpcSubnets }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

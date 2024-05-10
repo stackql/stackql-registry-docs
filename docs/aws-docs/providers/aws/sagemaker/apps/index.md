@@ -85,7 +85,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,13 +107,12 @@ INSERT INTO aws.sagemaker.apps (
  region
 )
 SELECT 
-{{ AppName }},
- {{ AppType }},
- {{ DomainId }},
- {{ UserProfileName }},
+{{ .AppName }},
+ {{ .AppType }},
+ {{ .DomainId }},
+ {{ .UserProfileName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,15 +147,14 @@ INSERT INTO aws.sagemaker.apps (
  region
 )
 SELECT 
- {{ AppName }},
- {{ AppType }},
- {{ DomainId }},
- {{ ResourceSpec }},
- {{ Tags }},
- {{ UserProfileName }},
+ {{ .AppName }},
+ {{ .AppType }},
+ {{ .DomainId }},
+ {{ .ResourceSpec }},
+ {{ .Tags }},
+ {{ .UserProfileName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

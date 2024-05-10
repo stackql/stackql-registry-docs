@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ec2.nat_gateways (
  region
 )
 SELECT 
-{{ SubnetId }},
+{{ .SubnetId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,18 +138,17 @@ INSERT INTO aws.ec2.nat_gateways (
  region
 )
 SELECT 
- {{ SecondaryAllocationIds }},
- {{ PrivateIpAddress }},
- {{ ConnectivityType }},
- {{ SecondaryPrivateIpAddresses }},
- {{ SecondaryPrivateIpAddressCount }},
- {{ AllocationId }},
- {{ SubnetId }},
- {{ Tags }},
- {{ MaxDrainDurationSeconds }},
+ {{ .SecondaryAllocationIds }},
+ {{ .PrivateIpAddress }},
+ {{ .ConnectivityType }},
+ {{ .SecondaryPrivateIpAddresses }},
+ {{ .SecondaryPrivateIpAddressCount }},
+ {{ .AllocationId }},
+ {{ .SubnetId }},
+ {{ .Tags }},
+ {{ .MaxDrainDurationSeconds }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

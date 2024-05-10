@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.mediatailor.playback_configurations (
  region
 )
 SELECT 
-{{ AdDecisionServerUrl }},
- {{ Name }},
- {{ VideoContentSourceUrl }},
+{{ .AdDecisionServerUrl }},
+ {{ .Name }},
+ {{ .VideoContentSourceUrl }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -176,24 +174,23 @@ INSERT INTO aws.mediatailor.playback_configurations (
  region
 )
 SELECT 
- {{ AdDecisionServerUrl }},
- {{ AvailSuppression }},
- {{ Bumper }},
- {{ CdnConfiguration }},
- {{ ConfigurationAliases }},
- {{ DashConfiguration }},
- {{ LivePreRollConfiguration }},
- {{ ManifestProcessingRules }},
- {{ Name }},
- {{ PersonalizationThresholdSeconds }},
- {{ HlsConfiguration }},
- {{ SlateAdUrl }},
- {{ Tags }},
- {{ TranscodeProfileName }},
- {{ VideoContentSourceUrl }},
+ {{ .AdDecisionServerUrl }},
+ {{ .AvailSuppression }},
+ {{ .Bumper }},
+ {{ .CdnConfiguration }},
+ {{ .ConfigurationAliases }},
+ {{ .DashConfiguration }},
+ {{ .LivePreRollConfiguration }},
+ {{ .ManifestProcessingRules }},
+ {{ .Name }},
+ {{ .PersonalizationThresholdSeconds }},
+ {{ .HlsConfiguration }},
+ {{ .SlateAdUrl }},
+ {{ .Tags }},
+ {{ .TranscodeProfileName }},
+ {{ .VideoContentSourceUrl }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -103,11 +102,10 @@ INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
  region
 )
 SELECT 
-{{ AccessRights }},
- {{ GroupDisplayName }},
+{{ .AccessRights }},
+ {{ .GroupDisplayName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
  region
 )
 SELECT 
- {{ AccessRights }},
- {{ GroupDisplayName }},
- {{ GroupSecurityIdentifier }},
- {{ TemplateArn }},
+ {{ .AccessRights }},
+ {{ .GroupDisplayName }},
+ {{ .GroupSecurityIdentifier }},
+ {{ .TemplateArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

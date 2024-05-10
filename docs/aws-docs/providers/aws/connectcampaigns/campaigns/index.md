@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -121,13 +120,12 @@ INSERT INTO aws.connectcampaigns.campaigns (
  region
 )
 SELECT 
-{{ ConnectInstanceArn }},
- {{ DialerConfig }},
- {{ Name }},
- {{ OutboundCallConfig }},
+{{ .ConnectInstanceArn }},
+ {{ .DialerConfig }},
+ {{ .Name }},
+ {{ .OutboundCallConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -175,14 +173,13 @@ INSERT INTO aws.connectcampaigns.campaigns (
  region
 )
 SELECT 
- {{ ConnectInstanceArn }},
- {{ DialerConfig }},
- {{ Name }},
- {{ OutboundCallConfig }},
- {{ Tags }},
+ {{ .ConnectInstanceArn }},
+ {{ .DialerConfig }},
+ {{ .Name }},
+ {{ .OutboundCallConfig }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

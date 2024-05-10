@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,11 +103,10 @@ INSERT INTO aws.robomaker.simulation_applications (
  region
 )
 SELECT 
-{{ RobotSoftwareSuite }},
- {{ SimulationSoftwareSuite }},
+{{ .RobotSoftwareSuite }},
+ {{ .SimulationSoftwareSuite }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -153,17 +151,16 @@ INSERT INTO aws.robomaker.simulation_applications (
  region
 )
 SELECT 
- {{ Name }},
- {{ CurrentRevisionId }},
- {{ RenderingEngine }},
- {{ RobotSoftwareSuite }},
- {{ SimulationSoftwareSuite }},
- {{ Sources }},
- {{ Environment }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .CurrentRevisionId }},
+ {{ .RenderingEngine }},
+ {{ .RobotSoftwareSuite }},
+ {{ .SimulationSoftwareSuite }},
+ {{ .Sources }},
+ {{ .Environment }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

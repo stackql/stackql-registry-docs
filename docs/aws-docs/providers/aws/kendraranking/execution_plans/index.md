@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.kendraranking.execution_plans (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -128,13 +126,12 @@ INSERT INTO aws.kendraranking.execution_plans (
  region
 )
 SELECT 
- {{ Description }},
- {{ Tags }},
- {{ Name }},
- {{ CapacityUnits }},
+ {{ .Description }},
+ {{ .Tags }},
+ {{ .Name }},
+ {{ .CapacityUnits }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

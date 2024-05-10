@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -110,12 +109,11 @@ INSERT INTO aws.bedrock.data_sources (
  region
 )
 SELECT 
-{{ DataSourceConfiguration }},
- {{ KnowledgeBaseId }},
- {{ Name }},
+{{ .DataSourceConfiguration }},
+ {{ .KnowledgeBaseId }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -159,15 +157,14 @@ INSERT INTO aws.bedrock.data_sources (
  region
 )
 SELECT 
- {{ DataSourceConfiguration }},
- {{ Description }},
- {{ KnowledgeBaseId }},
- {{ Name }},
- {{ ServerSideEncryptionConfiguration }},
- {{ VectorIngestionConfiguration }},
+ {{ .DataSourceConfiguration }},
+ {{ .Description }},
+ {{ .KnowledgeBaseId }},
+ {{ .Name }},
+ {{ .ServerSideEncryptionConfiguration }},
+ {{ .VectorIngestionConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

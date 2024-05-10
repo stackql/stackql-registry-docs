@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.dms.data_providers (
  region
 )
 SELECT 
-{{ Engine }},
+{{ .Engine }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,16 +130,15 @@ INSERT INTO aws.dms.data_providers (
  region
 )
 SELECT 
- {{ DataProviderName }},
- {{ DataProviderIdentifier }},
- {{ Description }},
- {{ Engine }},
- {{ ExactSettings }},
- {{ Settings }},
- {{ Tags }},
+ {{ .DataProviderName }},
+ {{ .DataProviderIdentifier }},
+ {{ .Description }},
+ {{ .Engine }},
+ {{ .ExactSettings }},
+ {{ .Settings }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

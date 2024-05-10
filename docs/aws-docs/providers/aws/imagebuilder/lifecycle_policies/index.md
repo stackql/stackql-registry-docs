@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -146,14 +145,13 @@ INSERT INTO aws.imagebuilder.lifecycle_policies (
  region
 )
 SELECT 
-{{ Name }},
- {{ ExecutionRole }},
- {{ ResourceType }},
- {{ PolicyDetails }},
- {{ ResourceSelection }},
+{{ .Name }},
+ {{ .ExecutionRole }},
+ {{ .ResourceType }},
+ {{ .PolicyDetails }},
+ {{ .ResourceSelection }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -225,17 +223,16 @@ INSERT INTO aws.imagebuilder.lifecycle_policies (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Status }},
- {{ ExecutionRole }},
- {{ ResourceType }},
- {{ PolicyDetails }},
- {{ ResourceSelection }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Status }},
+ {{ .ExecutionRole }},
+ {{ .ResourceType }},
+ {{ .PolicyDetails }},
+ {{ .ResourceSelection }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

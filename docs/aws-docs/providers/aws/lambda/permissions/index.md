@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.lambda.permissions (
  region
 )
 SELECT 
-{{ Action }},
- {{ FunctionName }},
- {{ Principal }},
+{{ .Action }},
+ {{ .FunctionName }},
+ {{ .Principal }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,17 +135,16 @@ INSERT INTO aws.lambda.permissions (
  region
 )
 SELECT 
- {{ Action }},
- {{ EventSourceToken }},
- {{ FunctionName }},
- {{ FunctionUrlAuthType }},
- {{ Principal }},
- {{ PrincipalOrgID }},
- {{ SourceAccount }},
- {{ SourceArn }},
+ {{ .Action }},
+ {{ .EventSourceToken }},
+ {{ .FunctionName }},
+ {{ .FunctionUrlAuthType }},
+ {{ .Principal }},
+ {{ .PrincipalOrgID }},
+ {{ .SourceAccount }},
+ {{ .SourceArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

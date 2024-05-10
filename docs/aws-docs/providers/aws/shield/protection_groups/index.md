@@ -79,7 +79,6 @@ FROM aws.shield.protection_groups
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.shield.protection_groups (
  region
 )
 SELECT 
-{{ ProtectionGroupId }},
- {{ Aggregation }},
- {{ Pattern }},
+{{ .ProtectionGroupId }},
+ {{ .Aggregation }},
+ {{ .Pattern }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,15 +136,14 @@ INSERT INTO aws.shield.protection_groups (
  region
 )
 SELECT 
- {{ ProtectionGroupId }},
- {{ Aggregation }},
- {{ Pattern }},
- {{ Members }},
- {{ ResourceType }},
- {{ Tags }},
+ {{ .ProtectionGroupId }},
+ {{ .Aggregation }},
+ {{ .Pattern }},
+ {{ .Members }},
+ {{ .ResourceType }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

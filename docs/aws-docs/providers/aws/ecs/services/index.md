@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -263,32 +262,31 @@ INSERT INTO aws.ecs.services (
  region
 )
 SELECT 
-{{ CapacityProviderStrategy }},
- {{ Cluster }},
- {{ DeploymentConfiguration }},
- {{ DeploymentController }},
- {{ DesiredCount }},
- {{ EnableECSManagedTags }},
- {{ EnableExecuteCommand }},
- {{ HealthCheckGracePeriodSeconds }},
- {{ LaunchType }},
- {{ LoadBalancers }},
- {{ NetworkConfiguration }},
- {{ PlacementConstraints }},
- {{ PlacementStrategies }},
- {{ PlatformVersion }},
- {{ PropagateTags }},
- {{ Role }},
- {{ SchedulingStrategy }},
- {{ ServiceConnectConfiguration }},
- {{ ServiceName }},
- {{ ServiceRegistries }},
- {{ Tags }},
- {{ TaskDefinition }},
- {{ VolumeConfigurations }},
+{{ .CapacityProviderStrategy }},
+ {{ .Cluster }},
+ {{ .DeploymentConfiguration }},
+ {{ .DeploymentController }},
+ {{ .DesiredCount }},
+ {{ .EnableECSManagedTags }},
+ {{ .EnableExecuteCommand }},
+ {{ .HealthCheckGracePeriodSeconds }},
+ {{ .LaunchType }},
+ {{ .LoadBalancers }},
+ {{ .NetworkConfiguration }},
+ {{ .PlacementConstraints }},
+ {{ .PlacementStrategies }},
+ {{ .PlatformVersion }},
+ {{ .PropagateTags }},
+ {{ .Role }},
+ {{ .SchedulingStrategy }},
+ {{ .ServiceConnectConfiguration }},
+ {{ .ServiceName }},
+ {{ .ServiceRegistries }},
+ {{ .Tags }},
+ {{ .TaskDefinition }},
+ {{ .VolumeConfigurations }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -469,32 +467,31 @@ INSERT INTO aws.ecs.services (
  region
 )
 SELECT 
- {{ CapacityProviderStrategy }},
- {{ Cluster }},
- {{ DeploymentConfiguration }},
- {{ DeploymentController }},
- {{ DesiredCount }},
- {{ EnableECSManagedTags }},
- {{ EnableExecuteCommand }},
- {{ HealthCheckGracePeriodSeconds }},
- {{ LaunchType }},
- {{ LoadBalancers }},
- {{ NetworkConfiguration }},
- {{ PlacementConstraints }},
- {{ PlacementStrategies }},
- {{ PlatformVersion }},
- {{ PropagateTags }},
- {{ Role }},
- {{ SchedulingStrategy }},
- {{ ServiceConnectConfiguration }},
- {{ ServiceName }},
- {{ ServiceRegistries }},
- {{ Tags }},
- {{ TaskDefinition }},
- {{ VolumeConfigurations }},
+ {{ .CapacityProviderStrategy }},
+ {{ .Cluster }},
+ {{ .DeploymentConfiguration }},
+ {{ .DeploymentController }},
+ {{ .DesiredCount }},
+ {{ .EnableECSManagedTags }},
+ {{ .EnableExecuteCommand }},
+ {{ .HealthCheckGracePeriodSeconds }},
+ {{ .LaunchType }},
+ {{ .LoadBalancers }},
+ {{ .NetworkConfiguration }},
+ {{ .PlacementConstraints }},
+ {{ .PlacementStrategies }},
+ {{ .PlatformVersion }},
+ {{ .PropagateTags }},
+ {{ .Role }},
+ {{ .SchedulingStrategy }},
+ {{ .ServiceConnectConfiguration }},
+ {{ .ServiceName }},
+ {{ .ServiceRegistries }},
+ {{ .Tags }},
+ {{ .TaskDefinition }},
+ {{ .VolumeConfigurations }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

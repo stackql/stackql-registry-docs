@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  region
 )
 SELECT 
-{{ UserPoolId }},
- {{ Username }},
- {{ GroupName }},
+{{ .UserPoolId }},
+ {{ .Username }},
+ {{ .GroupName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,12 +127,11 @@ INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  region
 )
 SELECT 
- {{ UserPoolId }},
- {{ Username }},
- {{ GroupName }},
+ {{ .UserPoolId }},
+ {{ .Username }},
+ {{ .GroupName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

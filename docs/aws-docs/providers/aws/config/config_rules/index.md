@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -111,10 +110,9 @@ INSERT INTO aws.config.config_rules (
  region
 )
 SELECT 
-{{ Source }},
+{{ .Source }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -172,17 +170,16 @@ INSERT INTO aws.config.config_rules (
  region
 )
 SELECT 
- {{ Description }},
- {{ Scope }},
- {{ ConfigRuleName }},
- {{ Compliance }},
- {{ MaximumExecutionFrequency }},
- {{ Source }},
- {{ InputParameters }},
- {{ EvaluationModes }},
+ {{ .Description }},
+ {{ .Scope }},
+ {{ .ConfigRuleName }},
+ {{ .Compliance }},
+ {{ .MaximumExecutionFrequency }},
+ {{ .Source }},
+ {{ .InputParameters }},
+ {{ .EvaluationModes }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -121,11 +120,10 @@ INSERT INTO aws.iot.mitigation_actions (
  region
 )
 SELECT 
-{{ RoleArn }},
- {{ ActionParams }},
+{{ .RoleArn }},
+ {{ .ActionParams }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -175,13 +173,12 @@ INSERT INTO aws.iot.mitigation_actions (
  region
 )
 SELECT 
- {{ ActionName }},
- {{ RoleArn }},
- {{ Tags }},
- {{ ActionParams }},
+ {{ .ActionName }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .ActionParams }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

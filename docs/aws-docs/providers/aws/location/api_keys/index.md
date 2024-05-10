@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,11 +107,10 @@ INSERT INTO aws.location.api_keys (
  region
 )
 SELECT 
-{{ KeyName }},
- {{ Restrictions }},
+{{ .KeyName }},
+ {{ .Restrictions }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -157,17 +155,16 @@ INSERT INTO aws.location.api_keys (
  region
 )
 SELECT 
- {{ Description }},
- {{ ExpireTime }},
- {{ ForceUpdate }},
- {{ KeyName }},
- {{ NoExpiry }},
- {{ Restrictions }},
- {{ Tags }},
- {{ ForceDelete }},
+ {{ .Description }},
+ {{ .ExpireTime }},
+ {{ .ForceUpdate }},
+ {{ .KeyName }},
+ {{ .NoExpiry }},
+ {{ .Restrictions }},
+ {{ .Tags }},
+ {{ .ForceDelete }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

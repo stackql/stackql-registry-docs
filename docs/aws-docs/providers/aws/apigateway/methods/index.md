@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.apigateway.methods (
  region
 )
 SELECT 
-{{ HttpMethod }},
- {{ ResourceId }},
- {{ RestApiId }},
+{{ .HttpMethod }},
+ {{ .ResourceId }},
+ {{ .RestApiId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -182,22 +180,21 @@ INSERT INTO aws.apigateway.methods (
  region
 )
 SELECT 
- {{ ApiKeyRequired }},
- {{ AuthorizationScopes }},
- {{ AuthorizationType }},
- {{ AuthorizerId }},
- {{ HttpMethod }},
- {{ Integration }},
- {{ MethodResponses }},
- {{ OperationName }},
- {{ RequestModels }},
- {{ RequestParameters }},
- {{ RequestValidatorId }},
- {{ ResourceId }},
- {{ RestApiId }},
+ {{ .ApiKeyRequired }},
+ {{ .AuthorizationScopes }},
+ {{ .AuthorizationType }},
+ {{ .AuthorizerId }},
+ {{ .HttpMethod }},
+ {{ .Integration }},
+ {{ .MethodResponses }},
+ {{ .OperationName }},
+ {{ .RequestModels }},
+ {{ .RequestParameters }},
+ {{ .RequestValidatorId }},
+ {{ .ResourceId }},
+ {{ .RestApiId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

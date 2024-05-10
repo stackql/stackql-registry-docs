@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -110,13 +109,12 @@ INSERT INTO aws.ce.anomaly_subscriptions (
  region
 )
 SELECT 
-{{ SubscriptionName }},
- {{ MonitorArnList }},
- {{ Subscribers }},
- {{ Frequency }},
+{{ .SubscriptionName }},
+ {{ .MonitorArnList }},
+ {{ .Subscribers }},
+ {{ .Frequency }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -157,16 +155,15 @@ INSERT INTO aws.ce.anomaly_subscriptions (
  region
 )
 SELECT 
- {{ SubscriptionName }},
- {{ MonitorArnList }},
- {{ Subscribers }},
- {{ Threshold }},
- {{ ThresholdExpression }},
- {{ Frequency }},
- {{ ResourceTags }},
+ {{ .SubscriptionName }},
+ {{ .MonitorArnList }},
+ {{ .Subscribers }},
+ {{ .Threshold }},
+ {{ .ThresholdExpression }},
+ {{ .Frequency }},
+ {{ .ResourceTags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

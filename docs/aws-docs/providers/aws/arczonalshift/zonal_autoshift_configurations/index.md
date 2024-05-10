@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -116,12 +115,11 @@ INSERT INTO aws.arczonalshift.zonal_autoshift_configurations (
  region
 )
 SELECT 
-{{ ZonalAutoshiftStatus }},
- {{ PracticeRunConfiguration }},
- {{ ResourceIdentifier }},
+{{ .ZonalAutoshiftStatus }},
+ {{ .PracticeRunConfiguration }},
+ {{ .ResourceIdentifier }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -157,12 +155,11 @@ INSERT INTO aws.arczonalshift.zonal_autoshift_configurations (
  region
 )
 SELECT 
- {{ ZonalAutoshiftStatus }},
- {{ PracticeRunConfiguration }},
- {{ ResourceIdentifier }},
+ {{ .ZonalAutoshiftStatus }},
+ {{ .PracticeRunConfiguration }},
+ {{ .ResourceIdentifier }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -148,11 +147,10 @@ INSERT INTO aws.groundstation.configs (
  region
 )
 SELECT 
-{{ Name }},
- {{ ConfigData }},
+{{ .Name }},
+ {{ .ConfigData }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -227,12 +225,11 @@ INSERT INTO aws.groundstation.configs (
  region
 )
 SELECT 
- {{ Name }},
- {{ Tags }},
- {{ ConfigData }},
+ {{ .Name }},
+ {{ .Tags }},
+ {{ .ConfigData }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

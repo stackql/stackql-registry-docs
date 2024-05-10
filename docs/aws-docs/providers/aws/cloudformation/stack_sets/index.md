@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.cloudformation.stack_sets (
  region
 )
 SELECT 
-{{ StackSetName }},
- {{ PermissionModel }},
+{{ .StackSetName }},
+ {{ .PermissionModel }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -191,24 +189,23 @@ INSERT INTO aws.cloudformation.stack_sets (
  region
 )
 SELECT 
- {{ StackSetName }},
- {{ AdministrationRoleARN }},
- {{ AutoDeployment }},
- {{ Capabilities }},
- {{ Description }},
- {{ ExecutionRoleName }},
- {{ OperationPreferences }},
- {{ StackInstancesGroup }},
- {{ Parameters }},
- {{ PermissionModel }},
- {{ Tags }},
- {{ TemplateBody }},
- {{ TemplateURL }},
- {{ CallAs }},
- {{ ManagedExecution }},
+ {{ .StackSetName }},
+ {{ .AdministrationRoleARN }},
+ {{ .AutoDeployment }},
+ {{ .Capabilities }},
+ {{ .Description }},
+ {{ .ExecutionRoleName }},
+ {{ .OperationPreferences }},
+ {{ .StackInstancesGroup }},
+ {{ .Parameters }},
+ {{ .PermissionModel }},
+ {{ .Tags }},
+ {{ .TemplateBody }},
+ {{ .TemplateURL }},
+ {{ .CallAs }},
+ {{ .ManagedExecution }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.codeconnections.connections (
  region
 )
 SELECT 
-{{ ConnectionName }},
+{{ .ConnectionName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -126,13 +124,12 @@ INSERT INTO aws.codeconnections.connections (
  region
 )
 SELECT 
- {{ ConnectionName }},
- {{ ProviderType }},
- {{ HostArn }},
- {{ Tags }},
+ {{ .ConnectionName }},
+ {{ .ProviderType }},
+ {{ .HostArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

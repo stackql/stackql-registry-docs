@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,13 +101,12 @@ INSERT INTO aws.chatbot.slack_channel_configurations (
  region
 )
 SELECT 
-{{ SlackWorkspaceId }},
- {{ SlackChannelId }},
- {{ ConfigurationName }},
- {{ IamRoleArn }},
+{{ .SlackWorkspaceId }},
+ {{ .SlackChannelId }},
+ {{ .ConfigurationName }},
+ {{ .IamRoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -142,17 +140,16 @@ INSERT INTO aws.chatbot.slack_channel_configurations (
  region
 )
 SELECT 
- {{ SlackWorkspaceId }},
- {{ SlackChannelId }},
- {{ ConfigurationName }},
- {{ IamRoleArn }},
- {{ SnsTopicArns }},
- {{ LoggingLevel }},
- {{ GuardrailPolicies }},
- {{ UserRoleRequired }},
+ {{ .SlackWorkspaceId }},
+ {{ .SlackChannelId }},
+ {{ .ConfigurationName }},
+ {{ .IamRoleArn }},
+ {{ .SnsTopicArns }},
+ {{ .LoggingLevel }},
+ {{ .GuardrailPolicies }},
+ {{ .UserRoleRequired }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

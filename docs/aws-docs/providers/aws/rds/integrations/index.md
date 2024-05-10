@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.rds.integrations (
  region
 )
 SELECT 
-{{ SourceArn }},
- {{ TargetArn }},
+{{ .SourceArn }},
+ {{ .TargetArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,17 +135,16 @@ INSERT INTO aws.rds.integrations (
  region
 )
 SELECT 
- {{ IntegrationName }},
- {{ Description }},
- {{ Tags }},
- {{ DataFilter }},
- {{ SourceArn }},
- {{ TargetArn }},
- {{ KMSKeyId }},
- {{ AdditionalEncryptionContext }},
+ {{ .IntegrationName }},
+ {{ .Description }},
+ {{ .Tags }},
+ {{ .DataFilter }},
+ {{ .SourceArn }},
+ {{ .TargetArn }},
+ {{ .KMSKeyId }},
+ {{ .AdditionalEncryptionContext }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

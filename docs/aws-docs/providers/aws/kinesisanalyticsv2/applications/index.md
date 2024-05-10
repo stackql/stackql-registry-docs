@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.kinesisanalyticsv2.applications (
  region
 )
 SELECT 
-{{ RuntimeEnvironment }},
- {{ ServiceExecutionRole }},
+{{ .RuntimeEnvironment }},
+ {{ .ServiceExecutionRole }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -272,18 +270,17 @@ INSERT INTO aws.kinesisanalyticsv2.applications (
  region
 )
 SELECT 
- {{ ApplicationConfiguration }},
- {{ ApplicationDescription }},
- {{ ApplicationMode }},
- {{ ApplicationName }},
- {{ RuntimeEnvironment }},
- {{ ServiceExecutionRole }},
- {{ RunConfiguration }},
- {{ ApplicationMaintenanceConfiguration }},
- {{ Tags }},
+ {{ .ApplicationConfiguration }},
+ {{ .ApplicationDescription }},
+ {{ .ApplicationMode }},
+ {{ .ApplicationName }},
+ {{ .RuntimeEnvironment }},
+ {{ .ServiceExecutionRole }},
+ {{ .RunConfiguration }},
+ {{ .ApplicationMaintenanceConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

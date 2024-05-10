@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.cleanrooms.memberships (
  region
 )
 SELECT 
-{{ CollaborationIdentifier }},
- {{ QueryLogStatus }},
+{{ .CollaborationIdentifier }},
+ {{ .QueryLogStatus }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,14 +142,13 @@ INSERT INTO aws.cleanrooms.memberships (
  region
 )
 SELECT 
- {{ Tags }},
- {{ CollaborationIdentifier }},
- {{ QueryLogStatus }},
- {{ DefaultResultConfiguration }},
- {{ PaymentConfiguration }},
+ {{ .Tags }},
+ {{ .CollaborationIdentifier }},
+ {{ .QueryLogStatus }},
+ {{ .DefaultResultConfiguration }},
+ {{ .PaymentConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

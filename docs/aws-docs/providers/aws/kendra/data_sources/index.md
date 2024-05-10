@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.kendra.data_sources (
  region
 )
 SELECT 
-{{ Name }},
- {{ IndexId }},
- {{ Type }},
+{{ .Name }},
+ {{ .IndexId }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -440,19 +438,18 @@ INSERT INTO aws.kendra.data_sources (
  region
 )
 SELECT 
- {{ Name }},
- {{ IndexId }},
- {{ Type }},
- {{ DataSourceConfiguration }},
- {{ Description }},
- {{ Schedule }},
- {{ RoleArn }},
- {{ Tags }},
- {{ CustomDocumentEnrichmentConfiguration }},
- {{ LanguageCode }},
+ {{ .Name }},
+ {{ .IndexId }},
+ {{ .Type }},
+ {{ .DataSourceConfiguration }},
+ {{ .Description }},
+ {{ .Schedule }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .CustomDocumentEnrichmentConfiguration }},
+ {{ .LanguageCode }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

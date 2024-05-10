@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.datapipeline.pipelines (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -159,16 +157,15 @@ INSERT INTO aws.datapipeline.pipelines (
  region
 )
 SELECT 
- {{ Activate }},
- {{ Description }},
- {{ Name }},
- {{ ParameterObjects }},
- {{ ParameterValues }},
- {{ PipelineObjects }},
- {{ PipelineTags }},
+ {{ .Activate }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .ParameterObjects }},
+ {{ .ParameterValues }},
+ {{ .PipelineObjects }},
+ {{ .PipelineTags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

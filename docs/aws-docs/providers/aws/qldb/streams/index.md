@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -109,14 +108,13 @@ INSERT INTO aws.qldb.streams (
  region
 )
 SELECT 
-{{ LedgerName }},
- {{ StreamName }},
- {{ RoleArn }},
- {{ InclusiveStartTime }},
- {{ KinesisConfiguration }},
+{{ .LedgerName }},
+ {{ .StreamName }},
+ {{ .RoleArn }},
+ {{ .InclusiveStartTime }},
+ {{ .KinesisConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -152,16 +150,15 @@ INSERT INTO aws.qldb.streams (
  region
 )
 SELECT 
- {{ LedgerName }},
- {{ StreamName }},
- {{ RoleArn }},
- {{ InclusiveStartTime }},
- {{ ExclusiveEndTime }},
- {{ KinesisConfiguration }},
- {{ Tags }},
+ {{ .LedgerName }},
+ {{ .StreamName }},
+ {{ .RoleArn }},
+ {{ .InclusiveStartTime }},
+ {{ .ExclusiveEndTime }},
+ {{ .KinesisConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

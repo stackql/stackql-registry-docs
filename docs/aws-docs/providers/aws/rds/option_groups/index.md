@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.rds.option_groups (
  region
 )
 SELECT 
-{{ OptionGroupDescription }},
- {{ EngineName }},
- {{ MajorEngineVersion }},
+{{ .OptionGroupDescription }},
+ {{ .EngineName }},
+ {{ .MajorEngineVersion }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -154,15 +152,14 @@ INSERT INTO aws.rds.option_groups (
  region
 )
 SELECT 
- {{ OptionGroupName }},
- {{ OptionGroupDescription }},
- {{ EngineName }},
- {{ MajorEngineVersion }},
- {{ OptionConfigurations }},
- {{ Tags }},
+ {{ .OptionGroupName }},
+ {{ .OptionGroupDescription }},
+ {{ .EngineName }},
+ {{ .MajorEngineVersion }},
+ {{ .OptionConfigurations }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

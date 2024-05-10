@@ -79,7 +79,6 @@ FROM aws.cloudfront.origin_access_controls
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,10 +101,9 @@ INSERT INTO aws.cloudfront.origin_access_controls (
  region
 )
 SELECT 
-{{ OriginAccessControlConfig }},
+{{ .OriginAccessControlConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,10 +125,9 @@ INSERT INTO aws.cloudfront.origin_access_controls (
  region
 )
 SELECT 
- {{ OriginAccessControlConfig }},
+ {{ .OriginAccessControlConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

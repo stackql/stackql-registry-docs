@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,14 +107,13 @@ INSERT INTO aws.deadline.queue_environments (
  region
 )
 SELECT 
-{{ FarmId }},
- {{ Priority }},
- {{ QueueId }},
- {{ Template }},
- {{ TemplateType }},
+{{ .FarmId }},
+ {{ .Priority }},
+ {{ .QueueId }},
+ {{ .Template }},
+ {{ .TemplateType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,14 +137,13 @@ INSERT INTO aws.deadline.queue_environments (
  region
 )
 SELECT 
- {{ FarmId }},
- {{ Priority }},
- {{ QueueId }},
- {{ Template }},
- {{ TemplateType }},
+ {{ .FarmId }},
+ {{ .Priority }},
+ {{ .QueueId }},
+ {{ .Template }},
+ {{ .TemplateType }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

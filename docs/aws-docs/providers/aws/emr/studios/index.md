@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -112,17 +111,16 @@ INSERT INTO aws.emr.studios (
  region
 )
 SELECT 
-{{ AuthMode }},
- {{ DefaultS3Location }},
- {{ EngineSecurityGroupId }},
- {{ Name }},
- {{ ServiceRole }},
- {{ SubnetIds }},
- {{ VpcId }},
- {{ WorkspaceSecurityGroupId }},
+{{ .AuthMode }},
+ {{ .DefaultS3Location }},
+ {{ .EngineSecurityGroupId }},
+ {{ .Name }},
+ {{ .ServiceRole }},
+ {{ .SubnetIds }},
+ {{ .VpcId }},
+ {{ .WorkspaceSecurityGroupId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -177,26 +175,25 @@ INSERT INTO aws.emr.studios (
  region
 )
 SELECT 
- {{ AuthMode }},
- {{ DefaultS3Location }},
- {{ Description }},
- {{ EngineSecurityGroupId }},
- {{ Name }},
- {{ ServiceRole }},
- {{ SubnetIds }},
- {{ Tags }},
- {{ UserRole }},
- {{ VpcId }},
- {{ WorkspaceSecurityGroupId }},
- {{ IdpAuthUrl }},
- {{ IdpRelayStateParameterName }},
- {{ TrustedIdentityPropagationEnabled }},
- {{ IdcUserAssignment }},
- {{ IdcInstanceArn }},
- {{ EncryptionKeyArn }},
+ {{ .AuthMode }},
+ {{ .DefaultS3Location }},
+ {{ .Description }},
+ {{ .EngineSecurityGroupId }},
+ {{ .Name }},
+ {{ .ServiceRole }},
+ {{ .SubnetIds }},
+ {{ .Tags }},
+ {{ .UserRole }},
+ {{ .VpcId }},
+ {{ .WorkspaceSecurityGroupId }},
+ {{ .IdpAuthUrl }},
+ {{ .IdpRelayStateParameterName }},
+ {{ .TrustedIdentityPropagationEnabled }},
+ {{ .IdcUserAssignment }},
+ {{ .IdcInstanceArn }},
+ {{ .EncryptionKeyArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

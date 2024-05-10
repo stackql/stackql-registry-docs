@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -142,21 +141,20 @@ INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  region
 )
 SELECT 
-{{ AcceptLanguage }},
- {{ NotificationArns }},
- {{ PathId }},
- {{ PathName }},
- {{ ProductId }},
- {{ ProductName }},
- {{ ProvisionedProductName }},
- {{ ProvisioningArtifactId }},
- {{ ProvisioningArtifactName }},
- {{ ProvisioningParameters }},
- {{ ProvisioningPreferences }},
- {{ Tags }},
+{{ .AcceptLanguage }},
+ {{ .NotificationArns }},
+ {{ .PathId }},
+ {{ .PathName }},
+ {{ .ProductId }},
+ {{ .ProductName }},
+ {{ .ProvisionedProductName }},
+ {{ .ProvisioningArtifactId }},
+ {{ .ProvisioningArtifactName }},
+ {{ .ProvisioningParameters }},
+ {{ .ProvisioningPreferences }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -218,21 +216,20 @@ INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  region
 )
 SELECT 
- {{ AcceptLanguage }},
- {{ NotificationArns }},
- {{ PathId }},
- {{ PathName }},
- {{ ProductId }},
- {{ ProductName }},
- {{ ProvisionedProductName }},
- {{ ProvisioningArtifactId }},
- {{ ProvisioningArtifactName }},
- {{ ProvisioningParameters }},
- {{ ProvisioningPreferences }},
- {{ Tags }},
+ {{ .AcceptLanguage }},
+ {{ .NotificationArns }},
+ {{ .PathId }},
+ {{ .PathName }},
+ {{ .ProductId }},
+ {{ .ProductName }},
+ {{ .ProvisionedProductName }},
+ {{ .ProvisioningArtifactId }},
+ {{ .ProvisioningArtifactName }},
+ {{ .ProvisioningParameters }},
+ {{ .ProvisioningPreferences }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

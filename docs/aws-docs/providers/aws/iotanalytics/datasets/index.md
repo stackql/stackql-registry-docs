@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -131,10 +130,9 @@ INSERT INTO aws.iotanalytics.datasets (
  region
 )
 SELECT 
-{{ Actions }},
+{{ .Actions }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -247,17 +245,16 @@ INSERT INTO aws.iotanalytics.datasets (
  region
 )
 SELECT 
- {{ Actions }},
- {{ LateDataRules }},
- {{ DatasetName }},
- {{ ContentDeliveryRules }},
- {{ Triggers }},
- {{ VersioningConfiguration }},
- {{ RetentionPeriod }},
- {{ Tags }},
+ {{ .Actions }},
+ {{ .LateDataRules }},
+ {{ .DatasetName }},
+ {{ .ContentDeliveryRules }},
+ {{ .Triggers }},
+ {{ .VersioningConfiguration }},
+ {{ .RetentionPeriod }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -109,13 +108,12 @@ INSERT INTO aws.vpclattice.service_network_vpc_associations (
  region
 )
 SELECT 
-{{ SecurityGroupIds }},
- {{ ServiceNetworkIdentifier }},
- {{ VpcIdentifier }},
- {{ Tags }},
+{{ .SecurityGroupIds }},
+ {{ .ServiceNetworkIdentifier }},
+ {{ .VpcIdentifier }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,13 +142,12 @@ INSERT INTO aws.vpclattice.service_network_vpc_associations (
  region
 )
 SELECT 
- {{ SecurityGroupIds }},
- {{ ServiceNetworkIdentifier }},
- {{ VpcIdentifier }},
- {{ Tags }},
+ {{ .SecurityGroupIds }},
+ {{ .ServiceNetworkIdentifier }},
+ {{ .VpcIdentifier }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

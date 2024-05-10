@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.ec2.transit_gateway_multicast_domain_associations (
  region
 )
 SELECT 
-{{ TransitGatewayMulticastDomainId }},
- {{ TransitGatewayAttachmentId }},
- {{ SubnetId }},
+{{ .TransitGatewayMulticastDomainId }},
+ {{ .TransitGatewayAttachmentId }},
+ {{ .SubnetId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,12 +127,11 @@ INSERT INTO aws.ec2.transit_gateway_multicast_domain_associations (
  region
 )
 SELECT 
- {{ TransitGatewayMulticastDomainId }},
- {{ TransitGatewayAttachmentId }},
- {{ SubnetId }},
+ {{ .TransitGatewayMulticastDomainId }},
+ {{ .TransitGatewayAttachmentId }},
+ {{ .SubnetId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

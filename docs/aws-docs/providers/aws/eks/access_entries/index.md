@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.eks.access_entries (
  region
 )
 SELECT 
-{{ ClusterName }},
- {{ PrincipalArn }},
+{{ .ClusterName }},
+ {{ .PrincipalArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,16 +147,15 @@ INSERT INTO aws.eks.access_entries (
  region
 )
 SELECT 
- {{ ClusterName }},
- {{ PrincipalArn }},
- {{ Username }},
- {{ Tags }},
- {{ KubernetesGroups }},
- {{ AccessPolicies }},
- {{ Type }},
+ {{ .ClusterName }},
+ {{ .PrincipalArn }},
+ {{ .Username }},
+ {{ .Tags }},
+ {{ .KubernetesGroups }},
+ {{ .AccessPolicies }},
+ {{ .Type }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

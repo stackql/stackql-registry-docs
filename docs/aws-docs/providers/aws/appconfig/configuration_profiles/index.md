@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.appconfig.configuration_profiles (
  region
 )
 SELECT 
-{{ LocationUri }},
- {{ ApplicationId }},
- {{ Name }},
+{{ .LocationUri }},
+ {{ .ApplicationId }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,18 +147,17 @@ INSERT INTO aws.appconfig.configuration_profiles (
  region
 )
 SELECT 
- {{ LocationUri }},
- {{ Type }},
- {{ KmsKeyIdentifier }},
- {{ Description }},
- {{ Validators }},
- {{ RetrievalRoleArn }},
- {{ ApplicationId }},
- {{ Tags }},
- {{ Name }},
+ {{ .LocationUri }},
+ {{ .Type }},
+ {{ .KmsKeyIdentifier }},
+ {{ .Description }},
+ {{ .Validators }},
+ {{ .RetrievalRoleArn }},
+ {{ .ApplicationId }},
+ {{ .Tags }},
+ {{ .Name }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

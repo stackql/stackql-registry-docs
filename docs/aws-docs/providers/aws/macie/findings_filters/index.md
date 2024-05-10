@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.macie.findings_filters (
  region
 )
 SELECT 
-{{ Name }},
- {{ FindingCriteria }},
+{{ .Name }},
+ {{ .FindingCriteria }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,15 +135,14 @@ INSERT INTO aws.macie.findings_filters (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ FindingCriteria }},
- {{ Action }},
- {{ Position }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .FindingCriteria }},
+ {{ .Action }},
+ {{ .Position }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

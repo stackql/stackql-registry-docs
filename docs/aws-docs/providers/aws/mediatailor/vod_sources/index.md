@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,12 +107,11 @@ INSERT INTO aws.mediatailor.vod_sources (
  region
 )
 SELECT 
-{{ HttpPackageConfigurations }},
- {{ SourceLocationName }},
- {{ VodSourceName }},
+{{ .HttpPackageConfigurations }},
+ {{ .SourceLocationName }},
+ {{ .VodSourceName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -146,13 +144,12 @@ INSERT INTO aws.mediatailor.vod_sources (
  region
 )
 SELECT 
- {{ HttpPackageConfigurations }},
- {{ SourceLocationName }},
- {{ Tags }},
- {{ VodSourceName }},
+ {{ .HttpPackageConfigurations }},
+ {{ .SourceLocationName }},
+ {{ .Tags }},
+ {{ .VodSourceName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

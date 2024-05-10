@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.events.archives (
  region
 )
 SELECT 
-{{ SourceArn }},
+{{ .SourceArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -123,14 +121,13 @@ INSERT INTO aws.events.archives (
  region
 )
 SELECT 
- {{ ArchiveName }},
- {{ SourceArn }},
- {{ Description }},
- {{ EventPattern }},
- {{ RetentionDays }},
+ {{ .ArchiveName }},
+ {{ .SourceArn }},
+ {{ .Description }},
+ {{ .EventPattern }},
+ {{ .RetentionDays }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

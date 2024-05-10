@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.greengrassv2.deployments (
  region
 )
 SELECT 
-{{ TargetArn }},
+{{ .TargetArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -158,16 +156,15 @@ INSERT INTO aws.greengrassv2.deployments (
  region
 )
 SELECT 
- {{ TargetArn }},
- {{ ParentTargetArn }},
- {{ DeploymentName }},
- {{ Components }},
- {{ IotJobConfiguration }},
- {{ DeploymentPolicies }},
- {{ Tags }},
+ {{ .TargetArn }},
+ {{ .ParentTargetArn }},
+ {{ .DeploymentName }},
+ {{ .Components }},
+ {{ .IotJobConfiguration }},
+ {{ .DeploymentPolicies }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

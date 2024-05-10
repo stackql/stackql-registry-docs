@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.apigateway.models (
  region
 )
 SELECT 
-{{ RestApiId }},
+{{ .RestApiId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -125,14 +123,13 @@ INSERT INTO aws.apigateway.models (
  region
 )
 SELECT 
- {{ ContentType }},
- {{ Description }},
- {{ Name }},
- {{ RestApiId }},
- {{ Schema }},
+ {{ .ContentType }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .RestApiId }},
+ {{ .Schema }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

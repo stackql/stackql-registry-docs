@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -332,14 +331,13 @@ INSERT INTO aws.appflow.flows (
  region
 )
 SELECT 
-{{ FlowName }},
- {{ TriggerConfig }},
- {{ SourceFlowConfig }},
- {{ DestinationFlowConfigList }},
- {{ Tasks }},
+{{ .FlowName }},
+ {{ .TriggerConfig }},
+ {{ .SourceFlowConfig }},
+ {{ .DestinationFlowConfigList }},
+ {{ .Tasks }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -612,19 +610,18 @@ INSERT INTO aws.appflow.flows (
  region
 )
 SELECT 
- {{ FlowName }},
- {{ Description }},
- {{ KMSArn }},
- {{ TriggerConfig }},
- {{ FlowStatus }},
- {{ SourceFlowConfig }},
- {{ DestinationFlowConfigList }},
- {{ Tasks }},
- {{ Tags }},
- {{ MetadataCatalogConfig }},
+ {{ .FlowName }},
+ {{ .Description }},
+ {{ .KMSArn }},
+ {{ .TriggerConfig }},
+ {{ .FlowStatus }},
+ {{ .SourceFlowConfig }},
+ {{ .DestinationFlowConfigList }},
+ {{ .Tasks }},
+ {{ .Tags }},
+ {{ .MetadataCatalogConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

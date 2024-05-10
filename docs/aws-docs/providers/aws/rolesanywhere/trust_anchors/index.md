@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,11 +100,10 @@ INSERT INTO aws.rolesanywhere.trust_anchors (
  region
 )
 SELECT 
-{{ Name }},
- {{ Source }},
+{{ .Name }},
+ {{ .Source }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,14 +142,13 @@ INSERT INTO aws.rolesanywhere.trust_anchors (
  region
 )
 SELECT 
- {{ Enabled }},
- {{ Name }},
- {{ NotificationSettings }},
- {{ Source }},
- {{ Tags }},
+ {{ .Enabled }},
+ {{ .Name }},
+ {{ .NotificationSettings }},
+ {{ .Source }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

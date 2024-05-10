@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.workspacesthinclient.environments (
  region
 )
 SELECT 
-{{ DesktopArn }},
+{{ .DesktopArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -146,18 +144,17 @@ INSERT INTO aws.workspacesthinclient.environments (
  region
 )
 SELECT 
- {{ Name }},
- {{ DesktopArn }},
- {{ DesktopEndpoint }},
- {{ SoftwareSetUpdateSchedule }},
- {{ MaintenanceWindow }},
- {{ SoftwareSetUpdateMode }},
- {{ DesiredSoftwareSetId }},
- {{ KmsKeyArn }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .DesktopArn }},
+ {{ .DesktopEndpoint }},
+ {{ .SoftwareSetUpdateSchedule }},
+ {{ .MaintenanceWindow }},
+ {{ .SoftwareSetUpdateMode }},
+ {{ .DesiredSoftwareSetId }},
+ {{ .KmsKeyArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

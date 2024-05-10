@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.imagebuilder.workflows (
  region
 )
 SELECT 
-{{ Name }},
- {{ Version }},
- {{ Type }},
+{{ .Name }},
+ {{ .Version }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,18 +135,17 @@ INSERT INTO aws.imagebuilder.workflows (
  region
 )
 SELECT 
- {{ Name }},
- {{ Version }},
- {{ Description }},
- {{ ChangeDescription }},
- {{ Type }},
- {{ Data }},
- {{ Uri }},
- {{ KmsKeyId }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Version }},
+ {{ .Description }},
+ {{ .ChangeDescription }},
+ {{ .Type }},
+ {{ .Data }},
+ {{ .Uri }},
+ {{ .KmsKeyId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

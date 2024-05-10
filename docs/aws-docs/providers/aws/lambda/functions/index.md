@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,11 +103,10 @@ INSERT INTO aws.lambda.functions (
  region
 )
 SELECT 
-{{ Code }},
- {{ Role }},
+{{ .Code }},
+ {{ .Role }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -226,34 +224,33 @@ INSERT INTO aws.lambda.functions (
  region
 )
 SELECT 
- {{ Description }},
- {{ TracingConfig }},
- {{ VpcConfig }},
- {{ RuntimeManagementConfig }},
- {{ ReservedConcurrentExecutions }},
- {{ SnapStart }},
- {{ FileSystemConfigs }},
- {{ FunctionName }},
- {{ Runtime }},
- {{ KmsKeyArn }},
- {{ PackageType }},
- {{ CodeSigningConfigArn }},
- {{ Layers }},
- {{ Tags }},
- {{ ImageConfig }},
- {{ MemorySize }},
- {{ DeadLetterConfig }},
- {{ Timeout }},
- {{ Handler }},
- {{ Code }},
- {{ Role }},
- {{ LoggingConfig }},
- {{ Environment }},
- {{ EphemeralStorage }},
- {{ Architectures }},
+ {{ .Description }},
+ {{ .TracingConfig }},
+ {{ .VpcConfig }},
+ {{ .RuntimeManagementConfig }},
+ {{ .ReservedConcurrentExecutions }},
+ {{ .SnapStart }},
+ {{ .FileSystemConfigs }},
+ {{ .FunctionName }},
+ {{ .Runtime }},
+ {{ .KmsKeyArn }},
+ {{ .PackageType }},
+ {{ .CodeSigningConfigArn }},
+ {{ .Layers }},
+ {{ .Tags }},
+ {{ .ImageConfig }},
+ {{ .MemorySize }},
+ {{ .DeadLetterConfig }},
+ {{ .Timeout }},
+ {{ .Handler }},
+ {{ .Code }},
+ {{ .Role }},
+ {{ .LoggingConfig }},
+ {{ .Environment }},
+ {{ .EphemeralStorage }},
+ {{ .Architectures }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

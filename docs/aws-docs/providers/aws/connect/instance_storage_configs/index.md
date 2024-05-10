@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.connect.instance_storage_configs (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ ResourceType }},
- {{ StorageType }},
+{{ .InstanceArn }},
+ {{ .ResourceType }},
+ {{ .StorageType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -152,16 +150,15 @@ INSERT INTO aws.connect.instance_storage_configs (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ ResourceType }},
- {{ StorageType }},
- {{ S3Config }},
- {{ KinesisVideoStreamConfig }},
- {{ KinesisStreamConfig }},
- {{ KinesisFirehoseConfig }},
+ {{ .InstanceArn }},
+ {{ .ResourceType }},
+ {{ .StorageType }},
+ {{ .S3Config }},
+ {{ .KinesisVideoStreamConfig }},
+ {{ .KinesisStreamConfig }},
+ {{ .KinesisFirehoseConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

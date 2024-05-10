@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.redshift.cluster_subnet_groups (
  region
 )
 SELECT 
-{{ Description }},
- {{ SubnetIds }},
+{{ .Description }},
+ {{ .SubnetIds }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,12 +129,11 @@ INSERT INTO aws.redshift.cluster_subnet_groups (
  region
 )
 SELECT 
- {{ Description }},
- {{ SubnetIds }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .SubnetIds }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

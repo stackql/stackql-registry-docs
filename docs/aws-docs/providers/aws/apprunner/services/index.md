@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -142,10 +141,9 @@ INSERT INTO aws.apprunner.services (
  region
 )
 SELECT 
-{{ SourceConfiguration }},
+{{ .SourceConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -253,18 +251,17 @@ INSERT INTO aws.apprunner.services (
  region
 )
 SELECT 
- {{ ServiceName }},
- {{ SourceConfiguration }},
- {{ InstanceConfiguration }},
- {{ Tags }},
- {{ EncryptionConfiguration }},
- {{ HealthCheckConfiguration }},
- {{ ObservabilityConfiguration }},
- {{ AutoScalingConfigurationArn }},
- {{ NetworkConfiguration }},
+ {{ .ServiceName }},
+ {{ .SourceConfiguration }},
+ {{ .InstanceConfiguration }},
+ {{ .Tags }},
+ {{ .EncryptionConfiguration }},
+ {{ .HealthCheckConfiguration }},
+ {{ .ObservabilityConfiguration }},
+ {{ .AutoScalingConfigurationArn }},
+ {{ .NetworkConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

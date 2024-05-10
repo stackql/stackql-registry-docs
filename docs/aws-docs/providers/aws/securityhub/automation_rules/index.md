@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -265,17 +264,16 @@ INSERT INTO aws.securityhub.automation_rules (
  region
 )
 SELECT 
-{{ RuleStatus }},
- {{ RuleOrder }},
- {{ Description }},
- {{ RuleName }},
- {{ IsTerminal }},
- {{ Actions }},
- {{ Criteria }},
- {{ Tags }},
+{{ .RuleStatus }},
+ {{ .RuleOrder }},
+ {{ .Description }},
+ {{ .RuleName }},
+ {{ .IsTerminal }},
+ {{ .Actions }},
+ {{ .Criteria }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -460,17 +458,16 @@ INSERT INTO aws.securityhub.automation_rules (
  region
 )
 SELECT 
- {{ RuleStatus }},
- {{ RuleOrder }},
- {{ Description }},
- {{ RuleName }},
- {{ IsTerminal }},
- {{ Actions }},
- {{ Criteria }},
- {{ Tags }},
+ {{ .RuleStatus }},
+ {{ .RuleOrder }},
+ {{ .Description }},
+ {{ .RuleName }},
+ {{ .IsTerminal }},
+ {{ .Actions }},
+ {{ .Criteria }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

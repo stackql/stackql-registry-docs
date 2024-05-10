@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,13 +101,12 @@ INSERT INTO aws.osis.pipelines (
  region
 )
 SELECT 
-{{ MaxUnits }},
- {{ MinUnits }},
- {{ PipelineConfigurationBody }},
- {{ PipelineName }},
+{{ .MaxUnits }},
+ {{ .MinUnits }},
+ {{ .PipelineConfigurationBody }},
+ {{ .PipelineName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -161,18 +159,17 @@ INSERT INTO aws.osis.pipelines (
  region
 )
 SELECT 
- {{ BufferOptions }},
- {{ EncryptionAtRestOptions }},
- {{ LogPublishingOptions }},
- {{ MaxUnits }},
- {{ MinUnits }},
- {{ PipelineConfigurationBody }},
- {{ PipelineName }},
- {{ Tags }},
- {{ VpcOptions }},
+ {{ .BufferOptions }},
+ {{ .EncryptionAtRestOptions }},
+ {{ .LogPublishingOptions }},
+ {{ .MaxUnits }},
+ {{ .MinUnits }},
+ {{ .PipelineConfigurationBody }},
+ {{ .PipelineName }},
+ {{ .Tags }},
+ {{ .VpcOptions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.panorama.package_versions (
  region
 )
 SELECT 
-{{ PackageId }},
- {{ PackageVersion }},
- {{ PatchVersion }},
+{{ .PackageId }},
+ {{ .PackageVersion }},
+ {{ .PatchVersion }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,15 +133,14 @@ INSERT INTO aws.panorama.package_versions (
  region
 )
 SELECT 
- {{ OwnerAccount }},
- {{ PackageId }},
- {{ PackageVersion }},
- {{ PatchVersion }},
- {{ MarkLatest }},
- {{ UpdatedLatestPatchVersion }},
+ {{ .OwnerAccount }},
+ {{ .PackageId }},
+ {{ .PackageVersion }},
+ {{ .PatchVersion }},
+ {{ .MarkLatest }},
+ {{ .UpdatedLatestPatchVersion }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

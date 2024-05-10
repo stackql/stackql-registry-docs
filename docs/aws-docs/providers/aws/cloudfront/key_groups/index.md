@@ -79,7 +79,6 @@ FROM aws.cloudfront.key_groups
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,10 +101,9 @@ INSERT INTO aws.cloudfront.key_groups (
  region
 )
 SELECT 
-{{ KeyGroupConfig }},
+{{ .KeyGroupConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,10 +125,9 @@ INSERT INTO aws.cloudfront.key_groups (
  region
 )
 SELECT 
- {{ KeyGroupConfig }},
+ {{ .KeyGroupConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

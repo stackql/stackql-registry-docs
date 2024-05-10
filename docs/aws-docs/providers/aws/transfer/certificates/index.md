@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.transfer.certificates (
  region
 )
 SELECT 
-{{ Usage }},
- {{ Certificate }},
+{{ .Usage }},
+ {{ .Certificate }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,17 +135,16 @@ INSERT INTO aws.transfer.certificates (
  region
 )
 SELECT 
- {{ Usage }},
- {{ Certificate }},
- {{ CertificateChain }},
- {{ PrivateKey }},
- {{ ActiveDate }},
- {{ InactiveDate }},
- {{ Description }},
- {{ Tags }},
+ {{ .Usage }},
+ {{ .Certificate }},
+ {{ .CertificateChain }},
+ {{ .PrivateKey }},
+ {{ .ActiveDate }},
+ {{ .InactiveDate }},
+ {{ .Description }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

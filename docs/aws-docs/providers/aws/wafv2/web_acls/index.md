@@ -83,7 +83,6 @@ FROM aws.wafv2.web_acls
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -128,12 +127,11 @@ INSERT INTO aws.wafv2.web_acls (
  region
 )
 SELECT 
-{{ DefaultAction }},
- {{ Scope }},
- {{ VisibilityConfig }},
+{{ .DefaultAction }},
+ {{ .Scope }},
+ {{ .VisibilityConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -525,21 +523,20 @@ INSERT INTO aws.wafv2.web_acls (
  region
 )
 SELECT 
- {{ DefaultAction }},
- {{ Description }},
- {{ Name }},
- {{ Scope }},
- {{ Rules }},
- {{ VisibilityConfig }},
- {{ Tags }},
- {{ CustomResponseBodies }},
- {{ CaptchaConfig }},
- {{ ChallengeConfig }},
- {{ TokenDomains }},
- {{ AssociationConfig }},
+ {{ .DefaultAction }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .Scope }},
+ {{ .Rules }},
+ {{ .VisibilityConfig }},
+ {{ .Tags }},
+ {{ .CustomResponseBodies }},
+ {{ .CaptchaConfig }},
+ {{ .ChallengeConfig }},
+ {{ .TokenDomains }},
+ {{ .AssociationConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -113,16 +112,15 @@ INSERT INTO aws.proton.environment_account_connections (
  region
 )
 SELECT 
-{{ CodebuildRoleArn }},
- {{ ComponentRoleArn }},
- {{ EnvironmentAccountId }},
- {{ EnvironmentName }},
- {{ ManagementAccountId }},
- {{ RoleArn }},
- {{ Tags }},
+{{ .CodebuildRoleArn }},
+ {{ .ComponentRoleArn }},
+ {{ .EnvironmentAccountId }},
+ {{ .EnvironmentName }},
+ {{ .ManagementAccountId }},
+ {{ .RoleArn }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -155,16 +153,15 @@ INSERT INTO aws.proton.environment_account_connections (
  region
 )
 SELECT 
- {{ CodebuildRoleArn }},
- {{ ComponentRoleArn }},
- {{ EnvironmentAccountId }},
- {{ EnvironmentName }},
- {{ ManagementAccountId }},
- {{ RoleArn }},
- {{ Tags }},
+ {{ .CodebuildRoleArn }},
+ {{ .ComponentRoleArn }},
+ {{ .EnvironmentAccountId }},
+ {{ .EnvironmentName }},
+ {{ .ManagementAccountId }},
+ {{ .RoleArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

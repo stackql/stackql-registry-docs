@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.elasticache.subnet_groups (
  region
 )
 SELECT 
-{{ Description }},
- {{ SubnetIds }},
+{{ .Description }},
+ {{ .SubnetIds }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,13 +131,12 @@ INSERT INTO aws.elasticache.subnet_groups (
  region
 )
 SELECT 
- {{ Description }},
- {{ SubnetIds }},
- {{ CacheSubnetGroupName }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .SubnetIds }},
+ {{ .CacheSubnetGroupName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

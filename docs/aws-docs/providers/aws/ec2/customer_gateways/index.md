@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.ec2.customer_gateways (
  region
 )
 SELECT 
-{{ BgpAsn }},
- {{ IpAddress }},
- {{ Type }},
+{{ .BgpAsn }},
+ {{ .IpAddress }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,15 +134,14 @@ INSERT INTO aws.ec2.customer_gateways (
  region
 )
 SELECT 
- {{ CertificateArn }},
- {{ BgpAsn }},
- {{ IpAddress }},
- {{ Tags }},
- {{ Type }},
- {{ DeviceName }},
+ {{ .CertificateArn }},
+ {{ .BgpAsn }},
+ {{ .IpAddress }},
+ {{ .Tags }},
+ {{ .Type }},
+ {{ .DeviceName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

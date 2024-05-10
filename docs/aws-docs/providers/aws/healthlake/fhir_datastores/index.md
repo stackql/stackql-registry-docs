@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.healthlake.fhir_datastores (
  region
 )
 SELECT 
-{{ DatastoreTypeVersion }},
+{{ .DatastoreTypeVersion }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -142,15 +140,14 @@ INSERT INTO aws.healthlake.fhir_datastores (
  region
 )
 SELECT 
- {{ DatastoreName }},
- {{ DatastoreTypeVersion }},
- {{ PreloadDataConfig }},
- {{ SseConfiguration }},
- {{ IdentityProviderConfiguration }},
- {{ Tags }},
+ {{ .DatastoreName }},
+ {{ .DatastoreTypeVersion }},
+ {{ .PreloadDataConfig }},
+ {{ .SseConfiguration }},
+ {{ .IdentityProviderConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

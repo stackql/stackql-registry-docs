@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.memorydb.users (
  region
 )
 SELECT 
-{{ UserName }},
+{{ .UserName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,13 +129,12 @@ INSERT INTO aws.memorydb.users (
  region
 )
 SELECT 
- {{ UserName }},
- {{ AccessString }},
- {{ AuthenticationMode }},
- {{ Tags }},
+ {{ .UserName }},
+ {{ .AccessString }},
+ {{ .AuthenticationMode }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

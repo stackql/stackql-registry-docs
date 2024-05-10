@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.logs.deliveries (
  region
 )
 SELECT 
-{{ DeliverySourceName }},
- {{ DeliveryDestinationArn }},
+{{ .DeliverySourceName }},
+ {{ .DeliveryDestinationArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,12 +125,11 @@ INSERT INTO aws.logs.deliveries (
  region
 )
 SELECT 
- {{ DeliverySourceName }},
- {{ DeliveryDestinationArn }},
- {{ Tags }},
+ {{ .DeliverySourceName }},
+ {{ .DeliveryDestinationArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

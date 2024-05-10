@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.iotsitewise.projects (
  region
 )
 SELECT 
-{{ PortalId }},
- {{ ProjectName }},
+{{ .PortalId }},
+ {{ .ProjectName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,14 +131,13 @@ INSERT INTO aws.iotsitewise.projects (
  region
 )
 SELECT 
- {{ PortalId }},
- {{ ProjectName }},
- {{ ProjectDescription }},
- {{ AssetIds }},
- {{ Tags }},
+ {{ .PortalId }},
+ {{ .ProjectName }},
+ {{ .ProjectDescription }},
+ {{ .AssetIds }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

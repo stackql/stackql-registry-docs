@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,11 +105,10 @@ INSERT INTO aws.emrcontainers.virtual_clusters (
  region
 )
 SELECT 
-{{ ContainerProvider }},
- {{ Name }},
+{{ .ContainerProvider }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -143,12 +141,11 @@ INSERT INTO aws.emrcontainers.virtual_clusters (
  region
 )
 SELECT 
- {{ ContainerProvider }},
- {{ Name }},
- {{ Tags }},
+ {{ .ContainerProvider }},
+ {{ .Name }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

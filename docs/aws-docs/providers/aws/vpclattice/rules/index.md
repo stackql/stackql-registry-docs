@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -134,12 +133,11 @@ INSERT INTO aws.vpclattice.rules (
  region
 )
 SELECT 
-{{ Action }},
- {{ Match }},
- {{ Priority }},
+{{ .Action }},
+ {{ .Match }},
+ {{ .Priority }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -206,16 +204,15 @@ INSERT INTO aws.vpclattice.rules (
  region
 )
 SELECT 
- {{ Action }},
- {{ ListenerIdentifier }},
- {{ Match }},
- {{ Name }},
- {{ Priority }},
- {{ ServiceIdentifier }},
- {{ Tags }},
+ {{ .Action }},
+ {{ .ListenerIdentifier }},
+ {{ .Match }},
+ {{ .Name }},
+ {{ .Priority }},
+ {{ .ServiceIdentifier }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

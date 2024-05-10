@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.codegurureviewer.repository_associations (
  region
 )
 SELECT 
-{{ Name }},
- {{ Type }},
+{{ .Name }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,15 +131,14 @@ INSERT INTO aws.codegurureviewer.repository_associations (
  region
 )
 SELECT 
- {{ Name }},
- {{ Type }},
- {{ Owner }},
- {{ BucketName }},
- {{ ConnectionArn }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Type }},
+ {{ .Owner }},
+ {{ .BucketName }},
+ {{ .ConnectionArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

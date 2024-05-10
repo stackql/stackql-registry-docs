@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -163,34 +162,33 @@ INSERT INTO aws.neptune.db_clusters (
  region
 )
 SELECT 
-{{ AssociatedRoles }},
- {{ AvailabilityZones }},
- {{ BackupRetentionPeriod }},
- {{ CopyTagsToSnapshot }},
- {{ DBClusterIdentifier }},
- {{ DBClusterParameterGroupName }},
- {{ DBInstanceParameterGroupName }},
- {{ DBPort }},
- {{ DBSubnetGroupName }},
- {{ DeletionProtection }},
- {{ EnableCloudwatchLogsExports }},
- {{ EngineVersion }},
- {{ IamAuthEnabled }},
- {{ KmsKeyId }},
- {{ PreferredBackupWindow }},
- {{ PreferredMaintenanceWindow }},
- {{ RestoreToTime }},
- {{ RestoreType }},
- {{ ServerlessScalingConfiguration }},
- {{ SnapshotIdentifier }},
- {{ SourceDBClusterIdentifier }},
- {{ StorageEncrypted }},
- {{ Tags }},
- {{ UseLatestRestorableTime }},
- {{ VpcSecurityGroupIds }},
+{{ .AssociatedRoles }},
+ {{ .AvailabilityZones }},
+ {{ .BackupRetentionPeriod }},
+ {{ .CopyTagsToSnapshot }},
+ {{ .DBClusterIdentifier }},
+ {{ .DBClusterParameterGroupName }},
+ {{ .DBInstanceParameterGroupName }},
+ {{ .DBPort }},
+ {{ .DBSubnetGroupName }},
+ {{ .DeletionProtection }},
+ {{ .EnableCloudwatchLogsExports }},
+ {{ .EngineVersion }},
+ {{ .IamAuthEnabled }},
+ {{ .KmsKeyId }},
+ {{ .PreferredBackupWindow }},
+ {{ .PreferredMaintenanceWindow }},
+ {{ .RestoreToTime }},
+ {{ .RestoreType }},
+ {{ .ServerlessScalingConfiguration }},
+ {{ .SnapshotIdentifier }},
+ {{ .SourceDBClusterIdentifier }},
+ {{ .StorageEncrypted }},
+ {{ .Tags }},
+ {{ .UseLatestRestorableTime }},
+ {{ .VpcSecurityGroupIds }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -273,34 +271,33 @@ INSERT INTO aws.neptune.db_clusters (
  region
 )
 SELECT 
- {{ AssociatedRoles }},
- {{ AvailabilityZones }},
- {{ BackupRetentionPeriod }},
- {{ CopyTagsToSnapshot }},
- {{ DBClusterIdentifier }},
- {{ DBClusterParameterGroupName }},
- {{ DBInstanceParameterGroupName }},
- {{ DBPort }},
- {{ DBSubnetGroupName }},
- {{ DeletionProtection }},
- {{ EnableCloudwatchLogsExports }},
- {{ EngineVersion }},
- {{ IamAuthEnabled }},
- {{ KmsKeyId }},
- {{ PreferredBackupWindow }},
- {{ PreferredMaintenanceWindow }},
- {{ RestoreToTime }},
- {{ RestoreType }},
- {{ ServerlessScalingConfiguration }},
- {{ SnapshotIdentifier }},
- {{ SourceDBClusterIdentifier }},
- {{ StorageEncrypted }},
- {{ Tags }},
- {{ UseLatestRestorableTime }},
- {{ VpcSecurityGroupIds }},
+ {{ .AssociatedRoles }},
+ {{ .AvailabilityZones }},
+ {{ .BackupRetentionPeriod }},
+ {{ .CopyTagsToSnapshot }},
+ {{ .DBClusterIdentifier }},
+ {{ .DBClusterParameterGroupName }},
+ {{ .DBInstanceParameterGroupName }},
+ {{ .DBPort }},
+ {{ .DBSubnetGroupName }},
+ {{ .DeletionProtection }},
+ {{ .EnableCloudwatchLogsExports }},
+ {{ .EngineVersion }},
+ {{ .IamAuthEnabled }},
+ {{ .KmsKeyId }},
+ {{ .PreferredBackupWindow }},
+ {{ .PreferredMaintenanceWindow }},
+ {{ .RestoreToTime }},
+ {{ .RestoreType }},
+ {{ .ServerlessScalingConfiguration }},
+ {{ .SnapshotIdentifier }},
+ {{ .SourceDBClusterIdentifier }},
+ {{ .StorageEncrypted }},
+ {{ .Tags }},
+ {{ .UseLatestRestorableTime }},
+ {{ .VpcSecurityGroupIds }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.macie.custom_data_identifiers (
  region
 )
 SELECT 
-{{ Name }},
- {{ Regex }},
+{{ .Name }},
+ {{ .Regex }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,16 +137,15 @@ INSERT INTO aws.macie.custom_data_identifiers (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Regex }},
- {{ MaximumMatchDistance }},
- {{ Keywords }},
- {{ IgnoreWords }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Regex }},
+ {{ .MaximumMatchDistance }},
+ {{ .Keywords }},
+ {{ .IgnoreWords }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

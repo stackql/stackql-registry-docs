@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -107,13 +106,12 @@ INSERT INTO aws.cleanrooms.privacy_budget_templates (
  region
 )
 SELECT 
-{{ AutoRefresh }},
- {{ PrivacyBudgetType }},
- {{ Parameters }},
- {{ MembershipIdentifier }},
+{{ .AutoRefresh }},
+ {{ .PrivacyBudgetType }},
+ {{ .Parameters }},
+ {{ .MembershipIdentifier }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,14 +143,13 @@ INSERT INTO aws.cleanrooms.privacy_budget_templates (
  region
 )
 SELECT 
- {{ Tags }},
- {{ AutoRefresh }},
- {{ PrivacyBudgetType }},
- {{ Parameters }},
- {{ MembershipIdentifier }},
+ {{ .Tags }},
+ {{ .AutoRefresh }},
+ {{ .PrivacyBudgetType }},
+ {{ .Parameters }},
+ {{ .MembershipIdentifier }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

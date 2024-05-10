@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.quicksight.refresh_schedules (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,12 +132,11 @@ INSERT INTO aws.quicksight.refresh_schedules (
  region
 )
 SELECT 
- {{ AwsAccountId }},
- {{ DataSetId }},
- {{ Schedule }},
+ {{ .AwsAccountId }},
+ {{ .DataSetId }},
+ {{ .Schedule }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ssm.associations (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -162,26 +160,25 @@ INSERT INTO aws.ssm.associations (
  region
 )
 SELECT 
- {{ AssociationName }},
- {{ CalendarNames }},
- {{ ScheduleExpression }},
- {{ MaxErrors }},
- {{ Parameters }},
- {{ InstanceId }},
- {{ WaitForSuccessTimeoutSeconds }},
- {{ MaxConcurrency }},
- {{ ComplianceSeverity }},
- {{ Targets }},
- {{ SyncCompliance }},
- {{ OutputLocation }},
- {{ ScheduleOffset }},
- {{ Name }},
- {{ ApplyOnlyAtCronInterval }},
- {{ DocumentVersion }},
- {{ AutomationTargetParameterName }},
+ {{ .AssociationName }},
+ {{ .CalendarNames }},
+ {{ .ScheduleExpression }},
+ {{ .MaxErrors }},
+ {{ .Parameters }},
+ {{ .InstanceId }},
+ {{ .WaitForSuccessTimeoutSeconds }},
+ {{ .MaxConcurrency }},
+ {{ .ComplianceSeverity }},
+ {{ .Targets }},
+ {{ .SyncCompliance }},
+ {{ .OutputLocation }},
+ {{ .ScheduleOffset }},
+ {{ .Name }},
+ {{ .ApplyOnlyAtCronInterval }},
+ {{ .DocumentVersion }},
+ {{ .AutomationTargetParameterName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

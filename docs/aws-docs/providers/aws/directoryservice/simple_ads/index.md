@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,12 +104,11 @@ INSERT INTO aws.directoryservice.simple_ads (
  region
 )
 SELECT 
-{{ Name }},
- {{ Size }},
- {{ VpcSettings }},
+{{ .Name }},
+ {{ .Size }},
+ {{ .VpcSettings }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,17 +143,16 @@ INSERT INTO aws.directoryservice.simple_ads (
  region
 )
 SELECT 
- {{ CreateAlias }},
- {{ Description }},
- {{ EnableSso }},
- {{ Name }},
- {{ Password }},
- {{ ShortName }},
- {{ Size }},
- {{ VpcSettings }},
+ {{ .CreateAlias }},
+ {{ .Description }},
+ {{ .EnableSso }},
+ {{ .Name }},
+ {{ .Password }},
+ {{ .ShortName }},
+ {{ .Size }},
+ {{ .VpcSettings }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

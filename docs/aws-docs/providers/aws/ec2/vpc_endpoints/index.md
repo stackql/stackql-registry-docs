@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ec2.vpc_endpoints (
  region
 )
 SELECT 
-{{ ServiceName }},
- {{ VpcId }},
+{{ .ServiceName }},
+ {{ .VpcId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,17 +136,16 @@ INSERT INTO aws.ec2.vpc_endpoints (
  region
 )
 SELECT 
- {{ PolicyDocument }},
- {{ PrivateDnsEnabled }},
- {{ RouteTableIds }},
- {{ SecurityGroupIds }},
- {{ ServiceName }},
- {{ SubnetIds }},
- {{ VpcEndpointType }},
- {{ VpcId }},
+ {{ .PolicyDocument }},
+ {{ .PrivateDnsEnabled }},
+ {{ .RouteTableIds }},
+ {{ .SecurityGroupIds }},
+ {{ .ServiceName }},
+ {{ .SubnetIds }},
+ {{ .VpcEndpointType }},
+ {{ .VpcId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,10 +101,9 @@ INSERT INTO aws.iotevents.inputs (
  region
 )
 SELECT 
-{{ InputDefinition }},
+{{ .InputDefinition }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,13 +136,12 @@ INSERT INTO aws.iotevents.inputs (
  region
 )
 SELECT 
- {{ InputDefinition }},
- {{ InputDescription }},
- {{ InputName }},
- {{ Tags }},
+ {{ .InputDefinition }},
+ {{ .InputDescription }},
+ {{ .InputName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

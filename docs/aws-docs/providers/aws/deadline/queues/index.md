@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.deadline.queues (
  region
 )
 SELECT 
-{{ DisplayName }},
+{{ .DisplayName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -148,18 +146,17 @@ INSERT INTO aws.deadline.queues (
  region
 )
 SELECT 
- {{ AllowedStorageProfileIds }},
- {{ DefaultBudgetAction }},
- {{ Description }},
- {{ DisplayName }},
- {{ FarmId }},
- {{ JobAttachmentSettings }},
- {{ JobRunAsUser }},
- {{ RequiredFileSystemLocationNames }},
- {{ RoleArn }},
+ {{ .AllowedStorageProfileIds }},
+ {{ .DefaultBudgetAction }},
+ {{ .Description }},
+ {{ .DisplayName }},
+ {{ .FarmId }},
+ {{ .JobAttachmentSettings }},
+ {{ .JobRunAsUser }},
+ {{ .RequiredFileSystemLocationNames }},
+ {{ .RoleArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

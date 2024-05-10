@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -111,14 +110,13 @@ INSERT INTO aws.securitylake.subscribers (
  region
 )
 SELECT 
-{{ AccessTypes }},
- {{ DataLakeArn }},
- {{ SubscriberIdentity }},
- {{ SubscriberName }},
- {{ Sources }},
+{{ .AccessTypes }},
+ {{ .DataLakeArn }},
+ {{ .SubscriberIdentity }},
+ {{ .SubscriberName }},
+ {{ .Sources }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -158,16 +156,15 @@ INSERT INTO aws.securitylake.subscribers (
  region
 )
 SELECT 
- {{ AccessTypes }},
- {{ DataLakeArn }},
- {{ SubscriberIdentity }},
- {{ SubscriberName }},
- {{ SubscriberDescription }},
- {{ Tags }},
- {{ Sources }},
+ {{ .AccessTypes }},
+ {{ .DataLakeArn }},
+ {{ .SubscriberIdentity }},
+ {{ .SubscriberName }},
+ {{ .SubscriberDescription }},
+ {{ .Tags }},
+ {{ .Sources }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

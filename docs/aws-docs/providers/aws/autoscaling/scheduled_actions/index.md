@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.autoscaling.scheduled_actions (
  region
 )
 SELECT 
-{{ AutoScalingGroupName }},
+{{ .AutoScalingGroupName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,17 +129,16 @@ INSERT INTO aws.autoscaling.scheduled_actions (
  region
 )
 SELECT 
- {{ MinSize }},
- {{ Recurrence }},
- {{ TimeZone }},
- {{ EndTime }},
- {{ AutoScalingGroupName }},
- {{ StartTime }},
- {{ DesiredCapacity }},
- {{ MaxSize }},
+ {{ .MinSize }},
+ {{ .Recurrence }},
+ {{ .TimeZone }},
+ {{ .EndTime }},
+ {{ .AutoScalingGroupName }},
+ {{ .StartTime }},
+ {{ .DesiredCapacity }},
+ {{ .MaxSize }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

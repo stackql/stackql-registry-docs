@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -151,28 +150,27 @@ INSERT INTO aws.elasticloadbalancingv2.target_groups (
  region
 )
 SELECT 
-{{ IpAddressType }},
- {{ HealthCheckIntervalSeconds }},
- {{ Matcher }},
- {{ HealthCheckPath }},
- {{ Port }},
- {{ Targets }},
- {{ HealthCheckEnabled }},
- {{ ProtocolVersion }},
- {{ UnhealthyThresholdCount }},
- {{ HealthCheckTimeoutSeconds }},
- {{ Name }},
- {{ VpcId }},
- {{ HealthyThresholdCount }},
- {{ HealthCheckProtocol }},
- {{ TargetGroupAttributes }},
- {{ TargetType }},
- {{ HealthCheckPort }},
- {{ Protocol }},
- {{ Tags }},
+{{ .IpAddressType }},
+ {{ .HealthCheckIntervalSeconds }},
+ {{ .Matcher }},
+ {{ .HealthCheckPath }},
+ {{ .Port }},
+ {{ .Targets }},
+ {{ .HealthCheckEnabled }},
+ {{ .ProtocolVersion }},
+ {{ .UnhealthyThresholdCount }},
+ {{ .HealthCheckTimeoutSeconds }},
+ {{ .Name }},
+ {{ .VpcId }},
+ {{ .HealthyThresholdCount }},
+ {{ .HealthCheckProtocol }},
+ {{ .TargetGroupAttributes }},
+ {{ .TargetType }},
+ {{ .HealthCheckPort }},
+ {{ .Protocol }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -243,28 +241,27 @@ INSERT INTO aws.elasticloadbalancingv2.target_groups (
  region
 )
 SELECT 
- {{ IpAddressType }},
- {{ HealthCheckIntervalSeconds }},
- {{ Matcher }},
- {{ HealthCheckPath }},
- {{ Port }},
- {{ Targets }},
- {{ HealthCheckEnabled }},
- {{ ProtocolVersion }},
- {{ UnhealthyThresholdCount }},
- {{ HealthCheckTimeoutSeconds }},
- {{ Name }},
- {{ VpcId }},
- {{ HealthyThresholdCount }},
- {{ HealthCheckProtocol }},
- {{ TargetGroupAttributes }},
- {{ TargetType }},
- {{ HealthCheckPort }},
- {{ Protocol }},
- {{ Tags }},
+ {{ .IpAddressType }},
+ {{ .HealthCheckIntervalSeconds }},
+ {{ .Matcher }},
+ {{ .HealthCheckPath }},
+ {{ .Port }},
+ {{ .Targets }},
+ {{ .HealthCheckEnabled }},
+ {{ .ProtocolVersion }},
+ {{ .UnhealthyThresholdCount }},
+ {{ .HealthCheckTimeoutSeconds }},
+ {{ .Name }},
+ {{ .VpcId }},
+ {{ .HealthyThresholdCount }},
+ {{ .HealthCheckProtocol }},
+ {{ .TargetGroupAttributes }},
+ {{ .TargetType }},
+ {{ .HealthCheckPort }},
+ {{ .Protocol }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

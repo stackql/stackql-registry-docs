@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -135,10 +134,9 @@ INSERT INTO aws.groundstation.dataflow_endpoint_groups (
  region
 )
 SELECT 
-{{ EndpointDetails }},
+{{ .EndpointDetails }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -204,13 +202,12 @@ INSERT INTO aws.groundstation.dataflow_endpoint_groups (
  region
 )
 SELECT 
- {{ EndpointDetails }},
- {{ ContactPrePassDurationSeconds }},
- {{ ContactPostPassDurationSeconds }},
- {{ Tags }},
+ {{ .EndpointDetails }},
+ {{ .ContactPrePassDurationSeconds }},
+ {{ .ContactPostPassDurationSeconds }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

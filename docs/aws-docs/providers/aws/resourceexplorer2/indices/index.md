@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.resourceexplorer2.indices (
  region
 )
 SELECT 
-{{ Type }},
+{{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -117,11 +115,10 @@ INSERT INTO aws.resourceexplorer2.indices (
  region
 )
 SELECT 
- {{ Tags }},
- {{ Type }},
+ {{ .Tags }},
+ {{ .Type }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

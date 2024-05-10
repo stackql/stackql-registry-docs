@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.apigatewayv2.integration_responses (
  region
 )
 SELECT 
-{{ IntegrationId }},
- {{ IntegrationResponseKey }},
- {{ ApiId }},
+{{ .IntegrationId }},
+ {{ .IntegrationResponseKey }},
+ {{ .ApiId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,16 +135,15 @@ INSERT INTO aws.apigatewayv2.integration_responses (
  region
 )
 SELECT 
- {{ ResponseTemplates }},
- {{ TemplateSelectionExpression }},
- {{ ResponseParameters }},
- {{ ContentHandlingStrategy }},
- {{ IntegrationId }},
- {{ IntegrationResponseKey }},
- {{ ApiId }},
+ {{ .ResponseTemplates }},
+ {{ .TemplateSelectionExpression }},
+ {{ .ResponseParameters }},
+ {{ .ContentHandlingStrategy }},
+ {{ .IntegrationId }},
+ {{ .IntegrationResponseKey }},
+ {{ .ApiId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

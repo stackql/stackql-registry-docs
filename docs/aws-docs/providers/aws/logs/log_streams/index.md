@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.logs.log_streams (
  region
 )
 SELECT 
-{{ LogGroupName }},
+{{ .LogGroupName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -119,11 +117,10 @@ INSERT INTO aws.logs.log_streams (
  region
 )
 SELECT 
- {{ LogStreamName }},
- {{ LogGroupName }},
+ {{ .LogStreamName }},
+ {{ .LogGroupName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

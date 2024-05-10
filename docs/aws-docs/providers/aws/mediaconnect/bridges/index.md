@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,12 +104,11 @@ INSERT INTO aws.mediaconnect.bridges (
  region
 )
 SELECT 
-{{ Name }},
- {{ PlacementArn }},
- {{ Sources }},
+{{ .Name }},
+ {{ .PlacementArn }},
+ {{ .Sources }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -179,16 +177,15 @@ INSERT INTO aws.mediaconnect.bridges (
  region
 )
 SELECT 
- {{ Name }},
- {{ PlacementArn }},
- {{ SourceFailoverConfig }},
- {{ Outputs }},
- {{ Sources }},
- {{ IngressGatewayBridge }},
- {{ EgressGatewayBridge }},
+ {{ .Name }},
+ {{ .PlacementArn }},
+ {{ .SourceFailoverConfig }},
+ {{ .Outputs }},
+ {{ .Sources }},
+ {{ .IngressGatewayBridge }},
+ {{ .EgressGatewayBridge }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

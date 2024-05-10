@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -110,11 +109,10 @@ INSERT INTO aws.vpclattice.listeners (
  region
 )
 SELECT 
-{{ DefaultAction }},
- {{ Protocol }},
+{{ .DefaultAction }},
+ {{ .Protocol }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -157,15 +155,14 @@ INSERT INTO aws.vpclattice.listeners (
  region
 )
 SELECT 
- {{ DefaultAction }},
- {{ Name }},
- {{ Port }},
- {{ Protocol }},
- {{ ServiceIdentifier }},
- {{ Tags }},
+ {{ .DefaultAction }},
+ {{ .Name }},
+ {{ .Port }},
+ {{ .Protocol }},
+ {{ .ServiceIdentifier }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

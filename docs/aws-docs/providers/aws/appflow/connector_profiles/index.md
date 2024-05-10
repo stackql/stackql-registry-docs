@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.appflow.connector_profiles (
  region
 )
 SELECT 
-{{ ConnectorProfileName }},
- {{ ConnectorType }},
- {{ ConnectionMode }},
+{{ .ConnectorProfileName }},
+ {{ .ConnectorType }},
+ {{ .ConnectionMode }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -328,15 +326,14 @@ INSERT INTO aws.appflow.connector_profiles (
  region
 )
 SELECT 
- {{ ConnectorLabel }},
- {{ ConnectorProfileName }},
- {{ KMSArn }},
- {{ ConnectorType }},
- {{ ConnectionMode }},
- {{ ConnectorProfileConfig }},
+ {{ .ConnectorLabel }},
+ {{ .ConnectorProfileName }},
+ {{ .KMSArn }},
+ {{ .ConnectorType }},
+ {{ .ConnectionMode }},
+ {{ .ConnectorProfileConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.finspace.environments (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -152,17 +150,16 @@ INSERT INTO aws.finspace.environments (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ KmsKeyId }},
- {{ FederationMode }},
- {{ FederationParameters }},
- {{ SuperuserParameters }},
- {{ DataBundles }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .KmsKeyId }},
+ {{ .FederationMode }},
+ {{ .FederationParameters }},
+ {{ .SuperuserParameters }},
+ {{ .DataBundles }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

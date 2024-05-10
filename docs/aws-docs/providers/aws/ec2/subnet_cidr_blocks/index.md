@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ec2.subnet_cidr_blocks (
  region
 )
 SELECT 
-{{ SubnetId }},
+{{ .SubnetId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -121,13 +119,12 @@ INSERT INTO aws.ec2.subnet_cidr_blocks (
  region
 )
 SELECT 
- {{ Ipv6CidrBlock }},
- {{ Ipv6IpamPoolId }},
- {{ Ipv6NetmaskLength }},
- {{ SubnetId }},
+ {{ .Ipv6CidrBlock }},
+ {{ .Ipv6IpamPoolId }},
+ {{ .Ipv6NetmaskLength }},
+ {{ .SubnetId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

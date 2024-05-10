@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,11 +100,10 @@ INSERT INTO aws.apprunner.vpc_ingress_connections (
  region
 )
 SELECT 
-{{ ServiceArn }},
- {{ IngressVpcConfiguration }},
+{{ .ServiceArn }},
+ {{ .IngressVpcConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,13 +133,12 @@ INSERT INTO aws.apprunner.vpc_ingress_connections (
  region
 )
 SELECT 
- {{ VpcIngressConnectionName }},
- {{ ServiceArn }},
- {{ IngressVpcConfiguration }},
- {{ Tags }},
+ {{ .VpcIngressConnectionName }},
+ {{ .ServiceArn }},
+ {{ .IngressVpcConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

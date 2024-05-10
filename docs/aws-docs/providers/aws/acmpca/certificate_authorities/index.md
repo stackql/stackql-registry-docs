@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -123,13 +122,12 @@ INSERT INTO aws.acmpca.certificate_authorities (
  region
 )
 SELECT 
-{{ Type }},
- {{ KeyAlgorithm }},
- {{ SigningAlgorithm }},
- {{ Subject }},
+{{ .Type }},
+ {{ .KeyAlgorithm }},
+ {{ .SigningAlgorithm }},
+ {{ .Subject }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -238,18 +236,17 @@ INSERT INTO aws.acmpca.certificate_authorities (
  region
 )
 SELECT 
- {{ Type }},
- {{ KeyAlgorithm }},
- {{ SigningAlgorithm }},
- {{ Subject }},
- {{ RevocationConfiguration }},
- {{ Tags }},
- {{ CsrExtensions }},
- {{ KeyStorageSecurityStandard }},
- {{ UsageMode }},
+ {{ .Type }},
+ {{ .KeyAlgorithm }},
+ {{ .SigningAlgorithm }},
+ {{ .Subject }},
+ {{ .RevocationConfiguration }},
+ {{ .Tags }},
+ {{ .CsrExtensions }},
+ {{ .KeyStorageSecurityStandard }},
+ {{ .UsageMode }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

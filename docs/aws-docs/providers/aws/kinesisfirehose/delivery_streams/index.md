@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -395,24 +394,23 @@ INSERT INTO aws.kinesisfirehose.delivery_streams (
  region
 )
 SELECT 
-{{ DeliveryStreamEncryptionConfigurationInput }},
- {{ DeliveryStreamName }},
- {{ DeliveryStreamType }},
- {{ ElasticsearchDestinationConfiguration }},
- {{ AmazonopensearchserviceDestinationConfiguration }},
- {{ AmazonOpenSearchServerlessDestinationConfiguration }},
- {{ ExtendedS3DestinationConfiguration }},
- {{ KinesisStreamSourceConfiguration }},
- {{ MSKSourceConfiguration }},
- {{ RedshiftDestinationConfiguration }},
- {{ S3DestinationConfiguration }},
- {{ SplunkDestinationConfiguration }},
- {{ HttpEndpointDestinationConfiguration }},
- {{ SnowflakeDestinationConfiguration }},
- {{ Tags }},
+{{ .DeliveryStreamEncryptionConfigurationInput }},
+ {{ .DeliveryStreamName }},
+ {{ .DeliveryStreamType }},
+ {{ .ElasticsearchDestinationConfiguration }},
+ {{ .AmazonopensearchserviceDestinationConfiguration }},
+ {{ .AmazonOpenSearchServerlessDestinationConfiguration }},
+ {{ .ExtendedS3DestinationConfiguration }},
+ {{ .KinesisStreamSourceConfiguration }},
+ {{ .MSKSourceConfiguration }},
+ {{ .RedshiftDestinationConfiguration }},
+ {{ .S3DestinationConfiguration }},
+ {{ .SplunkDestinationConfiguration }},
+ {{ .HttpEndpointDestinationConfiguration }},
+ {{ .SnowflakeDestinationConfiguration }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -727,24 +725,23 @@ INSERT INTO aws.kinesisfirehose.delivery_streams (
  region
 )
 SELECT 
- {{ DeliveryStreamEncryptionConfigurationInput }},
- {{ DeliveryStreamName }},
- {{ DeliveryStreamType }},
- {{ ElasticsearchDestinationConfiguration }},
- {{ AmazonopensearchserviceDestinationConfiguration }},
- {{ AmazonOpenSearchServerlessDestinationConfiguration }},
- {{ ExtendedS3DestinationConfiguration }},
- {{ KinesisStreamSourceConfiguration }},
- {{ MSKSourceConfiguration }},
- {{ RedshiftDestinationConfiguration }},
- {{ S3DestinationConfiguration }},
- {{ SplunkDestinationConfiguration }},
- {{ HttpEndpointDestinationConfiguration }},
- {{ SnowflakeDestinationConfiguration }},
- {{ Tags }},
+ {{ .DeliveryStreamEncryptionConfigurationInput }},
+ {{ .DeliveryStreamName }},
+ {{ .DeliveryStreamType }},
+ {{ .ElasticsearchDestinationConfiguration }},
+ {{ .AmazonopensearchserviceDestinationConfiguration }},
+ {{ .AmazonOpenSearchServerlessDestinationConfiguration }},
+ {{ .ExtendedS3DestinationConfiguration }},
+ {{ .KinesisStreamSourceConfiguration }},
+ {{ .MSKSourceConfiguration }},
+ {{ .RedshiftDestinationConfiguration }},
+ {{ .S3DestinationConfiguration }},
+ {{ .SplunkDestinationConfiguration }},
+ {{ .HttpEndpointDestinationConfiguration }},
+ {{ .SnowflakeDestinationConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

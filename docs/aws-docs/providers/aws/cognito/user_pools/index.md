@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -242,33 +241,32 @@ INSERT INTO aws.cognito.user_pools (
  region
 )
 SELECT 
-{{ UserPoolName }},
- {{ Policies }},
- {{ AccountRecoverySetting }},
- {{ AdminCreateUserConfig }},
- {{ AliasAttributes }},
- {{ UsernameAttributes }},
- {{ AutoVerifiedAttributes }},
- {{ DeviceConfiguration }},
- {{ EmailConfiguration }},
- {{ EmailVerificationMessage }},
- {{ EmailVerificationSubject }},
- {{ DeletionProtection }},
- {{ LambdaConfig }},
- {{ MfaConfiguration }},
- {{ EnabledMfas }},
- {{ SmsAuthenticationMessage }},
- {{ SmsConfiguration }},
- {{ SmsVerificationMessage }},
- {{ Schema }},
- {{ UsernameConfiguration }},
- {{ UserAttributeUpdateSettings }},
- {{ UserPoolTags }},
- {{ VerificationMessageTemplate }},
- {{ UserPoolAddOns }},
+{{ .UserPoolName }},
+ {{ .Policies }},
+ {{ .AccountRecoverySetting }},
+ {{ .AdminCreateUserConfig }},
+ {{ .AliasAttributes }},
+ {{ .UsernameAttributes }},
+ {{ .AutoVerifiedAttributes }},
+ {{ .DeviceConfiguration }},
+ {{ .EmailConfiguration }},
+ {{ .EmailVerificationMessage }},
+ {{ .EmailVerificationSubject }},
+ {{ .DeletionProtection }},
+ {{ .LambdaConfig }},
+ {{ .MfaConfiguration }},
+ {{ .EnabledMfas }},
+ {{ .SmsAuthenticationMessage }},
+ {{ .SmsConfiguration }},
+ {{ .SmsVerificationMessage }},
+ {{ .Schema }},
+ {{ .UsernameConfiguration }},
+ {{ .UserAttributeUpdateSettings }},
+ {{ .UserPoolTags }},
+ {{ .VerificationMessageTemplate }},
+ {{ .UserPoolAddOns }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -430,33 +428,32 @@ INSERT INTO aws.cognito.user_pools (
  region
 )
 SELECT 
- {{ UserPoolName }},
- {{ Policies }},
- {{ AccountRecoverySetting }},
- {{ AdminCreateUserConfig }},
- {{ AliasAttributes }},
- {{ UsernameAttributes }},
- {{ AutoVerifiedAttributes }},
- {{ DeviceConfiguration }},
- {{ EmailConfiguration }},
- {{ EmailVerificationMessage }},
- {{ EmailVerificationSubject }},
- {{ DeletionProtection }},
- {{ LambdaConfig }},
- {{ MfaConfiguration }},
- {{ EnabledMfas }},
- {{ SmsAuthenticationMessage }},
- {{ SmsConfiguration }},
- {{ SmsVerificationMessage }},
- {{ Schema }},
- {{ UsernameConfiguration }},
- {{ UserAttributeUpdateSettings }},
- {{ UserPoolTags }},
- {{ VerificationMessageTemplate }},
- {{ UserPoolAddOns }},
+ {{ .UserPoolName }},
+ {{ .Policies }},
+ {{ .AccountRecoverySetting }},
+ {{ .AdminCreateUserConfig }},
+ {{ .AliasAttributes }},
+ {{ .UsernameAttributes }},
+ {{ .AutoVerifiedAttributes }},
+ {{ .DeviceConfiguration }},
+ {{ .EmailConfiguration }},
+ {{ .EmailVerificationMessage }},
+ {{ .EmailVerificationSubject }},
+ {{ .DeletionProtection }},
+ {{ .LambdaConfig }},
+ {{ .MfaConfiguration }},
+ {{ .EnabledMfas }},
+ {{ .SmsAuthenticationMessage }},
+ {{ .SmsConfiguration }},
+ {{ .SmsVerificationMessage }},
+ {{ .Schema }},
+ {{ .UsernameConfiguration }},
+ {{ .UserAttributeUpdateSettings }},
+ {{ .UserPoolTags }},
+ {{ .VerificationMessageTemplate }},
+ {{ .UserPoolAddOns }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

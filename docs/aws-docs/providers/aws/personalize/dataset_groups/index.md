@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.personalize.dataset_groups (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -121,13 +119,12 @@ INSERT INTO aws.personalize.dataset_groups (
  region
 )
 SELECT 
- {{ Name }},
- {{ KmsKeyArn }},
- {{ RoleArn }},
- {{ Domain }},
+ {{ .Name }},
+ {{ .KmsKeyArn }},
+ {{ .RoleArn }},
+ {{ .Domain }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

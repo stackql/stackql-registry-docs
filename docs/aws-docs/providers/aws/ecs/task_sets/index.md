@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.ecs.task_sets (
  region
 )
 SELECT 
-{{ Cluster }},
- {{ Service }},
- {{ TaskDefinition }},
+{{ .Cluster }},
+ {{ .Service }},
+ {{ .TaskDefinition }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -176,20 +174,19 @@ INSERT INTO aws.ecs.task_sets (
  region
 )
 SELECT 
- {{ Cluster }},
- {{ ExternalId }},
- {{ LaunchType }},
- {{ LoadBalancers }},
- {{ NetworkConfiguration }},
- {{ PlatformVersion }},
- {{ Scale }},
- {{ Service }},
- {{ ServiceRegistries }},
- {{ Tags }},
- {{ TaskDefinition }},
+ {{ .Cluster }},
+ {{ .ExternalId }},
+ {{ .LaunchType }},
+ {{ .LoadBalancers }},
+ {{ .NetworkConfiguration }},
+ {{ .PlatformVersion }},
+ {{ .Scale }},
+ {{ .Service }},
+ {{ .ServiceRegistries }},
+ {{ .Tags }},
+ {{ .TaskDefinition }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

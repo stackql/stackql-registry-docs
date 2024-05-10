@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.athena.capacity_reservations (
  region
 )
 SELECT 
-{{ Name }},
- {{ TargetDpus }},
+{{ .Name }},
+ {{ .TargetDpus }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,13 +135,12 @@ INSERT INTO aws.athena.capacity_reservations (
  region
 )
 SELECT 
- {{ Name }},
- {{ TargetDpus }},
- {{ CapacityAssignmentConfiguration }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .TargetDpus }},
+ {{ .CapacityAssignmentConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

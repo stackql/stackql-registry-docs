@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.comprehend.flywheels (
  region
 )
 SELECT 
-{{ DataAccessRoleArn }},
- {{ DataLakeS3Uri }},
- {{ FlywheelName }},
+{{ .DataAccessRoleArn }},
+ {{ .DataLakeS3Uri }},
+ {{ .FlywheelName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -167,17 +165,16 @@ INSERT INTO aws.comprehend.flywheels (
  region
 )
 SELECT 
- {{ ActiveModelArn }},
- {{ DataAccessRoleArn }},
- {{ DataLakeS3Uri }},
- {{ DataSecurityConfig }},
- {{ FlywheelName }},
- {{ ModelType }},
- {{ Tags }},
- {{ TaskConfig }},
+ {{ .ActiveModelArn }},
+ {{ .DataAccessRoleArn }},
+ {{ .DataLakeS3Uri }},
+ {{ .DataSecurityConfig }},
+ {{ .FlywheelName }},
+ {{ .ModelType }},
+ {{ .Tags }},
+ {{ .TaskConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

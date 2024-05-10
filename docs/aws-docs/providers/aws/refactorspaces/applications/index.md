@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.refactorspaces.applications (
  region
 )
 SELECT 
-{{ EnvironmentIdentifier }},
- {{ Name }},
- {{ ProxyType }},
- {{ VpcId }},
+{{ .EnvironmentIdentifier }},
+ {{ .Name }},
+ {{ .ProxyType }},
+ {{ .VpcId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,15 +142,14 @@ INSERT INTO aws.refactorspaces.applications (
  region
 )
 SELECT 
- {{ ApiGatewayProxy }},
- {{ EnvironmentIdentifier }},
- {{ Name }},
- {{ ProxyType }},
- {{ VpcId }},
- {{ Tags }},
+ {{ .ApiGatewayProxy }},
+ {{ .EnvironmentIdentifier }},
+ {{ .Name }},
+ {{ .ProxyType }},
+ {{ .VpcId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

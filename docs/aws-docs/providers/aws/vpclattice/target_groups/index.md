@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.vpclattice.target_groups (
  region
 )
 SELECT 
-{{ Type }},
+{{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -154,14 +152,13 @@ INSERT INTO aws.vpclattice.target_groups (
  region
 )
 SELECT 
- {{ Config }},
- {{ Name }},
- {{ Type }},
- {{ Targets }},
- {{ Tags }},
+ {{ .Config }},
+ {{ .Name }},
+ {{ .Type }},
+ {{ .Targets }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.billingconductor.pricing_rules (
  region
 )
 SELECT 
-{{ Name }},
- {{ Scope }},
- {{ Type }},
+{{ .Name }},
+ {{ .Scope }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -150,20 +148,19 @@ INSERT INTO aws.billingconductor.pricing_rules (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Scope }},
- {{ Type }},
- {{ ModifierPercentage }},
- {{ Service }},
- {{ BillingEntity }},
- {{ Tiering }},
- {{ UsageType }},
- {{ Operation }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Scope }},
+ {{ .Type }},
+ {{ .ModifierPercentage }},
+ {{ .Service }},
+ {{ .BillingEntity }},
+ {{ .Tiering }},
+ {{ .UsageType }},
+ {{ .Operation }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

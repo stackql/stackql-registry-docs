@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.redshift.endpoint_accesses (
  region
 )
 SELECT 
-{{ ClusterIdentifier }},
- {{ EndpointName }},
- {{ SubnetGroupName }},
- {{ VpcSecurityGroupIds }},
+{{ .ClusterIdentifier }},
+ {{ .EndpointName }},
+ {{ .SubnetGroupName }},
+ {{ .VpcSecurityGroupIds }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,14 +134,13 @@ INSERT INTO aws.redshift.endpoint_accesses (
  region
 )
 SELECT 
- {{ ClusterIdentifier }},
- {{ ResourceOwner }},
- {{ EndpointName }},
- {{ SubnetGroupName }},
- {{ VpcSecurityGroupIds }},
+ {{ .ClusterIdentifier }},
+ {{ .ResourceOwner }},
+ {{ .EndpointName }},
+ {{ .SubnetGroupName }},
+ {{ .VpcSecurityGroupIds }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -144,16 +143,15 @@ INSERT INTO aws.budgets.budgets_actions (
  region
 )
 SELECT 
-{{ BudgetName }},
- {{ NotificationType }},
- {{ ActionType }},
- {{ ActionThreshold }},
- {{ ExecutionRoleArn }},
- {{ Subscribers }},
- {{ Definition }},
+{{ .BudgetName }},
+ {{ .NotificationType }},
+ {{ .ActionType }},
+ {{ .ActionThreshold }},
+ {{ .ExecutionRoleArn }},
+ {{ .Subscribers }},
+ {{ .Definition }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -217,17 +215,16 @@ INSERT INTO aws.budgets.budgets_actions (
  region
 )
 SELECT 
- {{ BudgetName }},
- {{ NotificationType }},
- {{ ActionType }},
- {{ ActionThreshold }},
- {{ ExecutionRoleArn }},
- {{ ApprovalModel }},
- {{ Subscribers }},
- {{ Definition }},
+ {{ .BudgetName }},
+ {{ .NotificationType }},
+ {{ .ActionType }},
+ {{ .ActionThreshold }},
+ {{ .ExecutionRoleArn }},
+ {{ .ApprovalModel }},
+ {{ .Subscribers }},
+ {{ .Definition }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

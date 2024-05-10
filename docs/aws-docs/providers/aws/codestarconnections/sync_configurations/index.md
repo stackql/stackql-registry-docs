@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,15 +107,14 @@ INSERT INTO aws.codestarconnections.sync_configurations (
  region
 )
 SELECT 
-{{ ResourceName }},
- {{ Branch }},
- {{ ConfigFile }},
- {{ SyncType }},
- {{ RoleArn }},
- {{ RepositoryLinkId }},
+{{ .ResourceName }},
+ {{ .Branch }},
+ {{ .ConfigFile }},
+ {{ .SyncType }},
+ {{ .RoleArn }},
+ {{ .RepositoryLinkId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -146,17 +144,16 @@ INSERT INTO aws.codestarconnections.sync_configurations (
  region
 )
 SELECT 
- {{ ResourceName }},
- {{ Branch }},
- {{ ConfigFile }},
- {{ SyncType }},
- {{ RoleArn }},
- {{ PublishDeploymentStatus }},
- {{ TriggerResourceUpdateOn }},
- {{ RepositoryLinkId }},
+ {{ .ResourceName }},
+ {{ .Branch }},
+ {{ .ConfigFile }},
+ {{ .SyncType }},
+ {{ .RoleArn }},
+ {{ .PublishDeploymentStatus }},
+ {{ .TriggerResourceUpdateOn }},
+ {{ .RepositoryLinkId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

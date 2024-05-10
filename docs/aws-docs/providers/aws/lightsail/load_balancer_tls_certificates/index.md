@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  region
 )
 SELECT 
-{{ LoadBalancerName }},
- {{ CertificateName }},
- {{ CertificateDomainName }},
+{{ .LoadBalancerName }},
+ {{ .CertificateName }},
+ {{ .CertificateDomainName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,15 +133,14 @@ INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  region
 )
 SELECT 
- {{ LoadBalancerName }},
- {{ CertificateName }},
- {{ CertificateDomainName }},
- {{ CertificateAlternativeNames }},
- {{ IsAttached }},
- {{ HttpsRedirectionEnabled }},
+ {{ .LoadBalancerName }},
+ {{ .CertificateName }},
+ {{ .CertificateDomainName }},
+ {{ .CertificateAlternativeNames }},
+ {{ .IsAttached }},
+ {{ .HttpsRedirectionEnabled }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

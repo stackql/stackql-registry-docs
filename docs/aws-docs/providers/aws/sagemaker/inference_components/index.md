@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -128,13 +127,12 @@ INSERT INTO aws.sagemaker.inference_components (
  region
 )
 SELECT 
-{{ EndpointName }},
- {{ VariantName }},
- {{ Specification }},
- {{ RuntimeConfig }},
+{{ .EndpointName }},
+ {{ .VariantName }},
+ {{ .Specification }},
+ {{ .RuntimeConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -193,16 +191,15 @@ INSERT INTO aws.sagemaker.inference_components (
  region
 )
 SELECT 
- {{ InferenceComponentName }},
- {{ EndpointArn }},
- {{ EndpointName }},
- {{ VariantName }},
- {{ Specification }},
- {{ RuntimeConfig }},
- {{ Tags }},
+ {{ .InferenceComponentName }},
+ {{ .EndpointArn }},
+ {{ .EndpointName }},
+ {{ .VariantName }},
+ {{ .Specification }},
+ {{ .RuntimeConfig }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

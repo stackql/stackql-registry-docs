@@ -89,7 +89,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -116,15 +115,14 @@ INSERT INTO aws.sso.assignments (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ TargetId }},
- {{ TargetType }},
- {{ PermissionSetArn }},
- {{ PrincipalType }},
- {{ PrincipalId }},
+{{ .InstanceArn }},
+ {{ .TargetId }},
+ {{ .TargetType }},
+ {{ .PermissionSetArn }},
+ {{ .PrincipalType }},
+ {{ .PrincipalId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -150,15 +148,14 @@ INSERT INTO aws.sso.assignments (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ TargetId }},
- {{ TargetType }},
- {{ PermissionSetArn }},
- {{ PrincipalType }},
- {{ PrincipalId }},
+ {{ .InstanceArn }},
+ {{ .TargetId }},
+ {{ .TargetType }},
+ {{ .PermissionSetArn }},
+ {{ .PrincipalType }},
+ {{ .PrincipalId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

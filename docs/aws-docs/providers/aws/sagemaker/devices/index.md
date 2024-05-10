@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.sagemaker.devices (
  region
 )
 SELECT 
-{{ DeviceFleetName }},
+{{ .DeviceFleetName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -130,12 +128,11 @@ INSERT INTO aws.sagemaker.devices (
  region
 )
 SELECT 
- {{ DeviceFleetName }},
- {{ Device }},
- {{ Tags }},
+ {{ .DeviceFleetName }},
+ {{ .Device }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

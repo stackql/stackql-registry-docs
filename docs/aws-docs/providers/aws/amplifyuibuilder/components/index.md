@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -142,23 +141,22 @@ INSERT INTO aws.amplifyuibuilder.components (
  region
 )
 SELECT 
-{{ AppId }},
- {{ BindingProperties }},
- {{ Children }},
- {{ CollectionProperties }},
- {{ ComponentType }},
- {{ EnvironmentName }},
- {{ Events }},
- {{ Name }},
- {{ Overrides }},
- {{ Properties }},
- {{ SchemaVersion }},
- {{ SourceId }},
- {{ Tags }},
- {{ Variants }},
+{{ .AppId }},
+ {{ .BindingProperties }},
+ {{ .Children }},
+ {{ .CollectionProperties }},
+ {{ .ComponentType }},
+ {{ .EnvironmentName }},
+ {{ .Events }},
+ {{ .Name }},
+ {{ .Overrides }},
+ {{ .Properties }},
+ {{ .SchemaVersion }},
+ {{ .SourceId }},
+ {{ .Tags }},
+ {{ .Variants }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -216,23 +214,22 @@ INSERT INTO aws.amplifyuibuilder.components (
  region
 )
 SELECT 
- {{ AppId }},
- {{ BindingProperties }},
- {{ Children }},
- {{ CollectionProperties }},
- {{ ComponentType }},
- {{ EnvironmentName }},
- {{ Events }},
- {{ Name }},
- {{ Overrides }},
- {{ Properties }},
- {{ SchemaVersion }},
- {{ SourceId }},
- {{ Tags }},
- {{ Variants }},
+ {{ .AppId }},
+ {{ .BindingProperties }},
+ {{ .Children }},
+ {{ .CollectionProperties }},
+ {{ .ComponentType }},
+ {{ .EnvironmentName }},
+ {{ .Events }},
+ {{ .Name }},
+ {{ .Overrides }},
+ {{ .Properties }},
+ {{ .SchemaVersion }},
+ {{ .SourceId }},
+ {{ .Tags }},
+ {{ .Variants }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

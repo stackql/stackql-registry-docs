@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -124,15 +123,14 @@ INSERT INTO aws.apigateway.usage_plans (
  region
 )
 SELECT 
-{{ ApiStages }},
- {{ Description }},
- {{ Quota }},
- {{ Tags }},
- {{ Throttle }},
- {{ UsagePlanName }},
+{{ .ApiStages }},
+ {{ .Description }},
+ {{ .Quota }},
+ {{ .Tags }},
+ {{ .Throttle }},
+ {{ .UsagePlanName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -176,15 +174,14 @@ INSERT INTO aws.apigateway.usage_plans (
  region
 )
 SELECT 
- {{ ApiStages }},
- {{ Description }},
- {{ Quota }},
- {{ Tags }},
- {{ Throttle }},
- {{ UsagePlanName }},
+ {{ .ApiStages }},
+ {{ .Description }},
+ {{ .Quota }},
+ {{ .Tags }},
+ {{ .Throttle }},
+ {{ .UsagePlanName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

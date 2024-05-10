@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.msk.batch_scram_secrets (
  region
 )
 SELECT 
-{{ ClusterArn }},
+{{ .ClusterArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -119,11 +117,10 @@ INSERT INTO aws.msk.batch_scram_secrets (
  region
 )
 SELECT 
- {{ ClusterArn }},
- {{ SecretArnList }},
+ {{ .ClusterArn }},
+ {{ .SecretArnList }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

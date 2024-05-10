@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -113,13 +112,12 @@ INSERT INTO aws.fms.policies (
  region
 )
 SELECT 
-{{ ExcludeResourceTags }},
- {{ PolicyName }},
- {{ RemediationEnabled }},
- {{ SecurityServicePolicyData }},
+{{ .ExcludeResourceTags }},
+ {{ .PolicyName }},
+ {{ .RemediationEnabled }},
+ {{ .SecurityServicePolicyData }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -193,23 +191,22 @@ INSERT INTO aws.fms.policies (
  region
 )
 SELECT 
- {{ ExcludeMap }},
- {{ ExcludeResourceTags }},
- {{ IncludeMap }},
- {{ PolicyName }},
- {{ PolicyDescription }},
- {{ RemediationEnabled }},
- {{ ResourceTags }},
- {{ ResourceType }},
- {{ ResourceTypeList }},
- {{ ResourceSetIds }},
- {{ SecurityServicePolicyData }},
- {{ DeleteAllPolicyResources }},
- {{ ResourcesCleanUp }},
- {{ Tags }},
+ {{ .ExcludeMap }},
+ {{ .ExcludeResourceTags }},
+ {{ .IncludeMap }},
+ {{ .PolicyName }},
+ {{ .PolicyDescription }},
+ {{ .RemediationEnabled }},
+ {{ .ResourceTags }},
+ {{ .ResourceType }},
+ {{ .ResourceTypeList }},
+ {{ .ResourceSetIds }},
+ {{ .SecurityServicePolicyData }},
+ {{ .DeleteAllPolicyResources }},
+ {{ .ResourcesCleanUp }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

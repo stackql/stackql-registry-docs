@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ce.anomaly_monitors (
  region
 )
 SELECT 
-{{ MonitorType }},
- {{ MonitorName }},
+{{ .MonitorType }},
+ {{ .MonitorName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,14 +129,13 @@ INSERT INTO aws.ce.anomaly_monitors (
  region
 )
 SELECT 
- {{ MonitorType }},
- {{ MonitorName }},
- {{ MonitorDimension }},
- {{ MonitorSpecification }},
- {{ ResourceTags }},
+ {{ .MonitorType }},
+ {{ .MonitorName }},
+ {{ .MonitorDimension }},
+ {{ .MonitorSpecification }},
+ {{ .ResourceTags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

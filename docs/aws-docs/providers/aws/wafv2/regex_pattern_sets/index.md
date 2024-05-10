@@ -83,7 +83,6 @@ FROM aws.wafv2.regex_pattern_sets
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,11 +103,10 @@ INSERT INTO aws.wafv2.regex_pattern_sets (
  region
 )
 SELECT 
-{{ RegularExpressionList }},
- {{ Scope }},
+{{ .RegularExpressionList }},
+ {{ .Scope }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,14 +137,13 @@ INSERT INTO aws.wafv2.regex_pattern_sets (
  region
 )
 SELECT 
- {{ Description }},
- {{ Name }},
- {{ RegularExpressionList }},
- {{ Scope }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .RegularExpressionList }},
+ {{ .Scope }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.m2.environments (
  region
 )
 SELECT 
-{{ EngineType }},
- {{ InstanceType }},
- {{ Name }},
+{{ .EngineType }},
+ {{ .InstanceType }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -153,22 +151,21 @@ INSERT INTO aws.m2.environments (
  region
 )
 SELECT 
- {{ Description }},
- {{ EngineType }},
- {{ EngineVersion }},
- {{ HighAvailabilityConfig }},
- {{ InstanceType }},
- {{ KmsKeyId }},
- {{ Name }},
- {{ PreferredMaintenanceWindow }},
- {{ PubliclyAccessible }},
- {{ SecurityGroupIds }},
- {{ StorageConfigurations }},
- {{ SubnetIds }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .EngineType }},
+ {{ .EngineVersion }},
+ {{ .HighAvailabilityConfig }},
+ {{ .InstanceType }},
+ {{ .KmsKeyId }},
+ {{ .Name }},
+ {{ .PreferredMaintenanceWindow }},
+ {{ .PubliclyAccessible }},
+ {{ .SecurityGroupIds }},
+ {{ .StorageConfigurations }},
+ {{ .SubnetIds }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

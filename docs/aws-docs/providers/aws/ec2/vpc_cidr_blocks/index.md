@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.ec2.vpc_cidr_blocks (
  region
 )
 SELECT 
-{{ VpcId }},
+{{ .VpcId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,18 +131,17 @@ INSERT INTO aws.ec2.vpc_cidr_blocks (
  region
 )
 SELECT 
- {{ CidrBlock }},
- {{ Ipv6Pool }},
- {{ VpcId }},
- {{ Ipv6CidrBlock }},
- {{ Ipv4IpamPoolId }},
- {{ Ipv4NetmaskLength }},
- {{ Ipv6IpamPoolId }},
- {{ Ipv6NetmaskLength }},
- {{ AmazonProvidedIpv6CidrBlock }},
+ {{ .CidrBlock }},
+ {{ .Ipv6Pool }},
+ {{ .VpcId }},
+ {{ .Ipv6CidrBlock }},
+ {{ .Ipv4IpamPoolId }},
+ {{ .Ipv4NetmaskLength }},
+ {{ .Ipv6IpamPoolId }},
+ {{ .Ipv6NetmaskLength }},
+ {{ .AmazonProvidedIpv6CidrBlock }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

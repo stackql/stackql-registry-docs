@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -137,13 +136,12 @@ INSERT INTO aws.frauddetector.event_types (
  region
 )
 SELECT 
-{{ Name }},
- {{ EventVariables }},
- {{ Labels }},
- {{ EntityTypes }},
+{{ .Name }},
+ {{ .EventVariables }},
+ {{ .Labels }},
+ {{ .EntityTypes }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -210,15 +208,14 @@ INSERT INTO aws.frauddetector.event_types (
  region
 )
 SELECT 
- {{ Name }},
- {{ Tags }},
- {{ Description }},
- {{ EventVariables }},
- {{ Labels }},
- {{ EntityTypes }},
+ {{ .Name }},
+ {{ .Tags }},
+ {{ .Description }},
+ {{ .EventVariables }},
+ {{ .Labels }},
+ {{ .EntityTypes }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

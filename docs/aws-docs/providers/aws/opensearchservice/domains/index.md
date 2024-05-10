@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -215,27 +214,26 @@ INSERT INTO aws.opensearchservice.domains (
  region
 )
 SELECT 
-{{ ClusterConfig }},
- {{ DomainName }},
- {{ AccessPolicies }},
- {{ IPAddressType }},
- {{ EngineVersion }},
- {{ AdvancedOptions }},
- {{ LogPublishingOptions }},
- {{ SnapshotOptions }},
- {{ VPCOptions }},
- {{ NodeToNodeEncryptionOptions }},
- {{ DomainEndpointOptions }},
- {{ CognitoOptions }},
- {{ AdvancedSecurityOptions }},
- {{ EBSOptions }},
- {{ EncryptionAtRestOptions }},
- {{ Tags }},
- {{ OffPeakWindowOptions }},
- {{ SoftwareUpdateOptions }},
+{{ .ClusterConfig }},
+ {{ .DomainName }},
+ {{ .AccessPolicies }},
+ {{ .IPAddressType }},
+ {{ .EngineVersion }},
+ {{ .AdvancedOptions }},
+ {{ .LogPublishingOptions }},
+ {{ .SnapshotOptions }},
+ {{ .VPCOptions }},
+ {{ .NodeToNodeEncryptionOptions }},
+ {{ .DomainEndpointOptions }},
+ {{ .CognitoOptions }},
+ {{ .AdvancedSecurityOptions }},
+ {{ .EBSOptions }},
+ {{ .EncryptionAtRestOptions }},
+ {{ .Tags }},
+ {{ .OffPeakWindowOptions }},
+ {{ .SoftwareUpdateOptions }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -370,27 +368,26 @@ INSERT INTO aws.opensearchservice.domains (
  region
 )
 SELECT 
- {{ ClusterConfig }},
- {{ DomainName }},
- {{ AccessPolicies }},
- {{ IPAddressType }},
- {{ EngineVersion }},
- {{ AdvancedOptions }},
- {{ LogPublishingOptions }},
- {{ SnapshotOptions }},
- {{ VPCOptions }},
- {{ NodeToNodeEncryptionOptions }},
- {{ DomainEndpointOptions }},
- {{ CognitoOptions }},
- {{ AdvancedSecurityOptions }},
- {{ EBSOptions }},
- {{ EncryptionAtRestOptions }},
- {{ Tags }},
- {{ OffPeakWindowOptions }},
- {{ SoftwareUpdateOptions }},
+ {{ .ClusterConfig }},
+ {{ .DomainName }},
+ {{ .AccessPolicies }},
+ {{ .IPAddressType }},
+ {{ .EngineVersion }},
+ {{ .AdvancedOptions }},
+ {{ .LogPublishingOptions }},
+ {{ .SnapshotOptions }},
+ {{ .VPCOptions }},
+ {{ .NodeToNodeEncryptionOptions }},
+ {{ .DomainEndpointOptions }},
+ {{ .CognitoOptions }},
+ {{ .AdvancedSecurityOptions }},
+ {{ .EBSOptions }},
+ {{ .EncryptionAtRestOptions }},
+ {{ .Tags }},
+ {{ .OffPeakWindowOptions }},
+ {{ .SoftwareUpdateOptions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.autoscaling.auto_scaling_groups (
  region
 )
 SELECT 
-{{ MaxSize }},
- {{ MinSize }},
+{{ .MaxSize }},
+ {{ .MinSize }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -313,39 +311,38 @@ INSERT INTO aws.autoscaling.auto_scaling_groups (
  region
 )
 SELECT 
- {{ LifecycleHookSpecificationList }},
- {{ LoadBalancerNames }},
- {{ LaunchConfigurationName }},
- {{ ServiceLinkedRoleARN }},
- {{ TargetGroupARNs }},
- {{ Cooldown }},
- {{ NotificationConfigurations }},
- {{ DesiredCapacity }},
- {{ HealthCheckGracePeriod }},
- {{ DefaultInstanceWarmup }},
- {{ NewInstancesProtectedFromScaleIn }},
- {{ LaunchTemplate }},
- {{ MixedInstancesPolicy }},
- {{ VPCZoneIdentifier }},
- {{ Tags }},
- {{ Context }},
- {{ CapacityRebalance }},
- {{ InstanceId }},
- {{ AvailabilityZones }},
- {{ NotificationConfiguration }},
- {{ MetricsCollection }},
- {{ InstanceMaintenancePolicy }},
- {{ MaxSize }},
- {{ MinSize }},
- {{ TerminationPolicies }},
- {{ AutoScalingGroupName }},
- {{ DesiredCapacityType }},
- {{ PlacementGroup }},
- {{ HealthCheckType }},
- {{ MaxInstanceLifetime }},
+ {{ .LifecycleHookSpecificationList }},
+ {{ .LoadBalancerNames }},
+ {{ .LaunchConfigurationName }},
+ {{ .ServiceLinkedRoleARN }},
+ {{ .TargetGroupARNs }},
+ {{ .Cooldown }},
+ {{ .NotificationConfigurations }},
+ {{ .DesiredCapacity }},
+ {{ .HealthCheckGracePeriod }},
+ {{ .DefaultInstanceWarmup }},
+ {{ .NewInstancesProtectedFromScaleIn }},
+ {{ .LaunchTemplate }},
+ {{ .MixedInstancesPolicy }},
+ {{ .VPCZoneIdentifier }},
+ {{ .Tags }},
+ {{ .Context }},
+ {{ .CapacityRebalance }},
+ {{ .InstanceId }},
+ {{ .AvailabilityZones }},
+ {{ .NotificationConfiguration }},
+ {{ .MetricsCollection }},
+ {{ .InstanceMaintenancePolicy }},
+ {{ .MaxSize }},
+ {{ .MinSize }},
+ {{ .TerminationPolicies }},
+ {{ .AutoScalingGroupName }},
+ {{ .DesiredCapacityType }},
+ {{ .PlacementGroup }},
+ {{ .HealthCheckType }},
+ {{ .MaxInstanceLifetime }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

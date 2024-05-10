@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.cloudtrail.trails (
  region
 )
 SELECT 
-{{ IsLogging }},
- {{ S3BucketName }},
+{{ .IsLogging }},
+ {{ .S3BucketName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -200,25 +198,24 @@ INSERT INTO aws.cloudtrail.trails (
  region
 )
 SELECT 
- {{ CloudWatchLogsLogGroupArn }},
- {{ CloudWatchLogsRoleArn }},
- {{ EnableLogFileValidation }},
- {{ AdvancedEventSelectors }},
- {{ EventSelectors }},
- {{ IncludeGlobalServiceEvents }},
- {{ IsLogging }},
- {{ IsMultiRegionTrail }},
- {{ IsOrganizationTrail }},
- {{ KMSKeyId }},
- {{ S3BucketName }},
- {{ S3KeyPrefix }},
- {{ SnsTopicName }},
- {{ Tags }},
- {{ TrailName }},
- {{ InsightSelectors }},
+ {{ .CloudWatchLogsLogGroupArn }},
+ {{ .CloudWatchLogsRoleArn }},
+ {{ .EnableLogFileValidation }},
+ {{ .AdvancedEventSelectors }},
+ {{ .EventSelectors }},
+ {{ .IncludeGlobalServiceEvents }},
+ {{ .IsLogging }},
+ {{ .IsMultiRegionTrail }},
+ {{ .IsOrganizationTrail }},
+ {{ .KMSKeyId }},
+ {{ .S3BucketName }},
+ {{ .S3KeyPrefix }},
+ {{ .SnsTopicName }},
+ {{ .Tags }},
+ {{ .TrailName }},
+ {{ .InsightSelectors }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

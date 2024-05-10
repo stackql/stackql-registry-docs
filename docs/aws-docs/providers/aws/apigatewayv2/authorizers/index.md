@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.apigatewayv2.authorizers (
  region
 )
 SELECT 
-{{ AuthorizerType }},
- {{ ApiId }},
- {{ Name }},
+{{ .AuthorizerType }},
+ {{ .ApiId }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -150,20 +148,19 @@ INSERT INTO aws.apigatewayv2.authorizers (
  region
 )
 SELECT 
- {{ IdentityValidationExpression }},
- {{ AuthorizerUri }},
- {{ AuthorizerCredentialsArn }},
- {{ AuthorizerType }},
- {{ JwtConfiguration }},
- {{ AuthorizerResultTtlInSeconds }},
- {{ IdentitySource }},
- {{ AuthorizerPayloadFormatVersion }},
- {{ ApiId }},
- {{ EnableSimpleResponses }},
- {{ Name }},
+ {{ .IdentityValidationExpression }},
+ {{ .AuthorizerUri }},
+ {{ .AuthorizerCredentialsArn }},
+ {{ .AuthorizerType }},
+ {{ .JwtConfiguration }},
+ {{ .AuthorizerResultTtlInSeconds }},
+ {{ .IdentitySource }},
+ {{ .AuthorizerPayloadFormatVersion }},
+ {{ .ApiId }},
+ {{ .EnableSimpleResponses }},
+ {{ .Name }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

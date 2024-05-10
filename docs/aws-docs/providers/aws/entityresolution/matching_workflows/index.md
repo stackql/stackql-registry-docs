@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -142,14 +141,13 @@ INSERT INTO aws.entityresolution.matching_workflows (
  region
 )
 SELECT 
-{{ WorkflowName }},
- {{ InputSourceConfig }},
- {{ OutputSourceConfig }},
- {{ ResolutionTechniques }},
- {{ RoleArn }},
+{{ .WorkflowName }},
+ {{ .InputSourceConfig }},
+ {{ .OutputSourceConfig }},
+ {{ .ResolutionTechniques }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -220,16 +218,15 @@ INSERT INTO aws.entityresolution.matching_workflows (
  region
 )
 SELECT 
- {{ WorkflowName }},
- {{ Description }},
- {{ InputSourceConfig }},
- {{ OutputSourceConfig }},
- {{ ResolutionTechniques }},
- {{ RoleArn }},
- {{ Tags }},
+ {{ .WorkflowName }},
+ {{ .Description }},
+ {{ .InputSourceConfig }},
+ {{ .OutputSourceConfig }},
+ {{ .ResolutionTechniques }},
+ {{ .RoleArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

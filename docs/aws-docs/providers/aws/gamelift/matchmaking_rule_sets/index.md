@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.gamelift.matchmaking_rule_sets (
  region
 )
 SELECT 
-{{ Name }},
- {{ RuleSetBody }},
+{{ .Name }},
+ {{ .RuleSetBody }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,12 +125,11 @@ INSERT INTO aws.gamelift.matchmaking_rule_sets (
  region
 )
 SELECT 
- {{ Name }},
- {{ RuleSetBody }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .RuleSetBody }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

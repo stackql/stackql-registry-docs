@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.sagemaker.app_image_configs (
  region
 )
 SELECT 
-{{ AppImageConfigName }},
+{{ .AppImageConfigName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -157,14 +155,13 @@ INSERT INTO aws.sagemaker.app_image_configs (
  region
 )
 SELECT 
- {{ AppImageConfigName }},
- {{ KernelGatewayImageConfig }},
- {{ JupyterLabAppImageConfig }},
- {{ CodeEditorAppImageConfig }},
- {{ Tags }},
+ {{ .AppImageConfigName }},
+ {{ .KernelGatewayImageConfig }},
+ {{ .JupyterLabAppImageConfig }},
+ {{ .CodeEditorAppImageConfig }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

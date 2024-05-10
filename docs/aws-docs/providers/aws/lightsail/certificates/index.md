@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.lightsail.certificates (
  region
 )
 SELECT 
-{{ CertificateName }},
- {{ DomainName }},
+{{ .CertificateName }},
+ {{ .DomainName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,13 +129,12 @@ INSERT INTO aws.lightsail.certificates (
  region
 )
 SELECT 
- {{ CertificateName }},
- {{ DomainName }},
- {{ SubjectAlternativeNames }},
- {{ Tags }},
+ {{ .CertificateName }},
+ {{ .DomainName }},
+ {{ .SubjectAlternativeNames }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -140,13 +139,12 @@ INSERT INTO aws.msk.clusters (
  region
 )
 SELECT 
-{{ BrokerNodeGroupInfo }},
- {{ KafkaVersion }},
- {{ NumberOfBrokerNodes }},
- {{ ClusterName }},
+{{ .BrokerNodeGroupInfo }},
+ {{ .KafkaVersion }},
+ {{ .NumberOfBrokerNodes }},
+ {{ .ClusterName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -266,22 +264,21 @@ INSERT INTO aws.msk.clusters (
  region
 )
 SELECT 
- {{ BrokerNodeGroupInfo }},
- {{ EnhancedMonitoring }},
- {{ KafkaVersion }},
- {{ NumberOfBrokerNodes }},
- {{ EncryptionInfo }},
- {{ OpenMonitoring }},
- {{ ClusterName }},
- {{ CurrentVersion }},
- {{ ClientAuthentication }},
- {{ LoggingInfo }},
- {{ Tags }},
- {{ ConfigurationInfo }},
- {{ StorageMode }},
+ {{ .BrokerNodeGroupInfo }},
+ {{ .EnhancedMonitoring }},
+ {{ .KafkaVersion }},
+ {{ .NumberOfBrokerNodes }},
+ {{ .EncryptionInfo }},
+ {{ .OpenMonitoring }},
+ {{ .ClusterName }},
+ {{ .CurrentVersion }},
+ {{ .ClientAuthentication }},
+ {{ .LoggingInfo }},
+ {{ .Tags }},
+ {{ .ConfigurationInfo }},
+ {{ .StorageMode }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.wisdom.assistant_associations (
  region
 )
 SELECT 
-{{ AssistantId }},
- {{ Association }},
- {{ AssociationType }},
+{{ .AssistantId }},
+ {{ .Association }},
+ {{ .AssociationType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,13 +136,12 @@ INSERT INTO aws.wisdom.assistant_associations (
  region
 )
 SELECT 
- {{ AssistantId }},
- {{ Association }},
- {{ AssociationType }},
- {{ Tags }},
+ {{ .AssistantId }},
+ {{ .Association }},
+ {{ .AssociationType }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

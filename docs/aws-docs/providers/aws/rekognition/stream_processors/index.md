@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.rekognition.stream_processors (
  region
 )
 SELECT 
-{{ RoleArn }},
- {{ KinesisVideoStream }},
+{{ .RoleArn }},
+ {{ .KinesisVideoStream }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -182,22 +180,21 @@ INSERT INTO aws.rekognition.stream_processors (
  region
 )
 SELECT 
- {{ Name }},
- {{ KmsKeyId }},
- {{ RoleArn }},
- {{ KinesisVideoStream }},
- {{ FaceSearchSettings }},
- {{ ConnectedHomeSettings }},
- {{ KinesisDataStream }},
- {{ S3Destination }},
- {{ NotificationChannel }},
- {{ DataSharingPreference }},
- {{ PolygonRegionsOfInterest }},
- {{ BoundingBoxRegionsOfInterest }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .KmsKeyId }},
+ {{ .RoleArn }},
+ {{ .KinesisVideoStream }},
+ {{ .FaceSearchSettings }},
+ {{ .ConnectedHomeSettings }},
+ {{ .KinesisDataStream }},
+ {{ .S3Destination }},
+ {{ .NotificationChannel }},
+ {{ .DataSharingPreference }},
+ {{ .PolygonRegionsOfInterest }},
+ {{ .BoundingBoxRegionsOfInterest }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

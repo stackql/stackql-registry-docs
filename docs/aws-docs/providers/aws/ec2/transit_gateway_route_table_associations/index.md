@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.ec2.transit_gateway_route_table_associations (
  region
 )
 SELECT 
-{{ TransitGatewayRouteTableId }},
- {{ TransitGatewayAttachmentId }},
+{{ .TransitGatewayRouteTableId }},
+ {{ .TransitGatewayAttachmentId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -122,11 +120,10 @@ INSERT INTO aws.ec2.transit_gateway_route_table_associations (
  region
 )
 SELECT 
- {{ TransitGatewayRouteTableId }},
- {{ TransitGatewayAttachmentId }},
+ {{ .TransitGatewayRouteTableId }},
+ {{ .TransitGatewayAttachmentId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

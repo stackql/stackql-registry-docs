@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.appsync.domain_names (
  region
 )
 SELECT 
-{{ DomainName }},
- {{ CertificateArn }},
+{{ .DomainName }},
+ {{ .CertificateArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -122,12 +120,11 @@ INSERT INTO aws.appsync.domain_names (
  region
 )
 SELECT 
- {{ DomainName }},
- {{ Description }},
- {{ CertificateArn }},
+ {{ .DomainName }},
+ {{ .Description }},
+ {{ .CertificateArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

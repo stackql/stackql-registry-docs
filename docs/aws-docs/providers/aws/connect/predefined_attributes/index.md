@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,12 +105,11 @@ INSERT INTO aws.connect.predefined_attributes (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ Name }},
- {{ Values }},
+{{ .InstanceArn }},
+ {{ .Name }},
+ {{ .Values }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -135,12 +133,11 @@ INSERT INTO aws.connect.predefined_attributes (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ Name }},
- {{ Values }},
+ {{ .InstanceArn }},
+ {{ .Name }},
+ {{ .Values }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

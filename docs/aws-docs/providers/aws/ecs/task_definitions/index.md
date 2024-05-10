@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -357,26 +356,25 @@ INSERT INTO aws.ecs.task_definitions (
  region
 )
 SELECT 
-{{ Family }},
- {{ ContainerDefinitions }},
- {{ Cpu }},
- {{ ExecutionRoleArn }},
- {{ EphemeralStorage }},
- {{ InferenceAccelerators }},
- {{ Memory }},
- {{ NetworkMode }},
- {{ PlacementConstraints }},
- {{ ProxyConfiguration }},
- {{ RequiresCompatibilities }},
- {{ TaskRoleArn }},
- {{ Volumes }},
- {{ PidMode }},
- {{ RuntimePlatform }},
- {{ IpcMode }},
- {{ Tags }},
+{{ .Family }},
+ {{ .ContainerDefinitions }},
+ {{ .Cpu }},
+ {{ .ExecutionRoleArn }},
+ {{ .EphemeralStorage }},
+ {{ .InferenceAccelerators }},
+ {{ .Memory }},
+ {{ .NetworkMode }},
+ {{ .PlacementConstraints }},
+ {{ .ProxyConfiguration }},
+ {{ .RequiresCompatibilities }},
+ {{ .TaskRoleArn }},
+ {{ .Volumes }},
+ {{ .PidMode }},
+ {{ .RuntimePlatform }},
+ {{ .IpcMode }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -653,26 +651,25 @@ INSERT INTO aws.ecs.task_definitions (
  region
 )
 SELECT 
- {{ Family }},
- {{ ContainerDefinitions }},
- {{ Cpu }},
- {{ ExecutionRoleArn }},
- {{ EphemeralStorage }},
- {{ InferenceAccelerators }},
- {{ Memory }},
- {{ NetworkMode }},
- {{ PlacementConstraints }},
- {{ ProxyConfiguration }},
- {{ RequiresCompatibilities }},
- {{ TaskRoleArn }},
- {{ Volumes }},
- {{ PidMode }},
- {{ RuntimePlatform }},
- {{ IpcMode }},
- {{ Tags }},
+ {{ .Family }},
+ {{ .ContainerDefinitions }},
+ {{ .Cpu }},
+ {{ .ExecutionRoleArn }},
+ {{ .EphemeralStorage }},
+ {{ .InferenceAccelerators }},
+ {{ .Memory }},
+ {{ .NetworkMode }},
+ {{ .PlacementConstraints }},
+ {{ .ProxyConfiguration }},
+ {{ .RequiresCompatibilities }},
+ {{ .TaskRoleArn }},
+ {{ .Volumes }},
+ {{ .PidMode }},
+ {{ .RuntimePlatform }},
+ {{ .IpcMode }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

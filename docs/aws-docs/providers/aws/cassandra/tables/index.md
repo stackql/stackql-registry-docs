@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -105,11 +104,10 @@ INSERT INTO aws.cassandra.tables (
  region
 )
 SELECT 
-{{ KeyspaceName }},
- {{ PartitionKeyColumns }},
+{{ .KeyspaceName }},
+ {{ .PartitionKeyColumns }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -196,22 +194,21 @@ INSERT INTO aws.cassandra.tables (
  region
 )
 SELECT 
- {{ KeyspaceName }},
- {{ TableName }},
- {{ RegularColumns }},
- {{ PartitionKeyColumns }},
- {{ ClusteringKeyColumns }},
- {{ BillingMode }},
- {{ PointInTimeRecoveryEnabled }},
- {{ ClientSideTimestampsEnabled }},
- {{ Tags }},
- {{ DefaultTimeToLive }},
- {{ EncryptionSpecification }},
- {{ AutoScalingSpecifications }},
- {{ ReplicaSpecifications }},
+ {{ .KeyspaceName }},
+ {{ .TableName }},
+ {{ .RegularColumns }},
+ {{ .PartitionKeyColumns }},
+ {{ .ClusteringKeyColumns }},
+ {{ .BillingMode }},
+ {{ .PointInTimeRecoveryEnabled }},
+ {{ .ClientSideTimestampsEnabled }},
+ {{ .Tags }},
+ {{ .DefaultTimeToLive }},
+ {{ .EncryptionSpecification }},
+ {{ .AutoScalingSpecifications }},
+ {{ .ReplicaSpecifications }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ec2.vpc_peering_connections (
  region
 )
 SELECT 
-{{ PeerVpcId }},
- {{ VpcId }},
+{{ .PeerVpcId }},
+ {{ .VpcId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,15 +131,14 @@ INSERT INTO aws.ec2.vpc_peering_connections (
  region
 )
 SELECT 
- {{ PeerOwnerId }},
- {{ PeerRegion }},
- {{ PeerRoleArn }},
- {{ PeerVpcId }},
- {{ VpcId }},
- {{ Tags }},
+ {{ .PeerOwnerId }},
+ {{ .PeerRegion }},
+ {{ .PeerRoleArn }},
+ {{ .PeerVpcId }},
+ {{ .VpcId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

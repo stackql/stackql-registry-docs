@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.apprunner.vpc_connectors (
  region
 )
 SELECT 
-{{ Subnets }},
+{{ .Subnets }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -132,13 +130,12 @@ INSERT INTO aws.apprunner.vpc_connectors (
  region
 )
 SELECT 
- {{ VpcConnectorName }},
- {{ Subnets }},
- {{ SecurityGroups }},
- {{ Tags }},
+ {{ .VpcConnectorName }},
+ {{ .Subnets }},
+ {{ .SecurityGroups }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

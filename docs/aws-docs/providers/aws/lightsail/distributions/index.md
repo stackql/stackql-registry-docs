@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,13 +107,12 @@ INSERT INTO aws.lightsail.distributions (
  region
 )
 SELECT 
-{{ DistributionName }},
- {{ BundleId }},
- {{ DefaultCacheBehavior }},
- {{ Origin }},
+{{ .DistributionName }},
+ {{ .BundleId }},
+ {{ .DefaultCacheBehavior }},
+ {{ .Origin }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -188,19 +186,18 @@ INSERT INTO aws.lightsail.distributions (
  region
 )
 SELECT 
- {{ DistributionName }},
- {{ BundleId }},
- {{ IpAddressType }},
- {{ CacheBehaviors }},
- {{ CacheBehaviorSettings }},
- {{ DefaultCacheBehavior }},
- {{ Origin }},
- {{ IsEnabled }},
- {{ CertificateName }},
- {{ Tags }},
+ {{ .DistributionName }},
+ {{ .BundleId }},
+ {{ .IpAddressType }},
+ {{ .CacheBehaviors }},
+ {{ .CacheBehaviorSettings }},
+ {{ .DefaultCacheBehavior }},
+ {{ .Origin }},
+ {{ .IsEnabled }},
+ {{ .CertificateName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

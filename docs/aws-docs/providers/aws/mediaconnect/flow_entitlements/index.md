@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,13 +103,12 @@ INSERT INTO aws.mediaconnect.flow_entitlements (
  region
 )
 SELECT 
-{{ FlowArn }},
- {{ Description }},
- {{ Name }},
- {{ Subscribers }},
+{{ .FlowArn }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .Subscribers }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -150,16 +148,15 @@ INSERT INTO aws.mediaconnect.flow_entitlements (
  region
 )
 SELECT 
- {{ FlowArn }},
- {{ DataTransferSubscriberFeePercent }},
- {{ Description }},
- {{ Encryption }},
- {{ EntitlementStatus }},
- {{ Name }},
- {{ Subscribers }},
+ {{ .FlowArn }},
+ {{ .DataTransferSubscriberFeePercent }},
+ {{ .Description }},
+ {{ .Encryption }},
+ {{ .EntitlementStatus }},
+ {{ .Name }},
+ {{ .Subscribers }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

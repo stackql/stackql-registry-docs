@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -103,11 +102,10 @@ INSERT INTO aws.elasticbeanstalk.application_versions (
  region
 )
 SELECT 
-{{ ApplicationName }},
- {{ SourceBundle }},
+{{ .ApplicationName }},
+ {{ .SourceBundle }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -130,12 +128,11 @@ INSERT INTO aws.elasticbeanstalk.application_versions (
  region
 )
 SELECT 
- {{ ApplicationName }},
- {{ Description }},
- {{ SourceBundle }},
+ {{ .ApplicationName }},
+ {{ .Description }},
+ {{ .SourceBundle }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

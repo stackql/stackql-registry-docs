@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.workspacesweb.identity_providers (
  region
 )
 SELECT 
-{{ IdentityProviderDetails }},
- {{ IdentityProviderName }},
- {{ IdentityProviderType }},
+{{ .IdentityProviderDetails }},
+ {{ .IdentityProviderName }},
+ {{ .IdentityProviderType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,13 +125,12 @@ INSERT INTO aws.workspacesweb.identity_providers (
  region
 )
 SELECT 
- {{ IdentityProviderDetails }},
- {{ IdentityProviderName }},
- {{ IdentityProviderType }},
- {{ PortalArn }},
+ {{ .IdentityProviderDetails }},
+ {{ .IdentityProviderName }},
+ {{ .IdentityProviderType }},
+ {{ .PortalArn }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

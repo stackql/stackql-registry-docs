@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.databrew.jobs (
  region
 )
 SELECT 
-{{ Name }},
- {{ Type }},
- {{ RoleArn }},
+{{ .Name }},
+ {{ .Type }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -272,29 +270,28 @@ INSERT INTO aws.databrew.jobs (
  region
 )
 SELECT 
- {{ DatasetName }},
- {{ EncryptionKeyArn }},
- {{ EncryptionMode }},
- {{ Name }},
- {{ Type }},
- {{ LogSubscription }},
- {{ MaxCapacity }},
- {{ MaxRetries }},
- {{ Outputs }},
- {{ DataCatalogOutputs }},
- {{ DatabaseOutputs }},
- {{ OutputLocation }},
- {{ ProjectName }},
- {{ Recipe }},
- {{ RoleArn }},
- {{ Tags }},
- {{ Timeout }},
- {{ JobSample }},
- {{ ProfileConfiguration }},
- {{ ValidationConfigurations }},
+ {{ .DatasetName }},
+ {{ .EncryptionKeyArn }},
+ {{ .EncryptionMode }},
+ {{ .Name }},
+ {{ .Type }},
+ {{ .LogSubscription }},
+ {{ .MaxCapacity }},
+ {{ .MaxRetries }},
+ {{ .Outputs }},
+ {{ .DataCatalogOutputs }},
+ {{ .DatabaseOutputs }},
+ {{ .OutputLocation }},
+ {{ .ProjectName }},
+ {{ .Recipe }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .Timeout }},
+ {{ .JobSample }},
+ {{ .ProfileConfiguration }},
+ {{ .ValidationConfigurations }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

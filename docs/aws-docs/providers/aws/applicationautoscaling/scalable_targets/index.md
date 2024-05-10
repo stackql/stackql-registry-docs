@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,14 +107,13 @@ INSERT INTO aws.applicationautoscaling.scalable_targets (
  region
 )
 SELECT 
-{{ MaxCapacity }},
- {{ MinCapacity }},
- {{ ResourceId }},
- {{ ScalableDimension }},
- {{ ServiceNamespace }},
+{{ .MaxCapacity }},
+ {{ .MinCapacity }},
+ {{ .ResourceId }},
+ {{ .ScalableDimension }},
+ {{ .ServiceNamespace }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -161,17 +159,16 @@ INSERT INTO aws.applicationautoscaling.scalable_targets (
  region
 )
 SELECT 
- {{ MaxCapacity }},
- {{ MinCapacity }},
- {{ ResourceId }},
- {{ RoleARN }},
- {{ ScalableDimension }},
- {{ ScheduledActions }},
- {{ ServiceNamespace }},
- {{ SuspendedState }},
+ {{ .MaxCapacity }},
+ {{ .MinCapacity }},
+ {{ .ResourceId }},
+ {{ .RoleARN }},
+ {{ .ScalableDimension }},
+ {{ .ScheduledActions }},
+ {{ .ServiceNamespace }},
+ {{ .SuspendedState }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

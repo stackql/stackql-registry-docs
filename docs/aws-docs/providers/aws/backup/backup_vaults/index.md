@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.backup.backup_vaults (
  region
 )
 SELECT 
-{{ BackupVaultName }},
+{{ .BackupVaultName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,15 +132,14 @@ INSERT INTO aws.backup.backup_vaults (
  region
 )
 SELECT 
- {{ AccessPolicy }},
- {{ BackupVaultName }},
- {{ BackupVaultTags }},
- {{ EncryptionKeyArn }},
- {{ Notifications }},
- {{ LockConfiguration }},
+ {{ .AccessPolicy }},
+ {{ .BackupVaultName }},
+ {{ .BackupVaultTags }},
+ {{ .EncryptionKeyArn }},
+ {{ .Notifications }},
+ {{ .LockConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

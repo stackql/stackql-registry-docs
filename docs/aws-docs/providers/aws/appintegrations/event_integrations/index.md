@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.appintegrations.event_integrations (
  region
 )
 SELECT 
-{{ Name }},
- {{ EventBridgeBus }},
- {{ EventFilter }},
+{{ .Name }},
+ {{ .EventBridgeBus }},
+ {{ .EventFilter }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,14 +136,13 @@ INSERT INTO aws.appintegrations.event_integrations (
  region
 )
 SELECT 
- {{ Description }},
- {{ Name }},
- {{ EventBridgeBus }},
- {{ EventFilter }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .EventBridgeBus }},
+ {{ .EventFilter }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -156,14 +155,13 @@ INSERT INTO aws.quicksight.themes (
  region
 )
 SELECT 
-{{ AwsAccountId }},
- {{ BaseThemeId }},
- {{ Configuration }},
- {{ Name }},
- {{ ThemeId }},
+{{ .AwsAccountId }},
+ {{ .BaseThemeId }},
+ {{ .Configuration }},
+ {{ .Name }},
+ {{ .ThemeId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -255,17 +253,16 @@ INSERT INTO aws.quicksight.themes (
  region
 )
 SELECT 
- {{ AwsAccountId }},
- {{ BaseThemeId }},
- {{ Configuration }},
- {{ Name }},
- {{ Permissions }},
- {{ Tags }},
- {{ ThemeId }},
- {{ VersionDescription }},
+ {{ .AwsAccountId }},
+ {{ .BaseThemeId }},
+ {{ .Configuration }},
+ {{ .Name }},
+ {{ .Permissions }},
+ {{ .Tags }},
+ {{ .ThemeId }},
+ {{ .VersionDescription }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

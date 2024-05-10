@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.eventschemas.discoverers (
  region
 )
 SELECT 
-{{ SourceArn }},
+{{ .SourceArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -126,13 +124,12 @@ INSERT INTO aws.eventschemas.discoverers (
  region
 )
 SELECT 
- {{ Description }},
- {{ SourceArn }},
- {{ CrossAccount }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .SourceArn }},
+ {{ .CrossAccount }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

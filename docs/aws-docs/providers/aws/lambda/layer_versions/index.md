@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,10 +99,9 @@ INSERT INTO aws.lambda.layer_versions (
  region
 )
 SELECT 
-{{ Content }},
+{{ .Content }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -137,15 +135,14 @@ INSERT INTO aws.lambda.layer_versions (
  region
 )
 SELECT 
- {{ CompatibleRuntimes }},
- {{ LicenseInfo }},
- {{ Description }},
- {{ LayerName }},
- {{ Content }},
- {{ CompatibleArchitectures }},
+ {{ .CompatibleRuntimes }},
+ {{ .LicenseInfo }},
+ {{ .Description }},
+ {{ .LayerName }},
+ {{ .Content }},
+ {{ .CompatibleArchitectures }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

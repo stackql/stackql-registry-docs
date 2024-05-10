@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,15 +105,14 @@ INSERT INTO aws.lightsail.alarms (
  region
 )
 SELECT 
-{{ AlarmName }},
- {{ MonitoredResourceName }},
- {{ MetricName }},
- {{ ComparisonOperator }},
- {{ EvaluationPeriods }},
- {{ Threshold }},
+{{ .AlarmName }},
+ {{ .MonitoredResourceName }},
+ {{ .MetricName }},
+ {{ .ComparisonOperator }},
+ {{ .EvaluationPeriods }},
+ {{ .Threshold }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -154,20 +152,19 @@ INSERT INTO aws.lightsail.alarms (
  region
 )
 SELECT 
- {{ AlarmName }},
- {{ MonitoredResourceName }},
- {{ MetricName }},
- {{ ComparisonOperator }},
- {{ ContactProtocols }},
- {{ DatapointsToAlarm }},
- {{ EvaluationPeriods }},
- {{ NotificationEnabled }},
- {{ NotificationTriggers }},
- {{ Threshold }},
- {{ TreatMissingData }},
+ {{ .AlarmName }},
+ {{ .MonitoredResourceName }},
+ {{ .MetricName }},
+ {{ .ComparisonOperator }},
+ {{ .ContactProtocols }},
+ {{ .DatapointsToAlarm }},
+ {{ .EvaluationPeriods }},
+ {{ .NotificationEnabled }},
+ {{ .NotificationTriggers }},
+ {{ .Threshold }},
+ {{ .TreatMissingData }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

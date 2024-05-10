@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.grafana.workspaces (
  region
 )
 SELECT 
-{{ AuthenticationProviders }},
- {{ AccountAccessType }},
- {{ PermissionType }},
+{{ .AuthenticationProviders }},
+ {{ .AccountAccessType }},
+ {{ .PermissionType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -202,26 +200,25 @@ INSERT INTO aws.grafana.workspaces (
  region
 )
 SELECT 
- {{ AuthenticationProviders }},
- {{ SamlConfiguration }},
- {{ NetworkAccessControl }},
- {{ VpcConfiguration }},
- {{ ClientToken }},
- {{ GrafanaVersion }},
- {{ AccountAccessType }},
- {{ OrganizationRoleName }},
- {{ PermissionType }},
- {{ StackSetName }},
- {{ DataSources }},
- {{ Description }},
- {{ Name }},
- {{ NotificationDestinations }},
- {{ OrganizationalUnits }},
- {{ RoleArn }},
- {{ PluginAdminEnabled }},
+ {{ .AuthenticationProviders }},
+ {{ .SamlConfiguration }},
+ {{ .NetworkAccessControl }},
+ {{ .VpcConfiguration }},
+ {{ .ClientToken }},
+ {{ .GrafanaVersion }},
+ {{ .AccountAccessType }},
+ {{ .OrganizationRoleName }},
+ {{ .PermissionType }},
+ {{ .StackSetName }},
+ {{ .DataSources }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .NotificationDestinations }},
+ {{ .OrganizationalUnits }},
+ {{ .RoleArn }},
+ {{ .PluginAdminEnabled }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

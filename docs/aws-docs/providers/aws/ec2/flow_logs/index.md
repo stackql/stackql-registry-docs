@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ec2.flow_logs (
  region
 )
 SELECT 
-{{ ResourceId }},
- {{ ResourceType }},
+{{ .ResourceId }},
+ {{ .ResourceType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,21 +147,20 @@ INSERT INTO aws.ec2.flow_logs (
  region
 )
 SELECT 
- {{ DeliverCrossAccountRole }},
- {{ DeliverLogsPermissionArn }},
- {{ LogDestination }},
- {{ LogDestinationType }},
- {{ LogFormat }},
- {{ LogGroupName }},
- {{ MaxAggregationInterval }},
- {{ ResourceId }},
- {{ ResourceType }},
- {{ Tags }},
- {{ TrafficType }},
- {{ DestinationOptions }},
+ {{ .DeliverCrossAccountRole }},
+ {{ .DeliverLogsPermissionArn }},
+ {{ .LogDestination }},
+ {{ .LogDestinationType }},
+ {{ .LogFormat }},
+ {{ .LogGroupName }},
+ {{ .MaxAggregationInterval }},
+ {{ .ResourceId }},
+ {{ .ResourceType }},
+ {{ .Tags }},
+ {{ .TrafficType }},
+ {{ .DestinationOptions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

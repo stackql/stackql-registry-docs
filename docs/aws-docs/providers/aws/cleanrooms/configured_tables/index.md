@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -109,13 +108,12 @@ INSERT INTO aws.cleanrooms.configured_tables (
  region
 )
 SELECT 
-{{ AllowedColumns }},
- {{ AnalysisMethod }},
- {{ Name }},
- {{ TableReference }},
+{{ .AllowedColumns }},
+ {{ .AnalysisMethod }},
+ {{ .Name }},
+ {{ .TableReference }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -162,16 +160,15 @@ INSERT INTO aws.cleanrooms.configured_tables (
  region
 )
 SELECT 
- {{ Tags }},
- {{ AllowedColumns }},
- {{ AnalysisMethod }},
- {{ Description }},
- {{ Name }},
- {{ AnalysisRules }},
- {{ TableReference }},
+ {{ .Tags }},
+ {{ .AllowedColumns }},
+ {{ .AnalysisMethod }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .AnalysisRules }},
+ {{ .TableReference }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

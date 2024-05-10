@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.cognito.log_delivery_configurations (
  region
 )
 SELECT 
-{{ UserPoolId }},
+{{ .UserPoolId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -125,11 +123,10 @@ INSERT INTO aws.cognito.log_delivery_configurations (
  region
 )
 SELECT 
- {{ UserPoolId }},
- {{ LogConfigurations }},
+ {{ .UserPoolId }},
+ {{ .LogConfigurations }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

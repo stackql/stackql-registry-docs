@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,11 +105,10 @@ INSERT INTO aws.connect.instances (
  region
 )
 SELECT 
-{{ IdentityManagementType }},
- {{ Attributes }},
+{{ .IdentityManagementType }},
+ {{ .Attributes }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -147,14 +145,13 @@ INSERT INTO aws.connect.instances (
  region
 )
 SELECT 
- {{ IdentityManagementType }},
- {{ InstanceAlias }},
- {{ DirectoryId }},
- {{ Attributes }},
- {{ Tags }},
+ {{ .IdentityManagementType }},
+ {{ .InstanceAlias }},
+ {{ .DirectoryId }},
+ {{ .Attributes }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

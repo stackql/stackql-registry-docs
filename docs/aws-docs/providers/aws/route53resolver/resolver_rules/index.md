@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.route53resolver.resolver_rules (
  region
 )
 SELECT 
-{{ DomainName }},
- {{ RuleType }},
+{{ .DomainName }},
+ {{ .RuleType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,15 +138,14 @@ INSERT INTO aws.route53resolver.resolver_rules (
  region
 )
 SELECT 
- {{ ResolverEndpointId }},
- {{ DomainName }},
- {{ Name }},
- {{ RuleType }},
- {{ Tags }},
- {{ TargetIps }},
+ {{ .ResolverEndpointId }},
+ {{ .DomainName }},
+ {{ .Name }},
+ {{ .RuleType }},
+ {{ .Tags }},
+ {{ .TargetIps }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

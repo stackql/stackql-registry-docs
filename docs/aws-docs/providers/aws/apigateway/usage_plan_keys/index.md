@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.apigateway.usage_plan_keys (
  region
 )
 SELECT 
-{{ KeyId }},
- {{ KeyType }},
- {{ UsagePlanId }},
+{{ .KeyId }},
+ {{ .KeyType }},
+ {{ .UsagePlanId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -125,12 +123,11 @@ INSERT INTO aws.apigateway.usage_plan_keys (
  region
 )
 SELECT 
- {{ KeyId }},
- {{ KeyType }},
- {{ UsagePlanId }},
+ {{ .KeyId }},
+ {{ .KeyType }},
+ {{ .UsagePlanId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

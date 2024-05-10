@@ -79,7 +79,6 @@ FROM aws.cloudfront.public_keys
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,10 +100,9 @@ INSERT INTO aws.cloudfront.public_keys (
  region
 )
 SELECT 
-{{ PublicKeyConfig }},
+{{ .PublicKeyConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -125,10 +123,9 @@ INSERT INTO aws.cloudfront.public_keys (
  region
 )
 SELECT 
- {{ PublicKeyConfig }},
+ {{ .PublicKeyConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

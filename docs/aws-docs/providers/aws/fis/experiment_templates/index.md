@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -109,14 +108,13 @@ INSERT INTO aws.fis.experiment_templates (
  region
 )
 SELECT 
-{{ Description }},
- {{ Targets }},
- {{ StopConditions }},
- {{ RoleArn }},
- {{ Tags }},
+{{ .Description }},
+ {{ .Targets }},
+ {{ .StopConditions }},
+ {{ .RoleArn }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -163,17 +161,16 @@ INSERT INTO aws.fis.experiment_templates (
  region
 )
 SELECT 
- {{ Description }},
- {{ Targets }},
- {{ Actions }},
- {{ StopConditions }},
- {{ LogConfiguration }},
- {{ RoleArn }},
- {{ Tags }},
- {{ ExperimentOptions }},
+ {{ .Description }},
+ {{ .Targets }},
+ {{ .Actions }},
+ {{ .StopConditions }},
+ {{ .LogConfiguration }},
+ {{ .RoleArn }},
+ {{ .Tags }},
+ {{ .ExperimentOptions }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

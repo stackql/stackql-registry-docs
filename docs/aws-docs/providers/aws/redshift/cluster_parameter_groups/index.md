@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.redshift.cluster_parameter_groups (
  region
 )
 SELECT 
-{{ Description }},
- {{ ParameterGroupFamily }},
+{{ .Description }},
+ {{ .ParameterGroupFamily }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,14 +134,13 @@ INSERT INTO aws.redshift.cluster_parameter_groups (
  region
 )
 SELECT 
- {{ ParameterGroupName }},
- {{ Description }},
- {{ ParameterGroupFamily }},
- {{ Parameters }},
- {{ Tags }},
+ {{ .ParameterGroupName }},
+ {{ .Description }},
+ {{ .ParameterGroupFamily }},
+ {{ .Parameters }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

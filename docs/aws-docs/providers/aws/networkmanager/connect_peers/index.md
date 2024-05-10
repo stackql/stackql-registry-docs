@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.networkmanager.connect_peers (
  region
 )
 SELECT 
-{{ PeerAddress }},
- {{ ConnectAttachmentId }},
+{{ .PeerAddress }},
+ {{ .ConnectAttachmentId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,16 +137,15 @@ INSERT INTO aws.networkmanager.connect_peers (
  region
 )
 SELECT 
- {{ PeerAddress }},
- {{ CoreNetworkAddress }},
- {{ BgpOptions }},
- {{ InsideCidrBlocks }},
- {{ ConnectAttachmentId }},
- {{ SubnetArn }},
- {{ Tags }},
+ {{ .PeerAddress }},
+ {{ .CoreNetworkAddress }},
+ {{ .BgpOptions }},
+ {{ .InsideCidrBlocks }},
+ {{ .ConnectAttachmentId }},
+ {{ .SubnetArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

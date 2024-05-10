@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,11 +105,10 @@ INSERT INTO aws.entityresolution.schema_mappings (
  region
 )
 SELECT 
-{{ SchemaName }},
- {{ MappedInputFields }},
+{{ .SchemaName }},
+ {{ .MappedInputFields }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,13 +143,12 @@ INSERT INTO aws.entityresolution.schema_mappings (
  region
 )
 SELECT 
- {{ SchemaName }},
- {{ Description }},
- {{ MappedInputFields }},
- {{ Tags }},
+ {{ .SchemaName }},
+ {{ .Description }},
+ {{ .MappedInputFields }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

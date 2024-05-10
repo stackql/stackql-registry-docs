@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.opensearchserverless.security_policies (
  region
 )
 SELECT 
-{{ Policy }},
- {{ Name }},
- {{ Type }},
+{{ .Policy }},
+ {{ .Name }},
+ {{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,13 +127,12 @@ INSERT INTO aws.opensearchserverless.security_policies (
  region
 )
 SELECT 
- {{ Description }},
- {{ Policy }},
- {{ Name }},
- {{ Type }},
+ {{ .Description }},
+ {{ .Policy }},
+ {{ .Name }},
+ {{ .Type }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

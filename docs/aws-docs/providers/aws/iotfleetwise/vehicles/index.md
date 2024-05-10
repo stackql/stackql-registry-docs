@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.iotfleetwise.vehicles (
  region
 )
 SELECT 
-{{ DecoderManifestArn }},
- {{ Name }},
- {{ ModelManifestArn }},
+{{ .DecoderManifestArn }},
+ {{ .Name }},
+ {{ .ModelManifestArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -136,15 +134,14 @@ INSERT INTO aws.iotfleetwise.vehicles (
  region
 )
 SELECT 
- {{ AssociationBehavior }},
- {{ Attributes }},
- {{ DecoderManifestArn }},
- {{ Name }},
- {{ ModelManifestArn }},
- {{ Tags }},
+ {{ .AssociationBehavior }},
+ {{ .Attributes }},
+ {{ .DecoderManifestArn }},
+ {{ .Name }},
+ {{ .ModelManifestArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

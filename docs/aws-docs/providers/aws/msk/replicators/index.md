@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -146,13 +145,12 @@ INSERT INTO aws.msk.replicators (
  region
 )
 SELECT 
-{{ ReplicatorName }},
- {{ KafkaClusters }},
- {{ ReplicationInfoList }},
- {{ ServiceExecutionRoleArn }},
+{{ .ReplicatorName }},
+ {{ .KafkaClusters }},
+ {{ .ReplicationInfoList }},
+ {{ .ServiceExecutionRoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -229,16 +227,15 @@ INSERT INTO aws.msk.replicators (
  region
 )
 SELECT 
- {{ ReplicatorName }},
- {{ CurrentVersion }},
- {{ Description }},
- {{ KafkaClusters }},
- {{ ReplicationInfoList }},
- {{ ServiceExecutionRoleArn }},
- {{ Tags }},
+ {{ .ReplicatorName }},
+ {{ .CurrentVersion }},
+ {{ .Description }},
+ {{ .KafkaClusters }},
+ {{ .ReplicationInfoList }},
+ {{ .ServiceExecutionRoleArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

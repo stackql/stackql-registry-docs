@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,15 +105,14 @@ INSERT INTO aws.ec2.verified_access_endpoints (
  region
 )
 SELECT 
-{{ VerifiedAccessGroupId }},
- {{ EndpointType }},
- {{ EndpointDomainPrefix }},
- {{ DomainCertificateArn }},
- {{ AttachmentType }},
- {{ ApplicationDomain }},
+{{ .VerifiedAccessGroupId }},
+ {{ .EndpointType }},
+ {{ .EndpointDomainPrefix }},
+ {{ .DomainCertificateArn }},
+ {{ .AttachmentType }},
+ {{ .ApplicationDomain }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -177,23 +175,22 @@ INSERT INTO aws.ec2.verified_access_endpoints (
  region
 )
 SELECT 
- {{ VerifiedAccessGroupId }},
- {{ SecurityGroupIds }},
- {{ NetworkInterfaceOptions }},
- {{ LoadBalancerOptions }},
- {{ EndpointType }},
- {{ EndpointDomainPrefix }},
- {{ DomainCertificateArn }},
- {{ AttachmentType }},
- {{ ApplicationDomain }},
- {{ Description }},
- {{ PolicyDocument }},
- {{ PolicyEnabled }},
- {{ Tags }},
- {{ SseSpecification }},
+ {{ .VerifiedAccessGroupId }},
+ {{ .SecurityGroupIds }},
+ {{ .NetworkInterfaceOptions }},
+ {{ .LoadBalancerOptions }},
+ {{ .EndpointType }},
+ {{ .EndpointDomainPrefix }},
+ {{ .DomainCertificateArn }},
+ {{ .AttachmentType }},
+ {{ .ApplicationDomain }},
+ {{ .Description }},
+ {{ .PolicyDocument }},
+ {{ .PolicyEnabled }},
+ {{ .Tags }},
+ {{ .SseSpecification }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

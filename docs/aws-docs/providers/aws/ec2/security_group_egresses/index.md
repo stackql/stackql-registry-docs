@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.ec2.security_group_egresses (
  region
 )
 SELECT 
-{{ IpProtocol }},
- {{ GroupId }},
+{{ .IpProtocol }},
+ {{ .GroupId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,18 +132,17 @@ INSERT INTO aws.ec2.security_group_egresses (
  region
 )
 SELECT 
- {{ CidrIp }},
- {{ CidrIpv6 }},
- {{ Description }},
- {{ FromPort }},
- {{ ToPort }},
- {{ IpProtocol }},
- {{ DestinationSecurityGroupId }},
- {{ DestinationPrefixListId }},
- {{ GroupId }},
+ {{ .CidrIp }},
+ {{ .CidrIpv6 }},
+ {{ .Description }},
+ {{ .FromPort }},
+ {{ .ToPort }},
+ {{ .IpProtocol }},
+ {{ .DestinationSecurityGroupId }},
+ {{ .DestinationPrefixListId }},
+ {{ .GroupId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

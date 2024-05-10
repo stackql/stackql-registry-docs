@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -99,10 +98,9 @@ INSERT INTO aws.iotwireless.wireless_gateways (
  region
 )
 SELECT 
-{{ LoRaWAN }},
+{{ .LoRaWAN }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,16 +136,15 @@ INSERT INTO aws.iotwireless.wireless_gateways (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Tags }},
- {{ LoRaWAN }},
- {{ ThingArn }},
- {{ ThingName }},
- {{ LastUplinkReceivedAt }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Tags }},
+ {{ .LoRaWAN }},
+ {{ .ThingArn }},
+ {{ .ThingName }},
+ {{ .LastUplinkReceivedAt }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

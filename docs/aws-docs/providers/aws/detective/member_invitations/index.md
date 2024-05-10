@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.detective.member_invitations (
  region
 )
 SELECT 
-{{ GraphArn }},
- {{ MemberId }},
- {{ MemberEmailAddress }},
+{{ .GraphArn }},
+ {{ .MemberId }},
+ {{ .MemberEmailAddress }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,14 +129,13 @@ INSERT INTO aws.detective.member_invitations (
  region
 )
 SELECT 
- {{ GraphArn }},
- {{ MemberId }},
- {{ MemberEmailAddress }},
- {{ DisableEmailNotification }},
- {{ Message }},
+ {{ .GraphArn }},
+ {{ .MemberId }},
+ {{ .MemberEmailAddress }},
+ {{ .DisableEmailNotification }},
+ {{ .Message }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

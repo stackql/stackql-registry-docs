@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.dynamodb.tables (
  region
 )
 SELECT 
-{{ KeySchema }},
+{{ .KeySchema }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -223,27 +221,26 @@ INSERT INTO aws.dynamodb.tables (
  region
 )
 SELECT 
- {{ SSESpecification }},
- {{ KinesisStreamSpecification }},
- {{ StreamSpecification }},
- {{ ContributorInsightsSpecification }},
- {{ ImportSourceSpecification }},
- {{ PointInTimeRecoverySpecification }},
- {{ ProvisionedThroughput }},
- {{ TableName }},
- {{ AttributeDefinitions }},
- {{ BillingMode }},
- {{ GlobalSecondaryIndexes }},
- {{ ResourcePolicy }},
- {{ KeySchema }},
- {{ LocalSecondaryIndexes }},
- {{ DeletionProtectionEnabled }},
- {{ TableClass }},
- {{ Tags }},
- {{ TimeToLiveSpecification }},
+ {{ .SSESpecification }},
+ {{ .KinesisStreamSpecification }},
+ {{ .StreamSpecification }},
+ {{ .ContributorInsightsSpecification }},
+ {{ .ImportSourceSpecification }},
+ {{ .PointInTimeRecoverySpecification }},
+ {{ .ProvisionedThroughput }},
+ {{ .TableName }},
+ {{ .AttributeDefinitions }},
+ {{ .BillingMode }},
+ {{ .GlobalSecondaryIndexes }},
+ {{ .ResourcePolicy }},
+ {{ .KeySchema }},
+ {{ .LocalSecondaryIndexes }},
+ {{ .DeletionProtectionEnabled }},
+ {{ .TableClass }},
+ {{ .Tags }},
+ {{ .TimeToLiveSpecification }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

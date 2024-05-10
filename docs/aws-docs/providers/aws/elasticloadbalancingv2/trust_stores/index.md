@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -109,14 +108,13 @@ INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  region
 )
 SELECT 
-{{ Name }},
- {{ CaCertificatesBundleS3Bucket }},
- {{ CaCertificatesBundleS3Key }},
- {{ CaCertificatesBundleS3ObjectVersion }},
- {{ Tags }},
+{{ .Name }},
+ {{ .CaCertificatesBundleS3Bucket }},
+ {{ .CaCertificatesBundleS3Key }},
+ {{ .CaCertificatesBundleS3ObjectVersion }},
+ {{ .Tags }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -145,14 +143,13 @@ INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  region
 )
 SELECT 
- {{ Name }},
- {{ CaCertificatesBundleS3Bucket }},
- {{ CaCertificatesBundleS3Key }},
- {{ CaCertificatesBundleS3ObjectVersion }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .CaCertificatesBundleS3Bucket }},
+ {{ .CaCertificatesBundleS3Key }},
+ {{ .CaCertificatesBundleS3ObjectVersion }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

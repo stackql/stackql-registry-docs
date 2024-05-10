@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.config.organization_conformance_packs (
  region
 )
 SELECT 
-{{ OrganizationConformancePackName }},
+{{ .OrganizationConformancePackName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,16 +132,15 @@ INSERT INTO aws.config.organization_conformance_packs (
  region
 )
 SELECT 
- {{ OrganizationConformancePackName }},
- {{ TemplateS3Uri }},
- {{ TemplateBody }},
- {{ DeliveryS3Bucket }},
- {{ DeliveryS3KeyPrefix }},
- {{ ConformancePackInputParameters }},
- {{ ExcludedAccounts }},
+ {{ .OrganizationConformancePackName }},
+ {{ .TemplateS3Uri }},
+ {{ .TemplateBody }},
+ {{ .DeliveryS3Bucket }},
+ {{ .DeliveryS3KeyPrefix }},
+ {{ .ConformancePackInputParameters }},
+ {{ .ExcludedAccounts }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

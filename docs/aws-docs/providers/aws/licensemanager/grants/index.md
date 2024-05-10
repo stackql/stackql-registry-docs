@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -94,10 +93,9 @@ INSERT INTO aws.licensemanager.grants (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,15 +125,14 @@ INSERT INTO aws.licensemanager.grants (
  region
 )
 SELECT 
- {{ GrantName }},
- {{ LicenseArn }},
- {{ HomeRegion }},
- {{ AllowedOperations }},
- {{ Principals }},
- {{ Status }},
+ {{ .GrantName }},
+ {{ .LicenseArn }},
+ {{ .HomeRegion }},
+ {{ .AllowedOperations }},
+ {{ .Principals }},
+ {{ .Status }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

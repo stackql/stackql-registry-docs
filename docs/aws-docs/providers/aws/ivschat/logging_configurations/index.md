@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,10 +105,9 @@ INSERT INTO aws.ivschat.logging_configurations (
  region
 )
 SELECT 
-{{ DestinationConfiguration }},
+{{ .DestinationConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,12 +142,11 @@ INSERT INTO aws.ivschat.logging_configurations (
  region
 )
 SELECT 
- {{ DestinationConfiguration }},
- {{ Name }},
- {{ Tags }},
+ {{ .DestinationConfiguration }},
+ {{ .Name }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

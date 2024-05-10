@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.sagemaker.image_versions (
  region
 )
 SELECT 
-{{ ImageName }},
- {{ BaseImage }},
+{{ .ImageName }},
+ {{ .BaseImage }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -140,20 +138,19 @@ INSERT INTO aws.sagemaker.image_versions (
  region
 )
 SELECT 
- {{ ImageName }},
- {{ BaseImage }},
- {{ Alias }},
- {{ Aliases }},
- {{ VendorGuidance }},
- {{ JobType }},
- {{ MLFramework }},
- {{ ProgrammingLang }},
- {{ Processor }},
- {{ Horovod }},
- {{ ReleaseNotes }},
+ {{ .ImageName }},
+ {{ .BaseImage }},
+ {{ .Alias }},
+ {{ .Aliases }},
+ {{ .VendorGuidance }},
+ {{ .JobType }},
+ {{ .MLFramework }},
+ {{ .ProgrammingLang }},
+ {{ .Processor }},
+ {{ .Horovod }},
+ {{ .ReleaseNotes }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

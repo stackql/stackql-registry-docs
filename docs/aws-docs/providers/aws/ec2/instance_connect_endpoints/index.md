@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ec2.instance_connect_endpoints (
  region
 )
 SELECT 
-{{ SubnetId }},
+{{ .SubnetId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -130,14 +128,13 @@ INSERT INTO aws.ec2.instance_connect_endpoints (
  region
 )
 SELECT 
- {{ SubnetId }},
- {{ ClientToken }},
- {{ PreserveClientIp }},
- {{ Tags }},
- {{ SecurityGroupIds }},
+ {{ .SubnetId }},
+ {{ .ClientToken }},
+ {{ .PreserveClientIp }},
+ {{ .Tags }},
+ {{ .SecurityGroupIds }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

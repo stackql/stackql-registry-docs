@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,11 +99,10 @@ INSERT INTO aws.eks.addons (
  region
 )
 SELECT 
-{{ ClusterName }},
- {{ AddonName }},
+{{ .ClusterName }},
+ {{ .AddonName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -139,17 +137,16 @@ INSERT INTO aws.eks.addons (
  region
 )
 SELECT 
- {{ ClusterName }},
- {{ AddonName }},
- {{ AddonVersion }},
- {{ PreserveOnDelete }},
- {{ ResolveConflicts }},
- {{ ServiceAccountRoleArn }},
- {{ ConfigurationValues }},
- {{ Tags }},
+ {{ .ClusterName }},
+ {{ .AddonName }},
+ {{ .AddonVersion }},
+ {{ .PreserveOnDelete }},
+ {{ .ResolveConflicts }},
+ {{ .ServiceAccountRoleArn }},
+ {{ .ConfigurationValues }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

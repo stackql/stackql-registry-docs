@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.transfer.profiles (
  region
 )
 SELECT 
-{{ As2Id }},
- {{ ProfileType }},
+{{ .As2Id }},
+ {{ .ProfileType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,13 +129,12 @@ INSERT INTO aws.transfer.profiles (
  region
 )
 SELECT 
- {{ As2Id }},
- {{ ProfileType }},
- {{ Tags }},
- {{ CertificateIds }},
+ {{ .As2Id }},
+ {{ .ProfileType }},
+ {{ .Tags }},
+ {{ .CertificateIds }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

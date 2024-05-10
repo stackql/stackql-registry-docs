@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,12 +103,11 @@ INSERT INTO aws.acmpca.permissions (
  region
 )
 SELECT 
-{{ Actions }},
- {{ CertificateAuthorityArn }},
- {{ Principal }},
+{{ .Actions }},
+ {{ .CertificateAuthorityArn }},
+ {{ .Principal }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -133,13 +131,12 @@ INSERT INTO aws.acmpca.permissions (
  region
 )
 SELECT 
- {{ Actions }},
- {{ CertificateAuthorityArn }},
- {{ Principal }},
- {{ SourceAccount }},
+ {{ .Actions }},
+ {{ .CertificateAuthorityArn }},
+ {{ .Principal }},
+ {{ .SourceAccount }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

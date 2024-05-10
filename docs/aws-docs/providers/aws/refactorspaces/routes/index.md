@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,13 +105,12 @@ INSERT INTO aws.refactorspaces.routes (
  region
 )
 SELECT 
-{{ ApplicationIdentifier }},
- {{ EnvironmentIdentifier }},
- {{ RouteType }},
- {{ ServiceIdentifier }},
+{{ .ApplicationIdentifier }},
+ {{ .EnvironmentIdentifier }},
+ {{ .RouteType }},
+ {{ .ServiceIdentifier }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -155,16 +153,15 @@ INSERT INTO aws.refactorspaces.routes (
  region
 )
 SELECT 
- {{ ApplicationIdentifier }},
- {{ EnvironmentIdentifier }},
- {{ RouteType }},
- {{ ServiceIdentifier }},
- {{ DefaultRoute }},
- {{ UriPathRoute }},
- {{ Tags }},
+ {{ .ApplicationIdentifier }},
+ {{ .EnvironmentIdentifier }},
+ {{ .RouteType }},
+ {{ .ServiceIdentifier }},
+ {{ .DefaultRoute }},
+ {{ .UriPathRoute }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

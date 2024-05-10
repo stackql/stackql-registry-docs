@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.s3outposts.buckets (
  region
 )
 SELECT 
-{{ BucketName }},
- {{ OutpostId }},
+{{ .BucketName }},
+ {{ .OutpostId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,13 +147,12 @@ INSERT INTO aws.s3outposts.buckets (
  region
 )
 SELECT 
- {{ BucketName }},
- {{ OutpostId }},
- {{ Tags }},
- {{ LifecycleConfiguration }},
+ {{ .BucketName }},
+ {{ .OutpostId }},
+ {{ .Tags }},
+ {{ .LifecycleConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

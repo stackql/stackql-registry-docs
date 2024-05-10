@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -104,14 +103,13 @@ INSERT INTO aws.b2bi.transformers (
  region
 )
 SELECT 
-{{ EdiType }},
- {{ FileFormat }},
- {{ MappingTemplate }},
- {{ Name }},
- {{ Status }},
+{{ .EdiType }},
+ {{ .FileFormat }},
+ {{ .MappingTemplate }},
+ {{ .Name }},
+ {{ .Status }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -144,16 +142,15 @@ INSERT INTO aws.b2bi.transformers (
  region
 )
 SELECT 
- {{ EdiType }},
- {{ FileFormat }},
- {{ MappingTemplate }},
- {{ Name }},
- {{ SampleDocument }},
- {{ Status }},
- {{ Tags }},
+ {{ .EdiType }},
+ {{ .FileFormat }},
+ {{ .MappingTemplate }},
+ {{ .Name }},
+ {{ .SampleDocument }},
+ {{ .Status }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

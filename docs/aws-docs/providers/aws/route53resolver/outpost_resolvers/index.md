@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.route53resolver.outpost_resolvers (
  region
 )
 SELECT 
-{{ Name }},
- {{ OutpostArn }},
- {{ PreferredInstanceType }},
+{{ .Name }},
+ {{ .OutpostArn }},
+ {{ .PreferredInstanceType }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,14 +132,13 @@ INSERT INTO aws.route53resolver.outpost_resolvers (
  region
 )
 SELECT 
- {{ Name }},
- {{ OutpostArn }},
- {{ PreferredInstanceType }},
- {{ InstanceCount }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .OutpostArn }},
+ {{ .PreferredInstanceType }},
+ {{ .InstanceCount }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

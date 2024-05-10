@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.organizations.organizational_units (
  region
 )
 SELECT 
-{{ Name }},
- {{ ParentId }},
+{{ .Name }},
+ {{ .ParentId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -127,12 +125,11 @@ INSERT INTO aws.organizations.organizational_units (
  region
 )
 SELECT 
- {{ Name }},
- {{ ParentId }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .ParentId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

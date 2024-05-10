@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.neptunegraph.graphs (
  region
 )
 SELECT 
-{{ ProvisionedMemory }},
+{{ .ProvisionedMemory }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,16 +132,15 @@ INSERT INTO aws.neptunegraph.graphs (
  region
 )
 SELECT 
- {{ DeletionProtection }},
- {{ GraphName }},
- {{ ProvisionedMemory }},
- {{ PublicConnectivity }},
- {{ ReplicaCount }},
- {{ Tags }},
- {{ VectorSearchConfiguration }},
+ {{ .DeletionProtection }},
+ {{ .GraphName }},
+ {{ .ProvisionedMemory }},
+ {{ .PublicConnectivity }},
+ {{ .ReplicaCount }},
+ {{ .Tags }},
+ {{ .VectorSearchConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

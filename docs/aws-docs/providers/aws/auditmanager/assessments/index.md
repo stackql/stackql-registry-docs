@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -94,10 +93,9 @@ INSERT INTO aws.auditmanager.assessments (
  region
 )
 SELECT 
-{{  }},
+{{ . }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -171,19 +169,18 @@ INSERT INTO aws.auditmanager.assessments (
  region
 )
 SELECT 
- {{ FrameworkId }},
- {{ AwsAccount }},
- {{ Tags }},
- {{ Delegations }},
- {{ Roles }},
- {{ Scope }},
- {{ AssessmentReportsDestination }},
- {{ Status }},
- {{ Name }},
- {{ Description }},
+ {{ .FrameworkId }},
+ {{ .AwsAccount }},
+ {{ .Tags }},
+ {{ .Delegations }},
+ {{ .Roles }},
+ {{ .Scope }},
+ {{ .AssessmentReportsDestination }},
+ {{ .Status }},
+ {{ .Name }},
+ {{ .Description }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -101,11 +100,10 @@ INSERT INTO aws.appstream.app_blocks (
  region
 )
 SELECT 
-{{ Name }},
- {{ SourceS3Location }},
+{{ .Name }},
+ {{ .SourceS3Location }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -148,17 +146,16 @@ INSERT INTO aws.appstream.app_blocks (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ DisplayName }},
- {{ SourceS3Location }},
- {{ SetupScriptDetails }},
- {{ Tags }},
- {{ PackagingType }},
- {{ PostSetupScriptDetails }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .DisplayName }},
+ {{ .SourceS3Location }},
+ {{ .SetupScriptDetails }},
+ {{ .Tags }},
+ {{ .PackagingType }},
+ {{ .PostSetupScriptDetails }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

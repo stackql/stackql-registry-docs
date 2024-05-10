@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.batch.compute_environments (
  region
 )
 SELECT 
-{{ Type }},
+{{ .Type }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -174,19 +172,18 @@ INSERT INTO aws.batch.compute_environments (
  region
 )
 SELECT 
- {{ ComputeEnvironmentName }},
- {{ ComputeResources }},
- {{ ReplaceComputeEnvironment }},
- {{ ServiceRole }},
- {{ State }},
- {{ Tags }},
- {{ Type }},
- {{ UpdatePolicy }},
- {{ UnmanagedvCpus }},
- {{ EksConfiguration }},
+ {{ .ComputeEnvironmentName }},
+ {{ .ComputeResources }},
+ {{ .ReplaceComputeEnvironment }},
+ {{ .ServiceRole }},
+ {{ .State }},
+ {{ .Tags }},
+ {{ .Type }},
+ {{ .UpdatePolicy }},
+ {{ .UnmanagedvCpus }},
+ {{ .EksConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

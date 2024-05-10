@@ -83,7 +83,6 @@ FROM aws.wafv2.rule_groups
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,12 +107,11 @@ INSERT INTO aws.wafv2.rule_groups (
  region
 )
 SELECT 
-{{ Capacity }},
- {{ Scope }},
- {{ VisibilityConfig }},
+{{ .Capacity }},
+ {{ .Scope }},
+ {{ .VisibilityConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -500,19 +498,18 @@ INSERT INTO aws.wafv2.rule_groups (
  region
 )
 SELECT 
- {{ Capacity }},
- {{ Description }},
- {{ Name }},
- {{ Scope }},
- {{ Rules }},
- {{ VisibilityConfig }},
- {{ Tags }},
- {{ CustomResponseBodies }},
- {{ AvailableLabels }},
- {{ ConsumedLabels }},
+ {{ .Capacity }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .Scope }},
+ {{ .Rules }},
+ {{ .VisibilityConfig }},
+ {{ .Tags }},
+ {{ .CustomResponseBodies }},
+ {{ .AvailableLabels }},
+ {{ .ConsumedLabels }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

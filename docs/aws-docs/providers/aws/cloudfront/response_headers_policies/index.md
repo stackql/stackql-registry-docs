@@ -79,7 +79,6 @@ FROM aws.cloudfront.response_headers_policies
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -173,10 +172,9 @@ INSERT INTO aws.cloudfront.response_headers_policies (
  region
 )
 SELECT 
-{{ ResponseHeadersPolicyConfig }},
+{{ .ResponseHeadersPolicyConfig }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -269,10 +267,9 @@ INSERT INTO aws.cloudfront.response_headers_policies (
  region
 )
 SELECT 
- {{ ResponseHeadersPolicyConfig }},
+ {{ .ResponseHeadersPolicyConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

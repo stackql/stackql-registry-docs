@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.wisdom.knowledge_bases (
  region
 )
 SELECT 
-{{ KnowledgeBaseType }},
- {{ Name }},
+{{ .KnowledgeBaseType }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -146,16 +144,15 @@ INSERT INTO aws.wisdom.knowledge_bases (
  region
 )
 SELECT 
- {{ Description }},
- {{ KnowledgeBaseType }},
- {{ Name }},
- {{ RenderingConfiguration }},
- {{ ServerSideEncryptionConfiguration }},
- {{ SourceConfiguration }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .KnowledgeBaseType }},
+ {{ .Name }},
+ {{ .RenderingConfiguration }},
+ {{ .ServerSideEncryptionConfiguration }},
+ {{ .SourceConfiguration }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

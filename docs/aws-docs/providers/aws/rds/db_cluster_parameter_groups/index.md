@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.rds.db_cluster_parameter_groups (
  region
 )
 SELECT 
-{{ Description }},
- {{ Family }},
- {{ Parameters }},
+{{ .Description }},
+ {{ .Family }},
+ {{ .Parameters }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,14 +132,13 @@ INSERT INTO aws.rds.db_cluster_parameter_groups (
  region
 )
 SELECT 
- {{ Description }},
- {{ Family }},
- {{ Parameters }},
- {{ DBClusterParameterGroupName }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .Family }},
+ {{ .Parameters }},
+ {{ .DBClusterParameterGroupName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

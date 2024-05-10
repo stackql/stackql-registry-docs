@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,14 +105,13 @@ INSERT INTO aws.transfer.agreements (
  region
 )
 SELECT 
-{{ ServerId }},
- {{ LocalProfileId }},
- {{ PartnerProfileId }},
- {{ BaseDirectory }},
- {{ AccessRole }},
+{{ .ServerId }},
+ {{ .LocalProfileId }},
+ {{ .PartnerProfileId }},
+ {{ .BaseDirectory }},
+ {{ .AccessRole }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -148,17 +146,16 @@ INSERT INTO aws.transfer.agreements (
  region
 )
 SELECT 
- {{ Description }},
- {{ ServerId }},
- {{ LocalProfileId }},
- {{ PartnerProfileId }},
- {{ BaseDirectory }},
- {{ AccessRole }},
- {{ Status }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .ServerId }},
+ {{ .LocalProfileId }},
+ {{ .PartnerProfileId }},
+ {{ .BaseDirectory }},
+ {{ .AccessRole }},
+ {{ .Status }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.appintegrations.data_integrations (
  region
 )
 SELECT 
-{{ Name }},
- {{ KmsKey }},
- {{ SourceURI }},
+{{ .Name }},
+ {{ .KmsKey }},
+ {{ .SourceURI }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -149,17 +147,16 @@ INSERT INTO aws.appintegrations.data_integrations (
  region
 )
 SELECT 
- {{ Description }},
- {{ Name }},
- {{ KmsKey }},
- {{ ScheduleConfig }},
- {{ SourceURI }},
- {{ Tags }},
- {{ FileConfiguration }},
- {{ ObjectConfiguration }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .KmsKey }},
+ {{ .ScheduleConfig }},
+ {{ .SourceURI }},
+ {{ .Tags }},
+ {{ .FileConfiguration }},
+ {{ .ObjectConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -216,11 +215,10 @@ INSERT INTO aws.iotevents.detector_models (
  region
 )
 SELECT 
-{{ DetectorModelDefinition }},
- {{ RoleArn }},
+{{ .DetectorModelDefinition }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -371,16 +369,15 @@ INSERT INTO aws.iotevents.detector_models (
  region
 )
 SELECT 
- {{ DetectorModelDefinition }},
- {{ DetectorModelDescription }},
- {{ DetectorModelName }},
- {{ EvaluationMethod }},
- {{ Key }},
- {{ RoleArn }},
- {{ Tags }},
+ {{ .DetectorModelDefinition }},
+ {{ .DetectorModelDescription }},
+ {{ .DetectorModelName }},
+ {{ .EvaluationMethod }},
+ {{ .Key }},
+ {{ .RoleArn }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

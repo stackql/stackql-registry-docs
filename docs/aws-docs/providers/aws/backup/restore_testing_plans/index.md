@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -112,12 +111,11 @@ INSERT INTO aws.backup.restore_testing_plans (
  region
 )
 SELECT 
-{{ RecoveryPointSelection }},
- {{ RestoreTestingPlanName }},
- {{ ScheduleExpression }},
+{{ .RecoveryPointSelection }},
+ {{ .RestoreTestingPlanName }},
+ {{ .ScheduleExpression }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -160,15 +158,14 @@ INSERT INTO aws.backup.restore_testing_plans (
  region
 )
 SELECT 
- {{ RecoveryPointSelection }},
- {{ RestoreTestingPlanName }},
- {{ ScheduleExpression }},
- {{ ScheduleExpressionTimezone }},
- {{ StartWindowHours }},
- {{ Tags }},
+ {{ .RecoveryPointSelection }},
+ {{ .RestoreTestingPlanName }},
+ {{ .ScheduleExpression }},
+ {{ .ScheduleExpressionTimezone }},
+ {{ .StartWindowHours }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

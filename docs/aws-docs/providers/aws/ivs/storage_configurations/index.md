@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.ivs.storage_configurations (
  region
 )
 SELECT 
-{{ S3 }},
+{{ .S3 }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -128,12 +126,11 @@ INSERT INTO aws.ivs.storage_configurations (
  region
 )
 SELECT 
- {{ Name }},
- {{ S3 }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .S3 }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.lightsail.instances (
  region
 )
 SELECT 
-{{ InstanceName }},
- {{ BundleId }},
- {{ BlueprintId }},
+{{ .InstanceName }},
+ {{ .BundleId }},
+ {{ .BlueprintId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -200,21 +198,20 @@ INSERT INTO aws.lightsail.instances (
  region
 )
 SELECT 
- {{ Location }},
- {{ Hardware }},
- {{ State }},
- {{ Networking }},
- {{ InstanceName }},
- {{ AvailabilityZone }},
- {{ BundleId }},
- {{ BlueprintId }},
- {{ AddOns }},
- {{ UserData }},
- {{ KeyPairName }},
- {{ Tags }},
+ {{ .Location }},
+ {{ .Hardware }},
+ {{ .State }},
+ {{ .Networking }},
+ {{ .InstanceName }},
+ {{ .AvailabilityZone }},
+ {{ .BundleId }},
+ {{ .BlueprintId }},
+ {{ .AddOns }},
+ {{ .UserData }},
+ {{ .KeyPairName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

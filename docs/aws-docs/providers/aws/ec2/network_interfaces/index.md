@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ec2.network_interfaces (
  region
 )
 SELECT 
-{{ SubnetId }},
+{{ .SubnetId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -175,26 +173,25 @@ INSERT INTO aws.ec2.network_interfaces (
  region
 )
 SELECT 
- {{ Description }},
- {{ PrivateIpAddress }},
- {{ PrivateIpAddresses }},
- {{ SecondaryPrivateIpAddressCount }},
- {{ Ipv4Prefixes }},
- {{ Ipv4PrefixCount }},
- {{ GroupSet }},
- {{ Ipv6Addresses }},
- {{ Ipv6Prefixes }},
- {{ Ipv6PrefixCount }},
- {{ SubnetId }},
- {{ SourceDestCheck }},
- {{ InterfaceType }},
- {{ Ipv6AddressCount }},
- {{ EnablePrimaryIpv6 }},
- {{ ConnectionTrackingSpecification }},
- {{ Tags }},
+ {{ .Description }},
+ {{ .PrivateIpAddress }},
+ {{ .PrivateIpAddresses }},
+ {{ .SecondaryPrivateIpAddressCount }},
+ {{ .Ipv4Prefixes }},
+ {{ .Ipv4PrefixCount }},
+ {{ .GroupSet }},
+ {{ .Ipv6Addresses }},
+ {{ .Ipv6Prefixes }},
+ {{ .Ipv6PrefixCount }},
+ {{ .SubnetId }},
+ {{ .SourceDestCheck }},
+ {{ .InterfaceType }},
+ {{ .Ipv6AddressCount }},
+ {{ .EnablePrimaryIpv6 }},
+ {{ .ConnectionTrackingSpecification }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

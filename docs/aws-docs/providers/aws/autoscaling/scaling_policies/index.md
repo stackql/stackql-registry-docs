@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.autoscaling.scaling_policies (
  region
 )
 SELECT 
-{{ AutoScalingGroupName }},
+{{ .AutoScalingGroupName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -213,20 +211,19 @@ INSERT INTO aws.autoscaling.scaling_policies (
  region
 )
 SELECT 
- {{ MetricAggregationType }},
- {{ PolicyType }},
- {{ PredictiveScalingConfiguration }},
- {{ ScalingAdjustment }},
- {{ Cooldown }},
- {{ StepAdjustments }},
- {{ AutoScalingGroupName }},
- {{ MinAdjustmentMagnitude }},
- {{ TargetTrackingConfiguration }},
- {{ EstimatedInstanceWarmup }},
- {{ AdjustmentType }},
+ {{ .MetricAggregationType }},
+ {{ .PolicyType }},
+ {{ .PredictiveScalingConfiguration }},
+ {{ .ScalingAdjustment }},
+ {{ .Cooldown }},
+ {{ .StepAdjustments }},
+ {{ .AutoScalingGroupName }},
+ {{ .MinAdjustmentMagnitude }},
+ {{ .TargetTrackingConfiguration }},
+ {{ .EstimatedInstanceWarmup }},
+ {{ .AdjustmentType }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

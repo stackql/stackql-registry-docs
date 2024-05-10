@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.rds.db_proxy_target_groups (
  region
 )
 SELECT 
-{{ DBProxyName }},
- {{ TargetGroupName }},
+{{ .DBProxyName }},
+ {{ .TargetGroupName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -138,14 +136,13 @@ INSERT INTO aws.rds.db_proxy_target_groups (
  region
 )
 SELECT 
- {{ DBProxyName }},
- {{ TargetGroupName }},
- {{ ConnectionPoolConfigurationInfo }},
- {{ DBInstanceIdentifiers }},
- {{ DBClusterIdentifiers }},
+ {{ .DBProxyName }},
+ {{ .TargetGroupName }},
+ {{ .ConnectionPoolConfigurationInfo }},
+ {{ .DBInstanceIdentifiers }},
+ {{ .DBClusterIdentifiers }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

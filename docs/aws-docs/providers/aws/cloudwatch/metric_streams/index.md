@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -100,12 +99,11 @@ INSERT INTO aws.cloudwatch.metric_streams (
  region
 )
 SELECT 
-{{ FirehoseArn }},
- {{ RoleArn }},
- {{ OutputFormat }},
+{{ .FirehoseArn }},
+ {{ .RoleArn }},
+ {{ .OutputFormat }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -163,18 +161,17 @@ INSERT INTO aws.cloudwatch.metric_streams (
  region
 )
 SELECT 
- {{ ExcludeFilters }},
- {{ FirehoseArn }},
- {{ IncludeFilters }},
- {{ Name }},
- {{ RoleArn }},
- {{ OutputFormat }},
- {{ StatisticsConfigurations }},
- {{ Tags }},
- {{ IncludeLinkedAccountsMetrics }},
+ {{ .ExcludeFilters }},
+ {{ .FirehoseArn }},
+ {{ .IncludeFilters }},
+ {{ .Name }},
+ {{ .RoleArn }},
+ {{ .OutputFormat }},
+ {{ .StatisticsConfigurations }},
+ {{ .Tags }},
+ {{ .IncludeLinkedAccountsMetrics }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

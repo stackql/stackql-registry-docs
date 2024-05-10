@@ -83,7 +83,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -106,13 +105,12 @@ INSERT INTO aws.emr.studio_session_mappings (
  region
 )
 SELECT 
-{{ IdentityName }},
- {{ IdentityType }},
- {{ SessionPolicyArn }},
- {{ StudioId }},
+{{ .IdentityName }},
+ {{ .IdentityType }},
+ {{ .SessionPolicyArn }},
+ {{ .StudioId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -134,13 +132,12 @@ INSERT INTO aws.emr.studio_session_mappings (
  region
 )
 SELECT 
- {{ IdentityName }},
- {{ IdentityType }},
- {{ SessionPolicyArn }},
- {{ StudioId }},
+ {{ .IdentityName }},
+ {{ .IdentityType }},
+ {{ .SessionPolicyArn }},
+ {{ .StudioId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

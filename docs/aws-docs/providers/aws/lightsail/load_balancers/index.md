@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.lightsail.load_balancers (
  region
 )
 SELECT 
-{{ LoadBalancerName }},
- {{ InstancePort }},
+{{ .LoadBalancerName }},
+ {{ .InstancePort }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -141,18 +139,17 @@ INSERT INTO aws.lightsail.load_balancers (
  region
 )
 SELECT 
- {{ LoadBalancerName }},
- {{ InstancePort }},
- {{ IpAddressType }},
- {{ AttachedInstances }},
- {{ HealthCheckPath }},
- {{ SessionStickinessEnabled }},
- {{ SessionStickinessLBCookieDurationSeconds }},
- {{ TlsPolicyName }},
- {{ Tags }},
+ {{ .LoadBalancerName }},
+ {{ .InstancePort }},
+ {{ .IpAddressType }},
+ {{ .AttachedInstances }},
+ {{ .HealthCheckPath }},
+ {{ .SessionStickinessEnabled }},
+ {{ .SessionStickinessLBCookieDurationSeconds }},
+ {{ .TlsPolicyName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.connect.traffic_distribution_groups (
  region
 )
 SELECT 
-{{ InstanceArn }},
- {{ Name }},
+{{ .InstanceArn }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,13 +127,12 @@ INSERT INTO aws.connect.traffic_distribution_groups (
  region
 )
 SELECT 
- {{ InstanceArn }},
- {{ Description }},
- {{ Name }},
- {{ Tags }},
+ {{ .InstanceArn }},
+ {{ .Description }},
+ {{ .Name }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

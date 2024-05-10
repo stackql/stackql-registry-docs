@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.redshiftserverless.namespaces (
  region
 )
 SELECT 
-{{ NamespaceName }},
+{{ .NamespaceName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -160,25 +158,24 @@ INSERT INTO aws.redshiftserverless.namespaces (
  region
 )
 SELECT 
- {{ AdminPasswordSecretKmsKeyId }},
- {{ AdminUserPassword }},
- {{ AdminUsername }},
- {{ DbName }},
- {{ DefaultIamRoleArn }},
- {{ IamRoles }},
- {{ KmsKeyId }},
- {{ LogExports }},
- {{ ManageAdminPassword }},
- {{ NamespaceName }},
- {{ Tags }},
- {{ FinalSnapshotName }},
- {{ FinalSnapshotRetentionPeriod }},
- {{ NamespaceResourcePolicy }},
- {{ RedshiftIdcApplicationArn }},
- {{ SnapshotCopyConfigurations }},
+ {{ .AdminPasswordSecretKmsKeyId }},
+ {{ .AdminUserPassword }},
+ {{ .AdminUsername }},
+ {{ .DbName }},
+ {{ .DefaultIamRoleArn }},
+ {{ .IamRoles }},
+ {{ .KmsKeyId }},
+ {{ .LogExports }},
+ {{ .ManageAdminPassword }},
+ {{ .NamespaceName }},
+ {{ .Tags }},
+ {{ .FinalSnapshotName }},
+ {{ .FinalSnapshotRetentionPeriod }},
+ {{ .NamespaceResourcePolicy }},
+ {{ .RedshiftIdcApplicationArn }},
+ {{ .SnapshotCopyConfigurations }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

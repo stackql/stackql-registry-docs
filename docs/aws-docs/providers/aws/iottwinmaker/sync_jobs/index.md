@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -102,12 +101,11 @@ INSERT INTO aws.iottwinmaker.sync_jobs (
  region
 )
 SELECT 
-{{ WorkspaceId }},
- {{ SyncSource }},
- {{ SyncRole }},
+{{ .WorkspaceId }},
+ {{ .SyncSource }},
+ {{ .SyncRole }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -129,13 +127,12 @@ INSERT INTO aws.iottwinmaker.sync_jobs (
  region
 )
 SELECT 
- {{ WorkspaceId }},
- {{ SyncSource }},
- {{ SyncRole }},
- {{ Tags }},
+ {{ .WorkspaceId }},
+ {{ .SyncSource }},
+ {{ .SyncRole }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

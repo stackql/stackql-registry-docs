@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.cloudformation.module_versions (
  region
 )
 SELECT 
-{{ ModuleName }},
- {{ ModulePackage }},
+{{ .ModuleName }},
+ {{ .ModulePackage }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -120,11 +118,10 @@ INSERT INTO aws.cloudformation.module_versions (
  region
 )
 SELECT 
- {{ ModuleName }},
- {{ ModulePackage }},
+ {{ .ModuleName }},
+ {{ .ModulePackage }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

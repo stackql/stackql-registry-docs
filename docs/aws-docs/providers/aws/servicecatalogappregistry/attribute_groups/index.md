@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.servicecatalogappregistry.attribute_groups (
  region
 )
 SELECT 
-{{ Name }},
- {{ Attributes }},
+{{ .Name }},
+ {{ .Attributes }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -124,13 +122,12 @@ INSERT INTO aws.servicecatalogappregistry.attribute_groups (
  region
 )
 SELECT 
- {{ Name }},
- {{ Description }},
- {{ Attributes }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .Description }},
+ {{ .Attributes }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

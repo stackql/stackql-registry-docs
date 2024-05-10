@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -144,22 +143,21 @@ INSERT INTO aws.efs.file_systems (
  region
 )
 SELECT 
-{{ Encrypted }},
- {{ FileSystemTags }},
- {{ KmsKeyId }},
- {{ LifecyclePolicies }},
- {{ FileSystemProtection }},
- {{ PerformanceMode }},
- {{ ProvisionedThroughputInMibps }},
- {{ ThroughputMode }},
- {{ FileSystemPolicy }},
- {{ BypassPolicyLockoutSafetyCheck }},
- {{ BackupPolicy }},
- {{ AvailabilityZoneName }},
- {{ ReplicationConfiguration }},
+{{ .Encrypted }},
+ {{ .FileSystemTags }},
+ {{ .KmsKeyId }},
+ {{ .LifecyclePolicies }},
+ {{ .FileSystemProtection }},
+ {{ .PerformanceMode }},
+ {{ .ProvisionedThroughputInMibps }},
+ {{ .ThroughputMode }},
+ {{ .FileSystemPolicy }},
+ {{ .BypassPolicyLockoutSafetyCheck }},
+ {{ .BackupPolicy }},
+ {{ .AvailabilityZoneName }},
+ {{ .ReplicationConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -223,22 +221,21 @@ INSERT INTO aws.efs.file_systems (
  region
 )
 SELECT 
- {{ Encrypted }},
- {{ FileSystemTags }},
- {{ KmsKeyId }},
- {{ LifecyclePolicies }},
- {{ FileSystemProtection }},
- {{ PerformanceMode }},
- {{ ProvisionedThroughputInMibps }},
- {{ ThroughputMode }},
- {{ FileSystemPolicy }},
- {{ BypassPolicyLockoutSafetyCheck }},
- {{ BackupPolicy }},
- {{ AvailabilityZoneName }},
- {{ ReplicationConfiguration }},
+ {{ .Encrypted }},
+ {{ .FileSystemTags }},
+ {{ .KmsKeyId }},
+ {{ .LifecyclePolicies }},
+ {{ .FileSystemProtection }},
+ {{ .PerformanceMode }},
+ {{ .ProvisionedThroughputInMibps }},
+ {{ .ThroughputMode }},
+ {{ .FileSystemPolicy }},
+ {{ .BypassPolicyLockoutSafetyCheck }},
+ {{ .BackupPolicy }},
+ {{ .AvailabilityZoneName }},
+ {{ .ReplicationConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

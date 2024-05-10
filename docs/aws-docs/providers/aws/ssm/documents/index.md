@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.ssm.documents (
  region
 )
 SELECT 
-{{ Content }},
+{{ .Content }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -151,19 +149,18 @@ INSERT INTO aws.ssm.documents (
  region
 )
 SELECT 
- {{ Content }},
- {{ Attachments }},
- {{ Name }},
- {{ VersionName }},
- {{ DocumentType }},
- {{ DocumentFormat }},
- {{ TargetType }},
- {{ Tags }},
- {{ Requires }},
- {{ UpdateMethod }},
+ {{ .Content }},
+ {{ .Attachments }},
+ {{ .Name }},
+ {{ .VersionName }},
+ {{ .DocumentType }},
+ {{ .DocumentFormat }},
+ {{ .TargetType }},
+ {{ .Tags }},
+ {{ .Requires }},
+ {{ .UpdateMethod }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

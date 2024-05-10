@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.stepfunctions.state_machines (
  region
 )
 SELECT 
-{{ RoleArn }},
+{{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -154,19 +152,18 @@ INSERT INTO aws.stepfunctions.state_machines (
  region
 )
 SELECT 
- {{ DefinitionSubstitutions }},
- {{ Definition }},
- {{ RoleArn }},
- {{ StateMachineType }},
- {{ TracingConfiguration }},
- {{ DefinitionString }},
- {{ LoggingConfiguration }},
- {{ DefinitionS3Location }},
- {{ StateMachineName }},
- {{ Tags }},
+ {{ .DefinitionSubstitutions }},
+ {{ .Definition }},
+ {{ .RoleArn }},
+ {{ .StateMachineType }},
+ {{ .TracingConfiguration }},
+ {{ .DefinitionString }},
+ {{ .LoggingConfiguration }},
+ {{ .DefinitionS3Location }},
+ {{ .StateMachineName }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

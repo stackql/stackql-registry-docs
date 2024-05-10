@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.personalize.solutions (
  region
 )
 SELECT 
-{{ Name }},
- {{ DatasetGroupArn }},
+{{ .Name }},
+ {{ .DatasetGroupArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -175,16 +173,15 @@ INSERT INTO aws.personalize.solutions (
  region
 )
 SELECT 
- {{ Name }},
- {{ EventType }},
- {{ DatasetGroupArn }},
- {{ PerformAutoML }},
- {{ PerformHPO }},
- {{ RecipeArn }},
- {{ SolutionConfig }},
+ {{ .Name }},
+ {{ .EventType }},
+ {{ .DatasetGroupArn }},
+ {{ .PerformAutoML }},
+ {{ .PerformHPO }},
+ {{ .RecipeArn }},
+ {{ .SolutionConfig }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

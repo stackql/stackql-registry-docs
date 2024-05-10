@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -116,14 +115,13 @@ INSERT INTO aws.timestream.scheduled_queries (
  region
 )
 SELECT 
-{{ QueryString }},
- {{ ScheduleConfiguration }},
- {{ NotificationConfiguration }},
- {{ ScheduledQueryExecutionRoleArn }},
- {{ ErrorReportConfiguration }},
+{{ .QueryString }},
+ {{ .ScheduleConfiguration }},
+ {{ .NotificationConfiguration }},
+ {{ .ScheduledQueryExecutionRoleArn }},
+ {{ .ErrorReportConfiguration }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -206,19 +204,18 @@ INSERT INTO aws.timestream.scheduled_queries (
  region
 )
 SELECT 
- {{ ScheduledQueryName }},
- {{ QueryString }},
- {{ ScheduleConfiguration }},
- {{ NotificationConfiguration }},
- {{ ClientToken }},
- {{ ScheduledQueryExecutionRoleArn }},
- {{ TargetConfiguration }},
- {{ ErrorReportConfiguration }},
- {{ KmsKeyId }},
- {{ Tags }},
+ {{ .ScheduledQueryName }},
+ {{ .QueryString }},
+ {{ .ScheduleConfiguration }},
+ {{ .NotificationConfiguration }},
+ {{ .ClientToken }},
+ {{ .ScheduledQueryExecutionRoleArn }},
+ {{ .TargetConfiguration }},
+ {{ .ErrorReportConfiguration }},
+ {{ .KmsKeyId }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

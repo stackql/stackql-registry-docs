@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -117,12 +116,11 @@ INSERT INTO aws.mediatailor.channels (
  region
 )
 SELECT 
-{{ ChannelName }},
- {{ Outputs }},
- {{ PlaybackMode }},
+{{ .ChannelName }},
+ {{ .Outputs }},
+ {{ .PlaybackMode }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -187,18 +185,17 @@ INSERT INTO aws.mediatailor.channels (
  region
 )
 SELECT 
- {{ Audiences }},
- {{ ChannelName }},
- {{ FillerSlate }},
- {{ LogConfiguration }},
- {{ Outputs }},
- {{ PlaybackMode }},
- {{ Tags }},
- {{ Tier }},
- {{ TimeShiftConfiguration }},
+ {{ .Audiences }},
+ {{ .ChannelName }},
+ {{ .FillerSlate }},
+ {{ .LogConfiguration }},
+ {{ .Outputs }},
+ {{ .PlaybackMode }},
+ {{ .Tags }},
+ {{ .Tier }},
+ {{ .TimeShiftConfiguration }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

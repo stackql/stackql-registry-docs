@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.robomaker.simulation_application_versions (
  region
 )
 SELECT 
-{{ Application }},
+{{ .Application }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -117,11 +115,10 @@ INSERT INTO aws.robomaker.simulation_application_versions (
  region
 )
 SELECT 
- {{ Application }},
- {{ CurrentRevisionId }},
+ {{ .Application }},
+ {{ .CurrentRevisionId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

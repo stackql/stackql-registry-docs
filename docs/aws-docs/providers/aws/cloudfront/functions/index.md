@@ -79,7 +79,6 @@ FROM aws.cloudfront.functions
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -108,12 +107,11 @@ INSERT INTO aws.cloudfront.functions (
  region
 )
 SELECT 
-{{ FunctionCode }},
- {{ FunctionConfig }},
- {{ Name }},
+{{ .FunctionCode }},
+ {{ .FunctionConfig }},
+ {{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -147,14 +145,13 @@ INSERT INTO aws.cloudfront.functions (
  region
 )
 SELECT 
- {{ AutoPublish }},
- {{ FunctionCode }},
- {{ FunctionConfig }},
- {{ FunctionMetadata }},
- {{ Name }},
+ {{ .AutoPublish }},
+ {{ .FunctionCode }},
+ {{ .FunctionConfig }},
+ {{ .FunctionMetadata }},
+ {{ .Name }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

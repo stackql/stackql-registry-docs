@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.gamelift.fleets (
  region
 )
 SELECT 
-{{ Name }},
+{{ .Name }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -227,36 +225,35 @@ INSERT INTO aws.gamelift.fleets (
  region
 )
 SELECT 
- {{ ScalingPolicies }},
- {{ Description }},
- {{ PeerVpcId }},
- {{ ApplyCapacity }},
- {{ EC2InboundPermissions }},
- {{ ComputeType }},
- {{ Name }},
- {{ AnywhereConfiguration }},
- {{ InstanceRoleARN }},
- {{ CertificateConfiguration }},
- {{ InstanceRoleCredentialsProvider }},
- {{ DesiredEC2Instances }},
- {{ ServerLaunchParameters }},
- {{ FleetType }},
- {{ Locations }},
- {{ NewGameSessionProtectionPolicy }},
- {{ ScriptId }},
- {{ MaxSize }},
- {{ RuntimeConfiguration }},
- {{ LogPaths }},
- {{ ServerLaunchPath }},
- {{ MinSize }},
- {{ PeerVpcAwsAccountId }},
- {{ MetricGroups }},
- {{ BuildId }},
- {{ ResourceCreationLimitPolicy }},
- {{ EC2InstanceType }},
+ {{ .ScalingPolicies }},
+ {{ .Description }},
+ {{ .PeerVpcId }},
+ {{ .ApplyCapacity }},
+ {{ .EC2InboundPermissions }},
+ {{ .ComputeType }},
+ {{ .Name }},
+ {{ .AnywhereConfiguration }},
+ {{ .InstanceRoleARN }},
+ {{ .CertificateConfiguration }},
+ {{ .InstanceRoleCredentialsProvider }},
+ {{ .DesiredEC2Instances }},
+ {{ .ServerLaunchParameters }},
+ {{ .FleetType }},
+ {{ .Locations }},
+ {{ .NewGameSessionProtectionPolicy }},
+ {{ .ScriptId }},
+ {{ .MaxSize }},
+ {{ .RuntimeConfiguration }},
+ {{ .LogPaths }},
+ {{ .ServerLaunchPath }},
+ {{ .MinSize }},
+ {{ .PeerVpcAwsAccountId }},
+ {{ .MetricGroups }},
+ {{ .BuildId }},
+ {{ .ResourceCreationLimitPolicy }},
+ {{ .EC2InstanceType }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

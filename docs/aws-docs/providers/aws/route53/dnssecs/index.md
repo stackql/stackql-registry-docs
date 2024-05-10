@@ -79,7 +79,6 @@ FROM aws.route53.dnssecs
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.route53.dnssecs (
  region
 )
 SELECT 
-{{ HostedZoneId }},
+{{ .HostedZoneId }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -115,10 +113,9 @@ INSERT INTO aws.route53.dnssecs (
  region
 )
 SELECT 
- {{ HostedZoneId }},
+ {{ .HostedZoneId }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

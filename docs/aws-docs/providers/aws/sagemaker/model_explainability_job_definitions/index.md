@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -150,14 +149,13 @@ INSERT INTO aws.sagemaker.model_explainability_job_definitions (
  region
 )
 SELECT 
-{{ ModelExplainabilityAppSpecification }},
- {{ ModelExplainabilityJobInput }},
- {{ ModelExplainabilityJobOutputConfig }},
- {{ JobResources }},
- {{ RoleArn }},
+{{ .ModelExplainabilityAppSpecification }},
+ {{ .ModelExplainabilityJobInput }},
+ {{ .ModelExplainabilityJobOutputConfig }},
+ {{ .JobResources }},
+ {{ .RoleArn }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -262,20 +260,19 @@ INSERT INTO aws.sagemaker.model_explainability_job_definitions (
  region
 )
 SELECT 
- {{ JobDefinitionName }},
- {{ ModelExplainabilityBaselineConfig }},
- {{ ModelExplainabilityAppSpecification }},
- {{ ModelExplainabilityJobInput }},
- {{ ModelExplainabilityJobOutputConfig }},
- {{ JobResources }},
- {{ NetworkConfig }},
- {{ EndpointName }},
- {{ RoleArn }},
- {{ StoppingCondition }},
- {{ Tags }},
+ {{ .JobDefinitionName }},
+ {{ .ModelExplainabilityBaselineConfig }},
+ {{ .ModelExplainabilityAppSpecification }},
+ {{ .ModelExplainabilityJobInput }},
+ {{ .ModelExplainabilityJobOutputConfig }},
+ {{ .JobResources }},
+ {{ .NetworkConfig }},
+ {{ .EndpointName }},
+ {{ .RoleArn }},
+ {{ .StoppingCondition }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

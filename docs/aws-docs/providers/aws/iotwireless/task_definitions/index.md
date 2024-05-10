@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -96,10 +95,9 @@ INSERT INTO aws.iotwireless.task_definitions (
  region
 )
 SELECT 
-{{ AutoCreateTasks }},
+{{ .AutoCreateTasks }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -146,15 +144,14 @@ INSERT INTO aws.iotwireless.task_definitions (
  region
 )
 SELECT 
- {{ Name }},
- {{ AutoCreateTasks }},
- {{ Update }},
- {{ LoRaWANUpdateGatewayTaskEntry }},
- {{ TaskDefinitionType }},
- {{ Tags }},
+ {{ .Name }},
+ {{ .AutoCreateTasks }},
+ {{ .Update }},
+ {{ .LoRaWANUpdateGatewayTaskEntry }},
+ {{ .TaskDefinitionType }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

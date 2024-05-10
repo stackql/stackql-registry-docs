@@ -81,7 +81,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,10 +97,9 @@ INSERT INTO aws.iot.software_package_versions (
  region
 )
 SELECT 
-{{ PackageName }},
+{{ .PackageName }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -130,14 +128,13 @@ INSERT INTO aws.iot.software_package_versions (
  region
 )
 SELECT 
- {{ Attributes }},
- {{ Description }},
- {{ PackageName }},
- {{ Tags }},
- {{ VersionName }},
+ {{ .Attributes }},
+ {{ .Description }},
+ {{ .PackageName }},
+ {{ .Tags }},
+ {{ .VersionName }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 

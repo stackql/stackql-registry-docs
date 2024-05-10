@@ -79,7 +79,6 @@ WHERE region = 'us-east-1';
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
-
     ]
 }>
 <TabItem value="required">
@@ -98,11 +97,10 @@ INSERT INTO aws.location.route_calculators (
  region
 )
 SELECT 
-{{ CalculatorName }},
- {{ DataSource }},
+{{ .CalculatorName }},
+ {{ .DataSource }},
 'us-east-1';
 ```
-
 </TabItem>
 <TabItem value="all">
 
@@ -131,14 +129,13 @@ INSERT INTO aws.location.route_calculators (
  region
 )
 SELECT 
- {{ CalculatorName }},
- {{ DataSource }},
- {{ Description }},
- {{ PricingPlan }},
- {{ Tags }},
+ {{ .CalculatorName }},
+ {{ .DataSource }},
+ {{ .Description }},
+ {{ .PricingPlan }},
+ {{ .Tags }},
  'us-east-1';
 ```
-
 </TabItem>
 </Tabs>
 
