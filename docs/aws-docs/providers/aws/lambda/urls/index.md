@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>urls</code> in a region or create a <code>urls</code> resource, use <code>url</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>urls</code> in a region or to create or delete a <code>urls</code> resource, use <code>url</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>urls</code> in a region or create a <code>urls<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,95 @@ SELECT
 region,
 function_arn
 FROM aws.lambda.urls
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TargetFunctionArn": "{{ TargetFunctionArn }}",
+ "AuthType": "{{ AuthType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lambda.urls (
+ TargetFunctionArn,
+ AuthType,
+ region
+)
+SELECT 
+{{ TargetFunctionArn }},
+ {{ AuthType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TargetFunctionArn": "{{ TargetFunctionArn }}",
+ "Qualifier": "{{ Qualifier }}",
+ "AuthType": "{{ AuthType }}",
+ "InvokeMode": "{{ InvokeMode }}",
+ "Cors": {
+  "AllowCredentials": "{{ AllowCredentials }}",
+  "AllowHeaders": [
+   "{{ AllowHeaders[0] }}"
+  ],
+  "AllowMethods": [
+   "{{ AllowMethods[0] }}"
+  ],
+  "AllowOrigins": [
+   "{{ AllowOrigins[0] }}"
+  ],
+  "ExposeHeaders": [
+   "{{ ExposeHeaders[0] }}"
+  ],
+  "MaxAge": "{{ MaxAge }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.lambda.urls (
+ TargetFunctionArn,
+ Qualifier,
+ AuthType,
+ InvokeMode,
+ Cors,
+ region
+)
+SELECT 
+ {{ TargetFunctionArn }},
+ {{ Qualifier }},
+ {{ AuthType }},
+ {{ InvokeMode }},
+ {{ Cors }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lambda.urls
+WHERE data__Identifier = '<FunctionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,5 +172,10 @@ lambda:CreateFunctionUrlConfig
 ### List
 ```json
 lambda:ListFunctionUrlConfigs
+```
+
+### Delete
+```json
+lambda:DeleteFunctionUrlConfig
 ```
 

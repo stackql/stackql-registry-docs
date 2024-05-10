@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>enabled_baseline</code> resource, use <code>enabled_baselines</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>enabled_baseline</code> resource, use <code>enabled_baselines</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>enabled_baseline</code> resource, use <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ target_identifier,
 parameters,
 tags
 FROM aws.controltower.enabled_baseline
-WHERE data__Identifier = '<EnabledBaselineIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<EnabledBaselineIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -119,33 +118,5 @@ servicecatalog:DeleteProvisioningArtifact,
 controltower:TagResource,
 controltower:ListTagsForResource,
 controltower:GetEnabledBaseline
-```
-
-### Delete
-```json
-controltower:DisableBaseline,
-controltower:GetBaselineOperation,
-organizations:CreateOrganizationalUnit,
-organizations:CreateOrganization,
-organizations:UpdatePolicy,
-organizations:CreatePolicy,
-organizations:AttachPolicy,
-organizations:DetachPolicy,
-organizations:DeletePolicy,
-organizations:EnablePolicyType,
-organizations:EnableAWSServiceAccess,
-organizations:ListRoots,
-servicecatalog:AssociatePrincipalWithPortfolio,
-servicecatalog:AssociateProductWithPortfolio,
-servicecatalog:CreatePortfolio,
-servicecatalog:CreateProduct,
-servicecatalog:CreateProvisioningArtifact,
-servicecatalog:ListPortfolios,
-servicecatalog:ListProvisioningArtifacts,
-servicecatalog:SearchProductsAsAdmin,
-servicecatalog:UpdatePortfolio,
-servicecatalog:UpdateProvisioningArtifact,
-servicecatalog:ListPrincipalsForPortfolio,
-servicecatalog:DeleteProvisioningArtifact
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>account_policy</code> resource, use <code>account_policies</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>account_policy</code> resource, use <code>account_policies</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>account_policy</code> resource, use <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ policy_type,
 scope,
 selection_criteria
 FROM aws.logs.account_policy
-WHERE data__Identifier = '<AccountId>|<PolicyType>|<PolicyName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>|<PolicyType>|<PolicyName>';
 ```
+
 
 ## Permissions
 
@@ -100,15 +99,6 @@ logs:PutSubscriptionFilter,
 logs:DeleteSubscriptionFilter,
 s3:REST.PUT.OBJECT,
 firehose:TagDeliveryStream,
-iam:PassRole
-```
-
-### Delete
-```json
-logs:DeleteAccountPolicy,
-logs:DeleteDataProtectionPolicy,
-logs:DescribeAccountPolicies,
-logs:DeleteSubscriptionFilter,
 iam:PassRole
 ```
 

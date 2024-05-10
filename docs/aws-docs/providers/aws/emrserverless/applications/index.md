@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>applications</code> in a region or create a <code>applications</code> resource, use <code>application</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>applications</code> in a region or to create or delete a <code>applications</code> resource, use <code>application</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>applications</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,154 @@ SELECT
 region,
 application_id
 FROM aws.emrserverless.applications
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ReleaseLabel": "{{ ReleaseLabel }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.emrserverless.applications (
+ ReleaseLabel,
+ Type,
+ region
+)
+SELECT 
+{{ ReleaseLabel }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Architecture": "{{ Architecture }}",
+ "Name": "{{ Name }}",
+ "ReleaseLabel": "{{ ReleaseLabel }}",
+ "Type": "{{ Type }}",
+ "InitialCapacity": [
+  {
+   "Key": "{{ Key }}",
+   "Value": {
+    "WorkerCount": "{{ WorkerCount }}",
+    "WorkerConfiguration": {
+     "Cpu": "{{ Cpu }}",
+     "Memory": "{{ Memory }}",
+     "Disk": "{{ Disk }}"
+    }
+   }
+  }
+ ],
+ "MaximumCapacity": {
+  "Cpu": null,
+  "Memory": null,
+  "Disk": null
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AutoStartConfiguration": {
+  "Enabled": "{{ Enabled }}"
+ },
+ "AutoStopConfiguration": {
+  "Enabled": "{{ Enabled }}",
+  "IdleTimeoutMinutes": "{{ IdleTimeoutMinutes }}"
+ },
+ "ImageConfiguration": {
+  "ImageUri": "{{ ImageUri }}"
+ },
+ "MonitoringConfiguration": {
+  "S3MonitoringConfiguration": null,
+  "ManagedPersistenceMonitoringConfiguration": null,
+  "CloudWatchLoggingConfiguration": null
+ },
+ "RuntimeConfiguration": [
+  {
+   "Classification": "{{ Classification }}",
+   "Properties": {},
+   "Configurations": [
+    null
+   ]
+  }
+ ],
+ "NetworkConfiguration": {
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ],
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ]
+ },
+ "WorkerTypeSpecifications": {}
+}
+>>>
+--all properties
+INSERT INTO aws.emrserverless.applications (
+ Architecture,
+ Name,
+ ReleaseLabel,
+ Type,
+ InitialCapacity,
+ MaximumCapacity,
+ Tags,
+ AutoStartConfiguration,
+ AutoStopConfiguration,
+ ImageConfiguration,
+ MonitoringConfiguration,
+ RuntimeConfiguration,
+ NetworkConfiguration,
+ WorkerTypeSpecifications,
+ region
+)
+SELECT 
+ {{ Architecture }},
+ {{ Name }},
+ {{ ReleaseLabel }},
+ {{ Type }},
+ {{ InitialCapacity }},
+ {{ MaximumCapacity }},
+ {{ Tags }},
+ {{ AutoStartConfiguration }},
+ {{ AutoStopConfiguration }},
+ {{ ImageConfiguration }},
+ {{ MonitoringConfiguration }},
+ {{ RuntimeConfiguration }},
+ {{ NetworkConfiguration }},
+ {{ WorkerTypeSpecifications }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.emrserverless.applications
+WHERE data__Identifier = '<ApplicationId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -94,6 +249,12 @@ ec2:CreateNetworkInterface,
 ecr:BatchGetImage,
 ecr:DescribeImages,
 ecr:GetDownloadUrlForLayer
+```
+
+### Delete
+```json
+emr-serverless:DeleteApplication,
+emr-serverless:GetApplication
 ```
 
 ### List

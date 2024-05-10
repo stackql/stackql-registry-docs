@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>launches</code> in a region or create a <code>launches</code> resource, use <code>launch</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>launches</code> in a region or to create or delete a <code>launches</code> resource, use <code>launch</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>launches</code> in a region or create a <code>l
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,167 @@ SELECT
 region,
 arn
 FROM aws.evidently.launches
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Project": "{{ Project }}",
+ "ScheduledSplitsConfig": [
+  {
+   "StartTime": "{{ StartTime }}",
+   "GroupWeights": [
+    {
+     "GroupName": "{{ GroupName }}",
+     "SplitWeight": "{{ SplitWeight }}"
+    }
+   ],
+   "SegmentOverrides": [
+    {
+     "Segment": "{{ Segment }}",
+     "EvaluationOrder": "{{ EvaluationOrder }}",
+     "Weights": [
+      null
+     ]
+    }
+   ]
+  }
+ ],
+ "Groups": [
+  {
+   "GroupName": "{{ GroupName }}",
+   "Description": "{{ Description }}",
+   "Feature": "{{ Feature }}",
+   "Variation": "{{ Variation }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.evidently.launches (
+ Name,
+ Project,
+ ScheduledSplitsConfig,
+ Groups,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Project }},
+ {{ ScheduledSplitsConfig }},
+ {{ Groups }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Project": "{{ Project }}",
+ "Description": "{{ Description }}",
+ "RandomizationSalt": "{{ RandomizationSalt }}",
+ "ScheduledSplitsConfig": [
+  {
+   "StartTime": "{{ StartTime }}",
+   "GroupWeights": [
+    {
+     "GroupName": "{{ GroupName }}",
+     "SplitWeight": "{{ SplitWeight }}"
+    }
+   ],
+   "SegmentOverrides": [
+    {
+     "Segment": "{{ Segment }}",
+     "EvaluationOrder": "{{ EvaluationOrder }}",
+     "Weights": [
+      null
+     ]
+    }
+   ]
+  }
+ ],
+ "Groups": [
+  {
+   "GroupName": "{{ GroupName }}",
+   "Description": "{{ Description }}",
+   "Feature": "{{ Feature }}",
+   "Variation": "{{ Variation }}"
+  }
+ ],
+ "MetricMonitors": [
+  {
+   "MetricName": "{{ MetricName }}",
+   "EntityIdKey": "{{ EntityIdKey }}",
+   "ValueKey": "{{ ValueKey }}",
+   "EventPattern": "{{ EventPattern }}",
+   "UnitLabel": "{{ UnitLabel }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ExecutionStatus": {
+  "Status": "{{ Status }}",
+  "DesiredState": "{{ DesiredState }}",
+  "Reason": "{{ Reason }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.evidently.launches (
+ Name,
+ Project,
+ Description,
+ RandomizationSalt,
+ ScheduledSplitsConfig,
+ Groups,
+ MetricMonitors,
+ Tags,
+ ExecutionStatus,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Project }},
+ {{ Description }},
+ {{ RandomizationSalt }},
+ {{ ScheduledSplitsConfig }},
+ {{ Groups }},
+ {{ MetricMonitors }},
+ {{ Tags }},
+ {{ ExecutionStatus }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.evidently.launches
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,5 +242,12 @@ evidently:CreateLaunch,
 evidently:TagResource,
 evidently:GetLaunch,
 evidently:StartLaunch
+```
+
+### Delete
+```json
+evidently:DeleteLaunch,
+evidently:UntagResource,
+evidently:GetLaunch
 ```
 

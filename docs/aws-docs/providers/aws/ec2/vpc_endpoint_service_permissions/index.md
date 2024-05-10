@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>vpc_endpoint_service_permissions</code> resource, use <code>vpc_endpoint_service_permissions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>vpc_endpoint_service_permissions</code> resource, use <code>vpc_endpoint_service_permissions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -50,11 +53,6 @@ Gets or operates on an individual <code>vpc_endpoint_service_permissions</code> 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -68,8 +66,9 @@ region,
 allowed_principals,
 service_id
 FROM aws.ec2.vpc_endpoint_service_permissions
-WHERE data__Identifier = '<ServiceId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ServiceId>';
 ```
+
 
 ## Permissions
 
@@ -84,14 +83,6 @@ ec2:DescribeVpcEndpointServicePermissions
 ```
 
 ### Read
-```json
-ec2:CreateVpcEndpointServicePermissions,
-ec2:ModifyVpcEndpointServicePermissions,
-ec2:DeleteVpcEndpointServicePermissions,
-ec2:DescribeVpcEndpointServicePermissions
-```
-
-### Delete
 ```json
 ec2:CreateVpcEndpointServicePermissions,
 ec2:ModifyVpcEndpointServicePermissions,

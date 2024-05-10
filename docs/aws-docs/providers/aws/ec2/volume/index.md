@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>volume</code> resource, use <code>volumes</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>volume</code> resource, use <code>volumes</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>volume</code> resource, use <code>volume
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ volume_type,
 volume_id,
 tags
 FROM aws.ec2.volume
-WHERE data__Identifier = '<VolumeId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<VolumeId>';
 ```
+
 
 ## Permissions
 
@@ -113,14 +112,5 @@ ec2:DescribeVolumesModifications,
 ec2:DescribeVolumes,
 ec2:CreateTags,
 ec2:DeleteTags
-```
-
-### Delete
-```json
-ec2:DeleteVolume,
-ec2:CreateSnapshot,
-ec2:DescribeSnapshots,
-ec2:DeleteTags,
-ec2:DescribeVolumes
 ```
 

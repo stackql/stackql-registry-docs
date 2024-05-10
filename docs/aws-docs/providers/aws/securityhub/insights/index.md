@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>insights</code> in a region or create a <code>insights</code> resource, use <code>insight</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>insights</code> in a region or to create or delete a <code>insights</code> resource, use <code>insight</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>insights</code> in a region or create a <code>i
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,751 @@ SELECT
 region,
 insight_arn
 FROM aws.securityhub.insights
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Filters": {
+  "ProductArn": [
+   {
+    "Comparison": "{{ Comparison }}",
+    "Value": "{{ Value }}"
+   }
+  ],
+  "AwsAccountId": [
+   null
+  ],
+  "AwsAccountName": [
+   null
+  ],
+  "Id": [
+   null
+  ],
+  "GeneratorId": [
+   null
+  ],
+  "Type": [
+   null
+  ],
+  "Region": [
+   null
+  ],
+  "FirstObservedAt": [
+   {
+    "DateRange": {
+     "Unit": "{{ Unit }}",
+     "Value": null
+    },
+    "End": "{{ End }}",
+    "Start": null
+   }
+  ],
+  "LastObservedAt": [
+   null
+  ],
+  "CreatedAt": [
+   null
+  ],
+  "UpdatedAt": [
+   null
+  ],
+  "SeverityLabel": [
+   null
+  ],
+  "Confidence": [
+   {
+    "Eq": null,
+    "Gte": null,
+    "Lte": null
+   }
+  ],
+  "Criticality": [
+   null
+  ],
+  "Title": [
+   null
+  ],
+  "Description": [
+   null
+  ],
+  "RecommendationText": [
+   null
+  ],
+  "SourceUrl": [
+   null
+  ],
+  "ProductFields": [
+   {
+    "Comparison": "{{ Comparison }}",
+    "Key": null,
+    "Value": null
+   }
+  ],
+  "ProductName": [
+   null
+  ],
+  "CompanyName": [
+   null
+  ],
+  "UserDefinedFields": [
+   null
+  ],
+  "MalwareName": [
+   null
+  ],
+  "MalwareType": [
+   null
+  ],
+  "MalwarePath": [
+   null
+  ],
+  "MalwareState": [
+   null
+  ],
+  "NetworkDirection": [
+   null
+  ],
+  "NetworkProtocol": [
+   null
+  ],
+  "NetworkSourceIpV4": [
+   {
+    "Cidr": null
+   }
+  ],
+  "NetworkSourceIpV6": [
+   null
+  ],
+  "NetworkSourcePort": [
+   null
+  ],
+  "NetworkSourceDomain": [
+   null
+  ],
+  "NetworkSourceMac": [
+   null
+  ],
+  "NetworkDestinationIpV4": [
+   null
+  ],
+  "NetworkDestinationIpV6": [
+   null
+  ],
+  "NetworkDestinationPort": [
+   null
+  ],
+  "NetworkDestinationDomain": [
+   null
+  ],
+  "ProcessName": [
+   null
+  ],
+  "ProcessPath": [
+   null
+  ],
+  "ProcessPid": [
+   null
+  ],
+  "ProcessParentPid": [
+   null
+  ],
+  "ProcessLaunchedAt": [
+   null
+  ],
+  "ProcessTerminatedAt": [
+   null
+  ],
+  "ThreatIntelIndicatorType": [
+   null
+  ],
+  "ThreatIntelIndicatorValue": [
+   null
+  ],
+  "ThreatIntelIndicatorCategory": [
+   null
+  ],
+  "ThreatIntelIndicatorLastObservedAt": [
+   null
+  ],
+  "ThreatIntelIndicatorSource": [
+   null
+  ],
+  "ThreatIntelIndicatorSourceUrl": [
+   null
+  ],
+  "ResourceType": [
+   null
+  ],
+  "ResourceId": [
+   null
+  ],
+  "ResourcePartition": [
+   null
+  ],
+  "ResourceRegion": [
+   null
+  ],
+  "ResourceTags": [
+   null
+  ],
+  "ResourceAwsEc2InstanceType": [
+   null
+  ],
+  "ResourceAwsEc2InstanceImageId": [
+   null
+  ],
+  "ResourceAwsEc2InstanceIpV4Addresses": [
+   null
+  ],
+  "ResourceAwsEc2InstanceIpV6Addresses": [
+   null
+  ],
+  "ResourceAwsEc2InstanceKeyName": [
+   null
+  ],
+  "ResourceAwsEc2InstanceIamInstanceProfileArn": [
+   null
+  ],
+  "ResourceAwsEc2InstanceVpcId": [
+   null
+  ],
+  "ResourceAwsEc2InstanceSubnetId": [
+   null
+  ],
+  "ResourceAwsEc2InstanceLaunchedAt": [
+   null
+  ],
+  "ResourceAwsS3BucketOwnerId": [
+   null
+  ],
+  "ResourceAwsS3BucketOwnerName": [
+   null
+  ],
+  "ResourceAwsIamAccessKeyStatus": [
+   null
+  ],
+  "ResourceAwsIamAccessKeyCreatedAt": [
+   null
+  ],
+  "ResourceContainerName": [
+   null
+  ],
+  "ResourceContainerImageId": [
+   null
+  ],
+  "ResourceContainerImageName": [
+   null
+  ],
+  "ResourceContainerLaunchedAt": [
+   null
+  ],
+  "ResourceDetailsOther": [
+   null
+  ],
+  "ComplianceStatus": [
+   null
+  ],
+  "VerificationState": [
+   null
+  ],
+  "WorkflowState": [
+   null
+  ],
+  "WorkflowStatus": [
+   null
+  ],
+  "RecordState": [
+   null
+  ],
+  "RelatedFindingsProductArn": [
+   null
+  ],
+  "RelatedFindingsId": [
+   null
+  ],
+  "ResourceApplicationArn": [
+   null
+  ],
+  "ResourceApplicationName": [
+   null
+  ],
+  "NoteText": [
+   null
+  ],
+  "NoteUpdatedAt": [
+   null
+  ],
+  "NoteUpdatedBy": [
+   null
+  ],
+  "Sample": [
+   {
+    "Value": "{{ Value }}"
+   }
+  ],
+  "ComplianceAssociatedStandardsId": [
+   null
+  ],
+  "ComplianceSecurityControlId": [
+   null
+  ],
+  "ComplianceSecurityControlParametersName": [
+   null
+  ],
+  "ComplianceSecurityControlParametersValue": [
+   null
+  ],
+  "FindingProviderFieldsConfidence": [
+   null
+  ],
+  "FindingProviderFieldsCriticality": [
+   null
+  ],
+  "FindingProviderFieldsRelatedFindingsId": [
+   null
+  ],
+  "FindingProviderFieldsRelatedFindingsProductArn": [
+   null
+  ],
+  "FindingProviderFieldsSeverityLabel": [
+   null
+  ],
+  "FindingProviderFieldsSeverityOriginal": [
+   null
+  ],
+  "FindingProviderFieldsTypes": [
+   null
+  ],
+  "ResourceAwsIamAccessKeyPrincipalName": [
+   null
+  ],
+  "ResourceAwsIamUserUserName": [
+   null
+  ],
+  "VulnerabilitiesExploitAvailable": [
+   null
+  ],
+  "VulnerabilitiesFixAvailable": [
+   null
+  ],
+  "Keyword": [
+   {
+    "Value": null
+   }
+  ],
+  "ResourceAwsIamAccessKeyUserName": [
+   null
+  ],
+  "SeverityNormalized": [
+   null
+  ],
+  "SeverityProduct": [
+   null
+  ]
+ },
+ "GroupByAttribute": null
+}
+>>>
+--required properties only
+INSERT INTO aws.securityhub.insights (
+ Name,
+ Filters,
+ GroupByAttribute,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Filters }},
+ {{ GroupByAttribute }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Filters": {
+  "ProductArn": [
+   {
+    "Comparison": "{{ Comparison }}",
+    "Value": "{{ Value }}"
+   }
+  ],
+  "AwsAccountId": [
+   null
+  ],
+  "AwsAccountName": [
+   null
+  ],
+  "Id": [
+   null
+  ],
+  "GeneratorId": [
+   null
+  ],
+  "Type": [
+   null
+  ],
+  "Region": [
+   null
+  ],
+  "FirstObservedAt": [
+   {
+    "DateRange": {
+     "Unit": "{{ Unit }}",
+     "Value": null
+    },
+    "End": "{{ End }}",
+    "Start": null
+   }
+  ],
+  "LastObservedAt": [
+   null
+  ],
+  "CreatedAt": [
+   null
+  ],
+  "UpdatedAt": [
+   null
+  ],
+  "SeverityLabel": [
+   null
+  ],
+  "Confidence": [
+   {
+    "Eq": null,
+    "Gte": null,
+    "Lte": null
+   }
+  ],
+  "Criticality": [
+   null
+  ],
+  "Title": [
+   null
+  ],
+  "Description": [
+   null
+  ],
+  "RecommendationText": [
+   null
+  ],
+  "SourceUrl": [
+   null
+  ],
+  "ProductFields": [
+   {
+    "Comparison": "{{ Comparison }}",
+    "Key": null,
+    "Value": null
+   }
+  ],
+  "ProductName": [
+   null
+  ],
+  "CompanyName": [
+   null
+  ],
+  "UserDefinedFields": [
+   null
+  ],
+  "MalwareName": [
+   null
+  ],
+  "MalwareType": [
+   null
+  ],
+  "MalwarePath": [
+   null
+  ],
+  "MalwareState": [
+   null
+  ],
+  "NetworkDirection": [
+   null
+  ],
+  "NetworkProtocol": [
+   null
+  ],
+  "NetworkSourceIpV4": [
+   {
+    "Cidr": null
+   }
+  ],
+  "NetworkSourceIpV6": [
+   null
+  ],
+  "NetworkSourcePort": [
+   null
+  ],
+  "NetworkSourceDomain": [
+   null
+  ],
+  "NetworkSourceMac": [
+   null
+  ],
+  "NetworkDestinationIpV4": [
+   null
+  ],
+  "NetworkDestinationIpV6": [
+   null
+  ],
+  "NetworkDestinationPort": [
+   null
+  ],
+  "NetworkDestinationDomain": [
+   null
+  ],
+  "ProcessName": [
+   null
+  ],
+  "ProcessPath": [
+   null
+  ],
+  "ProcessPid": [
+   null
+  ],
+  "ProcessParentPid": [
+   null
+  ],
+  "ProcessLaunchedAt": [
+   null
+  ],
+  "ProcessTerminatedAt": [
+   null
+  ],
+  "ThreatIntelIndicatorType": [
+   null
+  ],
+  "ThreatIntelIndicatorValue": [
+   null
+  ],
+  "ThreatIntelIndicatorCategory": [
+   null
+  ],
+  "ThreatIntelIndicatorLastObservedAt": [
+   null
+  ],
+  "ThreatIntelIndicatorSource": [
+   null
+  ],
+  "ThreatIntelIndicatorSourceUrl": [
+   null
+  ],
+  "ResourceType": [
+   null
+  ],
+  "ResourceId": [
+   null
+  ],
+  "ResourcePartition": [
+   null
+  ],
+  "ResourceRegion": [
+   null
+  ],
+  "ResourceTags": [
+   null
+  ],
+  "ResourceAwsEc2InstanceType": [
+   null
+  ],
+  "ResourceAwsEc2InstanceImageId": [
+   null
+  ],
+  "ResourceAwsEc2InstanceIpV4Addresses": [
+   null
+  ],
+  "ResourceAwsEc2InstanceIpV6Addresses": [
+   null
+  ],
+  "ResourceAwsEc2InstanceKeyName": [
+   null
+  ],
+  "ResourceAwsEc2InstanceIamInstanceProfileArn": [
+   null
+  ],
+  "ResourceAwsEc2InstanceVpcId": [
+   null
+  ],
+  "ResourceAwsEc2InstanceSubnetId": [
+   null
+  ],
+  "ResourceAwsEc2InstanceLaunchedAt": [
+   null
+  ],
+  "ResourceAwsS3BucketOwnerId": [
+   null
+  ],
+  "ResourceAwsS3BucketOwnerName": [
+   null
+  ],
+  "ResourceAwsIamAccessKeyStatus": [
+   null
+  ],
+  "ResourceAwsIamAccessKeyCreatedAt": [
+   null
+  ],
+  "ResourceContainerName": [
+   null
+  ],
+  "ResourceContainerImageId": [
+   null
+  ],
+  "ResourceContainerImageName": [
+   null
+  ],
+  "ResourceContainerLaunchedAt": [
+   null
+  ],
+  "ResourceDetailsOther": [
+   null
+  ],
+  "ComplianceStatus": [
+   null
+  ],
+  "VerificationState": [
+   null
+  ],
+  "WorkflowState": [
+   null
+  ],
+  "WorkflowStatus": [
+   null
+  ],
+  "RecordState": [
+   null
+  ],
+  "RelatedFindingsProductArn": [
+   null
+  ],
+  "RelatedFindingsId": [
+   null
+  ],
+  "ResourceApplicationArn": [
+   null
+  ],
+  "ResourceApplicationName": [
+   null
+  ],
+  "NoteText": [
+   null
+  ],
+  "NoteUpdatedAt": [
+   null
+  ],
+  "NoteUpdatedBy": [
+   null
+  ],
+  "Sample": [
+   {
+    "Value": "{{ Value }}"
+   }
+  ],
+  "ComplianceAssociatedStandardsId": [
+   null
+  ],
+  "ComplianceSecurityControlId": [
+   null
+  ],
+  "ComplianceSecurityControlParametersName": [
+   null
+  ],
+  "ComplianceSecurityControlParametersValue": [
+   null
+  ],
+  "FindingProviderFieldsConfidence": [
+   null
+  ],
+  "FindingProviderFieldsCriticality": [
+   null
+  ],
+  "FindingProviderFieldsRelatedFindingsId": [
+   null
+  ],
+  "FindingProviderFieldsRelatedFindingsProductArn": [
+   null
+  ],
+  "FindingProviderFieldsSeverityLabel": [
+   null
+  ],
+  "FindingProviderFieldsSeverityOriginal": [
+   null
+  ],
+  "FindingProviderFieldsTypes": [
+   null
+  ],
+  "ResourceAwsIamAccessKeyPrincipalName": [
+   null
+  ],
+  "ResourceAwsIamUserUserName": [
+   null
+  ],
+  "VulnerabilitiesExploitAvailable": [
+   null
+  ],
+  "VulnerabilitiesFixAvailable": [
+   null
+  ],
+  "Keyword": [
+   {
+    "Value": null
+   }
+  ],
+  "ResourceAwsIamAccessKeyUserName": [
+   null
+  ],
+  "SeverityNormalized": [
+   null
+  ],
+  "SeverityProduct": [
+   null
+  ]
+ },
+ "GroupByAttribute": null
+}
+>>>
+--all properties
+INSERT INTO aws.securityhub.insights (
+ Name,
+ Filters,
+ GroupByAttribute,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Filters }},
+ {{ GroupByAttribute }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.securityhub.insights
+WHERE data__Identifier = '<InsightArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +823,12 @@ To operate on the <code>insights</code> resource, the following permissions are 
 ### Create
 ```json
 securityhub:CreateInsight
+```
+
+### Delete
+```json
+securityhub:GetInsights,
+securityhub:DeleteInsight
 ```
 
 ### List

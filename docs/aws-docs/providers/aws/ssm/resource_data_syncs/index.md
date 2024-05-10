@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>resource_data_syncs</code> in a region or create a <code>resource_data_syncs</code> resource, use <code>resource_data_sync</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>resource_data_syncs</code> in a region or to create or delete a <code>resource_data_syncs</code> resource, use <code>resource_data_sync</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>resource_data_syncs</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,102 @@ SELECT
 region,
 sync_name
 FROM aws.ssm.resource_data_syncs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.ssm.resource_data_syncs (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "S3Destination": {
+  "KMSKeyArn": "{{ KMSKeyArn }}",
+  "BucketPrefix": "{{ BucketPrefix }}",
+  "BucketName": "{{ BucketName }}",
+  "BucketRegion": "{{ BucketRegion }}",
+  "SyncFormat": "{{ SyncFormat }}"
+ },
+ "KMSKeyArn": "{{ KMSKeyArn }}",
+ "SyncSource": {
+  "IncludeFutureRegions": "{{ IncludeFutureRegions }}",
+  "SourceRegions": [
+   "{{ SourceRegions[0] }}"
+  ],
+  "SourceType": "{{ SourceType }}",
+  "AwsOrganizationsSource": {
+   "OrganizationalUnits": [
+    "{{ OrganizationalUnits[0] }}"
+   ],
+   "OrganizationSourceType": "{{ OrganizationSourceType }}"
+  }
+ },
+ "BucketName": "{{ BucketName }}",
+ "BucketRegion": "{{ BucketRegion }}",
+ "SyncFormat": "{{ SyncFormat }}",
+ "SyncType": "{{ SyncType }}",
+ "BucketPrefix": "{{ BucketPrefix }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ssm.resource_data_syncs (
+ S3Destination,
+ KMSKeyArn,
+ SyncSource,
+ BucketName,
+ BucketRegion,
+ SyncFormat,
+ SyncType,
+ BucketPrefix,
+ region
+)
+SELECT 
+ {{ S3Destination }},
+ {{ KMSKeyArn }},
+ {{ SyncSource }},
+ {{ BucketName }},
+ {{ BucketRegion }},
+ {{ SyncFormat }},
+ {{ SyncType }},
+ {{ BucketPrefix }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ssm.resource_data_syncs
+WHERE data__Identifier = '<SyncName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +175,12 @@ To operate on the <code>resource_data_syncs</code> resource, the following permi
 ```json
 ssm:CreateResourceDataSync,
 ssm:ListResourceDataSync
+```
+
+### Delete
+```json
+ssm:ListResourceDataSync,
+ssm:DeleteResourceDataSync
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>documentation_parts</code> in a region or create a <code>documentation_parts</code> resource, use <code>documentation_part</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>documentation_parts</code> in a region or to create or delete a <code>documentation_parts</code> resource, use <code>documentation_part</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>documentation_parts</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,89 @@ region,
 documentation_part_id,
 rest_api_id
 FROM aws.apigateway.documentation_parts
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Location": {
+  "Method": "{{ Method }}",
+  "Name": "{{ Name }}",
+  "Path": "{{ Path }}",
+  "StatusCode": "{{ StatusCode }}",
+  "Type": "{{ Type }}"
+ },
+ "Properties": "{{ Properties }}",
+ "RestApiId": "{{ RestApiId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.documentation_parts (
+ Location,
+ Properties,
+ RestApiId,
+ region
+)
+SELECT 
+{{ Location }},
+ {{ Properties }},
+ {{ RestApiId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Location": {
+  "Method": "{{ Method }}",
+  "Name": "{{ Name }}",
+  "Path": "{{ Path }}",
+  "StatusCode": "{{ StatusCode }}",
+  "Type": "{{ Type }}"
+ },
+ "Properties": "{{ Properties }}",
+ "RestApiId": "{{ RestApiId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.documentation_parts (
+ Location,
+ Properties,
+ RestApiId,
+ region
+)
+SELECT 
+ {{ Location }},
+ {{ Properties }},
+ {{ RestApiId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.documentation_parts
+WHERE data__Identifier = '<DocumentationPartId|RestApiId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +164,11 @@ To operate on the <code>documentation_parts</code> resource, the following permi
 ```json
 apigateway:GET,
 apigateway:POST
+```
+
+### Delete
+```json
+apigateway:DELETE
 ```
 
 ### List

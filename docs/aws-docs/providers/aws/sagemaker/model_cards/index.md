@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>model_cards</code> in a region or create a <code>model_cards</code> resource, use <code>model_card</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>model_cards</code> in a region or to create or delete a <code>model_cards</code> resource, use <code>model_card</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>model_cards</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,392 @@ SELECT
 region,
 model_card_name
 FROM aws.sagemaker.model_cards
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ModelCardName": "{{ ModelCardName }}",
+ "ModelCardStatus": "{{ ModelCardStatus }}",
+ "Content": {
+  "ModelOverview": {
+   "ModelDescription": "{{ ModelDescription }}",
+   "ModelOwner": "{{ ModelOwner }}",
+   "ModelCreator": "{{ ModelCreator }}",
+   "ProblemType": "{{ ProblemType }}",
+   "AlgorithmType": "{{ AlgorithmType }}",
+   "ModelId": "{{ ModelId }}",
+   "ModelArtifact": [
+    "{{ ModelArtifact[0] }}"
+   ],
+   "ModelName": "{{ ModelName }}",
+   "ModelVersion": null,
+   "InferenceEnvironment": {
+    "ContainerImage": [
+     "{{ ContainerImage[0] }}"
+    ]
+   }
+  },
+  "ModelPackageDetails": {
+   "ModelPackageDescription": "{{ ModelPackageDescription }}",
+   "ModelPackageArn": "{{ ModelPackageArn }}",
+   "CreatedBy": {
+    "UserProfileName": "{{ UserProfileName }}"
+   },
+   "ModelPackageStatus": "{{ ModelPackageStatus }}",
+   "ModelApprovalStatus": "{{ ModelApprovalStatus }}",
+   "ApprovalDescription": "{{ ApprovalDescription }}",
+   "ModelPackageGroupName": "{{ ModelPackageGroupName }}",
+   "ModelPackageName": "{{ ModelPackageName }}",
+   "ModelPackageVersion": null,
+   "Domain": "{{ Domain }}",
+   "Task": "{{ Task }}",
+   "SourceAlgorithms": [
+    {
+     "AlgorithmName": "{{ AlgorithmName }}",
+     "ModelDataUrl": "{{ ModelDataUrl }}"
+    }
+   ],
+   "InferenceSpecification": {
+    "Containers": [
+     {
+      "ContainerHostname": "{{ ContainerHostname }}",
+      "Environment": {},
+      "ModelInput": {
+       "DataInputConfig": "{{ DataInputConfig }}"
+      },
+      "Image": "{{ Image }}",
+      "ImageDigest": "{{ ImageDigest }}",
+      "ModelDataUrl": "{{ ModelDataUrl }}",
+      "Framework": "{{ Framework }}",
+      "FrameworkVersion": "{{ FrameworkVersion }}",
+      "NearestModelName": "{{ NearestModelName }}"
+     }
+    ],
+    "SupportedContentTypes": [
+     "{{ SupportedContentTypes[0] }}"
+    ],
+    "SupportedRealtimeInferenceInstanceTypes": [
+     "{{ SupportedRealtimeInferenceInstanceTypes[0] }}"
+    ],
+    "SupportedResponseMIMETypes": [
+     "{{ SupportedResponseMIMETypes[0] }}"
+    ],
+    "SupportedTransformInstanceTypes": [
+     "{{ SupportedTransformInstanceTypes[0] }}"
+    ]
+   }
+  },
+  "IntendedUses": {
+   "PurposeOfModel": "{{ PurposeOfModel }}",
+   "IntendedUses": "{{ IntendedUses }}",
+   "FactorsAffectingModelEfficiency": "{{ FactorsAffectingModelEfficiency }}",
+   "RiskRating": "{{ RiskRating }}",
+   "ExplanationsForRiskRating": "{{ ExplanationsForRiskRating }}"
+  },
+  "BusinessDetails": {
+   "BusinessProblem": "{{ BusinessProblem }}",
+   "BusinessStakeholders": "{{ BusinessStakeholders }}",
+   "LineOfBusiness": "{{ LineOfBusiness }}"
+  },
+  "TrainingDetails": {
+   "ObjectiveFunction": {
+    "Function": {
+     "Function": "{{ Function }}",
+     "Facet": "{{ Facet }}",
+     "Condition": "{{ Condition }}"
+    },
+    "Notes": "{{ Notes }}"
+   },
+   "TrainingObservations": "{{ TrainingObservations }}",
+   "TrainingJobDetails": {
+    "TrainingArn": "{{ TrainingArn }}",
+    "TrainingDatasets": [
+     "{{ TrainingDatasets[0] }}"
+    ],
+    "TrainingEnvironment": {
+     "ContainerImage": [
+      "{{ ContainerImage[0] }}"
+     ]
+    },
+    "TrainingMetrics": [
+     {
+      "Name": "{{ Name }}",
+      "Notes": "{{ Notes }}",
+      "Value": null
+     }
+    ],
+    "UserProvidedTrainingMetrics": [
+     null
+    ],
+    "HyperParameters": [
+     {
+      "Name": "{{ Name }}",
+      "Value": "{{ Value }}"
+     }
+    ],
+    "UserProvidedHyperParameters": [
+     null
+    ]
+   }
+  },
+  "EvaluationDetails": [
+   {
+    "Name": "{{ Name }}",
+    "EvaluationObservation": "{{ EvaluationObservation }}",
+    "EvaluationJobArn": "{{ EvaluationJobArn }}",
+    "Datasets": [
+     "{{ Datasets[0] }}"
+    ],
+    "Metadata": {},
+    "MetricGroups": [
+     {
+      "Name": "{{ Name }}",
+      "MetricData": [
+       null
+      ]
+     }
+    ]
+   }
+  ],
+  "AdditionalInformation": {
+   "EthicalConsiderations": "{{ EthicalConsiderations }}",
+   "CaveatsAndRecommendations": "{{ CaveatsAndRecommendations }}",
+   "CustomDetails": {}
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.model_cards (
+ ModelCardName,
+ ModelCardStatus,
+ Content,
+ region
+)
+SELECT 
+{{ ModelCardName }},
+ {{ ModelCardStatus }},
+ {{ Content }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ModelCardName": "{{ ModelCardName }}",
+ "SecurityConfig": {
+  "KmsKeyId": "{{ KmsKeyId }}"
+ },
+ "ModelCardStatus": "{{ ModelCardStatus }}",
+ "Content": {
+  "ModelOverview": {
+   "ModelDescription": "{{ ModelDescription }}",
+   "ModelOwner": "{{ ModelOwner }}",
+   "ModelCreator": "{{ ModelCreator }}",
+   "ProblemType": "{{ ProblemType }}",
+   "AlgorithmType": "{{ AlgorithmType }}",
+   "ModelId": "{{ ModelId }}",
+   "ModelArtifact": [
+    "{{ ModelArtifact[0] }}"
+   ],
+   "ModelName": "{{ ModelName }}",
+   "ModelVersion": null,
+   "InferenceEnvironment": {
+    "ContainerImage": [
+     "{{ ContainerImage[0] }}"
+    ]
+   }
+  },
+  "ModelPackageDetails": {
+   "ModelPackageDescription": "{{ ModelPackageDescription }}",
+   "ModelPackageArn": "{{ ModelPackageArn }}",
+   "CreatedBy": {
+    "UserProfileName": "{{ UserProfileName }}"
+   },
+   "ModelPackageStatus": "{{ ModelPackageStatus }}",
+   "ModelApprovalStatus": "{{ ModelApprovalStatus }}",
+   "ApprovalDescription": "{{ ApprovalDescription }}",
+   "ModelPackageGroupName": "{{ ModelPackageGroupName }}",
+   "ModelPackageName": "{{ ModelPackageName }}",
+   "ModelPackageVersion": null,
+   "Domain": "{{ Domain }}",
+   "Task": "{{ Task }}",
+   "SourceAlgorithms": [
+    {
+     "AlgorithmName": "{{ AlgorithmName }}",
+     "ModelDataUrl": "{{ ModelDataUrl }}"
+    }
+   ],
+   "InferenceSpecification": {
+    "Containers": [
+     {
+      "ContainerHostname": "{{ ContainerHostname }}",
+      "Environment": {},
+      "ModelInput": {
+       "DataInputConfig": "{{ DataInputConfig }}"
+      },
+      "Image": "{{ Image }}",
+      "ImageDigest": "{{ ImageDigest }}",
+      "ModelDataUrl": "{{ ModelDataUrl }}",
+      "Framework": "{{ Framework }}",
+      "FrameworkVersion": "{{ FrameworkVersion }}",
+      "NearestModelName": "{{ NearestModelName }}"
+     }
+    ],
+    "SupportedContentTypes": [
+     "{{ SupportedContentTypes[0] }}"
+    ],
+    "SupportedRealtimeInferenceInstanceTypes": [
+     "{{ SupportedRealtimeInferenceInstanceTypes[0] }}"
+    ],
+    "SupportedResponseMIMETypes": [
+     "{{ SupportedResponseMIMETypes[0] }}"
+    ],
+    "SupportedTransformInstanceTypes": [
+     "{{ SupportedTransformInstanceTypes[0] }}"
+    ]
+   }
+  },
+  "IntendedUses": {
+   "PurposeOfModel": "{{ PurposeOfModel }}",
+   "IntendedUses": "{{ IntendedUses }}",
+   "FactorsAffectingModelEfficiency": "{{ FactorsAffectingModelEfficiency }}",
+   "RiskRating": "{{ RiskRating }}",
+   "ExplanationsForRiskRating": "{{ ExplanationsForRiskRating }}"
+  },
+  "BusinessDetails": {
+   "BusinessProblem": "{{ BusinessProblem }}",
+   "BusinessStakeholders": "{{ BusinessStakeholders }}",
+   "LineOfBusiness": "{{ LineOfBusiness }}"
+  },
+  "TrainingDetails": {
+   "ObjectiveFunction": {
+    "Function": {
+     "Function": "{{ Function }}",
+     "Facet": "{{ Facet }}",
+     "Condition": "{{ Condition }}"
+    },
+    "Notes": "{{ Notes }}"
+   },
+   "TrainingObservations": "{{ TrainingObservations }}",
+   "TrainingJobDetails": {
+    "TrainingArn": "{{ TrainingArn }}",
+    "TrainingDatasets": [
+     "{{ TrainingDatasets[0] }}"
+    ],
+    "TrainingEnvironment": {
+     "ContainerImage": [
+      "{{ ContainerImage[0] }}"
+     ]
+    },
+    "TrainingMetrics": [
+     {
+      "Name": "{{ Name }}",
+      "Notes": "{{ Notes }}",
+      "Value": null
+     }
+    ],
+    "UserProvidedTrainingMetrics": [
+     null
+    ],
+    "HyperParameters": [
+     {
+      "Name": "{{ Name }}",
+      "Value": "{{ Value }}"
+     }
+    ],
+    "UserProvidedHyperParameters": [
+     null
+    ]
+   }
+  },
+  "EvaluationDetails": [
+   {
+    "Name": "{{ Name }}",
+    "EvaluationObservation": "{{ EvaluationObservation }}",
+    "EvaluationJobArn": "{{ EvaluationJobArn }}",
+    "Datasets": [
+     "{{ Datasets[0] }}"
+    ],
+    "Metadata": {},
+    "MetricGroups": [
+     {
+      "Name": "{{ Name }}",
+      "MetricData": [
+       null
+      ]
+     }
+    ]
+   }
+  ],
+  "AdditionalInformation": {
+   "EthicalConsiderations": "{{ EthicalConsiderations }}",
+   "CaveatsAndRecommendations": "{{ CaveatsAndRecommendations }}",
+   "CustomDetails": {}
+  }
+ },
+ "CreatedBy": {
+  "UserProfileArn": "{{ UserProfileArn }}",
+  "UserProfileName": "{{ UserProfileName }}",
+  "DomainId": "{{ DomainId }}"
+ },
+ "LastModifiedBy": null,
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.model_cards (
+ ModelCardName,
+ SecurityConfig,
+ ModelCardStatus,
+ Content,
+ CreatedBy,
+ LastModifiedBy,
+ Tags,
+ region
+)
+SELECT 
+ {{ ModelCardName }},
+ {{ SecurityConfig }},
+ {{ ModelCardStatus }},
+ {{ Content }},
+ {{ CreatedBy }},
+ {{ LastModifiedBy }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.model_cards
+WHERE data__Identifier = '<ModelCardName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +470,18 @@ kms:CreateGrant,
 sagemaker:DescribeModelPackageGroup,
 sagemaker:DescribeModelPackage,
 sagemaker:AddTags
+```
+
+### Delete
+```json
+sagemaker:DescribeModelCard,
+sagemaker:DeleteModelCard,
+sagemaker:DescribeModelPackageGroup,
+sagemaker:DescribeModelPackage,
+kms:RetireGrant,
+kms:Decrypt,
+sagemaker:ListTags,
+sagemaker:DeleteTags
 ```
 
 ### List

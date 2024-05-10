@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpc_links</code> in a region or create a <code>vpc_links</code> resource, use <code>vpc_link</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpc_links</code> in a region or to create or delete a <code>vpc_links</code> resource, use <code>vpc_link</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>vpc_links</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 vpc_link_id
 FROM aws.apigateway.vpc_links
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "TargetArns": [
+  "{{ TargetArns[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.vpc_links (
+ Name,
+ TargetArns,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ TargetArns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "TargetArns": [
+  "{{ TargetArns[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.vpc_links (
+ Name,
+ Description,
+ Tags,
+ TargetArns,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Tags }},
+ {{ TargetArns }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.vpc_links
+WHERE data__Identifier = '<VpcLinkId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +169,17 @@ ec2:ModifyVpcEndpointServicePermissions
 ### List
 ```json
 apigateway:GET,
+ec2:CreateVpcEndpointServiceConfiguration,
+ec2:DeleteVpcEndpointServiceConfigurations,
+ec2:DescribeVpcEndpointServiceConfigurations,
+ec2:ModifyVpcEndpointServicePermissions
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE,
+apigateway:PUT,
 ec2:CreateVpcEndpointServiceConfiguration,
 ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DescribeVpcEndpointServiceConfigurations,

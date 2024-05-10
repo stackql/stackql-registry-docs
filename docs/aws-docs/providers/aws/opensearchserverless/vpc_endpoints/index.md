@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpc_endpoints</code> in a region or create a <code>vpc_endpoints</code> resource, use <code>vpc_endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpc_endpoints</code> in a region or to create or delete a <code>vpc_endpoints</code> resource, use <code>vpc_endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>vpc_endpoints</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 id
 FROM aws.opensearchserverless.vpc_endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.opensearchserverless.vpc_endpoints (
+ Name,
+ SubnetIds,
+ VpcId,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ SubnetIds }},
+ {{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.opensearchserverless.vpc_endpoints (
+ Name,
+ SecurityGroupIds,
+ SubnetIds,
+ VpcId,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ SecurityGroupIds }},
+ {{ SubnetIds }},
+ {{ VpcId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.opensearchserverless.vpc_endpoints
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -86,6 +173,27 @@ route53:GetHostedZone,
 route53:ListResourceRecordSets,
 route53:ListHostedZonesByName,
 route53:CreateHostedZone,
+route53:ListHostedZonesByVPC,
+route53:AssociateVPCWithHostedZone
+```
+
+### Delete
+```json
+aoss:BatchGetVpcEndpoint,
+aoss:DeleteVpcEndpoint,
+ec2:DeleteVpcEndPoints,
+ec2:DescribeVpcEndpoints,
+ec2:ModifyVpcEndPoint,
+ec2:DescribeVpcs,
+ec2:DescribeSubnets,
+ec2:DescribeSecurityGroups,
+ec2:CreateTags,
+route53:ChangeResourceRecordSets,
+route53:DeleteHostedZone,
+route53:GetChange,
+route53:GetHostedZone,
+route53:ListResourceRecordSets,
+route53:ListHostedZonesByName,
 route53:ListHostedZonesByVPC,
 route53:AssociateVPCWithHostedZone
 ```

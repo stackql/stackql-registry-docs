@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>user_pool_users</code> in a region or create a <code>user_pool_users</code> resource, use <code>user_pool_user</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>user_pool_users</code> in a region or to create or delete a <code>user_pool_users</code> resource, use <code>user_pool_user</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>user_pool_users</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,95 @@ region,
 user_pool_id,
 username
 FROM aws.cognito.user_pool_users
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "UserPoolId": "{{ UserPoolId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cognito.user_pool_users (
+ UserPoolId,
+ region
+)
+SELECT 
+{{ UserPoolId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DesiredDeliveryMediums": [
+  "{{ DesiredDeliveryMediums[0] }}"
+ ],
+ "ForceAliasCreation": "{{ ForceAliasCreation }}",
+ "UserAttributes": [
+  {
+   "Name": "{{ Name }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "MessageAction": "{{ MessageAction }}",
+ "Username": "{{ Username }}",
+ "UserPoolId": "{{ UserPoolId }}",
+ "ValidationData": [
+  null
+ ],
+ "ClientMetadata": {}
+}
+>>>
+--all properties
+INSERT INTO aws.cognito.user_pool_users (
+ DesiredDeliveryMediums,
+ ForceAliasCreation,
+ UserAttributes,
+ MessageAction,
+ Username,
+ UserPoolId,
+ ValidationData,
+ ClientMetadata,
+ region
+)
+SELECT 
+ {{ DesiredDeliveryMediums }},
+ {{ ForceAliasCreation }},
+ {{ UserAttributes }},
+ {{ MessageAction }},
+ {{ Username }},
+ {{ UserPoolId }},
+ {{ ValidationData }},
+ {{ ClientMetadata }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cognito.user_pool_users
+WHERE data__Identifier = '<UserPoolId|Username>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +171,11 @@ To operate on the <code>user_pool_users</code> resource, the following permissio
 cognito-idp:AdminCreateUser,
 cognito-idp:AdminGetUser,
 iam:PassRole
+```
+
+### Delete
+```json
+cognito-idp:AdminDeleteUser
 ```
 
 ### List

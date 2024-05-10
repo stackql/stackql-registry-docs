@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>playback_configuration</code> resource, use <code>playback_configurations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>playback_configuration</code> resource, use <code>playback_configurations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -66,11 +69,6 @@ Gets or operates on an individual <code>playback_configuration</code> resource, 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -100,8 +98,9 @@ tags,
 transcode_profile_name,
 video_content_source_url
 FROM aws.mediatailor.playback_configuration
-WHERE data__Identifier = '<Name>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
+
 
 ## Permissions
 
@@ -119,10 +118,5 @@ mediatailor:ConfigureLogsForPlaybackConfiguration,
 iam:CreateServiceLinkedRole,
 mediatailor:UntagResource,
 mediatailor:TagResource
-```
-
-### Delete
-```json
-mediatailor:DeletePlaybackConfiguration
 ```
 

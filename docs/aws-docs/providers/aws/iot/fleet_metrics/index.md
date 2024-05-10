@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>fleet_metrics</code> in a region or create a <code>fleet_metrics</code> resource, use <code>fleet_metric</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>fleet_metrics</code> in a region or to create or delete a <code>fleet_metrics</code> resource, use <code>fleet_metric</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>fleet_metrics</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,102 @@ SELECT
 region,
 metric_name
 FROM aws.iot.fleet_metrics
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "MetricName": "{{ MetricName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.fleet_metrics (
+ MetricName,
+ region
+)
+SELECT 
+{{ MetricName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "MetricName": "{{ MetricName }}",
+ "Description": "{{ Description }}",
+ "QueryString": "{{ QueryString }}",
+ "Period": "{{ Period }}",
+ "AggregationField": "{{ AggregationField }}",
+ "QueryVersion": "{{ QueryVersion }}",
+ "IndexName": "{{ IndexName }}",
+ "Unit": "{{ Unit }}",
+ "AggregationType": {
+  "Name": "{{ Name }}",
+  "Values": [
+   "{{ Values[0] }}"
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iot.fleet_metrics (
+ MetricName,
+ Description,
+ QueryString,
+ Period,
+ AggregationField,
+ QueryVersion,
+ IndexName,
+ Unit,
+ AggregationType,
+ Tags,
+ region
+)
+SELECT 
+ {{ MetricName }},
+ {{ Description }},
+ {{ QueryString }},
+ {{ Period }},
+ {{ AggregationField }},
+ {{ QueryVersion }},
+ {{ IndexName }},
+ {{ Unit }},
+ {{ AggregationType }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.fleet_metrics
+WHERE data__Identifier = '<MetricName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +176,12 @@ To operate on the <code>fleet_metrics</code> resource, the following permissions
 iot:CreateFleetMetric,
 iot:DescribeFleetMetric,
 iot:TagResource
+```
+
+### Delete
+```json
+iot:DeleteFleetMetric,
+iot:DescribeFleetMetric
 ```
 
 ### List

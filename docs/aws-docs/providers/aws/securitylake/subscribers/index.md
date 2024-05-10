@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>subscribers</code> in a region or create a <code>subscribers</code> resource, use <code>subscriber</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>subscribers</code> in a region or to create or delete a <code>subscribers</code> resource, use <code>subscriber</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>subscribers</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,114 @@ SELECT
 region,
 subscriber_arn
 FROM aws.securitylake.subscribers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AccessTypes": [
+  "{{ AccessTypes[0] }}"
+ ],
+ "DataLakeArn": "{{ DataLakeArn }}",
+ "SubscriberIdentity": {
+  "ExternalId": "{{ ExternalId }}",
+  "Principal": "{{ Principal }}"
+ },
+ "SubscriberName": "{{ SubscriberName }}",
+ "Sources": [
+  null
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.securitylake.subscribers (
+ AccessTypes,
+ DataLakeArn,
+ SubscriberIdentity,
+ SubscriberName,
+ Sources,
+ region
+)
+SELECT 
+{{ AccessTypes }},
+ {{ DataLakeArn }},
+ {{ SubscriberIdentity }},
+ {{ SubscriberName }},
+ {{ Sources }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AccessTypes": [
+  "{{ AccessTypes[0] }}"
+ ],
+ "DataLakeArn": "{{ DataLakeArn }}",
+ "SubscriberIdentity": {
+  "ExternalId": "{{ ExternalId }}",
+  "Principal": "{{ Principal }}"
+ },
+ "SubscriberName": "{{ SubscriberName }}",
+ "SubscriberDescription": "{{ SubscriberDescription }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Sources": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.securitylake.subscribers (
+ AccessTypes,
+ DataLakeArn,
+ SubscriberIdentity,
+ SubscriberName,
+ SubscriberDescription,
+ Tags,
+ Sources,
+ region
+)
+SELECT 
+ {{ AccessTypes }},
+ {{ DataLakeArn }},
+ {{ SubscriberIdentity }},
+ {{ SubscriberName }},
+ {{ SubscriberDescription }},
+ {{ Tags }},
+ {{ Sources }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.securitylake.subscribers
+WHERE data__Identifier = '<SubscriberArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -91,6 +206,29 @@ ram:GetResourceShareAssociations,
 ram:CreateResourceShare,
 ram:UpdateResourceShare,
 ram:GetResourceShares
+```
+
+### Delete
+```json
+securitylake:DeleteSubscriber,
+iam:GetRole,
+iam:ListRolePolicies,
+iam:DeleteRole,
+iam:DeleteRolePolicy,
+glue:GetTable,
+lakeformation:RevokePermissions,
+lakeformation:ListPermissions,
+ram:GetResourceShares,
+ram:DeleteResourceShare,
+events:DeleteApiDestination,
+events:DeleteConnection,
+events:DeleteRule,
+events:ListApiDestinations,
+events:ListTargetsByRule,
+events:DescribeRule,
+events:RemoveTargets,
+sqs:DeleteQueue,
+sqs:GetQueueUrl
 ```
 
 ### List

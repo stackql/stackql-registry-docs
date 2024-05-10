@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>app_image_configs</code> in a region or create a <code>app_image_configs</code> resource, use <code>app_image_config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>app_image_configs</code> in a region or to create or delete a <code>app_image_configs</code> resource, use <code>app_image_config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>app_image_configs</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,111 @@ SELECT
 region,
 app_image_config_name
 FROM aws.sagemaker.app_image_configs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AppImageConfigName": "{{ AppImageConfigName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.app_image_configs (
+ AppImageConfigName,
+ region
+)
+SELECT 
+{{ AppImageConfigName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AppImageConfigName": "{{ AppImageConfigName }}",
+ "KernelGatewayImageConfig": {
+  "FileSystemConfig": {
+   "DefaultGid": "{{ DefaultGid }}",
+   "DefaultUid": "{{ DefaultUid }}",
+   "MountPath": "{{ MountPath }}"
+  },
+  "KernelSpecs": [
+   {
+    "DisplayName": "{{ DisplayName }}",
+    "Name": "{{ Name }}"
+   }
+  ]
+ },
+ "JupyterLabAppImageConfig": {
+  "ContainerConfig": {
+   "ContainerArguments": [
+    "{{ ContainerArguments[0] }}"
+   ],
+   "ContainerEntrypoint": [
+    "{{ ContainerEntrypoint[0] }}"
+   ],
+   "ContainerEnvironmentVariables": [
+    {
+     "Value": "{{ Value }}",
+     "Key": "{{ Key }}"
+    }
+   ]
+  }
+ },
+ "CodeEditorAppImageConfig": {
+  "ContainerConfig": null
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.app_image_configs (
+ AppImageConfigName,
+ KernelGatewayImageConfig,
+ JupyterLabAppImageConfig,
+ CodeEditorAppImageConfig,
+ Tags,
+ region
+)
+SELECT 
+ {{ AppImageConfigName }},
+ {{ KernelGatewayImageConfig }},
+ {{ JupyterLabAppImageConfig }},
+ {{ CodeEditorAppImageConfig }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.app_image_configs
+WHERE data__Identifier = '<AppImageConfigName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +183,12 @@ To operate on the <code>app_image_configs</code> resource, the following permiss
 ### Create
 ```json
 sagemaker:CreateAppImageConfig,
+sagemaker:DescribeAppImageConfig
+```
+
+### Delete
+```json
+sagemaker:DeleteAppImageConfig,
 sagemaker:DescribeAppImageConfig
 ```
 

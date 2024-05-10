@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>workspaces</code> in a region or create a <code>workspaces</code> resource, use <code>workspace</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>workspaces</code> in a region or to create or delete a <code>workspaces</code> resource, use <code>workspace</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>workspaces</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 workspace_id
 FROM aws.iottwinmaker.workspaces
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "Role": "{{ Role }}",
+ "S3Location": "{{ S3Location }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iottwinmaker.workspaces (
+ WorkspaceId,
+ Role,
+ S3Location,
+ region
+)
+SELECT 
+{{ WorkspaceId }},
+ {{ Role }},
+ {{ S3Location }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "Description": "{{ Description }}",
+ "Role": "{{ Role }}",
+ "S3Location": "{{ S3Location }}",
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.iottwinmaker.workspaces (
+ WorkspaceId,
+ Description,
+ Role,
+ S3Location,
+ Tags,
+ region
+)
+SELECT 
+ {{ WorkspaceId }},
+ {{ Description }},
+ {{ Role }},
+ {{ S3Location }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iottwinmaker.workspaces
+WHERE data__Identifier = '<WorkspaceId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +159,12 @@ iottwinmaker:CreateWorkspace,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource
+```
+
+### Delete
+```json
+iottwinmaker:DeleteWorkspace,
+iottwinmaker:GetWorkspace
 ```
 
 ### List

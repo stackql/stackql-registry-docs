@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>gateway_route_table_association</code> resource, use <code>gateway_route_table_associations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>gateway_route_table_association</code> resource, use <code>gateway_route_table_associations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -51,11 +54,6 @@ Gets or operates on an individual <code>gateway_route_table_association</code> r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -70,8 +68,9 @@ route_table_id,
 gateway_id,
 association_id
 FROM aws.ec2.gateway_route_table_association
-WHERE data__Identifier = '<GatewayId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<GatewayId>';
 ```
+
 
 ## Permissions
 
@@ -86,11 +85,5 @@ ec2:DescribeRouteTables
 ```json
 ec2:DescribeRouteTables,
 ec2:ReplaceRouteTableAssociation
-```
-
-### Delete
-```json
-ec2:DescribeRouteTables,
-ec2:DisassociateRouteTable
 ```
 

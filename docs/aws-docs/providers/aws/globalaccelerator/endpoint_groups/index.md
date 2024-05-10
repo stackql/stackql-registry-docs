@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>endpoint_groups</code> in a region or create a <code>endpoint_groups</code> resource, use <code>endpoint_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>endpoint_groups</code> in a region or to create or delete a <code>endpoint_groups</code> resource, use <code>endpoint_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>endpoint_groups</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,107 @@ SELECT
 region,
 endpoint_group_arn
 FROM aws.globalaccelerator.endpoint_groups
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ListenerArn": "{{ ListenerArn }}",
+ "EndpointGroupRegion": "{{ EndpointGroupRegion }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.globalaccelerator.endpoint_groups (
+ ListenerArn,
+ EndpointGroupRegion,
+ region
+)
+SELECT 
+{{ ListenerArn }},
+ {{ EndpointGroupRegion }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ListenerArn": "{{ ListenerArn }}",
+ "EndpointGroupRegion": "{{ EndpointGroupRegion }}",
+ "EndpointConfigurations": [
+  {
+   "EndpointId": "{{ EndpointId }}",
+   "AttachmentArn": "{{ AttachmentArn }}",
+   "Weight": "{{ Weight }}",
+   "ClientIPPreservationEnabled": "{{ ClientIPPreservationEnabled }}"
+  }
+ ],
+ "TrafficDialPercentage": null,
+ "HealthCheckPort": "{{ HealthCheckPort }}",
+ "HealthCheckProtocol": "{{ HealthCheckProtocol }}",
+ "HealthCheckPath": "{{ HealthCheckPath }}",
+ "HealthCheckIntervalSeconds": "{{ HealthCheckIntervalSeconds }}",
+ "ThresholdCount": "{{ ThresholdCount }}",
+ "PortOverrides": [
+  {
+   "ListenerPort": "{{ ListenerPort }}",
+   "EndpointPort": null
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.globalaccelerator.endpoint_groups (
+ ListenerArn,
+ EndpointGroupRegion,
+ EndpointConfigurations,
+ TrafficDialPercentage,
+ HealthCheckPort,
+ HealthCheckProtocol,
+ HealthCheckPath,
+ HealthCheckIntervalSeconds,
+ ThresholdCount,
+ PortOverrides,
+ region
+)
+SELECT 
+ {{ ListenerArn }},
+ {{ EndpointGroupRegion }},
+ {{ EndpointConfigurations }},
+ {{ TrafficDialPercentage }},
+ {{ HealthCheckPort }},
+ {{ HealthCheckProtocol }},
+ {{ HealthCheckPath }},
+ {{ HealthCheckIntervalSeconds }},
+ {{ ThresholdCount }},
+ {{ PortOverrides }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.globalaccelerator.endpoint_groups
+WHERE data__Identifier = '<EndpointGroupArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +184,13 @@ globalaccelerator:DescribeAccelerator,
 globalaccelerator:DescribeListener,
 globalaccelerator:ListAccelerators,
 globalaccelerator:ListListeners
+```
+
+### Delete
+```json
+globalaccelerator:DeleteEndpointGroup,
+globalaccelerator:DescribeEndpointGroup,
+globalaccelerator:DescribeAccelerator
 ```
 
 ### List

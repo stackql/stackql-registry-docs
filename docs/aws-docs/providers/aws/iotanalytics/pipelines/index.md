@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>pipelines</code> in a region or create a <code>pipelines</code> resource, use <code>pipeline</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>pipelines</code> in a region or to create or delete a <code>pipelines</code> resource, use <code>pipeline</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>pipelines</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,200 @@ SELECT
 region,
 pipeline_name
 FROM aws.iotanalytics.pipelines
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PipelineActivities": [
+  {
+   "SelectAttributes": {
+    "Next": "{{ Next }}",
+    "Attributes": [
+     "{{ Attributes[0] }}"
+    ],
+    "Name": "{{ Name }}"
+   },
+   "Datastore": {
+    "DatastoreName": "{{ DatastoreName }}",
+    "Name": "{{ Name }}"
+   },
+   "Filter": {
+    "Filter": "{{ Filter }}",
+    "Next": "{{ Next }}",
+    "Name": "{{ Name }}"
+   },
+   "AddAttributes": {
+    "Next": "{{ Next }}",
+    "Attributes": {},
+    "Name": "{{ Name }}"
+   },
+   "Channel": {
+    "ChannelName": "{{ ChannelName }}",
+    "Next": "{{ Next }}",
+    "Name": "{{ Name }}"
+   },
+   "DeviceShadowEnrich": {
+    "Attribute": "{{ Attribute }}",
+    "Next": "{{ Next }}",
+    "ThingName": "{{ ThingName }}",
+    "RoleArn": "{{ RoleArn }}",
+    "Name": "{{ Name }}"
+   },
+   "Math": {
+    "Attribute": "{{ Attribute }}",
+    "Next": "{{ Next }}",
+    "Math": "{{ Math }}",
+    "Name": "{{ Name }}"
+   },
+   "Lambda": {
+    "BatchSize": "{{ BatchSize }}",
+    "Next": "{{ Next }}",
+    "LambdaName": "{{ LambdaName }}",
+    "Name": "{{ Name }}"
+   },
+   "DeviceRegistryEnrich": {
+    "Attribute": "{{ Attribute }}",
+    "Next": "{{ Next }}",
+    "ThingName": "{{ ThingName }}",
+    "RoleArn": "{{ RoleArn }}",
+    "Name": "{{ Name }}"
+   },
+   "RemoveAttributes": {
+    "Next": "{{ Next }}",
+    "Attributes": [
+     "{{ Attributes[0] }}"
+    ],
+    "Name": "{{ Name }}"
+   }
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iotanalytics.pipelines (
+ PipelineActivities,
+ region
+)
+SELECT 
+{{ PipelineActivities }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PipelineName": "{{ PipelineName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "PipelineActivities": [
+  {
+   "SelectAttributes": {
+    "Next": "{{ Next }}",
+    "Attributes": [
+     "{{ Attributes[0] }}"
+    ],
+    "Name": "{{ Name }}"
+   },
+   "Datastore": {
+    "DatastoreName": "{{ DatastoreName }}",
+    "Name": "{{ Name }}"
+   },
+   "Filter": {
+    "Filter": "{{ Filter }}",
+    "Next": "{{ Next }}",
+    "Name": "{{ Name }}"
+   },
+   "AddAttributes": {
+    "Next": "{{ Next }}",
+    "Attributes": {},
+    "Name": "{{ Name }}"
+   },
+   "Channel": {
+    "ChannelName": "{{ ChannelName }}",
+    "Next": "{{ Next }}",
+    "Name": "{{ Name }}"
+   },
+   "DeviceShadowEnrich": {
+    "Attribute": "{{ Attribute }}",
+    "Next": "{{ Next }}",
+    "ThingName": "{{ ThingName }}",
+    "RoleArn": "{{ RoleArn }}",
+    "Name": "{{ Name }}"
+   },
+   "Math": {
+    "Attribute": "{{ Attribute }}",
+    "Next": "{{ Next }}",
+    "Math": "{{ Math }}",
+    "Name": "{{ Name }}"
+   },
+   "Lambda": {
+    "BatchSize": "{{ BatchSize }}",
+    "Next": "{{ Next }}",
+    "LambdaName": "{{ LambdaName }}",
+    "Name": "{{ Name }}"
+   },
+   "DeviceRegistryEnrich": {
+    "Attribute": "{{ Attribute }}",
+    "Next": "{{ Next }}",
+    "ThingName": "{{ ThingName }}",
+    "RoleArn": "{{ RoleArn }}",
+    "Name": "{{ Name }}"
+   },
+   "RemoveAttributes": {
+    "Next": "{{ Next }}",
+    "Attributes": [
+     "{{ Attributes[0] }}"
+    ],
+    "Name": "{{ Name }}"
+   }
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotanalytics.pipelines (
+ PipelineName,
+ Tags,
+ PipelineActivities,
+ region
+)
+SELECT 
+ {{ PipelineName }},
+ {{ Tags }},
+ {{ PipelineActivities }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotanalytics.pipelines
+WHERE data__Identifier = '<PipelineName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +272,11 @@ To operate on the <code>pipelines</code> resource, the following permissions are
 ### Create
 ```json
 iotanalytics:CreatePipeline
+```
+
+### Delete
+```json
+iotanalytics:DeletePipeline
 ```
 
 ### List

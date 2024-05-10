@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>component_versions</code> in a region or create a <code>component_versions</code> resource, use <code>component_version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>component_versions</code> in a region or to create or delete a <code>component_versions</code> resource, use <code>component_version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>component_versions</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,181 @@ SELECT
 region,
 arn
 FROM aws.greengrassv2.component_versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InlineRecipe": "{{ InlineRecipe }}",
+ "LambdaFunction": {
+  "LambdaArn": "{{ LambdaArn }}",
+  "ComponentName": "{{ ComponentName }}",
+  "ComponentVersion": "{{ ComponentVersion }}",
+  "ComponentPlatforms": [
+   {
+    "Name": "{{ Name }}",
+    "Attributes": {}
+   }
+  ],
+  "ComponentDependencies": {},
+  "ComponentLambdaParameters": {
+   "EventSources": [
+    {
+     "Topic": "{{ Topic }}",
+     "Type": "{{ Type }}"
+    }
+   ],
+   "MaxQueueSize": "{{ MaxQueueSize }}",
+   "MaxInstancesCount": "{{ MaxInstancesCount }}",
+   "MaxIdleTimeInSeconds": "{{ MaxIdleTimeInSeconds }}",
+   "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
+   "StatusTimeoutInSeconds": "{{ StatusTimeoutInSeconds }}",
+   "Pinned": "{{ Pinned }}",
+   "InputPayloadEncodingType": "{{ InputPayloadEncodingType }}",
+   "ExecArgs": [
+    "{{ ExecArgs[0] }}"
+   ],
+   "EnvironmentVariables": {},
+   "LinuxProcessParams": {
+    "IsolationMode": "{{ IsolationMode }}",
+    "ContainerParams": {
+     "MemorySizeInKB": "{{ MemorySizeInKB }}",
+     "MountROSysfs": "{{ MountROSysfs }}",
+     "Volumes": [
+      {
+       "SourcePath": "{{ SourcePath }}",
+       "DestinationPath": null,
+       "Permission": "{{ Permission }}",
+       "AddGroupOwner": "{{ AddGroupOwner }}"
+      }
+     ],
+     "Devices": [
+      {
+       "Path": null,
+       "Permission": null,
+       "AddGroupOwner": null
+      }
+     ]
+    }
+   }
+  }
+ },
+ "Tags": {}
+}
+>>>
+--required properties only
+INSERT INTO aws.greengrassv2.component_versions (
+ InlineRecipe,
+ LambdaFunction,
+ Tags,
+ region
+)
+SELECT 
+{{ InlineRecipe }},
+ {{ LambdaFunction }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InlineRecipe": "{{ InlineRecipe }}",
+ "LambdaFunction": {
+  "LambdaArn": "{{ LambdaArn }}",
+  "ComponentName": "{{ ComponentName }}",
+  "ComponentVersion": "{{ ComponentVersion }}",
+  "ComponentPlatforms": [
+   {
+    "Name": "{{ Name }}",
+    "Attributes": {}
+   }
+  ],
+  "ComponentDependencies": {},
+  "ComponentLambdaParameters": {
+   "EventSources": [
+    {
+     "Topic": "{{ Topic }}",
+     "Type": "{{ Type }}"
+    }
+   ],
+   "MaxQueueSize": "{{ MaxQueueSize }}",
+   "MaxInstancesCount": "{{ MaxInstancesCount }}",
+   "MaxIdleTimeInSeconds": "{{ MaxIdleTimeInSeconds }}",
+   "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
+   "StatusTimeoutInSeconds": "{{ StatusTimeoutInSeconds }}",
+   "Pinned": "{{ Pinned }}",
+   "InputPayloadEncodingType": "{{ InputPayloadEncodingType }}",
+   "ExecArgs": [
+    "{{ ExecArgs[0] }}"
+   ],
+   "EnvironmentVariables": {},
+   "LinuxProcessParams": {
+    "IsolationMode": "{{ IsolationMode }}",
+    "ContainerParams": {
+     "MemorySizeInKB": "{{ MemorySizeInKB }}",
+     "MountROSysfs": "{{ MountROSysfs }}",
+     "Volumes": [
+      {
+       "SourcePath": "{{ SourcePath }}",
+       "DestinationPath": null,
+       "Permission": "{{ Permission }}",
+       "AddGroupOwner": "{{ AddGroupOwner }}"
+      }
+     ],
+     "Devices": [
+      {
+       "Path": null,
+       "Permission": null,
+       "AddGroupOwner": null
+      }
+     ]
+    }
+   }
+  }
+ },
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.greengrassv2.component_versions (
+ InlineRecipe,
+ LambdaFunction,
+ Tags,
+ region
+)
+SELECT 
+ {{ InlineRecipe }},
+ {{ LambdaFunction }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.greengrassv2.component_versions
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +258,11 @@ greengrass:ListTagsForResource,
 greengrass:TagResource,
 lambda:GetFunction,
 s3:GetObject
+```
+
+### Delete
+```json
+greengrass:DeleteComponent
 ```
 
 ### List

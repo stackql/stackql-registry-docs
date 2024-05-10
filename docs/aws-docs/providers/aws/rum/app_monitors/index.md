@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>app_monitors</code> in a region or create a <code>app_monitors</code> resource, use <code>app_monitor</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>app_monitors</code> in a region or to create or delete a <code>app_monitors</code> resource, use <code>app_monitor</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>app_monitors</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,123 @@ SELECT
 region,
 name
 FROM aws.rum.app_monitors
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Domain": "{{ Domain }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.rum.app_monitors (
+ Name,
+ Domain,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Domain }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Domain": "{{ Domain }}",
+ "CwLogEnabled": "{{ CwLogEnabled }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AppMonitorConfiguration": {
+  "IdentityPoolId": "{{ IdentityPoolId }}",
+  "ExcludedPages": [
+   "{{ ExcludedPages[0] }}"
+  ],
+  "IncludedPages": null,
+  "FavoritePages": [
+   "{{ FavoritePages[0] }}"
+  ],
+  "SessionSampleRate": null,
+  "GuestRoleArn": "{{ GuestRoleArn }}",
+  "AllowCookies": "{{ AllowCookies }}",
+  "Telemetries": [
+   "{{ Telemetries[0] }}"
+  ],
+  "EnableXRay": "{{ EnableXRay }}",
+  "MetricDestinations": [
+   {
+    "Destination": "{{ Destination }}",
+    "DestinationArn": "{{ DestinationArn }}",
+    "IamRoleArn": "{{ IamRoleArn }}",
+    "MetricDefinitions": [
+     {
+      "Name": "{{ Name }}",
+      "Namespace": "{{ Namespace }}",
+      "ValueKey": "{{ ValueKey }}",
+      "UnitLabel": "{{ UnitLabel }}",
+      "DimensionKeys": {},
+      "EventPattern": "{{ EventPattern }}"
+     }
+    ]
+   }
+  ]
+ },
+ "CustomEvents": {
+  "Status": "{{ Status }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.rum.app_monitors (
+ Name,
+ Domain,
+ CwLogEnabled,
+ Tags,
+ AppMonitorConfiguration,
+ CustomEvents,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Domain }},
+ {{ CwLogEnabled }},
+ {{ Tags }},
+ {{ AppMonitorConfiguration }},
+ {{ CustomEvents }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rum.app_monitors
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -91,6 +215,19 @@ iam:GetRole,
 iam:CreateServiceLinkedRole,
 rum:PutRumMetricsDestination,
 rum:BatchCreateRumMetricDefinitions
+```
+
+### Delete
+```json
+rum:DeleteAppMonitor,
+dynamodb:DeleteItem,
+dynamodb:Query,
+logs:DeleteLogDelivery,
+s3:DeleteObject,
+s3:DoesObjectExist,
+rum:UntagResource,
+rum:DeleteRumMetricsDestination,
+rum:BatchDeleteRumMetricDefinitions
 ```
 
 ### List

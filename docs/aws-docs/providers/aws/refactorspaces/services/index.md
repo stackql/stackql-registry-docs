@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>services</code> in a region or create a <code>services</code> resource, use <code>service</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>services</code> in a region or to create or delete a <code>services</code> resource, use <code>service</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>services</code> in a region or create a <code>s
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,108 @@ environment_identifier,
 application_identifier,
 service_identifier
 FROM aws.refactorspaces.services
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
+ "EndpointType": "{{ EndpointType }}",
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.refactorspaces.services (
+ ApplicationIdentifier,
+ EndpointType,
+ EnvironmentIdentifier,
+ Name,
+ region
+)
+SELECT 
+{{ ApplicationIdentifier }},
+ {{ EndpointType }},
+ {{ EnvironmentIdentifier }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
+ "Description": "{{ Description }}",
+ "EndpointType": "{{ EndpointType }}",
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "LambdaEndpoint": {
+  "Arn": "{{ Arn }}"
+ },
+ "Name": "{{ Name }}",
+ "UrlEndpoint": {
+  "HealthUrl": "{{ HealthUrl }}",
+  "Url": "{{ Url }}"
+ },
+ "VpcId": "{{ VpcId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.refactorspaces.services (
+ ApplicationIdentifier,
+ Description,
+ EndpointType,
+ EnvironmentIdentifier,
+ LambdaEndpoint,
+ Name,
+ UrlEndpoint,
+ VpcId,
+ Tags,
+ region
+)
+SELECT 
+ {{ ApplicationIdentifier }},
+ {{ Description }},
+ {{ EndpointType }},
+ {{ EnvironmentIdentifier }},
+ {{ LambdaEndpoint }},
+ {{ Name }},
+ {{ UrlEndpoint }},
+ {{ VpcId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.refactorspaces.services
+WHERE data__Identifier = '<EnvironmentIdentifier|ApplicationIdentifier|ServiceIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -87,6 +196,23 @@ ec2:CreateSecurityGroup,
 ec2:AuthorizeSecurityGroupIngress,
 ec2:CreateRoute,
 lambda:GetFunctionConfiguration
+```
+
+### Delete
+```json
+refactor-spaces:DeleteService,
+refactor-spaces:GetService,
+refactor-spaces:UntagResource,
+ram:DisassociateResourceShare,
+ec2:DescribeNetworkInterfaces,
+ec2:DescribeRouteTables,
+ec2:DescribeTransitGatewayVpcAttachments,
+ec2:DescribeSecurityGroups,
+ec2:DeleteSecurityGroup,
+ec2:DeleteRoute,
+ec2:RevokeSecurityGroupIngress,
+ec2:DeleteTransitGatewayVpcAttachment,
+ec2:DeleteTags
 ```
 
 ### List

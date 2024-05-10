@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>clusters</code> in a region or create a <code>clusters</code> resource, use <code>cluster</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>clusters</code> in a region or to create or delete a <code>clusters</code> resource, use <code>cluster</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>clusters</code> in a region or create a <code>c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,244 @@ SELECT
 region,
 cluster_identifier
 FROM aws.redshift.clusters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "MasterUsername": "{{ MasterUsername }}",
+ "NodeType": "{{ NodeType }}",
+ "ClusterType": "{{ ClusterType }}",
+ "DBName": "{{ DBName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.redshift.clusters (
+ MasterUsername,
+ NodeType,
+ ClusterType,
+ DBName,
+ region
+)
+SELECT 
+{{ MasterUsername }},
+ {{ NodeType }},
+ {{ ClusterType }},
+ {{ DBName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClusterIdentifier": "{{ ClusterIdentifier }}",
+ "MasterUsername": "{{ MasterUsername }}",
+ "MasterUserPassword": "{{ MasterUserPassword }}",
+ "NodeType": "{{ NodeType }}",
+ "AllowVersionUpgrade": "{{ AllowVersionUpgrade }}",
+ "AutomatedSnapshotRetentionPeriod": "{{ AutomatedSnapshotRetentionPeriod }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "ClusterParameterGroupName": "{{ ClusterParameterGroupName }}",
+ "ClusterType": "{{ ClusterType }}",
+ "ClusterVersion": "{{ ClusterVersion }}",
+ "ClusterSubnetGroupName": "{{ ClusterSubnetGroupName }}",
+ "DBName": "{{ DBName }}",
+ "ElasticIp": "{{ ElasticIp }}",
+ "Encrypted": "{{ Encrypted }}",
+ "HsmClientCertificateIdentifier": "{{ HsmClientCertificateIdentifier }}",
+ "HsmConfigurationIdentifier": "{{ HsmConfigurationIdentifier }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "NumberOfNodes": "{{ NumberOfNodes }}",
+ "Port": "{{ Port }}",
+ "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+ "PubliclyAccessible": "{{ PubliclyAccessible }}",
+ "ClusterSecurityGroups": [
+  "{{ ClusterSecurityGroups[0] }}"
+ ],
+ "IamRoles": [
+  "{{ IamRoles[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VpcSecurityGroupIds": [
+  "{{ VpcSecurityGroupIds[0] }}"
+ ],
+ "SnapshotClusterIdentifier": "{{ SnapshotClusterIdentifier }}",
+ "SnapshotIdentifier": "{{ SnapshotIdentifier }}",
+ "OwnerAccount": "{{ OwnerAccount }}",
+ "LoggingProperties": {
+  "BucketName": "{{ BucketName }}",
+  "S3KeyPrefix": "{{ S3KeyPrefix }}"
+ },
+ "Endpoint": {
+  "Port": "{{ Port }}",
+  "Address": "{{ Address }}"
+ },
+ "DestinationRegion": "{{ DestinationRegion }}",
+ "SnapshotCopyRetentionPeriod": "{{ SnapshotCopyRetentionPeriod }}",
+ "SnapshotCopyGrantName": "{{ SnapshotCopyGrantName }}",
+ "ManualSnapshotRetentionPeriod": "{{ ManualSnapshotRetentionPeriod }}",
+ "SnapshotCopyManual": "{{ SnapshotCopyManual }}",
+ "AvailabilityZoneRelocation": "{{ AvailabilityZoneRelocation }}",
+ "AvailabilityZoneRelocationStatus": "{{ AvailabilityZoneRelocationStatus }}",
+ "AquaConfigurationStatus": "{{ AquaConfigurationStatus }}",
+ "Classic": "{{ Classic }}",
+ "EnhancedVpcRouting": "{{ EnhancedVpcRouting }}",
+ "MaintenanceTrackName": "{{ MaintenanceTrackName }}",
+ "DeferMaintenance": "{{ DeferMaintenance }}",
+ "DeferMaintenanceStartTime": "{{ DeferMaintenanceStartTime }}",
+ "DeferMaintenanceEndTime": "{{ DeferMaintenanceEndTime }}",
+ "DeferMaintenanceDuration": "{{ DeferMaintenanceDuration }}",
+ "RevisionTarget": "{{ RevisionTarget }}",
+ "ResourceAction": "{{ ResourceAction }}",
+ "RotateEncryptionKey": "{{ RotateEncryptionKey }}",
+ "MultiAZ": "{{ MultiAZ }}",
+ "NamespaceResourcePolicy": {},
+ "ManageMasterPassword": "{{ ManageMasterPassword }}",
+ "MasterPasswordSecretKmsKeyId": "{{ MasterPasswordSecretKmsKeyId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.redshift.clusters (
+ ClusterIdentifier,
+ MasterUsername,
+ MasterUserPassword,
+ NodeType,
+ AllowVersionUpgrade,
+ AutomatedSnapshotRetentionPeriod,
+ AvailabilityZone,
+ ClusterParameterGroupName,
+ ClusterType,
+ ClusterVersion,
+ ClusterSubnetGroupName,
+ DBName,
+ ElasticIp,
+ Encrypted,
+ HsmClientCertificateIdentifier,
+ HsmConfigurationIdentifier,
+ KmsKeyId,
+ NumberOfNodes,
+ Port,
+ PreferredMaintenanceWindow,
+ PubliclyAccessible,
+ ClusterSecurityGroups,
+ IamRoles,
+ Tags,
+ VpcSecurityGroupIds,
+ SnapshotClusterIdentifier,
+ SnapshotIdentifier,
+ OwnerAccount,
+ LoggingProperties,
+ Endpoint,
+ DestinationRegion,
+ SnapshotCopyRetentionPeriod,
+ SnapshotCopyGrantName,
+ ManualSnapshotRetentionPeriod,
+ SnapshotCopyManual,
+ AvailabilityZoneRelocation,
+ AvailabilityZoneRelocationStatus,
+ AquaConfigurationStatus,
+ Classic,
+ EnhancedVpcRouting,
+ MaintenanceTrackName,
+ DeferMaintenance,
+ DeferMaintenanceStartTime,
+ DeferMaintenanceEndTime,
+ DeferMaintenanceDuration,
+ RevisionTarget,
+ ResourceAction,
+ RotateEncryptionKey,
+ MultiAZ,
+ NamespaceResourcePolicy,
+ ManageMasterPassword,
+ MasterPasswordSecretKmsKeyId,
+ region
+)
+SELECT 
+ {{ ClusterIdentifier }},
+ {{ MasterUsername }},
+ {{ MasterUserPassword }},
+ {{ NodeType }},
+ {{ AllowVersionUpgrade }},
+ {{ AutomatedSnapshotRetentionPeriod }},
+ {{ AvailabilityZone }},
+ {{ ClusterParameterGroupName }},
+ {{ ClusterType }},
+ {{ ClusterVersion }},
+ {{ ClusterSubnetGroupName }},
+ {{ DBName }},
+ {{ ElasticIp }},
+ {{ Encrypted }},
+ {{ HsmClientCertificateIdentifier }},
+ {{ HsmConfigurationIdentifier }},
+ {{ KmsKeyId }},
+ {{ NumberOfNodes }},
+ {{ Port }},
+ {{ PreferredMaintenanceWindow }},
+ {{ PubliclyAccessible }},
+ {{ ClusterSecurityGroups }},
+ {{ IamRoles }},
+ {{ Tags }},
+ {{ VpcSecurityGroupIds }},
+ {{ SnapshotClusterIdentifier }},
+ {{ SnapshotIdentifier }},
+ {{ OwnerAccount }},
+ {{ LoggingProperties }},
+ {{ Endpoint }},
+ {{ DestinationRegion }},
+ {{ SnapshotCopyRetentionPeriod }},
+ {{ SnapshotCopyGrantName }},
+ {{ ManualSnapshotRetentionPeriod }},
+ {{ SnapshotCopyManual }},
+ {{ AvailabilityZoneRelocation }},
+ {{ AvailabilityZoneRelocationStatus }},
+ {{ AquaConfigurationStatus }},
+ {{ Classic }},
+ {{ EnhancedVpcRouting }},
+ {{ MaintenanceTrackName }},
+ {{ DeferMaintenance }},
+ {{ DeferMaintenanceStartTime }},
+ {{ DeferMaintenanceEndTime }},
+ {{ DeferMaintenanceDuration }},
+ {{ RevisionTarget }},
+ {{ ResourceAction }},
+ {{ RotateEncryptionKey }},
+ {{ MultiAZ }},
+ {{ NamespaceResourcePolicy }},
+ {{ ManageMasterPassword }},
+ {{ MasterPasswordSecretKmsKeyId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.redshift.clusters
+WHERE data__Identifier = '<ClusterIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -102,6 +347,13 @@ ec2:DescribeAvailabilityZones,
 ec2:DescribeNetworkAcls,
 ec2:DescribeRouteTables,
 cloudwatch:PutMetricData
+```
+
+### Delete
+```json
+redshift:DescribeTags,
+redshift:DescribeClusters,
+redshift:DeleteCluster
 ```
 
 ### List

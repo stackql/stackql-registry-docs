@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>landing_zones</code> in a region or create a <code>landing_zones</code> resource, use <code>landing_zone</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>landing_zones</code> in a region or to create or delete a <code>landing_zones</code> resource, use <code>landing_zone</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>landing_zones</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,79 @@ SELECT
 region,
 landing_zone_identifier
 FROM aws.controltower.landing_zones
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Manifest": null,
+ "Version": "{{ Version }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.controltower.landing_zones (
+ Manifest,
+ Version,
+ region
+)
+SELECT 
+{{ Manifest }},
+ {{ Version }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Manifest": null,
+ "Version": "{{ Version }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.controltower.landing_zones (
+ Manifest,
+ Version,
+ Tags,
+ region
+)
+SELECT 
+ {{ Manifest }},
+ {{ Version }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.controltower.landing_zones
+WHERE data__Identifier = '<LandingZoneIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -101,6 +181,32 @@ sso:GetPeregrineStatus,
 sso:ListDirectoryAssociations,
 sso:StartPeregrine,
 sso:RegisterRegion
+```
+
+### Delete
+```json
+controltower:DeleteLandingZone,
+controltower:GetLandingZone,
+controltower:GetLandingZoneOperation,
+cloudformation:DescribeOrganizationsAccess,
+servicecatalog:ListPortfolios,
+servicecatalog:ListProvisioningArtifacts,
+servicecatalog:SearchProductsAsAdmin,
+servicecatalog:DeleteProvisioningArtifact,
+servicecatalog:ListPrincipalsForPortfolio,
+servicecatalog:DeleteProduct,
+servicecatalog:DisassociatePrincipalFromPortfolio,
+servicecatalog:DisassociateProductFromPortfolio,
+servicecatalog:DeletePortfolio,
+organizations:AttachPolicy,
+organizations:DetachPolicy,
+organizations:DeletePolicy,
+organizations:ListRoots,
+sso:GetPeregrineStatus,
+sso:ListDirectoryAssociations,
+iam:DeleteRolePolicy,
+iam:DetachRolePolicy,
+iam:DeleteRole
 ```
 
 ### List

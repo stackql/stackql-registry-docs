@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>member_invitation</code> resource, use <code>member_invitations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>member_invitation</code> resource, use <code>member_invitations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>member_invitation</code> resource, use <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -74,8 +72,9 @@ member_email_address,
 disable_email_notification,
 message
 FROM aws.detective.member_invitation
-WHERE data__Identifier = '<GraphArn>|<MemberId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<GraphArn>|<MemberId>';
 ```
+
 
 ## Permissions
 
@@ -84,10 +83,5 @@ To operate on the <code>member_invitation</code> resource, the following permiss
 ### Read
 ```json
 detective:GetMembers
-```
-
-### Delete
-```json
-detective:DeleteMembers
 ```
 

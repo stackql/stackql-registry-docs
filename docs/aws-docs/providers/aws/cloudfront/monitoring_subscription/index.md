@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>monitoring_subscription</code> resource, use <code>monitoring_subscriptions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>monitoring_subscription</code> resource, use <code>monitoring_subscriptions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -45,11 +48,6 @@ Gets or operates on an individual <code>monitoring_subscription</code> resource,
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -66,14 +64,10 @@ FROM aws.cloudfront.monitoring_subscription
 WHERE data__Identifier = '<DistributionId>';
 ```
 
+
 ## Permissions
 
 To operate on the <code>monitoring_subscription</code> resource, the following permissions are required:
-
-### Delete
-```json
-cloudfront:DeleteMonitoringSubscription
-```
 
 ### Read
 ```json

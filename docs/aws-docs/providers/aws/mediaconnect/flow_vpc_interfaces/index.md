@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>flow_vpc_interfaces</code> in a region or create a <code>flow_vpc_interfaces</code> resource, use <code>flow_vpc_interface</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>flow_vpc_interfaces</code> in a region or to create or delete a <code>flow_vpc_interfaces</code> resource, use <code>flow_vpc_interface</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>flow_vpc_interfaces</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,93 @@ region,
 flow_arn,
 name
 FROM aws.mediaconnect.flow_vpc_interfaces
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FlowArn": "{{ FlowArn }}",
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetId": "{{ SubnetId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.mediaconnect.flow_vpc_interfaces (
+ FlowArn,
+ Name,
+ RoleArn,
+ SecurityGroupIds,
+ SubnetId,
+ region
+)
+SELECT 
+{{ FlowArn }},
+ {{ Name }},
+ {{ RoleArn }},
+ {{ SecurityGroupIds }},
+ {{ SubnetId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FlowArn": "{{ FlowArn }}",
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetId": "{{ SubnetId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.mediaconnect.flow_vpc_interfaces (
+ FlowArn,
+ Name,
+ RoleArn,
+ SecurityGroupIds,
+ SubnetId,
+ region
+)
+SELECT 
+ {{ FlowArn }},
+ {{ Name }},
+ {{ RoleArn }},
+ {{ SecurityGroupIds }},
+ {{ SubnetId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediaconnect.flow_vpc_interfaces
+WHERE data__Identifier = '<FlowArn|Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +169,12 @@ To operate on the <code>flow_vpc_interfaces</code> resource, the following permi
 iam:PassRole,
 mediaconnect:DescribeFlow,
 mediaconnect:AddFlowVpcInterfaces
+```
+
+### Delete
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:RemoveFlowVpcInterface
 ```
 
 ### List

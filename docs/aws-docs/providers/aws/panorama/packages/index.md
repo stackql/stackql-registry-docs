@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>packages</code> in a region or create a <code>packages</code> resource, use <code>package</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>packages</code> in a region or to create or delete a <code>packages</code> resource, use <code>package</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>packages</code> in a region or create a <code>p
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,82 @@ SELECT
 region,
 package_id
 FROM aws.panorama.packages
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PackageName": "{{ PackageName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.panorama.packages (
+ PackageName,
+ region
+)
+SELECT 
+{{ PackageName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PackageName": "{{ PackageName }}",
+ "StorageLocation": {
+  "Bucket": "{{ Bucket }}",
+  "RepoPrefixLocation": "{{ RepoPrefixLocation }}",
+  "GeneratedPrefixLocation": "{{ GeneratedPrefixLocation }}",
+  "BinaryPrefixLocation": "{{ BinaryPrefixLocation }}",
+  "ManifestPrefixLocation": "{{ ManifestPrefixLocation }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.panorama.packages (
+ PackageName,
+ StorageLocation,
+ Tags,
+ region
+)
+SELECT 
+ {{ PackageName }},
+ {{ StorageLocation }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.panorama.packages
+WHERE data__Identifier = '<PackageId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -83,6 +166,20 @@ s3:GetObjectVersion
 ### List
 ```json
 panorama:ListPackages,
+s3:ListBucket,
+s3:GetObject,
+s3:GetObjectVersion
+```
+
+### Delete
+```json
+panorama:DeletePackage,
+panorama:DescribePackage,
+s3:DeleteObject,
+s3:DeleteObjectVersion,
+s3:DeleteObjectVersionTagging,
+s3:ListObjects,
+s3:ListObjectsV2,
 s3:ListBucket,
 s3:GetObject,
 s3:GetObjectVersion

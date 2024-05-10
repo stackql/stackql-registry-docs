@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>maps</code> in a region or create a <code>maps</code> resource, use <code>map</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>maps</code> in a region or to create or delete a <code>maps</code> resource, use <code>map</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>maps</code> in a region or create a <code>maps<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,97 @@ SELECT
 region,
 map_name
 FROM aws.location.maps
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Configuration": {
+  "Style": "{{ Style }}",
+  "PoliticalView": "{{ PoliticalView }}",
+  "CustomLayers": [
+   "{{ CustomLayers[0] }}"
+  ]
+ },
+ "MapName": "{{ MapName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.location.maps (
+ Configuration,
+ MapName,
+ region
+)
+SELECT 
+{{ Configuration }},
+ {{ MapName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Configuration": {
+  "Style": "{{ Style }}",
+  "PoliticalView": "{{ PoliticalView }}",
+  "CustomLayers": [
+   "{{ CustomLayers[0] }}"
+  ]
+ },
+ "Description": "{{ Description }}",
+ "MapName": "{{ MapName }}",
+ "PricingPlan": "{{ PricingPlan }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.location.maps (
+ Configuration,
+ Description,
+ MapName,
+ PricingPlan,
+ Tags,
+ region
+)
+SELECT 
+ {{ Configuration }},
+ {{ Description }},
+ {{ MapName }},
+ {{ PricingPlan }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.location.maps
+WHERE data__Identifier = '<MapName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +172,12 @@ geo:CreateMap,
 geo:DescribeMap,
 geo:TagResource,
 geo:UntagResource
+```
+
+### Delete
+```json
+geo:DeleteMap,
+geo:DescribeMap
 ```
 
 ### List

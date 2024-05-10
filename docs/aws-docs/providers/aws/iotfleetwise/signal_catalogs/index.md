@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>signal_catalogs</code> in a region or create a <code>signal_catalogs</code> resource, use <code>signal_catalog</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>signal_catalogs</code> in a region or to create or delete a <code>signal_catalogs</code> resource, use <code>signal_catalog</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>signal_catalogs</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,115 @@ SELECT
 region,
 name
 FROM aws.iotfleetwise.signal_catalogs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "NodeCounts": {
+  "TotalNodes": null,
+  "TotalBranches": null,
+  "TotalSensors": null,
+  "TotalAttributes": null,
+  "TotalActuators": null
+ },
+ "Nodes": [
+  null
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iotfleetwise.signal_catalogs (
+ Description,
+ Name,
+ NodeCounts,
+ Nodes,
+ Tags,
+ region
+)
+SELECT 
+{{ Description }},
+ {{ Name }},
+ {{ NodeCounts }},
+ {{ Nodes }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "NodeCounts": {
+  "TotalNodes": null,
+  "TotalBranches": null,
+  "TotalSensors": null,
+  "TotalAttributes": null,
+  "TotalActuators": null
+ },
+ "Nodes": [
+  null
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotfleetwise.signal_catalogs (
+ Description,
+ Name,
+ NodeCounts,
+ Nodes,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Name }},
+ {{ NodeCounts }},
+ {{ Nodes }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotfleetwise.signal_catalogs
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +191,12 @@ iotfleetwise:CreateSignalCatalog,
 iotfleetwise:ListSignalCatalogNodes,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:TagResource
+```
+
+### Delete
+```json
+iotfleetwise:GetSignalCatalog,
+iotfleetwise:DeleteSignalCatalog
 ```
 
 ### List

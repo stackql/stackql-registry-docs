@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>db_proxy</code> resource, use <code>db_proxies</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>db_proxy</code> resource, use <code>db_proxies</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>db_proxy</code> resource, use <code>db_p
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ vpc_id,
 vpc_security_group_ids,
 vpc_subnet_ids
 FROM aws.rds.db_proxy
-WHERE data__Identifier = '<DBProxyName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<DBProxyName>';
 ```
+
 
 ## Permissions
 
@@ -108,11 +107,5 @@ rds:ModifyDBProxy,
 rds:AddTagsToResource,
 rds:RemoveTagsFromResource,
 iam:PassRole
-```
-
-### Delete
-```json
-rds:DescribeDBProxies,
-rds:DeleteDBProxy
 ```
 

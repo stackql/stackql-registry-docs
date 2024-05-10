@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>sites</code> in a region or create a <code>sites</code> resource, use <code>site</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>sites</code> in a region or to create or delete a <code>sites</code> resource, use <code>site</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>sites</code> in a region or create a <code>site
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 global_network_id,
 site_id
 FROM aws.networkmanager.sites
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "GlobalNetworkId": "{{ GlobalNetworkId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.networkmanager.sites (
+ GlobalNetworkId,
+ region
+)
+SELECT 
+{{ GlobalNetworkId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "GlobalNetworkId": "{{ GlobalNetworkId }}",
+ "Location": {
+  "Address": "{{ Address }}",
+  "Latitude": "{{ Latitude }}",
+  "Longitude": "{{ Longitude }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.networkmanager.sites (
+ Description,
+ Tags,
+ GlobalNetworkId,
+ Location,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Tags }},
+ {{ GlobalNetworkId }},
+ {{ Location }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.networkmanager.sites
+WHERE data__Identifier = '<GlobalNetworkId|SiteId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +159,12 @@ To operate on the <code>sites</code> resource, the following permissions are req
 networkmanager:CreateSite,
 networkmanager:GetSites,
 networkmanager:TagResource
+```
+
+### Delete
+```json
+networkmanager:GetSites,
+networkmanager:DeleteSite
 ```
 
 ### List

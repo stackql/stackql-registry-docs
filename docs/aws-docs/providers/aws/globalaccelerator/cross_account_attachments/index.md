@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>cross_account_attachments</code> in a region or create a <code>cross_account_attachments</code> resource, use <code>cross_account_attachment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>cross_account_attachments</code> in a region or to create or delete a <code>cross_account_attachments</code> resource, use <code>cross_account_attachment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>cross_account_attachments</code> in a region or
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 attachment_arn
 FROM aws.globalaccelerator.cross_account_attachments
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.globalaccelerator.cross_account_attachments (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Principals": [
+  "{{ Principals[0] }}"
+ ],
+ "Resources": [
+  {
+   "EndpointId": "{{ EndpointId }}",
+   "Region": "{{ Region }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.globalaccelerator.cross_account_attachments (
+ Name,
+ Principals,
+ Resources,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Principals }},
+ {{ Resources }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.globalaccelerator.cross_account_attachments
+WHERE data__Identifier = '<AttachmentArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +160,12 @@ To operate on the <code>cross_account_attachments</code> resource, the following
 globalaccelerator:DescribeCrossAccountAttachment,
 globalaccelerator:CreateCrossAccountAttachment,
 globalaccelerator:TagResource
+```
+
+### Delete
+```json
+globalaccelerator:DescribeCrossAccountAttachment,
+globalaccelerator:DeleteCrossAccountAttachment
 ```
 
 ### List

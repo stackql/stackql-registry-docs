@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>stored_queries</code> in a region or create a <code>stored_queries</code> resource, use <code>stored_query</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>stored_queries</code> in a region or to create or delete a <code>stored_queries</code> resource, use <code>stored_query</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>stored_queries</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,82 @@ SELECT
 region,
 query_name
 FROM aws.config.stored_queries
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "QueryName": "{{ QueryName }}",
+ "QueryExpression": "{{ QueryExpression }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.config.stored_queries (
+ QueryName,
+ QueryExpression,
+ region
+)
+SELECT 
+{{ QueryName }},
+ {{ QueryExpression }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "QueryName": "{{ QueryName }}",
+ "QueryDescription": "{{ QueryDescription }}",
+ "QueryExpression": "{{ QueryExpression }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.config.stored_queries (
+ QueryName,
+ QueryDescription,
+ QueryExpression,
+ Tags,
+ region
+)
+SELECT 
+ {{ QueryName }},
+ {{ QueryDescription }},
+ {{ QueryExpression }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.config.stored_queries
+WHERE data__Identifier = '<QueryName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +156,12 @@ To operate on the <code>stored_queries</code> resource, the following permission
 config:PutStoredQuery,
 config:GetStoredQuery,
 config:TagResource
+```
+
+### Delete
+```json
+config:DeleteStoredQuery,
+config:UntagResource
 ```
 
 ### List

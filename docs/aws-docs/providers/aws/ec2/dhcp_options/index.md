@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>dhcp_options</code> resource, use <code>dhcp_options</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>dhcp_options</code> resource, use <code>dhcp_options</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>dhcp_options</code> resource, use <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ ntp_servers,
 ipv6_address_preferred_lease_time,
 tags
 FROM aws.ec2.dhcp_options
-WHERE data__Identifier = '<DhcpOptionsId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<DhcpOptionsId>';
 ```
+
 
 ## Permissions
 
@@ -98,12 +97,5 @@ ec2:DescribeTags
 ec2:CreateTags,
 ec2:DescribeDhcpOptions,
 ec2:DeleteTags
-```
-
-### Delete
-```json
-ec2:DeleteDhcpOptions,
-ec2:DeleteTags,
-ec2:DescribeDhcpOptions
 ```
 

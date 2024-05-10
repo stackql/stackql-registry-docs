@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>rules</code> in a region or create a <code>rules</code> resource, use <code>rule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>rules</code> in a region or to create or delete a <code>rules</code> resource, use <code>rule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>rules</code> in a region or create a <code>rule
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,221 @@ SELECT
 region,
 rule_arn
 FROM aws.connect.rules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "InstanceArn": "{{ InstanceArn }}",
+ "TriggerEventSource": {
+  "EventSourceName": "{{ EventSourceName }}",
+  "IntegrationAssociationArn": "{{ IntegrationAssociationArn }}"
+ },
+ "Function": "{{ Function }}",
+ "Actions": {
+  "AssignContactCategoryActions": [
+   {}
+  ],
+  "EventBridgeActions": [
+   {
+    "Name": "{{ Name }}"
+   }
+  ],
+  "TaskActions": [
+   {
+    "Name": "{{ Name }}",
+    "Description": "{{ Description }}",
+    "ContactFlowArn": "{{ ContactFlowArn }}",
+    "References": null
+   }
+  ],
+  "SendNotificationActions": [
+   {
+    "DeliveryMethod": "{{ DeliveryMethod }}",
+    "Subject": "{{ Subject }}",
+    "Content": "{{ Content }}",
+    "ContentType": "{{ ContentType }}",
+    "Recipient": {
+     "UserTags": null,
+     "UserArns": [
+      "{{ UserArns[0] }}"
+     ]
+    }
+   }
+  ],
+  "CreateCaseActions": [
+   {
+    "Fields": [
+     {
+      "Id": {
+       "Name": "{{ Name }}"
+      },
+      "Description": "{{ Description }}",
+      "Type": "{{ Type }}",
+      "SingleSelectOptions": [
+       "{{ SingleSelectOptions[0] }}"
+      ]
+     }
+    ],
+    "TemplateId": "{{ TemplateId }}"
+   }
+  ],
+  "UpdateCaseActions": [
+   {
+    "Fields": null
+   }
+  ],
+  "EndAssociatedTasksActions": [
+   {}
+  ]
+ },
+ "PublishStatus": "{{ PublishStatus }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.rules (
+ Name,
+ InstanceArn,
+ TriggerEventSource,
+ Function,
+ Actions,
+ PublishStatus,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ InstanceArn }},
+ {{ TriggerEventSource }},
+ {{ Function }},
+ {{ Actions }},
+ {{ PublishStatus }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "InstanceArn": "{{ InstanceArn }}",
+ "TriggerEventSource": {
+  "EventSourceName": "{{ EventSourceName }}",
+  "IntegrationAssociationArn": "{{ IntegrationAssociationArn }}"
+ },
+ "Function": "{{ Function }}",
+ "Actions": {
+  "AssignContactCategoryActions": [
+   {}
+  ],
+  "EventBridgeActions": [
+   {
+    "Name": "{{ Name }}"
+   }
+  ],
+  "TaskActions": [
+   {
+    "Name": "{{ Name }}",
+    "Description": "{{ Description }}",
+    "ContactFlowArn": "{{ ContactFlowArn }}",
+    "References": null
+   }
+  ],
+  "SendNotificationActions": [
+   {
+    "DeliveryMethod": "{{ DeliveryMethod }}",
+    "Subject": "{{ Subject }}",
+    "Content": "{{ Content }}",
+    "ContentType": "{{ ContentType }}",
+    "Recipient": {
+     "UserTags": null,
+     "UserArns": [
+      "{{ UserArns[0] }}"
+     ]
+    }
+   }
+  ],
+  "CreateCaseActions": [
+   {
+    "Fields": [
+     {
+      "Id": {
+       "Name": "{{ Name }}"
+      },
+      "Description": "{{ Description }}",
+      "Type": "{{ Type }}",
+      "SingleSelectOptions": [
+       "{{ SingleSelectOptions[0] }}"
+      ]
+     }
+    ],
+    "TemplateId": "{{ TemplateId }}"
+   }
+  ],
+  "UpdateCaseActions": [
+   {
+    "Fields": null
+   }
+  ],
+  "EndAssociatedTasksActions": [
+   {}
+  ]
+ },
+ "PublishStatus": "{{ PublishStatus }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.connect.rules (
+ Name,
+ InstanceArn,
+ TriggerEventSource,
+ Function,
+ Actions,
+ PublishStatus,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ InstanceArn }},
+ {{ TriggerEventSource }},
+ {{ Function }},
+ {{ Actions }},
+ {{ PublishStatus }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.rules
+WHERE data__Identifier = '<RuleArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,5 +296,11 @@ connect:CreateRule,
 cases:GetTemplate,
 cases:ListFields,
 cases:ListFieldOptions
+```
+
+### Delete
+```json
+connect:DeleteRule,
+connect:UntagResource
 ```
 

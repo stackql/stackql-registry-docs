@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>studio_components</code> in a region or create a <code>studio_components</code> resource, use <code>studio_component</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>studio_components</code> in a region or to create or delete a <code>studio_components</code> resource, use <code>studio_component</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>studio_components</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,118 @@ region,
 studio_component_id,
 studio_id
 FROM aws.nimblestudio.studio_components
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "StudioId": "{{ StudioId }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.nimblestudio.studio_components (
+ Name,
+ StudioId,
+ Type,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ StudioId }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Configuration": null,
+ "Description": "{{ Description }}",
+ "Ec2SecurityGroupIds": [
+  "{{ Ec2SecurityGroupIds[0] }}"
+ ],
+ "InitializationScripts": [
+  {
+   "LaunchProfileProtocolVersion": "{{ LaunchProfileProtocolVersion }}",
+   "Platform": "{{ Platform }}",
+   "RunContext": "{{ RunContext }}",
+   "Script": "{{ Script }}"
+  }
+ ],
+ "Name": "{{ Name }}",
+ "RuntimeRoleArn": "{{ RuntimeRoleArn }}",
+ "ScriptParameters": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "SecureInitializationRoleArn": "{{ SecureInitializationRoleArn }}",
+ "StudioId": "{{ StudioId }}",
+ "Subtype": "{{ Subtype }}",
+ "Tags": {},
+ "Type": "{{ Type }}"
+}
+>>>
+--all properties
+INSERT INTO aws.nimblestudio.studio_components (
+ Configuration,
+ Description,
+ Ec2SecurityGroupIds,
+ InitializationScripts,
+ Name,
+ RuntimeRoleArn,
+ ScriptParameters,
+ SecureInitializationRoleArn,
+ StudioId,
+ Subtype,
+ Tags,
+ Type,
+ region
+)
+SELECT 
+ {{ Configuration }},
+ {{ Description }},
+ {{ Ec2SecurityGroupIds }},
+ {{ InitializationScripts }},
+ {{ Name }},
+ {{ RuntimeRoleArn }},
+ {{ ScriptParameters }},
+ {{ SecureInitializationRoleArn }},
+ {{ StudioId }},
+ {{ Subtype }},
+ {{ Tags }},
+ {{ Type }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.nimblestudio.studio_components
+WHERE data__Identifier = '<StudioComponentId|StudioId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +199,14 @@ ds:AuthorizeApplication,
 ec2:DescribeSecurityGroups,
 fsx:DescribeFilesystems,
 ds:DescribeDirectories
+```
+
+### Delete
+```json
+nimble:DeleteStudioComponent,
+nimble:GetStudioComponent,
+nimble:UntagResource,
+ds:UnauthorizeApplication
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>certificate_authorities</code> in a region or create a <code>certificate_authorities</code> resource, use <code>certificate_authority</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>certificate_authorities</code> in a region or to create or delete a <code>certificate_authorities</code> resource, use <code>certificate_authority</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>certificate_authorities</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,196 @@ SELECT
 region,
 arn
 FROM aws.acmpca.certificate_authorities
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}",
+ "KeyAlgorithm": "{{ KeyAlgorithm }}",
+ "SigningAlgorithm": "{{ SigningAlgorithm }}",
+ "Subject": {
+  "Country": "{{ Country }}",
+  "Organization": "{{ Organization }}",
+  "OrganizationalUnit": "{{ OrganizationalUnit }}",
+  "DistinguishedNameQualifier": "{{ DistinguishedNameQualifier }}",
+  "State": "{{ State }}",
+  "CommonName": "{{ CommonName }}",
+  "SerialNumber": "{{ SerialNumber }}",
+  "Locality": "{{ Locality }}",
+  "Title": "{{ Title }}",
+  "Surname": "{{ Surname }}",
+  "GivenName": "{{ GivenName }}",
+  "Initials": "{{ Initials }}",
+  "Pseudonym": "{{ Pseudonym }}",
+  "GenerationQualifier": "{{ GenerationQualifier }}",
+  "CustomAttributes": [
+   {
+    "ObjectIdentifier": "{{ ObjectIdentifier }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.acmpca.certificate_authorities (
+ Type,
+ KeyAlgorithm,
+ SigningAlgorithm,
+ Subject,
+ region
+)
+SELECT 
+{{ Type }},
+ {{ KeyAlgorithm }},
+ {{ SigningAlgorithm }},
+ {{ Subject }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}",
+ "KeyAlgorithm": "{{ KeyAlgorithm }}",
+ "SigningAlgorithm": "{{ SigningAlgorithm }}",
+ "Subject": {
+  "Country": "{{ Country }}",
+  "Organization": "{{ Organization }}",
+  "OrganizationalUnit": "{{ OrganizationalUnit }}",
+  "DistinguishedNameQualifier": "{{ DistinguishedNameQualifier }}",
+  "State": "{{ State }}",
+  "CommonName": "{{ CommonName }}",
+  "SerialNumber": "{{ SerialNumber }}",
+  "Locality": "{{ Locality }}",
+  "Title": "{{ Title }}",
+  "Surname": "{{ Surname }}",
+  "GivenName": "{{ GivenName }}",
+  "Initials": "{{ Initials }}",
+  "Pseudonym": "{{ Pseudonym }}",
+  "GenerationQualifier": "{{ GenerationQualifier }}",
+  "CustomAttributes": [
+   {
+    "ObjectIdentifier": "{{ ObjectIdentifier }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ },
+ "RevocationConfiguration": {
+  "CrlConfiguration": {
+   "Enabled": "{{ Enabled }}",
+   "ExpirationInDays": "{{ ExpirationInDays }}",
+   "CustomCname": "{{ CustomCname }}",
+   "S3BucketName": "{{ S3BucketName }}",
+   "S3ObjectAcl": "{{ S3ObjectAcl }}",
+   "CrlDistributionPointExtensionConfiguration": {
+    "OmitExtension": "{{ OmitExtension }}"
+   }
+  },
+  "OcspConfiguration": {
+   "Enabled": "{{ Enabled }}",
+   "OcspCustomCname": "{{ OcspCustomCname }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "CsrExtensions": {
+  "KeyUsage": {
+   "DigitalSignature": "{{ DigitalSignature }}",
+   "NonRepudiation": "{{ NonRepudiation }}",
+   "KeyEncipherment": "{{ KeyEncipherment }}",
+   "DataEncipherment": "{{ DataEncipherment }}",
+   "KeyAgreement": "{{ KeyAgreement }}",
+   "KeyCertSign": "{{ KeyCertSign }}",
+   "CRLSign": "{{ CRLSign }}",
+   "EncipherOnly": "{{ EncipherOnly }}",
+   "DecipherOnly": "{{ DecipherOnly }}"
+  },
+  "SubjectInformationAccess": [
+   {
+    "AccessMethod": {
+     "CustomObjectIdentifier": null,
+     "AccessMethodType": "{{ AccessMethodType }}"
+    },
+    "AccessLocation": {
+     "OtherName": {
+      "TypeId": null,
+      "Value": "{{ Value }}"
+     },
+     "Rfc822Name": "{{ Rfc822Name }}",
+     "DnsName": "{{ DnsName }}",
+     "DirectoryName": null,
+     "EdiPartyName": {
+      "PartyName": "{{ PartyName }}",
+      "NameAssigner": "{{ NameAssigner }}"
+     },
+     "UniformResourceIdentifier": "{{ UniformResourceIdentifier }}",
+     "IpAddress": "{{ IpAddress }}",
+     "RegisteredId": null
+    }
+   }
+  ]
+ },
+ "KeyStorageSecurityStandard": "{{ KeyStorageSecurityStandard }}",
+ "UsageMode": "{{ UsageMode }}"
+}
+>>>
+--all properties
+INSERT INTO aws.acmpca.certificate_authorities (
+ Type,
+ KeyAlgorithm,
+ SigningAlgorithm,
+ Subject,
+ RevocationConfiguration,
+ Tags,
+ CsrExtensions,
+ KeyStorageSecurityStandard,
+ UsageMode,
+ region
+)
+SELECT 
+ {{ Type }},
+ {{ KeyAlgorithm }},
+ {{ SigningAlgorithm }},
+ {{ Subject }},
+ {{ RevocationConfiguration }},
+ {{ Tags }},
+ {{ CsrExtensions }},
+ {{ KeyStorageSecurityStandard }},
+ {{ UsageMode }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.acmpca.certificate_authorities
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +270,12 @@ To operate on the <code>certificate_authorities</code> resource, the following p
 acm-pca:CreateCertificateAuthority,
 acm-pca:DescribeCertificateAuthority,
 acm-pca:GetCertificateAuthorityCsr
+```
+
+### Delete
+```json
+acm-pca:DeleteCertificateAuthority,
+acm-pca:DescribeCertificateAuthority
 ```
 
 ### List

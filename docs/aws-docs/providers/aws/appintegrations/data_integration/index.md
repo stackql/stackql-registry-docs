@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>data_integration</code> resource, use <code>data_integrations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>data_integration</code> resource, use <code>data_integrations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>data_integration</code> resource, use <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,8 +82,9 @@ tags,
 file_configuration,
 object_configuration
 FROM aws.appintegrations.data_integration
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -104,23 +103,6 @@ app-integrations:UpdateDataIntegration,
 app-integrations:TagResource,
 app-integrations:UntagResource,
 appflow:DescribeConnectorProfiles,
-appflow:DeleteFlow,
-appflow:DescribeConnectorEntity,
-appflow:UseConnectorProfile,
-appflow:TagResource,
-appflow:UntagResource,
-kms:CreateGrant,
-kms:DescribeKey,
-kms:ListAliases,
-kms:ListGrants,
-kms:ListKeys
-```
-
-### Delete
-```json
-app-integrations:DeleteDataIntegration,
-app-integrations:UntagResource,
-appflow:CreateFlow,
 appflow:DeleteFlow,
 appflow:DescribeConnectorEntity,
 appflow:UseConnectorProfile,

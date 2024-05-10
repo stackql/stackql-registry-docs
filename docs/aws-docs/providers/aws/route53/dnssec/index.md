@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>dnssec</code> resource, use <code>dnssecs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>dnssec</code> resource, use <code>dnssecs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -44,11 +47,6 @@ Gets or operates on an individual <code>dnssec</code> resource, use <code>dnssec
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -64,6 +62,7 @@ FROM aws.route53.dnssec
 WHERE data__Identifier = '<HostedZoneId>';
 ```
 
+
 ## Permissions
 
 To operate on the <code>dnssec</code> resource, the following permissions are required:
@@ -71,15 +70,5 @@ To operate on the <code>dnssec</code> resource, the following permissions are re
 ### Read
 ```json
 route53:GetDNSSEC
-```
-
-### Delete
-```json
-route53:GetDNSSEC,
-route53:DisableHostedZoneDNSSEC,
-kms:DescribeKey,
-kms:GetPublicKey,
-kms:Sign,
-kms:CreateGrant
 ```
 

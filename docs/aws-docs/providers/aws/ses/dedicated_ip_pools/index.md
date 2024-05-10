@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>dedicated_ip_pools</code> in a region or create a <code>dedicated_ip_pools</code> resource, use <code>dedicated_ip_pool</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>dedicated_ip_pools</code> in a region or to create or delete a <code>dedicated_ip_pools</code> resource, use <code>dedicated_ip_pool</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>dedicated_ip_pools</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,71 @@ SELECT
 region,
 pool_name
 FROM aws.ses.dedicated_ip_pools
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PoolName": "{{ PoolName }}",
+ "ScalingMode": "{{ ScalingMode }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ses.dedicated_ip_pools (
+ PoolName,
+ ScalingMode,
+ region
+)
+SELECT 
+{{ PoolName }},
+ {{ ScalingMode }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PoolName": "{{ PoolName }}",
+ "ScalingMode": "{{ ScalingMode }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ses.dedicated_ip_pools (
+ PoolName,
+ ScalingMode,
+ region
+)
+SELECT 
+ {{ PoolName }},
+ {{ ScalingMode }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ses.dedicated_ip_pools
+WHERE data__Identifier = '<PoolName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +145,11 @@ To operate on the <code>dedicated_ip_pools</code> resource, the following permis
 ses:CreateDedicatedIpPool,
 ses:GetDedicatedIpPool,
 ses:GetDedicatedIps
+```
+
+### Delete
+```json
+ses:DeleteDedicatedIpPool
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>firewall</code> resource, use <code>firewalls</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>firewall</code> resource, use <code>firewalls</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>firewall</code> resource, use <code>fire
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ description,
 endpoint_ids,
 tags
 FROM aws.networkfirewall.firewall
-WHERE data__Identifier = '<FirewallArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<FirewallArn>';
 ```
+
 
 ## Permissions
 
@@ -111,19 +110,6 @@ network-firewall:UpdateSubnetChangeProtection,
 network-firewall:UpdateFirewallPolicyChangeProtection,
 network-firewall:AssociateFirewallPolicy,
 network-firewall:TagResource,
-network-firewall:UntagResource,
-network-firewall:DescribeFirewall
-```
-
-### Delete
-```json
-ec2:DeleteVpcEndpoints,
-ec2:DescribeRouteTables,
-logs:DescribeLogGroups,
-logs:DescribeResourcePolicies,
-logs:GetLogDelivery,
-logs:ListLogDeliveries,
-network-firewall:DeleteFirewall,
 network-firewall:UntagResource,
 network-firewall:DescribeFirewall
 ```

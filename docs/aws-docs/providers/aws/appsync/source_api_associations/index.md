@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>source_api_associations</code> in a region or create a <code>source_api_associations</code> resource, use <code>source_api_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>source_api_associations</code> in a region or to create or delete a <code>source_api_associations</code> resource, use <code>source_api_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>source_api_associations</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 association_arn
 FROM aws.appsync.source_api_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SourceApiIdentifier": "{{ SourceApiIdentifier }}",
+ "MergedApiIdentifier": "{{ MergedApiIdentifier }}",
+ "Description": "{{ Description }}",
+ "SourceApiAssociationConfig": null
+}
+>>>
+--required properties only
+INSERT INTO aws.appsync.source_api_associations (
+ SourceApiIdentifier,
+ MergedApiIdentifier,
+ Description,
+ SourceApiAssociationConfig,
+ region
+)
+SELECT 
+{{ SourceApiIdentifier }},
+ {{ MergedApiIdentifier }},
+ {{ Description }},
+ {{ SourceApiAssociationConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SourceApiIdentifier": "{{ SourceApiIdentifier }}",
+ "MergedApiIdentifier": "{{ MergedApiIdentifier }}",
+ "Description": "{{ Description }}",
+ "SourceApiAssociationConfig": null
+}
+>>>
+--all properties
+INSERT INTO aws.appsync.source_api_associations (
+ SourceApiIdentifier,
+ MergedApiIdentifier,
+ Description,
+ SourceApiAssociationConfig,
+ region
+)
+SELECT 
+ {{ SourceApiIdentifier }},
+ {{ MergedApiIdentifier }},
+ {{ Description }},
+ {{ SourceApiAssociationConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appsync.source_api_associations
+WHERE data__Identifier = '<AssociationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,14 @@ To operate on the <code>source_api_associations</code> resource, the following p
 appsync:AssociateSourceGraphqlApi,
 appsync:AssociateMergedGraphqlApi,
 appsync:GetSourceApiAssociation
+```
+
+### Delete
+```json
+appsync:GetSourceApiAssociation,
+appsync:DisassociateSourceGraphqlApi,
+appsync:DisassociateMergedGraphqlApi,
+appsync:ListSourceApiAssociations
 ```
 
 ### List

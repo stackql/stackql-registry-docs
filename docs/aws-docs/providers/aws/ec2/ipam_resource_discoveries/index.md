@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>ipam_resource_discoveries</code> in a region or create a <code>ipam_resource_discoveries</code> resource, use <code>ipam_resource_discovery</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>ipam_resource_discoveries</code> in a region or to create or delete a <code>ipam_resource_discoveries</code> resource, use <code>ipam_resource_discovery</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>ipam_resource_discoveries</code> in a region or
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,78 @@ SELECT
 region,
 ipam_resource_discovery_id
 FROM aws.ec2.ipam_resource_discoveries
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.ec2.ipam_resource_discoveries (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "OperatingRegions": [
+  {
+   "RegionName": "{{ RegionName }}"
+  }
+ ],
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.ipam_resource_discoveries (
+ OperatingRegions,
+ Description,
+ Tags,
+ region
+)
+SELECT 
+ {{ OperatingRegions }},
+ {{ Description }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.ipam_resource_discoveries
+WHERE data__Identifier = '<IpamResourceDiscoveryId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +152,13 @@ To operate on the <code>ipam_resource_discoveries</code> resource, the following
 ec2:CreateIpamResourceDiscovery,
 ec2:DescribeIpamResourceDiscoveries,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DeleteIpamResourceDiscovery,
+ec2:DescribeIpamResourceDiscoveries,
+ec2:DeleteTags
 ```
 
 ### List

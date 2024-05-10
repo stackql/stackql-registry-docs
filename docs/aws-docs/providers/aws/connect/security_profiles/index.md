@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>security_profiles</code> in a region or create a <code>security_profiles</code> resource, use <code>security_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>security_profiles</code> in a region or to create or delete a <code>security_profiles</code> resource, use <code>security_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>security_profiles</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,115 @@ SELECT
 region,
 security_profile_arn
 FROM aws.connect.security_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "SecurityProfileName": "{{ SecurityProfileName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.security_profiles (
+ InstanceArn,
+ SecurityProfileName,
+ region
+)
+SELECT 
+{{ InstanceArn }},
+ {{ SecurityProfileName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AllowedAccessControlTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Description": "{{ Description }}",
+ "InstanceArn": "{{ InstanceArn }}",
+ "Permissions": [
+  "{{ Permissions[0] }}"
+ ],
+ "SecurityProfileName": "{{ SecurityProfileName }}",
+ "TagRestrictedResources": [
+  "{{ TagRestrictedResources[0] }}"
+ ],
+ "HierarchyRestrictedResources": [
+  null
+ ],
+ "AllowedAccessControlHierarchyGroupId": "{{ AllowedAccessControlHierarchyGroupId }}",
+ "Applications": [
+  {
+   "ApplicationPermissions": [
+    "{{ ApplicationPermissions[0] }}"
+   ],
+   "Namespace": "{{ Namespace }}"
+  }
+ ],
+ "Tags": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.connect.security_profiles (
+ AllowedAccessControlTags,
+ Description,
+ InstanceArn,
+ Permissions,
+ SecurityProfileName,
+ TagRestrictedResources,
+ HierarchyRestrictedResources,
+ AllowedAccessControlHierarchyGroupId,
+ Applications,
+ Tags,
+ region
+)
+SELECT 
+ {{ AllowedAccessControlTags }},
+ {{ Description }},
+ {{ InstanceArn }},
+ {{ Permissions }},
+ {{ SecurityProfileName }},
+ {{ TagRestrictedResources }},
+ {{ HierarchyRestrictedResources }},
+ {{ AllowedAccessControlHierarchyGroupId }},
+ {{ Applications }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.security_profiles
+WHERE data__Identifier = '<SecurityProfileArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +188,12 @@ To operate on the <code>security_profiles</code> resource, the following permiss
 ```json
 connect:CreateSecurityProfile,
 connect:TagResource
+```
+
+### Delete
+```json
+connect:DeleteSecurityProfile,
+connect:UntagResource
 ```
 
 ### List

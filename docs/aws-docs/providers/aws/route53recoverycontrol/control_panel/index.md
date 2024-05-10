@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>control_panel</code> resource, use <code>control_panels</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>control_panel</code> resource, use <code>control_panels</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -55,11 +58,6 @@ Gets or operates on an individual <code>control_panel</code> resource, use <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -78,8 +76,9 @@ default_control_panel,
 routing_control_count,
 tags
 FROM aws.route53recoverycontrol.control_panel
-WHERE data__Identifier = '<ControlPanelArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ControlPanelArn>';
 ```
+
 
 ## Permissions
 
@@ -98,11 +97,5 @@ route53-recovery-control-config:DescribeControlPanel,
 route53-recovery-control-config:ListTagsForResource,
 route53-recovery-control-config:TagResource,
 route53-recovery-control-config:UntagResource
-```
-
-### Delete
-```json
-route53-recovery-control-config:DeleteControlPanel,
-route53-recovery-control-config:DescribeControlPanel
 ```
 

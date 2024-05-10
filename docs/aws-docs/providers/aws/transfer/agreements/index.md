@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>agreements</code> in a region or create a <code>agreements</code> resource, use <code>agreement</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>agreements</code> in a region or to create or delete a <code>agreements</code> resource, use <code>agreement</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>agreements</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,103 @@ region,
 agreement_id,
 server_id
 FROM aws.transfer.agreements
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ServerId": "{{ ServerId }}",
+ "LocalProfileId": "{{ LocalProfileId }}",
+ "PartnerProfileId": "{{ PartnerProfileId }}",
+ "BaseDirectory": "{{ BaseDirectory }}",
+ "AccessRole": "{{ AccessRole }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.transfer.agreements (
+ ServerId,
+ LocalProfileId,
+ PartnerProfileId,
+ BaseDirectory,
+ AccessRole,
+ region
+)
+SELECT 
+{{ ServerId }},
+ {{ LocalProfileId }},
+ {{ PartnerProfileId }},
+ {{ BaseDirectory }},
+ {{ AccessRole }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "ServerId": "{{ ServerId }}",
+ "LocalProfileId": "{{ LocalProfileId }}",
+ "PartnerProfileId": "{{ PartnerProfileId }}",
+ "BaseDirectory": "{{ BaseDirectory }}",
+ "AccessRole": "{{ AccessRole }}",
+ "Status": "{{ Status }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.transfer.agreements (
+ Description,
+ ServerId,
+ LocalProfileId,
+ PartnerProfileId,
+ BaseDirectory,
+ AccessRole,
+ Status,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ ServerId }},
+ {{ LocalProfileId }},
+ {{ PartnerProfileId }},
+ {{ BaseDirectory }},
+ {{ AccessRole }},
+ {{ Status }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.transfer.agreements
+WHERE data__Identifier = '<AgreementId|ServerId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +179,11 @@ To operate on the <code>agreements</code> resource, the following permissions ar
 transfer:CreateAgreement,
 transfer:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+transfer:DeleteAgreement
 ```
 
 ### List

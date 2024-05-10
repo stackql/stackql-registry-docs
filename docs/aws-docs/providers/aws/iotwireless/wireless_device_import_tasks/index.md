@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>wireless_device_import_tasks</code> in a region or create a <code>wireless_device_import_tasks</code> resource, use <code>wireless_device_import_task</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>wireless_device_import_tasks</code> in a region or to create or delete a <code>wireless_device_import_tasks</code> resource, use <code>wireless_device_import_task</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>wireless_device_import_tasks</code> in a region
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,93 @@ SELECT
 region,
 id
 FROM aws.iotwireless.wireless_device_import_tasks
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationName": "{{ DestinationName }}",
+ "Sidewalk": {
+  "SidewalkManufacturingSn": "{{ SidewalkManufacturingSn }}",
+  "DeviceCreationFile": "{{ DeviceCreationFile }}",
+  "DeviceCreationFileList": [
+   "{{ DeviceCreationFileList[0] }}"
+  ],
+  "Role": "{{ Role }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.iotwireless.wireless_device_import_tasks (
+ DestinationName,
+ Sidewalk,
+ region
+)
+SELECT 
+{{ DestinationName }},
+ {{ Sidewalk }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DestinationName": "{{ DestinationName }}",
+ "Sidewalk": {
+  "SidewalkManufacturingSn": "{{ SidewalkManufacturingSn }}",
+  "DeviceCreationFile": "{{ DeviceCreationFile }}",
+  "DeviceCreationFileList": [
+   "{{ DeviceCreationFileList[0] }}"
+  ],
+  "Role": "{{ Role }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotwireless.wireless_device_import_tasks (
+ DestinationName,
+ Sidewalk,
+ Tags,
+ region
+)
+SELECT 
+ {{ DestinationName }},
+ {{ Sidewalk }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotwireless.wireless_device_import_tasks
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +169,11 @@ iotwireless:StartSingleWirelessDeviceImportTask,
 iotwireless:TagResource,
 iotwireless:ListTagsForResource,
 iam:PassRole
+```
+
+### Delete
+```json
+iotwireless:DeleteWirelessDeviceImportTask
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>provisioning_templates</code> in a region or create a <code>provisioning_templates</code> resource, use <code>provisioning_template</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>provisioning_templates</code> in a region or to create or delete a <code>provisioning_templates</code> resource, use <code>provisioning_template</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>provisioning_templates</code> in a region or cr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,97 @@ SELECT
 region,
 template_name
 FROM aws.iot.provisioning_templates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ProvisioningRoleArn": "{{ ProvisioningRoleArn }}",
+ "TemplateBody": "{{ TemplateBody }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.provisioning_templates (
+ ProvisioningRoleArn,
+ TemplateBody,
+ region
+)
+SELECT 
+{{ ProvisioningRoleArn }},
+ {{ TemplateBody }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TemplateName": "{{ TemplateName }}",
+ "Description": "{{ Description }}",
+ "Enabled": "{{ Enabled }}",
+ "ProvisioningRoleArn": "{{ ProvisioningRoleArn }}",
+ "TemplateBody": "{{ TemplateBody }}",
+ "TemplateType": "{{ TemplateType }}",
+ "PreProvisioningHook": {
+  "TargetArn": "{{ TargetArn }}",
+  "PayloadVersion": "{{ PayloadVersion }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iot.provisioning_templates (
+ TemplateName,
+ Description,
+ Enabled,
+ ProvisioningRoleArn,
+ TemplateBody,
+ TemplateType,
+ PreProvisioningHook,
+ Tags,
+ region
+)
+SELECT 
+ {{ TemplateName }},
+ {{ Description }},
+ {{ Enabled }},
+ {{ ProvisioningRoleArn }},
+ {{ TemplateBody }},
+ {{ TemplateType }},
+ {{ PreProvisioningHook }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.provisioning_templates
+WHERE data__Identifier = '<TemplateName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +174,12 @@ iot:CreateProvisioningTemplate,
 iot:DescribeProvisioningTemplate,
 iot:TagResource,
 iot:ListTagsForResource
+```
+
+### Delete
+```json
+iot:DeleteProvisioningTemplate,
+iot:DescribeProvisioningTemplate
 ```
 
 ### List

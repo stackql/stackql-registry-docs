@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>applications</code> in a region or create a <code>applications</code> resource, use <code>application</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>applications</code> in a region or to create or delete a <code>applications</code> resource, use <code>application</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>applications</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,107 @@ SELECT
 region,
 application_arn
 FROM aws.appintegrations.applications
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "ApplicationSourceConfig": {
+  "ExternalUrlConfig": {
+   "AccessUrl": "{{ AccessUrl }}",
+   "ApprovedOrigins": [
+    "{{ ApprovedOrigins[0] }}"
+   ]
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.appintegrations.applications (
+ Name,
+ Description,
+ ApplicationSourceConfig,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Description }},
+ {{ ApplicationSourceConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Namespace": "{{ Namespace }}",
+ "Description": "{{ Description }}",
+ "ApplicationSourceConfig": {
+  "ExternalUrlConfig": {
+   "AccessUrl": "{{ AccessUrl }}",
+   "ApprovedOrigins": [
+    "{{ ApprovedOrigins[0] }}"
+   ]
+  }
+ },
+ "Permissions": [
+  "{{ Permissions[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.appintegrations.applications (
+ Name,
+ Namespace,
+ Description,
+ ApplicationSourceConfig,
+ Permissions,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Namespace }},
+ {{ Description }},
+ {{ ApplicationSourceConfig }},
+ {{ Permissions }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appintegrations.applications
+WHERE data__Identifier = '<ApplicationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,5 +186,10 @@ app-integrations:TagResource
 ```json
 app-integrations:ListApplications,
 app-integrations:ListTagsForResource
+```
+
+### Delete
+```json
+app-integrations:DeleteApplication
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>apps</code> in a region or create a <code>apps</code> resource, use <code>app</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>apps</code> in a region or to create or delete a <code>apps</code> resource, use <code>app</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>apps</code> in a region or create a <code>apps<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,135 @@ SELECT
 region,
 app_arn
 FROM aws.resiliencehub.apps
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "AppTemplateBody": "{{ AppTemplateBody }}",
+ "ResourceMappings": [
+  {
+   "LogicalStackName": "{{ LogicalStackName }}",
+   "MappingType": "{{ MappingType }}",
+   "ResourceName": "{{ ResourceName }}",
+   "TerraformSourceName": "{{ TerraformSourceName }}",
+   "EksSourceName": "{{ EksSourceName }}",
+   "PhysicalResourceId": {
+    "AwsAccountId": "{{ AwsAccountId }}",
+    "AwsRegion": "{{ AwsRegion }}",
+    "Identifier": "{{ Identifier }}",
+    "Type": "{{ Type }}"
+   }
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.resiliencehub.apps (
+ Name,
+ AppTemplateBody,
+ ResourceMappings,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ AppTemplateBody }},
+ {{ ResourceMappings }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "ResiliencyPolicyArn": "{{ ResiliencyPolicyArn }}",
+ "Tags": {},
+ "AppTemplateBody": "{{ AppTemplateBody }}",
+ "ResourceMappings": [
+  {
+   "LogicalStackName": "{{ LogicalStackName }}",
+   "MappingType": "{{ MappingType }}",
+   "ResourceName": "{{ ResourceName }}",
+   "TerraformSourceName": "{{ TerraformSourceName }}",
+   "EksSourceName": "{{ EksSourceName }}",
+   "PhysicalResourceId": {
+    "AwsAccountId": "{{ AwsAccountId }}",
+    "AwsRegion": "{{ AwsRegion }}",
+    "Identifier": "{{ Identifier }}",
+    "Type": "{{ Type }}"
+   }
+  }
+ ],
+ "AppAssessmentSchedule": "{{ AppAssessmentSchedule }}",
+ "PermissionModel": {
+  "Type": "{{ Type }}",
+  "InvokerRoleName": "{{ InvokerRoleName }}",
+  "CrossAccountRoleArns": [
+   "{{ CrossAccountRoleArns[0] }}"
+  ]
+ },
+ "EventSubscriptions": [
+  {
+   "Name": "{{ Name }}",
+   "EventType": "{{ EventType }}",
+   "SnsTopicArn": "{{ SnsTopicArn }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.resiliencehub.apps (
+ Name,
+ Description,
+ ResiliencyPolicyArn,
+ Tags,
+ AppTemplateBody,
+ ResourceMappings,
+ AppAssessmentSchedule,
+ PermissionModel,
+ EventSubscriptions,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ ResiliencyPolicyArn }},
+ {{ Tags }},
+ {{ AppTemplateBody }},
+ {{ ResourceMappings }},
+ {{ AppAssessmentSchedule }},
+ {{ PermissionModel }},
+ {{ EventSubscriptions }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.resiliencehub.apps
+WHERE data__Identifier = '<AppArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -90,6 +226,13 @@ sns:GetTopicAttributes,
 route53:List*,
 iam:PassRole,
 resiliencehub:*
+```
+
+### Delete
+```json
+resiliencehub:DeleteApp,
+resiliencehub:UntagResource,
+resiliencehub:ListApps
 ```
 
 ### List

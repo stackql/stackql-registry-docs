@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>api_mapping</code> resource, use <code>api_mappings</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>api_mapping</code> resource, use <code>api_mappings</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>api_mapping</code> resource, use <code>a
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -74,8 +72,9 @@ stage,
 api_mapping_key,
 api_id
 FROM aws.apigatewayv2.api_mapping
-WHERE data__Identifier = '<ApiMappingId>|<DomainName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ApiMappingId>|<DomainName>';
 ```
+
 
 ## Permissions
 
@@ -91,10 +90,5 @@ apigateway:PUT
 ### Read
 ```json
 apigateway:GET
-```
-
-### Delete
-```json
-apigateway:DELETE
 ```
 

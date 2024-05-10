@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>gateways</code> in a region or create a <code>gateways</code> resource, use <code>gateway</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>gateways</code> in a region or to create or delete a <code>gateways</code> resource, use <code>gateway</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>gateways</code> in a region or create a <code>g
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,107 @@ SELECT
 region,
 gateway_id
 FROM aws.iotsitewise.gateways
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "GatewayName": "{{ GatewayName }}",
+ "GatewayPlatform": {
+  "Greengrass": {
+   "GroupArn": "{{ GroupArn }}"
+  },
+  "GreengrassV2": {
+   "CoreDeviceThingName": "{{ CoreDeviceThingName }}"
+  },
+  "SiemensIE": {
+   "IotCoreThingName": "{{ IotCoreThingName }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.iotsitewise.gateways (
+ GatewayName,
+ GatewayPlatform,
+ region
+)
+SELECT 
+{{ GatewayName }},
+ {{ GatewayPlatform }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "GatewayName": "{{ GatewayName }}",
+ "GatewayPlatform": {
+  "Greengrass": {
+   "GroupArn": "{{ GroupArn }}"
+  },
+  "GreengrassV2": {
+   "CoreDeviceThingName": "{{ CoreDeviceThingName }}"
+  },
+  "SiemensIE": {
+   "IotCoreThingName": "{{ IotCoreThingName }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "GatewayCapabilitySummaries": [
+  {
+   "CapabilityNamespace": "{{ CapabilityNamespace }}",
+   "CapabilityConfiguration": "{{ CapabilityConfiguration }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotsitewise.gateways (
+ GatewayName,
+ GatewayPlatform,
+ Tags,
+ GatewayCapabilitySummaries,
+ region
+)
+SELECT 
+ {{ GatewayName }},
+ {{ GatewayPlatform }},
+ {{ Tags }},
+ {{ GatewayCapabilitySummaries }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotsitewise.gateways
+WHERE data__Identifier = '<GatewayId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +188,13 @@ greengrass:GetCoreDevice,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
 iot:DescribeThing
+```
+
+### Delete
+```json
+iotsitewise:DescribeGateway,
+iotsitewise:DescribeGatewayCapabilityConfiguration,
+iotsitewise:DeleteGateway
 ```
 
 ### List

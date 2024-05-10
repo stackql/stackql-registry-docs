@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>local_gateway_route_table</code> resource, use <code>local_gateway_route_tables</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>local_gateway_route_table</code> resource, use <code>local_gateway_route_tables</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>local_gateway_route_table</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ state,
 mode,
 tags
 FROM aws.ec2.local_gateway_route_table
-WHERE data__Identifier = '<LocalGatewayRouteTableId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<LocalGatewayRouteTableId>';
 ```
+
 
 ## Permissions
 
@@ -96,13 +95,6 @@ ec2:DescribeLocalGatewayRouteTables
 ```json
 ec2:DescribeLocalGatewayRouteTables,
 ec2:CreateTags,
-ec2:DeleteTags
-```
-
-### Delete
-```json
-ec2:DeleteLocalGatewayRouteTable,
-ec2:DescribeLocalGatewayRouteTables,
 ec2:DeleteTags
 ```
 

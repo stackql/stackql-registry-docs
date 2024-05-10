@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>security_group_egress</code> resource, use <code>security_group_egresses</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>security_group_egress</code> resource, use <code>security_group_egresses</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>security_group_egress</code> resource, u
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,8 +82,9 @@ id,
 destination_prefix_list_id,
 group_id
 FROM aws.ec2.security_group_egress
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -99,11 +98,5 @@ ec2:DescribeSecurityGroupRules
 ### Update
 ```json
 ec2:UpdateSecurityGroupRuleDescriptionsEgress
-```
-
-### Delete
-```json
-ec2:RevokeSecurityGroupEgress,
-ec2:DescribeSecurityGroupRules
 ```
 

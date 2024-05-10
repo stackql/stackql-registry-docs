@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>solutions</code> in a region or create a <code>solutions</code> resource, use <code>solution</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>solutions</code> in a region or to create or delete a <code>solutions</code> resource, use <code>solution</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>solutions</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,131 @@ SELECT
 region,
 solution_arn
 FROM aws.personalize.solutions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DatasetGroupArn": "{{ DatasetGroupArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.personalize.solutions (
+ Name,
+ DatasetGroupArn,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ DatasetGroupArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "EventType": "{{ EventType }}",
+ "DatasetGroupArn": "{{ DatasetGroupArn }}",
+ "PerformAutoML": "{{ PerformAutoML }}",
+ "PerformHPO": "{{ PerformHPO }}",
+ "RecipeArn": "{{ RecipeArn }}",
+ "SolutionConfig": {
+  "AlgorithmHyperParameters": {},
+  "AutoMLConfig": {
+   "MetricName": "{{ MetricName }}",
+   "RecipeList": [
+    "{{ RecipeList[0] }}"
+   ]
+  },
+  "EventValueThreshold": "{{ EventValueThreshold }}",
+  "FeatureTransformationParameters": {},
+  "HpoConfig": {
+   "AlgorithmHyperParameterRanges": {
+    "CategoricalHyperParameterRanges": [
+     {
+      "Name": "{{ Name }}",
+      "Values": [
+       "{{ Values[0] }}"
+      ]
+     }
+    ],
+    "ContinuousHyperParameterRanges": [
+     {
+      "Name": "{{ Name }}",
+      "MinValue": null,
+      "MaxValue": null
+     }
+    ],
+    "IntegerHyperParameterRanges": [
+     {
+      "Name": "{{ Name }}",
+      "MinValue": "{{ MinValue }}",
+      "MaxValue": "{{ MaxValue }}"
+     }
+    ]
+   },
+   "HpoObjective": {
+    "MetricName": "{{ MetricName }}",
+    "Type": "{{ Type }}",
+    "MetricRegex": "{{ MetricRegex }}"
+   },
+   "HpoResourceConfig": {
+    "MaxNumberOfTrainingJobs": "{{ MaxNumberOfTrainingJobs }}",
+    "MaxParallelTrainingJobs": "{{ MaxParallelTrainingJobs }}"
+   }
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.personalize.solutions (
+ Name,
+ EventType,
+ DatasetGroupArn,
+ PerformAutoML,
+ PerformHPO,
+ RecipeArn,
+ SolutionConfig,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ EventType }},
+ {{ DatasetGroupArn }},
+ {{ PerformAutoML }},
+ {{ PerformHPO }},
+ {{ RecipeArn }},
+ {{ SolutionConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.personalize.solutions
+WHERE data__Identifier = '<SolutionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +203,12 @@ To operate on the <code>solutions</code> resource, the following permissions are
 ### Create
 ```json
 personalize:CreateSolution,
+personalize:DescribeSolution
+```
+
+### Delete
+```json
+personalize:DeleteSolution,
 personalize:DescribeSolution
 ```
 

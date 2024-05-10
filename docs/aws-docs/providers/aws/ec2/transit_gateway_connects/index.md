@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>transit_gateway_connects</code> in a region or create a <code>transit_gateway_connects</code> resource, use <code>transit_gateway_connect</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>transit_gateway_connects</code> in a region or to create or delete a <code>transit_gateway_connects</code> resource, use <code>transit_gateway_connect</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>transit_gateway_connects</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 transit_gateway_attachment_id
 FROM aws.ec2.transit_gateway_connects
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TransportTransitGatewayAttachmentId": "{{ TransportTransitGatewayAttachmentId }}",
+ "Options": {
+  "Protocol": "{{ Protocol }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.transit_gateway_connects (
+ TransportTransitGatewayAttachmentId,
+ Options,
+ region
+)
+SELECT 
+{{ TransportTransitGatewayAttachmentId }},
+ {{ Options }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TransportTransitGatewayAttachmentId": "{{ TransportTransitGatewayAttachmentId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Options": {
+  "Protocol": "{{ Protocol }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.transit_gateway_connects (
+ TransportTransitGatewayAttachmentId,
+ Tags,
+ Options,
+ region
+)
+SELECT 
+ {{ TransportTransitGatewayAttachmentId }},
+ {{ Tags }},
+ {{ Options }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.transit_gateway_connects
+WHERE data__Identifier = '<TransitGatewayAttachmentId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,13 @@ To operate on the <code>transit_gateway_connects</code> resource, the following 
 ec2:CreateTransitGatewayConnect,
 ec2:DescribeTransitGatewayConnects,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DeleteTransitGatewayConnect,
+ec2:DescribeTransitGatewayConnects,
+ec2:DeleteTags
 ```
 
 ### List

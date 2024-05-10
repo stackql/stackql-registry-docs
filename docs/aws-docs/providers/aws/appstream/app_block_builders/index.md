@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>app_block_builders</code> in a region or create a <code>app_block_builders</code> resource, use <code>app_block_builder</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>app_block_builders</code> in a region or to create or delete a <code>app_block_builders</code> resource, use <code>app_block_builder</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>app_block_builders</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,130 @@ SELECT
 region,
 name
 FROM aws.appstream.app_block_builders
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Platform": "{{ Platform }}",
+ "VpcConfig": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "InstanceType": "{{ InstanceType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appstream.app_block_builders (
+ Name,
+ Platform,
+ VpcConfig,
+ InstanceType,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Platform }},
+ {{ VpcConfig }},
+ {{ InstanceType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "DisplayName": "{{ DisplayName }}",
+ "Platform": "{{ Platform }}",
+ "AccessEndpoints": [
+  {
+   "EndpointType": "{{ EndpointType }}",
+   "VpceId": "{{ VpceId }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "VpcConfig": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "EnableDefaultInternetAccess": "{{ EnableDefaultInternetAccess }}",
+ "IamRoleArn": "{{ IamRoleArn }}",
+ "InstanceType": "{{ InstanceType }}",
+ "AppBlockArns": [
+  "{{ AppBlockArns[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.appstream.app_block_builders (
+ Name,
+ Description,
+ DisplayName,
+ Platform,
+ AccessEndpoints,
+ Tags,
+ VpcConfig,
+ EnableDefaultInternetAccess,
+ IamRoleArn,
+ InstanceType,
+ AppBlockArns,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ DisplayName }},
+ {{ Platform }},
+ {{ AccessEndpoints }},
+ {{ Tags }},
+ {{ VpcConfig }},
+ {{ EnableDefaultInternetAccess }},
+ {{ IamRoleArn }},
+ {{ InstanceType }},
+ {{ AppBlockArns }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appstream.app_block_builders
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +208,14 @@ appstream:AssociateAppBlockBuilderAppBlock,
 appstream:DescribeAppBlockBuilderAppBlockAssociations,
 appstream:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+appstream:DescribeAppBlockBuilders,
+appstream:DeleteAppBlockBuilder,
+appstream:DisassociateAppBlockBuilderAppBlock,
+appstream:DescribeAppBlockBuilderAppBlockAssociations
 ```
 
 ### List

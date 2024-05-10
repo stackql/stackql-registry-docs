@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>workgroup</code> resource, use <code>workgroups</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>workgroup</code> resource, use <code>workgroups</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>workgroup</code> resource, use <code>wor
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ port,
 tags,
 workgroup
 FROM aws.redshiftserverless.workgroup
-WHERE data__Identifier = '<WorkgroupName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<WorkgroupName>';
 ```
+
 
 ## Permissions
 
@@ -121,18 +120,5 @@ redshift-serverless:TagResource,
 redshift-serverless:UntagResource,
 redshift-serverless:GetWorkgroup,
 redshift-serverless:UpdateWorkgroup
-```
-
-### Delete
-```json
-ec2:DescribeVpcAttribute,
-ec2:DescribeSecurityGroups,
-ec2:DescribeAddresses,
-ec2:DescribeInternetGateways,
-ec2:DescribeSubnets,
-ec2:DescribeAccountAttributes,
-ec2:DescribeAvailabilityZones,
-redshift-serverless:GetWorkgroup,
-redshift-serverless:DeleteWorkgroup
 ```
 

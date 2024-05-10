@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>budgets_actions</code> in a region or create a <code>budgets_actions</code> resource, use <code>budgets_action</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>budgets_actions</code> in a region or to create or delete a <code>budgets_actions</code> resource, use <code>budgets_action</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>budgets_actions</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,172 @@ region,
 action_id,
 budget_name
 FROM aws.budgets.budgets_actions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "BudgetName": "{{ BudgetName }}",
+ "NotificationType": "{{ NotificationType }}",
+ "ActionType": "{{ ActionType }}",
+ "ActionThreshold": {
+  "Value": null,
+  "Type": "{{ Type }}"
+ },
+ "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+ "Subscribers": [
+  {
+   "Type": "{{ Type }}",
+   "Address": "{{ Address }}"
+  }
+ ],
+ "Definition": {
+  "IamActionDefinition": {
+   "PolicyArn": "{{ PolicyArn }}",
+   "Roles": [
+    "{{ Roles[0] }}"
+   ],
+   "Groups": [
+    "{{ Groups[0] }}"
+   ],
+   "Users": [
+    "{{ Users[0] }}"
+   ]
+  },
+  "ScpActionDefinition": {
+   "PolicyId": "{{ PolicyId }}",
+   "TargetIds": [
+    "{{ TargetIds[0] }}"
+   ]
+  },
+  "SsmActionDefinition": {
+   "Subtype": "{{ Subtype }}",
+   "Region": "{{ Region }}",
+   "InstanceIds": [
+    "{{ InstanceIds[0] }}"
+   ]
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.budgets.budgets_actions (
+ BudgetName,
+ NotificationType,
+ ActionType,
+ ActionThreshold,
+ ExecutionRoleArn,
+ Subscribers,
+ Definition,
+ region
+)
+SELECT 
+{{ BudgetName }},
+ {{ NotificationType }},
+ {{ ActionType }},
+ {{ ActionThreshold }},
+ {{ ExecutionRoleArn }},
+ {{ Subscribers }},
+ {{ Definition }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BudgetName": "{{ BudgetName }}",
+ "NotificationType": "{{ NotificationType }}",
+ "ActionType": "{{ ActionType }}",
+ "ActionThreshold": {
+  "Value": null,
+  "Type": "{{ Type }}"
+ },
+ "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+ "ApprovalModel": "{{ ApprovalModel }}",
+ "Subscribers": [
+  {
+   "Type": "{{ Type }}",
+   "Address": "{{ Address }}"
+  }
+ ],
+ "Definition": {
+  "IamActionDefinition": {
+   "PolicyArn": "{{ PolicyArn }}",
+   "Roles": [
+    "{{ Roles[0] }}"
+   ],
+   "Groups": [
+    "{{ Groups[0] }}"
+   ],
+   "Users": [
+    "{{ Users[0] }}"
+   ]
+  },
+  "ScpActionDefinition": {
+   "PolicyId": "{{ PolicyId }}",
+   "TargetIds": [
+    "{{ TargetIds[0] }}"
+   ]
+  },
+  "SsmActionDefinition": {
+   "Subtype": "{{ Subtype }}",
+   "Region": "{{ Region }}",
+   "InstanceIds": [
+    "{{ InstanceIds[0] }}"
+   ]
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.budgets.budgets_actions (
+ BudgetName,
+ NotificationType,
+ ActionType,
+ ActionThreshold,
+ ExecutionRoleArn,
+ ApprovalModel,
+ Subscribers,
+ Definition,
+ region
+)
+SELECT 
+ {{ BudgetName }},
+ {{ NotificationType }},
+ {{ ActionType }},
+ {{ ActionThreshold }},
+ {{ ExecutionRoleArn }},
+ {{ ApprovalModel }},
+ {{ Subscribers }},
+ {{ Definition }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.budgets.budgets_actions
+WHERE data__Identifier = '<ActionId|BudgetName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +247,11 @@ To operate on the <code>budgets_actions</code> resource, the following permissio
 ```json
 budgets:CreateBudgetAction,
 iam:PassRole
+```
+
+### Delete
+```json
+budgets:DeleteBudgetAction
 ```
 
 ### List

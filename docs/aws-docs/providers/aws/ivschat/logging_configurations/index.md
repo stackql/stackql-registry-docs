@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>logging_configurations</code> in a region or create a <code>logging_configurations</code> resource, use <code>logging_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>logging_configurations</code> in a region or to create or delete a <code>logging_configurations</code> resource, use <code>logging_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>logging_configurations</code> in a region or cr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,96 @@ SELECT
 region,
 arn
 FROM aws.ivschat.logging_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationConfiguration": {
+  "CloudWatchLogs": {
+   "LogGroupName": "{{ LogGroupName }}"
+  },
+  "Firehose": {
+   "DeliveryStreamName": "{{ DeliveryStreamName }}"
+  },
+  "S3": {
+   "BucketName": "{{ BucketName }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ivschat.logging_configurations (
+ DestinationConfiguration,
+ region
+)
+SELECT 
+{{ DestinationConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DestinationConfiguration": {
+  "CloudWatchLogs": {
+   "LogGroupName": "{{ LogGroupName }}"
+  },
+  "Firehose": {
+   "DeliveryStreamName": "{{ DeliveryStreamName }}"
+  },
+  "S3": {
+   "BucketName": "{{ BucketName }}"
+  }
+ },
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ivschat.logging_configurations (
+ DestinationConfiguration,
+ Name,
+ Tags,
+ region
+)
+SELECT 
+ {{ DestinationConfiguration }},
+ {{ Name }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ivschat.logging_configurations
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +178,16 @@ s3:GetBucketPolicy,
 iam:CreateServiceLinkedRole,
 firehose:TagDeliveryStream,
 ivschat:TagResource
+```
+
+### Delete
+```json
+ivschat:DeleteLoggingConfiguration,
+ivschat:GetLoggingConfiguration,
+logs:DeleteLogDelivery,
+logs:ListLogDeliveries,
+ivschat:UntagResource,
+logs:GetLogDelivery
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>application_entitlement_associations</code> in a region or create a <code>application_entitlement_associations</code> resource, use <code>application_entitlement_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>application_entitlement_associations</code> in a region or to create or delete a <code>application_entitlement_associations</code> resource, use <code>application_entitlement_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>application_entitlement_associations</code> in 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,77 @@ stack_name,
 entitlement_name,
 application_identifier
 FROM aws.appstream.application_entitlement_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "StackName": "{{ StackName }}",
+ "EntitlementName": "{{ EntitlementName }}",
+ "ApplicationIdentifier": "{{ ApplicationIdentifier }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appstream.application_entitlement_associations (
+ StackName,
+ EntitlementName,
+ ApplicationIdentifier,
+ region
+)
+SELECT 
+{{ StackName }},
+ {{ EntitlementName }},
+ {{ ApplicationIdentifier }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "StackName": "{{ StackName }}",
+ "EntitlementName": "{{ EntitlementName }}",
+ "ApplicationIdentifier": "{{ ApplicationIdentifier }}"
+}
+>>>
+--all properties
+INSERT INTO aws.appstream.application_entitlement_associations (
+ StackName,
+ EntitlementName,
+ ApplicationIdentifier,
+ region
+)
+SELECT 
+ {{ StackName }},
+ {{ EntitlementName }},
+ {{ ApplicationIdentifier }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appstream.application_entitlement_associations
+WHERE data__Identifier = '<StackName|EntitlementName|ApplicationIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +153,12 @@ To operate on the <code>application_entitlement_associations</code> resource, th
 ### Create
 ```json
 appstream:AssociateApplicationToEntitlement,
+appstream:ListEntitledApplications
+```
+
+### Delete
+```json
+appstream:DisassociateApplicationFromEntitlement,
 appstream:ListEntitledApplications
 ```
 

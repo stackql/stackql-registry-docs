@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>restore_testing_plans</code> in a region or create a <code>restore_testing_plans</code> resource, use <code>restore_testing_plan</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>restore_testing_plans</code> in a region or to create or delete a <code>restore_testing_plans</code> resource, use <code>restore_testing_plan</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>restore_testing_plans</code> in a region or cre
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,115 @@ SELECT
 region,
 restore_testing_plan_name
 FROM aws.backup.restore_testing_plans
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RecoveryPointSelection": {
+  "Algorithm": "{{ Algorithm }}",
+  "SelectionWindowDays": "{{ SelectionWindowDays }}",
+  "RecoveryPointTypes": [
+   "{{ RecoveryPointTypes[0] }}"
+  ],
+  "IncludeVaults": [
+   "{{ IncludeVaults[0] }}"
+  ],
+  "ExcludeVaults": [
+   "{{ ExcludeVaults[0] }}"
+  ]
+ },
+ "RestoreTestingPlanName": "{{ RestoreTestingPlanName }}",
+ "ScheduleExpression": "{{ ScheduleExpression }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.backup.restore_testing_plans (
+ RecoveryPointSelection,
+ RestoreTestingPlanName,
+ ScheduleExpression,
+ region
+)
+SELECT 
+{{ RecoveryPointSelection }},
+ {{ RestoreTestingPlanName }},
+ {{ ScheduleExpression }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RecoveryPointSelection": {
+  "Algorithm": "{{ Algorithm }}",
+  "SelectionWindowDays": "{{ SelectionWindowDays }}",
+  "RecoveryPointTypes": [
+   "{{ RecoveryPointTypes[0] }}"
+  ],
+  "IncludeVaults": [
+   "{{ IncludeVaults[0] }}"
+  ],
+  "ExcludeVaults": [
+   "{{ ExcludeVaults[0] }}"
+  ]
+ },
+ "RestoreTestingPlanName": "{{ RestoreTestingPlanName }}",
+ "ScheduleExpression": "{{ ScheduleExpression }}",
+ "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
+ "StartWindowHours": "{{ StartWindowHours }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.backup.restore_testing_plans (
+ RecoveryPointSelection,
+ RestoreTestingPlanName,
+ ScheduleExpression,
+ ScheduleExpressionTimezone,
+ StartWindowHours,
+ Tags,
+ region
+)
+SELECT 
+ {{ RecoveryPointSelection }},
+ {{ RestoreTestingPlanName }},
+ {{ ScheduleExpression }},
+ {{ ScheduleExpressionTimezone }},
+ {{ StartWindowHours }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.backup.restore_testing_plans
+WHERE data__Identifier = '<RestoreTestingPlanName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +190,12 @@ backup:CreateRestoreTestingPlan,
 backup:TagResource,
 backup:GetRestoreTestingPlan,
 backup:ListTags
+```
+
+### Delete
+```json
+backup:DeleteRestoreTestingPlan,
+backup:GetRestoreTestingPlan
 ```
 
 ### List

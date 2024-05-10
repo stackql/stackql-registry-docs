@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>scalable_targets</code> in a region or create a <code>scalable_targets</code> resource, use <code>scalable_target</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>scalable_targets</code> in a region or to create or delete a <code>scalable_targets</code> resource, use <code>scalable_target</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>scalable_targets</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,114 @@ resource_id,
 scalable_dimension,
 service_namespace
 FROM aws.applicationautoscaling.scalable_targets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "MaxCapacity": "{{ MaxCapacity }}",
+ "MinCapacity": "{{ MinCapacity }}",
+ "ResourceId": "{{ ResourceId }}",
+ "ScalableDimension": "{{ ScalableDimension }}",
+ "ServiceNamespace": "{{ ServiceNamespace }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.applicationautoscaling.scalable_targets (
+ MaxCapacity,
+ MinCapacity,
+ ResourceId,
+ ScalableDimension,
+ ServiceNamespace,
+ region
+)
+SELECT 
+{{ MaxCapacity }},
+ {{ MinCapacity }},
+ {{ ResourceId }},
+ {{ ScalableDimension }},
+ {{ ServiceNamespace }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "MaxCapacity": "{{ MaxCapacity }}",
+ "MinCapacity": "{{ MinCapacity }}",
+ "ResourceId": "{{ ResourceId }}",
+ "RoleARN": "{{ RoleARN }}",
+ "ScalableDimension": "{{ ScalableDimension }}",
+ "ScheduledActions": [
+  {
+   "Timezone": "{{ Timezone }}",
+   "ScheduledActionName": "{{ ScheduledActionName }}",
+   "EndTime": "{{ EndTime }}",
+   "Schedule": "{{ Schedule }}",
+   "StartTime": "{{ StartTime }}",
+   "ScalableTargetAction": {
+    "MinCapacity": "{{ MinCapacity }}",
+    "MaxCapacity": "{{ MaxCapacity }}"
+   }
+  }
+ ],
+ "ServiceNamespace": "{{ ServiceNamespace }}",
+ "SuspendedState": {
+  "ScheduledScalingSuspended": "{{ ScheduledScalingSuspended }}",
+  "DynamicScalingOutSuspended": "{{ DynamicScalingOutSuspended }}",
+  "DynamicScalingInSuspended": "{{ DynamicScalingInSuspended }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.applicationautoscaling.scalable_targets (
+ MaxCapacity,
+ MinCapacity,
+ ResourceId,
+ RoleARN,
+ ScalableDimension,
+ ScheduledActions,
+ ServiceNamespace,
+ SuspendedState,
+ region
+)
+SELECT 
+ {{ MaxCapacity }},
+ {{ MinCapacity }},
+ {{ ResourceId }},
+ {{ RoleARN }},
+ {{ ScalableDimension }},
+ {{ ScheduledActions }},
+ {{ ServiceNamespace }},
+ {{ SuspendedState }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.applicationautoscaling.scalable_targets
+WHERE data__Identifier = '<ResourceId|ScalableDimension|ServiceNamespace>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -91,5 +206,10 @@ lambda:DeleteProvisionedConcurrencyConfig
 ### List
 ```json
 application-autoscaling:DescribeScalableTargets
+```
+
+### Delete
+```json
+application-autoscaling:DeregisterScalableTarget
 ```
 

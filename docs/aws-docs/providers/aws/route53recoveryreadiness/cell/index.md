@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>cell</code> resource, use <code>cells</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>cell</code> resource, use <code>cells</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>cell</code> resource, use <code>cells</c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -74,8 +72,9 @@ cells,
 parent_readiness_scopes,
 tags
 FROM aws.route53recoveryreadiness.cell
-WHERE data__Identifier = '<CellName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<CellName>';
 ```
+
 
 ## Permissions
 
@@ -94,11 +93,5 @@ route53-recovery-readiness:ListTagsForResources,
 route53-recovery-readiness:TagResource,
 route53-recovery-readiness:UntagResource,
 route53-recovery-readiness:UpdateCell
-```
-
-### Delete
-```json
-route53-recovery-readiness:DeleteCell,
-route53-recovery-readiness:GetCell
 ```
 

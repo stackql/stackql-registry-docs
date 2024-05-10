@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>job_queues</code> in a region or create a <code>job_queues</code> resource, use <code>job_queue</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>job_queues</code> in a region or to create or delete a <code>job_queues</code> resource, use <code>job_queue</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>job_queues</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,103 @@ SELECT
 region,
 job_queue_arn
 FROM aws.batch.job_queues
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ComputeEnvironmentOrder": [
+  {
+   "ComputeEnvironment": "{{ ComputeEnvironment }}",
+   "Order": "{{ Order }}"
+  }
+ ],
+ "Priority": "{{ Priority }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.batch.job_queues (
+ ComputeEnvironmentOrder,
+ Priority,
+ region
+)
+SELECT 
+{{ ComputeEnvironmentOrder }},
+ {{ Priority }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "JobQueueName": "{{ JobQueueName }}",
+ "ComputeEnvironmentOrder": [
+  {
+   "ComputeEnvironment": "{{ ComputeEnvironment }}",
+   "Order": "{{ Order }}"
+  }
+ ],
+ "JobStateTimeLimitActions": [
+  {
+   "Action": "{{ Action }}",
+   "MaxTimeSeconds": "{{ MaxTimeSeconds }}",
+   "Reason": "{{ Reason }}",
+   "State": "{{ State }}"
+  }
+ ],
+ "Priority": "{{ Priority }}",
+ "State": "{{ State }}",
+ "SchedulingPolicyArn": "{{ SchedulingPolicyArn }}",
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.batch.job_queues (
+ JobQueueName,
+ ComputeEnvironmentOrder,
+ JobStateTimeLimitActions,
+ Priority,
+ State,
+ SchedulingPolicyArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ JobQueueName }},
+ {{ ComputeEnvironmentOrder }},
+ {{ JobStateTimeLimitActions }},
+ {{ Priority }},
+ {{ State }},
+ {{ SchedulingPolicyArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.batch.job_queues
+WHERE data__Identifier = '<JobQueueArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +177,13 @@ To operate on the <code>job_queues</code> resource, the following permissions ar
 Batch:CreateJobQueue,
 Batch:TagResource,
 Batch:DescribeJobQueues
+```
+
+### Delete
+```json
+Batch:UpdateJobQueue,
+Batch:DescribeJobQueues,
+Batch:DeleteJobQueue
 ```
 
 ### List

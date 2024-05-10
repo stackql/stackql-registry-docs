@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>evaluation_forms</code> in a region or create a <code>evaluation_forms</code> resource, use <code>evaluation_form</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>evaluation_forms</code> in a region or to create or delete a <code>evaluation_forms</code> resource, use <code>evaluation_form</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>evaluation_forms</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,228 @@ SELECT
 region,
 evaluation_form_arn
 FROM aws.connect.evaluation_forms
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Title": "{{ Title }}",
+ "InstanceArn": "{{ InstanceArn }}",
+ "Items": [
+  {
+   "Section": {
+    "Title": "{{ Title }}",
+    "Instructions": "{{ Instructions }}",
+    "RefId": "{{ RefId }}",
+    "Items": [
+     {
+      "Section": null,
+      "Question": {
+       "Title": "{{ Title }}",
+       "Instructions": "{{ Instructions }}",
+       "RefId": null,
+       "NotApplicableEnabled": "{{ NotApplicableEnabled }}",
+       "QuestionType": "{{ QuestionType }}",
+       "QuestionTypeProperties": {
+        "Numeric": {
+         "MinValue": "{{ MinValue }}",
+         "MaxValue": "{{ MaxValue }}",
+         "Options": [
+          {
+           "MinValue": "{{ MinValue }}",
+           "MaxValue": "{{ MaxValue }}",
+           "Score": "{{ Score }}",
+           "AutomaticFail": "{{ AutomaticFail }}"
+          }
+         ],
+         "Automation": {
+          "PropertyValue": {
+           "Label": "{{ Label }}"
+          }
+         }
+        },
+        "SingleSelect": {
+         "Options": [
+          {
+           "RefId": null,
+           "Text": "{{ Text }}",
+           "Score": null,
+           "AutomaticFail": "{{ AutomaticFail }}"
+          }
+         ],
+         "DisplayAs": "{{ DisplayAs }}",
+         "Automation": {
+          "Options": [
+           {
+            "RuleCategory": {
+             "Category": "{{ Category }}",
+             "Condition": "{{ Condition }}",
+             "OptionRefId": null
+            }
+           }
+          ],
+          "DefaultOptionRefId": null
+         }
+        }
+       },
+       "Weight": null
+      }
+     }
+    ],
+    "Weight": null
+   }
+  }
+ ],
+ "Status": "{{ Status }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.evaluation_forms (
+ Title,
+ InstanceArn,
+ Items,
+ Status,
+ region
+)
+SELECT 
+{{ Title }},
+ {{ InstanceArn }},
+ {{ Items }},
+ {{ Status }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Title": "{{ Title }}",
+ "Description": "{{ Description }}",
+ "InstanceArn": "{{ InstanceArn }}",
+ "Items": [
+  {
+   "Section": {
+    "Title": "{{ Title }}",
+    "Instructions": "{{ Instructions }}",
+    "RefId": "{{ RefId }}",
+    "Items": [
+     {
+      "Section": null,
+      "Question": {
+       "Title": "{{ Title }}",
+       "Instructions": "{{ Instructions }}",
+       "RefId": null,
+       "NotApplicableEnabled": "{{ NotApplicableEnabled }}",
+       "QuestionType": "{{ QuestionType }}",
+       "QuestionTypeProperties": {
+        "Numeric": {
+         "MinValue": "{{ MinValue }}",
+         "MaxValue": "{{ MaxValue }}",
+         "Options": [
+          {
+           "MinValue": "{{ MinValue }}",
+           "MaxValue": "{{ MaxValue }}",
+           "Score": "{{ Score }}",
+           "AutomaticFail": "{{ AutomaticFail }}"
+          }
+         ],
+         "Automation": {
+          "PropertyValue": {
+           "Label": "{{ Label }}"
+          }
+         }
+        },
+        "SingleSelect": {
+         "Options": [
+          {
+           "RefId": null,
+           "Text": "{{ Text }}",
+           "Score": null,
+           "AutomaticFail": "{{ AutomaticFail }}"
+          }
+         ],
+         "DisplayAs": "{{ DisplayAs }}",
+         "Automation": {
+          "Options": [
+           {
+            "RuleCategory": {
+             "Category": "{{ Category }}",
+             "Condition": "{{ Condition }}",
+             "OptionRefId": null
+            }
+           }
+          ],
+          "DefaultOptionRefId": null
+         }
+        }
+       },
+       "Weight": null
+      }
+     }
+    ],
+    "Weight": null
+   }
+  }
+ ],
+ "ScoringStrategy": {
+  "Mode": "{{ Mode }}",
+  "Status": "{{ Status }}"
+ },
+ "Status": "{{ Status }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.connect.evaluation_forms (
+ Title,
+ Description,
+ InstanceArn,
+ Items,
+ ScoringStrategy,
+ Status,
+ Tags,
+ region
+)
+SELECT 
+ {{ Title }},
+ {{ Description }},
+ {{ InstanceArn }},
+ {{ Items }},
+ {{ ScoringStrategy }},
+ {{ Status }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.evaluation_forms
+WHERE data__Identifier = '<EvaluationFormArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,5 +307,11 @@ connect:TagResource
 ### List
 ```json
 connect:ListEvaluationForms
+```
+
+### Delete
+```json
+connect:DeleteEvaluationForm,
+connect:UntagResource
 ```
 

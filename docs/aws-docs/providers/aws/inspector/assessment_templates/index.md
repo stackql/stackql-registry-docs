@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>assessment_templates</code> in a region or create a <code>assessment_templates</code> resource, use <code>assessment_template</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>assessment_templates</code> in a region or to create or delete a <code>assessment_templates</code> resource, use <code>assessment_template</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>assessment_templates</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,92 @@ SELECT
 region,
 arn
 FROM aws.inspector.assessment_templates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AssessmentTargetArn": "{{ AssessmentTargetArn }}",
+ "DurationInSeconds": "{{ DurationInSeconds }}",
+ "RulesPackageArns": [
+  "{{ RulesPackageArns[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.inspector.assessment_templates (
+ AssessmentTargetArn,
+ DurationInSeconds,
+ RulesPackageArns,
+ region
+)
+SELECT 
+{{ AssessmentTargetArn }},
+ {{ DurationInSeconds }},
+ {{ RulesPackageArns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AssessmentTargetArn": "{{ AssessmentTargetArn }}",
+ "DurationInSeconds": "{{ DurationInSeconds }}",
+ "AssessmentTemplateName": "{{ AssessmentTemplateName }}",
+ "RulesPackageArns": [
+  "{{ RulesPackageArns[0] }}"
+ ],
+ "UserAttributesForFindings": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.inspector.assessment_templates (
+ AssessmentTargetArn,
+ DurationInSeconds,
+ AssessmentTemplateName,
+ RulesPackageArns,
+ UserAttributesForFindings,
+ region
+)
+SELECT 
+ {{ AssessmentTargetArn }},
+ {{ DurationInSeconds }},
+ {{ AssessmentTemplateName }},
+ {{ RulesPackageArns }},
+ {{ UserAttributesForFindings }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.inspector.assessment_templates
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +166,11 @@ To operate on the <code>assessment_templates</code> resource, the following perm
 inspector:CreateAssessmentTemplate,
 inspector:ListAssessmentTemplates,
 inspector:DescribeAssessmentTemplates
+```
+
+### Delete
+```json
+inspector:DeleteAssessmentTemplate
 ```
 
 ### List

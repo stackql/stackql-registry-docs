@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>flows</code> in a region or create a <code>flows</code> resource, use <code>flow</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>flows</code> in a region or to create or delete a <code>flows</code> resource, use <code>flow</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>flows</code> in a region or create a <code>flow
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,156 @@ SELECT
 region,
 flow_arn
 FROM aws.mediaconnect.flows
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Source": {
+  "SourceArn": "{{ SourceArn }}",
+  "Decryption": {
+   "Algorithm": "{{ Algorithm }}",
+   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
+   "DeviceId": "{{ DeviceId }}",
+   "KeyType": "{{ KeyType }}",
+   "Region": "{{ Region }}",
+   "ResourceId": "{{ ResourceId }}",
+   "RoleArn": "{{ RoleArn }}",
+   "SecretArn": "{{ SecretArn }}",
+   "Url": "{{ Url }}"
+  },
+  "Description": "{{ Description }}",
+  "EntitlementArn": "{{ EntitlementArn }}",
+  "GatewayBridgeSource": {
+   "BridgeArn": "{{ BridgeArn }}",
+   "VpcInterfaceAttachment": {
+    "VpcInterfaceName": "{{ VpcInterfaceName }}"
+   }
+  },
+  "IngestIp": "{{ IngestIp }}",
+  "IngestPort": "{{ IngestPort }}",
+  "MaxBitrate": "{{ MaxBitrate }}",
+  "MaxLatency": "{{ MaxLatency }}",
+  "MinLatency": "{{ MinLatency }}",
+  "Name": "{{ Name }}",
+  "Protocol": "{{ Protocol }}",
+  "SenderIpAddress": "{{ SenderIpAddress }}",
+  "SenderControlPort": "{{ SenderControlPort }}",
+  "StreamId": "{{ StreamId }}",
+  "SourceIngestPort": "{{ SourceIngestPort }}",
+  "SourceListenerAddress": "{{ SourceListenerAddress }}",
+  "SourceListenerPort": "{{ SourceListenerPort }}",
+  "VpcInterfaceName": "{{ VpcInterfaceName }}",
+  "WhitelistCidr": "{{ WhitelistCidr }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.mediaconnect.flows (
+ Name,
+ Source,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Source }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "Source": {
+  "SourceArn": "{{ SourceArn }}",
+  "Decryption": {
+   "Algorithm": "{{ Algorithm }}",
+   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
+   "DeviceId": "{{ DeviceId }}",
+   "KeyType": "{{ KeyType }}",
+   "Region": "{{ Region }}",
+   "ResourceId": "{{ ResourceId }}",
+   "RoleArn": "{{ RoleArn }}",
+   "SecretArn": "{{ SecretArn }}",
+   "Url": "{{ Url }}"
+  },
+  "Description": "{{ Description }}",
+  "EntitlementArn": "{{ EntitlementArn }}",
+  "GatewayBridgeSource": {
+   "BridgeArn": "{{ BridgeArn }}",
+   "VpcInterfaceAttachment": {
+    "VpcInterfaceName": "{{ VpcInterfaceName }}"
+   }
+  },
+  "IngestIp": "{{ IngestIp }}",
+  "IngestPort": "{{ IngestPort }}",
+  "MaxBitrate": "{{ MaxBitrate }}",
+  "MaxLatency": "{{ MaxLatency }}",
+  "MinLatency": "{{ MinLatency }}",
+  "Name": "{{ Name }}",
+  "Protocol": "{{ Protocol }}",
+  "SenderIpAddress": "{{ SenderIpAddress }}",
+  "SenderControlPort": "{{ SenderControlPort }}",
+  "StreamId": "{{ StreamId }}",
+  "SourceIngestPort": "{{ SourceIngestPort }}",
+  "SourceListenerAddress": "{{ SourceListenerAddress }}",
+  "SourceListenerPort": "{{ SourceListenerPort }}",
+  "VpcInterfaceName": "{{ VpcInterfaceName }}",
+  "WhitelistCidr": "{{ WhitelistCidr }}"
+ },
+ "SourceFailoverConfig": {
+  "State": "{{ State }}",
+  "RecoveryWindow": "{{ RecoveryWindow }}",
+  "FailoverMode": "{{ FailoverMode }}",
+  "SourcePriority": {
+   "PrimarySource": "{{ PrimarySource }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.mediaconnect.flows (
+ Name,
+ AvailabilityZone,
+ Source,
+ SourceFailoverConfig,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ AvailabilityZone }},
+ {{ Source }},
+ {{ SourceFailoverConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediaconnect.flows
+WHERE data__Identifier = '<FlowArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +229,12 @@ To operate on the <code>flows</code> resource, the following permissions are req
 ```json
 mediaconnect:CreateFlow,
 iam:PassRole
+```
+
+### Delete
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:DeleteFlow
 ```
 
 ### List

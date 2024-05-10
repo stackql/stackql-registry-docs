@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>configuration_set_event_destinations</code> in a region or create a <code>configuration_set_event_destinations</code> resource, use <code>configuration_set_event_destination</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>configuration_set_event_destinations</code> in a region or to create or delete a <code>configuration_set_event_destinations</code> resource, use <code>configuration_set_event_destination</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>configuration_set_event_destinations</code> in 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,115 @@ SELECT
 region,
 id
 FROM aws.ses.configuration_set_event_destinations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ConfigurationSetName": "{{ ConfigurationSetName }}",
+ "EventDestination": {
+  "Name": "{{ Name }}",
+  "Enabled": "{{ Enabled }}",
+  "MatchingEventTypes": [
+   "{{ MatchingEventTypes[0] }}"
+  ],
+  "CloudWatchDestination": {
+   "DimensionConfigurations": [
+    {
+     "DimensionValueSource": "{{ DimensionValueSource }}",
+     "DefaultDimensionValue": "{{ DefaultDimensionValue }}",
+     "DimensionName": "{{ DimensionName }}"
+    }
+   ]
+  },
+  "KinesisFirehoseDestination": {
+   "IAMRoleARN": "{{ IAMRoleARN }}",
+   "DeliveryStreamARN": "{{ DeliveryStreamARN }}"
+  },
+  "SnsDestination": {
+   "TopicARN": "{{ TopicARN }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ses.configuration_set_event_destinations (
+ ConfigurationSetName,
+ EventDestination,
+ region
+)
+SELECT 
+{{ ConfigurationSetName }},
+ {{ EventDestination }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ConfigurationSetName": "{{ ConfigurationSetName }}",
+ "EventDestination": {
+  "Name": "{{ Name }}",
+  "Enabled": "{{ Enabled }}",
+  "MatchingEventTypes": [
+   "{{ MatchingEventTypes[0] }}"
+  ],
+  "CloudWatchDestination": {
+   "DimensionConfigurations": [
+    {
+     "DimensionValueSource": "{{ DimensionValueSource }}",
+     "DefaultDimensionValue": "{{ DefaultDimensionValue }}",
+     "DimensionName": "{{ DimensionName }}"
+    }
+   ]
+  },
+  "KinesisFirehoseDestination": {
+   "IAMRoleARN": "{{ IAMRoleARN }}",
+   "DeliveryStreamARN": "{{ DeliveryStreamARN }}"
+  },
+  "SnsDestination": {
+   "TopicARN": "{{ TopicARN }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ses.configuration_set_event_destinations (
+ ConfigurationSetName,
+ EventDestination,
+ region
+)
+SELECT 
+ {{ ConfigurationSetName }},
+ {{ EventDestination }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ses.configuration_set_event_destinations
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,5 +189,10 @@ To operate on the <code>configuration_set_event_destinations</code> resource, th
 ses:CreateConfigurationSetEventDestination,
 ses:GetConfigurationSetEventDestinations,
 ses:DescribeConfigurationSet
+```
+
+### Delete
+```json
+ses:DeleteConfigurationSetEventDestination
 ```
 

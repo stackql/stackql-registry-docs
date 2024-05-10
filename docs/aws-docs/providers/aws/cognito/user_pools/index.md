@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>user_pools</code> in a region or create a <code>user_pools</code> resource, use <code>user_pool</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>user_pools</code> in a region or to create or delete a <code>user_pools</code> resource, use <code>user_pool</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>user_pools</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,403 @@ SELECT
 region,
 user_pool_id
 FROM aws.cognito.user_pools
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "UserPoolName": "{{ UserPoolName }}",
+ "Policies": {
+  "PasswordPolicy": {
+   "MinimumLength": "{{ MinimumLength }}",
+   "RequireLowercase": "{{ RequireLowercase }}",
+   "RequireNumbers": "{{ RequireNumbers }}",
+   "RequireSymbols": "{{ RequireSymbols }}",
+   "RequireUppercase": "{{ RequireUppercase }}",
+   "TemporaryPasswordValidityDays": "{{ TemporaryPasswordValidityDays }}"
+  }
+ },
+ "AccountRecoverySetting": {
+  "RecoveryMechanisms": [
+   {
+    "Name": "{{ Name }}",
+    "Priority": "{{ Priority }}"
+   }
+  ]
+ },
+ "AdminCreateUserConfig": {
+  "AllowAdminCreateUserOnly": "{{ AllowAdminCreateUserOnly }}",
+  "InviteMessageTemplate": {
+   "EmailMessage": "{{ EmailMessage }}",
+   "EmailSubject": "{{ EmailSubject }}",
+   "SMSMessage": "{{ SMSMessage }}"
+  },
+  "UnusedAccountValidityDays": "{{ UnusedAccountValidityDays }}"
+ },
+ "AliasAttributes": [
+  "{{ AliasAttributes[0] }}"
+ ],
+ "UsernameAttributes": [
+  "{{ UsernameAttributes[0] }}"
+ ],
+ "AutoVerifiedAttributes": [
+  "{{ AutoVerifiedAttributes[0] }}"
+ ],
+ "DeviceConfiguration": {
+  "ChallengeRequiredOnNewDevice": "{{ ChallengeRequiredOnNewDevice }}",
+  "DeviceOnlyRememberedOnUserPrompt": "{{ DeviceOnlyRememberedOnUserPrompt }}"
+ },
+ "EmailConfiguration": {
+  "ReplyToEmailAddress": "{{ ReplyToEmailAddress }}",
+  "SourceArn": "{{ SourceArn }}",
+  "From": "{{ From }}",
+  "ConfigurationSet": "{{ ConfigurationSet }}",
+  "EmailSendingAccount": "{{ EmailSendingAccount }}"
+ },
+ "EmailVerificationMessage": "{{ EmailVerificationMessage }}",
+ "EmailVerificationSubject": "{{ EmailVerificationSubject }}",
+ "DeletionProtection": "{{ DeletionProtection }}",
+ "LambdaConfig": {
+  "CreateAuthChallenge": "{{ CreateAuthChallenge }}",
+  "CustomMessage": "{{ CustomMessage }}",
+  "DefineAuthChallenge": "{{ DefineAuthChallenge }}",
+  "PostAuthentication": "{{ PostAuthentication }}",
+  "PostConfirmation": "{{ PostConfirmation }}",
+  "PreAuthentication": "{{ PreAuthentication }}",
+  "PreSignUp": "{{ PreSignUp }}",
+  "VerifyAuthChallengeResponse": "{{ VerifyAuthChallengeResponse }}",
+  "UserMigration": "{{ UserMigration }}",
+  "PreTokenGeneration": "{{ PreTokenGeneration }}",
+  "CustomEmailSender": {
+   "LambdaVersion": "{{ LambdaVersion }}",
+   "LambdaArn": "{{ LambdaArn }}"
+  },
+  "CustomSMSSender": {
+   "LambdaVersion": "{{ LambdaVersion }}",
+   "LambdaArn": "{{ LambdaArn }}"
+  },
+  "KMSKeyID": "{{ KMSKeyID }}",
+  "PreTokenGenerationConfig": {
+   "LambdaVersion": "{{ LambdaVersion }}",
+   "LambdaArn": "{{ LambdaArn }}"
+  }
+ },
+ "MfaConfiguration": "{{ MfaConfiguration }}",
+ "EnabledMfas": [
+  "{{ EnabledMfas[0] }}"
+ ],
+ "SmsAuthenticationMessage": "{{ SmsAuthenticationMessage }}",
+ "SmsConfiguration": {
+  "ExternalId": "{{ ExternalId }}",
+  "SnsCallerArn": "{{ SnsCallerArn }}",
+  "SnsRegion": "{{ SnsRegion }}"
+ },
+ "SmsVerificationMessage": "{{ SmsVerificationMessage }}",
+ "Schema": [
+  {
+   "AttributeDataType": "{{ AttributeDataType }}",
+   "DeveloperOnlyAttribute": "{{ DeveloperOnlyAttribute }}",
+   "Mutable": "{{ Mutable }}",
+   "Name": "{{ Name }}",
+   "NumberAttributeConstraints": {
+    "MaxValue": "{{ MaxValue }}",
+    "MinValue": "{{ MinValue }}"
+   },
+   "StringAttributeConstraints": {
+    "MaxLength": "{{ MaxLength }}",
+    "MinLength": "{{ MinLength }}"
+   },
+   "Required": "{{ Required }}"
+  }
+ ],
+ "UsernameConfiguration": {
+  "CaseSensitive": "{{ CaseSensitive }}"
+ },
+ "UserAttributeUpdateSettings": {
+  "AttributesRequireVerificationBeforeUpdate": [
+   "{{ AttributesRequireVerificationBeforeUpdate[0] }}"
+  ]
+ },
+ "UserPoolTags": {},
+ "VerificationMessageTemplate": {
+  "DefaultEmailOption": "{{ DefaultEmailOption }}",
+  "EmailMessage": "{{ EmailMessage }}",
+  "EmailMessageByLink": "{{ EmailMessageByLink }}",
+  "EmailSubject": "{{ EmailSubject }}",
+  "EmailSubjectByLink": "{{ EmailSubjectByLink }}",
+  "SmsMessage": "{{ SmsMessage }}"
+ },
+ "UserPoolAddOns": {
+  "AdvancedSecurityMode": "{{ AdvancedSecurityMode }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.cognito.user_pools (
+ UserPoolName,
+ Policies,
+ AccountRecoverySetting,
+ AdminCreateUserConfig,
+ AliasAttributes,
+ UsernameAttributes,
+ AutoVerifiedAttributes,
+ DeviceConfiguration,
+ EmailConfiguration,
+ EmailVerificationMessage,
+ EmailVerificationSubject,
+ DeletionProtection,
+ LambdaConfig,
+ MfaConfiguration,
+ EnabledMfas,
+ SmsAuthenticationMessage,
+ SmsConfiguration,
+ SmsVerificationMessage,
+ Schema,
+ UsernameConfiguration,
+ UserAttributeUpdateSettings,
+ UserPoolTags,
+ VerificationMessageTemplate,
+ UserPoolAddOns,
+ region
+)
+SELECT 
+{{ UserPoolName }},
+ {{ Policies }},
+ {{ AccountRecoverySetting }},
+ {{ AdminCreateUserConfig }},
+ {{ AliasAttributes }},
+ {{ UsernameAttributes }},
+ {{ AutoVerifiedAttributes }},
+ {{ DeviceConfiguration }},
+ {{ EmailConfiguration }},
+ {{ EmailVerificationMessage }},
+ {{ EmailVerificationSubject }},
+ {{ DeletionProtection }},
+ {{ LambdaConfig }},
+ {{ MfaConfiguration }},
+ {{ EnabledMfas }},
+ {{ SmsAuthenticationMessage }},
+ {{ SmsConfiguration }},
+ {{ SmsVerificationMessage }},
+ {{ Schema }},
+ {{ UsernameConfiguration }},
+ {{ UserAttributeUpdateSettings }},
+ {{ UserPoolTags }},
+ {{ VerificationMessageTemplate }},
+ {{ UserPoolAddOns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "UserPoolName": "{{ UserPoolName }}",
+ "Policies": {
+  "PasswordPolicy": {
+   "MinimumLength": "{{ MinimumLength }}",
+   "RequireLowercase": "{{ RequireLowercase }}",
+   "RequireNumbers": "{{ RequireNumbers }}",
+   "RequireSymbols": "{{ RequireSymbols }}",
+   "RequireUppercase": "{{ RequireUppercase }}",
+   "TemporaryPasswordValidityDays": "{{ TemporaryPasswordValidityDays }}"
+  }
+ },
+ "AccountRecoverySetting": {
+  "RecoveryMechanisms": [
+   {
+    "Name": "{{ Name }}",
+    "Priority": "{{ Priority }}"
+   }
+  ]
+ },
+ "AdminCreateUserConfig": {
+  "AllowAdminCreateUserOnly": "{{ AllowAdminCreateUserOnly }}",
+  "InviteMessageTemplate": {
+   "EmailMessage": "{{ EmailMessage }}",
+   "EmailSubject": "{{ EmailSubject }}",
+   "SMSMessage": "{{ SMSMessage }}"
+  },
+  "UnusedAccountValidityDays": "{{ UnusedAccountValidityDays }}"
+ },
+ "AliasAttributes": [
+  "{{ AliasAttributes[0] }}"
+ ],
+ "UsernameAttributes": [
+  "{{ UsernameAttributes[0] }}"
+ ],
+ "AutoVerifiedAttributes": [
+  "{{ AutoVerifiedAttributes[0] }}"
+ ],
+ "DeviceConfiguration": {
+  "ChallengeRequiredOnNewDevice": "{{ ChallengeRequiredOnNewDevice }}",
+  "DeviceOnlyRememberedOnUserPrompt": "{{ DeviceOnlyRememberedOnUserPrompt }}"
+ },
+ "EmailConfiguration": {
+  "ReplyToEmailAddress": "{{ ReplyToEmailAddress }}",
+  "SourceArn": "{{ SourceArn }}",
+  "From": "{{ From }}",
+  "ConfigurationSet": "{{ ConfigurationSet }}",
+  "EmailSendingAccount": "{{ EmailSendingAccount }}"
+ },
+ "EmailVerificationMessage": "{{ EmailVerificationMessage }}",
+ "EmailVerificationSubject": "{{ EmailVerificationSubject }}",
+ "DeletionProtection": "{{ DeletionProtection }}",
+ "LambdaConfig": {
+  "CreateAuthChallenge": "{{ CreateAuthChallenge }}",
+  "CustomMessage": "{{ CustomMessage }}",
+  "DefineAuthChallenge": "{{ DefineAuthChallenge }}",
+  "PostAuthentication": "{{ PostAuthentication }}",
+  "PostConfirmation": "{{ PostConfirmation }}",
+  "PreAuthentication": "{{ PreAuthentication }}",
+  "PreSignUp": "{{ PreSignUp }}",
+  "VerifyAuthChallengeResponse": "{{ VerifyAuthChallengeResponse }}",
+  "UserMigration": "{{ UserMigration }}",
+  "PreTokenGeneration": "{{ PreTokenGeneration }}",
+  "CustomEmailSender": {
+   "LambdaVersion": "{{ LambdaVersion }}",
+   "LambdaArn": "{{ LambdaArn }}"
+  },
+  "CustomSMSSender": {
+   "LambdaVersion": "{{ LambdaVersion }}",
+   "LambdaArn": "{{ LambdaArn }}"
+  },
+  "KMSKeyID": "{{ KMSKeyID }}",
+  "PreTokenGenerationConfig": {
+   "LambdaVersion": "{{ LambdaVersion }}",
+   "LambdaArn": "{{ LambdaArn }}"
+  }
+ },
+ "MfaConfiguration": "{{ MfaConfiguration }}",
+ "EnabledMfas": [
+  "{{ EnabledMfas[0] }}"
+ ],
+ "SmsAuthenticationMessage": "{{ SmsAuthenticationMessage }}",
+ "SmsConfiguration": {
+  "ExternalId": "{{ ExternalId }}",
+  "SnsCallerArn": "{{ SnsCallerArn }}",
+  "SnsRegion": "{{ SnsRegion }}"
+ },
+ "SmsVerificationMessage": "{{ SmsVerificationMessage }}",
+ "Schema": [
+  {
+   "AttributeDataType": "{{ AttributeDataType }}",
+   "DeveloperOnlyAttribute": "{{ DeveloperOnlyAttribute }}",
+   "Mutable": "{{ Mutable }}",
+   "Name": "{{ Name }}",
+   "NumberAttributeConstraints": {
+    "MaxValue": "{{ MaxValue }}",
+    "MinValue": "{{ MinValue }}"
+   },
+   "StringAttributeConstraints": {
+    "MaxLength": "{{ MaxLength }}",
+    "MinLength": "{{ MinLength }}"
+   },
+   "Required": "{{ Required }}"
+  }
+ ],
+ "UsernameConfiguration": {
+  "CaseSensitive": "{{ CaseSensitive }}"
+ },
+ "UserAttributeUpdateSettings": {
+  "AttributesRequireVerificationBeforeUpdate": [
+   "{{ AttributesRequireVerificationBeforeUpdate[0] }}"
+  ]
+ },
+ "UserPoolTags": {},
+ "VerificationMessageTemplate": {
+  "DefaultEmailOption": "{{ DefaultEmailOption }}",
+  "EmailMessage": "{{ EmailMessage }}",
+  "EmailMessageByLink": "{{ EmailMessageByLink }}",
+  "EmailSubject": "{{ EmailSubject }}",
+  "EmailSubjectByLink": "{{ EmailSubjectByLink }}",
+  "SmsMessage": "{{ SmsMessage }}"
+ },
+ "UserPoolAddOns": {
+  "AdvancedSecurityMode": "{{ AdvancedSecurityMode }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.cognito.user_pools (
+ UserPoolName,
+ Policies,
+ AccountRecoverySetting,
+ AdminCreateUserConfig,
+ AliasAttributes,
+ UsernameAttributes,
+ AutoVerifiedAttributes,
+ DeviceConfiguration,
+ EmailConfiguration,
+ EmailVerificationMessage,
+ EmailVerificationSubject,
+ DeletionProtection,
+ LambdaConfig,
+ MfaConfiguration,
+ EnabledMfas,
+ SmsAuthenticationMessage,
+ SmsConfiguration,
+ SmsVerificationMessage,
+ Schema,
+ UsernameConfiguration,
+ UserAttributeUpdateSettings,
+ UserPoolTags,
+ VerificationMessageTemplate,
+ UserPoolAddOns,
+ region
+)
+SELECT 
+ {{ UserPoolName }},
+ {{ Policies }},
+ {{ AccountRecoverySetting }},
+ {{ AdminCreateUserConfig }},
+ {{ AliasAttributes }},
+ {{ UsernameAttributes }},
+ {{ AutoVerifiedAttributes }},
+ {{ DeviceConfiguration }},
+ {{ EmailConfiguration }},
+ {{ EmailVerificationMessage }},
+ {{ EmailVerificationSubject }},
+ {{ DeletionProtection }},
+ {{ LambdaConfig }},
+ {{ MfaConfiguration }},
+ {{ EnabledMfas }},
+ {{ SmsAuthenticationMessage }},
+ {{ SmsConfiguration }},
+ {{ SmsVerificationMessage }},
+ {{ Schema }},
+ {{ UsernameConfiguration }},
+ {{ UserAttributeUpdateSettings }},
+ {{ UserPoolTags }},
+ {{ VerificationMessageTemplate }},
+ {{ UserPoolAddOns }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cognito.user_pools
+WHERE data__Identifier = '<UserPoolId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +480,11 @@ cognito-idp:SetUserPoolMfaConfig,
 cognito-idp:DescribeUserPool,
 kms:CreateGrant,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+cognito-idp:DeleteUserPool
 ```
 
 ### List

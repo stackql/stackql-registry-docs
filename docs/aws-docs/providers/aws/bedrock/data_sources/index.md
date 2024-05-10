@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>data_sources</code> in a region or create a <code>data_sources</code> resource, use <code>data_source</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>data_sources</code> in a region or to create or delete a <code>data_sources</code> resource, use <code>data_source</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>data_sources</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,112 @@ region,
 knowledge_base_id,
 data_source_id
 FROM aws.bedrock.data_sources
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DataSourceConfiguration": {
+  "Type": "{{ Type }}",
+  "S3Configuration": {
+   "BucketArn": "{{ BucketArn }}",
+   "InclusionPrefixes": [
+    "{{ InclusionPrefixes[0] }}"
+   ]
+  }
+ },
+ "KnowledgeBaseId": "{{ KnowledgeBaseId }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.bedrock.data_sources (
+ DataSourceConfiguration,
+ KnowledgeBaseId,
+ Name,
+ region
+)
+SELECT 
+{{ DataSourceConfiguration }},
+ {{ KnowledgeBaseId }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DataSourceConfiguration": {
+  "Type": "{{ Type }}",
+  "S3Configuration": {
+   "BucketArn": "{{ BucketArn }}",
+   "InclusionPrefixes": [
+    "{{ InclusionPrefixes[0] }}"
+   ]
+  }
+ },
+ "Description": "{{ Description }}",
+ "KnowledgeBaseId": "{{ KnowledgeBaseId }}",
+ "Name": "{{ Name }}",
+ "ServerSideEncryptionConfiguration": {
+  "KmsKeyArn": "{{ KmsKeyArn }}"
+ },
+ "VectorIngestionConfiguration": {
+  "ChunkingConfiguration": {
+   "ChunkingStrategy": "{{ ChunkingStrategy }}",
+   "FixedSizeChunkingConfiguration": {
+    "MaxTokens": "{{ MaxTokens }}",
+    "OverlapPercentage": "{{ OverlapPercentage }}"
+   }
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.bedrock.data_sources (
+ DataSourceConfiguration,
+ Description,
+ KnowledgeBaseId,
+ Name,
+ ServerSideEncryptionConfiguration,
+ VectorIngestionConfiguration,
+ region
+)
+SELECT 
+ {{ DataSourceConfiguration }},
+ {{ Description }},
+ {{ KnowledgeBaseId }},
+ {{ Name }},
+ {{ ServerSideEncryptionConfiguration }},
+ {{ VectorIngestionConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.bedrock.data_sources
+WHERE data__Identifier = '<KnowledgeBaseId|DataSourceId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +188,12 @@ To operate on the <code>data_sources</code> resource, the following permissions 
 bedrock:CreateDataSource,
 bedrock:GetDataSource,
 bedrock:GetKnowledgeBase
+```
+
+### Delete
+```json
+bedrock:GetDataSource,
+bedrock:DeleteDataSource
 ```
 
 ### List

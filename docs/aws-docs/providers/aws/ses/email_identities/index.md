@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>email_identities</code> in a region or create a <code>email_identities</code> resource, use <code>email_identity</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>email_identities</code> in a region or to create or delete a <code>email_identities</code> resource, use <code>email_identity</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>email_identities</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,93 @@ SELECT
 region,
 email_identity
 FROM aws.ses.email_identities
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "EmailIdentity": "{{ EmailIdentity }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ses.email_identities (
+ EmailIdentity,
+ region
+)
+SELECT 
+{{ EmailIdentity }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "EmailIdentity": "{{ EmailIdentity }}",
+ "ConfigurationSetAttributes": {
+  "ConfigurationSetName": "{{ ConfigurationSetName }}"
+ },
+ "DkimSigningAttributes": {
+  "DomainSigningSelector": "{{ DomainSigningSelector }}",
+  "DomainSigningPrivateKey": "{{ DomainSigningPrivateKey }}",
+  "NextSigningKeyLength": "{{ NextSigningKeyLength }}"
+ },
+ "DkimAttributes": {
+  "SigningEnabled": "{{ SigningEnabled }}"
+ },
+ "MailFromAttributes": {
+  "MailFromDomain": "{{ MailFromDomain }}",
+  "BehaviorOnMxFailure": "{{ BehaviorOnMxFailure }}"
+ },
+ "FeedbackAttributes": {
+  "EmailForwardingEnabled": "{{ EmailForwardingEnabled }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ses.email_identities (
+ EmailIdentity,
+ ConfigurationSetAttributes,
+ DkimSigningAttributes,
+ DkimAttributes,
+ MailFromAttributes,
+ FeedbackAttributes,
+ region
+)
+SELECT 
+ {{ EmailIdentity }},
+ {{ ConfigurationSetAttributes }},
+ {{ DkimSigningAttributes }},
+ {{ DkimAttributes }},
+ {{ MailFromAttributes }},
+ {{ FeedbackAttributes }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ses.email_identities
+WHERE data__Identifier = '<EmailIdentity>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +169,11 @@ ses:PutEmailIdentityMailFromAttributes,
 ses:PutEmailIdentityFeedbackAttributes,
 ses:PutEmailIdentityDkimAttributes,
 ses:GetEmailIdentity
+```
+
+### Delete
+```json
+ses:DeleteEmailIdentity
 ```
 
 ### List

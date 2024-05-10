@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>user_profiles</code> in a region or create a <code>user_profiles</code> resource, use <code>user_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>user_profiles</code> in a region or to create or delete a <code>user_profiles</code> resource, use <code>user_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>user_profiles</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,162 @@ region,
 user_profile_name,
 domain_id
 FROM aws.sagemaker.user_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainId": "{{ DomainId }}",
+ "UserProfileName": "{{ UserProfileName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.user_profiles (
+ DomainId,
+ UserProfileName,
+ region
+)
+SELECT 
+{{ DomainId }},
+ {{ UserProfileName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainId": "{{ DomainId }}",
+ "SingleSignOnUserIdentifier": "{{ SingleSignOnUserIdentifier }}",
+ "SingleSignOnUserValue": "{{ SingleSignOnUserValue }}",
+ "UserProfileName": "{{ UserProfileName }}",
+ "UserSettings": {
+  "ExecutionRole": "{{ ExecutionRole }}",
+  "JupyterServerAppSettings": {
+   "DefaultResourceSpec": {
+    "InstanceType": "{{ InstanceType }}",
+    "SageMakerImageArn": "{{ SageMakerImageArn }}",
+    "SageMakerImageVersionArn": "{{ SageMakerImageVersionArn }}"
+   }
+  },
+  "KernelGatewayAppSettings": {
+   "CustomImages": [
+    {
+     "AppImageConfigName": "{{ AppImageConfigName }}",
+     "ImageName": "{{ ImageName }}",
+     "ImageVersionNumber": "{{ ImageVersionNumber }}"
+    }
+   ],
+   "DefaultResourceSpec": null
+  },
+  "RStudioServerProAppSettings": {
+   "AccessStatus": "{{ AccessStatus }}",
+   "UserGroup": "{{ UserGroup }}"
+  },
+  "JupyterLabAppSettings": {
+   "DefaultResourceSpec": null,
+   "LifecycleConfigArns": [
+    "{{ LifecycleConfigArns[0] }}"
+   ],
+   "CodeRepositories": [
+    {
+     "RepositoryUrl": "{{ RepositoryUrl }}"
+    }
+   ],
+   "CustomImages": [
+    null
+   ]
+  },
+  "SpaceStorageSettings": {
+   "DefaultEbsStorageSettings": {
+    "DefaultEbsVolumeSizeInGb": "{{ DefaultEbsVolumeSizeInGb }}",
+    "MaximumEbsVolumeSizeInGb": null
+   }
+  },
+  "CodeEditorAppSettings": {
+   "DefaultResourceSpec": null,
+   "LifecycleConfigArns": [
+    null
+   ],
+   "CustomImages": [
+    null
+   ]
+  },
+  "DefaultLandingUri": "{{ DefaultLandingUri }}",
+  "StudioWebPortal": "{{ StudioWebPortal }}",
+  "CustomPosixUserConfig": {
+   "Uid": "{{ Uid }}",
+   "Gid": "{{ Gid }}"
+  },
+  "CustomFileSystemConfigs": [
+   {
+    "EFSFileSystemConfig": {
+     "FileSystemPath": "{{ FileSystemPath }}",
+     "FileSystemId": "{{ FileSystemId }}"
+    }
+   }
+  ],
+  "SecurityGroups": [
+   "{{ SecurityGroups[0] }}"
+  ],
+  "SharingSettings": {
+   "NotebookOutputOption": "{{ NotebookOutputOption }}",
+   "S3KmsKeyId": "{{ S3KmsKeyId }}",
+   "S3OutputPath": "{{ S3OutputPath }}"
+  }
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.user_profiles (
+ DomainId,
+ SingleSignOnUserIdentifier,
+ SingleSignOnUserValue,
+ UserProfileName,
+ UserSettings,
+ Tags,
+ region
+)
+SELECT 
+ {{ DomainId }},
+ {{ SingleSignOnUserIdentifier }},
+ {{ SingleSignOnUserValue }},
+ {{ UserProfileName }},
+ {{ UserSettings }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.user_profiles
+WHERE data__Identifier = '<UserProfileName|DomainId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +240,12 @@ sagemaker:DescribeUserProfile,
 sagemaker:DescribeImage,
 sagemaker:DescribeImageVersion,
 iam:PassRole
+```
+
+### Delete
+```json
+sagemaker:DeleteUserProfile,
+sagemaker:DescribeUserProfile
 ```
 
 ### List

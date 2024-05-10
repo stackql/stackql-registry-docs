@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>stack_set</code> resource, use <code>stack_sets</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>stack_set</code> resource, use <code>stack_sets</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -64,11 +67,6 @@ Gets or operates on an individual <code>stack_set</code> resource, use <code>sta
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -96,8 +94,9 @@ template_url,
 call_as,
 managed_execution
 FROM aws.cloudformation.stack_set
-WHERE data__Identifier = '<StackSetId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<StackSetId>';
 ```
+
 
 ## Permissions
 
@@ -123,15 +122,5 @@ cloudformation:ListStackSetOperationResults,
 cloudformation:TagResource,
 cloudformation:UntagResource,
 iam:PassRole
-```
-
-### Delete
-```json
-cloudformation:DeleteStackSet,
-cloudformation:DeleteStackInstances,
-cloudformation:DescribeStackSet,
-cloudformation:DescribeStackSetOperation,
-cloudformation:ListStackSetOperationResults,
-cloudformation:UntagResource
 ```
 

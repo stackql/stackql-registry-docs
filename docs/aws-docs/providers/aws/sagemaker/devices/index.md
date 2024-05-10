@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>devices</code> in a region or create a <code>devices</code> resource, use <code>device</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>devices</code> in a region or to create or delete a <code>devices</code> resource, use <code>device</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>devices</code> in a region or create a <code>de
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,82 @@ SELECT
 region,
 device/device_name
 FROM aws.sagemaker.devices
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DeviceFleetName": "{{ DeviceFleetName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.devices (
+ DeviceFleetName,
+ region
+)
+SELECT 
+{{ DeviceFleetName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DeviceFleetName": "{{ DeviceFleetName }}",
+ "Device": {
+  "DeviceFleetName": "{{ DeviceFleetName }}",
+  "Device": null,
+  "Tags": [
+   {
+    "Value": "{{ Value }}",
+    "Key": "{{ Key }}"
+   }
+  ]
+ },
+ "Tags": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.devices (
+ DeviceFleetName,
+ Device,
+ Tags,
+ region
+)
+SELECT 
+ {{ DeviceFleetName }},
+ {{ Device }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.devices
+WHERE data__Identifier = '<Device/DeviceName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,5 +154,10 @@ To operate on the <code>devices</code> resource, the following permissions are r
 ### Create
 ```json
 sagemaker:RegisterDevices
+```
+
+### Delete
+```json
+sagemaker:DeregisterDevices
 ```
 

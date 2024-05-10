@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>resolver_rule</code> resource, use <code>resolver_rules</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>resolver_rule</code> resource, use <code>resolver_rules</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>resolver_rule</code> resource, use <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ target_ips,
 arn,
 resolver_rule_id
 FROM aws.route53resolver.resolver_rule
-WHERE data__Identifier = '<ResolverRuleId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ResolverRuleId>';
 ```
+
 
 ## Permissions
 
@@ -100,11 +99,5 @@ route53resolver:GetResolverRule,
 route53resolver:ListTagsForResource,
 route53resolver:TagResource,
 route53resolver:UntagResource
-```
-
-### Delete
-```json
-route53resolver:DeleteResolverRule,
-route53resolver:GetResolverRule
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>connection_alias</code> resource, use <code>connection_aliases</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>connection_alias</code> resource, use <code>connection_aliases</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -48,11 +51,6 @@ Gets or operates on an individual <code>connection_alias</code> resource, use <c
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -69,8 +67,9 @@ connection_string,
 connection_alias_state,
 tags
 FROM aws.workspaces.connection_alias
-WHERE data__Identifier = '<AliasId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AliasId>';
 ```
+
 
 ## Permissions
 
@@ -79,10 +78,5 @@ To operate on the <code>connection_alias</code> resource, the following permissi
 ### Read
 ```json
 workspaces:DescribeConnectionAliases
-```
-
-### Delete
-```json
-workspaces:DeleteConnectionAlias
 ```
 

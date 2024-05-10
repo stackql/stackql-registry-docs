@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>connector</code> resource, use <code>connectors</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>connector</code> resource, use <code>connectors</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -62,11 +65,6 @@ Gets or operates on an individual <code>connector</code> resource, use <code>con
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -92,8 +90,9 @@ service_execution_role_arn,
 tags,
 worker_configuration
 FROM aws.kafkaconnect.connector
-WHERE data__Identifier = '<ConnectorArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorArn>';
 ```
+
 
 ## Permissions
 
@@ -103,15 +102,6 @@ To operate on the <code>connector</code> resource, the following permissions are
 ```json
 kafkaconnect:DescribeConnector,
 kafkaconnect:ListTagsForResource
-```
-
-### Delete
-```json
-kafkaconnect:DeleteConnector,
-kafkaconnect:DescribeConnector,
-logs:DeleteLogDelivery,
-logs:GetLogDelivery,
-logs:ListLogDeliveries
 ```
 
 ### Update

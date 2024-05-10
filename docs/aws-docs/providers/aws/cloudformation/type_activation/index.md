@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>type_activation</code> resource, use <code>type_activations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>type_activation</code> resource, use <code>type_activations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -59,11 +62,6 @@ Gets or operates on an individual <code>type_activation</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -86,8 +84,9 @@ major_version,
 type_name,
 type
 FROM aws.cloudformation.type_activation
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -102,12 +101,6 @@ iam:PassRole
 
 ### Read
 ```json
-cloudformation:DescribeType
-```
-
-### Delete
-```json
-cloudformation:DeactivateType,
 cloudformation:DescribeType
 ```
 

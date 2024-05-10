@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>subnet_groups</code> in a region or create a <code>subnet_groups</code> resource, use <code>subnet_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>subnet_groups</code> in a region or to create or delete a <code>subnet_groups</code> resource, use <code>subnet_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>subnet_groups</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 cache_subnet_group_name
 FROM aws.elasticache.subnet_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.elasticache.subnet_groups (
+ Description,
+ SubnetIds,
+ region
+)
+SELECT 
+{{ Description }},
+ {{ SubnetIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "CacheSubnetGroupName": "{{ CacheSubnetGroupName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.elasticache.subnet_groups (
+ Description,
+ SubnetIds,
+ CacheSubnetGroupName,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ SubnetIds }},
+ {{ CacheSubnetGroupName }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.elasticache.subnet_groups
+WHERE data__Identifier = '<CacheSubnetGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +159,13 @@ To operate on the <code>subnet_groups</code> resource, the following permissions
 ```json
 elasticache:CreateCacheSubnetGroup,
 elasticache:AddTagsToResource,
+elasticache:DescribeCacheSubnetGroups,
+elasticache:ListTagsForResource
+```
+
+### Delete
+```json
+elasticache:DeleteCacheSubnetGroup,
 elasticache:DescribeCacheSubnetGroups,
 elasticache:ListTagsForResource
 ```

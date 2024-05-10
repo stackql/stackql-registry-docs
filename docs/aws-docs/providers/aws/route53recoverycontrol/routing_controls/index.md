@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>routing_controls</code> in a region or create a <code>routing_controls</code> resource, use <code>routing_control</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>routing_controls</code> in a region or to create or delete a <code>routing_controls</code> resource, use <code>routing_control</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>routing_controls</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,71 @@ SELECT
 region,
 routing_control_arn
 FROM aws.route53recoverycontrol.routing_controls
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.route53recoverycontrol.routing_controls (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ControlPanelArn": "{{ ControlPanelArn }}",
+ "Name": "{{ Name }}",
+ "ClusterArn": "{{ ClusterArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.route53recoverycontrol.routing_controls (
+ ControlPanelArn,
+ Name,
+ ClusterArn,
+ region
+)
+SELECT 
+ {{ ControlPanelArn }},
+ {{ Name }},
+ {{ ClusterArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53recoverycontrol.routing_controls
+WHERE data__Identifier = '<RoutingControlArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +146,12 @@ route53-recovery-control-config:CreateRoutingControl,
 route53-recovery-control-config:DescribeRoutingControl,
 route53-recovery-control-config:DescribeControlPanel,
 route53-recovery-control-config:DescribeCluster
+```
+
+### Delete
+```json
+route53-recovery-control-config:DescribeRoutingControl,
+route53-recovery-control-config:DeleteRoutingControl
 ```
 
 ### List

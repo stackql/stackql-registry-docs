@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>application_entitlement_association</code> resource, use <code>application_entitlement_associations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>application_entitlement_association</code> resource, use <code>application_entitlement_associations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -46,11 +49,6 @@ Gets or operates on an individual <code>application_entitlement_association</cod
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -65,8 +63,9 @@ stack_name,
 entitlement_name,
 application_identifier
 FROM aws.appstream.application_entitlement_association
-WHERE data__Identifier = '<StackName>|<EntitlementName>|<ApplicationIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<StackName>|<EntitlementName>|<ApplicationIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -74,12 +73,6 @@ To operate on the <code>application_entitlement_association</code> resource, the
 
 ### Read
 ```json
-appstream:ListEntitledApplications
-```
-
-### Delete
-```json
-appstream:DisassociateApplicationFromEntitlement,
 appstream:ListEntitledApplications
 ```
 

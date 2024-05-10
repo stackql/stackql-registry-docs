@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>event_subscriptions</code> in a region or create a <code>event_subscriptions</code> resource, use <code>event_subscription</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>event_subscriptions</code> in a region or to create or delete a <code>event_subscriptions</code> resource, use <code>event_subscription</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>event_subscriptions</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,92 @@ SELECT
 region,
 subscription_name
 FROM aws.rds.event_subscriptions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SnsTopicArn": "{{ SnsTopicArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.rds.event_subscriptions (
+ SnsTopicArn,
+ region
+)
+SELECT 
+{{ SnsTopicArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "SubscriptionName": "{{ SubscriptionName }}",
+ "Enabled": "{{ Enabled }}",
+ "EventCategories": [
+  "{{ EventCategories[0] }}"
+ ],
+ "SnsTopicArn": "{{ SnsTopicArn }}",
+ "SourceIds": [
+  "{{ SourceIds[0] }}"
+ ],
+ "SourceType": "{{ SourceType }}"
+}
+>>>
+--all properties
+INSERT INTO aws.rds.event_subscriptions (
+ Tags,
+ SubscriptionName,
+ Enabled,
+ EventCategories,
+ SnsTopicArn,
+ SourceIds,
+ SourceType,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ SubscriptionName }},
+ {{ Enabled }},
+ {{ EventCategories }},
+ {{ SnsTopicArn }},
+ {{ SourceIds }},
+ {{ SourceType }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rds.event_subscriptions
+WHERE data__Identifier = '<SubscriptionName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +169,12 @@ rds:DescribeEventSubscriptions,
 rds:ListTagsForResource,
 rds:AddTagsToResource,
 rds:RemoveTagsFromResource
+```
+
+### Delete
+```json
+rds:DeleteEventSubscription,
+rds:DescribeEventSubscriptions
 ```
 
 ### List

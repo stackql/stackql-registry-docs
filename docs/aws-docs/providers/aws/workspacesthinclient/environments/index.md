@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>environments</code> in a region or create a <code>environments</code> resource, use <code>environment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>environments</code> in a region or to create or delete a <code>environments</code> resource, use <code>environment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>environments</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,104 @@ SELECT
 region,
 id
 FROM aws.workspacesthinclient.environments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DesktopArn": "{{ DesktopArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.workspacesthinclient.environments (
+ DesktopArn,
+ region
+)
+SELECT 
+{{ DesktopArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DesktopArn": "{{ DesktopArn }}",
+ "DesktopEndpoint": "{{ DesktopEndpoint }}",
+ "SoftwareSetUpdateSchedule": "{{ SoftwareSetUpdateSchedule }}",
+ "MaintenanceWindow": {
+  "Type": "{{ Type }}",
+  "StartTimeHour": "{{ StartTimeHour }}",
+  "StartTimeMinute": "{{ StartTimeMinute }}",
+  "EndTimeHour": null,
+  "EndTimeMinute": null,
+  "DaysOfTheWeek": [
+   "{{ DaysOfTheWeek[0] }}"
+  ],
+  "ApplyTimeOf": "{{ ApplyTimeOf }}"
+ },
+ "SoftwareSetUpdateMode": "{{ SoftwareSetUpdateMode }}",
+ "DesiredSoftwareSetId": "{{ DesiredSoftwareSetId }}",
+ "KmsKeyArn": "{{ KmsKeyArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.workspacesthinclient.environments (
+ Name,
+ DesktopArn,
+ DesktopEndpoint,
+ SoftwareSetUpdateSchedule,
+ MaintenanceWindow,
+ SoftwareSetUpdateMode,
+ DesiredSoftwareSetId,
+ KmsKeyArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ DesktopArn }},
+ {{ DesktopEndpoint }},
+ {{ SoftwareSetUpdateSchedule }},
+ {{ MaintenanceWindow }},
+ {{ SoftwareSetUpdateMode }},
+ {{ DesiredSoftwareSetId }},
+ {{ KmsKeyArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.workspacesthinclient.environments
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +186,14 @@ kms:DescribeKey,
 kms:CreateGrant,
 kms:GenerateDataKey,
 kms:Decrypt
+```
+
+### Delete
+```json
+thinclient:DeleteEnvironment,
+thinclient:UntagResource,
+kms:Decrypt,
+kms:RetireGrant
 ```
 
 ### List

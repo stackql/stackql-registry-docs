@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>image_recipes</code> in a region or create a <code>image_recipes</code> resource, use <code>image_recipe</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>image_recipes</code> in a region or to create or delete a <code>image_recipes</code> resource, use <code>image_recipe</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>image_recipes</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,143 @@ SELECT
 region,
 arn
 FROM aws.imagebuilder.image_recipes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Version": "{{ Version }}",
+ "Components": [
+  {
+   "ComponentArn": "{{ ComponentArn }}",
+   "Parameters": [
+    {
+     "Name": "{{ Name }}",
+     "Value": [
+      "{{ Value[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "ParentImage": "{{ ParentImage }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.imagebuilder.image_recipes (
+ Name,
+ Version,
+ Components,
+ ParentImage,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Version }},
+ {{ Components }},
+ {{ ParentImage }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Version": "{{ Version }}",
+ "Components": [
+  {
+   "ComponentArn": "{{ ComponentArn }}",
+   "Parameters": [
+    {
+     "Name": "{{ Name }}",
+     "Value": [
+      "{{ Value[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "BlockDeviceMappings": [
+  {
+   "DeviceName": "{{ DeviceName }}",
+   "VirtualName": "{{ VirtualName }}",
+   "NoDevice": "{{ NoDevice }}",
+   "Ebs": {
+    "Encrypted": "{{ Encrypted }}",
+    "DeleteOnTermination": "{{ DeleteOnTermination }}",
+    "Iops": "{{ Iops }}",
+    "KmsKeyId": "{{ KmsKeyId }}",
+    "SnapshotId": "{{ SnapshotId }}",
+    "Throughput": "{{ Throughput }}",
+    "VolumeSize": "{{ VolumeSize }}",
+    "VolumeType": "{{ VolumeType }}"
+   }
+  }
+ ],
+ "ParentImage": "{{ ParentImage }}",
+ "WorkingDirectory": "{{ WorkingDirectory }}",
+ "AdditionalInstanceConfiguration": {
+  "SystemsManagerAgent": {
+   "UninstallAfterBuild": "{{ UninstallAfterBuild }}"
+  },
+  "UserDataOverride": "{{ UserDataOverride }}"
+ },
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.imagebuilder.image_recipes (
+ Name,
+ Description,
+ Version,
+ Components,
+ BlockDeviceMappings,
+ ParentImage,
+ WorkingDirectory,
+ AdditionalInstanceConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Version }},
+ {{ Components }},
+ {{ BlockDeviceMappings }},
+ {{ ParentImage }},
+ {{ WorkingDirectory }},
+ {{ AdditionalInstanceConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.imagebuilder.image_recipes
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +222,13 @@ imagebuilder:TagResource,
 imagebuilder:GetImageRecipe,
 imagebuilder:CreateImageRecipe,
 ec2:DescribeImages
+```
+
+### Delete
+```json
+imagebuilder:UnTagResource,
+imagebuilder:GetImageRecipe,
+imagebuilder:DeleteImageRecipe
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>authorizers</code> in a region or create a <code>authorizers</code> resource, use <code>authorizer</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>authorizers</code> in a region or to create or delete a <code>authorizers</code> resource, use <code>authorizer</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>authorizers</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,91 @@ SELECT
 region,
 authorizer_name
 FROM aws.iot.authorizers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AuthorizerFunctionArn": "{{ AuthorizerFunctionArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.authorizers (
+ AuthorizerFunctionArn,
+ region
+)
+SELECT 
+{{ AuthorizerFunctionArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AuthorizerFunctionArn": "{{ AuthorizerFunctionArn }}",
+ "AuthorizerName": "{{ AuthorizerName }}",
+ "SigningDisabled": "{{ SigningDisabled }}",
+ "Status": "{{ Status }}",
+ "TokenKeyName": "{{ TokenKeyName }}",
+ "TokenSigningPublicKeys": {},
+ "EnableCachingForHttp": "{{ EnableCachingForHttp }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iot.authorizers (
+ AuthorizerFunctionArn,
+ AuthorizerName,
+ SigningDisabled,
+ Status,
+ TokenKeyName,
+ TokenSigningPublicKeys,
+ EnableCachingForHttp,
+ Tags,
+ region
+)
+SELECT 
+ {{ AuthorizerFunctionArn }},
+ {{ AuthorizerName }},
+ {{ SigningDisabled }},
+ {{ Status }},
+ {{ TokenKeyName }},
+ {{ TokenSigningPublicKeys }},
+ {{ EnableCachingForHttp }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.authorizers
+WHERE data__Identifier = '<AuthorizerName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +166,13 @@ iot:CreateAuthorizer,
 iot:DescribeAuthorizer,
 iot:TagResource,
 iot:ListTagsForResource
+```
+
+### Delete
+```json
+iot:UpdateAuthorizer,
+iot:DeleteAuthorizer,
+iot:DescribeAuthorizer
 ```
 
 ### List

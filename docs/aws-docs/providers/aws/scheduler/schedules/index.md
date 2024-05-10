@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>schedules</code> in a region or create a <code>schedules</code> resource, use <code>schedule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>schedules</code> in a region or to create or delete a <code>schedules</code> resource, use <code>schedule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>schedules</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,253 @@ SELECT
 region,
 name
 FROM aws.scheduler.schedules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FlexibleTimeWindow": {
+  "Mode": "{{ Mode }}",
+  "MaximumWindowInMinutes": null
+ },
+ "ScheduleExpression": "{{ ScheduleExpression }}",
+ "Target": {
+  "Arn": "{{ Arn }}",
+  "RoleArn": "{{ RoleArn }}",
+  "DeadLetterConfig": {
+   "Arn": "{{ Arn }}"
+  },
+  "RetryPolicy": {
+   "MaximumEventAgeInSeconds": null,
+   "MaximumRetryAttempts": null
+  },
+  "Input": "{{ Input }}",
+  "EcsParameters": {
+   "TaskDefinitionArn": "{{ TaskDefinitionArn }}",
+   "TaskCount": null,
+   "LaunchType": "{{ LaunchType }}",
+   "NetworkConfiguration": {
+    "AwsvpcConfiguration": {
+     "Subnets": [
+      "{{ Subnets[0] }}"
+     ],
+     "SecurityGroups": [
+      "{{ SecurityGroups[0] }}"
+     ],
+     "AssignPublicIp": "{{ AssignPublicIp }}"
+    }
+   },
+   "PlatformVersion": "{{ PlatformVersion }}",
+   "Group": "{{ Group }}",
+   "CapacityProviderStrategy": [
+    {
+     "CapacityProvider": "{{ CapacityProvider }}",
+     "Weight": null,
+     "Base": null
+    }
+   ],
+   "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
+   "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
+   "PlacementConstraints": [
+    {
+     "Type": "{{ Type }}",
+     "Expression": "{{ Expression }}"
+    }
+   ],
+   "PlacementStrategy": [
+    {
+     "Type": "{{ Type }}",
+     "Field": "{{ Field }}"
+    }
+   ],
+   "PropagateTags": "{{ PropagateTags }}",
+   "ReferenceId": "{{ ReferenceId }}",
+   "Tags": [
+    {}
+   ]
+  },
+  "EventBridgeParameters": {
+   "DetailType": "{{ DetailType }}",
+   "Source": "{{ Source }}"
+  },
+  "KinesisParameters": {
+   "PartitionKey": "{{ PartitionKey }}"
+  },
+  "SageMakerPipelineParameters": {
+   "PipelineParameterList": [
+    {
+     "Name": "{{ Name }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  },
+  "SqsParameters": {
+   "MessageGroupId": "{{ MessageGroupId }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.scheduler.schedules (
+ FlexibleTimeWindow,
+ ScheduleExpression,
+ Target,
+ region
+)
+SELECT 
+{{ FlexibleTimeWindow }},
+ {{ ScheduleExpression }},
+ {{ Target }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "EndDate": "{{ EndDate }}",
+ "FlexibleTimeWindow": {
+  "Mode": "{{ Mode }}",
+  "MaximumWindowInMinutes": null
+ },
+ "GroupName": "{{ GroupName }}",
+ "KmsKeyArn": "{{ KmsKeyArn }}",
+ "Name": "{{ Name }}",
+ "ScheduleExpression": "{{ ScheduleExpression }}",
+ "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
+ "StartDate": "{{ StartDate }}",
+ "State": "{{ State }}",
+ "Target": {
+  "Arn": "{{ Arn }}",
+  "RoleArn": "{{ RoleArn }}",
+  "DeadLetterConfig": {
+   "Arn": "{{ Arn }}"
+  },
+  "RetryPolicy": {
+   "MaximumEventAgeInSeconds": null,
+   "MaximumRetryAttempts": null
+  },
+  "Input": "{{ Input }}",
+  "EcsParameters": {
+   "TaskDefinitionArn": "{{ TaskDefinitionArn }}",
+   "TaskCount": null,
+   "LaunchType": "{{ LaunchType }}",
+   "NetworkConfiguration": {
+    "AwsvpcConfiguration": {
+     "Subnets": [
+      "{{ Subnets[0] }}"
+     ],
+     "SecurityGroups": [
+      "{{ SecurityGroups[0] }}"
+     ],
+     "AssignPublicIp": "{{ AssignPublicIp }}"
+    }
+   },
+   "PlatformVersion": "{{ PlatformVersion }}",
+   "Group": "{{ Group }}",
+   "CapacityProviderStrategy": [
+    {
+     "CapacityProvider": "{{ CapacityProvider }}",
+     "Weight": null,
+     "Base": null
+    }
+   ],
+   "EnableECSManagedTags": "{{ EnableECSManagedTags }}",
+   "EnableExecuteCommand": "{{ EnableExecuteCommand }}",
+   "PlacementConstraints": [
+    {
+     "Type": "{{ Type }}",
+     "Expression": "{{ Expression }}"
+    }
+   ],
+   "PlacementStrategy": [
+    {
+     "Type": "{{ Type }}",
+     "Field": "{{ Field }}"
+    }
+   ],
+   "PropagateTags": "{{ PropagateTags }}",
+   "ReferenceId": "{{ ReferenceId }}",
+   "Tags": [
+    {}
+   ]
+  },
+  "EventBridgeParameters": {
+   "DetailType": "{{ DetailType }}",
+   "Source": "{{ Source }}"
+  },
+  "KinesisParameters": {
+   "PartitionKey": "{{ PartitionKey }}"
+  },
+  "SageMakerPipelineParameters": {
+   "PipelineParameterList": [
+    {
+     "Name": "{{ Name }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  },
+  "SqsParameters": {
+   "MessageGroupId": "{{ MessageGroupId }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.scheduler.schedules (
+ Description,
+ EndDate,
+ FlexibleTimeWindow,
+ GroupName,
+ KmsKeyArn,
+ Name,
+ ScheduleExpression,
+ ScheduleExpressionTimezone,
+ StartDate,
+ State,
+ Target,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ EndDate }},
+ {{ FlexibleTimeWindow }},
+ {{ GroupName }},
+ {{ KmsKeyArn }},
+ {{ Name }},
+ {{ ScheduleExpression }},
+ {{ ScheduleExpressionTimezone }},
+ {{ StartDate }},
+ {{ State }},
+ {{ Target }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.scheduler.schedules
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +327,12 @@ To operate on the <code>schedules</code> resource, the following permissions are
 scheduler:CreateSchedule,
 scheduler:GetSchedule,
 iam:PassRole
+```
+
+### Delete
+```json
+scheduler:DeleteSchedule,
+scheduler:GetSchedule
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>flow_sources</code> in a region or create a <code>flow_sources</code> resource, use <code>flow_source</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>flow_sources</code> in a region or to create or delete a <code>flow_sources</code> resource, use <code>flow_source</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>flow_sources</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,134 @@ SELECT
 region,
 source_arn
 FROM aws.mediaconnect.flow_sources
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.mediaconnect.flow_sources (
+ Description,
+ Name,
+ region
+)
+SELECT 
+{{ Description }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FlowArn": "{{ FlowArn }}",
+ "Decryption": {
+  "Algorithm": "{{ Algorithm }}",
+  "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
+  "DeviceId": "{{ DeviceId }}",
+  "KeyType": "{{ KeyType }}",
+  "Region": "{{ Region }}",
+  "ResourceId": "{{ ResourceId }}",
+  "RoleArn": "{{ RoleArn }}",
+  "SecretArn": "{{ SecretArn }}",
+  "Url": "{{ Url }}"
+ },
+ "Description": "{{ Description }}",
+ "EntitlementArn": "{{ EntitlementArn }}",
+ "GatewayBridgeSource": {
+  "BridgeArn": "{{ BridgeArn }}",
+  "VpcInterfaceAttachment": {
+   "VpcInterfaceName": "{{ VpcInterfaceName }}"
+  }
+ },
+ "IngestPort": "{{ IngestPort }}",
+ "MaxBitrate": "{{ MaxBitrate }}",
+ "MaxLatency": "{{ MaxLatency }}",
+ "MinLatency": "{{ MinLatency }}",
+ "Name": "{{ Name }}",
+ "Protocol": "{{ Protocol }}",
+ "SenderIpAddress": "{{ SenderIpAddress }}",
+ "SenderControlPort": "{{ SenderControlPort }}",
+ "StreamId": "{{ StreamId }}",
+ "SourceListenerAddress": "{{ SourceListenerAddress }}",
+ "SourceListenerPort": "{{ SourceListenerPort }}",
+ "VpcInterfaceName": "{{ VpcInterfaceName }}",
+ "WhitelistCidr": "{{ WhitelistCidr }}"
+}
+>>>
+--all properties
+INSERT INTO aws.mediaconnect.flow_sources (
+ FlowArn,
+ Decryption,
+ Description,
+ EntitlementArn,
+ GatewayBridgeSource,
+ IngestPort,
+ MaxBitrate,
+ MaxLatency,
+ MinLatency,
+ Name,
+ Protocol,
+ SenderIpAddress,
+ SenderControlPort,
+ StreamId,
+ SourceListenerAddress,
+ SourceListenerPort,
+ VpcInterfaceName,
+ WhitelistCidr,
+ region
+)
+SELECT 
+ {{ FlowArn }},
+ {{ Decryption }},
+ {{ Description }},
+ {{ EntitlementArn }},
+ {{ GatewayBridgeSource }},
+ {{ IngestPort }},
+ {{ MaxBitrate }},
+ {{ MaxLatency }},
+ {{ MinLatency }},
+ {{ Name }},
+ {{ Protocol }},
+ {{ SenderIpAddress }},
+ {{ SenderControlPort }},
+ {{ StreamId }},
+ {{ SourceListenerAddress }},
+ {{ SourceListenerPort }},
+ {{ VpcInterfaceName }},
+ {{ WhitelistCidr }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediaconnect.flow_sources
+WHERE data__Identifier = '<SourceArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +209,12 @@ mediaconnect:CreateFlow,
 mediaconnect:DescribeFlow,
 mediaconnect:AddFlowSources,
 iam:PassRole
+```
+
+### Delete
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:RemoveFlowSource
 ```
 
 ### List

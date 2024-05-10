@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>workflows</code> in a region or create a <code>workflows</code> resource, use <code>workflow</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>workflows</code> in a region or to create or delete a <code>workflows</code> resource, use <code>workflow</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>workflows</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,177 @@ SELECT
 region,
 workflow_id
 FROM aws.transfer.workflows
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Steps": [
+  {
+   "CopyStepDetails": {
+    "DestinationFileLocation": {
+     "S3FileLocation": {
+      "Bucket": "{{ Bucket }}",
+      "Key": "{{ Key }}"
+     }
+    },
+    "Name": "{{ Name }}",
+    "OverwriteExisting": "{{ OverwriteExisting }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "CustomStepDetails": {
+    "Name": "{{ Name }}",
+    "Target": "{{ Target }}",
+    "TimeoutSeconds": "{{ TimeoutSeconds }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "DecryptStepDetails": {
+    "DestinationFileLocation": {
+     "S3FileLocation": null,
+     "EfsFileLocation": {
+      "FileSystemId": "{{ FileSystemId }}",
+      "Path": "{{ Path }}"
+     }
+    },
+    "Name": "{{ Name }}",
+    "Type": "{{ Type }}",
+    "OverwriteExisting": "{{ OverwriteExisting }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "DeleteStepDetails": {
+    "Name": "{{ Name }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "TagStepDetails": {
+    "Name": "{{ Name }}",
+    "Tags": [
+     {
+      "Key": "{{ Key }}",
+      "Value": "{{ Value }}"
+     }
+    ],
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "Type": "{{ Type }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.transfer.workflows (
+ Steps,
+ region
+)
+SELECT 
+{{ Steps }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "OnExceptionSteps": [
+  {
+   "CopyStepDetails": {
+    "DestinationFileLocation": {
+     "S3FileLocation": {
+      "Bucket": "{{ Bucket }}",
+      "Key": "{{ Key }}"
+     }
+    },
+    "Name": "{{ Name }}",
+    "OverwriteExisting": "{{ OverwriteExisting }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "CustomStepDetails": {
+    "Name": "{{ Name }}",
+    "Target": "{{ Target }}",
+    "TimeoutSeconds": "{{ TimeoutSeconds }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "DecryptStepDetails": {
+    "DestinationFileLocation": {
+     "S3FileLocation": null,
+     "EfsFileLocation": {
+      "FileSystemId": "{{ FileSystemId }}",
+      "Path": "{{ Path }}"
+     }
+    },
+    "Name": "{{ Name }}",
+    "Type": "{{ Type }}",
+    "OverwriteExisting": "{{ OverwriteExisting }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "DeleteStepDetails": {
+    "Name": "{{ Name }}",
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "TagStepDetails": {
+    "Name": "{{ Name }}",
+    "Tags": [
+     {
+      "Key": "{{ Key }}",
+      "Value": "{{ Value }}"
+     }
+    ],
+    "SourceFileLocation": "{{ SourceFileLocation }}"
+   },
+   "Type": "{{ Type }}"
+  }
+ ],
+ "Steps": [
+  null
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Description": "{{ Description }}"
+}
+>>>
+--all properties
+INSERT INTO aws.transfer.workflows (
+ OnExceptionSteps,
+ Steps,
+ Tags,
+ Description,
+ region
+)
+SELECT 
+ {{ OnExceptionSteps }},
+ {{ Steps }},
+ {{ Tags }},
+ {{ Description }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.transfer.workflows
+WHERE data__Identifier = '<WorkflowId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +250,11 @@ To operate on the <code>workflows</code> resource, the following permissions are
 ```json
 transfer:CreateWorkflow,
 transfer:TagResource
+```
+
+### Delete
+```json
+transfer:DeleteWorkflow
 ```
 
 ### List

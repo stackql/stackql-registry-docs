@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>composite_alarm</code> resource, use <code>composite_alarms</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>composite_alarm</code> resource, use <code>composite_alarms</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>composite_alarm</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ actions_suppressor_wait_period,
 actions_suppressor_extension_period,
 tags
 FROM aws.cloudwatch.composite_alarm
-WHERE data__Identifier = '<AlarmName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AlarmName>';
 ```
+
 
 ## Permissions
 
@@ -107,11 +106,5 @@ cloudwatch:DescribeAlarms,
 cloudwatch:PutCompositeAlarm,
 cloudwatch:TagResource,
 cloudwatch:UntagResource
-```
-
-### Delete
-```json
-cloudwatch:DescribeAlarms,
-cloudwatch:DeleteAlarms
 ```
 

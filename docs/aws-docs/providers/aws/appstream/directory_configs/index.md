@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>directory_configs</code> in a region or create a <code>directory_configs</code> resource, use <code>directory_config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>directory_configs</code> in a region or to create or delete a <code>directory_configs</code> resource, use <code>directory_config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>directory_configs</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,93 @@ SELECT
 region,
 directory_name
 FROM aws.appstream.directory_configs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "OrganizationalUnitDistinguishedNames": [
+  "{{ OrganizationalUnitDistinguishedNames[0] }}"
+ ],
+ "ServiceAccountCredentials": {
+  "AccountName": "{{ AccountName }}",
+  "AccountPassword": "{{ AccountPassword }}"
+ },
+ "DirectoryName": "{{ DirectoryName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appstream.directory_configs (
+ OrganizationalUnitDistinguishedNames,
+ ServiceAccountCredentials,
+ DirectoryName,
+ region
+)
+SELECT 
+{{ OrganizationalUnitDistinguishedNames }},
+ {{ ServiceAccountCredentials }},
+ {{ DirectoryName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "OrganizationalUnitDistinguishedNames": [
+  "{{ OrganizationalUnitDistinguishedNames[0] }}"
+ ],
+ "ServiceAccountCredentials": {
+  "AccountName": "{{ AccountName }}",
+  "AccountPassword": "{{ AccountPassword }}"
+ },
+ "DirectoryName": "{{ DirectoryName }}",
+ "CertificateBasedAuthProperties": {
+  "Status": "{{ Status }}",
+  "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.appstream.directory_configs (
+ OrganizationalUnitDistinguishedNames,
+ ServiceAccountCredentials,
+ DirectoryName,
+ CertificateBasedAuthProperties,
+ region
+)
+SELECT 
+ {{ OrganizationalUnitDistinguishedNames }},
+ {{ ServiceAccountCredentials }},
+ {{ DirectoryName }},
+ {{ CertificateBasedAuthProperties }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appstream.directory_configs
+WHERE data__Identifier = '<DirectoryName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -69,6 +163,17 @@ WHERE region = 'us-east-1'
 To operate on the <code>directory_configs</code> resource, the following permissions are required:
 
 ### Create
+```json
+appstream:CreateDirectoryConfig,
+appstream:DeleteDirectoryConfig,
+appstream:DescribeDirectoryConfigs,
+appstream:UpdateDirectoryConfig,
+iam:CreateServiceLinkedRole,
+iam:DeleteServiceLinkedRole,
+iam:GetServiceLinkedRoleDeletionStatus
+```
+
+### Delete
 ```json
 appstream:CreateDirectoryConfig,
 appstream:DeleteDirectoryConfig,

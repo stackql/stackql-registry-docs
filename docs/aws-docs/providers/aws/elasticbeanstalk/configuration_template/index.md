@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>configuration_template</code> resource, use <code>configuration_templates</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>configuration_template</code> resource, use <code>configuration_templates</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>configuration_template</code> resource, 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ solution_stack_name,
 source_configuration,
 template_name
 FROM aws.elasticbeanstalk.configuration_template
-WHERE data__Identifier = '<ApplicationName>|<TemplateName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationName>|<TemplateName>';
 ```
+
 
 ## Permissions
 
@@ -95,11 +94,5 @@ elasticbeanstalk:DescribeConfigurationSettings
 ### Update
 ```json
 elasticbeanstalk:UpdateConfigurationTemplate
-```
-
-### Delete
-```json
-elasticbeanstalk:DeleteConfigurationTemplate,
-elasticbeanstalk:DescribeConfigurationSettings
 ```
 

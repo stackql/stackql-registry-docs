@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>calculated_attribute_definition</code> resource, use <code>calculated_attribute_definitions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>calculated_attribute_definition</code> resource, use <code>calculated_attribute_definitions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>calculated_attribute_definition</code> r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,8 +82,9 @@ created_at,
 last_updated_at,
 tags
 FROM aws.customerprofiles.calculated_attribute_definition
-WHERE data__Identifier = '<DomainName>|<CalculatedAttributeName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<CalculatedAttributeName>';
 ```
+
 
 ## Permissions
 
@@ -102,10 +101,5 @@ profile:GetCalculatedAttributeDefinition,
 profile:UpdateCalculatedAttributeDefinition,
 profile:UntagResource,
 profile:TagResource
-```
-
-### Delete
-```json
-profile:DeleteCalculatedAttributeDefinition
 ```
 

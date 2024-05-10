@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>warm_pools</code> in a region or create a <code>warm_pools</code> resource, use <code>warm_pool</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>warm_pools</code> in a region or to create or delete a <code>warm_pools</code> resource, use <code>warm_pool</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>warm_pools</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,79 @@ SELECT
 region,
 auto_scaling_group_name
 FROM aws.autoscaling.warm_pools
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AutoScalingGroupName": "{{ AutoScalingGroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.autoscaling.warm_pools (
+ AutoScalingGroupName,
+ region
+)
+SELECT 
+{{ AutoScalingGroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
+ "MaxGroupPreparedCapacity": "{{ MaxGroupPreparedCapacity }}",
+ "MinSize": "{{ MinSize }}",
+ "PoolState": "{{ PoolState }}",
+ "InstanceReusePolicy": {
+  "ReuseOnScaleIn": "{{ ReuseOnScaleIn }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.autoscaling.warm_pools (
+ AutoScalingGroupName,
+ MaxGroupPreparedCapacity,
+ MinSize,
+ PoolState,
+ InstanceReusePolicy,
+ region
+)
+SELECT 
+ {{ AutoScalingGroupName }},
+ {{ MaxGroupPreparedCapacity }},
+ {{ MinSize }},
+ {{ PoolState }},
+ {{ InstanceReusePolicy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.autoscaling.warm_pools
+WHERE data__Identifier = '<AutoScalingGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,5 +153,11 @@ To operate on the <code>warm_pools</code> resource, the following permissions ar
 autoscaling:PutWarmPool,
 autoscaling:DescribeWarmPool,
 autoscaling:DescribeAutoScalingGroups
+```
+
+### Delete
+```json
+autoscaling:DeleteWarmPool,
+autoscaling:DescribeWarmPool
 ```
 

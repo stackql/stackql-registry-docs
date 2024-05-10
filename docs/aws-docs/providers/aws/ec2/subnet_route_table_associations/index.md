@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>subnet_route_table_associations</code> in a region or create a <code>subnet_route_table_associations</code> resource, use <code>subnet_route_table_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>subnet_route_table_associations</code> in a region or to create or delete a <code>subnet_route_table_associations</code> resource, use <code>subnet_route_table_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>subnet_route_table_associations</code> in a reg
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,71 @@ SELECT
 region,
 id
 FROM aws.ec2.subnet_route_table_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RouteTableId": "{{ RouteTableId }}",
+ "SubnetId": "{{ SubnetId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.subnet_route_table_associations (
+ RouteTableId,
+ SubnetId,
+ region
+)
+SELECT 
+{{ RouteTableId }},
+ {{ SubnetId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RouteTableId": "{{ RouteTableId }}",
+ "SubnetId": "{{ SubnetId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.subnet_route_table_associations (
+ RouteTableId,
+ SubnetId,
+ region
+)
+SELECT 
+ {{ RouteTableId }},
+ {{ SubnetId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.subnet_route_table_associations
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +144,13 @@ To operate on the <code>subnet_route_table_associations</code> resource, the fol
 ```json
 ec2:AssociateRouteTable,
 ec2:ReplaceRouteTableAssociation,
+ec2:DescribeSubnets,
+ec2:DescribeRouteTables
+```
+
+### Delete
+```json
+ec2:DisassociateRouteTable,
 ec2:DescribeSubnets,
 ec2:DescribeRouteTables
 ```

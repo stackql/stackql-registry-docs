@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>repositories</code> in a region or create a <code>repositories</code> resource, use <code>repository</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>repositories</code> in a region or to create or delete a <code>repositories</code> resource, use <code>repository</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>repositories</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,133 @@ SELECT
 region,
 repository_name
 FROM aws.ecr.repositories
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "EmptyOnDelete": "{{ EmptyOnDelete }}",
+ "LifecyclePolicy": {
+  "LifecyclePolicyText": "{{ LifecyclePolicyText }}",
+  "RegistryId": "{{ RegistryId }}"
+ },
+ "RepositoryName": "{{ RepositoryName }}",
+ "RepositoryPolicyText": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ImageTagMutability": "{{ ImageTagMutability }}",
+ "ImageScanningConfiguration": {
+  "ScanOnPush": "{{ ScanOnPush }}"
+ },
+ "EncryptionConfiguration": {
+  "EncryptionType": "{{ EncryptionType }}",
+  "KmsKey": "{{ KmsKey }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ecr.repositories (
+ EmptyOnDelete,
+ LifecyclePolicy,
+ RepositoryName,
+ RepositoryPolicyText,
+ Tags,
+ ImageTagMutability,
+ ImageScanningConfiguration,
+ EncryptionConfiguration,
+ region
+)
+SELECT 
+{{ EmptyOnDelete }},
+ {{ LifecyclePolicy }},
+ {{ RepositoryName }},
+ {{ RepositoryPolicyText }},
+ {{ Tags }},
+ {{ ImageTagMutability }},
+ {{ ImageScanningConfiguration }},
+ {{ EncryptionConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "EmptyOnDelete": "{{ EmptyOnDelete }}",
+ "LifecyclePolicy": {
+  "LifecyclePolicyText": "{{ LifecyclePolicyText }}",
+  "RegistryId": "{{ RegistryId }}"
+ },
+ "RepositoryName": "{{ RepositoryName }}",
+ "RepositoryPolicyText": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ImageTagMutability": "{{ ImageTagMutability }}",
+ "ImageScanningConfiguration": {
+  "ScanOnPush": "{{ ScanOnPush }}"
+ },
+ "EncryptionConfiguration": {
+  "EncryptionType": "{{ EncryptionType }}",
+  "KmsKey": "{{ KmsKey }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ecr.repositories (
+ EmptyOnDelete,
+ LifecyclePolicy,
+ RepositoryName,
+ RepositoryPolicyText,
+ Tags,
+ ImageTagMutability,
+ ImageScanningConfiguration,
+ EncryptionConfiguration,
+ region
+)
+SELECT 
+ {{ EmptyOnDelete }},
+ {{ LifecyclePolicy }},
+ {{ RepositoryName }},
+ {{ RepositoryPolicyText }},
+ {{ Tags }},
+ {{ ImageTagMutability }},
+ {{ ImageScanningConfiguration }},
+ {{ EncryptionConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ecr.repositories
+WHERE data__Identifier = '<RepositoryName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +210,12 @@ ecr:SetRepositoryPolicy,
 ecr:TagResource,
 kms:DescribeKey,
 kms:CreateGrant,
+kms:RetireGrant
+```
+
+### Delete
+```json
+ecr:DeleteRepository,
 kms:RetireGrant
 ```
 

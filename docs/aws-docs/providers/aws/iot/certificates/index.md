@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>certificates</code> in a region or create a <code>certificates</code> resource, use <code>certificate</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>certificates</code> in a region or to create or delete a <code>certificates</code> resource, use <code>certificate</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>certificates</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,77 @@ SELECT
 region,
 id
 FROM aws.iot.certificates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Status": "{{ Status }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.certificates (
+ Status,
+ region
+)
+SELECT 
+{{ Status }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CACertificatePem": "{{ CACertificatePem }}",
+ "CertificatePem": "{{ CertificatePem }}",
+ "CertificateSigningRequest": "{{ CertificateSigningRequest }}",
+ "CertificateMode": "{{ CertificateMode }}",
+ "Status": "{{ Status }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iot.certificates (
+ CACertificatePem,
+ CertificatePem,
+ CertificateSigningRequest,
+ CertificateMode,
+ Status,
+ region
+)
+SELECT 
+ {{ CACertificatePem }},
+ {{ CertificatePem }},
+ {{ CertificateSigningRequest }},
+ {{ CertificateMode }},
+ {{ Status }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.certificates
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +151,13 @@ To operate on the <code>certificates</code> resource, the following permissions 
 iot:CreateCertificateFromCsr,
 iot:RegisterCertificate,
 iot:RegisterCertificateWithoutCA,
+iot:DescribeCertificate
+```
+
+### Delete
+```json
+iot:DeleteCertificate,
+iot:UpdateCertificate,
 iot:DescribeCertificate
 ```
 

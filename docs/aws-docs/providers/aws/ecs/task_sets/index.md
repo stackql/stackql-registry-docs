@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>task_sets</code> in a region or create a <code>task_sets</code> resource, use <code>task_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>task_sets</code> in a region or to create or delete a <code>task_sets</code> resource, use <code>task_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>task_sets</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,132 @@ cluster,
 service,
 id
 FROM aws.ecs.task_sets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Cluster": "{{ Cluster }}",
+ "Service": "{{ Service }}",
+ "TaskDefinition": "{{ TaskDefinition }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ecs.task_sets (
+ Cluster,
+ Service,
+ TaskDefinition,
+ region
+)
+SELECT 
+{{ Cluster }},
+ {{ Service }},
+ {{ TaskDefinition }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Cluster": "{{ Cluster }}",
+ "ExternalId": "{{ ExternalId }}",
+ "LaunchType": "{{ LaunchType }}",
+ "LoadBalancers": [
+  {
+   "ContainerName": "{{ ContainerName }}",
+   "ContainerPort": "{{ ContainerPort }}",
+   "TargetGroupArn": "{{ TargetGroupArn }}"
+  }
+ ],
+ "NetworkConfiguration": {
+  "AwsVpcConfiguration": {
+   "AssignPublicIp": "{{ AssignPublicIp }}",
+   "SecurityGroups": [
+    "{{ SecurityGroups[0] }}"
+   ],
+   "Subnets": [
+    "{{ Subnets[0] }}"
+   ]
+  }
+ },
+ "PlatformVersion": "{{ PlatformVersion }}",
+ "Scale": {
+  "Unit": "{{ Unit }}",
+  "Value": null
+ },
+ "Service": "{{ Service }}",
+ "ServiceRegistries": [
+  {
+   "ContainerName": "{{ ContainerName }}",
+   "ContainerPort": "{{ ContainerPort }}",
+   "Port": "{{ Port }}",
+   "RegistryArn": "{{ RegistryArn }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TaskDefinition": "{{ TaskDefinition }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ecs.task_sets (
+ Cluster,
+ ExternalId,
+ LaunchType,
+ LoadBalancers,
+ NetworkConfiguration,
+ PlatformVersion,
+ Scale,
+ Service,
+ ServiceRegistries,
+ Tags,
+ TaskDefinition,
+ region
+)
+SELECT 
+ {{ Cluster }},
+ {{ ExternalId }},
+ {{ LaunchType }},
+ {{ LoadBalancers }},
+ {{ NetworkConfiguration }},
+ {{ PlatformVersion }},
+ {{ Scale }},
+ {{ Service }},
+ {{ ServiceRegistries }},
+ {{ Tags }},
+ {{ TaskDefinition }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ecs.task_sets
+WHERE data__Identifier = '<Cluster|Service|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,5 +210,11 @@ To operate on the <code>task_sets</code> resource, the following permissions are
 ecs:CreateTaskSet,
 ecs:DescribeTaskSets,
 ecs:TagResource
+```
+
+### Delete
+```json
+ecs:DeleteTaskSet,
+ecs:DescribeTaskSets
 ```
 

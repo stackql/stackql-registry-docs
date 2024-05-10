@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>package</code> resource, use <code>packages</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>package</code> resource, use <code>packages</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>package</code> resource, use <code>packa
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,8 +74,9 @@ storage_location,
 created_time,
 tags
 FROM aws.panorama.package
-WHERE data__Identifier = '<PackageId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<PackageId>';
 ```
+
 
 ## Permissions
 
@@ -99,20 +98,6 @@ panorama:ListTagsForResource,
 panorama:TagResource,
 panorama:UntagResource,
 s3:PutObject,
-s3:ListBucket,
-s3:GetObject,
-s3:GetObjectVersion
-```
-
-### Delete
-```json
-panorama:DeletePackage,
-panorama:DescribePackage,
-s3:DeleteObject,
-s3:DeleteObjectVersion,
-s3:DeleteObjectVersionTagging,
-s3:ListObjects,
-s3:ListObjectsV2,
 s3:ListBucket,
 s3:GetObject,
 s3:GetObjectVersion

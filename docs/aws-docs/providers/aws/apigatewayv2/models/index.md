@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>models</code> in a region or create a <code>models</code> resource, use <code>model</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>models</code> in a region or to create or delete a <code>models</code> resource, use <code>model</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>models</code> in a region or create a <code>mod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 api_id,
 model_id
 FROM aws.apigatewayv2.models
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Schema": {},
+ "ApiId": "{{ ApiId }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigatewayv2.models (
+ Schema,
+ ApiId,
+ Name,
+ region
+)
+SELECT 
+{{ Schema }},
+ {{ ApiId }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "ContentType": "{{ ContentType }}",
+ "Schema": {},
+ "ApiId": "{{ ApiId }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigatewayv2.models (
+ Description,
+ ContentType,
+ Schema,
+ ApiId,
+ Name,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ ContentType }},
+ {{ Schema }},
+ {{ ApiId }},
+ {{ Name }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigatewayv2.models
+WHERE data__Identifier = '<ApiId|ModelId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,12 @@ To operate on the <code>models</code> resource, the following permissions are re
 ### Create
 ```json
 apigateway:POST
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE
 ```
 
 ### List

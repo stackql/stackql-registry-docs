@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>target_group</code> resource, use <code>target_groups</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>target_group</code> resource, use <code>target_groups</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>target_group</code> resource, use <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,8 +82,9 @@ type,
 targets,
 tags
 FROM aws.vpclattice.target_group
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -116,14 +115,5 @@ lambda:AddPermission,
 vpc-lattice:TagResource,
 vpc-lattice:UntagResource,
 vpc-lattice:ListTagsForResource
-```
-
-### Delete
-```json
-vpc-lattice:DeleteTargetGroup,
-vpc-lattice:GetTargetGroup,
-vpc-lattice:DeregisterTargets,
-vpc-lattice:ListTargets,
-lambda:RemovePermission
 ```
 

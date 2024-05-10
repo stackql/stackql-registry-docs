@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>replicators</code> in a region or create a <code>replicators</code> resource, use <code>replicator</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>replicators</code> in a region or to create or delete a <code>replicators</code> resource, use <code>replicator</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>replicators</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,185 @@ SELECT
 region,
 replicator_arn
 FROM aws.msk.replicators
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ReplicatorName": "{{ ReplicatorName }}",
+ "KafkaClusters": [
+  {
+   "AmazonMskCluster": {
+    "MskClusterArn": "{{ MskClusterArn }}"
+   },
+   "VpcConfig": {
+    "SecurityGroupIds": [
+     "{{ SecurityGroupIds[0] }}"
+    ],
+    "SubnetIds": [
+     "{{ SubnetIds[0] }}"
+    ]
+   }
+  }
+ ],
+ "ReplicationInfoList": [
+  {
+   "SourceKafkaClusterArn": "{{ SourceKafkaClusterArn }}",
+   "TargetKafkaClusterArn": "{{ TargetKafkaClusterArn }}",
+   "TargetCompressionType": "{{ TargetCompressionType }}",
+   "TopicReplication": {
+    "TopicsToReplicate": [
+     "{{ TopicsToReplicate[0] }}"
+    ],
+    "TopicsToExclude": [
+     "{{ TopicsToExclude[0] }}"
+    ],
+    "CopyTopicConfigurations": "{{ CopyTopicConfigurations }}",
+    "CopyAccessControlListsForTopics": "{{ CopyAccessControlListsForTopics }}",
+    "DetectAndCopyNewTopics": "{{ DetectAndCopyNewTopics }}",
+    "StartingPosition": {
+     "Type": "{{ Type }}"
+    }
+   },
+   "ConsumerGroupReplication": {
+    "ConsumerGroupsToReplicate": [
+     "{{ ConsumerGroupsToReplicate[0] }}"
+    ],
+    "ConsumerGroupsToExclude": [
+     "{{ ConsumerGroupsToExclude[0] }}"
+    ],
+    "SynchroniseConsumerGroupOffsets": "{{ SynchroniseConsumerGroupOffsets }}",
+    "DetectAndCopyNewConsumerGroups": "{{ DetectAndCopyNewConsumerGroups }}"
+   }
+  }
+ ],
+ "ServiceExecutionRoleArn": "{{ ServiceExecutionRoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.msk.replicators (
+ ReplicatorName,
+ KafkaClusters,
+ ReplicationInfoList,
+ ServiceExecutionRoleArn,
+ region
+)
+SELECT 
+{{ ReplicatorName }},
+ {{ KafkaClusters }},
+ {{ ReplicationInfoList }},
+ {{ ServiceExecutionRoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ReplicatorName": "{{ ReplicatorName }}",
+ "CurrentVersion": "{{ CurrentVersion }}",
+ "Description": "{{ Description }}",
+ "KafkaClusters": [
+  {
+   "AmazonMskCluster": {
+    "MskClusterArn": "{{ MskClusterArn }}"
+   },
+   "VpcConfig": {
+    "SecurityGroupIds": [
+     "{{ SecurityGroupIds[0] }}"
+    ],
+    "SubnetIds": [
+     "{{ SubnetIds[0] }}"
+    ]
+   }
+  }
+ ],
+ "ReplicationInfoList": [
+  {
+   "SourceKafkaClusterArn": "{{ SourceKafkaClusterArn }}",
+   "TargetKafkaClusterArn": "{{ TargetKafkaClusterArn }}",
+   "TargetCompressionType": "{{ TargetCompressionType }}",
+   "TopicReplication": {
+    "TopicsToReplicate": [
+     "{{ TopicsToReplicate[0] }}"
+    ],
+    "TopicsToExclude": [
+     "{{ TopicsToExclude[0] }}"
+    ],
+    "CopyTopicConfigurations": "{{ CopyTopicConfigurations }}",
+    "CopyAccessControlListsForTopics": "{{ CopyAccessControlListsForTopics }}",
+    "DetectAndCopyNewTopics": "{{ DetectAndCopyNewTopics }}",
+    "StartingPosition": {
+     "Type": "{{ Type }}"
+    }
+   },
+   "ConsumerGroupReplication": {
+    "ConsumerGroupsToReplicate": [
+     "{{ ConsumerGroupsToReplicate[0] }}"
+    ],
+    "ConsumerGroupsToExclude": [
+     "{{ ConsumerGroupsToExclude[0] }}"
+    ],
+    "SynchroniseConsumerGroupOffsets": "{{ SynchroniseConsumerGroupOffsets }}",
+    "DetectAndCopyNewConsumerGroups": "{{ DetectAndCopyNewConsumerGroups }}"
+   }
+  }
+ ],
+ "ServiceExecutionRoleArn": "{{ ServiceExecutionRoleArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.msk.replicators (
+ ReplicatorName,
+ CurrentVersion,
+ Description,
+ KafkaClusters,
+ ReplicationInfoList,
+ ServiceExecutionRoleArn,
+ Tags,
+ region
+)
+SELECT 
+ {{ ReplicatorName }},
+ {{ CurrentVersion }},
+ {{ Description }},
+ {{ KafkaClusters }},
+ {{ ReplicationInfoList }},
+ {{ ServiceExecutionRoleArn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.msk.replicators
+WHERE data__Identifier = '<ReplicatorArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -83,6 +269,14 @@ kafka:DescribeReplicator,
 kafka:GetBootstrapBrokers,
 kafka:ListTagsForResource,
 kafka:TagResource
+```
+
+### Delete
+```json
+kafka:DeleteReplicator,
+kafka:DescribeReplicator,
+kafka:ListTagsForResource,
+kafka:UntagResource
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>permission_sets</code> in a region or create a <code>permission_sets</code> resource, use <code>permission_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>permission_sets</code> in a region or to create or delete a <code>permission_sets</code> resource, use <code>permission_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>permission_sets</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,110 @@ region,
 instance_arn,
 permission_set_arn
 FROM aws.sso.permission_sets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "InstanceArn": "{{ InstanceArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sso.permission_sets (
+ Name,
+ InstanceArn,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ InstanceArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "InstanceArn": "{{ InstanceArn }}",
+ "SessionDuration": "{{ SessionDuration }}",
+ "RelayStateType": "{{ RelayStateType }}",
+ "ManagedPolicies": [
+  "{{ ManagedPolicies[0] }}"
+ ],
+ "InlinePolicy": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "CustomerManagedPolicyReferences": [
+  {
+   "Name": "{{ Name }}",
+   "Path": "{{ Path }}"
+  }
+ ],
+ "PermissionsBoundary": {
+  "CustomerManagedPolicyReference": null,
+  "ManagedPolicyArn": null
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.sso.permission_sets (
+ Name,
+ Description,
+ InstanceArn,
+ SessionDuration,
+ RelayStateType,
+ ManagedPolicies,
+ InlinePolicy,
+ Tags,
+ CustomerManagedPolicyReferences,
+ PermissionsBoundary,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ InstanceArn }},
+ {{ SessionDuration }},
+ {{ RelayStateType }},
+ {{ ManagedPolicies }},
+ {{ InlinePolicy }},
+ {{ Tags }},
+ {{ CustomerManagedPolicyReferences }},
+ {{ PermissionsBoundary }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sso.permission_sets
+WHERE data__Identifier = '<InstanceArn|PermissionSetArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -84,6 +195,11 @@ sso:ListManagedPoliciesInPermissionSet,
 sso:ListCustomerManagedPolicyReferencesInPermissionSet,
 sso:GetInlinePolicyForPermissionSet,
 sso:GetPermissionsBoundaryForPermissionSet
+```
+
+### Delete
+```json
+sso:DeletePermissionSet
 ```
 
 ### List

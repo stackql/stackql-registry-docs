@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>log_anomaly_detection_integration</code> resource, use <code>log_anomaly_detection_integrations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>log_anomaly_detection_integration</code> resource, use <code>log_anomaly_detection_integrations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -49,11 +52,6 @@ Gets or operates on an individual <code>log_anomaly_detection_integration</code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -66,8 +64,9 @@ SELECT
 region,
 account_id
 FROM aws.devopsguru.log_anomaly_detection_integration
-WHERE data__Identifier = '<AccountId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>';
 ```
+
 
 ## Permissions
 
@@ -80,14 +79,6 @@ devops-guru:DescribeServiceIntegration
 
 ### Update
 ```json
-devops-guru:UpdateServiceIntegration,
-logs:TagLogGroup,
-logs:UntagLogGroup
-```
-
-### Delete
-```json
-devops-guru:DescribeServiceIntegration,
 devops-guru:UpdateServiceIntegration,
 logs:TagLogGroup,
 logs:UntagLogGroup

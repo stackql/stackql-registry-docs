@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>tag_associations</code> in a region or create a <code>tag_associations</code> resource, use <code>tag_association</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>tag_associations</code> in a region or to create or delete a <code>tag_associations</code> resource, use <code>tag_association</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>tag_associations</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,127 @@ region,
 resource_identifier,
 tags_identifier
 FROM aws.lakeformation.tag_associations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Resource": {
+  "Catalog": {},
+  "Database": {
+   "CatalogId": "{{ CatalogId }}",
+   "Name": "{{ Name }}"
+  },
+  "Table": {
+   "CatalogId": null,
+   "DatabaseName": null,
+   "Name": null,
+   "TableWildcard": {}
+  },
+  "TableWithColumns": {
+   "CatalogId": null,
+   "DatabaseName": null,
+   "Name": null,
+   "ColumnNames": [
+    null
+   ]
+  }
+ },
+ "LFTags": [
+  {
+   "CatalogId": null,
+   "TagKey": "{{ TagKey }}",
+   "TagValues": [
+    "{{ TagValues[0] }}"
+   ]
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.lakeformation.tag_associations (
+ Resource,
+ LFTags,
+ region
+)
+SELECT 
+{{ Resource }},
+ {{ LFTags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Resource": {
+  "Catalog": {},
+  "Database": {
+   "CatalogId": "{{ CatalogId }}",
+   "Name": "{{ Name }}"
+  },
+  "Table": {
+   "CatalogId": null,
+   "DatabaseName": null,
+   "Name": null,
+   "TableWildcard": {}
+  },
+  "TableWithColumns": {
+   "CatalogId": null,
+   "DatabaseName": null,
+   "Name": null,
+   "ColumnNames": [
+    null
+   ]
+  }
+ },
+ "LFTags": [
+  {
+   "CatalogId": null,
+   "TagKey": "{{ TagKey }}",
+   "TagValues": [
+    "{{ TagValues[0] }}"
+   ]
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lakeformation.tag_associations (
+ Resource,
+ LFTags,
+ region
+)
+SELECT 
+ {{ Resource }},
+ {{ LFTags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lakeformation.tag_associations
+WHERE data__Identifier = '<ResourceIdentifier|TagsIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +201,13 @@ To operate on the <code>tag_associations</code> resource, the following permissi
 ### Create
 ```json
 lakeformation:AddLFTagsToResource,
+glue:GetDatabase,
+glue:GetTable
+```
+
+### Delete
+```json
+lakeformation:RemoveLFTagsFromResource,
 glue:GetDatabase,
 glue:GetTable
 ```

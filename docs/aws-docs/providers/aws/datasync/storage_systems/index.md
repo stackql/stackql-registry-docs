@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>storage_systems</code> in a region or create a <code>storage_systems</code> resource, use <code>storage_system</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>storage_systems</code> in a region or to create or delete a <code>storage_systems</code> resource, use <code>storage_system</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>storage_systems</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,107 @@ SELECT
 region,
 storage_system_arn
 FROM aws.datasync.storage_systems
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ServerConfiguration": {
+  "ServerHostname": "{{ ServerHostname }}",
+  "ServerPort": "{{ ServerPort }}"
+ },
+ "SystemType": "{{ SystemType }}",
+ "AgentArns": [
+  "{{ AgentArns[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.datasync.storage_systems (
+ ServerConfiguration,
+ SystemType,
+ AgentArns,
+ region
+)
+SELECT 
+{{ ServerConfiguration }},
+ {{ SystemType }},
+ {{ AgentArns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ServerConfiguration": {
+  "ServerHostname": "{{ ServerHostname }}",
+  "ServerPort": "{{ ServerPort }}"
+ },
+ "ServerCredentials": {
+  "Username": "{{ Username }}",
+  "Password": "{{ Password }}"
+ },
+ "SystemType": "{{ SystemType }}",
+ "AgentArns": [
+  "{{ AgentArns[0] }}"
+ ],
+ "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}",
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.datasync.storage_systems (
+ ServerConfiguration,
+ ServerCredentials,
+ SystemType,
+ AgentArns,
+ CloudWatchLogGroupArn,
+ Name,
+ Tags,
+ region
+)
+SELECT 
+ {{ ServerConfiguration }},
+ {{ ServerCredentials }},
+ {{ SystemType }},
+ {{ AgentArns }},
+ {{ CloudWatchLogGroupArn }},
+ {{ Name }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.datasync.storage_systems
+WHERE data__Identifier = '<StorageSystemArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +185,14 @@ datasync:TagResource,
 secretsmanager:CreateSecret,
 secretsmanager:DescribeSecret,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+datasync:DescribeStorageSystem,
+datasync:RemoveStorageSystem,
+secretsmanager:DescribeSecret,
+secretsmanager:DeleteSecret
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>config_rules</code> in a region or create a <code>config_rules</code> resource, use <code>config_rule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>config_rules</code> in a region or to create or delete a <code>config_rules</code> resource, use <code>config_rule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>config_rules</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,129 @@ SELECT
 region,
 config_rule_name
 FROM aws.config.config_rules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Source": {
+  "CustomPolicyDetails": {
+   "EnableDebugLogDelivery": "{{ EnableDebugLogDelivery }}",
+   "PolicyText": "{{ PolicyText }}",
+   "PolicyRuntime": "{{ PolicyRuntime }}"
+  },
+  "SourceIdentifier": "{{ SourceIdentifier }}",
+  "Owner": "{{ Owner }}",
+  "SourceDetails": [
+   {
+    "EventSource": "{{ EventSource }}",
+    "MaximumExecutionFrequency": "{{ MaximumExecutionFrequency }}",
+    "MessageType": "{{ MessageType }}"
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.config.config_rules (
+ Source,
+ region
+)
+SELECT 
+{{ Source }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Scope": {
+  "TagKey": "{{ TagKey }}",
+  "ComplianceResourceTypes": [
+   "{{ ComplianceResourceTypes[0] }}"
+  ],
+  "TagValue": "{{ TagValue }}",
+  "ComplianceResourceId": "{{ ComplianceResourceId }}"
+ },
+ "ConfigRuleName": "{{ ConfigRuleName }}",
+ "Compliance": {
+  "Type": "{{ Type }}"
+ },
+ "MaximumExecutionFrequency": "{{ MaximumExecutionFrequency }}",
+ "Source": {
+  "CustomPolicyDetails": {
+   "EnableDebugLogDelivery": "{{ EnableDebugLogDelivery }}",
+   "PolicyText": "{{ PolicyText }}",
+   "PolicyRuntime": "{{ PolicyRuntime }}"
+  },
+  "SourceIdentifier": "{{ SourceIdentifier }}",
+  "Owner": "{{ Owner }}",
+  "SourceDetails": [
+   {
+    "EventSource": "{{ EventSource }}",
+    "MaximumExecutionFrequency": "{{ MaximumExecutionFrequency }}",
+    "MessageType": "{{ MessageType }}"
+   }
+  ]
+ },
+ "InputParameters": {},
+ "EvaluationModes": [
+  {
+   "Mode": "{{ Mode }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.config.config_rules (
+ Description,
+ Scope,
+ ConfigRuleName,
+ Compliance,
+ MaximumExecutionFrequency,
+ Source,
+ InputParameters,
+ EvaluationModes,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Scope }},
+ {{ ConfigRuleName }},
+ {{ Compliance }},
+ {{ MaximumExecutionFrequency }},
+ {{ Source }},
+ {{ InputParameters }},
+ {{ EvaluationModes }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.config.config_rules
+WHERE data__Identifier = '<ConfigRuleName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +201,12 @@ To operate on the <code>config_rules</code> resource, the following permissions 
 ### Create
 ```json
 config:PutConfigRule,
+config:DescribeConfigRules
+```
+
+### Delete
+```json
+config:DeleteConfigRule,
 config:DescribeConfigRules
 ```
 

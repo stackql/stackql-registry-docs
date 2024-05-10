@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>landing_zone</code> resource, use <code>landing_zones</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>landing_zone</code> resource, use <code>landing_zones</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>landing_zone</code> resource, use <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ manifest,
 version,
 tags
 FROM aws.controltower.landing_zone
-WHERE data__Identifier = '<LandingZoneIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<LandingZoneIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -127,31 +126,5 @@ sso:GetPeregrineStatus,
 sso:ListDirectoryAssociations,
 sso:StartPeregrine,
 sso:RegisterRegion
-```
-
-### Delete
-```json
-controltower:DeleteLandingZone,
-controltower:GetLandingZone,
-controltower:GetLandingZoneOperation,
-cloudformation:DescribeOrganizationsAccess,
-servicecatalog:ListPortfolios,
-servicecatalog:ListProvisioningArtifacts,
-servicecatalog:SearchProductsAsAdmin,
-servicecatalog:DeleteProvisioningArtifact,
-servicecatalog:ListPrincipalsForPortfolio,
-servicecatalog:DeleteProduct,
-servicecatalog:DisassociatePrincipalFromPortfolio,
-servicecatalog:DisassociateProductFromPortfolio,
-servicecatalog:DeletePortfolio,
-organizations:AttachPolicy,
-organizations:DetachPolicy,
-organizations:DeletePolicy,
-organizations:ListRoots,
-sso:GetPeregrineStatus,
-sso:ListDirectoryAssociations,
-iam:DeleteRolePolicy,
-iam:DetachRolePolicy,
-iam:DeleteRole
 ```
 

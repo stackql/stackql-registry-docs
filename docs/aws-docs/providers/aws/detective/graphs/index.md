@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>graphs</code> in a region or create a <code>graphs</code> resource, use <code>graph</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>graphs</code> in a region or to create or delete a <code>graphs</code> resource, use <code>graph</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>graphs</code> in a region or create a <code>gra
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,81 @@ SELECT
 region,
 arn
 FROM aws.detective.graphs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AutoEnableMembers": "{{ AutoEnableMembers }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.detective.graphs (
+ Tags,
+ AutoEnableMembers,
+ region
+)
+SELECT 
+{{ Tags }},
+ {{ AutoEnableMembers }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AutoEnableMembers": "{{ AutoEnableMembers }}"
+}
+>>>
+--all properties
+INSERT INTO aws.detective.graphs (
+ Tags,
+ AutoEnableMembers,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ AutoEnableMembers }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.detective.graphs
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +155,11 @@ To operate on the <code>graphs</code> resource, the following permissions are re
 detective:CreateGraph,
 detective:UpdateOrganizationConfiguration,
 organizations:DescribeOrganization
+```
+
+### Delete
+```json
+detective:DeleteGraph
 ```
 
 ### List

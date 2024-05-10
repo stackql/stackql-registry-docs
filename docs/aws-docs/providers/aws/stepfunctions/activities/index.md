@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>activities</code> in a region or create a <code>activities</code> resource, use <code>activity</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>activities</code> in a region or to create or delete a <code>activities</code> resource, use <code>activity</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>activities</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,73 @@ SELECT
 region,
 arn
 FROM aws.stepfunctions.activities
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.stepfunctions.activities (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.stepfunctions.activities (
+ Name,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.stepfunctions.activities
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,5 +145,10 @@ To operate on the <code>activities</code> resource, the following permissions ar
 ### Create
 ```json
 states:CreateActivity
+```
+
+### Delete
+```json
+states:DeleteActivity
 ```
 

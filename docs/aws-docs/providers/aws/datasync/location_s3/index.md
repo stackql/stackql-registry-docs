@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>location_s3</code> resource, use <code>location_s3s</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>location_s3</code> resource, use <code>location_s3s</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -55,11 +58,6 @@ Gets or operates on an individual <code>location_s3</code> resource, use <code>l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -78,8 +76,9 @@ tags,
 location_arn,
 location_uri
 FROM aws.datasync.location_s3
-WHERE data__Identifier = '<LocationArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<LocationArn>';
 ```
+
 
 ## Permissions
 
@@ -97,10 +96,5 @@ datasync:DescribeLocationS3,
 datasync:ListTagsForResource,
 datasync:TagResource,
 datasync:UntagResource
-```
-
-### Delete
-```json
-datasync:DeleteLocation
 ```
 

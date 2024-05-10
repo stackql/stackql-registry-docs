@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>server_certificates</code> in a region or create a <code>server_certificates</code> resource, use <code>server_certificate</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>server_certificates</code> in a region or to create or delete a <code>server_certificates</code> resource, use <code>server_certificate</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>server_certificates</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,105 @@ SELECT
 region,
 server_certificate_name
 FROM aws.iam.server_certificates
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CertificateBody": "{{ CertificateBody }}",
+ "CertificateChain": "{{ CertificateChain }}",
+ "ServerCertificateName": "{{ ServerCertificateName }}",
+ "Path": "{{ Path }}",
+ "PrivateKey": "{{ PrivateKey }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iam.server_certificates (
+ CertificateBody,
+ CertificateChain,
+ ServerCertificateName,
+ Path,
+ PrivateKey,
+ Tags,
+ region
+)
+SELECT 
+{{ CertificateBody }},
+ {{ CertificateChain }},
+ {{ ServerCertificateName }},
+ {{ Path }},
+ {{ PrivateKey }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CertificateBody": "{{ CertificateBody }}",
+ "CertificateChain": "{{ CertificateChain }}",
+ "ServerCertificateName": "{{ ServerCertificateName }}",
+ "Path": "{{ Path }}",
+ "PrivateKey": "{{ PrivateKey }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iam.server_certificates (
+ CertificateBody,
+ CertificateChain,
+ ServerCertificateName,
+ Path,
+ PrivateKey,
+ Tags,
+ region
+)
+SELECT 
+ {{ CertificateBody }},
+ {{ CertificateChain }},
+ {{ ServerCertificateName }},
+ {{ Path }},
+ {{ PrivateKey }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iam.server_certificates
+WHERE data__Identifier = '<ServerCertificateName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +179,11 @@ To operate on the <code>server_certificates</code> resource, the following permi
 iam:UploadServerCertificate,
 iam:TagServerCertificate,
 iam:GetServerCertificate
+```
+
+### Delete
+```json
+iam:DeleteServerCertificate
 ```
 
 ### List

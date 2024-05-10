@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>integration_association</code> resource, use <code>integration_associations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>integration_association</code> resource, use <code>integration_associations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>integration_association</code> resource,
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ instance_id,
 integration_arn,
 integration_type
 FROM aws.connect.integration_association
-WHERE data__Identifier = '<InstanceId>|<IntegrationType>|<IntegrationArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<InstanceId>|<IntegrationType>|<IntegrationArn>';
 ```
+
 
 ## Permissions
 
@@ -84,28 +83,5 @@ To operate on the <code>integration_association</code> resource, the following p
 connect:ListBots,
 connect:ListLambdaFunctions,
 connect:ListIntegrationAssociations
-```
-
-### Delete
-```json
-connect:DescribeInstance,
-ds:DescribeDirectories,
-app-integrations:DeleteEventIntegrationAssociation,
-app-integrations:DeleteApplicationAssociation,
-events:ListTargetsByRule,
-events:RemoveTargets,
-events:DeleteRule,
-connect:DisassociateBot,
-connect:DisassociateLambdaFunction,
-connect:DeleteIntegrationAssociation,
-connect:ListBots,
-connect:ListLambdaFunctions,
-connect:ListIntegrationAssociations,
-lex:DeleteResourcePolicy,
-lex:DeleteResourcePolicyStatement,
-lambda:RemovePermission,
-iam:GetRolePolicy,
-iam:DeleteRolePolicy,
-iam:PutRolePolicy
 ```
 

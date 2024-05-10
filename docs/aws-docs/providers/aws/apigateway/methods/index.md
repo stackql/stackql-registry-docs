@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>methods</code> in a region or create a <code>methods</code> resource, use <code>method</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>methods</code> in a region or to create or delete a <code>methods</code> resource, use <code>method</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>methods</code> in a region or create a <code>me
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,140 @@ rest_api_id,
 resource_id,
 http_method
 FROM aws.apigateway.methods
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "HttpMethod": "{{ HttpMethod }}",
+ "ResourceId": "{{ ResourceId }}",
+ "RestApiId": "{{ RestApiId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.methods (
+ HttpMethod,
+ ResourceId,
+ RestApiId,
+ region
+)
+SELECT 
+{{ HttpMethod }},
+ {{ ResourceId }},
+ {{ RestApiId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApiKeyRequired": "{{ ApiKeyRequired }}",
+ "AuthorizationScopes": [
+  "{{ AuthorizationScopes[0] }}"
+ ],
+ "AuthorizationType": "{{ AuthorizationType }}",
+ "AuthorizerId": "{{ AuthorizerId }}",
+ "HttpMethod": "{{ HttpMethod }}",
+ "Integration": {
+  "CacheKeyParameters": [
+   "{{ CacheKeyParameters[0] }}"
+  ],
+  "CacheNamespace": "{{ CacheNamespace }}",
+  "ConnectionId": "{{ ConnectionId }}",
+  "ConnectionType": "{{ ConnectionType }}",
+  "ContentHandling": "{{ ContentHandling }}",
+  "Credentials": "{{ Credentials }}",
+  "IntegrationHttpMethod": "{{ IntegrationHttpMethod }}",
+  "IntegrationResponses": [
+   {
+    "ContentHandling": "{{ ContentHandling }}",
+    "ResponseParameters": {},
+    "ResponseTemplates": {},
+    "SelectionPattern": "{{ SelectionPattern }}",
+    "StatusCode": "{{ StatusCode }}"
+   }
+  ],
+  "PassthroughBehavior": "{{ PassthroughBehavior }}",
+  "RequestParameters": {},
+  "RequestTemplates": {},
+  "TimeoutInMillis": "{{ TimeoutInMillis }}",
+  "Type": "{{ Type }}",
+  "Uri": "{{ Uri }}"
+ },
+ "MethodResponses": [
+  {
+   "ResponseModels": {},
+   "ResponseParameters": {},
+   "StatusCode": "{{ StatusCode }}"
+  }
+ ],
+ "OperationName": "{{ OperationName }}",
+ "RequestModels": {},
+ "RequestParameters": {},
+ "RequestValidatorId": "{{ RequestValidatorId }}",
+ "ResourceId": "{{ ResourceId }}",
+ "RestApiId": "{{ RestApiId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.methods (
+ ApiKeyRequired,
+ AuthorizationScopes,
+ AuthorizationType,
+ AuthorizerId,
+ HttpMethod,
+ Integration,
+ MethodResponses,
+ OperationName,
+ RequestModels,
+ RequestParameters,
+ RequestValidatorId,
+ ResourceId,
+ RestApiId,
+ region
+)
+SELECT 
+ {{ ApiKeyRequired }},
+ {{ AuthorizationScopes }},
+ {{ AuthorizationType }},
+ {{ AuthorizerId }},
+ {{ HttpMethod }},
+ {{ Integration }},
+ {{ MethodResponses }},
+ {{ OperationName }},
+ {{ RequestModels }},
+ {{ RequestParameters }},
+ {{ RequestValidatorId }},
+ {{ ResourceId }},
+ {{ RestApiId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.methods
+WHERE data__Identifier = '<RestApiId|ResourceId|HttpMethod>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,5 +218,10 @@ To operate on the <code>methods</code> resource, the following permissions are r
 apigateway:PUT,
 apigateway:GET,
 iam:PassRole
+```
+
+### Delete
+```json
+apigateway:DELETE
 ```
 

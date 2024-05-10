@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>privacy_budget_template</code> resource, use <code>privacy_budget_templates</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>privacy_budget_template</code> resource, use <code>privacy_budget_templates</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -58,11 +61,6 @@ Gets or operates on an individual <code>privacy_budget_template</code> resource,
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -84,8 +82,9 @@ parameters,
 membership_arn,
 membership_identifier
 FROM aws.cleanrooms.privacy_budget_template
-WHERE data__Identifier = '<PrivacyBudgetTemplateIdentifier>|<MembershipIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<PrivacyBudgetTemplateIdentifier>|<MembershipIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -103,15 +102,6 @@ cleanrooms:UpdatePrivacyBudgetTemplate,
 cleanrooms:GetPrivacyBudgetTemplate,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:UntagResource
-```
-
-### Delete
-```json
-cleanrooms:DeletePrivacyBudgetTemplate,
-cleanrooms:GetPrivacyBudgetTemplate,
-cleanrooms:ListPrivacyBudgetTemplates,
-cleanrooms:ListTagsForResource,
 cleanrooms:UntagResource
 ```
 

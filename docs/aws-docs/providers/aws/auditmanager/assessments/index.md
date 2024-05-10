@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>assessments</code> in a region or create a <code>assessments</code> resource, use <code>assessment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>assessments</code> in a region or to create or delete a <code>assessments</code> resource, use <code>assessment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>assessments</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,130 @@ SELECT
 region,
 assessment_id
 FROM aws.auditmanager.assessments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.auditmanager.assessments (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FrameworkId": "{{ FrameworkId }}",
+ "AwsAccount": {
+  "Id": "{{ Id }}",
+  "EmailAddress": "{{ EmailAddress }}",
+  "Name": "{{ Name }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Delegations": [
+  {
+   "LastUpdated": null,
+   "ControlSetId": "{{ ControlSetId }}",
+   "CreationTime": null,
+   "CreatedBy": "{{ CreatedBy }}",
+   "RoleArn": "{{ RoleArn }}",
+   "AssessmentName": "{{ AssessmentName }}",
+   "Comment": "{{ Comment }}",
+   "Id": "{{ Id }}",
+   "RoleType": "{{ RoleType }}",
+   "AssessmentId": null,
+   "Status": "{{ Status }}"
+  }
+ ],
+ "Roles": [
+  {
+   "RoleArn": null,
+   "RoleType": null
+  }
+ ],
+ "Scope": {
+  "AwsAccounts": [
+   null
+  ],
+  "AwsServices": [
+   {
+    "ServiceName": "{{ ServiceName }}"
+   }
+  ]
+ },
+ "AssessmentReportsDestination": {
+  "Destination": "{{ Destination }}",
+  "DestinationType": "{{ DestinationType }}"
+ },
+ "Status": "{{ Status }}",
+ "Name": null,
+ "Description": "{{ Description }}"
+}
+>>>
+--all properties
+INSERT INTO aws.auditmanager.assessments (
+ FrameworkId,
+ AwsAccount,
+ Tags,
+ Delegations,
+ Roles,
+ Scope,
+ AssessmentReportsDestination,
+ Status,
+ Name,
+ Description,
+ region
+)
+SELECT 
+ {{ FrameworkId }},
+ {{ AwsAccount }},
+ {{ Tags }},
+ {{ Delegations }},
+ {{ Roles }},
+ {{ Scope }},
+ {{ AssessmentReportsDestination }},
+ {{ Status }},
+ {{ Name }},
+ {{ Description }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.auditmanager.assessments
+WHERE data__Identifier = '<AssessmentId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +206,11 @@ auditmanager:TagResource,
 auditmanager:ListTagsForResource,
 auditmanager:BatchCreateDelegationByAssessment,
 iam:PassRole
+```
+
+### Delete
+```json
+auditmanager:DeleteAssessment
 ```
 
 ### List

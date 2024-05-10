@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>tls_inspection_configurations</code> in a region or create a <code>tls_inspection_configurations</code> resource, use <code>tls_inspection_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>tls_inspection_configurations</code> in a region or to create or delete a <code>tls_inspection_configurations</code> resource, use <code>tls_inspection_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>tls_inspection_configurations</code> in a regio
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,92 @@ SELECT
 region,
 tls_inspection_configuration_arn
 FROM aws.networkfirewall.tls_inspection_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
+ "TLSInspectionConfiguration": {
+  "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
+  "TLSInspectionConfiguration": null
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.networkfirewall.tls_inspection_configurations (
+ TLSInspectionConfigurationName,
+ TLSInspectionConfiguration,
+ region
+)
+SELECT 
+{{ TLSInspectionConfigurationName }},
+ {{ TLSInspectionConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
+ "TLSInspectionConfiguration": {
+  "TLSInspectionConfigurationName": "{{ TLSInspectionConfigurationName }}",
+  "TLSInspectionConfiguration": null,
+  "Description": "{{ Description }}",
+  "Tags": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ },
+ "Description": "{{ Description }}",
+ "Tags": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.networkfirewall.tls_inspection_configurations (
+ TLSInspectionConfigurationName,
+ TLSInspectionConfiguration,
+ Description,
+ Tags,
+ region
+)
+SELECT 
+ {{ TLSInspectionConfigurationName }},
+ {{ TLSInspectionConfiguration }},
+ {{ Description }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.networkfirewall.tls_inspection_configurations
+WHERE data__Identifier = '<TLSInspectionConfigurationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +167,13 @@ iam:CreateServiceLinkedRole,
 network-firewall:CreateTLSInspectionConfiguration,
 network-firewall:DescribeTLSInspectionConfiguration,
 network-firewall:TagResource
+```
+
+### Delete
+```json
+network-firewall:DeleteTLSInspectionConfiguration,
+network-firewall:DescribeTLSInspectionConfiguration,
+network-firewall:UntagResource
 ```
 
 ### List

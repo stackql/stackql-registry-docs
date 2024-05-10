@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>topic_inline_policies</code> in a region or create a <code>topic_inline_policies</code> resource, use <code>topic_inline_policy</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>topic_inline_policies</code> in a region or to create or delete a <code>topic_inline_policies</code> resource, use <code>topic_inline_policy</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>topic_inline_policies</code> in a region or cre
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,71 @@ SELECT
 region,
 topic_arn
 FROM aws.sns.topic_inline_policies
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PolicyDocument": {},
+ "TopicArn": "{{ TopicArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sns.topic_inline_policies (
+ PolicyDocument,
+ TopicArn,
+ region
+)
+SELECT 
+{{ PolicyDocument }},
+ {{ TopicArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PolicyDocument": {},
+ "TopicArn": "{{ TopicArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.sns.topic_inline_policies (
+ PolicyDocument,
+ TopicArn,
+ region
+)
+SELECT 
+ {{ PolicyDocument }},
+ {{ TopicArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sns.topic_inline_policies
+WHERE data__Identifier = '<TopicArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -69,6 +141,12 @@ WHERE region = 'us-east-1'
 To operate on the <code>topic_inline_policies</code> resource, the following permissions are required:
 
 ### Create
+```json
+sns:SetTopicAttributes,
+sns:GetTopicAttributes
+```
+
+### Delete
 ```json
 sns:SetTopicAttributes,
 sns:GetTopicAttributes

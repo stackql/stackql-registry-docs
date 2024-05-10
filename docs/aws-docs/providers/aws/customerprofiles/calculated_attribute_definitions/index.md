@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>calculated_attribute_definitions</code> in a region or create a <code>calculated_attribute_definitions</code> resource, use <code>calculated_attribute_definition</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>calculated_attribute_definitions</code> in a region or to create or delete a <code>calculated_attribute_definitions</code> resource, use <code>calculated_attribute_definition</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>calculated_attribute_definitions</code> in a re
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,124 @@ region,
 domain_name,
 calculated_attribute_name
 FROM aws.customerprofiles.calculated_attribute_definitions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "CalculatedAttributeName": "{{ CalculatedAttributeName }}",
+ "AttributeDetails": {
+  "Attributes": [
+   {
+    "Name": "{{ Name }}"
+   }
+  ],
+  "Expression": "{{ Expression }}"
+ },
+ "Statistic": "{{ Statistic }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
+ DomainName,
+ CalculatedAttributeName,
+ AttributeDetails,
+ Statistic,
+ region
+)
+SELECT 
+{{ DomainName }},
+ {{ CalculatedAttributeName }},
+ {{ AttributeDetails }},
+ {{ Statistic }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "CalculatedAttributeName": "{{ CalculatedAttributeName }}",
+ "DisplayName": "{{ DisplayName }}",
+ "Description": "{{ Description }}",
+ "AttributeDetails": {
+  "Attributes": [
+   {
+    "Name": "{{ Name }}"
+   }
+  ],
+  "Expression": "{{ Expression }}"
+ },
+ "Conditions": {
+  "Range": {
+   "Value": "{{ Value }}",
+   "Unit": "{{ Unit }}"
+  },
+  "ObjectCount": "{{ ObjectCount }}",
+  "Threshold": {
+   "Value": "{{ Value }}",
+   "Operator": "{{ Operator }}"
+  }
+ },
+ "Statistic": "{{ Statistic }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
+ DomainName,
+ CalculatedAttributeName,
+ DisplayName,
+ Description,
+ AttributeDetails,
+ Conditions,
+ Statistic,
+ Tags,
+ region
+)
+SELECT 
+ {{ DomainName }},
+ {{ CalculatedAttributeName }},
+ {{ DisplayName }},
+ {{ Description }},
+ {{ AttributeDetails }},
+ {{ Conditions }},
+ {{ Statistic }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.customerprofiles.calculated_attribute_definitions
+WHERE data__Identifier = '<DomainName|CalculatedAttributeName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +199,11 @@ To operate on the <code>calculated_attribute_definitions</code> resource, the fo
 ```json
 profile:CreateCalculatedAttributeDefinition,
 profile:TagResource
+```
+
+### Delete
+```json
+profile:DeleteCalculatedAttributeDefinition
 ```
 
 ### List

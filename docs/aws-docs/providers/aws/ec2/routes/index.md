@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>routes</code> in a region or create a <code>routes</code> resource, use <code>route</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>routes</code> in a region or to create or delete a <code>routes</code> resource, use <code>route</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>routes</code> in a region or create a <code>rou
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,107 @@ region,
 route_table_id,
 cidr_block
 FROM aws.ec2.routes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RouteTableId": "{{ RouteTableId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.routes (
+ RouteTableId,
+ region
+)
+SELECT 
+{{ RouteTableId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CarrierGatewayId": "{{ CarrierGatewayId }}",
+ "CoreNetworkArn": "{{ CoreNetworkArn }}",
+ "DestinationCidrBlock": "{{ DestinationCidrBlock }}",
+ "DestinationIpv6CidrBlock": "{{ DestinationIpv6CidrBlock }}",
+ "DestinationPrefixListId": "{{ DestinationPrefixListId }}",
+ "EgressOnlyInternetGatewayId": "{{ EgressOnlyInternetGatewayId }}",
+ "GatewayId": "{{ GatewayId }}",
+ "InstanceId": "{{ InstanceId }}",
+ "LocalGatewayId": "{{ LocalGatewayId }}",
+ "NatGatewayId": "{{ NatGatewayId }}",
+ "NetworkInterfaceId": "{{ NetworkInterfaceId }}",
+ "RouteTableId": "{{ RouteTableId }}",
+ "TransitGatewayId": "{{ TransitGatewayId }}",
+ "VpcEndpointId": "{{ VpcEndpointId }}",
+ "VpcPeeringConnectionId": "{{ VpcPeeringConnectionId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.routes (
+ CarrierGatewayId,
+ CoreNetworkArn,
+ DestinationCidrBlock,
+ DestinationIpv6CidrBlock,
+ DestinationPrefixListId,
+ EgressOnlyInternetGatewayId,
+ GatewayId,
+ InstanceId,
+ LocalGatewayId,
+ NatGatewayId,
+ NetworkInterfaceId,
+ RouteTableId,
+ TransitGatewayId,
+ VpcEndpointId,
+ VpcPeeringConnectionId,
+ region
+)
+SELECT 
+ {{ CarrierGatewayId }},
+ {{ CoreNetworkArn }},
+ {{ DestinationCidrBlock }},
+ {{ DestinationIpv6CidrBlock }},
+ {{ DestinationPrefixListId }},
+ {{ EgressOnlyInternetGatewayId }},
+ {{ GatewayId }},
+ {{ InstanceId }},
+ {{ LocalGatewayId }},
+ {{ NatGatewayId }},
+ {{ NetworkInterfaceId }},
+ {{ RouteTableId }},
+ {{ TransitGatewayId }},
+ {{ VpcEndpointId }},
+ {{ VpcPeeringConnectionId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.routes
+WHERE data__Identifier = '<RouteTableId|CidrBlock>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +183,12 @@ To operate on the <code>routes</code> resource, the following permissions are re
 ec2:CreateRoute,
 ec2:DescribeRouteTables,
 ec2:DescribeNetworkInterfaces
+```
+
+### Delete
+```json
+ec2:DeleteRoute,
+ec2:DescribeRouteTables
 ```
 
 ### List

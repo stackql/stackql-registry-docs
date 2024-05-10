@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>virtualmfa_devices</code> in a region or create a <code>virtualmfa_devices</code> resource, use <code>virtualmfa_device</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>virtualmfa_devices</code> in a region or to create or delete a <code>virtualmfa_devices</code> resource, use <code>virtualmfa_device</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>virtualmfa_devices</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 serial_number
 FROM aws.iam.virtualmfa_devices
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Users": [
+  "{{ Users[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iam.virtualmfa_devices (
+ Users,
+ region
+)
+SELECT 
+{{ Users }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "VirtualMfaDeviceName": "{{ VirtualMfaDeviceName }}",
+ "Path": "{{ Path }}",
+ "Users": [
+  "{{ Users[0] }}"
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iam.virtualmfa_devices (
+ VirtualMfaDeviceName,
+ Path,
+ Users,
+ Tags,
+ region
+)
+SELECT 
+ {{ VirtualMfaDeviceName }},
+ {{ Path }},
+ {{ Users }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iam.virtualmfa_devices
+WHERE data__Identifier = '<SerialNumber>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,12 @@ To operate on the <code>virtualmfa_devices</code> resource, the following permis
 iam:CreateVirtualMFADevice,
 iam:EnableMFADevice,
 iam:ListVirtualMFADevices
+```
+
+### Delete
+```json
+iam:DeleteVirtualMFADevice,
+iam:DeactivateMFADevice
 ```
 
 ### List

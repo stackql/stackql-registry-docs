@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpc_gateway_attachments</code> in a region or create a <code>vpc_gateway_attachments</code> resource, use <code>vpc_gateway_attachment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpc_gateway_attachments</code> in a region or to create or delete a <code>vpc_gateway_attachments</code> resource, use <code>vpc_gateway_attachment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>vpc_gateway_attachments</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,71 @@ region,
 attachment_type,
 vpc_id
 FROM aws.ec2.vpc_gateway_attachments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.vpc_gateway_attachments (
+ VpcId,
+ region
+)
+SELECT 
+{{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InternetGatewayId": "{{ InternetGatewayId }}",
+ "VpcId": "{{ VpcId }}",
+ "VpnGatewayId": "{{ VpnGatewayId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.vpc_gateway_attachments (
+ InternetGatewayId,
+ VpcId,
+ VpnGatewayId,
+ region
+)
+SELECT 
+ {{ InternetGatewayId }},
+ {{ VpcId }},
+ {{ VpnGatewayId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.vpc_gateway_attachments
+WHERE data__Identifier = '<AttachmentType|VpcId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +146,14 @@ To operate on the <code>vpc_gateway_attachments</code> resource, the following p
 ```json
 ec2:AttachInternetGateway,
 ec2:AttachVpnGateway,
+ec2:DescribeInternetGateways,
+ec2:DescribeVpnGateways
+```
+
+### Delete
+```json
+ec2:DetachInternetGateway,
+ec2:DetachVpnGateway,
 ec2:DescribeInternetGateways,
 ec2:DescribeVpnGateways
 ```

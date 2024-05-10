@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>wireless_devices</code> in a region or create a <code>wireless_devices</code> resource, use <code>wireless_device</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>wireless_devices</code> in a region or to create or delete a <code>wireless_devices</code> resource, use <code>wireless_device</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>wireless_devices</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,135 @@ SELECT
 region,
 id
 FROM aws.iotwireless.wireless_devices
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}",
+ "DestinationName": "{{ DestinationName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iotwireless.wireless_devices (
+ Type,
+ DestinationName,
+ region
+)
+SELECT 
+{{ Type }},
+ {{ DestinationName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}",
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "DestinationName": "{{ DestinationName }}",
+ "LoRaWAN": {
+  "DevEui": "{{ DevEui }}",
+  "DeviceProfileId": "{{ DeviceProfileId }}",
+  "ServiceProfileId": "{{ ServiceProfileId }}",
+  "OtaaV11": {
+   "AppKey": "{{ AppKey }}",
+   "NwkKey": "{{ NwkKey }}",
+   "JoinEui": "{{ JoinEui }}"
+  },
+  "OtaaV10x": {
+   "AppKey": "{{ AppKey }}",
+   "AppEui": "{{ AppEui }}"
+  },
+  "AbpV11": {
+   "DevAddr": "{{ DevAddr }}",
+   "SessionKeys": {
+    "FNwkSIntKey": "{{ FNwkSIntKey }}",
+    "SNwkSIntKey": "{{ SNwkSIntKey }}",
+    "NwkSEncKey": "{{ NwkSEncKey }}",
+    "AppSKey": "{{ AppSKey }}"
+   }
+  },
+  "AbpV10x": {
+   "DevAddr": "{{ DevAddr }}",
+   "SessionKeys": {
+    "NwkSKey": "{{ NwkSKey }}",
+    "AppSKey": "{{ AppSKey }}"
+   }
+  },
+  "FPorts": {
+   "Applications": [
+    {
+     "DestinationName": "{{ DestinationName }}",
+     "FPort": "{{ FPort }}",
+     "Type": "{{ Type }}"
+    }
+   ]
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ThingArn": "{{ ThingArn }}",
+ "LastUplinkReceivedAt": "{{ LastUplinkReceivedAt }}",
+ "Positioning": "{{ Positioning }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iotwireless.wireless_devices (
+ Type,
+ Name,
+ Description,
+ DestinationName,
+ LoRaWAN,
+ Tags,
+ ThingArn,
+ LastUplinkReceivedAt,
+ Positioning,
+ region
+)
+SELECT 
+ {{ Type }},
+ {{ Name }},
+ {{ Description }},
+ {{ DestinationName }},
+ {{ LoRaWAN }},
+ {{ Tags }},
+ {{ ThingArn }},
+ {{ LastUplinkReceivedAt }},
+ {{ Positioning }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotwireless.wireless_devices
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +209,12 @@ To operate on the <code>wireless_devices</code> resource, the following permissi
 iotwireless:CreateWirelessDevice,
 iotwireless:TagResource,
 iotwireless:ListTagsForResource
+```
+
+### Delete
+```json
+iotwireless:DeleteWirelessDevice,
+iotwireless:DisassociateWirelessDeviceFromThing
 ```
 
 ### List

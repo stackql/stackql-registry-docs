@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>simple_ads</code> in a region or create a <code>simple_ads</code> resource, use <code>simple_ad</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>simple_ads</code> in a region or to create or delete a <code>simple_ads</code> resource, use <code>simple_ad</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>simple_ads</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,102 @@ SELECT
 region,
 directory_id
 FROM aws.directoryservice.simple_ads
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Size": "{{ Size }}",
+ "VpcSettings": {
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ],
+  "VpcId": "{{ VpcId }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.directoryservice.simple_ads (
+ Name,
+ Size,
+ VpcSettings,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Size }},
+ {{ VpcSettings }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CreateAlias": "{{ CreateAlias }}",
+ "Description": "{{ Description }}",
+ "EnableSso": "{{ EnableSso }}",
+ "Name": "{{ Name }}",
+ "Password": "{{ Password }}",
+ "ShortName": "{{ ShortName }}",
+ "Size": "{{ Size }}",
+ "VpcSettings": {
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ],
+  "VpcId": "{{ VpcId }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.directoryservice.simple_ads (
+ CreateAlias,
+ Description,
+ EnableSso,
+ Name,
+ Password,
+ ShortName,
+ Size,
+ VpcSettings,
+ region
+)
+SELECT 
+ {{ CreateAlias }},
+ {{ Description }},
+ {{ EnableSso }},
+ {{ Name }},
+ {{ Password }},
+ {{ ShortName }},
+ {{ Size }},
+ {{ VpcSettings }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.directoryservice.simple_ads
+WHERE data__Identifier = '<DirectoryId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +185,18 @@ ec2:DescribeNetworkInterfaces,
 ec2:AuthorizeSecurityGroupIngress,
 ec2:AuthorizeSecurityGroupEgress,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ds:DeleteDirectory,
+ds:DescribeDirectories,
+ec2:DescribeNetworkInterfaces,
+ec2:DeleteSecurityGroup,
+ec2:DeleteNetworkInterface,
+ec2:RevokeSecurityGroupIngress,
+ec2:RevokeSecurityGroupEgress,
+ec2:DeleteTags
 ```
 
 ### List

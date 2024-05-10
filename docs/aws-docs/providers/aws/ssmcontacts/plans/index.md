@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>plans</code> in a region or create a <code>plans</code> resource, use <code>plan</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>plans</code> in a region or to create or delete a <code>plans</code> resource, use <code>plan</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>plans</code> in a region or create a <code>plan
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,113 @@ SELECT
 region,
 arn
 FROM aws.ssmcontacts.plans
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ContactId": "{{ ContactId }}",
+ "Stages": [
+  {
+   "DurationInMinutes": "{{ DurationInMinutes }}",
+   "Targets": [
+    {
+     "ContactTargetInfo": {
+      "ContactId": "{{ ContactId }}",
+      "IsEssential": "{{ IsEssential }}"
+     },
+     "ChannelTargetInfo": {
+      "ChannelId": "{{ ChannelId }}",
+      "RetryIntervalInMinutes": "{{ RetryIntervalInMinutes }}"
+     }
+    }
+   ]
+  }
+ ],
+ "RotationIds": [
+  "{{ RotationIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.ssmcontacts.plans (
+ ContactId,
+ Stages,
+ RotationIds,
+ region
+)
+SELECT 
+{{ ContactId }},
+ {{ Stages }},
+ {{ RotationIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ContactId": "{{ ContactId }}",
+ "Stages": [
+  {
+   "DurationInMinutes": "{{ DurationInMinutes }}",
+   "Targets": [
+    {
+     "ContactTargetInfo": {
+      "ContactId": "{{ ContactId }}",
+      "IsEssential": "{{ IsEssential }}"
+     },
+     "ChannelTargetInfo": {
+      "ChannelId": "{{ ChannelId }}",
+      "RetryIntervalInMinutes": "{{ RetryIntervalInMinutes }}"
+     }
+    }
+   ]
+  }
+ ],
+ "RotationIds": [
+  "{{ RotationIds[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ssmcontacts.plans (
+ ContactId,
+ Stages,
+ RotationIds,
+ region
+)
+SELECT 
+ {{ ContactId }},
+ {{ Stages }},
+ {{ RotationIds }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ssmcontacts.plans
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -69,6 +183,13 @@ WHERE region = 'us-east-1'
 To operate on the <code>plans</code> resource, the following permissions are required:
 
 ### Create
+```json
+ssm-contacts:UpdateContact,
+ssm-contacts:GetContact,
+ssm-contacts:AssociateContact
+```
+
+### Delete
 ```json
 ssm-contacts:UpdateContact,
 ssm-contacts:GetContact,

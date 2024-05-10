@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>connector_profiles</code> in a region or create a <code>connector_profiles</code> resource, use <code>connector_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>connector_profiles</code> in a region or to create or delete a <code>connector_profiles</code> resource, use <code>connector_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>connector_profiles</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,283 @@ SELECT
 region,
 connector_profile_name
 FROM aws.appflow.connector_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ConnectorProfileName": "{{ ConnectorProfileName }}",
+ "ConnectorType": "{{ ConnectorType }}",
+ "ConnectionMode": "{{ ConnectionMode }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appflow.connector_profiles (
+ ConnectorProfileName,
+ ConnectorType,
+ ConnectionMode,
+ region
+)
+SELECT 
+{{ ConnectorProfileName }},
+ {{ ConnectorType }},
+ {{ ConnectionMode }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ConnectorLabel": "{{ ConnectorLabel }}",
+ "ConnectorProfileName": "{{ ConnectorProfileName }}",
+ "KMSArn": "{{ KMSArn }}",
+ "ConnectorType": "{{ ConnectorType }}",
+ "ConnectionMode": "{{ ConnectionMode }}",
+ "ConnectorProfileConfig": {
+  "ConnectorProfileProperties": {
+   "Datadog": {
+    "InstanceUrl": "{{ InstanceUrl }}"
+   },
+   "Dynatrace": {
+    "InstanceUrl": null
+   },
+   "InforNexus": {
+    "InstanceUrl": null
+   },
+   "Marketo": {
+    "InstanceUrl": null
+   },
+   "Redshift": {
+    "DatabaseUrl": "{{ DatabaseUrl }}",
+    "BucketName": "{{ BucketName }}",
+    "BucketPrefix": "{{ BucketPrefix }}",
+    "RoleArn": "{{ RoleArn }}",
+    "IsRedshiftServerless": "{{ IsRedshiftServerless }}",
+    "DataApiRoleArn": "{{ DataApiRoleArn }}",
+    "ClusterIdentifier": "{{ ClusterIdentifier }}",
+    "WorkgroupName": "{{ WorkgroupName }}",
+    "DatabaseName": "{{ DatabaseName }}"
+   },
+   "SAPOData": {
+    "ApplicationHostUrl": "{{ ApplicationHostUrl }}",
+    "ApplicationServicePath": "{{ ApplicationServicePath }}",
+    "PortNumber": "{{ PortNumber }}",
+    "ClientNumber": "{{ ClientNumber }}",
+    "LogonLanguage": "{{ LogonLanguage }}",
+    "PrivateLinkServiceName": "{{ PrivateLinkServiceName }}",
+    "OAuthProperties": {
+     "AuthCodeUrl": "{{ AuthCodeUrl }}",
+     "TokenUrl": "{{ TokenUrl }}",
+     "OAuthScopes": [
+      "{{ OAuthScopes[0] }}"
+     ]
+    },
+    "DisableSSO": "{{ DisableSSO }}"
+   },
+   "Salesforce": {
+    "InstanceUrl": null,
+    "isSandboxEnvironment": "{{ isSandboxEnvironment }}",
+    "usePrivateLinkForMetadataAndAuthorization": "{{ usePrivateLinkForMetadataAndAuthorization }}"
+   },
+   "Pardot": {
+    "InstanceUrl": null,
+    "IsSandboxEnvironment": "{{ IsSandboxEnvironment }}",
+    "BusinessUnitId": "{{ BusinessUnitId }}"
+   },
+   "ServiceNow": {
+    "InstanceUrl": null
+   },
+   "Slack": {
+    "InstanceUrl": null
+   },
+   "Snowflake": {
+    "Warehouse": "{{ Warehouse }}",
+    "Stage": "{{ Stage }}",
+    "BucketName": null,
+    "BucketPrefix": null,
+    "PrivateLinkServiceName": null,
+    "AccountName": "{{ AccountName }}",
+    "Region": "{{ Region }}"
+   },
+   "Veeva": {
+    "InstanceUrl": null
+   },
+   "Zendesk": {
+    "InstanceUrl": null
+   },
+   "CustomConnector": {
+    "ProfileProperties": {},
+    "OAuth2Properties": {
+     "TokenUrl": "{{ TokenUrl }}",
+     "OAuth2GrantType": "{{ OAuth2GrantType }}",
+     "TokenUrlCustomProperties": {}
+    }
+   }
+  },
+  "ConnectorProfileCredentials": {
+   "Amplitude": {
+    "ApiKey": "{{ ApiKey }}",
+    "SecretKey": "{{ SecretKey }}"
+   },
+   "Datadog": {
+    "ApiKey": null,
+    "ApplicationKey": "{{ ApplicationKey }}"
+   },
+   "Dynatrace": {
+    "ApiToken": "{{ ApiToken }}"
+   },
+   "GoogleAnalytics": {
+    "ClientId": "{{ ClientId }}",
+    "ClientSecret": "{{ ClientSecret }}",
+    "AccessToken": "{{ AccessToken }}",
+    "RefreshToken": "{{ RefreshToken }}",
+    "ConnectorOAuthRequest": {
+     "AuthCode": "{{ AuthCode }}",
+     "RedirectUri": "{{ RedirectUri }}"
+    }
+   },
+   "InforNexus": {
+    "AccessKeyId": "{{ AccessKeyId }}",
+    "UserId": "{{ UserId }}",
+    "SecretAccessKey": "{{ SecretAccessKey }}",
+    "Datakey": null
+   },
+   "Marketo": {
+    "ClientId": null,
+    "ClientSecret": null,
+    "AccessToken": null,
+    "ConnectorOAuthRequest": null
+   },
+   "Redshift": {
+    "Username": null,
+    "Password": "{{ Password }}"
+   },
+   "SAPOData": {
+    "BasicAuthCredentials": {
+     "Username": null,
+     "Password": null
+    },
+    "OAuthCredentials": {
+     "AccessToken": null,
+     "RefreshToken": null,
+     "ConnectorOAuthRequest": null,
+     "ClientId": null,
+     "ClientSecret": null
+    }
+   },
+   "Salesforce": {
+    "AccessToken": null,
+    "RefreshToken": null,
+    "ConnectorOAuthRequest": null,
+    "ClientCredentialsArn": "{{ ClientCredentialsArn }}",
+    "OAuth2GrantType": null,
+    "JwtToken": "{{ JwtToken }}"
+   },
+   "Pardot": {
+    "AccessToken": null,
+    "RefreshToken": null,
+    "ConnectorOAuthRequest": null,
+    "ClientCredentialsArn": null
+   },
+   "ServiceNow": {
+    "Username": null,
+    "Password": null,
+    "OAuth2Credentials": {
+     "ClientId": null,
+     "ClientSecret": null,
+     "AccessToken": null,
+     "RefreshToken": null,
+     "OAuthRequest": null
+    }
+   },
+   "Singular": {
+    "ApiKey": null
+   },
+   "Slack": {
+    "ClientId": null,
+    "ClientSecret": null,
+    "AccessToken": null,
+    "ConnectorOAuthRequest": null
+   },
+   "Snowflake": {
+    "Username": null,
+    "Password": null
+   },
+   "Trendmicro": {
+    "ApiSecretKey": "{{ ApiSecretKey }}"
+   },
+   "Veeva": {
+    "Username": null,
+    "Password": null
+   },
+   "Zendesk": {
+    "ClientId": null,
+    "ClientSecret": null,
+    "AccessToken": null,
+    "ConnectorOAuthRequest": null
+   },
+   "CustomConnector": {
+    "AuthenticationType": "{{ AuthenticationType }}",
+    "Basic": null,
+    "Oauth2": null,
+    "ApiKey": {
+     "ApiKey": null,
+     "ApiSecretKey": null
+    },
+    "Custom": {
+     "CustomAuthenticationType": "{{ CustomAuthenticationType }}",
+     "CredentialsMap": {}
+    }
+   }
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.appflow.connector_profiles (
+ ConnectorLabel,
+ ConnectorProfileName,
+ KMSArn,
+ ConnectorType,
+ ConnectionMode,
+ ConnectorProfileConfig,
+ region
+)
+SELECT 
+ {{ ConnectorLabel }},
+ {{ ConnectorProfileName }},
+ {{ KMSArn }},
+ {{ ConnectorType }},
+ {{ ConnectionMode }},
+ {{ ConnectorProfileConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appflow.connector_profiles
+WHERE data__Identifier = '<ConnectorProfileName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +364,11 @@ iam:PassRole,
 secretsmanager:CreateSecret,
 secretsmanager:GetSecretValue,
 secretsmanager:PutResourcePolicy
+```
+
+### Delete
+```json
+appflow:DeleteConnectorProfile
 ```
 
 ### List

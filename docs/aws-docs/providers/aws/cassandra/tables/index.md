@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>tables</code> in a region or create a <code>tables</code> resource, use <code>table</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>tables</code> in a region or to create or delete a <code>tables</code> resource, use <code>table</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>tables</code> in a region or create a <code>tab
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,156 @@ region,
 keyspace_name,
 table_name
 FROM aws.cassandra.tables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "KeyspaceName": "{{ KeyspaceName }}",
+ "PartitionKeyColumns": [
+  {
+   "ColumnName": "{{ ColumnName }}",
+   "ColumnType": "{{ ColumnType }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.cassandra.tables (
+ KeyspaceName,
+ PartitionKeyColumns,
+ region
+)
+SELECT 
+{{ KeyspaceName }},
+ {{ PartitionKeyColumns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "KeyspaceName": "{{ KeyspaceName }}",
+ "TableName": "{{ TableName }}",
+ "RegularColumns": [
+  {
+   "ColumnName": "{{ ColumnName }}",
+   "ColumnType": "{{ ColumnType }}"
+  }
+ ],
+ "PartitionKeyColumns": [
+  null
+ ],
+ "ClusteringKeyColumns": [
+  {
+   "Column": null,
+   "OrderBy": "{{ OrderBy }}"
+  }
+ ],
+ "BillingMode": {
+  "Mode": "{{ Mode }}",
+  "ProvisionedThroughput": {
+   "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
+   "WriteCapacityUnits": "{{ WriteCapacityUnits }}"
+  }
+ },
+ "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}",
+ "ClientSideTimestampsEnabled": "{{ ClientSideTimestampsEnabled }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "DefaultTimeToLive": "{{ DefaultTimeToLive }}",
+ "EncryptionSpecification": {
+  "EncryptionType": "{{ EncryptionType }}",
+  "KmsKeyIdentifier": "{{ KmsKeyIdentifier }}"
+ },
+ "AutoScalingSpecifications": {
+  "WriteCapacityAutoScaling": {
+   "AutoScalingDisabled": "{{ AutoScalingDisabled }}",
+   "MinimumUnits": "{{ MinimumUnits }}",
+   "MaximumUnits": "{{ MaximumUnits }}",
+   "ScalingPolicy": {
+    "TargetTrackingScalingPolicyConfiguration": {
+     "DisableScaleIn": "{{ DisableScaleIn }}",
+     "ScaleInCooldown": "{{ ScaleInCooldown }}",
+     "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
+     "TargetValue": "{{ TargetValue }}"
+    }
+   }
+  },
+  "ReadCapacityAutoScaling": null
+ },
+ "ReplicaSpecifications": [
+  {
+   "Region": "{{ Region }}",
+   "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
+   "ReadCapacityAutoScaling": null
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.cassandra.tables (
+ KeyspaceName,
+ TableName,
+ RegularColumns,
+ PartitionKeyColumns,
+ ClusteringKeyColumns,
+ BillingMode,
+ PointInTimeRecoveryEnabled,
+ ClientSideTimestampsEnabled,
+ Tags,
+ DefaultTimeToLive,
+ EncryptionSpecification,
+ AutoScalingSpecifications,
+ ReplicaSpecifications,
+ region
+)
+SELECT 
+ {{ KeyspaceName }},
+ {{ TableName }},
+ {{ RegularColumns }},
+ {{ PartitionKeyColumns }},
+ {{ ClusteringKeyColumns }},
+ {{ BillingMode }},
+ {{ PointInTimeRecoveryEnabled }},
+ {{ ClientSideTimestampsEnabled }},
+ {{ Tags }},
+ {{ DefaultTimeToLive }},
+ {{ EncryptionSpecification }},
+ {{ AutoScalingSpecifications }},
+ {{ ReplicaSpecifications }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cassandra.tables
+WHERE data__Identifier = '<KeyspaceName|TableName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +239,23 @@ kms:CreateGrant,
 kms:DescribeKey,
 kms:Encrypt,
 kms:Decrypt,
+application-autoscaling:DescribeScalableTargets,
+application-autoscaling:DescribeScalingPolicies,
+application-autoscaling:DeregisterScalableTarget,
+application-autoscaling:RegisterScalableTarget,
+application-autoscaling:PutScalingPolicy,
+cloudwatch:DeleteAlarms,
+cloudwatch:DescribeAlarms,
+cloudwatch:GetMetricData,
+cloudwatch:PutMetricAlarm
+```
+
+### Delete
+```json
+cassandra:Drop,
+cassandra:DropMultiRegionResource,
+cassandra:Select,
+cassandra:SelectMultiRegionResource,
 application-autoscaling:DescribeScalableTargets,
 application-autoscaling:DescribeScalingPolicies,
 application-autoscaling:DeregisterScalableTarget,

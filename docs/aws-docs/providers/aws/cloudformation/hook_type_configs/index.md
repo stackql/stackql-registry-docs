@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>hook_type_configs</code> in a region or create a <code>hook_type_configs</code> resource, use <code>hook_type_config</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>hook_type_configs</code> in a region or to create or delete a <code>hook_type_configs</code> resource, use <code>hook_type_config</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>hook_type_configs</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 configuration_arn
 FROM aws.cloudformation.hook_type_configs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TypeArn": "{{ TypeArn }}",
+ "TypeName": "{{ TypeName }}",
+ "Configuration": "{{ Configuration }}",
+ "ConfigurationAlias": "{{ ConfigurationAlias }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudformation.hook_type_configs (
+ TypeArn,
+ TypeName,
+ Configuration,
+ ConfigurationAlias,
+ region
+)
+SELECT 
+{{ TypeArn }},
+ {{ TypeName }},
+ {{ Configuration }},
+ {{ ConfigurationAlias }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TypeArn": "{{ TypeArn }}",
+ "TypeName": "{{ TypeName }}",
+ "Configuration": "{{ Configuration }}",
+ "ConfigurationAlias": "{{ ConfigurationAlias }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cloudformation.hook_type_configs (
+ TypeArn,
+ TypeName,
+ Configuration,
+ ConfigurationAlias,
+ region
+)
+SELECT 
+ {{ TypeArn }},
+ {{ TypeName }},
+ {{ Configuration }},
+ {{ ConfigurationAlias }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudformation.hook_type_configs
+WHERE data__Identifier = '<ConfigurationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -69,6 +153,11 @@ WHERE region = 'us-east-1'
 To operate on the <code>hook_type_configs</code> resource, the following permissions are required:
 
 ### Create
+```json
+cloudformation:SetTypeConfiguration
+```
+
+### Delete
 ```json
 cloudformation:SetTypeConfiguration
 ```

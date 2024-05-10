@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>app_blocks</code> in a region or create a <code>app_blocks</code> resource, use <code>app_block</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>app_blocks</code> in a region or to create or delete a <code>app_blocks</code> resource, use <code>app_block</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>app_blocks</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,105 @@ SELECT
 region,
 arn
 FROM aws.appstream.app_blocks
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "SourceS3Location": {
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.appstream.app_blocks (
+ Name,
+ SourceS3Location,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ SourceS3Location }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "DisplayName": "{{ DisplayName }}",
+ "SourceS3Location": {
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}"
+ },
+ "SetupScriptDetails": {
+  "ScriptS3Location": null,
+  "ExecutablePath": "{{ ExecutablePath }}",
+  "ExecutableParameters": "{{ ExecutableParameters }}",
+  "TimeoutInSeconds": "{{ TimeoutInSeconds }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "PackagingType": "{{ PackagingType }}",
+ "PostSetupScriptDetails": null
+}
+>>>
+--all properties
+INSERT INTO aws.appstream.app_blocks (
+ Name,
+ Description,
+ DisplayName,
+ SourceS3Location,
+ SetupScriptDetails,
+ Tags,
+ PackagingType,
+ PostSetupScriptDetails,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ DisplayName }},
+ {{ SourceS3Location }},
+ {{ SetupScriptDetails }},
+ {{ Tags }},
+ {{ PackagingType }},
+ {{ PostSetupScriptDetails }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appstream.app_blocks
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,5 +181,10 @@ appstream:TagResource,
 s3:GetObject,
 s3:ListBucket,
 s3:GetBucketOwnershipControls
+```
+
+### Delete
+```json
+appstream:DeleteAppBlock
 ```
 

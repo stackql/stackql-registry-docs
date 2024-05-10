@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpn_connection_routes</code> in a region or create a <code>vpn_connection_routes</code> resource, use <code>vpn_connection_route</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpn_connection_routes</code> in a region or to create or delete a <code>vpn_connection_routes</code> resource, use <code>vpn_connection_route</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>vpn_connection_routes</code> in a region or cre
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,71 @@ region,
 destination_cidr_block,
 vpn_connection_id
 FROM aws.ec2.vpn_connection_routes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationCidrBlock": "{{ DestinationCidrBlock }}",
+ "VpnConnectionId": "{{ VpnConnectionId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.vpn_connection_routes (
+ DestinationCidrBlock,
+ VpnConnectionId,
+ region
+)
+SELECT 
+{{ DestinationCidrBlock }},
+ {{ VpnConnectionId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DestinationCidrBlock": "{{ DestinationCidrBlock }}",
+ "VpnConnectionId": "{{ VpnConnectionId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.vpn_connection_routes (
+ DestinationCidrBlock,
+ VpnConnectionId,
+ region
+)
+SELECT 
+ {{ DestinationCidrBlock }},
+ {{ VpnConnectionId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.vpn_connection_routes
+WHERE data__Identifier = '<DestinationCidrBlock|VpnConnectionId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +145,12 @@ To operate on the <code>vpn_connection_routes</code> resource, the following per
 ### Create
 ```json
 ec2:CreateVpnConnectionRoute,
+ec2:DescribeVpnConnections
+```
+
+### Delete
+```json
+ec2:DeleteVpnConnectionRoute,
 ec2:DescribeVpnConnections
 ```
 

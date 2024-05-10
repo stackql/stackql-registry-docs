@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>custom_line_items</code> in a region or create a <code>custom_line_items</code> resource, use <code>custom_line_item</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>custom_line_items</code> in a region or to create or delete a <code>custom_line_items</code> resource, use <code>custom_line_item</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>custom_line_items</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,114 @@ SELECT
 region,
 arn
 FROM aws.billingconductor.custom_line_items
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "BillingGroupArn": "{{ BillingGroupArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.billingconductor.custom_line_items (
+ Name,
+ BillingGroupArn,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ BillingGroupArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "CustomLineItemChargeDetails": {
+  "Flat": {
+   "ChargeValue": null
+  },
+  "Percentage": {
+   "ChildAssociatedResources": [
+    "{{ ChildAssociatedResources[0] }}"
+   ],
+   "PercentageValue": null
+  },
+  "Type": "{{ Type }}",
+  "LineItemFilters": [
+   {
+    "Attribute": "{{ Attribute }}",
+    "MatchOption": "{{ MatchOption }}",
+    "Values": [
+     "{{ Values[0] }}"
+    ]
+   }
+  ]
+ },
+ "BillingGroupArn": "{{ BillingGroupArn }}",
+ "BillingPeriodRange": {
+  "InclusiveStartBillingPeriod": "{{ InclusiveStartBillingPeriod }}",
+  "ExclusiveEndBillingPeriod": "{{ ExclusiveEndBillingPeriod }}"
+ },
+ "AccountId": "{{ AccountId }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.billingconductor.custom_line_items (
+ Name,
+ Description,
+ CustomLineItemChargeDetails,
+ BillingGroupArn,
+ BillingPeriodRange,
+ AccountId,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ CustomLineItemChargeDetails }},
+ {{ BillingGroupArn }},
+ {{ BillingPeriodRange }},
+ {{ AccountId }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.billingconductor.custom_line_items
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,5 +197,14 @@ billingconductor:ListTagsForResource
 billingconductor:ListCustomLineItems,
 billingconductor:ListResourcesAssociatedToCustomLineItem,
 billingconductor:ListTagsForResource
+```
+
+### Delete
+```json
+billingconductor:DeleteCustomLineItem,
+billingconductor:ListCustomLineItems,
+billingconductor:BatchDisassociateResourcesFromCustomLineItem,
+billingconductor:ListResourcesAssociatedToCustomLineItem,
+billingconductor:UntagResource
 ```
 

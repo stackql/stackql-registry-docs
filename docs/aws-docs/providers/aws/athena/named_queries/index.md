@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>named_queries</code> in a region or create a <code>named_queries</code> resource, use <code>named_query</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>named_queries</code> in a region or to create or delete a <code>named_queries</code> resource, use <code>named_query</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>named_queries</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,80 @@ SELECT
 region,
 named_query_id
 FROM aws.athena.named_queries
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Database": "{{ Database }}",
+ "QueryString": "{{ QueryString }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.athena.named_queries (
+ Database,
+ QueryString,
+ region
+)
+SELECT 
+{{ Database }},
+ {{ QueryString }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Database": "{{ Database }}",
+ "Description": "{{ Description }}",
+ "QueryString": "{{ QueryString }}",
+ "WorkGroup": "{{ WorkGroup }}"
+}
+>>>
+--all properties
+INSERT INTO aws.athena.named_queries (
+ Name,
+ Database,
+ Description,
+ QueryString,
+ WorkGroup,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Database }},
+ {{ Description }},
+ {{ QueryString }},
+ {{ WorkGroup }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.athena.named_queries
+WHERE data__Identifier = '<NamedQueryId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,5 +157,10 @@ athena:CreateNamedQuery
 ### List
 ```json
 athena:ListNamedQueries
+```
+
+### Delete
+```json
+athena:DeleteNamedQuery
 ```
 

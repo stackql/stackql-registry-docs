@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>databases</code> in a region or create a <code>databases</code> resource, use <code>database</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>databases</code> in a region or to create or delete a <code>databases</code> resource, use <code>database</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>databases</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,135 @@ SELECT
 region,
 relational_database_name
 FROM aws.lightsail.databases
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RelationalDatabaseName": "{{ RelationalDatabaseName }}",
+ "RelationalDatabaseBlueprintId": "{{ RelationalDatabaseBlueprintId }}",
+ "RelationalDatabaseBundleId": "{{ RelationalDatabaseBundleId }}",
+ "MasterDatabaseName": "{{ MasterDatabaseName }}",
+ "MasterUsername": "{{ MasterUsername }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lightsail.databases (
+ RelationalDatabaseName,
+ RelationalDatabaseBlueprintId,
+ RelationalDatabaseBundleId,
+ MasterDatabaseName,
+ MasterUsername,
+ region
+)
+SELECT 
+{{ RelationalDatabaseName }},
+ {{ RelationalDatabaseBlueprintId }},
+ {{ RelationalDatabaseBundleId }},
+ {{ MasterDatabaseName }},
+ {{ MasterUsername }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RelationalDatabaseName": "{{ RelationalDatabaseName }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "RelationalDatabaseBlueprintId": "{{ RelationalDatabaseBlueprintId }}",
+ "RelationalDatabaseBundleId": "{{ RelationalDatabaseBundleId }}",
+ "MasterDatabaseName": "{{ MasterDatabaseName }}",
+ "MasterUsername": "{{ MasterUsername }}",
+ "MasterUserPassword": "{{ MasterUserPassword }}",
+ "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
+ "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
+ "PubliclyAccessible": "{{ PubliclyAccessible }}",
+ "CaCertificateIdentifier": "{{ CaCertificateIdentifier }}",
+ "BackupRetention": "{{ BackupRetention }}",
+ "RotateMasterUserPassword": "{{ RotateMasterUserPassword }}",
+ "RelationalDatabaseParameters": [
+  {
+   "AllowedValues": "{{ AllowedValues }}",
+   "ApplyMethod": "{{ ApplyMethod }}",
+   "ApplyType": "{{ ApplyType }}",
+   "DataType": "{{ DataType }}",
+   "Description": "{{ Description }}",
+   "IsModifiable": "{{ IsModifiable }}",
+   "ParameterName": "{{ ParameterName }}",
+   "ParameterValue": "{{ ParameterValue }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lightsail.databases (
+ RelationalDatabaseName,
+ AvailabilityZone,
+ RelationalDatabaseBlueprintId,
+ RelationalDatabaseBundleId,
+ MasterDatabaseName,
+ MasterUsername,
+ MasterUserPassword,
+ PreferredBackupWindow,
+ PreferredMaintenanceWindow,
+ PubliclyAccessible,
+ CaCertificateIdentifier,
+ BackupRetention,
+ RotateMasterUserPassword,
+ RelationalDatabaseParameters,
+ Tags,
+ region
+)
+SELECT 
+ {{ RelationalDatabaseName }},
+ {{ AvailabilityZone }},
+ {{ RelationalDatabaseBlueprintId }},
+ {{ RelationalDatabaseBundleId }},
+ {{ MasterDatabaseName }},
+ {{ MasterUsername }},
+ {{ MasterUserPassword }},
+ {{ PreferredBackupWindow }},
+ {{ PreferredMaintenanceWindow }},
+ {{ PubliclyAccessible }},
+ {{ CaCertificateIdentifier }},
+ {{ BackupRetention }},
+ {{ RotateMasterUserPassword }},
+ {{ RelationalDatabaseParameters }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lightsail.databases
+WHERE data__Identifier = '<RelationalDatabaseName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +214,13 @@ lightsail:TagResource,
 lightsail:UntagResource,
 lightsail:UpdateRelationalDatabase,
 lightsail:UpdateRelationalDatabaseParameters
+```
+
+### Delete
+```json
+lightsail:DeleteRelationalDatabase,
+lightsail:GetRelationalDatabase,
+lightsail:GetRelationalDatabases
 ```
 
 ### List

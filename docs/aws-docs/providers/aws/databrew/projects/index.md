@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>projects</code> in a region or create a <code>projects</code> resource, use <code>project</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>projects</code> in a region or to create or delete a <code>projects</code> resource, use <code>project</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>projects</code> in a region or create a <code>p
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,97 @@ SELECT
 region,
 name
 FROM aws.databrew.projects
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DatasetName": "{{ DatasetName }}",
+ "Name": "{{ Name }}",
+ "RecipeName": "{{ RecipeName }}",
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.databrew.projects (
+ DatasetName,
+ Name,
+ RecipeName,
+ RoleArn,
+ region
+)
+SELECT 
+{{ DatasetName }},
+ {{ Name }},
+ {{ RecipeName }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DatasetName": "{{ DatasetName }}",
+ "Name": "{{ Name }}",
+ "RecipeName": "{{ RecipeName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Sample": {
+  "Size": "{{ Size }}",
+  "Type": "{{ Type }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.databrew.projects (
+ DatasetName,
+ Name,
+ RecipeName,
+ RoleArn,
+ Sample,
+ Tags,
+ region
+)
+SELECT 
+ {{ DatasetName }},
+ {{ Name }},
+ {{ RecipeName }},
+ {{ RoleArn }},
+ {{ Sample }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.databrew.projects
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +172,11 @@ databrew:CreateProject,
 databrew:TagResource,
 databrew:UntagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+databrew:DeleteProject
 ```
 
 ### List

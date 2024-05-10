@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>verified_access_groups</code> in a region or create a <code>verified_access_groups</code> resource, use <code>verified_access_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>verified_access_groups</code> in a region or to create or delete a <code>verified_access_groups</code> resource, use <code>verified_access_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>verified_access_groups</code> in a region or cr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,88 @@ SELECT
 region,
 verified_access_group_id
 FROM aws.ec2.verified_access_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "VerifiedAccessInstanceId": "{{ VerifiedAccessInstanceId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.verified_access_groups (
+ VerifiedAccessInstanceId,
+ region
+)
+SELECT 
+{{ VerifiedAccessInstanceId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "VerifiedAccessInstanceId": "{{ VerifiedAccessInstanceId }}",
+ "Description": "{{ Description }}",
+ "PolicyDocument": "{{ PolicyDocument }}",
+ "PolicyEnabled": "{{ PolicyEnabled }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "SseSpecification": {
+  "KmsKeyArn": "{{ KmsKeyArn }}",
+  "CustomerManagedKeyEnabled": "{{ CustomerManagedKeyEnabled }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.verified_access_groups (
+ VerifiedAccessInstanceId,
+ Description,
+ PolicyDocument,
+ PolicyEnabled,
+ Tags,
+ SseSpecification,
+ region
+)
+SELECT 
+ {{ VerifiedAccessInstanceId }},
+ {{ Description }},
+ {{ PolicyDocument }},
+ {{ PolicyEnabled }},
+ {{ Tags }},
+ {{ SseSpecification }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.verified_access_groups
+WHERE data__Identifier = '<VerifiedAccessGroupId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +163,19 @@ ec2:CreateVerifiedAccessGroup,
 ec2:DescribeVerifiedAccessGroups,
 ec2:GetVerifiedAccessGroupPolicy,
 ec2:CreateTags,
+ec2:DescribeTags,
+kms:DescribeKey,
+kms:RetireGrant,
+kms:CreateGrant,
+kms:GenerateDataKey,
+kms:Decrypt
+```
+
+### Delete
+```json
+ec2:DeleteVerifiedAccessGroup,
+ec2:DeleteTags,
+ec2:DescribeVerifiedAccessGroups,
 ec2:DescribeTags,
 kms:DescribeKey,
 kms:RetireGrant,

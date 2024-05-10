@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>multi_region_access_point_policy</code> resource, use <code>multi_region_access_point_policies</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>multi_region_access_point_policy</code> resource, use <code>multi_region_access_point_policies</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -51,11 +54,6 @@ Gets or operates on an individual <code>multi_region_access_point_policy</code> 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -70,8 +68,9 @@ mrap_name,
 policy,
 policy_status
 FROM aws.s3.multi_region_access_point_policy
-WHERE data__Identifier = '<MrapName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<MrapName>';
 ```
+
 
 ## Permissions
 
@@ -87,11 +86,5 @@ s3:DescribeMultiRegionAccessPointOperation
 ```json
 s3:GetMultiRegionAccessPointPolicy,
 s3:GetMultiRegionAccessPointPolicyStatus
-```
-
-### Delete
-```json
-s3:GetMultiRegionAccessPointPolicy,
-s3:GetMultiRegionAccessPoint
 ```
 

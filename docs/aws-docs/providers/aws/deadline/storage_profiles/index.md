@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>storage_profiles</code> in a region or create a <code>storage_profiles</code> resource, use <code>storage_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>storage_profiles</code> in a region or to create or delete a <code>storage_profiles</code> resource, use <code>storage_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>storage_profiles</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,83 @@ region,
 farm_id,
 storage_profile_id
 FROM aws.deadline.storage_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DisplayName": "{{ DisplayName }}",
+ "OsFamily": "{{ OsFamily }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.deadline.storage_profiles (
+ DisplayName,
+ OsFamily,
+ region
+)
+SELECT 
+{{ DisplayName }},
+ {{ OsFamily }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DisplayName": "{{ DisplayName }}",
+ "FarmId": "{{ FarmId }}",
+ "FileSystemLocations": [
+  {
+   "Name": "{{ Name }}",
+   "Path": "{{ Path }}",
+   "Type": "{{ Type }}"
+  }
+ ],
+ "OsFamily": "{{ OsFamily }}"
+}
+>>>
+--all properties
+INSERT INTO aws.deadline.storage_profiles (
+ DisplayName,
+ FarmId,
+ FileSystemLocations,
+ OsFamily,
+ region
+)
+SELECT 
+ {{ DisplayName }},
+ {{ FarmId }},
+ {{ FileSystemLocations }},
+ {{ OsFamily }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.deadline.storage_profiles
+WHERE data__Identifier = '<FarmId|StorageProfileId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +157,13 @@ To operate on the <code>storage_profiles</code> resource, the following permissi
 ### Create
 ```json
 deadline:CreateStorageProfile,
+deadline:GetStorageProfile,
+identitystore:ListGroupMembershipsForMember
+```
+
+### Delete
+```json
+deadline:DeleteStorageProfile,
 deadline:GetStorageProfile,
 identitystore:ListGroupMembershipsForMember
 ```

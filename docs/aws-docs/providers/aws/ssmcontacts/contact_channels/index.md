@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>contact_channels</code> in a region or create a <code>contact_channels</code> resource, use <code>contact_channel</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>contact_channels</code> in a region or to create or delete a <code>contact_channels</code> resource, use <code>contact_channel</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>contact_channels</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,89 @@ SELECT
 region,
 arn
 FROM aws.ssmcontacts.contact_channels
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ContactId": "{{ ContactId }}",
+ "ChannelName": "{{ ChannelName }}",
+ "ChannelType": "{{ ChannelType }}",
+ "DeferActivation": "{{ DeferActivation }}",
+ "ChannelAddress": "{{ ChannelAddress }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ssmcontacts.contact_channels (
+ ContactId,
+ ChannelName,
+ ChannelType,
+ DeferActivation,
+ ChannelAddress,
+ region
+)
+SELECT 
+{{ ContactId }},
+ {{ ChannelName }},
+ {{ ChannelType }},
+ {{ DeferActivation }},
+ {{ ChannelAddress }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ContactId": "{{ ContactId }}",
+ "ChannelName": "{{ ChannelName }}",
+ "ChannelType": "{{ ChannelType }}",
+ "DeferActivation": "{{ DeferActivation }}",
+ "ChannelAddress": "{{ ChannelAddress }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ssmcontacts.contact_channels (
+ ContactId,
+ ChannelName,
+ ChannelType,
+ DeferActivation,
+ ChannelAddress,
+ region
+)
+SELECT 
+ {{ ContactId }},
+ {{ ChannelName }},
+ {{ ChannelType }},
+ {{ DeferActivation }},
+ {{ ChannelAddress }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ssmcontacts.contact_channels
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +161,12 @@ To operate on the <code>contact_channels</code> resource, the following permissi
 ### Create
 ```json
 ssm-contacts:CreateContactChannel,
+ssm-contacts:GetContactChannel
+```
+
+### Delete
+```json
+ssm-contacts:DeleteContactChannel,
 ssm-contacts:GetContactChannel
 ```
 

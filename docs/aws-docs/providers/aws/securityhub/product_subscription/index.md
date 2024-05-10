@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>product_subscription</code> resource, use <code>product_subscriptions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>product_subscription</code> resource, use <code>product_subscriptions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -45,11 +48,6 @@ Gets or operates on an individual <code>product_subscription</code> resource, us
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -63,8 +61,9 @@ region,
 product_arn,
 product_subscription_arn
 FROM aws.securityhub.product_subscription
-WHERE data__Identifier = '<ProductSubscriptionArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ProductSubscriptionArn>';
 ```
+
 
 ## Permissions
 
@@ -73,11 +72,5 @@ To operate on the <code>product_subscription</code> resource, the following perm
 ### Read
 ```json
 securityhub:ListEnabledProductsForImport
-```
-
-### Delete
-```json
-securityhub:ListEnabledProductsForImport,
-securityhub:DisableImportFindingsForProduct
 ```
 

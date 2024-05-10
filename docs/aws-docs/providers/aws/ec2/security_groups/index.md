@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>security_groups</code> in a region or create a <code>security_groups</code> resource, use <code>security_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>security_groups</code> in a region or to create or delete a <code>security_groups</code> resource, use <code>security_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>security_groups</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,109 @@ SELECT
 region,
 id
 FROM aws.ec2.security_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "GroupDescription": "{{ GroupDescription }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.security_groups (
+ GroupDescription,
+ region
+)
+SELECT 
+{{ GroupDescription }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "GroupDescription": "{{ GroupDescription }}",
+ "GroupName": "{{ GroupName }}",
+ "VpcId": "{{ VpcId }}",
+ "SecurityGroupIngress": [
+  {
+   "CidrIp": "{{ CidrIp }}",
+   "CidrIpv6": "{{ CidrIpv6 }}",
+   "Description": "{{ Description }}",
+   "FromPort": "{{ FromPort }}",
+   "SourceSecurityGroupName": "{{ SourceSecurityGroupName }}",
+   "ToPort": "{{ ToPort }}",
+   "SourceSecurityGroupOwnerId": "{{ SourceSecurityGroupOwnerId }}",
+   "IpProtocol": "{{ IpProtocol }}",
+   "SourceSecurityGroupId": "{{ SourceSecurityGroupId }}",
+   "SourcePrefixListId": "{{ SourcePrefixListId }}"
+  }
+ ],
+ "SecurityGroupEgress": [
+  {
+   "CidrIp": "{{ CidrIp }}",
+   "CidrIpv6": "{{ CidrIpv6 }}",
+   "Description": "{{ Description }}",
+   "FromPort": "{{ FromPort }}",
+   "ToPort": "{{ ToPort }}",
+   "IpProtocol": "{{ IpProtocol }}",
+   "DestinationSecurityGroupId": "{{ DestinationSecurityGroupId }}",
+   "DestinationPrefixListId": "{{ DestinationPrefixListId }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.security_groups (
+ GroupDescription,
+ GroupName,
+ VpcId,
+ SecurityGroupIngress,
+ SecurityGroupEgress,
+ Tags,
+ region
+)
+SELECT 
+ {{ GroupDescription }},
+ {{ GroupName }},
+ {{ VpcId }},
+ {{ SecurityGroupIngress }},
+ {{ SecurityGroupEgress }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.security_groups
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,5 +191,11 @@ ec2:CreateTags
 ### List
 ```json
 ec2:DescribeSecurityGroups
+```
+
+### Delete
+```json
+ec2:DeleteSecurityGroup,
+ec2:DescribeInstances
 ```
 

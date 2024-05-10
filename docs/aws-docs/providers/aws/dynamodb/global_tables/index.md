@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>global_tables</code> in a region or create a <code>global_tables</code> resource, use <code>global_table</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>global_tables</code> in a region or to create or delete a <code>global_tables</code> resource, use <code>global_table</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>global_tables</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,263 @@ SELECT
 region,
 table_name
 FROM aws.dynamodb.global_tables
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Replicas": [
+  {
+   "SSESpecification": {
+    "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
+   },
+   "KinesisStreamSpecification": {
+    "ApproximateCreationDateTimePrecision": "{{ ApproximateCreationDateTimePrecision }}",
+    "StreamArn": "{{ StreamArn }}"
+   },
+   "ContributorInsightsSpecification": {
+    "Enabled": "{{ Enabled }}"
+   },
+   "PointInTimeRecoverySpecification": {
+    "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}"
+   },
+   "ReplicaStreamSpecification": {
+    "ResourcePolicy": {
+     "PolicyDocument": {}
+    }
+   },
+   "GlobalSecondaryIndexes": [
+    {
+     "IndexName": "{{ IndexName }}",
+     "ContributorInsightsSpecification": null,
+     "ReadProvisionedThroughputSettings": {
+      "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
+      "ReadCapacityAutoScalingSettings": {
+       "MinCapacity": "{{ MinCapacity }}",
+       "SeedCapacity": "{{ SeedCapacity }}",
+       "TargetTrackingScalingPolicyConfiguration": {
+        "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
+        "TargetValue": null,
+        "DisableScaleIn": "{{ DisableScaleIn }}",
+        "ScaleInCooldown": "{{ ScaleInCooldown }}"
+       },
+       "MaxCapacity": "{{ MaxCapacity }}"
+      }
+     }
+    }
+   ],
+   "Region": "{{ Region }}",
+   "ResourcePolicy": null,
+   "ReadProvisionedThroughputSettings": null,
+   "TableClass": "{{ TableClass }}",
+   "DeletionProtectionEnabled": "{{ DeletionProtectionEnabled }}",
+   "Tags": [
+    {
+     "Value": "{{ Value }}",
+     "Key": "{{ Key }}"
+    }
+   ]
+  }
+ ],
+ "AttributeDefinitions": [
+  {
+   "AttributeType": "{{ AttributeType }}",
+   "AttributeName": "{{ AttributeName }}"
+  }
+ ],
+ "KeySchema": [
+  {
+   "KeyType": "{{ KeyType }}",
+   "AttributeName": "{{ AttributeName }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.dynamodb.global_tables (
+ Replicas,
+ AttributeDefinitions,
+ KeySchema,
+ region
+)
+SELECT 
+{{ Replicas }},
+ {{ AttributeDefinitions }},
+ {{ KeySchema }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SSESpecification": {
+  "SSEEnabled": "{{ SSEEnabled }}",
+  "SSEType": "{{ SSEType }}",
+  "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
+ },
+ "StreamSpecification": {
+  "StreamViewType": "{{ StreamViewType }}",
+  "ResourcePolicy": {
+   "PolicyDocument": {}
+  }
+ },
+ "Replicas": [
+  {
+   "SSESpecification": {
+    "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
+   },
+   "KinesisStreamSpecification": {
+    "ApproximateCreationDateTimePrecision": "{{ ApproximateCreationDateTimePrecision }}",
+    "StreamArn": "{{ StreamArn }}"
+   },
+   "ContributorInsightsSpecification": {
+    "Enabled": "{{ Enabled }}"
+   },
+   "PointInTimeRecoverySpecification": {
+    "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}"
+   },
+   "ReplicaStreamSpecification": {
+    "ResourcePolicy": null
+   },
+   "GlobalSecondaryIndexes": [
+    {
+     "IndexName": "{{ IndexName }}",
+     "ContributorInsightsSpecification": null,
+     "ReadProvisionedThroughputSettings": {
+      "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
+      "ReadCapacityAutoScalingSettings": {
+       "MinCapacity": "{{ MinCapacity }}",
+       "SeedCapacity": "{{ SeedCapacity }}",
+       "TargetTrackingScalingPolicyConfiguration": {
+        "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
+        "TargetValue": null,
+        "DisableScaleIn": "{{ DisableScaleIn }}",
+        "ScaleInCooldown": "{{ ScaleInCooldown }}"
+       },
+       "MaxCapacity": "{{ MaxCapacity }}"
+      }
+     }
+    }
+   ],
+   "Region": "{{ Region }}",
+   "ResourcePolicy": null,
+   "ReadProvisionedThroughputSettings": null,
+   "TableClass": "{{ TableClass }}",
+   "DeletionProtectionEnabled": "{{ DeletionProtectionEnabled }}",
+   "Tags": [
+    {
+     "Value": "{{ Value }}",
+     "Key": "{{ Key }}"
+    }
+   ]
+  }
+ ],
+ "WriteProvisionedThroughputSettings": {
+  "WriteCapacityAutoScalingSettings": null
+ },
+ "TableName": "{{ TableName }}",
+ "AttributeDefinitions": [
+  {
+   "AttributeType": "{{ AttributeType }}",
+   "AttributeName": "{{ AttributeName }}"
+  }
+ ],
+ "BillingMode": "{{ BillingMode }}",
+ "GlobalSecondaryIndexes": [
+  {
+   "IndexName": "{{ IndexName }}",
+   "ContributorInsightsSpecification": null,
+   "Projection": {
+    "NonKeyAttributes": [
+     "{{ NonKeyAttributes[0] }}"
+    ],
+    "ProjectionType": "{{ ProjectionType }}"
+   },
+   "ProvisionedThroughput": {
+    "WriteCapacityUnits": "{{ WriteCapacityUnits }}",
+    "ReadCapacityUnits": "{{ ReadCapacityUnits }}"
+   },
+   "KeySchema": [
+    {
+     "KeyType": "{{ KeyType }}",
+     "AttributeName": "{{ AttributeName }}"
+    }
+   ]
+  }
+ ],
+ "KeySchema": [
+  null
+ ],
+ "LocalSecondaryIndexes": [
+  {
+   "IndexName": "{{ IndexName }}",
+   "Projection": null,
+   "KeySchema": [
+    null
+   ]
+  }
+ ],
+ "TimeToLiveSpecification": {
+  "Enabled": "{{ Enabled }}",
+  "AttributeName": "{{ AttributeName }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.dynamodb.global_tables (
+ SSESpecification,
+ StreamSpecification,
+ Replicas,
+ WriteProvisionedThroughputSettings,
+ TableName,
+ AttributeDefinitions,
+ BillingMode,
+ GlobalSecondaryIndexes,
+ KeySchema,
+ LocalSecondaryIndexes,
+ TimeToLiveSpecification,
+ region
+)
+SELECT 
+ {{ SSESpecification }},
+ {{ StreamSpecification }},
+ {{ Replicas }},
+ {{ WriteProvisionedThroughputSettings }},
+ {{ TableName }},
+ {{ AttributeDefinitions }},
+ {{ BillingMode }},
+ {{ GlobalSecondaryIndexes }},
+ {{ KeySchema }},
+ {{ LocalSecondaryIndexes }},
+ {{ TimeToLiveSpecification }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.dynamodb.global_tables
+WHERE data__Identifier = '<TableName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -114,5 +378,18 @@ iam:CreateServiceLinkedRole
 ```json
 dynamodb:ListTables,
 cloudwatch:PutMetricData
+```
+
+### Delete
+```json
+dynamodb:Describe*,
+dynamodb:DeleteTable,
+application-autoscaling:DeleteScalingPolicy,
+application-autoscaling:DeleteScheduledAction,
+application-autoscaling:DeregisterScalableTarget,
+application-autoscaling:Describe*,
+application-autoscaling:PutScalingPolicy,
+application-autoscaling:PutScheduledAction,
+application-autoscaling:RegisterScalableTarget
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>threat_intel_sets</code> in a region or create a <code>threat_intel_sets</code> resource, use <code>threat_intel_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>threat_intel_sets</code> in a region or to create or delete a <code>threat_intel_sets</code> resource, use <code>threat_intel_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>threat_intel_sets</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,88 @@ region,
 id,
 detector_id
 FROM aws.guardduty.threat_intel_sets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Format": "{{ Format }}",
+ "Location": "{{ Location }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.guardduty.threat_intel_sets (
+ Format,
+ Location,
+ region
+)
+SELECT 
+{{ Format }},
+ {{ Location }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Format": "{{ Format }}",
+ "Activate": "{{ Activate }}",
+ "DetectorId": "{{ DetectorId }}",
+ "Name": "{{ Name }}",
+ "Location": "{{ Location }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.guardduty.threat_intel_sets (
+ Format,
+ Activate,
+ DetectorId,
+ Name,
+ Location,
+ Tags,
+ region
+)
+SELECT 
+ {{ Format }},
+ {{ Activate }},
+ {{ DetectorId }},
+ {{ Name }},
+ {{ Location }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.guardduty.threat_intel_sets
+WHERE data__Identifier = '<Id|DetectorId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +165,15 @@ guardduty:CreateThreatIntelSet,
 guardduty:GetThreatIntelSet,
 guardduty:TagResource,
 iam:PutRolePolicy
+```
+
+### Delete
+```json
+guardduty:ListDetectors,
+guardduty:ListThreatIntelSets,
+guardduty:DeleteThreatIntelSet,
+guardduty:GetThreatIntelSet,
+iam:DeleteRolePolicy
 ```
 
 ### List

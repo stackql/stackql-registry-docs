@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>environments</code> in a region or create a <code>environments</code> resource, use <code>environment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>environments</code> in a region or to create or delete a <code>environments</code> resource, use <code>environment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>environments</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,148 @@ SELECT
 region,
 name
 FROM aws.mwaa.environments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.mwaa.environments (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+ "KmsKey": "{{ KmsKey }}",
+ "AirflowVersion": "{{ AirflowVersion }}",
+ "SourceBucketArn": "{{ SourceBucketArn }}",
+ "DagS3Path": "{{ DagS3Path }}",
+ "PluginsS3Path": null,
+ "PluginsS3ObjectVersion": "{{ PluginsS3ObjectVersion }}",
+ "RequirementsS3Path": null,
+ "RequirementsS3ObjectVersion": null,
+ "StartupScriptS3Path": null,
+ "StartupScriptS3ObjectVersion": null,
+ "AirflowConfigurationOptions": {},
+ "EnvironmentClass": "{{ EnvironmentClass }}",
+ "MaxWorkers": "{{ MaxWorkers }}",
+ "MinWorkers": "{{ MinWorkers }}",
+ "Schedulers": "{{ Schedulers }}",
+ "NetworkConfiguration": {
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ],
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ]
+ },
+ "LoggingConfiguration": {
+  "DagProcessingLogs": {
+   "Enabled": "{{ Enabled }}",
+   "LogLevel": "{{ LogLevel }}",
+   "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}"
+  },
+  "SchedulerLogs": null,
+  "WebserverLogs": null,
+  "WorkerLogs": null,
+  "TaskLogs": null
+ },
+ "WeeklyMaintenanceWindowStart": "{{ WeeklyMaintenanceWindowStart }}",
+ "Tags": {},
+ "WebserverAccessMode": "{{ WebserverAccessMode }}",
+ "EndpointManagement": "{{ EndpointManagement }}"
+}
+>>>
+--all properties
+INSERT INTO aws.mwaa.environments (
+ Name,
+ ExecutionRoleArn,
+ KmsKey,
+ AirflowVersion,
+ SourceBucketArn,
+ DagS3Path,
+ PluginsS3Path,
+ PluginsS3ObjectVersion,
+ RequirementsS3Path,
+ RequirementsS3ObjectVersion,
+ StartupScriptS3Path,
+ StartupScriptS3ObjectVersion,
+ AirflowConfigurationOptions,
+ EnvironmentClass,
+ MaxWorkers,
+ MinWorkers,
+ Schedulers,
+ NetworkConfiguration,
+ LoggingConfiguration,
+ WeeklyMaintenanceWindowStart,
+ Tags,
+ WebserverAccessMode,
+ EndpointManagement,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ ExecutionRoleArn }},
+ {{ KmsKey }},
+ {{ AirflowVersion }},
+ {{ SourceBucketArn }},
+ {{ DagS3Path }},
+ {{ PluginsS3Path }},
+ {{ PluginsS3ObjectVersion }},
+ {{ RequirementsS3Path }},
+ {{ RequirementsS3ObjectVersion }},
+ {{ StartupScriptS3Path }},
+ {{ StartupScriptS3ObjectVersion }},
+ {{ AirflowConfigurationOptions }},
+ {{ EnvironmentClass }},
+ {{ MaxWorkers }},
+ {{ MinWorkers }},
+ {{ Schedulers }},
+ {{ NetworkConfiguration }},
+ {{ LoggingConfiguration }},
+ {{ WeeklyMaintenanceWindowStart }},
+ {{ Tags }},
+ {{ WebserverAccessMode }},
+ {{ EndpointManagement }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mwaa.environments
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +220,11 @@ To operate on the <code>environments</code> resource, the following permissions 
 ### Create
 ```json
 airflow:CreateEnvironment
+```
+
+### Delete
+```json
+airflow:DeleteEnvironment
 ```
 
 ### List

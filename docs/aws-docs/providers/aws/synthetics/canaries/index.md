@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>canaries</code> in a region or create a <code>canaries</code> resource, use <code>canary</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>canaries</code> in a region or to create or delete a <code>canaries</code> resource, use <code>canary</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>canaries</code> in a region or create a <code>c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,175 @@ SELECT
 region,
 name
 FROM aws.synthetics.canaries
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Code": {
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}",
+  "S3ObjectVersion": "{{ S3ObjectVersion }}",
+  "Script": "{{ Script }}",
+  "Handler": "{{ Handler }}",
+  "SourceLocationArn": "{{ SourceLocationArn }}"
+ },
+ "ArtifactS3Location": "{{ ArtifactS3Location }}",
+ "Schedule": {
+  "Expression": "{{ Expression }}",
+  "DurationInSeconds": "{{ DurationInSeconds }}"
+ },
+ "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+ "RuntimeVersion": "{{ RuntimeVersion }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.synthetics.canaries (
+ Name,
+ Code,
+ ArtifactS3Location,
+ Schedule,
+ ExecutionRoleArn,
+ RuntimeVersion,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Code }},
+ {{ ArtifactS3Location }},
+ {{ Schedule }},
+ {{ ExecutionRoleArn }},
+ {{ RuntimeVersion }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Code": {
+  "S3Bucket": "{{ S3Bucket }}",
+  "S3Key": "{{ S3Key }}",
+  "S3ObjectVersion": "{{ S3ObjectVersion }}",
+  "Script": "{{ Script }}",
+  "Handler": "{{ Handler }}",
+  "SourceLocationArn": "{{ SourceLocationArn }}"
+ },
+ "ArtifactS3Location": "{{ ArtifactS3Location }}",
+ "ArtifactConfig": {
+  "S3Encryption": {
+   "EncryptionMode": "{{ EncryptionMode }}",
+   "KmsKeyArn": "{{ KmsKeyArn }}"
+  }
+ },
+ "Schedule": {
+  "Expression": "{{ Expression }}",
+  "DurationInSeconds": "{{ DurationInSeconds }}"
+ },
+ "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+ "RuntimeVersion": "{{ RuntimeVersion }}",
+ "SuccessRetentionPeriod": "{{ SuccessRetentionPeriod }}",
+ "FailureRetentionPeriod": "{{ FailureRetentionPeriod }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VPCConfig": {
+  "VpcId": "{{ VpcId }}",
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ],
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ]
+ },
+ "RunConfig": {
+  "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
+  "MemoryInMB": "{{ MemoryInMB }}",
+  "ActiveTracing": "{{ ActiveTracing }}",
+  "EnvironmentVariables": {}
+ },
+ "StartCanaryAfterCreation": "{{ StartCanaryAfterCreation }}",
+ "VisualReference": {
+  "BaseCanaryRunId": "{{ BaseCanaryRunId }}",
+  "BaseScreenshots": [
+   {
+    "ScreenshotName": "{{ ScreenshotName }}",
+    "IgnoreCoordinates": [
+     "{{ IgnoreCoordinates[0] }}"
+    ]
+   }
+  ]
+ },
+ "DeleteLambdaResourcesOnCanaryDeletion": "{{ DeleteLambdaResourcesOnCanaryDeletion }}"
+}
+>>>
+--all properties
+INSERT INTO aws.synthetics.canaries (
+ Name,
+ Code,
+ ArtifactS3Location,
+ ArtifactConfig,
+ Schedule,
+ ExecutionRoleArn,
+ RuntimeVersion,
+ SuccessRetentionPeriod,
+ FailureRetentionPeriod,
+ Tags,
+ VPCConfig,
+ RunConfig,
+ StartCanaryAfterCreation,
+ VisualReference,
+ DeleteLambdaResourcesOnCanaryDeletion,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Code }},
+ {{ ArtifactS3Location }},
+ {{ ArtifactConfig }},
+ {{ Schedule }},
+ {{ ExecutionRoleArn }},
+ {{ RuntimeVersion }},
+ {{ SuccessRetentionPeriod }},
+ {{ FailureRetentionPeriod }},
+ {{ Tags }},
+ {{ VPCConfig }},
+ {{ RunConfig }},
+ {{ StartCanaryAfterCreation }},
+ {{ VisualReference }},
+ {{ DeleteLambdaResourcesOnCanaryDeletion }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.synthetics.canaries
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -92,6 +268,12 @@ ec2:DescribeVpcs,
 ec2:DescribeSubnets,
 ec2:DescribeSecurityGroups,
 iam:PassRole
+```
+
+### Delete
+```json
+synthetics:DeleteCanary,
+synthetics:GetCanary
 ```
 
 ### List

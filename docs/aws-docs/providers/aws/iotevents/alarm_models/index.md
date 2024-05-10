@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>alarm_models</code> in a region or create a <code>alarm_models</code> resource, use <code>alarm_model</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>alarm_models</code> in a region or to create or delete a <code>alarm_models</code> resource, use <code>alarm_model</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>alarm_models</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,185 @@ SELECT
 region,
 alarm_model_name
 FROM aws.iotevents.alarm_models
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RoleArn": "{{ RoleArn }}",
+ "AlarmRule": {
+  "SimpleRule": {
+   "InputProperty": "{{ InputProperty }}",
+   "ComparisonOperator": "{{ ComparisonOperator }}",
+   "Threshold": "{{ Threshold }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.iotevents.alarm_models (
+ RoleArn,
+ AlarmRule,
+ region
+)
+SELECT 
+{{ RoleArn }},
+ {{ AlarmRule }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AlarmModelName": "{{ AlarmModelName }}",
+ "AlarmModelDescription": "{{ AlarmModelDescription }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Key": "{{ Key }}",
+ "Severity": "{{ Severity }}",
+ "AlarmRule": {
+  "SimpleRule": {
+   "InputProperty": "{{ InputProperty }}",
+   "ComparisonOperator": "{{ ComparisonOperator }}",
+   "Threshold": "{{ Threshold }}"
+  }
+ },
+ "AlarmEventActions": {
+  "AlarmActions": [
+   {
+    "DynamoDB": {
+     "HashKeyField": "{{ HashKeyField }}",
+     "HashKeyType": "{{ HashKeyType }}",
+     "HashKeyValue": "{{ HashKeyValue }}",
+     "Operation": "{{ Operation }}",
+     "Payload": {
+      "ContentExpression": "{{ ContentExpression }}",
+      "Type": "{{ Type }}"
+     },
+     "PayloadField": "{{ PayloadField }}",
+     "RangeKeyField": "{{ RangeKeyField }}",
+     "RangeKeyType": "{{ RangeKeyType }}",
+     "RangeKeyValue": "{{ RangeKeyValue }}",
+     "TableName": "{{ TableName }}"
+    },
+    "DynamoDBv2": {
+     "Payload": null,
+     "TableName": "{{ TableName }}"
+    },
+    "Firehose": {
+     "DeliveryStreamName": "{{ DeliveryStreamName }}",
+     "Payload": null,
+     "Separator": "{{ Separator }}"
+    },
+    "IotEvents": {
+     "InputName": "{{ InputName }}",
+     "Payload": null
+    },
+    "IotSiteWise": {
+     "AssetId": "{{ AssetId }}",
+     "EntryId": "{{ EntryId }}",
+     "PropertyAlias": "{{ PropertyAlias }}",
+     "PropertyId": "{{ PropertyId }}",
+     "PropertyValue": {
+      "Quality": "{{ Quality }}",
+      "Timestamp": {
+       "OffsetInNanos": "{{ OffsetInNanos }}",
+       "TimeInSeconds": "{{ TimeInSeconds }}"
+      },
+      "Value": {
+       "BooleanValue": "{{ BooleanValue }}",
+       "DoubleValue": "{{ DoubleValue }}",
+       "IntegerValue": "{{ IntegerValue }}",
+       "StringValue": "{{ StringValue }}"
+      }
+     }
+    },
+    "IotTopicPublish": {
+     "MqttTopic": "{{ MqttTopic }}",
+     "Payload": null
+    },
+    "Lambda": {
+     "FunctionArn": "{{ FunctionArn }}",
+     "Payload": null
+    },
+    "Sns": {
+     "Payload": null,
+     "TargetArn": "{{ TargetArn }}"
+    },
+    "Sqs": {
+     "Payload": null,
+     "QueueUrl": "{{ QueueUrl }}",
+     "UseBase64": "{{ UseBase64 }}"
+    }
+   }
+  ]
+ },
+ "AlarmCapabilities": {
+  "InitializationConfiguration": {
+   "DisabledOnInitialization": "{{ DisabledOnInitialization }}"
+  },
+  "AcknowledgeFlow": {
+   "Enabled": "{{ Enabled }}"
+  }
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotevents.alarm_models (
+ AlarmModelName,
+ AlarmModelDescription,
+ RoleArn,
+ Key,
+ Severity,
+ AlarmRule,
+ AlarmEventActions,
+ AlarmCapabilities,
+ Tags,
+ region
+)
+SELECT 
+ {{ AlarmModelName }},
+ {{ AlarmModelDescription }},
+ {{ RoleArn }},
+ {{ Key }},
+ {{ Severity }},
+ {{ AlarmRule }},
+ {{ AlarmEventActions }},
+ {{ AlarmCapabilities }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotevents.alarm_models
+WHERE data__Identifier = '<AlarmModelName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +262,12 @@ iotevents:DescribeAlarmModel,
 iotevents:ListTagsForResource,
 iotevents:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+iotevents:DeleteAlarmModel,
+iotevents:DescribeAlarmModel
 ```
 
 ### List

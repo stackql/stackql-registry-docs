@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>outpost_resolvers</code> in a region or create a <code>outpost_resolvers</code> resource, use <code>outpost_resolver</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>outpost_resolvers</code> in a region or to create or delete a <code>outpost_resolvers</code> resource, use <code>outpost_resolver</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>outpost_resolvers</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,88 @@ SELECT
 region,
 id
 FROM aws.route53resolver.outpost_resolvers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "OutpostArn": "{{ OutpostArn }}",
+ "PreferredInstanceType": "{{ PreferredInstanceType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.route53resolver.outpost_resolvers (
+ Name,
+ OutpostArn,
+ PreferredInstanceType,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ OutpostArn }},
+ {{ PreferredInstanceType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "OutpostArn": "{{ OutpostArn }}",
+ "PreferredInstanceType": "{{ PreferredInstanceType }}",
+ "InstanceCount": "{{ InstanceCount }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.route53resolver.outpost_resolvers (
+ Name,
+ OutpostArn,
+ PreferredInstanceType,
+ InstanceCount,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ OutpostArn }},
+ {{ PreferredInstanceType }},
+ {{ InstanceCount }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53resolver.outpost_resolvers
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +163,14 @@ route53resolver:CreateOutpostResolver,
 route53resolver:GetOutpostResolver,
 route53resolver:ListTagsForResource,
 outposts:GetOutpost
+```
+
+### Delete
+```json
+route53resolver:DeleteOutpostResolver,
+route53resolver:GetOutpostResolver,
+route53resolver:ListOutpostResolvers,
+route53resolver:ListResolverEndpoints
 ```
 
 ### List

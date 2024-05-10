@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>resource_sets</code> in a region or create a <code>resource_sets</code> resource, use <code>resource_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>resource_sets</code> in a region or to create or delete a <code>resource_sets</code> resource, use <code>resource_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>resource_sets</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,91 @@ SELECT
 region,
 id
 FROM aws.fms.resource_sets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "ResourceTypeList": [
+  "{{ ResourceTypeList[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.fms.resource_sets (
+ Name,
+ ResourceTypeList,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ ResourceTypeList }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "ResourceTypeList": [
+  "{{ ResourceTypeList[0] }}"
+ ],
+ "Resources": [
+  "{{ Resources[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.fms.resource_sets (
+ Name,
+ Description,
+ ResourceTypeList,
+ Resources,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ ResourceTypeList }},
+ {{ Resources }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.fms.resource_sets
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +166,11 @@ fms:PutResourceSet,
 fms:BatchAssociateResource,
 fms:ListResourceSetResources,
 fms:TagResource
+```
+
+### Delete
+```json
+fms:DeleteResourceSet
 ```
 
 ### List

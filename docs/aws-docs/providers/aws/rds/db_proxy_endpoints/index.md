@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>db_proxy_endpoints</code> in a region or create a <code>db_proxy_endpoints</code> resource, use <code>db_proxy_endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>db_proxy_endpoints</code> in a region or to create or delete a <code>db_proxy_endpoints</code> resource, use <code>db_proxy_endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>db_proxy_endpoints</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,97 @@ SELECT
 region,
 db_proxy_endpoint_name
 FROM aws.rds.db_proxy_endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DBProxyEndpointName": "{{ DBProxyEndpointName }}",
+ "DBProxyName": "{{ DBProxyName }}",
+ "VpcSubnetIds": [
+  "{{ VpcSubnetIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.rds.db_proxy_endpoints (
+ DBProxyEndpointName,
+ DBProxyName,
+ VpcSubnetIds,
+ region
+)
+SELECT 
+{{ DBProxyEndpointName }},
+ {{ DBProxyName }},
+ {{ VpcSubnetIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DBProxyEndpointName": "{{ DBProxyEndpointName }}",
+ "DBProxyName": "{{ DBProxyName }}",
+ "VpcSecurityGroupIds": [
+  "{{ VpcSecurityGroupIds[0] }}"
+ ],
+ "VpcSubnetIds": [
+  "{{ VpcSubnetIds[0] }}"
+ ],
+ "TargetRole": "{{ TargetRole }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.rds.db_proxy_endpoints (
+ DBProxyEndpointName,
+ DBProxyName,
+ VpcSecurityGroupIds,
+ VpcSubnetIds,
+ TargetRole,
+ Tags,
+ region
+)
+SELECT 
+ {{ DBProxyEndpointName }},
+ {{ DBProxyName }},
+ {{ VpcSecurityGroupIds }},
+ {{ VpcSubnetIds }},
+ {{ TargetRole }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rds.db_proxy_endpoints
+WHERE data__Identifier = '<DBProxyEndpointName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +170,12 @@ To operate on the <code>db_proxy_endpoints</code> resource, the following permis
 ```json
 rds:CreateDBProxyEndpoint,
 rds:DescribeDBProxyEndpoints
+```
+
+### Delete
+```json
+rds:DescribeDBProxyEndpoints,
+rds:DeleteDBProxyEndpoint
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>users</code> in a region or create a <code>users</code> resource, use <code>user</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>users</code> in a region or to create or delete a <code>users</code> resource, use <code>user</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>users</code> in a region or create a <code>user
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,138 @@ SELECT
 region,
 user_arn
 FROM aws.connect.users
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "Username": "{{ Username }}",
+ "RoutingProfileArn": "{{ RoutingProfileArn }}",
+ "PhoneConfig": {
+  "AfterContactWorkTimeLimit": "{{ AfterContactWorkTimeLimit }}",
+  "AutoAccept": "{{ AutoAccept }}",
+  "DeskPhoneNumber": "{{ DeskPhoneNumber }}",
+  "PhoneType": "{{ PhoneType }}"
+ },
+ "SecurityProfileArns": [
+  "{{ SecurityProfileArns[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.users (
+ InstanceArn,
+ Username,
+ RoutingProfileArn,
+ PhoneConfig,
+ SecurityProfileArns,
+ region
+)
+SELECT 
+{{ InstanceArn }},
+ {{ Username }},
+ {{ RoutingProfileArn }},
+ {{ PhoneConfig }},
+ {{ SecurityProfileArns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "DirectoryUserId": "{{ DirectoryUserId }}",
+ "HierarchyGroupArn": "{{ HierarchyGroupArn }}",
+ "Username": "{{ Username }}",
+ "Password": "{{ Password }}",
+ "RoutingProfileArn": "{{ RoutingProfileArn }}",
+ "IdentityInfo": {
+  "FirstName": "{{ FirstName }}",
+  "LastName": "{{ LastName }}",
+  "Email": "{{ Email }}",
+  "SecondaryEmail": "{{ SecondaryEmail }}",
+  "Mobile": "{{ Mobile }}"
+ },
+ "PhoneConfig": {
+  "AfterContactWorkTimeLimit": "{{ AfterContactWorkTimeLimit }}",
+  "AutoAccept": "{{ AutoAccept }}",
+  "DeskPhoneNumber": "{{ DeskPhoneNumber }}",
+  "PhoneType": "{{ PhoneType }}"
+ },
+ "SecurityProfileArns": [
+  "{{ SecurityProfileArns[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "UserProficiencies": [
+  {
+   "AttributeName": "{{ AttributeName }}",
+   "AttributeValue": "{{ AttributeValue }}",
+   "Level": null
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.connect.users (
+ InstanceArn,
+ DirectoryUserId,
+ HierarchyGroupArn,
+ Username,
+ Password,
+ RoutingProfileArn,
+ IdentityInfo,
+ PhoneConfig,
+ SecurityProfileArns,
+ Tags,
+ UserProficiencies,
+ region
+)
+SELECT 
+ {{ InstanceArn }},
+ {{ DirectoryUserId }},
+ {{ HierarchyGroupArn }},
+ {{ Username }},
+ {{ Password }},
+ {{ RoutingProfileArn }},
+ {{ IdentityInfo }},
+ {{ PhoneConfig }},
+ {{ SecurityProfileArns }},
+ {{ Tags }},
+ {{ UserProficiencies }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.users
+WHERE data__Identifier = '<UserArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +212,12 @@ To operate on the <code>users</code> resource, the following permissions are req
 connect:CreateUser,
 connect:TagResource,
 connect:AssociateUserProficiencies
+```
+
+### Delete
+```json
+connect:DeleteUser,
+connect:UntagResource
 ```
 
 ### List

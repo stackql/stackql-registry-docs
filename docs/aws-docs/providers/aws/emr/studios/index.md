@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>studios</code> in a region or create a <code>studios</code> resource, use <code>studio</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>studios</code> in a region or to create or delete a <code>studios</code> resource, use <code>studio</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>studios</code> in a region or create a <code>st
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,143 @@ SELECT
 region,
 studio_id
 FROM aws.emr.studios
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AuthMode": "{{ AuthMode }}",
+ "DefaultS3Location": "{{ DefaultS3Location }}",
+ "EngineSecurityGroupId": "{{ EngineSecurityGroupId }}",
+ "Name": "{{ Name }}",
+ "ServiceRole": "{{ ServiceRole }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "VpcId": "{{ VpcId }}",
+ "WorkspaceSecurityGroupId": "{{ WorkspaceSecurityGroupId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.emr.studios (
+ AuthMode,
+ DefaultS3Location,
+ EngineSecurityGroupId,
+ Name,
+ ServiceRole,
+ SubnetIds,
+ VpcId,
+ WorkspaceSecurityGroupId,
+ region
+)
+SELECT 
+{{ AuthMode }},
+ {{ DefaultS3Location }},
+ {{ EngineSecurityGroupId }},
+ {{ Name }},
+ {{ ServiceRole }},
+ {{ SubnetIds }},
+ {{ VpcId }},
+ {{ WorkspaceSecurityGroupId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AuthMode": "{{ AuthMode }}",
+ "DefaultS3Location": "{{ DefaultS3Location }}",
+ "Description": "{{ Description }}",
+ "EngineSecurityGroupId": "{{ EngineSecurityGroupId }}",
+ "Name": "{{ Name }}",
+ "ServiceRole": "{{ ServiceRole }}",
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "UserRole": null,
+ "VpcId": "{{ VpcId }}",
+ "WorkspaceSecurityGroupId": "{{ WorkspaceSecurityGroupId }}",
+ "IdpAuthUrl": "{{ IdpAuthUrl }}",
+ "IdpRelayStateParameterName": "{{ IdpRelayStateParameterName }}",
+ "TrustedIdentityPropagationEnabled": "{{ TrustedIdentityPropagationEnabled }}",
+ "IdcUserAssignment": "{{ IdcUserAssignment }}",
+ "IdcInstanceArn": "{{ IdcInstanceArn }}",
+ "EncryptionKeyArn": null
+}
+>>>
+--all properties
+INSERT INTO aws.emr.studios (
+ AuthMode,
+ DefaultS3Location,
+ Description,
+ EngineSecurityGroupId,
+ Name,
+ ServiceRole,
+ SubnetIds,
+ Tags,
+ UserRole,
+ VpcId,
+ WorkspaceSecurityGroupId,
+ IdpAuthUrl,
+ IdpRelayStateParameterName,
+ TrustedIdentityPropagationEnabled,
+ IdcUserAssignment,
+ IdcInstanceArn,
+ EncryptionKeyArn,
+ region
+)
+SELECT 
+ {{ AuthMode }},
+ {{ DefaultS3Location }},
+ {{ Description }},
+ {{ EngineSecurityGroupId }},
+ {{ Name }},
+ {{ ServiceRole }},
+ {{ SubnetIds }},
+ {{ Tags }},
+ {{ UserRole }},
+ {{ VpcId }},
+ {{ WorkspaceSecurityGroupId }},
+ {{ IdpAuthUrl }},
+ {{ IdpRelayStateParameterName }},
+ {{ TrustedIdentityPropagationEnabled }},
+ {{ IdcUserAssignment }},
+ {{ IdcInstanceArn }},
+ {{ EncryptionKeyArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.emr.studios
+WHERE data__Identifier = '<StudioId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +220,13 @@ elasticmapreduce:AddTags,
 sso:CreateManagedApplicationInstance,
 sso:DeleteManagedApplicationInstance,
 iam:PassRole
+```
+
+### Delete
+```json
+elasticmapreduce:DeleteStudio,
+elasticmapreduce:DescribeStudio,
+sso:DeleteManagedApplicationInstance
 ```
 
 ### List

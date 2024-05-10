@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>datasets</code> in a region or create a <code>datasets</code> resource, use <code>dataset</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>datasets</code> in a region or to create or delete a <code>datasets</code> resource, use <code>dataset</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>datasets</code> in a region or create a <code>d
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,204 @@ SELECT
 region,
 dataset_name
 FROM aws.iotanalytics.datasets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Actions": [
+  {
+   "ActionName": "{{ ActionName }}",
+   "ContainerAction": {
+    "Variables": [
+     {
+      "VariableName": "{{ VariableName }}",
+      "DatasetContentVersionValue": {
+       "DatasetName": "{{ DatasetName }}"
+      },
+      "StringValue": "{{ StringValue }}",
+      "DoubleValue": null,
+      "OutputFileUriValue": {
+       "FileName": "{{ FileName }}"
+      }
+     }
+    ],
+    "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+    "Image": "{{ Image }}",
+    "ResourceConfiguration": {
+     "VolumeSizeInGB": "{{ VolumeSizeInGB }}",
+     "ComputeType": "{{ ComputeType }}"
+    }
+   },
+   "QueryAction": {
+    "Filters": [
+     {
+      "Filter": "{{ Filter }}",
+      "Next": "{{ Next }}",
+      "Name": "{{ Name }}"
+     }
+    ],
+    "SqlQuery": "{{ SqlQuery }}"
+   }
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iotanalytics.datasets (
+ Actions,
+ region
+)
+SELECT 
+{{ Actions }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Actions": [
+  {
+   "ActionName": "{{ ActionName }}",
+   "ContainerAction": {
+    "Variables": [
+     {
+      "VariableName": "{{ VariableName }}",
+      "DatasetContentVersionValue": {
+       "DatasetName": "{{ DatasetName }}"
+      },
+      "StringValue": "{{ StringValue }}",
+      "DoubleValue": null,
+      "OutputFileUriValue": {
+       "FileName": "{{ FileName }}"
+      }
+     }
+    ],
+    "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+    "Image": "{{ Image }}",
+    "ResourceConfiguration": {
+     "VolumeSizeInGB": "{{ VolumeSizeInGB }}",
+     "ComputeType": "{{ ComputeType }}"
+    }
+   },
+   "QueryAction": {
+    "Filters": [
+     {
+      "Filter": "{{ Filter }}",
+      "Next": "{{ Next }}",
+      "Name": "{{ Name }}"
+     }
+    ],
+    "SqlQuery": "{{ SqlQuery }}"
+   }
+  }
+ ],
+ "LateDataRules": [
+  {
+   "RuleConfiguration": {
+    "DeltaTimeSessionWindowConfiguration": {
+     "TimeoutInMinutes": "{{ TimeoutInMinutes }}"
+    }
+   },
+   "RuleName": "{{ RuleName }}"
+  }
+ ],
+ "DatasetName": "{{ DatasetName }}",
+ "ContentDeliveryRules": [
+  {
+   "Destination": {
+    "IotEventsDestinationConfiguration": {
+     "InputName": "{{ InputName }}",
+     "RoleArn": "{{ RoleArn }}"
+    },
+    "S3DestinationConfiguration": {
+     "GlueConfiguration": {
+      "DatabaseName": "{{ DatabaseName }}",
+      "TableName": "{{ TableName }}"
+     },
+     "Bucket": "{{ Bucket }}",
+     "Key": "{{ Key }}",
+     "RoleArn": "{{ RoleArn }}"
+    }
+   },
+   "EntryName": "{{ EntryName }}"
+  }
+ ],
+ "Triggers": [
+  {
+   "TriggeringDataset": {
+    "DatasetName": "{{ DatasetName }}"
+   },
+   "Schedule": {
+    "ScheduleExpression": "{{ ScheduleExpression }}"
+   }
+  }
+ ],
+ "VersioningConfiguration": {
+  "Unlimited": "{{ Unlimited }}",
+  "MaxVersions": "{{ MaxVersions }}"
+ },
+ "RetentionPeriod": {
+  "NumberOfDays": "{{ NumberOfDays }}",
+  "Unlimited": "{{ Unlimited }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotanalytics.datasets (
+ Actions,
+ LateDataRules,
+ DatasetName,
+ ContentDeliveryRules,
+ Triggers,
+ VersioningConfiguration,
+ RetentionPeriod,
+ Tags,
+ region
+)
+SELECT 
+ {{ Actions }},
+ {{ LateDataRules }},
+ {{ DatasetName }},
+ {{ ContentDeliveryRules }},
+ {{ Triggers }},
+ {{ VersioningConfiguration }},
+ {{ RetentionPeriod }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotanalytics.datasets
+WHERE data__Identifier = '<DatasetName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +276,11 @@ To operate on the <code>datasets</code> resource, the following permissions are 
 ### Create
 ```json
 iotanalytics:CreateDataset
+```
+
+### Delete
+```json
+iotanalytics:DeleteDataset
 ```
 
 ### List

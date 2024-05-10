@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>components</code> in a region or create a <code>components</code> resource, use <code>component</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>components</code> in a region or to create or delete a <code>components</code> resource, use <code>component</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>components</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,100 @@ SELECT
 region,
 arn
 FROM aws.imagebuilder.components
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Version": "{{ Version }}",
+ "Platform": "{{ Platform }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.imagebuilder.components (
+ Name,
+ Version,
+ Platform,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Version }},
+ {{ Platform }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Version": "{{ Version }}",
+ "Description": "{{ Description }}",
+ "ChangeDescription": "{{ ChangeDescription }}",
+ "Platform": "{{ Platform }}",
+ "Data": "{{ Data }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "Tags": {},
+ "Uri": "{{ Uri }}",
+ "SupportedOsVersions": [
+  "{{ SupportedOsVersions[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.imagebuilder.components (
+ Name,
+ Version,
+ Description,
+ ChangeDescription,
+ Platform,
+ Data,
+ KmsKeyId,
+ Tags,
+ Uri,
+ SupportedOsVersions,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Version }},
+ {{ Description }},
+ {{ ChangeDescription }},
+ {{ Platform }},
+ {{ Data }},
+ {{ KmsKeyId }},
+ {{ Tags }},
+ {{ Uri }},
+ {{ SupportedOsVersions }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.imagebuilder.components
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +182,13 @@ s3:GetBucketLocation,
 imagebuilder:TagResource,
 imagebuilder:GetComponent,
 imagebuilder:CreateComponent
+```
+
+### Delete
+```json
+imagebuilder:GetComponent,
+imagebuilder:UnTagResource,
+imagebuilder:DeleteComponent
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>component_types</code> in a region or create a <code>component_types</code> resource, use <code>component_type</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>component_types</code> in a region or to create or delete a <code>component_types</code> resource, use <code>component_type</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>component_types</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,97 @@ region,
 workspace_id,
 component_type_id
 FROM aws.iottwinmaker.component_types
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "ComponentTypeId": "{{ ComponentTypeId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iottwinmaker.component_types (
+ WorkspaceId,
+ ComponentTypeId,
+ region
+)
+SELECT 
+{{ WorkspaceId }},
+ {{ ComponentTypeId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "WorkspaceId": "{{ WorkspaceId }}",
+ "ComponentTypeId": "{{ ComponentTypeId }}",
+ "Description": "{{ Description }}",
+ "ExtendsFrom": [
+  "{{ ExtendsFrom[0] }}"
+ ],
+ "Functions": {},
+ "IsSingleton": "{{ IsSingleton }}",
+ "PropertyDefinitions": {},
+ "PropertyGroups": {},
+ "CompositeComponentTypes": {},
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.iottwinmaker.component_types (
+ WorkspaceId,
+ ComponentTypeId,
+ Description,
+ ExtendsFrom,
+ Functions,
+ IsSingleton,
+ PropertyDefinitions,
+ PropertyGroups,
+ CompositeComponentTypes,
+ Tags,
+ region
+)
+SELECT 
+ {{ WorkspaceId }},
+ {{ ComponentTypeId }},
+ {{ Description }},
+ {{ ExtendsFrom }},
+ {{ Functions }},
+ {{ IsSingleton }},
+ {{ PropertyDefinitions }},
+ {{ PropertyGroups }},
+ {{ CompositeComponentTypes }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iottwinmaker.component_types
+WHERE data__Identifier = '<WorkspaceId|ComponentTypeId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +175,13 @@ iottwinmaker:GetComponentType,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource
+```
+
+### Delete
+```json
+iottwinmaker:DeleteComponentType,
+iottwinmaker:GetComponentType,
+iottwinmaker:GetWorkspace
 ```
 
 ### List

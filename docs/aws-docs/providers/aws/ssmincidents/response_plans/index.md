@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>response_plans</code> in a region or create a <code>response_plans</code> resource, use <code>response_plan</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>response_plans</code> in a region or to create or delete a <code>response_plans</code> resource, use <code>response_plan</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>response_plans</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,164 @@ SELECT
 region,
 arn
 FROM aws.ssmincidents.response_plans
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "IncidentTemplate": {
+  "DedupeString": "{{ DedupeString }}",
+  "Impact": "{{ Impact }}",
+  "NotificationTargets": [
+   {
+    "SnsTopicArn": "{{ SnsTopicArn }}"
+   }
+  ],
+  "Summary": "{{ Summary }}",
+  "Title": "{{ Title }}",
+  "IncidentTags": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ssmincidents.response_plans (
+ Name,
+ IncidentTemplate,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ IncidentTemplate }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DisplayName": "{{ DisplayName }}",
+ "ChatChannel": {
+  "ChatbotSns": [
+   "{{ ChatbotSns[0] }}"
+  ]
+ },
+ "Engagements": [
+  "{{ Engagements[0] }}"
+ ],
+ "Actions": [
+  {
+   "SsmAutomation": {
+    "RoleArn": "{{ RoleArn }}",
+    "DocumentName": "{{ DocumentName }}",
+    "DocumentVersion": "{{ DocumentVersion }}",
+    "TargetAccount": "{{ TargetAccount }}",
+    "Parameters": [
+     {
+      "Key": "{{ Key }}",
+      "Values": [
+       "{{ Values[0] }}"
+      ]
+     }
+    ],
+    "DynamicParameters": [
+     {
+      "Key": "{{ Key }}",
+      "Value": {
+       "Variable": "{{ Variable }}"
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "Integrations": [
+  {
+   "PagerDutyConfiguration": {
+    "Name": "{{ Name }}",
+    "SecretId": "{{ SecretId }}",
+    "PagerDutyIncidentConfiguration": {
+     "ServiceId": "{{ ServiceId }}"
+    }
+   }
+  }
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "IncidentTemplate": {
+  "DedupeString": "{{ DedupeString }}",
+  "Impact": "{{ Impact }}",
+  "NotificationTargets": [
+   {
+    "SnsTopicArn": null
+   }
+  ],
+  "Summary": "{{ Summary }}",
+  "Title": "{{ Title }}",
+  "IncidentTags": [
+   null
+  ]
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ssmincidents.response_plans (
+ Name,
+ DisplayName,
+ ChatChannel,
+ Engagements,
+ Actions,
+ Integrations,
+ Tags,
+ IncidentTemplate,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ DisplayName }},
+ {{ ChatChannel }},
+ {{ Engagements }},
+ {{ Actions }},
+ {{ Integrations }},
+ {{ Tags }},
+ {{ IncidentTemplate }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ssmincidents.response_plans
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +243,12 @@ iam:PassRole,
 secretsmanager:GetSecretValue,
 kms:Decrypt,
 kms:GenerateDataKey*
+```
+
+### Delete
+```json
+ssm-incidents:DeleteResponsePlan,
+ssm-incidents:GetResponsePlan
 ```
 
 ### List

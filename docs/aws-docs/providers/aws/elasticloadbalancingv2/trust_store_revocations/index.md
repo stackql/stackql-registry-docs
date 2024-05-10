@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>trust_store_revocations</code> in a region or create a <code>trust_store_revocations</code> resource, use <code>trust_store_revocation</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>trust_store_revocations</code> in a region or to create or delete a <code>trust_store_revocations</code> resource, use <code>trust_store_revocation</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>trust_store_revocations</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,85 @@ region,
 revocation_id,
 trust_store_arn
 FROM aws.elasticloadbalancingv2.trust_store_revocations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RevocationContents": [
+  {
+   "S3Bucket": "{{ S3Bucket }}",
+   "S3Key": "{{ S3Key }}",
+   "S3ObjectVersion": "{{ S3ObjectVersion }}",
+   "RevocationType": "{{ RevocationType }}"
+  }
+ ],
+ "TrustStoreArn": "{{ TrustStoreArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.elasticloadbalancingv2.trust_store_revocations (
+ RevocationContents,
+ TrustStoreArn,
+ region
+)
+SELECT 
+{{ RevocationContents }},
+ {{ TrustStoreArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RevocationContents": [
+  {
+   "S3Bucket": "{{ S3Bucket }}",
+   "S3Key": "{{ S3Key }}",
+   "S3ObjectVersion": "{{ S3ObjectVersion }}",
+   "RevocationType": "{{ RevocationType }}"
+  }
+ ],
+ "TrustStoreArn": "{{ TrustStoreArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.elasticloadbalancingv2.trust_store_revocations (
+ RevocationContents,
+ TrustStoreArn,
+ region
+)
+SELECT 
+ {{ RevocationContents }},
+ {{ TrustStoreArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.elasticloadbalancingv2.trust_store_revocations
+WHERE data__Identifier = '<RevocationId|TrustStoreArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +162,12 @@ elasticloadbalancing:AddTrustStoreRevocations,
 elasticloadbalancing:DescribeTrustStoreRevocations,
 s3:GetObject,
 s3:GetObjectVersion
+```
+
+### Delete
+```json
+elasticloadbalancing:DescribeTrustStoreRevocations,
+elasticloadbalancing:RemoveTrustStoreRevocations
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>zonal_autoshift_configurations</code> in a region or create a <code>zonal_autoshift_configurations</code> resource, use <code>zonal_autoshift_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>zonal_autoshift_configurations</code> in a region or to create or delete a <code>zonal_autoshift_configurations</code> resource, use <code>zonal_autoshift_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>zonal_autoshift_configurations</code> in a regi
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,109 @@ SELECT
 region,
 resource_identifier
 FROM aws.arczonalshift.zonal_autoshift_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ZonalAutoshiftStatus": "{{ ZonalAutoshiftStatus }}",
+ "PracticeRunConfiguration": {
+  "BlockingAlarms": [
+   {
+    "Type": "{{ Type }}",
+    "AlarmIdentifier": "{{ AlarmIdentifier }}"
+   }
+  ],
+  "OutcomeAlarms": [
+   null
+  ],
+  "BlockedDates": [
+   "{{ BlockedDates[0] }}"
+  ],
+  "BlockedWindows": [
+   "{{ BlockedWindows[0] }}"
+  ]
+ },
+ "ResourceIdentifier": "{{ ResourceIdentifier }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.arczonalshift.zonal_autoshift_configurations (
+ ZonalAutoshiftStatus,
+ PracticeRunConfiguration,
+ ResourceIdentifier,
+ region
+)
+SELECT 
+{{ ZonalAutoshiftStatus }},
+ {{ PracticeRunConfiguration }},
+ {{ ResourceIdentifier }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ZonalAutoshiftStatus": "{{ ZonalAutoshiftStatus }}",
+ "PracticeRunConfiguration": {
+  "BlockingAlarms": [
+   {
+    "Type": "{{ Type }}",
+    "AlarmIdentifier": "{{ AlarmIdentifier }}"
+   }
+  ],
+  "OutcomeAlarms": [
+   null
+  ],
+  "BlockedDates": [
+   "{{ BlockedDates[0] }}"
+  ],
+  "BlockedWindows": [
+   "{{ BlockedWindows[0] }}"
+  ]
+ },
+ "ResourceIdentifier": "{{ ResourceIdentifier }}"
+}
+>>>
+--all properties
+INSERT INTO aws.arczonalshift.zonal_autoshift_configurations (
+ ZonalAutoshiftStatus,
+ PracticeRunConfiguration,
+ ResourceIdentifier,
+ region
+)
+SELECT 
+ {{ ZonalAutoshiftStatus }},
+ {{ PracticeRunConfiguration }},
+ {{ ResourceIdentifier }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.arczonalshift.zonal_autoshift_configurations
+WHERE data__Identifier = '<ResourceIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +185,13 @@ arc-zonal-shift:GetManagedResource,
 arc-zonal-shift:UpdateZonalAutoshiftConfiguration,
 cloudwatch:DescribeAlarms,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+arc-zonal-shift:DeletePracticeRunConfiguration,
+arc-zonal-shift:GetManagedResource,
+arc-zonal-shift:UpdateZonalAutoshiftConfiguration
 ```
 
 ### List

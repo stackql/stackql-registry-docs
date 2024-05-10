@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>mitigation_actions</code> in a region or create a <code>mitigation_actions</code> resource, use <code>mitigation_action</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>mitigation_actions</code> in a region or to create or delete a <code>mitigation_actions</code> resource, use <code>mitigation_action</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>mitigation_actions</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,128 @@ SELECT
 region,
 action_name
 FROM aws.iot.mitigation_actions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RoleArn": "{{ RoleArn }}",
+ "ActionParams": {
+  "AddThingsToThingGroupParams": {
+   "OverrideDynamicGroups": "{{ OverrideDynamicGroups }}",
+   "ThingGroupNames": [
+    "{{ ThingGroupNames[0] }}"
+   ]
+  },
+  "EnableIoTLoggingParams": {
+   "LogLevel": "{{ LogLevel }}",
+   "RoleArnForLogging": "{{ RoleArnForLogging }}"
+  },
+  "PublishFindingToSnsParams": {
+   "TopicArn": "{{ TopicArn }}"
+  },
+  "ReplaceDefaultPolicyVersionParams": {
+   "TemplateName": "{{ TemplateName }}"
+  },
+  "UpdateCACertificateParams": {
+   "Action": "{{ Action }}"
+  },
+  "UpdateDeviceCertificateParams": {
+   "Action": "{{ Action }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.mitigation_actions (
+ RoleArn,
+ ActionParams,
+ region
+)
+SELECT 
+{{ RoleArn }},
+ {{ ActionParams }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ActionName": "{{ ActionName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ActionParams": {
+  "AddThingsToThingGroupParams": {
+   "OverrideDynamicGroups": "{{ OverrideDynamicGroups }}",
+   "ThingGroupNames": [
+    "{{ ThingGroupNames[0] }}"
+   ]
+  },
+  "EnableIoTLoggingParams": {
+   "LogLevel": "{{ LogLevel }}",
+   "RoleArnForLogging": "{{ RoleArnForLogging }}"
+  },
+  "PublishFindingToSnsParams": {
+   "TopicArn": "{{ TopicArn }}"
+  },
+  "ReplaceDefaultPolicyVersionParams": {
+   "TemplateName": "{{ TemplateName }}"
+  },
+  "UpdateCACertificateParams": {
+   "Action": "{{ Action }}"
+  },
+  "UpdateDeviceCertificateParams": {
+   "Action": "{{ Action }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.iot.mitigation_actions (
+ ActionName,
+ RoleArn,
+ Tags,
+ ActionParams,
+ region
+)
+SELECT 
+ {{ ActionName }},
+ {{ RoleArn }},
+ {{ Tags }},
+ {{ ActionParams }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.mitigation_actions
+WHERE data__Identifier = '<ActionName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +203,12 @@ iot:CreateMitigationAction,
 iot:DescribeMitigationAction,
 iot:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+iot:DescribeMitigationAction,
+iot:DeleteMitigationAction
 ```
 
 ### List

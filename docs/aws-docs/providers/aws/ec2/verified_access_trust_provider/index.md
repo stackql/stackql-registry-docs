@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>verified_access_trust_provider</code> resource, use <code>verified_access_trust_providers</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>verified_access_trust_provider</code> resource, use <code>verified_access_trust_providers</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>verified_access_trust_provider</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ description,
 tags,
 sse_specification
 FROM aws.ec2.verified_access_trust_provider
-WHERE data__Identifier = '<VerifiedAccessTrustProviderId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<VerifiedAccessTrustProviderId>';
 ```
+
 
 ## Permissions
 
@@ -111,19 +110,6 @@ ec2:DescribeVerifiedAccessTrustProviders,
 ec2:DescribeTags,
 ec2:DeleteTags,
 ec2:CreateTags,
-kms:DescribeKey,
-kms:RetireGrant,
-kms:CreateGrant,
-kms:GenerateDataKey,
-kms:Decrypt
-```
-
-### Delete
-```json
-ec2:DeleteVerifiedAccessTrustProvider,
-ec2:DeleteTags,
-ec2:DescribeVerifiedAccessTrustProviders,
-ec2:DescribeTags,
 kms:DescribeKey,
 kms:RetireGrant,
 kms:CreateGrant,

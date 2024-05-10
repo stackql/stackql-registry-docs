@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>in_app_templates</code> in a region or create a <code>in_app_templates</code> resource, use <code>in_app_template</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>in_app_templates</code> in a region or to create or delete a <code>in_app_templates</code> resource, use <code>in_app_template</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>in_app_templates</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,112 @@ SELECT
 region,
 template_name
 FROM aws.pinpoint.in_app_templates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TemplateName": "{{ TemplateName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.pinpoint.in_app_templates (
+ TemplateName,
+ region
+)
+SELECT 
+{{ TemplateName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Content": [
+  {
+   "BackgroundColor": "{{ BackgroundColor }}",
+   "BodyConfig": {
+    "Alignment": "{{ Alignment }}",
+    "Body": "{{ Body }}",
+    "TextColor": "{{ TextColor }}"
+   },
+   "HeaderConfig": {
+    "Alignment": null,
+    "Header": "{{ Header }}",
+    "TextColor": "{{ TextColor }}"
+   },
+   "ImageUrl": "{{ ImageUrl }}",
+   "PrimaryBtn": {
+    "Android": {
+     "ButtonAction": "{{ ButtonAction }}",
+     "Link": "{{ Link }}"
+    },
+    "DefaultConfig": {
+     "BackgroundColor": "{{ BackgroundColor }}",
+     "BorderRadius": "{{ BorderRadius }}",
+     "ButtonAction": null,
+     "Link": "{{ Link }}",
+     "Text": "{{ Text }}",
+     "TextColor": "{{ TextColor }}"
+    },
+    "IOS": null,
+    "Web": null
+   },
+   "SecondaryBtn": null
+  }
+ ],
+ "CustomConfig": {},
+ "Layout": "{{ Layout }}",
+ "Tags": {},
+ "TemplateDescription": "{{ TemplateDescription }}",
+ "TemplateName": "{{ TemplateName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.pinpoint.in_app_templates (
+ Content,
+ CustomConfig,
+ Layout,
+ Tags,
+ TemplateDescription,
+ TemplateName,
+ region
+)
+SELECT 
+ {{ Content }},
+ {{ CustomConfig }},
+ {{ Layout }},
+ {{ Tags }},
+ {{ TemplateDescription }},
+ {{ TemplateName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.pinpoint.in_app_templates
+WHERE data__Identifier = '<TemplateName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +186,12 @@ To operate on the <code>in_app_templates</code> resource, the following permissi
 mobiletargeting:CreateInAppTemplate,
 mobiletargeting:GetInAppTemplate,
 mobiletargeting:TagResource
+```
+
+### Delete
+```json
+mobiletargeting:DeleteInAppTemplate,
+mobiletargeting:GetInAppTemplate
 ```
 
 ### List

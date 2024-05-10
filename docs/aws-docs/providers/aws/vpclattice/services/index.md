@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>services</code> in a region or create a <code>services</code> resource, use <code>service</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>services</code> in a region or to create or delete a <code>services</code> resource, use <code>service</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>services</code> in a region or create a <code>s
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,111 @@ SELECT
 region,
 arn
 FROM aws.vpclattice.services
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AuthType": "{{ AuthType }}",
+ "DnsEntry": {
+  "DomainName": "{{ DomainName }}",
+  "HostedZoneId": "{{ HostedZoneId }}"
+ },
+ "Name": "{{ Name }}",
+ "CertificateArn": "{{ CertificateArn }}",
+ "CustomDomainName": "{{ CustomDomainName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.vpclattice.services (
+ AuthType,
+ DnsEntry,
+ Name,
+ CertificateArn,
+ CustomDomainName,
+ Tags,
+ region
+)
+SELECT 
+{{ AuthType }},
+ {{ DnsEntry }},
+ {{ Name }},
+ {{ CertificateArn }},
+ {{ CustomDomainName }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AuthType": "{{ AuthType }}",
+ "DnsEntry": {
+  "DomainName": "{{ DomainName }}",
+  "HostedZoneId": "{{ HostedZoneId }}"
+ },
+ "Name": "{{ Name }}",
+ "CertificateArn": "{{ CertificateArn }}",
+ "CustomDomainName": "{{ CustomDomainName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.vpclattice.services (
+ AuthType,
+ DnsEntry,
+ Name,
+ CertificateArn,
+ CustomDomainName,
+ Tags,
+ region
+)
+SELECT 
+ {{ AuthType }},
+ {{ DnsEntry }},
+ {{ Name }},
+ {{ CertificateArn }},
+ {{ CustomDomainName }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.vpclattice.services
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +189,12 @@ vpc-lattice:TagResource,
 acm:DescribeCertificate,
 acm:ListCertificates,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+vpc-lattice:DeleteService,
+vpc-lattice:GetService
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>fargate_profile</code> resource, use <code>fargate_profiles</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>fargate_profile</code> resource, use <code>fargate_profiles</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -55,11 +58,6 @@ Gets or operates on an individual <code>fargate_profile</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -78,8 +76,9 @@ subnets,
 selectors,
 tags
 FROM aws.eks.fargate_profile
-WHERE data__Identifier = '<ClusterName>|<FargateProfileName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterName>|<FargateProfileName>';
 ```
+
 
 ## Permissions
 
@@ -87,12 +86,6 @@ To operate on the <code>fargate_profile</code> resource, the following permissio
 
 ### Read
 ```json
-eks:DescribeFargateProfile
-```
-
-### Delete
-```json
-eks:DeleteFargateProfile,
 eks:DescribeFargateProfile
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>service_linked_roles</code> in a region or create a <code>service_linked_roles</code> resource, use <code>service_linked_role</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>service_linked_roles</code> in a region or to create or delete a <code>service_linked_roles</code> resource, use <code>service_linked_role</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>service_linked_roles</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,69 @@ SELECT
 region,
 role_name
 FROM aws.iam.service_linked_roles
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.iam.service_linked_roles (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CustomSuffix": "{{ CustomSuffix }}",
+ "Description": "{{ Description }}",
+ "AWSServiceName": "{{ AWSServiceName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.iam.service_linked_roles (
+ CustomSuffix,
+ Description,
+ AWSServiceName,
+ region
+)
+SELECT 
+ {{ CustomSuffix }},
+ {{ Description }},
+ {{ AWSServiceName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iam.service_linked_roles
+WHERE data__Identifier = '<RoleName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +141,13 @@ To operate on the <code>service_linked_roles</code> resource, the following perm
 ### Create
 ```json
 iam:CreateServiceLinkedRole,
+iam:GetRole
+```
+
+### Delete
+```json
+iam:DeleteServiceLinkedRole,
+iam:GetServiceLinkedRoleDeletionStatus,
 iam:GetRole
 ```
 

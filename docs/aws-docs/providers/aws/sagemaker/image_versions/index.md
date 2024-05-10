@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>image_versions</code> in a region or create a <code>image_versions</code> resource, use <code>image_version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>image_versions</code> in a region or to create or delete a <code>image_versions</code> resource, use <code>image_version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>image_versions</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,100 @@ SELECT
 region,
 image_version_arn
 FROM aws.sagemaker.image_versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ImageName": "{{ ImageName }}",
+ "BaseImage": "{{ BaseImage }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.image_versions (
+ ImageName,
+ BaseImage,
+ region
+)
+SELECT 
+{{ ImageName }},
+ {{ BaseImage }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ImageName": "{{ ImageName }}",
+ "BaseImage": "{{ BaseImage }}",
+ "Alias": "{{ Alias }}",
+ "Aliases": [
+  null
+ ],
+ "VendorGuidance": "{{ VendorGuidance }}",
+ "JobType": "{{ JobType }}",
+ "MLFramework": "{{ MLFramework }}",
+ "ProgrammingLang": "{{ ProgrammingLang }}",
+ "Processor": "{{ Processor }}",
+ "Horovod": "{{ Horovod }}",
+ "ReleaseNotes": "{{ ReleaseNotes }}"
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.image_versions (
+ ImageName,
+ BaseImage,
+ Alias,
+ Aliases,
+ VendorGuidance,
+ JobType,
+ MLFramework,
+ ProgrammingLang,
+ Processor,
+ Horovod,
+ ReleaseNotes,
+ region
+)
+SELECT 
+ {{ ImageName }},
+ {{ BaseImage }},
+ {{ Alias }},
+ {{ Aliases }},
+ {{ VendorGuidance }},
+ {{ JobType }},
+ {{ MLFramework }},
+ {{ ProgrammingLang }},
+ {{ Processor }},
+ {{ Horovod }},
+ {{ ReleaseNotes }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.image_versions
+WHERE data__Identifier = '<ImageVersionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +172,12 @@ To operate on the <code>image_versions</code> resource, the following permission
 ### Create
 ```json
 sagemaker:CreateImageVersion,
+sagemaker:DescribeImageVersion
+```
+
+### Delete
+```json
+sagemaker:DeleteImageVersion,
 sagemaker:DescribeImageVersion
 ```
 

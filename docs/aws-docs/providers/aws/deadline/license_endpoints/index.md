@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>license_endpoints</code> in a region or create a <code>license_endpoints</code> resource, use <code>license_endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>license_endpoints</code> in a region or to create or delete a <code>license_endpoints</code> resource, use <code>license_endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>license_endpoints</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,85 @@ SELECT
 region,
 arn
 FROM aws.deadline.license_endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.deadline.license_endpoints (
+ SecurityGroupIds,
+ SubnetIds,
+ VpcId,
+ region
+)
+SELECT 
+{{ SecurityGroupIds }},
+ {{ SubnetIds }},
+ {{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.deadline.license_endpoints (
+ SecurityGroupIds,
+ SubnetIds,
+ VpcId,
+ region
+)
+SELECT 
+ {{ SecurityGroupIds }},
+ {{ SubnetIds }},
+ {{ VpcId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.deadline.license_endpoints
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +160,14 @@ deadline:CreateLicenseEndpoint,
 deadline:GetLicenseEndpoint,
 ec2:CreateTags,
 ec2:CreateVpcEndpoint,
+ec2:DescribeVpcEndpoints
+```
+
+### Delete
+```json
+deadline:GetLicenseEndpoint,
+deadline:DeleteLicenseEndpoint,
+ec2:DeleteVpcEndpoints,
 ec2:DescribeVpcEndpoints
 ```
 

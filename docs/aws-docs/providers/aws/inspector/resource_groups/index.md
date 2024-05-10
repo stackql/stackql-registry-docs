@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>resource_groups</code> in a region or create a <code>resource_groups</code> resource, use <code>resource_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>resource_groups</code> in a region or to create or delete a <code>resource_groups</code> resource, use <code>resource_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>resource_groups</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,75 @@ SELECT
 region,
 arn
 FROM aws.inspector.resource_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ResourceGroupTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.inspector.resource_groups (
+ ResourceGroupTags,
+ region
+)
+SELECT 
+{{ ResourceGroupTags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ResourceGroupTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.inspector.resource_groups (
+ ResourceGroupTags,
+ region
+)
+SELECT 
+ {{ ResourceGroupTags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.inspector.resource_groups
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -69,6 +145,11 @@ WHERE region = 'us-east-1'
 To operate on the <code>resource_groups</code> resource, the following permissions are required:
 
 ### Create
+```json
+inspector:CreateResourceGroup
+```
+
+### Delete
 ```json
 inspector:CreateResourceGroup
 ```

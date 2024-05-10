@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>multiplexprogram</code> resource, use <code>multiplexprograms</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>multiplexprogram</code> resource, use <code>multiplexprograms</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -55,11 +58,6 @@ Gets or operates on an individual <code>multiplexprogram</code> resource, use <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -78,8 +76,9 @@ packet_identifiers_map,
 pipeline_details,
 program_name
 FROM aws.medialive.multiplexprogram
-WHERE data__Identifier = '<ProgramName>|<MultiplexId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ProgramName>|<MultiplexId>';
 ```
+
 
 ## Permissions
 
@@ -93,12 +92,6 @@ medialive:DescribeMultiplexProgram
 ### Update
 ```json
 medialive:UpdateMultiplexProgram,
-medialive:DescribeMultiplexProgram
-```
-
-### Delete
-```json
-medialive:DeleteMultiplexProgram,
 medialive:DescribeMultiplexProgram
 ```
 

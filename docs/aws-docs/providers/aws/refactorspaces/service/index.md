@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>service</code> resource, use <code>services</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>service</code> resource, use <code>services</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +57,6 @@ Gets or operates on an individual <code>service</code> resource, use <code>servi
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -81,8 +79,9 @@ url_endpoint,
 vpc_id,
 tags
 FROM aws.refactorspaces.service
-WHERE data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>|<ServiceIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>|<ServiceIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -92,22 +91,5 @@ To operate on the <code>service</code> resource, the following permissions are r
 ```json
 refactor-spacess:GetService,
 refactor-spaces:ListTagsForResource
-```
-
-### Delete
-```json
-refactor-spaces:DeleteService,
-refactor-spaces:GetService,
-refactor-spaces:UntagResource,
-ram:DisassociateResourceShare,
-ec2:DescribeNetworkInterfaces,
-ec2:DescribeRouteTables,
-ec2:DescribeTransitGatewayVpcAttachments,
-ec2:DescribeSecurityGroups,
-ec2:DeleteSecurityGroup,
-ec2:DeleteRoute,
-ec2:RevokeSecurityGroupIngress,
-ec2:DeleteTransitGatewayVpcAttachment,
-ec2:DeleteTags
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>backup_plans</code> in a region or create a <code>backup_plans</code> resource, use <code>backup_plan</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>backup_plans</code> in a region or to create or delete a <code>backup_plans</code> resource, use <code>backup_plan</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>backup_plans</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,130 @@ SELECT
 region,
 backup_plan_id
 FROM aws.backup.backup_plans
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "BackupPlan": {
+  "BackupPlanName": "{{ BackupPlanName }}",
+  "AdvancedBackupSettings": [
+   {
+    "BackupOptions": {},
+    "ResourceType": "{{ ResourceType }}"
+   }
+  ],
+  "BackupPlanRule": [
+   {
+    "RuleName": "{{ RuleName }}",
+    "TargetBackupVault": "{{ TargetBackupVault }}",
+    "StartWindowMinutes": null,
+    "CompletionWindowMinutes": null,
+    "ScheduleExpression": "{{ ScheduleExpression }}",
+    "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
+    "RecoveryPointTags": {},
+    "CopyActions": [
+     {
+      "Lifecycle": {
+       "MoveToColdStorageAfterDays": null,
+       "DeleteAfterDays": null,
+       "OptInToArchiveForSupportedResources": "{{ OptInToArchiveForSupportedResources }}"
+      },
+      "DestinationBackupVaultArn": "{{ DestinationBackupVaultArn }}"
+     }
+    ],
+    "Lifecycle": null,
+    "EnableContinuousBackup": "{{ EnableContinuousBackup }}"
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.backup.backup_plans (
+ BackupPlan,
+ region
+)
+SELECT 
+{{ BackupPlan }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BackupPlan": {
+  "BackupPlanName": "{{ BackupPlanName }}",
+  "AdvancedBackupSettings": [
+   {
+    "BackupOptions": {},
+    "ResourceType": "{{ ResourceType }}"
+   }
+  ],
+  "BackupPlanRule": [
+   {
+    "RuleName": "{{ RuleName }}",
+    "TargetBackupVault": "{{ TargetBackupVault }}",
+    "StartWindowMinutes": null,
+    "CompletionWindowMinutes": null,
+    "ScheduleExpression": "{{ ScheduleExpression }}",
+    "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
+    "RecoveryPointTags": {},
+    "CopyActions": [
+     {
+      "Lifecycle": {
+       "MoveToColdStorageAfterDays": null,
+       "DeleteAfterDays": null,
+       "OptInToArchiveForSupportedResources": "{{ OptInToArchiveForSupportedResources }}"
+      },
+      "DestinationBackupVaultArn": "{{ DestinationBackupVaultArn }}"
+     }
+    ],
+    "Lifecycle": null,
+    "EnableContinuousBackup": "{{ EnableContinuousBackup }}"
+   }
+  ]
+ },
+ "BackupPlanTags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.backup.backup_plans (
+ BackupPlan,
+ BackupPlanTags,
+ region
+)
+SELECT 
+ {{ BackupPlan }},
+ {{ BackupPlanTags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.backup.backup_plans
+WHERE data__Identifier = '<BackupPlanId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +204,12 @@ To operate on the <code>backup_plans</code> resource, the following permissions 
 backup:GetBackupPlan,
 backup:TagResource,
 backup:CreateBackupPlan
+```
+
+### Delete
+```json
+backup:GetBackupPlan,
+backup:DeleteBackupPlan
 ```
 
 ### List

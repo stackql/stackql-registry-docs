@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>authorizers</code> in a region or create a <code>authorizers</code> resource, use <code>authorizer</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>authorizers</code> in a region or to create or delete a <code>authorizers</code> resource, use <code>authorizer</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>authorizers</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,108 @@ region,
 authorizer_id,
 api_id
 FROM aws.apigatewayv2.authorizers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AuthorizerType": "{{ AuthorizerType }}",
+ "ApiId": "{{ ApiId }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigatewayv2.authorizers (
+ AuthorizerType,
+ ApiId,
+ Name,
+ region
+)
+SELECT 
+{{ AuthorizerType }},
+ {{ ApiId }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IdentityValidationExpression": "{{ IdentityValidationExpression }}",
+ "AuthorizerUri": "{{ AuthorizerUri }}",
+ "AuthorizerCredentialsArn": "{{ AuthorizerCredentialsArn }}",
+ "AuthorizerType": "{{ AuthorizerType }}",
+ "JwtConfiguration": {
+  "Issuer": "{{ Issuer }}",
+  "Audience": [
+   "{{ Audience[0] }}"
+  ]
+ },
+ "AuthorizerResultTtlInSeconds": "{{ AuthorizerResultTtlInSeconds }}",
+ "IdentitySource": [
+  "{{ IdentitySource[0] }}"
+ ],
+ "AuthorizerPayloadFormatVersion": "{{ AuthorizerPayloadFormatVersion }}",
+ "ApiId": "{{ ApiId }}",
+ "EnableSimpleResponses": "{{ EnableSimpleResponses }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigatewayv2.authorizers (
+ IdentityValidationExpression,
+ AuthorizerUri,
+ AuthorizerCredentialsArn,
+ AuthorizerType,
+ JwtConfiguration,
+ AuthorizerResultTtlInSeconds,
+ IdentitySource,
+ AuthorizerPayloadFormatVersion,
+ ApiId,
+ EnableSimpleResponses,
+ Name,
+ region
+)
+SELECT 
+ {{ IdentityValidationExpression }},
+ {{ AuthorizerUri }},
+ {{ AuthorizerCredentialsArn }},
+ {{ AuthorizerType }},
+ {{ JwtConfiguration }},
+ {{ AuthorizerResultTtlInSeconds }},
+ {{ IdentitySource }},
+ {{ AuthorizerPayloadFormatVersion }},
+ {{ ApiId }},
+ {{ EnableSimpleResponses }},
+ {{ Name }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigatewayv2.authorizers
+WHERE data__Identifier = '<AuthorizerId|ApiId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +183,12 @@ To operate on the <code>authorizers</code> resource, the following permissions a
 ```json
 apigateway:POST,
 iam:PassRole
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE
 ```
 
 ### List

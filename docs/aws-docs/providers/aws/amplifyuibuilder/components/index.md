@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>components</code> in a region or create a <code>components</code> resource, use <code>component</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>components</code> in a region or to create or delete a <code>components</code> resource, use <code>component</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>components</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,175 @@ app_id,
 environment_name,
 id
 FROM aws.amplifyuibuilder.components
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AppId": "{{ AppId }}",
+ "BindingProperties": {},
+ "Children": [
+  {
+   "ComponentType": "{{ ComponentType }}",
+   "Name": "{{ Name }}",
+   "Properties": {},
+   "Children": [
+    null
+   ],
+   "Events": {},
+   "SourceId": "{{ SourceId }}"
+  }
+ ],
+ "CollectionProperties": {},
+ "ComponentType": "{{ ComponentType }}",
+ "EnvironmentName": "{{ EnvironmentName }}",
+ "Events": null,
+ "Name": "{{ Name }}",
+ "Overrides": {},
+ "Properties": null,
+ "SchemaVersion": "{{ SchemaVersion }}",
+ "SourceId": "{{ SourceId }}",
+ "Tags": {},
+ "Variants": [
+  {
+   "VariantValues": {},
+   "Overrides": null
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.amplifyuibuilder.components (
+ AppId,
+ BindingProperties,
+ Children,
+ CollectionProperties,
+ ComponentType,
+ EnvironmentName,
+ Events,
+ Name,
+ Overrides,
+ Properties,
+ SchemaVersion,
+ SourceId,
+ Tags,
+ Variants,
+ region
+)
+SELECT 
+{{ AppId }},
+ {{ BindingProperties }},
+ {{ Children }},
+ {{ CollectionProperties }},
+ {{ ComponentType }},
+ {{ EnvironmentName }},
+ {{ Events }},
+ {{ Name }},
+ {{ Overrides }},
+ {{ Properties }},
+ {{ SchemaVersion }},
+ {{ SourceId }},
+ {{ Tags }},
+ {{ Variants }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AppId": "{{ AppId }}",
+ "BindingProperties": {},
+ "Children": [
+  {
+   "ComponentType": "{{ ComponentType }}",
+   "Name": "{{ Name }}",
+   "Properties": {},
+   "Children": [
+    null
+   ],
+   "Events": {},
+   "SourceId": "{{ SourceId }}"
+  }
+ ],
+ "CollectionProperties": {},
+ "ComponentType": "{{ ComponentType }}",
+ "EnvironmentName": "{{ EnvironmentName }}",
+ "Events": null,
+ "Name": "{{ Name }}",
+ "Overrides": {},
+ "Properties": null,
+ "SchemaVersion": "{{ SchemaVersion }}",
+ "SourceId": "{{ SourceId }}",
+ "Tags": {},
+ "Variants": [
+  {
+   "VariantValues": {},
+   "Overrides": null
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.amplifyuibuilder.components (
+ AppId,
+ BindingProperties,
+ Children,
+ CollectionProperties,
+ ComponentType,
+ EnvironmentName,
+ Events,
+ Name,
+ Overrides,
+ Properties,
+ SchemaVersion,
+ SourceId,
+ Tags,
+ Variants,
+ region
+)
+SELECT 
+ {{ AppId }},
+ {{ BindingProperties }},
+ {{ Children }},
+ {{ CollectionProperties }},
+ {{ ComponentType }},
+ {{ EnvironmentName }},
+ {{ Events }},
+ {{ Name }},
+ {{ Overrides }},
+ {{ Properties }},
+ {{ SchemaVersion }},
+ {{ SourceId }},
+ {{ Tags }},
+ {{ Variants }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.amplifyuibuilder.components
+WHERE data__Identifier = '<AppId|EnvironmentName|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +254,14 @@ amplify:GetApp,
 amplifyuibuilder:CreateComponent,
 amplifyuibuilder:GetComponent,
 amplifyuibuilder:TagResource
+```
+
+### Delete
+```json
+amplify:GetApp,
+amplifyuibuilder:DeleteComponent,
+amplifyuibuilder:GetComponent,
+amplifyuibuilder:UntagResource
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>identity_pools</code> in a region or create a <code>identity_pools</code> resource, use <code>identity_pool</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>identity_pools</code> in a region or to create or delete a <code>identity_pools</code> resource, use <code>identity_pool</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>identity_pools</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,114 @@ SELECT
 region,
 id
 FROM aws.cognito.identity_pools
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AllowUnauthenticatedIdentities": "{{ AllowUnauthenticatedIdentities }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cognito.identity_pools (
+ AllowUnauthenticatedIdentities,
+ region
+)
+SELECT 
+{{ AllowUnauthenticatedIdentities }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PushSync": {
+  "ApplicationArns": [
+   "{{ ApplicationArns[0] }}"
+  ],
+  "RoleArn": "{{ RoleArn }}"
+ },
+ "CognitoIdentityProviders": [
+  {
+   "ServerSideTokenCheck": "{{ ServerSideTokenCheck }}",
+   "ProviderName": "{{ ProviderName }}",
+   "ClientId": "{{ ClientId }}"
+  }
+ ],
+ "DeveloperProviderName": "{{ DeveloperProviderName }}",
+ "CognitoStreams": {
+  "StreamingStatus": "{{ StreamingStatus }}",
+  "StreamName": "{{ StreamName }}",
+  "RoleArn": "{{ RoleArn }}"
+ },
+ "SupportedLoginProviders": {},
+ "CognitoEvents": {},
+ "IdentityPoolName": "{{ IdentityPoolName }}",
+ "AllowUnauthenticatedIdentities": "{{ AllowUnauthenticatedIdentities }}",
+ "SamlProviderARNs": [
+  "{{ SamlProviderARNs[0] }}"
+ ],
+ "OpenIdConnectProviderARNs": [
+  "{{ OpenIdConnectProviderARNs[0] }}"
+ ],
+ "AllowClassicFlow": "{{ AllowClassicFlow }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cognito.identity_pools (
+ PushSync,
+ CognitoIdentityProviders,
+ DeveloperProviderName,
+ CognitoStreams,
+ SupportedLoginProviders,
+ CognitoEvents,
+ IdentityPoolName,
+ AllowUnauthenticatedIdentities,
+ SamlProviderARNs,
+ OpenIdConnectProviderARNs,
+ AllowClassicFlow,
+ region
+)
+SELECT 
+ {{ PushSync }},
+ {{ CognitoIdentityProviders }},
+ {{ DeveloperProviderName }},
+ {{ CognitoStreams }},
+ {{ SupportedLoginProviders }},
+ {{ CognitoEvents }},
+ {{ IdentityPoolName }},
+ {{ AllowUnauthenticatedIdentities }},
+ {{ SamlProviderARNs }},
+ {{ OpenIdConnectProviderARNs }},
+ {{ AllowClassicFlow }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cognito.identity_pools
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +189,11 @@ cognito-identity:CreateIdentityPool,
 cognito-sync:SetIdentityPoolConfiguration,
 cognito-sync:SetCognitoEvents,
 iam:PassRole
+```
+
+### Delete
+```json
+cognito-identity:DeleteIdentityPool
 ```
 
 ### List

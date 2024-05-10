@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>collaborations</code> in a region or create a <code>collaborations</code> resource, use <code>collaboration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>collaborations</code> in a region or to create or delete a <code>collaborations</code> resource, use <code>collaboration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>collaborations</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,140 @@ SELECT
 region,
 collaboration_identifier
 FROM aws.cleanrooms.collaborations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "CreatorDisplayName": "{{ CreatorDisplayName }}",
+ "CreatorMemberAbilities": [
+  "{{ CreatorMemberAbilities[0] }}"
+ ],
+ "Description": "{{ Description }}",
+ "Members": [
+  {
+   "AccountId": "{{ AccountId }}",
+   "MemberAbilities": null,
+   "DisplayName": null,
+   "PaymentConfiguration": {
+    "QueryCompute": {
+     "IsResponsible": "{{ IsResponsible }}"
+    }
+   }
+  }
+ ],
+ "Name": "{{ Name }}",
+ "QueryLogStatus": "{{ QueryLogStatus }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cleanrooms.collaborations (
+ CreatorDisplayName,
+ CreatorMemberAbilities,
+ Description,
+ Members,
+ Name,
+ QueryLogStatus,
+ region
+)
+SELECT 
+{{ CreatorDisplayName }},
+ {{ CreatorMemberAbilities }},
+ {{ Description }},
+ {{ Members }},
+ {{ Name }},
+ {{ QueryLogStatus }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "CreatorDisplayName": "{{ CreatorDisplayName }}",
+ "CreatorMemberAbilities": [
+  "{{ CreatorMemberAbilities[0] }}"
+ ],
+ "DataEncryptionMetadata": {
+  "AllowCleartext": "{{ AllowCleartext }}",
+  "AllowDuplicates": "{{ AllowDuplicates }}",
+  "AllowJoinsOnColumnsWithDifferentNames": "{{ AllowJoinsOnColumnsWithDifferentNames }}",
+  "PreserveNulls": "{{ PreserveNulls }}"
+ },
+ "Description": "{{ Description }}",
+ "Members": [
+  {
+   "AccountId": "{{ AccountId }}",
+   "MemberAbilities": null,
+   "DisplayName": null,
+   "PaymentConfiguration": {
+    "QueryCompute": {
+     "IsResponsible": "{{ IsResponsible }}"
+    }
+   }
+  }
+ ],
+ "Name": "{{ Name }}",
+ "QueryLogStatus": "{{ QueryLogStatus }}",
+ "CreatorPaymentConfiguration": null
+}
+>>>
+--all properties
+INSERT INTO aws.cleanrooms.collaborations (
+ Tags,
+ CreatorDisplayName,
+ CreatorMemberAbilities,
+ DataEncryptionMetadata,
+ Description,
+ Members,
+ Name,
+ QueryLogStatus,
+ CreatorPaymentConfiguration,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ CreatorDisplayName }},
+ {{ CreatorMemberAbilities }},
+ {{ DataEncryptionMetadata }},
+ {{ Description }},
+ {{ Members }},
+ {{ Name }},
+ {{ QueryLogStatus }},
+ {{ CreatorPaymentConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cleanrooms.collaborations
+WHERE data__Identifier = '<CollaborationIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +217,16 @@ cleanrooms:ListMembers,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:GetCollaboration,
+cleanrooms:ListCollaborations
+```
+
+### Delete
+```json
+cleanrooms:DeleteCollaboration,
+cleanrooms:GetCollaboration,
+cleanrooms:ListTagsForResource,
+cleanrooms:UntagResource,
+cleanrooms:ListMembers,
 cleanrooms:ListCollaborations
 ```
 

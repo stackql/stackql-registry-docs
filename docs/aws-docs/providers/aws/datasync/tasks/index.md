@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>tasks</code> in a region or create a <code>tasks</code> resource, use <code>task</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>tasks</code> in a region or to create or delete a <code>tasks</code> resource, use <code>task</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>tasks</code> in a region or create a <code>task
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,164 @@ SELECT
 region,
 task_arn
 FROM aws.datasync.tasks
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationLocationArn": "{{ DestinationLocationArn }}",
+ "SourceLocationArn": "{{ SourceLocationArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.datasync.tasks (
+ DestinationLocationArn,
+ SourceLocationArn,
+ region
+)
+SELECT 
+{{ DestinationLocationArn }},
+ {{ SourceLocationArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Excludes": [
+  {
+   "FilterType": "{{ FilterType }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Includes": [
+  null
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}",
+ "DestinationLocationArn": "{{ DestinationLocationArn }}",
+ "Name": "{{ Name }}",
+ "Options": {
+  "Atime": "{{ Atime }}",
+  "BytesPerSecond": "{{ BytesPerSecond }}",
+  "Gid": "{{ Gid }}",
+  "LogLevel": "{{ LogLevel }}",
+  "Mtime": "{{ Mtime }}",
+  "OverwriteMode": "{{ OverwriteMode }}",
+  "PosixPermissions": "{{ PosixPermissions }}",
+  "PreserveDeletedFiles": "{{ PreserveDeletedFiles }}",
+  "PreserveDevices": "{{ PreserveDevices }}",
+  "SecurityDescriptorCopyFlags": "{{ SecurityDescriptorCopyFlags }}",
+  "TaskQueueing": "{{ TaskQueueing }}",
+  "TransferMode": "{{ TransferMode }}",
+  "Uid": "{{ Uid }}",
+  "VerifyMode": "{{ VerifyMode }}",
+  "ObjectTags": "{{ ObjectTags }}"
+ },
+ "TaskReportConfig": {
+  "Destination": {
+   "S3": {
+    "Subdirectory": "{{ Subdirectory }}",
+    "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}",
+    "S3BucketArn": "{{ S3BucketArn }}"
+   }
+  },
+  "OutputType": "{{ OutputType }}",
+  "ReportLevel": "{{ ReportLevel }}",
+  "ObjectVersionIds": "{{ ObjectVersionIds }}",
+  "Overrides": {
+   "Transferred": {
+    "ReportLevel": "{{ ReportLevel }}"
+   },
+   "Verified": {
+    "ReportLevel": "{{ ReportLevel }}"
+   },
+   "Deleted": {
+    "ReportLevel": "{{ ReportLevel }}"
+   },
+   "Skipped": {
+    "ReportLevel": "{{ ReportLevel }}"
+   }
+  }
+ },
+ "ManifestConfig": {
+  "Action": "{{ Action }}",
+  "Format": "{{ Format }}",
+  "Source": {
+   "S3": {
+    "ManifestObjectPath": "{{ ManifestObjectPath }}",
+    "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}",
+    "S3BucketArn": "{{ S3BucketArn }}",
+    "ManifestObjectVersionId": "{{ ManifestObjectVersionId }}"
+   }
+  }
+ },
+ "Schedule": {
+  "ScheduleExpression": "{{ ScheduleExpression }}"
+ },
+ "SourceLocationArn": "{{ SourceLocationArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.datasync.tasks (
+ Excludes,
+ Includes,
+ Tags,
+ CloudWatchLogGroupArn,
+ DestinationLocationArn,
+ Name,
+ Options,
+ TaskReportConfig,
+ ManifestConfig,
+ Schedule,
+ SourceLocationArn,
+ region
+)
+SELECT 
+ {{ Excludes }},
+ {{ Includes }},
+ {{ Tags }},
+ {{ CloudWatchLogGroupArn }},
+ {{ DestinationLocationArn }},
+ {{ Name }},
+ {{ Options }},
+ {{ TaskReportConfig }},
+ {{ ManifestConfig }},
+ {{ Schedule }},
+ {{ SourceLocationArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.datasync.tasks
+WHERE data__Identifier = '<TaskArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -91,6 +256,19 @@ logs:DescribeLogGroups,
 iam:GetRole,
 iam:PassRole,
 iam:AssumeRole
+```
+
+### Delete
+```json
+datasync:DeleteTask,
+ec2:DescribeNetworkInterfaces,
+ec2:DeleteNetworkInterface,
+ec2:DescribeSecurityGroups,
+ec2:DescribeSubnets,
+fsx:DescribeFileSystems,
+elasticfilesystem:DescribeFileSystems,
+elasticfilesystem:DescribeMountTargets,
+iam:GetRole
 ```
 
 ### List

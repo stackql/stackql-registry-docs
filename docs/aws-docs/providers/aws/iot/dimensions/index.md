@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>dimensions</code> in a region or create a <code>dimensions</code> resource, use <code>dimension</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>dimensions</code> in a region or to create or delete a <code>dimensions</code> resource, use <code>dimension</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>dimensions</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 name
 FROM aws.iot.dimensions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}",
+ "StringValues": [
+  "{{ StringValues[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.dimensions (
+ Type,
+ StringValues,
+ region
+)
+SELECT 
+{{ Type }},
+ {{ StringValues }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}",
+ "StringValues": [
+  "{{ StringValues[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iot.dimensions (
+ Name,
+ Type,
+ StringValues,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Type }},
+ {{ StringValues }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.dimensions
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +159,12 @@ To operate on the <code>dimensions</code> resource, the following permissions ar
 ```json
 iot:CreateDimension,
 iot:TagResource
+```
+
+### Delete
+```json
+iot:DescribeDimension,
+iot:DeleteDimension
 ```
 
 ### List

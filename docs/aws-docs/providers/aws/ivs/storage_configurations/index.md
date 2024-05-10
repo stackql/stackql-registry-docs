@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>storage_configurations</code> in a region or create a <code>storage_configurations</code> resource, use <code>storage_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>storage_configurations</code> in a region or to create or delete a <code>storage_configurations</code> resource, use <code>storage_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>storage_configurations</code> in a region or cr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,80 @@ SELECT
 region,
 arn
 FROM aws.ivs.storage_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "S3": {
+  "BucketName": "{{ BucketName }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.ivs.storage_configurations (
+ S3,
+ region
+)
+SELECT 
+{{ S3 }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "S3": {
+  "BucketName": "{{ BucketName }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ivs.storage_configurations (
+ Name,
+ S3,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ S3 }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ivs.storage_configurations
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +156,15 @@ ivs:GetStorageConfiguration,
 ivs:TagResource,
 s3:GetBucketLocation,
 s3:GetBucketPolicy,
+s3:PutBucketPolicy
+```
+
+### Delete
+```json
+ivs:DeleteStorageConfiguration,
+ivs:UntagResource,
+s3:GetBucketPolicy,
+s3:DeleteBucketPolicy,
 s3:PutBucketPolicy
 ```
 

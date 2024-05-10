@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>type_activations</code> in a region or create a <code>type_activations</code> resource, use <code>type_activation</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>type_activations</code> in a region or to create or delete a <code>type_activations</code> resource, use <code>type_activation</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>type_activations</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,125 @@ SELECT
 region,
 arn
 FROM aws.cloudformation.type_activations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+ "PublisherId": "{{ PublisherId }}",
+ "LoggingConfig": {
+  "LogGroupName": "{{ LogGroupName }}",
+  "LogRoleArn": "{{ LogRoleArn }}"
+ },
+ "PublicTypeArn": "{{ PublicTypeArn }}",
+ "AutoUpdate": "{{ AutoUpdate }}",
+ "TypeNameAlias": "{{ TypeNameAlias }}",
+ "VersionBump": "{{ VersionBump }}",
+ "MajorVersion": "{{ MajorVersion }}",
+ "TypeName": "{{ TypeName }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudformation.type_activations (
+ ExecutionRoleArn,
+ PublisherId,
+ LoggingConfig,
+ PublicTypeArn,
+ AutoUpdate,
+ TypeNameAlias,
+ VersionBump,
+ MajorVersion,
+ TypeName,
+ Type,
+ region
+)
+SELECT 
+{{ ExecutionRoleArn }},
+ {{ PublisherId }},
+ {{ LoggingConfig }},
+ {{ PublicTypeArn }},
+ {{ AutoUpdate }},
+ {{ TypeNameAlias }},
+ {{ VersionBump }},
+ {{ MajorVersion }},
+ {{ TypeName }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
+ "PublisherId": "{{ PublisherId }}",
+ "LoggingConfig": {
+  "LogGroupName": "{{ LogGroupName }}",
+  "LogRoleArn": "{{ LogRoleArn }}"
+ },
+ "PublicTypeArn": "{{ PublicTypeArn }}",
+ "AutoUpdate": "{{ AutoUpdate }}",
+ "TypeNameAlias": "{{ TypeNameAlias }}",
+ "VersionBump": "{{ VersionBump }}",
+ "MajorVersion": "{{ MajorVersion }}",
+ "TypeName": "{{ TypeName }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cloudformation.type_activations (
+ ExecutionRoleArn,
+ PublisherId,
+ LoggingConfig,
+ PublicTypeArn,
+ AutoUpdate,
+ TypeNameAlias,
+ VersionBump,
+ MajorVersion,
+ TypeName,
+ Type,
+ region
+)
+SELECT 
+ {{ ExecutionRoleArn }},
+ {{ PublisherId }},
+ {{ LoggingConfig }},
+ {{ PublicTypeArn }},
+ {{ AutoUpdate }},
+ {{ TypeNameAlias }},
+ {{ VersionBump }},
+ {{ MajorVersion }},
+ {{ TypeName }},
+ {{ Type }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudformation.type_activations
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +199,12 @@ To operate on the <code>type_activations</code> resource, the following permissi
 cloudformation:ActivateType,
 cloudformation:DescribeType,
 iam:PassRole
+```
+
+### Delete
+```json
+cloudformation:DeactivateType,
+cloudformation:DescribeType
 ```
 
 ### List

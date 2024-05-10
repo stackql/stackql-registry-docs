@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>model_card</code> resource, use <code>model_cards</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>model_card</code> resource, use <code>model_cards</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>model_card</code> resource, use <code>mo
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ last_modified_by,
 model_card_processing_status,
 tags
 FROM aws.sagemaker.model_card
-WHERE data__Identifier = '<ModelCardName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ModelCardName>';
 ```
+
 
 ## Permissions
 
@@ -114,18 +113,6 @@ sagemaker:DescribeModelPackageGroup,
 sagemaker:DescribeModelPackage,
 sagemaker:ListTags,
 sagemaker:AddTags,
-sagemaker:DeleteTags
-```
-
-### Delete
-```json
-sagemaker:DescribeModelCard,
-sagemaker:DeleteModelCard,
-sagemaker:DescribeModelPackageGroup,
-sagemaker:DescribeModelPackage,
-kms:RetireGrant,
-kms:Decrypt,
-sagemaker:ListTags,
 sagemaker:DeleteTags
 ```
 

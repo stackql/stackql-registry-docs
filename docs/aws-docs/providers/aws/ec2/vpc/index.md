@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>vpc</code> resource, use <code>vpcs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>vpc</code> resource, use <code>vpcs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>vpc</code> resource, use <code>vpcs</cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ default_security_group,
 enable_dns_hostnames,
 tags
 FROM aws.ec2.vpc
-WHERE data__Identifier = '<VpcId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<VpcId>';
 ```
+
 
 ## Permissions
 
@@ -109,11 +108,5 @@ ec2:CreateTags,
 ec2:ModifyVpcAttribute,
 ec2:DeleteTags,
 ec2:ModifyVpcTenancy
-```
-
-### Delete
-```json
-ec2:DeleteVpc,
-ec2:DescribeVpcs
 ```
 

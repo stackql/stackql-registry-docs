@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>clusters</code> in a region or create a <code>clusters</code> resource, use <code>cluster</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>clusters</code> in a region or to create or delete a <code>clusters</code> resource, use <code>cluster</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>clusters</code> in a region or create a <code>c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,228 @@ SELECT
 region,
 arn
 FROM aws.msk.clusters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "BrokerNodeGroupInfo": {
+  "StorageInfo": {
+   "EBSStorageInfo": {
+    "VolumeSize": "{{ VolumeSize }}",
+    "ProvisionedThroughput": {
+     "Enabled": "{{ Enabled }}",
+     "VolumeThroughput": "{{ VolumeThroughput }}"
+    }
+   }
+  },
+  "ConnectivityInfo": {
+   "PublicAccess": {
+    "Type": "{{ Type }}"
+   },
+   "VpcConnectivity": {
+    "ClientAuthentication": {
+     "Tls": {
+      "Enabled": "{{ Enabled }}"
+     },
+     "Sasl": {
+      "Scram": {
+       "Enabled": "{{ Enabled }}"
+      },
+      "Iam": {
+       "Enabled": "{{ Enabled }}"
+      }
+     }
+    }
+   }
+  },
+  "SecurityGroups": [
+   "{{ SecurityGroups[0] }}"
+  ],
+  "BrokerAZDistribution": "{{ BrokerAZDistribution }}",
+  "ClientSubnets": [
+   "{{ ClientSubnets[0] }}"
+  ],
+  "InstanceType": "{{ InstanceType }}"
+ },
+ "KafkaVersion": "{{ KafkaVersion }}",
+ "NumberOfBrokerNodes": "{{ NumberOfBrokerNodes }}",
+ "ClusterName": "{{ ClusterName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.msk.clusters (
+ BrokerNodeGroupInfo,
+ KafkaVersion,
+ NumberOfBrokerNodes,
+ ClusterName,
+ region
+)
+SELECT 
+{{ BrokerNodeGroupInfo }},
+ {{ KafkaVersion }},
+ {{ NumberOfBrokerNodes }},
+ {{ ClusterName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BrokerNodeGroupInfo": {
+  "StorageInfo": {
+   "EBSStorageInfo": {
+    "VolumeSize": "{{ VolumeSize }}",
+    "ProvisionedThroughput": {
+     "Enabled": "{{ Enabled }}",
+     "VolumeThroughput": "{{ VolumeThroughput }}"
+    }
+   }
+  },
+  "ConnectivityInfo": {
+   "PublicAccess": {
+    "Type": "{{ Type }}"
+   },
+   "VpcConnectivity": {
+    "ClientAuthentication": {
+     "Tls": {
+      "Enabled": "{{ Enabled }}"
+     },
+     "Sasl": {
+      "Scram": {
+       "Enabled": "{{ Enabled }}"
+      },
+      "Iam": {
+       "Enabled": "{{ Enabled }}"
+      }
+     }
+    }
+   }
+  },
+  "SecurityGroups": [
+   "{{ SecurityGroups[0] }}"
+  ],
+  "BrokerAZDistribution": "{{ BrokerAZDistribution }}",
+  "ClientSubnets": [
+   "{{ ClientSubnets[0] }}"
+  ],
+  "InstanceType": "{{ InstanceType }}"
+ },
+ "EnhancedMonitoring": "{{ EnhancedMonitoring }}",
+ "KafkaVersion": "{{ KafkaVersion }}",
+ "NumberOfBrokerNodes": "{{ NumberOfBrokerNodes }}",
+ "EncryptionInfo": {
+  "EncryptionAtRest": {
+   "DataVolumeKMSKeyId": "{{ DataVolumeKMSKeyId }}"
+  },
+  "EncryptionInTransit": {
+   "InCluster": "{{ InCluster }}",
+   "ClientBroker": "{{ ClientBroker }}"
+  }
+ },
+ "OpenMonitoring": {
+  "Prometheus": {
+   "JmxExporter": {
+    "EnabledInBroker": "{{ EnabledInBroker }}"
+   },
+   "NodeExporter": {
+    "EnabledInBroker": "{{ EnabledInBroker }}"
+   }
+  }
+ },
+ "ClusterName": "{{ ClusterName }}",
+ "CurrentVersion": "{{ CurrentVersion }}",
+ "ClientAuthentication": {
+  "Sasl": {
+   "Iam": {
+    "Enabled": "{{ Enabled }}"
+   }
+  }
+ },
+ "LoggingInfo": {
+  "BrokerLogs": {
+   "S3": {
+    "Enabled": "{{ Enabled }}",
+    "Prefix": "{{ Prefix }}",
+    "Bucket": "{{ Bucket }}"
+   },
+   "CloudWatchLogs": {
+    "LogGroup": "{{ LogGroup }}",
+    "Enabled": "{{ Enabled }}"
+   },
+   "Firehose": {
+    "Enabled": "{{ Enabled }}",
+    "DeliveryStream": "{{ DeliveryStream }}"
+   }
+  }
+ },
+ "Tags": {},
+ "ConfigurationInfo": {
+  "Revision": "{{ Revision }}",
+  "Arn": "{{ Arn }}"
+ },
+ "StorageMode": "{{ StorageMode }}"
+}
+>>>
+--all properties
+INSERT INTO aws.msk.clusters (
+ BrokerNodeGroupInfo,
+ EnhancedMonitoring,
+ KafkaVersion,
+ NumberOfBrokerNodes,
+ EncryptionInfo,
+ OpenMonitoring,
+ ClusterName,
+ CurrentVersion,
+ ClientAuthentication,
+ LoggingInfo,
+ Tags,
+ ConfigurationInfo,
+ StorageMode,
+ region
+)
+SELECT 
+ {{ BrokerNodeGroupInfo }},
+ {{ EnhancedMonitoring }},
+ {{ KafkaVersion }},
+ {{ NumberOfBrokerNodes }},
+ {{ EncryptionInfo }},
+ {{ OpenMonitoring }},
+ {{ ClusterName }},
+ {{ CurrentVersion }},
+ {{ ClientAuthentication }},
+ {{ LoggingInfo }},
+ {{ Tags }},
+ {{ ConfigurationInfo }},
+ {{ StorageMode }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.msk.clusters
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -93,6 +322,12 @@ logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
 firehose:TagDeliveryStream,
 acm-pca:GetCertificateAuthorityCertificate
+```
+
+### Delete
+```json
+kafka:DeleteCluster,
+kafka:DescribeCluster
 ```
 
 ### List

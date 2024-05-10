@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>workspaces</code> in a region or create a <code>workspaces</code> resource, use <code>workspace</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>workspaces</code> in a region or to create or delete a <code>workspaces</code> resource, use <code>workspace</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>workspaces</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,168 @@ SELECT
 region,
 id
 FROM aws.grafana.workspaces
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AuthenticationProviders": [
+  "{{ AuthenticationProviders[0] }}"
+ ],
+ "AccountAccessType": "{{ AccountAccessType }}",
+ "PermissionType": "{{ PermissionType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.grafana.workspaces (
+ AuthenticationProviders,
+ AccountAccessType,
+ PermissionType,
+ region
+)
+SELECT 
+{{ AuthenticationProviders }},
+ {{ AccountAccessType }},
+ {{ PermissionType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AuthenticationProviders": [
+  "{{ AuthenticationProviders[0] }}"
+ ],
+ "SamlConfiguration": {
+  "IdpMetadata": {
+   "Url": "{{ Url }}",
+   "Xml": "{{ Xml }}"
+  },
+  "AssertionAttributes": {
+   "Name": "{{ Name }}",
+   "Login": "{{ Login }}",
+   "Email": "{{ Email }}",
+   "Groups": "{{ Groups }}",
+   "Role": "{{ Role }}",
+   "Org": "{{ Org }}"
+  },
+  "RoleValues": {
+   "Editor": [
+    "{{ Editor[0] }}"
+   ],
+   "Admin": [
+    "{{ Admin[0] }}"
+   ]
+  },
+  "AllowedOrganizations": [
+   "{{ AllowedOrganizations[0] }}"
+  ],
+  "LoginValidityDuration": null
+ },
+ "NetworkAccessControl": {
+  "PrefixListIds": [
+   "{{ PrefixListIds[0] }}"
+  ],
+  "VpceIds": [
+   "{{ VpceIds[0] }}"
+  ]
+ },
+ "VpcConfiguration": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "ClientToken": "{{ ClientToken }}",
+ "GrafanaVersion": "{{ GrafanaVersion }}",
+ "AccountAccessType": "{{ AccountAccessType }}",
+ "OrganizationRoleName": "{{ OrganizationRoleName }}",
+ "PermissionType": "{{ PermissionType }}",
+ "StackSetName": "{{ StackSetName }}",
+ "DataSources": [
+  "{{ DataSources[0] }}"
+ ],
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "NotificationDestinations": [
+  "{{ NotificationDestinations[0] }}"
+ ],
+ "OrganizationalUnits": [
+  "{{ OrganizationalUnits[0] }}"
+ ],
+ "RoleArn": "{{ RoleArn }}",
+ "PluginAdminEnabled": "{{ PluginAdminEnabled }}"
+}
+>>>
+--all properties
+INSERT INTO aws.grafana.workspaces (
+ AuthenticationProviders,
+ SamlConfiguration,
+ NetworkAccessControl,
+ VpcConfiguration,
+ ClientToken,
+ GrafanaVersion,
+ AccountAccessType,
+ OrganizationRoleName,
+ PermissionType,
+ StackSetName,
+ DataSources,
+ Description,
+ Name,
+ NotificationDestinations,
+ OrganizationalUnits,
+ RoleArn,
+ PluginAdminEnabled,
+ region
+)
+SELECT 
+ {{ AuthenticationProviders }},
+ {{ SamlConfiguration }},
+ {{ NetworkAccessControl }},
+ {{ VpcConfiguration }},
+ {{ ClientToken }},
+ {{ GrafanaVersion }},
+ {{ AccountAccessType }},
+ {{ OrganizationRoleName }},
+ {{ PermissionType }},
+ {{ StackSetName }},
+ {{ DataSources }},
+ {{ Description }},
+ {{ Name }},
+ {{ NotificationDestinations }},
+ {{ OrganizationalUnits }},
+ {{ RoleArn }},
+ {{ PluginAdminEnabled }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.grafana.workspaces
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -87,6 +256,16 @@ ec2:DescribeVpcs,
 iam:CreateServiceLinkedRole,
 sso:ListApplicationInstances,
 sso:GetApplicationInstance
+```
+
+### Delete
+```json
+grafana:DeleteWorkspace,
+grafana:DescribeWorkspace,
+grafana:DescribeWorkspaceAuthentication,
+grafana:DescribeWorkspaceConfiguration,
+sso:DeleteManagedApplicationInstance,
+sso:DescribeRegisteredRegions
 ```
 
 ### List

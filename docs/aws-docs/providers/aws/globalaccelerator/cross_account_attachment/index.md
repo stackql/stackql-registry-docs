@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>cross_account_attachment</code> resource, use <code>cross_account_attachments</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>cross_account_attachment</code> resource, use <code>cross_account_attachments</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>cross_account_attachment</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -77,6 +75,7 @@ FROM aws.globalaccelerator.cross_account_attachment
 WHERE data__Identifier = '<AttachmentArn>';
 ```
 
+
 ## Permissions
 
 To operate on the <code>cross_account_attachment</code> resource, the following permissions are required:
@@ -92,11 +91,5 @@ globalaccelerator:UpdateCrossAccountAttachment,
 globalaccelerator:DescribeCrossAccountAttachment,
 globalaccelerator:TagResource,
 globalaccelerator:UntagResource
-```
-
-### Delete
-```json
-globalaccelerator:DescribeCrossAccountAttachment,
-globalaccelerator:DeleteCrossAccountAttachment
 ```
 

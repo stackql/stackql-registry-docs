@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>repository_creation_templates</code> in a region or create a <code>repository_creation_templates</code> resource, use <code>repository_creation_template</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>repository_creation_templates</code> in a region or to create or delete a <code>repository_creation_templates</code> resource, use <code>repository_creation_template</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>repository_creation_templates</code> in a regio
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,101 @@ SELECT
 region,
 prefix
 FROM aws.ecr.repository_creation_templates
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Prefix": "{{ Prefix }}",
+ "AppliedFor": [
+  "{{ AppliedFor[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.ecr.repository_creation_templates (
+ Prefix,
+ AppliedFor,
+ region
+)
+SELECT 
+{{ Prefix }},
+ {{ AppliedFor }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Prefix": "{{ Prefix }}",
+ "Description": "{{ Description }}",
+ "ImageTagMutability": "{{ ImageTagMutability }}",
+ "RepositoryPolicy": "{{ RepositoryPolicy }}",
+ "LifecyclePolicy": "{{ LifecyclePolicy }}",
+ "EncryptionConfiguration": {
+  "EncryptionType": "{{ EncryptionType }}",
+  "KmsKey": "{{ KmsKey }}"
+ },
+ "ResourceTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "AppliedFor": [
+  "{{ AppliedFor[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ecr.repository_creation_templates (
+ Prefix,
+ Description,
+ ImageTagMutability,
+ RepositoryPolicy,
+ LifecyclePolicy,
+ EncryptionConfiguration,
+ ResourceTags,
+ AppliedFor,
+ region
+)
+SELECT 
+ {{ Prefix }},
+ {{ Description }},
+ {{ ImageTagMutability }},
+ {{ RepositoryPolicy }},
+ {{ LifecyclePolicy }},
+ {{ EncryptionConfiguration }},
+ {{ ResourceTags }},
+ {{ AppliedFor }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ecr.repository_creation_templates
+WHERE data__Identifier = '<Prefix>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +175,11 @@ To operate on the <code>repository_creation_templates</code> resource, the follo
 ecr:CreateRepositoryCreationTemplate,
 ecr:PutLifecyclePolicy,
 ecr:SetRepositoryPolicy
+```
+
+### Delete
+```json
+ecr:DeleteRepositoryCreationTemplate
 ```
 
 ### List

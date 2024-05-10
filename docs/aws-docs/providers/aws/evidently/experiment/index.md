@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>experiment</code> resource, use <code>experiments</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>experiment</code> resource, use <code>experiments</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>experiment</code> resource, use <code>ex
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ segment,
 remove_segment,
 tags
 FROM aws.evidently.experiment
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -111,12 +110,5 @@ evidently:UntagResource,
 evidently:GetExperiment,
 evidently:StartExperiment,
 evidently:StopExperiment
-```
-
-### Delete
-```json
-evidently:DeleteExperiment,
-evidently:UntagResource,
-evidently:GetExperiment
 ```
 

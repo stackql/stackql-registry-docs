@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>extensions</code> in a region or create a <code>extensions</code> resource, use <code>extension</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>extensions</code> in a region or to create or delete a <code>extensions</code> resource, use <code>extension</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>extensions</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,88 @@ SELECT
 region,
 id
 FROM aws.appconfig.extensions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Actions": {}
+}
+>>>
+--required properties only
+INSERT INTO aws.appconfig.extensions (
+ Name,
+ Actions,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Actions }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Actions": {},
+ "Parameters": {},
+ "LatestVersionNumber": "{{ LatestVersionNumber }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.appconfig.extensions (
+ Name,
+ Description,
+ Actions,
+ Parameters,
+ LatestVersionNumber,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Actions }},
+ {{ Parameters }},
+ {{ LatestVersionNumber }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appconfig.extensions
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +162,12 @@ To operate on the <code>extensions</code> resource, the following permissions ar
 appconfig:CreateExtension,
 appconfig:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+appconfig:DeleteExtension,
+appconfig:UntagResource
 ```
 
 ### List

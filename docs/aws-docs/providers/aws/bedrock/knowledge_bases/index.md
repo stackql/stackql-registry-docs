@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>knowledge_bases</code> in a region or create a <code>knowledge_bases</code> resource, use <code>knowledge_base</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>knowledge_bases</code> in a region or to create or delete a <code>knowledge_bases</code> resource, use <code>knowledge_base</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>knowledge_bases</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,163 @@ SELECT
 region,
 knowledge_base_id
 FROM aws.bedrock.knowledge_bases
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "KnowledgeBaseConfiguration": {
+  "Type": "{{ Type }}",
+  "VectorKnowledgeBaseConfiguration": {
+   "EmbeddingModelArn": "{{ EmbeddingModelArn }}"
+  }
+ },
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "StorageConfiguration": {
+  "Type": "{{ Type }}",
+  "OpensearchServerlessConfiguration": {
+   "CollectionArn": "{{ CollectionArn }}",
+   "VectorIndexName": "{{ VectorIndexName }}",
+   "FieldMapping": {
+    "VectorField": "{{ VectorField }}",
+    "TextField": "{{ TextField }}",
+    "MetadataField": "{{ MetadataField }}"
+   }
+  },
+  "PineconeConfiguration": {
+   "ConnectionString": "{{ ConnectionString }}",
+   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
+   "Namespace": "{{ Namespace }}",
+   "FieldMapping": {
+    "TextField": "{{ TextField }}",
+    "MetadataField": "{{ MetadataField }}"
+   }
+  },
+  "RdsConfiguration": {
+   "ResourceArn": "{{ ResourceArn }}",
+   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
+   "DatabaseName": "{{ DatabaseName }}",
+   "TableName": "{{ TableName }}",
+   "FieldMapping": {
+    "PrimaryKeyField": "{{ PrimaryKeyField }}",
+    "VectorField": "{{ VectorField }}",
+    "TextField": "{{ TextField }}",
+    "MetadataField": "{{ MetadataField }}"
+   }
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.bedrock.knowledge_bases (
+ KnowledgeBaseConfiguration,
+ Name,
+ RoleArn,
+ StorageConfiguration,
+ region
+)
+SELECT 
+{{ KnowledgeBaseConfiguration }},
+ {{ Name }},
+ {{ RoleArn }},
+ {{ StorageConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "KnowledgeBaseConfiguration": {
+  "Type": "{{ Type }}",
+  "VectorKnowledgeBaseConfiguration": {
+   "EmbeddingModelArn": "{{ EmbeddingModelArn }}"
+  }
+ },
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "StorageConfiguration": {
+  "Type": "{{ Type }}",
+  "OpensearchServerlessConfiguration": {
+   "CollectionArn": "{{ CollectionArn }}",
+   "VectorIndexName": "{{ VectorIndexName }}",
+   "FieldMapping": {
+    "VectorField": "{{ VectorField }}",
+    "TextField": "{{ TextField }}",
+    "MetadataField": "{{ MetadataField }}"
+   }
+  },
+  "PineconeConfiguration": {
+   "ConnectionString": "{{ ConnectionString }}",
+   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
+   "Namespace": "{{ Namespace }}",
+   "FieldMapping": {
+    "TextField": "{{ TextField }}",
+    "MetadataField": "{{ MetadataField }}"
+   }
+  },
+  "RdsConfiguration": {
+   "ResourceArn": "{{ ResourceArn }}",
+   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
+   "DatabaseName": "{{ DatabaseName }}",
+   "TableName": "{{ TableName }}",
+   "FieldMapping": {
+    "PrimaryKeyField": "{{ PrimaryKeyField }}",
+    "VectorField": "{{ VectorField }}",
+    "TextField": "{{ TextField }}",
+    "MetadataField": "{{ MetadataField }}"
+   }
+  }
+ },
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.bedrock.knowledge_bases (
+ Description,
+ KnowledgeBaseConfiguration,
+ Name,
+ RoleArn,
+ StorageConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ KnowledgeBaseConfiguration }},
+ {{ Name }},
+ {{ RoleArn }},
+ {{ StorageConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.bedrock.knowledge_bases
+WHERE data__Identifier = '<KnowledgeBaseId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +240,13 @@ bedrock:TagResource,
 bedrock:ListTagsForResource,
 bedrock:AssociateThirdPartyKnowledgeBase,
 iam:PassRole
+```
+
+### Delete
+```json
+bedrock:GetKnowledgeBase,
+bedrock:DeleteKnowledgeBase,
+bedrock:ListDataSources
 ```
 
 ### List

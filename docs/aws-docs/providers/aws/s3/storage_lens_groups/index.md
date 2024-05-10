@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>storage_lens_groups</code> in a region or create a <code>storage_lens_groups</code> resource, use <code>storage_lens_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>storage_lens_groups</code> in a region or to create or delete a <code>storage_lens_groups</code> resource, use <code>storage_lens_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>storage_lens_groups</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,146 @@ SELECT
 region,
 name
 FROM aws.s3.storage_lens_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Filter": {
+  "MatchAnyPrefix": [
+   "{{ MatchAnyPrefix[0] }}"
+  ],
+  "MatchAnySuffix": [
+   "{{ MatchAnySuffix[0] }}"
+  ],
+  "MatchAnyTag": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ],
+  "MatchObjectSize": {
+   "BytesGreaterThan": "{{ BytesGreaterThan }}",
+   "BytesLessThan": "{{ BytesLessThan }}"
+  },
+  "MatchObjectAge": {
+   "DaysGreaterThan": "{{ DaysGreaterThan }}",
+   "DaysLessThan": "{{ DaysLessThan }}"
+  },
+  "And": {
+   "MatchAnyPrefix": null,
+   "MatchAnySuffix": null,
+   "MatchAnyTag": null,
+   "MatchObjectSize": null,
+   "MatchObjectAge": null
+  },
+  "Or": {
+   "MatchAnyPrefix": null,
+   "MatchAnySuffix": null,
+   "MatchAnyTag": null,
+   "MatchObjectSize": null,
+   "MatchObjectAge": null
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.s3.storage_lens_groups (
+ Name,
+ Filter,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Filter }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Filter": {
+  "MatchAnyPrefix": [
+   "{{ MatchAnyPrefix[0] }}"
+  ],
+  "MatchAnySuffix": [
+   "{{ MatchAnySuffix[0] }}"
+  ],
+  "MatchAnyTag": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ],
+  "MatchObjectSize": {
+   "BytesGreaterThan": "{{ BytesGreaterThan }}",
+   "BytesLessThan": "{{ BytesLessThan }}"
+  },
+  "MatchObjectAge": {
+   "DaysGreaterThan": "{{ DaysGreaterThan }}",
+   "DaysLessThan": "{{ DaysLessThan }}"
+  },
+  "And": {
+   "MatchAnyPrefix": null,
+   "MatchAnySuffix": null,
+   "MatchAnyTag": null,
+   "MatchObjectSize": null,
+   "MatchObjectAge": null
+  },
+  "Or": {
+   "MatchAnyPrefix": null,
+   "MatchAnySuffix": null,
+   "MatchAnyTag": null,
+   "MatchObjectSize": null,
+   "MatchObjectAge": null
+  }
+ },
+ "Tags": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.s3.storage_lens_groups (
+ Name,
+ Filter,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Filter }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.s3.storage_lens_groups
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +221,11 @@ s3:CreateStorageLensGroup,
 s3:GetStorageLensGroup,
 s3:TagResource,
 s3:ListTagsForResource
+```
+
+### Delete
+```json
+s3:DeleteStorageLensGroup
 ```
 
 ### List

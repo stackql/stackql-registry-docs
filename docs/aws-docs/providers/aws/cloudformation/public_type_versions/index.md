@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>public_type_versions</code> in a region or create a <code>public_type_versions</code> resource, use <code>public_type_version</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>public_type_versions</code> in a region or to create or delete a <code>public_type_versions</code> resource, use <code>public_type_version</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>public_type_versions</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,89 @@ SELECT
 region,
 public_type_arn
 FROM aws.cloudformation.public_type_versions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Arn": "{{ Arn }}",
+ "PublicVersionNumber": "{{ PublicVersionNumber }}",
+ "TypeName": "{{ TypeName }}",
+ "LogDeliveryBucket": "{{ LogDeliveryBucket }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudformation.public_type_versions (
+ Arn,
+ PublicVersionNumber,
+ TypeName,
+ LogDeliveryBucket,
+ Type,
+ region
+)
+SELECT 
+{{ Arn }},
+ {{ PublicVersionNumber }},
+ {{ TypeName }},
+ {{ LogDeliveryBucket }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Arn": "{{ Arn }}",
+ "PublicVersionNumber": "{{ PublicVersionNumber }}",
+ "TypeName": "{{ TypeName }}",
+ "LogDeliveryBucket": "{{ LogDeliveryBucket }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cloudformation.public_type_versions (
+ Arn,
+ PublicVersionNumber,
+ TypeName,
+ LogDeliveryBucket,
+ Type,
+ region
+)
+SELECT 
+ {{ Arn }},
+ {{ PublicVersionNumber }},
+ {{ TypeName }},
+ {{ LogDeliveryBucket }},
+ {{ Type }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudformation.public_type_versions
+WHERE data__Identifier = '<PublicTypeArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions

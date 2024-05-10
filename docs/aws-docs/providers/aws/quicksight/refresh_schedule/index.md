@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>refresh_schedule</code> resource, use <code>refresh_schedules</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>refresh_schedule</code> resource, use <code>refresh_schedules</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>refresh_schedule</code> resource, use <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ aws_account_id,
 data_set_id,
 schedule
 FROM aws.quicksight.refresh_schedule
-WHERE data__Identifier = '<AwsAccountId>|<DataSetId>|<Schedule/ScheduleId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>|<DataSetId>|<Schedule/ScheduleId>';
 ```
+
 
 ## Permissions
 
@@ -82,12 +81,6 @@ To operate on the <code>refresh_schedule</code> resource, the following permissi
 ### Update
 ```json
 quicksight:UpdateRefreshSchedule,
-quicksight:DescribeRefreshSchedule
-```
-
-### Delete
-```json
-quicksight:DeleteRefreshSchedule,
 quicksight:DescribeRefreshSchedule
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>assignments</code> in a region or create a <code>assignments</code> resource, use <code>assignment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>assignments</code> in a region or to create or delete a <code>assignments</code> resource, use <code>assignment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -54,6 +57,11 @@ Used to retrieve a list of <code>assignments</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -71,7 +79,95 @@ permission_set_arn,
 principal_type,
 principal_id
 FROM aws.sso.assignments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "TargetId": "{{ TargetId }}",
+ "TargetType": "{{ TargetType }}",
+ "PermissionSetArn": "{{ PermissionSetArn }}",
+ "PrincipalType": "{{ PrincipalType }}",
+ "PrincipalId": "{{ PrincipalId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sso.assignments (
+ InstanceArn,
+ TargetId,
+ TargetType,
+ PermissionSetArn,
+ PrincipalType,
+ PrincipalId,
+ region
+)
+SELECT 
+{{ InstanceArn }},
+ {{ TargetId }},
+ {{ TargetType }},
+ {{ PermissionSetArn }},
+ {{ PrincipalType }},
+ {{ PrincipalId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "TargetId": "{{ TargetId }}",
+ "TargetType": "{{ TargetType }}",
+ "PermissionSetArn": "{{ PermissionSetArn }}",
+ "PrincipalType": "{{ PrincipalType }}",
+ "PrincipalId": "{{ PrincipalId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.sso.assignments (
+ InstanceArn,
+ TargetId,
+ TargetType,
+ PermissionSetArn,
+ PrincipalType,
+ PrincipalId,
+ region
+)
+SELECT 
+ {{ InstanceArn }},
+ {{ TargetId }},
+ {{ TargetType }},
+ {{ PermissionSetArn }},
+ {{ PrincipalType }},
+ {{ PrincipalId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sso.assignments
+WHERE data__Identifier = '<InstanceArn|TargetId|TargetType|PermissionSetArn|PrincipalType|PrincipalId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -88,6 +184,15 @@ iam:CreateSAMLProvider,
 iam:AttachRolePolicy,
 iam:PutRolePolicy,
 iam:CreateRole,
+iam:ListRolePolicies
+```
+
+### Delete
+```json
+sso:ListAccountAssignments,
+sso:DeleteAccountAssignment,
+sso:DescribeAccountAssignmentDeletionStatus,
+iam:GetSAMLProvider,
 iam:ListRolePolicies
 ```
 

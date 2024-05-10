@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>auto_scaling_groups</code> in a region or create a <code>auto_scaling_groups</code> resource, use <code>auto_scaling_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>auto_scaling_groups</code> in a region or to create or delete a <code>auto_scaling_groups</code> resource, use <code>auto_scaling_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>auto_scaling_groups</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,292 @@ SELECT
 region,
 auto_scaling_group_name
 FROM aws.autoscaling.auto_scaling_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "MaxSize": "{{ MaxSize }}",
+ "MinSize": "{{ MinSize }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.autoscaling.auto_scaling_groups (
+ MaxSize,
+ MinSize,
+ region
+)
+SELECT 
+{{ MaxSize }},
+ {{ MinSize }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "LifecycleHookSpecificationList": [
+  {
+   "LifecycleHookName": "{{ LifecycleHookName }}",
+   "LifecycleTransition": "{{ LifecycleTransition }}",
+   "HeartbeatTimeout": "{{ HeartbeatTimeout }}",
+   "NotificationMetadata": "{{ NotificationMetadata }}",
+   "DefaultResult": "{{ DefaultResult }}",
+   "NotificationTargetARN": "{{ NotificationTargetARN }}",
+   "RoleARN": "{{ RoleARN }}"
+  }
+ ],
+ "LoadBalancerNames": [
+  "{{ LoadBalancerNames[0] }}"
+ ],
+ "LaunchConfigurationName": "{{ LaunchConfigurationName }}",
+ "ServiceLinkedRoleARN": "{{ ServiceLinkedRoleARN }}",
+ "TargetGroupARNs": [
+  "{{ TargetGroupARNs[0] }}"
+ ],
+ "Cooldown": "{{ Cooldown }}",
+ "NotificationConfigurations": [
+  {
+   "TopicARN": [
+    "{{ TopicARN[0] }}"
+   ],
+   "NotificationTypes": [
+    "{{ NotificationTypes[0] }}"
+   ]
+  }
+ ],
+ "DesiredCapacity": "{{ DesiredCapacity }}",
+ "HealthCheckGracePeriod": "{{ HealthCheckGracePeriod }}",
+ "DefaultInstanceWarmup": "{{ DefaultInstanceWarmup }}",
+ "NewInstancesProtectedFromScaleIn": "{{ NewInstancesProtectedFromScaleIn }}",
+ "LaunchTemplate": {
+  "LaunchTemplateName": "{{ LaunchTemplateName }}",
+  "Version": "{{ Version }}",
+  "LaunchTemplateId": "{{ LaunchTemplateId }}"
+ },
+ "MixedInstancesPolicy": {
+  "InstancesDistribution": {
+   "OnDemandAllocationStrategy": "{{ OnDemandAllocationStrategy }}",
+   "OnDemandBaseCapacity": "{{ OnDemandBaseCapacity }}",
+   "OnDemandPercentageAboveBaseCapacity": "{{ OnDemandPercentageAboveBaseCapacity }}",
+   "SpotInstancePools": "{{ SpotInstancePools }}",
+   "SpotAllocationStrategy": "{{ SpotAllocationStrategy }}",
+   "SpotMaxPrice": "{{ SpotMaxPrice }}"
+  },
+  "LaunchTemplate": {
+   "LaunchTemplateSpecification": null,
+   "Overrides": [
+    {
+     "LaunchTemplateSpecification": null,
+     "WeightedCapacity": "{{ WeightedCapacity }}",
+     "InstanceRequirements": {
+      "LocalStorageTypes": [
+       "{{ LocalStorageTypes[0] }}"
+      ],
+      "InstanceGenerations": [
+       "{{ InstanceGenerations[0] }}"
+      ],
+      "NetworkInterfaceCount": {
+       "Min": "{{ Min }}",
+       "Max": "{{ Max }}"
+      },
+      "AcceleratorTypes": [
+       "{{ AcceleratorTypes[0] }}"
+      ],
+      "MemoryGiBPerVCpu": {
+       "Min": null,
+       "Max": null
+      },
+      "AcceleratorManufacturers": [
+       "{{ AcceleratorManufacturers[0] }}"
+      ],
+      "ExcludedInstanceTypes": [
+       "{{ ExcludedInstanceTypes[0] }}"
+      ],
+      "VCpuCount": {
+       "Min": "{{ Min }}",
+       "Max": "{{ Max }}"
+      },
+      "AllowedInstanceTypes": [
+       "{{ AllowedInstanceTypes[0] }}"
+      ],
+      "LocalStorage": "{{ LocalStorage }}",
+      "CpuManufacturers": [
+       "{{ CpuManufacturers[0] }}"
+      ],
+      "AcceleratorCount": {
+       "Min": "{{ Min }}",
+       "Max": "{{ Max }}"
+      },
+      "NetworkBandwidthGbps": {
+       "Min": null,
+       "Max": null
+      },
+      "BareMetal": "{{ BareMetal }}",
+      "RequireHibernateSupport": "{{ RequireHibernateSupport }}",
+      "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": "{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}",
+      "BaselineEbsBandwidthMbps": {
+       "Min": "{{ Min }}",
+       "Max": "{{ Max }}"
+      },
+      "SpotMaxPricePercentageOverLowestPrice": "{{ SpotMaxPricePercentageOverLowestPrice }}",
+      "AcceleratorNames": [
+       "{{ AcceleratorNames[0] }}"
+      ],
+      "AcceleratorTotalMemoryMiB": {
+       "Min": "{{ Min }}",
+       "Max": "{{ Max }}"
+      },
+      "OnDemandMaxPricePercentageOverLowestPrice": "{{ OnDemandMaxPricePercentageOverLowestPrice }}",
+      "BurstablePerformance": "{{ BurstablePerformance }}",
+      "MemoryMiB": {
+       "Min": "{{ Min }}",
+       "Max": "{{ Max }}"
+      },
+      "TotalLocalStorageGB": {
+       "Min": null,
+       "Max": null
+      }
+     },
+     "InstanceType": "{{ InstanceType }}"
+    }
+   ]
+  }
+ },
+ "VPCZoneIdentifier": [
+  "{{ VPCZoneIdentifier[0] }}"
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}",
+   "PropagateAtLaunch": "{{ PropagateAtLaunch }}"
+  }
+ ],
+ "Context": "{{ Context }}",
+ "CapacityRebalance": "{{ CapacityRebalance }}",
+ "InstanceId": "{{ InstanceId }}",
+ "AvailabilityZones": [
+  "{{ AvailabilityZones[0] }}"
+ ],
+ "NotificationConfiguration": null,
+ "MetricsCollection": [
+  {
+   "Metrics": [
+    "{{ Metrics[0] }}"
+   ],
+   "Granularity": "{{ Granularity }}"
+  }
+ ],
+ "InstanceMaintenancePolicy": {
+  "MaxHealthyPercentage": "{{ MaxHealthyPercentage }}",
+  "MinHealthyPercentage": "{{ MinHealthyPercentage }}"
+ },
+ "MaxSize": "{{ MaxSize }}",
+ "MinSize": "{{ MinSize }}",
+ "TerminationPolicies": [
+  "{{ TerminationPolicies[0] }}"
+ ],
+ "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
+ "DesiredCapacityType": "{{ DesiredCapacityType }}",
+ "PlacementGroup": "{{ PlacementGroup }}",
+ "HealthCheckType": "{{ HealthCheckType }}",
+ "MaxInstanceLifetime": "{{ MaxInstanceLifetime }}"
+}
+>>>
+--all properties
+INSERT INTO aws.autoscaling.auto_scaling_groups (
+ LifecycleHookSpecificationList,
+ LoadBalancerNames,
+ LaunchConfigurationName,
+ ServiceLinkedRoleARN,
+ TargetGroupARNs,
+ Cooldown,
+ NotificationConfigurations,
+ DesiredCapacity,
+ HealthCheckGracePeriod,
+ DefaultInstanceWarmup,
+ NewInstancesProtectedFromScaleIn,
+ LaunchTemplate,
+ MixedInstancesPolicy,
+ VPCZoneIdentifier,
+ Tags,
+ Context,
+ CapacityRebalance,
+ InstanceId,
+ AvailabilityZones,
+ NotificationConfiguration,
+ MetricsCollection,
+ InstanceMaintenancePolicy,
+ MaxSize,
+ MinSize,
+ TerminationPolicies,
+ AutoScalingGroupName,
+ DesiredCapacityType,
+ PlacementGroup,
+ HealthCheckType,
+ MaxInstanceLifetime,
+ region
+)
+SELECT 
+ {{ LifecycleHookSpecificationList }},
+ {{ LoadBalancerNames }},
+ {{ LaunchConfigurationName }},
+ {{ ServiceLinkedRoleARN }},
+ {{ TargetGroupARNs }},
+ {{ Cooldown }},
+ {{ NotificationConfigurations }},
+ {{ DesiredCapacity }},
+ {{ HealthCheckGracePeriod }},
+ {{ DefaultInstanceWarmup }},
+ {{ NewInstancesProtectedFromScaleIn }},
+ {{ LaunchTemplate }},
+ {{ MixedInstancesPolicy }},
+ {{ VPCZoneIdentifier }},
+ {{ Tags }},
+ {{ Context }},
+ {{ CapacityRebalance }},
+ {{ InstanceId }},
+ {{ AvailabilityZones }},
+ {{ NotificationConfiguration }},
+ {{ MetricsCollection }},
+ {{ InstanceMaintenancePolicy }},
+ {{ MaxSize }},
+ {{ MinSize }},
+ {{ TerminationPolicies }},
+ {{ AutoScalingGroupName }},
+ {{ DesiredCapacityType }},
+ {{ PlacementGroup }},
+ {{ HealthCheckType }},
+ {{ MaxInstanceLifetime }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.autoscaling.auto_scaling_groups
+WHERE data__Identifier = '<AutoScalingGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -92,5 +385,14 @@ ssm:Get*
 ### List
 ```json
 autoscaling:Describe*
+```
+
+### Delete
+```json
+autoscaling:DeleteAutoScalingGroup,
+autoscaling:UpdateAutoScalingGroup,
+autoscaling:Describe*,
+managed-fleets:Get*,
+managed-fleets:DeleteAutoScalingGroup
 ```
 

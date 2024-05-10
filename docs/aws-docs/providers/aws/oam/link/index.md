@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>link</code> resource, use <code>links</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>link</code> resource, use <code>links</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -55,11 +58,6 @@ Gets or operates on an individual <code>link</code> resource, use <code>links</c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -78,8 +76,9 @@ sink_identifier,
 link_configuration,
 tags
 FROM aws.oam.link
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -101,11 +100,5 @@ applicationinsights:Link,
 internetmonitor:Link,
 oam:TagResource,
 oam:UntagResource
-```
-
-### Delete
-```json
-oam:DeleteLink,
-oam:GetLink
 ```
 

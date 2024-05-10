@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>space</code> resource, use <code>spaces</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>space</code> resource, use <code>spaces</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -57,11 +60,6 @@ Gets or operates on an individual <code>space</code> resource, use <code>spaces<
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -82,8 +80,9 @@ space_sharing_settings,
 space_display_name,
 url
 FROM aws.sagemaker.space
-WHERE data__Identifier = '<DomainId>|<SpaceName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainId>|<SpaceName>';
 ```
+
 
 ## Permissions
 
@@ -97,12 +96,6 @@ sagemaker:DescribeSpace
 ### Update
 ```json
 sagemaker:UpdateSpace,
-sagemaker:DescribeSpace
-```
-
-### Delete
-```json
-sagemaker:DeleteSpace,
 sagemaker:DescribeSpace
 ```
 

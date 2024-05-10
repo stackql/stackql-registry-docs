@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>role_aliases</code> in a region or create a <code>role_aliases</code> resource, use <code>role_alias</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>role_aliases</code> in a region or to create or delete a <code>role_aliases</code> resource, use <code>role_alias</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>role_aliases</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,79 @@ SELECT
 region,
 role_alias
 FROM aws.iot.role_aliases
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iot.role_aliases (
+ RoleArn,
+ region
+)
+SELECT 
+{{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "RoleAlias": "{{ RoleAlias }}",
+ "RoleArn": "{{ RoleArn }}",
+ "CredentialDurationSeconds": "{{ CredentialDurationSeconds }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iot.role_aliases (
+ RoleAlias,
+ RoleArn,
+ CredentialDurationSeconds,
+ Tags,
+ region
+)
+SELECT 
+ {{ RoleAlias }},
+ {{ RoleArn }},
+ {{ CredentialDurationSeconds }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iot.role_aliases
+WHERE data__Identifier = '<RoleAlias>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +156,12 @@ iot:CreateRoleAlias,
 iot:DescribeRoleAlias,
 iot:TagResource,
 iot:ListTagsForResource
+```
+
+### Delete
+```json
+iot:DeleteRoleAlias,
+iot:DescribeRoleAlias
 ```
 
 ### List

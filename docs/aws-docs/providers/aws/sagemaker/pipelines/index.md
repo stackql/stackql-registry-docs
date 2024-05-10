@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>pipelines</code> in a region or create a <code>pipelines</code> resource, use <code>pipeline</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>pipelines</code> in a region or to create or delete a <code>pipelines</code> resource, use <code>pipeline</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>pipelines</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,96 @@ SELECT
 region,
 pipeline_name
 FROM aws.sagemaker.pipelines
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "PipelineName": "{{ PipelineName }}",
+ "PipelineDefinition": {},
+ "RoleArn": "{{ RoleArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.pipelines (
+ PipelineName,
+ PipelineDefinition,
+ RoleArn,
+ region
+)
+SELECT 
+{{ PipelineName }},
+ {{ PipelineDefinition }},
+ {{ RoleArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PipelineName": "{{ PipelineName }}",
+ "PipelineDisplayName": "{{ PipelineDisplayName }}",
+ "PipelineDescription": "{{ PipelineDescription }}",
+ "PipelineDefinition": {},
+ "RoleArn": "{{ RoleArn }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "ParallelismConfiguration": {
+  "MaxParallelExecutionSteps": "{{ MaxParallelExecutionSteps }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.pipelines (
+ PipelineName,
+ PipelineDisplayName,
+ PipelineDescription,
+ PipelineDefinition,
+ RoleArn,
+ Tags,
+ ParallelismConfiguration,
+ region
+)
+SELECT 
+ {{ PipelineName }},
+ {{ PipelineDisplayName }},
+ {{ PipelineDescription }},
+ {{ PipelineDefinition }},
+ {{ RoleArn }},
+ {{ Tags }},
+ {{ ParallelismConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.pipelines
+WHERE data__Identifier = '<PipelineName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +173,11 @@ sagemaker:CreatePipeline,
 sagemaker:DescribePipeline,
 sagemaker:AddTags,
 sagemaker:ListTags
+```
+
+### Delete
+```json
+sagemaker:DeletePipeline
 ```
 
 ### List

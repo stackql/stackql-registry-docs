@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>container_recipes</code> in a region or create a <code>container_recipes</code> resource, use <code>container_recipe</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>container_recipes</code> in a region or to create or delete a <code>container_recipes</code> resource, use <code>container_recipe</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>container_recipes</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,217 @@ SELECT
 region,
 arn
 FROM aws.imagebuilder.container_recipes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Version": "{{ Version }}",
+ "Components": [
+  {
+   "ComponentArn": "{{ ComponentArn }}",
+   "Parameters": [
+    {
+     "Name": "{{ Name }}",
+     "Value": [
+      "{{ Value[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "InstanceConfiguration": {
+  "Image": "{{ Image }}",
+  "BlockDeviceMappings": [
+   {
+    "DeviceName": "{{ DeviceName }}",
+    "VirtualName": "{{ VirtualName }}",
+    "NoDevice": "{{ NoDevice }}",
+    "Ebs": {
+     "Encrypted": "{{ Encrypted }}",
+     "DeleteOnTermination": "{{ DeleteOnTermination }}",
+     "Iops": "{{ Iops }}",
+     "KmsKeyId": "{{ KmsKeyId }}",
+     "SnapshotId": "{{ SnapshotId }}",
+     "Throughput": "{{ Throughput }}",
+     "VolumeSize": "{{ VolumeSize }}",
+     "VolumeType": "{{ VolumeType }}"
+    }
+   }
+  ]
+ },
+ "DockerfileTemplateData": "{{ DockerfileTemplateData }}",
+ "DockerfileTemplateUri": "{{ DockerfileTemplateUri }}",
+ "PlatformOverride": "{{ PlatformOverride }}",
+ "ContainerType": "{{ ContainerType }}",
+ "ImageOsVersionOverride": "{{ ImageOsVersionOverride }}",
+ "TargetRepository": {
+  "Service": "{{ Service }}",
+  "RepositoryName": "{{ RepositoryName }}"
+ },
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "ParentImage": "{{ ParentImage }}",
+ "WorkingDirectory": "{{ WorkingDirectory }}",
+ "Tags": {}
+}
+>>>
+--required properties only
+INSERT INTO aws.imagebuilder.container_recipes (
+ Name,
+ Description,
+ Version,
+ Components,
+ InstanceConfiguration,
+ DockerfileTemplateData,
+ DockerfileTemplateUri,
+ PlatformOverride,
+ ContainerType,
+ ImageOsVersionOverride,
+ TargetRepository,
+ KmsKeyId,
+ ParentImage,
+ WorkingDirectory,
+ Tags,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Description }},
+ {{ Version }},
+ {{ Components }},
+ {{ InstanceConfiguration }},
+ {{ DockerfileTemplateData }},
+ {{ DockerfileTemplateUri }},
+ {{ PlatformOverride }},
+ {{ ContainerType }},
+ {{ ImageOsVersionOverride }},
+ {{ TargetRepository }},
+ {{ KmsKeyId }},
+ {{ ParentImage }},
+ {{ WorkingDirectory }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Version": "{{ Version }}",
+ "Components": [
+  {
+   "ComponentArn": "{{ ComponentArn }}",
+   "Parameters": [
+    {
+     "Name": "{{ Name }}",
+     "Value": [
+      "{{ Value[0] }}"
+     ]
+    }
+   ]
+  }
+ ],
+ "InstanceConfiguration": {
+  "Image": "{{ Image }}",
+  "BlockDeviceMappings": [
+   {
+    "DeviceName": "{{ DeviceName }}",
+    "VirtualName": "{{ VirtualName }}",
+    "NoDevice": "{{ NoDevice }}",
+    "Ebs": {
+     "Encrypted": "{{ Encrypted }}",
+     "DeleteOnTermination": "{{ DeleteOnTermination }}",
+     "Iops": "{{ Iops }}",
+     "KmsKeyId": "{{ KmsKeyId }}",
+     "SnapshotId": "{{ SnapshotId }}",
+     "Throughput": "{{ Throughput }}",
+     "VolumeSize": "{{ VolumeSize }}",
+     "VolumeType": "{{ VolumeType }}"
+    }
+   }
+  ]
+ },
+ "DockerfileTemplateData": "{{ DockerfileTemplateData }}",
+ "DockerfileTemplateUri": "{{ DockerfileTemplateUri }}",
+ "PlatformOverride": "{{ PlatformOverride }}",
+ "ContainerType": "{{ ContainerType }}",
+ "ImageOsVersionOverride": "{{ ImageOsVersionOverride }}",
+ "TargetRepository": {
+  "Service": "{{ Service }}",
+  "RepositoryName": "{{ RepositoryName }}"
+ },
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "ParentImage": "{{ ParentImage }}",
+ "WorkingDirectory": "{{ WorkingDirectory }}",
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.imagebuilder.container_recipes (
+ Name,
+ Description,
+ Version,
+ Components,
+ InstanceConfiguration,
+ DockerfileTemplateData,
+ DockerfileTemplateUri,
+ PlatformOverride,
+ ContainerType,
+ ImageOsVersionOverride,
+ TargetRepository,
+ KmsKeyId,
+ ParentImage,
+ WorkingDirectory,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Version }},
+ {{ Components }},
+ {{ InstanceConfiguration }},
+ {{ DockerfileTemplateData }},
+ {{ DockerfileTemplateUri }},
+ {{ PlatformOverride }},
+ {{ ContainerType }},
+ {{ ImageOsVersionOverride }},
+ {{ TargetRepository }},
+ {{ KmsKeyId }},
+ {{ ParentImage }},
+ {{ WorkingDirectory }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.imagebuilder.container_recipes
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -86,6 +304,13 @@ s3:GetObject,
 s3:ListBucket,
 ecr:DescribeRepositories,
 ec2:DescribeImages
+```
+
+### Delete
+```json
+imagebuilder:UnTagResource,
+imagebuilder:GetContainerRecipe,
+imagebuilder:DeleteContainerRecipe
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>vpc_endpoint_services</code> in a region or create a <code>vpc_endpoint_services</code> resource, use <code>vpc_endpoint_service</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>vpc_endpoint_services</code> in a region or to create or delete a <code>vpc_endpoint_services</code> resource, use <code>vpc_endpoint_service</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>vpc_endpoint_services</code> in a region or cre
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,97 @@ SELECT
 region,
 service_id
 FROM aws.ec2.vpc_endpoint_services
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "NetworkLoadBalancerArns": [
+  "{{ NetworkLoadBalancerArns[0] }}"
+ ],
+ "ContributorInsightsEnabled": "{{ ContributorInsightsEnabled }}",
+ "PayerResponsibility": "{{ PayerResponsibility }}",
+ "AcceptanceRequired": "{{ AcceptanceRequired }}",
+ "GatewayLoadBalancerArns": [
+  "{{ GatewayLoadBalancerArns[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.vpc_endpoint_services (
+ NetworkLoadBalancerArns,
+ ContributorInsightsEnabled,
+ PayerResponsibility,
+ AcceptanceRequired,
+ GatewayLoadBalancerArns,
+ region
+)
+SELECT 
+{{ NetworkLoadBalancerArns }},
+ {{ ContributorInsightsEnabled }},
+ {{ PayerResponsibility }},
+ {{ AcceptanceRequired }},
+ {{ GatewayLoadBalancerArns }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "NetworkLoadBalancerArns": [
+  "{{ NetworkLoadBalancerArns[0] }}"
+ ],
+ "ContributorInsightsEnabled": "{{ ContributorInsightsEnabled }}",
+ "PayerResponsibility": "{{ PayerResponsibility }}",
+ "AcceptanceRequired": "{{ AcceptanceRequired }}",
+ "GatewayLoadBalancerArns": [
+  "{{ GatewayLoadBalancerArns[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.vpc_endpoint_services (
+ NetworkLoadBalancerArns,
+ ContributorInsightsEnabled,
+ PayerResponsibility,
+ AcceptanceRequired,
+ GatewayLoadBalancerArns,
+ region
+)
+SELECT 
+ {{ NetworkLoadBalancerArns }},
+ {{ ContributorInsightsEnabled }},
+ {{ PayerResponsibility }},
+ {{ AcceptanceRequired }},
+ {{ GatewayLoadBalancerArns }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.vpc_endpoint_services
+WHERE data__Identifier = '<ServiceId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +175,14 @@ cloudwatch:ListManagedInsightRules,
 cloudwatch:DeleteInsightRules,
 cloudwatch:PutManagedInsightRules,
 ec2:DescribeVpcEndpointServiceConfigurations
+```
+
+### Delete
+```json
+ec2:DeleteVpcEndpointServiceConfigurations,
+ec2:DescribeVpcEndpointServiceConfigurations,
+cloudwatch:ListManagedInsightRules,
+cloudwatch:DeleteInsightRules
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>access_points</code> in a region or create a <code>access_points</code> resource, use <code>access_point</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>access_points</code> in a region or to create or delete a <code>access_points</code> resource, use <code>access_point</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>access_points</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,95 @@ SELECT
 region,
 access_point_id
 FROM aws.efs.access_points
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FileSystemId": "{{ FileSystemId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.efs.access_points (
+ FileSystemId,
+ region
+)
+SELECT 
+{{ FileSystemId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClientToken": "{{ ClientToken }}",
+ "AccessPointTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "FileSystemId": "{{ FileSystemId }}",
+ "PosixUser": {
+  "Uid": "{{ Uid }}",
+  "Gid": "{{ Gid }}",
+  "SecondaryGids": [
+   "{{ SecondaryGids[0] }}"
+  ]
+ },
+ "RootDirectory": {
+  "Path": "{{ Path }}",
+  "CreationInfo": {
+   "OwnerUid": "{{ OwnerUid }}",
+   "OwnerGid": "{{ OwnerGid }}",
+   "Permissions": "{{ Permissions }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.efs.access_points (
+ ClientToken,
+ AccessPointTags,
+ FileSystemId,
+ PosixUser,
+ RootDirectory,
+ region
+)
+SELECT 
+ {{ ClientToken }},
+ {{ AccessPointTags }},
+ {{ FileSystemId }},
+ {{ PosixUser }},
+ {{ RootDirectory }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.efs.access_points
+WHERE data__Identifier = '<AccessPointId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +168,12 @@ To operate on the <code>access_points</code> resource, the following permissions
 ```json
 elasticfilesystem:CreateAccessPoint,
 elasticfilesystem:TagResource,
+elasticfilesystem:DescribeAccessPoints
+```
+
+### Delete
+```json
+elasticfilesystem:DeleteAccessPoint,
 elasticfilesystem:DescribeAccessPoints
 ```
 

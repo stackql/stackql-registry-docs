@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>membership</code> resource, use <code>memberships</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>membership</code> resource, use <code>memberships</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -57,11 +60,6 @@ Gets or operates on an individual <code>membership</code> resource, use <code>me
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -82,8 +80,9 @@ query_log_status,
 default_result_configuration,
 payment_configuration
 FROM aws.cleanrooms.membership
-WHERE data__Identifier = '<MembershipIdentifier>';
+WHERE region = 'us-east-1' AND data__Identifier = '<MembershipIdentifier>';
 ```
+
 
 ## Permissions
 
@@ -116,17 +115,5 @@ cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:UntagResource,
 iam:PassRole
-```
-
-### Delete
-```json
-cleanrooms:DeleteMembership,
-cleanrooms:GetMembership,
-cleanrooms:ListMemberships,
-cleanrooms:ListTagsForResource,
-logs:ListLogDeliveries,
-logs:DescribeLogGroups,
-logs:DescribeResourcePolicies,
-logs:GetLogDelivery
 ```
 

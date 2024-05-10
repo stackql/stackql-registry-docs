@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>assignment</code> resource, use <code>assignments</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>assignment</code> resource, use <code>assignments</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -49,11 +52,6 @@ Gets or operates on an individual <code>assignment</code> resource, use <code>as
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -71,8 +69,9 @@ permission_set_arn,
 principal_type,
 principal_id
 FROM aws.sso.assignment
-WHERE data__Identifier = '<InstanceArn>|<TargetId>|<TargetType>|<PermissionSetArn>|<PrincipalType>|<PrincipalId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>|<TargetId>|<TargetType>|<PermissionSetArn>|<PrincipalType>|<PrincipalId>';
 ```
+
 
 ## Permissions
 
@@ -81,15 +80,6 @@ To operate on the <code>assignment</code> resource, the following permissions ar
 ### Read
 ```json
 sso:ListAccountAssignments,
-iam:GetSAMLProvider,
-iam:ListRolePolicies
-```
-
-### Delete
-```json
-sso:ListAccountAssignments,
-sso:DeleteAccountAssignment,
-sso:DescribeAccountAssignmentDeletionStatus,
 iam:GetSAMLProvider,
 iam:ListRolePolicies
 ```

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>usage_plans</code> in a region or create a <code>usage_plans</code> resource, use <code>usage_plan</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>usage_plans</code> in a region or to create or delete a <code>usage_plans</code> resource, use <code>usage_plan</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>usage_plans</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,131 @@ SELECT
 region,
 id
 FROM aws.apigateway.usage_plans
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApiStages": [
+  {
+   "ApiId": "{{ ApiId }}",
+   "Stage": "{{ Stage }}",
+   "Throttle": {}
+  }
+ ],
+ "Description": "{{ Description }}",
+ "Quota": {
+  "Limit": "{{ Limit }}",
+  "Offset": "{{ Offset }}",
+  "Period": "{{ Period }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Throttle": {
+  "BurstLimit": "{{ BurstLimit }}",
+  "RateLimit": null
+ },
+ "UsagePlanName": "{{ UsagePlanName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigateway.usage_plans (
+ ApiStages,
+ Description,
+ Quota,
+ Tags,
+ Throttle,
+ UsagePlanName,
+ region
+)
+SELECT 
+{{ ApiStages }},
+ {{ Description }},
+ {{ Quota }},
+ {{ Tags }},
+ {{ Throttle }},
+ {{ UsagePlanName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApiStages": [
+  {
+   "ApiId": "{{ ApiId }}",
+   "Stage": "{{ Stage }}",
+   "Throttle": {}
+  }
+ ],
+ "Description": "{{ Description }}",
+ "Quota": {
+  "Limit": "{{ Limit }}",
+  "Offset": "{{ Offset }}",
+  "Period": "{{ Period }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Throttle": {
+  "BurstLimit": "{{ BurstLimit }}",
+  "RateLimit": null
+ },
+ "UsagePlanName": "{{ UsagePlanName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigateway.usage_plans (
+ ApiStages,
+ Description,
+ Quota,
+ Tags,
+ Throttle,
+ UsagePlanName,
+ region
+)
+SELECT 
+ {{ ApiStages }},
+ {{ Description }},
+ {{ Quota }},
+ {{ Tags }},
+ {{ Throttle }},
+ {{ UsagePlanName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigateway.usage_plans
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +205,13 @@ To operate on the <code>usage_plans</code> resource, the following permissions a
 apigateway:POST,
 apigateway:GET,
 apigateway:PUT
+```
+
+### Delete
+```json
+apigateway:DELETE,
+apigateway:GET,
+apigateway:PATCH
 ```
 
 ### List

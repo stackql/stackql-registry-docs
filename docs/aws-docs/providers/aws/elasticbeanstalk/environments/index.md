@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>environments</code> in a region or create a <code>environments</code> resource, use <code>environment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>environments</code> in a region or to create or delete a <code>environments</code> resource, use <code>environment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>environments</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,114 @@ SELECT
 region,
 environment_name
 FROM aws.elasticbeanstalk.environments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApplicationName": "{{ ApplicationName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.elasticbeanstalk.environments (
+ ApplicationName,
+ region
+)
+SELECT 
+{{ ApplicationName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "PlatformArn": "{{ PlatformArn }}",
+ "ApplicationName": "{{ ApplicationName }}",
+ "Description": "{{ Description }}",
+ "EnvironmentName": "{{ EnvironmentName }}",
+ "OperationsRole": "{{ OperationsRole }}",
+ "Tier": {
+  "Type": "{{ Type }}",
+  "Version": "{{ Version }}",
+  "Name": "{{ Name }}"
+ },
+ "VersionLabel": "{{ VersionLabel }}",
+ "OptionSettings": [
+  {
+   "ResourceName": "{{ ResourceName }}",
+   "Value": "{{ Value }}",
+   "Namespace": "{{ Namespace }}",
+   "OptionName": "{{ OptionName }}"
+  }
+ ],
+ "TemplateName": "{{ TemplateName }}",
+ "SolutionStackName": "{{ SolutionStackName }}",
+ "CNAMEPrefix": "{{ CNAMEPrefix }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.elasticbeanstalk.environments (
+ PlatformArn,
+ ApplicationName,
+ Description,
+ EnvironmentName,
+ OperationsRole,
+ Tier,
+ VersionLabel,
+ OptionSettings,
+ TemplateName,
+ SolutionStackName,
+ CNAMEPrefix,
+ Tags,
+ region
+)
+SELECT 
+ {{ PlatformArn }},
+ {{ ApplicationName }},
+ {{ Description }},
+ {{ EnvironmentName }},
+ {{ OperationsRole }},
+ {{ Tier }},
+ {{ VersionLabel }},
+ {{ OptionSettings }},
+ {{ TemplateName }},
+ {{ SolutionStackName }},
+ {{ CNAMEPrefix }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.elasticbeanstalk.environments
+WHERE data__Identifier = '<EnvironmentName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,5 +193,11 @@ iam:PassRole
 ### List
 ```json
 elasticbeanstalk:DescribeEnvironments
+```
+
+### Delete
+```json
+elasticbeanstalk:DescribeEnvironments,
+elasticbeanstalk:TerminateEnvironment
 ```
 

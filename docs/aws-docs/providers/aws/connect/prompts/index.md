@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>prompts</code> in a region or create a <code>prompts</code> resource, use <code>prompt</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>prompts</code> in a region or to create or delete a <code>prompts</code> resource, use <code>prompt</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>prompts</code> in a region or create a <code>pr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,85 @@ SELECT
 region,
 prompt_arn
 FROM aws.connect.prompts
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.connect.prompts (
+ InstanceArn,
+ Name,
+ region
+)
+SELECT 
+{{ InstanceArn }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InstanceArn": "{{ InstanceArn }}",
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "S3Uri": "{{ S3Uri }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.connect.prompts (
+ InstanceArn,
+ Name,
+ Description,
+ S3Uri,
+ Tags,
+ region
+)
+SELECT 
+ {{ InstanceArn }},
+ {{ Name }},
+ {{ Description }},
+ {{ S3Uri }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.connect.prompts
+WHERE data__Identifier = '<PromptArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +161,11 @@ connect:TagResource,
 s3:GetObject,
 kms:Decrypt,
 s3:GetObjectAcl
+```
+
+### Delete
+```json
+connect:DeletePrompt
 ```
 
 ### List

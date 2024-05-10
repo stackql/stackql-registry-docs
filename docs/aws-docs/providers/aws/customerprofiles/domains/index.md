@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>domains</code> in a region or create a <code>domains</code> resource, use <code>domain</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>domains</code> in a region or to create or delete a <code>domains</code> resource, use <code>domain</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>domains</code> in a region or create a <code>do
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,144 @@ SELECT
 region,
 domain_name
 FROM aws.customerprofiles.domains
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "DefaultExpirationDays": "{{ DefaultExpirationDays }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.customerprofiles.domains (
+ DomainName,
+ DefaultExpirationDays,
+ region
+)
+SELECT 
+{{ DomainName }},
+ {{ DefaultExpirationDays }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "DeadLetterQueueUrl": "{{ DeadLetterQueueUrl }}",
+ "DefaultEncryptionKey": "{{ DefaultEncryptionKey }}",
+ "DefaultExpirationDays": "{{ DefaultExpirationDays }}",
+ "Matching": {
+  "Enabled": "{{ Enabled }}",
+  "AutoMerging": {
+   "Enabled": "{{ Enabled }}",
+   "ConflictResolution": {
+    "ConflictResolvingModel": "{{ ConflictResolvingModel }}",
+    "SourceName": "{{ SourceName }}"
+   },
+   "Consolidation": {
+    "MatchingAttributesList": [
+     [
+      "{{ 0[0] }}"
+     ]
+    ]
+   },
+   "MinAllowedConfidenceScoreForMerging": null
+  },
+  "ExportingConfig": {
+   "S3Exporting": {
+    "S3BucketName": "{{ S3BucketName }}",
+    "S3KeyName": "{{ S3KeyName }}"
+   }
+  },
+  "JobSchedule": {
+   "DayOfTheWeek": "{{ DayOfTheWeek }}",
+   "Time": "{{ Time }}"
+  }
+ },
+ "RuleBasedMatching": {
+  "Enabled": "{{ Enabled }}",
+  "AttributeTypesSelector": {
+   "AttributeMatchingModel": "{{ AttributeMatchingModel }}",
+   "Address": [
+    "{{ Address[0] }}"
+   ],
+   "EmailAddress": [
+    "{{ EmailAddress[0] }}"
+   ],
+   "PhoneNumber": [
+    "{{ PhoneNumber[0] }}"
+   ]
+  },
+  "ConflictResolution": null,
+  "ExportingConfig": null,
+  "MatchingRules": [
+   {
+    "Rule": [
+     "{{ Rule[0] }}"
+    ]
+   }
+  ],
+  "MaxAllowedRuleLevelForMatching": "{{ MaxAllowedRuleLevelForMatching }}",
+  "MaxAllowedRuleLevelForMerging": "{{ MaxAllowedRuleLevelForMerging }}",
+  "Status": "{{ Status }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.customerprofiles.domains (
+ DomainName,
+ DeadLetterQueueUrl,
+ DefaultEncryptionKey,
+ DefaultExpirationDays,
+ Matching,
+ RuleBasedMatching,
+ Tags,
+ region
+)
+SELECT 
+ {{ DomainName }},
+ {{ DeadLetterQueueUrl }},
+ {{ DefaultEncryptionKey }},
+ {{ DefaultExpirationDays }},
+ {{ Matching }},
+ {{ RuleBasedMatching }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.customerprofiles.domains
+WHERE data__Identifier = '<DomainName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +217,11 @@ To operate on the <code>domains</code> resource, the following permissions are r
 ```json
 profile:CreateDomain,
 profile:TagResource
+```
+
+### Delete
+```json
+profile:DeleteDomain
 ```
 
 ### List

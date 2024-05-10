@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>work_groups</code> in a region or create a <code>work_groups</code> resource, use <code>work_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>work_groups</code> in a region or to create or delete a <code>work_groups</code> resource, use <code>work_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>work_groups</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,134 @@ SELECT
 region,
 name
 FROM aws.athena.work_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.athena.work_groups (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "WorkGroupConfiguration": {
+  "BytesScannedCutoffPerQuery": "{{ BytesScannedCutoffPerQuery }}",
+  "EnforceWorkGroupConfiguration": "{{ EnforceWorkGroupConfiguration }}",
+  "PublishCloudWatchMetricsEnabled": "{{ PublishCloudWatchMetricsEnabled }}",
+  "RequesterPaysEnabled": "{{ RequesterPaysEnabled }}",
+  "ResultConfiguration": {
+   "EncryptionConfiguration": {
+    "EncryptionOption": "{{ EncryptionOption }}",
+    "KmsKey": "{{ KmsKey }}"
+   },
+   "OutputLocation": "{{ OutputLocation }}",
+   "ExpectedBucketOwner": "{{ ExpectedBucketOwner }}",
+   "AclConfiguration": {
+    "S3AclOption": "{{ S3AclOption }}"
+   }
+  },
+  "EngineVersion": {
+   "SelectedEngineVersion": "{{ SelectedEngineVersion }}",
+   "EffectiveEngineVersion": "{{ EffectiveEngineVersion }}"
+  },
+  "AdditionalConfiguration": "{{ AdditionalConfiguration }}",
+  "ExecutionRole": "{{ ExecutionRole }}",
+  "CustomerContentEncryptionConfiguration": {
+   "KmsKey": null
+  }
+ },
+ "WorkGroupConfigurationUpdates": {
+  "BytesScannedCutoffPerQuery": null,
+  "EnforceWorkGroupConfiguration": null,
+  "PublishCloudWatchMetricsEnabled": null,
+  "RequesterPaysEnabled": null,
+  "ResultConfigurationUpdates": {
+   "EncryptionConfiguration": null,
+   "OutputLocation": null,
+   "ExpectedBucketOwner": null,
+   "AclConfiguration": null,
+   "RemoveEncryptionConfiguration": "{{ RemoveEncryptionConfiguration }}",
+   "RemoveOutputLocation": "{{ RemoveOutputLocation }}",
+   "RemoveExpectedBucketOwner": "{{ RemoveExpectedBucketOwner }}",
+   "RemoveAclConfiguration": "{{ RemoveAclConfiguration }}"
+  },
+  "RemoveBytesScannedCutoffPerQuery": "{{ RemoveBytesScannedCutoffPerQuery }}",
+  "EngineVersion": null,
+  "AdditionalConfiguration": null,
+  "ExecutionRole": null,
+  "CustomerContentEncryptionConfiguration": null,
+  "RemoveCustomerContentEncryptionConfiguration": "{{ RemoveCustomerContentEncryptionConfiguration }}"
+ },
+ "State": "{{ State }}",
+ "RecursiveDeleteOption": "{{ RecursiveDeleteOption }}"
+}
+>>>
+--all properties
+INSERT INTO aws.athena.work_groups (
+ Name,
+ Description,
+ Tags,
+ WorkGroupConfiguration,
+ WorkGroupConfigurationUpdates,
+ State,
+ RecursiveDeleteOption,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Tags }},
+ {{ WorkGroupConfiguration }},
+ {{ WorkGroupConfigurationUpdates }},
+ {{ State }},
+ {{ RecursiveDeleteOption }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.athena.work_groups
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -87,5 +222,12 @@ kms:GenerateDataKey
 ### List
 ```json
 athena:ListWorkGroups
+```
+
+### Delete
+```json
+athena:DeleteWorkGroup,
+athena:GetWorkGroup,
+athena:UntagResource
 ```
 

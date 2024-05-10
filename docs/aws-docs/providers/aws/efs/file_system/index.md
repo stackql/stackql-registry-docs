@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>file_system</code> resource, use <code>file_systems</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>file_system</code> resource, use <code>file_systems</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -63,11 +66,6 @@ Gets or operates on an individual <code>file_system</code> resource, use <code>f
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -94,8 +92,9 @@ backup_policy,
 availability_zone_name,
 replication_configuration
 FROM aws.efs.file_system
-WHERE data__Identifier = '<FileSystemId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<FileSystemId>';
 ```
+
 
 ## Permissions
 
@@ -132,13 +131,5 @@ elasticfilesystem:UpdateFileSystemProtection,
 kms:DescribeKey,
 kms:GenerateDataKeyWithoutPlaintext,
 kms:CreateGrant
-```
-
-### Delete
-```json
-elasticfilesystem:DescribeFileSystems,
-elasticfilesystem:DeleteFileSystem,
-elasticfilesystem:DeleteReplicationConfiguration,
-elasticfilesystem:DescribeReplicationConfigurations
 ```
 

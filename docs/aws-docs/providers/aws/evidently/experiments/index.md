@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>experiments</code> in a region or create a <code>experiments</code> resource, use <code>experiment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>experiments</code> in a region or to create or delete a <code>experiments</code> resource, use <code>experiment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>experiments</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,168 @@ SELECT
 region,
 arn
 FROM aws.evidently.experiments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Project": "{{ Project }}",
+ "Treatments": [
+  {
+   "TreatmentName": "{{ TreatmentName }}",
+   "Description": "{{ Description }}",
+   "Feature": "{{ Feature }}",
+   "Variation": "{{ Variation }}"
+  }
+ ],
+ "MetricGoals": [
+  {
+   "MetricName": "{{ MetricName }}",
+   "EntityIdKey": "{{ EntityIdKey }}",
+   "ValueKey": "{{ ValueKey }}",
+   "EventPattern": "{{ EventPattern }}",
+   "UnitLabel": "{{ UnitLabel }}",
+   "DesiredChange": "{{ DesiredChange }}"
+  }
+ ],
+ "OnlineAbConfig": {
+  "ControlTreatmentName": "{{ ControlTreatmentName }}",
+  "TreatmentWeights": [
+   {
+    "Treatment": "{{ Treatment }}",
+    "SplitWeight": "{{ SplitWeight }}"
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.evidently.experiments (
+ Name,
+ Project,
+ Treatments,
+ MetricGoals,
+ OnlineAbConfig,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Project }},
+ {{ Treatments }},
+ {{ MetricGoals }},
+ {{ OnlineAbConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Project": "{{ Project }}",
+ "Description": "{{ Description }}",
+ "RunningStatus": {
+  "Status": "{{ Status }}",
+  "AnalysisCompleteTime": "{{ AnalysisCompleteTime }}",
+  "Reason": "{{ Reason }}",
+  "DesiredState": "{{ DesiredState }}"
+ },
+ "RandomizationSalt": "{{ RandomizationSalt }}",
+ "Treatments": [
+  {
+   "TreatmentName": "{{ TreatmentName }}",
+   "Description": "{{ Description }}",
+   "Feature": "{{ Feature }}",
+   "Variation": "{{ Variation }}"
+  }
+ ],
+ "MetricGoals": [
+  {
+   "MetricName": "{{ MetricName }}",
+   "EntityIdKey": "{{ EntityIdKey }}",
+   "ValueKey": "{{ ValueKey }}",
+   "EventPattern": "{{ EventPattern }}",
+   "UnitLabel": "{{ UnitLabel }}",
+   "DesiredChange": "{{ DesiredChange }}"
+  }
+ ],
+ "SamplingRate": "{{ SamplingRate }}",
+ "OnlineAbConfig": {
+  "ControlTreatmentName": "{{ ControlTreatmentName }}",
+  "TreatmentWeights": [
+   {
+    "Treatment": "{{ Treatment }}",
+    "SplitWeight": "{{ SplitWeight }}"
+   }
+  ]
+ },
+ "Segment": "{{ Segment }}",
+ "RemoveSegment": "{{ RemoveSegment }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.evidently.experiments (
+ Name,
+ Project,
+ Description,
+ RunningStatus,
+ RandomizationSalt,
+ Treatments,
+ MetricGoals,
+ SamplingRate,
+ OnlineAbConfig,
+ Segment,
+ RemoveSegment,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Project }},
+ {{ Description }},
+ {{ RunningStatus }},
+ {{ RandomizationSalt }},
+ {{ Treatments }},
+ {{ MetricGoals }},
+ {{ SamplingRate }},
+ {{ OnlineAbConfig }},
+ {{ Segment }},
+ {{ RemoveSegment }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.evidently.experiments
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,5 +243,12 @@ evidently:CreateExperiment,
 evidently:TagResource,
 evidently:GetExperiment,
 evidently:StartExperiment
+```
+
+### Delete
+```json
+evidently:DeleteExperiment,
+evidently:UntagResource,
+evidently:GetExperiment
 ```
 

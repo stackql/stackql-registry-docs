@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>pipelines</code> in a region or create a <code>pipelines</code> resource, use <code>pipeline</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>pipelines</code> in a region or to create or delete a <code>pipelines</code> resource, use <code>pipeline</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>pipelines</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,119 @@ SELECT
 region,
 pipeline_arn
 FROM aws.osis.pipelines
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "MaxUnits": "{{ MaxUnits }}",
+ "MinUnits": "{{ MinUnits }}",
+ "PipelineConfigurationBody": "{{ PipelineConfigurationBody }}",
+ "PipelineName": "{{ PipelineName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.osis.pipelines (
+ MaxUnits,
+ MinUnits,
+ PipelineConfigurationBody,
+ PipelineName,
+ region
+)
+SELECT 
+{{ MaxUnits }},
+ {{ MinUnits }},
+ {{ PipelineConfigurationBody }},
+ {{ PipelineName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "BufferOptions": {
+  "PersistentBufferEnabled": "{{ PersistentBufferEnabled }}"
+ },
+ "EncryptionAtRestOptions": {
+  "KmsKeyArn": "{{ KmsKeyArn }}"
+ },
+ "LogPublishingOptions": {
+  "IsLoggingEnabled": "{{ IsLoggingEnabled }}",
+  "CloudWatchLogDestination": {
+   "LogGroup": "{{ LogGroup }}"
+  }
+ },
+ "MaxUnits": "{{ MaxUnits }}",
+ "MinUnits": "{{ MinUnits }}",
+ "PipelineConfigurationBody": "{{ PipelineConfigurationBody }}",
+ "PipelineName": "{{ PipelineName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VpcOptions": {
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.osis.pipelines (
+ BufferOptions,
+ EncryptionAtRestOptions,
+ LogPublishingOptions,
+ MaxUnits,
+ MinUnits,
+ PipelineConfigurationBody,
+ PipelineName,
+ Tags,
+ VpcOptions,
+ region
+)
+SELECT 
+ {{ BufferOptions }},
+ {{ EncryptionAtRestOptions }},
+ {{ LogPublishingOptions }},
+ {{ MaxUnits }},
+ {{ MinUnits }},
+ {{ PipelineConfigurationBody }},
+ {{ PipelineName }},
+ {{ Tags }},
+ {{ VpcOptions }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.osis.pipelines
+WHERE data__Identifier = '<PipelineArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +198,15 @@ iam:PassRole,
 iam:CreateServiceLinkedRole,
 logs:CreateLogDelivery,
 kms:DescribeKey
+```
+
+### Delete
+```json
+osis:DeletePipeline,
+osis:GetPipeline,
+logs:GetLogDelivery,
+logs:DeleteLogDelivery,
+logs:ListLogDeliveries
 ```
 
 ### List

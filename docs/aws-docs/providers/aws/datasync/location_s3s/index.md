@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>location_s3s</code> in a region or create a <code>location_s3s</code> resource, use <code>location_s3</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>location_s3s</code> in a region or to create or delete a <code>location_s3s</code> resource, use <code>location_s3</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>location_s3s</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,86 @@ SELECT
 region,
 location_arn
 FROM aws.datasync.location_s3s
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "S3Config": {
+  "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.datasync.location_s3s (
+ S3Config,
+ region
+)
+SELECT 
+{{ S3Config }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "S3Config": {
+  "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}"
+ },
+ "S3BucketArn": "{{ S3BucketArn }}",
+ "Subdirectory": "{{ Subdirectory }}",
+ "S3StorageClass": "{{ S3StorageClass }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.datasync.location_s3s (
+ S3Config,
+ S3BucketArn,
+ Subdirectory,
+ S3StorageClass,
+ Tags,
+ region
+)
+SELECT 
+ {{ S3Config }},
+ {{ S3BucketArn }},
+ {{ Subdirectory }},
+ {{ S3StorageClass }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.datasync.location_s3s
+WHERE data__Identifier = '<LocationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +165,11 @@ s3:ListAllMyBuckets,
 s3:ListBucket,
 iam:GetRole,
 iam:PassRole
+```
+
+### Delete
+```json
+datasync:DeleteLocation
 ```
 
 ### List

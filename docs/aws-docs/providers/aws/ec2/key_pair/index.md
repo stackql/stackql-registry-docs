@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>key_pair</code> resource, use <code>key_pairs</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>key_pair</code> resource, use <code>key_pairs</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -50,11 +53,6 @@ Gets or operates on an individual <code>key_pair</code> resource, use <code>key_
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -73,8 +71,9 @@ key_fingerprint,
 key_pair_id,
 tags
 FROM aws.ec2.key_pair
-WHERE data__Identifier = '<KeyName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<KeyName>';
 ```
+
 
 ## Permissions
 
@@ -82,13 +81,6 @@ To operate on the <code>key_pair</code> resource, the following permissions are 
 
 ### Read
 ```json
-ec2:DescribeKeyPairs
-```
-
-### Delete
-```json
-ec2:DeleteKeyPair,
-ssm:DeleteParameter,
 ec2:DescribeKeyPairs
 ```
 

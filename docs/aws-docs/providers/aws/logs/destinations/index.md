@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>destinations</code> in a region or create a <code>destinations</code> resource, use <code>destination</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>destinations</code> in a region or to create or delete a <code>destinations</code> resource, use <code>destination</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>destinations</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,80 @@ SELECT
 region,
 destination_name
 FROM aws.logs.destinations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DestinationName": "{{ DestinationName }}",
+ "RoleArn": "{{ RoleArn }}",
+ "TargetArn": "{{ TargetArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.logs.destinations (
+ DestinationName,
+ RoleArn,
+ TargetArn,
+ region
+)
+SELECT 
+{{ DestinationName }},
+ {{ RoleArn }},
+ {{ TargetArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DestinationName": "{{ DestinationName }}",
+ "DestinationPolicy": "{{ DestinationPolicy }}",
+ "RoleArn": "{{ RoleArn }}",
+ "TargetArn": "{{ TargetArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.logs.destinations (
+ DestinationName,
+ DestinationPolicy,
+ RoleArn,
+ TargetArn,
+ region
+)
+SELECT 
+ {{ DestinationName }},
+ {{ DestinationPolicy }},
+ {{ RoleArn }},
+ {{ TargetArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.logs.destinations
+WHERE data__Identifier = '<DestinationName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +155,11 @@ logs:PutDestination,
 logs:PutDestinationPolicy,
 logs:DescribeDestinations,
 iam:PassRole
+```
+
+### Delete
+```json
+logs:DeleteDestination
 ```
 
 ### List

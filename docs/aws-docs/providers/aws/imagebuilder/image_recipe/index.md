@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>image_recipe</code> resource, use <code>image_recipes</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>image_recipe</code> resource, use <code>image_recipes</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>image_recipe</code> resource, use <code>
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -79,8 +77,9 @@ working_directory,
 additional_instance_configuration,
 tags
 FROM aws.imagebuilder.image_recipe
-WHERE data__Identifier = '<Arn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
+
 
 ## Permissions
 
@@ -89,12 +88,5 @@ To operate on the <code>image_recipe</code> resource, the following permissions 
 ### Read
 ```json
 imagebuilder:GetImageRecipe
-```
-
-### Delete
-```json
-imagebuilder:UnTagResource,
-imagebuilder:GetImageRecipe,
-imagebuilder:DeleteImageRecipe
 ```
 

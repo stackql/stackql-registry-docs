@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>aggregation_authorizations</code> in a region or create a <code>aggregation_authorizations</code> resource, use <code>aggregation_authorization</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>aggregation_authorizations</code> in a region or to create or delete a <code>aggregation_authorizations</code> resource, use <code>aggregation_authorization</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>aggregation_authorizations</code> in a region o
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,79 @@ region,
 authorized_account_id,
 authorized_aws_region
 FROM aws.config.aggregation_authorizations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AuthorizedAccountId": "{{ AuthorizedAccountId }}",
+ "AuthorizedAwsRegion": "{{ AuthorizedAwsRegion }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.config.aggregation_authorizations (
+ AuthorizedAccountId,
+ AuthorizedAwsRegion,
+ region
+)
+SELECT 
+{{ AuthorizedAccountId }},
+ {{ AuthorizedAwsRegion }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AuthorizedAccountId": "{{ AuthorizedAccountId }}",
+ "AuthorizedAwsRegion": "{{ AuthorizedAwsRegion }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.config.aggregation_authorizations (
+ AuthorizedAccountId,
+ AuthorizedAwsRegion,
+ Tags,
+ region
+)
+SELECT 
+ {{ AuthorizedAccountId }},
+ {{ AuthorizedAwsRegion }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.config.aggregation_authorizations
+WHERE data__Identifier = '<AuthorizedAccountId|AuthorizedAwsRegion>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +155,13 @@ To operate on the <code>aggregation_authorizations</code> resource, the followin
 config:DescribeAggregationAuthorizations,
 config:PutAggregationAuthorization,
 config:TagResource
+```
+
+### Delete
+```json
+config:DescribeAggregationAuthorizations,
+config:DeleteAggregationAuthorization,
+config:UntagResource
 ```
 
 ### List

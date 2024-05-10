@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>distribution_configurations</code> in a region or create a <code>distribution_configurations</code> resource, use <code>distribution_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>distribution_configurations</code> in a region or to create or delete a <code>distribution_configurations</code> resource, use <code>distribution_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>distribution_configurations</code> in a region 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,201 @@ SELECT
 region,
 arn
 FROM aws.imagebuilder.distribution_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Distributions": [
+  {
+   "Region": "{{ Region }}",
+   "AmiDistributionConfiguration": {
+    "Name": "{{ Name }}",
+    "KmsKeyId": "{{ KmsKeyId }}",
+    "Description": "{{ Description }}",
+    "AmiTags": {},
+    "TargetAccountIds": [
+     "{{ TargetAccountIds[0] }}"
+    ],
+    "LaunchPermissionConfiguration": {
+     "UserIds": [
+      "{{ UserIds[0] }}"
+     ],
+     "UserGroups": [
+      "{{ UserGroups[0] }}"
+     ],
+     "OrganizationArns": [
+      "{{ OrganizationArns[0] }}"
+     ],
+     "OrganizationalUnitArns": [
+      "{{ OrganizationalUnitArns[0] }}"
+     ]
+    }
+   },
+   "ContainerDistributionConfiguration": {
+    "Description": "{{ Description }}",
+    "ContainerTags": [
+     "{{ ContainerTags[0] }}"
+    ],
+    "TargetRepository": {
+     "Service": "{{ Service }}",
+     "RepositoryName": "{{ RepositoryName }}"
+    }
+   },
+   "LicenseConfigurationArns": [
+    "{{ LicenseConfigurationArns[0] }}"
+   ],
+   "LaunchTemplateConfigurations": [
+    {
+     "LaunchTemplateId": "{{ LaunchTemplateId }}",
+     "AccountId": "{{ AccountId }}",
+     "SetDefaultVersion": "{{ SetDefaultVersion }}"
+    }
+   ],
+   "FastLaunchConfigurations": [
+    {
+     "AccountId": "{{ AccountId }}",
+     "Enabled": "{{ Enabled }}",
+     "LaunchTemplate": {
+      "LaunchTemplateId": "{{ LaunchTemplateId }}",
+      "LaunchTemplateName": "{{ LaunchTemplateName }}",
+      "LaunchTemplateVersion": "{{ LaunchTemplateVersion }}"
+     },
+     "MaxParallelLaunches": "{{ MaxParallelLaunches }}",
+     "SnapshotConfiguration": {
+      "TargetResourceCount": "{{ TargetResourceCount }}"
+     }
+    }
+   ]
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.imagebuilder.distribution_configurations (
+ Name,
+ Distributions,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Distributions }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "Distributions": [
+  {
+   "Region": "{{ Region }}",
+   "AmiDistributionConfiguration": {
+    "Name": "{{ Name }}",
+    "KmsKeyId": "{{ KmsKeyId }}",
+    "Description": "{{ Description }}",
+    "AmiTags": {},
+    "TargetAccountIds": [
+     "{{ TargetAccountIds[0] }}"
+    ],
+    "LaunchPermissionConfiguration": {
+     "UserIds": [
+      "{{ UserIds[0] }}"
+     ],
+     "UserGroups": [
+      "{{ UserGroups[0] }}"
+     ],
+     "OrganizationArns": [
+      "{{ OrganizationArns[0] }}"
+     ],
+     "OrganizationalUnitArns": [
+      "{{ OrganizationalUnitArns[0] }}"
+     ]
+    }
+   },
+   "ContainerDistributionConfiguration": {
+    "Description": "{{ Description }}",
+    "ContainerTags": [
+     "{{ ContainerTags[0] }}"
+    ],
+    "TargetRepository": {
+     "Service": "{{ Service }}",
+     "RepositoryName": "{{ RepositoryName }}"
+    }
+   },
+   "LicenseConfigurationArns": [
+    "{{ LicenseConfigurationArns[0] }}"
+   ],
+   "LaunchTemplateConfigurations": [
+    {
+     "LaunchTemplateId": "{{ LaunchTemplateId }}",
+     "AccountId": "{{ AccountId }}",
+     "SetDefaultVersion": "{{ SetDefaultVersion }}"
+    }
+   ],
+   "FastLaunchConfigurations": [
+    {
+     "AccountId": "{{ AccountId }}",
+     "Enabled": "{{ Enabled }}",
+     "LaunchTemplate": {
+      "LaunchTemplateId": "{{ LaunchTemplateId }}",
+      "LaunchTemplateName": "{{ LaunchTemplateName }}",
+      "LaunchTemplateVersion": "{{ LaunchTemplateVersion }}"
+     },
+     "MaxParallelLaunches": "{{ MaxParallelLaunches }}",
+     "SnapshotConfiguration": {
+      "TargetResourceCount": "{{ TargetResourceCount }}"
+     }
+    }
+   ]
+  }
+ ],
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.imagebuilder.distribution_configurations (
+ Name,
+ Description,
+ Distributions,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ Distributions }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.imagebuilder.distribution_configurations
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +280,13 @@ ec2:ModifyLaunchTemplate,
 imagebuilder:TagResource,
 imagebuilder:GetDistributionConfiguration,
 imagebuilder:CreateDistributionConfiguration
+```
+
+### Delete
+```json
+imagebuilder:GetDistributionConfiguration,
+imagebuilder:UnTagResource,
+imagebuilder:DeleteDistributionConfiguration
 ```
 
 ### List

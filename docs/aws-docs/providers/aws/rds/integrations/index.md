@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>integrations</code> in a region or create a <code>integrations</code> resource, use <code>integration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>integrations</code> in a region or to create or delete a <code>integrations</code> resource, use <code>integration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>integrations</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,94 @@ SELECT
 region,
 integration_arn
 FROM aws.rds.integrations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SourceArn": "{{ SourceArn }}",
+ "TargetArn": "{{ TargetArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.rds.integrations (
+ SourceArn,
+ TargetArn,
+ region
+)
+SELECT 
+{{ SourceArn }},
+ {{ TargetArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IntegrationName": "{{ IntegrationName }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "DataFilter": "{{ DataFilter }}",
+ "SourceArn": "{{ SourceArn }}",
+ "TargetArn": "{{ TargetArn }}",
+ "KMSKeyId": "{{ KMSKeyId }}",
+ "AdditionalEncryptionContext": {}
+}
+>>>
+--all properties
+INSERT INTO aws.rds.integrations (
+ IntegrationName,
+ Description,
+ Tags,
+ DataFilter,
+ SourceArn,
+ TargetArn,
+ KMSKeyId,
+ AdditionalEncryptionContext,
+ region
+)
+SELECT 
+ {{ IntegrationName }},
+ {{ Description }},
+ {{ Tags }},
+ {{ DataFilter }},
+ {{ SourceArn }},
+ {{ TargetArn }},
+ {{ KMSKeyId }},
+ {{ AdditionalEncryptionContext }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rds.integrations
+WHERE data__Identifier = '<IntegrationArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +171,12 @@ rds:AddTagsToResource,
 kms:CreateGrant,
 kms:DescribeKey,
 redshift:CreateInboundIntegration
+```
+
+### Delete
+```json
+rds:DeleteIntegration,
+rds:DescribeIntegrations
 ```
 
 ### List

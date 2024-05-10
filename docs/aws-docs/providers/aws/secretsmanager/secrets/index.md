@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>secrets</code> in a region or create a <code>secrets</code> resource, use <code>secret</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>secrets</code> in a region or to create or delete a <code>secrets</code> resource, use <code>secret</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>secrets</code> in a region or create a <code>se
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,143 @@ SELECT
 region,
 id
 FROM aws.secretsmanager.secrets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "SecretString": "{{ SecretString }}",
+ "GenerateSecretString": {
+  "ExcludeUppercase": "{{ ExcludeUppercase }}",
+  "RequireEachIncludedType": "{{ RequireEachIncludedType }}",
+  "IncludeSpace": "{{ IncludeSpace }}",
+  "ExcludeCharacters": "{{ ExcludeCharacters }}",
+  "GenerateStringKey": "{{ GenerateStringKey }}",
+  "PasswordLength": "{{ PasswordLength }}",
+  "ExcludePunctuation": "{{ ExcludePunctuation }}",
+  "ExcludeLowercase": "{{ ExcludeLowercase }}",
+  "SecretStringTemplate": "{{ SecretStringTemplate }}",
+  "ExcludeNumbers": "{{ ExcludeNumbers }}"
+ },
+ "ReplicaRegions": [
+  {
+   "KmsKeyId": "{{ KmsKeyId }}",
+   "Region": "{{ Region }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.secretsmanager.secrets (
+ Description,
+ KmsKeyId,
+ SecretString,
+ GenerateSecretString,
+ ReplicaRegions,
+ Tags,
+ Name,
+ region
+)
+SELECT 
+{{ Description }},
+ {{ KmsKeyId }},
+ {{ SecretString }},
+ {{ GenerateSecretString }},
+ {{ ReplicaRegions }},
+ {{ Tags }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "SecretString": "{{ SecretString }}",
+ "GenerateSecretString": {
+  "ExcludeUppercase": "{{ ExcludeUppercase }}",
+  "RequireEachIncludedType": "{{ RequireEachIncludedType }}",
+  "IncludeSpace": "{{ IncludeSpace }}",
+  "ExcludeCharacters": "{{ ExcludeCharacters }}",
+  "GenerateStringKey": "{{ GenerateStringKey }}",
+  "PasswordLength": "{{ PasswordLength }}",
+  "ExcludePunctuation": "{{ ExcludePunctuation }}",
+  "ExcludeLowercase": "{{ ExcludeLowercase }}",
+  "SecretStringTemplate": "{{ SecretStringTemplate }}",
+  "ExcludeNumbers": "{{ ExcludeNumbers }}"
+ },
+ "ReplicaRegions": [
+  {
+   "KmsKeyId": "{{ KmsKeyId }}",
+   "Region": "{{ Region }}"
+  }
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Name": "{{ Name }}"
+}
+>>>
+--all properties
+INSERT INTO aws.secretsmanager.secrets (
+ Description,
+ KmsKeyId,
+ SecretString,
+ GenerateSecretString,
+ ReplicaRegions,
+ Tags,
+ Name,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ KmsKeyId }},
+ {{ SecretString }},
+ {{ GenerateSecretString }},
+ {{ ReplicaRegions }},
+ {{ Tags }},
+ {{ Name }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.secretsmanager.secrets
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +218,13 @@ secretsmanager:DescribeSecret,
 secretsmanager:GetRandomPassword,
 secretsmanager:CreateSecret,
 secretsmanager:TagResource
+```
+
+### Delete
+```json
+secretsmanager:DeleteSecret,
+secretsmanager:DescribeSecret,
+secretsmanager:RemoveRegionsFromReplication
 ```
 
 ### List

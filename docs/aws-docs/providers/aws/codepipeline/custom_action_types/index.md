@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>custom_action_types</code> in a region or create a <code>custom_action_types</code> resource, use <code>custom_action_type</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>custom_action_types</code> in a region or to create or delete a <code>custom_action_types</code> resource, use <code>custom_action_type</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>custom_action_types</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,124 @@ category,
 provider,
 version
 FROM aws.codepipeline.custom_action_types
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Category": "{{ Category }}",
+ "InputArtifactDetails": {
+  "MaximumCount": "{{ MaximumCount }}",
+  "MinimumCount": "{{ MinimumCount }}"
+ },
+ "OutputArtifactDetails": null,
+ "Provider": "{{ Provider }}",
+ "Version": "{{ Version }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.codepipeline.custom_action_types (
+ Category,
+ InputArtifactDetails,
+ OutputArtifactDetails,
+ Provider,
+ Version,
+ region
+)
+SELECT 
+{{ Category }},
+ {{ InputArtifactDetails }},
+ {{ OutputArtifactDetails }},
+ {{ Provider }},
+ {{ Version }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Category": "{{ Category }}",
+ "ConfigurationProperties": [
+  {
+   "Description": "{{ Description }}",
+   "Key": "{{ Key }}",
+   "Name": "{{ Name }}",
+   "Queryable": "{{ Queryable }}",
+   "Required": "{{ Required }}",
+   "Secret": "{{ Secret }}",
+   "Type": "{{ Type }}"
+  }
+ ],
+ "InputArtifactDetails": {
+  "MaximumCount": "{{ MaximumCount }}",
+  "MinimumCount": "{{ MinimumCount }}"
+ },
+ "OutputArtifactDetails": null,
+ "Provider": "{{ Provider }}",
+ "Settings": {
+  "EntityUrlTemplate": "{{ EntityUrlTemplate }}",
+  "ExecutionUrlTemplate": "{{ ExecutionUrlTemplate }}",
+  "RevisionUrlTemplate": "{{ RevisionUrlTemplate }}",
+  "ThirdPartyConfigurationUrl": "{{ ThirdPartyConfigurationUrl }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Version": "{{ Version }}"
+}
+>>>
+--all properties
+INSERT INTO aws.codepipeline.custom_action_types (
+ Category,
+ ConfigurationProperties,
+ InputArtifactDetails,
+ OutputArtifactDetails,
+ Provider,
+ Settings,
+ Tags,
+ Version,
+ region
+)
+SELECT 
+ {{ Category }},
+ {{ ConfigurationProperties }},
+ {{ InputArtifactDetails }},
+ {{ OutputArtifactDetails }},
+ {{ Provider }},
+ {{ Settings }},
+ {{ Tags }},
+ {{ Version }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.codepipeline.custom_action_types
+WHERE data__Identifier = '<Category|Provider|Version>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +201,12 @@ To operate on the <code>custom_action_types</code> resource, the following permi
 ```json
 codepipeline:CreateCustomActionType,
 codepipeline:TagResource,
+codepipeline:ListActionTypes
+```
+
+### Delete
+```json
+codepipeline:DeleteCustomActionType,
 codepipeline:ListActionTypes
 ```
 

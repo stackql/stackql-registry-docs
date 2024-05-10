@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>subscription_targets</code> in a region or create a <code>subscription_targets</code> resource, use <code>subscription_target</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>subscription_targets</code> in a region or to create or delete a <code>subscription_targets</code> resource, use <code>subscription_target</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>subscription_targets</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,128 @@ domain_id,
 environment_id,
 id
 FROM aws.datazone.subscription_targets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApplicableAssetTypes": [
+  "{{ ApplicableAssetTypes[0] }}"
+ ],
+ "AuthorizedPrincipals": [
+  "{{ AuthorizedPrincipals[0] }}"
+ ],
+ "DomainIdentifier": "{{ DomainIdentifier }}",
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "ManageAccessRole": "{{ ManageAccessRole }}",
+ "Name": "{{ Name }}",
+ "SubscriptionTargetConfig": [
+  {
+   "FormName": "{{ FormName }}",
+   "Content": "{{ Content }}"
+  }
+ ],
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.datazone.subscription_targets (
+ ApplicableAssetTypes,
+ AuthorizedPrincipals,
+ DomainIdentifier,
+ EnvironmentIdentifier,
+ ManageAccessRole,
+ Name,
+ SubscriptionTargetConfig,
+ Type,
+ region
+)
+SELECT 
+{{ ApplicableAssetTypes }},
+ {{ AuthorizedPrincipals }},
+ {{ DomainIdentifier }},
+ {{ EnvironmentIdentifier }},
+ {{ ManageAccessRole }},
+ {{ Name }},
+ {{ SubscriptionTargetConfig }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApplicableAssetTypes": [
+  "{{ ApplicableAssetTypes[0] }}"
+ ],
+ "AuthorizedPrincipals": [
+  "{{ AuthorizedPrincipals[0] }}"
+ ],
+ "DomainIdentifier": "{{ DomainIdentifier }}",
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "ManageAccessRole": "{{ ManageAccessRole }}",
+ "Name": "{{ Name }}",
+ "Provider": "{{ Provider }}",
+ "SubscriptionTargetConfig": [
+  {
+   "FormName": "{{ FormName }}",
+   "Content": "{{ Content }}"
+  }
+ ],
+ "Type": "{{ Type }}"
+}
+>>>
+--all properties
+INSERT INTO aws.datazone.subscription_targets (
+ ApplicableAssetTypes,
+ AuthorizedPrincipals,
+ DomainIdentifier,
+ EnvironmentIdentifier,
+ ManageAccessRole,
+ Name,
+ Provider,
+ SubscriptionTargetConfig,
+ Type,
+ region
+)
+SELECT 
+ {{ ApplicableAssetTypes }},
+ {{ AuthorizedPrincipals }},
+ {{ DomainIdentifier }},
+ {{ EnvironmentIdentifier }},
+ {{ ManageAccessRole }},
+ {{ Name }},
+ {{ Provider }},
+ {{ SubscriptionTargetConfig }},
+ {{ Type }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.datazone.subscription_targets
+WHERE data__Identifier = '<DomainId|EnvironmentId|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +206,11 @@ To operate on the <code>subscription_targets</code> resource, the following perm
 datazone:CreateSubscriptionTarget,
 datazone:GetSubscriptionTarget,
 iam:PassRole
+```
+
+### Delete
+```json
+datazone:DeleteSubscriptionTarget
 ```
 
 ### List

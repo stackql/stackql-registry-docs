@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>monitor</code> resource, use <code>monitors</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>monitor</code> resource, use <code>monitors</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -65,11 +68,6 @@ Gets or operates on an individual <code>monitor</code> resource, use <code>monit
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -98,8 +96,9 @@ traffic_percentage_to_monitor,
 internet_measurements_log_delivery,
 health_events_config
 FROM aws.internetmonitor.monitor
-WHERE data__Identifier = '<MonitorName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<MonitorName>';
 ```
+
 
 ## Permissions
 
@@ -128,13 +127,5 @@ s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 s3:ListBucket,
 iam:PassRole
-```
-
-### Delete
-```json
-internetmonitor:UpdateMonitor,
-internetmonitor:DeleteMonitor,
-internetmonitor:GetMonitor,
-logs:DeleteLogDelivery
 ```
 

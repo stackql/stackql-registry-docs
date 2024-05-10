@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>security_configurations</code> in a region or create a <code>security_configurations</code> resource, use <code>security_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>security_configurations</code> in a region or to create or delete a <code>security_configurations</code> resource, use <code>security_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>security_configurations</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,68 @@ SELECT
 region,
 name
 FROM aws.emr.security_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "SecurityConfiguration": {}
+}
+>>>
+--required properties only
+INSERT INTO aws.emr.security_configurations (
+ SecurityConfiguration,
+ region
+)
+SELECT 
+{{ SecurityConfiguration }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "SecurityConfiguration": {}
+}
+>>>
+--all properties
+INSERT INTO aws.emr.security_configurations (
+ Name,
+ SecurityConfiguration,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ SecurityConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.emr.security_configurations
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +141,11 @@ To operate on the <code>security_configurations</code> resource, the following p
 ```json
 elasticmapreduce:CreateSecurityConfiguration,
 elasticmapreduce:DescribeSecurityConfiguration
+```
+
+### Delete
+```json
+elasticmapreduce:DeleteSecurityConfiguration
 ```
 
 ### List

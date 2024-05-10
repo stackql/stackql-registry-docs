@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>functions</code> in a region or create a <code>functions</code> resource, use <code>function</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>functions</code> in a region or to create or delete a <code>functions</code> resource, use <code>function</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>functions</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,200 @@ SELECT
 region,
 function_name
 FROM aws.lambda.functions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Code": {
+  "S3ObjectVersion": "{{ S3ObjectVersion }}",
+  "S3Bucket": "{{ S3Bucket }}",
+  "ZipFile": "{{ ZipFile }}",
+  "S3Key": "{{ S3Key }}",
+  "ImageUri": "{{ ImageUri }}"
+ },
+ "Role": "{{ Role }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lambda.functions (
+ Code,
+ Role,
+ region
+)
+SELECT 
+{{ Code }},
+ {{ Role }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "TracingConfig": {
+  "Mode": "{{ Mode }}"
+ },
+ "VpcConfig": {
+  "Ipv6AllowedForDualStack": "{{ Ipv6AllowedForDualStack }}",
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SubnetIds": [
+   "{{ SubnetIds[0] }}"
+  ]
+ },
+ "RuntimeManagementConfig": {
+  "UpdateRuntimeOn": "{{ UpdateRuntimeOn }}",
+  "RuntimeVersionArn": "{{ RuntimeVersionArn }}"
+ },
+ "ReservedConcurrentExecutions": "{{ ReservedConcurrentExecutions }}",
+ "SnapStart": {
+  "ApplyOn": "{{ ApplyOn }}"
+ },
+ "FileSystemConfigs": [
+  {
+   "Arn": "{{ Arn }}",
+   "LocalMountPath": "{{ LocalMountPath }}"
+  }
+ ],
+ "FunctionName": "{{ FunctionName }}",
+ "Runtime": "{{ Runtime }}",
+ "KmsKeyArn": "{{ KmsKeyArn }}",
+ "PackageType": "{{ PackageType }}",
+ "CodeSigningConfigArn": "{{ CodeSigningConfigArn }}",
+ "Layers": [
+  "{{ Layers[0] }}"
+ ],
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "ImageConfig": {
+  "WorkingDirectory": "{{ WorkingDirectory }}",
+  "Command": [
+   "{{ Command[0] }}"
+  ],
+  "EntryPoint": [
+   "{{ EntryPoint[0] }}"
+  ]
+ },
+ "MemorySize": "{{ MemorySize }}",
+ "DeadLetterConfig": {
+  "TargetArn": "{{ TargetArn }}"
+ },
+ "Timeout": "{{ Timeout }}",
+ "Handler": "{{ Handler }}",
+ "Code": {
+  "S3ObjectVersion": "{{ S3ObjectVersion }}",
+  "S3Bucket": "{{ S3Bucket }}",
+  "ZipFile": "{{ ZipFile }}",
+  "S3Key": "{{ S3Key }}",
+  "ImageUri": "{{ ImageUri }}"
+ },
+ "Role": "{{ Role }}",
+ "LoggingConfig": {
+  "LogFormat": "{{ LogFormat }}",
+  "ApplicationLogLevel": "{{ ApplicationLogLevel }}",
+  "LogGroup": "{{ LogGroup }}",
+  "SystemLogLevel": "{{ SystemLogLevel }}"
+ },
+ "Environment": {
+  "Variables": {}
+ },
+ "EphemeralStorage": {
+  "Size": "{{ Size }}"
+ },
+ "Architectures": [
+  "{{ Architectures[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lambda.functions (
+ Description,
+ TracingConfig,
+ VpcConfig,
+ RuntimeManagementConfig,
+ ReservedConcurrentExecutions,
+ SnapStart,
+ FileSystemConfigs,
+ FunctionName,
+ Runtime,
+ KmsKeyArn,
+ PackageType,
+ CodeSigningConfigArn,
+ Layers,
+ Tags,
+ ImageConfig,
+ MemorySize,
+ DeadLetterConfig,
+ Timeout,
+ Handler,
+ Code,
+ Role,
+ LoggingConfig,
+ Environment,
+ EphemeralStorage,
+ Architectures,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ TracingConfig }},
+ {{ VpcConfig }},
+ {{ RuntimeManagementConfig }},
+ {{ ReservedConcurrentExecutions }},
+ {{ SnapStart }},
+ {{ FileSystemConfigs }},
+ {{ FunctionName }},
+ {{ Runtime }},
+ {{ KmsKeyArn }},
+ {{ PackageType }},
+ {{ CodeSigningConfigArn }},
+ {{ Layers }},
+ {{ Tags }},
+ {{ ImageConfig }},
+ {{ MemorySize }},
+ {{ DeadLetterConfig }},
+ {{ Timeout }},
+ {{ Handler }},
+ {{ Code }},
+ {{ Role }},
+ {{ LoggingConfig }},
+ {{ Environment }},
+ {{ EphemeralStorage }},
+ {{ Architectures }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lambda.functions
+WHERE data__Identifier = '<FunctionName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -100,5 +301,12 @@ lambda:PutResourcePolicy
 ### List
 ```json
 lambda:ListFunctions
+```
+
+### Delete
+```json
+lambda:DeleteFunction,
+lambda:GetFunction,
+ec2:DescribeNetworkInterfaces
 ```
 

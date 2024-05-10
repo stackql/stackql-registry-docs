@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>endpoint_authorization</code> resource, use <code>endpoint_authorizations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>endpoint_authorization</code> resource, use <code>endpoint_authorizations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>endpoint_authorization</code> resource, 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ account,
 vpc_ids,
 force
 FROM aws.redshift.endpoint_authorization
-WHERE data__Identifier = '<ClusterIdentifier>|<Account>';
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterIdentifier>|<Account>';
 ```
+
 
 ## Permissions
 
@@ -105,18 +104,5 @@ redshift:DescribeEndpointAuthorization
 redshift:AuthorizeEndpointAccess,
 redshift:DescribeEndpointAuthorization,
 redshift:RevokeEndpointAccess
-```
-
-### Delete
-```json
-redshift:RevokeEndpointAccess,
-redshift:DeleteEndpointAccess,
-redshift:DescribeEndpointAuthorization,
-ec2:DeleteClientVpnEndpoint,
-ec2:DescribeVpcAttribute,
-ec2:DescribeSecurityGroups,
-ec2:DescribeAddresses,
-ec2:DescribeInternetGateways,
-ec2:DescribeSubnets
 ```
 

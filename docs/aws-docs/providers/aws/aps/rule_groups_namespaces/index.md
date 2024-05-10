@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>rule_groups_namespaces</code> in a region or create a <code>rule_groups_namespaces</code> resource, use <code>rule_groups_namespace</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>rule_groups_namespaces</code> in a region or to create or delete a <code>rule_groups_namespaces</code> resource, use <code>rule_groups_namespace</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>rule_groups_namespaces</code> in a region or cr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,85 @@ SELECT
 region,
 arn
 FROM aws.aps.rule_groups_namespaces
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Workspace": "{{ Workspace }}",
+ "Name": "{{ Name }}",
+ "Data": "{{ Data }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.aps.rule_groups_namespaces (
+ Workspace,
+ Name,
+ Data,
+ region
+)
+SELECT 
+{{ Workspace }},
+ {{ Name }},
+ {{ Data }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Workspace": "{{ Workspace }}",
+ "Name": "{{ Name }}",
+ "Data": "{{ Data }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.aps.rule_groups_namespaces (
+ Workspace,
+ Name,
+ Data,
+ Tags,
+ region
+)
+SELECT 
+ {{ Workspace }},
+ {{ Name }},
+ {{ Data }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.aps.rule_groups_namespaces
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +159,12 @@ To operate on the <code>rule_groups_namespaces</code> resource, the following pe
 aps:CreateRuleGroupsNamespace,
 aps:DescribeRuleGroupsNamespace,
 aps:TagResource
+```
+
+### Delete
+```json
+aps:DeleteRuleGroupsNamespace,
+aps:DescribeRuleGroupsNamespace
 ```
 
 ### List

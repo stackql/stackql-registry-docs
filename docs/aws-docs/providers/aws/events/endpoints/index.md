@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>endpoints</code> in a region or create a <code>endpoints</code> resource, use <code>endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>endpoints</code> in a region or to create or delete a <code>endpoints</code> resource, use <code>endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>endpoints</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,111 @@ SELECT
 region,
 name
 FROM aws.events.endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "RoutingConfig": {
+  "FailoverConfig": {
+   "Primary": {
+    "HealthCheck": "{{ HealthCheck }}"
+   },
+   "Secondary": {
+    "Route": "{{ Route }}"
+   }
+  }
+ },
+ "EventBuses": [
+  {
+   "EventBusArn": "{{ EventBusArn }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.events.endpoints (
+ RoutingConfig,
+ EventBuses,
+ region
+)
+SELECT 
+{{ RoutingConfig }},
+ {{ EventBuses }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Description": "{{ Description }}",
+ "RoutingConfig": {
+  "FailoverConfig": {
+   "Primary": {
+    "HealthCheck": "{{ HealthCheck }}"
+   },
+   "Secondary": {
+    "Route": "{{ Route }}"
+   }
+  }
+ },
+ "ReplicationConfig": {
+  "State": "{{ State }}"
+ },
+ "EventBuses": [
+  {
+   "EventBusArn": "{{ EventBusArn }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.events.endpoints (
+ Name,
+ RoleArn,
+ Description,
+ RoutingConfig,
+ ReplicationConfig,
+ EventBuses,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ RoleArn }},
+ {{ Description }},
+ {{ RoutingConfig }},
+ {{ ReplicationConfig }},
+ {{ EventBuses }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.events.endpoints
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +186,12 @@ events:CreateEndpoint,
 events:DescribeEndpoint,
 route53:GetHealthCheck,
 iam:PassRole
+```
+
+### Delete
+```json
+events:DeleteEndpoint,
+events:DescribeEndpoint
 ```
 
 ### List

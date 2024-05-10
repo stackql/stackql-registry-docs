@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>streams</code> in a region or create a <code>streams</code> resource, use <code>stream</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>streams</code> in a region or to create or delete a <code>streams</code> resource, use <code>stream</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>streams</code> in a region or create a <code>st
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 name
 FROM aws.kinesisvideo.streams
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.kinesisvideo.streams (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DataRetentionInHours": "{{ DataRetentionInHours }}",
+ "DeviceName": "{{ DeviceName }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "MediaType": "{{ MediaType }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.kinesisvideo.streams (
+ Name,
+ DataRetentionInHours,
+ DeviceName,
+ KmsKeyId,
+ MediaType,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ DataRetentionInHours }},
+ {{ DeviceName }},
+ {{ KmsKeyId }},
+ {{ MediaType }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kinesisvideo.streams
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,5 +156,11 @@ To operate on the <code>streams</code> resource, the following permissions are r
 ```json
 kinesisvideo:DescribeStream,
 kinesisvideo:CreateStream
+```
+
+### Delete
+```json
+kinesisvideo:DescribeStream,
+kinesisvideo:DeleteStream
 ```
 

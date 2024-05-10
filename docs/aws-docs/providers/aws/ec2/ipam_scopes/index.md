@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>ipam_scopes</code> in a region or create a <code>ipam_scopes</code> resource, use <code>ipam_scope</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>ipam_scopes</code> in a region or to create or delete a <code>ipam_scopes</code> resource, use <code>ipam_scope</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>ipam_scopes</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,76 @@ SELECT
 region,
 ipam_scope_id
 FROM aws.ec2.ipam_scopes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IpamId": "{{ IpamId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.ipam_scopes (
+ IpamId,
+ region
+)
+SELECT 
+{{ IpamId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IpamId": "{{ IpamId }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.ipam_scopes (
+ IpamId,
+ Description,
+ Tags,
+ region
+)
+SELECT 
+ {{ IpamId }},
+ {{ Description }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.ipam_scopes
+WHERE data__Identifier = '<IpamScopeId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +150,13 @@ To operate on the <code>ipam_scopes</code> resource, the following permissions a
 ec2:CreateIpamScope,
 ec2:DescribeIpamScopes,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DeleteIpamScope,
+ec2:DescribeIpamScopes,
+ec2:DeleteTags
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>model_bias_job_definition</code> resource, use <code>model_bias_job_definitions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>model_bias_job_definition</code> resource, use <code>model_bias_job_definitions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>model_bias_job_definition</code> resourc
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -85,17 +83,13 @@ stopping_condition,
 tags,
 creation_time
 FROM aws.sagemaker.model_bias_job_definition
-WHERE data__Identifier = '<JobDefinitionArn>';
+WHERE region = 'us-east-1' AND data__Identifier = '<JobDefinitionArn>';
 ```
+
 
 ## Permissions
 
 To operate on the <code>model_bias_job_definition</code> resource, the following permissions are required:
-
-### Delete
-```json
-sagemaker:DeleteModelBiasJobDefinition
-```
 
 ### Read
 ```json

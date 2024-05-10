@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>bucket</code> resource, use <code>buckets</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>bucket</code> resource, use <code>buckets</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -73,11 +76,6 @@ Gets or operates on an individual <code>bucket</code> resource, use <code>bucket
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -114,8 +112,9 @@ dual_stack_domain_name,
 regional_domain_name,
 website_url
 FROM aws.s3.bucket
-WHERE data__Identifier = '<BucketName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<BucketName>';
 ```
+
 
 ## Permissions
 
@@ -174,12 +173,6 @@ s3:DeleteBucketEncryption,
 s3:DeleteBucketLifecycle,
 s3:DeleteBucketReplication,
 iam:PassRole,
-s3:ListBucket
-```
-
-### Delete
-```json
-s3:DeleteBucket,
 s3:ListBucket
 ```
 

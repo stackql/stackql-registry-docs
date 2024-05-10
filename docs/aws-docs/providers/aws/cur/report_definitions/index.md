@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>report_definitions</code> in a region or create a <code>report_definitions</code> resource, use <code>report_definition</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>report_definitions</code> in a region or to create or delete a <code>report_definitions</code> resource, use <code>report_definition</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>report_definitions</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,126 @@ SELECT
 region,
 report_name
 FROM aws.cur.report_definitions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ReportName": "{{ ReportName }}",
+ "TimeUnit": "{{ TimeUnit }}",
+ "Format": "{{ Format }}",
+ "Compression": "{{ Compression }}",
+ "S3Bucket": "{{ S3Bucket }}",
+ "S3Prefix": "{{ S3Prefix }}",
+ "S3Region": "{{ S3Region }}",
+ "RefreshClosedReports": "{{ RefreshClosedReports }}",
+ "ReportVersioning": "{{ ReportVersioning }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cur.report_definitions (
+ ReportName,
+ TimeUnit,
+ Format,
+ Compression,
+ S3Bucket,
+ S3Prefix,
+ S3Region,
+ RefreshClosedReports,
+ ReportVersioning,
+ region
+)
+SELECT 
+{{ ReportName }},
+ {{ TimeUnit }},
+ {{ Format }},
+ {{ Compression }},
+ {{ S3Bucket }},
+ {{ S3Prefix }},
+ {{ S3Region }},
+ {{ RefreshClosedReports }},
+ {{ ReportVersioning }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ReportName": "{{ ReportName }}",
+ "TimeUnit": "{{ TimeUnit }}",
+ "Format": "{{ Format }}",
+ "Compression": "{{ Compression }}",
+ "AdditionalSchemaElements": [
+  "{{ AdditionalSchemaElements[0] }}"
+ ],
+ "S3Bucket": "{{ S3Bucket }}",
+ "S3Prefix": "{{ S3Prefix }}",
+ "S3Region": "{{ S3Region }}",
+ "AdditionalArtifacts": [
+  "{{ AdditionalArtifacts[0] }}"
+ ],
+ "RefreshClosedReports": "{{ RefreshClosedReports }}",
+ "ReportVersioning": "{{ ReportVersioning }}",
+ "BillingViewArn": "{{ BillingViewArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cur.report_definitions (
+ ReportName,
+ TimeUnit,
+ Format,
+ Compression,
+ AdditionalSchemaElements,
+ S3Bucket,
+ S3Prefix,
+ S3Region,
+ AdditionalArtifacts,
+ RefreshClosedReports,
+ ReportVersioning,
+ BillingViewArn,
+ region
+)
+SELECT 
+ {{ ReportName }},
+ {{ TimeUnit }},
+ {{ Format }},
+ {{ Compression }},
+ {{ AdditionalSchemaElements }},
+ {{ S3Bucket }},
+ {{ S3Prefix }},
+ {{ S3Region }},
+ {{ AdditionalArtifacts }},
+ {{ RefreshClosedReports }},
+ {{ ReportVersioning }},
+ {{ BillingViewArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cur.report_definitions
+WHERE data__Identifier = '<ReportName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -71,6 +198,12 @@ To operate on the <code>report_definitions</code> resource, the following permis
 ### Create
 ```json
 cur:PutReportDefinition
+```
+
+### Delete
+```json
+cur:DescribeReportDefinitions,
+cur:DeleteReportDefinition
 ```
 
 ### List

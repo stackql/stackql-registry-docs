@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>flywheels</code> in a region or create a <code>flywheels</code> resource, use <code>flywheel</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>flywheels</code> in a region or to create or delete a <code>flywheels</code> resource, use <code>flywheel</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>flywheels</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,124 @@ SELECT
 region,
 arn
 FROM aws.comprehend.flywheels
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
+ "DataLakeS3Uri": "{{ DataLakeS3Uri }}",
+ "FlywheelName": "{{ FlywheelName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.comprehend.flywheels (
+ DataAccessRoleArn,
+ DataLakeS3Uri,
+ FlywheelName,
+ region
+)
+SELECT 
+{{ DataAccessRoleArn }},
+ {{ DataLakeS3Uri }},
+ {{ FlywheelName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ActiveModelArn": "{{ ActiveModelArn }}",
+ "DataAccessRoleArn": "{{ DataAccessRoleArn }}",
+ "DataLakeS3Uri": "{{ DataLakeS3Uri }}",
+ "DataSecurityConfig": {
+  "ModelKmsKeyId": "{{ ModelKmsKeyId }}",
+  "VolumeKmsKeyId": null,
+  "DataLakeKmsKeyId": null,
+  "VpcConfig": {
+   "SecurityGroupIds": [
+    "{{ SecurityGroupIds[0] }}"
+   ],
+   "Subnets": [
+    "{{ Subnets[0] }}"
+   ]
+  }
+ },
+ "FlywheelName": "{{ FlywheelName }}",
+ "ModelType": "{{ ModelType }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TaskConfig": {
+  "LanguageCode": "{{ LanguageCode }}",
+  "DocumentClassificationConfig": {
+   "Mode": "{{ Mode }}",
+   "Labels": [
+    "{{ Labels[0] }}"
+   ]
+  },
+  "EntityRecognitionConfig": {
+   "EntityTypes": [
+    {
+     "Type": "{{ Type }}"
+    }
+   ]
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.comprehend.flywheels (
+ ActiveModelArn,
+ DataAccessRoleArn,
+ DataLakeS3Uri,
+ DataSecurityConfig,
+ FlywheelName,
+ ModelType,
+ Tags,
+ TaskConfig,
+ region
+)
+SELECT 
+ {{ ActiveModelArn }},
+ {{ DataAccessRoleArn }},
+ {{ DataLakeS3Uri }},
+ {{ DataSecurityConfig }},
+ {{ FlywheelName }},
+ {{ ModelType }},
+ {{ Tags }},
+ {{ TaskConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.comprehend.flywheels
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +199,12 @@ iam:PassRole,
 comprehend:CreateFlywheel,
 comprehend:DescribeFlywheel,
 comprehend:ListTagsForResource
+```
+
+### Delete
+```json
+comprehend:DeleteFlywheel,
+comprehend:DescribeFlywheel
 ```
 
 ### List

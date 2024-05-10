@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>network_insights_paths</code> in a region or create a <code>network_insights_paths</code> resource, use <code>network_insights_path</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>network_insights_paths</code> in a region or to create or delete a <code>network_insights_paths</code> resource, use <code>network_insights_path</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>network_insights_paths</code> in a region or cr
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,105 @@ SELECT
 region,
 network_insights_path_id
 FROM aws.ec2.network_insights_paths
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Source": "{{ Source }}",
+ "Protocol": "{{ Protocol }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.network_insights_paths (
+ Source,
+ Protocol,
+ region
+)
+SELECT 
+{{ Source }},
+ {{ Protocol }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "SourceIp": "{{ SourceIp }}",
+ "FilterAtSource": {
+  "SourceAddress": null,
+  "SourcePortRange": {
+   "FromPort": "{{ FromPort }}",
+   "ToPort": "{{ ToPort }}"
+  },
+  "DestinationAddress": null,
+  "DestinationPortRange": null
+ },
+ "FilterAtDestination": null,
+ "DestinationIp": null,
+ "Source": "{{ Source }}",
+ "Destination": "{{ Destination }}",
+ "Protocol": "{{ Protocol }}",
+ "DestinationPort": "{{ DestinationPort }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.network_insights_paths (
+ SourceIp,
+ FilterAtSource,
+ FilterAtDestination,
+ DestinationIp,
+ Source,
+ Destination,
+ Protocol,
+ DestinationPort,
+ Tags,
+ region
+)
+SELECT 
+ {{ SourceIp }},
+ {{ FilterAtSource }},
+ {{ FilterAtDestination }},
+ {{ DestinationIp }},
+ {{ Source }},
+ {{ Destination }},
+ {{ Protocol }},
+ {{ DestinationPort }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.network_insights_paths
+WHERE data__Identifier = '<NetworkInsightsPathId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +178,12 @@ To operate on the <code>network_insights_paths</code> resource, the following pe
 ```json
 ec2:CreateNetworkInsightsPath,
 ec2:CreateTags
+```
+
+### Delete
+```json
+ec2:DeleteNetworkInsightsPath,
+ec2:DeleteTags
 ```
 
 ### List

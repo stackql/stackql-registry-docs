@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>schemata</code> in a region or create a <code>schemata</code> resource, use <code>schema</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>schemata</code> in a region or to create or delete a <code>schemata</code> resource, use <code>schema</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>schemata</code> in a region or create a <code>s
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,91 @@ SELECT
 region,
 schema_arn
 FROM aws.eventschemas.schemata
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}",
+ "Content": "{{ Content }}",
+ "RegistryName": "{{ RegistryName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.eventschemas.schemata (
+ Type,
+ Content,
+ RegistryName,
+ region
+)
+SELECT 
+{{ Type }},
+ {{ Content }},
+ {{ RegistryName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}",
+ "Description": "{{ Description }}",
+ "Content": "{{ Content }}",
+ "RegistryName": "{{ RegistryName }}",
+ "SchemaName": "{{ SchemaName }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.eventschemas.schemata (
+ Type,
+ Description,
+ Content,
+ RegistryName,
+ SchemaName,
+ Tags,
+ region
+)
+SELECT 
+ {{ Type }},
+ {{ Description }},
+ {{ Content }},
+ {{ RegistryName }},
+ {{ SchemaName }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.eventschemas.schemata
+WHERE data__Identifier = '<SchemaArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +165,13 @@ To operate on the <code>schemata</code> resource, the following permissions are 
 schemas:DescribeSchema,
 schemas:CreateSchema,
 schemas:TagResource
+```
+
+### Delete
+```json
+schemas:DescribeSchema,
+schemas:DeleteSchema,
+schemas:DeleteSchemaVersion
 ```
 
 ### List

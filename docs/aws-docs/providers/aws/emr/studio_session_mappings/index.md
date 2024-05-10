@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>studio_session_mappings</code> in a region or create a <code>studio_session_mappings</code> resource, use <code>studio_session_mapping</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>studio_session_mappings</code> in a region or to create or delete a <code>studio_session_mappings</code> resource, use <code>studio_session_mapping</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>studio_session_mappings</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,83 @@ studio_id,
 identity_type,
 identity_name
 FROM aws.emr.studio_session_mappings
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IdentityName": "{{ IdentityName }}",
+ "IdentityType": "{{ IdentityType }}",
+ "SessionPolicyArn": "{{ SessionPolicyArn }}",
+ "StudioId": "{{ StudioId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.emr.studio_session_mappings (
+ IdentityName,
+ IdentityType,
+ SessionPolicyArn,
+ StudioId,
+ region
+)
+SELECT 
+{{ IdentityName }},
+ {{ IdentityType }},
+ {{ SessionPolicyArn }},
+ {{ StudioId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IdentityName": "{{ IdentityName }}",
+ "IdentityType": "{{ IdentityType }}",
+ "SessionPolicyArn": "{{ SessionPolicyArn }}",
+ "StudioId": "{{ StudioId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.emr.studio_session_mappings (
+ IdentityName,
+ IdentityType,
+ SessionPolicyArn,
+ StudioId,
+ region
+)
+SELECT 
+ {{ IdentityName }},
+ {{ IdentityType }},
+ {{ SessionPolicyArn }},
+ {{ StudioId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.emr.studio_session_mappings
+WHERE data__Identifier = '<StudioId|IdentityType|IdentityName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -84,6 +168,22 @@ sso:ListDirectoryAssociations,
 sso:GetProfile,
 sso:ListProfiles,
 sso:AssociateProfile
+```
+
+### Delete
+```json
+elasticmapreduce:GetStudioSessionMapping,
+elasticmapreduce:DeleteStudioSessionMapping,
+sso-directory:SearchUsers,
+sso-directory:SearchGroups,
+sso-directory:DescribeUser,
+sso-directory:DescribeGroup,
+sso:GetManagedApplicationInstance,
+sso:DescribeInstance,
+sso:ListDirectoryAssociations,
+sso:GetProfile,
+sso:ListProfiles,
+sso:DisassociateProfile
 ```
 
 ### List

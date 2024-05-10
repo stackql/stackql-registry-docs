@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>distributions</code> in a region or create a <code>distributions</code> resource, use <code>distribution</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>distributions</code> in a region or to create or delete a <code>distributions</code> resource, use <code>distribution</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>distributions</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,147 @@ SELECT
 region,
 distribution_name
 FROM aws.lightsail.distributions
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DistributionName": "{{ DistributionName }}",
+ "BundleId": "{{ BundleId }}",
+ "DefaultCacheBehavior": {
+  "Behavior": "{{ Behavior }}"
+ },
+ "Origin": {
+  "Name": "{{ Name }}",
+  "ProtocolPolicy": "{{ ProtocolPolicy }}",
+  "RegionName": "{{ RegionName }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.lightsail.distributions (
+ DistributionName,
+ BundleId,
+ DefaultCacheBehavior,
+ Origin,
+ region
+)
+SELECT 
+{{ DistributionName }},
+ {{ BundleId }},
+ {{ DefaultCacheBehavior }},
+ {{ Origin }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DistributionName": "{{ DistributionName }}",
+ "BundleId": "{{ BundleId }}",
+ "IpAddressType": "{{ IpAddressType }}",
+ "CacheBehaviors": [
+  {
+   "Behavior": "{{ Behavior }}",
+   "Path": "{{ Path }}"
+  }
+ ],
+ "CacheBehaviorSettings": {
+  "AllowedHTTPMethods": "{{ AllowedHTTPMethods }}",
+  "CachedHTTPMethods": "{{ CachedHTTPMethods }}",
+  "DefaultTTL": "{{ DefaultTTL }}",
+  "MaximumTTL": "{{ MaximumTTL }}",
+  "MinimumTTL": "{{ MinimumTTL }}",
+  "ForwardedCookies": {
+   "CookiesAllowList": [
+    "{{ CookiesAllowList[0] }}"
+   ],
+   "Option": "{{ Option }}"
+  },
+  "ForwardedHeaders": {
+   "HeadersAllowList": [
+    "{{ HeadersAllowList[0] }}"
+   ],
+   "Option": "{{ Option }}"
+  },
+  "ForwardedQueryStrings": {
+   "QueryStringsAllowList": [
+    "{{ QueryStringsAllowList[0] }}"
+   ],
+   "Option": "{{ Option }}"
+  }
+ },
+ "DefaultCacheBehavior": {
+  "Behavior": "{{ Behavior }}"
+ },
+ "Origin": {
+  "Name": "{{ Name }}",
+  "ProtocolPolicy": "{{ ProtocolPolicy }}",
+  "RegionName": "{{ RegionName }}"
+ },
+ "IsEnabled": "{{ IsEnabled }}",
+ "CertificateName": "{{ CertificateName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.lightsail.distributions (
+ DistributionName,
+ BundleId,
+ IpAddressType,
+ CacheBehaviors,
+ CacheBehaviorSettings,
+ DefaultCacheBehavior,
+ Origin,
+ IsEnabled,
+ CertificateName,
+ Tags,
+ region
+)
+SELECT 
+ {{ DistributionName }},
+ {{ BundleId }},
+ {{ IpAddressType }},
+ {{ CacheBehaviors }},
+ {{ CacheBehaviorSettings }},
+ {{ DefaultCacheBehavior }},
+ {{ Origin }},
+ {{ IsEnabled }},
+ {{ CertificateName }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lightsail.distributions
+WHERE data__Identifier = '<DistributionName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +228,12 @@ lightsail:TagResource,
 lightsail:UntagResource,
 lightsail:UpdateDistribution,
 lightsail:UpdateDistributionBundle
+```
+
+### Delete
+```json
+lightsail:DeleteDistribution,
+lightsail:GetDistributions
 ```
 
 ### List

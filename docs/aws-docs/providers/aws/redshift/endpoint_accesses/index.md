@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>endpoint_accesses</code> in a region or create a <code>endpoint_accesses</code> resource, use <code>endpoint_access</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>endpoint_accesses</code> in a region or to create or delete a <code>endpoint_accesses</code> resource, use <code>endpoint_access</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>endpoint_accesses</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,90 @@ SELECT
 region,
 endpoint_name
 FROM aws.redshift.endpoint_accesses
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ClusterIdentifier": "{{ ClusterIdentifier }}",
+ "EndpointName": "{{ EndpointName }}",
+ "SubnetGroupName": "{{ SubnetGroupName }}",
+ "VpcSecurityGroupIds": [
+  "{{ VpcSecurityGroupIds[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.redshift.endpoint_accesses (
+ ClusterIdentifier,
+ EndpointName,
+ SubnetGroupName,
+ VpcSecurityGroupIds,
+ region
+)
+SELECT 
+{{ ClusterIdentifier }},
+ {{ EndpointName }},
+ {{ SubnetGroupName }},
+ {{ VpcSecurityGroupIds }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClusterIdentifier": "{{ ClusterIdentifier }}",
+ "ResourceOwner": "{{ ResourceOwner }}",
+ "EndpointName": "{{ EndpointName }}",
+ "SubnetGroupName": "{{ SubnetGroupName }}",
+ "VpcSecurityGroupIds": [
+  "{{ VpcSecurityGroupIds[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.redshift.endpoint_accesses (
+ ClusterIdentifier,
+ ResourceOwner,
+ EndpointName,
+ SubnetGroupName,
+ VpcSecurityGroupIds,
+ region
+)
+SELECT 
+ {{ ClusterIdentifier }},
+ {{ ResourceOwner }},
+ {{ EndpointName }},
+ {{ SubnetGroupName }},
+ {{ VpcSecurityGroupIds }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.redshift.endpoint_accesses
+WHERE data__Identifier = '<EndpointName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,6 +170,20 @@ ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
 ec2:DescribeSubnets
+```
+
+### Delete
+```json
+redshift:DeleteEndpointAccess,
+redshift:DescribeEndpointAccess,
+ec2:DeleteClientVpnEndpoint,
+ec2:DeleteVpcEndpoint,
+ec2:DescribeVpcAttribute,
+ec2:DescribeSecurityGroups,
+ec2:DescribeAddresses,
+ec2:DescribeInternetGateways,
+ec2:DescribeSubnets,
+ec2:DescribeVpcEndpoint
 ```
 
 ### List

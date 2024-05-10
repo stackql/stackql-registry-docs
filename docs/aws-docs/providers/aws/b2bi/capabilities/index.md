@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>capabilities</code> in a region or create a <code>capabilities</code> resource, use <code>capability</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>capabilities</code> in a region or to create or delete a <code>capabilities</code> resource, use <code>capability</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>capabilities</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,93 @@ SELECT
 region,
 capability_id
 FROM aws.b2bi.capabilities
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Configuration": null,
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.b2bi.capabilities (
+ Configuration,
+ Name,
+ Type,
+ region
+)
+SELECT 
+{{ Configuration }},
+ {{ Name }},
+ {{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Configuration": null,
+ "InstructionsDocuments": [
+  {
+   "BucketName": "{{ BucketName }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Type": "{{ Type }}"
+}
+>>>
+--all properties
+INSERT INTO aws.b2bi.capabilities (
+ Configuration,
+ InstructionsDocuments,
+ Name,
+ Tags,
+ Type,
+ region
+)
+SELECT 
+ {{ Configuration }},
+ {{ InstructionsDocuments }},
+ {{ Name }},
+ {{ Tags }},
+ {{ Type }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.b2bi.capabilities
+WHERE data__Identifier = '<CapabilityId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -86,6 +180,11 @@ logs:PutLogEvents,
 logs:PutResourcePolicy,
 s3:GetObject,
 s3:ListBucket
+```
+
+### Delete
+```json
+b2bi:DeleteCapability
 ```
 
 ### List

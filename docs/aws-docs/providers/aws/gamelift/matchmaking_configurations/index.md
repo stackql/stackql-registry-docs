@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>matchmaking_configurations</code> in a region or create a <code>matchmaking_configurations</code> resource, use <code>matchmaking_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>matchmaking_configurations</code> in a region or to create or delete a <code>matchmaking_configurations</code> resource, use <code>matchmaking_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>matchmaking_configurations</code> in a region o
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,134 @@ SELECT
 region,
 name
 FROM aws.gamelift.matchmaking_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AcceptanceRequired": "{{ AcceptanceRequired }}",
+ "Name": "{{ Name }}",
+ "RequestTimeoutSeconds": "{{ RequestTimeoutSeconds }}",
+ "RuleSetName": "{{ RuleSetName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.gamelift.matchmaking_configurations (
+ AcceptanceRequired,
+ Name,
+ RequestTimeoutSeconds,
+ RuleSetName,
+ region
+)
+SELECT 
+{{ AcceptanceRequired }},
+ {{ Name }},
+ {{ RequestTimeoutSeconds }},
+ {{ RuleSetName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AcceptanceRequired": "{{ AcceptanceRequired }}",
+ "AcceptanceTimeoutSeconds": "{{ AcceptanceTimeoutSeconds }}",
+ "AdditionalPlayerCount": "{{ AdditionalPlayerCount }}",
+ "BackfillMode": "{{ BackfillMode }}",
+ "CreationTime": "{{ CreationTime }}",
+ "CustomEventData": "{{ CustomEventData }}",
+ "Description": "{{ Description }}",
+ "FlexMatchMode": "{{ FlexMatchMode }}",
+ "GameProperties": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "GameSessionData": "{{ GameSessionData }}",
+ "GameSessionQueueArns": [
+  "{{ GameSessionQueueArns[0] }}"
+ ],
+ "Name": "{{ Name }}",
+ "NotificationTarget": "{{ NotificationTarget }}",
+ "RequestTimeoutSeconds": "{{ RequestTimeoutSeconds }}",
+ "RuleSetArn": "{{ RuleSetArn }}",
+ "RuleSetName": "{{ RuleSetName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.gamelift.matchmaking_configurations (
+ AcceptanceRequired,
+ AcceptanceTimeoutSeconds,
+ AdditionalPlayerCount,
+ BackfillMode,
+ CreationTime,
+ CustomEventData,
+ Description,
+ FlexMatchMode,
+ GameProperties,
+ GameSessionData,
+ GameSessionQueueArns,
+ Name,
+ NotificationTarget,
+ RequestTimeoutSeconds,
+ RuleSetArn,
+ RuleSetName,
+ Tags,
+ region
+)
+SELECT 
+ {{ AcceptanceRequired }},
+ {{ AcceptanceTimeoutSeconds }},
+ {{ AdditionalPlayerCount }},
+ {{ BackfillMode }},
+ {{ CreationTime }},
+ {{ CustomEventData }},
+ {{ Description }},
+ {{ FlexMatchMode }},
+ {{ GameProperties }},
+ {{ GameSessionData }},
+ {{ GameSessionQueueArns }},
+ {{ Name }},
+ {{ NotificationTarget }},
+ {{ RequestTimeoutSeconds }},
+ {{ RuleSetArn }},
+ {{ RuleSetName }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.gamelift.matchmaking_configurations
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +209,12 @@ gamelift:CreateMatchmakingConfiguration,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
 gamelift:DescribeMatchmakingConfigurations
+```
+
+### Delete
+```json
+gamelift:DescribeMatchmakingConfigurations,
+gamelift:DeleteMatchmakingConfiguration
 ```
 
 ### List

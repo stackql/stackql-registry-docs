@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>locations</code> in a region or create a <code>locations</code> resource, use <code>location</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>locations</code> in a region or to create or delete a <code>locations</code> resource, use <code>location</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>locations</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,73 @@ SELECT
 region,
 location_name
 FROM aws.gamelift.locations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "LocationName": "{{ LocationName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.gamelift.locations (
+ LocationName,
+ region
+)
+SELECT 
+{{ LocationName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "LocationName": "{{ LocationName }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.gamelift.locations (
+ LocationName,
+ Tags,
+ region
+)
+SELECT 
+ {{ LocationName }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.gamelift.locations
+WHERE data__Identifier = '<LocationName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +148,11 @@ gamelift:CreateLocation,
 gamelift:ListLocations,
 gamelift:ListTagsForResource,
 gamelift:TagResource
+```
+
+### Delete
+```json
+gamelift:DeleteLocation
 ```
 
 ### List

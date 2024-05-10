@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>health_checks</code> in a region or create a <code>health_checks</code> resource, use <code>health_check</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>health_checks</code> in a region or to create or delete a <code>health_checks</code> resource, use <code>health_check</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>health_checks</code> in a region or create a <c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,123 @@ SELECT
 region,
 health_check_id
 FROM aws.route53.health_checks
+;
+```
 
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "HealthCheckConfig": {
+  "AlarmIdentifier": {
+   "Name": "{{ Name }}",
+   "Region": "{{ Region }}"
+  },
+  "ChildHealthChecks": [
+   "{{ ChildHealthChecks[0] }}"
+  ],
+  "EnableSNI": "{{ EnableSNI }}",
+  "FailureThreshold": "{{ FailureThreshold }}",
+  "FullyQualifiedDomainName": "{{ FullyQualifiedDomainName }}",
+  "HealthThreshold": "{{ HealthThreshold }}",
+  "InsufficientDataHealthStatus": "{{ InsufficientDataHealthStatus }}",
+  "Inverted": "{{ Inverted }}",
+  "IPAddress": "{{ IPAddress }}",
+  "MeasureLatency": "{{ MeasureLatency }}",
+  "Port": "{{ Port }}",
+  "Regions": [
+   "{{ Regions[0] }}"
+  ],
+  "RequestInterval": "{{ RequestInterval }}",
+  "ResourcePath": "{{ ResourcePath }}",
+  "SearchString": "{{ SearchString }}",
+  "RoutingControlArn": "{{ RoutingControlArn }}",
+  "Type": "{{ Type }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.route53.health_checks (
+ HealthCheckConfig,
+ region
+)
+SELECT 
+{{ HealthCheckConfig }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "HealthCheckConfig": {
+  "AlarmIdentifier": {
+   "Name": "{{ Name }}",
+   "Region": "{{ Region }}"
+  },
+  "ChildHealthChecks": [
+   "{{ ChildHealthChecks[0] }}"
+  ],
+  "EnableSNI": "{{ EnableSNI }}",
+  "FailureThreshold": "{{ FailureThreshold }}",
+  "FullyQualifiedDomainName": "{{ FullyQualifiedDomainName }}",
+  "HealthThreshold": "{{ HealthThreshold }}",
+  "InsufficientDataHealthStatus": "{{ InsufficientDataHealthStatus }}",
+  "Inverted": "{{ Inverted }}",
+  "IPAddress": "{{ IPAddress }}",
+  "MeasureLatency": "{{ MeasureLatency }}",
+  "Port": "{{ Port }}",
+  "Regions": [
+   "{{ Regions[0] }}"
+  ],
+  "RequestInterval": "{{ RequestInterval }}",
+  "ResourcePath": "{{ ResourcePath }}",
+  "SearchString": "{{ SearchString }}",
+  "RoutingControlArn": "{{ RoutingControlArn }}",
+  "Type": "{{ Type }}"
+ },
+ "HealthCheckTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.route53.health_checks (
+ HealthCheckConfig,
+ HealthCheckTags,
+ region
+)
+SELECT 
+ {{ HealthCheckConfig }},
+ {{ HealthCheckTags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.route53.health_checks
+WHERE data__Identifier = '<HealthCheckId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +198,11 @@ route53:CreateHealthCheck,
 route53:ChangeTagsForResource,
 cloudwatch:DescribeAlarms,
 route53-recovery-control-config:DescribeRoutingControl
+```
+
+### Delete
+```json
+route53:DeleteHealthCheck
 ```
 
 ### List

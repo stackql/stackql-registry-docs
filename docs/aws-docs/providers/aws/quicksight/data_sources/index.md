@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>data_sources</code> in a region or create a <code>data_sources</code> resource, use <code>data_source</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>data_sources</code> in a region or to create or delete a <code>data_sources</code> resource, use <code>data_source</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>data_sources</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,389 @@ region,
 aws_account_id,
 data_source_id
 FROM aws.quicksight.data_sources
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AlternateDataSourceParameters": [
+  {
+   "AuroraPostgreSqlParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "TeradataParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "RdsParameters": {
+    "InstanceId": "{{ InstanceId }}",
+    "Database": "{{ Database }}"
+   },
+   "AthenaParameters": {
+    "WorkGroup": "{{ WorkGroup }}",
+    "RoleArn": "{{ RoleArn }}"
+   },
+   "SparkParameters": {
+    "Port": null,
+    "Host": "{{ Host }}"
+   },
+   "MariaDbParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "OracleParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "PrestoParameters": {
+    "Port": null,
+    "Host": "{{ Host }}",
+    "Catalog": "{{ Catalog }}"
+   },
+   "RedshiftParameters": {
+    "ClusterId": "{{ ClusterId }}",
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "MySqlParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "SqlServerParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "SnowflakeParameters": {
+    "Warehouse": "{{ Warehouse }}",
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "AmazonElasticsearchParameters": {
+    "Domain": "{{ Domain }}"
+   },
+   "AmazonOpenSearchParameters": {
+    "Domain": "{{ Domain }}"
+   },
+   "PostgreSqlParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "AuroraParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "S3Parameters": {
+    "ManifestFileLocation": {
+     "Bucket": "{{ Bucket }}",
+     "Key": "{{ Key }}"
+    },
+    "RoleArn": "{{ RoleArn }}"
+   },
+   "DatabricksParameters": {
+    "Host": "{{ Host }}",
+    "Port": null,
+    "SqlEndpointPath": "{{ SqlEndpointPath }}"
+   },
+   "StarburstParameters": {
+    "Host": "{{ Host }}",
+    "Port": null,
+    "Catalog": "{{ Catalog }}",
+    "ProductType": "{{ ProductType }}"
+   },
+   "TrinoParameters": {
+    "Host": "{{ Host }}",
+    "Port": null,
+    "Catalog": "{{ Catalog }}"
+   }
+  }
+ ],
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "Credentials": {
+  "CopySourceArn": "{{ CopySourceArn }}",
+  "CredentialPair": {
+   "AlternateDataSourceParameters": [
+    null
+   ],
+   "Username": "{{ Username }}",
+   "Password": "{{ Password }}"
+  },
+  "SecretArn": "{{ SecretArn }}"
+ },
+ "DataSourceId": "{{ DataSourceId }}",
+ "DataSourceParameters": null,
+ "ErrorInfo": {
+  "Type": "{{ Type }}",
+  "Message": "{{ Message }}"
+ },
+ "Name": "{{ Name }}",
+ "Permissions": [
+  {
+   "Principal": "{{ Principal }}",
+   "Actions": [
+    "{{ Actions[0] }}"
+   ]
+  }
+ ],
+ "SslProperties": {
+  "DisableSsl": "{{ DisableSsl }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Type": "{{ Type }}",
+ "VpcConnectionProperties": {
+  "VpcConnectionArn": "{{ VpcConnectionArn }}"
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.quicksight.data_sources (
+ AlternateDataSourceParameters,
+ AwsAccountId,
+ Credentials,
+ DataSourceId,
+ DataSourceParameters,
+ ErrorInfo,
+ Name,
+ Permissions,
+ SslProperties,
+ Tags,
+ Type,
+ VpcConnectionProperties,
+ region
+)
+SELECT 
+{{ AlternateDataSourceParameters }},
+ {{ AwsAccountId }},
+ {{ Credentials }},
+ {{ DataSourceId }},
+ {{ DataSourceParameters }},
+ {{ ErrorInfo }},
+ {{ Name }},
+ {{ Permissions }},
+ {{ SslProperties }},
+ {{ Tags }},
+ {{ Type }},
+ {{ VpcConnectionProperties }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AlternateDataSourceParameters": [
+  {
+   "AuroraPostgreSqlParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "TeradataParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "RdsParameters": {
+    "InstanceId": "{{ InstanceId }}",
+    "Database": "{{ Database }}"
+   },
+   "AthenaParameters": {
+    "WorkGroup": "{{ WorkGroup }}",
+    "RoleArn": "{{ RoleArn }}"
+   },
+   "SparkParameters": {
+    "Port": null,
+    "Host": "{{ Host }}"
+   },
+   "MariaDbParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "OracleParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "PrestoParameters": {
+    "Port": null,
+    "Host": "{{ Host }}",
+    "Catalog": "{{ Catalog }}"
+   },
+   "RedshiftParameters": {
+    "ClusterId": "{{ ClusterId }}",
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "MySqlParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "SqlServerParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "SnowflakeParameters": {
+    "Warehouse": "{{ Warehouse }}",
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "AmazonElasticsearchParameters": {
+    "Domain": "{{ Domain }}"
+   },
+   "AmazonOpenSearchParameters": {
+    "Domain": "{{ Domain }}"
+   },
+   "PostgreSqlParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "AuroraParameters": {
+    "Port": null,
+    "Database": "{{ Database }}",
+    "Host": "{{ Host }}"
+   },
+   "S3Parameters": {
+    "ManifestFileLocation": {
+     "Bucket": "{{ Bucket }}",
+     "Key": "{{ Key }}"
+    },
+    "RoleArn": "{{ RoleArn }}"
+   },
+   "DatabricksParameters": {
+    "Host": "{{ Host }}",
+    "Port": null,
+    "SqlEndpointPath": "{{ SqlEndpointPath }}"
+   },
+   "StarburstParameters": {
+    "Host": "{{ Host }}",
+    "Port": null,
+    "Catalog": "{{ Catalog }}",
+    "ProductType": "{{ ProductType }}"
+   },
+   "TrinoParameters": {
+    "Host": "{{ Host }}",
+    "Port": null,
+    "Catalog": "{{ Catalog }}"
+   }
+  }
+ ],
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "Credentials": {
+  "CopySourceArn": "{{ CopySourceArn }}",
+  "CredentialPair": {
+   "AlternateDataSourceParameters": [
+    null
+   ],
+   "Username": "{{ Username }}",
+   "Password": "{{ Password }}"
+  },
+  "SecretArn": "{{ SecretArn }}"
+ },
+ "DataSourceId": "{{ DataSourceId }}",
+ "DataSourceParameters": null,
+ "ErrorInfo": {
+  "Type": "{{ Type }}",
+  "Message": "{{ Message }}"
+ },
+ "Name": "{{ Name }}",
+ "Permissions": [
+  {
+   "Principal": "{{ Principal }}",
+   "Actions": [
+    "{{ Actions[0] }}"
+   ]
+  }
+ ],
+ "SslProperties": {
+  "DisableSsl": "{{ DisableSsl }}"
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Type": "{{ Type }}",
+ "VpcConnectionProperties": {
+  "VpcConnectionArn": "{{ VpcConnectionArn }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.quicksight.data_sources (
+ AlternateDataSourceParameters,
+ AwsAccountId,
+ Credentials,
+ DataSourceId,
+ DataSourceParameters,
+ ErrorInfo,
+ Name,
+ Permissions,
+ SslProperties,
+ Tags,
+ Type,
+ VpcConnectionProperties,
+ region
+)
+SELECT 
+ {{ AlternateDataSourceParameters }},
+ {{ AwsAccountId }},
+ {{ Credentials }},
+ {{ DataSourceId }},
+ {{ DataSourceParameters }},
+ {{ ErrorInfo }},
+ {{ Name }},
+ {{ Permissions }},
+ {{ SslProperties }},
+ {{ Tags }},
+ {{ Type }},
+ {{ VpcConnectionProperties }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.quicksight.data_sources
+WHERE data__Identifier = '<AwsAccountId|DataSourceId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +466,14 @@ quicksight:CreateDataSource,
 quicksight:DescribeDataSource,
 quicksight:DescribeDataSourcePermissions,
 quicksight:TagResource,
+quicksight:ListTagsForResource
+```
+
+### Delete
+```json
+quicksight:DescribeDataSource,
+quicksight:DescribeDataSourcePermissions,
+quicksight:DeleteDataSource,
 quicksight:ListTagsForResource
 ```
 

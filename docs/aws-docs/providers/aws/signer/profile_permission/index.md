@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>profile_permission</code> resource, use <code>profile_permissions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>profile_permission</code> resource, use <code>profile_permissions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -48,11 +51,6 @@ Gets or operates on an individual <code>profile_permission</code> resource, use 
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -69,8 +67,9 @@ action,
 principal,
 statement_id
 FROM aws.signer.profile_permission
-WHERE data__Identifier = '<StatementId>|<ProfileName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<StatementId>|<ProfileName>';
 ```
+
 
 ## Permissions
 
@@ -78,12 +77,6 @@ To operate on the <code>profile_permission</code> resource, the following permis
 
 ### Read
 ```json
-signer:ListProfilePermissions
-```
-
-### Delete
-```json
-signer:RemoveProfilePermission,
 signer:ListProfilePermissions
 ```
 

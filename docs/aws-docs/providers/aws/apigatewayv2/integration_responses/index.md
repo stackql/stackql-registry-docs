@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>integration_responses</code> in a region or create a <code>integration_responses</code> resource, use <code>integration_response</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>integration_responses</code> in a region or to create or delete a <code>integration_responses</code> resource, use <code>integration_response</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>integration_responses</code> in a region or cre
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,89 @@ api_id,
 integration_id,
 integration_response_id
 FROM aws.apigatewayv2.integration_responses
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IntegrationId": "{{ IntegrationId }}",
+ "IntegrationResponseKey": "{{ IntegrationResponseKey }}",
+ "ApiId": "{{ ApiId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.apigatewayv2.integration_responses (
+ IntegrationId,
+ IntegrationResponseKey,
+ ApiId,
+ region
+)
+SELECT 
+{{ IntegrationId }},
+ {{ IntegrationResponseKey }},
+ {{ ApiId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ResponseTemplates": {},
+ "TemplateSelectionExpression": "{{ TemplateSelectionExpression }}",
+ "ResponseParameters": {},
+ "ContentHandlingStrategy": "{{ ContentHandlingStrategy }}",
+ "IntegrationId": "{{ IntegrationId }}",
+ "IntegrationResponseKey": "{{ IntegrationResponseKey }}",
+ "ApiId": "{{ ApiId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.apigatewayv2.integration_responses (
+ ResponseTemplates,
+ TemplateSelectionExpression,
+ ResponseParameters,
+ ContentHandlingStrategy,
+ IntegrationId,
+ IntegrationResponseKey,
+ ApiId,
+ region
+)
+SELECT 
+ {{ ResponseTemplates }},
+ {{ TemplateSelectionExpression }},
+ {{ ResponseParameters }},
+ {{ ContentHandlingStrategy }},
+ {{ IntegrationId }},
+ {{ IntegrationResponseKey }},
+ {{ ApiId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.apigatewayv2.integration_responses
+WHERE data__Identifier = '<ApiId|IntegrationId|IntegrationResponseId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +165,12 @@ To operate on the <code>integration_responses</code> resource, the following per
 ### Create
 ```json
 apigateway:POST
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE
 ```
 
 ### List

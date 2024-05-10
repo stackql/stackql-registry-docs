@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>acls</code> in a region or create a <code>acls</code> resource, use <code>acl</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>acls</code> in a region or to create or delete a <code>acls</code> resource, use <code>acl</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>acls</code> in a region or create a <code>acls<
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,78 @@ SELECT
 region,
 acl_name
 FROM aws.memorydb.acls
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ACLName": "{{ ACLName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.memorydb.acls (
+ ACLName,
+ region
+)
+SELECT 
+{{ ACLName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ACLName": "{{ ACLName }}",
+ "UserNames": [
+  "{{ UserNames[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.memorydb.acls (
+ ACLName,
+ UserNames,
+ Tags,
+ region
+)
+SELECT 
+ {{ ACLName }},
+ {{ UserNames }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.memorydb.acls
+WHERE data__Identifier = '<ACLName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +153,13 @@ memorydb:CreateACL,
 memorydb:DescribeACLs,
 memorydb:TagResource,
 memorydb:ListTags
+```
+
+### Delete
+```json
+memorydb:ModifyReplicationGroup,
+memorydb:DeleteACL,
+memorydb:DescribeACLs
 ```
 
 ### List

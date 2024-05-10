@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>security_group_ingresses</code> in a region or create a <code>security_group_ingresses</code> resource, use <code>security_group_ingress</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>security_group_ingresses</code> in a region or to create or delete a <code>security_group_ingresses</code> resource, use <code>security_group_ingress</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>security_group_ingresses</code> in a region or 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,98 @@ SELECT
 region,
 id
 FROM aws.ec2.security_group_ingresses
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IpProtocol": "{{ IpProtocol }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.security_group_ingresses (
+ IpProtocol,
+ region
+)
+SELECT 
+{{ IpProtocol }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "CidrIp": "{{ CidrIp }}",
+ "CidrIpv6": "{{ CidrIpv6 }}",
+ "Description": "{{ Description }}",
+ "FromPort": "{{ FromPort }}",
+ "GroupId": "{{ GroupId }}",
+ "GroupName": "{{ GroupName }}",
+ "IpProtocol": "{{ IpProtocol }}",
+ "SourcePrefixListId": "{{ SourcePrefixListId }}",
+ "SourceSecurityGroupId": "{{ SourceSecurityGroupId }}",
+ "SourceSecurityGroupName": "{{ SourceSecurityGroupName }}",
+ "SourceSecurityGroupOwnerId": "{{ SourceSecurityGroupOwnerId }}",
+ "ToPort": "{{ ToPort }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.security_group_ingresses (
+ CidrIp,
+ CidrIpv6,
+ Description,
+ FromPort,
+ GroupId,
+ GroupName,
+ IpProtocol,
+ SourcePrefixListId,
+ SourceSecurityGroupId,
+ SourceSecurityGroupName,
+ SourceSecurityGroupOwnerId,
+ ToPort,
+ region
+)
+SELECT 
+ {{ CidrIp }},
+ {{ CidrIpv6 }},
+ {{ Description }},
+ {{ FromPort }},
+ {{ GroupId }},
+ {{ GroupName }},
+ {{ IpProtocol }},
+ {{ SourcePrefixListId }},
+ {{ SourceSecurityGroupId }},
+ {{ SourceSecurityGroupName }},
+ {{ SourceSecurityGroupOwnerId }},
+ {{ ToPort }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.security_group_ingresses
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +171,12 @@ To operate on the <code>security_group_ingresses</code> resource, the following 
 ```json
 ec2:DescribeSecurityGroupRules,
 ec2:AuthorizeSecurityGroupIngress
+```
+
+### Delete
+```json
+ec2:DescribeSecurityGroupRules,
+ec2:RevokeSecurityGroupIngress
 ```
 
 ### List

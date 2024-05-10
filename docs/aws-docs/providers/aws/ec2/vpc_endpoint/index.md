@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>vpc_endpoint</code> resource, use <code>vpc_endpoints</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>vpc_endpoint</code> resource, use <code>vpc_endpoints</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -60,11 +63,6 @@ Gets or operates on an individual <code>vpc_endpoint</code> resource, use <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -88,8 +86,9 @@ subnet_ids,
 vpc_endpoint_type,
 vpc_id
 FROM aws.ec2.vpc_endpoint
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -103,12 +102,6 @@ ec2:DescribeVpcEndpoints
 ### Update
 ```json
 ec2:ModifyVpcEndpoint,
-ec2:DescribeVpcEndpoints
-```
-
-### Delete
-```json
-ec2:DeleteVpcEndpoints,
 ec2:DescribeVpcEndpoints
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>flow_entitlements</code> in a region or create a <code>flow_entitlements</code> resource, use <code>flow_entitlement</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>flow_entitlements</code> in a region or to create or delete a <code>flow_entitlements</code> resource, use <code>flow_entitlement</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>flow_entitlements</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,106 @@ SELECT
 region,
 entitlement_arn
 FROM aws.mediaconnect.flow_entitlements
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FlowArn": "{{ FlowArn }}",
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "Subscribers": [
+  "{{ Subscribers[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.mediaconnect.flow_entitlements (
+ FlowArn,
+ Description,
+ Name,
+ Subscribers,
+ region
+)
+SELECT 
+{{ FlowArn }},
+ {{ Description }},
+ {{ Name }},
+ {{ Subscribers }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FlowArn": "{{ FlowArn }}",
+ "DataTransferSubscriberFeePercent": "{{ DataTransferSubscriberFeePercent }}",
+ "Description": "{{ Description }}",
+ "Encryption": {
+  "Algorithm": "{{ Algorithm }}",
+  "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
+  "DeviceId": "{{ DeviceId }}",
+  "KeyType": "{{ KeyType }}",
+  "Region": "{{ Region }}",
+  "ResourceId": "{{ ResourceId }}",
+  "RoleArn": "{{ RoleArn }}",
+  "SecretArn": "{{ SecretArn }}",
+  "Url": "{{ Url }}"
+ },
+ "EntitlementStatus": "{{ EntitlementStatus }}",
+ "Name": "{{ Name }}",
+ "Subscribers": [
+  "{{ Subscribers[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.mediaconnect.flow_entitlements (
+ FlowArn,
+ DataTransferSubscriberFeePercent,
+ Description,
+ Encryption,
+ EntitlementStatus,
+ Name,
+ Subscribers,
+ region
+)
+SELECT 
+ {{ FlowArn }},
+ {{ DataTransferSubscriberFeePercent }},
+ {{ Description }},
+ {{ Encryption }},
+ {{ EntitlementStatus }},
+ {{ Name }},
+ {{ Subscribers }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.mediaconnect.flow_entitlements
+WHERE data__Identifier = '<EntitlementArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +179,12 @@ To operate on the <code>flow_entitlements</code> resource, the following permiss
 ```json
 iam:PassRole,
 mediaconnect:GrantFlowEntitlements
+```
+
+### Delete
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:RevokeFlowEntitlement
 ```
 
 ### List

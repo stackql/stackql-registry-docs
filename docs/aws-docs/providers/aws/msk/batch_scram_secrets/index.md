@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>batch_scram_secrets</code> in a region or create a <code>batch_scram_secrets</code> resource, use <code>batch_scram_secret</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>batch_scram_secrets</code> in a region or to create or delete a <code>batch_scram_secrets</code> resource, use <code>batch_scram_secret</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>batch_scram_secrets</code> in a region or creat
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,70 @@ SELECT
 region,
 cluster_arn
 FROM aws.msk.batch_scram_secrets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ClusterArn": "{{ ClusterArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.msk.batch_scram_secrets (
+ ClusterArn,
+ region
+)
+SELECT 
+{{ ClusterArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ClusterArn": "{{ ClusterArn }}",
+ "SecretArnList": [
+  "{{ SecretArnList[0] }}"
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.msk.batch_scram_secrets (
+ ClusterArn,
+ SecretArnList,
+ region
+)
+SELECT 
+ {{ ClusterArn }},
+ {{ SecretArnList }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.msk.batch_scram_secrets
+WHERE data__Identifier = '<ClusterArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +146,14 @@ kafka:ListScramSecrets,
 kms:CreateGrant,
 kms:DescribeKey,
 secretsmanager:GetSecretValue
+```
+
+### Delete
+```json
+kafka:BatchDisassociateScramSecret,
+kafka:ListScramSecrets,
+kms:CreateGrant,
+kms:DescribeKey
 ```
 
 ### List

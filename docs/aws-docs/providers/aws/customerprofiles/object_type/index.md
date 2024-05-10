@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>object_type</code> resource, use <code>object_types</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>object_type</code> resource, use <code>object_types</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -61,11 +64,6 @@ Gets or operates on an individual <code>object_type</code> resource, use <code>o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -90,8 +88,9 @@ source_last_updated_timestamp_format,
 tags,
 template_id
 FROM aws.customerprofiles.object_type
-WHERE data__Identifier = '<DomainName>|<ObjectTypeName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<ObjectTypeName>';
 ```
+
 
 ## Permissions
 
@@ -108,10 +107,5 @@ profile:GetProfileObjectType,
 profile:PutProfileObjectType,
 profile:UntagResource,
 profile:TagResource
-```
-
-### Delete
-```json
-profile:DeleteProfileObjectType
 ```
 

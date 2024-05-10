@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>compute_environments</code> in a region or create a <code>compute_environments</code> resource, use <code>compute_environment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>compute_environments</code> in a region or to create or delete a <code>compute_environments</code> resource, use <code>compute_environment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>compute_environments</code> in a region or crea
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,133 @@ SELECT
 region,
 compute_environment_arn
 FROM aws.batch.compute_environments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Type": "{{ Type }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.batch.compute_environments (
+ Type,
+ region
+)
+SELECT 
+{{ Type }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ComputeEnvironmentName": "{{ ComputeEnvironmentName }}",
+ "ComputeResources": {
+  "AllocationStrategy": "{{ AllocationStrategy }}",
+  "BidPercentage": "{{ BidPercentage }}",
+  "DesiredvCpus": "{{ DesiredvCpus }}",
+  "Ec2Configuration": [
+   {
+    "ImageIdOverride": "{{ ImageIdOverride }}",
+    "ImageType": "{{ ImageType }}",
+    "ImageKubernetesVersion": "{{ ImageKubernetesVersion }}"
+   }
+  ],
+  "Ec2KeyPair": "{{ Ec2KeyPair }}",
+  "ImageId": "{{ ImageId }}",
+  "InstanceRole": "{{ InstanceRole }}",
+  "InstanceTypes": [
+   "{{ InstanceTypes[0] }}"
+  ],
+  "LaunchTemplate": {
+   "LaunchTemplateId": "{{ LaunchTemplateId }}",
+   "LaunchTemplateName": "{{ LaunchTemplateName }}",
+   "Version": "{{ Version }}"
+  },
+  "MaxvCpus": "{{ MaxvCpus }}",
+  "MinvCpus": "{{ MinvCpus }}",
+  "PlacementGroup": "{{ PlacementGroup }}",
+  "SecurityGroupIds": [
+   "{{ SecurityGroupIds[0] }}"
+  ],
+  "SpotIamFleetRole": "{{ SpotIamFleetRole }}",
+  "Subnets": [
+   "{{ Subnets[0] }}"
+  ],
+  "Tags": {},
+  "Type": "{{ Type }}",
+  "UpdateToLatestImageVersion": "{{ UpdateToLatestImageVersion }}"
+ },
+ "ReplaceComputeEnvironment": "{{ ReplaceComputeEnvironment }}",
+ "ServiceRole": "{{ ServiceRole }}",
+ "State": "{{ State }}",
+ "Tags": {},
+ "Type": "{{ Type }}",
+ "UpdatePolicy": {
+  "TerminateJobsOnUpdate": "{{ TerminateJobsOnUpdate }}",
+  "JobExecutionTimeoutMinutes": "{{ JobExecutionTimeoutMinutes }}"
+ },
+ "UnmanagedvCpus": "{{ UnmanagedvCpus }}",
+ "EksConfiguration": {
+  "EksClusterArn": "{{ EksClusterArn }}",
+  "KubernetesNamespace": "{{ KubernetesNamespace }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.batch.compute_environments (
+ ComputeEnvironmentName,
+ ComputeResources,
+ ReplaceComputeEnvironment,
+ ServiceRole,
+ State,
+ Tags,
+ Type,
+ UpdatePolicy,
+ UnmanagedvCpus,
+ EksConfiguration,
+ region
+)
+SELECT 
+ {{ ComputeEnvironmentName }},
+ {{ ComputeResources }},
+ {{ ReplaceComputeEnvironment }},
+ {{ ServiceRole }},
+ {{ State }},
+ {{ Tags }},
+ {{ Type }},
+ {{ UpdatePolicy }},
+ {{ UnmanagedvCpus }},
+ {{ EksConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.batch.compute_environments
+WHERE data__Identifier = '<ComputeEnvironmentArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +208,15 @@ Batch:CreateComputeEnvironment,
 Batch:TagResource,
 Batch:DescribeComputeEnvironments,
 iam:CreateServiceLinkedRole,
+Iam:PassRole,
+Eks:DescribeCluster
+```
+
+### Delete
+```json
+Batch:DeleteComputeEnvironment,
+Batch:DescribeComputeEnvironments,
+Batch:UpdateComputeEnvironment,
 Iam:PassRole,
 Eks:DescribeCluster
 ```

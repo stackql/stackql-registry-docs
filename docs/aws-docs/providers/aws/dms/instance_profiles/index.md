@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>instance_profiles</code> in a region or create a <code>instance_profiles</code> resource, use <code>instance_profile</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>instance_profiles</code> in a region or to create or delete a <code>instance_profiles</code> resource, use <code>instance_profile</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>instance_profiles</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,133 @@ SELECT
 region,
 instance_profile_arn
 FROM aws.dms.instance_profiles
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "Description": "{{ Description }}",
+ "KmsKeyArn": "{{ KmsKeyArn }}",
+ "PubliclyAccessible": "{{ PubliclyAccessible }}",
+ "NetworkType": "{{ NetworkType }}",
+ "InstanceProfileName": "{{ InstanceProfileName }}",
+ "SubnetGroupIdentifier": "{{ SubnetGroupIdentifier }}",
+ "VpcSecurityGroups": [
+  "{{ VpcSecurityGroups[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.dms.instance_profiles (
+ InstanceProfileIdentifier,
+ AvailabilityZone,
+ Description,
+ KmsKeyArn,
+ PubliclyAccessible,
+ NetworkType,
+ InstanceProfileName,
+ SubnetGroupIdentifier,
+ VpcSecurityGroups,
+ Tags,
+ region
+)
+SELECT 
+{{ InstanceProfileIdentifier }},
+ {{ AvailabilityZone }},
+ {{ Description }},
+ {{ KmsKeyArn }},
+ {{ PubliclyAccessible }},
+ {{ NetworkType }},
+ {{ InstanceProfileName }},
+ {{ SubnetGroupIdentifier }},
+ {{ VpcSecurityGroups }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "Description": "{{ Description }}",
+ "KmsKeyArn": "{{ KmsKeyArn }}",
+ "PubliclyAccessible": "{{ PubliclyAccessible }}",
+ "NetworkType": "{{ NetworkType }}",
+ "InstanceProfileName": "{{ InstanceProfileName }}",
+ "SubnetGroupIdentifier": "{{ SubnetGroupIdentifier }}",
+ "VpcSecurityGroups": [
+  "{{ VpcSecurityGroups[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.dms.instance_profiles (
+ InstanceProfileIdentifier,
+ AvailabilityZone,
+ Description,
+ KmsKeyArn,
+ PubliclyAccessible,
+ NetworkType,
+ InstanceProfileName,
+ SubnetGroupIdentifier,
+ VpcSecurityGroups,
+ Tags,
+ region
+)
+SELECT 
+ {{ InstanceProfileIdentifier }},
+ {{ AvailabilityZone }},
+ {{ Description }},
+ {{ KmsKeyArn }},
+ {{ PubliclyAccessible }},
+ {{ NetworkType }},
+ {{ InstanceProfileName }},
+ {{ SubnetGroupIdentifier }},
+ {{ VpcSecurityGroups }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.dms.instance_profiles
+WHERE data__Identifier = '<InstanceProfileArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +209,11 @@ dms:ListInstanceProfiles,
 dms:DescribeInstanceProfiles,
 dms:AddTagsToResource,
 dms:ListTagsForResource
+```
+
+### Delete
+```json
+dms:DeleteInstanceProfile
 ```
 
 ### List

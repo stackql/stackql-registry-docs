@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>routes</code> in a region or create a <code>routes</code> resource, use <code>route</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>routes</code> in a region or to create or delete a <code>routes</code> resource, use <code>route</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>routes</code> in a region or create a <code>rou
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,107 @@ environment_identifier,
 application_identifier,
 route_identifier
 FROM aws.refactorspaces.routes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "RouteType": "{{ RouteType }}",
+ "ServiceIdentifier": "{{ ServiceIdentifier }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.refactorspaces.routes (
+ ApplicationIdentifier,
+ EnvironmentIdentifier,
+ RouteType,
+ ServiceIdentifier,
+ region
+)
+SELECT 
+{{ ApplicationIdentifier }},
+ {{ EnvironmentIdentifier }},
+ {{ RouteType }},
+ {{ ServiceIdentifier }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
+ "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
+ "RouteType": "{{ RouteType }}",
+ "ServiceIdentifier": "{{ ServiceIdentifier }}",
+ "DefaultRoute": {
+  "ActivationState": "{{ ActivationState }}"
+ },
+ "UriPathRoute": {
+  "SourcePath": "{{ SourcePath }}",
+  "ActivationState": null,
+  "Methods": [
+   "{{ Methods[0] }}"
+  ],
+  "IncludeChildPaths": "{{ IncludeChildPaths }}",
+  "AppendSourcePath": "{{ AppendSourcePath }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.refactorspaces.routes (
+ ApplicationIdentifier,
+ EnvironmentIdentifier,
+ RouteType,
+ ServiceIdentifier,
+ DefaultRoute,
+ UriPathRoute,
+ Tags,
+ region
+)
+SELECT 
+ {{ ApplicationIdentifier }},
+ {{ EnvironmentIdentifier }},
+ {{ RouteType }},
+ {{ ServiceIdentifier }},
+ {{ DefaultRoute }},
+ {{ UriPathRoute }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.refactorspaces.routes
+WHERE data__Identifier = '<EnvironmentIdentifier|ApplicationIdentifier|RouteIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -90,6 +198,33 @@ elasticloadbalancing:DescribeListeners,
 elasticloadbalancing:DescribeTargetGroups,
 elasticloadbalancing:CreateListener,
 elasticloadbalancing:CreateTargetGroup,
+elasticloadbalancing:DescribeTags,
+elasticloadbalancing:AddTags,
+elasticloadbalancing:RegisterTargets,
+elasticloadbalancing:DescribeTargetHealth,
+ec2:DescribeSubnets,
+tag:GetResources
+```
+
+### Delete
+```json
+refactor-spaces:DeleteRoute,
+refactor-spaces:GetRoute,
+refactor-spaces:UntagResource,
+apigateway:GET,
+apigateway:PATCH,
+apigateway:POST,
+apigateway:PUT,
+apigateway:DELETE,
+apigateway:UpdateRestApiPolicy,
+lambda:GetFunctionConfiguration,
+lambda:AddPermission,
+elasticloadbalancing:DescribeListeners,
+elasticloadbalancing:DescribeTargetGroups,
+elasticloadbalancing:CreateListener,
+elasticloadbalancing:CreateTargetGroup,
+elasticloadbalancing:DeleteListener,
+elasticloadbalancing:DeleteTargetGroup,
 elasticloadbalancing:DescribeTags,
 elasticloadbalancing:AddTags,
 elasticloadbalancing:RegisterTargets,

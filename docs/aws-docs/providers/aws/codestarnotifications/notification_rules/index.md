@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>notification_rules</code> in a region or create a <code>notification_rules</code> resource, use <code>notification_rule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>notification_rules</code> in a region or to create or delete a <code>notification_rules</code> resource, use <code>notification_rule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>notification_rules</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,118 @@ SELECT
 region,
 arn
 FROM aws.codestarnotifications.notification_rules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "EventTypeIds": [
+  "{{ EventTypeIds[0] }}"
+ ],
+ "DetailType": "{{ DetailType }}",
+ "Resource": "{{ Resource }}",
+ "Targets": [
+  {
+   "TargetType": "{{ TargetType }}",
+   "TargetAddress": "{{ TargetAddress }}"
+  }
+ ],
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.codestarnotifications.notification_rules (
+ EventTypeIds,
+ DetailType,
+ Resource,
+ Targets,
+ Name,
+ region
+)
+SELECT 
+{{ EventTypeIds }},
+ {{ DetailType }},
+ {{ Resource }},
+ {{ Targets }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "EventTypeId": "{{ EventTypeId }}",
+ "CreatedBy": "{{ CreatedBy }}",
+ "TargetAddress": "{{ TargetAddress }}",
+ "EventTypeIds": [
+  "{{ EventTypeIds[0] }}"
+ ],
+ "Status": "{{ Status }}",
+ "DetailType": "{{ DetailType }}",
+ "Resource": "{{ Resource }}",
+ "Targets": [
+  {
+   "TargetType": "{{ TargetType }}",
+   "TargetAddress": "{{ TargetAddress }}"
+  }
+ ],
+ "Tags": {},
+ "Name": "{{ Name }}"
+}
+>>>
+--all properties
+INSERT INTO aws.codestarnotifications.notification_rules (
+ EventTypeId,
+ CreatedBy,
+ TargetAddress,
+ EventTypeIds,
+ Status,
+ DetailType,
+ Resource,
+ Targets,
+ Tags,
+ Name,
+ region
+)
+SELECT 
+ {{ EventTypeId }},
+ {{ CreatedBy }},
+ {{ TargetAddress }},
+ {{ EventTypeIds }},
+ {{ Status }},
+ {{ DetailType }},
+ {{ Resource }},
+ {{ Targets }},
+ {{ Tags }},
+ {{ Name }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.codestarnotifications.notification_rules
+WHERE data__Identifier = '<Arn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,5 +195,11 @@ codestar-notifications:createNotificationRule
 ### List
 ```json
 codestar-notifications:listNotificationRules
+```
+
+### Delete
+```json
+codestar-notifications:deleteNotificationRule,
+codestar-notifications:describeNotificationRule
 ```
 

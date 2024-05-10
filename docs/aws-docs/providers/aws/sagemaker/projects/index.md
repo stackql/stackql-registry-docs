@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>projects</code> in a region or create a <code>projects</code> resource, use <code>project</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>projects</code> in a region or to create or delete a <code>projects</code> resource, use <code>project</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>projects</code> in a region or create a <code>p
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,108 @@ SELECT
 region,
 project_arn
 FROM aws.sagemaker.projects
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ProjectName": "{{ ProjectName }}",
+ "ServiceCatalogProvisioningDetails": {
+  "ProductId": "{{ ProductId }}",
+  "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
+  "PathId": "{{ PathId }}",
+  "ProvisioningParameters": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.projects (
+ ProjectName,
+ ServiceCatalogProvisioningDetails,
+ region
+)
+SELECT 
+{{ ProjectName }},
+ {{ ServiceCatalogProvisioningDetails }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "ProjectName": "{{ ProjectName }}",
+ "ProjectDescription": "{{ ProjectDescription }}",
+ "ServiceCatalogProvisioningDetails": {
+  "ProductId": "{{ ProductId }}",
+  "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
+  "PathId": "{{ PathId }}",
+  "ProvisioningParameters": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ },
+ "ServiceCatalogProvisionedProductDetails": {
+  "ProvisionedProductId": null,
+  "ProvisionedProductStatusMessage": "{{ ProvisionedProductStatusMessage }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.projects (
+ Tags,
+ ProjectName,
+ ProjectDescription,
+ ServiceCatalogProvisioningDetails,
+ ServiceCatalogProvisionedProductDetails,
+ region
+)
+SELECT 
+ {{ Tags }},
+ {{ ProjectName }},
+ {{ ProjectDescription }},
+ {{ ServiceCatalogProvisioningDetails }},
+ {{ ServiceCatalogProvisionedProductDetails }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.projects
+WHERE data__Identifier = '<ProjectArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -79,6 +188,14 @@ servicecatalog:DescribeProvisioningArtifact,
 servicecatalog:ProvisionProduct,
 servicecatalog:DescribeProvisionedProduct,
 servicecatalog:TerminateProvisionedProduct
+```
+
+### Delete
+```json
+sagemaker:DeleteProject,
+sagemaker:DescribeProject,
+servicecatalog:TerminateProvisionedProduct,
+servicecatalog:DescribeRecord
 ```
 
 ### List

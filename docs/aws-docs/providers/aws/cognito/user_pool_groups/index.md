@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>user_pool_groups</code> in a region or create a <code>user_pool_groups</code> resource, use <code>user_pool_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>user_pool_groups</code> in a region or to create or delete a <code>user_pool_groups</code> resource, use <code>user_pool_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>user_pool_groups</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,77 @@ region,
 user_pool_id,
 group_name
 FROM aws.cognito.user_pool_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "UserPoolId": "{{ UserPoolId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cognito.user_pool_groups (
+ UserPoolId,
+ region
+)
+SELECT 
+{{ UserPoolId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "GroupName": "{{ GroupName }}",
+ "Precedence": "{{ Precedence }}",
+ "RoleArn": "{{ RoleArn }}",
+ "UserPoolId": "{{ UserPoolId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.cognito.user_pool_groups (
+ Description,
+ GroupName,
+ Precedence,
+ RoleArn,
+ UserPoolId,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ GroupName }},
+ {{ Precedence }},
+ {{ RoleArn }},
+ {{ UserPoolId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cognito.user_pool_groups
+WHERE data__Identifier = '<UserPoolId|GroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +154,13 @@ cognito-idp:CreateGroup,
 iam:PassRole,
 iam:PutRolePolicy,
 cognito-idp:GetGroup
+```
+
+### Delete
+```json
+cognito-idp:DeleteGroup,
+cognito-idp:GetGroup,
+iam:PutRolePolicy
 ```
 
 ### List

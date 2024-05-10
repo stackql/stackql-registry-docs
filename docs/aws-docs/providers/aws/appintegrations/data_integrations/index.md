@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>data_integrations</code> in a region or create a <code>data_integrations</code> resource, use <code>data_integration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>data_integrations</code> in a region or to create or delete a <code>data_integrations</code> resource, use <code>data_integration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>data_integrations</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,106 @@ SELECT
 region,
 id
 FROM aws.appintegrations.data_integrations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "KmsKey": "{{ KmsKey }}",
+ "SourceURI": "{{ SourceURI }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appintegrations.data_integrations (
+ Name,
+ KmsKey,
+ SourceURI,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ KmsKey }},
+ {{ SourceURI }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "KmsKey": "{{ KmsKey }}",
+ "ScheduleConfig": {
+  "FirstExecutionFrom": "{{ FirstExecutionFrom }}",
+  "Object": "{{ Object }}",
+  "ScheduleExpression": "{{ ScheduleExpression }}"
+ },
+ "SourceURI": "{{ SourceURI }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "FileConfiguration": {
+  "Folders": [
+   "{{ Folders[0] }}"
+  ],
+  "Filters": {}
+ },
+ "ObjectConfiguration": {}
+}
+>>>
+--all properties
+INSERT INTO aws.appintegrations.data_integrations (
+ Description,
+ Name,
+ KmsKey,
+ ScheduleConfig,
+ SourceURI,
+ Tags,
+ FileConfiguration,
+ ObjectConfiguration,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Name }},
+ {{ KmsKey }},
+ {{ ScheduleConfig }},
+ {{ SourceURI }},
+ {{ Tags }},
+ {{ FileConfiguration }},
+ {{ ObjectConfiguration }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appintegrations.data_integrations
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -92,5 +199,22 @@ s3:GetEncryptionConfiguration
 ### List
 ```json
 app-integrations:ListDataIntegrations
+```
+
+### Delete
+```json
+app-integrations:DeleteDataIntegration,
+app-integrations:UntagResource,
+appflow:CreateFlow,
+appflow:DeleteFlow,
+appflow:DescribeConnectorEntity,
+appflow:UseConnectorProfile,
+appflow:TagResource,
+appflow:UntagResource,
+kms:CreateGrant,
+kms:DescribeKey,
+kms:ListAliases,
+kms:ListGrants,
+kms:ListKeys
 ```
 

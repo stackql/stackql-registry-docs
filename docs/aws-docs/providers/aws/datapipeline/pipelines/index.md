@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>pipelines</code> in a region or create a <code>pipelines</code> resource, use <code>pipeline</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>pipelines</code> in a region or to create or delete a <code>pipelines</code> resource, use <code>pipeline</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>pipelines</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,115 @@ SELECT
 region,
 pipeline_id
 FROM aws.datapipeline.pipelines
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.datapipeline.pipelines (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Activate": "{{ Activate }}",
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "ParameterObjects": [
+  {
+   "Attributes": [
+    {
+     "Key": "{{ Key }}",
+     "StringValue": "{{ StringValue }}"
+    }
+   ],
+   "Id": "{{ Id }}"
+  }
+ ],
+ "ParameterValues": [
+  {
+   "Id": "{{ Id }}",
+   "StringValue": "{{ StringValue }}"
+  }
+ ],
+ "PipelineObjects": [
+  {
+   "Fields": [
+    {
+     "Key": "{{ Key }}",
+     "RefValue": "{{ RefValue }}",
+     "StringValue": "{{ StringValue }}"
+    }
+   ],
+   "Id": "{{ Id }}",
+   "Name": "{{ Name }}"
+  }
+ ],
+ "PipelineTags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.datapipeline.pipelines (
+ Activate,
+ Description,
+ Name,
+ ParameterObjects,
+ ParameterValues,
+ PipelineObjects,
+ PipelineTags,
+ region
+)
+SELECT 
+ {{ Activate }},
+ {{ Description }},
+ {{ Name }},
+ {{ ParameterObjects }},
+ {{ ParameterValues }},
+ {{ PipelineObjects }},
+ {{ PipelineTags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.datapipeline.pipelines
+WHERE data__Identifier = '<PipelineId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +194,14 @@ datapipeline:ValidatePipelineDefinition,
 datapipeline:ActivatePipeline,
 datapipeline:AddTags,
 iam:PassRole
+```
+
+### Delete
+```json
+datapipeline:DeletePipeline,
+datapipeline:DescribePipelines,
+datapipeline:GetPipelineDefinition,
+datapipeline:RemoveTags
 ```
 
 ### List

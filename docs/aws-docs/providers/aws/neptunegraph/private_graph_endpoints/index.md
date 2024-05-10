@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>private_graph_endpoints</code> in a region or create a <code>private_graph_endpoints</code> resource, use <code>private_graph_endpoint</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>private_graph_endpoints</code> in a region or to create or delete a <code>private_graph_endpoints</code> resource, use <code>private_graph_endpoint</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>private_graph_endpoints</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,81 @@ SELECT
 region,
 private_graph_endpoint_identifier
 FROM aws.neptunegraph.private_graph_endpoints
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "GraphIdentifier": "{{ GraphIdentifier }}",
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.neptunegraph.private_graph_endpoints (
+ GraphIdentifier,
+ VpcId,
+ region
+)
+SELECT 
+{{ GraphIdentifier }},
+ {{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "GraphIdentifier": "{{ GraphIdentifier }}",
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--all properties
+INSERT INTO aws.neptunegraph.private_graph_endpoints (
+ GraphIdentifier,
+ SecurityGroupIds,
+ SubnetIds,
+ VpcId,
+ region
+)
+SELECT 
+ {{ GraphIdentifier }},
+ {{ SecurityGroupIds }},
+ {{ SubnetIds }},
+ {{ VpcId }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.neptunegraph.private_graph_endpoints
+WHERE data__Identifier = '<PrivateGraphEndpointIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -83,6 +165,21 @@ iam:PassRole,
 neptune-graph:CreatePrivateGraphEndpoint,
 neptune-graph:GetPrivateGraphEndpoint,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+ec2:DeleteVpcEndpoints,
+ec2:DescribeVpcEndpoints,
+ec2:DescribeSecurityGroups,
+ec2:DescribeSubnets,
+ec2:DescribeVpcs,
+ec2:DescribeVpcAttribute,
+ec2:DescribeAvailabilityZones,
+ec2:ModifyVpcEndpoint,
+route53:DisassociateVPCFromHostedZone,
+neptune-graph:DeletePrivateGraphEndpoint,
+neptune-graph:GetPrivateGraphEndpoint
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>policy_template</code> resource, use <code>policy_templates</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>policy_template</code> resource, use <code>policy_templates</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>policy_template</code> resource, use <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ policy_store_id,
 policy_template_id,
 statement
 FROM aws.verifiedpermissions.policy_template
-WHERE data__Identifier = '<PolicyStoreId>|<PolicyTemplateId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<PolicyStoreId>|<PolicyTemplateId>';
 ```
+
 
 ## Permissions
 
@@ -87,12 +86,6 @@ verifiedpermissions:GetPolicyTemplate
 ### Update
 ```json
 verifiedpermissions:UpdatePolicyTemplate,
-verifiedpermissions:GetPolicyTemplate
-```
-
-### Delete
-```json
-verifiedpermissions:DeletePolicyTemplate,
 verifiedpermissions:GetPolicyTemplate
 ```
 

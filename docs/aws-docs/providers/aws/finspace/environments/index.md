@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>environments</code> in a region or create a <code>environments</code> resource, use <code>environment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>environments</code> in a region or to create or delete a <code>environments</code> resource, use <code>environment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>environments</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,109 @@ SELECT
 region,
 environment_id
 FROM aws.finspace.environments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.finspace.environments (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Description": "{{ Description }}",
+ "KmsKeyId": "{{ KmsKeyId }}",
+ "FederationMode": "{{ FederationMode }}",
+ "FederationParameters": {
+  "SamlMetadataURL": "{{ SamlMetadataURL }}",
+  "FederationProviderName": "{{ FederationProviderName }}",
+  "SamlMetadataDocument": "{{ SamlMetadataDocument }}",
+  "ApplicationCallBackURL": "{{ ApplicationCallBackURL }}",
+  "FederationURN": "{{ FederationURN }}",
+  "AttributeMap": [
+   {
+    "Key": "{{ Key }}",
+    "Value": "{{ Value }}"
+   }
+  ]
+ },
+ "SuperuserParameters": {
+  "FirstName": "{{ FirstName }}",
+  "LastName": "{{ LastName }}",
+  "EmailAddress": "{{ EmailAddress }}"
+ },
+ "DataBundles": [
+  "{{ DataBundles[0] }}"
+ ],
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.finspace.environments (
+ Name,
+ Description,
+ KmsKeyId,
+ FederationMode,
+ FederationParameters,
+ SuperuserParameters,
+ DataBundles,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Description }},
+ {{ KmsKeyId }},
+ {{ FederationMode }},
+ {{ FederationParameters }},
+ {{ SuperuserParameters }},
+ {{ DataBundles }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.finspace.environments
+WHERE data__Identifier = '<EnvironmentId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +184,12 @@ finspace:CreateEnvironment,
 finspace:GetEnvironment,
 finspace:ListEnvironments,
 sts:AssumeRole
+```
+
+### Delete
+```json
+finspace:DeleteEnvironment,
+finspace:GetEnvironment
 ```
 
 ### List

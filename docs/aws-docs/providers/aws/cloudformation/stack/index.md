@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>stack</code> resource, use <code>stacks</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>stack</code> resource, use <code>stacks</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -71,11 +74,6 @@ Gets or operates on an individual <code>stack</code> resource, use <code>stacks<
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -110,8 +108,9 @@ timeout_in_minutes,
 last_update_time,
 creation_time
 FROM aws.cloudformation.stack
-WHERE data__Identifier = '<StackId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<StackId>';
 ```
+
 
 ## Permissions
 
@@ -124,12 +123,6 @@ cloudformation:UpdateStack,
 cloudformation:UpdateTerminationProtection,
 cloudformation:SetStackPolicy,
 iam:PassRole
-```
-
-### Delete
-```json
-cloudformation:DescribeStacks,
-cloudformation:DeleteStack
 ```
 
 ### Read

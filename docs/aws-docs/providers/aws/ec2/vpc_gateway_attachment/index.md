@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>vpc_gateway_attachment</code> resource, use <code>vpc_gateway_attachments</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>vpc_gateway_attachment</code> resource, use <code>vpc_gateway_attachments</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -52,11 +55,6 @@ Gets or operates on an individual <code>vpc_gateway_attachment</code> resource, 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,8 +70,9 @@ internet_gateway_id,
 vpc_id,
 vpn_gateway_id
 FROM aws.ec2.vpc_gateway_attachment
-WHERE data__Identifier = '<AttachmentType>|<VpcId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<AttachmentType>|<VpcId>';
 ```
+
 
 ## Permissions
 
@@ -89,14 +88,6 @@ ec2:DescribeVpnGateways
 ```json
 ec2:AttachInternetGateway,
 ec2:AttachVpnGateway,
-ec2:DetachInternetGateway,
-ec2:DetachVpnGateway,
-ec2:DescribeInternetGateways,
-ec2:DescribeVpnGateways
-```
-
-### Delete
-```json
 ec2:DetachInternetGateway,
 ec2:DetachVpnGateway,
 ec2:DescribeInternetGateways,

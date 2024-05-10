@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>function_configurations</code> in a region or create a <code>function_configurations</code> resource, use <code>function_configuration</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>function_configurations</code> in a region or to create or delete a <code>function_configurations</code> resource, use <code>function_configuration</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>function_configurations</code> in a region or c
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,119 @@ SELECT
 region,
 function_arn
 FROM aws.appsync.function_configurations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApiId": "{{ ApiId }}",
+ "DataSourceName": "{{ DataSourceName }}",
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appsync.function_configurations (
+ ApiId,
+ DataSourceName,
+ Name,
+ region
+)
+SELECT 
+{{ ApiId }},
+ {{ DataSourceName }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApiId": "{{ ApiId }}",
+ "Code": "{{ Code }}",
+ "CodeS3Location": "{{ CodeS3Location }}",
+ "DataSourceName": "{{ DataSourceName }}",
+ "Description": "{{ Description }}",
+ "FunctionVersion": "{{ FunctionVersion }}",
+ "MaxBatchSize": "{{ MaxBatchSize }}",
+ "Name": "{{ Name }}",
+ "RequestMappingTemplate": "{{ RequestMappingTemplate }}",
+ "RequestMappingTemplateS3Location": "{{ RequestMappingTemplateS3Location }}",
+ "ResponseMappingTemplate": "{{ ResponseMappingTemplate }}",
+ "ResponseMappingTemplateS3Location": "{{ ResponseMappingTemplateS3Location }}",
+ "Runtime": {
+  "RuntimeVersion": "{{ RuntimeVersion }}",
+  "Name": "{{ Name }}"
+ },
+ "SyncConfig": {
+  "ConflictHandler": "{{ ConflictHandler }}",
+  "ConflictDetection": "{{ ConflictDetection }}",
+  "LambdaConflictHandlerConfig": {
+   "LambdaConflictHandlerArn": "{{ LambdaConflictHandlerArn }}"
+  }
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.appsync.function_configurations (
+ ApiId,
+ Code,
+ CodeS3Location,
+ DataSourceName,
+ Description,
+ FunctionVersion,
+ MaxBatchSize,
+ Name,
+ RequestMappingTemplate,
+ RequestMappingTemplateS3Location,
+ ResponseMappingTemplate,
+ ResponseMappingTemplateS3Location,
+ Runtime,
+ SyncConfig,
+ region
+)
+SELECT 
+ {{ ApiId }},
+ {{ Code }},
+ {{ CodeS3Location }},
+ {{ DataSourceName }},
+ {{ Description }},
+ {{ FunctionVersion }},
+ {{ MaxBatchSize }},
+ {{ Name }},
+ {{ RequestMappingTemplate }},
+ {{ RequestMappingTemplateS3Location }},
+ {{ ResponseMappingTemplate }},
+ {{ ResponseMappingTemplateS3Location }},
+ {{ Runtime }},
+ {{ SyncConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appsync.function_configurations
+WHERE data__Identifier = '<FunctionArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +192,11 @@ To operate on the <code>function_configurations</code> resource, the following p
 ```json
 s3:GetObject,
 appsync:CreateFunction
+```
+
+### Delete
+```json
+appsync:DeleteFunction
 ```
 
 ### List

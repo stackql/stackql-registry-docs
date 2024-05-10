@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>queues</code> in a region or create a <code>queues</code> resource, use <code>queue</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>queues</code> in a region or to create or delete a <code>queues</code> resource, use <code>queue</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>queues</code> in a region or create a <code>que
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,165 @@ SELECT
 region,
 queue_url
 FROM aws.sqs.queues
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
+ "DeduplicationScope": "{{ DeduplicationScope }}",
+ "DelaySeconds": "{{ DelaySeconds }}",
+ "FifoQueue": "{{ FifoQueue }}",
+ "FifoThroughputLimit": "{{ FifoThroughputLimit }}",
+ "KmsDataKeyReusePeriodSeconds": "{{ KmsDataKeyReusePeriodSeconds }}",
+ "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
+ "SqsManagedSseEnabled": "{{ SqsManagedSseEnabled }}",
+ "MaximumMessageSize": "{{ MaximumMessageSize }}",
+ "MessageRetentionPeriod": "{{ MessageRetentionPeriod }}",
+ "QueueName": "{{ QueueName }}",
+ "ReceiveMessageWaitTimeSeconds": "{{ ReceiveMessageWaitTimeSeconds }}",
+ "RedriveAllowPolicy": {},
+ "RedrivePolicy": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VisibilityTimeout": "{{ VisibilityTimeout }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.sqs.queues (
+ ContentBasedDeduplication,
+ DeduplicationScope,
+ DelaySeconds,
+ FifoQueue,
+ FifoThroughputLimit,
+ KmsDataKeyReusePeriodSeconds,
+ KmsMasterKeyId,
+ SqsManagedSseEnabled,
+ MaximumMessageSize,
+ MessageRetentionPeriod,
+ QueueName,
+ ReceiveMessageWaitTimeSeconds,
+ RedriveAllowPolicy,
+ RedrivePolicy,
+ Tags,
+ VisibilityTimeout,
+ region
+)
+SELECT 
+{{ ContentBasedDeduplication }},
+ {{ DeduplicationScope }},
+ {{ DelaySeconds }},
+ {{ FifoQueue }},
+ {{ FifoThroughputLimit }},
+ {{ KmsDataKeyReusePeriodSeconds }},
+ {{ KmsMasterKeyId }},
+ {{ SqsManagedSseEnabled }},
+ {{ MaximumMessageSize }},
+ {{ MessageRetentionPeriod }},
+ {{ QueueName }},
+ {{ ReceiveMessageWaitTimeSeconds }},
+ {{ RedriveAllowPolicy }},
+ {{ RedrivePolicy }},
+ {{ Tags }},
+ {{ VisibilityTimeout }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ContentBasedDeduplication": "{{ ContentBasedDeduplication }}",
+ "DeduplicationScope": "{{ DeduplicationScope }}",
+ "DelaySeconds": "{{ DelaySeconds }}",
+ "FifoQueue": "{{ FifoQueue }}",
+ "FifoThroughputLimit": "{{ FifoThroughputLimit }}",
+ "KmsDataKeyReusePeriodSeconds": "{{ KmsDataKeyReusePeriodSeconds }}",
+ "KmsMasterKeyId": "{{ KmsMasterKeyId }}",
+ "SqsManagedSseEnabled": "{{ SqsManagedSseEnabled }}",
+ "MaximumMessageSize": "{{ MaximumMessageSize }}",
+ "MessageRetentionPeriod": "{{ MessageRetentionPeriod }}",
+ "QueueName": "{{ QueueName }}",
+ "ReceiveMessageWaitTimeSeconds": "{{ ReceiveMessageWaitTimeSeconds }}",
+ "RedriveAllowPolicy": {},
+ "RedrivePolicy": {},
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "VisibilityTimeout": "{{ VisibilityTimeout }}"
+}
+>>>
+--all properties
+INSERT INTO aws.sqs.queues (
+ ContentBasedDeduplication,
+ DeduplicationScope,
+ DelaySeconds,
+ FifoQueue,
+ FifoThroughputLimit,
+ KmsDataKeyReusePeriodSeconds,
+ KmsMasterKeyId,
+ SqsManagedSseEnabled,
+ MaximumMessageSize,
+ MessageRetentionPeriod,
+ QueueName,
+ ReceiveMessageWaitTimeSeconds,
+ RedriveAllowPolicy,
+ RedrivePolicy,
+ Tags,
+ VisibilityTimeout,
+ region
+)
+SELECT 
+ {{ ContentBasedDeduplication }},
+ {{ DeduplicationScope }},
+ {{ DelaySeconds }},
+ {{ FifoQueue }},
+ {{ FifoThroughputLimit }},
+ {{ KmsDataKeyReusePeriodSeconds }},
+ {{ KmsMasterKeyId }},
+ {{ SqsManagedSseEnabled }},
+ {{ MaximumMessageSize }},
+ {{ MessageRetentionPeriod }},
+ {{ QueueName }},
+ {{ ReceiveMessageWaitTimeSeconds }},
+ {{ RedriveAllowPolicy }},
+ {{ RedrivePolicy }},
+ {{ Tags }},
+ {{ VisibilityTimeout }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sqs.queues
+WHERE data__Identifier = '<QueueUrl>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +241,12 @@ sqs:GetQueueUrl,
 sqs:GetQueueAttributes,
 sqs:ListQueueTags,
 sqs:TagQueue
+```
+
+### Delete
+```json
+sqs:DeleteQueue,
+sqs:GetQueueAttributes
 ```
 
 ### List

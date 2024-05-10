@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>stack_sets</code> in a region or create a <code>stack_sets</code> resource, use <code>stack_set</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>stack_sets</code> in a region or to create or delete a <code>stack_sets</code> resource, use <code>stack_set</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>stack_sets</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,155 @@ SELECT
 region,
 stack_set_id
 FROM aws.cloudformation.stack_sets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "StackSetName": "{{ StackSetName }}",
+ "PermissionModel": "{{ PermissionModel }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.cloudformation.stack_sets (
+ StackSetName,
+ PermissionModel,
+ region
+)
+SELECT 
+{{ StackSetName }},
+ {{ PermissionModel }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "StackSetName": "{{ StackSetName }}",
+ "AdministrationRoleARN": "{{ AdministrationRoleARN }}",
+ "AutoDeployment": {
+  "Enabled": "{{ Enabled }}",
+  "RetainStacksOnAccountRemoval": "{{ RetainStacksOnAccountRemoval }}"
+ },
+ "Capabilities": [
+  "{{ Capabilities[0] }}"
+ ],
+ "Description": "{{ Description }}",
+ "ExecutionRoleName": "{{ ExecutionRoleName }}",
+ "OperationPreferences": {
+  "FailureToleranceCount": "{{ FailureToleranceCount }}",
+  "FailureTolerancePercentage": "{{ FailureTolerancePercentage }}",
+  "MaxConcurrentCount": "{{ MaxConcurrentCount }}",
+  "MaxConcurrentPercentage": "{{ MaxConcurrentPercentage }}",
+  "RegionOrder": [
+   "{{ RegionOrder[0] }}"
+  ],
+  "RegionConcurrencyType": "{{ RegionConcurrencyType }}"
+ },
+ "StackInstancesGroup": [
+  {
+   "DeploymentTargets": {
+    "Accounts": [
+     "{{ Accounts[0] }}"
+    ],
+    "AccountsUrl": "{{ AccountsUrl }}",
+    "OrganizationalUnitIds": [
+     "{{ OrganizationalUnitIds[0] }}"
+    ],
+    "AccountFilterType": "{{ AccountFilterType }}"
+   },
+   "Regions": [
+    null
+   ],
+   "ParameterOverrides": [
+    {
+     "ParameterKey": "{{ ParameterKey }}",
+     "ParameterValue": "{{ ParameterValue }}"
+    }
+   ]
+  }
+ ],
+ "Parameters": [
+  null
+ ],
+ "PermissionModel": "{{ PermissionModel }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TemplateBody": "{{ TemplateBody }}",
+ "TemplateURL": "{{ TemplateURL }}",
+ "CallAs": "{{ CallAs }}",
+ "ManagedExecution": {
+  "Active": "{{ Active }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.cloudformation.stack_sets (
+ StackSetName,
+ AdministrationRoleARN,
+ AutoDeployment,
+ Capabilities,
+ Description,
+ ExecutionRoleName,
+ OperationPreferences,
+ StackInstancesGroup,
+ Parameters,
+ PermissionModel,
+ Tags,
+ TemplateBody,
+ TemplateURL,
+ CallAs,
+ ManagedExecution,
+ region
+)
+SELECT 
+ {{ StackSetName }},
+ {{ AdministrationRoleARN }},
+ {{ AutoDeployment }},
+ {{ Capabilities }},
+ {{ Description }},
+ {{ ExecutionRoleName }},
+ {{ OperationPreferences }},
+ {{ StackInstancesGroup }},
+ {{ Parameters }},
+ {{ PermissionModel }},
+ {{ Tags }},
+ {{ TemplateBody }},
+ {{ TemplateURL }},
+ {{ CallAs }},
+ {{ ManagedExecution }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.cloudformation.stack_sets
+WHERE data__Identifier = '<StackSetId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +233,16 @@ cloudformation:DescribeStackSetOperation,
 cloudformation:ListStackSetOperationResults,
 cloudformation:TagResource,
 iam:PassRole
+```
+
+### Delete
+```json
+cloudformation:DeleteStackSet,
+cloudformation:DeleteStackInstances,
+cloudformation:DescribeStackSet,
+cloudformation:DescribeStackSetOperation,
+cloudformation:ListStackSetOperationResults,
+cloudformation:UntagResource
 ```
 
 ### List

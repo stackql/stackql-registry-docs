@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>multiplexprograms</code> in a region or create a <code>multiplexprograms</code> resource, use <code>multiplexprogram</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>multiplexprograms</code> in a region or to create or delete a <code>multiplexprograms</code> resource, use <code>multiplexprogram</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -50,6 +53,11 @@ Used to retrieve a list of <code>multiplexprograms</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -63,7 +71,171 @@ region,
 program_name,
 multiplex_id
 FROM aws.medialive.multiplexprograms
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ChannelId": "{{ ChannelId }}",
+ "MultiplexId": "{{ MultiplexId }}",
+ "MultiplexProgramSettings": {
+  "PreferredChannelPipeline": "{{ PreferredChannelPipeline }}",
+  "ProgramNumber": "{{ ProgramNumber }}",
+  "ServiceDescriptor": {
+   "ProviderName": "{{ ProviderName }}",
+   "ServiceName": "{{ ServiceName }}"
+  },
+  "VideoSettings": {}
+ },
+ "PreferredChannelPipeline": null,
+ "PacketIdentifiersMap": {
+  "AudioPids": [
+   "{{ AudioPids[0] }}"
+  ],
+  "DvbSubPids": [
+   "{{ DvbSubPids[0] }}"
+  ],
+  "DvbTeletextPid": "{{ DvbTeletextPid }}",
+  "EtvPlatformPid": "{{ EtvPlatformPid }}",
+  "EtvSignalPid": "{{ EtvSignalPid }}",
+  "KlvDataPids": [
+   "{{ KlvDataPids[0] }}"
+  ],
+  "PcrPid": "{{ PcrPid }}",
+  "PmtPid": "{{ PmtPid }}",
+  "PrivateMetadataPid": "{{ PrivateMetadataPid }}",
+  "Scte27Pids": [
+   "{{ Scte27Pids[0] }}"
+  ],
+  "Scte35Pid": "{{ Scte35Pid }}",
+  "TimedMetadataPid": "{{ TimedMetadataPid }}",
+  "VideoPid": "{{ VideoPid }}"
+ },
+ "PipelineDetails": [
+  {
+   "ActiveChannelPipeline": "{{ ActiveChannelPipeline }}",
+   "PipelineId": "{{ PipelineId }}"
+  }
+ ],
+ "ProgramName": "{{ ProgramName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.medialive.multiplexprograms (
+ ChannelId,
+ MultiplexId,
+ MultiplexProgramSettings,
+ PreferredChannelPipeline,
+ PacketIdentifiersMap,
+ PipelineDetails,
+ ProgramName,
+ region
+)
+SELECT 
+{{ ChannelId }},
+ {{ MultiplexId }},
+ {{ MultiplexProgramSettings }},
+ {{ PreferredChannelPipeline }},
+ {{ PacketIdentifiersMap }},
+ {{ PipelineDetails }},
+ {{ ProgramName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ChannelId": "{{ ChannelId }}",
+ "MultiplexId": "{{ MultiplexId }}",
+ "MultiplexProgramSettings": {
+  "PreferredChannelPipeline": "{{ PreferredChannelPipeline }}",
+  "ProgramNumber": "{{ ProgramNumber }}",
+  "ServiceDescriptor": {
+   "ProviderName": "{{ ProviderName }}",
+   "ServiceName": "{{ ServiceName }}"
+  },
+  "VideoSettings": {}
+ },
+ "PreferredChannelPipeline": null,
+ "PacketIdentifiersMap": {
+  "AudioPids": [
+   "{{ AudioPids[0] }}"
+  ],
+  "DvbSubPids": [
+   "{{ DvbSubPids[0] }}"
+  ],
+  "DvbTeletextPid": "{{ DvbTeletextPid }}",
+  "EtvPlatformPid": "{{ EtvPlatformPid }}",
+  "EtvSignalPid": "{{ EtvSignalPid }}",
+  "KlvDataPids": [
+   "{{ KlvDataPids[0] }}"
+  ],
+  "PcrPid": "{{ PcrPid }}",
+  "PmtPid": "{{ PmtPid }}",
+  "PrivateMetadataPid": "{{ PrivateMetadataPid }}",
+  "Scte27Pids": [
+   "{{ Scte27Pids[0] }}"
+  ],
+  "Scte35Pid": "{{ Scte35Pid }}",
+  "TimedMetadataPid": "{{ TimedMetadataPid }}",
+  "VideoPid": "{{ VideoPid }}"
+ },
+ "PipelineDetails": [
+  {
+   "ActiveChannelPipeline": "{{ ActiveChannelPipeline }}",
+   "PipelineId": "{{ PipelineId }}"
+  }
+ ],
+ "ProgramName": "{{ ProgramName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.medialive.multiplexprograms (
+ ChannelId,
+ MultiplexId,
+ MultiplexProgramSettings,
+ PreferredChannelPipeline,
+ PacketIdentifiersMap,
+ PipelineDetails,
+ ProgramName,
+ region
+)
+SELECT 
+ {{ ChannelId }},
+ {{ MultiplexId }},
+ {{ MultiplexProgramSettings }},
+ {{ PreferredChannelPipeline }},
+ {{ PacketIdentifiersMap }},
+ {{ PipelineDetails }},
+ {{ ProgramName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.medialive.multiplexprograms
+WHERE data__Identifier = '<ProgramName|MultiplexId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +245,12 @@ To operate on the <code>multiplexprograms</code> resource, the following permiss
 ### Create
 ```json
 medialive:CreateMultiplexProgram,
+medialive:DescribeMultiplexProgram
+```
+
+### Delete
+```json
+medialive:DeleteMultiplexProgram,
 medialive:DescribeMultiplexProgram
 ```
 

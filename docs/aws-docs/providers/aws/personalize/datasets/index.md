@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>datasets</code> in a region or create a <code>datasets</code> resource, use <code>dataset</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>datasets</code> in a region or to create or delete a <code>datasets</code> resource, use <code>dataset</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>datasets</code> in a region or create a <code>d
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,94 @@ SELECT
 region,
 dataset_arn
 FROM aws.personalize.datasets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DatasetType": "{{ DatasetType }}",
+ "DatasetGroupArn": "{{ DatasetGroupArn }}",
+ "SchemaArn": "{{ SchemaArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.personalize.datasets (
+ Name,
+ DatasetType,
+ DatasetGroupArn,
+ SchemaArn,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ DatasetType }},
+ {{ DatasetGroupArn }},
+ {{ SchemaArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "DatasetType": "{{ DatasetType }}",
+ "DatasetGroupArn": "{{ DatasetGroupArn }}",
+ "SchemaArn": "{{ SchemaArn }}",
+ "DatasetImportJob": {
+  "JobName": "{{ JobName }}",
+  "DatasetImportJobArn": "{{ DatasetImportJobArn }}",
+  "DatasetArn": "{{ DatasetArn }}",
+  "DataSource": {
+   "DataLocation": "{{ DataLocation }}"
+  },
+  "RoleArn": "{{ RoleArn }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.personalize.datasets (
+ Name,
+ DatasetType,
+ DatasetGroupArn,
+ SchemaArn,
+ DatasetImportJob,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ DatasetType }},
+ {{ DatasetGroupArn }},
+ {{ SchemaArn }},
+ {{ DatasetImportJob }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.personalize.datasets
+WHERE data__Identifier = '<DatasetArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +170,12 @@ personalize:DescribeDataset,
 personalize:CreateDatasetImportJob,
 personalize:DescribeDatasetImportJob,
 iam:PassRole
+```
+
+### Delete
+```json
+personalize:DeleteDataset,
+personalize:DescribeDataset
 ```
 
 ### List

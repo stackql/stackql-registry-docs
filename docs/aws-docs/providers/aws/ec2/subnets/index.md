@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>subnets</code> in a region or create a <code>subnets</code> resource, use <code>subnet</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>subnets</code> in a region or to create or delete a <code>subnets</code> resource, use <code>subnet</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>subnets</code> in a region or create a <code>su
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,127 @@ SELECT
 region,
 subnet_id
 FROM aws.ec2.subnets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "VpcId": "{{ VpcId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.subnets (
+ VpcId,
+ region
+)
+SELECT 
+{{ VpcId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AssignIpv6AddressOnCreation": "{{ AssignIpv6AddressOnCreation }}",
+ "VpcId": "{{ VpcId }}",
+ "MapPublicIpOnLaunch": "{{ MapPublicIpOnLaunch }}",
+ "EnableLniAtDeviceIndex": "{{ EnableLniAtDeviceIndex }}",
+ "AvailabilityZone": "{{ AvailabilityZone }}",
+ "AvailabilityZoneId": "{{ AvailabilityZoneId }}",
+ "CidrBlock": "{{ CidrBlock }}",
+ "Ipv6CidrBlocks": [
+  "{{ Ipv6CidrBlocks[0] }}"
+ ],
+ "Ipv6CidrBlock": "{{ Ipv6CidrBlock }}",
+ "OutpostArn": "{{ OutpostArn }}",
+ "Ipv6Native": "{{ Ipv6Native }}",
+ "EnableDns64": "{{ EnableDns64 }}",
+ "PrivateDnsNameOptionsOnLaunch": {
+  "HostnameType": "{{ HostnameType }}",
+  "EnableResourceNameDnsARecord": "{{ EnableResourceNameDnsARecord }}",
+  "EnableResourceNameDnsAAAARecord": "{{ EnableResourceNameDnsAAAARecord }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Ipv4IpamPoolId": "{{ Ipv4IpamPoolId }}",
+ "Ipv4NetmaskLength": "{{ Ipv4NetmaskLength }}",
+ "Ipv6IpamPoolId": "{{ Ipv6IpamPoolId }}",
+ "Ipv6NetmaskLength": "{{ Ipv6NetmaskLength }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.subnets (
+ AssignIpv6AddressOnCreation,
+ VpcId,
+ MapPublicIpOnLaunch,
+ EnableLniAtDeviceIndex,
+ AvailabilityZone,
+ AvailabilityZoneId,
+ CidrBlock,
+ Ipv6CidrBlocks,
+ Ipv6CidrBlock,
+ OutpostArn,
+ Ipv6Native,
+ EnableDns64,
+ PrivateDnsNameOptionsOnLaunch,
+ Tags,
+ Ipv4IpamPoolId,
+ Ipv4NetmaskLength,
+ Ipv6IpamPoolId,
+ Ipv6NetmaskLength,
+ region
+)
+SELECT 
+ {{ AssignIpv6AddressOnCreation }},
+ {{ VpcId }},
+ {{ MapPublicIpOnLaunch }},
+ {{ EnableLniAtDeviceIndex }},
+ {{ AvailabilityZone }},
+ {{ AvailabilityZoneId }},
+ {{ CidrBlock }},
+ {{ Ipv6CidrBlocks }},
+ {{ Ipv6CidrBlock }},
+ {{ OutpostArn }},
+ {{ Ipv6Native }},
+ {{ EnableDns64 }},
+ {{ PrivateDnsNameOptionsOnLaunch }},
+ {{ Tags }},
+ {{ Ipv4IpamPoolId }},
+ {{ Ipv4NetmaskLength }},
+ {{ Ipv6IpamPoolId }},
+ {{ Ipv6NetmaskLength }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.subnets
+WHERE data__Identifier = '<SubnetId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +202,12 @@ ec2:DescribeSubnets,
 ec2:CreateSubnet,
 ec2:CreateTags,
 ec2:ModifySubnetAttribute
+```
+
+### Delete
+```json
+ec2:DescribeSubnets,
+ec2:DeleteSubnet
 ```
 
 ### List

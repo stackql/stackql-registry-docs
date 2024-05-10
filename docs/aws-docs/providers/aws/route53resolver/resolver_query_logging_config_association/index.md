@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>resolver_query_logging_config_association</code> resource, use <code>resolver_query_logging_config_associations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>resolver_query_logging_config_association</code> resource, use <code>resolver_query_logging_config_associations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -50,11 +53,6 @@ Gets or operates on an individual <code>resolver_query_logging_config_associatio
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -73,8 +71,9 @@ error,
 error_message,
 creation_time
 FROM aws.route53resolver.resolver_query_logging_config_association
-WHERE data__Identifier = '<Id>';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
+
 
 ## Permissions
 
@@ -83,15 +82,6 @@ To operate on the <code>resolver_query_logging_config_association</code> resourc
 ### Read
 ```json
 resolverquerylogging:GetConfigAssociation,
-route53resolver:GetResolverQueryLogConfigAssociation
-```
-
-### Delete
-```json
-resolverquerylogging:DisassociateConfig,
-resolverquerylogging:ListConfigAssociation,
-route53resolver:DisassociateResolverQueryLogConfig,
-route53resolver:ListResolverQueryLogConfigAssociations,
 route53resolver:GetResolverQueryLogConfigAssociation
 ```
 

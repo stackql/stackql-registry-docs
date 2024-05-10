@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>transit_gateways</code> in a region or create a <code>transit_gateways</code> resource, use <code>transit_gateway</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>transit_gateways</code> in a region or to create or delete a <code>transit_gateways</code> resource, use <code>transit_gateway</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>transit_gateways</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,145 @@ SELECT
 region,
 id
 FROM aws.ec2.transit_gateways
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "AssociationDefaultRouteTableId": "{{ AssociationDefaultRouteTableId }}",
+ "AutoAcceptSharedAttachments": "{{ AutoAcceptSharedAttachments }}",
+ "DefaultRouteTablePropagation": "{{ DefaultRouteTablePropagation }}",
+ "TransitGatewayCidrBlocks": [
+  "{{ TransitGatewayCidrBlocks[0] }}"
+ ],
+ "PropagationDefaultRouteTableId": "{{ PropagationDefaultRouteTableId }}",
+ "DefaultRouteTableAssociation": "{{ DefaultRouteTableAssociation }}",
+ "VpnEcmpSupport": "{{ VpnEcmpSupport }}",
+ "DnsSupport": "{{ DnsSupport }}",
+ "MulticastSupport": "{{ MulticastSupport }}",
+ "AmazonSideAsn": "{{ AmazonSideAsn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.transit_gateways (
+ Description,
+ AssociationDefaultRouteTableId,
+ AutoAcceptSharedAttachments,
+ DefaultRouteTablePropagation,
+ TransitGatewayCidrBlocks,
+ PropagationDefaultRouteTableId,
+ DefaultRouteTableAssociation,
+ VpnEcmpSupport,
+ DnsSupport,
+ MulticastSupport,
+ AmazonSideAsn,
+ Tags,
+ region
+)
+SELECT 
+{{ Description }},
+ {{ AssociationDefaultRouteTableId }},
+ {{ AutoAcceptSharedAttachments }},
+ {{ DefaultRouteTablePropagation }},
+ {{ TransitGatewayCidrBlocks }},
+ {{ PropagationDefaultRouteTableId }},
+ {{ DefaultRouteTableAssociation }},
+ {{ VpnEcmpSupport }},
+ {{ DnsSupport }},
+ {{ MulticastSupport }},
+ {{ AmazonSideAsn }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "AssociationDefaultRouteTableId": "{{ AssociationDefaultRouteTableId }}",
+ "AutoAcceptSharedAttachments": "{{ AutoAcceptSharedAttachments }}",
+ "DefaultRouteTablePropagation": "{{ DefaultRouteTablePropagation }}",
+ "TransitGatewayCidrBlocks": [
+  "{{ TransitGatewayCidrBlocks[0] }}"
+ ],
+ "PropagationDefaultRouteTableId": "{{ PropagationDefaultRouteTableId }}",
+ "DefaultRouteTableAssociation": "{{ DefaultRouteTableAssociation }}",
+ "VpnEcmpSupport": "{{ VpnEcmpSupport }}",
+ "DnsSupport": "{{ DnsSupport }}",
+ "MulticastSupport": "{{ MulticastSupport }}",
+ "AmazonSideAsn": "{{ AmazonSideAsn }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.transit_gateways (
+ Description,
+ AssociationDefaultRouteTableId,
+ AutoAcceptSharedAttachments,
+ DefaultRouteTablePropagation,
+ TransitGatewayCidrBlocks,
+ PropagationDefaultRouteTableId,
+ DefaultRouteTableAssociation,
+ VpnEcmpSupport,
+ DnsSupport,
+ MulticastSupport,
+ AmazonSideAsn,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ AssociationDefaultRouteTableId }},
+ {{ AutoAcceptSharedAttachments }},
+ {{ DefaultRouteTablePropagation }},
+ {{ TransitGatewayCidrBlocks }},
+ {{ PropagationDefaultRouteTableId }},
+ {{ DefaultRouteTableAssociation }},
+ {{ VpnEcmpSupport }},
+ {{ DnsSupport }},
+ {{ MulticastSupport }},
+ {{ AmazonSideAsn }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.transit_gateways
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +227,18 @@ ec2:ModifyTransitGatewayOptions
 ```
 
 ### List
+```json
+ec2:CreateTransitGateway,
+ec2:CreateTags,
+ec2:DescribeTransitGateways,
+ec2:DescribeTags,
+ec2:DeleteTransitGateway,
+ec2:DeleteTags,
+ec2:ModifyTransitGateway,
+ec2:ModifyTransitGatewayOptions
+```
+
+### Delete
 ```json
 ec2:CreateTransitGateway,
 ec2:CreateTags,

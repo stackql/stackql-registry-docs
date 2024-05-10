@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>cloud_formation_provisioned_products</code> in a region or create a <code>cloud_formation_provisioned_products</code> resource, use <code>cloud_formation_provisioned_product</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>cloud_formation_provisioned_products</code> in a region or to create or delete a <code>cloud_formation_provisioned_products</code> resource, use <code>cloud_formation_provisioned_product</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>cloud_formation_provisioned_products</code> in 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,179 @@ SELECT
 region,
 provisioned_product_id
 FROM aws.servicecatalog.cloud_formation_provisioned_products
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AcceptLanguage": "{{ AcceptLanguage }}",
+ "NotificationArns": [
+  "{{ NotificationArns[0] }}"
+ ],
+ "PathId": "{{ PathId }}",
+ "PathName": "{{ PathName }}",
+ "ProductId": "{{ ProductId }}",
+ "ProductName": "{{ ProductName }}",
+ "ProvisionedProductName": "{{ ProvisionedProductName }}",
+ "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
+ "ProvisioningArtifactName": "{{ ProvisioningArtifactName }}",
+ "ProvisioningParameters": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ProvisioningPreferences": {
+  "StackSetAccounts": [
+   "{{ StackSetAccounts[0] }}"
+  ],
+  "StackSetFailureToleranceCount": "{{ StackSetFailureToleranceCount }}",
+  "StackSetFailureTolerancePercentage": "{{ StackSetFailureTolerancePercentage }}",
+  "StackSetMaxConcurrencyCount": "{{ StackSetMaxConcurrencyCount }}",
+  "StackSetMaxConcurrencyPercentage": "{{ StackSetMaxConcurrencyPercentage }}",
+  "StackSetOperationType": "{{ StackSetOperationType }}",
+  "StackSetRegions": [
+   "{{ StackSetRegions[0] }}"
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
+ AcceptLanguage,
+ NotificationArns,
+ PathId,
+ PathName,
+ ProductId,
+ ProductName,
+ ProvisionedProductName,
+ ProvisioningArtifactId,
+ ProvisioningArtifactName,
+ ProvisioningParameters,
+ ProvisioningPreferences,
+ Tags,
+ region
+)
+SELECT 
+{{ AcceptLanguage }},
+ {{ NotificationArns }},
+ {{ PathId }},
+ {{ PathName }},
+ {{ ProductId }},
+ {{ ProductName }},
+ {{ ProvisionedProductName }},
+ {{ ProvisioningArtifactId }},
+ {{ ProvisioningArtifactName }},
+ {{ ProvisioningParameters }},
+ {{ ProvisioningPreferences }},
+ {{ Tags }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AcceptLanguage": "{{ AcceptLanguage }}",
+ "NotificationArns": [
+  "{{ NotificationArns[0] }}"
+ ],
+ "PathId": "{{ PathId }}",
+ "PathName": "{{ PathName }}",
+ "ProductId": "{{ ProductId }}",
+ "ProductName": "{{ ProductName }}",
+ "ProvisionedProductName": "{{ ProvisionedProductName }}",
+ "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
+ "ProvisioningArtifactName": "{{ ProvisioningArtifactName }}",
+ "ProvisioningParameters": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "ProvisioningPreferences": {
+  "StackSetAccounts": [
+   "{{ StackSetAccounts[0] }}"
+  ],
+  "StackSetFailureToleranceCount": "{{ StackSetFailureToleranceCount }}",
+  "StackSetFailureTolerancePercentage": "{{ StackSetFailureTolerancePercentage }}",
+  "StackSetMaxConcurrencyCount": "{{ StackSetMaxConcurrencyCount }}",
+  "StackSetMaxConcurrencyPercentage": "{{ StackSetMaxConcurrencyPercentage }}",
+  "StackSetOperationType": "{{ StackSetOperationType }}",
+  "StackSetRegions": [
+   "{{ StackSetRegions[0] }}"
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
+ AcceptLanguage,
+ NotificationArns,
+ PathId,
+ PathName,
+ ProductId,
+ ProductName,
+ ProvisionedProductName,
+ ProvisioningArtifactId,
+ ProvisioningArtifactName,
+ ProvisioningParameters,
+ ProvisioningPreferences,
+ Tags,
+ region
+)
+SELECT 
+ {{ AcceptLanguage }},
+ {{ NotificationArns }},
+ {{ PathId }},
+ {{ PathName }},
+ {{ ProductId }},
+ {{ ProductName }},
+ {{ ProvisionedProductName }},
+ {{ ProvisioningArtifactId }},
+ {{ ProvisioningArtifactName }},
+ {{ ProvisioningParameters }},
+ {{ ProvisioningPreferences }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.servicecatalog.cloud_formation_provisioned_products
+WHERE data__Identifier = '<ProvisionedProductId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -69,6 +249,11 @@ WHERE region = 'us-east-1'
 To operate on the <code>cloud_formation_provisioned_products</code> resource, the following permissions are required:
 
 ### Create
+```json
+*
+```
+
+### Delete
 ```json
 *
 ```

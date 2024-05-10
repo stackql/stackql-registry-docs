@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>model_manifests</code> in a region or create a <code>model_manifests</code> resource, use <code>model_manifest</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>model_manifests</code> in a region or to create or delete a <code>model_manifests</code> resource, use <code>model_manifest</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>model_manifests</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,90 @@ SELECT
 region,
 name
 FROM aws.iotfleetwise.model_manifests
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "SignalCatalogArn": "{{ SignalCatalogArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.iotfleetwise.model_manifests (
+ Name,
+ SignalCatalogArn,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ SignalCatalogArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "Name": "{{ Name }}",
+ "Nodes": [
+  "{{ Nodes[0] }}"
+ ],
+ "SignalCatalogArn": "{{ SignalCatalogArn }}",
+ "Status": "{{ Status }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.iotfleetwise.model_manifests (
+ Description,
+ Name,
+ Nodes,
+ SignalCatalogArn,
+ Status,
+ Tags,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ Name }},
+ {{ Nodes }},
+ {{ SignalCatalogArn }},
+ {{ Status }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.iotfleetwise.model_manifests
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +167,12 @@ iotfleetwise:UpdateModelManifest,
 iotfleetwise:ListModelManifestNodes,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:TagResource
+```
+
+### Delete
+```json
+iotfleetwise:DeleteModelManifest,
+iotfleetwise:GetModelManifest
 ```
 
 ### List

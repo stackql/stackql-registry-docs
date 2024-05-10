@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>themes</code> in a region or create a <code>themes</code> resource, use <code>theme</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>themes</code> in a region or to create or delete a <code>themes</code> resource, use <code>theme</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>themes</code> in a region or create a <code>the
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,119 @@ app_id,
 environment_name,
 id
 FROM aws.amplifyuibuilder.themes
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "AppId": "{{ AppId }}",
+ "EnvironmentName": "{{ EnvironmentName }}",
+ "Name": "{{ Name }}",
+ "Overrides": [
+  {
+   "Key": "{{ Key }}",
+   "Value": {
+    "Value": "{{ Value }}",
+    "Children": [
+     null
+    ]
+   }
+  }
+ ],
+ "Tags": {},
+ "Values": [
+  null
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.amplifyuibuilder.themes (
+ AppId,
+ EnvironmentName,
+ Name,
+ Overrides,
+ Tags,
+ Values,
+ region
+)
+SELECT 
+{{ AppId }},
+ {{ EnvironmentName }},
+ {{ Name }},
+ {{ Overrides }},
+ {{ Tags }},
+ {{ Values }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AppId": "{{ AppId }}",
+ "EnvironmentName": "{{ EnvironmentName }}",
+ "Name": "{{ Name }}",
+ "Overrides": [
+  {
+   "Key": "{{ Key }}",
+   "Value": {
+    "Value": "{{ Value }}",
+    "Children": [
+     null
+    ]
+   }
+  }
+ ],
+ "Tags": {},
+ "Values": [
+  null
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.amplifyuibuilder.themes (
+ AppId,
+ EnvironmentName,
+ Name,
+ Overrides,
+ Tags,
+ Values,
+ region
+)
+SELECT 
+ {{ AppId }},
+ {{ EnvironmentName }},
+ {{ Name }},
+ {{ Overrides }},
+ {{ Tags }},
+ {{ Values }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.amplifyuibuilder.themes
+WHERE data__Identifier = '<AppId|EnvironmentName|Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +198,13 @@ amplify:GetApp,
 amplifyuibuilder:CreateTheme,
 amplifyuibuilder:GetTheme,
 amplifyuibuilder:TagResource
+```
+
+### Delete
+```json
+amplify:GetApp,
+amplifyuibuilder:DeleteTheme,
+amplifyuibuilder:UntagResource
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>software_package_version</code> resource, use <code>software_package_versions</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>software_package_version</code> resource, use <code>software_package_versions</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -56,11 +59,6 @@ Gets or operates on an individual <code>software_package_version</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -80,8 +78,9 @@ status,
 tags,
 version_name
 FROM aws.iot.software_package_version
-WHERE data__Identifier = '<PackageName>|<VersionName>';
+WHERE region = 'us-east-1' AND data__Identifier = '<PackageName>|<VersionName>';
 ```
+
 
 ## Permissions
 
@@ -100,14 +99,6 @@ iot:GetPackageVersion,
 iot:ListTagsForResource,
 iot:TagResource,
 iot:UntagResource,
-iot:GetIndexingConfiguration
-```
-
-### Delete
-```json
-iot:DeletePackageVersion,
-iot:UpdatePackageVersion,
-iot:GetPackageVersion,
 iot:GetIndexingConfiguration
 ```
 

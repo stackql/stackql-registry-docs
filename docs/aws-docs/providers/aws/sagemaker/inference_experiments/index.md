@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>inference_experiments</code> in a region or create a <code>inference_experiments</code> resource, use <code>inference_experiment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>inference_experiments</code> in a region or to create or delete a <code>inference_experiments</code> resource, use <code>inference_experiment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>inference_experiments</code> in a region or cre
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,164 @@ SELECT
 region,
 name
 FROM aws.sagemaker.inference_experiments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}",
+ "RoleArn": "{{ RoleArn }}",
+ "EndpointName": "{{ EndpointName }}",
+ "ModelVariants": [
+  {
+   "ModelName": "{{ ModelName }}",
+   "VariantName": "{{ VariantName }}",
+   "InfrastructureConfig": {
+    "InfrastructureType": "{{ InfrastructureType }}",
+    "RealTimeInferenceConfig": {
+     "InstanceType": "{{ InstanceType }}",
+     "InstanceCount": "{{ InstanceCount }}"
+    }
+   }
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.inference_experiments (
+ Name,
+ Type,
+ RoleArn,
+ EndpointName,
+ ModelVariants,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Type }},
+ {{ RoleArn }},
+ {{ EndpointName }},
+ {{ ModelVariants }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Type": "{{ Type }}",
+ "Description": "{{ Description }}",
+ "RoleArn": "{{ RoleArn }}",
+ "EndpointName": "{{ EndpointName }}",
+ "Schedule": {
+  "StartTime": "{{ StartTime }}",
+  "EndTime": "{{ EndTime }}"
+ },
+ "KmsKey": "{{ KmsKey }}",
+ "DataStorageConfig": {
+  "Destination": "{{ Destination }}",
+  "KmsKey": "{{ KmsKey }}",
+  "ContentType": {
+   "CsvContentTypes": [
+    "{{ CsvContentTypes[0] }}"
+   ],
+   "JsonContentTypes": [
+    "{{ JsonContentTypes[0] }}"
+   ]
+  }
+ },
+ "ModelVariants": [
+  {
+   "ModelName": "{{ ModelName }}",
+   "VariantName": "{{ VariantName }}",
+   "InfrastructureConfig": {
+    "InfrastructureType": "{{ InfrastructureType }}",
+    "RealTimeInferenceConfig": {
+     "InstanceType": "{{ InstanceType }}",
+     "InstanceCount": "{{ InstanceCount }}"
+    }
+   }
+  }
+ ],
+ "ShadowModeConfig": {
+  "SourceModelVariantName": "{{ SourceModelVariantName }}",
+  "ShadowModelVariants": [
+   {
+    "ShadowModelVariantName": "{{ ShadowModelVariantName }}",
+    "SamplingPercentage": "{{ SamplingPercentage }}"
+   }
+  ]
+ },
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "StatusReason": "{{ StatusReason }}",
+ "DesiredState": "{{ DesiredState }}"
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.inference_experiments (
+ Name,
+ Type,
+ Description,
+ RoleArn,
+ EndpointName,
+ Schedule,
+ KmsKey,
+ DataStorageConfig,
+ ModelVariants,
+ ShadowModeConfig,
+ Tags,
+ StatusReason,
+ DesiredState,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Type }},
+ {{ Description }},
+ {{ RoleArn }},
+ {{ EndpointName }},
+ {{ Schedule }},
+ {{ KmsKey }},
+ {{ DataStorageConfig }},
+ {{ ModelVariants }},
+ {{ ShadowModeConfig }},
+ {{ Tags }},
+ {{ StatusReason }},
+ {{ DesiredState }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.inference_experiments
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +240,14 @@ sagemaker:DescribeInferenceExperiment,
 sagemaker:AddTags,
 sagemaker:ListTags,
 iam:PassRole
+```
+
+### Delete
+```json
+sagemaker:DeleteInferenceExperiment,
+sagemaker:DescribeInferenceExperiment,
+sagemaker:StopInferenceExperiment,
+sagemaker:ListTags
 ```
 
 ### List

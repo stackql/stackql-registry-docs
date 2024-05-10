@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>data_cells_filters</code> in a region or create a <code>data_cells_filters</code> resource, use <code>data_cells_filter</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>data_cells_filters</code> in a region or to create or delete a <code>data_cells_filters</code> resource, use <code>data_cells_filter</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -52,6 +55,11 @@ Used to retrieve a list of <code>data_cells_filters</code> in a region or create
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -67,7 +75,99 @@ database_name,
 table_name,
 name
 FROM aws.lakeformation.data_cells_filters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TableCatalogId": "{{ TableCatalogId }}",
+ "DatabaseName": "{{ DatabaseName }}",
+ "TableName": null,
+ "Name": null
+}
+>>>
+--required properties only
+INSERT INTO aws.lakeformation.data_cells_filters (
+ TableCatalogId,
+ DatabaseName,
+ TableName,
+ Name,
+ region
+)
+SELECT 
+{{ TableCatalogId }},
+ {{ DatabaseName }},
+ {{ TableName }},
+ {{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TableCatalogId": "{{ TableCatalogId }}",
+ "DatabaseName": "{{ DatabaseName }}",
+ "TableName": null,
+ "Name": null,
+ "RowFilter": {
+  "FilterExpression": "{{ FilterExpression }}",
+  "AllRowsWildcard": {}
+ },
+ "ColumnNames": [
+  null
+ ],
+ "ColumnWildcard": {
+  "ExcludedColumnNames": null
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.lakeformation.data_cells_filters (
+ TableCatalogId,
+ DatabaseName,
+ TableName,
+ Name,
+ RowFilter,
+ ColumnNames,
+ ColumnWildcard,
+ region
+)
+SELECT 
+ {{ TableCatalogId }},
+ {{ DatabaseName }},
+ {{ TableName }},
+ {{ Name }},
+ {{ RowFilter }},
+ {{ ColumnNames }},
+ {{ ColumnWildcard }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lakeformation.data_cells_filters
+WHERE data__Identifier = '<TableCatalogId|DatabaseName|TableName|Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -78,6 +178,11 @@ To operate on the <code>data_cells_filters</code> resource, the following permis
 ```json
 lakeformation:CreateDataCellsFilter,
 glue:GetTable
+```
+
+### Delete
+```json
+lakeformation:DeleteDataCellsFilter
 ```
 
 ### List

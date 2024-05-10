@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>flow_logs</code> in a region or create a <code>flow_logs</code> resource, use <code>flow_log</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>flow_logs</code> in a region or to create or delete a <code>flow_logs</code> resource, use <code>flow_log</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>flow_logs</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,110 @@ SELECT
 region,
 id
 FROM aws.ec2.flow_logs
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ResourceId": "{{ ResourceId }}",
+ "ResourceType": "{{ ResourceType }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.flow_logs (
+ ResourceId,
+ ResourceType,
+ region
+)
+SELECT 
+{{ ResourceId }},
+ {{ ResourceType }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DeliverCrossAccountRole": "{{ DeliverCrossAccountRole }}",
+ "DeliverLogsPermissionArn": "{{ DeliverLogsPermissionArn }}",
+ "LogDestination": "{{ LogDestination }}",
+ "LogDestinationType": "{{ LogDestinationType }}",
+ "LogFormat": "{{ LogFormat }}",
+ "LogGroupName": "{{ LogGroupName }}",
+ "MaxAggregationInterval": "{{ MaxAggregationInterval }}",
+ "ResourceId": "{{ ResourceId }}",
+ "ResourceType": "{{ ResourceType }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "TrafficType": "{{ TrafficType }}",
+ "DestinationOptions": {
+  "FileFormat": "{{ FileFormat }}",
+  "HiveCompatiblePartitions": "{{ HiveCompatiblePartitions }}",
+  "PerHourPartition": "{{ PerHourPartition }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.flow_logs (
+ DeliverCrossAccountRole,
+ DeliverLogsPermissionArn,
+ LogDestination,
+ LogDestinationType,
+ LogFormat,
+ LogGroupName,
+ MaxAggregationInterval,
+ ResourceId,
+ ResourceType,
+ Tags,
+ TrafficType,
+ DestinationOptions,
+ region
+)
+SELECT 
+ {{ DeliverCrossAccountRole }},
+ {{ DeliverLogsPermissionArn }},
+ {{ LogDestination }},
+ {{ LogDestinationType }},
+ {{ LogFormat }},
+ {{ LogGroupName }},
+ {{ MaxAggregationInterval }},
+ {{ ResourceId }},
+ {{ ResourceType }},
+ {{ Tags }},
+ {{ TrafficType }},
+ {{ DestinationOptions }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.flow_logs
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -77,6 +188,13 @@ iam:PassRole,
 logs:CreateLogDelivery,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy
+```
+
+### Delete
+```json
+ec2:DeleteFlowLogs,
+ec2:DescribeFlowLogs,
+logs:DeleteLogDelivery
 ```
 
 ### List

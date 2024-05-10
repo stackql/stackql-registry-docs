@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>fhir_datastores</code> in a region or create a <code>fhir_datastores</code> resource, use <code>fhir_datastore</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>fhir_datastores</code> in a region or to create or delete a <code>fhir_datastores</code> resource, use <code>fhir_datastore</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>fhir_datastores</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,97 @@ SELECT
 region,
 datastore_id
 FROM aws.healthlake.fhir_datastores
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DatastoreTypeVersion": "{{ DatastoreTypeVersion }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.healthlake.fhir_datastores (
+ DatastoreTypeVersion,
+ region
+)
+SELECT 
+{{ DatastoreTypeVersion }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DatastoreName": "{{ DatastoreName }}",
+ "DatastoreTypeVersion": "{{ DatastoreTypeVersion }}",
+ "PreloadDataConfig": {
+  "PreloadDataType": "{{ PreloadDataType }}"
+ },
+ "SseConfiguration": {
+  "KmsEncryptionConfig": {
+   "CmkType": "{{ CmkType }}",
+   "KmsKeyId": "{{ KmsKeyId }}"
+  }
+ },
+ "IdentityProviderConfiguration": {
+  "AuthorizationStrategy": "{{ AuthorizationStrategy }}",
+  "FineGrainedAuthorizationEnabled": "{{ FineGrainedAuthorizationEnabled }}",
+  "Metadata": "{{ Metadata }}",
+  "IdpLambdaArn": "{{ IdpLambdaArn }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.healthlake.fhir_datastores (
+ DatastoreName,
+ DatastoreTypeVersion,
+ PreloadDataConfig,
+ SseConfiguration,
+ IdentityProviderConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ {{ DatastoreName }},
+ {{ DatastoreTypeVersion }},
+ {{ PreloadDataConfig }},
+ {{ SseConfiguration }},
+ {{ IdentityProviderConfiguration }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.healthlake.fhir_datastores
+WHERE data__Identifier = '<DatastoreId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -87,6 +185,19 @@ lambda:InvokeFunction,
 healthlake:TagResource,
 healthlake:UntagResource,
 healthlake:ListTagsForResource
+```
+
+### Delete
+```json
+healthlake:DeleteFHIRDatastore,
+healthlake:DescribeFHIRDatastore,
+iam:PassRole,
+iam:GetRole,
+iam:CreateServiceLinkedRole,
+ram:GetResourceShareInvitations,
+ram:AcceptResourceShareInvitation,
+glue:CreateDatabase,
+glue:DeleteDatabase
 ```
 
 ### List

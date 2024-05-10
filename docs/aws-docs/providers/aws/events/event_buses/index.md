@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>event_buses</code> in a region or create a <code>event_buses</code> resource, use <code>event_bus</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>event_buses</code> in a region or to create or delete a <code>event_buses</code> resource, use <code>event_bus</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>event_buses</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,79 @@ SELECT
 region,
 name
 FROM aws.events.event_buses
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.events.event_buses (
+ Name,
+ region
+)
+SELECT 
+{{ Name }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "EventSourceName": "{{ EventSourceName }}",
+ "Name": "{{ Name }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ],
+ "Policy": {}
+}
+>>>
+--all properties
+INSERT INTO aws.events.event_buses (
+ EventSourceName,
+ Name,
+ Tags,
+ Policy,
+ region
+)
+SELECT 
+ {{ EventSourceName }},
+ {{ Name }},
+ {{ Tags }},
+ {{ Policy }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.events.event_buses
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +155,12 @@ events:DescribeEventBus,
 events:PutPermission,
 events:ListTagsForResource,
 events:TagResource
+```
+
+### Delete
+```json
+events:DescribeEventBus,
+events:DeleteEventBus
 ```
 
 ### List

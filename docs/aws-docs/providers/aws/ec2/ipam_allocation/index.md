@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>ipam_allocation</code> resource, use <code>ipam_allocations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>ipam_allocation</code> resource, use <code>ipam_allocations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -48,11 +51,6 @@ Gets or operates on an individual <code>ipam_allocation</code> resource, use <co
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -69,8 +67,9 @@ cidr,
 netmask_length,
 description
 FROM aws.ec2.ipam_allocation
-WHERE data__Identifier = '<IpamPoolId>|<IpamPoolAllocationId>|<Cidr>';
+WHERE region = 'us-east-1' AND data__Identifier = '<IpamPoolId>|<IpamPoolAllocationId>|<Cidr>';
 ```
+
 
 ## Permissions
 
@@ -79,10 +78,5 @@ To operate on the <code>ipam_allocation</code> resource, the following permissio
 ### Read
 ```json
 ec2:GetIpamPoolAllocations
-```
-
-### Delete
-```json
-ec2:ReleaseIpamPoolAllocation
 ```
 

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>workgroups</code> in a region or create a <code>workgroups</code> resource, use <code>workgroup</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>workgroups</code> in a region or to create or delete a <code>workgroups</code> resource, use <code>workgroup</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>workgroups</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,109 @@ SELECT
 region,
 workgroup_name
 FROM aws.redshiftserverless.workgroups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "WorkgroupName": "{{ WorkgroupName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.redshiftserverless.workgroups (
+ WorkgroupName,
+ region
+)
+SELECT 
+{{ WorkgroupName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "WorkgroupName": "{{ WorkgroupName }}",
+ "NamespaceName": "{{ NamespaceName }}",
+ "BaseCapacity": "{{ BaseCapacity }}",
+ "MaxCapacity": "{{ MaxCapacity }}",
+ "EnhancedVpcRouting": "{{ EnhancedVpcRouting }}",
+ "ConfigParameters": [
+  {
+   "ParameterKey": "{{ ParameterKey }}",
+   "ParameterValue": "{{ ParameterValue }}"
+  }
+ ],
+ "SecurityGroupIds": [
+  "{{ SecurityGroupIds[0] }}"
+ ],
+ "SubnetIds": [
+  "{{ SubnetIds[0] }}"
+ ],
+ "PubliclyAccessible": "{{ PubliclyAccessible }}",
+ "Port": "{{ Port }}",
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.redshiftserverless.workgroups (
+ WorkgroupName,
+ NamespaceName,
+ BaseCapacity,
+ MaxCapacity,
+ EnhancedVpcRouting,
+ ConfigParameters,
+ SecurityGroupIds,
+ SubnetIds,
+ PubliclyAccessible,
+ Port,
+ Tags,
+ region
+)
+SELECT 
+ {{ WorkgroupName }},
+ {{ NamespaceName }},
+ {{ BaseCapacity }},
+ {{ MaxCapacity }},
+ {{ EnhancedVpcRouting }},
+ {{ ConfigParameters }},
+ {{ SecurityGroupIds }},
+ {{ SubnetIds }},
+ {{ PubliclyAccessible }},
+ {{ Port }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.redshiftserverless.workgroups
+WHERE data__Identifier = '<WorkgroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -80,6 +190,19 @@ ec2:DescribeAvailabilityZones,
 redshift-serverless:CreateNamespace,
 redshift-serverless:CreateWorkgroup,
 redshift-serverless:GetWorkgroup
+```
+
+### Delete
+```json
+ec2:DescribeVpcAttribute,
+ec2:DescribeSecurityGroups,
+ec2:DescribeAddresses,
+ec2:DescribeInternetGateways,
+ec2:DescribeSubnets,
+ec2:DescribeAccountAttributes,
+ec2:DescribeAvailabilityZones,
+redshift-serverless:GetWorkgroup,
+redshift-serverless:DeleteWorkgroup
 ```
 
 ### List

@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>logging_configuration</code> resource, use <code>logging_configurations</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>logging_configuration</code> resource, use <code>logging_configurations</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -53,11 +56,6 @@ Gets or operates on an individual <code>logging_configuration</code> resource, u
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -76,6 +74,7 @@ logging_filter
 FROM aws.wafv2.logging_configuration
 WHERE data__Identifier = '<ResourceArn>';
 ```
+
 
 ## Permissions
 
@@ -99,12 +98,5 @@ s3:GetBucketPolicy,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
 logs:DescribeLogGroups
-```
-
-### Delete
-```json
-wafv2:DeleteLoggingConfiguration,
-wafv2:GetLoggingConfiguration,
-logs:DeleteLogDelivery
 ```
 

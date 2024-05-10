@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>resolvers</code> in a region or create a <code>resolvers</code> resource, use <code>resolver</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>resolvers</code> in a region or to create or delete a <code>resolvers</code> resource, use <code>resolver</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>resolvers</code> in a region or create a <code>
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,137 @@ SELECT
 region,
 resolver_arn
 FROM aws.appsync.resolvers
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ApiId": "{{ ApiId }}",
+ "FieldName": "{{ FieldName }}",
+ "TypeName": "{{ TypeName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appsync.resolvers (
+ ApiId,
+ FieldName,
+ TypeName,
+ region
+)
+SELECT 
+{{ ApiId }},
+ {{ FieldName }},
+ {{ TypeName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "ApiId": "{{ ApiId }}",
+ "CachingConfig": {
+  "CachingKeys": [
+   "{{ CachingKeys[0] }}"
+  ],
+  "Ttl": null
+ },
+ "Code": "{{ Code }}",
+ "CodeS3Location": "{{ CodeS3Location }}",
+ "DataSourceName": "{{ DataSourceName }}",
+ "FieldName": "{{ FieldName }}",
+ "Kind": "{{ Kind }}",
+ "MaxBatchSize": "{{ MaxBatchSize }}",
+ "PipelineConfig": {
+  "Functions": [
+   "{{ Functions[0] }}"
+  ]
+ },
+ "RequestMappingTemplate": "{{ RequestMappingTemplate }}",
+ "RequestMappingTemplateS3Location": "{{ RequestMappingTemplateS3Location }}",
+ "ResponseMappingTemplate": "{{ ResponseMappingTemplate }}",
+ "ResponseMappingTemplateS3Location": "{{ ResponseMappingTemplateS3Location }}",
+ "Runtime": {
+  "RuntimeVersion": "{{ RuntimeVersion }}",
+  "Name": "{{ Name }}"
+ },
+ "SyncConfig": {
+  "ConflictHandler": "{{ ConflictHandler }}",
+  "ConflictDetection": "{{ ConflictDetection }}",
+  "LambdaConflictHandlerConfig": {
+   "LambdaConflictHandlerArn": "{{ LambdaConflictHandlerArn }}"
+  }
+ },
+ "TypeName": "{{ TypeName }}",
+ "MetricsConfig": "{{ MetricsConfig }}"
+}
+>>>
+--all properties
+INSERT INTO aws.appsync.resolvers (
+ ApiId,
+ CachingConfig,
+ Code,
+ CodeS3Location,
+ DataSourceName,
+ FieldName,
+ Kind,
+ MaxBatchSize,
+ PipelineConfig,
+ RequestMappingTemplate,
+ RequestMappingTemplateS3Location,
+ ResponseMappingTemplate,
+ ResponseMappingTemplateS3Location,
+ Runtime,
+ SyncConfig,
+ TypeName,
+ MetricsConfig,
+ region
+)
+SELECT 
+ {{ ApiId }},
+ {{ CachingConfig }},
+ {{ Code }},
+ {{ CodeS3Location }},
+ {{ DataSourceName }},
+ {{ FieldName }},
+ {{ Kind }},
+ {{ MaxBatchSize }},
+ {{ PipelineConfig }},
+ {{ RequestMappingTemplate }},
+ {{ RequestMappingTemplateS3Location }},
+ {{ ResponseMappingTemplate }},
+ {{ ResponseMappingTemplateS3Location }},
+ {{ Runtime }},
+ {{ SyncConfig }},
+ {{ TypeName }},
+ {{ MetricsConfig }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appsync.resolvers
+WHERE data__Identifier = '<ResolverArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +211,11 @@ To operate on the <code>resolvers</code> resource, the following permissions are
 s3:GetObject,
 appsync:CreateResolver,
 appsync:GetResolver
+```
+
+### Delete
+```json
+appsync:DeleteResolver
 ```
 
 ### List

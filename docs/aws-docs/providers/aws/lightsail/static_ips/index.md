@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>static_ips</code> in a region or create a <code>static_ips</code> resource, use <code>static_ip</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>static_ips</code> in a region or to create or delete a <code>static_ips</code> resource, use <code>static_ip</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>static_ips</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,68 @@ SELECT
 region,
 static_ip_name
 FROM aws.lightsail.static_ips
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "StaticIpName": "{{ StaticIpName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.lightsail.static_ips (
+ StaticIpName,
+ region
+)
+SELECT 
+{{ StaticIpName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "StaticIpName": "{{ StaticIpName }}",
+ "AttachedTo": "{{ AttachedTo }}"
+}
+>>>
+--all properties
+INSERT INTO aws.lightsail.static_ips (
+ StaticIpName,
+ AttachedTo,
+ region
+)
+SELECT 
+ {{ StaticIpName }},
+ {{ AttachedTo }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.lightsail.static_ips
+WHERE data__Identifier = '<StaticIpName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +145,13 @@ lightsail:DetachStaticIp,
 lightsail:GetInstance,
 lightsail:GetStaticIp,
 lightsail:GetStaticIps
+```
+
+### Delete
+```json
+lightsail:GetStaticIp,
+lightsail:GetStaticIps,
+lightsail:ReleaseStaticIp
 ```
 
 ### List

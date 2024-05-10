@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>feature_groups</code> in a region or create a <code>feature_groups</code> resource, use <code>feature_group</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>feature_groups</code> in a region or to create or delete a <code>feature_groups</code> resource, use <code>feature_group</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>feature_groups</code> in a region or create a <
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,142 @@ SELECT
 region,
 feature_group_name
 FROM aws.sagemaker.feature_groups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "FeatureGroupName": "{{ FeatureGroupName }}",
+ "RecordIdentifierFeatureName": "{{ RecordIdentifierFeatureName }}",
+ "EventTimeFeatureName": "{{ EventTimeFeatureName }}",
+ "FeatureDefinitions": [
+  {
+   "FeatureName": "{{ FeatureName }}",
+   "FeatureType": "{{ FeatureType }}"
+  }
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.sagemaker.feature_groups (
+ FeatureGroupName,
+ RecordIdentifierFeatureName,
+ EventTimeFeatureName,
+ FeatureDefinitions,
+ region
+)
+SELECT 
+{{ FeatureGroupName }},
+ {{ RecordIdentifierFeatureName }},
+ {{ EventTimeFeatureName }},
+ {{ FeatureDefinitions }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "FeatureGroupName": "{{ FeatureGroupName }}",
+ "RecordIdentifierFeatureName": "{{ RecordIdentifierFeatureName }}",
+ "EventTimeFeatureName": "{{ EventTimeFeatureName }}",
+ "FeatureDefinitions": [
+  {
+   "FeatureName": "{{ FeatureName }}",
+   "FeatureType": "{{ FeatureType }}"
+  }
+ ],
+ "OnlineStoreConfig": {
+  "SecurityConfig": {
+   "KmsKeyId": "{{ KmsKeyId }}"
+  },
+  "EnableOnlineStore": "{{ EnableOnlineStore }}",
+  "StorageType": "{{ StorageType }}",
+  "TtlDuration": {
+   "Unit": "{{ Unit }}",
+   "Value": "{{ Value }}"
+  }
+ },
+ "OfflineStoreConfig": {
+  "S3StorageConfig": {
+   "S3Uri": "{{ S3Uri }}",
+   "KmsKeyId": null
+  },
+  "DisableGlueTableCreation": "{{ DisableGlueTableCreation }}",
+  "DataCatalogConfig": {
+   "TableName": "{{ TableName }}",
+   "Catalog": "{{ Catalog }}",
+   "Database": "{{ Database }}"
+  },
+  "TableFormat": "{{ TableFormat }}"
+ },
+ "ThroughputConfig": {
+  "ThroughputMode": "{{ ThroughputMode }}",
+  "ProvisionedReadCapacityUnits": "{{ ProvisionedReadCapacityUnits }}",
+  "ProvisionedWriteCapacityUnits": "{{ ProvisionedWriteCapacityUnits }}"
+ },
+ "RoleArn": "{{ RoleArn }}",
+ "Description": "{{ Description }}",
+ "Tags": [
+  {
+   "Value": "{{ Value }}",
+   "Key": "{{ Key }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.sagemaker.feature_groups (
+ FeatureGroupName,
+ RecordIdentifierFeatureName,
+ EventTimeFeatureName,
+ FeatureDefinitions,
+ OnlineStoreConfig,
+ OfflineStoreConfig,
+ ThroughputConfig,
+ RoleArn,
+ Description,
+ Tags,
+ region
+)
+SELECT 
+ {{ FeatureGroupName }},
+ {{ RecordIdentifierFeatureName }},
+ {{ EventTimeFeatureName }},
+ {{ FeatureDefinitions }},
+ {{ OnlineStoreConfig }},
+ {{ OfflineStoreConfig }},
+ {{ ThroughputConfig }},
+ {{ RoleArn }},
+ {{ Description }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.sagemaker.feature_groups
+WHERE data__Identifier = '<FeatureGroupName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -81,6 +224,12 @@ sagemaker:CreateFeatureGroup,
 sagemaker:DescribeFeatureGroup,
 sagemaker:AddTags,
 sagemaker:ListTags
+```
+
+### Delete
+```json
+sagemaker:DeleteFeatureGroup,
+sagemaker:DescribeFeatureGroup
 ```
 
 ### List

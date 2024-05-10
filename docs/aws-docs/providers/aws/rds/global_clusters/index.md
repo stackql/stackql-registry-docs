@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>global_clusters</code> in a region or create a <code>global_clusters</code> resource, use <code>global_cluster</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>global_clusters</code> in a region or to create or delete a <code>global_clusters</code> resource, use <code>global_cluster</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>global_clusters</code> in a region or create a 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,95 @@ SELECT
 region,
 global_cluster_identifier
 FROM aws.rds.global_clusters
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Engine": "{{ Engine }}",
+ "EngineVersion": "{{ EngineVersion }}",
+ "DeletionProtection": "{{ DeletionProtection }}",
+ "GlobalClusterIdentifier": "{{ GlobalClusterIdentifier }}",
+ "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
+ "StorageEncrypted": "{{ StorageEncrypted }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.rds.global_clusters (
+ Engine,
+ EngineVersion,
+ DeletionProtection,
+ GlobalClusterIdentifier,
+ SourceDBClusterIdentifier,
+ StorageEncrypted,
+ region
+)
+SELECT 
+{{ Engine }},
+ {{ EngineVersion }},
+ {{ DeletionProtection }},
+ {{ GlobalClusterIdentifier }},
+ {{ SourceDBClusterIdentifier }},
+ {{ StorageEncrypted }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Engine": "{{ Engine }}",
+ "EngineVersion": "{{ EngineVersion }}",
+ "DeletionProtection": "{{ DeletionProtection }}",
+ "GlobalClusterIdentifier": "{{ GlobalClusterIdentifier }}",
+ "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
+ "StorageEncrypted": "{{ StorageEncrypted }}"
+}
+>>>
+--all properties
+INSERT INTO aws.rds.global_clusters (
+ Engine,
+ EngineVersion,
+ DeletionProtection,
+ GlobalClusterIdentifier,
+ SourceDBClusterIdentifier,
+ StorageEncrypted,
+ region
+)
+SELECT 
+ {{ Engine }},
+ {{ EngineVersion }},
+ {{ DeletionProtection }},
+ {{ GlobalClusterIdentifier }},
+ {{ SourceDBClusterIdentifier }},
+ {{ StorageEncrypted }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.rds.global_clusters
+WHERE data__Identifier = '<GlobalClusterIdentifier>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -73,6 +169,14 @@ To operate on the <code>global_clusters</code> resource, the following permissio
 rds:CreateGlobalCluster,
 rds:DescribeDBClusters,
 rds:DescribeGlobalClusters
+```
+
+### Delete
+```json
+rds:DescribeGlobalClusters,
+rds:DeleteGlobalCluster,
+rds:RemoveFromGlobalCluster,
+rds:DescribeDBClusters
 ```
 
 ### List

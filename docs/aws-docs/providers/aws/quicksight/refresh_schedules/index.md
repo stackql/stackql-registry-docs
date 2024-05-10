@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>refresh_schedules</code> in a region or create a <code>refresh_schedules</code> resource, use <code>refresh_schedule</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>refresh_schedules</code> in a region or to create or delete a <code>refresh_schedules</code> resource, use <code>refresh_schedule</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>refresh_schedules</code> in a region or create 
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,82 @@ aws_account_id,
 data_set_id,
 schedule/schedule_id
 FROM aws.quicksight.refresh_schedules
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.quicksight.refresh_schedules (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AwsAccountId": "{{ AwsAccountId }}",
+ "DataSetId": "{{ DataSetId }}",
+ "Schedule": {
+  "ScheduleId": "{{ ScheduleId }}",
+  "ScheduleFrequency": {
+   "Interval": "{{ Interval }}",
+   "RefreshOnDay": {
+    "DayOfWeek": "{{ DayOfWeek }}",
+    "DayOfMonth": "{{ DayOfMonth }}"
+   },
+   "TimeZone": "{{ TimeZone }}",
+   "TimeOfTheDay": "{{ TimeOfTheDay }}"
+  },
+  "StartAfterDateTime": "{{ StartAfterDateTime }}",
+  "RefreshType": "{{ RefreshType }}"
+ }
+}
+>>>
+--all properties
+INSERT INTO aws.quicksight.refresh_schedules (
+ AwsAccountId,
+ DataSetId,
+ Schedule,
+ region
+)
+SELECT 
+ {{ AwsAccountId }},
+ {{ DataSetId }},
+ {{ Schedule }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.quicksight.refresh_schedules
+WHERE data__Identifier = '<AwsAccountId|DataSetId|Schedule/ScheduleId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -75,6 +158,12 @@ To operate on the <code>refresh_schedules</code> resource, the following permiss
 ### Create
 ```json
 quicksight:CreateRefreshSchedule,
+quicksight:DescribeRefreshSchedule
+```
+
+### Delete
+```json
+quicksight:DeleteRefreshSchedule,
 quicksight:DescribeRefreshSchedule
 ```
 

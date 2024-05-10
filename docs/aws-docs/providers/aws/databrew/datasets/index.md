@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>datasets</code> in a region or create a <code>datasets</code> resource, use <code>dataset</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>datasets</code> in a region or to create or delete a <code>datasets</code> resource, use <code>dataset</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>datasets</code> in a region or create a <code>d
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,176 @@ SELECT
 region,
 name
 FROM aws.databrew.datasets
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Input": {
+  "S3InputDefinition": {
+   "Bucket": "{{ Bucket }}",
+   "Key": "{{ Key }}"
+  },
+  "DataCatalogInputDefinition": {
+   "CatalogId": "{{ CatalogId }}",
+   "DatabaseName": "{{ DatabaseName }}",
+   "TableName": "{{ TableName }}",
+   "TempDirectory": null
+  },
+  "DatabaseInputDefinition": {
+   "GlueConnectionName": "{{ GlueConnectionName }}",
+   "DatabaseTableName": "{{ DatabaseTableName }}",
+   "TempDirectory": null,
+   "QueryString": "{{ QueryString }}"
+  },
+  "Metadata": {
+   "SourceArn": "{{ SourceArn }}"
+  }
+ }
+}
+>>>
+--required properties only
+INSERT INTO aws.databrew.datasets (
+ Name,
+ Input,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ Input }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "Format": "{{ Format }}",
+ "FormatOptions": {
+  "Json": {
+   "MultiLine": "{{ MultiLine }}"
+  },
+  "Excel": {
+   "SheetNames": [
+    "{{ SheetNames[0] }}"
+   ],
+   "SheetIndexes": [
+    "{{ SheetIndexes[0] }}"
+   ],
+   "HeaderRow": "{{ HeaderRow }}"
+  },
+  "Csv": {
+   "Delimiter": "{{ Delimiter }}",
+   "HeaderRow": "{{ HeaderRow }}"
+  }
+ },
+ "Input": {
+  "S3InputDefinition": {
+   "Bucket": "{{ Bucket }}",
+   "Key": "{{ Key }}"
+  },
+  "DataCatalogInputDefinition": {
+   "CatalogId": "{{ CatalogId }}",
+   "DatabaseName": "{{ DatabaseName }}",
+   "TableName": "{{ TableName }}",
+   "TempDirectory": null
+  },
+  "DatabaseInputDefinition": {
+   "GlueConnectionName": "{{ GlueConnectionName }}",
+   "DatabaseTableName": "{{ DatabaseTableName }}",
+   "TempDirectory": null,
+   "QueryString": "{{ QueryString }}"
+  },
+  "Metadata": {
+   "SourceArn": "{{ SourceArn }}"
+  }
+ },
+ "PathOptions": {
+  "FilesLimit": {
+   "MaxFiles": "{{ MaxFiles }}",
+   "OrderedBy": "{{ OrderedBy }}",
+   "Order": "{{ Order }}"
+  },
+  "LastModifiedDateCondition": {
+   "Expression": "{{ Expression }}",
+   "ValuesMap": [
+    {
+     "ValueReference": "{{ ValueReference }}",
+     "Value": "{{ Value }}"
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "PathParameterName": "{{ PathParameterName }}",
+    "DatasetParameter": {
+     "Name": null,
+     "Type": "{{ Type }}",
+     "DatetimeOptions": {
+      "Format": "{{ Format }}",
+      "TimezoneOffset": "{{ TimezoneOffset }}",
+      "LocaleCode": "{{ LocaleCode }}"
+     },
+     "CreateColumn": "{{ CreateColumn }}",
+     "Filter": null
+    }
+   }
+  ]
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.databrew.datasets (
+ Name,
+ Format,
+ FormatOptions,
+ Input,
+ PathOptions,
+ Tags,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ Format }},
+ {{ FormatOptions }},
+ {{ Input }},
+ {{ PathOptions }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.databrew.datasets
+WHERE data__Identifier = '<Name>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +253,11 @@ databrew:UntagResource,
 glue:GetConnection,
 glue:GetTable,
 iam:PassRole
+```
+
+### Delete
+```json
+databrew:DeleteDataset
 ```
 
 ### List

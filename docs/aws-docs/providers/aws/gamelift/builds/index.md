@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>builds</code> in a region or create a <code>builds</code> resource, use <code>build</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>builds</code> in a region or to create or delete a <code>builds</code> resource, use <code>build</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>builds</code> in a region or create a <code>bui
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,80 @@ SELECT
 region,
 build_id
 FROM aws.gamelift.builds
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{}
+>>>
+--required properties only
+INSERT INTO aws.gamelift.builds (
+ ,
+ region
+)
+SELECT 
+{{  }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "OperatingSystem": "{{ OperatingSystem }}",
+ "StorageLocation": {
+  "Bucket": "{{ Bucket }}",
+  "Key": "{{ Key }}",
+  "ObjectVersion": "{{ ObjectVersion }}",
+  "RoleArn": "{{ RoleArn }}"
+ },
+ "Version": "{{ Version }}",
+ "ServerSdkVersion": "{{ ServerSdkVersion }}"
+}
+>>>
+--all properties
+INSERT INTO aws.gamelift.builds (
+ Name,
+ OperatingSystem,
+ StorageLocation,
+ Version,
+ ServerSdkVersion,
+ region
+)
+SELECT 
+ {{ Name }},
+ {{ OperatingSystem }},
+ {{ StorageLocation }},
+ {{ Version }},
+ {{ ServerSdkVersion }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.gamelift.builds
+WHERE data__Identifier = '<BuildId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +153,12 @@ To operate on the <code>builds</code> resource, the following permissions are re
 ```json
 gamelift:DescribeBuild,
 gamelift:CreateBuild
+```
+
+### Delete
+```json
+gamelift:DescribeBuild,
+gamelift:DeleteBuild
 ```
 
 ### List

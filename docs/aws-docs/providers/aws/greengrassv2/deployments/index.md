@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>deployments</code> in a region or create a <code>deployments</code> resource, use <code>deployment</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>deployments</code> in a region or to create or delete a <code>deployments</code> resource, use <code>deployment</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>deployments</code> in a region or create a <cod
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,114 @@ SELECT
 region,
 deployment_id
 FROM aws.greengrassv2.deployments
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "TargetArn": "{{ TargetArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.greengrassv2.deployments (
+ TargetArn,
+ region
+)
+SELECT 
+{{ TargetArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "TargetArn": "{{ TargetArn }}",
+ "ParentTargetArn": "{{ ParentTargetArn }}",
+ "DeploymentName": "{{ DeploymentName }}",
+ "Components": {},
+ "IotJobConfiguration": {
+  "JobExecutionsRolloutConfig": {
+   "ExponentialRate": {
+    "BaseRatePerMinute": "{{ BaseRatePerMinute }}",
+    "IncrementFactor": null,
+    "RateIncreaseCriteria": {}
+   },
+   "MaximumPerMinute": "{{ MaximumPerMinute }}"
+  },
+  "AbortConfig": {
+   "CriteriaList": [
+    {
+     "FailureType": "{{ FailureType }}",
+     "Action": "{{ Action }}",
+     "ThresholdPercentage": null,
+     "MinNumberOfExecutedThings": "{{ MinNumberOfExecutedThings }}"
+    }
+   ]
+  },
+  "TimeoutConfig": {
+   "InProgressTimeoutInMinutes": "{{ InProgressTimeoutInMinutes }}"
+  }
+ },
+ "DeploymentPolicies": {
+  "FailureHandlingPolicy": "{{ FailureHandlingPolicy }}",
+  "ComponentUpdatePolicy": {
+   "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
+   "Action": "{{ Action }}"
+  },
+  "ConfigurationValidationPolicy": {
+   "TimeoutInSeconds": "{{ TimeoutInSeconds }}"
+  }
+ },
+ "Tags": {}
+}
+>>>
+--all properties
+INSERT INTO aws.greengrassv2.deployments (
+ TargetArn,
+ ParentTargetArn,
+ DeploymentName,
+ Components,
+ IotJobConfiguration,
+ DeploymentPolicies,
+ Tags,
+ region
+)
+SELECT 
+ {{ TargetArn }},
+ {{ ParentTargetArn }},
+ {{ DeploymentName }},
+ {{ Components }},
+ {{ IotJobConfiguration }},
+ {{ DeploymentPolicies }},
+ {{ Tags }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.greengrassv2.deployments
+WHERE data__Identifier = '<DeploymentId>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -82,6 +197,15 @@ iot:DescribeThingGroup,
 iot:GetThingShadow,
 iot:UpdateJob,
 iot:UpdateThingShadow
+```
+
+### Delete
+```json
+greengrass:DeleteDeployment,
+greengrass:CancelDeployment,
+iot:CancelJob,
+iot:DeleteJob,
+iot:DescribeJob
 ```
 
 ### List

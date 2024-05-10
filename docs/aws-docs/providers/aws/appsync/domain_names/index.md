@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>domain_names</code> in a region or create a <code>domain_names</code> resource, use <code>domain_name</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>domain_names</code> in a region or to create or delete a <code>domain_names</code> resource, use <code>domain_name</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>domain_names</code> in a region or create a <co
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,74 @@ SELECT
 region,
 domain_name
 FROM aws.appsync.domain_names
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "CertificateArn": "{{ CertificateArn }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.appsync.domain_names (
+ DomainName,
+ CertificateArn,
+ region
+)
+SELECT 
+{{ DomainName }},
+ {{ CertificateArn }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "DomainName": "{{ DomainName }}",
+ "Description": "{{ Description }}",
+ "CertificateArn": "{{ CertificateArn }}"
+}
+>>>
+--all properties
+INSERT INTO aws.appsync.domain_names (
+ DomainName,
+ Description,
+ CertificateArn,
+ region
+)
+SELECT 
+ {{ DomainName }},
+ {{ Description }},
+ {{ CertificateArn }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.appsync.domain_names
+WHERE data__Identifier = '<DomainName>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -74,6 +149,12 @@ appsync:CreateDomainName,
 appsync:GetDomainName,
 acm:DescribeCertificate,
 cloudfront:UpdateDistribution
+```
+
+### Delete
+```json
+appsync:GetDomainName,
+appsync:DeleteDomainName
 ```
 
 ### List

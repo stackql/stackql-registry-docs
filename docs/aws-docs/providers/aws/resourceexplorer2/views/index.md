@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>views</code> in a region or create a <code>views</code> resource, use <code>view</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>views</code> in a region or to create or delete a <code>views</code> resource, use <code>view</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>views</code> in a region or create a <code>view
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,83 @@ SELECT
 region,
 view_arn
 FROM aws.resourceexplorer2.views
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ViewName": "{{ ViewName }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.resourceexplorer2.views (
+ ViewName,
+ region
+)
+SELECT 
+{{ ViewName }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Filters": {
+  "FilterString": "{{ FilterString }}"
+ },
+ "IncludedProperties": [
+  {
+   "Name": "{{ Name }}"
+  }
+ ],
+ "Scope": "{{ Scope }}",
+ "Tags": {},
+ "ViewName": "{{ ViewName }}"
+}
+>>>
+--all properties
+INSERT INTO aws.resourceexplorer2.views (
+ Filters,
+ IncludedProperties,
+ Scope,
+ Tags,
+ ViewName,
+ region
+)
+SELECT 
+ {{ Filters }},
+ {{ IncludedProperties }},
+ {{ Scope }},
+ {{ Tags }},
+ {{ ViewName }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.resourceexplorer2.views
+WHERE data__Identifier = '<ViewArn>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -72,6 +156,13 @@ To operate on the <code>views</code> resource, the following permissions are req
 ```json
 resource-explorer-2:CreateView,
 resource-explorer-2:TagResource
+```
+
+### Delete
+```json
+resource-explorer-2:DeleteView,
+resource-explorer-2:GetView,
+resource-explorer-2:UntagResource
 ```
 
 ### List

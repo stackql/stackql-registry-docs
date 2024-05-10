@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>nodegroups</code> in a region or create a <code>nodegroups</code> resource, use <code>nodegroup</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>nodegroups</code> in a region or to create or delete a <code>nodegroups</code> resource, use <code>nodegroup</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>nodegroups</code> in a region or create a <code
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,150 @@ SELECT
 region,
 id
 FROM aws.eks.nodegroups
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "ClusterName": "{{ ClusterName }}",
+ "NodeRole": "{{ NodeRole }}",
+ "Subnets": [
+  "{{ Subnets[0] }}"
+ ]
+}
+>>>
+--required properties only
+INSERT INTO aws.eks.nodegroups (
+ ClusterName,
+ NodeRole,
+ Subnets,
+ region
+)
+SELECT 
+{{ ClusterName }},
+ {{ NodeRole }},
+ {{ Subnets }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "AmiType": "{{ AmiType }}",
+ "CapacityType": "{{ CapacityType }}",
+ "ClusterName": "{{ ClusterName }}",
+ "DiskSize": "{{ DiskSize }}",
+ "ForceUpdateEnabled": "{{ ForceUpdateEnabled }}",
+ "InstanceTypes": [
+  "{{ InstanceTypes[0] }}"
+ ],
+ "Labels": {},
+ "LaunchTemplate": {
+  "Id": "{{ Id }}",
+  "Version": "{{ Version }}",
+  "Name": "{{ Name }}"
+ },
+ "NodegroupName": "{{ NodegroupName }}",
+ "NodeRole": "{{ NodeRole }}",
+ "ReleaseVersion": "{{ ReleaseVersion }}",
+ "RemoteAccess": {
+  "SourceSecurityGroups": [
+   "{{ SourceSecurityGroups[0] }}"
+  ],
+  "Ec2SshKey": "{{ Ec2SshKey }}"
+ },
+ "ScalingConfig": {
+  "MinSize": "{{ MinSize }}",
+  "DesiredSize": "{{ DesiredSize }}",
+  "MaxSize": "{{ MaxSize }}"
+ },
+ "Subnets": [
+  "{{ Subnets[0] }}"
+ ],
+ "Tags": {},
+ "Taints": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}",
+   "Effect": "{{ Effect }}"
+  }
+ ],
+ "UpdateConfig": {
+  "MaxUnavailable": null,
+  "MaxUnavailablePercentage": null
+ },
+ "Version": "{{ Version }}"
+}
+>>>
+--all properties
+INSERT INTO aws.eks.nodegroups (
+ AmiType,
+ CapacityType,
+ ClusterName,
+ DiskSize,
+ ForceUpdateEnabled,
+ InstanceTypes,
+ Labels,
+ LaunchTemplate,
+ NodegroupName,
+ NodeRole,
+ ReleaseVersion,
+ RemoteAccess,
+ ScalingConfig,
+ Subnets,
+ Tags,
+ Taints,
+ UpdateConfig,
+ Version,
+ region
+)
+SELECT 
+ {{ AmiType }},
+ {{ CapacityType }},
+ {{ ClusterName }},
+ {{ DiskSize }},
+ {{ ForceUpdateEnabled }},
+ {{ InstanceTypes }},
+ {{ Labels }},
+ {{ LaunchTemplate }},
+ {{ NodegroupName }},
+ {{ NodeRole }},
+ {{ ReleaseVersion }},
+ {{ RemoteAccess }},
+ {{ ScalingConfig }},
+ {{ Subnets }},
+ {{ Tags }},
+ {{ Taints }},
+ {{ UpdateConfig }},
+ {{ Version }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.eks.nodegroups
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -87,6 +238,12 @@ iam:CreateServiceLinkedRole,
 iam:GetRole,
 iam:PassRole,
 iam:ListAttachedRolePolicies
+```
+
+### Delete
+```json
+eks:DeleteNodegroup,
+eks:DescribeNodegroup
 ```
 
 ### List

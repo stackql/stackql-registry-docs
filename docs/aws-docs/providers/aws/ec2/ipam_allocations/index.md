@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>ipam_allocations</code> in a region or create a <code>ipam_allocations</code> resource, use <code>ipam_allocation</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>ipam_allocations</code> in a region or to create or delete a <code>ipam_allocations</code> resource, use <code>ipam_allocation</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -51,6 +54,11 @@ Used to retrieve a list of <code>ipam_allocations</code> in a region or create a
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -65,7 +73,74 @@ ipam_pool_id,
 ipam_pool_allocation_id,
 cidr
 FROM aws.ec2.ipam_allocations
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "IpamPoolId": "{{ IpamPoolId }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.ec2.ipam_allocations (
+ IpamPoolId,
+ region
+)
+SELECT 
+{{ IpamPoolId }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "IpamPoolId": "{{ IpamPoolId }}",
+ "Cidr": "{{ Cidr }}",
+ "NetmaskLength": "{{ NetmaskLength }}",
+ "Description": "{{ Description }}"
+}
+>>>
+--all properties
+INSERT INTO aws.ec2.ipam_allocations (
+ IpamPoolId,
+ Cidr,
+ NetmaskLength,
+ Description,
+ region
+)
+SELECT 
+ {{ IpamPoolId }},
+ {{ Cidr }},
+ {{ NetmaskLength }},
+ {{ Description }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.ec2.ipam_allocations
+WHERE data__Identifier = '<IpamPoolId|IpamPoolAllocationId|Cidr>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +151,11 @@ To operate on the <code>ipam_allocations</code> resource, the following permissi
 ```json
 ec2:AllocateIpamPoolCidr,
 ec2:GetIpamPoolAllocations
+```
+
+### Delete
+```json
+ec2:ReleaseIpamPoolAllocation
 ```
 
 ### List

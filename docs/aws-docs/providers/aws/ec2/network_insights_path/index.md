@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Gets or operates on an individual <code>network_insights_path</code> resource, use <code>network_insights_paths</code> to retrieve a list of resources or to create a resource.
+
+Gets or updates an individual <code>network_insights_path</code> resource, use <code>network_insights_paths</code> to retrieve a list of resources or to create or delete a resource.
 
 ## Overview
 <table><tbody>
@@ -62,11 +65,6 @@ Gets or operates on an individual <code>network_insights_path</code> resource, u
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -92,18 +90,13 @@ protocol,
 destination_port,
 tags
 FROM aws.ec2.network_insights_path
-WHERE data__Identifier = '<NetworkInsightsPathId>';
+WHERE region = 'us-east-1' AND data__Identifier = '<NetworkInsightsPathId>';
 ```
+
 
 ## Permissions
 
 To operate on the <code>network_insights_path</code> resource, the following permissions are required:
-
-### Delete
-```json
-ec2:DeleteNetworkInsightsPath,
-ec2:DeleteTags
-```
 
 ### Read
 ```json

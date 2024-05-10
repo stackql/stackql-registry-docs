@@ -16,8 +16,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Used to retrieve a list of <code>indices</code> in a region or create a <code>indices</code> resource, use <code>index</code> to operate on an individual resource.
+
+Used to retrieve a list of <code>indices</code> in a region or to create or delete a <code>indices</code> resource, use <code>index</code> to read or update an individual resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +52,11 @@ Used to retrieve a list of <code>indices</code> in a region or create a <code>in
     <td><CopyableCode code="data__DesiredState, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -61,7 +69,147 @@ SELECT
 region,
 id
 FROM aws.kendra.indices
-WHERE region = 'us-east-1'
+WHERE region = 'us-east-1';
+```
+
+## `INSERT` Example
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+
+    ]
+}>
+<TabItem value="required">
+
+```sql
+<<<json
+{
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Edition": "{{ Edition }}"
+}
+>>>
+--required properties only
+INSERT INTO aws.kendra.indices (
+ Name,
+ RoleArn,
+ Edition,
+ region
+)
+SELECT 
+{{ Name }},
+ {{ RoleArn }},
+ {{ Edition }},
+'us-east-1';
+```
+
+</TabItem>
+<TabItem value="all">
+
+```sql
+<<<json
+{
+ "Description": "{{ Description }}",
+ "ServerSideEncryptionConfiguration": {
+  "KmsKeyId": "{{ KmsKeyId }}"
+ },
+ "Tags": [
+  {
+   "Key": "{{ Key }}",
+   "Value": "{{ Value }}"
+  }
+ ],
+ "Name": "{{ Name }}",
+ "RoleArn": "{{ RoleArn }}",
+ "Edition": "{{ Edition }}",
+ "DocumentMetadataConfigurations": [
+  {
+   "Name": "{{ Name }}",
+   "Type": "{{ Type }}",
+   "Relevance": {
+    "Freshness": "{{ Freshness }}",
+    "Importance": "{{ Importance }}",
+    "Duration": "{{ Duration }}",
+    "RankOrder": "{{ RankOrder }}",
+    "ValueImportanceItems": [
+     {
+      "Key": "{{ Key }}",
+      "Value": null
+     }
+    ]
+   },
+   "Search": {
+    "Facetable": "{{ Facetable }}",
+    "Searchable": "{{ Searchable }}",
+    "Displayable": "{{ Displayable }}",
+    "Sortable": "{{ Sortable }}"
+   }
+  }
+ ],
+ "CapacityUnits": {
+  "StorageCapacityUnits": "{{ StorageCapacityUnits }}",
+  "QueryCapacityUnits": "{{ QueryCapacityUnits }}"
+ },
+ "UserContextPolicy": "{{ UserContextPolicy }}",
+ "UserTokenConfigurations": [
+  {
+   "JwtTokenTypeConfiguration": {
+    "KeyLocation": "{{ KeyLocation }}",
+    "URL": "{{ URL }}",
+    "SecretManagerArn": null,
+    "UserNameAttributeField": "{{ UserNameAttributeField }}",
+    "GroupAttributeField": "{{ GroupAttributeField }}",
+    "Issuer": "{{ Issuer }}",
+    "ClaimRegex": "{{ ClaimRegex }}"
+   },
+   "JsonTokenTypeConfiguration": {
+    "UserNameAttributeField": null,
+    "GroupAttributeField": null
+   }
+  }
+ ]
+}
+>>>
+--all properties
+INSERT INTO aws.kendra.indices (
+ Description,
+ ServerSideEncryptionConfiguration,
+ Tags,
+ Name,
+ RoleArn,
+ Edition,
+ DocumentMetadataConfigurations,
+ CapacityUnits,
+ UserContextPolicy,
+ UserTokenConfigurations,
+ region
+)
+SELECT 
+ {{ Description }},
+ {{ ServerSideEncryptionConfiguration }},
+ {{ Tags }},
+ {{ Name }},
+ {{ RoleArn }},
+ {{ Edition }},
+ {{ DocumentMetadataConfigurations }},
+ {{ CapacityUnits }},
+ {{ UserContextPolicy }},
+ {{ UserTokenConfigurations }},
+ 'us-east-1';
+```
+
+</TabItem>
+</Tabs>
+
+## `DELETE` Example
+
+```sql
+DELETE FROM aws.kendra.indices
+WHERE data__Identifier = '<Id>'
+AND region = 'us-east-1';
 ```
 
 ## Permissions
@@ -76,6 +224,12 @@ kendra:UpdateIndex,
 kendra:ListTagsForResource,
 iam:PassRole,
 kendra:TagResource
+```
+
+### Delete
+```json
+kendra:DescribeIndex,
+kendra:DeleteIndex
 ```
 
 ### List
