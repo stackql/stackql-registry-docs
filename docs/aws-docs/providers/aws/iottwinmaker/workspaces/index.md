@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>workspace</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "WorkspaceId": "{{ WorkspaceId }}",
- "Role": "{{ Role }}",
- "S3Location": "{{ S3Location }}"
-}
->>>
---required properties only
+-- workspace.iql (required properties only)
 INSERT INTO aws.iottwinmaker.workspaces (
  WorkspaceId,
  Role,
@@ -99,25 +95,16 @@ INSERT INTO aws.iottwinmaker.workspaces (
  region
 )
 SELECT 
-{{ .WorkspaceId }},
- {{ .Role }},
- {{ .S3Location }},
-'us-east-1';
+'{{ WorkspaceId }}',
+ '{{ Role }}',
+ '{{ S3Location }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "WorkspaceId": "{{ WorkspaceId }}",
- "Description": "{{ Description }}",
- "Role": "{{ Role }}",
- "S3Location": "{{ S3Location }}",
- "Tags": {}
-}
->>>
---all properties
+-- workspace.iql (all properties)
 INSERT INTO aws.iottwinmaker.workspaces (
  WorkspaceId,
  Description,
@@ -127,12 +114,39 @@ INSERT INTO aws.iottwinmaker.workspaces (
  region
 )
 SELECT 
- {{ .WorkspaceId }},
- {{ .Description }},
- {{ .Role }},
- {{ .S3Location }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ WorkspaceId }}',
+ '{{ Description }}',
+ '{{ Role }}',
+ '{{ S3Location }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: workspace
+    props:
+      - name: WorkspaceId
+        value: '{{ WorkspaceId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Role
+        value: '{{ Role }}'
+      - name: S3Location
+        value: '{{ S3Location }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

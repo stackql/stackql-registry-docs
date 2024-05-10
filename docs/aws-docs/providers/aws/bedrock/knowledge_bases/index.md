@@ -74,62 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>knowledge_base</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KnowledgeBaseConfiguration": {
-  "Type": "{{ Type }}",
-  "VectorKnowledgeBaseConfiguration": {
-   "EmbeddingModelArn": "{{ EmbeddingModelArn }}"
-  }
- },
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "StorageConfiguration": {
-  "Type": "{{ Type }}",
-  "OpensearchServerlessConfiguration": {
-   "CollectionArn": "{{ CollectionArn }}",
-   "VectorIndexName": "{{ VectorIndexName }}",
-   "FieldMapping": {
-    "VectorField": "{{ VectorField }}",
-    "TextField": "{{ TextField }}",
-    "MetadataField": "{{ MetadataField }}"
-   }
-  },
-  "PineconeConfiguration": {
-   "ConnectionString": "{{ ConnectionString }}",
-   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
-   "Namespace": "{{ Namespace }}",
-   "FieldMapping": {
-    "TextField": "{{ TextField }}",
-    "MetadataField": "{{ MetadataField }}"
-   }
-  },
-  "RdsConfiguration": {
-   "ResourceArn": "{{ ResourceArn }}",
-   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
-   "DatabaseName": "{{ DatabaseName }}",
-   "TableName": "{{ TableName }}",
-   "FieldMapping": {
-    "PrimaryKeyField": "{{ PrimaryKeyField }}",
-    "VectorField": "{{ VectorField }}",
-    "TextField": "{{ TextField }}",
-    "MetadataField": "{{ MetadataField }}"
-   }
-  }
- }
-}
->>>
---required properties only
+-- knowledge_base.iql (required properties only)
 INSERT INTO aws.bedrock.knowledge_bases (
  KnowledgeBaseConfiguration,
  Name,
@@ -138,64 +96,17 @@ INSERT INTO aws.bedrock.knowledge_bases (
  region
 )
 SELECT 
-{{ .KnowledgeBaseConfiguration }},
- {{ .Name }},
- {{ .RoleArn }},
- {{ .StorageConfiguration }},
-'us-east-1';
+'{{ KnowledgeBaseConfiguration }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ StorageConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "KnowledgeBaseConfiguration": {
-  "Type": "{{ Type }}",
-  "VectorKnowledgeBaseConfiguration": {
-   "EmbeddingModelArn": "{{ EmbeddingModelArn }}"
-  }
- },
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "StorageConfiguration": {
-  "Type": "{{ Type }}",
-  "OpensearchServerlessConfiguration": {
-   "CollectionArn": "{{ CollectionArn }}",
-   "VectorIndexName": "{{ VectorIndexName }}",
-   "FieldMapping": {
-    "VectorField": "{{ VectorField }}",
-    "TextField": "{{ TextField }}",
-    "MetadataField": "{{ MetadataField }}"
-   }
-  },
-  "PineconeConfiguration": {
-   "ConnectionString": "{{ ConnectionString }}",
-   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
-   "Namespace": "{{ Namespace }}",
-   "FieldMapping": {
-    "TextField": "{{ TextField }}",
-    "MetadataField": "{{ MetadataField }}"
-   }
-  },
-  "RdsConfiguration": {
-   "ResourceArn": "{{ ResourceArn }}",
-   "CredentialsSecretArn": "{{ CredentialsSecretArn }}",
-   "DatabaseName": "{{ DatabaseName }}",
-   "TableName": "{{ TableName }}",
-   "FieldMapping": {
-    "PrimaryKeyField": "{{ PrimaryKeyField }}",
-    "VectorField": "{{ VectorField }}",
-    "TextField": "{{ TextField }}",
-    "MetadataField": "{{ MetadataField }}"
-   }
-  }
- },
- "Tags": {}
-}
->>>
---all properties
+-- knowledge_base.iql (all properties)
 INSERT INTO aws.bedrock.knowledge_bases (
  Description,
  KnowledgeBaseConfiguration,
@@ -206,13 +117,70 @@ INSERT INTO aws.bedrock.knowledge_bases (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .KnowledgeBaseConfiguration }},
- {{ .Name }},
- {{ .RoleArn }},
- {{ .StorageConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ KnowledgeBaseConfiguration }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ StorageConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: knowledge_base
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: KnowledgeBaseConfiguration
+        value:
+          Type: '{{ Type }}'
+          VectorKnowledgeBaseConfiguration:
+            EmbeddingModelArn: '{{ EmbeddingModelArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: StorageConfiguration
+        value:
+          Type: '{{ Type }}'
+          OpensearchServerlessConfiguration:
+            CollectionArn: '{{ CollectionArn }}'
+            VectorIndexName: '{{ VectorIndexName }}'
+            FieldMapping:
+              VectorField: '{{ VectorField }}'
+              TextField: '{{ TextField }}'
+              MetadataField: '{{ MetadataField }}'
+          PineconeConfiguration:
+            ConnectionString: '{{ ConnectionString }}'
+            CredentialsSecretArn: '{{ CredentialsSecretArn }}'
+            Namespace: '{{ Namespace }}'
+            FieldMapping:
+              TextField: '{{ TextField }}'
+              MetadataField: '{{ MetadataField }}'
+          RdsConfiguration:
+            ResourceArn: '{{ ResourceArn }}'
+            CredentialsSecretArn: '{{ CredentialsSecretArn }}'
+            DatabaseName: '{{ DatabaseName }}'
+            TableName: '{{ TableName }}'
+            FieldMapping:
+              PrimaryKeyField: '{{ PrimaryKeyField }}'
+              VectorField: '{{ VectorField }}'
+              TextField: '{{ TextField }}'
+              MetadataField: '{{ MetadataField }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

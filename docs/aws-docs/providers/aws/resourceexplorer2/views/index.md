@@ -74,50 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>view</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ViewName": "{{ ViewName }}"
-}
->>>
---required properties only
+-- view.iql (required properties only)
 INSERT INTO aws.resourceexplorer2.views (
  ViewName,
  region
 )
 SELECT 
-{{ .ViewName }},
-'us-east-1';
+'{{ ViewName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Filters": {
-  "FilterString": "{{ FilterString }}"
- },
- "IncludedProperties": [
-  {
-   "Name": "{{ Name }}"
-  }
- ],
- "Scope": "{{ Scope }}",
- "Tags": {},
- "ViewName": "{{ ViewName }}"
-}
->>>
---all properties
+-- view.iql (all properties)
 INSERT INTO aws.resourceexplorer2.views (
  Filters,
  IncludedProperties,
@@ -127,12 +110,41 @@ INSERT INTO aws.resourceexplorer2.views (
  region
 )
 SELECT 
- {{ .Filters }},
- {{ .IncludedProperties }},
- {{ .Scope }},
- {{ .Tags }},
- {{ .ViewName }},
- 'us-east-1';
+ '{{ Filters }}',
+ '{{ IncludedProperties }}',
+ '{{ Scope }}',
+ '{{ Tags }}',
+ '{{ ViewName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: view
+    props:
+      - name: Filters
+        value:
+          FilterString: '{{ FilterString }}'
+      - name: IncludedProperties
+        value:
+          - Name: '{{ Name }}'
+      - name: Scope
+        value: '{{ Scope }}'
+      - name: Tags
+        value: {}
+      - name: ViewName
+        value: '{{ ViewName }}'
+
 ```
 </TabItem>
 </Tabs>

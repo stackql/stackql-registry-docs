@@ -74,68 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>lifecycle_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ExecutionRole": "{{ ExecutionRole }}",
- "ResourceType": "{{ ResourceType }}",
- "PolicyDetails": [
-  {
-   "Action": {
-    "Type": "{{ Type }}",
-    "IncludeResources": {
-     "Amis": "{{ Amis }}",
-     "Containers": "{{ Containers }}",
-     "Snapshots": "{{ Snapshots }}"
-    }
-   },
-   "Filter": {
-    "Type": "{{ Type }}",
-    "Value": "{{ Value }}",
-    "Unit": "{{ Unit }}",
-    "RetainAtLeast": "{{ RetainAtLeast }}"
-   },
-   "ExclusionRules": {
-    "TagMap": {},
-    "Amis": {
-     "IsPublic": "{{ IsPublic }}",
-     "Regions": [
-      "{{ Regions[0] }}"
-     ],
-     "SharedAccounts": [
-      "{{ SharedAccounts[0] }}"
-     ],
-     "LastLaunched": {
-      "Value": "{{ Value }}",
-      "Unit": null
-     },
-     "TagMap": {}
-    }
-   }
-  }
- ],
- "ResourceSelection": {
-  "Recipes": [
-   {
-    "Name": "{{ Name }}",
-    "SemanticVersion": "{{ SemanticVersion }}"
-   }
-  ],
-  "TagMap": {}
- }
-}
->>>
---required properties only
+-- lifecycle_policy.iql (required properties only)
 INSERT INTO aws.imagebuilder.lifecycle_policies (
  Name,
  ExecutionRole,
@@ -145,72 +97,18 @@ INSERT INTO aws.imagebuilder.lifecycle_policies (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ExecutionRole }},
- {{ .ResourceType }},
- {{ .PolicyDetails }},
- {{ .ResourceSelection }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ExecutionRole }}',
+ '{{ ResourceType }}',
+ '{{ PolicyDetails }}',
+ '{{ ResourceSelection }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Status": "{{ Status }}",
- "ExecutionRole": "{{ ExecutionRole }}",
- "ResourceType": "{{ ResourceType }}",
- "PolicyDetails": [
-  {
-   "Action": {
-    "Type": "{{ Type }}",
-    "IncludeResources": {
-     "Amis": "{{ Amis }}",
-     "Containers": "{{ Containers }}",
-     "Snapshots": "{{ Snapshots }}"
-    }
-   },
-   "Filter": {
-    "Type": "{{ Type }}",
-    "Value": "{{ Value }}",
-    "Unit": "{{ Unit }}",
-    "RetainAtLeast": "{{ RetainAtLeast }}"
-   },
-   "ExclusionRules": {
-    "TagMap": {},
-    "Amis": {
-     "IsPublic": "{{ IsPublic }}",
-     "Regions": [
-      "{{ Regions[0] }}"
-     ],
-     "SharedAccounts": [
-      "{{ SharedAccounts[0] }}"
-     ],
-     "LastLaunched": {
-      "Value": "{{ Value }}",
-      "Unit": null
-     },
-     "TagMap": {}
-    }
-   }
-  }
- ],
- "ResourceSelection": {
-  "Recipes": [
-   {
-    "Name": "{{ Name }}",
-    "SemanticVersion": "{{ SemanticVersion }}"
-   }
-  ],
-  "TagMap": {}
- },
- "Tags": {}
-}
->>>
---all properties
+-- lifecycle_policy.iql (all properties)
 INSERT INTO aws.imagebuilder.lifecycle_policies (
  Name,
  Description,
@@ -223,15 +121,75 @@ INSERT INTO aws.imagebuilder.lifecycle_policies (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Status }},
- {{ .ExecutionRole }},
- {{ .ResourceType }},
- {{ .PolicyDetails }},
- {{ .ResourceSelection }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Status }}',
+ '{{ ExecutionRole }}',
+ '{{ ResourceType }}',
+ '{{ PolicyDetails }}',
+ '{{ ResourceSelection }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: lifecycle_policy
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: ExecutionRole
+        value: '{{ ExecutionRole }}'
+      - name: ResourceType
+        value: '{{ ResourceType }}'
+      - name: PolicyDetails
+        value:
+          - Action:
+              Type: '{{ Type }}'
+              IncludeResources:
+                Amis: '{{ Amis }}'
+                Containers: '{{ Containers }}'
+                Snapshots: '{{ Snapshots }}'
+            Filter:
+              Type: '{{ Type }}'
+              Value: '{{ Value }}'
+              Unit: '{{ Unit }}'
+              RetainAtLeast: '{{ RetainAtLeast }}'
+            ExclusionRules:
+              TagMap: {}
+              Amis:
+                IsPublic: '{{ IsPublic }}'
+                Regions:
+                  - '{{ Regions[0] }}'
+                SharedAccounts:
+                  - '{{ SharedAccounts[0] }}'
+                LastLaunched:
+                  Value: '{{ Value }}'
+                  Unit: null
+                TagMap: {}
+      - name: ResourceSelection
+        value:
+          Recipes:
+            - Name: '{{ Name }}'
+              SemanticVersion: '{{ SemanticVersion }}'
+          TagMap: {}
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

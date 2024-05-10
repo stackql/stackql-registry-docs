@@ -74,35 +74,20 @@ FROM aws.cloudfront.realtime_log_configs
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>realtime_log_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EndPoints": [
-  {
-   "KinesisStreamConfig": {
-    "RoleArn": "{{ RoleArn }}",
-    "StreamArn": "{{ StreamArn }}"
-   },
-   "StreamType": "{{ StreamType }}"
-  }
- ],
- "Fields": [
-  "{{ Fields[0] }}"
- ],
- "Name": "{{ Name }}",
- "SamplingRate": null
-}
->>>
---required properties only
+-- realtime_log_config.iql (required properties only)
 INSERT INTO aws.cloudfront.realtime_log_configs (
  EndPoints,
  Fields,
@@ -111,35 +96,17 @@ INSERT INTO aws.cloudfront.realtime_log_configs (
  region
 )
 SELECT 
-{{ .EndPoints }},
- {{ .Fields }},
- {{ .Name }},
- {{ .SamplingRate }},
-'us-east-1';
+'{{ EndPoints }}',
+ '{{ Fields }}',
+ '{{ Name }}',
+ '{{ SamplingRate }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EndPoints": [
-  {
-   "KinesisStreamConfig": {
-    "RoleArn": "{{ RoleArn }}",
-    "StreamArn": "{{ StreamArn }}"
-   },
-   "StreamType": "{{ StreamType }}"
-  }
- ],
- "Fields": [
-  "{{ Fields[0] }}"
- ],
- "Name": "{{ Name }}",
- "SamplingRate": null
-}
->>>
---all properties
+-- realtime_log_config.iql (all properties)
 INSERT INTO aws.cloudfront.realtime_log_configs (
  EndPoints,
  Fields,
@@ -148,11 +115,41 @@ INSERT INTO aws.cloudfront.realtime_log_configs (
  region
 )
 SELECT 
- {{ .EndPoints }},
- {{ .Fields }},
- {{ .Name }},
- {{ .SamplingRate }},
- 'us-east-1';
+ '{{ EndPoints }}',
+ '{{ Fields }}',
+ '{{ Name }}',
+ '{{ SamplingRate }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: realtime_log_config
+    props:
+      - name: EndPoints
+        value:
+          - KinesisStreamConfig:
+              RoleArn: '{{ RoleArn }}'
+              StreamArn: '{{ StreamArn }}'
+            StreamType: '{{ StreamType }}'
+      - name: Fields
+        value:
+          - '{{ Fields[0] }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: SamplingRate
+        value: null
+
 ```
 </TabItem>
 </Tabs>

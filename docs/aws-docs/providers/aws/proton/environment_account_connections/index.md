@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment_account_connection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CodebuildRoleArn": "{{ CodebuildRoleArn }}",
- "ComponentRoleArn": "{{ ComponentRoleArn }}",
- "EnvironmentAccountId": "{{ EnvironmentAccountId }}",
- "EnvironmentName": "{{ EnvironmentName }}",
- "ManagementAccountId": "{{ ManagementAccountId }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- environment_account_connection.iql (required properties only)
 INSERT INTO aws.proton.environment_account_connections (
  CodebuildRoleArn,
  ComponentRoleArn,
@@ -112,36 +99,20 @@ INSERT INTO aws.proton.environment_account_connections (
  region
 )
 SELECT 
-{{ .CodebuildRoleArn }},
- {{ .ComponentRoleArn }},
- {{ .EnvironmentAccountId }},
- {{ .EnvironmentName }},
- {{ .ManagementAccountId }},
- {{ .RoleArn }},
- {{ .Tags }},
-'us-east-1';
+'{{ CodebuildRoleArn }}',
+ '{{ ComponentRoleArn }}',
+ '{{ EnvironmentAccountId }}',
+ '{{ EnvironmentName }}',
+ '{{ ManagementAccountId }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CodebuildRoleArn": "{{ CodebuildRoleArn }}",
- "ComponentRoleArn": "{{ ComponentRoleArn }}",
- "EnvironmentAccountId": "{{ EnvironmentAccountId }}",
- "EnvironmentName": "{{ EnvironmentName }}",
- "ManagementAccountId": "{{ ManagementAccountId }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- environment_account_connection.iql (all properties)
 INSERT INTO aws.proton.environment_account_connections (
  CodebuildRoleArn,
  ComponentRoleArn,
@@ -153,14 +124,47 @@ INSERT INTO aws.proton.environment_account_connections (
  region
 )
 SELECT 
- {{ .CodebuildRoleArn }},
- {{ .ComponentRoleArn }},
- {{ .EnvironmentAccountId }},
- {{ .EnvironmentName }},
- {{ .ManagementAccountId }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CodebuildRoleArn }}',
+ '{{ ComponentRoleArn }}',
+ '{{ EnvironmentAccountId }}',
+ '{{ EnvironmentName }}',
+ '{{ ManagementAccountId }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment_account_connection
+    props:
+      - name: CodebuildRoleArn
+        value: '{{ CodebuildRoleArn }}'
+      - name: ComponentRoleArn
+        value: '{{ ComponentRoleArn }}'
+      - name: EnvironmentAccountId
+        value: '{{ EnvironmentAccountId }}'
+      - name: EnvironmentName
+        value: '{{ EnvironmentName }}'
+      - name: ManagementAccountId
+        value: '{{ ManagementAccountId }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

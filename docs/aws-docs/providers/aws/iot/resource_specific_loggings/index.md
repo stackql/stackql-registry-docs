@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resource_specific_logging</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TargetType": "{{ TargetType }}",
- "TargetName": "{{ TargetName }}",
- "LogLevel": "{{ LogLevel }}"
-}
->>>
---required properties only
+-- resource_specific_logging.iql (required properties only)
 INSERT INTO aws.iot.resource_specific_loggings (
  TargetType,
  TargetName,
@@ -99,23 +95,16 @@ INSERT INTO aws.iot.resource_specific_loggings (
  region
 )
 SELECT 
-{{ .TargetType }},
- {{ .TargetName }},
- {{ .LogLevel }},
-'us-east-1';
+'{{ TargetType }}',
+ '{{ TargetName }}',
+ '{{ LogLevel }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TargetType": "{{ TargetType }}",
- "TargetName": "{{ TargetName }}",
- "LogLevel": "{{ LogLevel }}"
-}
->>>
---all properties
+-- resource_specific_logging.iql (all properties)
 INSERT INTO aws.iot.resource_specific_loggings (
  TargetType,
  TargetName,
@@ -123,10 +112,33 @@ INSERT INTO aws.iot.resource_specific_loggings (
  region
 )
 SELECT 
- {{ .TargetType }},
- {{ .TargetName }},
- {{ .LogLevel }},
- 'us-east-1';
+ '{{ TargetType }}',
+ '{{ TargetName }}',
+ '{{ LogLevel }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resource_specific_logging
+    props:
+      - name: TargetType
+        value: '{{ TargetType }}'
+      - name: TargetName
+        value: '{{ TargetName }}'
+      - name: LogLevel
+        value: '{{ LogLevel }}'
+
 ```
 </TabItem>
 </Tabs>

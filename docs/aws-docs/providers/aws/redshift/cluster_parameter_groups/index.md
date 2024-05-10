@@ -74,57 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cluster_parameter_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "ParameterGroupFamily": "{{ ParameterGroupFamily }}"
-}
->>>
---required properties only
+-- cluster_parameter_group.iql (required properties only)
 INSERT INTO aws.redshift.cluster_parameter_groups (
  Description,
  ParameterGroupFamily,
  region
 )
 SELECT 
-{{ .Description }},
- {{ .ParameterGroupFamily }},
-'us-east-1';
+'{{ Description }}',
+ '{{ ParameterGroupFamily }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ParameterGroupName": "{{ ParameterGroupName }}",
- "Description": "{{ Description }}",
- "ParameterGroupFamily": "{{ ParameterGroupFamily }}",
- "Parameters": [
-  {
-   "ParameterName": "{{ ParameterName }}",
-   "ParameterValue": "{{ ParameterValue }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- cluster_parameter_group.iql (all properties)
 INSERT INTO aws.redshift.cluster_parameter_groups (
  ParameterGroupName,
  Description,
@@ -134,12 +112,43 @@ INSERT INTO aws.redshift.cluster_parameter_groups (
  region
 )
 SELECT 
- {{ .ParameterGroupName }},
- {{ .Description }},
- {{ .ParameterGroupFamily }},
- {{ .Parameters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ParameterGroupName }}',
+ '{{ Description }}',
+ '{{ ParameterGroupFamily }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cluster_parameter_group
+    props:
+      - name: ParameterGroupName
+        value: '{{ ParameterGroupName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ParameterGroupFamily
+        value: '{{ ParameterGroupFamily }}'
+      - name: Parameters
+        value:
+          - ParameterName: '{{ ParameterName }}'
+            ParameterValue: '{{ ParameterValue }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

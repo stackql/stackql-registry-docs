@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>endpoint_access</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterIdentifier": "{{ ClusterIdentifier }}",
- "EndpointName": "{{ EndpointName }}",
- "SubnetGroupName": "{{ SubnetGroupName }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ]
-}
->>>
---required properties only
+-- endpoint_access.iql (required properties only)
 INSERT INTO aws.redshift.endpoint_accesses (
  ClusterIdentifier,
  EndpointName,
@@ -103,28 +96,17 @@ INSERT INTO aws.redshift.endpoint_accesses (
  region
 )
 SELECT 
-{{ .ClusterIdentifier }},
- {{ .EndpointName }},
- {{ .SubnetGroupName }},
- {{ .VpcSecurityGroupIds }},
-'us-east-1';
+'{{ ClusterIdentifier }}',
+ '{{ EndpointName }}',
+ '{{ SubnetGroupName }}',
+ '{{ VpcSecurityGroupIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterIdentifier": "{{ ClusterIdentifier }}",
- "ResourceOwner": "{{ ResourceOwner }}",
- "EndpointName": "{{ EndpointName }}",
- "SubnetGroupName": "{{ SubnetGroupName }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ]
-}
->>>
---all properties
+-- endpoint_access.iql (all properties)
 INSERT INTO aws.redshift.endpoint_accesses (
  ClusterIdentifier,
  ResourceOwner,
@@ -134,12 +116,40 @@ INSERT INTO aws.redshift.endpoint_accesses (
  region
 )
 SELECT 
- {{ .ClusterIdentifier }},
- {{ .ResourceOwner }},
- {{ .EndpointName }},
- {{ .SubnetGroupName }},
- {{ .VpcSecurityGroupIds }},
- 'us-east-1';
+ '{{ ClusterIdentifier }}',
+ '{{ ResourceOwner }}',
+ '{{ EndpointName }}',
+ '{{ SubnetGroupName }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: endpoint_access
+    props:
+      - name: ClusterIdentifier
+        value: '{{ ClusterIdentifier }}'
+      - name: ResourceOwner
+        value: '{{ ResourceOwner }}'
+      - name: EndpointName
+        value: '{{ EndpointName }}'
+      - name: SubnetGroupName
+        value: '{{ SubnetGroupName }}'
+      - name: VpcSecurityGroupIds
+        value:
+          - '{{ VpcSecurityGroupIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

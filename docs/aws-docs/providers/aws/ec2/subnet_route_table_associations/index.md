@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subnet_route_table_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RouteTableId": "{{ RouteTableId }}",
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---required properties only
+-- subnet_route_table_association.iql (required properties only)
 INSERT INTO aws.ec2.subnet_route_table_associations (
  RouteTableId,
  SubnetId,
  region
 )
 SELECT 
-{{ .RouteTableId }},
- {{ .SubnetId }},
-'us-east-1';
+'{{ RouteTableId }}',
+ '{{ SubnetId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RouteTableId": "{{ RouteTableId }}",
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---all properties
+-- subnet_route_table_association.iql (all properties)
 INSERT INTO aws.ec2.subnet_route_table_associations (
  RouteTableId,
  SubnetId,
  region
 )
 SELECT 
- {{ .RouteTableId }},
- {{ .SubnetId }},
- 'us-east-1';
+ '{{ RouteTableId }}',
+ '{{ SubnetId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subnet_route_table_association
+    props:
+      - name: RouteTableId
+        value: '{{ RouteTableId }}'
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+
 ```
 </TabItem>
 </Tabs>

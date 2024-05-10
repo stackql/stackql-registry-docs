@@ -74,150 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ConfigData": {
-  "AntennaDownlinkConfig": {
-   "SpectrumConfig": {
-    "CenterFrequency": {
-     "Value": null,
-     "Units": "{{ Units }}"
-    },
-    "Bandwidth": {
-     "Value": null,
-     "Units": "{{ Units }}"
-    },
-    "Polarization": "{{ Polarization }}"
-   }
-  },
-  "TrackingConfig": {
-   "Autotrack": "{{ Autotrack }}"
-  },
-  "DataflowEndpointConfig": {
-   "DataflowEndpointName": "{{ DataflowEndpointName }}",
-   "DataflowEndpointRegion": "{{ DataflowEndpointRegion }}"
-  },
-  "AntennaDownlinkDemodDecodeConfig": {
-   "SpectrumConfig": null,
-   "DemodulationConfig": {
-    "UnvalidatedJSON": "{{ UnvalidatedJSON }}"
-   },
-   "DecodeConfig": {
-    "UnvalidatedJSON": null
-   }
-  },
-  "AntennaUplinkConfig": {
-   "SpectrumConfig": {
-    "CenterFrequency": null,
-    "Polarization": null
-   },
-   "TargetEirp": {
-    "Value": null,
-    "Units": "{{ Units }}"
-   },
-   "TransmitDisabled": "{{ TransmitDisabled }}"
-  },
-  "UplinkEchoConfig": {
-   "Enabled": "{{ Enabled }}",
-   "AntennaUplinkConfigArn": "{{ AntennaUplinkConfigArn }}"
-  },
-  "S3RecordingConfig": {
-   "BucketArn": "{{ BucketArn }}",
-   "RoleArn": "{{ RoleArn }}",
-   "Prefix": "{{ Prefix }}"
-  }
- }
-}
->>>
---required properties only
+-- config.iql (required properties only)
 INSERT INTO aws.groundstation.configs (
  Name,
  ConfigData,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ConfigData }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ConfigData }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ConfigData": {
-  "AntennaDownlinkConfig": {
-   "SpectrumConfig": {
-    "CenterFrequency": {
-     "Value": null,
-     "Units": "{{ Units }}"
-    },
-    "Bandwidth": {
-     "Value": null,
-     "Units": "{{ Units }}"
-    },
-    "Polarization": "{{ Polarization }}"
-   }
-  },
-  "TrackingConfig": {
-   "Autotrack": "{{ Autotrack }}"
-  },
-  "DataflowEndpointConfig": {
-   "DataflowEndpointName": "{{ DataflowEndpointName }}",
-   "DataflowEndpointRegion": "{{ DataflowEndpointRegion }}"
-  },
-  "AntennaDownlinkDemodDecodeConfig": {
-   "SpectrumConfig": null,
-   "DemodulationConfig": {
-    "UnvalidatedJSON": "{{ UnvalidatedJSON }}"
-   },
-   "DecodeConfig": {
-    "UnvalidatedJSON": null
-   }
-  },
-  "AntennaUplinkConfig": {
-   "SpectrumConfig": {
-    "CenterFrequency": null,
-    "Polarization": null
-   },
-   "TargetEirp": {
-    "Value": null,
-    "Units": "{{ Units }}"
-   },
-   "TransmitDisabled": "{{ TransmitDisabled }}"
-  },
-  "UplinkEchoConfig": {
-   "Enabled": "{{ Enabled }}",
-   "AntennaUplinkConfigArn": "{{ AntennaUplinkConfigArn }}"
-  },
-  "S3RecordingConfig": {
-   "BucketArn": "{{ BucketArn }}",
-   "RoleArn": "{{ RoleArn }}",
-   "Prefix": "{{ Prefix }}"
-  }
- }
-}
->>>
---all properties
+-- config.iql (all properties)
 INSERT INTO aws.groundstation.configs (
  Name,
  Tags,
@@ -225,10 +110,70 @@ INSERT INTO aws.groundstation.configs (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Tags }},
- {{ .ConfigData }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ ConfigData }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: config
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ConfigData
+        value:
+          AntennaDownlinkConfig:
+            SpectrumConfig:
+              CenterFrequency:
+                Value: null
+                Units: '{{ Units }}'
+              Bandwidth:
+                Value: null
+                Units: '{{ Units }}'
+              Polarization: '{{ Polarization }}'
+          TrackingConfig:
+            Autotrack: '{{ Autotrack }}'
+          DataflowEndpointConfig:
+            DataflowEndpointName: '{{ DataflowEndpointName }}'
+            DataflowEndpointRegion: '{{ DataflowEndpointRegion }}'
+          AntennaDownlinkDemodDecodeConfig:
+            SpectrumConfig: null
+            DemodulationConfig:
+              UnvalidatedJSON: '{{ UnvalidatedJSON }}'
+            DecodeConfig:
+              UnvalidatedJSON: null
+          AntennaUplinkConfig:
+            SpectrumConfig:
+              CenterFrequency: null
+              Polarization: null
+            TargetEirp:
+              Value: null
+              Units: '{{ Units }}'
+            TransmitDisabled: '{{ TransmitDisabled }}'
+          UplinkEchoConfig:
+            Enabled: '{{ Enabled }}'
+            AntennaUplinkConfigArn: '{{ AntennaUplinkConfigArn }}'
+          S3RecordingConfig:
+            BucketArn: '{{ BucketArn }}'
+            RoleArn: '{{ RoleArn }}'
+            Prefix: '{{ Prefix }}'
+
 ```
 </TabItem>
 </Tabs>

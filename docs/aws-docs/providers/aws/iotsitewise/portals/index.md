@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>portal</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PortalContactEmail": "{{ PortalContactEmail }}",
- "PortalName": "{{ PortalName }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- portal.iql (required properties only)
 INSERT INTO aws.iotsitewise.portals (
  PortalContactEmail,
  PortalName,
@@ -99,36 +95,16 @@ INSERT INTO aws.iotsitewise.portals (
  region
 )
 SELECT 
-{{ .PortalContactEmail }},
- {{ .PortalName }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ PortalContactEmail }}',
+ '{{ PortalName }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PortalAuthMode": "{{ PortalAuthMode }}",
- "PortalContactEmail": "{{ PortalContactEmail }}",
- "PortalDescription": "{{ PortalDescription }}",
- "PortalName": "{{ PortalName }}",
- "RoleArn": "{{ RoleArn }}",
- "NotificationSenderEmail": "{{ NotificationSenderEmail }}",
- "Alarms": {
-  "AlarmRoleArn": "{{ AlarmRoleArn }}",
-  "NotificationLambdaArn": "{{ NotificationLambdaArn }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- portal.iql (all properties)
 INSERT INTO aws.iotsitewise.portals (
  PortalAuthMode,
  PortalContactEmail,
@@ -141,15 +117,52 @@ INSERT INTO aws.iotsitewise.portals (
  region
 )
 SELECT 
- {{ .PortalAuthMode }},
- {{ .PortalContactEmail }},
- {{ .PortalDescription }},
- {{ .PortalName }},
- {{ .RoleArn }},
- {{ .NotificationSenderEmail }},
- {{ .Alarms }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ PortalAuthMode }}',
+ '{{ PortalContactEmail }}',
+ '{{ PortalDescription }}',
+ '{{ PortalName }}',
+ '{{ RoleArn }}',
+ '{{ NotificationSenderEmail }}',
+ '{{ Alarms }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: portal
+    props:
+      - name: PortalAuthMode
+        value: '{{ PortalAuthMode }}'
+      - name: PortalContactEmail
+        value: '{{ PortalContactEmail }}'
+      - name: PortalDescription
+        value: '{{ PortalDescription }}'
+      - name: PortalName
+        value: '{{ PortalName }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: NotificationSenderEmail
+        value: '{{ NotificationSenderEmail }}'
+      - name: Alarms
+        value:
+          AlarmRoleArn: '{{ AlarmRoleArn }}'
+          NotificationLambdaArn: '{{ NotificationLambdaArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

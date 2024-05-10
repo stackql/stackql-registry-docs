@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subnet_network_acl_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubnetId": "{{ SubnetId }}",
- "NetworkAclId": "{{ NetworkAclId }}"
-}
->>>
---required properties only
+-- subnet_network_acl_association.iql (required properties only)
 INSERT INTO aws.ec2.subnet_network_acl_associations (
  SubnetId,
  NetworkAclId,
  region
 )
 SELECT 
-{{ .SubnetId }},
- {{ .NetworkAclId }},
-'us-east-1';
+'{{ SubnetId }}',
+ '{{ NetworkAclId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SubnetId": "{{ SubnetId }}",
- "NetworkAclId": "{{ NetworkAclId }}"
-}
->>>
---all properties
+-- subnet_network_acl_association.iql (all properties)
 INSERT INTO aws.ec2.subnet_network_acl_associations (
  SubnetId,
  NetworkAclId,
  region
 )
 SELECT 
- {{ .SubnetId }},
- {{ .NetworkAclId }},
- 'us-east-1';
+ '{{ SubnetId }}',
+ '{{ NetworkAclId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subnet_network_acl_association
+    props:
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+      - name: NetworkAclId
+        value: '{{ NetworkAclId }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,53 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>schedule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CronExpression": "{{ CronExpression }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- schedule.iql (required properties only)
 INSERT INTO aws.databrew.schedules (
  CronExpression,
  Name,
  region
 )
 SELECT 
-{{ .CronExpression }},
- {{ .Name }},
-'us-east-1';
+'{{ CronExpression }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "JobNames": [
-  "{{ JobNames[0] }}"
- ],
- "CronExpression": "{{ CronExpression }}",
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- schedule.iql (all properties)
 INSERT INTO aws.databrew.schedules (
  JobNames,
  CronExpression,
@@ -129,11 +111,39 @@ INSERT INTO aws.databrew.schedules (
  region
 )
 SELECT 
- {{ .JobNames }},
- {{ .CronExpression }},
- {{ .Name }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ JobNames }}',
+ '{{ CronExpression }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: schedule
+    props:
+      - name: JobNames
+        value:
+          - '{{ JobNames[0] }}'
+      - name: CronExpression
+        value: '{{ CronExpression }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

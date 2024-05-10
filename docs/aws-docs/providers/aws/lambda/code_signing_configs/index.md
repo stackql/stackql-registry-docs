@@ -74,52 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>code_signing_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AllowedPublishers": {
-  "SigningProfileVersionArns": [
-   "{{ SigningProfileVersionArns[0] }}"
-  ]
- }
-}
->>>
---required properties only
+-- code_signing_config.iql (required properties only)
 INSERT INTO aws.lambda.code_signing_configs (
  AllowedPublishers,
  region
 )
 SELECT 
-{{ .AllowedPublishers }},
-'us-east-1';
+'{{ AllowedPublishers }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "AllowedPublishers": {
-  "SigningProfileVersionArns": [
-   "{{ SigningProfileVersionArns[0] }}"
-  ]
- },
- "CodeSigningPolicies": {
-  "UntrustedArtifactOnDeployment": "{{ UntrustedArtifactOnDeployment }}"
- }
-}
->>>
---all properties
+-- code_signing_config.iql (all properties)
 INSERT INTO aws.lambda.code_signing_configs (
  Description,
  AllowedPublishers,
@@ -127,10 +108,36 @@ INSERT INTO aws.lambda.code_signing_configs (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .AllowedPublishers }},
- {{ .CodeSigningPolicies }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ AllowedPublishers }}',
+ '{{ CodeSigningPolicies }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: code_signing_config
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: AllowedPublishers
+        value:
+          SigningProfileVersionArns:
+            - '{{ SigningProfileVersionArns[0] }}'
+      - name: CodeSigningPolicies
+        value:
+          UntrustedArtifactOnDeployment: '{{ UntrustedArtifactOnDeployment }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,53 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>alias</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoutingStrategy": {
-  "Message": "{{ Message }}",
-  "FleetId": "{{ FleetId }}",
-  "Type": "{{ Type }}"
- }
-}
->>>
---required properties only
+-- alias.iql (required properties only)
 INSERT INTO aws.gamelift.aliases (
  Name,
  RoutingStrategy,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RoutingStrategy }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RoutingStrategy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "RoutingStrategy": {
-  "Message": "{{ Message }}",
-  "FleetId": "{{ FleetId }}",
-  "Type": "{{ Type }}"
- }
-}
->>>
---all properties
+-- alias.iql (all properties)
 INSERT INTO aws.gamelift.aliases (
  Description,
  Name,
@@ -128,10 +110,36 @@ INSERT INTO aws.gamelift.aliases (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .RoutingStrategy }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ RoutingStrategy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: alias
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoutingStrategy
+        value:
+          Message: '{{ Message }}'
+          FleetId: '{{ FleetId }}'
+          Type: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

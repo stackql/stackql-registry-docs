@@ -74,39 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>serverless_cluster</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "VpcConfigs": [
-  {
-   "SecurityGroups": [
-    "{{ SecurityGroups[0] }}"
-   ],
-   "SubnetIds": [
-    "{{ SubnetIds[0] }}"
-   ]
-  }
- ],
- "ClientAuthentication": {
-  "Sasl": {
-   "Iam": {
-    "Enabled": "{{ Enabled }}"
-   }
-  }
- }
-}
->>>
---required properties only
+-- serverless_cluster.iql (required properties only)
 INSERT INTO aws.msk.serverless_clusters (
  ClusterName,
  VpcConfigs,
@@ -114,39 +95,16 @@ INSERT INTO aws.msk.serverless_clusters (
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .VpcConfigs }},
- {{ .ClientAuthentication }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ VpcConfigs }}',
+ '{{ ClientAuthentication }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "VpcConfigs": [
-  {
-   "SecurityGroups": [
-    "{{ SecurityGroups[0] }}"
-   ],
-   "SubnetIds": [
-    "{{ SubnetIds[0] }}"
-   ]
-  }
- ],
- "ClientAuthentication": {
-  "Sasl": {
-   "Iam": {
-    "Enabled": "{{ Enabled }}"
-   }
-  }
- },
- "Tags": {}
-}
->>>
---all properties
+-- serverless_cluster.iql (all properties)
 INSERT INTO aws.msk.serverless_clusters (
  ClusterName,
  VpcConfigs,
@@ -155,11 +113,43 @@ INSERT INTO aws.msk.serverless_clusters (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .VpcConfigs }},
- {{ .ClientAuthentication }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ VpcConfigs }}',
+ '{{ ClientAuthentication }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: serverless_cluster
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: VpcConfigs
+        value:
+          - SecurityGroups:
+              - '{{ SecurityGroups[0] }}'
+            SubnetIds:
+              - '{{ SubnetIds[0] }}'
+      - name: ClientAuthentication
+        value:
+          Sasl:
+            Iam:
+              Enabled: '{{ Enabled }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

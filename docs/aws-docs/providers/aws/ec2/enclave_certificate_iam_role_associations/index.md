@@ -76,53 +76,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>enclave_certificate_iam_role_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CertificateArn": "{{ CertificateArn }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- enclave_certificate_iam_role_association.iql (required properties only)
 INSERT INTO aws.ec2.enclave_certificate_iam_role_associations (
  CertificateArn,
  RoleArn,
  region
 )
 SELECT 
-{{ .CertificateArn }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ CertificateArn }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CertificateArn": "{{ CertificateArn }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---all properties
+-- enclave_certificate_iam_role_association.iql (all properties)
 INSERT INTO aws.ec2.enclave_certificate_iam_role_associations (
  CertificateArn,
  RoleArn,
  region
 )
 SELECT 
- {{ .CertificateArn }},
- {{ .RoleArn }},
- 'us-east-1';
+ '{{ CertificateArn }}',
+ '{{ RoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: enclave_certificate_iam_role_association
+    props:
+      - name: CertificateArn
+        value: '{{ CertificateArn }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

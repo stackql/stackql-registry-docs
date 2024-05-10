@@ -74,485 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>launch_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LaunchTemplateData": {
-  "SecurityGroups": [
-   "{{ SecurityGroups[0] }}"
-  ],
-  "TagSpecifications": [
-   {
-    "ResourceType": "{{ ResourceType }}",
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  ],
-  "UserData": "{{ UserData }}",
-  "BlockDeviceMappings": [
-   {
-    "DeviceName": "{{ DeviceName }}",
-    "Ebs": {
-     "DeleteOnTermination": "{{ DeleteOnTermination }}",
-     "Encrypted": "{{ Encrypted }}",
-     "Iops": "{{ Iops }}",
-     "SnapshotId": "{{ SnapshotId }}",
-     "VolumeSize": "{{ VolumeSize }}",
-     "VolumeType": "{{ VolumeType }}"
-    },
-    "NoDevice": "{{ NoDevice }}",
-    "VirtualName": "{{ VirtualName }}"
-   }
-  ],
-  "MaintenanceOptions": {
-   "AutoRecovery": "{{ AutoRecovery }}"
-  },
-  "IamInstanceProfile": {
-   "Arn": "{{ Arn }}",
-   "Name": "{{ Name }}"
-  },
-  "KernelId": "{{ KernelId }}",
-  "EbsOptimized": "{{ EbsOptimized }}",
-  "ElasticGpuSpecifications": [
-   {
-    "Type": "{{ Type }}"
-   }
-  ],
-  "ElasticInferenceAccelerators": [
-   {
-    "Type": "{{ Type }}",
-    "Count": "{{ Count }}"
-   }
-  ],
-  "Placement": {
-   "GroupName": "{{ GroupName }}",
-   "Tenancy": "{{ Tenancy }}",
-   "SpreadDomain": "{{ SpreadDomain }}",
-   "PartitionNumber": "{{ PartitionNumber }}",
-   "AvailabilityZone": "{{ AvailabilityZone }}",
-   "Affinity": "{{ Affinity }}",
-   "HostId": "{{ HostId }}",
-   "HostResourceGroupArn": "{{ HostResourceGroupArn }}",
-   "GroupId": "{{ GroupId }}"
-  },
-  "NetworkInterfaces": [
-   {
-    "SubnetId": "{{ SubnetId }}"
-   }
-  ],
-  "EnclaveOptions": {
-   "Enabled": "{{ Enabled }}"
-  },
-  "ImageId": "{{ ImageId }}",
-  "InstanceType": "{{ InstanceType }}",
-  "Monitoring": {
-   "Enabled": "{{ Enabled }}"
-  },
-  "HibernationOptions": {
-   "Configured": "{{ Configured }}"
-  },
-  "MetadataOptions": {
-   "HttpPutResponseHopLimit": "{{ HttpPutResponseHopLimit }}",
-   "HttpTokens": "{{ HttpTokens }}",
-   "HttpProtocolIpv6": "{{ HttpProtocolIpv6 }}",
-   "InstanceMetadataTags": "{{ InstanceMetadataTags }}",
-   "HttpEndpoint": "{{ HttpEndpoint }}"
-  },
-  "LicenseSpecifications": [
-   {
-    "LicenseConfigurationArn": "{{ LicenseConfigurationArn }}"
-   }
-  ],
-  "InstanceInitiatedShutdownBehavior": "{{ InstanceInitiatedShutdownBehavior }}",
-  "DisableApiStop": "{{ DisableApiStop }}",
-  "CpuOptions": {
-   "ThreadsPerCore": "{{ ThreadsPerCore }}",
-   "AmdSevSnp": "{{ AmdSevSnp }}",
-   "CoreCount": "{{ CoreCount }}"
-  },
-  "PrivateDnsNameOptions": {
-   "EnableResourceNameDnsARecord": "{{ EnableResourceNameDnsARecord }}",
-   "HostnameType": "{{ HostnameType }}",
-   "EnableResourceNameDnsAAAARecord": "{{ EnableResourceNameDnsAAAARecord }}"
-  },
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "KeyName": "{{ KeyName }}",
-  "DisableApiTermination": "{{ DisableApiTermination }}",
-  "InstanceMarketOptions": {
-   "SpotOptions": {
-    "SpotInstanceType": "{{ SpotInstanceType }}",
-    "InstanceInterruptionBehavior": "{{ InstanceInterruptionBehavior }}",
-    "MaxPrice": "{{ MaxPrice }}",
-    "BlockDurationMinutes": "{{ BlockDurationMinutes }}",
-    "ValidUntil": "{{ ValidUntil }}"
-   },
-   "MarketType": "{{ MarketType }}"
-  },
-  "InstanceRequirements": {
-   "LocalStorageTypes": [
-    "{{ LocalStorageTypes[0] }}"
-   ],
-   "InstanceGenerations": [
-    "{{ InstanceGenerations[0] }}"
-   ],
-   "NetworkInterfaceCount": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "MemoryGiBPerVCpu": {
-    "Min": null,
-    "Max": null
-   },
-   "AcceleratorTypes": [
-    "{{ AcceleratorTypes[0] }}"
-   ],
-   "VCpuCount": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "ExcludedInstanceTypes": [
-    "{{ ExcludedInstanceTypes[0] }}"
-   ],
-   "AcceleratorManufacturers": [
-    "{{ AcceleratorManufacturers[0] }}"
-   ],
-   "AllowedInstanceTypes": [
-    "{{ AllowedInstanceTypes[0] }}"
-   ],
-   "LocalStorage": "{{ LocalStorage }}",
-   "CpuManufacturers": [
-    "{{ CpuManufacturers[0] }}"
-   ],
-   "AcceleratorCount": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "NetworkBandwidthGbps": {
-    "Min": null,
-    "Max": null
-   },
-   "BareMetal": "{{ BareMetal }}",
-   "RequireHibernateSupport": "{{ RequireHibernateSupport }}",
-   "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": "{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}",
-   "SpotMaxPricePercentageOverLowestPrice": "{{ SpotMaxPricePercentageOverLowestPrice }}",
-   "BaselineEbsBandwidthMbps": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "OnDemandMaxPricePercentageOverLowestPrice": "{{ OnDemandMaxPricePercentageOverLowestPrice }}",
-   "AcceleratorNames": [
-    "{{ AcceleratorNames[0] }}"
-   ],
-   "AcceleratorTotalMemoryMiB": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "BurstablePerformance": "{{ BurstablePerformance }}",
-   "MemoryMiB": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "TotalLocalStorageGB": {
-    "Min": null,
-    "Max": null
-   }
-  },
-  "RamDiskId": "{{ RamDiskId }}",
-  "CapacityReservationSpecification": {
-   "CapacityReservationPreference": "{{ CapacityReservationPreference }}",
-   "CapacityReservationTarget": {
-    "CapacityReservationResourceGroupArn": "{{ CapacityReservationResourceGroupArn }}",
-    "CapacityReservationId": "{{ CapacityReservationId }}"
-   }
-  },
-  "CreditSpecification": {
-   "CpuCredits": "{{ CpuCredits }}"
-  }
- }
-}
->>>
---required properties only
+-- launch_template.iql (required properties only)
 INSERT INTO aws.ec2.launch_templates (
  LaunchTemplateData,
  region
 )
 SELECT 
-{{ .LaunchTemplateData }},
-'us-east-1';
+'{{ LaunchTemplateData }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LaunchTemplateName": "{{ LaunchTemplateName }}",
- "LaunchTemplateData": {
-  "SecurityGroups": [
-   "{{ SecurityGroups[0] }}"
-  ],
-  "TagSpecifications": [
-   {
-    "ResourceType": "{{ ResourceType }}",
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  ],
-  "UserData": "{{ UserData }}",
-  "BlockDeviceMappings": [
-   {
-    "DeviceName": "{{ DeviceName }}",
-    "Ebs": {
-     "DeleteOnTermination": "{{ DeleteOnTermination }}",
-     "Encrypted": "{{ Encrypted }}",
-     "Iops": "{{ Iops }}",
-     "SnapshotId": "{{ SnapshotId }}",
-     "VolumeSize": "{{ VolumeSize }}",
-     "VolumeType": "{{ VolumeType }}"
-    },
-    "NoDevice": "{{ NoDevice }}",
-    "VirtualName": "{{ VirtualName }}"
-   }
-  ],
-  "MaintenanceOptions": {
-   "AutoRecovery": "{{ AutoRecovery }}"
-  },
-  "IamInstanceProfile": {
-   "Arn": "{{ Arn }}",
-   "Name": "{{ Name }}"
-  },
-  "KernelId": "{{ KernelId }}",
-  "EbsOptimized": "{{ EbsOptimized }}",
-  "ElasticGpuSpecifications": [
-   {
-    "Type": "{{ Type }}"
-   }
-  ],
-  "ElasticInferenceAccelerators": [
-   {
-    "Type": "{{ Type }}",
-    "Count": "{{ Count }}"
-   }
-  ],
-  "Placement": {
-   "GroupName": "{{ GroupName }}",
-   "Tenancy": "{{ Tenancy }}",
-   "SpreadDomain": "{{ SpreadDomain }}",
-   "PartitionNumber": "{{ PartitionNumber }}",
-   "AvailabilityZone": "{{ AvailabilityZone }}",
-   "Affinity": "{{ Affinity }}",
-   "HostId": "{{ HostId }}",
-   "HostResourceGroupArn": "{{ HostResourceGroupArn }}",
-   "GroupId": "{{ GroupId }}"
-  },
-  "NetworkInterfaces": [
-   {
-    "Description": "{{ Description }}",
-    "PrivateIpAddress": "{{ PrivateIpAddress }}",
-    "PrivateIpAddresses": [
-     {
-      "Primary": "{{ Primary }}",
-      "PrivateIpAddress": "{{ PrivateIpAddress }}"
-     }
-    ],
-    "SecondaryPrivateIpAddressCount": "{{ SecondaryPrivateIpAddressCount }}",
-    "Ipv4Prefixes": [
-     {
-      "Ipv4Prefix": "{{ Ipv4Prefix }}"
-     }
-    ],
-    "Ipv4PrefixCount": "{{ Ipv4PrefixCount }}",
-    "GroupSet": [
-     "{{ GroupSet[0] }}"
-    ],
-    "Ipv6Addresses": [
-     {
-      "Ipv6Address": "{{ Ipv6Address }}"
-     }
-    ],
-    "Ipv6Prefixes": [
-     {
-      "Ipv6Prefix": "{{ Ipv6Prefix }}"
-     }
-    ],
-    "Ipv6PrefixCount": "{{ Ipv6PrefixCount }}",
-    "SubnetId": "{{ SubnetId }}",
-    "SourceDestCheck": "{{ SourceDestCheck }}",
-    "InterfaceType": "{{ InterfaceType }}",
-    "Ipv6AddressCount": "{{ Ipv6AddressCount }}",
-    "EnablePrimaryIpv6": "{{ EnablePrimaryIpv6 }}",
-    "ConnectionTrackingSpecification": {
-     "TcpEstablishedTimeout": "{{ TcpEstablishedTimeout }}",
-     "UdpStreamTimeout": "{{ UdpStreamTimeout }}",
-     "UdpTimeout": "{{ UdpTimeout }}"
-    },
-    "Tags": [
-     null
-    ]
-   }
-  ],
-  "EnclaveOptions": {
-   "Enabled": "{{ Enabled }}"
-  },
-  "ImageId": "{{ ImageId }}",
-  "InstanceType": "{{ InstanceType }}",
-  "Monitoring": {
-   "Enabled": "{{ Enabled }}"
-  },
-  "HibernationOptions": {
-   "Configured": "{{ Configured }}"
-  },
-  "MetadataOptions": {
-   "HttpPutResponseHopLimit": "{{ HttpPutResponseHopLimit }}",
-   "HttpTokens": "{{ HttpTokens }}",
-   "HttpProtocolIpv6": "{{ HttpProtocolIpv6 }}",
-   "InstanceMetadataTags": "{{ InstanceMetadataTags }}",
-   "HttpEndpoint": "{{ HttpEndpoint }}"
-  },
-  "LicenseSpecifications": [
-   {
-    "LicenseConfigurationArn": "{{ LicenseConfigurationArn }}"
-   }
-  ],
-  "InstanceInitiatedShutdownBehavior": "{{ InstanceInitiatedShutdownBehavior }}",
-  "DisableApiStop": "{{ DisableApiStop }}",
-  "CpuOptions": {
-   "ThreadsPerCore": "{{ ThreadsPerCore }}",
-   "AmdSevSnp": "{{ AmdSevSnp }}",
-   "CoreCount": "{{ CoreCount }}"
-  },
-  "PrivateDnsNameOptions": {
-   "EnableResourceNameDnsARecord": "{{ EnableResourceNameDnsARecord }}",
-   "HostnameType": "{{ HostnameType }}",
-   "EnableResourceNameDnsAAAARecord": "{{ EnableResourceNameDnsAAAARecord }}"
-  },
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "KeyName": "{{ KeyName }}",
-  "DisableApiTermination": "{{ DisableApiTermination }}",
-  "InstanceMarketOptions": {
-   "SpotOptions": {
-    "SpotInstanceType": "{{ SpotInstanceType }}",
-    "InstanceInterruptionBehavior": "{{ InstanceInterruptionBehavior }}",
-    "MaxPrice": "{{ MaxPrice }}",
-    "BlockDurationMinutes": "{{ BlockDurationMinutes }}",
-    "ValidUntil": "{{ ValidUntil }}"
-   },
-   "MarketType": "{{ MarketType }}"
-  },
-  "InstanceRequirements": {
-   "LocalStorageTypes": [
-    "{{ LocalStorageTypes[0] }}"
-   ],
-   "InstanceGenerations": [
-    "{{ InstanceGenerations[0] }}"
-   ],
-   "NetworkInterfaceCount": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "MemoryGiBPerVCpu": {
-    "Min": null,
-    "Max": null
-   },
-   "AcceleratorTypes": [
-    "{{ AcceleratorTypes[0] }}"
-   ],
-   "VCpuCount": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "ExcludedInstanceTypes": [
-    "{{ ExcludedInstanceTypes[0] }}"
-   ],
-   "AcceleratorManufacturers": [
-    "{{ AcceleratorManufacturers[0] }}"
-   ],
-   "AllowedInstanceTypes": [
-    "{{ AllowedInstanceTypes[0] }}"
-   ],
-   "LocalStorage": "{{ LocalStorage }}",
-   "CpuManufacturers": [
-    "{{ CpuManufacturers[0] }}"
-   ],
-   "AcceleratorCount": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "NetworkBandwidthGbps": {
-    "Min": null,
-    "Max": null
-   },
-   "BareMetal": "{{ BareMetal }}",
-   "RequireHibernateSupport": "{{ RequireHibernateSupport }}",
-   "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": "{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}",
-   "SpotMaxPricePercentageOverLowestPrice": "{{ SpotMaxPricePercentageOverLowestPrice }}",
-   "BaselineEbsBandwidthMbps": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "OnDemandMaxPricePercentageOverLowestPrice": "{{ OnDemandMaxPricePercentageOverLowestPrice }}",
-   "AcceleratorNames": [
-    "{{ AcceleratorNames[0] }}"
-   ],
-   "AcceleratorTotalMemoryMiB": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "BurstablePerformance": "{{ BurstablePerformance }}",
-   "MemoryMiB": {
-    "Min": "{{ Min }}",
-    "Max": "{{ Max }}"
-   },
-   "TotalLocalStorageGB": {
-    "Min": null,
-    "Max": null
-   }
-  },
-  "RamDiskId": "{{ RamDiskId }}",
-  "CapacityReservationSpecification": {
-   "CapacityReservationPreference": "{{ CapacityReservationPreference }}",
-   "CapacityReservationTarget": {
-    "CapacityReservationResourceGroupArn": "{{ CapacityReservationResourceGroupArn }}",
-    "CapacityReservationId": "{{ CapacityReservationId }}"
-   }
-  },
-  "CreditSpecification": {
-   "CpuCredits": "{{ CpuCredits }}"
-  }
- },
- "VersionDescription": "{{ VersionDescription }}",
- "TagSpecifications": [
-  {
-   "ResourceType": "{{ ResourceType }}",
-   "Tags": [
-    null
-   ]
-  }
- ]
-}
->>>
---all properties
+-- launch_template.iql (all properties)
 INSERT INTO aws.ec2.launch_templates (
  LaunchTemplateName,
  LaunchTemplateData,
@@ -561,11 +109,205 @@ INSERT INTO aws.ec2.launch_templates (
  region
 )
 SELECT 
- {{ .LaunchTemplateName }},
- {{ .LaunchTemplateData }},
- {{ .VersionDescription }},
- {{ .TagSpecifications }},
- 'us-east-1';
+ '{{ LaunchTemplateName }}',
+ '{{ LaunchTemplateData }}',
+ '{{ VersionDescription }}',
+ '{{ TagSpecifications }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: launch_template
+    props:
+      - name: LaunchTemplateName
+        value: '{{ LaunchTemplateName }}'
+      - name: LaunchTemplateData
+        value:
+          SecurityGroups:
+            - '{{ SecurityGroups[0] }}'
+          TagSpecifications:
+            - ResourceType: '{{ ResourceType }}'
+              Tags:
+                - Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+          UserData: '{{ UserData }}'
+          BlockDeviceMappings:
+            - DeviceName: '{{ DeviceName }}'
+              Ebs:
+                DeleteOnTermination: '{{ DeleteOnTermination }}'
+                Encrypted: '{{ Encrypted }}'
+                Iops: '{{ Iops }}'
+                SnapshotId: '{{ SnapshotId }}'
+                VolumeSize: '{{ VolumeSize }}'
+                VolumeType: '{{ VolumeType }}'
+              NoDevice: '{{ NoDevice }}'
+              VirtualName: '{{ VirtualName }}'
+          MaintenanceOptions:
+            AutoRecovery: '{{ AutoRecovery }}'
+          IamInstanceProfile:
+            Arn: '{{ Arn }}'
+            Name: '{{ Name }}'
+          KernelId: '{{ KernelId }}'
+          EbsOptimized: '{{ EbsOptimized }}'
+          ElasticGpuSpecifications:
+            - Type: '{{ Type }}'
+          ElasticInferenceAccelerators:
+            - Type: '{{ Type }}'
+              Count: '{{ Count }}'
+          Placement:
+            GroupName: '{{ GroupName }}'
+            Tenancy: '{{ Tenancy }}'
+            SpreadDomain: '{{ SpreadDomain }}'
+            PartitionNumber: '{{ PartitionNumber }}'
+            AvailabilityZone: '{{ AvailabilityZone }}'
+            Affinity: '{{ Affinity }}'
+            HostId: '{{ HostId }}'
+            HostResourceGroupArn: '{{ HostResourceGroupArn }}'
+            GroupId: '{{ GroupId }}'
+          NetworkInterfaces:
+            - Description: '{{ Description }}'
+              PrivateIpAddress: '{{ PrivateIpAddress }}'
+              PrivateIpAddresses:
+                - Primary: '{{ Primary }}'
+                  PrivateIpAddress: '{{ PrivateIpAddress }}'
+              SecondaryPrivateIpAddressCount: '{{ SecondaryPrivateIpAddressCount }}'
+              Ipv4Prefixes:
+                - Ipv4Prefix: '{{ Ipv4Prefix }}'
+              Ipv4PrefixCount: '{{ Ipv4PrefixCount }}'
+              GroupSet:
+                - '{{ GroupSet[0] }}'
+              Ipv6Addresses:
+                - Ipv6Address: '{{ Ipv6Address }}'
+              Ipv6Prefixes:
+                - Ipv6Prefix: '{{ Ipv6Prefix }}'
+              Ipv6PrefixCount: '{{ Ipv6PrefixCount }}'
+              SubnetId: '{{ SubnetId }}'
+              SourceDestCheck: '{{ SourceDestCheck }}'
+              InterfaceType: '{{ InterfaceType }}'
+              Ipv6AddressCount: '{{ Ipv6AddressCount }}'
+              EnablePrimaryIpv6: '{{ EnablePrimaryIpv6 }}'
+              ConnectionTrackingSpecification:
+                TcpEstablishedTimeout: '{{ TcpEstablishedTimeout }}'
+                UdpStreamTimeout: '{{ UdpStreamTimeout }}'
+                UdpTimeout: '{{ UdpTimeout }}'
+              Tags:
+                - null
+          EnclaveOptions:
+            Enabled: '{{ Enabled }}'
+          ImageId: '{{ ImageId }}'
+          InstanceType: '{{ InstanceType }}'
+          Monitoring:
+            Enabled: '{{ Enabled }}'
+          HibernationOptions:
+            Configured: '{{ Configured }}'
+          MetadataOptions:
+            HttpPutResponseHopLimit: '{{ HttpPutResponseHopLimit }}'
+            HttpTokens: '{{ HttpTokens }}'
+            HttpProtocolIpv6: '{{ HttpProtocolIpv6 }}'
+            InstanceMetadataTags: '{{ InstanceMetadataTags }}'
+            HttpEndpoint: '{{ HttpEndpoint }}'
+          LicenseSpecifications:
+            - LicenseConfigurationArn: '{{ LicenseConfigurationArn }}'
+          InstanceInitiatedShutdownBehavior: '{{ InstanceInitiatedShutdownBehavior }}'
+          DisableApiStop: '{{ DisableApiStop }}'
+          CpuOptions:
+            ThreadsPerCore: '{{ ThreadsPerCore }}'
+            AmdSevSnp: '{{ AmdSevSnp }}'
+            CoreCount: '{{ CoreCount }}'
+          PrivateDnsNameOptions:
+            EnableResourceNameDnsARecord: '{{ EnableResourceNameDnsARecord }}'
+            HostnameType: '{{ HostnameType }}'
+            EnableResourceNameDnsAAAARecord: '{{ EnableResourceNameDnsAAAARecord }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          KeyName: '{{ KeyName }}'
+          DisableApiTermination: '{{ DisableApiTermination }}'
+          InstanceMarketOptions:
+            SpotOptions:
+              SpotInstanceType: '{{ SpotInstanceType }}'
+              InstanceInterruptionBehavior: '{{ InstanceInterruptionBehavior }}'
+              MaxPrice: '{{ MaxPrice }}'
+              BlockDurationMinutes: '{{ BlockDurationMinutes }}'
+              ValidUntil: '{{ ValidUntil }}'
+            MarketType: '{{ MarketType }}'
+          InstanceRequirements:
+            LocalStorageTypes:
+              - '{{ LocalStorageTypes[0] }}'
+            InstanceGenerations:
+              - '{{ InstanceGenerations[0] }}'
+            NetworkInterfaceCount:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            MemoryGiBPerVCpu:
+              Min: null
+              Max: null
+            AcceleratorTypes:
+              - '{{ AcceleratorTypes[0] }}'
+            VCpuCount:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            ExcludedInstanceTypes:
+              - '{{ ExcludedInstanceTypes[0] }}'
+            AcceleratorManufacturers:
+              - '{{ AcceleratorManufacturers[0] }}'
+            AllowedInstanceTypes:
+              - '{{ AllowedInstanceTypes[0] }}'
+            LocalStorage: '{{ LocalStorage }}'
+            CpuManufacturers:
+              - '{{ CpuManufacturers[0] }}'
+            AcceleratorCount:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            NetworkBandwidthGbps:
+              Min: null
+              Max: null
+            BareMetal: '{{ BareMetal }}'
+            RequireHibernateSupport: '{{ RequireHibernateSupport }}'
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: '{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}'
+            SpotMaxPricePercentageOverLowestPrice: '{{ SpotMaxPricePercentageOverLowestPrice }}'
+            BaselineEbsBandwidthMbps:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            OnDemandMaxPricePercentageOverLowestPrice: '{{ OnDemandMaxPricePercentageOverLowestPrice }}'
+            AcceleratorNames:
+              - '{{ AcceleratorNames[0] }}'
+            AcceleratorTotalMemoryMiB:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            BurstablePerformance: '{{ BurstablePerformance }}'
+            MemoryMiB:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            TotalLocalStorageGB:
+              Min: null
+              Max: null
+          RamDiskId: '{{ RamDiskId }}'
+          CapacityReservationSpecification:
+            CapacityReservationPreference: '{{ CapacityReservationPreference }}'
+            CapacityReservationTarget:
+              CapacityReservationResourceGroupArn: '{{ CapacityReservationResourceGroupArn }}'
+              CapacityReservationId: '{{ CapacityReservationId }}'
+          CreditSpecification:
+            CpuCredits: '{{ CpuCredits }}'
+      - name: VersionDescription
+        value: '{{ VersionDescription }}'
+      - name: TagSpecifications
+        value:
+          - ResourceType: '{{ ResourceType }}'
+            Tags:
+              - null
+
 ```
 </TabItem>
 </Tabs>

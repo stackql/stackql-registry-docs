@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>image_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ImageName": "{{ ImageName }}",
- "BaseImage": "{{ BaseImage }}"
-}
->>>
---required properties only
+-- image_version.iql (required properties only)
 INSERT INTO aws.sagemaker.image_versions (
  ImageName,
  BaseImage,
  region
 )
 SELECT 
-{{ .ImageName }},
- {{ .BaseImage }},
-'us-east-1';
+'{{ ImageName }}',
+ '{{ BaseImage }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ImageName": "{{ ImageName }}",
- "BaseImage": "{{ BaseImage }}",
- "Alias": "{{ Alias }}",
- "Aliases": [
-  null
- ],
- "VendorGuidance": "{{ VendorGuidance }}",
- "JobType": "{{ JobType }}",
- "MLFramework": "{{ MLFramework }}",
- "ProgrammingLang": "{{ ProgrammingLang }}",
- "Processor": "{{ Processor }}",
- "Horovod": "{{ Horovod }}",
- "ReleaseNotes": "{{ ReleaseNotes }}"
-}
->>>
---all properties
+-- image_version.iql (all properties)
 INSERT INTO aws.sagemaker.image_versions (
  ImageName,
  BaseImage,
@@ -138,18 +118,58 @@ INSERT INTO aws.sagemaker.image_versions (
  region
 )
 SELECT 
- {{ .ImageName }},
- {{ .BaseImage }},
- {{ .Alias }},
- {{ .Aliases }},
- {{ .VendorGuidance }},
- {{ .JobType }},
- {{ .MLFramework }},
- {{ .ProgrammingLang }},
- {{ .Processor }},
- {{ .Horovod }},
- {{ .ReleaseNotes }},
- 'us-east-1';
+ '{{ ImageName }}',
+ '{{ BaseImage }}',
+ '{{ Alias }}',
+ '{{ Aliases }}',
+ '{{ VendorGuidance }}',
+ '{{ JobType }}',
+ '{{ MLFramework }}',
+ '{{ ProgrammingLang }}',
+ '{{ Processor }}',
+ '{{ Horovod }}',
+ '{{ ReleaseNotes }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: image_version
+    props:
+      - name: ImageName
+        value: '{{ ImageName }}'
+      - name: BaseImage
+        value: '{{ BaseImage }}'
+      - name: Alias
+        value: '{{ Alias }}'
+      - name: Aliases
+        value:
+          - null
+      - name: VendorGuidance
+        value: '{{ VendorGuidance }}'
+      - name: JobType
+        value: '{{ JobType }}'
+      - name: MLFramework
+        value: '{{ MLFramework }}'
+      - name: ProgrammingLang
+        value: '{{ ProgrammingLang }}'
+      - name: Processor
+        value: '{{ Processor }}'
+      - name: Horovod
+        value: '{{ Horovod }}'
+      - name: ReleaseNotes
+        value: '{{ ReleaseNotes }}'
+
 ```
 </TabItem>
 </Tabs>

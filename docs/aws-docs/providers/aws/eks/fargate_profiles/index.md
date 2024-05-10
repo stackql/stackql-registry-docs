@@ -76,34 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>fargate_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "PodExecutionRoleArn": "{{ PodExecutionRoleArn }}",
- "Selectors": [
-  {
-   "Namespace": "{{ Namespace }}",
-   "Labels": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ]
-}
->>>
---required properties only
+-- fargate_profile.iql (required properties only)
 INSERT INTO aws.eks.fargate_profiles (
  ClusterName,
  PodExecutionRoleArn,
@@ -111,43 +97,16 @@ INSERT INTO aws.eks.fargate_profiles (
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .PodExecutionRoleArn }},
- {{ .Selectors }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ PodExecutionRoleArn }}',
+ '{{ Selectors }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "FargateProfileName": "{{ FargateProfileName }}",
- "PodExecutionRoleArn": "{{ PodExecutionRoleArn }}",
- "Subnets": [
-  "{{ Subnets[0] }}"
- ],
- "Selectors": [
-  {
-   "Namespace": "{{ Namespace }}",
-   "Labels": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- fargate_profile.iql (all properties)
 INSERT INTO aws.eks.fargate_profiles (
  ClusterName,
  FargateProfileName,
@@ -158,13 +117,49 @@ INSERT INTO aws.eks.fargate_profiles (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .FargateProfileName }},
- {{ .PodExecutionRoleArn }},
- {{ .Subnets }},
- {{ .Selectors }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ FargateProfileName }}',
+ '{{ PodExecutionRoleArn }}',
+ '{{ Subnets }}',
+ '{{ Selectors }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: fargate_profile
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: FargateProfileName
+        value: '{{ FargateProfileName }}'
+      - name: PodExecutionRoleArn
+        value: '{{ PodExecutionRoleArn }}'
+      - name: Subnets
+        value:
+          - '{{ Subnets[0] }}'
+      - name: Selectors
+        value:
+          - Namespace: '{{ Namespace }}'
+            Labels:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

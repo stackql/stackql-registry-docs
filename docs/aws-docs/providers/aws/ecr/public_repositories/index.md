@@ -74,40 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>public_repository</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RepositoryName": "{{ RepositoryName }}",
- "RepositoryPolicyText": {},
- "RepositoryCatalogData": {
-  "RepositoryDescription": "{{ RepositoryDescription }}",
-  "Architectures": [
-   "{{ Architectures[0] }}"
-  ],
-  "OperatingSystems": [
-   "{{ OperatingSystems[0] }}"
-  ],
-  "AboutText": "{{ AboutText }}",
-  "UsageText": "{{ UsageText }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- public_repository.iql (required properties only)
 INSERT INTO aws.ecr.public_repositories (
  RepositoryName,
  RepositoryPolicyText,
@@ -116,40 +96,17 @@ INSERT INTO aws.ecr.public_repositories (
  region
 )
 SELECT 
-{{ .RepositoryName }},
- {{ .RepositoryPolicyText }},
- {{ .RepositoryCatalogData }},
- {{ .Tags }},
-'us-east-1';
+'{{ RepositoryName }}',
+ '{{ RepositoryPolicyText }}',
+ '{{ RepositoryCatalogData }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RepositoryName": "{{ RepositoryName }}",
- "RepositoryPolicyText": {},
- "RepositoryCatalogData": {
-  "RepositoryDescription": "{{ RepositoryDescription }}",
-  "Architectures": [
-   "{{ Architectures[0] }}"
-  ],
-  "OperatingSystems": [
-   "{{ OperatingSystems[0] }}"
-  ],
-  "AboutText": "{{ AboutText }}",
-  "UsageText": "{{ UsageText }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- public_repository.iql (all properties)
 INSERT INTO aws.ecr.public_repositories (
  RepositoryName,
  RepositoryPolicyText,
@@ -158,11 +115,45 @@ INSERT INTO aws.ecr.public_repositories (
  region
 )
 SELECT 
- {{ .RepositoryName }},
- {{ .RepositoryPolicyText }},
- {{ .RepositoryCatalogData }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ RepositoryName }}',
+ '{{ RepositoryPolicyText }}',
+ '{{ RepositoryCatalogData }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: public_repository
+    props:
+      - name: RepositoryName
+        value: '{{ RepositoryName }}'
+      - name: RepositoryPolicyText
+        value: {}
+      - name: RepositoryCatalogData
+        value:
+          RepositoryDescription: '{{ RepositoryDescription }}'
+          Architectures:
+            - '{{ Architectures[0] }}'
+          OperatingSystems:
+            - '{{ OperatingSystems[0] }}'
+          AboutText: '{{ AboutText }}'
+          UsageText: '{{ UsageText }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

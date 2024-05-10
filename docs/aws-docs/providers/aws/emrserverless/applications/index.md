@@ -74,103 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ReleaseLabel": "{{ ReleaseLabel }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.emrserverless.applications (
  ReleaseLabel,
  Type,
  region
 )
 SELECT 
-{{ .ReleaseLabel }},
- {{ .Type }},
-'us-east-1';
+'{{ ReleaseLabel }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Architecture": "{{ Architecture }}",
- "Name": "{{ Name }}",
- "ReleaseLabel": "{{ ReleaseLabel }}",
- "Type": "{{ Type }}",
- "InitialCapacity": [
-  {
-   "Key": "{{ Key }}",
-   "Value": {
-    "WorkerCount": "{{ WorkerCount }}",
-    "WorkerConfiguration": {
-     "Cpu": "{{ Cpu }}",
-     "Memory": "{{ Memory }}",
-     "Disk": "{{ Disk }}"
-    }
-   }
-  }
- ],
- "MaximumCapacity": {
-  "Cpu": null,
-  "Memory": null,
-  "Disk": null
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AutoStartConfiguration": {
-  "Enabled": "{{ Enabled }}"
- },
- "AutoStopConfiguration": {
-  "Enabled": "{{ Enabled }}",
-  "IdleTimeoutMinutes": "{{ IdleTimeoutMinutes }}"
- },
- "ImageConfiguration": {
-  "ImageUri": "{{ ImageUri }}"
- },
- "MonitoringConfiguration": {
-  "S3MonitoringConfiguration": null,
-  "ManagedPersistenceMonitoringConfiguration": null,
-  "CloudWatchLoggingConfiguration": null
- },
- "RuntimeConfiguration": [
-  {
-   "Classification": "{{ Classification }}",
-   "Properties": {},
-   "Configurations": [
-    null
-   ]
-  }
- ],
- "NetworkConfiguration": {
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ],
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ]
- },
- "WorkerTypeSpecifications": {}
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.emrserverless.applications (
  Architecture,
  Name,
@@ -189,21 +121,93 @@ INSERT INTO aws.emrserverless.applications (
  region
 )
 SELECT 
- {{ .Architecture }},
- {{ .Name }},
- {{ .ReleaseLabel }},
- {{ .Type }},
- {{ .InitialCapacity }},
- {{ .MaximumCapacity }},
- {{ .Tags }},
- {{ .AutoStartConfiguration }},
- {{ .AutoStopConfiguration }},
- {{ .ImageConfiguration }},
- {{ .MonitoringConfiguration }},
- {{ .RuntimeConfiguration }},
- {{ .NetworkConfiguration }},
- {{ .WorkerTypeSpecifications }},
- 'us-east-1';
+ '{{ Architecture }}',
+ '{{ Name }}',
+ '{{ ReleaseLabel }}',
+ '{{ Type }}',
+ '{{ InitialCapacity }}',
+ '{{ MaximumCapacity }}',
+ '{{ Tags }}',
+ '{{ AutoStartConfiguration }}',
+ '{{ AutoStopConfiguration }}',
+ '{{ ImageConfiguration }}',
+ '{{ MonitoringConfiguration }}',
+ '{{ RuntimeConfiguration }}',
+ '{{ NetworkConfiguration }}',
+ '{{ WorkerTypeSpecifications }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: Architecture
+        value: '{{ Architecture }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ReleaseLabel
+        value: '{{ ReleaseLabel }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: InitialCapacity
+        value:
+          - Key: '{{ Key }}'
+            Value:
+              WorkerCount: '{{ WorkerCount }}'
+              WorkerConfiguration:
+                Cpu: '{{ Cpu }}'
+                Memory: '{{ Memory }}'
+                Disk: '{{ Disk }}'
+      - name: MaximumCapacity
+        value:
+          Cpu: null
+          Memory: null
+          Disk: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AutoStartConfiguration
+        value:
+          Enabled: '{{ Enabled }}'
+      - name: AutoStopConfiguration
+        value:
+          Enabled: '{{ Enabled }}'
+          IdleTimeoutMinutes: '{{ IdleTimeoutMinutes }}'
+      - name: ImageConfiguration
+        value:
+          ImageUri: '{{ ImageUri }}'
+      - name: MonitoringConfiguration
+        value:
+          S3MonitoringConfiguration: null
+          ManagedPersistenceMonitoringConfiguration: null
+          CloudWatchLoggingConfiguration: null
+      - name: RuntimeConfiguration
+        value:
+          - Classification: '{{ Classification }}'
+            Properties: {}
+            Configurations:
+              - null
+      - name: NetworkConfiguration
+        value:
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+      - name: WorkerTypeSpecifications
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_point</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Bucket": "{{ Bucket }}",
- "Name": "{{ Name }}",
- "VpcConfiguration": {
-  "VpcId": "{{ VpcId }}"
- }
-}
->>>
---required properties only
+-- access_point.iql (required properties only)
 INSERT INTO aws.s3outposts.access_points (
  Bucket,
  Name,
@@ -101,26 +95,16 @@ INSERT INTO aws.s3outposts.access_points (
  region
 )
 SELECT 
-{{ .Bucket }},
- {{ .Name }},
- {{ .VpcConfiguration }},
-'us-east-1';
+'{{ Bucket }}',
+ '{{ Name }}',
+ '{{ VpcConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Bucket": "{{ Bucket }}",
- "Name": "{{ Name }}",
- "VpcConfiguration": {
-  "VpcId": "{{ VpcId }}"
- },
- "Policy": {}
-}
->>>
---all properties
+-- access_point.iql (all properties)
 INSERT INTO aws.s3outposts.access_points (
  Bucket,
  Name,
@@ -129,11 +113,37 @@ INSERT INTO aws.s3outposts.access_points (
  region
 )
 SELECT 
- {{ .Bucket }},
- {{ .Name }},
- {{ .VpcConfiguration }},
- {{ .Policy }},
- 'us-east-1';
+ '{{ Bucket }}',
+ '{{ Name }}',
+ '{{ VpcConfiguration }}',
+ '{{ Policy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_point
+    props:
+      - name: Bucket
+        value: '{{ Bucket }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: VpcConfiguration
+        value:
+          VpcId: '{{ VpcId }}'
+      - name: Policy
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

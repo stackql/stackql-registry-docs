@@ -74,144 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>alarm_model</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RoleArn": "{{ RoleArn }}",
- "AlarmRule": {
-  "SimpleRule": {
-   "InputProperty": "{{ InputProperty }}",
-   "ComparisonOperator": "{{ ComparisonOperator }}",
-   "Threshold": "{{ Threshold }}"
-  }
- }
-}
->>>
---required properties only
+-- alarm_model.iql (required properties only)
 INSERT INTO aws.iotevents.alarm_models (
  RoleArn,
  AlarmRule,
  region
 )
 SELECT 
-{{ .RoleArn }},
- {{ .AlarmRule }},
-'us-east-1';
+'{{ RoleArn }}',
+ '{{ AlarmRule }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AlarmModelName": "{{ AlarmModelName }}",
- "AlarmModelDescription": "{{ AlarmModelDescription }}",
- "RoleArn": "{{ RoleArn }}",
- "Key": "{{ Key }}",
- "Severity": "{{ Severity }}",
- "AlarmRule": {
-  "SimpleRule": {
-   "InputProperty": "{{ InputProperty }}",
-   "ComparisonOperator": "{{ ComparisonOperator }}",
-   "Threshold": "{{ Threshold }}"
-  }
- },
- "AlarmEventActions": {
-  "AlarmActions": [
-   {
-    "DynamoDB": {
-     "HashKeyField": "{{ HashKeyField }}",
-     "HashKeyType": "{{ HashKeyType }}",
-     "HashKeyValue": "{{ HashKeyValue }}",
-     "Operation": "{{ Operation }}",
-     "Payload": {
-      "ContentExpression": "{{ ContentExpression }}",
-      "Type": "{{ Type }}"
-     },
-     "PayloadField": "{{ PayloadField }}",
-     "RangeKeyField": "{{ RangeKeyField }}",
-     "RangeKeyType": "{{ RangeKeyType }}",
-     "RangeKeyValue": "{{ RangeKeyValue }}",
-     "TableName": "{{ TableName }}"
-    },
-    "DynamoDBv2": {
-     "Payload": null,
-     "TableName": "{{ TableName }}"
-    },
-    "Firehose": {
-     "DeliveryStreamName": "{{ DeliveryStreamName }}",
-     "Payload": null,
-     "Separator": "{{ Separator }}"
-    },
-    "IotEvents": {
-     "InputName": "{{ InputName }}",
-     "Payload": null
-    },
-    "IotSiteWise": {
-     "AssetId": "{{ AssetId }}",
-     "EntryId": "{{ EntryId }}",
-     "PropertyAlias": "{{ PropertyAlias }}",
-     "PropertyId": "{{ PropertyId }}",
-     "PropertyValue": {
-      "Quality": "{{ Quality }}",
-      "Timestamp": {
-       "OffsetInNanos": "{{ OffsetInNanos }}",
-       "TimeInSeconds": "{{ TimeInSeconds }}"
-      },
-      "Value": {
-       "BooleanValue": "{{ BooleanValue }}",
-       "DoubleValue": "{{ DoubleValue }}",
-       "IntegerValue": "{{ IntegerValue }}",
-       "StringValue": "{{ StringValue }}"
-      }
-     }
-    },
-    "IotTopicPublish": {
-     "MqttTopic": "{{ MqttTopic }}",
-     "Payload": null
-    },
-    "Lambda": {
-     "FunctionArn": "{{ FunctionArn }}",
-     "Payload": null
-    },
-    "Sns": {
-     "Payload": null,
-     "TargetArn": "{{ TargetArn }}"
-    },
-    "Sqs": {
-     "Payload": null,
-     "QueueUrl": "{{ QueueUrl }}",
-     "UseBase64": "{{ UseBase64 }}"
-    }
-   }
-  ]
- },
- "AlarmCapabilities": {
-  "InitializationConfiguration": {
-   "DisabledOnInitialization": "{{ DisabledOnInitialization }}"
-  },
-  "AcknowledgeFlow": {
-   "Enabled": "{{ Enabled }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- alarm_model.iql (all properties)
 INSERT INTO aws.iotevents.alarm_models (
  AlarmModelName,
  AlarmModelDescription,
@@ -225,16 +116,113 @@ INSERT INTO aws.iotevents.alarm_models (
  region
 )
 SELECT 
- {{ .AlarmModelName }},
- {{ .AlarmModelDescription }},
- {{ .RoleArn }},
- {{ .Key }},
- {{ .Severity }},
- {{ .AlarmRule }},
- {{ .AlarmEventActions }},
- {{ .AlarmCapabilities }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AlarmModelName }}',
+ '{{ AlarmModelDescription }}',
+ '{{ RoleArn }}',
+ '{{ Key }}',
+ '{{ Severity }}',
+ '{{ AlarmRule }}',
+ '{{ AlarmEventActions }}',
+ '{{ AlarmCapabilities }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: alarm_model
+    props:
+      - name: AlarmModelName
+        value: '{{ AlarmModelName }}'
+      - name: AlarmModelDescription
+        value: '{{ AlarmModelDescription }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Key
+        value: '{{ Key }}'
+      - name: Severity
+        value: '{{ Severity }}'
+      - name: AlarmRule
+        value:
+          SimpleRule:
+            InputProperty: '{{ InputProperty }}'
+            ComparisonOperator: '{{ ComparisonOperator }}'
+            Threshold: '{{ Threshold }}'
+      - name: AlarmEventActions
+        value:
+          AlarmActions:
+            - DynamoDB:
+                HashKeyField: '{{ HashKeyField }}'
+                HashKeyType: '{{ HashKeyType }}'
+                HashKeyValue: '{{ HashKeyValue }}'
+                Operation: '{{ Operation }}'
+                Payload:
+                  ContentExpression: '{{ ContentExpression }}'
+                  Type: '{{ Type }}'
+                PayloadField: '{{ PayloadField }}'
+                RangeKeyField: '{{ RangeKeyField }}'
+                RangeKeyType: '{{ RangeKeyType }}'
+                RangeKeyValue: '{{ RangeKeyValue }}'
+                TableName: '{{ TableName }}'
+              DynamoDBv2:
+                Payload: null
+                TableName: '{{ TableName }}'
+              Firehose:
+                DeliveryStreamName: '{{ DeliveryStreamName }}'
+                Payload: null
+                Separator: '{{ Separator }}'
+              IotEvents:
+                InputName: '{{ InputName }}'
+                Payload: null
+              IotSiteWise:
+                AssetId: '{{ AssetId }}'
+                EntryId: '{{ EntryId }}'
+                PropertyAlias: '{{ PropertyAlias }}'
+                PropertyId: '{{ PropertyId }}'
+                PropertyValue:
+                  Quality: '{{ Quality }}'
+                  Timestamp:
+                    OffsetInNanos: '{{ OffsetInNanos }}'
+                    TimeInSeconds: '{{ TimeInSeconds }}'
+                  Value:
+                    BooleanValue: '{{ BooleanValue }}'
+                    DoubleValue: '{{ DoubleValue }}'
+                    IntegerValue: '{{ IntegerValue }}'
+                    StringValue: '{{ StringValue }}'
+              IotTopicPublish:
+                MqttTopic: '{{ MqttTopic }}'
+                Payload: null
+              Lambda:
+                FunctionArn: '{{ FunctionArn }}'
+                Payload: null
+              Sns:
+                Payload: null
+                TargetArn: '{{ TargetArn }}'
+              Sqs:
+                Payload: null
+                QueueUrl: '{{ QueueUrl }}'
+                UseBase64: '{{ UseBase64 }}'
+      - name: AlarmCapabilities
+        value:
+          InitializationConfiguration:
+            DisabledOnInitialization: '{{ DisabledOnInitialization }}'
+          AcknowledgeFlow:
+            Enabled: '{{ Enabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

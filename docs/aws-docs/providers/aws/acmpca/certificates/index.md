@@ -76,28 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>certificate</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "CertificateSigningRequest": "{{ CertificateSigningRequest }}",
- "SigningAlgorithm": "{{ SigningAlgorithm }}",
- "Validity": {
-  "Value": null,
-  "Type": "{{ Type }}"
- }
-}
->>>
---required properties only
+-- certificate.iql (required properties only)
 INSERT INTO aws.acmpca.certificates (
  CertificateAuthorityArn,
  CertificateSigningRequest,
@@ -106,111 +98,17 @@ INSERT INTO aws.acmpca.certificates (
  region
 )
 SELECT 
-{{ .CertificateAuthorityArn }},
- {{ .CertificateSigningRequest }},
- {{ .SigningAlgorithm }},
- {{ .Validity }},
-'us-east-1';
+'{{ CertificateAuthorityArn }}',
+ '{{ CertificateSigningRequest }}',
+ '{{ SigningAlgorithm }}',
+ '{{ Validity }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApiPassthrough": {
-  "Extensions": {
-   "CertificatePolicies": [
-    {
-     "CertPolicyId": "{{ CertPolicyId }}",
-     "PolicyQualifiers": [
-      {
-       "PolicyQualifierId": "{{ PolicyQualifierId }}",
-       "Qualifier": {
-        "CpsUri": "{{ CpsUri }}"
-       }
-      }
-     ]
-    }
-   ],
-   "ExtendedKeyUsage": [
-    {
-     "ExtendedKeyUsageType": "{{ ExtendedKeyUsageType }}",
-     "ExtendedKeyUsageObjectIdentifier": null
-    }
-   ],
-   "KeyUsage": {
-    "DigitalSignature": "{{ DigitalSignature }}",
-    "NonRepudiation": "{{ NonRepudiation }}",
-    "KeyEncipherment": "{{ KeyEncipherment }}",
-    "DataEncipherment": "{{ DataEncipherment }}",
-    "KeyAgreement": "{{ KeyAgreement }}",
-    "KeyCertSign": "{{ KeyCertSign }}",
-    "CRLSign": "{{ CRLSign }}",
-    "EncipherOnly": "{{ EncipherOnly }}",
-    "DecipherOnly": "{{ DecipherOnly }}"
-   },
-   "SubjectAlternativeNames": [
-    {
-     "OtherName": {
-      "TypeId": null,
-      "Value": "{{ Value }}"
-     },
-     "Rfc822Name": "{{ Rfc822Name }}",
-     "DnsName": "{{ DnsName }}",
-     "DirectoryName": {
-      "Country": "{{ Country }}",
-      "Organization": "{{ Organization }}",
-      "OrganizationalUnit": "{{ OrganizationalUnit }}",
-      "DistinguishedNameQualifier": "{{ DistinguishedNameQualifier }}",
-      "State": "{{ State }}",
-      "CommonName": "{{ CommonName }}",
-      "SerialNumber": "{{ SerialNumber }}",
-      "Locality": "{{ Locality }}",
-      "Title": "{{ Title }}",
-      "Surname": "{{ Surname }}",
-      "GivenName": "{{ GivenName }}",
-      "Initials": "{{ Initials }}",
-      "Pseudonym": "{{ Pseudonym }}",
-      "GenerationQualifier": "{{ GenerationQualifier }}",
-      "CustomAttributes": [
-       {
-        "ObjectIdentifier": null,
-        "Value": "{{ Value }}"
-       }
-      ]
-     },
-     "EdiPartyName": {
-      "PartyName": "{{ PartyName }}",
-      "NameAssigner": "{{ NameAssigner }}"
-     },
-     "UniformResourceIdentifier": "{{ UniformResourceIdentifier }}",
-     "IpAddress": "{{ IpAddress }}",
-     "RegisteredId": null
-    }
-   ],
-   "CustomExtensions": [
-    {
-     "Critical": "{{ Critical }}",
-     "ObjectIdentifier": null,
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "Subject": null
- },
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "CertificateSigningRequest": "{{ CertificateSigningRequest }}",
- "SigningAlgorithm": "{{ SigningAlgorithm }}",
- "TemplateArn": null,
- "Validity": {
-  "Value": null,
-  "Type": "{{ Type }}"
- },
- "ValidityNotBefore": null
-}
->>>
---all properties
+-- certificate.iql (all properties)
 INSERT INTO aws.acmpca.certificates (
  ApiPassthrough,
  CertificateAuthorityArn,
@@ -222,14 +120,102 @@ INSERT INTO aws.acmpca.certificates (
  region
 )
 SELECT 
- {{ .ApiPassthrough }},
- {{ .CertificateAuthorityArn }},
- {{ .CertificateSigningRequest }},
- {{ .SigningAlgorithm }},
- {{ .TemplateArn }},
- {{ .Validity }},
- {{ .ValidityNotBefore }},
- 'us-east-1';
+ '{{ ApiPassthrough }}',
+ '{{ CertificateAuthorityArn }}',
+ '{{ CertificateSigningRequest }}',
+ '{{ SigningAlgorithm }}',
+ '{{ TemplateArn }}',
+ '{{ Validity }}',
+ '{{ ValidityNotBefore }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: certificate
+    props:
+      - name: ApiPassthrough
+        value:
+          Extensions:
+            CertificatePolicies:
+              - CertPolicyId: '{{ CertPolicyId }}'
+                PolicyQualifiers:
+                  - PolicyQualifierId: '{{ PolicyQualifierId }}'
+                    Qualifier:
+                      CpsUri: '{{ CpsUri }}'
+            ExtendedKeyUsage:
+              - ExtendedKeyUsageType: '{{ ExtendedKeyUsageType }}'
+                ExtendedKeyUsageObjectIdentifier: null
+            KeyUsage:
+              DigitalSignature: '{{ DigitalSignature }}'
+              NonRepudiation: '{{ NonRepudiation }}'
+              KeyEncipherment: '{{ KeyEncipherment }}'
+              DataEncipherment: '{{ DataEncipherment }}'
+              KeyAgreement: '{{ KeyAgreement }}'
+              KeyCertSign: '{{ KeyCertSign }}'
+              CRLSign: '{{ CRLSign }}'
+              EncipherOnly: '{{ EncipherOnly }}'
+              DecipherOnly: '{{ DecipherOnly }}'
+            SubjectAlternativeNames:
+              - OtherName:
+                  TypeId: null
+                  Value: '{{ Value }}'
+                Rfc822Name: '{{ Rfc822Name }}'
+                DnsName: '{{ DnsName }}'
+                DirectoryName:
+                  Country: '{{ Country }}'
+                  Organization: '{{ Organization }}'
+                  OrganizationalUnit: '{{ OrganizationalUnit }}'
+                  DistinguishedNameQualifier: '{{ DistinguishedNameQualifier }}'
+                  State: '{{ State }}'
+                  CommonName: '{{ CommonName }}'
+                  SerialNumber: '{{ SerialNumber }}'
+                  Locality: '{{ Locality }}'
+                  Title: '{{ Title }}'
+                  Surname: '{{ Surname }}'
+                  GivenName: '{{ GivenName }}'
+                  Initials: '{{ Initials }}'
+                  Pseudonym: '{{ Pseudonym }}'
+                  GenerationQualifier: '{{ GenerationQualifier }}'
+                  CustomAttributes:
+                    - ObjectIdentifier: null
+                      Value: '{{ Value }}'
+                EdiPartyName:
+                  PartyName: '{{ PartyName }}'
+                  NameAssigner: '{{ NameAssigner }}'
+                UniformResourceIdentifier: '{{ UniformResourceIdentifier }}'
+                IpAddress: '{{ IpAddress }}'
+                RegisteredId: null
+            CustomExtensions:
+              - Critical: '{{ Critical }}'
+                ObjectIdentifier: null
+                Value: '{{ Value }}'
+          Subject: null
+      - name: CertificateAuthorityArn
+        value: '{{ CertificateAuthorityArn }}'
+      - name: CertificateSigningRequest
+        value: '{{ CertificateSigningRequest }}'
+      - name: SigningAlgorithm
+        value: '{{ SigningAlgorithm }}'
+      - name: TemplateArn
+        value: null
+      - name: Validity
+        value:
+          Value: null
+          Type: '{{ Type }}'
+      - name: ValidityNotBefore
+        value: null
+
 ```
 </TabItem>
 </Tabs>

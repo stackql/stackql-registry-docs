@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>rule_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RuleGroupName": "{{ RuleGroupName }}",
- "Type": "{{ Type }}",
- "Capacity": "{{ Capacity }}"
-}
->>>
---required properties only
+-- rule_group.iql (required properties only)
 INSERT INTO aws.networkfirewall.rule_groups (
  RuleGroupName,
  Type,
@@ -99,40 +95,16 @@ INSERT INTO aws.networkfirewall.rule_groups (
  region
 )
 SELECT 
-{{ .RuleGroupName }},
- {{ .Type }},
- {{ .Capacity }},
-'us-east-1';
+'{{ RuleGroupName }}',
+ '{{ Type }}',
+ '{{ Capacity }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RuleGroupName": "{{ RuleGroupName }}",
- "RuleGroup": {
-  "RuleGroupName": "{{ RuleGroupName }}",
-  "RuleGroup": null,
-  "Type": "{{ Type }}",
-  "Capacity": "{{ Capacity }}",
-  "Description": "{{ Description }}",
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "Type": "{{ Type }}",
- "Capacity": "{{ Capacity }}",
- "Description": "{{ Description }}",
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- rule_group.iql (all properties)
 INSERT INTO aws.networkfirewall.rule_groups (
  RuleGroupName,
  RuleGroup,
@@ -143,13 +115,51 @@ INSERT INTO aws.networkfirewall.rule_groups (
  region
 )
 SELECT 
- {{ .RuleGroupName }},
- {{ .RuleGroup }},
- {{ .Type }},
- {{ .Capacity }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ RuleGroupName }}',
+ '{{ RuleGroup }}',
+ '{{ Type }}',
+ '{{ Capacity }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: rule_group
+    props:
+      - name: RuleGroupName
+        value: '{{ RuleGroupName }}'
+      - name: RuleGroup
+        value:
+          RuleGroupName: '{{ RuleGroupName }}'
+          RuleGroup: null
+          Type: '{{ Type }}'
+          Capacity: '{{ Capacity }}'
+          Description: '{{ Description }}'
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Capacity
+        value: '{{ Capacity }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

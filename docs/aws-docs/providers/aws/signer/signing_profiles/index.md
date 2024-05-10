@@ -74,50 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>signing_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PlatformId": "{{ PlatformId }}"
-}
->>>
---required properties only
+-- signing_profile.iql (required properties only)
 INSERT INTO aws.signer.signing_profiles (
  PlatformId,
  region
 )
 SELECT 
-{{ .PlatformId }},
-'us-east-1';
+'{{ PlatformId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SignatureValidityPeriod": {
-  "Value": "{{ Value }}",
-  "Type": "{{ Type }}"
- },
- "PlatformId": "{{ PlatformId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- signing_profile.iql (all properties)
 INSERT INTO aws.signer.signing_profiles (
  SignatureValidityPeriod,
  PlatformId,
@@ -125,10 +108,37 @@ INSERT INTO aws.signer.signing_profiles (
  region
 )
 SELECT 
- {{ .SignatureValidityPeriod }},
- {{ .PlatformId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SignatureValidityPeriod }}',
+ '{{ PlatformId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: signing_profile
+    props:
+      - name: SignatureValidityPeriod
+        value:
+          Value: '{{ Value }}'
+          Type: '{{ Type }}'
+      - name: PlatformId
+        value: '{{ PlatformId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

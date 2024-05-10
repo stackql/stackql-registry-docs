@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_integration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "KmsKey": "{{ KmsKey }}",
- "SourceURI": "{{ SourceURI }}"
-}
->>>
---required properties only
+-- data_integration.iql (required properties only)
 INSERT INTO aws.appintegrations.data_integrations (
  Name,
  KmsKey,
@@ -99,42 +95,16 @@ INSERT INTO aws.appintegrations.data_integrations (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .KmsKey }},
- {{ .SourceURI }},
-'us-east-1';
+'{{ Name }}',
+ '{{ KmsKey }}',
+ '{{ SourceURI }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "KmsKey": "{{ KmsKey }}",
- "ScheduleConfig": {
-  "FirstExecutionFrom": "{{ FirstExecutionFrom }}",
-  "Object": "{{ Object }}",
-  "ScheduleExpression": "{{ ScheduleExpression }}"
- },
- "SourceURI": "{{ SourceURI }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "FileConfiguration": {
-  "Folders": [
-   "{{ Folders[0] }}"
-  ],
-  "Filters": {}
- },
- "ObjectConfiguration": {}
-}
->>>
---all properties
+-- data_integration.iql (all properties)
 INSERT INTO aws.appintegrations.data_integrations (
  Description,
  Name,
@@ -147,15 +117,56 @@ INSERT INTO aws.appintegrations.data_integrations (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .KmsKey }},
- {{ .ScheduleConfig }},
- {{ .SourceURI }},
- {{ .Tags }},
- {{ .FileConfiguration }},
- {{ .ObjectConfiguration }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ KmsKey }}',
+ '{{ ScheduleConfig }}',
+ '{{ SourceURI }}',
+ '{{ Tags }}',
+ '{{ FileConfiguration }}',
+ '{{ ObjectConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_integration
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: KmsKey
+        value: '{{ KmsKey }}'
+      - name: ScheduleConfig
+        value:
+          FirstExecutionFrom: '{{ FirstExecutionFrom }}'
+          Object: '{{ Object }}'
+          ScheduleExpression: '{{ ScheduleExpression }}'
+      - name: SourceURI
+        value: '{{ SourceURI }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: FileConfiguration
+        value:
+          Folders:
+            - '{{ Folders[0] }}'
+          Filters: {}
+      - name: ObjectConfiguration
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

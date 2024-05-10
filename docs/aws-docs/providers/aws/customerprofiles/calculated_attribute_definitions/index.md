@@ -76,32 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>calculated_attribute_definition</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "CalculatedAttributeName": "{{ CalculatedAttributeName }}",
- "AttributeDetails": {
-  "Attributes": [
-   {
-    "Name": "{{ Name }}"
-   }
-  ],
-  "Expression": "{{ Expression }}"
- },
- "Statistic": "{{ Statistic }}"
-}
->>>
---required properties only
+-- calculated_attribute_definition.iql (required properties only)
 INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
  DomainName,
  CalculatedAttributeName,
@@ -110,51 +98,17 @@ INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .CalculatedAttributeName }},
- {{ .AttributeDetails }},
- {{ .Statistic }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ CalculatedAttributeName }}',
+ '{{ AttributeDetails }}',
+ '{{ Statistic }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "CalculatedAttributeName": "{{ CalculatedAttributeName }}",
- "DisplayName": "{{ DisplayName }}",
- "Description": "{{ Description }}",
- "AttributeDetails": {
-  "Attributes": [
-   {
-    "Name": "{{ Name }}"
-   }
-  ],
-  "Expression": "{{ Expression }}"
- },
- "Conditions": {
-  "Range": {
-   "Value": "{{ Value }}",
-   "Unit": "{{ Unit }}"
-  },
-  "ObjectCount": "{{ ObjectCount }}",
-  "Threshold": {
-   "Value": "{{ Value }}",
-   "Operator": "{{ Operator }}"
-  }
- },
- "Statistic": "{{ Statistic }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- calculated_attribute_definition.iql (all properties)
 INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
  DomainName,
  CalculatedAttributeName,
@@ -167,15 +121,60 @@ INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .CalculatedAttributeName }},
- {{ .DisplayName }},
- {{ .Description }},
- {{ .AttributeDetails }},
- {{ .Conditions }},
- {{ .Statistic }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ CalculatedAttributeName }}',
+ '{{ DisplayName }}',
+ '{{ Description }}',
+ '{{ AttributeDetails }}',
+ '{{ Conditions }}',
+ '{{ Statistic }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: calculated_attribute_definition
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: CalculatedAttributeName
+        value: '{{ CalculatedAttributeName }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: AttributeDetails
+        value:
+          Attributes:
+            - Name: '{{ Name }}'
+          Expression: '{{ Expression }}'
+      - name: Conditions
+        value:
+          Range:
+            Value: '{{ Value }}'
+            Unit: '{{ Unit }}'
+          ObjectCount: '{{ ObjectCount }}'
+          Threshold:
+            Value: '{{ Value }}'
+            Operator: '{{ Operator }}'
+      - name: Statistic
+        value: '{{ Statistic }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

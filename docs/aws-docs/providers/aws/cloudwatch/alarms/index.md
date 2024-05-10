@@ -74,101 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>alarm</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ComparisonOperator": "{{ ComparisonOperator }}",
- "EvaluationPeriods": "{{ EvaluationPeriods }}"
-}
->>>
---required properties only
+-- alarm.iql (required properties only)
 INSERT INTO aws.cloudwatch.alarms (
  ComparisonOperator,
  EvaluationPeriods,
  region
 )
 SELECT 
-{{ .ComparisonOperator }},
- {{ .EvaluationPeriods }},
-'us-east-1';
+'{{ ComparisonOperator }}',
+ '{{ EvaluationPeriods }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ThresholdMetricId": "{{ ThresholdMetricId }}",
- "EvaluateLowSampleCountPercentile": "{{ EvaluateLowSampleCountPercentile }}",
- "ExtendedStatistic": "{{ ExtendedStatistic }}",
- "ComparisonOperator": "{{ ComparisonOperator }}",
- "TreatMissingData": "{{ TreatMissingData }}",
- "Dimensions": [
-  {
-   "Value": "{{ Value }}",
-   "Name": "{{ Name }}"
-  }
- ],
- "Period": "{{ Period }}",
- "EvaluationPeriods": "{{ EvaluationPeriods }}",
- "Unit": "{{ Unit }}",
- "Namespace": "{{ Namespace }}",
- "OKActions": [
-  "{{ OKActions[0] }}"
- ],
- "AlarmActions": [
-  "{{ AlarmActions[0] }}"
- ],
- "MetricName": "{{ MetricName }}",
- "ActionsEnabled": "{{ ActionsEnabled }}",
- "Metrics": [
-  {
-   "Label": "{{ Label }}",
-   "MetricStat": {
-    "Period": "{{ Period }}",
-    "Metric": {
-     "MetricName": "{{ MetricName }}",
-     "Dimensions": [
-      null
-     ],
-     "Namespace": "{{ Namespace }}"
-    },
-    "Stat": "{{ Stat }}",
-    "Unit": "{{ Unit }}"
-   },
-   "Id": "{{ Id }}",
-   "ReturnData": "{{ ReturnData }}",
-   "Expression": "{{ Expression }}",
-   "Period": "{{ Period }}",
-   "AccountId": "{{ AccountId }}"
-  }
- ],
- "AlarmDescription": "{{ AlarmDescription }}",
- "AlarmName": "{{ AlarmName }}",
- "Statistic": "{{ Statistic }}",
- "InsufficientDataActions": [
-  "{{ InsufficientDataActions[0] }}"
- ],
- "DatapointsToAlarm": "{{ DatapointsToAlarm }}",
- "Threshold": null,
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- alarm.iql (all properties)
 INSERT INTO aws.cloudwatch.alarms (
  ThresholdMetricId,
  EvaluateLowSampleCountPercentile,
@@ -195,29 +129,112 @@ INSERT INTO aws.cloudwatch.alarms (
  region
 )
 SELECT 
- {{ .ThresholdMetricId }},
- {{ .EvaluateLowSampleCountPercentile }},
- {{ .ExtendedStatistic }},
- {{ .ComparisonOperator }},
- {{ .TreatMissingData }},
- {{ .Dimensions }},
- {{ .Period }},
- {{ .EvaluationPeriods }},
- {{ .Unit }},
- {{ .Namespace }},
- {{ .OKActions }},
- {{ .AlarmActions }},
- {{ .MetricName }},
- {{ .ActionsEnabled }},
- {{ .Metrics }},
- {{ .AlarmDescription }},
- {{ .AlarmName }},
- {{ .Statistic }},
- {{ .InsufficientDataActions }},
- {{ .DatapointsToAlarm }},
- {{ .Threshold }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ThresholdMetricId }}',
+ '{{ EvaluateLowSampleCountPercentile }}',
+ '{{ ExtendedStatistic }}',
+ '{{ ComparisonOperator }}',
+ '{{ TreatMissingData }}',
+ '{{ Dimensions }}',
+ '{{ Period }}',
+ '{{ EvaluationPeriods }}',
+ '{{ Unit }}',
+ '{{ Namespace }}',
+ '{{ OKActions }}',
+ '{{ AlarmActions }}',
+ '{{ MetricName }}',
+ '{{ ActionsEnabled }}',
+ '{{ Metrics }}',
+ '{{ AlarmDescription }}',
+ '{{ AlarmName }}',
+ '{{ Statistic }}',
+ '{{ InsufficientDataActions }}',
+ '{{ DatapointsToAlarm }}',
+ '{{ Threshold }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: alarm
+    props:
+      - name: ThresholdMetricId
+        value: '{{ ThresholdMetricId }}'
+      - name: EvaluateLowSampleCountPercentile
+        value: '{{ EvaluateLowSampleCountPercentile }}'
+      - name: ExtendedStatistic
+        value: '{{ ExtendedStatistic }}'
+      - name: ComparisonOperator
+        value: '{{ ComparisonOperator }}'
+      - name: TreatMissingData
+        value: '{{ TreatMissingData }}'
+      - name: Dimensions
+        value:
+          - Value: '{{ Value }}'
+            Name: '{{ Name }}'
+      - name: Period
+        value: '{{ Period }}'
+      - name: EvaluationPeriods
+        value: '{{ EvaluationPeriods }}'
+      - name: Unit
+        value: '{{ Unit }}'
+      - name: Namespace
+        value: '{{ Namespace }}'
+      - name: OKActions
+        value:
+          - '{{ OKActions[0] }}'
+      - name: AlarmActions
+        value:
+          - '{{ AlarmActions[0] }}'
+      - name: MetricName
+        value: '{{ MetricName }}'
+      - name: ActionsEnabled
+        value: '{{ ActionsEnabled }}'
+      - name: Metrics
+        value:
+          - Label: '{{ Label }}'
+            MetricStat:
+              Period: '{{ Period }}'
+              Metric:
+                MetricName: '{{ MetricName }}'
+                Dimensions:
+                  - null
+                Namespace: '{{ Namespace }}'
+              Stat: '{{ Stat }}'
+              Unit: '{{ Unit }}'
+            Id: '{{ Id }}'
+            ReturnData: '{{ ReturnData }}'
+            Expression: '{{ Expression }}'
+            Period: '{{ Period }}'
+            AccountId: '{{ AccountId }}'
+      - name: AlarmDescription
+        value: '{{ AlarmDescription }}'
+      - name: AlarmName
+        value: '{{ AlarmName }}'
+      - name: Statistic
+        value: '{{ Statistic }}'
+      - name: InsufficientDataActions
+        value:
+          - '{{ InsufficientDataActions[0] }}'
+      - name: DatapointsToAlarm
+        value: '{{ DatapointsToAlarm }}'
+      - name: Threshold
+        value: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

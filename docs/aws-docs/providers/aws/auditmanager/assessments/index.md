@@ -74,87 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>assessment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- assessment.iql (required properties only)
 INSERT INTO aws.auditmanager.assessments (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FrameworkId": "{{ FrameworkId }}",
- "AwsAccount": {
-  "Id": "{{ Id }}",
-  "EmailAddress": "{{ EmailAddress }}",
-  "Name": "{{ Name }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Delegations": [
-  {
-   "LastUpdated": null,
-   "ControlSetId": "{{ ControlSetId }}",
-   "CreationTime": null,
-   "CreatedBy": "{{ CreatedBy }}",
-   "RoleArn": "{{ RoleArn }}",
-   "AssessmentName": "{{ AssessmentName }}",
-   "Comment": "{{ Comment }}",
-   "Id": "{{ Id }}",
-   "RoleType": "{{ RoleType }}",
-   "AssessmentId": null,
-   "Status": "{{ Status }}"
-  }
- ],
- "Roles": [
-  {
-   "RoleArn": null,
-   "RoleType": null
-  }
- ],
- "Scope": {
-  "AwsAccounts": [
-   null
-  ],
-  "AwsServices": [
-   {
-    "ServiceName": "{{ ServiceName }}"
-   }
-  ]
- },
- "AssessmentReportsDestination": {
-  "Destination": "{{ Destination }}",
-  "DestinationType": "{{ DestinationType }}"
- },
- "Status": "{{ Status }}",
- "Name": null,
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- assessment.iql (all properties)
 INSERT INTO aws.auditmanager.assessments (
  FrameworkId,
  AwsAccount,
@@ -169,17 +115,78 @@ INSERT INTO aws.auditmanager.assessments (
  region
 )
 SELECT 
- {{ .FrameworkId }},
- {{ .AwsAccount }},
- {{ .Tags }},
- {{ .Delegations }},
- {{ .Roles }},
- {{ .Scope }},
- {{ .AssessmentReportsDestination }},
- {{ .Status }},
- {{ .Name }},
- {{ .Description }},
- 'us-east-1';
+ '{{ FrameworkId }}',
+ '{{ AwsAccount }}',
+ '{{ Tags }}',
+ '{{ Delegations }}',
+ '{{ Roles }}',
+ '{{ Scope }}',
+ '{{ AssessmentReportsDestination }}',
+ '{{ Status }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: assessment
+    props:
+      - name: FrameworkId
+        value: '{{ FrameworkId }}'
+      - name: AwsAccount
+        value:
+          Id: '{{ Id }}'
+          EmailAddress: '{{ EmailAddress }}'
+          Name: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Delegations
+        value:
+          - LastUpdated: null
+            ControlSetId: '{{ ControlSetId }}'
+            CreationTime: null
+            CreatedBy: '{{ CreatedBy }}'
+            RoleArn: '{{ RoleArn }}'
+            AssessmentName: '{{ AssessmentName }}'
+            Comment: '{{ Comment }}'
+            Id: '{{ Id }}'
+            RoleType: '{{ RoleType }}'
+            AssessmentId: null
+            Status: '{{ Status }}'
+      - name: Roles
+        value:
+          - RoleArn: null
+            RoleType: null
+      - name: Scope
+        value:
+          AwsAccounts:
+            - null
+          AwsServices:
+            - ServiceName: '{{ ServiceName }}'
+      - name: AssessmentReportsDestination
+        value:
+          Destination: '{{ Destination }}'
+          DestinationType: '{{ DestinationType }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: Name
+        value: null
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

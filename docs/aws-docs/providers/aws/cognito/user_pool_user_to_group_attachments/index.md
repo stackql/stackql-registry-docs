@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user_pool_user_to_group_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "UserPoolId": "{{ UserPoolId }}",
- "Username": "{{ Username }}",
- "GroupName": "{{ GroupName }}"
-}
->>>
---required properties only
+-- user_pool_user_to_group_attachment.iql (required properties only)
 INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  UserPoolId,
  Username,
@@ -103,23 +99,16 @@ INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  region
 )
 SELECT 
-{{ .UserPoolId }},
- {{ .Username }},
- {{ .GroupName }},
-'us-east-1';
+'{{ UserPoolId }}',
+ '{{ Username }}',
+ '{{ GroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "UserPoolId": "{{ UserPoolId }}",
- "Username": "{{ Username }}",
- "GroupName": "{{ GroupName }}"
-}
->>>
---all properties
+-- user_pool_user_to_group_attachment.iql (all properties)
 INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  UserPoolId,
  Username,
@@ -127,10 +116,33 @@ INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  region
 )
 SELECT 
- {{ .UserPoolId }},
- {{ .Username }},
- {{ .GroupName }},
- 'us-east-1';
+ '{{ UserPoolId }}',
+ '{{ Username }}',
+ '{{ GroupName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user_pool_user_to_group_attachment
+    props:
+      - name: UserPoolId
+        value: '{{ UserPoolId }}'
+      - name: Username
+        value: '{{ Username }}'
+      - name: GroupName
+        value: '{{ GroupName }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,77 +74,72 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>suite_definition</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SuiteDefinitionConfiguration": {
-  "DevicePermissionRoleArn": "{{ DevicePermissionRoleArn }}",
-  "Devices": [
-   {
-    "CertificateArn": "{{ CertificateArn }}",
-    "ThingArn": "{{ ThingArn }}"
-   }
-  ],
-  "IntendedForQualification": "{{ IntendedForQualification }}",
-  "RootGroup": "{{ RootGroup }}",
-  "SuiteDefinitionName": "{{ SuiteDefinitionName }}"
- }
-}
->>>
---required properties only
+-- suite_definition.iql (required properties only)
 INSERT INTO aws.iotcoredeviceadvisor.suite_definitions (
  SuiteDefinitionConfiguration,
  region
 )
 SELECT 
-{{ .SuiteDefinitionConfiguration }},
-'us-east-1';
+'{{ SuiteDefinitionConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SuiteDefinitionConfiguration": {
-  "DevicePermissionRoleArn": "{{ DevicePermissionRoleArn }}",
-  "Devices": [
-   {
-    "CertificateArn": "{{ CertificateArn }}",
-    "ThingArn": "{{ ThingArn }}"
-   }
-  ],
-  "IntendedForQualification": "{{ IntendedForQualification }}",
-  "RootGroup": "{{ RootGroup }}",
-  "SuiteDefinitionName": "{{ SuiteDefinitionName }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- suite_definition.iql (all properties)
 INSERT INTO aws.iotcoredeviceadvisor.suite_definitions (
  SuiteDefinitionConfiguration,
  Tags,
  region
 )
 SELECT 
- {{ .SuiteDefinitionConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SuiteDefinitionConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: suite_definition
+    props:
+      - name: SuiteDefinitionConfiguration
+        value:
+          DevicePermissionRoleArn: '{{ DevicePermissionRoleArn }}'
+          Devices:
+            - CertificateArn: '{{ CertificateArn }}'
+              ThingArn: '{{ ThingArn }}'
+          IntendedForQualification: '{{ IntendedForQualification }}'
+          RootGroup: '{{ RootGroup }}'
+          SuiteDefinitionName: '{{ SuiteDefinitionName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

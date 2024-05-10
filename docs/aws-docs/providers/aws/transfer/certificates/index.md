@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>certificate</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Usage": "{{ Usage }}",
- "Certificate": "{{ Certificate }}"
-}
->>>
---required properties only
+-- certificate.iql (required properties only)
 INSERT INTO aws.transfer.certificates (
  Usage,
  Certificate,
  region
 )
 SELECT 
-{{ .Usage }},
- {{ .Certificate }},
-'us-east-1';
+'{{ Usage }}',
+ '{{ Certificate }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Usage": "{{ Usage }}",
- "Certificate": "{{ Certificate }}",
- "CertificateChain": "{{ CertificateChain }}",
- "PrivateKey": "{{ PrivateKey }}",
- "ActiveDate": "{{ ActiveDate }}",
- "InactiveDate": "{{ InactiveDate }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- certificate.iql (all properties)
 INSERT INTO aws.transfer.certificates (
  Usage,
  Certificate,
@@ -135,15 +115,50 @@ INSERT INTO aws.transfer.certificates (
  region
 )
 SELECT 
- {{ .Usage }},
- {{ .Certificate }},
- {{ .CertificateChain }},
- {{ .PrivateKey }},
- {{ .ActiveDate }},
- {{ .InactiveDate }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Usage }}',
+ '{{ Certificate }}',
+ '{{ CertificateChain }}',
+ '{{ PrivateKey }}',
+ '{{ ActiveDate }}',
+ '{{ InactiveDate }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: certificate
+    props:
+      - name: Usage
+        value: '{{ Usage }}'
+      - name: Certificate
+        value: '{{ Certificate }}'
+      - name: CertificateChain
+        value: '{{ CertificateChain }}'
+      - name: PrivateKey
+        value: '{{ PrivateKey }}'
+      - name: ActiveDate
+        value: '{{ ActiveDate }}'
+      - name: InactiveDate
+        value: '{{ InactiveDate }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

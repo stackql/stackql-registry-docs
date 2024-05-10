@@ -74,79 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- environment.iql (required properties only)
 INSERT INTO aws.mwaa.environments (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "KmsKey": "{{ KmsKey }}",
- "AirflowVersion": "{{ AirflowVersion }}",
- "SourceBucketArn": "{{ SourceBucketArn }}",
- "DagS3Path": "{{ DagS3Path }}",
- "PluginsS3Path": null,
- "PluginsS3ObjectVersion": "{{ PluginsS3ObjectVersion }}",
- "RequirementsS3Path": null,
- "RequirementsS3ObjectVersion": null,
- "StartupScriptS3Path": null,
- "StartupScriptS3ObjectVersion": null,
- "AirflowConfigurationOptions": {},
- "EnvironmentClass": "{{ EnvironmentClass }}",
- "MaxWorkers": "{{ MaxWorkers }}",
- "MinWorkers": "{{ MinWorkers }}",
- "Schedulers": "{{ Schedulers }}",
- "NetworkConfiguration": {
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ],
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ]
- },
- "LoggingConfiguration": {
-  "DagProcessingLogs": {
-   "Enabled": "{{ Enabled }}",
-   "LogLevel": "{{ LogLevel }}",
-   "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}"
-  },
-  "SchedulerLogs": null,
-  "WebserverLogs": null,
-  "WorkerLogs": null,
-  "TaskLogs": null
- },
- "WeeklyMaintenanceWindowStart": "{{ WeeklyMaintenanceWindowStart }}",
- "Tags": {},
- "WebserverAccessMode": "{{ WebserverAccessMode }}",
- "EndpointManagement": "{{ EndpointManagement }}"
-}
->>>
---all properties
+-- environment.iql (all properties)
 INSERT INTO aws.mwaa.environments (
  Name,
  ExecutionRoleArn,
@@ -174,30 +128,105 @@ INSERT INTO aws.mwaa.environments (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .ExecutionRoleArn }},
- {{ .KmsKey }},
- {{ .AirflowVersion }},
- {{ .SourceBucketArn }},
- {{ .DagS3Path }},
- {{ .PluginsS3Path }},
- {{ .PluginsS3ObjectVersion }},
- {{ .RequirementsS3Path }},
- {{ .RequirementsS3ObjectVersion }},
- {{ .StartupScriptS3Path }},
- {{ .StartupScriptS3ObjectVersion }},
- {{ .AirflowConfigurationOptions }},
- {{ .EnvironmentClass }},
- {{ .MaxWorkers }},
- {{ .MinWorkers }},
- {{ .Schedulers }},
- {{ .NetworkConfiguration }},
- {{ .LoggingConfiguration }},
- {{ .WeeklyMaintenanceWindowStart }},
- {{ .Tags }},
- {{ .WebserverAccessMode }},
- {{ .EndpointManagement }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ ExecutionRoleArn }}',
+ '{{ KmsKey }}',
+ '{{ AirflowVersion }}',
+ '{{ SourceBucketArn }}',
+ '{{ DagS3Path }}',
+ '{{ PluginsS3Path }}',
+ '{{ PluginsS3ObjectVersion }}',
+ '{{ RequirementsS3Path }}',
+ '{{ RequirementsS3ObjectVersion }}',
+ '{{ StartupScriptS3Path }}',
+ '{{ StartupScriptS3ObjectVersion }}',
+ '{{ AirflowConfigurationOptions }}',
+ '{{ EnvironmentClass }}',
+ '{{ MaxWorkers }}',
+ '{{ MinWorkers }}',
+ '{{ Schedulers }}',
+ '{{ NetworkConfiguration }}',
+ '{{ LoggingConfiguration }}',
+ '{{ WeeklyMaintenanceWindowStart }}',
+ '{{ Tags }}',
+ '{{ WebserverAccessMode }}',
+ '{{ EndpointManagement }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: ExecutionRoleArn
+        value: '{{ ExecutionRoleArn }}'
+      - name: KmsKey
+        value: '{{ KmsKey }}'
+      - name: AirflowVersion
+        value: '{{ AirflowVersion }}'
+      - name: SourceBucketArn
+        value: '{{ SourceBucketArn }}'
+      - name: DagS3Path
+        value: '{{ DagS3Path }}'
+      - name: PluginsS3Path
+        value: null
+      - name: PluginsS3ObjectVersion
+        value: '{{ PluginsS3ObjectVersion }}'
+      - name: RequirementsS3Path
+        value: null
+      - name: RequirementsS3ObjectVersion
+        value: null
+      - name: StartupScriptS3Path
+        value: null
+      - name: StartupScriptS3ObjectVersion
+        value: null
+      - name: AirflowConfigurationOptions
+        value: {}
+      - name: EnvironmentClass
+        value: '{{ EnvironmentClass }}'
+      - name: MaxWorkers
+        value: '{{ MaxWorkers }}'
+      - name: MinWorkers
+        value: '{{ MinWorkers }}'
+      - name: Schedulers
+        value: '{{ Schedulers }}'
+      - name: NetworkConfiguration
+        value:
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+      - name: LoggingConfiguration
+        value:
+          DagProcessingLogs:
+            Enabled: '{{ Enabled }}'
+            LogLevel: '{{ LogLevel }}'
+            CloudWatchLogGroupArn: '{{ CloudWatchLogGroupArn }}'
+          SchedulerLogs: null
+          WebserverLogs: null
+          WorkerLogs: null
+          TaskLogs: null
+      - name: WeeklyMaintenanceWindowStart
+        value: '{{ WeeklyMaintenanceWindowStart }}'
+      - name: Tags
+        value: {}
+      - name: WebserverAccessMode
+        value: '{{ WebserverAccessMode }}'
+      - name: EndpointManagement
+        value: '{{ EndpointManagement }}'
+
 ```
 </TabItem>
 </Tabs>

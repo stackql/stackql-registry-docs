@@ -74,88 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>app_monitor</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Domain": "{{ Domain }}"
-}
->>>
---required properties only
+-- app_monitor.iql (required properties only)
 INSERT INTO aws.rum.app_monitors (
  Name,
  Domain,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Domain }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Domain }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Domain": "{{ Domain }}",
- "CwLogEnabled": "{{ CwLogEnabled }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AppMonitorConfiguration": {
-  "IdentityPoolId": "{{ IdentityPoolId }}",
-  "ExcludedPages": [
-   "{{ ExcludedPages[0] }}"
-  ],
-  "IncludedPages": null,
-  "FavoritePages": [
-   "{{ FavoritePages[0] }}"
-  ],
-  "SessionSampleRate": null,
-  "GuestRoleArn": "{{ GuestRoleArn }}",
-  "AllowCookies": "{{ AllowCookies }}",
-  "Telemetries": [
-   "{{ Telemetries[0] }}"
-  ],
-  "EnableXRay": "{{ EnableXRay }}",
-  "MetricDestinations": [
-   {
-    "Destination": "{{ Destination }}",
-    "DestinationArn": "{{ DestinationArn }}",
-    "IamRoleArn": "{{ IamRoleArn }}",
-    "MetricDefinitions": [
-     {
-      "Name": "{{ Name }}",
-      "Namespace": "{{ Namespace }}",
-      "ValueKey": "{{ ValueKey }}",
-      "UnitLabel": "{{ UnitLabel }}",
-      "DimensionKeys": {},
-      "EventPattern": "{{ EventPattern }}"
-     }
-    ]
-   }
-  ]
- },
- "CustomEvents": {
-  "Status": "{{ Status }}"
- }
-}
->>>
---all properties
+-- app_monitor.iql (all properties)
 INSERT INTO aws.rum.app_monitors (
  Name,
  Domain,
@@ -166,13 +113,68 @@ INSERT INTO aws.rum.app_monitors (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Domain }},
- {{ .CwLogEnabled }},
- {{ .Tags }},
- {{ .AppMonitorConfiguration }},
- {{ .CustomEvents }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Domain }}',
+ '{{ CwLogEnabled }}',
+ '{{ Tags }}',
+ '{{ AppMonitorConfiguration }}',
+ '{{ CustomEvents }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: app_monitor
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Domain
+        value: '{{ Domain }}'
+      - name: CwLogEnabled
+        value: '{{ CwLogEnabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AppMonitorConfiguration
+        value:
+          IdentityPoolId: '{{ IdentityPoolId }}'
+          ExcludedPages:
+            - '{{ ExcludedPages[0] }}'
+          IncludedPages: null
+          FavoritePages:
+            - '{{ FavoritePages[0] }}'
+          SessionSampleRate: null
+          GuestRoleArn: '{{ GuestRoleArn }}'
+          AllowCookies: '{{ AllowCookies }}'
+          Telemetries:
+            - '{{ Telemetries[0] }}'
+          EnableXRay: '{{ EnableXRay }}'
+          MetricDestinations:
+            - Destination: '{{ Destination }}'
+              DestinationArn: '{{ DestinationArn }}'
+              IamRoleArn: '{{ IamRoleArn }}'
+              MetricDefinitions:
+                - Name: '{{ Name }}'
+                  Namespace: '{{ Namespace }}'
+                  ValueKey: '{{ ValueKey }}'
+                  UnitLabel: '{{ UnitLabel }}'
+                  DimensionKeys: {}
+                  EventPattern: '{{ EventPattern }}'
+      - name: CustomEvents
+        value:
+          Status: '{{ Status }}'
+
 ```
 </TabItem>
 </Tabs>

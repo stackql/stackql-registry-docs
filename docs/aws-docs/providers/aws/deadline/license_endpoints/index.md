@@ -74,28 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>license_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- license_endpoint.iql (required properties only)
 INSERT INTO aws.deadline.license_endpoints (
  SecurityGroupIds,
  SubnetIds,
@@ -103,27 +95,16 @@ INSERT INTO aws.deadline.license_endpoints (
  region
 )
 SELECT 
-{{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .VpcId }},
-'us-east-1';
+'{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "VpcId": "{{ VpcId }}"
-}
->>>
---all properties
+-- license_endpoint.iql (all properties)
 INSERT INTO aws.deadline.license_endpoints (
  SecurityGroupIds,
  SubnetIds,
@@ -131,10 +112,35 @@ INSERT INTO aws.deadline.license_endpoints (
  region
 )
 SELECT 
- {{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .VpcId }},
- 'us-east-1';
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ VpcId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: license_endpoint
+    props:
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+
 ```
 </TabItem>
 </Tabs>

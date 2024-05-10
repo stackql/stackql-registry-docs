@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>verified_access_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VerifiedAccessGroupId": "{{ VerifiedAccessGroupId }}",
- "EndpointType": "{{ EndpointType }}",
- "EndpointDomainPrefix": "{{ EndpointDomainPrefix }}",
- "DomainCertificateArn": "{{ DomainCertificateArn }}",
- "AttachmentType": "{{ AttachmentType }}",
- "ApplicationDomain": "{{ ApplicationDomain }}"
-}
->>>
---required properties only
+-- verified_access_endpoint.iql (required properties only)
 INSERT INTO aws.ec2.verified_access_endpoints (
  VerifiedAccessGroupId,
  EndpointType,
@@ -105,58 +98,19 @@ INSERT INTO aws.ec2.verified_access_endpoints (
  region
 )
 SELECT 
-{{ .VerifiedAccessGroupId }},
- {{ .EndpointType }},
- {{ .EndpointDomainPrefix }},
- {{ .DomainCertificateArn }},
- {{ .AttachmentType }},
- {{ .ApplicationDomain }},
-'us-east-1';
+'{{ VerifiedAccessGroupId }}',
+ '{{ EndpointType }}',
+ '{{ EndpointDomainPrefix }}',
+ '{{ DomainCertificateArn }}',
+ '{{ AttachmentType }}',
+ '{{ ApplicationDomain }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VerifiedAccessGroupId": "{{ VerifiedAccessGroupId }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "NetworkInterfaceOptions": {
-  "NetworkInterfaceId": "{{ NetworkInterfaceId }}",
-  "Port": "{{ Port }}",
-  "Protocol": "{{ Protocol }}"
- },
- "LoadBalancerOptions": {
-  "LoadBalancerArn": "{{ LoadBalancerArn }}",
-  "Port": "{{ Port }}",
-  "Protocol": "{{ Protocol }}",
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "EndpointType": "{{ EndpointType }}",
- "EndpointDomainPrefix": "{{ EndpointDomainPrefix }}",
- "DomainCertificateArn": "{{ DomainCertificateArn }}",
- "AttachmentType": "{{ AttachmentType }}",
- "ApplicationDomain": "{{ ApplicationDomain }}",
- "Description": "{{ Description }}",
- "PolicyDocument": "{{ PolicyDocument }}",
- "PolicyEnabled": "{{ PolicyEnabled }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "SseSpecification": {
-  "KmsKeyArn": "{{ KmsKeyArn }}",
-  "CustomerManagedKeyEnabled": "{{ CustomerManagedKeyEnabled }}"
- }
-}
->>>
---all properties
+-- verified_access_endpoint.iql (all properties)
 INSERT INTO aws.ec2.verified_access_endpoints (
  VerifiedAccessGroupId,
  SecurityGroupIds,
@@ -175,21 +129,79 @@ INSERT INTO aws.ec2.verified_access_endpoints (
  region
 )
 SELECT 
- {{ .VerifiedAccessGroupId }},
- {{ .SecurityGroupIds }},
- {{ .NetworkInterfaceOptions }},
- {{ .LoadBalancerOptions }},
- {{ .EndpointType }},
- {{ .EndpointDomainPrefix }},
- {{ .DomainCertificateArn }},
- {{ .AttachmentType }},
- {{ .ApplicationDomain }},
- {{ .Description }},
- {{ .PolicyDocument }},
- {{ .PolicyEnabled }},
- {{ .Tags }},
- {{ .SseSpecification }},
- 'us-east-1';
+ '{{ VerifiedAccessGroupId }}',
+ '{{ SecurityGroupIds }}',
+ '{{ NetworkInterfaceOptions }}',
+ '{{ LoadBalancerOptions }}',
+ '{{ EndpointType }}',
+ '{{ EndpointDomainPrefix }}',
+ '{{ DomainCertificateArn }}',
+ '{{ AttachmentType }}',
+ '{{ ApplicationDomain }}',
+ '{{ Description }}',
+ '{{ PolicyDocument }}',
+ '{{ PolicyEnabled }}',
+ '{{ Tags }}',
+ '{{ SseSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: verified_access_endpoint
+    props:
+      - name: VerifiedAccessGroupId
+        value: '{{ VerifiedAccessGroupId }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: NetworkInterfaceOptions
+        value:
+          NetworkInterfaceId: '{{ NetworkInterfaceId }}'
+          Port: '{{ Port }}'
+          Protocol: '{{ Protocol }}'
+      - name: LoadBalancerOptions
+        value:
+          LoadBalancerArn: '{{ LoadBalancerArn }}'
+          Port: '{{ Port }}'
+          Protocol: '{{ Protocol }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+      - name: EndpointType
+        value: '{{ EndpointType }}'
+      - name: EndpointDomainPrefix
+        value: '{{ EndpointDomainPrefix }}'
+      - name: DomainCertificateArn
+        value: '{{ DomainCertificateArn }}'
+      - name: AttachmentType
+        value: '{{ AttachmentType }}'
+      - name: ApplicationDomain
+        value: '{{ ApplicationDomain }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: PolicyDocument
+        value: '{{ PolicyDocument }}'
+      - name: PolicyEnabled
+        value: '{{ PolicyEnabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: SseSpecification
+        value:
+          KmsKeyArn: '{{ KmsKeyArn }}'
+          CustomerManagedKeyEnabled: '{{ CustomerManagedKeyEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

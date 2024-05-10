@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>metric_stream</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FirehoseArn": "{{ FirehoseArn }}",
- "RoleArn": "{{ RoleArn }}",
- "OutputFormat": "{{ OutputFormat }}"
-}
->>>
---required properties only
+-- metric_stream.iql (required properties only)
 INSERT INTO aws.cloudwatch.metric_streams (
  FirehoseArn,
  RoleArn,
@@ -99,55 +95,16 @@ INSERT INTO aws.cloudwatch.metric_streams (
  region
 )
 SELECT 
-{{ .FirehoseArn }},
- {{ .RoleArn }},
- {{ .OutputFormat }},
-'us-east-1';
+'{{ FirehoseArn }}',
+ '{{ RoleArn }}',
+ '{{ OutputFormat }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ExcludeFilters": [
-  {
-   "Namespace": "{{ Namespace }}",
-   "MetricNames": [
-    "{{ MetricNames[0] }}"
-   ]
-  }
- ],
- "FirehoseArn": "{{ FirehoseArn }}",
- "IncludeFilters": [
-  null
- ],
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "OutputFormat": "{{ OutputFormat }}",
- "StatisticsConfigurations": [
-  {
-   "AdditionalStatistics": [
-    "{{ AdditionalStatistics[0] }}"
-   ],
-   "IncludeMetrics": [
-    {
-     "MetricName": "{{ MetricName }}",
-     "Namespace": "{{ Namespace }}"
-    }
-   ]
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "IncludeLinkedAccountsMetrics": "{{ IncludeLinkedAccountsMetrics }}"
-}
->>>
---all properties
+-- metric_stream.iql (all properties)
 INSERT INTO aws.cloudwatch.metric_streams (
  ExcludeFilters,
  FirehoseArn,
@@ -161,16 +118,62 @@ INSERT INTO aws.cloudwatch.metric_streams (
  region
 )
 SELECT 
- {{ .ExcludeFilters }},
- {{ .FirehoseArn }},
- {{ .IncludeFilters }},
- {{ .Name }},
- {{ .RoleArn }},
- {{ .OutputFormat }},
- {{ .StatisticsConfigurations }},
- {{ .Tags }},
- {{ .IncludeLinkedAccountsMetrics }},
- 'us-east-1';
+ '{{ ExcludeFilters }}',
+ '{{ FirehoseArn }}',
+ '{{ IncludeFilters }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ OutputFormat }}',
+ '{{ StatisticsConfigurations }}',
+ '{{ Tags }}',
+ '{{ IncludeLinkedAccountsMetrics }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: metric_stream
+    props:
+      - name: ExcludeFilters
+        value:
+          - Namespace: '{{ Namespace }}'
+            MetricNames:
+              - '{{ MetricNames[0] }}'
+      - name: FirehoseArn
+        value: '{{ FirehoseArn }}'
+      - name: IncludeFilters
+        value:
+          - null
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: OutputFormat
+        value: '{{ OutputFormat }}'
+      - name: StatisticsConfigurations
+        value:
+          - AdditionalStatistics:
+              - '{{ AdditionalStatistics[0] }}'
+            IncludeMetrics:
+              - MetricName: '{{ MetricName }}'
+                Namespace: '{{ Namespace }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: IncludeLinkedAccountsMetrics
+        value: '{{ IncludeLinkedAccountsMetrics }}'
+
 ```
 </TabItem>
 </Tabs>

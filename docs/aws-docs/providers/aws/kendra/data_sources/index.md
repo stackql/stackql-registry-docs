@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_source</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "IndexId": "{{ IndexId }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- data_source.iql (required properties only)
 INSERT INTO aws.kendra.data_sources (
  Name,
  IndexId,
@@ -101,329 +97,16 @@ INSERT INTO aws.kendra.data_sources (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .IndexId }},
- {{ .Type }},
-'us-east-1';
+'{{ Name }}',
+ '{{ IndexId }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "IndexId": "{{ IndexId }}",
- "Type": "{{ Type }}",
- "DataSourceConfiguration": {
-  "S3Configuration": {
-   "BucketName": "{{ BucketName }}",
-   "InclusionPrefixes": [
-    "{{ InclusionPrefixes[0] }}"
-   ],
-   "InclusionPatterns": null,
-   "ExclusionPatterns": null,
-   "DocumentsMetadataConfiguration": {
-    "S3Prefix": "{{ S3Prefix }}"
-   },
-   "AccessControlListConfiguration": {
-    "KeyPath": null
-   }
-  },
-  "SharePointConfiguration": {
-   "SharePointVersion": "{{ SharePointVersion }}",
-   "Urls": [
-    "{{ Urls[0] }}"
-   ],
-   "SecretArn": "{{ SecretArn }}",
-   "CrawlAttachments": "{{ CrawlAttachments }}",
-   "UseChangeLog": "{{ UseChangeLog }}",
-   "InclusionPatterns": null,
-   "ExclusionPatterns": null,
-   "VpcConfiguration": {
-    "SubnetIds": [
-     "{{ SubnetIds[0] }}"
-    ],
-    "SecurityGroupIds": [
-     "{{ SecurityGroupIds[0] }}"
-    ]
-   },
-   "FieldMappings": [
-    {
-     "DataSourceFieldName": "{{ DataSourceFieldName }}",
-     "DateFieldFormat": "{{ DateFieldFormat }}",
-     "IndexFieldName": "{{ IndexFieldName }}"
-    }
-   ],
-   "DocumentTitleFieldName": null,
-   "DisableLocalGroups": "{{ DisableLocalGroups }}",
-   "SslCertificateS3Path": {
-    "Bucket": null,
-    "Key": null
-   }
-  },
-  "SalesforceConfiguration": {
-   "ServerUrl": null,
-   "SecretArn": null,
-   "StandardObjectConfigurations": [
-    {
-     "Name": "{{ Name }}",
-     "DocumentDataFieldName": null,
-     "DocumentTitleFieldName": null,
-     "FieldMappings": null
-    }
-   ],
-   "KnowledgeArticleConfiguration": {
-    "IncludedStates": [
-     "{{ IncludedStates[0] }}"
-    ],
-    "StandardKnowledgeArticleTypeConfiguration": {
-     "DocumentDataFieldName": null,
-     "DocumentTitleFieldName": null,
-     "FieldMappings": null
-    },
-    "CustomKnowledgeArticleTypeConfigurations": [
-     {
-      "Name": "{{ Name }}",
-      "DocumentDataFieldName": null,
-      "DocumentTitleFieldName": null,
-      "FieldMappings": null
-     }
-    ]
-   },
-   "ChatterFeedConfiguration": {
-    "DocumentDataFieldName": null,
-    "DocumentTitleFieldName": null,
-    "FieldMappings": null,
-    "IncludeFilterTypes": [
-     "{{ IncludeFilterTypes[0] }}"
-    ]
-   },
-   "CrawlAttachments": "{{ CrawlAttachments }}",
-   "StandardObjectAttachmentConfiguration": {
-    "DocumentTitleFieldName": null,
-    "FieldMappings": null
-   },
-   "IncludeAttachmentFilePatterns": null,
-   "ExcludeAttachmentFilePatterns": null
-  },
-  "OneDriveConfiguration": {
-   "TenantDomain": "{{ TenantDomain }}",
-   "SecretArn": null,
-   "OneDriveUsers": {
-    "OneDriveUserList": [
-     "{{ OneDriveUserList[0] }}"
-    ],
-    "OneDriveUserS3Path": null
-   },
-   "InclusionPatterns": null,
-   "ExclusionPatterns": null,
-   "FieldMappings": null,
-   "DisableLocalGroups": null
-  },
-  "ServiceNowConfiguration": {
-   "HostUrl": "{{ HostUrl }}",
-   "SecretArn": null,
-   "ServiceNowBuildVersion": "{{ ServiceNowBuildVersion }}",
-   "AuthenticationType": "{{ AuthenticationType }}",
-   "KnowledgeArticleConfiguration": {
-    "CrawlAttachments": "{{ CrawlAttachments }}",
-    "IncludeAttachmentFilePatterns": null,
-    "ExcludeAttachmentFilePatterns": null,
-    "DocumentDataFieldName": null,
-    "DocumentTitleFieldName": null,
-    "FieldMappings": null,
-    "FilterQuery": "{{ FilterQuery }}"
-   },
-   "ServiceCatalogConfiguration": {
-    "CrawlAttachments": "{{ CrawlAttachments }}",
-    "IncludeAttachmentFilePatterns": null,
-    "ExcludeAttachmentFilePatterns": null,
-    "DocumentDataFieldName": null,
-    "DocumentTitleFieldName": null,
-    "FieldMappings": null
-   }
-  },
-  "DatabaseConfiguration": {
-   "DatabaseEngineType": "{{ DatabaseEngineType }}",
-   "ConnectionConfiguration": {
-    "DatabaseHost": "{{ DatabaseHost }}",
-    "DatabasePort": "{{ DatabasePort }}",
-    "DatabaseName": "{{ DatabaseName }}",
-    "TableName": "{{ TableName }}",
-    "SecretArn": null
-   },
-   "VpcConfiguration": null,
-   "ColumnConfiguration": {
-    "DocumentIdColumnName": "{{ DocumentIdColumnName }}",
-    "DocumentDataColumnName": null,
-    "DocumentTitleColumnName": null,
-    "FieldMappings": null,
-    "ChangeDetectingColumns": [
-     null
-    ]
-   },
-   "AclConfiguration": {
-    "AllowedGroupsColumnName": null
-   },
-   "SqlConfiguration": {
-    "QueryIdentifiersEnclosingOption": "{{ QueryIdentifiersEnclosingOption }}"
-   }
-  },
-  "ConfluenceConfiguration": {
-   "ServerUrl": null,
-   "SecretArn": null,
-   "Version": "{{ Version }}",
-   "SpaceConfiguration": {
-    "CrawlPersonalSpaces": "{{ CrawlPersonalSpaces }}",
-    "CrawlArchivedSpaces": "{{ CrawlArchivedSpaces }}",
-    "IncludeSpaces": [
-     "{{ IncludeSpaces[0] }}"
-    ],
-    "ExcludeSpaces": null,
-    "SpaceFieldMappings": [
-     {
-      "DataSourceFieldName": "{{ DataSourceFieldName }}",
-      "DateFieldFormat": null,
-      "IndexFieldName": null
-     }
-    ]
-   },
-   "PageConfiguration": {
-    "PageFieldMappings": [
-     {
-      "DataSourceFieldName": "{{ DataSourceFieldName }}",
-      "DateFieldFormat": null,
-      "IndexFieldName": null
-     }
-    ]
-   },
-   "BlogConfiguration": {
-    "BlogFieldMappings": [
-     {
-      "DataSourceFieldName": "{{ DataSourceFieldName }}",
-      "DateFieldFormat": null,
-      "IndexFieldName": null
-     }
-    ]
-   },
-   "AttachmentConfiguration": {
-    "CrawlAttachments": "{{ CrawlAttachments }}",
-    "AttachmentFieldMappings": [
-     {
-      "DataSourceFieldName": "{{ DataSourceFieldName }}",
-      "DateFieldFormat": null,
-      "IndexFieldName": null
-     }
-    ]
-   },
-   "VpcConfiguration": null,
-   "InclusionPatterns": null,
-   "ExclusionPatterns": null
-  },
-  "GoogleDriveConfiguration": {
-   "SecretArn": null,
-   "InclusionPatterns": null,
-   "ExclusionPatterns": null,
-   "FieldMappings": null,
-   "ExcludeMimeTypes": [
-    "{{ ExcludeMimeTypes[0] }}"
-   ],
-   "ExcludeUserAccounts": [
-    "{{ ExcludeUserAccounts[0] }}"
-   ],
-   "ExcludeSharedDrives": [
-    "{{ ExcludeSharedDrives[0] }}"
-   ]
-  },
-  "WebCrawlerConfiguration": {
-   "Urls": {
-    "SeedUrlConfiguration": {
-     "SeedUrls": [
-      "{{ SeedUrls[0] }}"
-     ],
-     "WebCrawlerMode": "{{ WebCrawlerMode }}"
-    },
-    "SiteMapsConfiguration": {
-     "SiteMaps": [
-      "{{ SiteMaps[0] }}"
-     ]
-    }
-   },
-   "CrawlDepth": "{{ CrawlDepth }}",
-   "MaxLinksPerPage": "{{ MaxLinksPerPage }}",
-   "MaxContentSizePerPageInMegaBytes": null,
-   "MaxUrlsPerMinuteCrawlRate": "{{ MaxUrlsPerMinuteCrawlRate }}",
-   "UrlInclusionPatterns": null,
-   "UrlExclusionPatterns": null,
-   "ProxyConfiguration": {
-    "Host": "{{ Host }}",
-    "Port": "{{ Port }}",
-    "Credentials": null
-   },
-   "AuthenticationConfiguration": {
-    "BasicAuthentication": [
-     {
-      "Host": "{{ Host }}",
-      "Port": "{{ Port }}",
-      "Credentials": null
-     }
-    ]
-   }
-  },
-  "WorkDocsConfiguration": {
-   "OrganizationId": "{{ OrganizationId }}",
-   "CrawlComments": "{{ CrawlComments }}",
-   "UseChangeLog": "{{ UseChangeLog }}",
-   "InclusionPatterns": null,
-   "ExclusionPatterns": null,
-   "FieldMappings": null
-  }
- },
- "Description": "{{ Description }}",
- "Schedule": "{{ Schedule }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CustomDocumentEnrichmentConfiguration": {
-  "InlineConfigurations": [
-   {
-    "Condition": {
-     "ConditionDocumentAttributeKey": "{{ ConditionDocumentAttributeKey }}",
-     "Operator": "{{ Operator }}",
-     "ConditionOnValue": {
-      "StringValue": "{{ StringValue }}",
-      "StringListValue": [
-       "{{ StringListValue[0] }}"
-      ],
-      "LongValue": "{{ LongValue }}",
-      "DateValue": "{{ DateValue }}"
-     }
-    },
-    "Target": {
-     "TargetDocumentAttributeKey": null,
-     "TargetDocumentAttributeValueDeletion": "{{ TargetDocumentAttributeValueDeletion }}",
-     "TargetDocumentAttributeValue": null
-    },
-    "DocumentContentDeletion": "{{ DocumentContentDeletion }}"
-   }
-  ],
-  "PreExtractionHookConfiguration": {
-   "InvocationCondition": null,
-   "LambdaArn": "{{ LambdaArn }}",
-   "S3Bucket": null
-  },
-  "PostExtractionHookConfiguration": null,
-  "RoleArn": null
- },
- "LanguageCode": "{{ LanguageCode }}"
-}
->>>
---all properties
+-- data_source.iql (all properties)
 INSERT INTO aws.kendra.data_sources (
  Name,
  IndexId,
@@ -438,17 +121,268 @@ INSERT INTO aws.kendra.data_sources (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .IndexId }},
- {{ .Type }},
- {{ .DataSourceConfiguration }},
- {{ .Description }},
- {{ .Schedule }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .CustomDocumentEnrichmentConfiguration }},
- {{ .LanguageCode }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ IndexId }}',
+ '{{ Type }}',
+ '{{ DataSourceConfiguration }}',
+ '{{ Description }}',
+ '{{ Schedule }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ CustomDocumentEnrichmentConfiguration }}',
+ '{{ LanguageCode }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_source
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: IndexId
+        value: '{{ IndexId }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: DataSourceConfiguration
+        value:
+          S3Configuration:
+            BucketName: '{{ BucketName }}'
+            InclusionPrefixes:
+              - '{{ InclusionPrefixes[0] }}'
+            InclusionPatterns: null
+            ExclusionPatterns: null
+            DocumentsMetadataConfiguration:
+              S3Prefix: '{{ S3Prefix }}'
+            AccessControlListConfiguration:
+              KeyPath: null
+          SharePointConfiguration:
+            SharePointVersion: '{{ SharePointVersion }}'
+            Urls:
+              - '{{ Urls[0] }}'
+            SecretArn: '{{ SecretArn }}'
+            CrawlAttachments: '{{ CrawlAttachments }}'
+            UseChangeLog: '{{ UseChangeLog }}'
+            InclusionPatterns: null
+            ExclusionPatterns: null
+            VpcConfiguration:
+              SubnetIds:
+                - '{{ SubnetIds[0] }}'
+              SecurityGroupIds:
+                - '{{ SecurityGroupIds[0] }}'
+            FieldMappings:
+              - DataSourceFieldName: '{{ DataSourceFieldName }}'
+                DateFieldFormat: '{{ DateFieldFormat }}'
+                IndexFieldName: '{{ IndexFieldName }}'
+            DocumentTitleFieldName: null
+            DisableLocalGroups: '{{ DisableLocalGroups }}'
+            SslCertificateS3Path:
+              Bucket: null
+              Key: null
+          SalesforceConfiguration:
+            ServerUrl: null
+            SecretArn: null
+            StandardObjectConfigurations:
+              - Name: '{{ Name }}'
+                DocumentDataFieldName: null
+                DocumentTitleFieldName: null
+                FieldMappings: null
+            KnowledgeArticleConfiguration:
+              IncludedStates:
+                - '{{ IncludedStates[0] }}'
+              StandardKnowledgeArticleTypeConfiguration:
+                DocumentDataFieldName: null
+                DocumentTitleFieldName: null
+                FieldMappings: null
+              CustomKnowledgeArticleTypeConfigurations:
+                - Name: '{{ Name }}'
+                  DocumentDataFieldName: null
+                  DocumentTitleFieldName: null
+                  FieldMappings: null
+            ChatterFeedConfiguration:
+              DocumentDataFieldName: null
+              DocumentTitleFieldName: null
+              FieldMappings: null
+              IncludeFilterTypes:
+                - '{{ IncludeFilterTypes[0] }}'
+            CrawlAttachments: '{{ CrawlAttachments }}'
+            StandardObjectAttachmentConfiguration:
+              DocumentTitleFieldName: null
+              FieldMappings: null
+            IncludeAttachmentFilePatterns: null
+            ExcludeAttachmentFilePatterns: null
+          OneDriveConfiguration:
+            TenantDomain: '{{ TenantDomain }}'
+            SecretArn: null
+            OneDriveUsers:
+              OneDriveUserList:
+                - '{{ OneDriveUserList[0] }}'
+              OneDriveUserS3Path: null
+            InclusionPatterns: null
+            ExclusionPatterns: null
+            FieldMappings: null
+            DisableLocalGroups: null
+          ServiceNowConfiguration:
+            HostUrl: '{{ HostUrl }}'
+            SecretArn: null
+            ServiceNowBuildVersion: '{{ ServiceNowBuildVersion }}'
+            AuthenticationType: '{{ AuthenticationType }}'
+            KnowledgeArticleConfiguration:
+              CrawlAttachments: '{{ CrawlAttachments }}'
+              IncludeAttachmentFilePatterns: null
+              ExcludeAttachmentFilePatterns: null
+              DocumentDataFieldName: null
+              DocumentTitleFieldName: null
+              FieldMappings: null
+              FilterQuery: '{{ FilterQuery }}'
+            ServiceCatalogConfiguration:
+              CrawlAttachments: '{{ CrawlAttachments }}'
+              IncludeAttachmentFilePatterns: null
+              ExcludeAttachmentFilePatterns: null
+              DocumentDataFieldName: null
+              DocumentTitleFieldName: null
+              FieldMappings: null
+          DatabaseConfiguration:
+            DatabaseEngineType: '{{ DatabaseEngineType }}'
+            ConnectionConfiguration:
+              DatabaseHost: '{{ DatabaseHost }}'
+              DatabasePort: '{{ DatabasePort }}'
+              DatabaseName: '{{ DatabaseName }}'
+              TableName: '{{ TableName }}'
+              SecretArn: null
+            VpcConfiguration: null
+            ColumnConfiguration:
+              DocumentIdColumnName: '{{ DocumentIdColumnName }}'
+              DocumentDataColumnName: null
+              DocumentTitleColumnName: null
+              FieldMappings: null
+              ChangeDetectingColumns:
+                - null
+            AclConfiguration:
+              AllowedGroupsColumnName: null
+            SqlConfiguration:
+              QueryIdentifiersEnclosingOption: '{{ QueryIdentifiersEnclosingOption }}'
+          ConfluenceConfiguration:
+            ServerUrl: null
+            SecretArn: null
+            Version: '{{ Version }}'
+            SpaceConfiguration:
+              CrawlPersonalSpaces: '{{ CrawlPersonalSpaces }}'
+              CrawlArchivedSpaces: '{{ CrawlArchivedSpaces }}'
+              IncludeSpaces:
+                - '{{ IncludeSpaces[0] }}'
+              ExcludeSpaces: null
+              SpaceFieldMappings:
+                - DataSourceFieldName: '{{ DataSourceFieldName }}'
+                  DateFieldFormat: null
+                  IndexFieldName: null
+            PageConfiguration:
+              PageFieldMappings:
+                - DataSourceFieldName: '{{ DataSourceFieldName }}'
+                  DateFieldFormat: null
+                  IndexFieldName: null
+            BlogConfiguration:
+              BlogFieldMappings:
+                - DataSourceFieldName: '{{ DataSourceFieldName }}'
+                  DateFieldFormat: null
+                  IndexFieldName: null
+            AttachmentConfiguration:
+              CrawlAttachments: '{{ CrawlAttachments }}'
+              AttachmentFieldMappings:
+                - DataSourceFieldName: '{{ DataSourceFieldName }}'
+                  DateFieldFormat: null
+                  IndexFieldName: null
+            VpcConfiguration: null
+            InclusionPatterns: null
+            ExclusionPatterns: null
+          GoogleDriveConfiguration:
+            SecretArn: null
+            InclusionPatterns: null
+            ExclusionPatterns: null
+            FieldMappings: null
+            ExcludeMimeTypes:
+              - '{{ ExcludeMimeTypes[0] }}'
+            ExcludeUserAccounts:
+              - '{{ ExcludeUserAccounts[0] }}'
+            ExcludeSharedDrives:
+              - '{{ ExcludeSharedDrives[0] }}'
+          WebCrawlerConfiguration:
+            Urls:
+              SeedUrlConfiguration:
+                SeedUrls:
+                  - '{{ SeedUrls[0] }}'
+                WebCrawlerMode: '{{ WebCrawlerMode }}'
+              SiteMapsConfiguration:
+                SiteMaps:
+                  - '{{ SiteMaps[0] }}'
+            CrawlDepth: '{{ CrawlDepth }}'
+            MaxLinksPerPage: '{{ MaxLinksPerPage }}'
+            MaxContentSizePerPageInMegaBytes: null
+            MaxUrlsPerMinuteCrawlRate: '{{ MaxUrlsPerMinuteCrawlRate }}'
+            UrlInclusionPatterns: null
+            UrlExclusionPatterns: null
+            ProxyConfiguration:
+              Host: '{{ Host }}'
+              Port: '{{ Port }}'
+              Credentials: null
+            AuthenticationConfiguration:
+              BasicAuthentication:
+                - Host: '{{ Host }}'
+                  Port: '{{ Port }}'
+                  Credentials: null
+          WorkDocsConfiguration:
+            OrganizationId: '{{ OrganizationId }}'
+            CrawlComments: '{{ CrawlComments }}'
+            UseChangeLog: '{{ UseChangeLog }}'
+            InclusionPatterns: null
+            ExclusionPatterns: null
+            FieldMappings: null
+      - name: Description
+        value: '{{ Description }}'
+      - name: Schedule
+        value: '{{ Schedule }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CustomDocumentEnrichmentConfiguration
+        value:
+          InlineConfigurations:
+            - Condition:
+                ConditionDocumentAttributeKey: '{{ ConditionDocumentAttributeKey }}'
+                Operator: '{{ Operator }}'
+                ConditionOnValue:
+                  StringValue: '{{ StringValue }}'
+                  StringListValue:
+                    - '{{ StringListValue[0] }}'
+                  LongValue: '{{ LongValue }}'
+                  DateValue: '{{ DateValue }}'
+              Target:
+                TargetDocumentAttributeKey: null
+                TargetDocumentAttributeValueDeletion: '{{ TargetDocumentAttributeValueDeletion }}'
+                TargetDocumentAttributeValue: null
+              DocumentContentDeletion: '{{ DocumentContentDeletion }}'
+          PreExtractionHookConfiguration:
+            InvocationCondition: null
+            LambdaArn: '{{ LambdaArn }}'
+            S3Bucket: null
+          PostExtractionHookConfiguration: null
+          RoleArn: null
+      - name: LanguageCode
+        value: '{{ LanguageCode }}'
+
 ```
 </TabItem>
 </Tabs>

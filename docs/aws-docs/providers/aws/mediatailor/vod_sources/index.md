@@ -76,30 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vod_source</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "HttpPackageConfigurations": [
-  {
-   "Path": "{{ Path }}",
-   "SourceGroup": "{{ SourceGroup }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "SourceLocationName": "{{ SourceLocationName }}",
- "VodSourceName": "{{ VodSourceName }}"
-}
->>>
---required properties only
+-- vod_source.iql (required properties only)
 INSERT INTO aws.mediatailor.vod_sources (
  HttpPackageConfigurations,
  SourceLocationName,
@@ -107,35 +97,16 @@ INSERT INTO aws.mediatailor.vod_sources (
  region
 )
 SELECT 
-{{ .HttpPackageConfigurations }},
- {{ .SourceLocationName }},
- {{ .VodSourceName }},
-'us-east-1';
+'{{ HttpPackageConfigurations }}',
+ '{{ SourceLocationName }}',
+ '{{ VodSourceName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "HttpPackageConfigurations": [
-  {
-   "Path": "{{ Path }}",
-   "SourceGroup": "{{ SourceGroup }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "SourceLocationName": "{{ SourceLocationName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VodSourceName": "{{ VodSourceName }}"
-}
->>>
---all properties
+-- vod_source.iql (all properties)
 INSERT INTO aws.mediatailor.vod_sources (
  HttpPackageConfigurations,
  SourceLocationName,
@@ -144,11 +115,41 @@ INSERT INTO aws.mediatailor.vod_sources (
  region
 )
 SELECT 
- {{ .HttpPackageConfigurations }},
- {{ .SourceLocationName }},
- {{ .Tags }},
- {{ .VodSourceName }},
- 'us-east-1';
+ '{{ HttpPackageConfigurations }}',
+ '{{ SourceLocationName }}',
+ '{{ Tags }}',
+ '{{ VodSourceName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vod_source
+    props:
+      - name: HttpPackageConfigurations
+        value:
+          - Path: '{{ Path }}'
+            SourceGroup: '{{ SourceGroup }}'
+            Type: '{{ Type }}'
+      - name: SourceLocationName
+        value: '{{ SourceLocationName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VodSourceName
+        value: '{{ VodSourceName }}'
+
 ```
 </TabItem>
 </Tabs>

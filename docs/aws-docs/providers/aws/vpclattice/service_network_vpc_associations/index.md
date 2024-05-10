@@ -74,32 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service_network_vpc_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "ServiceNetworkIdentifier": "{{ ServiceNetworkIdentifier }}",
- "VpcIdentifier": "{{ VpcIdentifier }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- service_network_vpc_association.iql (required properties only)
 INSERT INTO aws.vpclattice.service_network_vpc_associations (
  SecurityGroupIds,
  ServiceNetworkIdentifier,
@@ -108,32 +96,17 @@ INSERT INTO aws.vpclattice.service_network_vpc_associations (
  region
 )
 SELECT 
-{{ .SecurityGroupIds }},
- {{ .ServiceNetworkIdentifier }},
- {{ .VpcIdentifier }},
- {{ .Tags }},
-'us-east-1';
+'{{ SecurityGroupIds }}',
+ '{{ ServiceNetworkIdentifier }}',
+ '{{ VpcIdentifier }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "ServiceNetworkIdentifier": "{{ ServiceNetworkIdentifier }}",
- "VpcIdentifier": "{{ VpcIdentifier }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- service_network_vpc_association.iql (all properties)
 INSERT INTO aws.vpclattice.service_network_vpc_associations (
  SecurityGroupIds,
  ServiceNetworkIdentifier,
@@ -142,11 +115,39 @@ INSERT INTO aws.vpclattice.service_network_vpc_associations (
  region
 )
 SELECT 
- {{ .SecurityGroupIds }},
- {{ .ServiceNetworkIdentifier }},
- {{ .VpcIdentifier }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SecurityGroupIds }}',
+ '{{ ServiceNetworkIdentifier }}',
+ '{{ VpcIdentifier }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service_network_vpc_association
+    props:
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: ServiceNetworkIdentifier
+        value: '{{ ServiceNetworkIdentifier }}'
+      - name: VpcIdentifier
+        value: '{{ VpcIdentifier }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -78,26 +78,20 @@ FROM aws.wafv2.ip_sets
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>ip_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Scope": "{{ Scope }}",
- "IPAddressVersion": "{{ IPAddressVersion }}",
- "Addresses": [
-  "{{ Addresses[0] }}"
- ]
-}
->>>
---required properties only
+-- ip_set.iql (required properties only)
 INSERT INTO aws.wafv2.ip_sets (
  Scope,
  IPAddressVersion,
@@ -105,33 +99,16 @@ INSERT INTO aws.wafv2.ip_sets (
  region
 )
 SELECT 
-{{ .Scope }},
- {{ .IPAddressVersion }},
- {{ .Addresses }},
-'us-east-1';
+'{{ Scope }}',
+ '{{ IPAddressVersion }}',
+ '{{ Addresses }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "Scope": "{{ Scope }}",
- "IPAddressVersion": "{{ IPAddressVersion }}",
- "Addresses": [
-  "{{ Addresses[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- ip_set.iql (all properties)
 INSERT INTO aws.wafv2.ip_sets (
  Description,
  Name,
@@ -142,13 +119,45 @@ INSERT INTO aws.wafv2.ip_sets (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .Scope }},
- {{ .IPAddressVersion }},
- {{ .Addresses }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ Scope }}',
+ '{{ IPAddressVersion }}',
+ '{{ Addresses }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ip_set
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Scope
+        value: '{{ Scope }}'
+      - name: IPAddressVersion
+        value: '{{ IPAddressVersion }}'
+      - name: Addresses
+        value:
+          - '{{ Addresses[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

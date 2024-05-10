@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>auto_scaling_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AutoScalingConfigurationName": "{{ AutoScalingConfigurationName }}",
- "MaxConcurrency": "{{ MaxConcurrency }}",
- "MaxSize": "{{ MaxSize }}",
- "MinSize": "{{ MinSize }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- auto_scaling_configuration.iql (required properties only)
 INSERT INTO aws.apprunner.auto_scaling_configurations (
  AutoScalingConfigurationName,
  MaxConcurrency,
@@ -108,32 +97,18 @@ INSERT INTO aws.apprunner.auto_scaling_configurations (
  region
 )
 SELECT 
-{{ .AutoScalingConfigurationName }},
- {{ .MaxConcurrency }},
- {{ .MaxSize }},
- {{ .MinSize }},
- {{ .Tags }},
-'us-east-1';
+'{{ AutoScalingConfigurationName }}',
+ '{{ MaxConcurrency }}',
+ '{{ MaxSize }}',
+ '{{ MinSize }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AutoScalingConfigurationName": "{{ AutoScalingConfigurationName }}",
- "MaxConcurrency": "{{ MaxConcurrency }}",
- "MaxSize": "{{ MaxSize }}",
- "MinSize": "{{ MinSize }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- auto_scaling_configuration.iql (all properties)
 INSERT INTO aws.apprunner.auto_scaling_configurations (
  AutoScalingConfigurationName,
  MaxConcurrency,
@@ -143,12 +118,41 @@ INSERT INTO aws.apprunner.auto_scaling_configurations (
  region
 )
 SELECT 
- {{ .AutoScalingConfigurationName }},
- {{ .MaxConcurrency }},
- {{ .MaxSize }},
- {{ .MinSize }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AutoScalingConfigurationName }}',
+ '{{ MaxConcurrency }}',
+ '{{ MaxSize }}',
+ '{{ MinSize }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: auto_scaling_configuration
+    props:
+      - name: AutoScalingConfigurationName
+        value: '{{ AutoScalingConfigurationName }}'
+      - name: MaxConcurrency
+        value: '{{ MaxConcurrency }}'
+      - name: MaxSize
+        value: '{{ MaxSize }}'
+      - name: MinSize
+        value: '{{ MinSize }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

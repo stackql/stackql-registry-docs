@@ -78,39 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>theme</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "EnvironmentName": "{{ EnvironmentName }}",
- "Name": "{{ Name }}",
- "Overrides": [
-  {
-   "Key": "{{ Key }}",
-   "Value": {
-    "Value": "{{ Value }}",
-    "Children": [
-     null
-    ]
-   }
-  }
- ],
- "Tags": {},
- "Values": [
-  null
- ]
-}
->>>
---required properties only
+-- theme.iql (required properties only)
 INSERT INTO aws.amplifyuibuilder.themes (
  AppId,
  EnvironmentName,
@@ -121,41 +102,19 @@ INSERT INTO aws.amplifyuibuilder.themes (
  region
 )
 SELECT 
-{{ .AppId }},
- {{ .EnvironmentName }},
- {{ .Name }},
- {{ .Overrides }},
- {{ .Tags }},
- {{ .Values }},
-'us-east-1';
+'{{ AppId }}',
+ '{{ EnvironmentName }}',
+ '{{ Name }}',
+ '{{ Overrides }}',
+ '{{ Tags }}',
+ '{{ Values }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "EnvironmentName": "{{ EnvironmentName }}",
- "Name": "{{ Name }}",
- "Overrides": [
-  {
-   "Key": "{{ Key }}",
-   "Value": {
-    "Value": "{{ Value }}",
-    "Children": [
-     null
-    ]
-   }
-  }
- ],
- "Tags": {},
- "Values": [
-  null
- ]
-}
->>>
---all properties
+-- theme.iql (all properties)
 INSERT INTO aws.amplifyuibuilder.themes (
  AppId,
  EnvironmentName,
@@ -166,13 +125,48 @@ INSERT INTO aws.amplifyuibuilder.themes (
  region
 )
 SELECT 
- {{ .AppId }},
- {{ .EnvironmentName }},
- {{ .Name }},
- {{ .Overrides }},
- {{ .Tags }},
- {{ .Values }},
- 'us-east-1';
+ '{{ AppId }}',
+ '{{ EnvironmentName }}',
+ '{{ Name }}',
+ '{{ Overrides }}',
+ '{{ Tags }}',
+ '{{ Values }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: theme
+    props:
+      - name: AppId
+        value: '{{ AppId }}'
+      - name: EnvironmentName
+        value: '{{ EnvironmentName }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Overrides
+        value:
+          - Key: '{{ Key }}'
+            Value:
+              Value: '{{ Value }}'
+              Children:
+                - null
+      - name: Tags
+        value: {}
+      - name: Values
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

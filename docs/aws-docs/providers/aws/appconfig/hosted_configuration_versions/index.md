@@ -78,25 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>hosted_configuration_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConfigurationProfileId": "{{ ConfigurationProfileId }}",
- "ContentType": "{{ ContentType }}",
- "Content": "{{ Content }}",
- "ApplicationId": "{{ ApplicationId }}"
-}
->>>
---required properties only
+-- hosted_configuration_version.iql (required properties only)
 INSERT INTO aws.appconfig.hosted_configuration_versions (
  ConfigurationProfileId,
  ContentType,
@@ -105,28 +100,17 @@ INSERT INTO aws.appconfig.hosted_configuration_versions (
  region
 )
 SELECT 
-{{ .ConfigurationProfileId }},
- {{ .ContentType }},
- {{ .Content }},
- {{ .ApplicationId }},
-'us-east-1';
+'{{ ConfigurationProfileId }}',
+ '{{ ContentType }}',
+ '{{ Content }}',
+ '{{ ApplicationId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConfigurationProfileId": "{{ ConfigurationProfileId }}",
- "Description": "{{ Description }}",
- "ContentType": "{{ ContentType }}",
- "LatestVersionNumber": "{{ LatestVersionNumber }}",
- "Content": "{{ Content }}",
- "VersionLabel": "{{ VersionLabel }}",
- "ApplicationId": "{{ ApplicationId }}"
-}
->>>
---all properties
+-- hosted_configuration_version.iql (all properties)
 INSERT INTO aws.appconfig.hosted_configuration_versions (
  ConfigurationProfileId,
  Description,
@@ -138,14 +122,45 @@ INSERT INTO aws.appconfig.hosted_configuration_versions (
  region
 )
 SELECT 
- {{ .ConfigurationProfileId }},
- {{ .Description }},
- {{ .ContentType }},
- {{ .LatestVersionNumber }},
- {{ .Content }},
- {{ .VersionLabel }},
- {{ .ApplicationId }},
- 'us-east-1';
+ '{{ ConfigurationProfileId }}',
+ '{{ Description }}',
+ '{{ ContentType }}',
+ '{{ LatestVersionNumber }}',
+ '{{ Content }}',
+ '{{ VersionLabel }}',
+ '{{ ApplicationId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: hosted_configuration_version
+    props:
+      - name: ConfigurationProfileId
+        value: '{{ ConfigurationProfileId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ContentType
+        value: '{{ ContentType }}'
+      - name: LatestVersionNumber
+        value: '{{ LatestVersionNumber }}'
+      - name: Content
+        value: '{{ Content }}'
+      - name: VersionLabel
+        value: '{{ VersionLabel }}'
+      - name: ApplicationId
+        value: '{{ ApplicationId }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,37 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>canary</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Code": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}",
-  "S3ObjectVersion": "{{ S3ObjectVersion }}",
-  "Script": "{{ Script }}",
-  "Handler": "{{ Handler }}",
-  "SourceLocationArn": "{{ SourceLocationArn }}"
- },
- "ArtifactS3Location": "{{ ArtifactS3Location }}",
- "Schedule": {
-  "Expression": "{{ Expression }}",
-  "DurationInSeconds": "{{ DurationInSeconds }}"
- },
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "RuntimeVersion": "{{ RuntimeVersion }}"
-}
->>>
---required properties only
+-- canary.iql (required properties only)
 INSERT INTO aws.synthetics.canaries (
  Name,
  Code,
@@ -115,81 +98,19 @@ INSERT INTO aws.synthetics.canaries (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Code }},
- {{ .ArtifactS3Location }},
- {{ .Schedule }},
- {{ .ExecutionRoleArn }},
- {{ .RuntimeVersion }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Code }}',
+ '{{ ArtifactS3Location }}',
+ '{{ Schedule }}',
+ '{{ ExecutionRoleArn }}',
+ '{{ RuntimeVersion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Code": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}",
-  "S3ObjectVersion": "{{ S3ObjectVersion }}",
-  "Script": "{{ Script }}",
-  "Handler": "{{ Handler }}",
-  "SourceLocationArn": "{{ SourceLocationArn }}"
- },
- "ArtifactS3Location": "{{ ArtifactS3Location }}",
- "ArtifactConfig": {
-  "S3Encryption": {
-   "EncryptionMode": "{{ EncryptionMode }}",
-   "KmsKeyArn": "{{ KmsKeyArn }}"
-  }
- },
- "Schedule": {
-  "Expression": "{{ Expression }}",
-  "DurationInSeconds": "{{ DurationInSeconds }}"
- },
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "RuntimeVersion": "{{ RuntimeVersion }}",
- "SuccessRetentionPeriod": "{{ SuccessRetentionPeriod }}",
- "FailureRetentionPeriod": "{{ FailureRetentionPeriod }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VPCConfig": {
-  "VpcId": "{{ VpcId }}",
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ],
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ]
- },
- "RunConfig": {
-  "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
-  "MemoryInMB": "{{ MemoryInMB }}",
-  "ActiveTracing": "{{ ActiveTracing }}",
-  "EnvironmentVariables": {}
- },
- "StartCanaryAfterCreation": "{{ StartCanaryAfterCreation }}",
- "VisualReference": {
-  "BaseCanaryRunId": "{{ BaseCanaryRunId }}",
-  "BaseScreenshots": [
-   {
-    "ScreenshotName": "{{ ScreenshotName }}",
-    "IgnoreCoordinates": [
-     "{{ IgnoreCoordinates[0] }}"
-    ]
-   }
-  ]
- },
- "DeleteLambdaResourcesOnCanaryDeletion": "{{ DeleteLambdaResourcesOnCanaryDeletion }}"
-}
->>>
---all properties
+-- canary.iql (all properties)
 INSERT INTO aws.synthetics.canaries (
  Name,
  Code,
@@ -209,22 +130,96 @@ INSERT INTO aws.synthetics.canaries (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Code }},
- {{ .ArtifactS3Location }},
- {{ .ArtifactConfig }},
- {{ .Schedule }},
- {{ .ExecutionRoleArn }},
- {{ .RuntimeVersion }},
- {{ .SuccessRetentionPeriod }},
- {{ .FailureRetentionPeriod }},
- {{ .Tags }},
- {{ .VPCConfig }},
- {{ .RunConfig }},
- {{ .StartCanaryAfterCreation }},
- {{ .VisualReference }},
- {{ .DeleteLambdaResourcesOnCanaryDeletion }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Code }}',
+ '{{ ArtifactS3Location }}',
+ '{{ ArtifactConfig }}',
+ '{{ Schedule }}',
+ '{{ ExecutionRoleArn }}',
+ '{{ RuntimeVersion }}',
+ '{{ SuccessRetentionPeriod }}',
+ '{{ FailureRetentionPeriod }}',
+ '{{ Tags }}',
+ '{{ VPCConfig }}',
+ '{{ RunConfig }}',
+ '{{ StartCanaryAfterCreation }}',
+ '{{ VisualReference }}',
+ '{{ DeleteLambdaResourcesOnCanaryDeletion }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: canary
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Code
+        value:
+          S3Bucket: '{{ S3Bucket }}'
+          S3Key: '{{ S3Key }}'
+          S3ObjectVersion: '{{ S3ObjectVersion }}'
+          Script: '{{ Script }}'
+          Handler: '{{ Handler }}'
+          SourceLocationArn: '{{ SourceLocationArn }}'
+      - name: ArtifactS3Location
+        value: '{{ ArtifactS3Location }}'
+      - name: ArtifactConfig
+        value:
+          S3Encryption:
+            EncryptionMode: '{{ EncryptionMode }}'
+            KmsKeyArn: '{{ KmsKeyArn }}'
+      - name: Schedule
+        value:
+          Expression: '{{ Expression }}'
+          DurationInSeconds: '{{ DurationInSeconds }}'
+      - name: ExecutionRoleArn
+        value: '{{ ExecutionRoleArn }}'
+      - name: RuntimeVersion
+        value: '{{ RuntimeVersion }}'
+      - name: SuccessRetentionPeriod
+        value: '{{ SuccessRetentionPeriod }}'
+      - name: FailureRetentionPeriod
+        value: '{{ FailureRetentionPeriod }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VPCConfig
+        value:
+          VpcId: '{{ VpcId }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+      - name: RunConfig
+        value:
+          TimeoutInSeconds: '{{ TimeoutInSeconds }}'
+          MemoryInMB: '{{ MemoryInMB }}'
+          ActiveTracing: '{{ ActiveTracing }}'
+          EnvironmentVariables: {}
+      - name: StartCanaryAfterCreation
+        value: '{{ StartCanaryAfterCreation }}'
+      - name: VisualReference
+        value:
+          BaseCanaryRunId: '{{ BaseCanaryRunId }}'
+          BaseScreenshots:
+            - ScreenshotName: '{{ ScreenshotName }}'
+              IgnoreCoordinates:
+                - '{{ IgnoreCoordinates[0] }}'
+      - name: DeleteLambdaResourcesOnCanaryDeletion
+        value: '{{ DeleteLambdaResourcesOnCanaryDeletion }}'
+
 ```
 </TabItem>
 </Tabs>

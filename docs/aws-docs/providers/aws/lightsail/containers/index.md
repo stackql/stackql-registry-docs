@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>container</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ServiceName": "{{ ServiceName }}",
- "Power": "{{ Power }}",
- "Scale": "{{ Scale }}"
-}
->>>
---required properties only
+-- container.iql (required properties only)
 INSERT INTO aws.lightsail.containers (
  ServiceName,
  Power,
@@ -99,74 +95,16 @@ INSERT INTO aws.lightsail.containers (
  region
 )
 SELECT 
-{{ .ServiceName }},
- {{ .Power }},
- {{ .Scale }},
-'us-east-1';
+'{{ ServiceName }}',
+ '{{ Power }}',
+ '{{ Scale }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ServiceName": "{{ ServiceName }}",
- "Power": "{{ Power }}",
- "Scale": "{{ Scale }}",
- "PublicDomainNames": [
-  {
-   "CertificateName": "{{ CertificateName }}",
-   "DomainNames": [
-    "{{ DomainNames[0] }}"
-   ]
-  }
- ],
- "ContainerServiceDeployment": {
-  "Containers": [
-   {
-    "ServiceName": "{{ ServiceName }}",
-    "Power": "{{ Power }}",
-    "Scale": "{{ Scale }}",
-    "PublicDomainNames": [
-     null
-    ],
-    "ContainerServiceDeployment": null,
-    "IsDisabled": "{{ IsDisabled }}",
-    "PrivateRegistryAccess": {
-     "EcrImagePullerRole": {
-      "IsActive": "{{ IsActive }}",
-      "PrincipalArn": "{{ PrincipalArn }}"
-     }
-    },
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  ],
-  "PublicEndpoint": {
-   "ContainerName": "{{ ContainerName }}",
-   "ContainerPort": "{{ ContainerPort }}",
-   "HealthCheckConfig": {
-    "HealthyThreshold": "{{ HealthyThreshold }}",
-    "IntervalSeconds": "{{ IntervalSeconds }}",
-    "Path": "{{ Path }}",
-    "SuccessCodes": "{{ SuccessCodes }}",
-    "TimeoutSeconds": "{{ TimeoutSeconds }}",
-    "UnhealthyThreshold": "{{ UnhealthyThreshold }}"
-   }
-  }
- },
- "IsDisabled": "{{ IsDisabled }}",
- "PrivateRegistryAccess": null,
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- container.iql (all properties)
 INSERT INTO aws.lightsail.containers (
  ServiceName,
  Power,
@@ -179,15 +117,77 @@ INSERT INTO aws.lightsail.containers (
  region
 )
 SELECT 
- {{ .ServiceName }},
- {{ .Power }},
- {{ .Scale }},
- {{ .PublicDomainNames }},
- {{ .ContainerServiceDeployment }},
- {{ .IsDisabled }},
- {{ .PrivateRegistryAccess }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ServiceName }}',
+ '{{ Power }}',
+ '{{ Scale }}',
+ '{{ PublicDomainNames }}',
+ '{{ ContainerServiceDeployment }}',
+ '{{ IsDisabled }}',
+ '{{ PrivateRegistryAccess }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: container
+    props:
+      - name: ServiceName
+        value: '{{ ServiceName }}'
+      - name: Power
+        value: '{{ Power }}'
+      - name: Scale
+        value: '{{ Scale }}'
+      - name: PublicDomainNames
+        value:
+          - CertificateName: '{{ CertificateName }}'
+            DomainNames:
+              - '{{ DomainNames[0] }}'
+      - name: ContainerServiceDeployment
+        value:
+          Containers:
+            - ServiceName: '{{ ServiceName }}'
+              Power: '{{ Power }}'
+              Scale: '{{ Scale }}'
+              PublicDomainNames:
+                - null
+              ContainerServiceDeployment: null
+              IsDisabled: '{{ IsDisabled }}'
+              PrivateRegistryAccess:
+                EcrImagePullerRole:
+                  IsActive: '{{ IsActive }}'
+                  PrincipalArn: '{{ PrincipalArn }}'
+              Tags:
+                - Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+          PublicEndpoint:
+            ContainerName: '{{ ContainerName }}'
+            ContainerPort: '{{ ContainerPort }}'
+            HealthCheckConfig:
+              HealthyThreshold: '{{ HealthyThreshold }}'
+              IntervalSeconds: '{{ IntervalSeconds }}'
+              Path: '{{ Path }}'
+              SuccessCodes: '{{ SuccessCodes }}'
+              TimeoutSeconds: '{{ TimeoutSeconds }}'
+              UnhealthyThreshold: '{{ UnhealthyThreshold }}'
+      - name: IsDisabled
+        value: '{{ IsDisabled }}'
+      - name: PrivateRegistryAccess
+        value: null
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

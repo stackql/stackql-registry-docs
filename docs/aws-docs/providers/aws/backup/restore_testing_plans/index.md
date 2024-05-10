@@ -74,36 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>restore_testing_plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RecoveryPointSelection": {
-  "Algorithm": "{{ Algorithm }}",
-  "SelectionWindowDays": "{{ SelectionWindowDays }}",
-  "RecoveryPointTypes": [
-   "{{ RecoveryPointTypes[0] }}"
-  ],
-  "IncludeVaults": [
-   "{{ IncludeVaults[0] }}"
-  ],
-  "ExcludeVaults": [
-   "{{ ExcludeVaults[0] }}"
-  ]
- },
- "RestoreTestingPlanName": "{{ RestoreTestingPlanName }}",
- "ScheduleExpression": "{{ ScheduleExpression }}"
-}
->>>
---required properties only
+-- restore_testing_plan.iql (required properties only)
 INSERT INTO aws.backup.restore_testing_plans (
  RecoveryPointSelection,
  RestoreTestingPlanName,
@@ -111,43 +95,16 @@ INSERT INTO aws.backup.restore_testing_plans (
  region
 )
 SELECT 
-{{ .RecoveryPointSelection }},
- {{ .RestoreTestingPlanName }},
- {{ .ScheduleExpression }},
-'us-east-1';
+'{{ RecoveryPointSelection }}',
+ '{{ RestoreTestingPlanName }}',
+ '{{ ScheduleExpression }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RecoveryPointSelection": {
-  "Algorithm": "{{ Algorithm }}",
-  "SelectionWindowDays": "{{ SelectionWindowDays }}",
-  "RecoveryPointTypes": [
-   "{{ RecoveryPointTypes[0] }}"
-  ],
-  "IncludeVaults": [
-   "{{ IncludeVaults[0] }}"
-  ],
-  "ExcludeVaults": [
-   "{{ ExcludeVaults[0] }}"
-  ]
- },
- "RestoreTestingPlanName": "{{ RestoreTestingPlanName }}",
- "ScheduleExpression": "{{ ScheduleExpression }}",
- "ScheduleExpressionTimezone": "{{ ScheduleExpressionTimezone }}",
- "StartWindowHours": "{{ StartWindowHours }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- restore_testing_plan.iql (all properties)
 INSERT INTO aws.backup.restore_testing_plans (
  RecoveryPointSelection,
  RestoreTestingPlanName,
@@ -158,13 +115,52 @@ INSERT INTO aws.backup.restore_testing_plans (
  region
 )
 SELECT 
- {{ .RecoveryPointSelection }},
- {{ .RestoreTestingPlanName }},
- {{ .ScheduleExpression }},
- {{ .ScheduleExpressionTimezone }},
- {{ .StartWindowHours }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ RecoveryPointSelection }}',
+ '{{ RestoreTestingPlanName }}',
+ '{{ ScheduleExpression }}',
+ '{{ ScheduleExpressionTimezone }}',
+ '{{ StartWindowHours }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: restore_testing_plan
+    props:
+      - name: RecoveryPointSelection
+        value:
+          Algorithm: '{{ Algorithm }}'
+          SelectionWindowDays: '{{ SelectionWindowDays }}'
+          RecoveryPointTypes:
+            - '{{ RecoveryPointTypes[0] }}'
+          IncludeVaults:
+            - '{{ IncludeVaults[0] }}'
+          ExcludeVaults:
+            - '{{ ExcludeVaults[0] }}'
+      - name: RestoreTestingPlanName
+        value: '{{ RestoreTestingPlanName }}'
+      - name: ScheduleExpression
+        value: '{{ ScheduleExpression }}'
+      - name: ScheduleExpressionTimezone
+        value: '{{ ScheduleExpressionTimezone }}'
+      - name: StartWindowHours
+        value: '{{ StartWindowHours }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

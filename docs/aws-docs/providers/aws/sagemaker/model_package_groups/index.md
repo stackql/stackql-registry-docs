@@ -74,48 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>model_package_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ModelPackageGroupName": "{{ ModelPackageGroupName }}"
-}
->>>
---required properties only
+-- model_package_group.iql (required properties only)
 INSERT INTO aws.sagemaker.model_package_groups (
  ModelPackageGroupName,
  region
 )
 SELECT 
-{{ .ModelPackageGroupName }},
-'us-east-1';
+'{{ ModelPackageGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "ModelPackageGroupName": "{{ ModelPackageGroupName }}",
- "ModelPackageGroupDescription": "{{ ModelPackageGroupDescription }}",
- "ModelPackageGroupPolicy": {}
-}
->>>
---all properties
+-- model_package_group.iql (all properties)
 INSERT INTO aws.sagemaker.model_package_groups (
  Tags,
  ModelPackageGroupName,
@@ -124,11 +109,38 @@ INSERT INTO aws.sagemaker.model_package_groups (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .ModelPackageGroupName }},
- {{ .ModelPackageGroupDescription }},
- {{ .ModelPackageGroupPolicy }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ ModelPackageGroupName }}',
+ '{{ ModelPackageGroupDescription }}',
+ '{{ ModelPackageGroupPolicy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: model_package_group
+    props:
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: ModelPackageGroupName
+        value: '{{ ModelPackageGroupName }}'
+      - name: ModelPackageGroupDescription
+        value: '{{ ModelPackageGroupDescription }}'
+      - name: ModelPackageGroupPolicy
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

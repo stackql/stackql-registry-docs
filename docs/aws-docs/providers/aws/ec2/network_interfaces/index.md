@@ -74,84 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_interface</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---required properties only
+-- network_interface.iql (required properties only)
 INSERT INTO aws.ec2.network_interfaces (
  SubnetId,
  region
 )
 SELECT 
-{{ .SubnetId }},
-'us-east-1';
+'{{ SubnetId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "PrivateIpAddress": "{{ PrivateIpAddress }}",
- "PrivateIpAddresses": [
-  {
-   "Primary": "{{ Primary }}",
-   "PrivateIpAddress": "{{ PrivateIpAddress }}"
-  }
- ],
- "SecondaryPrivateIpAddressCount": "{{ SecondaryPrivateIpAddressCount }}",
- "Ipv4Prefixes": [
-  {
-   "Ipv4Prefix": "{{ Ipv4Prefix }}"
-  }
- ],
- "Ipv4PrefixCount": "{{ Ipv4PrefixCount }}",
- "GroupSet": [
-  "{{ GroupSet[0] }}"
- ],
- "Ipv6Addresses": [
-  {
-   "Ipv6Address": "{{ Ipv6Address }}"
-  }
- ],
- "Ipv6Prefixes": [
-  {
-   "Ipv6Prefix": "{{ Ipv6Prefix }}"
-  }
- ],
- "Ipv6PrefixCount": "{{ Ipv6PrefixCount }}",
- "SubnetId": "{{ SubnetId }}",
- "SourceDestCheck": "{{ SourceDestCheck }}",
- "InterfaceType": "{{ InterfaceType }}",
- "Ipv6AddressCount": "{{ Ipv6AddressCount }}",
- "EnablePrimaryIpv6": "{{ EnablePrimaryIpv6 }}",
- "ConnectionTrackingSpecification": {
-  "TcpEstablishedTimeout": "{{ TcpEstablishedTimeout }}",
-  "UdpStreamTimeout": "{{ UdpStreamTimeout }}",
-  "UdpTimeout": "{{ UdpTimeout }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- network_interface.iql (all properties)
 INSERT INTO aws.ec2.network_interfaces (
  Description,
  PrivateIpAddress,
@@ -173,24 +122,86 @@ INSERT INTO aws.ec2.network_interfaces (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .PrivateIpAddress }},
- {{ .PrivateIpAddresses }},
- {{ .SecondaryPrivateIpAddressCount }},
- {{ .Ipv4Prefixes }},
- {{ .Ipv4PrefixCount }},
- {{ .GroupSet }},
- {{ .Ipv6Addresses }},
- {{ .Ipv6Prefixes }},
- {{ .Ipv6PrefixCount }},
- {{ .SubnetId }},
- {{ .SourceDestCheck }},
- {{ .InterfaceType }},
- {{ .Ipv6AddressCount }},
- {{ .EnablePrimaryIpv6 }},
- {{ .ConnectionTrackingSpecification }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ PrivateIpAddress }}',
+ '{{ PrivateIpAddresses }}',
+ '{{ SecondaryPrivateIpAddressCount }}',
+ '{{ Ipv4Prefixes }}',
+ '{{ Ipv4PrefixCount }}',
+ '{{ GroupSet }}',
+ '{{ Ipv6Addresses }}',
+ '{{ Ipv6Prefixes }}',
+ '{{ Ipv6PrefixCount }}',
+ '{{ SubnetId }}',
+ '{{ SourceDestCheck }}',
+ '{{ InterfaceType }}',
+ '{{ Ipv6AddressCount }}',
+ '{{ EnablePrimaryIpv6 }}',
+ '{{ ConnectionTrackingSpecification }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_interface
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: PrivateIpAddress
+        value: '{{ PrivateIpAddress }}'
+      - name: PrivateIpAddresses
+        value:
+          - Primary: '{{ Primary }}'
+            PrivateIpAddress: '{{ PrivateIpAddress }}'
+      - name: SecondaryPrivateIpAddressCount
+        value: '{{ SecondaryPrivateIpAddressCount }}'
+      - name: Ipv4Prefixes
+        value:
+          - Ipv4Prefix: '{{ Ipv4Prefix }}'
+      - name: Ipv4PrefixCount
+        value: '{{ Ipv4PrefixCount }}'
+      - name: GroupSet
+        value:
+          - '{{ GroupSet[0] }}'
+      - name: Ipv6Addresses
+        value:
+          - Ipv6Address: '{{ Ipv6Address }}'
+      - name: Ipv6Prefixes
+        value:
+          - Ipv6Prefix: '{{ Ipv6Prefix }}'
+      - name: Ipv6PrefixCount
+        value: '{{ Ipv6PrefixCount }}'
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+      - name: SourceDestCheck
+        value: '{{ SourceDestCheck }}'
+      - name: InterfaceType
+        value: '{{ InterfaceType }}'
+      - name: Ipv6AddressCount
+        value: '{{ Ipv6AddressCount }}'
+      - name: EnablePrimaryIpv6
+        value: '{{ EnablePrimaryIpv6 }}'
+      - name: ConnectionTrackingSpecification
+        value:
+          TcpEstablishedTimeout: '{{ TcpEstablishedTimeout }}'
+          UdpStreamTimeout: '{{ UdpStreamTimeout }}'
+          UdpTimeout: '{{ UdpTimeout }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

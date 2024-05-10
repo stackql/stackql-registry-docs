@@ -76,51 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>agent_alias</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AgentAliasName": "{{ AgentAliasName }}",
- "AgentId": "{{ AgentId }}"
-}
->>>
---required properties only
+-- agent_alias.iql (required properties only)
 INSERT INTO aws.bedrock.agent_aliases (
  AgentAliasName,
  AgentId,
  region
 )
 SELECT 
-{{ .AgentAliasName }},
- {{ .AgentId }},
-'us-east-1';
+'{{ AgentAliasName }}',
+ '{{ AgentId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AgentAliasName": "{{ AgentAliasName }}",
- "AgentId": "{{ AgentId }}",
- "Description": "{{ Description }}",
- "RoutingConfiguration": [
-  {
-   "AgentVersion": "{{ AgentVersion }}"
-  }
- ],
- "Tags": {}
-}
->>>
---all properties
+-- agent_alias.iql (all properties)
 INSERT INTO aws.bedrock.agent_aliases (
  AgentAliasName,
  AgentId,
@@ -130,12 +114,40 @@ INSERT INTO aws.bedrock.agent_aliases (
  region
 )
 SELECT 
- {{ .AgentAliasName }},
- {{ .AgentId }},
- {{ .Description }},
- {{ .RoutingConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AgentAliasName }}',
+ '{{ AgentId }}',
+ '{{ Description }}',
+ '{{ RoutingConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: agent_alias
+    props:
+      - name: AgentAliasName
+        value: '{{ AgentAliasName }}'
+      - name: AgentId
+        value: '{{ AgentId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RoutingConfiguration
+        value:
+          - AgentVersion: '{{ AgentVersion }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

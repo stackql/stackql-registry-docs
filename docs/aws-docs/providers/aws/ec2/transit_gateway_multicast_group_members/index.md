@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway_multicast_group_member</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GroupIpAddress": "{{ GroupIpAddress }}",
- "TransitGatewayMulticastDomainId": "{{ TransitGatewayMulticastDomainId }}",
- "NetworkInterfaceId": "{{ NetworkInterfaceId }}"
-}
->>>
---required properties only
+-- transit_gateway_multicast_group_member.iql (required properties only)
 INSERT INTO aws.ec2.transit_gateway_multicast_group_members (
  GroupIpAddress,
  TransitGatewayMulticastDomainId,
@@ -103,23 +99,16 @@ INSERT INTO aws.ec2.transit_gateway_multicast_group_members (
  region
 )
 SELECT 
-{{ .GroupIpAddress }},
- {{ .TransitGatewayMulticastDomainId }},
- {{ .NetworkInterfaceId }},
-'us-east-1';
+'{{ GroupIpAddress }}',
+ '{{ TransitGatewayMulticastDomainId }}',
+ '{{ NetworkInterfaceId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GroupIpAddress": "{{ GroupIpAddress }}",
- "TransitGatewayMulticastDomainId": "{{ TransitGatewayMulticastDomainId }}",
- "NetworkInterfaceId": "{{ NetworkInterfaceId }}"
-}
->>>
---all properties
+-- transit_gateway_multicast_group_member.iql (all properties)
 INSERT INTO aws.ec2.transit_gateway_multicast_group_members (
  GroupIpAddress,
  TransitGatewayMulticastDomainId,
@@ -127,10 +116,33 @@ INSERT INTO aws.ec2.transit_gateway_multicast_group_members (
  region
 )
 SELECT 
- {{ .GroupIpAddress }},
- {{ .TransitGatewayMulticastDomainId }},
- {{ .NetworkInterfaceId }},
- 'us-east-1';
+ '{{ GroupIpAddress }}',
+ '{{ TransitGatewayMulticastDomainId }}',
+ '{{ NetworkInterfaceId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway_multicast_group_member
+    props:
+      - name: GroupIpAddress
+        value: '{{ GroupIpAddress }}'
+      - name: TransitGatewayMulticastDomainId
+        value: '{{ TransitGatewayMulticastDomainId }}'
+      - name: NetworkInterfaceId
+        value: '{{ NetworkInterfaceId }}'
+
 ```
 </TabItem>
 </Tabs>

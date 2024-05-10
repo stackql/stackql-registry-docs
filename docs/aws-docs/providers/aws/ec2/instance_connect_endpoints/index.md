@@ -74,51 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>instance_connect_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---required properties only
+-- instance_connect_endpoint.iql (required properties only)
 INSERT INTO aws.ec2.instance_connect_endpoints (
  SubnetId,
  region
 )
 SELECT 
-{{ .SubnetId }},
-'us-east-1';
+'{{ SubnetId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SubnetId": "{{ SubnetId }}",
- "ClientToken": "{{ ClientToken }}",
- "PreserveClientIp": "{{ PreserveClientIp }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ]
-}
->>>
---all properties
+-- instance_connect_endpoint.iql (all properties)
 INSERT INTO aws.ec2.instance_connect_endpoints (
  SubnetId,
  ClientToken,
@@ -128,12 +110,42 @@ INSERT INTO aws.ec2.instance_connect_endpoints (
  region
 )
 SELECT 
- {{ .SubnetId }},
- {{ .ClientToken }},
- {{ .PreserveClientIp }},
- {{ .Tags }},
- {{ .SecurityGroupIds }},
- 'us-east-1';
+ '{{ SubnetId }}',
+ '{{ ClientToken }}',
+ '{{ PreserveClientIp }}',
+ '{{ Tags }}',
+ '{{ SecurityGroupIds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: instance_connect_endpoint
+    props:
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+      - name: ClientToken
+        value: '{{ ClientToken }}'
+      - name: PreserveClientIp
+        value: '{{ PreserveClientIp }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

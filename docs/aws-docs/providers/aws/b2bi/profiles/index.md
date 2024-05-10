@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BusinessName": "{{ BusinessName }}",
- "Logging": "{{ Logging }}",
- "Name": "{{ Name }}",
- "Phone": "{{ Phone }}"
-}
->>>
---required properties only
+-- profile.iql (required properties only)
 INSERT INTO aws.b2bi.profiles (
  BusinessName,
  Logging,
@@ -101,32 +96,17 @@ INSERT INTO aws.b2bi.profiles (
  region
 )
 SELECT 
-{{ .BusinessName }},
- {{ .Logging }},
- {{ .Name }},
- {{ .Phone }},
-'us-east-1';
+'{{ BusinessName }}',
+ '{{ Logging }}',
+ '{{ Name }}',
+ '{{ Phone }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BusinessName": "{{ BusinessName }}",
- "Email": "{{ Email }}",
- "Logging": "{{ Logging }}",
- "Name": "{{ Name }}",
- "Phone": "{{ Phone }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- profile.iql (all properties)
 INSERT INTO aws.b2bi.profiles (
  BusinessName,
  Email,
@@ -137,13 +117,44 @@ INSERT INTO aws.b2bi.profiles (
  region
 )
 SELECT 
- {{ .BusinessName }},
- {{ .Email }},
- {{ .Logging }},
- {{ .Name }},
- {{ .Phone }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ BusinessName }}',
+ '{{ Email }}',
+ '{{ Logging }}',
+ '{{ Name }}',
+ '{{ Phone }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: profile
+    props:
+      - name: BusinessName
+        value: '{{ BusinessName }}'
+      - name: Email
+        value: '{{ Email }}'
+      - name: Logging
+        value: '{{ Logging }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Phone
+        value: '{{ Phone }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,57 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_ingress_connection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ServiceArn": "{{ ServiceArn }}",
- "IngressVpcConfiguration": {
-  "VpcId": "{{ VpcId }}",
-  "VpcEndpointId": "{{ VpcEndpointId }}"
- }
-}
->>>
---required properties only
+-- vpc_ingress_connection.iql (required properties only)
 INSERT INTO aws.apprunner.vpc_ingress_connections (
  ServiceArn,
  IngressVpcConfiguration,
  region
 )
 SELECT 
-{{ .ServiceArn }},
- {{ .IngressVpcConfiguration }},
-'us-east-1';
+'{{ ServiceArn }}',
+ '{{ IngressVpcConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VpcIngressConnectionName": "{{ VpcIngressConnectionName }}",
- "ServiceArn": "{{ ServiceArn }}",
- "IngressVpcConfiguration": {
-  "VpcId": "{{ VpcId }}",
-  "VpcEndpointId": "{{ VpcEndpointId }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- vpc_ingress_connection.iql (all properties)
 INSERT INTO aws.apprunner.vpc_ingress_connections (
  VpcIngressConnectionName,
  ServiceArn,
@@ -133,11 +111,40 @@ INSERT INTO aws.apprunner.vpc_ingress_connections (
  region
 )
 SELECT 
- {{ .VpcIngressConnectionName }},
- {{ .ServiceArn }},
- {{ .IngressVpcConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ VpcIngressConnectionName }}',
+ '{{ ServiceArn }}',
+ '{{ IngressVpcConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_ingress_connection
+    props:
+      - name: VpcIngressConnectionName
+        value: '{{ VpcIngressConnectionName }}'
+      - name: ServiceArn
+        value: '{{ ServiceArn }}'
+      - name: IngressVpcConfiguration
+        value:
+          VpcId: '{{ VpcId }}'
+          VpcEndpointId: '{{ VpcEndpointId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

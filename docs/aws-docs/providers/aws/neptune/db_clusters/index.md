@@ -74,65 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>db_cluster</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AssociatedRoles": [
-  {
-   "FeatureName": "{{ FeatureName }}",
-   "RoleArn": "{{ RoleArn }}"
-  }
- ],
- "AvailabilityZones": [
-  "{{ AvailabilityZones[0] }}"
- ],
- "BackupRetentionPeriod": "{{ BackupRetentionPeriod }}",
- "CopyTagsToSnapshot": "{{ CopyTagsToSnapshot }}",
- "DBClusterIdentifier": "{{ DBClusterIdentifier }}",
- "DBClusterParameterGroupName": "{{ DBClusterParameterGroupName }}",
- "DBInstanceParameterGroupName": "{{ DBInstanceParameterGroupName }}",
- "DBPort": "{{ DBPort }}",
- "DBSubnetGroupName": "{{ DBSubnetGroupName }}",
- "DeletionProtection": "{{ DeletionProtection }}",
- "EnableCloudwatchLogsExports": [
-  "{{ EnableCloudwatchLogsExports[0] }}"
- ],
- "EngineVersion": "{{ EngineVersion }}",
- "IamAuthEnabled": "{{ IamAuthEnabled }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "RestoreToTime": "{{ RestoreToTime }}",
- "RestoreType": "{{ RestoreType }}",
- "ServerlessScalingConfiguration": {
-  "MinCapacity": null,
-  "MaxCapacity": null
- },
- "SnapshotIdentifier": "{{ SnapshotIdentifier }}",
- "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
- "StorageEncrypted": "{{ StorageEncrypted }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "UseLatestRestorableTime": "{{ UseLatestRestorableTime }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ]
-}
->>>
---required properties only
+-- db_cluster.iql (required properties only)
 INSERT INTO aws.neptune.db_clusters (
  AssociatedRoles,
  AvailabilityZones,
@@ -162,86 +117,38 @@ INSERT INTO aws.neptune.db_clusters (
  region
 )
 SELECT 
-{{ .AssociatedRoles }},
- {{ .AvailabilityZones }},
- {{ .BackupRetentionPeriod }},
- {{ .CopyTagsToSnapshot }},
- {{ .DBClusterIdentifier }},
- {{ .DBClusterParameterGroupName }},
- {{ .DBInstanceParameterGroupName }},
- {{ .DBPort }},
- {{ .DBSubnetGroupName }},
- {{ .DeletionProtection }},
- {{ .EnableCloudwatchLogsExports }},
- {{ .EngineVersion }},
- {{ .IamAuthEnabled }},
- {{ .KmsKeyId }},
- {{ .PreferredBackupWindow }},
- {{ .PreferredMaintenanceWindow }},
- {{ .RestoreToTime }},
- {{ .RestoreType }},
- {{ .ServerlessScalingConfiguration }},
- {{ .SnapshotIdentifier }},
- {{ .SourceDBClusterIdentifier }},
- {{ .StorageEncrypted }},
- {{ .Tags }},
- {{ .UseLatestRestorableTime }},
- {{ .VpcSecurityGroupIds }},
-'us-east-1';
+'{{ AssociatedRoles }}',
+ '{{ AvailabilityZones }}',
+ '{{ BackupRetentionPeriod }}',
+ '{{ CopyTagsToSnapshot }}',
+ '{{ DBClusterIdentifier }}',
+ '{{ DBClusterParameterGroupName }}',
+ '{{ DBInstanceParameterGroupName }}',
+ '{{ DBPort }}',
+ '{{ DBSubnetGroupName }}',
+ '{{ DeletionProtection }}',
+ '{{ EnableCloudwatchLogsExports }}',
+ '{{ EngineVersion }}',
+ '{{ IamAuthEnabled }}',
+ '{{ KmsKeyId }}',
+ '{{ PreferredBackupWindow }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ RestoreToTime }}',
+ '{{ RestoreType }}',
+ '{{ ServerlessScalingConfiguration }}',
+ '{{ SnapshotIdentifier }}',
+ '{{ SourceDBClusterIdentifier }}',
+ '{{ StorageEncrypted }}',
+ '{{ Tags }}',
+ '{{ UseLatestRestorableTime }}',
+ '{{ VpcSecurityGroupIds }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssociatedRoles": [
-  {
-   "FeatureName": "{{ FeatureName }}",
-   "RoleArn": "{{ RoleArn }}"
-  }
- ],
- "AvailabilityZones": [
-  "{{ AvailabilityZones[0] }}"
- ],
- "BackupRetentionPeriod": "{{ BackupRetentionPeriod }}",
- "CopyTagsToSnapshot": "{{ CopyTagsToSnapshot }}",
- "DBClusterIdentifier": "{{ DBClusterIdentifier }}",
- "DBClusterParameterGroupName": "{{ DBClusterParameterGroupName }}",
- "DBInstanceParameterGroupName": "{{ DBInstanceParameterGroupName }}",
- "DBPort": "{{ DBPort }}",
- "DBSubnetGroupName": "{{ DBSubnetGroupName }}",
- "DeletionProtection": "{{ DeletionProtection }}",
- "EnableCloudwatchLogsExports": [
-  "{{ EnableCloudwatchLogsExports[0] }}"
- ],
- "EngineVersion": "{{ EngineVersion }}",
- "IamAuthEnabled": "{{ IamAuthEnabled }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "RestoreToTime": "{{ RestoreToTime }}",
- "RestoreType": "{{ RestoreType }}",
- "ServerlessScalingConfiguration": {
-  "MinCapacity": null,
-  "MaxCapacity": null
- },
- "SnapshotIdentifier": "{{ SnapshotIdentifier }}",
- "SourceDBClusterIdentifier": "{{ SourceDBClusterIdentifier }}",
- "StorageEncrypted": "{{ StorageEncrypted }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "UseLatestRestorableTime": "{{ UseLatestRestorableTime }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ]
-}
->>>
---all properties
+-- db_cluster.iql (all properties)
 INSERT INTO aws.neptune.db_clusters (
  AssociatedRoles,
  AvailabilityZones,
@@ -271,32 +178,108 @@ INSERT INTO aws.neptune.db_clusters (
  region
 )
 SELECT 
- {{ .AssociatedRoles }},
- {{ .AvailabilityZones }},
- {{ .BackupRetentionPeriod }},
- {{ .CopyTagsToSnapshot }},
- {{ .DBClusterIdentifier }},
- {{ .DBClusterParameterGroupName }},
- {{ .DBInstanceParameterGroupName }},
- {{ .DBPort }},
- {{ .DBSubnetGroupName }},
- {{ .DeletionProtection }},
- {{ .EnableCloudwatchLogsExports }},
- {{ .EngineVersion }},
- {{ .IamAuthEnabled }},
- {{ .KmsKeyId }},
- {{ .PreferredBackupWindow }},
- {{ .PreferredMaintenanceWindow }},
- {{ .RestoreToTime }},
- {{ .RestoreType }},
- {{ .ServerlessScalingConfiguration }},
- {{ .SnapshotIdentifier }},
- {{ .SourceDBClusterIdentifier }},
- {{ .StorageEncrypted }},
- {{ .Tags }},
- {{ .UseLatestRestorableTime }},
- {{ .VpcSecurityGroupIds }},
- 'us-east-1';
+ '{{ AssociatedRoles }}',
+ '{{ AvailabilityZones }}',
+ '{{ BackupRetentionPeriod }}',
+ '{{ CopyTagsToSnapshot }}',
+ '{{ DBClusterIdentifier }}',
+ '{{ DBClusterParameterGroupName }}',
+ '{{ DBInstanceParameterGroupName }}',
+ '{{ DBPort }}',
+ '{{ DBSubnetGroupName }}',
+ '{{ DeletionProtection }}',
+ '{{ EnableCloudwatchLogsExports }}',
+ '{{ EngineVersion }}',
+ '{{ IamAuthEnabled }}',
+ '{{ KmsKeyId }}',
+ '{{ PreferredBackupWindow }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ RestoreToTime }}',
+ '{{ RestoreType }}',
+ '{{ ServerlessScalingConfiguration }}',
+ '{{ SnapshotIdentifier }}',
+ '{{ SourceDBClusterIdentifier }}',
+ '{{ StorageEncrypted }}',
+ '{{ Tags }}',
+ '{{ UseLatestRestorableTime }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: db_cluster
+    props:
+      - name: AssociatedRoles
+        value:
+          - FeatureName: '{{ FeatureName }}'
+            RoleArn: '{{ RoleArn }}'
+      - name: AvailabilityZones
+        value:
+          - '{{ AvailabilityZones[0] }}'
+      - name: BackupRetentionPeriod
+        value: '{{ BackupRetentionPeriod }}'
+      - name: CopyTagsToSnapshot
+        value: '{{ CopyTagsToSnapshot }}'
+      - name: DBClusterIdentifier
+        value: '{{ DBClusterIdentifier }}'
+      - name: DBClusterParameterGroupName
+        value: '{{ DBClusterParameterGroupName }}'
+      - name: DBInstanceParameterGroupName
+        value: '{{ DBInstanceParameterGroupName }}'
+      - name: DBPort
+        value: '{{ DBPort }}'
+      - name: DBSubnetGroupName
+        value: '{{ DBSubnetGroupName }}'
+      - name: DeletionProtection
+        value: '{{ DeletionProtection }}'
+      - name: EnableCloudwatchLogsExports
+        value:
+          - '{{ EnableCloudwatchLogsExports[0] }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: IamAuthEnabled
+        value: '{{ IamAuthEnabled }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: PreferredBackupWindow
+        value: '{{ PreferredBackupWindow }}'
+      - name: PreferredMaintenanceWindow
+        value: '{{ PreferredMaintenanceWindow }}'
+      - name: RestoreToTime
+        value: '{{ RestoreToTime }}'
+      - name: RestoreType
+        value: '{{ RestoreType }}'
+      - name: ServerlessScalingConfiguration
+        value:
+          MinCapacity: null
+          MaxCapacity: null
+      - name: SnapshotIdentifier
+        value: '{{ SnapshotIdentifier }}'
+      - name: SourceDBClusterIdentifier
+        value: '{{ SourceDBClusterIdentifier }}'
+      - name: StorageEncrypted
+        value: '{{ StorageEncrypted }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: UseLatestRestorableTime
+        value: '{{ UseLatestRestorableTime }}'
+      - name: VpcSecurityGroupIds
+        value:
+          - '{{ VpcSecurityGroupIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

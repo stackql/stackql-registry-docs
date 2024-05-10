@@ -74,51 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>security_group_ingress</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IpProtocol": "{{ IpProtocol }}"
-}
->>>
---required properties only
+-- security_group_ingress.iql (required properties only)
 INSERT INTO aws.ec2.security_group_ingresses (
  IpProtocol,
  region
 )
 SELECT 
-{{ .IpProtocol }},
-'us-east-1';
+'{{ IpProtocol }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CidrIp": "{{ CidrIp }}",
- "CidrIpv6": "{{ CidrIpv6 }}",
- "Description": "{{ Description }}",
- "FromPort": "{{ FromPort }}",
- "GroupId": "{{ GroupId }}",
- "GroupName": "{{ GroupName }}",
- "IpProtocol": "{{ IpProtocol }}",
- "SourcePrefixListId": "{{ SourcePrefixListId }}",
- "SourceSecurityGroupId": "{{ SourceSecurityGroupId }}",
- "SourceSecurityGroupName": "{{ SourceSecurityGroupName }}",
- "SourceSecurityGroupOwnerId": "{{ SourceSecurityGroupOwnerId }}",
- "ToPort": "{{ ToPort }}"
-}
->>>
---all properties
+-- security_group_ingress.iql (all properties)
 INSERT INTO aws.ec2.security_group_ingresses (
  CidrIp,
  CidrIpv6,
@@ -135,19 +117,60 @@ INSERT INTO aws.ec2.security_group_ingresses (
  region
 )
 SELECT 
- {{ .CidrIp }},
- {{ .CidrIpv6 }},
- {{ .Description }},
- {{ .FromPort }},
- {{ .GroupId }},
- {{ .GroupName }},
- {{ .IpProtocol }},
- {{ .SourcePrefixListId }},
- {{ .SourceSecurityGroupId }},
- {{ .SourceSecurityGroupName }},
- {{ .SourceSecurityGroupOwnerId }},
- {{ .ToPort }},
- 'us-east-1';
+ '{{ CidrIp }}',
+ '{{ CidrIpv6 }}',
+ '{{ Description }}',
+ '{{ FromPort }}',
+ '{{ GroupId }}',
+ '{{ GroupName }}',
+ '{{ IpProtocol }}',
+ '{{ SourcePrefixListId }}',
+ '{{ SourceSecurityGroupId }}',
+ '{{ SourceSecurityGroupName }}',
+ '{{ SourceSecurityGroupOwnerId }}',
+ '{{ ToPort }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: security_group_ingress
+    props:
+      - name: CidrIp
+        value: '{{ CidrIp }}'
+      - name: CidrIpv6
+        value: '{{ CidrIpv6 }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FromPort
+        value: '{{ FromPort }}'
+      - name: GroupId
+        value: '{{ GroupId }}'
+      - name: GroupName
+        value: '{{ GroupName }}'
+      - name: IpProtocol
+        value: '{{ IpProtocol }}'
+      - name: SourcePrefixListId
+        value: '{{ SourcePrefixListId }}'
+      - name: SourceSecurityGroupId
+        value: '{{ SourceSecurityGroupId }}'
+      - name: SourceSecurityGroupName
+        value: '{{ SourceSecurityGroupName }}'
+      - name: SourceSecurityGroupOwnerId
+        value: '{{ SourceSecurityGroupOwnerId }}'
+      - name: ToPort
+        value: '{{ ToPort }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,30 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>custom_plugin</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "ContentType": "{{ ContentType }}",
- "Location": {
-  "S3Location": {
-   "BucketArn": "{{ BucketArn }}",
-   "FileKey": "{{ FileKey }}",
-   "ObjectVersion": "{{ ObjectVersion }}"
-  }
- }
-}
->>>
---required properties only
+-- custom_plugin.iql (required properties only)
 INSERT INTO aws.kafkaconnect.custom_plugins (
  Name,
  ContentType,
@@ -105,36 +95,16 @@ INSERT INTO aws.kafkaconnect.custom_plugins (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .ContentType }},
- {{ .Location }},
-'us-east-1';
+'{{ Name }}',
+ '{{ ContentType }}',
+ '{{ Location }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ContentType": "{{ ContentType }}",
- "Location": {
-  "S3Location": {
-   "BucketArn": "{{ BucketArn }}",
-   "FileKey": "{{ FileKey }}",
-   "ObjectVersion": "{{ ObjectVersion }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- custom_plugin.iql (all properties)
 INSERT INTO aws.kafkaconnect.custom_plugins (
  Name,
  Description,
@@ -144,12 +114,45 @@ INSERT INTO aws.kafkaconnect.custom_plugins (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .ContentType }},
- {{ .Location }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ ContentType }}',
+ '{{ Location }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: custom_plugin
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ContentType
+        value: '{{ ContentType }}'
+      - name: Location
+        value:
+          S3Location:
+            BucketArn: '{{ BucketArn }}'
+            FileKey: '{{ FileKey }}'
+            ObjectVersion: '{{ ObjectVersion }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

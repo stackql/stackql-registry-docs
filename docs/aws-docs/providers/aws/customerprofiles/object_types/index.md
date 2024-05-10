@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>object_type</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "ObjectTypeName": "{{ ObjectTypeName }}",
- "Description": "{{ Description }}"
-}
->>>
---required properties only
+-- object_type.iql (required properties only)
 INSERT INTO aws.customerprofiles.object_types (
  DomainName,
  ObjectTypeName,
@@ -101,59 +97,16 @@ INSERT INTO aws.customerprofiles.object_types (
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .ObjectTypeName }},
- {{ .Description }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ ObjectTypeName }}',
+ '{{ Description }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "ObjectTypeName": "{{ ObjectTypeName }}",
- "AllowProfileCreation": "{{ AllowProfileCreation }}",
- "Description": "{{ Description }}",
- "EncryptionKey": "{{ EncryptionKey }}",
- "ExpirationDays": "{{ ExpirationDays }}",
- "Fields": [
-  {
-   "Name": "{{ Name }}",
-   "ObjectTypeField": {
-    "Source": "{{ Source }}",
-    "Target": "{{ Target }}",
-    "ContentType": "{{ ContentType }}"
-   }
-  }
- ],
- "Keys": [
-  {
-   "Name": "{{ Name }}",
-   "ObjectTypeKeyList": [
-    {
-     "FieldNames": [
-      "{{ FieldNames[0] }}"
-     ],
-     "StandardIdentifiers": [
-      "{{ StandardIdentifiers[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "SourceLastUpdatedTimestampFormat": "{{ SourceLastUpdatedTimestampFormat }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TemplateId": "{{ TemplateId }}"
-}
->>>
---all properties
+-- object_type.iql (all properties)
 INSERT INTO aws.customerprofiles.object_types (
  DomainName,
  ObjectTypeName,
@@ -169,18 +122,70 @@ INSERT INTO aws.customerprofiles.object_types (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .ObjectTypeName }},
- {{ .AllowProfileCreation }},
- {{ .Description }},
- {{ .EncryptionKey }},
- {{ .ExpirationDays }},
- {{ .Fields }},
- {{ .Keys }},
- {{ .SourceLastUpdatedTimestampFormat }},
- {{ .Tags }},
- {{ .TemplateId }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ ObjectTypeName }}',
+ '{{ AllowProfileCreation }}',
+ '{{ Description }}',
+ '{{ EncryptionKey }}',
+ '{{ ExpirationDays }}',
+ '{{ Fields }}',
+ '{{ Keys }}',
+ '{{ SourceLastUpdatedTimestampFormat }}',
+ '{{ Tags }}',
+ '{{ TemplateId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: object_type
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: ObjectTypeName
+        value: '{{ ObjectTypeName }}'
+      - name: AllowProfileCreation
+        value: '{{ AllowProfileCreation }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EncryptionKey
+        value: '{{ EncryptionKey }}'
+      - name: ExpirationDays
+        value: '{{ ExpirationDays }}'
+      - name: Fields
+        value:
+          - Name: '{{ Name }}'
+            ObjectTypeField:
+              Source: '{{ Source }}'
+              Target: '{{ Target }}'
+              ContentType: '{{ ContentType }}'
+      - name: Keys
+        value:
+          - Name: '{{ Name }}'
+            ObjectTypeKeyList:
+              - FieldNames:
+                  - '{{ FieldNames[0] }}'
+                StandardIdentifiers:
+                  - '{{ StandardIdentifiers[0] }}'
+      - name: SourceLastUpdatedTimestampFormat
+        value: '{{ SourceLastUpdatedTimestampFormat }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TemplateId
+        value: '{{ TemplateId }}'
+
 ```
 </TabItem>
 </Tabs>

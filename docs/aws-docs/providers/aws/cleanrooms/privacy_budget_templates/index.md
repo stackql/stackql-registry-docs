@@ -76,28 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>privacy_budget_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AutoRefresh": "{{ AutoRefresh }}",
- "PrivacyBudgetType": "{{ PrivacyBudgetType }}",
- "Parameters": {
-  "Epsilon": "{{ Epsilon }}",
-  "UsersNoisePerQuery": "{{ UsersNoisePerQuery }}"
- },
- "MembershipIdentifier": "{{ MembershipIdentifier }}"
-}
->>>
---required properties only
+-- privacy_budget_template.iql (required properties only)
 INSERT INTO aws.cleanrooms.privacy_budget_templates (
  AutoRefresh,
  PrivacyBudgetType,
@@ -106,34 +98,17 @@ INSERT INTO aws.cleanrooms.privacy_budget_templates (
  region
 )
 SELECT 
-{{ .AutoRefresh }},
- {{ .PrivacyBudgetType }},
- {{ .Parameters }},
- {{ .MembershipIdentifier }},
-'us-east-1';
+'{{ AutoRefresh }}',
+ '{{ PrivacyBudgetType }}',
+ '{{ Parameters }}',
+ '{{ MembershipIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AutoRefresh": "{{ AutoRefresh }}",
- "PrivacyBudgetType": "{{ PrivacyBudgetType }}",
- "Parameters": {
-  "Epsilon": "{{ Epsilon }}",
-  "UsersNoisePerQuery": "{{ UsersNoisePerQuery }}"
- },
- "MembershipIdentifier": "{{ MembershipIdentifier }}"
-}
->>>
---all properties
+-- privacy_budget_template.iql (all properties)
 INSERT INTO aws.cleanrooms.privacy_budget_templates (
  Tags,
  AutoRefresh,
@@ -143,12 +118,43 @@ INSERT INTO aws.cleanrooms.privacy_budget_templates (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .AutoRefresh }},
- {{ .PrivacyBudgetType }},
- {{ .Parameters }},
- {{ .MembershipIdentifier }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ AutoRefresh }}',
+ '{{ PrivacyBudgetType }}',
+ '{{ Parameters }}',
+ '{{ MembershipIdentifier }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: privacy_budget_template
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AutoRefresh
+        value: '{{ AutoRefresh }}'
+      - name: PrivacyBudgetType
+        value: '{{ PrivacyBudgetType }}'
+      - name: Parameters
+        value:
+          Epsilon: '{{ Epsilon }}'
+          UsersNoisePerQuery: '{{ UsersNoisePerQuery }}'
+      - name: MembershipIdentifier
+        value: '{{ MembershipIdentifier }}'
+
 ```
 </TabItem>
 </Tabs>

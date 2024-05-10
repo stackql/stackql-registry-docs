@@ -74,50 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>geofence_collection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CollectionName": "{{ CollectionName }}"
-}
->>>
---required properties only
+-- geofence_collection.iql (required properties only)
 INSERT INTO aws.location.geofence_collections (
  CollectionName,
  region
 )
 SELECT 
-{{ .CollectionName }},
-'us-east-1';
+'{{ CollectionName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CollectionName": "{{ CollectionName }}",
- "Description": "{{ Description }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "PricingPlan": "{{ PricingPlan }}",
- "PricingPlanDataSource": "{{ PricingPlanDataSource }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- geofence_collection.iql (all properties)
 INSERT INTO aws.location.geofence_collections (
  CollectionName,
  Description,
@@ -128,13 +111,44 @@ INSERT INTO aws.location.geofence_collections (
  region
 )
 SELECT 
- {{ .CollectionName }},
- {{ .Description }},
- {{ .KmsKeyId }},
- {{ .PricingPlan }},
- {{ .PricingPlanDataSource }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CollectionName }}',
+ '{{ Description }}',
+ '{{ KmsKeyId }}',
+ '{{ PricingPlan }}',
+ '{{ PricingPlanDataSource }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: geofence_collection
+    props:
+      - name: CollectionName
+        value: '{{ CollectionName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: PricingPlan
+        value: '{{ PricingPlan }}'
+      - name: PricingPlanDataSource
+        value: '{{ PricingPlanDataSource }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,50 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>experiment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Project": "{{ Project }}",
- "Treatments": [
-  {
-   "TreatmentName": "{{ TreatmentName }}",
-   "Description": "{{ Description }}",
-   "Feature": "{{ Feature }}",
-   "Variation": "{{ Variation }}"
-  }
- ],
- "MetricGoals": [
-  {
-   "MetricName": "{{ MetricName }}",
-   "EntityIdKey": "{{ EntityIdKey }}",
-   "ValueKey": "{{ ValueKey }}",
-   "EventPattern": "{{ EventPattern }}",
-   "UnitLabel": "{{ UnitLabel }}",
-   "DesiredChange": "{{ DesiredChange }}"
-  }
- ],
- "OnlineAbConfig": {
-  "ControlTreatmentName": "{{ ControlTreatmentName }}",
-  "TreatmentWeights": [
-   {
-    "Treatment": "{{ Treatment }}",
-    "SplitWeight": "{{ SplitWeight }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- experiment.iql (required properties only)
 INSERT INTO aws.evidently.experiments (
  Name,
  Project,
@@ -127,68 +97,18 @@ INSERT INTO aws.evidently.experiments (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Project }},
- {{ .Treatments }},
- {{ .MetricGoals }},
- {{ .OnlineAbConfig }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Project }}',
+ '{{ Treatments }}',
+ '{{ MetricGoals }}',
+ '{{ OnlineAbConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Project": "{{ Project }}",
- "Description": "{{ Description }}",
- "RunningStatus": {
-  "Status": "{{ Status }}",
-  "AnalysisCompleteTime": "{{ AnalysisCompleteTime }}",
-  "Reason": "{{ Reason }}",
-  "DesiredState": "{{ DesiredState }}"
- },
- "RandomizationSalt": "{{ RandomizationSalt }}",
- "Treatments": [
-  {
-   "TreatmentName": "{{ TreatmentName }}",
-   "Description": "{{ Description }}",
-   "Feature": "{{ Feature }}",
-   "Variation": "{{ Variation }}"
-  }
- ],
- "MetricGoals": [
-  {
-   "MetricName": "{{ MetricName }}",
-   "EntityIdKey": "{{ EntityIdKey }}",
-   "ValueKey": "{{ ValueKey }}",
-   "EventPattern": "{{ EventPattern }}",
-   "UnitLabel": "{{ UnitLabel }}",
-   "DesiredChange": "{{ DesiredChange }}"
-  }
- ],
- "SamplingRate": "{{ SamplingRate }}",
- "OnlineAbConfig": {
-  "ControlTreatmentName": "{{ ControlTreatmentName }}",
-  "TreatmentWeights": [
-   {
-    "Treatment": "{{ Treatment }}",
-    "SplitWeight": "{{ SplitWeight }}"
-   }
-  ]
- },
- "Segment": "{{ Segment }}",
- "RemoveSegment": "{{ RemoveSegment }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- experiment.iql (all properties)
 INSERT INTO aws.evidently.experiments (
  Name,
  Project,
@@ -205,19 +125,80 @@ INSERT INTO aws.evidently.experiments (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Project }},
- {{ .Description }},
- {{ .RunningStatus }},
- {{ .RandomizationSalt }},
- {{ .Treatments }},
- {{ .MetricGoals }},
- {{ .SamplingRate }},
- {{ .OnlineAbConfig }},
- {{ .Segment }},
- {{ .RemoveSegment }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Project }}',
+ '{{ Description }}',
+ '{{ RunningStatus }}',
+ '{{ RandomizationSalt }}',
+ '{{ Treatments }}',
+ '{{ MetricGoals }}',
+ '{{ SamplingRate }}',
+ '{{ OnlineAbConfig }}',
+ '{{ Segment }}',
+ '{{ RemoveSegment }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: experiment
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Project
+        value: '{{ Project }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RunningStatus
+        value:
+          Status: '{{ Status }}'
+          AnalysisCompleteTime: '{{ AnalysisCompleteTime }}'
+          Reason: '{{ Reason }}'
+          DesiredState: '{{ DesiredState }}'
+      - name: RandomizationSalt
+        value: '{{ RandomizationSalt }}'
+      - name: Treatments
+        value:
+          - TreatmentName: '{{ TreatmentName }}'
+            Description: '{{ Description }}'
+            Feature: '{{ Feature }}'
+            Variation: '{{ Variation }}'
+      - name: MetricGoals
+        value:
+          - MetricName: '{{ MetricName }}'
+            EntityIdKey: '{{ EntityIdKey }}'
+            ValueKey: '{{ ValueKey }}'
+            EventPattern: '{{ EventPattern }}'
+            UnitLabel: '{{ UnitLabel }}'
+            DesiredChange: '{{ DesiredChange }}'
+      - name: SamplingRate
+        value: '{{ SamplingRate }}'
+      - name: OnlineAbConfig
+        value:
+          ControlTreatmentName: '{{ ControlTreatmentName }}'
+          TreatmentWeights:
+            - Treatment: '{{ Treatment }}'
+              SplitWeight: '{{ SplitWeight }}'
+      - name: Segment
+        value: '{{ Segment }}'
+      - name: RemoveSegment
+        value: '{{ RemoveSegment }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

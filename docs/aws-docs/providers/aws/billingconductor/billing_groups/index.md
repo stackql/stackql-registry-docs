@@ -74,32 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>billing_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "PrimaryAccountId": "{{ PrimaryAccountId }}",
- "ComputationPreference": {
-  "PricingPlanArn": "{{ PricingPlanArn }}"
- },
- "AccountGrouping": {
-  "LinkedAccountIds": [
-   "{{ LinkedAccountIds[0] }}"
-  ],
-  "AutoAssociate": "{{ AutoAssociate }}"
- }
-}
->>>
---required properties only
+-- billing_group.iql (required properties only)
 INSERT INTO aws.billingconductor.billing_groups (
  Name,
  PrimaryAccountId,
@@ -108,39 +96,17 @@ INSERT INTO aws.billingconductor.billing_groups (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .PrimaryAccountId }},
- {{ .ComputationPreference }},
- {{ .AccountGrouping }},
-'us-east-1';
+'{{ Name }}',
+ '{{ PrimaryAccountId }}',
+ '{{ ComputationPreference }}',
+ '{{ AccountGrouping }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "PrimaryAccountId": "{{ PrimaryAccountId }}",
- "ComputationPreference": {
-  "PricingPlanArn": "{{ PricingPlanArn }}"
- },
- "AccountGrouping": {
-  "LinkedAccountIds": [
-   "{{ LinkedAccountIds[0] }}"
-  ],
-  "AutoAssociate": "{{ AutoAssociate }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- billing_group.iql (all properties)
 INSERT INTO aws.billingconductor.billing_groups (
  Name,
  Description,
@@ -151,13 +117,48 @@ INSERT INTO aws.billingconductor.billing_groups (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .PrimaryAccountId }},
- {{ .ComputationPreference }},
- {{ .AccountGrouping }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ PrimaryAccountId }}',
+ '{{ ComputationPreference }}',
+ '{{ AccountGrouping }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: billing_group
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: PrimaryAccountId
+        value: '{{ PrimaryAccountId }}'
+      - name: ComputationPreference
+        value:
+          PricingPlanArn: '{{ PricingPlanArn }}'
+      - name: AccountGrouping
+        value:
+          LinkedAccountIds:
+            - '{{ LinkedAccountIds[0] }}'
+          AutoAssociate: '{{ AutoAssociate }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

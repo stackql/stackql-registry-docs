@@ -74,34 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>hours_of_operation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "TimeZone": "{{ TimeZone }}",
- "Config": [
-  {
-   "Day": "{{ Day }}",
-   "StartTime": {
-    "Hours": "{{ Hours }}",
-    "Minutes": "{{ Minutes }}"
-   },
-   "EndTime": null
-  }
- ]
-}
->>>
---required properties only
+-- hours_of_operation.iql (required properties only)
 INSERT INTO aws.connect.hours_of_operations (
  InstanceArn,
  Name,
@@ -110,41 +96,17 @@ INSERT INTO aws.connect.hours_of_operations (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .Name }},
- {{ .TimeZone }},
- {{ .Config }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ TimeZone }}',
+ '{{ Config }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "TimeZone": "{{ TimeZone }}",
- "Config": [
-  {
-   "Day": "{{ Day }}",
-   "StartTime": {
-    "Hours": "{{ Hours }}",
-    "Minutes": "{{ Minutes }}"
-   },
-   "EndTime": null
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- hours_of_operation.iql (all properties)
 INSERT INTO aws.connect.hours_of_operations (
  InstanceArn,
  Name,
@@ -155,13 +117,49 @@ INSERT INTO aws.connect.hours_of_operations (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Name }},
- {{ .Description }},
- {{ .TimeZone }},
- {{ .Config }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ TimeZone }}',
+ '{{ Config }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: hours_of_operation
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: TimeZone
+        value: '{{ TimeZone }}'
+      - name: Config
+        value:
+          - Day: '{{ Day }}'
+            StartTime:
+              Hours: '{{ Hours }}'
+              Minutes: '{{ Minutes }}'
+            EndTime: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,37 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>image_recipe</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Version": "{{ Version }}",
- "Components": [
-  {
-   "ComponentArn": "{{ ComponentArn }}",
-   "Parameters": [
-    {
-     "Name": "{{ Name }}",
-     "Value": [
-      "{{ Value[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "ParentImage": "{{ ParentImage }}"
-}
->>>
---required properties only
+-- image_recipe.iql (required properties only)
 INSERT INTO aws.imagebuilder.image_recipes (
  Name,
  Version,
@@ -113,63 +96,17 @@ INSERT INTO aws.imagebuilder.image_recipes (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Version }},
- {{ .Components }},
- {{ .ParentImage }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Version }}',
+ '{{ Components }}',
+ '{{ ParentImage }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Version": "{{ Version }}",
- "Components": [
-  {
-   "ComponentArn": "{{ ComponentArn }}",
-   "Parameters": [
-    {
-     "Name": "{{ Name }}",
-     "Value": [
-      "{{ Value[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "BlockDeviceMappings": [
-  {
-   "DeviceName": "{{ DeviceName }}",
-   "VirtualName": "{{ VirtualName }}",
-   "NoDevice": "{{ NoDevice }}",
-   "Ebs": {
-    "Encrypted": "{{ Encrypted }}",
-    "DeleteOnTermination": "{{ DeleteOnTermination }}",
-    "Iops": "{{ Iops }}",
-    "KmsKeyId": "{{ KmsKeyId }}",
-    "SnapshotId": "{{ SnapshotId }}",
-    "Throughput": "{{ Throughput }}",
-    "VolumeSize": "{{ VolumeSize }}",
-    "VolumeType": "{{ VolumeType }}"
-   }
-  }
- ],
- "ParentImage": "{{ ParentImage }}",
- "WorkingDirectory": "{{ WorkingDirectory }}",
- "AdditionalInstanceConfiguration": {
-  "SystemsManagerAgent": {
-   "UninstallAfterBuild": "{{ UninstallAfterBuild }}"
-  },
-  "UserDataOverride": "{{ UserDataOverride }}"
- },
- "Tags": {}
-}
->>>
---all properties
+-- image_recipe.iql (all properties)
 INSERT INTO aws.imagebuilder.image_recipes (
  Name,
  Description,
@@ -183,16 +120,71 @@ INSERT INTO aws.imagebuilder.image_recipes (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Version }},
- {{ .Components }},
- {{ .BlockDeviceMappings }},
- {{ .ParentImage }},
- {{ .WorkingDirectory }},
- {{ .AdditionalInstanceConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Version }}',
+ '{{ Components }}',
+ '{{ BlockDeviceMappings }}',
+ '{{ ParentImage }}',
+ '{{ WorkingDirectory }}',
+ '{{ AdditionalInstanceConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: image_recipe
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Version
+        value: '{{ Version }}'
+      - name: Components
+        value:
+          - ComponentArn: '{{ ComponentArn }}'
+            Parameters:
+              - Name: '{{ Name }}'
+                Value:
+                  - '{{ Value[0] }}'
+      - name: BlockDeviceMappings
+        value:
+          - DeviceName: '{{ DeviceName }}'
+            VirtualName: '{{ VirtualName }}'
+            NoDevice: '{{ NoDevice }}'
+            Ebs:
+              Encrypted: '{{ Encrypted }}'
+              DeleteOnTermination: '{{ DeleteOnTermination }}'
+              Iops: '{{ Iops }}'
+              KmsKeyId: '{{ KmsKeyId }}'
+              SnapshotId: '{{ SnapshotId }}'
+              Throughput: '{{ Throughput }}'
+              VolumeSize: '{{ VolumeSize }}'
+              VolumeType: '{{ VolumeType }}'
+      - name: ParentImage
+        value: '{{ ParentImage }}'
+      - name: WorkingDirectory
+        value: '{{ WorkingDirectory }}'
+      - name: AdditionalInstanceConfiguration
+        value:
+          SystemsManagerAgent:
+            UninstallAfterBuild: '{{ UninstallAfterBuild }}'
+          UserDataOverride: '{{ UserDataOverride }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

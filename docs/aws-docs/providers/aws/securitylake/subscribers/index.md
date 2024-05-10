@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subscriber</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccessTypes": [
-  "{{ AccessTypes[0] }}"
- ],
- "DataLakeArn": "{{ DataLakeArn }}",
- "SubscriberIdentity": {
-  "ExternalId": "{{ ExternalId }}",
-  "Principal": "{{ Principal }}"
- },
- "SubscriberName": "{{ SubscriberName }}",
- "Sources": [
-  null
- ]
-}
->>>
---required properties only
+-- subscriber.iql (required properties only)
 INSERT INTO aws.securitylake.subscribers (
  AccessTypes,
  DataLakeArn,
@@ -110,41 +97,18 @@ INSERT INTO aws.securitylake.subscribers (
  region
 )
 SELECT 
-{{ .AccessTypes }},
- {{ .DataLakeArn }},
- {{ .SubscriberIdentity }},
- {{ .SubscriberName }},
- {{ .Sources }},
-'us-east-1';
+'{{ AccessTypes }}',
+ '{{ DataLakeArn }}',
+ '{{ SubscriberIdentity }}',
+ '{{ SubscriberName }}',
+ '{{ Sources }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessTypes": [
-  "{{ AccessTypes[0] }}"
- ],
- "DataLakeArn": "{{ DataLakeArn }}",
- "SubscriberIdentity": {
-  "ExternalId": "{{ ExternalId }}",
-  "Principal": "{{ Principal }}"
- },
- "SubscriberName": "{{ SubscriberName }}",
- "SubscriberDescription": "{{ SubscriberDescription }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Sources": [
-  null
- ]
-}
->>>
---all properties
+-- subscriber.iql (all properties)
 INSERT INTO aws.securitylake.subscribers (
  AccessTypes,
  DataLakeArn,
@@ -156,14 +120,51 @@ INSERT INTO aws.securitylake.subscribers (
  region
 )
 SELECT 
- {{ .AccessTypes }},
- {{ .DataLakeArn }},
- {{ .SubscriberIdentity }},
- {{ .SubscriberName }},
- {{ .SubscriberDescription }},
- {{ .Tags }},
- {{ .Sources }},
- 'us-east-1';
+ '{{ AccessTypes }}',
+ '{{ DataLakeArn }}',
+ '{{ SubscriberIdentity }}',
+ '{{ SubscriberName }}',
+ '{{ SubscriberDescription }}',
+ '{{ Tags }}',
+ '{{ Sources }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subscriber
+    props:
+      - name: AccessTypes
+        value:
+          - '{{ AccessTypes[0] }}'
+      - name: DataLakeArn
+        value: '{{ DataLakeArn }}'
+      - name: SubscriberIdentity
+        value:
+          ExternalId: '{{ ExternalId }}'
+          Principal: '{{ Principal }}'
+      - name: SubscriberName
+        value: '{{ SubscriberName }}'
+      - name: SubscriberDescription
+        value: '{{ SubscriberDescription }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Sources
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

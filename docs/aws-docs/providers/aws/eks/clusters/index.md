@@ -74,113 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cluster</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourcesVpcConfig": {
-  "EndpointPrivateAccess": "{{ EndpointPrivateAccess }}",
-  "EndpointPublicAccess": "{{ EndpointPublicAccess }}",
-  "PublicAccessCidrs": [
-   "{{ PublicAccessCidrs[0] }}"
-  ],
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- cluster.iql (required properties only)
 INSERT INTO aws.eks.clusters (
  ResourcesVpcConfig,
  RoleArn,
  region
 )
 SELECT 
-{{ .ResourcesVpcConfig }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ ResourcesVpcConfig }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EncryptionConfig": [
-  {
-   "Provider": {
-    "KeyArn": "{{ KeyArn }}"
-   },
-   "Resources": [
-    "{{ Resources[0] }}"
-   ]
-  }
- ],
- "KubernetesNetworkConfig": {
-  "ServiceIpv4Cidr": "{{ ServiceIpv4Cidr }}",
-  "ServiceIpv6Cidr": "{{ ServiceIpv6Cidr }}",
-  "IpFamily": "{{ IpFamily }}"
- },
- "Logging": {
-  "ClusterLogging": {
-   "EnabledTypes": [
-    {
-     "Type": "{{ Type }}"
-    }
-   ]
-  }
- },
- "Name": "{{ Name }}",
- "ResourcesVpcConfig": {
-  "EndpointPrivateAccess": "{{ EndpointPrivateAccess }}",
-  "EndpointPublicAccess": "{{ EndpointPublicAccess }}",
-  "PublicAccessCidrs": [
-   "{{ PublicAccessCidrs[0] }}"
-  ],
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "OutpostConfig": {
-  "OutpostArns": [
-   "{{ OutpostArns[0] }}"
-  ],
-  "ControlPlaneInstanceType": "{{ ControlPlaneInstanceType }}",
-  "ControlPlanePlacement": {
-   "GroupName": "{{ GroupName }}"
-  }
- },
- "AccessConfig": {
-  "BootstrapClusterCreatorAdminPermissions": "{{ BootstrapClusterCreatorAdminPermissions }}",
-  "AuthenticationMode": "{{ AuthenticationMode }}"
- },
- "RoleArn": "{{ RoleArn }}",
- "Version": "{{ Version }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- cluster.iql (all properties)
 INSERT INTO aws.eks.clusters (
  EncryptionConfig,
  KubernetesNetworkConfig,
@@ -195,17 +117,81 @@ INSERT INTO aws.eks.clusters (
  region
 )
 SELECT 
- {{ .EncryptionConfig }},
- {{ .KubernetesNetworkConfig }},
- {{ .Logging }},
- {{ .Name }},
- {{ .ResourcesVpcConfig }},
- {{ .OutpostConfig }},
- {{ .AccessConfig }},
- {{ .RoleArn }},
- {{ .Version }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ EncryptionConfig }}',
+ '{{ KubernetesNetworkConfig }}',
+ '{{ Logging }}',
+ '{{ Name }}',
+ '{{ ResourcesVpcConfig }}',
+ '{{ OutpostConfig }}',
+ '{{ AccessConfig }}',
+ '{{ RoleArn }}',
+ '{{ Version }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cluster
+    props:
+      - name: EncryptionConfig
+        value:
+          - Provider:
+              KeyArn: '{{ KeyArn }}'
+            Resources:
+              - '{{ Resources[0] }}'
+      - name: KubernetesNetworkConfig
+        value:
+          ServiceIpv4Cidr: '{{ ServiceIpv4Cidr }}'
+          ServiceIpv6Cidr: '{{ ServiceIpv6Cidr }}'
+          IpFamily: '{{ IpFamily }}'
+      - name: Logging
+        value:
+          ClusterLogging:
+            EnabledTypes:
+              - Type: '{{ Type }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ResourcesVpcConfig
+        value:
+          EndpointPrivateAccess: '{{ EndpointPrivateAccess }}'
+          EndpointPublicAccess: '{{ EndpointPublicAccess }}'
+          PublicAccessCidrs:
+            - '{{ PublicAccessCidrs[0] }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+      - name: OutpostConfig
+        value:
+          OutpostArns:
+            - '{{ OutpostArns[0] }}'
+          ControlPlaneInstanceType: '{{ ControlPlaneInstanceType }}'
+          ControlPlanePlacement:
+            GroupName: '{{ GroupName }}'
+      - name: AccessConfig
+        value:
+          BootstrapClusterCreatorAdminPermissions: '{{ BootstrapClusterCreatorAdminPermissions }}'
+          AuthenticationMode: '{{ AuthenticationMode }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Version
+        value: '{{ Version }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

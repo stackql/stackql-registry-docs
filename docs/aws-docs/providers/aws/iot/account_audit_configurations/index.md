@@ -74,43 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>account_audit_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccountId": "{{ AccountId }}",
- "AuditCheckConfigurations": {
-  "AuthenticatedCognitoRoleOverlyPermissiveCheck": {
-   "Enabled": "{{ Enabled }}"
-  },
-  "CaCertificateExpiringCheck": null,
-  "CaCertificateKeyQualityCheck": null,
-  "ConflictingClientIdsCheck": null,
-  "DeviceCertificateExpiringCheck": null,
-  "DeviceCertificateKeyQualityCheck": null,
-  "DeviceCertificateSharedCheck": null,
-  "IotPolicyOverlyPermissiveCheck": null,
-  "IotRoleAliasAllowsAccessToUnusedServicesCheck": null,
-  "IotRoleAliasOverlyPermissiveCheck": null,
-  "LoggingDisabledCheck": null,
-  "RevokedCaCertificateStillActiveCheck": null,
-  "RevokedDeviceCertificateStillActiveCheck": null,
-  "UnauthenticatedCognitoRoleOverlyPermissiveCheck": null,
-  "IntermediateCaRevokedForActiveDeviceCertificatesCheck": null,
-  "IoTPolicyPotentialMisConfigurationCheck": null
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- account_audit_configuration.iql (required properties only)
 INSERT INTO aws.iot.account_audit_configurations (
  AccountId,
  AuditCheckConfigurations,
@@ -118,49 +95,16 @@ INSERT INTO aws.iot.account_audit_configurations (
  region
 )
 SELECT 
-{{ .AccountId }},
- {{ .AuditCheckConfigurations }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ AccountId }}',
+ '{{ AuditCheckConfigurations }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccountId": "{{ AccountId }}",
- "AuditCheckConfigurations": {
-  "AuthenticatedCognitoRoleOverlyPermissiveCheck": {
-   "Enabled": "{{ Enabled }}"
-  },
-  "CaCertificateExpiringCheck": null,
-  "CaCertificateKeyQualityCheck": null,
-  "ConflictingClientIdsCheck": null,
-  "DeviceCertificateExpiringCheck": null,
-  "DeviceCertificateKeyQualityCheck": null,
-  "DeviceCertificateSharedCheck": null,
-  "IotPolicyOverlyPermissiveCheck": null,
-  "IotRoleAliasAllowsAccessToUnusedServicesCheck": null,
-  "IotRoleAliasOverlyPermissiveCheck": null,
-  "LoggingDisabledCheck": null,
-  "RevokedCaCertificateStillActiveCheck": null,
-  "RevokedDeviceCertificateStillActiveCheck": null,
-  "UnauthenticatedCognitoRoleOverlyPermissiveCheck": null,
-  "IntermediateCaRevokedForActiveDeviceCertificatesCheck": null,
-  "IoTPolicyPotentialMisConfigurationCheck": null
- },
- "AuditNotificationTargetConfigurations": {
-  "Sns": {
-   "TargetArn": "{{ TargetArn }}",
-   "RoleArn": "{{ RoleArn }}",
-   "Enabled": "{{ Enabled }}"
-  }
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---all properties
+-- account_audit_configuration.iql (all properties)
 INSERT INTO aws.iot.account_audit_configurations (
  AccountId,
  AuditCheckConfigurations,
@@ -169,11 +113,57 @@ INSERT INTO aws.iot.account_audit_configurations (
  region
 )
 SELECT 
- {{ .AccountId }},
- {{ .AuditCheckConfigurations }},
- {{ .AuditNotificationTargetConfigurations }},
- {{ .RoleArn }},
- 'us-east-1';
+ '{{ AccountId }}',
+ '{{ AuditCheckConfigurations }}',
+ '{{ AuditNotificationTargetConfigurations }}',
+ '{{ RoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: account_audit_configuration
+    props:
+      - name: AccountId
+        value: '{{ AccountId }}'
+      - name: AuditCheckConfigurations
+        value:
+          AuthenticatedCognitoRoleOverlyPermissiveCheck:
+            Enabled: '{{ Enabled }}'
+          CaCertificateExpiringCheck: null
+          CaCertificateKeyQualityCheck: null
+          ConflictingClientIdsCheck: null
+          DeviceCertificateExpiringCheck: null
+          DeviceCertificateKeyQualityCheck: null
+          DeviceCertificateSharedCheck: null
+          IotPolicyOverlyPermissiveCheck: null
+          IotRoleAliasAllowsAccessToUnusedServicesCheck: null
+          IotRoleAliasOverlyPermissiveCheck: null
+          LoggingDisabledCheck: null
+          RevokedCaCertificateStillActiveCheck: null
+          RevokedDeviceCertificateStillActiveCheck: null
+          UnauthenticatedCognitoRoleOverlyPermissiveCheck: null
+          IntermediateCaRevokedForActiveDeviceCertificatesCheck: null
+          IoTPolicyPotentialMisConfigurationCheck: null
+      - name: AuditNotificationTargetConfigurations
+        value:
+          Sns:
+            TargetArn: '{{ TargetArn }}'
+            RoleArn: '{{ RoleArn }}'
+            Enabled: '{{ Enabled }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

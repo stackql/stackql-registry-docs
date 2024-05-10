@@ -74,50 +74,63 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>robot_application_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Application": "{{ Application }}"
-}
->>>
---required properties only
+-- robot_application_version.iql (required properties only)
 INSERT INTO aws.robomaker.robot_application_versions (
  Application,
  region
 )
 SELECT 
-{{ .Application }},
-'us-east-1';
+'{{ Application }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Application": "{{ Application }}",
- "CurrentRevisionId": "{{ CurrentRevisionId }}"
-}
->>>
---all properties
+-- robot_application_version.iql (all properties)
 INSERT INTO aws.robomaker.robot_application_versions (
  Application,
  CurrentRevisionId,
  region
 )
 SELECT 
- {{ .Application }},
- {{ .CurrentRevisionId }},
- 'us-east-1';
+ '{{ Application }}',
+ '{{ CurrentRevisionId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: robot_application_version
+    props:
+      - name: Application
+        value: '{{ Application }}'
+      - name: CurrentRevisionId
+        value: '{{ CurrentRevisionId }}'
+
 ```
 </TabItem>
 </Tabs>

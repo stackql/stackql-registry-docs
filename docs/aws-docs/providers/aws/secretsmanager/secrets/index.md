@@ -74,49 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>secret</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "SecretString": "{{ SecretString }}",
- "GenerateSecretString": {
-  "ExcludeUppercase": "{{ ExcludeUppercase }}",
-  "RequireEachIncludedType": "{{ RequireEachIncludedType }}",
-  "IncludeSpace": "{{ IncludeSpace }}",
-  "ExcludeCharacters": "{{ ExcludeCharacters }}",
-  "GenerateStringKey": "{{ GenerateStringKey }}",
-  "PasswordLength": "{{ PasswordLength }}",
-  "ExcludePunctuation": "{{ ExcludePunctuation }}",
-  "ExcludeLowercase": "{{ ExcludeLowercase }}",
-  "SecretStringTemplate": "{{ SecretStringTemplate }}",
-  "ExcludeNumbers": "{{ ExcludeNumbers }}"
- },
- "ReplicaRegions": [
-  {
-   "KmsKeyId": "{{ KmsKeyId }}",
-   "Region": "{{ Region }}"
-  }
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- secret.iql (required properties only)
 INSERT INTO aws.secretsmanager.secrets (
  Description,
  KmsKeyId,
@@ -128,52 +99,20 @@ INSERT INTO aws.secretsmanager.secrets (
  region
 )
 SELECT 
-{{ .Description }},
- {{ .KmsKeyId }},
- {{ .SecretString }},
- {{ .GenerateSecretString }},
- {{ .ReplicaRegions }},
- {{ .Tags }},
- {{ .Name }},
-'us-east-1';
+'{{ Description }}',
+ '{{ KmsKeyId }}',
+ '{{ SecretString }}',
+ '{{ GenerateSecretString }}',
+ '{{ ReplicaRegions }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "SecretString": "{{ SecretString }}",
- "GenerateSecretString": {
-  "ExcludeUppercase": "{{ ExcludeUppercase }}",
-  "RequireEachIncludedType": "{{ RequireEachIncludedType }}",
-  "IncludeSpace": "{{ IncludeSpace }}",
-  "ExcludeCharacters": "{{ ExcludeCharacters }}",
-  "GenerateStringKey": "{{ GenerateStringKey }}",
-  "PasswordLength": "{{ PasswordLength }}",
-  "ExcludePunctuation": "{{ ExcludePunctuation }}",
-  "ExcludeLowercase": "{{ ExcludeLowercase }}",
-  "SecretStringTemplate": "{{ SecretStringTemplate }}",
-  "ExcludeNumbers": "{{ ExcludeNumbers }}"
- },
- "ReplicaRegions": [
-  {
-   "KmsKeyId": "{{ KmsKeyId }}",
-   "Region": "{{ Region }}"
-  }
- ],
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- secret.iql (all properties)
 INSERT INTO aws.secretsmanager.secrets (
  Description,
  KmsKeyId,
@@ -185,14 +124,59 @@ INSERT INTO aws.secretsmanager.secrets (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .KmsKeyId }},
- {{ .SecretString }},
- {{ .GenerateSecretString }},
- {{ .ReplicaRegions }},
- {{ .Tags }},
- {{ .Name }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ KmsKeyId }}',
+ '{{ SecretString }}',
+ '{{ GenerateSecretString }}',
+ '{{ ReplicaRegions }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: secret
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: SecretString
+        value: '{{ SecretString }}'
+      - name: GenerateSecretString
+        value:
+          ExcludeUppercase: '{{ ExcludeUppercase }}'
+          RequireEachIncludedType: '{{ RequireEachIncludedType }}'
+          IncludeSpace: '{{ IncludeSpace }}'
+          ExcludeCharacters: '{{ ExcludeCharacters }}'
+          GenerateStringKey: '{{ GenerateStringKey }}'
+          PasswordLength: '{{ PasswordLength }}'
+          ExcludePunctuation: '{{ ExcludePunctuation }}'
+          ExcludeLowercase: '{{ ExcludeLowercase }}'
+          SecretStringTemplate: '{{ SecretStringTemplate }}'
+          ExcludeNumbers: '{{ ExcludeNumbers }}'
+      - name: ReplicaRegions
+        value:
+          - KmsKeyId: '{{ KmsKeyId }}'
+            Region: '{{ Region }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

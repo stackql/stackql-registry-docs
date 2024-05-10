@@ -76,27 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "AwsAccountRegion": "{{ AwsAccountRegion }}",
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnvironmentBlueprintIdentifier": "{{ EnvironmentBlueprintIdentifier }}",
- "Name": "{{ Name }}",
- "ProjectIdentifier": "{{ ProjectIdentifier }}"
-}
->>>
---required properties only
+-- environment_profile.iql (required properties only)
 INSERT INTO aws.datazone.environment_profiles (
  AwsAccountId,
  AwsAccountRegion,
@@ -107,36 +100,19 @@ INSERT INTO aws.datazone.environment_profiles (
  region
 )
 SELECT 
-{{ .AwsAccountId }},
- {{ .AwsAccountRegion }},
- {{ .DomainIdentifier }},
- {{ .EnvironmentBlueprintIdentifier }},
- {{ .Name }},
- {{ .ProjectIdentifier }},
-'us-east-1';
+'{{ AwsAccountId }}',
+ '{{ AwsAccountRegion }}',
+ '{{ DomainIdentifier }}',
+ '{{ EnvironmentBlueprintIdentifier }}',
+ '{{ Name }}',
+ '{{ ProjectIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AwsAccountId": "{{ AwsAccountId }}",
- "AwsAccountRegion": "{{ AwsAccountRegion }}",
- "Description": "{{ Description }}",
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnvironmentBlueprintIdentifier": "{{ EnvironmentBlueprintIdentifier }}",
- "Name": "{{ Name }}",
- "ProjectIdentifier": "{{ ProjectIdentifier }}",
- "UserParameters": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- environment_profile.iql (all properties)
 INSERT INTO aws.datazone.environment_profiles (
  AwsAccountId,
  AwsAccountRegion,
@@ -149,15 +125,50 @@ INSERT INTO aws.datazone.environment_profiles (
  region
 )
 SELECT 
- {{ .AwsAccountId }},
- {{ .AwsAccountRegion }},
- {{ .Description }},
- {{ .DomainIdentifier }},
- {{ .EnvironmentBlueprintIdentifier }},
- {{ .Name }},
- {{ .ProjectIdentifier }},
- {{ .UserParameters }},
- 'us-east-1';
+ '{{ AwsAccountId }}',
+ '{{ AwsAccountRegion }}',
+ '{{ Description }}',
+ '{{ DomainIdentifier }}',
+ '{{ EnvironmentBlueprintIdentifier }}',
+ '{{ Name }}',
+ '{{ ProjectIdentifier }}',
+ '{{ UserParameters }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment_profile
+    props:
+      - name: AwsAccountId
+        value: '{{ AwsAccountId }}'
+      - name: AwsAccountRegion
+        value: '{{ AwsAccountRegion }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DomainIdentifier
+        value: '{{ DomainIdentifier }}'
+      - name: EnvironmentBlueprintIdentifier
+        value: '{{ EnvironmentBlueprintIdentifier }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ProjectIdentifier
+        value: '{{ ProjectIdentifier }}'
+      - name: UserParameters
+        value:
+          - Name: '{{ Name }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

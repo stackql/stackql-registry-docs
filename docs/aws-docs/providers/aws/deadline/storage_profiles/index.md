@@ -76,52 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>storage_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DisplayName": "{{ DisplayName }}",
- "OsFamily": "{{ OsFamily }}"
-}
->>>
---required properties only
+-- storage_profile.iql (required properties only)
 INSERT INTO aws.deadline.storage_profiles (
  DisplayName,
  OsFamily,
  region
 )
 SELECT 
-{{ .DisplayName }},
- {{ .OsFamily }},
-'us-east-1';
+'{{ DisplayName }}',
+ '{{ OsFamily }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DisplayName": "{{ DisplayName }}",
- "FarmId": "{{ FarmId }}",
- "FileSystemLocations": [
-  {
-   "Name": "{{ Name }}",
-   "Path": "{{ Path }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "OsFamily": "{{ OsFamily }}"
-}
->>>
---all properties
+-- storage_profile.iql (all properties)
 INSERT INTO aws.deadline.storage_profiles (
  DisplayName,
  FarmId,
@@ -130,11 +113,39 @@ INSERT INTO aws.deadline.storage_profiles (
  region
 )
 SELECT 
- {{ .DisplayName }},
- {{ .FarmId }},
- {{ .FileSystemLocations }},
- {{ .OsFamily }},
- 'us-east-1';
+ '{{ DisplayName }}',
+ '{{ FarmId }}',
+ '{{ FileSystemLocations }}',
+ '{{ OsFamily }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: storage_profile
+    props:
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: FarmId
+        value: '{{ FarmId }}'
+      - name: FileSystemLocations
+        value:
+          - Name: '{{ Name }}'
+            Path: '{{ Path }}'
+            Type: '{{ Type }}'
+      - name: OsFamily
+        value: '{{ OsFamily }}'
+
 ```
 </TabItem>
 </Tabs>

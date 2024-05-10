@@ -76,65 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>identity_source</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Configuration": {
-  "CognitoUserPoolConfiguration": {
-   "UserPoolArn": "{{ UserPoolArn }}",
-   "ClientIds": [
-    "{{ ClientIds[0] }}"
-   ],
-   "GroupConfiguration": {
-    "GroupEntityType": "{{ GroupEntityType }}"
-   }
-  }
- },
- "PolicyStoreId": "{{ PolicyStoreId }}"
-}
->>>
---required properties only
+-- identity_source.iql (required properties only)
 INSERT INTO aws.verifiedpermissions.identity_sources (
  Configuration,
  PolicyStoreId,
  region
 )
 SELECT 
-{{ .Configuration }},
- {{ .PolicyStoreId }},
-'us-east-1';
+'{{ Configuration }}',
+ '{{ PolicyStoreId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Configuration": {
-  "CognitoUserPoolConfiguration": {
-   "UserPoolArn": "{{ UserPoolArn }}",
-   "ClientIds": [
-    "{{ ClientIds[0] }}"
-   ],
-   "GroupConfiguration": {
-    "GroupEntityType": "{{ GroupEntityType }}"
-   }
-  }
- },
- "PolicyStoreId": "{{ PolicyStoreId }}",
- "PrincipalEntityType": "{{ PrincipalEntityType }}"
-}
->>>
---all properties
+-- identity_source.iql (all properties)
 INSERT INTO aws.verifiedpermissions.identity_sources (
  Configuration,
  PolicyStoreId,
@@ -142,10 +112,39 @@ INSERT INTO aws.verifiedpermissions.identity_sources (
  region
 )
 SELECT 
- {{ .Configuration }},
- {{ .PolicyStoreId }},
- {{ .PrincipalEntityType }},
- 'us-east-1';
+ '{{ Configuration }}',
+ '{{ PolicyStoreId }}',
+ '{{ PrincipalEntityType }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: identity_source
+    props:
+      - name: Configuration
+        value:
+          CognitoUserPoolConfiguration:
+            UserPoolArn: '{{ UserPoolArn }}'
+            ClientIds:
+              - '{{ ClientIds[0] }}'
+            GroupConfiguration:
+              GroupEntityType: '{{ GroupEntityType }}'
+      - name: PolicyStoreId
+        value: '{{ PolicyStoreId }}'
+      - name: PrincipalEntityType
+        value: '{{ PrincipalEntityType }}'
+
 ```
 </TabItem>
 </Tabs>

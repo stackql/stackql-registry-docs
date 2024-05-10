@@ -74,46 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>reference_store</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- reference_store.iql (required properties only)
 INSERT INTO aws.omics.reference_stores (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "SseConfig": {
-  "Type": "{{ Type }}",
-  "KeyArn": "{{ KeyArn }}"
- },
- "Tags": {}
-}
->>>
---all properties
+-- reference_store.iql (all properties)
 INSERT INTO aws.omics.reference_stores (
  Description,
  Name,
@@ -122,11 +109,38 @@ INSERT INTO aws.omics.reference_stores (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .SseConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ SseConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: reference_store
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: SseConfig
+        value:
+          Type: '{{ Type }}'
+          KeyArn: '{{ KeyArn }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

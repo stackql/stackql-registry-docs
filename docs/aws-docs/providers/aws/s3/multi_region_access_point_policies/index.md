@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>multi_region_access_point_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MrapName": "{{ MrapName }}",
- "Policy": {}
-}
->>>
---required properties only
+-- multi_region_access_point_policy.iql (required properties only)
 INSERT INTO aws.s3.multi_region_access_point_policies (
  MrapName,
  Policy,
  region
 )
 SELECT 
-{{ .MrapName }},
- {{ .Policy }},
-'us-east-1';
+'{{ MrapName }}',
+ '{{ Policy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MrapName": "{{ MrapName }}",
- "Policy": {}
-}
->>>
---all properties
+-- multi_region_access_point_policy.iql (all properties)
 INSERT INTO aws.s3.multi_region_access_point_policies (
  MrapName,
  Policy,
  region
 )
 SELECT 
- {{ .MrapName }},
- {{ .Policy }},
- 'us-east-1';
+ '{{ MrapName }}',
+ '{{ Policy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: multi_region_access_point_policy
+    props:
+      - name: MrapName
+        value: '{{ MrapName }}'
+      - name: Policy
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

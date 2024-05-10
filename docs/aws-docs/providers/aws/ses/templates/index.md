@@ -74,51 +74,60 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Template": {
-  "Template": null
- }
-}
->>>
---required properties only
+-- template.iql (required properties only)
 INSERT INTO aws.ses.templates (
  Template,
  region
 )
 SELECT 
-{{ .Template }},
-'us-east-1';
+'{{ Template }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Template": {
-  "Template": null
- }
-}
->>>
---all properties
+-- template.iql (all properties)
 INSERT INTO aws.ses.templates (
  Template,
  region
 )
 SELECT 
- {{ .Template }},
- 'us-east-1';
+ '{{ Template }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: template
+    props:
+      - name: Template
+        value:
+          Template: null
+
 ```
 </TabItem>
 </Tabs>

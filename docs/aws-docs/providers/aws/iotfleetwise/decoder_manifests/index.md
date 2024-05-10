@@ -74,58 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>decoder_manifest</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ModelManifestArn": "{{ ModelManifestArn }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- decoder_manifest.iql (required properties only)
 INSERT INTO aws.iotfleetwise.decoder_manifests (
  ModelManifestArn,
  Name,
  region
 )
 SELECT 
-{{ .ModelManifestArn }},
- {{ .Name }},
-'us-east-1';
+'{{ ModelManifestArn }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "ModelManifestArn": "{{ ModelManifestArn }}",
- "Name": "{{ Name }}",
- "NetworkInterfaces": [
-  null
- ],
- "SignalDecoders": [
-  null
- ],
- "Status": "{{ Status }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- decoder_manifest.iql (all properties)
 INSERT INTO aws.iotfleetwise.decoder_manifests (
  Description,
  ModelManifestArn,
@@ -137,14 +114,49 @@ INSERT INTO aws.iotfleetwise.decoder_manifests (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .ModelManifestArn }},
- {{ .Name }},
- {{ .NetworkInterfaces }},
- {{ .SignalDecoders }},
- {{ .Status }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ ModelManifestArn }}',
+ '{{ Name }}',
+ '{{ NetworkInterfaces }}',
+ '{{ SignalDecoders }}',
+ '{{ Status }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: decoder_manifest
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: ModelManifestArn
+        value: '{{ ModelManifestArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: NetworkInterfaces
+        value:
+          - null
+      - name: SignalDecoders
+        value:
+          - null
+      - name: Status
+        value: '{{ Status }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

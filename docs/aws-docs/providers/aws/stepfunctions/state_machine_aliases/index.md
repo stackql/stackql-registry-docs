@@ -74,38 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>state_machine_alias</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "RoutingConfiguration": [
-  {
-   "StateMachineVersionArn": "{{ StateMachineVersionArn }}",
-   "Weight": "{{ Weight }}"
-  }
- ],
- "DeploymentPreference": {
-  "StateMachineVersionArn": "{{ StateMachineVersionArn }}",
-  "Type": "{{ Type }}",
-  "Percentage": "{{ Percentage }}",
-  "Interval": "{{ Interval }}",
-  "Alarms": [
-   "{{ Alarms[0] }}"
-  ]
- }
-}
->>>
---required properties only
+-- state_machine_alias.iql (required properties only)
 INSERT INTO aws.stepfunctions.state_machine_aliases (
  Name,
  Description,
@@ -114,38 +96,17 @@ INSERT INTO aws.stepfunctions.state_machine_aliases (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Description }},
- {{ .RoutingConfiguration }},
- {{ .DeploymentPreference }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Description }}',
+ '{{ RoutingConfiguration }}',
+ '{{ DeploymentPreference }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "RoutingConfiguration": [
-  {
-   "StateMachineVersionArn": "{{ StateMachineVersionArn }}",
-   "Weight": "{{ Weight }}"
-  }
- ],
- "DeploymentPreference": {
-  "StateMachineVersionArn": "{{ StateMachineVersionArn }}",
-  "Type": "{{ Type }}",
-  "Percentage": "{{ Percentage }}",
-  "Interval": "{{ Interval }}",
-  "Alarms": [
-   "{{ Alarms[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- state_machine_alias.iql (all properties)
 INSERT INTO aws.stepfunctions.state_machine_aliases (
  Name,
  Description,
@@ -154,11 +115,44 @@ INSERT INTO aws.stepfunctions.state_machine_aliases (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .RoutingConfiguration }},
- {{ .DeploymentPreference }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ RoutingConfiguration }}',
+ '{{ DeploymentPreference }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: state_machine_alias
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RoutingConfiguration
+        value:
+          - StateMachineVersionArn: '{{ StateMachineVersionArn }}'
+            Weight: '{{ Weight }}'
+      - name: DeploymentPreference
+        value:
+          StateMachineVersionArn: '{{ StateMachineVersionArn }}'
+          Type: '{{ Type }}'
+          Percentage: '{{ Percentage }}'
+          Interval: '{{ Interval }}'
+          Alarms:
+            - '{{ Alarms[0] }}'
+
 ```
 </TabItem>
 </Tabs>

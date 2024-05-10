@@ -74,140 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>origin_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}",
- "ChannelId": "{{ ChannelId }}"
-}
->>>
---required properties only
+-- origin_endpoint.iql (required properties only)
 INSERT INTO aws.mediapackage.origin_endpoints (
  Id,
  ChannelId,
  region
 )
 SELECT 
-{{ .Id }},
- {{ .ChannelId }},
-'us-east-1';
+'{{ Id }}',
+ '{{ ChannelId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}",
- "ChannelId": "{{ ChannelId }}",
- "Description": "{{ Description }}",
- "Whitelist": [
-  "{{ Whitelist[0] }}"
- ],
- "StartoverWindowSeconds": "{{ StartoverWindowSeconds }}",
- "TimeDelaySeconds": "{{ TimeDelaySeconds }}",
- "ManifestName": "{{ ManifestName }}",
- "Origination": "{{ Origination }}",
- "Authorization": {
-  "CdnIdentifierSecret": "{{ CdnIdentifierSecret }}",
-  "SecretsRoleArn": "{{ SecretsRoleArn }}"
- },
- "HlsPackage": {
-  "Encryption": {
-   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
-   "EncryptionMethod": "{{ EncryptionMethod }}",
-   "SpekeKeyProvider": {
-    "EncryptionContractConfiguration": {
-     "PresetSpeke20Audio": "{{ PresetSpeke20Audio }}",
-     "PresetSpeke20Video": "{{ PresetSpeke20Video }}"
-    },
-    "RoleArn": "{{ RoleArn }}",
-    "SystemIds": [
-     "{{ SystemIds[0] }}"
-    ],
-    "Url": "{{ Url }}"
-   }
-  },
-  "HlsManifests": [
-   {
-    "AdMarkers": "{{ AdMarkers }}",
-    "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}",
-    "ManifestName": "{{ ManifestName }}",
-    "ProgramDateTimeIntervalSeconds": "{{ ProgramDateTimeIntervalSeconds }}",
-    "RepeatExtXKey": "{{ RepeatExtXKey }}",
-    "StreamSelection": {
-     "MaxVideoBitsPerSecond": "{{ MaxVideoBitsPerSecond }}",
-     "MinVideoBitsPerSecond": "{{ MinVideoBitsPerSecond }}",
-     "StreamOrder": "{{ StreamOrder }}"
-    }
-   }
-  ],
-  "IncludeDvbSubtitles": "{{ IncludeDvbSubtitles }}",
-  "SegmentDurationSeconds": "{{ SegmentDurationSeconds }}",
-  "UseAudioRenditionGroup": "{{ UseAudioRenditionGroup }}"
- },
- "DashPackage": {
-  "DashManifests": [
-   {
-    "ManifestLayout": "{{ ManifestLayout }}",
-    "ManifestName": null,
-    "MinBufferTimeSeconds": "{{ MinBufferTimeSeconds }}",
-    "Profile": "{{ Profile }}",
-    "ScteMarkersSource": "{{ ScteMarkersSource }}",
-    "StreamSelection": null
-   }
-  ],
-  "Encryption": {
-   "SpekeKeyProvider": null
-  },
-  "PeriodTriggers": [
-   "{{ PeriodTriggers[0] }}"
-  ],
-  "SegmentDurationSeconds": null,
-  "SegmentTemplateFormat": "{{ SegmentTemplateFormat }}",
-  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}",
-  "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}"
- },
- "MssPackage": {
-  "Encryption": {
-   "SpekeKeyProvider": null
-  },
-  "MssManifests": [
-   {
-    "ManifestName": null,
-    "StreamSelection": null
-   }
-  ],
-  "SegmentDurationSeconds": null
- },
- "CmafPackage": {
-  "Encryption": {
-   "SpekeKeyProvider": null
-  },
-  "HlsManifests": [
-   null
-  ],
-  "SegmentDurationSeconds": null,
-  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- origin_endpoint.iql (all properties)
 INSERT INTO aws.mediapackage.origin_endpoints (
  Id,
  ChannelId,
@@ -226,21 +121,122 @@ INSERT INTO aws.mediapackage.origin_endpoints (
  region
 )
 SELECT 
- {{ .Id }},
- {{ .ChannelId }},
- {{ .Description }},
- {{ .Whitelist }},
- {{ .StartoverWindowSeconds }},
- {{ .TimeDelaySeconds }},
- {{ .ManifestName }},
- {{ .Origination }},
- {{ .Authorization }},
- {{ .HlsPackage }},
- {{ .DashPackage }},
- {{ .MssPackage }},
- {{ .CmafPackage }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Id }}',
+ '{{ ChannelId }}',
+ '{{ Description }}',
+ '{{ Whitelist }}',
+ '{{ StartoverWindowSeconds }}',
+ '{{ TimeDelaySeconds }}',
+ '{{ ManifestName }}',
+ '{{ Origination }}',
+ '{{ Authorization }}',
+ '{{ HlsPackage }}',
+ '{{ DashPackage }}',
+ '{{ MssPackage }}',
+ '{{ CmafPackage }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: origin_endpoint
+    props:
+      - name: Id
+        value: '{{ Id }}'
+      - name: ChannelId
+        value: '{{ ChannelId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Whitelist
+        value:
+          - '{{ Whitelist[0] }}'
+      - name: StartoverWindowSeconds
+        value: '{{ StartoverWindowSeconds }}'
+      - name: TimeDelaySeconds
+        value: '{{ TimeDelaySeconds }}'
+      - name: ManifestName
+        value: '{{ ManifestName }}'
+      - name: Origination
+        value: '{{ Origination }}'
+      - name: Authorization
+        value:
+          CdnIdentifierSecret: '{{ CdnIdentifierSecret }}'
+          SecretsRoleArn: '{{ SecretsRoleArn }}'
+      - name: HlsPackage
+        value:
+          Encryption:
+            ConstantInitializationVector: '{{ ConstantInitializationVector }}'
+            EncryptionMethod: '{{ EncryptionMethod }}'
+            SpekeKeyProvider:
+              EncryptionContractConfiguration:
+                PresetSpeke20Audio: '{{ PresetSpeke20Audio }}'
+                PresetSpeke20Video: '{{ PresetSpeke20Video }}'
+              RoleArn: '{{ RoleArn }}'
+              SystemIds:
+                - '{{ SystemIds[0] }}'
+              Url: '{{ Url }}'
+          HlsManifests:
+            - AdMarkers: '{{ AdMarkers }}'
+              IncludeIframeOnlyStream: '{{ IncludeIframeOnlyStream }}'
+              ManifestName: '{{ ManifestName }}'
+              ProgramDateTimeIntervalSeconds: '{{ ProgramDateTimeIntervalSeconds }}'
+              RepeatExtXKey: '{{ RepeatExtXKey }}'
+              StreamSelection:
+                MaxVideoBitsPerSecond: '{{ MaxVideoBitsPerSecond }}'
+                MinVideoBitsPerSecond: '{{ MinVideoBitsPerSecond }}'
+                StreamOrder: '{{ StreamOrder }}'
+          IncludeDvbSubtitles: '{{ IncludeDvbSubtitles }}'
+          SegmentDurationSeconds: '{{ SegmentDurationSeconds }}'
+          UseAudioRenditionGroup: '{{ UseAudioRenditionGroup }}'
+      - name: DashPackage
+        value:
+          DashManifests:
+            - ManifestLayout: '{{ ManifestLayout }}'
+              ManifestName: null
+              MinBufferTimeSeconds: '{{ MinBufferTimeSeconds }}'
+              Profile: '{{ Profile }}'
+              ScteMarkersSource: '{{ ScteMarkersSource }}'
+              StreamSelection: null
+          Encryption:
+            SpekeKeyProvider: null
+          PeriodTriggers:
+            - '{{ PeriodTriggers[0] }}'
+          SegmentDurationSeconds: null
+          SegmentTemplateFormat: '{{ SegmentTemplateFormat }}'
+          IncludeEncoderConfigurationInSegments: '{{ IncludeEncoderConfigurationInSegments }}'
+          IncludeIframeOnlyStream: '{{ IncludeIframeOnlyStream }}'
+      - name: MssPackage
+        value:
+          Encryption:
+            SpekeKeyProvider: null
+          MssManifests:
+            - ManifestName: null
+              StreamSelection: null
+          SegmentDurationSeconds: null
+      - name: CmafPackage
+        value:
+          Encryption:
+            SpekeKeyProvider: null
+          HlsManifests:
+            - null
+          SegmentDurationSeconds: null
+          IncludeEncoderConfigurationInSegments: '{{ IncludeEncoderConfigurationInSegments }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

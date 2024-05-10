@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_endpoint_connection_notification</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConnectionEvents": [
-  "{{ ConnectionEvents[0] }}"
- ],
- "ConnectionNotificationArn": "{{ ConnectionNotificationArn }}"
-}
->>>
---required properties only
+-- vpc_endpoint_connection_notification.iql (required properties only)
 INSERT INTO aws.ec2.vpc_endpoint_connection_notifications (
  ConnectionEvents,
  ConnectionNotificationArn,
  region
 )
 SELECT 
-{{ .ConnectionEvents }},
- {{ .ConnectionNotificationArn }},
-'us-east-1';
+'{{ ConnectionEvents }}',
+ '{{ ConnectionNotificationArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConnectionEvents": [
-  "{{ ConnectionEvents[0] }}"
- ],
- "ConnectionNotificationArn": "{{ ConnectionNotificationArn }}",
- "ServiceId": "{{ ServiceId }}",
- "VPCEndpointId": "{{ VPCEndpointId }}"
-}
->>>
---all properties
+-- vpc_endpoint_connection_notification.iql (all properties)
 INSERT INTO aws.ec2.vpc_endpoint_connection_notifications (
  ConnectionEvents,
  ConnectionNotificationArn,
@@ -126,11 +111,37 @@ INSERT INTO aws.ec2.vpc_endpoint_connection_notifications (
  region
 )
 SELECT 
- {{ .ConnectionEvents }},
- {{ .ConnectionNotificationArn }},
- {{ .ServiceId }},
- {{ .VPCEndpointId }},
- 'us-east-1';
+ '{{ ConnectionEvents }}',
+ '{{ ConnectionNotificationArn }}',
+ '{{ ServiceId }}',
+ '{{ VPCEndpointId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_endpoint_connection_notification
+    props:
+      - name: ConnectionEvents
+        value:
+          - '{{ ConnectionEvents[0] }}'
+      - name: ConnectionNotificationArn
+        value: '{{ ConnectionNotificationArn }}'
+      - name: ServiceId
+        value: '{{ ServiceId }}'
+      - name: VPCEndpointId
+        value: '{{ VPCEndpointId }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,58 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connection</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "AuthorizationType": "{{ AuthorizationType }}",
- "AuthParameters": {
-  "ApiKeyAuthParameters": {
-   "ApiKeyName": "{{ ApiKeyName }}",
-   "ApiKeyValue": "{{ ApiKeyValue }}"
-  },
-  "BasicAuthParameters": {
-   "Username": "{{ Username }}",
-   "Password": "{{ Password }}"
-  },
-  "OAuthParameters": {
-   "ClientParameters": {
-    "ClientID": "{{ ClientID }}",
-    "ClientSecret": "{{ ClientSecret }}"
-   },
-   "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-   "HttpMethod": "{{ HttpMethod }}",
-   "OAuthHttpParameters": {
-    "HeaderParameters": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}",
-      "IsValueSecret": "{{ IsValueSecret }}"
-     }
-    ],
-    "QueryStringParameters": [
-     null
-    ],
-    "BodyParameters": [
-     null
-    ]
-   }
-  },
-  "InvocationHttpParameters": null
- }
-}
->>>
---required properties only
+-- connection.iql (required properties only)
 INSERT INTO aws.events.connections (
  Name,
  Description,
@@ -134,58 +96,17 @@ INSERT INTO aws.events.connections (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Description }},
- {{ .AuthorizationType }},
- {{ .AuthParameters }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Description }}',
+ '{{ AuthorizationType }}',
+ '{{ AuthParameters }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "AuthorizationType": "{{ AuthorizationType }}",
- "AuthParameters": {
-  "ApiKeyAuthParameters": {
-   "ApiKeyName": "{{ ApiKeyName }}",
-   "ApiKeyValue": "{{ ApiKeyValue }}"
-  },
-  "BasicAuthParameters": {
-   "Username": "{{ Username }}",
-   "Password": "{{ Password }}"
-  },
-  "OAuthParameters": {
-   "ClientParameters": {
-    "ClientID": "{{ ClientID }}",
-    "ClientSecret": "{{ ClientSecret }}"
-   },
-   "AuthorizationEndpoint": "{{ AuthorizationEndpoint }}",
-   "HttpMethod": "{{ HttpMethod }}",
-   "OAuthHttpParameters": {
-    "HeaderParameters": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}",
-      "IsValueSecret": "{{ IsValueSecret }}"
-     }
-    ],
-    "QueryStringParameters": [
-     null
-    ],
-    "BodyParameters": [
-     null
-    ]
-   }
-  },
-  "InvocationHttpParameters": null
- }
-}
->>>
---all properties
+-- connection.iql (all properties)
 INSERT INTO aws.events.connections (
  Name,
  Description,
@@ -194,11 +115,58 @@ INSERT INTO aws.events.connections (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .AuthorizationType }},
- {{ .AuthParameters }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ AuthorizationType }}',
+ '{{ AuthParameters }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connection
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: AuthorizationType
+        value: '{{ AuthorizationType }}'
+      - name: AuthParameters
+        value:
+          ApiKeyAuthParameters:
+            ApiKeyName: '{{ ApiKeyName }}'
+            ApiKeyValue: '{{ ApiKeyValue }}'
+          BasicAuthParameters:
+            Username: '{{ Username }}'
+            Password: '{{ Password }}'
+          OAuthParameters:
+            ClientParameters:
+              ClientID: '{{ ClientID }}'
+              ClientSecret: '{{ ClientSecret }}'
+            AuthorizationEndpoint: '{{ AuthorizationEndpoint }}'
+            HttpMethod: '{{ HttpMethod }}'
+            OAuthHttpParameters:
+              HeaderParameters:
+                - Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+                  IsValueSecret: '{{ IsValueSecret }}'
+              QueryStringParameters:
+                - null
+              BodyParameters:
+                - null
+          InvocationHttpParameters: null
+
 ```
 </TabItem>
 </Tabs>

@@ -74,91 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>filter</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "FilterCriteria": {
-  "AwsAccountId": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "ComponentId": null,
-  "ComponentType": null,
-  "Ec2InstanceImageId": null,
-  "Ec2InstanceSubnetId": null,
-  "Ec2InstanceVpcId": null,
-  "EcrImageArchitecture": null,
-  "EcrImageHash": null,
-  "EcrImageTags": null,
-  "EcrImagePushedAt": [
-   {
-    "EndInclusive": "{{ EndInclusive }}",
-    "StartInclusive": null
-   }
-  ],
-  "EcrImageRegistry": null,
-  "EcrImageRepositoryName": null,
-  "FindingArn": null,
-  "FindingStatus": null,
-  "FindingType": null,
-  "FirstObservedAt": null,
-  "InspectorScore": [
-   {
-    "LowerInclusive": null,
-    "UpperInclusive": null
-   }
-  ],
-  "LastObservedAt": null,
-  "NetworkProtocol": null,
-  "PortRange": [
-   {
-    "BeginInclusive": "{{ BeginInclusive }}",
-    "EndInclusive": null
-   }
-  ],
-  "RelatedVulnerabilities": null,
-  "ResourceId": null,
-  "ResourceTags": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "ResourceType": null,
-  "Severity": null,
-  "Title": null,
-  "UpdatedAt": null,
-  "VendorSeverity": null,
-  "VulnerabilityId": null,
-  "VulnerabilitySource": null,
-  "VulnerablePackages": [
-   {
-    "Architecture": null,
-    "Epoch": null,
-    "Name": null,
-    "Release": null,
-    "SourceLayerHash": null,
-    "Version": null
-   }
-  ]
- },
- "FilterAction": "{{ FilterAction }}"
-}
->>>
---required properties only
+-- filter.iql (required properties only)
 INSERT INTO aws.inspectorv2.filters (
  Name,
  FilterCriteria,
@@ -166,91 +95,16 @@ INSERT INTO aws.inspectorv2.filters (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .FilterCriteria }},
- {{ .FilterAction }},
-'us-east-1';
+'{{ Name }}',
+ '{{ FilterCriteria }}',
+ '{{ FilterAction }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "FilterCriteria": {
-  "AwsAccountId": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "ComponentId": null,
-  "ComponentType": null,
-  "Ec2InstanceImageId": null,
-  "Ec2InstanceSubnetId": null,
-  "Ec2InstanceVpcId": null,
-  "EcrImageArchitecture": null,
-  "EcrImageHash": null,
-  "EcrImageTags": null,
-  "EcrImagePushedAt": [
-   {
-    "EndInclusive": "{{ EndInclusive }}",
-    "StartInclusive": null
-   }
-  ],
-  "EcrImageRegistry": null,
-  "EcrImageRepositoryName": null,
-  "FindingArn": null,
-  "FindingStatus": null,
-  "FindingType": null,
-  "FirstObservedAt": null,
-  "InspectorScore": [
-   {
-    "LowerInclusive": null,
-    "UpperInclusive": null
-   }
-  ],
-  "LastObservedAt": null,
-  "NetworkProtocol": null,
-  "PortRange": [
-   {
-    "BeginInclusive": "{{ BeginInclusive }}",
-    "EndInclusive": null
-   }
-  ],
-  "RelatedVulnerabilities": null,
-  "ResourceId": null,
-  "ResourceTags": [
-   {
-    "Comparison": "{{ Comparison }}",
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "ResourceType": null,
-  "Severity": null,
-  "Title": null,
-  "UpdatedAt": null,
-  "VendorSeverity": null,
-  "VulnerabilityId": null,
-  "VulnerabilitySource": null,
-  "VulnerablePackages": [
-   {
-    "Architecture": null,
-    "Epoch": null,
-    "Name": null,
-    "Release": null,
-    "SourceLayerHash": null,
-    "Version": null
-   }
-  ]
- },
- "FilterAction": "{{ FilterAction }}"
-}
->>>
---all properties
+-- filter.iql (all properties)
 INSERT INTO aws.inspectorv2.filters (
  Name,
  Description,
@@ -259,11 +113,84 @@ INSERT INTO aws.inspectorv2.filters (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .FilterCriteria }},
- {{ .FilterAction }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ FilterCriteria }}',
+ '{{ FilterAction }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: filter
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FilterCriteria
+        value:
+          AwsAccountId:
+            - Comparison: '{{ Comparison }}'
+              Value: '{{ Value }}'
+          ComponentId: null
+          ComponentType: null
+          Ec2InstanceImageId: null
+          Ec2InstanceSubnetId: null
+          Ec2InstanceVpcId: null
+          EcrImageArchitecture: null
+          EcrImageHash: null
+          EcrImageTags: null
+          EcrImagePushedAt:
+            - EndInclusive: '{{ EndInclusive }}'
+              StartInclusive: null
+          EcrImageRegistry: null
+          EcrImageRepositoryName: null
+          FindingArn: null
+          FindingStatus: null
+          FindingType: null
+          FirstObservedAt: null
+          InspectorScore:
+            - LowerInclusive: null
+              UpperInclusive: null
+          LastObservedAt: null
+          NetworkProtocol: null
+          PortRange:
+            - BeginInclusive: '{{ BeginInclusive }}'
+              EndInclusive: null
+          RelatedVulnerabilities: null
+          ResourceId: null
+          ResourceTags:
+            - Comparison: '{{ Comparison }}'
+              Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          ResourceType: null
+          Severity: null
+          Title: null
+          UpdatedAt: null
+          VendorSeverity: null
+          VulnerabilityId: null
+          VulnerabilitySource: null
+          VulnerablePackages:
+            - Architecture: null
+              Epoch: null
+              Name: null
+              Release: null
+              SourceLayerHash: null
+              Version: null
+      - name: FilterAction
+        value: '{{ FilterAction }}'
+
 ```
 </TabItem>
 </Tabs>

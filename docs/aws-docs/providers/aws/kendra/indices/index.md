@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>index</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "Edition": "{{ Edition }}"
-}
->>>
---required properties only
+-- index.iql (required properties only)
 INSERT INTO aws.kendra.indices (
  Name,
  RoleArn,
@@ -99,79 +95,16 @@ INSERT INTO aws.kendra.indices (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RoleArn }},
- {{ .Edition }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ Edition }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "ServerSideEncryptionConfiguration": {
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}",
- "Edition": "{{ Edition }}",
- "DocumentMetadataConfigurations": [
-  {
-   "Name": "{{ Name }}",
-   "Type": "{{ Type }}",
-   "Relevance": {
-    "Freshness": "{{ Freshness }}",
-    "Importance": "{{ Importance }}",
-    "Duration": "{{ Duration }}",
-    "RankOrder": "{{ RankOrder }}",
-    "ValueImportanceItems": [
-     {
-      "Key": "{{ Key }}",
-      "Value": null
-     }
-    ]
-   },
-   "Search": {
-    "Facetable": "{{ Facetable }}",
-    "Searchable": "{{ Searchable }}",
-    "Displayable": "{{ Displayable }}",
-    "Sortable": "{{ Sortable }}"
-   }
-  }
- ],
- "CapacityUnits": {
-  "StorageCapacityUnits": "{{ StorageCapacityUnits }}",
-  "QueryCapacityUnits": "{{ QueryCapacityUnits }}"
- },
- "UserContextPolicy": "{{ UserContextPolicy }}",
- "UserTokenConfigurations": [
-  {
-   "JwtTokenTypeConfiguration": {
-    "KeyLocation": "{{ KeyLocation }}",
-    "URL": "{{ URL }}",
-    "SecretManagerArn": null,
-    "UserNameAttributeField": "{{ UserNameAttributeField }}",
-    "GroupAttributeField": "{{ GroupAttributeField }}",
-    "Issuer": "{{ Issuer }}",
-    "ClaimRegex": "{{ ClaimRegex }}"
-   },
-   "JsonTokenTypeConfiguration": {
-    "UserNameAttributeField": null,
-    "GroupAttributeField": null
-   }
-  }
- ]
-}
->>>
---all properties
+-- index.iql (all properties)
 INSERT INTO aws.kendra.indices (
  Description,
  ServerSideEncryptionConfiguration,
@@ -186,17 +119,85 @@ INSERT INTO aws.kendra.indices (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .ServerSideEncryptionConfiguration }},
- {{ .Tags }},
- {{ .Name }},
- {{ .RoleArn }},
- {{ .Edition }},
- {{ .DocumentMetadataConfigurations }},
- {{ .CapacityUnits }},
- {{ .UserContextPolicy }},
- {{ .UserTokenConfigurations }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ ServerSideEncryptionConfiguration }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ Edition }}',
+ '{{ DocumentMetadataConfigurations }}',
+ '{{ CapacityUnits }}',
+ '{{ UserContextPolicy }}',
+ '{{ UserTokenConfigurations }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: index
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: ServerSideEncryptionConfiguration
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Edition
+        value: '{{ Edition }}'
+      - name: DocumentMetadataConfigurations
+        value:
+          - Name: '{{ Name }}'
+            Type: '{{ Type }}'
+            Relevance:
+              Freshness: '{{ Freshness }}'
+              Importance: '{{ Importance }}'
+              Duration: '{{ Duration }}'
+              RankOrder: '{{ RankOrder }}'
+              ValueImportanceItems:
+                - Key: '{{ Key }}'
+                  Value: null
+            Search:
+              Facetable: '{{ Facetable }}'
+              Searchable: '{{ Searchable }}'
+              Displayable: '{{ Displayable }}'
+              Sortable: '{{ Sortable }}'
+      - name: CapacityUnits
+        value:
+          StorageCapacityUnits: '{{ StorageCapacityUnits }}'
+          QueryCapacityUnits: '{{ QueryCapacityUnits }}'
+      - name: UserContextPolicy
+        value: '{{ UserContextPolicy }}'
+      - name: UserTokenConfigurations
+        value:
+          - JwtTokenTypeConfiguration:
+              KeyLocation: '{{ KeyLocation }}'
+              URL: '{{ URL }}'
+              SecretManagerArn: null
+              UserNameAttributeField: '{{ UserNameAttributeField }}'
+              GroupAttributeField: '{{ GroupAttributeField }}'
+              Issuer: '{{ Issuer }}'
+              ClaimRegex: '{{ ClaimRegex }}'
+            JsonTokenTypeConfiguration:
+              UserNameAttributeField: null
+              GroupAttributeField: null
+
 ```
 </TabItem>
 </Tabs>

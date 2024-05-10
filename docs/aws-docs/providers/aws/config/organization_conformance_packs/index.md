@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>organization_conformance_pack</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "OrganizationConformancePackName": "{{ OrganizationConformancePackName }}"
-}
->>>
---required properties only
+-- organization_conformance_pack.iql (required properties only)
 INSERT INTO aws.config.organization_conformance_packs (
  OrganizationConformancePackName,
  region
 )
 SELECT 
-{{ .OrganizationConformancePackName }},
-'us-east-1';
+'{{ OrganizationConformancePackName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "OrganizationConformancePackName": "{{ OrganizationConformancePackName }}",
- "TemplateS3Uri": "{{ TemplateS3Uri }}",
- "TemplateBody": "{{ TemplateBody }}",
- "DeliveryS3Bucket": "{{ DeliveryS3Bucket }}",
- "DeliveryS3KeyPrefix": "{{ DeliveryS3KeyPrefix }}",
- "ConformancePackInputParameters": [
-  {
-   "ParameterName": "{{ ParameterName }}",
-   "ParameterValue": "{{ ParameterValue }}"
-  }
- ],
- "ExcludedAccounts": [
-  "{{ ExcludedAccounts[0] }}"
- ]
-}
->>>
---all properties
+-- organization_conformance_pack.iql (all properties)
 INSERT INTO aws.config.organization_conformance_packs (
  OrganizationConformancePackName,
  TemplateS3Uri,
@@ -132,14 +112,48 @@ INSERT INTO aws.config.organization_conformance_packs (
  region
 )
 SELECT 
- {{ .OrganizationConformancePackName }},
- {{ .TemplateS3Uri }},
- {{ .TemplateBody }},
- {{ .DeliveryS3Bucket }},
- {{ .DeliveryS3KeyPrefix }},
- {{ .ConformancePackInputParameters }},
- {{ .ExcludedAccounts }},
- 'us-east-1';
+ '{{ OrganizationConformancePackName }}',
+ '{{ TemplateS3Uri }}',
+ '{{ TemplateBody }}',
+ '{{ DeliveryS3Bucket }}',
+ '{{ DeliveryS3KeyPrefix }}',
+ '{{ ConformancePackInputParameters }}',
+ '{{ ExcludedAccounts }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: organization_conformance_pack
+    props:
+      - name: OrganizationConformancePackName
+        value: '{{ OrganizationConformancePackName }}'
+      - name: TemplateS3Uri
+        value: '{{ TemplateS3Uri }}'
+      - name: TemplateBody
+        value: '{{ TemplateBody }}'
+      - name: DeliveryS3Bucket
+        value: '{{ DeliveryS3Bucket }}'
+      - name: DeliveryS3KeyPrefix
+        value: '{{ DeliveryS3KeyPrefix }}'
+      - name: ConformancePackInputParameters
+        value:
+          - ParameterName: '{{ ParameterName }}'
+            ParameterValue: '{{ ParameterValue }}'
+      - name: ExcludedAccounts
+        value:
+          - '{{ ExcludedAccounts[0] }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConnectorArn": "{{ ConnectorArn }}",
- "Definition": null,
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- template.iql (required properties only)
 INSERT INTO aws.pcaconnectorad.templates (
  ConnectorArn,
  Definition,
@@ -99,25 +95,16 @@ INSERT INTO aws.pcaconnectorad.templates (
  region
 )
 SELECT 
-{{ .ConnectorArn }},
- {{ .Definition }},
- {{ .Name }},
-'us-east-1';
+'{{ ConnectorArn }}',
+ '{{ Definition }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConnectorArn": "{{ ConnectorArn }}",
- "Definition": null,
- "Name": "{{ Name }}",
- "ReenrollAllCertificateHolders": "{{ ReenrollAllCertificateHolders }}",
- "Tags": {}
-}
->>>
---all properties
+-- template.iql (all properties)
 INSERT INTO aws.pcaconnectorad.templates (
  ConnectorArn,
  Definition,
@@ -127,12 +114,39 @@ INSERT INTO aws.pcaconnectorad.templates (
  region
 )
 SELECT 
- {{ .ConnectorArn }},
- {{ .Definition }},
- {{ .Name }},
- {{ .ReenrollAllCertificateHolders }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ConnectorArn }}',
+ '{{ Definition }}',
+ '{{ Name }}',
+ '{{ ReenrollAllCertificateHolders }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: template
+    props:
+      - name: ConnectorArn
+        value: '{{ ConnectorArn }}'
+      - name: Definition
+        value: null
+      - name: Name
+        value: '{{ Name }}'
+      - name: ReenrollAllCertificateHolders
+        value: '{{ ReenrollAllCertificateHolders }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

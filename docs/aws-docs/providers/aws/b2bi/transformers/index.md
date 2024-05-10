@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transformer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EdiType": null,
- "FileFormat": "{{ FileFormat }}",
- "MappingTemplate": "{{ MappingTemplate }}",
- "Name": "{{ Name }}",
- "Status": "{{ Status }}"
-}
->>>
---required properties only
+-- transformer.iql (required properties only)
 INSERT INTO aws.b2bi.transformers (
  EdiType,
  FileFormat,
@@ -103,34 +97,18 @@ INSERT INTO aws.b2bi.transformers (
  region
 )
 SELECT 
-{{ .EdiType }},
- {{ .FileFormat }},
- {{ .MappingTemplate }},
- {{ .Name }},
- {{ .Status }},
-'us-east-1';
+'{{ EdiType }}',
+ '{{ FileFormat }}',
+ '{{ MappingTemplate }}',
+ '{{ Name }}',
+ '{{ Status }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EdiType": null,
- "FileFormat": "{{ FileFormat }}",
- "MappingTemplate": "{{ MappingTemplate }}",
- "Name": "{{ Name }}",
- "SampleDocument": "{{ SampleDocument }}",
- "Status": "{{ Status }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- transformer.iql (all properties)
 INSERT INTO aws.b2bi.transformers (
  EdiType,
  FileFormat,
@@ -142,14 +120,47 @@ INSERT INTO aws.b2bi.transformers (
  region
 )
 SELECT 
- {{ .EdiType }},
- {{ .FileFormat }},
- {{ .MappingTemplate }},
- {{ .Name }},
- {{ .SampleDocument }},
- {{ .Status }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ EdiType }}',
+ '{{ FileFormat }}',
+ '{{ MappingTemplate }}',
+ '{{ Name }}',
+ '{{ SampleDocument }}',
+ '{{ Status }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transformer
+    props:
+      - name: EdiType
+        value: null
+      - name: FileFormat
+        value: '{{ FileFormat }}'
+      - name: MappingTemplate
+        value: '{{ MappingTemplate }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: SampleDocument
+        value: '{{ SampleDocument }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

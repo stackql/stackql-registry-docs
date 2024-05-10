@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>nodegroup</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "NodeRole": "{{ NodeRole }}",
- "Subnets": [
-  "{{ Subnets[0] }}"
- ]
-}
->>>
---required properties only
+-- nodegroup.iql (required properties only)
 INSERT INTO aws.eks.nodegroups (
  ClusterName,
  NodeRole,
@@ -101,64 +95,16 @@ INSERT INTO aws.eks.nodegroups (
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .NodeRole }},
- {{ .Subnets }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ NodeRole }}',
+ '{{ Subnets }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AmiType": "{{ AmiType }}",
- "CapacityType": "{{ CapacityType }}",
- "ClusterName": "{{ ClusterName }}",
- "DiskSize": "{{ DiskSize }}",
- "ForceUpdateEnabled": "{{ ForceUpdateEnabled }}",
- "InstanceTypes": [
-  "{{ InstanceTypes[0] }}"
- ],
- "Labels": {},
- "LaunchTemplate": {
-  "Id": "{{ Id }}",
-  "Version": "{{ Version }}",
-  "Name": "{{ Name }}"
- },
- "NodegroupName": "{{ NodegroupName }}",
- "NodeRole": "{{ NodeRole }}",
- "ReleaseVersion": "{{ ReleaseVersion }}",
- "RemoteAccess": {
-  "SourceSecurityGroups": [
-   "{{ SourceSecurityGroups[0] }}"
-  ],
-  "Ec2SshKey": "{{ Ec2SshKey }}"
- },
- "ScalingConfig": {
-  "MinSize": "{{ MinSize }}",
-  "DesiredSize": "{{ DesiredSize }}",
-  "MaxSize": "{{ MaxSize }}"
- },
- "Subnets": [
-  "{{ Subnets[0] }}"
- ],
- "Tags": {},
- "Taints": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}",
-   "Effect": "{{ Effect }}"
-  }
- ],
- "UpdateConfig": {
-  "MaxUnavailable": null,
-  "MaxUnavailablePercentage": null
- },
- "Version": "{{ Version }}"
-}
->>>
---all properties
+-- nodegroup.iql (all properties)
 INSERT INTO aws.eks.nodegroups (
  AmiType,
  CapacityType,
@@ -181,25 +127,94 @@ INSERT INTO aws.eks.nodegroups (
  region
 )
 SELECT 
- {{ .AmiType }},
- {{ .CapacityType }},
- {{ .ClusterName }},
- {{ .DiskSize }},
- {{ .ForceUpdateEnabled }},
- {{ .InstanceTypes }},
- {{ .Labels }},
- {{ .LaunchTemplate }},
- {{ .NodegroupName }},
- {{ .NodeRole }},
- {{ .ReleaseVersion }},
- {{ .RemoteAccess }},
- {{ .ScalingConfig }},
- {{ .Subnets }},
- {{ .Tags }},
- {{ .Taints }},
- {{ .UpdateConfig }},
- {{ .Version }},
- 'us-east-1';
+ '{{ AmiType }}',
+ '{{ CapacityType }}',
+ '{{ ClusterName }}',
+ '{{ DiskSize }}',
+ '{{ ForceUpdateEnabled }}',
+ '{{ InstanceTypes }}',
+ '{{ Labels }}',
+ '{{ LaunchTemplate }}',
+ '{{ NodegroupName }}',
+ '{{ NodeRole }}',
+ '{{ ReleaseVersion }}',
+ '{{ RemoteAccess }}',
+ '{{ ScalingConfig }}',
+ '{{ Subnets }}',
+ '{{ Tags }}',
+ '{{ Taints }}',
+ '{{ UpdateConfig }}',
+ '{{ Version }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: nodegroup
+    props:
+      - name: AmiType
+        value: '{{ AmiType }}'
+      - name: CapacityType
+        value: '{{ CapacityType }}'
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: DiskSize
+        value: '{{ DiskSize }}'
+      - name: ForceUpdateEnabled
+        value: '{{ ForceUpdateEnabled }}'
+      - name: InstanceTypes
+        value:
+          - '{{ InstanceTypes[0] }}'
+      - name: Labels
+        value: {}
+      - name: LaunchTemplate
+        value:
+          Id: '{{ Id }}'
+          Version: '{{ Version }}'
+          Name: '{{ Name }}'
+      - name: NodegroupName
+        value: '{{ NodegroupName }}'
+      - name: NodeRole
+        value: '{{ NodeRole }}'
+      - name: ReleaseVersion
+        value: '{{ ReleaseVersion }}'
+      - name: RemoteAccess
+        value:
+          SourceSecurityGroups:
+            - '{{ SourceSecurityGroups[0] }}'
+          Ec2SshKey: '{{ Ec2SshKey }}'
+      - name: ScalingConfig
+        value:
+          MinSize: '{{ MinSize }}'
+          DesiredSize: '{{ DesiredSize }}'
+          MaxSize: '{{ MaxSize }}'
+      - name: Subnets
+        value:
+          - '{{ Subnets[0] }}'
+      - name: Tags
+        value: {}
+      - name: Taints
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+            Effect: '{{ Effect }}'
+      - name: UpdateConfig
+        value:
+          MaxUnavailable: null
+          MaxUnavailablePercentage: null
+      - name: Version
+        value: '{{ Version }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -76,51 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationName": "{{ ApplicationName }}",
- "SourceBundle": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- }
-}
->>>
---required properties only
+-- application_version.iql (required properties only)
 INSERT INTO aws.elasticbeanstalk.application_versions (
  ApplicationName,
  SourceBundle,
  region
 )
 SELECT 
-{{ .ApplicationName }},
- {{ .SourceBundle }},
-'us-east-1';
+'{{ ApplicationName }}',
+ '{{ SourceBundle }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicationName": "{{ ApplicationName }}",
- "Description": "{{ Description }}",
- "SourceBundle": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- }
-}
->>>
---all properties
+-- application_version.iql (all properties)
 INSERT INTO aws.elasticbeanstalk.application_versions (
  ApplicationName,
  Description,
@@ -128,10 +112,35 @@ INSERT INTO aws.elasticbeanstalk.application_versions (
  region
 )
 SELECT 
- {{ .ApplicationName }},
- {{ .Description }},
- {{ .SourceBundle }},
- 'us-east-1';
+ '{{ ApplicationName }}',
+ '{{ Description }}',
+ '{{ SourceBundle }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application_version
+    props:
+      - name: ApplicationName
+        value: '{{ ApplicationName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: SourceBundle
+        value:
+          S3Bucket: '{{ S3Bucket }}'
+          S3Key: '{{ S3Key }}'
+
 ```
 </TabItem>
 </Tabs>

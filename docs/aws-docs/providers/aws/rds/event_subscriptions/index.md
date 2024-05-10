@@ -74,55 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_subscription</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SnsTopicArn": "{{ SnsTopicArn }}"
-}
->>>
---required properties only
+-- event_subscription.iql (required properties only)
 INSERT INTO aws.rds.event_subscriptions (
  SnsTopicArn,
  region
 )
 SELECT 
-{{ .SnsTopicArn }},
-'us-east-1';
+'{{ SnsTopicArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "SubscriptionName": "{{ SubscriptionName }}",
- "Enabled": "{{ Enabled }}",
- "EventCategories": [
-  "{{ EventCategories[0] }}"
- ],
- "SnsTopicArn": "{{ SnsTopicArn }}",
- "SourceIds": [
-  "{{ SourceIds[0] }}"
- ],
- "SourceType": "{{ SourceType }}"
-}
->>>
---all properties
+-- event_subscription.iql (all properties)
 INSERT INTO aws.rds.event_subscriptions (
  Tags,
  SubscriptionName,
@@ -134,14 +112,49 @@ INSERT INTO aws.rds.event_subscriptions (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .SubscriptionName }},
- {{ .Enabled }},
- {{ .EventCategories }},
- {{ .SnsTopicArn }},
- {{ .SourceIds }},
- {{ .SourceType }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ SubscriptionName }}',
+ '{{ Enabled }}',
+ '{{ EventCategories }}',
+ '{{ SnsTopicArn }}',
+ '{{ SourceIds }}',
+ '{{ SourceType }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_subscription
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: SubscriptionName
+        value: '{{ SubscriptionName }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: EventCategories
+        value:
+          - '{{ EventCategories[0] }}'
+      - name: SnsTopicArn
+        value: '{{ SnsTopicArn }}'
+      - name: SourceIds
+        value:
+          - '{{ SourceIds[0] }}'
+      - name: SourceType
+        value: '{{ SourceType }}'
+
 ```
 </TabItem>
 </Tabs>

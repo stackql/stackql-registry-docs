@@ -74,71 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>simulation_application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RobotSoftwareSuite": {
-  "Name": "{{ Name }}",
-  "Version": "{{ Version }}"
- },
- "SimulationSoftwareSuite": {
-  "Name": "{{ Name }}",
-  "Version": "{{ Version }}"
- }
-}
->>>
---required properties only
+-- simulation_application.iql (required properties only)
 INSERT INTO aws.robomaker.simulation_applications (
  RobotSoftwareSuite,
  SimulationSoftwareSuite,
  region
 )
 SELECT 
-{{ .RobotSoftwareSuite }},
- {{ .SimulationSoftwareSuite }},
-'us-east-1';
+'{{ RobotSoftwareSuite }}',
+ '{{ SimulationSoftwareSuite }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "CurrentRevisionId": "{{ CurrentRevisionId }}",
- "RenderingEngine": {
-  "Name": "{{ Name }}",
-  "Version": "{{ Version }}"
- },
- "RobotSoftwareSuite": {
-  "Name": "{{ Name }}",
-  "Version": "{{ Version }}"
- },
- "SimulationSoftwareSuite": {
-  "Name": "{{ Name }}",
-  "Version": "{{ Version }}"
- },
- "Sources": [
-  {
-   "S3Bucket": "{{ S3Bucket }}",
-   "S3Key": "{{ S3Key }}",
-   "Architecture": "{{ Architecture }}"
-  }
- ],
- "Environment": "{{ Environment }}",
- "Tags": {}
-}
->>>
---all properties
+-- simulation_application.iql (all properties)
 INSERT INTO aws.robomaker.simulation_applications (
  Name,
  CurrentRevisionId,
@@ -151,15 +115,57 @@ INSERT INTO aws.robomaker.simulation_applications (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .CurrentRevisionId }},
- {{ .RenderingEngine }},
- {{ .RobotSoftwareSuite }},
- {{ .SimulationSoftwareSuite }},
- {{ .Sources }},
- {{ .Environment }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ CurrentRevisionId }}',
+ '{{ RenderingEngine }}',
+ '{{ RobotSoftwareSuite }}',
+ '{{ SimulationSoftwareSuite }}',
+ '{{ Sources }}',
+ '{{ Environment }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: simulation_application
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: CurrentRevisionId
+        value: '{{ CurrentRevisionId }}'
+      - name: RenderingEngine
+        value:
+          Name: '{{ Name }}'
+          Version: '{{ Version }}'
+      - name: RobotSoftwareSuite
+        value:
+          Name: '{{ Name }}'
+          Version: '{{ Version }}'
+      - name: SimulationSoftwareSuite
+        value:
+          Name: '{{ Name }}'
+          Version: '{{ Version }}'
+      - name: Sources
+        value:
+          - S3Bucket: '{{ S3Bucket }}'
+            S3Key: '{{ S3Key }}'
+            Architecture: '{{ Architecture }}'
+      - name: Environment
+        value: '{{ Environment }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

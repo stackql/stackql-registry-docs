@@ -74,57 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>wireless_gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LoRaWAN": {
-  "GatewayEui": "{{ GatewayEui }}",
-  "RfRegion": "{{ RfRegion }}"
- }
-}
->>>
---required properties only
+-- wireless_gateway.iql (required properties only)
 INSERT INTO aws.iotwireless.wireless_gateways (
  LoRaWAN,
  region
 )
 SELECT 
-{{ .LoRaWAN }},
-'us-east-1';
+'{{ LoRaWAN }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "LoRaWAN": {
-  "GatewayEui": "{{ GatewayEui }}",
-  "RfRegion": "{{ RfRegion }}"
- },
- "ThingArn": "{{ ThingArn }}",
- "ThingName": "{{ ThingName }}",
- "LastUplinkReceivedAt": "{{ LastUplinkReceivedAt }}"
-}
->>>
---all properties
+-- wireless_gateway.iql (all properties)
 INSERT INTO aws.iotwireless.wireless_gateways (
  Name,
  Description,
@@ -136,14 +112,49 @@ INSERT INTO aws.iotwireless.wireless_gateways (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Tags }},
- {{ .LoRaWAN }},
- {{ .ThingArn }},
- {{ .ThingName }},
- {{ .LastUplinkReceivedAt }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ LoRaWAN }}',
+ '{{ ThingArn }}',
+ '{{ ThingName }}',
+ '{{ LastUplinkReceivedAt }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: wireless_gateway
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: LoRaWAN
+        value:
+          GatewayEui: '{{ GatewayEui }}'
+          RfRegion: '{{ RfRegion }}'
+      - name: ThingArn
+        value: '{{ ThingArn }}'
+      - name: ThingName
+        value: '{{ ThingName }}'
+      - name: LastUplinkReceivedAt
+        value: '{{ LastUplinkReceivedAt }}'
+
 ```
 </TabItem>
 </Tabs>

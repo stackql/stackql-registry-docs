@@ -74,80 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- group.iql (required properties only)
 INSERT INTO aws.resourcegroups.groups (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ResourceQuery": {
-  "Type": "{{ Type }}",
-  "Query": {
-   "ResourceTypeFilters": [
-    "{{ ResourceTypeFilters[0] }}"
-   ],
-   "StackIdentifier": "{{ StackIdentifier }}",
-   "TagFilters": [
-    {
-     "Key": "{{ Key }}",
-     "Values": [
-      "{{ Values[0] }}"
-     ]
-    }
-   ]
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Configuration": [
-  {
-   "Type": "{{ Type }}",
-   "Parameters": [
-    {
-     "Name": "{{ Name }}",
-     "Values": [
-      "{{ Values[0] }}"
-     ]
-    }
-   ]
-  }
- ],
- "Resources": [
-  "{{ Resources[0] }}"
- ]
-}
->>>
---all properties
+-- group.iql (all properties)
 INSERT INTO aws.resourcegroups.groups (
  Name,
  Description,
@@ -158,13 +111,59 @@ INSERT INTO aws.resourcegroups.groups (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .ResourceQuery }},
- {{ .Tags }},
- {{ .Configuration }},
- {{ .Resources }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ ResourceQuery }}',
+ '{{ Tags }}',
+ '{{ Configuration }}',
+ '{{ Resources }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: group
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ResourceQuery
+        value:
+          Type: '{{ Type }}'
+          Query:
+            ResourceTypeFilters:
+              - '{{ ResourceTypeFilters[0] }}'
+            StackIdentifier: '{{ StackIdentifier }}'
+            TagFilters:
+              - Key: '{{ Key }}'
+                Values:
+                  - '{{ Values[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Configuration
+        value:
+          - Type: '{{ Type }}'
+            Parameters:
+              - Name: '{{ Name }}'
+                Values:
+                  - '{{ Values[0] }}'
+      - name: Resources
+        value:
+          - '{{ Resources[0] }}'
+
 ```
 </TabItem>
 </Tabs>

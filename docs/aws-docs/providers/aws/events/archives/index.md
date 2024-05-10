@@ -74,44 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>archive</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SourceArn": "{{ SourceArn }}"
-}
->>>
---required properties only
+-- archive.iql (required properties only)
 INSERT INTO aws.events.archives (
  SourceArn,
  region
 )
 SELECT 
-{{ .SourceArn }},
-'us-east-1';
+'{{ SourceArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ArchiveName": "{{ ArchiveName }}",
- "SourceArn": "{{ SourceArn }}",
- "Description": "{{ Description }}",
- "EventPattern": {},
- "RetentionDays": "{{ RetentionDays }}"
-}
->>>
---all properties
+-- archive.iql (all properties)
 INSERT INTO aws.events.archives (
  ArchiveName,
  SourceArn,
@@ -121,12 +110,39 @@ INSERT INTO aws.events.archives (
  region
 )
 SELECT 
- {{ .ArchiveName }},
- {{ .SourceArn }},
- {{ .Description }},
- {{ .EventPattern }},
- {{ .RetentionDays }},
- 'us-east-1';
+ '{{ ArchiveName }}',
+ '{{ SourceArn }}',
+ '{{ Description }}',
+ '{{ EventPattern }}',
+ '{{ RetentionDays }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: archive
+    props:
+      - name: ArchiveName
+        value: '{{ ArchiveName }}'
+      - name: SourceArn
+        value: '{{ SourceArn }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EventPattern
+        value: {}
+      - name: RetentionDays
+        value: '{{ RetentionDays }}'
+
 ```
 </TabItem>
 </Tabs>

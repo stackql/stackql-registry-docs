@@ -74,57 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>multi_region_access_point</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Regions": [
-  {
-   "Bucket": "{{ Bucket }}",
-   "BucketAccountId": "{{ BucketAccountId }}"
-  }
- ]
-}
->>>
---required properties only
+-- multi_region_access_point.iql (required properties only)
 INSERT INTO aws.s3.multi_region_access_points (
  Regions,
  region
 )
 SELECT 
-{{ .Regions }},
-'us-east-1';
+'{{ Regions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "PublicAccessBlockConfiguration": {
-  "BlockPublicAcls": "{{ BlockPublicAcls }}",
-  "IgnorePublicAcls": "{{ IgnorePublicAcls }}",
-  "BlockPublicPolicy": "{{ BlockPublicPolicy }}",
-  "RestrictPublicBuckets": "{{ RestrictPublicBuckets }}"
- },
- "Regions": [
-  {
-   "Bucket": "{{ Bucket }}",
-   "BucketAccountId": "{{ BucketAccountId }}"
-  }
- ]
-}
->>>
---all properties
+-- multi_region_access_point.iql (all properties)
 INSERT INTO aws.s3.multi_region_access_points (
  Name,
  PublicAccessBlockConfiguration,
@@ -132,10 +108,39 @@ INSERT INTO aws.s3.multi_region_access_points (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .PublicAccessBlockConfiguration }},
- {{ .Regions }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ PublicAccessBlockConfiguration }}',
+ '{{ Regions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: multi_region_access_point
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: PublicAccessBlockConfiguration
+        value:
+          BlockPublicAcls: '{{ BlockPublicAcls }}'
+          IgnorePublicAcls: '{{ IgnorePublicAcls }}'
+          BlockPublicPolicy: '{{ BlockPublicPolicy }}'
+          RestrictPublicBuckets: '{{ RestrictPublicBuckets }}'
+      - name: Regions
+        value:
+          - Bucket: '{{ Bucket }}'
+            BucketAccountId: '{{ BucketAccountId }}'
+
 ```
 </TabItem>
 </Tabs>

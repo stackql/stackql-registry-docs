@@ -74,56 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainExecutionRole": "{{ DomainExecutionRole }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- domain.iql (required properties only)
 INSERT INTO aws.datazone.domains (
  DomainExecutionRole,
  Name,
  region
 )
 SELECT 
-{{ .DomainExecutionRole }},
- {{ .Name }},
-'us-east-1';
+'{{ DomainExecutionRole }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DomainExecutionRole": "{{ DomainExecutionRole }}",
- "KmsKeyIdentifier": "{{ KmsKeyIdentifier }}",
- "Name": "{{ Name }}",
- "SingleSignOn": {
-  "Type": "{{ Type }}",
-  "UserAssignment": "{{ UserAssignment }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- domain.iql (all properties)
 INSERT INTO aws.datazone.domains (
  Description,
  DomainExecutionRole,
@@ -134,13 +113,46 @@ INSERT INTO aws.datazone.domains (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DomainExecutionRole }},
- {{ .KmsKeyIdentifier }},
- {{ .Name }},
- {{ .SingleSignOn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DomainExecutionRole }}',
+ '{{ KmsKeyIdentifier }}',
+ '{{ Name }}',
+ '{{ SingleSignOn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DomainExecutionRole
+        value: '{{ DomainExecutionRole }}'
+      - name: KmsKeyIdentifier
+        value: '{{ KmsKeyIdentifier }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: SingleSignOn
+        value:
+          Type: '{{ Type }}'
+          UserAssignment: '{{ UserAssignment }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

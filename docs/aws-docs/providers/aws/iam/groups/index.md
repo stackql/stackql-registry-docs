@@ -74,32 +74,20 @@ FROM aws.iam.groups
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GroupName": "{{ GroupName }}",
- "ManagedPolicyArns": [
-  "{{ ManagedPolicyArns[0] }}"
- ],
- "Path": "{{ Path }}",
- "Policies": [
-  {
-   "PolicyDocument": {},
-   "PolicyName": "{{ PolicyName }}"
-  }
- ]
-}
->>>
---required properties only
+-- group.iql (required properties only)
 INSERT INTO aws.iam.groups (
  GroupName,
  ManagedPolicyArns,
@@ -108,32 +96,17 @@ INSERT INTO aws.iam.groups (
  region
 )
 SELECT 
-{{ .GroupName }},
- {{ .ManagedPolicyArns }},
- {{ .Path }},
- {{ .Policies }},
-'us-east-1';
+'{{ GroupName }}',
+ '{{ ManagedPolicyArns }}',
+ '{{ Path }}',
+ '{{ Policies }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GroupName": "{{ GroupName }}",
- "ManagedPolicyArns": [
-  "{{ ManagedPolicyArns[0] }}"
- ],
- "Path": "{{ Path }}",
- "Policies": [
-  {
-   "PolicyDocument": {},
-   "PolicyName": "{{ PolicyName }}"
-  }
- ]
-}
->>>
---all properties
+-- group.iql (all properties)
 INSERT INTO aws.iam.groups (
  GroupName,
  ManagedPolicyArns,
@@ -142,11 +115,39 @@ INSERT INTO aws.iam.groups (
  region
 )
 SELECT 
- {{ .GroupName }},
- {{ .ManagedPolicyArns }},
- {{ .Path }},
- {{ .Policies }},
- 'us-east-1';
+ '{{ GroupName }}',
+ '{{ ManagedPolicyArns }}',
+ '{{ Path }}',
+ '{{ Policies }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: group
+    props:
+      - name: GroupName
+        value: '{{ GroupName }}'
+      - name: ManagedPolicyArns
+        value:
+          - '{{ ManagedPolicyArns[0] }}'
+      - name: Path
+        value: '{{ Path }}'
+      - name: Policies
+        value:
+          - PolicyDocument: {}
+            PolicyName: '{{ PolicyName }}'
+
 ```
 </TabItem>
 </Tabs>

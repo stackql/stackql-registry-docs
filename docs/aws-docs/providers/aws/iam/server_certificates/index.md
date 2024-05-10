@@ -74,32 +74,20 @@ FROM aws.iam.server_certificates
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>server_certificate</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CertificateBody": "{{ CertificateBody }}",
- "CertificateChain": "{{ CertificateChain }}",
- "ServerCertificateName": "{{ ServerCertificateName }}",
- "Path": "{{ Path }}",
- "PrivateKey": "{{ PrivateKey }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---required properties only
+-- server_certificate.iql (required properties only)
 INSERT INTO aws.iam.server_certificates (
  CertificateBody,
  CertificateChain,
@@ -110,34 +98,19 @@ INSERT INTO aws.iam.server_certificates (
  region
 )
 SELECT 
-{{ .CertificateBody }},
- {{ .CertificateChain }},
- {{ .ServerCertificateName }},
- {{ .Path }},
- {{ .PrivateKey }},
- {{ .Tags }},
-'us-east-1';
+'{{ CertificateBody }}',
+ '{{ CertificateChain }}',
+ '{{ ServerCertificateName }}',
+ '{{ Path }}',
+ '{{ PrivateKey }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CertificateBody": "{{ CertificateBody }}",
- "CertificateChain": "{{ CertificateChain }}",
- "ServerCertificateName": "{{ ServerCertificateName }}",
- "Path": "{{ Path }}",
- "PrivateKey": "{{ PrivateKey }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- server_certificate.iql (all properties)
 INSERT INTO aws.iam.server_certificates (
  CertificateBody,
  CertificateChain,
@@ -148,13 +121,44 @@ INSERT INTO aws.iam.server_certificates (
  region
 )
 SELECT 
- {{ .CertificateBody }},
- {{ .CertificateChain }},
- {{ .ServerCertificateName }},
- {{ .Path }},
- {{ .PrivateKey }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CertificateBody }}',
+ '{{ CertificateChain }}',
+ '{{ ServerCertificateName }}',
+ '{{ Path }}',
+ '{{ PrivateKey }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: server_certificate
+    props:
+      - name: CertificateBody
+        value: '{{ CertificateBody }}'
+      - name: CertificateChain
+        value: '{{ CertificateChain }}'
+      - name: ServerCertificateName
+        value: '{{ ServerCertificateName }}'
+      - name: Path
+        value: '{{ Path }}'
+      - name: PrivateKey
+        value: '{{ PrivateKey }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

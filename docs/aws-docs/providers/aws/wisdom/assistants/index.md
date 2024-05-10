@@ -74,54 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>assistant</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- assistant.iql (required properties only)
 INSERT INTO aws.wisdom.assistants (
  Type,
  Name,
  region
 )
 SELECT 
-{{ .Type }},
- {{ .Name }},
-'us-east-1';
+'{{ Type }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "Description": "{{ Description }}",
- "ServerSideEncryptionConfiguration": {
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- assistant.iql (all properties)
 INSERT INTO aws.wisdom.assistants (
  Type,
  Description,
@@ -131,12 +112,42 @@ INSERT INTO aws.wisdom.assistants (
  region
 )
 SELECT 
- {{ .Type }},
- {{ .Description }},
- {{ .ServerSideEncryptionConfiguration }},
- {{ .Tags }},
- {{ .Name }},
- 'us-east-1';
+ '{{ Type }}',
+ '{{ Description }}',
+ '{{ ServerSideEncryptionConfiguration }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: assistant
+    props:
+      - name: Type
+        value: '{{ Type }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ServerSideEncryptionConfiguration
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

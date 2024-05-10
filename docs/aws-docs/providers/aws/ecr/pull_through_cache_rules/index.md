@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pull_through_cache_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EcrRepositoryPrefix": "{{ EcrRepositoryPrefix }}",
- "UpstreamRegistryUrl": "{{ UpstreamRegistryUrl }}",
- "CredentialArn": "{{ CredentialArn }}",
- "UpstreamRegistry": "{{ UpstreamRegistry }}"
-}
->>>
---required properties only
+-- pull_through_cache_rule.iql (required properties only)
 INSERT INTO aws.ecr.pull_through_cache_rules (
  EcrRepositoryPrefix,
  UpstreamRegistryUrl,
@@ -101,25 +96,17 @@ INSERT INTO aws.ecr.pull_through_cache_rules (
  region
 )
 SELECT 
-{{ .EcrRepositoryPrefix }},
- {{ .UpstreamRegistryUrl }},
- {{ .CredentialArn }},
- {{ .UpstreamRegistry }},
-'us-east-1';
+'{{ EcrRepositoryPrefix }}',
+ '{{ UpstreamRegistryUrl }}',
+ '{{ CredentialArn }}',
+ '{{ UpstreamRegistry }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EcrRepositoryPrefix": "{{ EcrRepositoryPrefix }}",
- "UpstreamRegistryUrl": "{{ UpstreamRegistryUrl }}",
- "CredentialArn": "{{ CredentialArn }}",
- "UpstreamRegistry": "{{ UpstreamRegistry }}"
-}
->>>
---all properties
+-- pull_through_cache_rule.iql (all properties)
 INSERT INTO aws.ecr.pull_through_cache_rules (
  EcrRepositoryPrefix,
  UpstreamRegistryUrl,
@@ -128,11 +115,36 @@ INSERT INTO aws.ecr.pull_through_cache_rules (
  region
 )
 SELECT 
- {{ .EcrRepositoryPrefix }},
- {{ .UpstreamRegistryUrl }},
- {{ .CredentialArn }},
- {{ .UpstreamRegistry }},
- 'us-east-1';
+ '{{ EcrRepositoryPrefix }}',
+ '{{ UpstreamRegistryUrl }}',
+ '{{ CredentialArn }}',
+ '{{ UpstreamRegistry }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pull_through_cache_rule
+    props:
+      - name: EcrRepositoryPrefix
+        value: '{{ EcrRepositoryPrefix }}'
+      - name: UpstreamRegistryUrl
+        value: '{{ UpstreamRegistryUrl }}'
+      - name: CredentialArn
+        value: '{{ CredentialArn }}'
+      - name: UpstreamRegistry
+        value: '{{ UpstreamRegistry }}'
+
 ```
 </TabItem>
 </Tabs>

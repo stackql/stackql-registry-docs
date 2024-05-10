@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>alert</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AnomalyDetectorArn": "{{ AnomalyDetectorArn }}",
- "AlertSensitivityThreshold": "{{ AlertSensitivityThreshold }}",
- "Action": {
-  "SNSConfiguration": {
-   "RoleArn": "{{ RoleArn }}",
-   "SnsTopicArn": null
-  },
-  "LambdaConfiguration": {
-   "RoleArn": null,
-   "LambdaArn": null
-  }
- }
-}
->>>
---required properties only
+-- alert.iql (required properties only)
 INSERT INTO aws.lookoutmetrics.alerts (
  AnomalyDetectorArn,
  AlertSensitivityThreshold,
@@ -108,34 +95,16 @@ INSERT INTO aws.lookoutmetrics.alerts (
  region
 )
 SELECT 
-{{ .AnomalyDetectorArn }},
- {{ .AlertSensitivityThreshold }},
- {{ .Action }},
-'us-east-1';
+'{{ AnomalyDetectorArn }}',
+ '{{ AlertSensitivityThreshold }}',
+ '{{ Action }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AlertName": "{{ AlertName }}",
- "AlertDescription": "{{ AlertDescription }}",
- "AnomalyDetectorArn": "{{ AnomalyDetectorArn }}",
- "AlertSensitivityThreshold": "{{ AlertSensitivityThreshold }}",
- "Action": {
-  "SNSConfiguration": {
-   "RoleArn": "{{ RoleArn }}",
-   "SnsTopicArn": null
-  },
-  "LambdaConfiguration": {
-   "RoleArn": null,
-   "LambdaArn": null
-  }
- }
-}
->>>
---all properties
+-- alert.iql (all properties)
 INSERT INTO aws.lookoutmetrics.alerts (
  AlertName,
  AlertDescription,
@@ -145,12 +114,45 @@ INSERT INTO aws.lookoutmetrics.alerts (
  region
 )
 SELECT 
- {{ .AlertName }},
- {{ .AlertDescription }},
- {{ .AnomalyDetectorArn }},
- {{ .AlertSensitivityThreshold }},
- {{ .Action }},
- 'us-east-1';
+ '{{ AlertName }}',
+ '{{ AlertDescription }}',
+ '{{ AnomalyDetectorArn }}',
+ '{{ AlertSensitivityThreshold }}',
+ '{{ Action }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: alert
+    props:
+      - name: AlertName
+        value: '{{ AlertName }}'
+      - name: AlertDescription
+        value: '{{ AlertDescription }}'
+      - name: AnomalyDetectorArn
+        value: '{{ AnomalyDetectorArn }}'
+      - name: AlertSensitivityThreshold
+        value: '{{ AlertSensitivityThreshold }}'
+      - name: Action
+        value:
+          SNSConfiguration:
+            RoleArn: '{{ RoleArn }}'
+            SnsTopicArn: null
+          LambdaConfiguration:
+            RoleArn: null
+            LambdaArn: null
+
 ```
 </TabItem>
 </Tabs>

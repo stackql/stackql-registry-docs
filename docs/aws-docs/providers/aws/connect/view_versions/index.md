@@ -74,42 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>view_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ViewArn": "{{ ViewArn }}"
-}
->>>
---required properties only
+-- view_version.iql (required properties only)
 INSERT INTO aws.connect.view_versions (
  ViewArn,
  region
 )
 SELECT 
-{{ .ViewArn }},
-'us-east-1';
+'{{ ViewArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ViewArn": "{{ ViewArn }}",
- "VersionDescription": "{{ VersionDescription }}",
- "ViewContentSha256": "{{ ViewContentSha256 }}"
-}
->>>
---all properties
+-- view_version.iql (all properties)
 INSERT INTO aws.connect.view_versions (
  ViewArn,
  VersionDescription,
@@ -117,10 +108,33 @@ INSERT INTO aws.connect.view_versions (
  region
 )
 SELECT 
- {{ .ViewArn }},
- {{ .VersionDescription }},
- {{ .ViewContentSha256 }},
- 'us-east-1';
+ '{{ ViewArn }}',
+ '{{ VersionDescription }}',
+ '{{ ViewContentSha256 }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: view_version
+    props:
+      - name: ViewArn
+        value: '{{ ViewArn }}'
+      - name: VersionDescription
+        value: '{{ VersionDescription }}'
+      - name: ViewContentSha256
+        value: '{{ ViewContentSha256 }}'
+
 ```
 </TabItem>
 </Tabs>

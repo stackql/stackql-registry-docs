@@ -76,87 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user_pool_client</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "UserPoolId": "{{ UserPoolId }}"
-}
->>>
---required properties only
+-- user_pool_client.iql (required properties only)
 INSERT INTO aws.cognito.user_pool_clients (
  UserPoolId,
  region
 )
 SELECT 
-{{ .UserPoolId }},
-'us-east-1';
+'{{ UserPoolId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClientName": "{{ ClientName }}",
- "ExplicitAuthFlows": [
-  "{{ ExplicitAuthFlows[0] }}"
- ],
- "GenerateSecret": "{{ GenerateSecret }}",
- "ReadAttributes": [
-  "{{ ReadAttributes[0] }}"
- ],
- "AuthSessionValidity": "{{ AuthSessionValidity }}",
- "RefreshTokenValidity": "{{ RefreshTokenValidity }}",
- "AccessTokenValidity": "{{ AccessTokenValidity }}",
- "IdTokenValidity": "{{ IdTokenValidity }}",
- "TokenValidityUnits": {
-  "AccessToken": "{{ AccessToken }}",
-  "IdToken": "{{ IdToken }}",
-  "RefreshToken": "{{ RefreshToken }}"
- },
- "UserPoolId": "{{ UserPoolId }}",
- "WriteAttributes": [
-  "{{ WriteAttributes[0] }}"
- ],
- "AllowedOAuthFlows": [
-  "{{ AllowedOAuthFlows[0] }}"
- ],
- "AllowedOAuthFlowsUserPoolClient": "{{ AllowedOAuthFlowsUserPoolClient }}",
- "AllowedOAuthScopes": [
-  "{{ AllowedOAuthScopes[0] }}"
- ],
- "CallbackURLs": [
-  "{{ CallbackURLs[0] }}"
- ],
- "DefaultRedirectURI": "{{ DefaultRedirectURI }}",
- "LogoutURLs": [
-  "{{ LogoutURLs[0] }}"
- ],
- "SupportedIdentityProviders": [
-  "{{ SupportedIdentityProviders[0] }}"
- ],
- "AnalyticsConfiguration": {
-  "ApplicationArn": "{{ ApplicationArn }}",
-  "ApplicationId": "{{ ApplicationId }}",
-  "ExternalId": "{{ ExternalId }}",
-  "RoleArn": "{{ RoleArn }}",
-  "UserDataShared": "{{ UserDataShared }}"
- },
- "PreventUserExistenceErrors": "{{ PreventUserExistenceErrors }}",
- "EnableTokenRevocation": "{{ EnableTokenRevocation }}",
- "EnablePropagateAdditionalUserContextData": "{{ EnablePropagateAdditionalUserContextData }}"
-}
->>>
---all properties
+-- user_pool_client.iql (all properties)
 INSERT INTO aws.cognito.user_pool_clients (
  ClientName,
  ExplicitAuthFlows,
@@ -183,29 +129,106 @@ INSERT INTO aws.cognito.user_pool_clients (
  region
 )
 SELECT 
- {{ .ClientName }},
- {{ .ExplicitAuthFlows }},
- {{ .GenerateSecret }},
- {{ .ReadAttributes }},
- {{ .AuthSessionValidity }},
- {{ .RefreshTokenValidity }},
- {{ .AccessTokenValidity }},
- {{ .IdTokenValidity }},
- {{ .TokenValidityUnits }},
- {{ .UserPoolId }},
- {{ .WriteAttributes }},
- {{ .AllowedOAuthFlows }},
- {{ .AllowedOAuthFlowsUserPoolClient }},
- {{ .AllowedOAuthScopes }},
- {{ .CallbackURLs }},
- {{ .DefaultRedirectURI }},
- {{ .LogoutURLs }},
- {{ .SupportedIdentityProviders }},
- {{ .AnalyticsConfiguration }},
- {{ .PreventUserExistenceErrors }},
- {{ .EnableTokenRevocation }},
- {{ .EnablePropagateAdditionalUserContextData }},
- 'us-east-1';
+ '{{ ClientName }}',
+ '{{ ExplicitAuthFlows }}',
+ '{{ GenerateSecret }}',
+ '{{ ReadAttributes }}',
+ '{{ AuthSessionValidity }}',
+ '{{ RefreshTokenValidity }}',
+ '{{ AccessTokenValidity }}',
+ '{{ IdTokenValidity }}',
+ '{{ TokenValidityUnits }}',
+ '{{ UserPoolId }}',
+ '{{ WriteAttributes }}',
+ '{{ AllowedOAuthFlows }}',
+ '{{ AllowedOAuthFlowsUserPoolClient }}',
+ '{{ AllowedOAuthScopes }}',
+ '{{ CallbackURLs }}',
+ '{{ DefaultRedirectURI }}',
+ '{{ LogoutURLs }}',
+ '{{ SupportedIdentityProviders }}',
+ '{{ AnalyticsConfiguration }}',
+ '{{ PreventUserExistenceErrors }}',
+ '{{ EnableTokenRevocation }}',
+ '{{ EnablePropagateAdditionalUserContextData }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user_pool_client
+    props:
+      - name: ClientName
+        value: '{{ ClientName }}'
+      - name: ExplicitAuthFlows
+        value:
+          - '{{ ExplicitAuthFlows[0] }}'
+      - name: GenerateSecret
+        value: '{{ GenerateSecret }}'
+      - name: ReadAttributes
+        value:
+          - '{{ ReadAttributes[0] }}'
+      - name: AuthSessionValidity
+        value: '{{ AuthSessionValidity }}'
+      - name: RefreshTokenValidity
+        value: '{{ RefreshTokenValidity }}'
+      - name: AccessTokenValidity
+        value: '{{ AccessTokenValidity }}'
+      - name: IdTokenValidity
+        value: '{{ IdTokenValidity }}'
+      - name: TokenValidityUnits
+        value:
+          AccessToken: '{{ AccessToken }}'
+          IdToken: '{{ IdToken }}'
+          RefreshToken: '{{ RefreshToken }}'
+      - name: UserPoolId
+        value: '{{ UserPoolId }}'
+      - name: WriteAttributes
+        value:
+          - '{{ WriteAttributes[0] }}'
+      - name: AllowedOAuthFlows
+        value:
+          - '{{ AllowedOAuthFlows[0] }}'
+      - name: AllowedOAuthFlowsUserPoolClient
+        value: '{{ AllowedOAuthFlowsUserPoolClient }}'
+      - name: AllowedOAuthScopes
+        value:
+          - '{{ AllowedOAuthScopes[0] }}'
+      - name: CallbackURLs
+        value:
+          - '{{ CallbackURLs[0] }}'
+      - name: DefaultRedirectURI
+        value: '{{ DefaultRedirectURI }}'
+      - name: LogoutURLs
+        value:
+          - '{{ LogoutURLs[0] }}'
+      - name: SupportedIdentityProviders
+        value:
+          - '{{ SupportedIdentityProviders[0] }}'
+      - name: AnalyticsConfiguration
+        value:
+          ApplicationArn: '{{ ApplicationArn }}'
+          ApplicationId: '{{ ApplicationId }}'
+          ExternalId: '{{ ExternalId }}'
+          RoleArn: '{{ RoleArn }}'
+          UserDataShared: '{{ UserDataShared }}'
+      - name: PreventUserExistenceErrors
+        value: '{{ PreventUserExistenceErrors }}'
+      - name: EnableTokenRevocation
+        value: '{{ EnableTokenRevocation }}'
+      - name: EnablePropagateAdditionalUserContextData
+        value: '{{ EnablePropagateAdditionalUserContextData }}'
+
 ```
 </TabItem>
 </Tabs>

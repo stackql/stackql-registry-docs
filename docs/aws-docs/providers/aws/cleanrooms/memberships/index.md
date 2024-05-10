@@ -74,65 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>membership</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CollaborationIdentifier": "{{ CollaborationIdentifier }}",
- "QueryLogStatus": "{{ QueryLogStatus }}"
-}
->>>
---required properties only
+-- membership.iql (required properties only)
 INSERT INTO aws.cleanrooms.memberships (
  CollaborationIdentifier,
  QueryLogStatus,
  region
 )
 SELECT 
-{{ .CollaborationIdentifier }},
- {{ .QueryLogStatus }},
-'us-east-1';
+'{{ CollaborationIdentifier }}',
+ '{{ QueryLogStatus }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CollaborationIdentifier": "{{ CollaborationIdentifier }}",
- "QueryLogStatus": "{{ QueryLogStatus }}",
- "DefaultResultConfiguration": {
-  "OutputConfiguration": {
-   "S3": {
-    "ResultFormat": "{{ ResultFormat }}",
-    "Bucket": "{{ Bucket }}",
-    "KeyPrefix": "{{ KeyPrefix }}"
-   }
-  },
-  "RoleArn": "{{ RoleArn }}"
- },
- "PaymentConfiguration": {
-  "QueryCompute": {
-   "IsResponsible": "{{ IsResponsible }}"
-  }
- }
-}
->>>
---all properties
+-- membership.iql (all properties)
 INSERT INTO aws.cleanrooms.memberships (
  Tags,
  CollaborationIdentifier,
@@ -142,12 +112,49 @@ INSERT INTO aws.cleanrooms.memberships (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .CollaborationIdentifier }},
- {{ .QueryLogStatus }},
- {{ .DefaultResultConfiguration }},
- {{ .PaymentConfiguration }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ CollaborationIdentifier }}',
+ '{{ QueryLogStatus }}',
+ '{{ DefaultResultConfiguration }}',
+ '{{ PaymentConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: membership
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CollaborationIdentifier
+        value: '{{ CollaborationIdentifier }}'
+      - name: QueryLogStatus
+        value: '{{ QueryLogStatus }}'
+      - name: DefaultResultConfiguration
+        value:
+          OutputConfiguration:
+            S3:
+              ResultFormat: '{{ ResultFormat }}'
+              Bucket: '{{ Bucket }}'
+              KeyPrefix: '{{ KeyPrefix }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: PaymentConfiguration
+        value:
+          QueryCompute:
+            IsResponsible: '{{ IsResponsible }}'
+
 ```
 </TabItem>
 </Tabs>

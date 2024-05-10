@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>capacity_reservation</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "InstanceCount": "{{ InstanceCount }}",
- "InstancePlatform": "{{ InstancePlatform }}",
- "InstanceType": "{{ InstanceType }}"
-}
->>>
---required properties only
+-- capacity_reservation.iql (required properties only)
 INSERT INTO aws.ec2.capacity_reservations (
  AvailabilityZone,
  InstanceCount,
@@ -101,44 +96,17 @@ INSERT INTO aws.ec2.capacity_reservations (
  region
 )
 SELECT 
-{{ .AvailabilityZone }},
- {{ .InstanceCount }},
- {{ .InstancePlatform }},
- {{ .InstanceType }},
-'us-east-1';
+'{{ AvailabilityZone }}',
+ '{{ InstanceCount }}',
+ '{{ InstancePlatform }}',
+ '{{ InstanceType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tenancy": "{{ Tenancy }}",
- "EndDateType": "{{ EndDateType }}",
- "TagSpecifications": [
-  {
-   "ResourceType": "{{ ResourceType }}",
-   "Tags": [
-    {
-     "Key": "{{ Key }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "EndDate": "{{ EndDate }}",
- "EbsOptimized": "{{ EbsOptimized }}",
- "OutPostArn": "{{ OutPostArn }}",
- "InstanceCount": "{{ InstanceCount }}",
- "PlacementGroupArn": "{{ PlacementGroupArn }}",
- "InstancePlatform": "{{ InstancePlatform }}",
- "InstanceType": "{{ InstanceType }}",
- "EphemeralStorage": "{{ EphemeralStorage }}",
- "InstanceMatchCriteria": "{{ InstanceMatchCriteria }}"
-}
->>>
---all properties
+-- capacity_reservation.iql (all properties)
 INSERT INTO aws.ec2.capacity_reservations (
  Tenancy,
  EndDateType,
@@ -156,20 +124,67 @@ INSERT INTO aws.ec2.capacity_reservations (
  region
 )
 SELECT 
- {{ .Tenancy }},
- {{ .EndDateType }},
- {{ .TagSpecifications }},
- {{ .AvailabilityZone }},
- {{ .EndDate }},
- {{ .EbsOptimized }},
- {{ .OutPostArn }},
- {{ .InstanceCount }},
- {{ .PlacementGroupArn }},
- {{ .InstancePlatform }},
- {{ .InstanceType }},
- {{ .EphemeralStorage }},
- {{ .InstanceMatchCriteria }},
- 'us-east-1';
+ '{{ Tenancy }}',
+ '{{ EndDateType }}',
+ '{{ TagSpecifications }}',
+ '{{ AvailabilityZone }}',
+ '{{ EndDate }}',
+ '{{ EbsOptimized }}',
+ '{{ OutPostArn }}',
+ '{{ InstanceCount }}',
+ '{{ PlacementGroupArn }}',
+ '{{ InstancePlatform }}',
+ '{{ InstanceType }}',
+ '{{ EphemeralStorage }}',
+ '{{ InstanceMatchCriteria }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: capacity_reservation
+    props:
+      - name: Tenancy
+        value: '{{ Tenancy }}'
+      - name: EndDateType
+        value: '{{ EndDateType }}'
+      - name: TagSpecifications
+        value:
+          - ResourceType: '{{ ResourceType }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: EndDate
+        value: '{{ EndDate }}'
+      - name: EbsOptimized
+        value: '{{ EbsOptimized }}'
+      - name: OutPostArn
+        value: '{{ OutPostArn }}'
+      - name: InstanceCount
+        value: '{{ InstanceCount }}'
+      - name: PlacementGroupArn
+        value: '{{ PlacementGroupArn }}'
+      - name: InstancePlatform
+        value: '{{ InstancePlatform }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: EphemeralStorage
+        value: '{{ EphemeralStorage }}'
+      - name: InstanceMatchCriteria
+        value: '{{ InstanceMatchCriteria }}'
+
 ```
 </TabItem>
 </Tabs>

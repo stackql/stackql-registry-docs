@@ -74,66 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>app_block</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "SourceS3Location": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- }
-}
->>>
---required properties only
+-- app_block.iql (required properties only)
 INSERT INTO aws.appstream.app_blocks (
  Name,
  SourceS3Location,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .SourceS3Location }},
-'us-east-1';
+'{{ Name }}',
+ '{{ SourceS3Location }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "DisplayName": "{{ DisplayName }}",
- "SourceS3Location": {
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- },
- "SetupScriptDetails": {
-  "ScriptS3Location": null,
-  "ExecutablePath": "{{ ExecutablePath }}",
-  "ExecutableParameters": "{{ ExecutableParameters }}",
-  "TimeoutInSeconds": "{{ TimeoutInSeconds }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "PackagingType": "{{ PackagingType }}",
- "PostSetupScriptDetails": null
-}
->>>
---all properties
+-- app_block.iql (all properties)
 INSERT INTO aws.appstream.app_blocks (
  Name,
  Description,
@@ -146,15 +115,56 @@ INSERT INTO aws.appstream.app_blocks (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .DisplayName }},
- {{ .SourceS3Location }},
- {{ .SetupScriptDetails }},
- {{ .Tags }},
- {{ .PackagingType }},
- {{ .PostSetupScriptDetails }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ DisplayName }}',
+ '{{ SourceS3Location }}',
+ '{{ SetupScriptDetails }}',
+ '{{ Tags }}',
+ '{{ PackagingType }}',
+ '{{ PostSetupScriptDetails }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: app_block
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: SourceS3Location
+        value:
+          S3Bucket: '{{ S3Bucket }}'
+          S3Key: '{{ S3Key }}'
+      - name: SetupScriptDetails
+        value:
+          ScriptS3Location: null
+          ExecutablePath: '{{ ExecutablePath }}'
+          ExecutableParameters: '{{ ExecutableParameters }}'
+          TimeoutInSeconds: '{{ TimeoutInSeconds }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: PackagingType
+        value: '{{ PackagingType }}'
+      - name: PostSetupScriptDetails
+        value: null
+
 ```
 </TabItem>
 </Tabs>

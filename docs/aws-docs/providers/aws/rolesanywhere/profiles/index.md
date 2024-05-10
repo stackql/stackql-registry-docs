@@ -74,61 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RoleArns": [
-  "{{ RoleArns[0] }}"
- ]
-}
->>>
---required properties only
+-- profile.iql (required properties only)
 INSERT INTO aws.rolesanywhere.profiles (
  Name,
  RoleArns,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .RoleArns }},
-'us-east-1';
+'{{ Name }}',
+ '{{ RoleArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DurationSeconds": null,
- "Enabled": "{{ Enabled }}",
- "ManagedPolicyArns": [
-  "{{ ManagedPolicyArns[0] }}"
- ],
- "Name": "{{ Name }}",
- "RequireInstanceProperties": "{{ RequireInstanceProperties }}",
- "RoleArns": [
-  "{{ RoleArns[0] }}"
- ],
- "SessionPolicy": "{{ SessionPolicy }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- profile.iql (all properties)
 INSERT INTO aws.rolesanywhere.profiles (
  DurationSeconds,
  Enabled,
@@ -141,15 +115,52 @@ INSERT INTO aws.rolesanywhere.profiles (
  region
 )
 SELECT 
- {{ .DurationSeconds }},
- {{ .Enabled }},
- {{ .ManagedPolicyArns }},
- {{ .Name }},
- {{ .RequireInstanceProperties }},
- {{ .RoleArns }},
- {{ .SessionPolicy }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DurationSeconds }}',
+ '{{ Enabled }}',
+ '{{ ManagedPolicyArns }}',
+ '{{ Name }}',
+ '{{ RequireInstanceProperties }}',
+ '{{ RoleArns }}',
+ '{{ SessionPolicy }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: profile
+    props:
+      - name: DurationSeconds
+        value: null
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: ManagedPolicyArns
+        value:
+          - '{{ ManagedPolicyArns[0] }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RequireInstanceProperties
+        value: '{{ RequireInstanceProperties }}'
+      - name: RoleArns
+        value:
+          - '{{ RoleArns[0] }}'
+      - name: SessionPolicy
+        value: '{{ SessionPolicy }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

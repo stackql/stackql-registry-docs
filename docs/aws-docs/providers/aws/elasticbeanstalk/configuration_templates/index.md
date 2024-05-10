@@ -76,56 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configuration_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationName": "{{ ApplicationName }}"
-}
->>>
---required properties only
+-- configuration_template.iql (required properties only)
 INSERT INTO aws.elasticbeanstalk.configuration_templates (
  ApplicationName,
  region
 )
 SELECT 
-{{ .ApplicationName }},
-'us-east-1';
+'{{ ApplicationName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicationName": "{{ ApplicationName }}",
- "Description": "{{ Description }}",
- "EnvironmentId": "{{ EnvironmentId }}",
- "OptionSettings": [
-  {
-   "Namespace": "{{ Namespace }}",
-   "OptionName": "{{ OptionName }}",
-   "ResourceName": "{{ ResourceName }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "PlatformArn": "{{ PlatformArn }}",
- "SolutionStackName": "{{ SolutionStackName }}",
- "SourceConfiguration": {
-  "ApplicationName": "{{ ApplicationName }}",
-  "TemplateName": "{{ TemplateName }}"
- }
-}
->>>
---all properties
+-- configuration_template.iql (all properties)
 INSERT INTO aws.elasticbeanstalk.configuration_templates (
  ApplicationName,
  Description,
@@ -137,14 +114,51 @@ INSERT INTO aws.elasticbeanstalk.configuration_templates (
  region
 )
 SELECT 
- {{ .ApplicationName }},
- {{ .Description }},
- {{ .EnvironmentId }},
- {{ .OptionSettings }},
- {{ .PlatformArn }},
- {{ .SolutionStackName }},
- {{ .SourceConfiguration }},
- 'us-east-1';
+ '{{ ApplicationName }}',
+ '{{ Description }}',
+ '{{ EnvironmentId }}',
+ '{{ OptionSettings }}',
+ '{{ PlatformArn }}',
+ '{{ SolutionStackName }}',
+ '{{ SourceConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configuration_template
+    props:
+      - name: ApplicationName
+        value: '{{ ApplicationName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EnvironmentId
+        value: '{{ EnvironmentId }}'
+      - name: OptionSettings
+        value:
+          - Namespace: '{{ Namespace }}'
+            OptionName: '{{ OptionName }}'
+            ResourceName: '{{ ResourceName }}'
+            Value: '{{ Value }}'
+      - name: PlatformArn
+        value: '{{ PlatformArn }}'
+      - name: SolutionStackName
+        value: '{{ SolutionStackName }}'
+      - name: SourceConfiguration
+        value:
+          ApplicationName: '{{ ApplicationName }}'
+          TemplateName: '{{ TemplateName }}'
+
 ```
 </TabItem>
 </Tabs>

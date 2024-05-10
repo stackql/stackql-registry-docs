@@ -74,70 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>recording_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DestinationConfiguration": {
-  "S3": {
-   "BucketName": "{{ BucketName }}"
-  }
- }
-}
->>>
---required properties only
+-- recording_configuration.iql (required properties only)
 INSERT INTO aws.ivs.recording_configurations (
  DestinationConfiguration,
  region
 )
 SELECT 
-{{ .DestinationConfiguration }},
-'us-east-1';
+'{{ DestinationConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "RecordingReconnectWindowSeconds": "{{ RecordingReconnectWindowSeconds }}",
- "DestinationConfiguration": {
-  "S3": {
-   "BucketName": "{{ BucketName }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ThumbnailConfiguration": {
-  "RecordingMode": "{{ RecordingMode }}",
-  "TargetIntervalSeconds": "{{ TargetIntervalSeconds }}",
-  "Resolution": "{{ Resolution }}",
-  "Storage": [
-   "{{ Storage[0] }}"
-  ]
- },
- "RenditionConfiguration": {
-  "RenditionSelection": "{{ RenditionSelection }}",
-  "Renditions": [
-   "{{ Renditions[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- recording_configuration.iql (all properties)
 INSERT INTO aws.ivs.recording_configurations (
  Name,
  RecordingReconnectWindowSeconds,
@@ -148,13 +111,54 @@ INSERT INTO aws.ivs.recording_configurations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .RecordingReconnectWindowSeconds }},
- {{ .DestinationConfiguration }},
- {{ .Tags }},
- {{ .ThumbnailConfiguration }},
- {{ .RenditionConfiguration }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ RecordingReconnectWindowSeconds }}',
+ '{{ DestinationConfiguration }}',
+ '{{ Tags }}',
+ '{{ ThumbnailConfiguration }}',
+ '{{ RenditionConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: recording_configuration
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: RecordingReconnectWindowSeconds
+        value: '{{ RecordingReconnectWindowSeconds }}'
+      - name: DestinationConfiguration
+        value:
+          S3:
+            BucketName: '{{ BucketName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ThumbnailConfiguration
+        value:
+          RecordingMode: '{{ RecordingMode }}'
+          TargetIntervalSeconds: '{{ TargetIntervalSeconds }}'
+          Resolution: '{{ Resolution }}'
+          Storage:
+            - '{{ Storage[0] }}'
+      - name: RenditionConfiguration
+        value:
+          RenditionSelection: '{{ RenditionSelection }}'
+          Renditions:
+            - '{{ Renditions[0] }}'
+
 ```
 </TabItem>
 </Tabs>

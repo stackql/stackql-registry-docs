@@ -74,107 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "DefaultExpirationDays": "{{ DefaultExpirationDays }}"
-}
->>>
---required properties only
+-- domain.iql (required properties only)
 INSERT INTO aws.customerprofiles.domains (
  DomainName,
  DefaultExpirationDays,
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .DefaultExpirationDays }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ DefaultExpirationDays }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "DeadLetterQueueUrl": "{{ DeadLetterQueueUrl }}",
- "DefaultEncryptionKey": "{{ DefaultEncryptionKey }}",
- "DefaultExpirationDays": "{{ DefaultExpirationDays }}",
- "Matching": {
-  "Enabled": "{{ Enabled }}",
-  "AutoMerging": {
-   "Enabled": "{{ Enabled }}",
-   "ConflictResolution": {
-    "ConflictResolvingModel": "{{ ConflictResolvingModel }}",
-    "SourceName": "{{ SourceName }}"
-   },
-   "Consolidation": {
-    "MatchingAttributesList": [
-     [
-      "{{ 0[0] }}"
-     ]
-    ]
-   },
-   "MinAllowedConfidenceScoreForMerging": null
-  },
-  "ExportingConfig": {
-   "S3Exporting": {
-    "S3BucketName": "{{ S3BucketName }}",
-    "S3KeyName": "{{ S3KeyName }}"
-   }
-  },
-  "JobSchedule": {
-   "DayOfTheWeek": "{{ DayOfTheWeek }}",
-   "Time": "{{ Time }}"
-  }
- },
- "RuleBasedMatching": {
-  "Enabled": "{{ Enabled }}",
-  "AttributeTypesSelector": {
-   "AttributeMatchingModel": "{{ AttributeMatchingModel }}",
-   "Address": [
-    "{{ Address[0] }}"
-   ],
-   "EmailAddress": [
-    "{{ EmailAddress[0] }}"
-   ],
-   "PhoneNumber": [
-    "{{ PhoneNumber[0] }}"
-   ]
-  },
-  "ConflictResolution": null,
-  "ExportingConfig": null,
-  "MatchingRules": [
-   {
-    "Rule": [
-     "{{ Rule[0] }}"
-    ]
-   }
-  ],
-  "MaxAllowedRuleLevelForMatching": "{{ MaxAllowedRuleLevelForMatching }}",
-  "MaxAllowedRuleLevelForMerging": "{{ MaxAllowedRuleLevelForMerging }}",
-  "Status": "{{ Status }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- domain.iql (all properties)
 INSERT INTO aws.customerprofiles.domains (
  DomainName,
  DeadLetterQueueUrl,
@@ -186,14 +114,81 @@ INSERT INTO aws.customerprofiles.domains (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .DeadLetterQueueUrl }},
- {{ .DefaultEncryptionKey }},
- {{ .DefaultExpirationDays }},
- {{ .Matching }},
- {{ .RuleBasedMatching }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ DeadLetterQueueUrl }}',
+ '{{ DefaultEncryptionKey }}',
+ '{{ DefaultExpirationDays }}',
+ '{{ Matching }}',
+ '{{ RuleBasedMatching }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: DeadLetterQueueUrl
+        value: '{{ DeadLetterQueueUrl }}'
+      - name: DefaultEncryptionKey
+        value: '{{ DefaultEncryptionKey }}'
+      - name: DefaultExpirationDays
+        value: '{{ DefaultExpirationDays }}'
+      - name: Matching
+        value:
+          Enabled: '{{ Enabled }}'
+          AutoMerging:
+            Enabled: '{{ Enabled }}'
+            ConflictResolution:
+              ConflictResolvingModel: '{{ ConflictResolvingModel }}'
+              SourceName: '{{ SourceName }}'
+            Consolidation:
+              MatchingAttributesList:
+                - - '{{ 0[0] }}'
+            MinAllowedConfidenceScoreForMerging: null
+          ExportingConfig:
+            S3Exporting:
+              S3BucketName: '{{ S3BucketName }}'
+              S3KeyName: '{{ S3KeyName }}'
+          JobSchedule:
+            DayOfTheWeek: '{{ DayOfTheWeek }}'
+            Time: '{{ Time }}'
+      - name: RuleBasedMatching
+        value:
+          Enabled: '{{ Enabled }}'
+          AttributeTypesSelector:
+            AttributeMatchingModel: '{{ AttributeMatchingModel }}'
+            Address:
+              - '{{ Address[0] }}'
+            EmailAddress:
+              - '{{ EmailAddress[0] }}'
+            PhoneNumber:
+              - '{{ PhoneNumber[0] }}'
+          ConflictResolution: null
+          ExportingConfig: null
+          MatchingRules:
+            - Rule:
+                - '{{ Rule[0] }}'
+          MaxAllowedRuleLevelForMatching: '{{ MaxAllowedRuleLevelForMatching }}'
+          MaxAllowedRuleLevelForMerging: '{{ MaxAllowedRuleLevelForMerging }}'
+          Status: '{{ Status }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

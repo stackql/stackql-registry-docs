@@ -74,32 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>firewall_domain_list</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Domains": [
-  "{{ Domains[0] }}"
- ],
- "DomainFileUrl": "{{ DomainFileUrl }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- firewall_domain_list.iql (required properties only)
 INSERT INTO aws.route53resolver.firewall_domain_lists (
  Name,
  Domains,
@@ -108,32 +96,17 @@ INSERT INTO aws.route53resolver.firewall_domain_lists (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Domains }},
- {{ .DomainFileUrl }},
- {{ .Tags }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Domains }}',
+ '{{ DomainFileUrl }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Domains": [
-  "{{ Domains[0] }}"
- ],
- "DomainFileUrl": "{{ DomainFileUrl }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- firewall_domain_list.iql (all properties)
 INSERT INTO aws.route53resolver.firewall_domain_lists (
  Name,
  Domains,
@@ -142,11 +115,39 @@ INSERT INTO aws.route53resolver.firewall_domain_lists (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Domains }},
- {{ .DomainFileUrl }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Domains }}',
+ '{{ DomainFileUrl }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: firewall_domain_list
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Domains
+        value:
+          - '{{ Domains[0] }}'
+      - name: DomainFileUrl
+        value: '{{ DomainFileUrl }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

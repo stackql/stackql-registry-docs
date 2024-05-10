@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scheduling_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "FairsharePolicy": {
-  "ShareDecaySeconds": null,
-  "ComputeReservation": null,
-  "ShareDistribution": [
-   {
-    "ShareIdentifier": "{{ ShareIdentifier }}",
-    "WeightFactor": null
-   }
-  ]
- },
- "Tags": {}
-}
->>>
---required properties only
+-- scheduling_policy.iql (required properties only)
 INSERT INTO aws.batch.scheduling_policies (
  Name,
  FairsharePolicy,
@@ -108,32 +95,16 @@ INSERT INTO aws.batch.scheduling_policies (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .FairsharePolicy }},
- {{ .Tags }},
-'us-east-1';
+'{{ Name }}',
+ '{{ FairsharePolicy }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "FairsharePolicy": {
-  "ShareDecaySeconds": null,
-  "ComputeReservation": null,
-  "ShareDistribution": [
-   {
-    "ShareIdentifier": "{{ ShareIdentifier }}",
-    "WeightFactor": null
-   }
-  ]
- },
- "Tags": {}
-}
->>>
---all properties
+-- scheduling_policy.iql (all properties)
 INSERT INTO aws.batch.scheduling_policies (
  Name,
  FairsharePolicy,
@@ -141,10 +112,38 @@ INSERT INTO aws.batch.scheduling_policies (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .FairsharePolicy }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ FairsharePolicy }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scheduling_policy
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: FairsharePolicy
+        value:
+          ShareDecaySeconds: null
+          ComputeReservation: null
+          ShareDistribution:
+            - ShareIdentifier: '{{ ShareIdentifier }}'
+              WeightFactor: null
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>instance</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceName": "{{ InstanceName }}",
- "BundleId": "{{ BundleId }}",
- "BlueprintId": "{{ BlueprintId }}"
-}
->>>
---required properties only
+-- instance.iql (required properties only)
 INSERT INTO aws.lightsail.instances (
  InstanceName,
  BundleId,
@@ -99,89 +95,16 @@ INSERT INTO aws.lightsail.instances (
  region
 )
 SELECT 
-{{ .InstanceName }},
- {{ .BundleId }},
- {{ .BlueprintId }},
-'us-east-1';
+'{{ InstanceName }}',
+ '{{ BundleId }}',
+ '{{ BlueprintId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Location": {
-  "AvailabilityZone": "{{ AvailabilityZone }}",
-  "RegionName": "{{ RegionName }}"
- },
- "Hardware": {
-  "CpuCount": "{{ CpuCount }}",
-  "RamSizeInGb": "{{ RamSizeInGb }}",
-  "Disks": [
-   {
-    "DiskName": "{{ DiskName }}",
-    "SizeInGb": "{{ SizeInGb }}",
-    "IsSystemDisk": "{{ IsSystemDisk }}",
-    "IOPS": "{{ IOPS }}",
-    "Path": "{{ Path }}",
-    "AttachedTo": "{{ AttachedTo }}",
-    "AttachmentState": "{{ AttachmentState }}"
-   }
-  ]
- },
- "State": {
-  "Code": "{{ Code }}",
-  "Name": "{{ Name }}"
- },
- "Networking": {
-  "Ports": [
-   {
-    "FromPort": "{{ FromPort }}",
-    "ToPort": "{{ ToPort }}",
-    "Protocol": "{{ Protocol }}",
-    "AccessFrom": "{{ AccessFrom }}",
-    "AccessType": "{{ AccessType }}",
-    "CommonName": "{{ CommonName }}",
-    "AccessDirection": "{{ AccessDirection }}",
-    "Ipv6Cidrs": [
-     "{{ Ipv6Cidrs[0] }}"
-    ],
-    "CidrListAliases": [
-     "{{ CidrListAliases[0] }}"
-    ],
-    "Cidrs": [
-     "{{ Cidrs[0] }}"
-    ]
-   }
-  ],
-  "MonthlyTransfer": {
-   "GbPerMonthAllocated": "{{ GbPerMonthAllocated }}"
-  }
- },
- "InstanceName": "{{ InstanceName }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "BundleId": "{{ BundleId }}",
- "BlueprintId": "{{ BlueprintId }}",
- "AddOns": [
-  {
-   "AddOnType": "{{ AddOnType }}",
-   "Status": "{{ Status }}",
-   "AutoSnapshotAddOnRequest": {
-    "SnapshotTimeOfDay": "{{ SnapshotTimeOfDay }}"
-   }
-  }
- ],
- "UserData": "{{ UserData }}",
- "KeyPairName": "{{ KeyPairName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- instance.iql (all properties)
 INSERT INTO aws.lightsail.instances (
  Location,
  Hardware,
@@ -198,19 +121,96 @@ INSERT INTO aws.lightsail.instances (
  region
 )
 SELECT 
- {{ .Location }},
- {{ .Hardware }},
- {{ .State }},
- {{ .Networking }},
- {{ .InstanceName }},
- {{ .AvailabilityZone }},
- {{ .BundleId }},
- {{ .BlueprintId }},
- {{ .AddOns }},
- {{ .UserData }},
- {{ .KeyPairName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Location }}',
+ '{{ Hardware }}',
+ '{{ State }}',
+ '{{ Networking }}',
+ '{{ InstanceName }}',
+ '{{ AvailabilityZone }}',
+ '{{ BundleId }}',
+ '{{ BlueprintId }}',
+ '{{ AddOns }}',
+ '{{ UserData }}',
+ '{{ KeyPairName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: instance
+    props:
+      - name: Location
+        value:
+          AvailabilityZone: '{{ AvailabilityZone }}'
+          RegionName: '{{ RegionName }}'
+      - name: Hardware
+        value:
+          CpuCount: '{{ CpuCount }}'
+          RamSizeInGb: '{{ RamSizeInGb }}'
+          Disks:
+            - DiskName: '{{ DiskName }}'
+              SizeInGb: '{{ SizeInGb }}'
+              IsSystemDisk: '{{ IsSystemDisk }}'
+              IOPS: '{{ IOPS }}'
+              Path: '{{ Path }}'
+              AttachedTo: '{{ AttachedTo }}'
+              AttachmentState: '{{ AttachmentState }}'
+      - name: State
+        value:
+          Code: '{{ Code }}'
+          Name: '{{ Name }}'
+      - name: Networking
+        value:
+          Ports:
+            - FromPort: '{{ FromPort }}'
+              ToPort: '{{ ToPort }}'
+              Protocol: '{{ Protocol }}'
+              AccessFrom: '{{ AccessFrom }}'
+              AccessType: '{{ AccessType }}'
+              CommonName: '{{ CommonName }}'
+              AccessDirection: '{{ AccessDirection }}'
+              Ipv6Cidrs:
+                - '{{ Ipv6Cidrs[0] }}'
+              CidrListAliases:
+                - '{{ CidrListAliases[0] }}'
+              Cidrs:
+                - '{{ Cidrs[0] }}'
+          MonthlyTransfer:
+            GbPerMonthAllocated: '{{ GbPerMonthAllocated }}'
+      - name: InstanceName
+        value: '{{ InstanceName }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: BundleId
+        value: '{{ BundleId }}'
+      - name: BlueprintId
+        value: '{{ BlueprintId }}'
+      - name: AddOns
+        value:
+          - AddOnType: '{{ AddOnType }}'
+            Status: '{{ Status }}'
+            AutoSnapshotAddOnRequest:
+              SnapshotTimeOfDay: '{{ SnapshotTimeOfDay }}'
+      - name: UserData
+        value: '{{ UserData }}'
+      - name: KeyPairName
+        value: '{{ KeyPairName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,36 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>thing_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ThingGroupName": "{{ ThingGroupName }}",
- "ParentGroupName": "{{ ParentGroupName }}",
- "QueryString": "{{ QueryString }}",
- "ThingGroupProperties": {
-  "AttributePayload": {
-   "Attributes": {}
-  },
-  "ThingGroupDescription": "{{ ThingGroupDescription }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- thing_group.iql (required properties only)
 INSERT INTO aws.iot.thing_groups (
  ThingGroupName,
  ParentGroupName,
@@ -113,37 +97,18 @@ INSERT INTO aws.iot.thing_groups (
  region
 )
 SELECT 
-{{ .ThingGroupName }},
- {{ .ParentGroupName }},
- {{ .QueryString }},
- {{ .ThingGroupProperties }},
- {{ .Tags }},
-'us-east-1';
+'{{ ThingGroupName }}',
+ '{{ ParentGroupName }}',
+ '{{ QueryString }}',
+ '{{ ThingGroupProperties }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ThingGroupName": "{{ ThingGroupName }}",
- "ParentGroupName": "{{ ParentGroupName }}",
- "QueryString": "{{ QueryString }}",
- "ThingGroupProperties": {
-  "AttributePayload": {
-   "Attributes": {}
-  },
-  "ThingGroupDescription": "{{ ThingGroupDescription }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- thing_group.iql (all properties)
 INSERT INTO aws.iot.thing_groups (
  ThingGroupName,
  ParentGroupName,
@@ -153,12 +118,44 @@ INSERT INTO aws.iot.thing_groups (
  region
 )
 SELECT 
- {{ .ThingGroupName }},
- {{ .ParentGroupName }},
- {{ .QueryString }},
- {{ .ThingGroupProperties }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ThingGroupName }}',
+ '{{ ParentGroupName }}',
+ '{{ QueryString }}',
+ '{{ ThingGroupProperties }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: thing_group
+    props:
+      - name: ThingGroupName
+        value: '{{ ThingGroupName }}'
+      - name: ParentGroupName
+        value: '{{ ParentGroupName }}'
+      - name: QueryString
+        value: '{{ QueryString }}'
+      - name: ThingGroupProperties
+        value:
+          AttributePayload:
+            Attributes: {}
+          ThingGroupDescription: '{{ ThingGroupDescription }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

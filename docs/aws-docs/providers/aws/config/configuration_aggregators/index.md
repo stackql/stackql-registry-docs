@@ -74,46 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configuration_aggregator</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccountAggregationSources": [
-  {
-   "AllAwsRegions": "{{ AllAwsRegions }}",
-   "AwsRegions": [
-    "{{ AwsRegions[0] }}"
-   ],
-   "AccountIds": [
-    "{{ AccountIds[0] }}"
-   ]
-  }
- ],
- "ConfigurationAggregatorName": "{{ ConfigurationAggregatorName }}",
- "OrganizationAggregationSource": {
-  "AllAwsRegions": "{{ AllAwsRegions }}",
-  "AwsRegions": [
-   "{{ AwsRegions[0] }}"
-  ],
-  "RoleArn": "{{ RoleArn }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- configuration_aggregator.iql (required properties only)
 INSERT INTO aws.config.configuration_aggregators (
  AccountAggregationSources,
  ConfigurationAggregatorName,
@@ -122,46 +96,17 @@ INSERT INTO aws.config.configuration_aggregators (
  region
 )
 SELECT 
-{{ .AccountAggregationSources }},
- {{ .ConfigurationAggregatorName }},
- {{ .OrganizationAggregationSource }},
- {{ .Tags }},
-'us-east-1';
+'{{ AccountAggregationSources }}',
+ '{{ ConfigurationAggregatorName }}',
+ '{{ OrganizationAggregationSource }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccountAggregationSources": [
-  {
-   "AllAwsRegions": "{{ AllAwsRegions }}",
-   "AwsRegions": [
-    "{{ AwsRegions[0] }}"
-   ],
-   "AccountIds": [
-    "{{ AccountIds[0] }}"
-   ]
-  }
- ],
- "ConfigurationAggregatorName": "{{ ConfigurationAggregatorName }}",
- "OrganizationAggregationSource": {
-  "AllAwsRegions": "{{ AllAwsRegions }}",
-  "AwsRegions": [
-   "{{ AwsRegions[0] }}"
-  ],
-  "RoleArn": "{{ RoleArn }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- configuration_aggregator.iql (all properties)
 INSERT INTO aws.config.configuration_aggregators (
  AccountAggregationSources,
  ConfigurationAggregatorName,
@@ -170,11 +115,47 @@ INSERT INTO aws.config.configuration_aggregators (
  region
 )
 SELECT 
- {{ .AccountAggregationSources }},
- {{ .ConfigurationAggregatorName }},
- {{ .OrganizationAggregationSource }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AccountAggregationSources }}',
+ '{{ ConfigurationAggregatorName }}',
+ '{{ OrganizationAggregationSource }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configuration_aggregator
+    props:
+      - name: AccountAggregationSources
+        value:
+          - AllAwsRegions: '{{ AllAwsRegions }}'
+            AwsRegions:
+              - '{{ AwsRegions[0] }}'
+            AccountIds:
+              - '{{ AccountIds[0] }}'
+      - name: ConfigurationAggregatorName
+        value: '{{ ConfigurationAggregatorName }}'
+      - name: OrganizationAggregationSource
+        value:
+          AllAwsRegions: '{{ AllAwsRegions }}'
+          AwsRegions:
+            - '{{ AwsRegions[0] }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,47 +74,59 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>egress_only_internet_gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- egress_only_internet_gateway.iql (required properties only)
 INSERT INTO aws.ec2.egress_only_internet_gateways (
  VpcId,
  region
 )
 SELECT 
-{{ .VpcId }},
-'us-east-1';
+'{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "VpcId": "{{ VpcId }}"
-}
->>>
---all properties
+-- egress_only_internet_gateway.iql (all properties)
 INSERT INTO aws.ec2.egress_only_internet_gateways (
  VpcId,
  region
 )
 SELECT 
- {{ .VpcId }},
- 'us-east-1';
+ '{{ VpcId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: egress_only_internet_gateway
+    props:
+      - name: VpcId
+        value: '{{ VpcId }}'
+
 ```
 </TabItem>
 </Tabs>

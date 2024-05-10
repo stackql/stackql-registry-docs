@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>device_fleet</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DeviceFleetName": "{{ DeviceFleetName }}",
- "OutputConfig": {
-  "S3OutputLocation": "{{ S3OutputLocation }}",
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- device_fleet.iql (required properties only)
 INSERT INTO aws.sagemaker.device_fleets (
  DeviceFleetName,
  OutputConfig,
@@ -102,33 +95,16 @@ INSERT INTO aws.sagemaker.device_fleets (
  region
 )
 SELECT 
-{{ .DeviceFleetName }},
- {{ .OutputConfig }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ DeviceFleetName }}',
+ '{{ OutputConfig }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DeviceFleetName": "{{ DeviceFleetName }}",
- "OutputConfig": {
-  "S3OutputLocation": "{{ S3OutputLocation }}",
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- device_fleet.iql (all properties)
 INSERT INTO aws.sagemaker.device_fleets (
  Description,
  DeviceFleetName,
@@ -138,12 +114,43 @@ INSERT INTO aws.sagemaker.device_fleets (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DeviceFleetName }},
- {{ .OutputConfig }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DeviceFleetName }}',
+ '{{ OutputConfig }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: device_fleet
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DeviceFleetName
+        value: '{{ DeviceFleetName }}'
+      - name: OutputConfig
+        value:
+          S3OutputLocation: '{{ S3OutputLocation }}'
+          KmsKeyId: '{{ KmsKeyId }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

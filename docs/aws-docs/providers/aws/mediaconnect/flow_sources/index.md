@@ -74,75 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>flow_source</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- flow_source.iql (required properties only)
 INSERT INTO aws.mediaconnect.flow_sources (
  Description,
  Name,
  region
 )
 SELECT 
-{{ .Description }},
- {{ .Name }},
-'us-east-1';
+'{{ Description }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FlowArn": "{{ FlowArn }}",
- "Decryption": {
-  "Algorithm": "{{ Algorithm }}",
-  "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
-  "DeviceId": "{{ DeviceId }}",
-  "KeyType": "{{ KeyType }}",
-  "Region": "{{ Region }}",
-  "ResourceId": "{{ ResourceId }}",
-  "RoleArn": "{{ RoleArn }}",
-  "SecretArn": "{{ SecretArn }}",
-  "Url": "{{ Url }}"
- },
- "Description": "{{ Description }}",
- "EntitlementArn": "{{ EntitlementArn }}",
- "GatewayBridgeSource": {
-  "BridgeArn": "{{ BridgeArn }}",
-  "VpcInterfaceAttachment": {
-   "VpcInterfaceName": "{{ VpcInterfaceName }}"
-  }
- },
- "IngestPort": "{{ IngestPort }}",
- "MaxBitrate": "{{ MaxBitrate }}",
- "MaxLatency": "{{ MaxLatency }}",
- "MinLatency": "{{ MinLatency }}",
- "Name": "{{ Name }}",
- "Protocol": "{{ Protocol }}",
- "SenderIpAddress": "{{ SenderIpAddress }}",
- "SenderControlPort": "{{ SenderControlPort }}",
- "StreamId": "{{ StreamId }}",
- "SourceListenerAddress": "{{ SourceListenerAddress }}",
- "SourceListenerPort": "{{ SourceListenerPort }}",
- "VpcInterfaceName": "{{ VpcInterfaceName }}",
- "WhitelistCidr": "{{ WhitelistCidr }}"
-}
->>>
---all properties
+-- flow_source.iql (all properties)
 INSERT INTO aws.mediaconnect.flow_sources (
  FlowArn,
  Decryption,
@@ -165,25 +125,90 @@ INSERT INTO aws.mediaconnect.flow_sources (
  region
 )
 SELECT 
- {{ .FlowArn }},
- {{ .Decryption }},
- {{ .Description }},
- {{ .EntitlementArn }},
- {{ .GatewayBridgeSource }},
- {{ .IngestPort }},
- {{ .MaxBitrate }},
- {{ .MaxLatency }},
- {{ .MinLatency }},
- {{ .Name }},
- {{ .Protocol }},
- {{ .SenderIpAddress }},
- {{ .SenderControlPort }},
- {{ .StreamId }},
- {{ .SourceListenerAddress }},
- {{ .SourceListenerPort }},
- {{ .VpcInterfaceName }},
- {{ .WhitelistCidr }},
- 'us-east-1';
+ '{{ FlowArn }}',
+ '{{ Decryption }}',
+ '{{ Description }}',
+ '{{ EntitlementArn }}',
+ '{{ GatewayBridgeSource }}',
+ '{{ IngestPort }}',
+ '{{ MaxBitrate }}',
+ '{{ MaxLatency }}',
+ '{{ MinLatency }}',
+ '{{ Name }}',
+ '{{ Protocol }}',
+ '{{ SenderIpAddress }}',
+ '{{ SenderControlPort }}',
+ '{{ StreamId }}',
+ '{{ SourceListenerAddress }}',
+ '{{ SourceListenerPort }}',
+ '{{ VpcInterfaceName }}',
+ '{{ WhitelistCidr }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: flow_source
+    props:
+      - name: FlowArn
+        value: '{{ FlowArn }}'
+      - name: Decryption
+        value:
+          Algorithm: '{{ Algorithm }}'
+          ConstantInitializationVector: '{{ ConstantInitializationVector }}'
+          DeviceId: '{{ DeviceId }}'
+          KeyType: '{{ KeyType }}'
+          Region: '{{ Region }}'
+          ResourceId: '{{ ResourceId }}'
+          RoleArn: '{{ RoleArn }}'
+          SecretArn: '{{ SecretArn }}'
+          Url: '{{ Url }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EntitlementArn
+        value: '{{ EntitlementArn }}'
+      - name: GatewayBridgeSource
+        value:
+          BridgeArn: '{{ BridgeArn }}'
+          VpcInterfaceAttachment:
+            VpcInterfaceName: '{{ VpcInterfaceName }}'
+      - name: IngestPort
+        value: '{{ IngestPort }}'
+      - name: MaxBitrate
+        value: '{{ MaxBitrate }}'
+      - name: MaxLatency
+        value: '{{ MaxLatency }}'
+      - name: MinLatency
+        value: '{{ MinLatency }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Protocol
+        value: '{{ Protocol }}'
+      - name: SenderIpAddress
+        value: '{{ SenderIpAddress }}'
+      - name: SenderControlPort
+        value: '{{ SenderControlPort }}'
+      - name: StreamId
+        value: '{{ StreamId }}'
+      - name: SourceListenerAddress
+        value: '{{ SourceListenerAddress }}'
+      - name: SourceListenerPort
+        value: '{{ SourceListenerPort }}'
+      - name: VpcInterfaceName
+        value: '{{ VpcInterfaceName }}'
+      - name: WhitelistCidr
+        value: '{{ WhitelistCidr }}'
+
 ```
 </TabItem>
 </Tabs>

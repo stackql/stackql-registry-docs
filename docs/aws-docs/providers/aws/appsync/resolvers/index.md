@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resolver</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApiId": "{{ ApiId }}",
- "FieldName": "{{ FieldName }}",
- "TypeName": "{{ TypeName }}"
-}
->>>
---required properties only
+-- resolver.iql (required properties only)
 INSERT INTO aws.appsync.resolvers (
  ApiId,
  FieldName,
@@ -99,55 +95,16 @@ INSERT INTO aws.appsync.resolvers (
  region
 )
 SELECT 
-{{ .ApiId }},
- {{ .FieldName }},
- {{ .TypeName }},
-'us-east-1';
+'{{ ApiId }}',
+ '{{ FieldName }}',
+ '{{ TypeName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApiId": "{{ ApiId }}",
- "CachingConfig": {
-  "CachingKeys": [
-   "{{ CachingKeys[0] }}"
-  ],
-  "Ttl": null
- },
- "Code": "{{ Code }}",
- "CodeS3Location": "{{ CodeS3Location }}",
- "DataSourceName": "{{ DataSourceName }}",
- "FieldName": "{{ FieldName }}",
- "Kind": "{{ Kind }}",
- "MaxBatchSize": "{{ MaxBatchSize }}",
- "PipelineConfig": {
-  "Functions": [
-   "{{ Functions[0] }}"
-  ]
- },
- "RequestMappingTemplate": "{{ RequestMappingTemplate }}",
- "RequestMappingTemplateS3Location": "{{ RequestMappingTemplateS3Location }}",
- "ResponseMappingTemplate": "{{ ResponseMappingTemplate }}",
- "ResponseMappingTemplateS3Location": "{{ ResponseMappingTemplateS3Location }}",
- "Runtime": {
-  "RuntimeVersion": "{{ RuntimeVersion }}",
-  "Name": "{{ Name }}"
- },
- "SyncConfig": {
-  "ConflictHandler": "{{ ConflictHandler }}",
-  "ConflictDetection": "{{ ConflictDetection }}",
-  "LambdaConflictHandlerConfig": {
-   "LambdaConflictHandlerArn": "{{ LambdaConflictHandlerArn }}"
-  }
- },
- "TypeName": "{{ TypeName }}",
- "MetricsConfig": "{{ MetricsConfig }}"
-}
->>>
---all properties
+-- resolver.iql (all properties)
 INSERT INTO aws.appsync.resolvers (
  ApiId,
  CachingConfig,
@@ -169,24 +126,86 @@ INSERT INTO aws.appsync.resolvers (
  region
 )
 SELECT 
- {{ .ApiId }},
- {{ .CachingConfig }},
- {{ .Code }},
- {{ .CodeS3Location }},
- {{ .DataSourceName }},
- {{ .FieldName }},
- {{ .Kind }},
- {{ .MaxBatchSize }},
- {{ .PipelineConfig }},
- {{ .RequestMappingTemplate }},
- {{ .RequestMappingTemplateS3Location }},
- {{ .ResponseMappingTemplate }},
- {{ .ResponseMappingTemplateS3Location }},
- {{ .Runtime }},
- {{ .SyncConfig }},
- {{ .TypeName }},
- {{ .MetricsConfig }},
- 'us-east-1';
+ '{{ ApiId }}',
+ '{{ CachingConfig }}',
+ '{{ Code }}',
+ '{{ CodeS3Location }}',
+ '{{ DataSourceName }}',
+ '{{ FieldName }}',
+ '{{ Kind }}',
+ '{{ MaxBatchSize }}',
+ '{{ PipelineConfig }}',
+ '{{ RequestMappingTemplate }}',
+ '{{ RequestMappingTemplateS3Location }}',
+ '{{ ResponseMappingTemplate }}',
+ '{{ ResponseMappingTemplateS3Location }}',
+ '{{ Runtime }}',
+ '{{ SyncConfig }}',
+ '{{ TypeName }}',
+ '{{ MetricsConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resolver
+    props:
+      - name: ApiId
+        value: '{{ ApiId }}'
+      - name: CachingConfig
+        value:
+          CachingKeys:
+            - '{{ CachingKeys[0] }}'
+          Ttl: null
+      - name: Code
+        value: '{{ Code }}'
+      - name: CodeS3Location
+        value: '{{ CodeS3Location }}'
+      - name: DataSourceName
+        value: '{{ DataSourceName }}'
+      - name: FieldName
+        value: '{{ FieldName }}'
+      - name: Kind
+        value: '{{ Kind }}'
+      - name: MaxBatchSize
+        value: '{{ MaxBatchSize }}'
+      - name: PipelineConfig
+        value:
+          Functions:
+            - '{{ Functions[0] }}'
+      - name: RequestMappingTemplate
+        value: '{{ RequestMappingTemplate }}'
+      - name: RequestMappingTemplateS3Location
+        value: '{{ RequestMappingTemplateS3Location }}'
+      - name: ResponseMappingTemplate
+        value: '{{ ResponseMappingTemplate }}'
+      - name: ResponseMappingTemplateS3Location
+        value: '{{ ResponseMappingTemplateS3Location }}'
+      - name: Runtime
+        value:
+          RuntimeVersion: '{{ RuntimeVersion }}'
+          Name: '{{ Name }}'
+      - name: SyncConfig
+        value:
+          ConflictHandler: '{{ ConflictHandler }}'
+          ConflictDetection: '{{ ConflictDetection }}'
+          LambdaConflictHandlerConfig:
+            LambdaConflictHandlerArn: '{{ LambdaConflictHandlerArn }}'
+      - name: TypeName
+        value: '{{ TypeName }}'
+      - name: MetricsConfig
+        value: '{{ MetricsConfig }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,71 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- association.iql (required properties only)
 INSERT INTO aws.ssm.associations (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssociationName": "{{ AssociationName }}",
- "CalendarNames": [
-  "{{ CalendarNames[0] }}"
- ],
- "ScheduleExpression": "{{ ScheduleExpression }}",
- "MaxErrors": "{{ MaxErrors }}",
- "Parameters": {},
- "InstanceId": "{{ InstanceId }}",
- "WaitForSuccessTimeoutSeconds": "{{ WaitForSuccessTimeoutSeconds }}",
- "MaxConcurrency": "{{ MaxConcurrency }}",
- "ComplianceSeverity": "{{ ComplianceSeverity }}",
- "Targets": [
-  {
-   "Values": [
-    "{{ Values[0] }}"
-   ],
-   "Key": "{{ Key }}"
-  }
- ],
- "SyncCompliance": "{{ SyncCompliance }}",
- "OutputLocation": {
-  "S3Location": {
-   "OutputS3KeyPrefix": "{{ OutputS3KeyPrefix }}",
-   "OutputS3Region": "{{ OutputS3Region }}",
-   "OutputS3BucketName": "{{ OutputS3BucketName }}"
-  }
- },
- "ScheduleOffset": "{{ ScheduleOffset }}",
- "Name": "{{ Name }}",
- "ApplyOnlyAtCronInterval": "{{ ApplyOnlyAtCronInterval }}",
- "DocumentVersion": "{{ DocumentVersion }}",
- "AutomationTargetParameterName": "{{ AutomationTargetParameterName }}"
-}
->>>
---all properties
+-- association.iql (all properties)
 INSERT INTO aws.ssm.associations (
  AssociationName,
  CalendarNames,
@@ -160,24 +122,83 @@ INSERT INTO aws.ssm.associations (
  region
 )
 SELECT 
- {{ .AssociationName }},
- {{ .CalendarNames }},
- {{ .ScheduleExpression }},
- {{ .MaxErrors }},
- {{ .Parameters }},
- {{ .InstanceId }},
- {{ .WaitForSuccessTimeoutSeconds }},
- {{ .MaxConcurrency }},
- {{ .ComplianceSeverity }},
- {{ .Targets }},
- {{ .SyncCompliance }},
- {{ .OutputLocation }},
- {{ .ScheduleOffset }},
- {{ .Name }},
- {{ .ApplyOnlyAtCronInterval }},
- {{ .DocumentVersion }},
- {{ .AutomationTargetParameterName }},
- 'us-east-1';
+ '{{ AssociationName }}',
+ '{{ CalendarNames }}',
+ '{{ ScheduleExpression }}',
+ '{{ MaxErrors }}',
+ '{{ Parameters }}',
+ '{{ InstanceId }}',
+ '{{ WaitForSuccessTimeoutSeconds }}',
+ '{{ MaxConcurrency }}',
+ '{{ ComplianceSeverity }}',
+ '{{ Targets }}',
+ '{{ SyncCompliance }}',
+ '{{ OutputLocation }}',
+ '{{ ScheduleOffset }}',
+ '{{ Name }}',
+ '{{ ApplyOnlyAtCronInterval }}',
+ '{{ DocumentVersion }}',
+ '{{ AutomationTargetParameterName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: association
+    props:
+      - name: AssociationName
+        value: '{{ AssociationName }}'
+      - name: CalendarNames
+        value:
+          - '{{ CalendarNames[0] }}'
+      - name: ScheduleExpression
+        value: '{{ ScheduleExpression }}'
+      - name: MaxErrors
+        value: '{{ MaxErrors }}'
+      - name: Parameters
+        value: {}
+      - name: InstanceId
+        value: '{{ InstanceId }}'
+      - name: WaitForSuccessTimeoutSeconds
+        value: '{{ WaitForSuccessTimeoutSeconds }}'
+      - name: MaxConcurrency
+        value: '{{ MaxConcurrency }}'
+      - name: ComplianceSeverity
+        value: '{{ ComplianceSeverity }}'
+      - name: Targets
+        value:
+          - Values:
+              - '{{ Values[0] }}'
+            Key: '{{ Key }}'
+      - name: SyncCompliance
+        value: '{{ SyncCompliance }}'
+      - name: OutputLocation
+        value:
+          S3Location:
+            OutputS3KeyPrefix: '{{ OutputS3KeyPrefix }}'
+            OutputS3Region: '{{ OutputS3Region }}'
+            OutputS3BucketName: '{{ OutputS3BucketName }}'
+      - name: ScheduleOffset
+        value: '{{ ScheduleOffset }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ApplyOnlyAtCronInterval
+        value: '{{ ApplyOnlyAtCronInterval }}'
+      - name: DocumentVersion
+        value: '{{ DocumentVersion }}'
+      - name: AutomationTargetParameterName
+        value: '{{ AutomationTargetParameterName }}'
+
 ```
 </TabItem>
 </Tabs>

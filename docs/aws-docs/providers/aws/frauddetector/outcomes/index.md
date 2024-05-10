@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>outcome</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- outcome.iql (required properties only)
 INSERT INTO aws.frauddetector.outcomes (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- outcome.iql (all properties)
 INSERT INTO aws.frauddetector.outcomes (
  Name,
  Tags,
@@ -122,10 +108,35 @@ INSERT INTO aws.frauddetector.outcomes (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Tags }},
- {{ .Description }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: outcome
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

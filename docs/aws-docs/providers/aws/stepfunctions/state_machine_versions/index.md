@@ -74,42 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>state_machine_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StateMachineArn": "{{ StateMachineArn }}"
-}
->>>
---required properties only
+-- state_machine_version.iql (required properties only)
 INSERT INTO aws.stepfunctions.state_machine_versions (
  StateMachineArn,
  region
 )
 SELECT 
-{{ .StateMachineArn }},
-'us-east-1';
+'{{ StateMachineArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "StateMachineArn": "{{ StateMachineArn }}",
- "StateMachineRevisionId": "{{ StateMachineRevisionId }}",
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- state_machine_version.iql (all properties)
 INSERT INTO aws.stepfunctions.state_machine_versions (
  StateMachineArn,
  StateMachineRevisionId,
@@ -117,10 +108,33 @@ INSERT INTO aws.stepfunctions.state_machine_versions (
  region
 )
 SELECT 
- {{ .StateMachineArn }},
- {{ .StateMachineRevisionId }},
- {{ .Description }},
- 'us-east-1';
+ '{{ StateMachineArn }}',
+ '{{ StateMachineRevisionId }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: state_machine_version
+    props:
+      - name: StateMachineArn
+        value: '{{ StateMachineArn }}'
+      - name: StateMachineRevisionId
+        value: '{{ StateMachineRevisionId }}'
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

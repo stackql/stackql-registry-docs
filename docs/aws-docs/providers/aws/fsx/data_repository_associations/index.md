@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>data_repository_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FileSystemId": "{{ FileSystemId }}",
- "FileSystemPath": "{{ FileSystemPath }}",
- "DataRepositoryPath": "{{ DataRepositoryPath }}"
-}
->>>
---required properties only
+-- data_repository_association.iql (required properties only)
 INSERT INTO aws.fsx.data_repository_associations (
  FileSystemId,
  FileSystemPath,
@@ -99,41 +95,16 @@ INSERT INTO aws.fsx.data_repository_associations (
  region
 )
 SELECT 
-{{ .FileSystemId }},
- {{ .FileSystemPath }},
- {{ .DataRepositoryPath }},
-'us-east-1';
+'{{ FileSystemId }}',
+ '{{ FileSystemPath }}',
+ '{{ DataRepositoryPath }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FileSystemId": "{{ FileSystemId }}",
- "FileSystemPath": "{{ FileSystemPath }}",
- "DataRepositoryPath": "{{ DataRepositoryPath }}",
- "BatchImportMetaDataOnCreate": "{{ BatchImportMetaDataOnCreate }}",
- "ImportedFileChunkSize": "{{ ImportedFileChunkSize }}",
- "S3": {
-  "AutoImportPolicy": {
-   "Events": [
-    "{{ Events[0] }}"
-   ]
-  },
-  "AutoExportPolicy": {
-   "Events": null
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- data_repository_association.iql (all properties)
 INSERT INTO aws.fsx.data_repository_associations (
  FileSystemId,
  FileSystemPath,
@@ -145,14 +116,52 @@ INSERT INTO aws.fsx.data_repository_associations (
  region
 )
 SELECT 
- {{ .FileSystemId }},
- {{ .FileSystemPath }},
- {{ .DataRepositoryPath }},
- {{ .BatchImportMetaDataOnCreate }},
- {{ .ImportedFileChunkSize }},
- {{ .S3 }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ FileSystemId }}',
+ '{{ FileSystemPath }}',
+ '{{ DataRepositoryPath }}',
+ '{{ BatchImportMetaDataOnCreate }}',
+ '{{ ImportedFileChunkSize }}',
+ '{{ S3 }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: data_repository_association
+    props:
+      - name: FileSystemId
+        value: '{{ FileSystemId }}'
+      - name: FileSystemPath
+        value: '{{ FileSystemPath }}'
+      - name: DataRepositoryPath
+        value: '{{ DataRepositoryPath }}'
+      - name: BatchImportMetaDataOnCreate
+        value: '{{ BatchImportMetaDataOnCreate }}'
+      - name: ImportedFileChunkSize
+        value: '{{ ImportedFileChunkSize }}'
+      - name: S3
+        value:
+          AutoImportPolicy:
+            Events:
+              - '{{ Events[0] }}'
+          AutoExportPolicy:
+            Events: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

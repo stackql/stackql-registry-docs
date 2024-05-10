@@ -74,46 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>deployment_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ComputePlatform": "{{ ComputePlatform }}",
- "DeploymentConfigName": "{{ DeploymentConfigName }}",
- "MinimumHealthyHosts": {
-  "Value": "{{ Value }}",
-  "Type": "{{ Type }}"
- },
- "ZonalConfig": {
-  "FirstZoneMonitorDurationInSeconds": "{{ FirstZoneMonitorDurationInSeconds }}",
-  "MonitorDurationInSeconds": "{{ MonitorDurationInSeconds }}",
-  "MinimumHealthyHostsPerZone": {
-   "Value": "{{ Value }}",
-   "Type": "{{ Type }}"
-  }
- },
- "TrafficRoutingConfig": {
-  "Type": "{{ Type }}",
-  "TimeBasedLinear": {
-   "LinearInterval": "{{ LinearInterval }}",
-   "LinearPercentage": "{{ LinearPercentage }}"
-  },
-  "TimeBasedCanary": {
-   "CanaryPercentage": "{{ CanaryPercentage }}",
-   "CanaryInterval": "{{ CanaryInterval }}"
-  }
- }
-}
->>>
---required properties only
+-- deployment_config.iql (required properties only)
 INSERT INTO aws.codedeploy.deployment_configs (
  ComputePlatform,
  DeploymentConfigName,
@@ -123,47 +97,18 @@ INSERT INTO aws.codedeploy.deployment_configs (
  region
 )
 SELECT 
-{{ .ComputePlatform }},
- {{ .DeploymentConfigName }},
- {{ .MinimumHealthyHosts }},
- {{ .ZonalConfig }},
- {{ .TrafficRoutingConfig }},
-'us-east-1';
+'{{ ComputePlatform }}',
+ '{{ DeploymentConfigName }}',
+ '{{ MinimumHealthyHosts }}',
+ '{{ ZonalConfig }}',
+ '{{ TrafficRoutingConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ComputePlatform": "{{ ComputePlatform }}",
- "DeploymentConfigName": "{{ DeploymentConfigName }}",
- "MinimumHealthyHosts": {
-  "Value": "{{ Value }}",
-  "Type": "{{ Type }}"
- },
- "ZonalConfig": {
-  "FirstZoneMonitorDurationInSeconds": "{{ FirstZoneMonitorDurationInSeconds }}",
-  "MonitorDurationInSeconds": "{{ MonitorDurationInSeconds }}",
-  "MinimumHealthyHostsPerZone": {
-   "Value": "{{ Value }}",
-   "Type": "{{ Type }}"
-  }
- },
- "TrafficRoutingConfig": {
-  "Type": "{{ Type }}",
-  "TimeBasedLinear": {
-   "LinearInterval": "{{ LinearInterval }}",
-   "LinearPercentage": "{{ LinearPercentage }}"
-  },
-  "TimeBasedCanary": {
-   "CanaryPercentage": "{{ CanaryPercentage }}",
-   "CanaryInterval": "{{ CanaryInterval }}"
-  }
- }
-}
->>>
---all properties
+-- deployment_config.iql (all properties)
 INSERT INTO aws.codedeploy.deployment_configs (
  ComputePlatform,
  DeploymentConfigName,
@@ -173,12 +118,53 @@ INSERT INTO aws.codedeploy.deployment_configs (
  region
 )
 SELECT 
- {{ .ComputePlatform }},
- {{ .DeploymentConfigName }},
- {{ .MinimumHealthyHosts }},
- {{ .ZonalConfig }},
- {{ .TrafficRoutingConfig }},
- 'us-east-1';
+ '{{ ComputePlatform }}',
+ '{{ DeploymentConfigName }}',
+ '{{ MinimumHealthyHosts }}',
+ '{{ ZonalConfig }}',
+ '{{ TrafficRoutingConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: deployment_config
+    props:
+      - name: ComputePlatform
+        value: '{{ ComputePlatform }}'
+      - name: DeploymentConfigName
+        value: '{{ DeploymentConfigName }}'
+      - name: MinimumHealthyHosts
+        value:
+          Value: '{{ Value }}'
+          Type: '{{ Type }}'
+      - name: ZonalConfig
+        value:
+          FirstZoneMonitorDurationInSeconds: '{{ FirstZoneMonitorDurationInSeconds }}'
+          MonitorDurationInSeconds: '{{ MonitorDurationInSeconds }}'
+          MinimumHealthyHostsPerZone:
+            Value: '{{ Value }}'
+            Type: '{{ Type }}'
+      - name: TrafficRoutingConfig
+        value:
+          Type: '{{ Type }}'
+          TimeBasedLinear:
+            LinearInterval: '{{ LinearInterval }}'
+            LinearPercentage: '{{ LinearPercentage }}'
+          TimeBasedCanary:
+            CanaryPercentage: '{{ CanaryPercentage }}'
+            CanaryInterval: '{{ CanaryInterval }}'
+
 ```
 </TabItem>
 </Tabs>

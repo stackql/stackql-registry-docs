@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_stream</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "EventStreamName": "{{ EventStreamName }}",
- "Uri": "{{ Uri }}"
-}
->>>
---required properties only
+-- event_stream.iql (required properties only)
 INSERT INTO aws.customerprofiles.event_streams (
  DomainName,
  EventStreamName,
@@ -101,29 +97,16 @@ INSERT INTO aws.customerprofiles.event_streams (
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .EventStreamName }},
- {{ .Uri }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ EventStreamName }}',
+ '{{ Uri }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "EventStreamName": "{{ EventStreamName }}",
- "Uri": "{{ Uri }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- event_stream.iql (all properties)
 INSERT INTO aws.customerprofiles.event_streams (
  DomainName,
  EventStreamName,
@@ -132,11 +115,38 @@ INSERT INTO aws.customerprofiles.event_streams (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .EventStreamName }},
- {{ .Uri }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ EventStreamName }}',
+ '{{ Uri }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_stream
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: EventStreamName
+        value: '{{ EventStreamName }}'
+      - name: Uri
+        value: '{{ Uri }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

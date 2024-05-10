@@ -78,65 +78,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>identity_provider_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- identity_provider_config.iql (required properties only)
 INSERT INTO aws.eks.identity_provider_configs (
  ClusterName,
  Type,
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .Type }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "Type": "{{ Type }}",
- "IdentityProviderConfigName": "{{ IdentityProviderConfigName }}",
- "Oidc": {
-  "ClientId": "{{ ClientId }}",
-  "GroupsClaim": "{{ GroupsClaim }}",
-  "GroupsPrefix": "{{ GroupsPrefix }}",
-  "IssuerUrl": "{{ IssuerUrl }}",
-  "RequiredClaims": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "UsernameClaim": "{{ UsernameClaim }}",
-  "UsernamePrefix": "{{ UsernamePrefix }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- identity_provider_config.iql (all properties)
 INSERT INTO aws.eks.identity_provider_configs (
  ClusterName,
  Type,
@@ -146,12 +116,50 @@ INSERT INTO aws.eks.identity_provider_configs (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .Type }},
- {{ .IdentityProviderConfigName }},
- {{ .Oidc }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ Type }}',
+ '{{ IdentityProviderConfigName }}',
+ '{{ Oidc }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: identity_provider_config
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: IdentityProviderConfigName
+        value: '{{ IdentityProviderConfigName }}'
+      - name: Oidc
+        value:
+          ClientId: '{{ ClientId }}'
+          GroupsClaim: '{{ GroupsClaim }}'
+          GroupsPrefix: '{{ GroupsPrefix }}'
+          IssuerUrl: '{{ IssuerUrl }}'
+          RequiredClaims:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          UsernameClaim: '{{ UsernameClaim }}'
+          UsernamePrefix: '{{ UsernamePrefix }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

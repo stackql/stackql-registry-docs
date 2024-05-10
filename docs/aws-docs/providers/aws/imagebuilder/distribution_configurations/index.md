@@ -74,170 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>distribution_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Distributions": [
-  {
-   "Region": "{{ Region }}",
-   "AmiDistributionConfiguration": {
-    "Name": "{{ Name }}",
-    "KmsKeyId": "{{ KmsKeyId }}",
-    "Description": "{{ Description }}",
-    "AmiTags": {},
-    "TargetAccountIds": [
-     "{{ TargetAccountIds[0] }}"
-    ],
-    "LaunchPermissionConfiguration": {
-     "UserIds": [
-      "{{ UserIds[0] }}"
-     ],
-     "UserGroups": [
-      "{{ UserGroups[0] }}"
-     ],
-     "OrganizationArns": [
-      "{{ OrganizationArns[0] }}"
-     ],
-     "OrganizationalUnitArns": [
-      "{{ OrganizationalUnitArns[0] }}"
-     ]
-    }
-   },
-   "ContainerDistributionConfiguration": {
-    "Description": "{{ Description }}",
-    "ContainerTags": [
-     "{{ ContainerTags[0] }}"
-    ],
-    "TargetRepository": {
-     "Service": "{{ Service }}",
-     "RepositoryName": "{{ RepositoryName }}"
-    }
-   },
-   "LicenseConfigurationArns": [
-    "{{ LicenseConfigurationArns[0] }}"
-   ],
-   "LaunchTemplateConfigurations": [
-    {
-     "LaunchTemplateId": "{{ LaunchTemplateId }}",
-     "AccountId": "{{ AccountId }}",
-     "SetDefaultVersion": "{{ SetDefaultVersion }}"
-    }
-   ],
-   "FastLaunchConfigurations": [
-    {
-     "AccountId": "{{ AccountId }}",
-     "Enabled": "{{ Enabled }}",
-     "LaunchTemplate": {
-      "LaunchTemplateId": "{{ LaunchTemplateId }}",
-      "LaunchTemplateName": "{{ LaunchTemplateName }}",
-      "LaunchTemplateVersion": "{{ LaunchTemplateVersion }}"
-     },
-     "MaxParallelLaunches": "{{ MaxParallelLaunches }}",
-     "SnapshotConfiguration": {
-      "TargetResourceCount": "{{ TargetResourceCount }}"
-     }
-    }
-   ]
-  }
- ]
-}
->>>
---required properties only
+-- distribution_configuration.iql (required properties only)
 INSERT INTO aws.imagebuilder.distribution_configurations (
  Name,
  Distributions,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Distributions }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Distributions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Distributions": [
-  {
-   "Region": "{{ Region }}",
-   "AmiDistributionConfiguration": {
-    "Name": "{{ Name }}",
-    "KmsKeyId": "{{ KmsKeyId }}",
-    "Description": "{{ Description }}",
-    "AmiTags": {},
-    "TargetAccountIds": [
-     "{{ TargetAccountIds[0] }}"
-    ],
-    "LaunchPermissionConfiguration": {
-     "UserIds": [
-      "{{ UserIds[0] }}"
-     ],
-     "UserGroups": [
-      "{{ UserGroups[0] }}"
-     ],
-     "OrganizationArns": [
-      "{{ OrganizationArns[0] }}"
-     ],
-     "OrganizationalUnitArns": [
-      "{{ OrganizationalUnitArns[0] }}"
-     ]
-    }
-   },
-   "ContainerDistributionConfiguration": {
-    "Description": "{{ Description }}",
-    "ContainerTags": [
-     "{{ ContainerTags[0] }}"
-    ],
-    "TargetRepository": {
-     "Service": "{{ Service }}",
-     "RepositoryName": "{{ RepositoryName }}"
-    }
-   },
-   "LicenseConfigurationArns": [
-    "{{ LicenseConfigurationArns[0] }}"
-   ],
-   "LaunchTemplateConfigurations": [
-    {
-     "LaunchTemplateId": "{{ LaunchTemplateId }}",
-     "AccountId": "{{ AccountId }}",
-     "SetDefaultVersion": "{{ SetDefaultVersion }}"
-    }
-   ],
-   "FastLaunchConfigurations": [
-    {
-     "AccountId": "{{ AccountId }}",
-     "Enabled": "{{ Enabled }}",
-     "LaunchTemplate": {
-      "LaunchTemplateId": "{{ LaunchTemplateId }}",
-      "LaunchTemplateName": "{{ LaunchTemplateName }}",
-      "LaunchTemplateVersion": "{{ LaunchTemplateVersion }}"
-     },
-     "MaxParallelLaunches": "{{ MaxParallelLaunches }}",
-     "SnapshotConfiguration": {
-      "TargetResourceCount": "{{ TargetResourceCount }}"
-     }
-    }
-   ]
-  }
- ],
- "Tags": {}
-}
->>>
---all properties
+-- distribution_configuration.iql (all properties)
 INSERT INTO aws.imagebuilder.distribution_configurations (
  Name,
  Description,
@@ -246,11 +111,76 @@ INSERT INTO aws.imagebuilder.distribution_configurations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Distributions }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Distributions }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: distribution_configuration
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Distributions
+        value:
+          - Region: '{{ Region }}'
+            AmiDistributionConfiguration:
+              Name: '{{ Name }}'
+              KmsKeyId: '{{ KmsKeyId }}'
+              Description: '{{ Description }}'
+              AmiTags: {}
+              TargetAccountIds:
+                - '{{ TargetAccountIds[0] }}'
+              LaunchPermissionConfiguration:
+                UserIds:
+                  - '{{ UserIds[0] }}'
+                UserGroups:
+                  - '{{ UserGroups[0] }}'
+                OrganizationArns:
+                  - '{{ OrganizationArns[0] }}'
+                OrganizationalUnitArns:
+                  - '{{ OrganizationalUnitArns[0] }}'
+            ContainerDistributionConfiguration:
+              Description: '{{ Description }}'
+              ContainerTags:
+                - '{{ ContainerTags[0] }}'
+              TargetRepository:
+                Service: '{{ Service }}'
+                RepositoryName: '{{ RepositoryName }}'
+            LicenseConfigurationArns:
+              - '{{ LicenseConfigurationArns[0] }}'
+            LaunchTemplateConfigurations:
+              - LaunchTemplateId: '{{ LaunchTemplateId }}'
+                AccountId: '{{ AccountId }}'
+                SetDefaultVersion: '{{ SetDefaultVersion }}'
+            FastLaunchConfigurations:
+              - AccountId: '{{ AccountId }}'
+                Enabled: '{{ Enabled }}'
+                LaunchTemplate:
+                  LaunchTemplateId: '{{ LaunchTemplateId }}'
+                  LaunchTemplateName: '{{ LaunchTemplateName }}'
+                  LaunchTemplateVersion: '{{ LaunchTemplateVersion }}'
+                MaxParallelLaunches: '{{ MaxParallelLaunches }}'
+                SnapshotConfiguration:
+                  TargetResourceCount: '{{ TargetResourceCount }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

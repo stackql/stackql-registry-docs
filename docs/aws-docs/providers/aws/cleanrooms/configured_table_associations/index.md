@@ -76,25 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configured_table_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConfiguredTableIdentifier": "{{ ConfiguredTableIdentifier }}",
- "MembershipIdentifier": "{{ MembershipIdentifier }}",
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- configured_table_association.iql (required properties only)
 INSERT INTO aws.cleanrooms.configured_table_associations (
  ConfiguredTableIdentifier,
  MembershipIdentifier,
@@ -103,32 +98,17 @@ INSERT INTO aws.cleanrooms.configured_table_associations (
  region
 )
 SELECT 
-{{ .ConfiguredTableIdentifier }},
- {{ .MembershipIdentifier }},
- {{ .Name }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ ConfiguredTableIdentifier }}',
+ '{{ MembershipIdentifier }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ConfiguredTableIdentifier": "{{ ConfiguredTableIdentifier }}",
- "Description": "{{ Description }}",
- "MembershipIdentifier": "{{ MembershipIdentifier }}",
- "Name": "{{ Name }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---all properties
+-- configured_table_association.iql (all properties)
 INSERT INTO aws.cleanrooms.configured_table_associations (
  Tags,
  ConfiguredTableIdentifier,
@@ -139,13 +119,44 @@ INSERT INTO aws.cleanrooms.configured_table_associations (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .ConfiguredTableIdentifier }},
- {{ .Description }},
- {{ .MembershipIdentifier }},
- {{ .Name }},
- {{ .RoleArn }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ ConfiguredTableIdentifier }}',
+ '{{ Description }}',
+ '{{ MembershipIdentifier }}',
+ '{{ Name }}',
+ '{{ RoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configured_table_association
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ConfiguredTableIdentifier
+        value: '{{ ConfiguredTableIdentifier }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: MembershipIdentifier
+        value: '{{ MembershipIdentifier }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

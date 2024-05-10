@@ -74,54 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connector</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConnectorProvisioningType": "{{ ConnectorProvisioningType }}",
- "ConnectorProvisioningConfig": {
-  "Lambda": {
-   "LambdaArn": "{{ LambdaArn }}"
-  }
- }
-}
->>>
---required properties only
+-- connector.iql (required properties only)
 INSERT INTO aws.appflow.connectors (
  ConnectorProvisioningType,
  ConnectorProvisioningConfig,
  region
 )
 SELECT 
-{{ .ConnectorProvisioningType }},
- {{ .ConnectorProvisioningConfig }},
-'us-east-1';
+'{{ ConnectorProvisioningType }}',
+ '{{ ConnectorProvisioningConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConnectorLabel": "{{ ConnectorLabel }}",
- "ConnectorProvisioningType": "{{ ConnectorProvisioningType }}",
- "ConnectorProvisioningConfig": {
-  "Lambda": {
-   "LambdaArn": "{{ LambdaArn }}"
-  }
- },
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- connector.iql (all properties)
 INSERT INTO aws.appflow.connectors (
  ConnectorLabel,
  ConnectorProvisioningType,
@@ -130,11 +111,38 @@ INSERT INTO aws.appflow.connectors (
  region
 )
 SELECT 
- {{ .ConnectorLabel }},
- {{ .ConnectorProvisioningType }},
- {{ .ConnectorProvisioningConfig }},
- {{ .Description }},
- 'us-east-1';
+ '{{ ConnectorLabel }}',
+ '{{ ConnectorProvisioningType }}',
+ '{{ ConnectorProvisioningConfig }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connector
+    props:
+      - name: ConnectorLabel
+        value: '{{ ConnectorLabel }}'
+      - name: ConnectorProvisioningType
+        value: '{{ ConnectorProvisioningType }}'
+      - name: ConnectorProvisioningConfig
+        value:
+          Lambda:
+            LambdaArn: '{{ LambdaArn }}'
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,100 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>security_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- security_profile.iql (required properties only)
 INSERT INTO aws.iot.security_profiles (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SecurityProfileName": "{{ SecurityProfileName }}",
- "SecurityProfileDescription": "{{ SecurityProfileDescription }}",
- "Behaviors": [
-  {
-   "Name": "{{ Name }}",
-   "Metric": "{{ Metric }}",
-   "MetricDimension": {
-    "DimensionName": "{{ DimensionName }}",
-    "Operator": "{{ Operator }}"
-   },
-   "Criteria": {
-    "ComparisonOperator": "{{ ComparisonOperator }}",
-    "Value": {
-     "Count": "{{ Count }}",
-     "Cidrs": [
-      "{{ Cidrs[0] }}"
-     ],
-     "Ports": [
-      "{{ Ports[0] }}"
-     ],
-     "Number": null,
-     "Numbers": [
-      null
-     ],
-     "Strings": [
-      "{{ Strings[0] }}"
-     ]
-    },
-    "DurationSeconds": "{{ DurationSeconds }}",
-    "ConsecutiveDatapointsToAlarm": "{{ ConsecutiveDatapointsToAlarm }}",
-    "ConsecutiveDatapointsToClear": "{{ ConsecutiveDatapointsToClear }}",
-    "StatisticalThreshold": {
-     "Statistic": "{{ Statistic }}"
-    },
-    "MlDetectionConfig": {
-     "ConfidenceLevel": "{{ ConfidenceLevel }}"
-    }
-   },
-   "SuppressAlerts": "{{ SuppressAlerts }}",
-   "ExportMetric": "{{ ExportMetric }}"
-  }
- ],
- "AlertTargets": {},
- "AdditionalMetricsToRetainV2": [
-  {
-   "Metric": "{{ Metric }}",
-   "MetricDimension": null,
-   "ExportMetric": null
-  }
- ],
- "MetricsExportConfig": {
-  "MqttTopic": "{{ MqttTopic }}",
-  "RoleArn": "{{ RoleArn }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TargetArns": [
-  "{{ TargetArns[0] }}"
- ]
-}
->>>
---all properties
+-- security_profile.iql (all properties)
 INSERT INTO aws.iot.security_profiles (
  SecurityProfileName,
  SecurityProfileDescription,
@@ -180,15 +113,83 @@ INSERT INTO aws.iot.security_profiles (
  region
 )
 SELECT 
- {{ .SecurityProfileName }},
- {{ .SecurityProfileDescription }},
- {{ .Behaviors }},
- {{ .AlertTargets }},
- {{ .AdditionalMetricsToRetainV2 }},
- {{ .MetricsExportConfig }},
- {{ .Tags }},
- {{ .TargetArns }},
- 'us-east-1';
+ '{{ SecurityProfileName }}',
+ '{{ SecurityProfileDescription }}',
+ '{{ Behaviors }}',
+ '{{ AlertTargets }}',
+ '{{ AdditionalMetricsToRetainV2 }}',
+ '{{ MetricsExportConfig }}',
+ '{{ Tags }}',
+ '{{ TargetArns }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: security_profile
+    props:
+      - name: SecurityProfileName
+        value: '{{ SecurityProfileName }}'
+      - name: SecurityProfileDescription
+        value: '{{ SecurityProfileDescription }}'
+      - name: Behaviors
+        value:
+          - Name: '{{ Name }}'
+            Metric: '{{ Metric }}'
+            MetricDimension:
+              DimensionName: '{{ DimensionName }}'
+              Operator: '{{ Operator }}'
+            Criteria:
+              ComparisonOperator: '{{ ComparisonOperator }}'
+              Value:
+                Count: '{{ Count }}'
+                Cidrs:
+                  - '{{ Cidrs[0] }}'
+                Ports:
+                  - '{{ Ports[0] }}'
+                Number: null
+                Numbers:
+                  - null
+                Strings:
+                  - '{{ Strings[0] }}'
+              DurationSeconds: '{{ DurationSeconds }}'
+              ConsecutiveDatapointsToAlarm: '{{ ConsecutiveDatapointsToAlarm }}'
+              ConsecutiveDatapointsToClear: '{{ ConsecutiveDatapointsToClear }}'
+              StatisticalThreshold:
+                Statistic: '{{ Statistic }}'
+              MlDetectionConfig:
+                ConfidenceLevel: '{{ ConfidenceLevel }}'
+            SuppressAlerts: '{{ SuppressAlerts }}'
+            ExportMetric: '{{ ExportMetric }}'
+      - name: AlertTargets
+        value: {}
+      - name: AdditionalMetricsToRetainV2
+        value:
+          - Metric: '{{ Metric }}'
+            MetricDimension: null
+            ExportMetric: null
+      - name: MetricsExportConfig
+        value:
+          MqttTopic: '{{ MqttTopic }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TargetArns
+        value:
+          - '{{ TargetArns[0] }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -78,38 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subscription_target</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicableAssetTypes": [
-  "{{ ApplicableAssetTypes[0] }}"
- ],
- "AuthorizedPrincipals": [
-  "{{ AuthorizedPrincipals[0] }}"
- ],
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "ManageAccessRole": "{{ ManageAccessRole }}",
- "Name": "{{ Name }}",
- "SubscriptionTargetConfig": [
-  {
-   "FormName": "{{ FormName }}",
-   "Content": "{{ Content }}"
-  }
- ],
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- subscription_target.iql (required properties only)
 INSERT INTO aws.datazone.subscription_targets (
  ApplicableAssetTypes,
  AuthorizedPrincipals,
@@ -122,43 +104,21 @@ INSERT INTO aws.datazone.subscription_targets (
  region
 )
 SELECT 
-{{ .ApplicableAssetTypes }},
- {{ .AuthorizedPrincipals }},
- {{ .DomainIdentifier }},
- {{ .EnvironmentIdentifier }},
- {{ .ManageAccessRole }},
- {{ .Name }},
- {{ .SubscriptionTargetConfig }},
- {{ .Type }},
-'us-east-1';
+'{{ ApplicableAssetTypes }}',
+ '{{ AuthorizedPrincipals }}',
+ '{{ DomainIdentifier }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ ManageAccessRole }}',
+ '{{ Name }}',
+ '{{ SubscriptionTargetConfig }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicableAssetTypes": [
-  "{{ ApplicableAssetTypes[0] }}"
- ],
- "AuthorizedPrincipals": [
-  "{{ AuthorizedPrincipals[0] }}"
- ],
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "ManageAccessRole": "{{ ManageAccessRole }}",
- "Name": "{{ Name }}",
- "Provider": "{{ Provider }}",
- "SubscriptionTargetConfig": [
-  {
-   "FormName": "{{ FormName }}",
-   "Content": "{{ Content }}"
-  }
- ],
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- subscription_target.iql (all properties)
 INSERT INTO aws.datazone.subscription_targets (
  ApplicableAssetTypes,
  AuthorizedPrincipals,
@@ -172,16 +132,55 @@ INSERT INTO aws.datazone.subscription_targets (
  region
 )
 SELECT 
- {{ .ApplicableAssetTypes }},
- {{ .AuthorizedPrincipals }},
- {{ .DomainIdentifier }},
- {{ .EnvironmentIdentifier }},
- {{ .ManageAccessRole }},
- {{ .Name }},
- {{ .Provider }},
- {{ .SubscriptionTargetConfig }},
- {{ .Type }},
- 'us-east-1';
+ '{{ ApplicableAssetTypes }}',
+ '{{ AuthorizedPrincipals }}',
+ '{{ DomainIdentifier }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ ManageAccessRole }}',
+ '{{ Name }}',
+ '{{ Provider }}',
+ '{{ SubscriptionTargetConfig }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subscription_target
+    props:
+      - name: ApplicableAssetTypes
+        value:
+          - '{{ ApplicableAssetTypes[0] }}'
+      - name: AuthorizedPrincipals
+        value:
+          - '{{ AuthorizedPrincipals[0] }}'
+      - name: DomainIdentifier
+        value: '{{ DomainIdentifier }}'
+      - name: EnvironmentIdentifier
+        value: '{{ EnvironmentIdentifier }}'
+      - name: ManageAccessRole
+        value: '{{ ManageAccessRole }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Provider
+        value: '{{ Provider }}'
+      - name: SubscriptionTargetConfig
+        value:
+          - FormName: '{{ FormName }}'
+            Content: '{{ Content }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,170 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>model_card</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ModelCardName": "{{ ModelCardName }}",
- "ModelCardStatus": "{{ ModelCardStatus }}",
- "Content": {
-  "ModelOverview": {
-   "ModelDescription": "{{ ModelDescription }}",
-   "ModelOwner": "{{ ModelOwner }}",
-   "ModelCreator": "{{ ModelCreator }}",
-   "ProblemType": "{{ ProblemType }}",
-   "AlgorithmType": "{{ AlgorithmType }}",
-   "ModelId": "{{ ModelId }}",
-   "ModelArtifact": [
-    "{{ ModelArtifact[0] }}"
-   ],
-   "ModelName": "{{ ModelName }}",
-   "ModelVersion": null,
-   "InferenceEnvironment": {
-    "ContainerImage": [
-     "{{ ContainerImage[0] }}"
-    ]
-   }
-  },
-  "ModelPackageDetails": {
-   "ModelPackageDescription": "{{ ModelPackageDescription }}",
-   "ModelPackageArn": "{{ ModelPackageArn }}",
-   "CreatedBy": {
-    "UserProfileName": "{{ UserProfileName }}"
-   },
-   "ModelPackageStatus": "{{ ModelPackageStatus }}",
-   "ModelApprovalStatus": "{{ ModelApprovalStatus }}",
-   "ApprovalDescription": "{{ ApprovalDescription }}",
-   "ModelPackageGroupName": "{{ ModelPackageGroupName }}",
-   "ModelPackageName": "{{ ModelPackageName }}",
-   "ModelPackageVersion": null,
-   "Domain": "{{ Domain }}",
-   "Task": "{{ Task }}",
-   "SourceAlgorithms": [
-    {
-     "AlgorithmName": "{{ AlgorithmName }}",
-     "ModelDataUrl": "{{ ModelDataUrl }}"
-    }
-   ],
-   "InferenceSpecification": {
-    "Containers": [
-     {
-      "ContainerHostname": "{{ ContainerHostname }}",
-      "Environment": {},
-      "ModelInput": {
-       "DataInputConfig": "{{ DataInputConfig }}"
-      },
-      "Image": "{{ Image }}",
-      "ImageDigest": "{{ ImageDigest }}",
-      "ModelDataUrl": "{{ ModelDataUrl }}",
-      "Framework": "{{ Framework }}",
-      "FrameworkVersion": "{{ FrameworkVersion }}",
-      "NearestModelName": "{{ NearestModelName }}"
-     }
-    ],
-    "SupportedContentTypes": [
-     "{{ SupportedContentTypes[0] }}"
-    ],
-    "SupportedRealtimeInferenceInstanceTypes": [
-     "{{ SupportedRealtimeInferenceInstanceTypes[0] }}"
-    ],
-    "SupportedResponseMIMETypes": [
-     "{{ SupportedResponseMIMETypes[0] }}"
-    ],
-    "SupportedTransformInstanceTypes": [
-     "{{ SupportedTransformInstanceTypes[0] }}"
-    ]
-   }
-  },
-  "IntendedUses": {
-   "PurposeOfModel": "{{ PurposeOfModel }}",
-   "IntendedUses": "{{ IntendedUses }}",
-   "FactorsAffectingModelEfficiency": "{{ FactorsAffectingModelEfficiency }}",
-   "RiskRating": "{{ RiskRating }}",
-   "ExplanationsForRiskRating": "{{ ExplanationsForRiskRating }}"
-  },
-  "BusinessDetails": {
-   "BusinessProblem": "{{ BusinessProblem }}",
-   "BusinessStakeholders": "{{ BusinessStakeholders }}",
-   "LineOfBusiness": "{{ LineOfBusiness }}"
-  },
-  "TrainingDetails": {
-   "ObjectiveFunction": {
-    "Function": {
-     "Function": "{{ Function }}",
-     "Facet": "{{ Facet }}",
-     "Condition": "{{ Condition }}"
-    },
-    "Notes": "{{ Notes }}"
-   },
-   "TrainingObservations": "{{ TrainingObservations }}",
-   "TrainingJobDetails": {
-    "TrainingArn": "{{ TrainingArn }}",
-    "TrainingDatasets": [
-     "{{ TrainingDatasets[0] }}"
-    ],
-    "TrainingEnvironment": {
-     "ContainerImage": [
-      "{{ ContainerImage[0] }}"
-     ]
-    },
-    "TrainingMetrics": [
-     {
-      "Name": "{{ Name }}",
-      "Notes": "{{ Notes }}",
-      "Value": null
-     }
-    ],
-    "UserProvidedTrainingMetrics": [
-     null
-    ],
-    "HyperParameters": [
-     {
-      "Name": "{{ Name }}",
-      "Value": "{{ Value }}"
-     }
-    ],
-    "UserProvidedHyperParameters": [
-     null
-    ]
-   }
-  },
-  "EvaluationDetails": [
-   {
-    "Name": "{{ Name }}",
-    "EvaluationObservation": "{{ EvaluationObservation }}",
-    "EvaluationJobArn": "{{ EvaluationJobArn }}",
-    "Datasets": [
-     "{{ Datasets[0] }}"
-    ],
-    "Metadata": {},
-    "MetricGroups": [
-     {
-      "Name": "{{ Name }}",
-      "MetricData": [
-       null
-      ]
-     }
-    ]
-   }
-  ],
-  "AdditionalInformation": {
-   "EthicalConsiderations": "{{ EthicalConsiderations }}",
-   "CaveatsAndRecommendations": "{{ CaveatsAndRecommendations }}",
-   "CustomDetails": {}
-  }
- }
-}
->>>
---required properties only
+-- model_card.iql (required properties only)
 INSERT INTO aws.sagemaker.model_cards (
  ModelCardName,
  ModelCardStatus,
@@ -245,184 +95,16 @@ INSERT INTO aws.sagemaker.model_cards (
  region
 )
 SELECT 
-{{ .ModelCardName }},
- {{ .ModelCardStatus }},
- {{ .Content }},
-'us-east-1';
+'{{ ModelCardName }}',
+ '{{ ModelCardStatus }}',
+ '{{ Content }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ModelCardName": "{{ ModelCardName }}",
- "SecurityConfig": {
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "ModelCardStatus": "{{ ModelCardStatus }}",
- "Content": {
-  "ModelOverview": {
-   "ModelDescription": "{{ ModelDescription }}",
-   "ModelOwner": "{{ ModelOwner }}",
-   "ModelCreator": "{{ ModelCreator }}",
-   "ProblemType": "{{ ProblemType }}",
-   "AlgorithmType": "{{ AlgorithmType }}",
-   "ModelId": "{{ ModelId }}",
-   "ModelArtifact": [
-    "{{ ModelArtifact[0] }}"
-   ],
-   "ModelName": "{{ ModelName }}",
-   "ModelVersion": null,
-   "InferenceEnvironment": {
-    "ContainerImage": [
-     "{{ ContainerImage[0] }}"
-    ]
-   }
-  },
-  "ModelPackageDetails": {
-   "ModelPackageDescription": "{{ ModelPackageDescription }}",
-   "ModelPackageArn": "{{ ModelPackageArn }}",
-   "CreatedBy": {
-    "UserProfileName": "{{ UserProfileName }}"
-   },
-   "ModelPackageStatus": "{{ ModelPackageStatus }}",
-   "ModelApprovalStatus": "{{ ModelApprovalStatus }}",
-   "ApprovalDescription": "{{ ApprovalDescription }}",
-   "ModelPackageGroupName": "{{ ModelPackageGroupName }}",
-   "ModelPackageName": "{{ ModelPackageName }}",
-   "ModelPackageVersion": null,
-   "Domain": "{{ Domain }}",
-   "Task": "{{ Task }}",
-   "SourceAlgorithms": [
-    {
-     "AlgorithmName": "{{ AlgorithmName }}",
-     "ModelDataUrl": "{{ ModelDataUrl }}"
-    }
-   ],
-   "InferenceSpecification": {
-    "Containers": [
-     {
-      "ContainerHostname": "{{ ContainerHostname }}",
-      "Environment": {},
-      "ModelInput": {
-       "DataInputConfig": "{{ DataInputConfig }}"
-      },
-      "Image": "{{ Image }}",
-      "ImageDigest": "{{ ImageDigest }}",
-      "ModelDataUrl": "{{ ModelDataUrl }}",
-      "Framework": "{{ Framework }}",
-      "FrameworkVersion": "{{ FrameworkVersion }}",
-      "NearestModelName": "{{ NearestModelName }}"
-     }
-    ],
-    "SupportedContentTypes": [
-     "{{ SupportedContentTypes[0] }}"
-    ],
-    "SupportedRealtimeInferenceInstanceTypes": [
-     "{{ SupportedRealtimeInferenceInstanceTypes[0] }}"
-    ],
-    "SupportedResponseMIMETypes": [
-     "{{ SupportedResponseMIMETypes[0] }}"
-    ],
-    "SupportedTransformInstanceTypes": [
-     "{{ SupportedTransformInstanceTypes[0] }}"
-    ]
-   }
-  },
-  "IntendedUses": {
-   "PurposeOfModel": "{{ PurposeOfModel }}",
-   "IntendedUses": "{{ IntendedUses }}",
-   "FactorsAffectingModelEfficiency": "{{ FactorsAffectingModelEfficiency }}",
-   "RiskRating": "{{ RiskRating }}",
-   "ExplanationsForRiskRating": "{{ ExplanationsForRiskRating }}"
-  },
-  "BusinessDetails": {
-   "BusinessProblem": "{{ BusinessProblem }}",
-   "BusinessStakeholders": "{{ BusinessStakeholders }}",
-   "LineOfBusiness": "{{ LineOfBusiness }}"
-  },
-  "TrainingDetails": {
-   "ObjectiveFunction": {
-    "Function": {
-     "Function": "{{ Function }}",
-     "Facet": "{{ Facet }}",
-     "Condition": "{{ Condition }}"
-    },
-    "Notes": "{{ Notes }}"
-   },
-   "TrainingObservations": "{{ TrainingObservations }}",
-   "TrainingJobDetails": {
-    "TrainingArn": "{{ TrainingArn }}",
-    "TrainingDatasets": [
-     "{{ TrainingDatasets[0] }}"
-    ],
-    "TrainingEnvironment": {
-     "ContainerImage": [
-      "{{ ContainerImage[0] }}"
-     ]
-    },
-    "TrainingMetrics": [
-     {
-      "Name": "{{ Name }}",
-      "Notes": "{{ Notes }}",
-      "Value": null
-     }
-    ],
-    "UserProvidedTrainingMetrics": [
-     null
-    ],
-    "HyperParameters": [
-     {
-      "Name": "{{ Name }}",
-      "Value": "{{ Value }}"
-     }
-    ],
-    "UserProvidedHyperParameters": [
-     null
-    ]
-   }
-  },
-  "EvaluationDetails": [
-   {
-    "Name": "{{ Name }}",
-    "EvaluationObservation": "{{ EvaluationObservation }}",
-    "EvaluationJobArn": "{{ EvaluationJobArn }}",
-    "Datasets": [
-     "{{ Datasets[0] }}"
-    ],
-    "Metadata": {},
-    "MetricGroups": [
-     {
-      "Name": "{{ Name }}",
-      "MetricData": [
-       null
-      ]
-     }
-    ]
-   }
-  ],
-  "AdditionalInformation": {
-   "EthicalConsiderations": "{{ EthicalConsiderations }}",
-   "CaveatsAndRecommendations": "{{ CaveatsAndRecommendations }}",
-   "CustomDetails": {}
-  }
- },
- "CreatedBy": {
-  "UserProfileArn": "{{ UserProfileArn }}",
-  "UserProfileName": "{{ UserProfileName }}",
-  "DomainId": "{{ DomainId }}"
- },
- "LastModifiedBy": null,
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- model_card.iql (all properties)
 INSERT INTO aws.sagemaker.model_cards (
  ModelCardName,
  SecurityConfig,
@@ -434,14 +116,152 @@ INSERT INTO aws.sagemaker.model_cards (
  region
 )
 SELECT 
- {{ .ModelCardName }},
- {{ .SecurityConfig }},
- {{ .ModelCardStatus }},
- {{ .Content }},
- {{ .CreatedBy }},
- {{ .LastModifiedBy }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ModelCardName }}',
+ '{{ SecurityConfig }}',
+ '{{ ModelCardStatus }}',
+ '{{ Content }}',
+ '{{ CreatedBy }}',
+ '{{ LastModifiedBy }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: model_card
+    props:
+      - name: ModelCardName
+        value: '{{ ModelCardName }}'
+      - name: SecurityConfig
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+      - name: ModelCardStatus
+        value: '{{ ModelCardStatus }}'
+      - name: Content
+        value:
+          ModelOverview:
+            ModelDescription: '{{ ModelDescription }}'
+            ModelOwner: '{{ ModelOwner }}'
+            ModelCreator: '{{ ModelCreator }}'
+            ProblemType: '{{ ProblemType }}'
+            AlgorithmType: '{{ AlgorithmType }}'
+            ModelId: '{{ ModelId }}'
+            ModelArtifact:
+              - '{{ ModelArtifact[0] }}'
+            ModelName: '{{ ModelName }}'
+            ModelVersion: null
+            InferenceEnvironment:
+              ContainerImage:
+                - '{{ ContainerImage[0] }}'
+          ModelPackageDetails:
+            ModelPackageDescription: '{{ ModelPackageDescription }}'
+            ModelPackageArn: '{{ ModelPackageArn }}'
+            CreatedBy:
+              UserProfileName: '{{ UserProfileName }}'
+            ModelPackageStatus: '{{ ModelPackageStatus }}'
+            ModelApprovalStatus: '{{ ModelApprovalStatus }}'
+            ApprovalDescription: '{{ ApprovalDescription }}'
+            ModelPackageGroupName: '{{ ModelPackageGroupName }}'
+            ModelPackageName: '{{ ModelPackageName }}'
+            ModelPackageVersion: null
+            Domain: '{{ Domain }}'
+            Task: '{{ Task }}'
+            SourceAlgorithms:
+              - AlgorithmName: '{{ AlgorithmName }}'
+                ModelDataUrl: '{{ ModelDataUrl }}'
+            InferenceSpecification:
+              Containers:
+                - ContainerHostname: '{{ ContainerHostname }}'
+                  Environment: {}
+                  ModelInput:
+                    DataInputConfig: '{{ DataInputConfig }}'
+                  Image: '{{ Image }}'
+                  ImageDigest: '{{ ImageDigest }}'
+                  ModelDataUrl: '{{ ModelDataUrl }}'
+                  Framework: '{{ Framework }}'
+                  FrameworkVersion: '{{ FrameworkVersion }}'
+                  NearestModelName: '{{ NearestModelName }}'
+              SupportedContentTypes:
+                - '{{ SupportedContentTypes[0] }}'
+              SupportedRealtimeInferenceInstanceTypes:
+                - '{{ SupportedRealtimeInferenceInstanceTypes[0] }}'
+              SupportedResponseMIMETypes:
+                - '{{ SupportedResponseMIMETypes[0] }}'
+              SupportedTransformInstanceTypes:
+                - '{{ SupportedTransformInstanceTypes[0] }}'
+          IntendedUses:
+            PurposeOfModel: '{{ PurposeOfModel }}'
+            IntendedUses: '{{ IntendedUses }}'
+            FactorsAffectingModelEfficiency: '{{ FactorsAffectingModelEfficiency }}'
+            RiskRating: '{{ RiskRating }}'
+            ExplanationsForRiskRating: '{{ ExplanationsForRiskRating }}'
+          BusinessDetails:
+            BusinessProblem: '{{ BusinessProblem }}'
+            BusinessStakeholders: '{{ BusinessStakeholders }}'
+            LineOfBusiness: '{{ LineOfBusiness }}'
+          TrainingDetails:
+            ObjectiveFunction:
+              Function:
+                Function: '{{ Function }}'
+                Facet: '{{ Facet }}'
+                Condition: '{{ Condition }}'
+              Notes: '{{ Notes }}'
+            TrainingObservations: '{{ TrainingObservations }}'
+            TrainingJobDetails:
+              TrainingArn: '{{ TrainingArn }}'
+              TrainingDatasets:
+                - '{{ TrainingDatasets[0] }}'
+              TrainingEnvironment:
+                ContainerImage:
+                  - '{{ ContainerImage[0] }}'
+              TrainingMetrics:
+                - Name: '{{ Name }}'
+                  Notes: '{{ Notes }}'
+                  Value: null
+              UserProvidedTrainingMetrics:
+                - null
+              HyperParameters:
+                - Name: '{{ Name }}'
+                  Value: '{{ Value }}'
+              UserProvidedHyperParameters:
+                - null
+          EvaluationDetails:
+            - Name: '{{ Name }}'
+              EvaluationObservation: '{{ EvaluationObservation }}'
+              EvaluationJobArn: '{{ EvaluationJobArn }}'
+              Datasets:
+                - '{{ Datasets[0] }}'
+              Metadata: {}
+              MetricGroups:
+                - Name: '{{ Name }}'
+                  MetricData:
+                    - null
+          AdditionalInformation:
+            EthicalConsiderations: '{{ EthicalConsiderations }}'
+            CaveatsAndRecommendations: '{{ CaveatsAndRecommendations }}'
+            CustomDetails: {}
+      - name: CreatedBy
+        value:
+          UserProfileArn: '{{ UserProfileArn }}'
+          UserProfileName: '{{ UserProfileName }}'
+          DomainId: '{{ DomainId }}'
+      - name: LastModifiedBy
+        value: null
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

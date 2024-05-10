@@ -76,67 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>permission_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "InstanceArn": "{{ InstanceArn }}"
-}
->>>
---required properties only
+-- permission_set.iql (required properties only)
 INSERT INTO aws.sso.permission_sets (
  Name,
  InstanceArn,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .InstanceArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ InstanceArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "InstanceArn": "{{ InstanceArn }}",
- "SessionDuration": "{{ SessionDuration }}",
- "RelayStateType": "{{ RelayStateType }}",
- "ManagedPolicies": [
-  "{{ ManagedPolicies[0] }}"
- ],
- "InlinePolicy": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CustomerManagedPolicyReferences": [
-  {
-   "Name": "{{ Name }}",
-   "Path": "{{ Path }}"
-  }
- ],
- "PermissionsBoundary": {
-  "CustomerManagedPolicyReference": null,
-  "ManagedPolicyArn": null
- }
-}
->>>
---all properties
+-- permission_set.iql (all properties)
 INSERT INTO aws.sso.permission_sets (
  Name,
  Description,
@@ -151,17 +119,61 @@ INSERT INTO aws.sso.permission_sets (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .InstanceArn }},
- {{ .SessionDuration }},
- {{ .RelayStateType }},
- {{ .ManagedPolicies }},
- {{ .InlinePolicy }},
- {{ .Tags }},
- {{ .CustomerManagedPolicyReferences }},
- {{ .PermissionsBoundary }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ InstanceArn }}',
+ '{{ SessionDuration }}',
+ '{{ RelayStateType }}',
+ '{{ ManagedPolicies }}',
+ '{{ InlinePolicy }}',
+ '{{ Tags }}',
+ '{{ CustomerManagedPolicyReferences }}',
+ '{{ PermissionsBoundary }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: permission_set
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: SessionDuration
+        value: '{{ SessionDuration }}'
+      - name: RelayStateType
+        value: '{{ RelayStateType }}'
+      - name: ManagedPolicies
+        value:
+          - '{{ ManagedPolicies[0] }}'
+      - name: InlinePolicy
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CustomerManagedPolicyReferences
+        value:
+          - Name: '{{ Name }}'
+            Path: '{{ Path }}'
+      - name: PermissionsBoundary
+        value:
+          CustomerManagedPolicyReference: null
+          ManagedPolicyArn: null
+
 ```
 </TabItem>
 </Tabs>

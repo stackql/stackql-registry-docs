@@ -74,67 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>schema_mapping</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SchemaName": "{{ SchemaName }}",
- "MappedInputFields": [
-  {
-   "FieldName": "{{ FieldName }}",
-   "Type": "{{ Type }}",
-   "SubType": "{{ SubType }}",
-   "GroupName": null,
-   "MatchKey": null
-  }
- ]
-}
->>>
---required properties only
+-- schema_mapping.iql (required properties only)
 INSERT INTO aws.entityresolution.schema_mappings (
  SchemaName,
  MappedInputFields,
  region
 )
 SELECT 
-{{ .SchemaName }},
- {{ .MappedInputFields }},
-'us-east-1';
+'{{ SchemaName }}',
+ '{{ MappedInputFields }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SchemaName": "{{ SchemaName }}",
- "Description": "{{ Description }}",
- "MappedInputFields": [
-  {
-   "FieldName": "{{ FieldName }}",
-   "Type": "{{ Type }}",
-   "SubType": "{{ SubType }}",
-   "GroupName": null,
-   "MatchKey": null
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- schema_mapping.iql (all properties)
 INSERT INTO aws.entityresolution.schema_mappings (
  SchemaName,
  Description,
@@ -143,11 +111,43 @@ INSERT INTO aws.entityresolution.schema_mappings (
  region
 )
 SELECT 
- {{ .SchemaName }},
- {{ .Description }},
- {{ .MappedInputFields }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SchemaName }}',
+ '{{ Description }}',
+ '{{ MappedInputFields }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: schema_mapping
+    props:
+      - name: SchemaName
+        value: '{{ SchemaName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: MappedInputFields
+        value:
+          - FieldName: '{{ FieldName }}'
+            Type: '{{ Type }}'
+            SubType: '{{ SubType }}'
+            GroupName: null
+            MatchKey: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

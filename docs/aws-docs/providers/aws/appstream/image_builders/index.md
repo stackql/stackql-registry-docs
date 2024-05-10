@@ -74,75 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>image_builder</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "InstanceType": "{{ InstanceType }}"
-}
->>>
---required properties only
+-- image_builder.iql (required properties only)
 INSERT INTO aws.appstream.image_builders (
  Name,
  InstanceType,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .InstanceType }},
-'us-east-1';
+'{{ Name }}',
+ '{{ InstanceType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "VpcConfig": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "EnableDefaultInternetAccess": "{{ EnableDefaultInternetAccess }}",
- "DomainJoinInfo": {
-  "OrganizationalUnitDistinguishedName": "{{ OrganizationalUnitDistinguishedName }}",
-  "DirectoryName": "{{ DirectoryName }}"
- },
- "AppstreamAgentVersion": "{{ AppstreamAgentVersion }}",
- "Name": "{{ Name }}",
- "ImageName": "{{ ImageName }}",
- "DisplayName": "{{ DisplayName }}",
- "IamRoleArn": "{{ IamRoleArn }}",
- "InstanceType": "{{ InstanceType }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "ImageArn": "{{ ImageArn }}",
- "AccessEndpoints": [
-  {
-   "EndpointType": "{{ EndpointType }}",
-   "VpceId": "{{ VpceId }}"
-  }
- ]
-}
->>>
---all properties
+-- image_builder.iql (all properties)
 INSERT INTO aws.appstream.image_builders (
  Description,
  VpcConfig,
@@ -160,20 +120,73 @@ INSERT INTO aws.appstream.image_builders (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .VpcConfig }},
- {{ .EnableDefaultInternetAccess }},
- {{ .DomainJoinInfo }},
- {{ .AppstreamAgentVersion }},
- {{ .Name }},
- {{ .ImageName }},
- {{ .DisplayName }},
- {{ .IamRoleArn }},
- {{ .InstanceType }},
- {{ .Tags }},
- {{ .ImageArn }},
- {{ .AccessEndpoints }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ VpcConfig }}',
+ '{{ EnableDefaultInternetAccess }}',
+ '{{ DomainJoinInfo }}',
+ '{{ AppstreamAgentVersion }}',
+ '{{ Name }}',
+ '{{ ImageName }}',
+ '{{ DisplayName }}',
+ '{{ IamRoleArn }}',
+ '{{ InstanceType }}',
+ '{{ Tags }}',
+ '{{ ImageArn }}',
+ '{{ AccessEndpoints }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: image_builder
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: VpcConfig
+        value:
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+      - name: EnableDefaultInternetAccess
+        value: '{{ EnableDefaultInternetAccess }}'
+      - name: DomainJoinInfo
+        value:
+          OrganizationalUnitDistinguishedName: '{{ OrganizationalUnitDistinguishedName }}'
+          DirectoryName: '{{ DirectoryName }}'
+      - name: AppstreamAgentVersion
+        value: '{{ AppstreamAgentVersion }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ImageName
+        value: '{{ ImageName }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: IamRoleArn
+        value: '{{ IamRoleArn }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: ImageArn
+        value: '{{ ImageArn }}'
+      - name: AccessEndpoints
+        value:
+          - EndpointType: '{{ EndpointType }}'
+            VpceId: '{{ VpceId }}'
+
 ```
 </TabItem>
 </Tabs>

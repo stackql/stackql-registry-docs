@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>firewall_rule_group_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FirewallRuleGroupId": "{{ FirewallRuleGroupId }}",
- "VpcId": "{{ VpcId }}",
- "Priority": "{{ Priority }}"
-}
->>>
---required properties only
+-- firewall_rule_group_association.iql (required properties only)
 INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  FirewallRuleGroupId,
  VpcId,
@@ -99,31 +95,16 @@ INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  region
 )
 SELECT 
-{{ .FirewallRuleGroupId }},
- {{ .VpcId }},
- {{ .Priority }},
-'us-east-1';
+'{{ FirewallRuleGroupId }}',
+ '{{ VpcId }}',
+ '{{ Priority }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FirewallRuleGroupId": "{{ FirewallRuleGroupId }}",
- "VpcId": "{{ VpcId }}",
- "Name": "{{ Name }}",
- "Priority": "{{ Priority }}",
- "MutationProtection": "{{ MutationProtection }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- firewall_rule_group_association.iql (all properties)
 INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  FirewallRuleGroupId,
  VpcId,
@@ -134,13 +115,44 @@ INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  region
 )
 SELECT 
- {{ .FirewallRuleGroupId }},
- {{ .VpcId }},
- {{ .Name }},
- {{ .Priority }},
- {{ .MutationProtection }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ FirewallRuleGroupId }}',
+ '{{ VpcId }}',
+ '{{ Name }}',
+ '{{ Priority }}',
+ '{{ MutationProtection }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: firewall_rule_group_association
+    props:
+      - name: FirewallRuleGroupId
+        value: '{{ FirewallRuleGroupId }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Priority
+        value: '{{ Priority }}'
+      - name: MutationProtection
+        value: '{{ MutationProtection }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

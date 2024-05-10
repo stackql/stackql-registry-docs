@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain_name_api_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---required properties only
+-- domain_name_api_association.iql (required properties only)
 INSERT INTO aws.appsync.domain_name_api_associations (
  DomainName,
  ApiId,
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .ApiId }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ ApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---all properties
+-- domain_name_api_association.iql (all properties)
 INSERT INTO aws.appsync.domain_name_api_associations (
  DomainName,
  ApiId,
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .ApiId }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ ApiId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain_name_api_association
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: ApiId
+        value: '{{ ApiId }}'
+
 ```
 </TabItem>
 </Tabs>

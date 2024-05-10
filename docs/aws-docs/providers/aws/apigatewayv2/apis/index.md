@@ -74,58 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>api</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RouteSelectionExpression": "{{ RouteSelectionExpression }}",
- "BodyS3Location": {
-  "Etag": "{{ Etag }}",
-  "Bucket": "{{ Bucket }}",
-  "Version": "{{ Version }}",
-  "Key": "{{ Key }}"
- },
- "Description": "{{ Description }}",
- "BasePath": "{{ BasePath }}",
- "FailOnWarnings": "{{ FailOnWarnings }}",
- "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
- "DisableSchemaValidation": "{{ DisableSchemaValidation }}",
- "Name": "{{ Name }}",
- "Target": "{{ Target }}",
- "CredentialsArn": "{{ CredentialsArn }}",
- "CorsConfiguration": {
-  "AllowOrigins": [
-   "{{ AllowOrigins[0] }}"
-  ],
-  "AllowCredentials": "{{ AllowCredentials }}",
-  "ExposeHeaders": [
-   "{{ ExposeHeaders[0] }}"
-  ],
-  "AllowHeaders": [
-   "{{ AllowHeaders[0] }}"
-  ],
-  "MaxAge": "{{ MaxAge }}",
-  "AllowMethods": [
-   "{{ AllowMethods[0] }}"
-  ]
- },
- "Version": "{{ Version }}",
- "ProtocolType": "{{ ProtocolType }}",
- "RouteKey": "{{ RouteKey }}",
- "Body": {},
- "Tags": {},
- "ApiKeySelectionExpression": "{{ ApiKeySelectionExpression }}"
-}
->>>
---required properties only
+-- api.iql (required properties only)
 INSERT INTO aws.apigatewayv2.apis (
  RouteSelectionExpression,
  BodyS3Location,
@@ -147,71 +109,30 @@ INSERT INTO aws.apigatewayv2.apis (
  region
 )
 SELECT 
-{{ .RouteSelectionExpression }},
- {{ .BodyS3Location }},
- {{ .Description }},
- {{ .BasePath }},
- {{ .FailOnWarnings }},
- {{ .DisableExecuteApiEndpoint }},
- {{ .DisableSchemaValidation }},
- {{ .Name }},
- {{ .Target }},
- {{ .CredentialsArn }},
- {{ .CorsConfiguration }},
- {{ .Version }},
- {{ .ProtocolType }},
- {{ .RouteKey }},
- {{ .Body }},
- {{ .Tags }},
- {{ .ApiKeySelectionExpression }},
-'us-east-1';
+'{{ RouteSelectionExpression }}',
+ '{{ BodyS3Location }}',
+ '{{ Description }}',
+ '{{ BasePath }}',
+ '{{ FailOnWarnings }}',
+ '{{ DisableExecuteApiEndpoint }}',
+ '{{ DisableSchemaValidation }}',
+ '{{ Name }}',
+ '{{ Target }}',
+ '{{ CredentialsArn }}',
+ '{{ CorsConfiguration }}',
+ '{{ Version }}',
+ '{{ ProtocolType }}',
+ '{{ RouteKey }}',
+ '{{ Body }}',
+ '{{ Tags }}',
+ '{{ ApiKeySelectionExpression }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RouteSelectionExpression": "{{ RouteSelectionExpression }}",
- "BodyS3Location": {
-  "Etag": "{{ Etag }}",
-  "Bucket": "{{ Bucket }}",
-  "Version": "{{ Version }}",
-  "Key": "{{ Key }}"
- },
- "Description": "{{ Description }}",
- "BasePath": "{{ BasePath }}",
- "FailOnWarnings": "{{ FailOnWarnings }}",
- "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
- "DisableSchemaValidation": "{{ DisableSchemaValidation }}",
- "Name": "{{ Name }}",
- "Target": "{{ Target }}",
- "CredentialsArn": "{{ CredentialsArn }}",
- "CorsConfiguration": {
-  "AllowOrigins": [
-   "{{ AllowOrigins[0] }}"
-  ],
-  "AllowCredentials": "{{ AllowCredentials }}",
-  "ExposeHeaders": [
-   "{{ ExposeHeaders[0] }}"
-  ],
-  "AllowHeaders": [
-   "{{ AllowHeaders[0] }}"
-  ],
-  "MaxAge": "{{ MaxAge }}",
-  "AllowMethods": [
-   "{{ AllowMethods[0] }}"
-  ]
- },
- "Version": "{{ Version }}",
- "ProtocolType": "{{ ProtocolType }}",
- "RouteKey": "{{ RouteKey }}",
- "Body": {},
- "Tags": {},
- "ApiKeySelectionExpression": "{{ ApiKeySelectionExpression }}"
-}
->>>
---all properties
+-- api.iql (all properties)
 INSERT INTO aws.apigatewayv2.apis (
  RouteSelectionExpression,
  BodyS3Location,
@@ -233,24 +154,89 @@ INSERT INTO aws.apigatewayv2.apis (
  region
 )
 SELECT 
- {{ .RouteSelectionExpression }},
- {{ .BodyS3Location }},
- {{ .Description }},
- {{ .BasePath }},
- {{ .FailOnWarnings }},
- {{ .DisableExecuteApiEndpoint }},
- {{ .DisableSchemaValidation }},
- {{ .Name }},
- {{ .Target }},
- {{ .CredentialsArn }},
- {{ .CorsConfiguration }},
- {{ .Version }},
- {{ .ProtocolType }},
- {{ .RouteKey }},
- {{ .Body }},
- {{ .Tags }},
- {{ .ApiKeySelectionExpression }},
- 'us-east-1';
+ '{{ RouteSelectionExpression }}',
+ '{{ BodyS3Location }}',
+ '{{ Description }}',
+ '{{ BasePath }}',
+ '{{ FailOnWarnings }}',
+ '{{ DisableExecuteApiEndpoint }}',
+ '{{ DisableSchemaValidation }}',
+ '{{ Name }}',
+ '{{ Target }}',
+ '{{ CredentialsArn }}',
+ '{{ CorsConfiguration }}',
+ '{{ Version }}',
+ '{{ ProtocolType }}',
+ '{{ RouteKey }}',
+ '{{ Body }}',
+ '{{ Tags }}',
+ '{{ ApiKeySelectionExpression }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: api
+    props:
+      - name: RouteSelectionExpression
+        value: '{{ RouteSelectionExpression }}'
+      - name: BodyS3Location
+        value:
+          Etag: '{{ Etag }}'
+          Bucket: '{{ Bucket }}'
+          Version: '{{ Version }}'
+          Key: '{{ Key }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: BasePath
+        value: '{{ BasePath }}'
+      - name: FailOnWarnings
+        value: '{{ FailOnWarnings }}'
+      - name: DisableExecuteApiEndpoint
+        value: '{{ DisableExecuteApiEndpoint }}'
+      - name: DisableSchemaValidation
+        value: '{{ DisableSchemaValidation }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Target
+        value: '{{ Target }}'
+      - name: CredentialsArn
+        value: '{{ CredentialsArn }}'
+      - name: CorsConfiguration
+        value:
+          AllowOrigins:
+            - '{{ AllowOrigins[0] }}'
+          AllowCredentials: '{{ AllowCredentials }}'
+          ExposeHeaders:
+            - '{{ ExposeHeaders[0] }}'
+          AllowHeaders:
+            - '{{ AllowHeaders[0] }}'
+          MaxAge: '{{ MaxAge }}'
+          AllowMethods:
+            - '{{ AllowMethods[0] }}'
+      - name: Version
+        value: '{{ Version }}'
+      - name: ProtocolType
+        value: '{{ ProtocolType }}'
+      - name: RouteKey
+        value: '{{ RouteKey }}'
+      - name: Body
+        value: {}
+      - name: Tags
+        value: {}
+      - name: ApiKeySelectionExpression
+        value: '{{ ApiKeySelectionExpression }}'
+
 ```
 </TabItem>
 </Tabs>

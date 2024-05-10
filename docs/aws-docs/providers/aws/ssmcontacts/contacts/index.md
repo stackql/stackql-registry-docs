@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>contact</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Alias": "{{ Alias }}",
- "DisplayName": "{{ DisplayName }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- contact.iql (required properties only)
 INSERT INTO aws.ssmcontacts.contacts (
  Alias,
  DisplayName,
@@ -99,40 +95,16 @@ INSERT INTO aws.ssmcontacts.contacts (
  region
 )
 SELECT 
-{{ .Alias }},
- {{ .DisplayName }},
- {{ .Type }},
-'us-east-1';
+'{{ Alias }}',
+ '{{ DisplayName }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Alias": "{{ Alias }}",
- "DisplayName": "{{ DisplayName }}",
- "Type": "{{ Type }}",
- "Plan": [
-  {
-   "DurationInMinutes": "{{ DurationInMinutes }}",
-   "Targets": [
-    {
-     "ContactTargetInfo": {
-      "ContactId": "{{ ContactId }}",
-      "IsEssential": "{{ IsEssential }}"
-     },
-     "ChannelTargetInfo": {
-      "ChannelId": "{{ ChannelId }}",
-      "RetryIntervalInMinutes": "{{ RetryIntervalInMinutes }}"
-     }
-    }
-   ]
-  }
- ]
-}
->>>
---all properties
+-- contact.iql (all properties)
 INSERT INTO aws.ssmcontacts.contacts (
  Alias,
  DisplayName,
@@ -141,11 +113,44 @@ INSERT INTO aws.ssmcontacts.contacts (
  region
 )
 SELECT 
- {{ .Alias }},
- {{ .DisplayName }},
- {{ .Type }},
- {{ .Plan }},
- 'us-east-1';
+ '{{ Alias }}',
+ '{{ DisplayName }}',
+ '{{ Type }}',
+ '{{ Plan }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: contact
+    props:
+      - name: Alias
+        value: '{{ Alias }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Plan
+        value:
+          - DurationInMinutes: '{{ DurationInMinutes }}'
+            Targets:
+              - ContactTargetInfo:
+                  ContactId: '{{ ContactId }}'
+                  IsEssential: '{{ IsEssential }}'
+                ChannelTargetInfo:
+                  ChannelId: '{{ ChannelId }}'
+                  RetryIntervalInMinutes: '{{ RetryIntervalInMinutes }}'
+
 ```
 </TabItem>
 </Tabs>

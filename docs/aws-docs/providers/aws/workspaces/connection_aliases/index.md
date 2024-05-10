@@ -74,55 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connection_alias</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConnectionString": "{{ ConnectionString }}"
-}
->>>
---required properties only
+-- connection_alias.iql (required properties only)
 INSERT INTO aws.workspaces.connection_aliases (
  ConnectionString,
  region
 )
 SELECT 
-{{ .ConnectionString }},
-'us-east-1';
+'{{ ConnectionString }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConnectionString": "{{ ConnectionString }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- connection_alias.iql (all properties)
 INSERT INTO aws.workspaces.connection_aliases (
  ConnectionString,
  Tags,
  region
 )
 SELECT 
- {{ .ConnectionString }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ConnectionString }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connection_alias
+    props:
+      - name: ConnectionString
+        value: '{{ ConnectionString }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

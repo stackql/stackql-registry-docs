@@ -74,62 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>locationf_sx_ontap</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StorageVirtualMachineArn": "{{ StorageVirtualMachineArn }}",
- "SecurityGroupArns": [
-  "{{ SecurityGroupArns[0] }}"
- ]
-}
->>>
---required properties only
+-- locationf_sx_ontap.iql (required properties only)
 INSERT INTO aws.datasync.locationf_sx_ontaps (
  StorageVirtualMachineArn,
  SecurityGroupArns,
  region
 )
 SELECT 
-{{ .StorageVirtualMachineArn }},
- {{ .SecurityGroupArns }},
-'us-east-1';
+'{{ StorageVirtualMachineArn }}',
+ '{{ SecurityGroupArns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "StorageVirtualMachineArn": "{{ StorageVirtualMachineArn }}",
- "SecurityGroupArns": [
-  "{{ SecurityGroupArns[0] }}"
- ],
- "Protocol": {
-  "NFS": {
-   "MountOptions": {
-    "Version": "{{ Version }}"
-   }
-  }
- },
- "Subdirectory": "{{ Subdirectory }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- locationf_sx_ontap.iql (all properties)
 INSERT INTO aws.datasync.locationf_sx_ontaps (
  StorageVirtualMachineArn,
  SecurityGroupArns,
@@ -139,12 +112,45 @@ INSERT INTO aws.datasync.locationf_sx_ontaps (
  region
 )
 SELECT 
- {{ .StorageVirtualMachineArn }},
- {{ .SecurityGroupArns }},
- {{ .Protocol }},
- {{ .Subdirectory }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ StorageVirtualMachineArn }}',
+ '{{ SecurityGroupArns }}',
+ '{{ Protocol }}',
+ '{{ Subdirectory }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: locationf_sx_ontap
+    props:
+      - name: StorageVirtualMachineArn
+        value: '{{ StorageVirtualMachineArn }}'
+      - name: SecurityGroupArns
+        value:
+          - '{{ SecurityGroupArns[0] }}'
+      - name: Protocol
+        value:
+          NFS:
+            MountOptions:
+              Version: '{{ Version }}'
+      - name: Subdirectory
+        value: '{{ Subdirectory }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>route_calculator</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CalculatorName": "{{ CalculatorName }}",
- "DataSource": "{{ DataSource }}"
-}
->>>
---required properties only
+-- route_calculator.iql (required properties only)
 INSERT INTO aws.location.route_calculators (
  CalculatorName,
  DataSource,
  region
 )
 SELECT 
-{{ .CalculatorName }},
- {{ .DataSource }},
-'us-east-1';
+'{{ CalculatorName }}',
+ '{{ DataSource }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CalculatorName": "{{ CalculatorName }}",
- "DataSource": "{{ DataSource }}",
- "Description": "{{ Description }}",
- "PricingPlan": "{{ PricingPlan }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- route_calculator.iql (all properties)
 INSERT INTO aws.location.route_calculators (
  CalculatorName,
  DataSource,
@@ -129,12 +112,41 @@ INSERT INTO aws.location.route_calculators (
  region
 )
 SELECT 
- {{ .CalculatorName }},
- {{ .DataSource }},
- {{ .Description }},
- {{ .PricingPlan }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CalculatorName }}',
+ '{{ DataSource }}',
+ '{{ Description }}',
+ '{{ PricingPlan }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: route_calculator
+    props:
+      - name: CalculatorName
+        value: '{{ CalculatorName }}'
+      - name: DataSource
+        value: '{{ DataSource }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: PricingPlan
+        value: '{{ PricingPlan }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

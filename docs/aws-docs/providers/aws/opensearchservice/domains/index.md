@@ -74,124 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterConfig": {
-  "InstanceCount": "{{ InstanceCount }}",
-  "WarmEnabled": "{{ WarmEnabled }}",
-  "WarmCount": "{{ WarmCount }}",
-  "DedicatedMasterEnabled": "{{ DedicatedMasterEnabled }}",
-  "ZoneAwarenessConfig": {
-   "AvailabilityZoneCount": "{{ AvailabilityZoneCount }}"
-  },
-  "DedicatedMasterCount": "{{ DedicatedMasterCount }}",
-  "InstanceType": "{{ InstanceType }}",
-  "WarmType": "{{ WarmType }}",
-  "ZoneAwarenessEnabled": "{{ ZoneAwarenessEnabled }}",
-  "DedicatedMasterType": "{{ DedicatedMasterType }}",
-  "MultiAZWithStandbyEnabled": "{{ MultiAZWithStandbyEnabled }}",
-  "ColdStorageOptions": {
-   "Enabled": "{{ Enabled }}"
-  }
- },
- "DomainName": "{{ DomainName }}",
- "AccessPolicies": {},
- "IPAddressType": "{{ IPAddressType }}",
- "EngineVersion": "{{ EngineVersion }}",
- "AdvancedOptions": {},
- "LogPublishingOptions": {},
- "SnapshotOptions": {
-  "AutomatedSnapshotStartHour": "{{ AutomatedSnapshotStartHour }}"
- },
- "VPCOptions": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "NodeToNodeEncryptionOptions": {
-  "Enabled": "{{ Enabled }}"
- },
- "DomainEndpointOptions": {
-  "CustomEndpointCertificateArn": "{{ CustomEndpointCertificateArn }}",
-  "CustomEndpointEnabled": "{{ CustomEndpointEnabled }}",
-  "EnforceHTTPS": "{{ EnforceHTTPS }}",
-  "CustomEndpoint": "{{ CustomEndpoint }}",
-  "TLSSecurityPolicy": "{{ TLSSecurityPolicy }}"
- },
- "CognitoOptions": {
-  "Enabled": "{{ Enabled }}",
-  "IdentityPoolId": "{{ IdentityPoolId }}",
-  "UserPoolId": "{{ UserPoolId }}",
-  "RoleArn": "{{ RoleArn }}"
- },
- "AdvancedSecurityOptions": {
-  "Enabled": "{{ Enabled }}",
-  "MasterUserOptions": {
-   "MasterUserPassword": "{{ MasterUserPassword }}",
-   "MasterUserName": "{{ MasterUserName }}",
-   "MasterUserARN": "{{ MasterUserARN }}"
-  },
-  "InternalUserDatabaseEnabled": "{{ InternalUserDatabaseEnabled }}",
-  "AnonymousAuthEnabled": "{{ AnonymousAuthEnabled }}",
-  "SAMLOptions": {
-   "Enabled": "{{ Enabled }}",
-   "Idp": {
-    "MetadataContent": "{{ MetadataContent }}",
-    "EntityId": "{{ EntityId }}"
-   },
-   "MasterUserName": "{{ MasterUserName }}",
-   "MasterBackendRole": "{{ MasterBackendRole }}",
-   "SubjectKey": "{{ SubjectKey }}",
-   "RolesKey": "{{ RolesKey }}",
-   "SessionTimeoutMinutes": "{{ SessionTimeoutMinutes }}"
-  },
-  "AnonymousAuthDisableDate": "{{ AnonymousAuthDisableDate }}"
- },
- "EBSOptions": {
-  "EBSEnabled": "{{ EBSEnabled }}",
-  "VolumeType": "{{ VolumeType }}",
-  "Iops": "{{ Iops }}",
-  "VolumeSize": "{{ VolumeSize }}",
-  "Throughput": "{{ Throughput }}"
- },
- "EncryptionAtRestOptions": {
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "Enabled": "{{ Enabled }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "OffPeakWindowOptions": {
-  "Enabled": "{{ Enabled }}",
-  "OffPeakWindow": {
-   "WindowStartTime": {
-    "Hours": "{{ Hours }}",
-    "Minutes": "{{ Minutes }}"
-   }
-  }
- },
- "SoftwareUpdateOptions": {
-  "AutoSoftwareUpdateEnabled": "{{ AutoSoftwareUpdateEnabled }}"
- }
-}
->>>
---required properties only
+-- domain.iql (required properties only)
 INSERT INTO aws.opensearchservice.domains (
  ClusterConfig,
  DomainName,
@@ -214,138 +110,31 @@ INSERT INTO aws.opensearchservice.domains (
  region
 )
 SELECT 
-{{ .ClusterConfig }},
- {{ .DomainName }},
- {{ .AccessPolicies }},
- {{ .IPAddressType }},
- {{ .EngineVersion }},
- {{ .AdvancedOptions }},
- {{ .LogPublishingOptions }},
- {{ .SnapshotOptions }},
- {{ .VPCOptions }},
- {{ .NodeToNodeEncryptionOptions }},
- {{ .DomainEndpointOptions }},
- {{ .CognitoOptions }},
- {{ .AdvancedSecurityOptions }},
- {{ .EBSOptions }},
- {{ .EncryptionAtRestOptions }},
- {{ .Tags }},
- {{ .OffPeakWindowOptions }},
- {{ .SoftwareUpdateOptions }},
-'us-east-1';
+'{{ ClusterConfig }}',
+ '{{ DomainName }}',
+ '{{ AccessPolicies }}',
+ '{{ IPAddressType }}',
+ '{{ EngineVersion }}',
+ '{{ AdvancedOptions }}',
+ '{{ LogPublishingOptions }}',
+ '{{ SnapshotOptions }}',
+ '{{ VPCOptions }}',
+ '{{ NodeToNodeEncryptionOptions }}',
+ '{{ DomainEndpointOptions }}',
+ '{{ CognitoOptions }}',
+ '{{ AdvancedSecurityOptions }}',
+ '{{ EBSOptions }}',
+ '{{ EncryptionAtRestOptions }}',
+ '{{ Tags }}',
+ '{{ OffPeakWindowOptions }}',
+ '{{ SoftwareUpdateOptions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterConfig": {
-  "InstanceCount": "{{ InstanceCount }}",
-  "WarmEnabled": "{{ WarmEnabled }}",
-  "WarmCount": "{{ WarmCount }}",
-  "DedicatedMasterEnabled": "{{ DedicatedMasterEnabled }}",
-  "ZoneAwarenessConfig": {
-   "AvailabilityZoneCount": "{{ AvailabilityZoneCount }}"
-  },
-  "DedicatedMasterCount": "{{ DedicatedMasterCount }}",
-  "InstanceType": "{{ InstanceType }}",
-  "WarmType": "{{ WarmType }}",
-  "ZoneAwarenessEnabled": "{{ ZoneAwarenessEnabled }}",
-  "DedicatedMasterType": "{{ DedicatedMasterType }}",
-  "MultiAZWithStandbyEnabled": "{{ MultiAZWithStandbyEnabled }}",
-  "ColdStorageOptions": {
-   "Enabled": "{{ Enabled }}"
-  }
- },
- "DomainName": "{{ DomainName }}",
- "AccessPolicies": {},
- "IPAddressType": "{{ IPAddressType }}",
- "EngineVersion": "{{ EngineVersion }}",
- "AdvancedOptions": {},
- "LogPublishingOptions": {},
- "SnapshotOptions": {
-  "AutomatedSnapshotStartHour": "{{ AutomatedSnapshotStartHour }}"
- },
- "VPCOptions": {
-  "SecurityGroupIds": [
-   "{{ SecurityGroupIds[0] }}"
-  ],
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ]
- },
- "NodeToNodeEncryptionOptions": {
-  "Enabled": "{{ Enabled }}"
- },
- "DomainEndpointOptions": {
-  "CustomEndpointCertificateArn": "{{ CustomEndpointCertificateArn }}",
-  "CustomEndpointEnabled": "{{ CustomEndpointEnabled }}",
-  "EnforceHTTPS": "{{ EnforceHTTPS }}",
-  "CustomEndpoint": "{{ CustomEndpoint }}",
-  "TLSSecurityPolicy": "{{ TLSSecurityPolicy }}"
- },
- "CognitoOptions": {
-  "Enabled": "{{ Enabled }}",
-  "IdentityPoolId": "{{ IdentityPoolId }}",
-  "UserPoolId": "{{ UserPoolId }}",
-  "RoleArn": "{{ RoleArn }}"
- },
- "AdvancedSecurityOptions": {
-  "Enabled": "{{ Enabled }}",
-  "MasterUserOptions": {
-   "MasterUserPassword": "{{ MasterUserPassword }}",
-   "MasterUserName": "{{ MasterUserName }}",
-   "MasterUserARN": "{{ MasterUserARN }}"
-  },
-  "InternalUserDatabaseEnabled": "{{ InternalUserDatabaseEnabled }}",
-  "AnonymousAuthEnabled": "{{ AnonymousAuthEnabled }}",
-  "SAMLOptions": {
-   "Enabled": "{{ Enabled }}",
-   "Idp": {
-    "MetadataContent": "{{ MetadataContent }}",
-    "EntityId": "{{ EntityId }}"
-   },
-   "MasterUserName": "{{ MasterUserName }}",
-   "MasterBackendRole": "{{ MasterBackendRole }}",
-   "SubjectKey": "{{ SubjectKey }}",
-   "RolesKey": "{{ RolesKey }}",
-   "SessionTimeoutMinutes": "{{ SessionTimeoutMinutes }}"
-  },
-  "AnonymousAuthDisableDate": "{{ AnonymousAuthDisableDate }}"
- },
- "EBSOptions": {
-  "EBSEnabled": "{{ EBSEnabled }}",
-  "VolumeType": "{{ VolumeType }}",
-  "Iops": "{{ Iops }}",
-  "VolumeSize": "{{ VolumeSize }}",
-  "Throughput": "{{ Throughput }}"
- },
- "EncryptionAtRestOptions": {
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "Enabled": "{{ Enabled }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "OffPeakWindowOptions": {
-  "Enabled": "{{ Enabled }}",
-  "OffPeakWindow": {
-   "WindowStartTime": {
-    "Hours": "{{ Hours }}",
-    "Minutes": "{{ Minutes }}"
-   }
-  }
- },
- "SoftwareUpdateOptions": {
-  "AutoSoftwareUpdateEnabled": "{{ AutoSoftwareUpdateEnabled }}"
- }
-}
->>>
---all properties
+-- domain.iql (all properties)
 INSERT INTO aws.opensearchservice.domains (
  ClusterConfig,
  DomainName,
@@ -368,25 +157,140 @@ INSERT INTO aws.opensearchservice.domains (
  region
 )
 SELECT 
- {{ .ClusterConfig }},
- {{ .DomainName }},
- {{ .AccessPolicies }},
- {{ .IPAddressType }},
- {{ .EngineVersion }},
- {{ .AdvancedOptions }},
- {{ .LogPublishingOptions }},
- {{ .SnapshotOptions }},
- {{ .VPCOptions }},
- {{ .NodeToNodeEncryptionOptions }},
- {{ .DomainEndpointOptions }},
- {{ .CognitoOptions }},
- {{ .AdvancedSecurityOptions }},
- {{ .EBSOptions }},
- {{ .EncryptionAtRestOptions }},
- {{ .Tags }},
- {{ .OffPeakWindowOptions }},
- {{ .SoftwareUpdateOptions }},
- 'us-east-1';
+ '{{ ClusterConfig }}',
+ '{{ DomainName }}',
+ '{{ AccessPolicies }}',
+ '{{ IPAddressType }}',
+ '{{ EngineVersion }}',
+ '{{ AdvancedOptions }}',
+ '{{ LogPublishingOptions }}',
+ '{{ SnapshotOptions }}',
+ '{{ VPCOptions }}',
+ '{{ NodeToNodeEncryptionOptions }}',
+ '{{ DomainEndpointOptions }}',
+ '{{ CognitoOptions }}',
+ '{{ AdvancedSecurityOptions }}',
+ '{{ EBSOptions }}',
+ '{{ EncryptionAtRestOptions }}',
+ '{{ Tags }}',
+ '{{ OffPeakWindowOptions }}',
+ '{{ SoftwareUpdateOptions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain
+    props:
+      - name: ClusterConfig
+        value:
+          InstanceCount: '{{ InstanceCount }}'
+          WarmEnabled: '{{ WarmEnabled }}'
+          WarmCount: '{{ WarmCount }}'
+          DedicatedMasterEnabled: '{{ DedicatedMasterEnabled }}'
+          ZoneAwarenessConfig:
+            AvailabilityZoneCount: '{{ AvailabilityZoneCount }}'
+          DedicatedMasterCount: '{{ DedicatedMasterCount }}'
+          InstanceType: '{{ InstanceType }}'
+          WarmType: '{{ WarmType }}'
+          ZoneAwarenessEnabled: '{{ ZoneAwarenessEnabled }}'
+          DedicatedMasterType: '{{ DedicatedMasterType }}'
+          MultiAZWithStandbyEnabled: '{{ MultiAZWithStandbyEnabled }}'
+          ColdStorageOptions:
+            Enabled: '{{ Enabled }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: AccessPolicies
+        value: {}
+      - name: IPAddressType
+        value: '{{ IPAddressType }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: AdvancedOptions
+        value: {}
+      - name: LogPublishingOptions
+        value: {}
+      - name: SnapshotOptions
+        value:
+          AutomatedSnapshotStartHour: '{{ AutomatedSnapshotStartHour }}'
+      - name: VPCOptions
+        value:
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+      - name: NodeToNodeEncryptionOptions
+        value:
+          Enabled: '{{ Enabled }}'
+      - name: DomainEndpointOptions
+        value:
+          CustomEndpointCertificateArn: '{{ CustomEndpointCertificateArn }}'
+          CustomEndpointEnabled: '{{ CustomEndpointEnabled }}'
+          EnforceHTTPS: '{{ EnforceHTTPS }}'
+          CustomEndpoint: '{{ CustomEndpoint }}'
+          TLSSecurityPolicy: '{{ TLSSecurityPolicy }}'
+      - name: CognitoOptions
+        value:
+          Enabled: '{{ Enabled }}'
+          IdentityPoolId: '{{ IdentityPoolId }}'
+          UserPoolId: '{{ UserPoolId }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: AdvancedSecurityOptions
+        value:
+          Enabled: '{{ Enabled }}'
+          MasterUserOptions:
+            MasterUserPassword: '{{ MasterUserPassword }}'
+            MasterUserName: '{{ MasterUserName }}'
+            MasterUserARN: '{{ MasterUserARN }}'
+          InternalUserDatabaseEnabled: '{{ InternalUserDatabaseEnabled }}'
+          AnonymousAuthEnabled: '{{ AnonymousAuthEnabled }}'
+          SAMLOptions:
+            Enabled: '{{ Enabled }}'
+            Idp:
+              MetadataContent: '{{ MetadataContent }}'
+              EntityId: '{{ EntityId }}'
+            MasterUserName: '{{ MasterUserName }}'
+            MasterBackendRole: '{{ MasterBackendRole }}'
+            SubjectKey: '{{ SubjectKey }}'
+            RolesKey: '{{ RolesKey }}'
+            SessionTimeoutMinutes: '{{ SessionTimeoutMinutes }}'
+          AnonymousAuthDisableDate: '{{ AnonymousAuthDisableDate }}'
+      - name: EBSOptions
+        value:
+          EBSEnabled: '{{ EBSEnabled }}'
+          VolumeType: '{{ VolumeType }}'
+          Iops: '{{ Iops }}'
+          VolumeSize: '{{ VolumeSize }}'
+          Throughput: '{{ Throughput }}'
+      - name: EncryptionAtRestOptions
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+          Enabled: '{{ Enabled }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: OffPeakWindowOptions
+        value:
+          Enabled: '{{ Enabled }}'
+          OffPeakWindow:
+            WindowStartTime:
+              Hours: '{{ Hours }}'
+              Minutes: '{{ Minutes }}'
+      - name: SoftwareUpdateOptions
+        value:
+          AutoSoftwareUpdateEnabled: '{{ AutoSoftwareUpdateEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>destination</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Expression": "{{ Expression }}",
- "ExpressionType": "{{ ExpressionType }}"
-}
->>>
---required properties only
+-- destination.iql (required properties only)
 INSERT INTO aws.iotwireless.destinations (
  Name,
  Expression,
@@ -99,31 +95,16 @@ INSERT INTO aws.iotwireless.destinations (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Expression }},
- {{ .ExpressionType }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Expression }}',
+ '{{ ExpressionType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Expression": "{{ Expression }}",
- "ExpressionType": "{{ ExpressionType }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---all properties
+-- destination.iql (all properties)
 INSERT INTO aws.iotwireless.destinations (
  Name,
  Expression,
@@ -134,13 +115,44 @@ INSERT INTO aws.iotwireless.destinations (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Expression }},
- {{ .ExpressionType }},
- {{ .Description }},
- {{ .Tags }},
- {{ .RoleArn }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Expression }}',
+ '{{ ExpressionType }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ RoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: destination
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Expression
+        value: '{{ Expression }}'
+      - name: ExpressionType
+        value: '{{ ExpressionType }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

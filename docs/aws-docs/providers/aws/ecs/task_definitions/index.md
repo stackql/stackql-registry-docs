@@ -74,267 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>task_definition</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Family": "{{ Family }}",
- "ContainerDefinitions": [
-  {
-   "Command": [
-    "{{ Command[0] }}"
-   ],
-   "Cpu": "{{ Cpu }}",
-   "CredentialSpecs": [
-    "{{ CredentialSpecs[0] }}"
-   ],
-   "DependsOn": [
-    {
-     "ContainerName": "{{ ContainerName }}",
-     "Condition": "{{ Condition }}"
-    }
-   ],
-   "DisableNetworking": "{{ DisableNetworking }}",
-   "DnsSearchDomains": [
-    "{{ DnsSearchDomains[0] }}"
-   ],
-   "DnsServers": [
-    "{{ DnsServers[0] }}"
-   ],
-   "DockerLabels": {},
-   "DockerSecurityOptions": [
-    "{{ DockerSecurityOptions[0] }}"
-   ],
-   "EntryPoint": [
-    "{{ EntryPoint[0] }}"
-   ],
-   "Environment": [
-    {
-     "Name": "{{ Name }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "EnvironmentFiles": [
-    {
-     "Value": "{{ Value }}",
-     "Type": "{{ Type }}"
-    }
-   ],
-   "Essential": "{{ Essential }}",
-   "ExtraHosts": [
-    {
-     "Hostname": "{{ Hostname }}",
-     "IpAddress": "{{ IpAddress }}"
-    }
-   ],
-   "FirelensConfiguration": {
-    "Type": "{{ Type }}",
-    "Options": {}
-   },
-   "HealthCheck": {
-    "Command": [
-     "{{ Command[0] }}"
-    ],
-    "Interval": "{{ Interval }}",
-    "Timeout": "{{ Timeout }}",
-    "Retries": "{{ Retries }}",
-    "StartPeriod": "{{ StartPeriod }}"
-   },
-   "Hostname": "{{ Hostname }}",
-   "Image": "{{ Image }}",
-   "Links": [
-    "{{ Links[0] }}"
-   ],
-   "LinuxParameters": {
-    "Capabilities": {
-     "Add": [
-      "{{ Add[0] }}"
-     ],
-     "Drop": [
-      "{{ Drop[0] }}"
-     ]
-    },
-    "Devices": [
-     {
-      "ContainerPath": "{{ ContainerPath }}",
-      "HostPath": "{{ HostPath }}",
-      "Permissions": [
-       "{{ Permissions[0] }}"
-      ]
-     }
-    ],
-    "InitProcessEnabled": "{{ InitProcessEnabled }}",
-    "MaxSwap": "{{ MaxSwap }}",
-    "SharedMemorySize": "{{ SharedMemorySize }}",
-    "Swappiness": "{{ Swappiness }}",
-    "Tmpfs": [
-     {
-      "ContainerPath": "{{ ContainerPath }}",
-      "MountOptions": [
-       "{{ MountOptions[0] }}"
-      ],
-      "Size": "{{ Size }}"
-     }
-    ]
-   },
-   "LogConfiguration": {
-    "LogDriver": "{{ LogDriver }}",
-    "Options": {},
-    "SecretOptions": [
-     {
-      "Name": "{{ Name }}",
-      "ValueFrom": "{{ ValueFrom }}"
-     }
-    ]
-   },
-   "Memory": "{{ Memory }}",
-   "MemoryReservation": "{{ MemoryReservation }}",
-   "MountPoints": [
-    {
-     "ContainerPath": "{{ ContainerPath }}",
-     "ReadOnly": "{{ ReadOnly }}",
-     "SourceVolume": "{{ SourceVolume }}"
-    }
-   ],
-   "Name": "{{ Name }}",
-   "PortMappings": [
-    {
-     "Name": "{{ Name }}",
-     "ContainerPort": "{{ ContainerPort }}",
-     "ContainerPortRange": "{{ ContainerPortRange }}",
-     "HostPort": "{{ HostPort }}",
-     "Protocol": "{{ Protocol }}",
-     "AppProtocol": "{{ AppProtocol }}"
-    }
-   ],
-   "Privileged": "{{ Privileged }}",
-   "ReadonlyRootFilesystem": "{{ ReadonlyRootFilesystem }}",
-   "RepositoryCredentials": {
-    "CredentialsParameter": "{{ CredentialsParameter }}"
-   },
-   "ResourceRequirements": [
-    {
-     "Type": "{{ Type }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "Secrets": [
-    null
-   ],
-   "StartTimeout": "{{ StartTimeout }}",
-   "StopTimeout": "{{ StopTimeout }}",
-   "Ulimits": [
-    {
-     "HardLimit": "{{ HardLimit }}",
-     "Name": "{{ Name }}",
-     "SoftLimit": "{{ SoftLimit }}"
-    }
-   ],
-   "User": "{{ User }}",
-   "VolumesFrom": [
-    {
-     "ReadOnly": "{{ ReadOnly }}",
-     "SourceContainer": "{{ SourceContainer }}"
-    }
-   ],
-   "WorkingDirectory": "{{ WorkingDirectory }}",
-   "Interactive": "{{ Interactive }}",
-   "PseudoTerminal": "{{ PseudoTerminal }}",
-   "SystemControls": [
-    {
-     "Namespace": "{{ Namespace }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "Cpu": "{{ Cpu }}",
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "EphemeralStorage": {
-  "SizeInGiB": "{{ SizeInGiB }}"
- },
- "InferenceAccelerators": [
-  {
-   "DeviceName": "{{ DeviceName }}",
-   "DeviceType": "{{ DeviceType }}"
-  }
- ],
- "Memory": "{{ Memory }}",
- "NetworkMode": "{{ NetworkMode }}",
- "PlacementConstraints": [
-  {
-   "Type": "{{ Type }}",
-   "Expression": "{{ Expression }}"
-  }
- ],
- "ProxyConfiguration": {
-  "ContainerName": "{{ ContainerName }}",
-  "ProxyConfigurationProperties": [
-   null
-  ],
-  "Type": "{{ Type }}"
- },
- "RequiresCompatibilities": [
-  "{{ RequiresCompatibilities[0] }}"
- ],
- "TaskRoleArn": "{{ TaskRoleArn }}",
- "Volumes": [
-  {
-   "ConfiguredAtLaunch": "{{ ConfiguredAtLaunch }}",
-   "DockerVolumeConfiguration": {
-    "Autoprovision": "{{ Autoprovision }}",
-    "Driver": "{{ Driver }}",
-    "DriverOpts": {},
-    "Labels": {},
-    "Scope": "{{ Scope }}"
-   },
-   "EFSVolumeConfiguration": {
-    "FilesystemId": "{{ FilesystemId }}",
-    "RootDirectory": "{{ RootDirectory }}",
-    "TransitEncryption": "{{ TransitEncryption }}",
-    "TransitEncryptionPort": "{{ TransitEncryptionPort }}",
-    "AuthorizationConfig": {
-     "IAM": "{{ IAM }}",
-     "AccessPointId": "{{ AccessPointId }}"
-    }
-   },
-   "FSxWindowsFileServerVolumeConfiguration": {
-    "FileSystemId": "{{ FileSystemId }}",
-    "RootDirectory": "{{ RootDirectory }}",
-    "AuthorizationConfig": {
-     "CredentialsParameter": "{{ CredentialsParameter }}",
-     "Domain": "{{ Domain }}"
-    }
-   },
-   "Host": {
-    "SourcePath": "{{ SourcePath }}"
-   },
-   "Name": "{{ Name }}"
-  }
- ],
- "PidMode": "{{ PidMode }}",
- "RuntimePlatform": {
-  "CpuArchitecture": "{{ CpuArchitecture }}",
-  "OperatingSystemFamily": "{{ OperatingSystemFamily }}"
- },
- "IpcMode": "{{ IpcMode }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- task_definition.iql (required properties only)
 INSERT INTO aws.ecs.task_definitions (
  Family,
  ContainerDefinitions,
@@ -356,280 +109,30 @@ INSERT INTO aws.ecs.task_definitions (
  region
 )
 SELECT 
-{{ .Family }},
- {{ .ContainerDefinitions }},
- {{ .Cpu }},
- {{ .ExecutionRoleArn }},
- {{ .EphemeralStorage }},
- {{ .InferenceAccelerators }},
- {{ .Memory }},
- {{ .NetworkMode }},
- {{ .PlacementConstraints }},
- {{ .ProxyConfiguration }},
- {{ .RequiresCompatibilities }},
- {{ .TaskRoleArn }},
- {{ .Volumes }},
- {{ .PidMode }},
- {{ .RuntimePlatform }},
- {{ .IpcMode }},
- {{ .Tags }},
-'us-east-1';
+'{{ Family }}',
+ '{{ ContainerDefinitions }}',
+ '{{ Cpu }}',
+ '{{ ExecutionRoleArn }}',
+ '{{ EphemeralStorage }}',
+ '{{ InferenceAccelerators }}',
+ '{{ Memory }}',
+ '{{ NetworkMode }}',
+ '{{ PlacementConstraints }}',
+ '{{ ProxyConfiguration }}',
+ '{{ RequiresCompatibilities }}',
+ '{{ TaskRoleArn }}',
+ '{{ Volumes }}',
+ '{{ PidMode }}',
+ '{{ RuntimePlatform }}',
+ '{{ IpcMode }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Family": "{{ Family }}",
- "ContainerDefinitions": [
-  {
-   "Command": [
-    "{{ Command[0] }}"
-   ],
-   "Cpu": "{{ Cpu }}",
-   "CredentialSpecs": [
-    "{{ CredentialSpecs[0] }}"
-   ],
-   "DependsOn": [
-    {
-     "ContainerName": "{{ ContainerName }}",
-     "Condition": "{{ Condition }}"
-    }
-   ],
-   "DisableNetworking": "{{ DisableNetworking }}",
-   "DnsSearchDomains": [
-    "{{ DnsSearchDomains[0] }}"
-   ],
-   "DnsServers": [
-    "{{ DnsServers[0] }}"
-   ],
-   "DockerLabels": {},
-   "DockerSecurityOptions": [
-    "{{ DockerSecurityOptions[0] }}"
-   ],
-   "EntryPoint": [
-    "{{ EntryPoint[0] }}"
-   ],
-   "Environment": [
-    {
-     "Name": "{{ Name }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "EnvironmentFiles": [
-    {
-     "Value": "{{ Value }}",
-     "Type": "{{ Type }}"
-    }
-   ],
-   "Essential": "{{ Essential }}",
-   "ExtraHosts": [
-    {
-     "Hostname": "{{ Hostname }}",
-     "IpAddress": "{{ IpAddress }}"
-    }
-   ],
-   "FirelensConfiguration": {
-    "Type": "{{ Type }}",
-    "Options": {}
-   },
-   "HealthCheck": {
-    "Command": [
-     "{{ Command[0] }}"
-    ],
-    "Interval": "{{ Interval }}",
-    "Timeout": "{{ Timeout }}",
-    "Retries": "{{ Retries }}",
-    "StartPeriod": "{{ StartPeriod }}"
-   },
-   "Hostname": "{{ Hostname }}",
-   "Image": "{{ Image }}",
-   "Links": [
-    "{{ Links[0] }}"
-   ],
-   "LinuxParameters": {
-    "Capabilities": {
-     "Add": [
-      "{{ Add[0] }}"
-     ],
-     "Drop": [
-      "{{ Drop[0] }}"
-     ]
-    },
-    "Devices": [
-     {
-      "ContainerPath": "{{ ContainerPath }}",
-      "HostPath": "{{ HostPath }}",
-      "Permissions": [
-       "{{ Permissions[0] }}"
-      ]
-     }
-    ],
-    "InitProcessEnabled": "{{ InitProcessEnabled }}",
-    "MaxSwap": "{{ MaxSwap }}",
-    "SharedMemorySize": "{{ SharedMemorySize }}",
-    "Swappiness": "{{ Swappiness }}",
-    "Tmpfs": [
-     {
-      "ContainerPath": "{{ ContainerPath }}",
-      "MountOptions": [
-       "{{ MountOptions[0] }}"
-      ],
-      "Size": "{{ Size }}"
-     }
-    ]
-   },
-   "LogConfiguration": {
-    "LogDriver": "{{ LogDriver }}",
-    "Options": {},
-    "SecretOptions": [
-     {
-      "Name": "{{ Name }}",
-      "ValueFrom": "{{ ValueFrom }}"
-     }
-    ]
-   },
-   "Memory": "{{ Memory }}",
-   "MemoryReservation": "{{ MemoryReservation }}",
-   "MountPoints": [
-    {
-     "ContainerPath": "{{ ContainerPath }}",
-     "ReadOnly": "{{ ReadOnly }}",
-     "SourceVolume": "{{ SourceVolume }}"
-    }
-   ],
-   "Name": "{{ Name }}",
-   "PortMappings": [
-    {
-     "Name": "{{ Name }}",
-     "ContainerPort": "{{ ContainerPort }}",
-     "ContainerPortRange": "{{ ContainerPortRange }}",
-     "HostPort": "{{ HostPort }}",
-     "Protocol": "{{ Protocol }}",
-     "AppProtocol": "{{ AppProtocol }}"
-    }
-   ],
-   "Privileged": "{{ Privileged }}",
-   "ReadonlyRootFilesystem": "{{ ReadonlyRootFilesystem }}",
-   "RepositoryCredentials": {
-    "CredentialsParameter": "{{ CredentialsParameter }}"
-   },
-   "ResourceRequirements": [
-    {
-     "Type": "{{ Type }}",
-     "Value": "{{ Value }}"
-    }
-   ],
-   "Secrets": [
-    null
-   ],
-   "StartTimeout": "{{ StartTimeout }}",
-   "StopTimeout": "{{ StopTimeout }}",
-   "Ulimits": [
-    {
-     "HardLimit": "{{ HardLimit }}",
-     "Name": "{{ Name }}",
-     "SoftLimit": "{{ SoftLimit }}"
-    }
-   ],
-   "User": "{{ User }}",
-   "VolumesFrom": [
-    {
-     "ReadOnly": "{{ ReadOnly }}",
-     "SourceContainer": "{{ SourceContainer }}"
-    }
-   ],
-   "WorkingDirectory": "{{ WorkingDirectory }}",
-   "Interactive": "{{ Interactive }}",
-   "PseudoTerminal": "{{ PseudoTerminal }}",
-   "SystemControls": [
-    {
-     "Namespace": "{{ Namespace }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  }
- ],
- "Cpu": "{{ Cpu }}",
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "EphemeralStorage": {
-  "SizeInGiB": "{{ SizeInGiB }}"
- },
- "InferenceAccelerators": [
-  {
-   "DeviceName": "{{ DeviceName }}",
-   "DeviceType": "{{ DeviceType }}"
-  }
- ],
- "Memory": "{{ Memory }}",
- "NetworkMode": "{{ NetworkMode }}",
- "PlacementConstraints": [
-  {
-   "Type": "{{ Type }}",
-   "Expression": "{{ Expression }}"
-  }
- ],
- "ProxyConfiguration": {
-  "ContainerName": "{{ ContainerName }}",
-  "ProxyConfigurationProperties": [
-   null
-  ],
-  "Type": "{{ Type }}"
- },
- "RequiresCompatibilities": [
-  "{{ RequiresCompatibilities[0] }}"
- ],
- "TaskRoleArn": "{{ TaskRoleArn }}",
- "Volumes": [
-  {
-   "ConfiguredAtLaunch": "{{ ConfiguredAtLaunch }}",
-   "DockerVolumeConfiguration": {
-    "Autoprovision": "{{ Autoprovision }}",
-    "Driver": "{{ Driver }}",
-    "DriverOpts": {},
-    "Labels": {},
-    "Scope": "{{ Scope }}"
-   },
-   "EFSVolumeConfiguration": {
-    "FilesystemId": "{{ FilesystemId }}",
-    "RootDirectory": "{{ RootDirectory }}",
-    "TransitEncryption": "{{ TransitEncryption }}",
-    "TransitEncryptionPort": "{{ TransitEncryptionPort }}",
-    "AuthorizationConfig": {
-     "IAM": "{{ IAM }}",
-     "AccessPointId": "{{ AccessPointId }}"
-    }
-   },
-   "FSxWindowsFileServerVolumeConfiguration": {
-    "FileSystemId": "{{ FileSystemId }}",
-    "RootDirectory": "{{ RootDirectory }}",
-    "AuthorizationConfig": {
-     "CredentialsParameter": "{{ CredentialsParameter }}",
-     "Domain": "{{ Domain }}"
-    }
-   },
-   "Host": {
-    "SourcePath": "{{ SourcePath }}"
-   },
-   "Name": "{{ Name }}"
-  }
- ],
- "PidMode": "{{ PidMode }}",
- "RuntimePlatform": {
-  "CpuArchitecture": "{{ CpuArchitecture }}",
-  "OperatingSystemFamily": "{{ OperatingSystemFamily }}"
- },
- "IpcMode": "{{ IpcMode }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- task_definition.iql (all properties)
 INSERT INTO aws.ecs.task_definitions (
  Family,
  ContainerDefinitions,
@@ -651,24 +154,220 @@ INSERT INTO aws.ecs.task_definitions (
  region
 )
 SELECT 
- {{ .Family }},
- {{ .ContainerDefinitions }},
- {{ .Cpu }},
- {{ .ExecutionRoleArn }},
- {{ .EphemeralStorage }},
- {{ .InferenceAccelerators }},
- {{ .Memory }},
- {{ .NetworkMode }},
- {{ .PlacementConstraints }},
- {{ .ProxyConfiguration }},
- {{ .RequiresCompatibilities }},
- {{ .TaskRoleArn }},
- {{ .Volumes }},
- {{ .PidMode }},
- {{ .RuntimePlatform }},
- {{ .IpcMode }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Family }}',
+ '{{ ContainerDefinitions }}',
+ '{{ Cpu }}',
+ '{{ ExecutionRoleArn }}',
+ '{{ EphemeralStorage }}',
+ '{{ InferenceAccelerators }}',
+ '{{ Memory }}',
+ '{{ NetworkMode }}',
+ '{{ PlacementConstraints }}',
+ '{{ ProxyConfiguration }}',
+ '{{ RequiresCompatibilities }}',
+ '{{ TaskRoleArn }}',
+ '{{ Volumes }}',
+ '{{ PidMode }}',
+ '{{ RuntimePlatform }}',
+ '{{ IpcMode }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: task_definition
+    props:
+      - name: Family
+        value: '{{ Family }}'
+      - name: ContainerDefinitions
+        value:
+          - Command:
+              - '{{ Command[0] }}'
+            Cpu: '{{ Cpu }}'
+            CredentialSpecs:
+              - '{{ CredentialSpecs[0] }}'
+            DependsOn:
+              - ContainerName: '{{ ContainerName }}'
+                Condition: '{{ Condition }}'
+            DisableNetworking: '{{ DisableNetworking }}'
+            DnsSearchDomains:
+              - '{{ DnsSearchDomains[0] }}'
+            DnsServers:
+              - '{{ DnsServers[0] }}'
+            DockerLabels: {}
+            DockerSecurityOptions:
+              - '{{ DockerSecurityOptions[0] }}'
+            EntryPoint:
+              - '{{ EntryPoint[0] }}'
+            Environment:
+              - Name: '{{ Name }}'
+                Value: '{{ Value }}'
+            EnvironmentFiles:
+              - Value: '{{ Value }}'
+                Type: '{{ Type }}'
+            Essential: '{{ Essential }}'
+            ExtraHosts:
+              - Hostname: '{{ Hostname }}'
+                IpAddress: '{{ IpAddress }}'
+            FirelensConfiguration:
+              Type: '{{ Type }}'
+              Options: {}
+            HealthCheck:
+              Command:
+                - '{{ Command[0] }}'
+              Interval: '{{ Interval }}'
+              Timeout: '{{ Timeout }}'
+              Retries: '{{ Retries }}'
+              StartPeriod: '{{ StartPeriod }}'
+            Hostname: '{{ Hostname }}'
+            Image: '{{ Image }}'
+            Links:
+              - '{{ Links[0] }}'
+            LinuxParameters:
+              Capabilities:
+                Add:
+                  - '{{ Add[0] }}'
+                Drop:
+                  - '{{ Drop[0] }}'
+              Devices:
+                - ContainerPath: '{{ ContainerPath }}'
+                  HostPath: '{{ HostPath }}'
+                  Permissions:
+                    - '{{ Permissions[0] }}'
+              InitProcessEnabled: '{{ InitProcessEnabled }}'
+              MaxSwap: '{{ MaxSwap }}'
+              SharedMemorySize: '{{ SharedMemorySize }}'
+              Swappiness: '{{ Swappiness }}'
+              Tmpfs:
+                - ContainerPath: '{{ ContainerPath }}'
+                  MountOptions:
+                    - '{{ MountOptions[0] }}'
+                  Size: '{{ Size }}'
+            LogConfiguration:
+              LogDriver: '{{ LogDriver }}'
+              Options: {}
+              SecretOptions:
+                - Name: '{{ Name }}'
+                  ValueFrom: '{{ ValueFrom }}'
+            Memory: '{{ Memory }}'
+            MemoryReservation: '{{ MemoryReservation }}'
+            MountPoints:
+              - ContainerPath: '{{ ContainerPath }}'
+                ReadOnly: '{{ ReadOnly }}'
+                SourceVolume: '{{ SourceVolume }}'
+            Name: '{{ Name }}'
+            PortMappings:
+              - Name: '{{ Name }}'
+                ContainerPort: '{{ ContainerPort }}'
+                ContainerPortRange: '{{ ContainerPortRange }}'
+                HostPort: '{{ HostPort }}'
+                Protocol: '{{ Protocol }}'
+                AppProtocol: '{{ AppProtocol }}'
+            Privileged: '{{ Privileged }}'
+            ReadonlyRootFilesystem: '{{ ReadonlyRootFilesystem }}'
+            RepositoryCredentials:
+              CredentialsParameter: '{{ CredentialsParameter }}'
+            ResourceRequirements:
+              - Type: '{{ Type }}'
+                Value: '{{ Value }}'
+            Secrets:
+              - null
+            StartTimeout: '{{ StartTimeout }}'
+            StopTimeout: '{{ StopTimeout }}'
+            Ulimits:
+              - HardLimit: '{{ HardLimit }}'
+                Name: '{{ Name }}'
+                SoftLimit: '{{ SoftLimit }}'
+            User: '{{ User }}'
+            VolumesFrom:
+              - ReadOnly: '{{ ReadOnly }}'
+                SourceContainer: '{{ SourceContainer }}'
+            WorkingDirectory: '{{ WorkingDirectory }}'
+            Interactive: '{{ Interactive }}'
+            PseudoTerminal: '{{ PseudoTerminal }}'
+            SystemControls:
+              - Namespace: '{{ Namespace }}'
+                Value: '{{ Value }}'
+      - name: Cpu
+        value: '{{ Cpu }}'
+      - name: ExecutionRoleArn
+        value: '{{ ExecutionRoleArn }}'
+      - name: EphemeralStorage
+        value:
+          SizeInGiB: '{{ SizeInGiB }}'
+      - name: InferenceAccelerators
+        value:
+          - DeviceName: '{{ DeviceName }}'
+            DeviceType: '{{ DeviceType }}'
+      - name: Memory
+        value: '{{ Memory }}'
+      - name: NetworkMode
+        value: '{{ NetworkMode }}'
+      - name: PlacementConstraints
+        value:
+          - Type: '{{ Type }}'
+            Expression: '{{ Expression }}'
+      - name: ProxyConfiguration
+        value:
+          ContainerName: '{{ ContainerName }}'
+          ProxyConfigurationProperties:
+            - null
+          Type: '{{ Type }}'
+      - name: RequiresCompatibilities
+        value:
+          - '{{ RequiresCompatibilities[0] }}'
+      - name: TaskRoleArn
+        value: '{{ TaskRoleArn }}'
+      - name: Volumes
+        value:
+          - ConfiguredAtLaunch: '{{ ConfiguredAtLaunch }}'
+            DockerVolumeConfiguration:
+              Autoprovision: '{{ Autoprovision }}'
+              Driver: '{{ Driver }}'
+              DriverOpts: {}
+              Labels: {}
+              Scope: '{{ Scope }}'
+            EFSVolumeConfiguration:
+              FilesystemId: '{{ FilesystemId }}'
+              RootDirectory: '{{ RootDirectory }}'
+              TransitEncryption: '{{ TransitEncryption }}'
+              TransitEncryptionPort: '{{ TransitEncryptionPort }}'
+              AuthorizationConfig:
+                IAM: '{{ IAM }}'
+                AccessPointId: '{{ AccessPointId }}'
+            FSxWindowsFileServerVolumeConfiguration:
+              FileSystemId: '{{ FileSystemId }}'
+              RootDirectory: '{{ RootDirectory }}'
+              AuthorizationConfig:
+                CredentialsParameter: '{{ CredentialsParameter }}'
+                Domain: '{{ Domain }}'
+            Host:
+              SourcePath: '{{ SourcePath }}'
+            Name: '{{ Name }}'
+      - name: PidMode
+        value: '{{ PidMode }}'
+      - name: RuntimePlatform
+        value:
+          CpuArchitecture: '{{ CpuArchitecture }}'
+          OperatingSystemFamily: '{{ OperatingSystemFamily }}'
+      - name: IpcMode
+        value: '{{ IpcMode }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

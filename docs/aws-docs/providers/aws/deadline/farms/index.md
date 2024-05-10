@@ -74,42 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>farm</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DisplayName": "{{ DisplayName }}"
-}
->>>
---required properties only
+-- farm.iql (required properties only)
 INSERT INTO aws.deadline.farms (
  DisplayName,
  region
 )
 SELECT 
-{{ .DisplayName }},
-'us-east-1';
+'{{ DisplayName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DisplayName": "{{ DisplayName }}",
- "KmsKeyArn": "{{ KmsKeyArn }}"
-}
->>>
---all properties
+-- farm.iql (all properties)
 INSERT INTO aws.deadline.farms (
  Description,
  DisplayName,
@@ -117,10 +108,33 @@ INSERT INTO aws.deadline.farms (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DisplayName }},
- {{ .KmsKeyArn }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DisplayName }}',
+ '{{ KmsKeyArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: farm
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: KmsKeyArn
+        value: '{{ KmsKeyArn }}'
+
 ```
 </TabItem>
 </Tabs>

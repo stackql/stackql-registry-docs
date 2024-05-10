@@ -74,125 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>response_plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "IncidentTemplate": {
-  "DedupeString": "{{ DedupeString }}",
-  "Impact": "{{ Impact }}",
-  "NotificationTargets": [
-   {
-    "SnsTopicArn": "{{ SnsTopicArn }}"
-   }
-  ],
-  "Summary": "{{ Summary }}",
-  "Title": "{{ Title }}",
-  "IncidentTags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- response_plan.iql (required properties only)
 INSERT INTO aws.ssmincidents.response_plans (
  Name,
  IncidentTemplate,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .IncidentTemplate }},
-'us-east-1';
+'{{ Name }}',
+ '{{ IncidentTemplate }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DisplayName": "{{ DisplayName }}",
- "ChatChannel": {
-  "ChatbotSns": [
-   "{{ ChatbotSns[0] }}"
-  ]
- },
- "Engagements": [
-  "{{ Engagements[0] }}"
- ],
- "Actions": [
-  {
-   "SsmAutomation": {
-    "RoleArn": "{{ RoleArn }}",
-    "DocumentName": "{{ DocumentName }}",
-    "DocumentVersion": "{{ DocumentVersion }}",
-    "TargetAccount": "{{ TargetAccount }}",
-    "Parameters": [
-     {
-      "Key": "{{ Key }}",
-      "Values": [
-       "{{ Values[0] }}"
-      ]
-     }
-    ],
-    "DynamicParameters": [
-     {
-      "Key": "{{ Key }}",
-      "Value": {
-       "Variable": "{{ Variable }}"
-      }
-     }
-    ]
-   }
-  }
- ],
- "Integrations": [
-  {
-   "PagerDutyConfiguration": {
-    "Name": "{{ Name }}",
-    "SecretId": "{{ SecretId }}",
-    "PagerDutyIncidentConfiguration": {
-     "ServiceId": "{{ ServiceId }}"
-    }
-   }
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "IncidentTemplate": {
-  "DedupeString": "{{ DedupeString }}",
-  "Impact": "{{ Impact }}",
-  "NotificationTargets": [
-   {
-    "SnsTopicArn": null
-   }
-  ],
-  "Summary": "{{ Summary }}",
-  "Title": "{{ Title }}",
-  "IncidentTags": [
-   null
-  ]
- }
-}
->>>
---all properties
+-- response_plan.iql (all properties)
 INSERT INTO aws.ssmincidents.response_plans (
  Name,
  DisplayName,
@@ -205,15 +115,79 @@ INSERT INTO aws.ssmincidents.response_plans (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .DisplayName }},
- {{ .ChatChannel }},
- {{ .Engagements }},
- {{ .Actions }},
- {{ .Integrations }},
- {{ .Tags }},
- {{ .IncidentTemplate }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ DisplayName }}',
+ '{{ ChatChannel }}',
+ '{{ Engagements }}',
+ '{{ Actions }}',
+ '{{ Integrations }}',
+ '{{ Tags }}',
+ '{{ IncidentTemplate }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: response_plan
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: ChatChannel
+        value:
+          ChatbotSns:
+            - '{{ ChatbotSns[0] }}'
+      - name: Engagements
+        value:
+          - '{{ Engagements[0] }}'
+      - name: Actions
+        value:
+          - SsmAutomation:
+              RoleArn: '{{ RoleArn }}'
+              DocumentName: '{{ DocumentName }}'
+              DocumentVersion: '{{ DocumentVersion }}'
+              TargetAccount: '{{ TargetAccount }}'
+              Parameters:
+                - Key: '{{ Key }}'
+                  Values:
+                    - '{{ Values[0] }}'
+              DynamicParameters:
+                - Key: '{{ Key }}'
+                  Value:
+                    Variable: '{{ Variable }}'
+      - name: Integrations
+        value:
+          - PagerDutyConfiguration:
+              Name: '{{ Name }}'
+              SecretId: '{{ SecretId }}'
+              PagerDutyIncidentConfiguration:
+                ServiceId: '{{ ServiceId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: IncidentTemplate
+        value:
+          DedupeString: '{{ DedupeString }}'
+          Impact: '{{ Impact }}'
+          NotificationTargets:
+            - SnsTopicArn: null
+          Summary: '{{ Summary }}'
+          Title: '{{ Title }}'
+          IncidentTags:
+            - null
+
 ```
 </TabItem>
 </Tabs>

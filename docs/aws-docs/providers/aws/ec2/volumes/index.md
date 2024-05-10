@@ -74,56 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>volume</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AvailabilityZone": "{{ AvailabilityZone }}"
-}
->>>
---required properties only
+-- volume.iql (required properties only)
 INSERT INTO aws.ec2.volumes (
  AvailabilityZone,
  region
 )
 SELECT 
-{{ .AvailabilityZone }},
-'us-east-1';
+'{{ AvailabilityZone }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MultiAttachEnabled": "{{ MultiAttachEnabled }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "Encrypted": "{{ Encrypted }}",
- "Size": "{{ Size }}",
- "AutoEnableIO": "{{ AutoEnableIO }}",
- "OutpostArn": "{{ OutpostArn }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "Throughput": "{{ Throughput }}",
- "Iops": "{{ Iops }}",
- "SnapshotId": "{{ SnapshotId }}",
- "VolumeType": "{{ VolumeType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- volume.iql (all properties)
 INSERT INTO aws.ec2.volumes (
  MultiAttachEnabled,
  KmsKeyId,
@@ -140,19 +117,62 @@ INSERT INTO aws.ec2.volumes (
  region
 )
 SELECT 
- {{ .MultiAttachEnabled }},
- {{ .KmsKeyId }},
- {{ .Encrypted }},
- {{ .Size }},
- {{ .AutoEnableIO }},
- {{ .OutpostArn }},
- {{ .AvailabilityZone }},
- {{ .Throughput }},
- {{ .Iops }},
- {{ .SnapshotId }},
- {{ .VolumeType }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ MultiAttachEnabled }}',
+ '{{ KmsKeyId }}',
+ '{{ Encrypted }}',
+ '{{ Size }}',
+ '{{ AutoEnableIO }}',
+ '{{ OutpostArn }}',
+ '{{ AvailabilityZone }}',
+ '{{ Throughput }}',
+ '{{ Iops }}',
+ '{{ SnapshotId }}',
+ '{{ VolumeType }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: volume
+    props:
+      - name: MultiAttachEnabled
+        value: '{{ MultiAttachEnabled }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Encrypted
+        value: '{{ Encrypted }}'
+      - name: Size
+        value: '{{ Size }}'
+      - name: AutoEnableIO
+        value: '{{ AutoEnableIO }}'
+      - name: OutpostArn
+        value: '{{ OutpostArn }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: Throughput
+        value: '{{ Throughput }}'
+      - name: Iops
+        value: '{{ Iops }}'
+      - name: SnapshotId
+        value: '{{ SnapshotId }}'
+      - name: VolumeType
+        value: '{{ VolumeType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

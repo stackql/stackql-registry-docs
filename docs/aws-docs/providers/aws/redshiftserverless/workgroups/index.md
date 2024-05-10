@@ -74,64 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>workgroup</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "WorkgroupName": "{{ WorkgroupName }}"
-}
->>>
---required properties only
+-- workgroup.iql (required properties only)
 INSERT INTO aws.redshiftserverless.workgroups (
  WorkgroupName,
  region
 )
 SELECT 
-{{ .WorkgroupName }},
-'us-east-1';
+'{{ WorkgroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "WorkgroupName": "{{ WorkgroupName }}",
- "NamespaceName": "{{ NamespaceName }}",
- "BaseCapacity": "{{ BaseCapacity }}",
- "MaxCapacity": "{{ MaxCapacity }}",
- "EnhancedVpcRouting": "{{ EnhancedVpcRouting }}",
- "ConfigParameters": [
-  {
-   "ParameterKey": "{{ ParameterKey }}",
-   "ParameterValue": "{{ ParameterValue }}"
-  }
- ],
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "Port": "{{ Port }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- workgroup.iql (all properties)
 INSERT INTO aws.redshiftserverless.workgroups (
  WorkgroupName,
  NamespaceName,
@@ -147,18 +116,63 @@ INSERT INTO aws.redshiftserverless.workgroups (
  region
 )
 SELECT 
- {{ .WorkgroupName }},
- {{ .NamespaceName }},
- {{ .BaseCapacity }},
- {{ .MaxCapacity }},
- {{ .EnhancedVpcRouting }},
- {{ .ConfigParameters }},
- {{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .PubliclyAccessible }},
- {{ .Port }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ WorkgroupName }}',
+ '{{ NamespaceName }}',
+ '{{ BaseCapacity }}',
+ '{{ MaxCapacity }}',
+ '{{ EnhancedVpcRouting }}',
+ '{{ ConfigParameters }}',
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ PubliclyAccessible }}',
+ '{{ Port }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: workgroup
+    props:
+      - name: WorkgroupName
+        value: '{{ WorkgroupName }}'
+      - name: NamespaceName
+        value: '{{ NamespaceName }}'
+      - name: BaseCapacity
+        value: '{{ BaseCapacity }}'
+      - name: MaxCapacity
+        value: '{{ MaxCapacity }}'
+      - name: EnhancedVpcRouting
+        value: '{{ EnhancedVpcRouting }}'
+      - name: ConfigParameters
+        value:
+          - ParameterKey: '{{ ParameterKey }}'
+            ParameterValue: '{{ ParameterValue }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: PubliclyAccessible
+        value: '{{ PubliclyAccessible }}'
+      - name: Port
+        value: '{{ Port }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,84 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>launch_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ImageId": "{{ ImageId }}",
- "InstanceType": "{{ InstanceType }}"
-}
->>>
---required properties only
+-- launch_configuration.iql (required properties only)
 INSERT INTO aws.autoscaling.launch_configurations (
  ImageId,
  InstanceType,
  region
 )
 SELECT 
-{{ .ImageId }},
- {{ .InstanceType }},
-'us-east-1';
+'{{ ImageId }}',
+ '{{ InstanceType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AssociatePublicIpAddress": "{{ AssociatePublicIpAddress }}",
- "BlockDeviceMappings": [
-  {
-   "NoDevice": "{{ NoDevice }}",
-   "VirtualName": "{{ VirtualName }}",
-   "Ebs": {
-    "SnapshotId": "{{ SnapshotId }}",
-    "VolumeType": "{{ VolumeType }}",
-    "Encrypted": "{{ Encrypted }}",
-    "Iops": "{{ Iops }}",
-    "VolumeSize": "{{ VolumeSize }}",
-    "DeleteOnTermination": "{{ DeleteOnTermination }}",
-    "Throughput": "{{ Throughput }}"
-   },
-   "DeviceName": "{{ DeviceName }}"
-  }
- ],
- "ClassicLinkVPCId": "{{ ClassicLinkVPCId }}",
- "ClassicLinkVPCSecurityGroups": [
-  "{{ ClassicLinkVPCSecurityGroups[0] }}"
- ],
- "EbsOptimized": "{{ EbsOptimized }}",
- "IamInstanceProfile": "{{ IamInstanceProfile }}",
- "ImageId": "{{ ImageId }}",
- "InstanceId": "{{ InstanceId }}",
- "InstanceMonitoring": "{{ InstanceMonitoring }}",
- "InstanceType": "{{ InstanceType }}",
- "KernelId": "{{ KernelId }}",
- "KeyName": "{{ KeyName }}",
- "LaunchConfigurationName": "{{ LaunchConfigurationName }}",
- "MetadataOptions": {
-  "HttpPutResponseHopLimit": "{{ HttpPutResponseHopLimit }}",
-  "HttpTokens": "{{ HttpTokens }}",
-  "HttpEndpoint": "{{ HttpEndpoint }}"
- },
- "PlacementTenancy": "{{ PlacementTenancy }}",
- "RamDiskId": "{{ RamDiskId }}",
- "SecurityGroups": [
-  "{{ SecurityGroups[0] }}"
- ],
- "SpotPrice": "{{ SpotPrice }}",
- "UserData": "{{ UserData }}"
-}
->>>
---all properties
+-- launch_configuration.iql (all properties)
 INSERT INTO aws.autoscaling.launch_configurations (
  AssociatePublicIpAddress,
  BlockDeviceMappings,
@@ -175,26 +126,97 @@ INSERT INTO aws.autoscaling.launch_configurations (
  region
 )
 SELECT 
- {{ .AssociatePublicIpAddress }},
- {{ .BlockDeviceMappings }},
- {{ .ClassicLinkVPCId }},
- {{ .ClassicLinkVPCSecurityGroups }},
- {{ .EbsOptimized }},
- {{ .IamInstanceProfile }},
- {{ .ImageId }},
- {{ .InstanceId }},
- {{ .InstanceMonitoring }},
- {{ .InstanceType }},
- {{ .KernelId }},
- {{ .KeyName }},
- {{ .LaunchConfigurationName }},
- {{ .MetadataOptions }},
- {{ .PlacementTenancy }},
- {{ .RamDiskId }},
- {{ .SecurityGroups }},
- {{ .SpotPrice }},
- {{ .UserData }},
- 'us-east-1';
+ '{{ AssociatePublicIpAddress }}',
+ '{{ BlockDeviceMappings }}',
+ '{{ ClassicLinkVPCId }}',
+ '{{ ClassicLinkVPCSecurityGroups }}',
+ '{{ EbsOptimized }}',
+ '{{ IamInstanceProfile }}',
+ '{{ ImageId }}',
+ '{{ InstanceId }}',
+ '{{ InstanceMonitoring }}',
+ '{{ InstanceType }}',
+ '{{ KernelId }}',
+ '{{ KeyName }}',
+ '{{ LaunchConfigurationName }}',
+ '{{ MetadataOptions }}',
+ '{{ PlacementTenancy }}',
+ '{{ RamDiskId }}',
+ '{{ SecurityGroups }}',
+ '{{ SpotPrice }}',
+ '{{ UserData }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: launch_configuration
+    props:
+      - name: AssociatePublicIpAddress
+        value: '{{ AssociatePublicIpAddress }}'
+      - name: BlockDeviceMappings
+        value:
+          - NoDevice: '{{ NoDevice }}'
+            VirtualName: '{{ VirtualName }}'
+            Ebs:
+              SnapshotId: '{{ SnapshotId }}'
+              VolumeType: '{{ VolumeType }}'
+              Encrypted: '{{ Encrypted }}'
+              Iops: '{{ Iops }}'
+              VolumeSize: '{{ VolumeSize }}'
+              DeleteOnTermination: '{{ DeleteOnTermination }}'
+              Throughput: '{{ Throughput }}'
+            DeviceName: '{{ DeviceName }}'
+      - name: ClassicLinkVPCId
+        value: '{{ ClassicLinkVPCId }}'
+      - name: ClassicLinkVPCSecurityGroups
+        value:
+          - '{{ ClassicLinkVPCSecurityGroups[0] }}'
+      - name: EbsOptimized
+        value: '{{ EbsOptimized }}'
+      - name: IamInstanceProfile
+        value: '{{ IamInstanceProfile }}'
+      - name: ImageId
+        value: '{{ ImageId }}'
+      - name: InstanceId
+        value: '{{ InstanceId }}'
+      - name: InstanceMonitoring
+        value: '{{ InstanceMonitoring }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: KernelId
+        value: '{{ KernelId }}'
+      - name: KeyName
+        value: '{{ KeyName }}'
+      - name: LaunchConfigurationName
+        value: '{{ LaunchConfigurationName }}'
+      - name: MetadataOptions
+        value:
+          HttpPutResponseHopLimit: '{{ HttpPutResponseHopLimit }}'
+          HttpTokens: '{{ HttpTokens }}'
+          HttpEndpoint: '{{ HttpEndpoint }}'
+      - name: PlacementTenancy
+        value: '{{ PlacementTenancy }}'
+      - name: RamDiskId
+        value: '{{ RamDiskId }}'
+      - name: SecurityGroups
+        value:
+          - '{{ SecurityGroups[0] }}'
+      - name: SpotPrice
+        value: '{{ SpotPrice }}'
+      - name: UserData
+        value: '{{ UserData }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,94 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>wireless_device</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "DestinationName": "{{ DestinationName }}"
-}
->>>
---required properties only
+-- wireless_device.iql (required properties only)
 INSERT INTO aws.iotwireless.wireless_devices (
  Type,
  DestinationName,
  region
 )
 SELECT 
-{{ .Type }},
- {{ .DestinationName }},
-'us-east-1';
+'{{ Type }}',
+ '{{ DestinationName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "DestinationName": "{{ DestinationName }}",
- "LoRaWAN": {
-  "DevEui": "{{ DevEui }}",
-  "DeviceProfileId": "{{ DeviceProfileId }}",
-  "ServiceProfileId": "{{ ServiceProfileId }}",
-  "OtaaV11": {
-   "AppKey": "{{ AppKey }}",
-   "NwkKey": "{{ NwkKey }}",
-   "JoinEui": "{{ JoinEui }}"
-  },
-  "OtaaV10x": {
-   "AppKey": "{{ AppKey }}",
-   "AppEui": "{{ AppEui }}"
-  },
-  "AbpV11": {
-   "DevAddr": "{{ DevAddr }}",
-   "SessionKeys": {
-    "FNwkSIntKey": "{{ FNwkSIntKey }}",
-    "SNwkSIntKey": "{{ SNwkSIntKey }}",
-    "NwkSEncKey": "{{ NwkSEncKey }}",
-    "AppSKey": "{{ AppSKey }}"
-   }
-  },
-  "AbpV10x": {
-   "DevAddr": "{{ DevAddr }}",
-   "SessionKeys": {
-    "NwkSKey": "{{ NwkSKey }}",
-    "AppSKey": "{{ AppSKey }}"
-   }
-  },
-  "FPorts": {
-   "Applications": [
-    {
-     "DestinationName": "{{ DestinationName }}",
-     "FPort": "{{ FPort }}",
-     "Type": "{{ Type }}"
-    }
-   ]
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ThingArn": "{{ ThingArn }}",
- "LastUplinkReceivedAt": "{{ LastUplinkReceivedAt }}",
- "Positioning": "{{ Positioning }}"
-}
->>>
---all properties
+-- wireless_device.iql (all properties)
 INSERT INTO aws.iotwireless.wireless_devices (
  Type,
  Name,
@@ -175,16 +116,80 @@ INSERT INTO aws.iotwireless.wireless_devices (
  region
 )
 SELECT 
- {{ .Type }},
- {{ .Name }},
- {{ .Description }},
- {{ .DestinationName }},
- {{ .LoRaWAN }},
- {{ .Tags }},
- {{ .ThingArn }},
- {{ .LastUplinkReceivedAt }},
- {{ .Positioning }},
- 'us-east-1';
+ '{{ Type }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ DestinationName }}',
+ '{{ LoRaWAN }}',
+ '{{ Tags }}',
+ '{{ ThingArn }}',
+ '{{ LastUplinkReceivedAt }}',
+ '{{ Positioning }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: wireless_device
+    props:
+      - name: Type
+        value: '{{ Type }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DestinationName
+        value: '{{ DestinationName }}'
+      - name: LoRaWAN
+        value:
+          DevEui: '{{ DevEui }}'
+          DeviceProfileId: '{{ DeviceProfileId }}'
+          ServiceProfileId: '{{ ServiceProfileId }}'
+          OtaaV11:
+            AppKey: '{{ AppKey }}'
+            NwkKey: '{{ NwkKey }}'
+            JoinEui: '{{ JoinEui }}'
+          OtaaV10x:
+            AppKey: '{{ AppKey }}'
+            AppEui: '{{ AppEui }}'
+          AbpV11:
+            DevAddr: '{{ DevAddr }}'
+            SessionKeys:
+              FNwkSIntKey: '{{ FNwkSIntKey }}'
+              SNwkSIntKey: '{{ SNwkSIntKey }}'
+              NwkSEncKey: '{{ NwkSEncKey }}'
+              AppSKey: '{{ AppSKey }}'
+          AbpV10x:
+            DevAddr: '{{ DevAddr }}'
+            SessionKeys:
+              NwkSKey: '{{ NwkSKey }}'
+              AppSKey: '{{ AppSKey }}'
+          FPorts:
+            Applications:
+              - DestinationName: '{{ DestinationName }}'
+                FPort: '{{ FPort }}'
+                Type: '{{ Type }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ThingArn
+        value: '{{ ThingArn }}'
+      - name: LastUplinkReceivedAt
+        value: '{{ LastUplinkReceivedAt }}'
+      - name: Positioning
+        value: '{{ Positioning }}'
+
 ```
 </TabItem>
 </Tabs>

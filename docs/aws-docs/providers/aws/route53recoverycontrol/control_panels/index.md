@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>control_panel</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- control_panel.iql (required properties only)
 INSERT INTO aws.route53recoverycontrol.control_panels (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterArn": "{{ ClusterArn }}",
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- control_panel.iql (all properties)
 INSERT INTO aws.route53recoverycontrol.control_panels (
  ClusterArn,
  Name,
@@ -122,10 +108,35 @@ INSERT INTO aws.route53recoverycontrol.control_panels (
  region
 )
 SELECT 
- {{ .ClusterArn }},
- {{ .Name }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClusterArn }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: control_panel
+    props:
+      - name: ClusterArn
+        value: '{{ ClusterArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,97 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>mitigation_action</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RoleArn": "{{ RoleArn }}",
- "ActionParams": {
-  "AddThingsToThingGroupParams": {
-   "OverrideDynamicGroups": "{{ OverrideDynamicGroups }}",
-   "ThingGroupNames": [
-    "{{ ThingGroupNames[0] }}"
-   ]
-  },
-  "EnableIoTLoggingParams": {
-   "LogLevel": "{{ LogLevel }}",
-   "RoleArnForLogging": "{{ RoleArnForLogging }}"
-  },
-  "PublishFindingToSnsParams": {
-   "TopicArn": "{{ TopicArn }}"
-  },
-  "ReplaceDefaultPolicyVersionParams": {
-   "TemplateName": "{{ TemplateName }}"
-  },
-  "UpdateCACertificateParams": {
-   "Action": "{{ Action }}"
-  },
-  "UpdateDeviceCertificateParams": {
-   "Action": "{{ Action }}"
-  }
- }
-}
->>>
---required properties only
+-- mitigation_action.iql (required properties only)
 INSERT INTO aws.iot.mitigation_actions (
  RoleArn,
  ActionParams,
  region
 )
 SELECT 
-{{ .RoleArn }},
- {{ .ActionParams }},
-'us-east-1';
+'{{ RoleArn }}',
+ '{{ ActionParams }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ActionName": "{{ ActionName }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ActionParams": {
-  "AddThingsToThingGroupParams": {
-   "OverrideDynamicGroups": "{{ OverrideDynamicGroups }}",
-   "ThingGroupNames": [
-    "{{ ThingGroupNames[0] }}"
-   ]
-  },
-  "EnableIoTLoggingParams": {
-   "LogLevel": "{{ LogLevel }}",
-   "RoleArnForLogging": "{{ RoleArnForLogging }}"
-  },
-  "PublishFindingToSnsParams": {
-   "TopicArn": "{{ TopicArn }}"
-  },
-  "ReplaceDefaultPolicyVersionParams": {
-   "TemplateName": "{{ TemplateName }}"
-  },
-  "UpdateCACertificateParams": {
-   "Action": "{{ Action }}"
-  },
-  "UpdateDeviceCertificateParams": {
-   "Action": "{{ Action }}"
-  }
- }
-}
->>>
---all properties
+-- mitigation_action.iql (all properties)
 INSERT INTO aws.iot.mitigation_actions (
  ActionName,
  RoleArn,
@@ -173,11 +111,53 @@ INSERT INTO aws.iot.mitigation_actions (
  region
 )
 SELECT 
- {{ .ActionName }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .ActionParams }},
- 'us-east-1';
+ '{{ ActionName }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ ActionParams }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: mitigation_action
+    props:
+      - name: ActionName
+        value: '{{ ActionName }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ActionParams
+        value:
+          AddThingsToThingGroupParams:
+            OverrideDynamicGroups: '{{ OverrideDynamicGroups }}'
+            ThingGroupNames:
+              - '{{ ThingGroupNames[0] }}'
+          EnableIoTLoggingParams:
+            LogLevel: '{{ LogLevel }}'
+            RoleArnForLogging: '{{ RoleArnForLogging }}'
+          PublishFindingToSnsParams:
+            TopicArn: '{{ TopicArn }}'
+          ReplaceDefaultPolicyVersionParams:
+            TemplateName: '{{ TemplateName }}'
+          UpdateCACertificateParams:
+            Action: '{{ Action }}'
+          UpdateDeviceCertificateParams:
+            Action: '{{ Action }}'
+
 ```
 </TabItem>
 </Tabs>

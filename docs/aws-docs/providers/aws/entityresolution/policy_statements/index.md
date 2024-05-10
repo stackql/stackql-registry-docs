@@ -76,52 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>policy_statement</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Arn": "{{ Arn }}",
- "StatementId": "{{ StatementId }}"
-}
->>>
---required properties only
+-- policy_statement.iql (required properties only)
 INSERT INTO aws.entityresolution.policy_statements (
  Arn,
  StatementId,
  region
 )
 SELECT 
-{{ .Arn }},
- {{ .StatementId }},
-'us-east-1';
+'{{ Arn }}',
+ '{{ StatementId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Arn": "{{ Arn }}",
- "StatementId": "{{ StatementId }}",
- "Effect": "{{ Effect }}",
- "Action": [
-  "{{ Action[0] }}"
- ],
- "Principal": [
-  "{{ Principal[0] }}"
- ],
- "Condition": "{{ Condition }}"
-}
->>>
---all properties
+-- policy_statement.iql (all properties)
 INSERT INTO aws.entityresolution.policy_statements (
  Arn,
  StatementId,
@@ -132,13 +115,44 @@ INSERT INTO aws.entityresolution.policy_statements (
  region
 )
 SELECT 
- {{ .Arn }},
- {{ .StatementId }},
- {{ .Effect }},
- {{ .Action }},
- {{ .Principal }},
- {{ .Condition }},
- 'us-east-1';
+ '{{ Arn }}',
+ '{{ StatementId }}',
+ '{{ Effect }}',
+ '{{ Action }}',
+ '{{ Principal }}',
+ '{{ Condition }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: policy_statement
+    props:
+      - name: Arn
+        value: '{{ Arn }}'
+      - name: StatementId
+        value: '{{ StatementId }}'
+      - name: Effect
+        value: '{{ Effect }}'
+      - name: Action
+        value:
+          - '{{ Action[0] }}'
+      - name: Principal
+        value:
+          - '{{ Principal[0] }}'
+      - name: Condition
+        value: '{{ Condition }}'
+
 ```
 </TabItem>
 </Tabs>

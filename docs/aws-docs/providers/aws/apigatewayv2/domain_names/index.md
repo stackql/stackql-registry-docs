@@ -74,54 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain_name</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}"
-}
->>>
---required properties only
+-- domain_name.iql (required properties only)
 INSERT INTO aws.apigatewayv2.domain_names (
  DomainName,
  region
 )
 SELECT 
-{{ .DomainName }},
-'us-east-1';
+'{{ DomainName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "MutualTlsAuthentication": {
-  "TruststoreVersion": "{{ TruststoreVersion }}",
-  "TruststoreUri": "{{ TruststoreUri }}"
- },
- "DomainName": "{{ DomainName }}",
- "DomainNameConfigurations": [
-  {
-   "OwnershipVerificationCertificateArn": "{{ OwnershipVerificationCertificateArn }}",
-   "EndpointType": "{{ EndpointType }}",
-   "CertificateName": "{{ CertificateName }}",
-   "SecurityPolicy": "{{ SecurityPolicy }}",
-   "CertificateArn": "{{ CertificateArn }}"
-  }
- ],
- "Tags": {}
-}
->>>
---all properties
+-- domain_name.iql (all properties)
 INSERT INTO aws.apigatewayv2.domain_names (
  MutualTlsAuthentication,
  DomainName,
@@ -130,11 +109,43 @@ INSERT INTO aws.apigatewayv2.domain_names (
  region
 )
 SELECT 
- {{ .MutualTlsAuthentication }},
- {{ .DomainName }},
- {{ .DomainNameConfigurations }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ MutualTlsAuthentication }}',
+ '{{ DomainName }}',
+ '{{ DomainNameConfigurations }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain_name
+    props:
+      - name: MutualTlsAuthentication
+        value:
+          TruststoreVersion: '{{ TruststoreVersion }}'
+          TruststoreUri: '{{ TruststoreUri }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: DomainNameConfigurations
+        value:
+          - OwnershipVerificationCertificateArn: '{{ OwnershipVerificationCertificateArn }}'
+            EndpointType: '{{ EndpointType }}'
+            CertificateName: '{{ CertificateName }}'
+            SecurityPolicy: '{{ SecurityPolicy }}'
+            CertificateArn: '{{ CertificateArn }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

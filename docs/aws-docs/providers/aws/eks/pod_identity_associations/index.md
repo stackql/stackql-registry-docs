@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pod_identity_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "RoleArn": "{{ RoleArn }}",
- "Namespace": "{{ Namespace }}",
- "ServiceAccount": "{{ ServiceAccount }}"
-}
->>>
---required properties only
+-- pod_identity_association.iql (required properties only)
 INSERT INTO aws.eks.pod_identity_associations (
  ClusterName,
  RoleArn,
@@ -101,31 +96,17 @@ INSERT INTO aws.eks.pod_identity_associations (
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .RoleArn }},
- {{ .Namespace }},
- {{ .ServiceAccount }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ RoleArn }}',
+ '{{ Namespace }}',
+ '{{ ServiceAccount }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "RoleArn": "{{ RoleArn }}",
- "Namespace": "{{ Namespace }}",
- "ServiceAccount": "{{ ServiceAccount }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- pod_identity_association.iql (all properties)
 INSERT INTO aws.eks.pod_identity_associations (
  ClusterName,
  RoleArn,
@@ -135,12 +116,41 @@ INSERT INTO aws.eks.pod_identity_associations (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .RoleArn }},
- {{ .Namespace }},
- {{ .ServiceAccount }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ RoleArn }}',
+ '{{ Namespace }}',
+ '{{ ServiceAccount }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pod_identity_association
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Namespace
+        value: '{{ Namespace }}'
+      - name: ServiceAccount
+        value: '{{ ServiceAccount }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service_action</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DefinitionType": "{{ DefinitionType }}",
- "Definition": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- service_action.iql (required properties only)
 INSERT INTO aws.servicecatalog.service_actions (
  Name,
  DefinitionType,
@@ -104,30 +95,16 @@ INSERT INTO aws.servicecatalog.service_actions (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .DefinitionType }},
- {{ .Definition }},
-'us-east-1';
+'{{ Name }}',
+ '{{ DefinitionType }}',
+ '{{ Definition }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AcceptLanguage": "{{ AcceptLanguage }}",
- "Name": "{{ Name }}",
- "DefinitionType": "{{ DefinitionType }}",
- "Definition": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Description": "{{ Description }}"
-}
->>>
---all properties
+-- service_action.iql (all properties)
 INSERT INTO aws.servicecatalog.service_actions (
  AcceptLanguage,
  Name,
@@ -137,12 +114,41 @@ INSERT INTO aws.servicecatalog.service_actions (
  region
 )
 SELECT 
- {{ .AcceptLanguage }},
- {{ .Name }},
- {{ .DefinitionType }},
- {{ .Definition }},
- {{ .Description }},
- 'us-east-1';
+ '{{ AcceptLanguage }}',
+ '{{ Name }}',
+ '{{ DefinitionType }}',
+ '{{ Definition }}',
+ '{{ Description }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service_action
+    props:
+      - name: AcceptLanguage
+        value: '{{ AcceptLanguage }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: DefinitionType
+        value: '{{ DefinitionType }}'
+      - name: Definition
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

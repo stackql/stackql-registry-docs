@@ -76,27 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>link</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GlobalNetworkId": "{{ GlobalNetworkId }}",
- "SiteId": "{{ SiteId }}",
- "Bandwidth": {
-  "DownloadSpeed": "{{ DownloadSpeed }}",
-  "UploadSpeed": "{{ UploadSpeed }}"
- }
-}
->>>
---required properties only
+-- link.iql (required properties only)
 INSERT INTO aws.networkmanager.links (
  GlobalNetworkId,
  SiteId,
@@ -104,35 +97,16 @@ INSERT INTO aws.networkmanager.links (
  region
 )
 SELECT 
-{{ .GlobalNetworkId }},
- {{ .SiteId }},
- {{ .Bandwidth }},
-'us-east-1';
+'{{ GlobalNetworkId }}',
+ '{{ SiteId }}',
+ '{{ Bandwidth }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GlobalNetworkId": "{{ GlobalNetworkId }}",
- "SiteId": "{{ SiteId }}",
- "Bandwidth": {
-  "DownloadSpeed": "{{ DownloadSpeed }}",
-  "UploadSpeed": "{{ UploadSpeed }}"
- },
- "Provider": "{{ Provider }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- link.iql (all properties)
 INSERT INTO aws.networkmanager.links (
  GlobalNetworkId,
  SiteId,
@@ -144,14 +118,49 @@ INSERT INTO aws.networkmanager.links (
  region
 )
 SELECT 
- {{ .GlobalNetworkId }},
- {{ .SiteId }},
- {{ .Bandwidth }},
- {{ .Provider }},
- {{ .Description }},
- {{ .Tags }},
- {{ .Type }},
- 'us-east-1';
+ '{{ GlobalNetworkId }}',
+ '{{ SiteId }}',
+ '{{ Bandwidth }}',
+ '{{ Provider }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: link
+    props:
+      - name: GlobalNetworkId
+        value: '{{ GlobalNetworkId }}'
+      - name: SiteId
+        value: '{{ SiteId }}'
+      - name: Bandwidth
+        value:
+          DownloadSpeed: '{{ DownloadSpeed }}'
+          UploadSpeed: '{{ UploadSpeed }}'
+      - name: Provider
+        value: '{{ Provider }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,58 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>profiling_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ProfilingGroupName": "{{ ProfilingGroupName }}"
-}
->>>
---required properties only
+-- profiling_group.iql (required properties only)
 INSERT INTO aws.codeguruprofiler.profiling_groups (
  ProfilingGroupName,
  region
 )
 SELECT 
-{{ .ProfilingGroupName }},
-'us-east-1';
+'{{ ProfilingGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ProfilingGroupName": "{{ ProfilingGroupName }}",
- "ComputePlatform": "{{ ComputePlatform }}",
- "AgentPermissions": {
-  "Principals": [
-   "{{ Principals[0] }}"
-  ]
- },
- "AnomalyDetectionNotificationConfiguration": [
-  {
-   "channelId": "{{ channelId }}",
-   "channelUri": "{{ channelUri }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- profiling_group.iql (all properties)
 INSERT INTO aws.codeguruprofiler.profiling_groups (
  ProfilingGroupName,
  ComputePlatform,
@@ -135,12 +110,45 @@ INSERT INTO aws.codeguruprofiler.profiling_groups (
  region
 )
 SELECT 
- {{ .ProfilingGroupName }},
- {{ .ComputePlatform }},
- {{ .AgentPermissions }},
- {{ .AnomalyDetectionNotificationConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ProfilingGroupName }}',
+ '{{ ComputePlatform }}',
+ '{{ AgentPermissions }}',
+ '{{ AnomalyDetectionNotificationConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: profiling_group
+    props:
+      - name: ProfilingGroupName
+        value: '{{ ProfilingGroupName }}'
+      - name: ComputePlatform
+        value: '{{ ComputePlatform }}'
+      - name: AgentPermissions
+        value:
+          Principals:
+            - '{{ Principals[0] }}'
+      - name: AnomalyDetectionNotificationConfiguration
+        value:
+          - channelId: '{{ channelId }}'
+            channelUri: '{{ channelUri }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

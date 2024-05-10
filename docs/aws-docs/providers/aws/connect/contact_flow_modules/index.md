@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>contact_flow_module</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Content": "{{ Content }}"
-}
->>>
---required properties only
+-- contact_flow_module.iql (required properties only)
 INSERT INTO aws.connect.contact_flow_modules (
  InstanceArn,
  Name,
@@ -99,31 +95,16 @@ INSERT INTO aws.connect.contact_flow_modules (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .Name }},
- {{ .Content }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Content }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Content": "{{ Content }}",
- "Description": "{{ Description }}",
- "State": "{{ State }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- contact_flow_module.iql (all properties)
 INSERT INTO aws.connect.contact_flow_modules (
  InstanceArn,
  Name,
@@ -134,13 +115,44 @@ INSERT INTO aws.connect.contact_flow_modules (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Name }},
- {{ .Content }},
- {{ .Description }},
- {{ .State }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Content }}',
+ '{{ Description }}',
+ '{{ State }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: contact_flow_module
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Content
+        value: '{{ Content }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: State
+        value: '{{ State }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

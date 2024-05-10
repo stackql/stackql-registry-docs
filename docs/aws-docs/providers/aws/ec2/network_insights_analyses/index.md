@@ -74,52 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_insights_analysis</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "NetworkInsightsPathId": "{{ NetworkInsightsPathId }}"
-}
->>>
---required properties only
+-- network_insights_analysis.iql (required properties only)
 INSERT INTO aws.ec2.network_insights_analyses (
  NetworkInsightsPathId,
  region
 )
 SELECT 
-{{ .NetworkInsightsPathId }},
-'us-east-1';
+'{{ NetworkInsightsPathId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "NetworkInsightsPathId": "{{ NetworkInsightsPathId }}",
- "FilterInArns": [
-  "{{ FilterInArns[0] }}"
- ],
- "AdditionalAccounts": [
-  "{{ AdditionalAccounts[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- network_insights_analysis.iql (all properties)
 INSERT INTO aws.ec2.network_insights_analyses (
  NetworkInsightsPathId,
  FilterInArns,
@@ -128,11 +109,40 @@ INSERT INTO aws.ec2.network_insights_analyses (
  region
 )
 SELECT 
- {{ .NetworkInsightsPathId }},
- {{ .FilterInArns }},
- {{ .AdditionalAccounts }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ NetworkInsightsPathId }}',
+ '{{ FilterInArns }}',
+ '{{ AdditionalAccounts }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_insights_analysis
+    props:
+      - name: NetworkInsightsPathId
+        value: '{{ NetworkInsightsPathId }}'
+      - name: FilterInArns
+        value:
+          - '{{ FilterInArns[0] }}'
+      - name: AdditionalAccounts
+        value:
+          - '{{ AdditionalAccounts[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,103 +74,79 @@ FROM aws.cloudfront.cache_policies
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cache_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CachePolicyConfig": {
-  "Comment": "{{ Comment }}",
-  "DefaultTTL": null,
-  "MaxTTL": null,
-  "MinTTL": null,
-  "Name": "{{ Name }}",
-  "ParametersInCacheKeyAndForwardedToOrigin": {
-   "CookiesConfig": {
-    "CookieBehavior": "{{ CookieBehavior }}",
-    "Cookies": [
-     "{{ Cookies[0] }}"
-    ]
-   },
-   "EnableAcceptEncodingBrotli": "{{ EnableAcceptEncodingBrotli }}",
-   "EnableAcceptEncodingGzip": "{{ EnableAcceptEncodingGzip }}",
-   "HeadersConfig": {
-    "HeaderBehavior": "{{ HeaderBehavior }}",
-    "Headers": [
-     "{{ Headers[0] }}"
-    ]
-   },
-   "QueryStringsConfig": {
-    "QueryStringBehavior": "{{ QueryStringBehavior }}",
-    "QueryStrings": [
-     "{{ QueryStrings[0] }}"
-    ]
-   }
-  }
- }
-}
->>>
---required properties only
+-- cache_policy.iql (required properties only)
 INSERT INTO aws.cloudfront.cache_policies (
  CachePolicyConfig,
  region
 )
 SELECT 
-{{ .CachePolicyConfig }},
-'us-east-1';
+'{{ CachePolicyConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CachePolicyConfig": {
-  "Comment": "{{ Comment }}",
-  "DefaultTTL": null,
-  "MaxTTL": null,
-  "MinTTL": null,
-  "Name": "{{ Name }}",
-  "ParametersInCacheKeyAndForwardedToOrigin": {
-   "CookiesConfig": {
-    "CookieBehavior": "{{ CookieBehavior }}",
-    "Cookies": [
-     "{{ Cookies[0] }}"
-    ]
-   },
-   "EnableAcceptEncodingBrotli": "{{ EnableAcceptEncodingBrotli }}",
-   "EnableAcceptEncodingGzip": "{{ EnableAcceptEncodingGzip }}",
-   "HeadersConfig": {
-    "HeaderBehavior": "{{ HeaderBehavior }}",
-    "Headers": [
-     "{{ Headers[0] }}"
-    ]
-   },
-   "QueryStringsConfig": {
-    "QueryStringBehavior": "{{ QueryStringBehavior }}",
-    "QueryStrings": [
-     "{{ QueryStrings[0] }}"
-    ]
-   }
-  }
- }
-}
->>>
---all properties
+-- cache_policy.iql (all properties)
 INSERT INTO aws.cloudfront.cache_policies (
  CachePolicyConfig,
  region
 )
 SELECT 
- {{ .CachePolicyConfig }},
- 'us-east-1';
+ '{{ CachePolicyConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cache_policy
+    props:
+      - name: CachePolicyConfig
+        value:
+          Comment: '{{ Comment }}'
+          DefaultTTL: null
+          MaxTTL: null
+          MinTTL: null
+          Name: '{{ Name }}'
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: '{{ CookieBehavior }}'
+              Cookies:
+                - '{{ Cookies[0] }}'
+            EnableAcceptEncodingBrotli: '{{ EnableAcceptEncodingBrotli }}'
+            EnableAcceptEncodingGzip: '{{ EnableAcceptEncodingGzip }}'
+            HeadersConfig:
+              HeaderBehavior: '{{ HeaderBehavior }}'
+              Headers:
+                - '{{ Headers[0] }}'
+            QueryStringsConfig:
+              QueryStringBehavior: '{{ QueryStringBehavior }}'
+              QueryStrings:
+                - '{{ QueryStrings[0] }}'
+
 ```
 </TabItem>
 </Tabs>

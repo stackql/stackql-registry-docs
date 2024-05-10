@@ -74,38 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationName": "{{ ApplicationName }}",
- "Description": "{{ Description }}",
- "ResourceLifecycleConfig": {
-  "ServiceRole": "{{ ServiceRole }}",
-  "VersionLifecycleConfig": {
-   "MaxAgeRule": {
-    "DeleteSourceFromS3": "{{ DeleteSourceFromS3 }}",
-    "Enabled": "{{ Enabled }}",
-    "MaxAgeInDays": "{{ MaxAgeInDays }}"
-   },
-   "MaxCountRule": {
-    "DeleteSourceFromS3": "{{ DeleteSourceFromS3 }}",
-    "Enabled": "{{ Enabled }}",
-    "MaxCount": "{{ MaxCount }}"
-   }
-  }
- }
-}
->>>
---required properties only
+-- application.iql (required properties only)
 INSERT INTO aws.elasticbeanstalk.applications (
  ApplicationName,
  Description,
@@ -113,37 +95,16 @@ INSERT INTO aws.elasticbeanstalk.applications (
  region
 )
 SELECT 
-{{ .ApplicationName }},
- {{ .Description }},
- {{ .ResourceLifecycleConfig }},
-'us-east-1';
+'{{ ApplicationName }}',
+ '{{ Description }}',
+ '{{ ResourceLifecycleConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicationName": "{{ ApplicationName }}",
- "Description": "{{ Description }}",
- "ResourceLifecycleConfig": {
-  "ServiceRole": "{{ ServiceRole }}",
-  "VersionLifecycleConfig": {
-   "MaxAgeRule": {
-    "DeleteSourceFromS3": "{{ DeleteSourceFromS3 }}",
-    "Enabled": "{{ Enabled }}",
-    "MaxAgeInDays": "{{ MaxAgeInDays }}"
-   },
-   "MaxCountRule": {
-    "DeleteSourceFromS3": "{{ DeleteSourceFromS3 }}",
-    "Enabled": "{{ Enabled }}",
-    "MaxCount": "{{ MaxCount }}"
-   }
-  }
- }
-}
->>>
---all properties
+-- application.iql (all properties)
 INSERT INTO aws.elasticbeanstalk.applications (
  ApplicationName,
  Description,
@@ -151,10 +112,43 @@ INSERT INTO aws.elasticbeanstalk.applications (
  region
 )
 SELECT 
- {{ .ApplicationName }},
- {{ .Description }},
- {{ .ResourceLifecycleConfig }},
- 'us-east-1';
+ '{{ ApplicationName }}',
+ '{{ Description }}',
+ '{{ ResourceLifecycleConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application
+    props:
+      - name: ApplicationName
+        value: '{{ ApplicationName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ResourceLifecycleConfig
+        value:
+          ServiceRole: '{{ ServiceRole }}'
+          VersionLifecycleConfig:
+            MaxAgeRule:
+              DeleteSourceFromS3: '{{ DeleteSourceFromS3 }}'
+              Enabled: '{{ Enabled }}'
+              MaxAgeInDays: '{{ MaxAgeInDays }}'
+            MaxCountRule:
+              DeleteSourceFromS3: '{{ DeleteSourceFromS3 }}'
+              Enabled: '{{ Enabled }}'
+              MaxCount: '{{ MaxCount }}'
+
 ```
 </TabItem>
 </Tabs>

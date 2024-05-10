@@ -74,37 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>contact_list</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ContactListName": "{{ ContactListName }}",
- "Description": "{{ Description }}",
- "Topics": [
-  {
-   "TopicName": "{{ TopicName }}",
-   "DisplayName": "{{ DisplayName }}",
-   "Description": "{{ Description }}",
-   "DefaultSubscriptionStatus": "{{ DefaultSubscriptionStatus }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- contact_list.iql (required properties only)
 INSERT INTO aws.ses.contact_lists (
  ContactListName,
  Description,
@@ -113,37 +96,17 @@ INSERT INTO aws.ses.contact_lists (
  region
 )
 SELECT 
-{{ .ContactListName }},
- {{ .Description }},
- {{ .Topics }},
- {{ .Tags }},
-'us-east-1';
+'{{ ContactListName }}',
+ '{{ Description }}',
+ '{{ Topics }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ContactListName": "{{ ContactListName }}",
- "Description": "{{ Description }}",
- "Topics": [
-  {
-   "TopicName": "{{ TopicName }}",
-   "DisplayName": "{{ DisplayName }}",
-   "Description": "{{ Description }}",
-   "DefaultSubscriptionStatus": "{{ DefaultSubscriptionStatus }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- contact_list.iql (all properties)
 INSERT INTO aws.ses.contact_lists (
  ContactListName,
  Description,
@@ -152,11 +115,42 @@ INSERT INTO aws.ses.contact_lists (
  region
 )
 SELECT 
- {{ .ContactListName }},
- {{ .Description }},
- {{ .Topics }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ContactListName }}',
+ '{{ Description }}',
+ '{{ Topics }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: contact_list
+    props:
+      - name: ContactListName
+        value: '{{ ContactListName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Topics
+        value:
+          - TopicName: '{{ TopicName }}'
+            DisplayName: '{{ DisplayName }}'
+            Description: '{{ Description }}'
+            DefaultSubscriptionStatus: '{{ DefaultSubscriptionStatus }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

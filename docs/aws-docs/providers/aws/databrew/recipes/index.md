@@ -74,79 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>recipe</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Steps": [
-  {
-   "Action": {
-    "Operation": "{{ Operation }}",
-    "Parameters": null
-   },
-   "ConditionExpressions": [
-    {
-     "Condition": "{{ Condition }}",
-     "Value": "{{ Value }}",
-     "TargetColumn": "{{ TargetColumn }}"
-    }
-   ]
-  }
- ]
-}
->>>
---required properties only
+-- recipe.iql (required properties only)
 INSERT INTO aws.databrew.recipes (
  Name,
  Steps,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Steps }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Steps }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "Steps": [
-  {
-   "Action": {
-    "Operation": "{{ Operation }}",
-    "Parameters": null
-   },
-   "ConditionExpressions": [
-    {
-     "Condition": "{{ Condition }}",
-     "Value": "{{ Value }}",
-     "TargetColumn": "{{ TargetColumn }}"
-    }
-   ]
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- recipe.iql (all properties)
 INSERT INTO aws.databrew.recipes (
  Description,
  Name,
@@ -155,11 +111,45 @@ INSERT INTO aws.databrew.recipes (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .Steps }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ Steps }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: recipe
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Steps
+        value:
+          - Action:
+              Operation: '{{ Operation }}'
+              Parameters: null
+            ConditionExpressions:
+              - Condition: '{{ Condition }}'
+                Value: '{{ Value }}'
+                TargetColumn: '{{ TargetColumn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

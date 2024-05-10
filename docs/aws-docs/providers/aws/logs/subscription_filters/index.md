@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subscription_filter</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DestinationArn": "{{ DestinationArn }}",
- "FilterPattern": "{{ FilterPattern }}",
- "LogGroupName": "{{ LogGroupName }}"
-}
->>>
---required properties only
+-- subscription_filter.iql (required properties only)
 INSERT INTO aws.logs.subscription_filters (
  DestinationArn,
  FilterPattern,
@@ -101,26 +97,16 @@ INSERT INTO aws.logs.subscription_filters (
  region
 )
 SELECT 
-{{ .DestinationArn }},
- {{ .FilterPattern }},
- {{ .LogGroupName }},
-'us-east-1';
+'{{ DestinationArn }}',
+ '{{ FilterPattern }}',
+ '{{ LogGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FilterName": "{{ FilterName }}",
- "DestinationArn": "{{ DestinationArn }}",
- "FilterPattern": "{{ FilterPattern }}",
- "LogGroupName": "{{ LogGroupName }}",
- "RoleArn": "{{ RoleArn }}",
- "Distribution": "{{ Distribution }}"
-}
->>>
---all properties
+-- subscription_filter.iql (all properties)
 INSERT INTO aws.logs.subscription_filters (
  FilterName,
  DestinationArn,
@@ -131,13 +117,42 @@ INSERT INTO aws.logs.subscription_filters (
  region
 )
 SELECT 
- {{ .FilterName }},
- {{ .DestinationArn }},
- {{ .FilterPattern }},
- {{ .LogGroupName }},
- {{ .RoleArn }},
- {{ .Distribution }},
- 'us-east-1';
+ '{{ FilterName }}',
+ '{{ DestinationArn }}',
+ '{{ FilterPattern }}',
+ '{{ LogGroupName }}',
+ '{{ RoleArn }}',
+ '{{ Distribution }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subscription_filter
+    props:
+      - name: FilterName
+        value: '{{ FilterName }}'
+      - name: DestinationArn
+        value: '{{ DestinationArn }}'
+      - name: FilterPattern
+        value: '{{ FilterPattern }}'
+      - name: LogGroupName
+        value: '{{ LogGroupName }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Distribution
+        value: '{{ Distribution }}'
+
 ```
 </TabItem>
 </Tabs>

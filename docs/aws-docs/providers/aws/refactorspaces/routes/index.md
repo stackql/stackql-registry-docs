@@ -78,25 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>route</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "RouteType": "{{ RouteType }}",
- "ServiceIdentifier": "{{ ServiceIdentifier }}"
-}
->>>
---required properties only
+-- route.iql (required properties only)
 INSERT INTO aws.refactorspaces.routes (
  ApplicationIdentifier,
  EnvironmentIdentifier,
@@ -105,43 +100,17 @@ INSERT INTO aws.refactorspaces.routes (
  region
 )
 SELECT 
-{{ .ApplicationIdentifier }},
- {{ .EnvironmentIdentifier }},
- {{ .RouteType }},
- {{ .ServiceIdentifier }},
-'us-east-1';
+'{{ ApplicationIdentifier }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ RouteType }}',
+ '{{ ServiceIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApplicationIdentifier": "{{ ApplicationIdentifier }}",
- "EnvironmentIdentifier": "{{ EnvironmentIdentifier }}",
- "RouteType": "{{ RouteType }}",
- "ServiceIdentifier": "{{ ServiceIdentifier }}",
- "DefaultRoute": {
-  "ActivationState": "{{ ActivationState }}"
- },
- "UriPathRoute": {
-  "SourcePath": "{{ SourcePath }}",
-  "ActivationState": null,
-  "Methods": [
-   "{{ Methods[0] }}"
-  ],
-  "IncludeChildPaths": "{{ IncludeChildPaths }}",
-  "AppendSourcePath": "{{ AppendSourcePath }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- route.iql (all properties)
 INSERT INTO aws.refactorspaces.routes (
  ApplicationIdentifier,
  EnvironmentIdentifier,
@@ -153,14 +122,54 @@ INSERT INTO aws.refactorspaces.routes (
  region
 )
 SELECT 
- {{ .ApplicationIdentifier }},
- {{ .EnvironmentIdentifier }},
- {{ .RouteType }},
- {{ .ServiceIdentifier }},
- {{ .DefaultRoute }},
- {{ .UriPathRoute }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ApplicationIdentifier }}',
+ '{{ EnvironmentIdentifier }}',
+ '{{ RouteType }}',
+ '{{ ServiceIdentifier }}',
+ '{{ DefaultRoute }}',
+ '{{ UriPathRoute }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: route
+    props:
+      - name: ApplicationIdentifier
+        value: '{{ ApplicationIdentifier }}'
+      - name: EnvironmentIdentifier
+        value: '{{ EnvironmentIdentifier }}'
+      - name: RouteType
+        value: '{{ RouteType }}'
+      - name: ServiceIdentifier
+        value: '{{ ServiceIdentifier }}'
+      - name: DefaultRoute
+        value:
+          ActivationState: '{{ ActivationState }}'
+      - name: UriPathRoute
+        value:
+          SourcePath: '{{ SourcePath }}'
+          ActivationState: null
+          Methods:
+            - '{{ Methods[0] }}'
+          IncludeChildPaths: '{{ IncludeChildPaths }}'
+          AppendSourcePath: '{{ AppendSourcePath }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

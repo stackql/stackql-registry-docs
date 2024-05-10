@@ -74,90 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>config_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Source": {
-  "CustomPolicyDetails": {
-   "EnableDebugLogDelivery": "{{ EnableDebugLogDelivery }}",
-   "PolicyText": "{{ PolicyText }}",
-   "PolicyRuntime": "{{ PolicyRuntime }}"
-  },
-  "SourceIdentifier": "{{ SourceIdentifier }}",
-  "Owner": "{{ Owner }}",
-  "SourceDetails": [
-   {
-    "EventSource": "{{ EventSource }}",
-    "MaximumExecutionFrequency": "{{ MaximumExecutionFrequency }}",
-    "MessageType": "{{ MessageType }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- config_rule.iql (required properties only)
 INSERT INTO aws.config.config_rules (
  Source,
  region
 )
 SELECT 
-{{ .Source }},
-'us-east-1';
+'{{ Source }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Scope": {
-  "TagKey": "{{ TagKey }}",
-  "ComplianceResourceTypes": [
-   "{{ ComplianceResourceTypes[0] }}"
-  ],
-  "TagValue": "{{ TagValue }}",
-  "ComplianceResourceId": "{{ ComplianceResourceId }}"
- },
- "ConfigRuleName": "{{ ConfigRuleName }}",
- "Compliance": {
-  "Type": "{{ Type }}"
- },
- "MaximumExecutionFrequency": "{{ MaximumExecutionFrequency }}",
- "Source": {
-  "CustomPolicyDetails": {
-   "EnableDebugLogDelivery": "{{ EnableDebugLogDelivery }}",
-   "PolicyText": "{{ PolicyText }}",
-   "PolicyRuntime": "{{ PolicyRuntime }}"
-  },
-  "SourceIdentifier": "{{ SourceIdentifier }}",
-  "Owner": "{{ Owner }}",
-  "SourceDetails": [
-   {
-    "EventSource": "{{ EventSource }}",
-    "MaximumExecutionFrequency": "{{ MaximumExecutionFrequency }}",
-    "MessageType": "{{ MessageType }}"
-   }
-  ]
- },
- "InputParameters": {},
- "EvaluationModes": [
-  {
-   "Mode": "{{ Mode }}"
-  }
- ]
-}
->>>
---all properties
+-- config_rule.iql (all properties)
 INSERT INTO aws.config.config_rules (
  Description,
  Scope,
@@ -170,15 +113,65 @@ INSERT INTO aws.config.config_rules (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Scope }},
- {{ .ConfigRuleName }},
- {{ .Compliance }},
- {{ .MaximumExecutionFrequency }},
- {{ .Source }},
- {{ .InputParameters }},
- {{ .EvaluationModes }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Scope }}',
+ '{{ ConfigRuleName }}',
+ '{{ Compliance }}',
+ '{{ MaximumExecutionFrequency }}',
+ '{{ Source }}',
+ '{{ InputParameters }}',
+ '{{ EvaluationModes }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: config_rule
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Scope
+        value:
+          TagKey: '{{ TagKey }}'
+          ComplianceResourceTypes:
+            - '{{ ComplianceResourceTypes[0] }}'
+          TagValue: '{{ TagValue }}'
+          ComplianceResourceId: '{{ ComplianceResourceId }}'
+      - name: ConfigRuleName
+        value: '{{ ConfigRuleName }}'
+      - name: Compliance
+        value:
+          Type: '{{ Type }}'
+      - name: MaximumExecutionFrequency
+        value: '{{ MaximumExecutionFrequency }}'
+      - name: Source
+        value:
+          CustomPolicyDetails:
+            EnableDebugLogDelivery: '{{ EnableDebugLogDelivery }}'
+            PolicyText: '{{ PolicyText }}'
+            PolicyRuntime: '{{ PolicyRuntime }}'
+          SourceIdentifier: '{{ SourceIdentifier }}'
+          Owner: '{{ Owner }}'
+          SourceDetails:
+            - EventSource: '{{ EventSource }}'
+              MaximumExecutionFrequency: '{{ MaximumExecutionFrequency }}'
+              MessageType: '{{ MessageType }}'
+      - name: InputParameters
+        value: {}
+      - name: EvaluationModes
+        value:
+          - Mode: '{{ Mode }}'
+
 ```
 </TabItem>
 </Tabs>

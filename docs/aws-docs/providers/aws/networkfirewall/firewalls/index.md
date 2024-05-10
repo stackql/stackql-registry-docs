@@ -74,30 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>firewall</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FirewallName": "{{ FirewallName }}",
- "FirewallPolicyArn": "{{ FirewallPolicyArn }}",
- "VpcId": "{{ VpcId }}",
- "SubnetMappings": [
-  {
-   "SubnetId": "{{ SubnetId }}",
-   "IPAddressType": "{{ IPAddressType }}"
-  }
- ]
-}
->>>
---required properties only
+-- firewall.iql (required properties only)
 INSERT INTO aws.networkfirewall.firewalls (
  FirewallName,
  FirewallPolicyArn,
@@ -106,40 +96,17 @@ INSERT INTO aws.networkfirewall.firewalls (
  region
 )
 SELECT 
-{{ .FirewallName }},
- {{ .FirewallPolicyArn }},
- {{ .VpcId }},
- {{ .SubnetMappings }},
-'us-east-1';
+'{{ FirewallName }}',
+ '{{ FirewallPolicyArn }}',
+ '{{ VpcId }}',
+ '{{ SubnetMappings }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FirewallName": "{{ FirewallName }}",
- "FirewallPolicyArn": "{{ FirewallPolicyArn }}",
- "VpcId": "{{ VpcId }}",
- "SubnetMappings": [
-  {
-   "SubnetId": "{{ SubnetId }}",
-   "IPAddressType": "{{ IPAddressType }}"
-  }
- ],
- "DeleteProtection": "{{ DeleteProtection }}",
- "SubnetChangeProtection": "{{ SubnetChangeProtection }}",
- "FirewallPolicyChangeProtection": "{{ FirewallPolicyChangeProtection }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- firewall.iql (all properties)
 INSERT INTO aws.networkfirewall.firewalls (
  FirewallName,
  FirewallPolicyArn,
@@ -153,16 +120,55 @@ INSERT INTO aws.networkfirewall.firewalls (
  region
 )
 SELECT 
- {{ .FirewallName }},
- {{ .FirewallPolicyArn }},
- {{ .VpcId }},
- {{ .SubnetMappings }},
- {{ .DeleteProtection }},
- {{ .SubnetChangeProtection }},
- {{ .FirewallPolicyChangeProtection }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ FirewallName }}',
+ '{{ FirewallPolicyArn }}',
+ '{{ VpcId }}',
+ '{{ SubnetMappings }}',
+ '{{ DeleteProtection }}',
+ '{{ SubnetChangeProtection }}',
+ '{{ FirewallPolicyChangeProtection }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: firewall
+    props:
+      - name: FirewallName
+        value: '{{ FirewallName }}'
+      - name: FirewallPolicyArn
+        value: '{{ FirewallPolicyArn }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: SubnetMappings
+        value:
+          - SubnetId: '{{ SubnetId }}'
+            IPAddressType: '{{ IPAddressType }}'
+      - name: DeleteProtection
+        value: '{{ DeleteProtection }}'
+      - name: SubnetChangeProtection
+        value: '{{ SubnetChangeProtection }}'
+      - name: FirewallPolicyChangeProtection
+        value: '{{ FirewallPolicyChangeProtection }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

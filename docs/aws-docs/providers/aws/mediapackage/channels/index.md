@@ -74,61 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>channel</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}"
-}
->>>
---required properties only
+-- channel.iql (required properties only)
 INSERT INTO aws.mediapackage.channels (
  Id,
  region
 )
 SELECT 
-{{ .Id }},
-'us-east-1';
+'{{ Id }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}",
- "Description": "{{ Description }}",
- "HlsIngest": {
-  "ingestEndpoints": [
-   {
-    "Id": "{{ Id }}",
-    "Username": "{{ Username }}",
-    "Password": "{{ Password }}",
-    "Url": "{{ Url }}"
-   }
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "EgressAccessLogs": {
-  "LogGroupName": "{{ LogGroupName }}"
- },
- "IngressAccessLogs": null
-}
->>>
---all properties
+-- channel.iql (all properties)
 INSERT INTO aws.mediapackage.channels (
  Id,
  Description,
@@ -139,13 +111,50 @@ INSERT INTO aws.mediapackage.channels (
  region
 )
 SELECT 
- {{ .Id }},
- {{ .Description }},
- {{ .HlsIngest }},
- {{ .Tags }},
- {{ .EgressAccessLogs }},
- {{ .IngressAccessLogs }},
- 'us-east-1';
+ '{{ Id }}',
+ '{{ Description }}',
+ '{{ HlsIngest }}',
+ '{{ Tags }}',
+ '{{ EgressAccessLogs }}',
+ '{{ IngressAccessLogs }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: channel
+    props:
+      - name: Id
+        value: '{{ Id }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: HlsIngest
+        value:
+          ingestEndpoints:
+            - Id: '{{ Id }}'
+              Username: '{{ Username }}'
+              Password: '{{ Password }}'
+              Url: '{{ Url }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: EgressAccessLogs
+        value:
+          LogGroupName: '{{ LogGroupName }}'
+      - name: IngressAccessLogs
+        value: null
+
 ```
 </TabItem>
 </Tabs>

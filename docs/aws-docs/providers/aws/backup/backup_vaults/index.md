@@ -74,54 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>backup_vault</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BackupVaultName": "{{ BackupVaultName }}"
-}
->>>
---required properties only
+-- backup_vault.iql (required properties only)
 INSERT INTO aws.backup.backup_vaults (
  BackupVaultName,
  region
 )
 SELECT 
-{{ .BackupVaultName }},
-'us-east-1';
+'{{ BackupVaultName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessPolicy": {},
- "BackupVaultName": "{{ BackupVaultName }}",
- "BackupVaultTags": {},
- "EncryptionKeyArn": "{{ EncryptionKeyArn }}",
- "Notifications": {
-  "BackupVaultEvents": [
-   "{{ BackupVaultEvents[0] }}"
-  ],
-  "SNSTopicArn": "{{ SNSTopicArn }}"
- },
- "LockConfiguration": {
-  "MinRetentionDays": "{{ MinRetentionDays }}",
-  "MaxRetentionDays": "{{ MaxRetentionDays }}",
-  "ChangeableForDays": "{{ ChangeableForDays }}"
- }
-}
->>>
---all properties
+-- backup_vault.iql (all properties)
 INSERT INTO aws.backup.backup_vaults (
  AccessPolicy,
  BackupVaultName,
@@ -132,13 +111,48 @@ INSERT INTO aws.backup.backup_vaults (
  region
 )
 SELECT 
- {{ .AccessPolicy }},
- {{ .BackupVaultName }},
- {{ .BackupVaultTags }},
- {{ .EncryptionKeyArn }},
- {{ .Notifications }},
- {{ .LockConfiguration }},
- 'us-east-1';
+ '{{ AccessPolicy }}',
+ '{{ BackupVaultName }}',
+ '{{ BackupVaultTags }}',
+ '{{ EncryptionKeyArn }}',
+ '{{ Notifications }}',
+ '{{ LockConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: backup_vault
+    props:
+      - name: AccessPolicy
+        value: {}
+      - name: BackupVaultName
+        value: '{{ BackupVaultName }}'
+      - name: BackupVaultTags
+        value: {}
+      - name: EncryptionKeyArn
+        value: '{{ EncryptionKeyArn }}'
+      - name: Notifications
+        value:
+          BackupVaultEvents:
+            - '{{ BackupVaultEvents[0] }}'
+          SNSTopicArn: '{{ SNSTopicArn }}'
+      - name: LockConfiguration
+        value:
+          MinRetentionDays: '{{ MinRetentionDays }}'
+          MaxRetentionDays: '{{ MaxRetentionDays }}'
+          ChangeableForDays: '{{ ChangeableForDays }}'
+
 ```
 </TabItem>
 </Tabs>

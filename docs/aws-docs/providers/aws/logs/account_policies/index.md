@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>account_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "PolicyDocument": "{{ PolicyDocument }}",
- "PolicyType": "{{ PolicyType }}"
-}
->>>
---required properties only
+-- account_policy.iql (required properties only)
 INSERT INTO aws.logs.account_policies (
  PolicyName,
  PolicyDocument,
@@ -103,25 +99,16 @@ INSERT INTO aws.logs.account_policies (
  region
 )
 SELECT 
-{{ .PolicyName }},
- {{ .PolicyDocument }},
- {{ .PolicyType }},
-'us-east-1';
+'{{ PolicyName }}',
+ '{{ PolicyDocument }}',
+ '{{ PolicyType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PolicyName": "{{ PolicyName }}",
- "PolicyDocument": "{{ PolicyDocument }}",
- "PolicyType": "{{ PolicyType }}",
- "Scope": "{{ Scope }}",
- "SelectionCriteria": "{{ SelectionCriteria }}"
-}
->>>
---all properties
+-- account_policy.iql (all properties)
 INSERT INTO aws.logs.account_policies (
  PolicyName,
  PolicyDocument,
@@ -131,12 +118,39 @@ INSERT INTO aws.logs.account_policies (
  region
 )
 SELECT 
- {{ .PolicyName }},
- {{ .PolicyDocument }},
- {{ .PolicyType }},
- {{ .Scope }},
- {{ .SelectionCriteria }},
- 'us-east-1';
+ '{{ PolicyName }}',
+ '{{ PolicyDocument }}',
+ '{{ PolicyType }}',
+ '{{ Scope }}',
+ '{{ SelectionCriteria }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: account_policy
+    props:
+      - name: PolicyName
+        value: '{{ PolicyName }}'
+      - name: PolicyDocument
+        value: '{{ PolicyDocument }}'
+      - name: PolicyType
+        value: '{{ PolicyType }}'
+      - name: Scope
+        value: '{{ Scope }}'
+      - name: SelectionCriteria
+        value: '{{ SelectionCriteria }}'
+
 ```
 </TabItem>
 </Tabs>

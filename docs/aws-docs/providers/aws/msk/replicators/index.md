@@ -74,69 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>replicator</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ReplicatorName": "{{ ReplicatorName }}",
- "KafkaClusters": [
-  {
-   "AmazonMskCluster": {
-    "MskClusterArn": "{{ MskClusterArn }}"
-   },
-   "VpcConfig": {
-    "SecurityGroupIds": [
-     "{{ SecurityGroupIds[0] }}"
-    ],
-    "SubnetIds": [
-     "{{ SubnetIds[0] }}"
-    ]
-   }
-  }
- ],
- "ReplicationInfoList": [
-  {
-   "SourceKafkaClusterArn": "{{ SourceKafkaClusterArn }}",
-   "TargetKafkaClusterArn": "{{ TargetKafkaClusterArn }}",
-   "TargetCompressionType": "{{ TargetCompressionType }}",
-   "TopicReplication": {
-    "TopicsToReplicate": [
-     "{{ TopicsToReplicate[0] }}"
-    ],
-    "TopicsToExclude": [
-     "{{ TopicsToExclude[0] }}"
-    ],
-    "CopyTopicConfigurations": "{{ CopyTopicConfigurations }}",
-    "CopyAccessControlListsForTopics": "{{ CopyAccessControlListsForTopics }}",
-    "DetectAndCopyNewTopics": "{{ DetectAndCopyNewTopics }}",
-    "StartingPosition": {
-     "Type": "{{ Type }}"
-    }
-   },
-   "ConsumerGroupReplication": {
-    "ConsumerGroupsToReplicate": [
-     "{{ ConsumerGroupsToReplicate[0] }}"
-    ],
-    "ConsumerGroupsToExclude": [
-     "{{ ConsumerGroupsToExclude[0] }}"
-    ],
-    "SynchroniseConsumerGroupOffsets": "{{ SynchroniseConsumerGroupOffsets }}",
-    "DetectAndCopyNewConsumerGroups": "{{ DetectAndCopyNewConsumerGroups }}"
-   }
-  }
- ],
- "ServiceExecutionRoleArn": "{{ ServiceExecutionRoleArn }}"
-}
->>>
---required properties only
+-- replicator.iql (required properties only)
 INSERT INTO aws.msk.replicators (
  ReplicatorName,
  KafkaClusters,
@@ -145,77 +96,17 @@ INSERT INTO aws.msk.replicators (
  region
 )
 SELECT 
-{{ .ReplicatorName }},
- {{ .KafkaClusters }},
- {{ .ReplicationInfoList }},
- {{ .ServiceExecutionRoleArn }},
-'us-east-1';
+'{{ ReplicatorName }}',
+ '{{ KafkaClusters }}',
+ '{{ ReplicationInfoList }}',
+ '{{ ServiceExecutionRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ReplicatorName": "{{ ReplicatorName }}",
- "CurrentVersion": "{{ CurrentVersion }}",
- "Description": "{{ Description }}",
- "KafkaClusters": [
-  {
-   "AmazonMskCluster": {
-    "MskClusterArn": "{{ MskClusterArn }}"
-   },
-   "VpcConfig": {
-    "SecurityGroupIds": [
-     "{{ SecurityGroupIds[0] }}"
-    ],
-    "SubnetIds": [
-     "{{ SubnetIds[0] }}"
-    ]
-   }
-  }
- ],
- "ReplicationInfoList": [
-  {
-   "SourceKafkaClusterArn": "{{ SourceKafkaClusterArn }}",
-   "TargetKafkaClusterArn": "{{ TargetKafkaClusterArn }}",
-   "TargetCompressionType": "{{ TargetCompressionType }}",
-   "TopicReplication": {
-    "TopicsToReplicate": [
-     "{{ TopicsToReplicate[0] }}"
-    ],
-    "TopicsToExclude": [
-     "{{ TopicsToExclude[0] }}"
-    ],
-    "CopyTopicConfigurations": "{{ CopyTopicConfigurations }}",
-    "CopyAccessControlListsForTopics": "{{ CopyAccessControlListsForTopics }}",
-    "DetectAndCopyNewTopics": "{{ DetectAndCopyNewTopics }}",
-    "StartingPosition": {
-     "Type": "{{ Type }}"
-    }
-   },
-   "ConsumerGroupReplication": {
-    "ConsumerGroupsToReplicate": [
-     "{{ ConsumerGroupsToReplicate[0] }}"
-    ],
-    "ConsumerGroupsToExclude": [
-     "{{ ConsumerGroupsToExclude[0] }}"
-    ],
-    "SynchroniseConsumerGroupOffsets": "{{ SynchroniseConsumerGroupOffsets }}",
-    "DetectAndCopyNewConsumerGroups": "{{ DetectAndCopyNewConsumerGroups }}"
-   }
-  }
- ],
- "ServiceExecutionRoleArn": "{{ ServiceExecutionRoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- replicator.iql (all properties)
 INSERT INTO aws.msk.replicators (
  ReplicatorName,
  CurrentVersion,
@@ -227,14 +118,74 @@ INSERT INTO aws.msk.replicators (
  region
 )
 SELECT 
- {{ .ReplicatorName }},
- {{ .CurrentVersion }},
- {{ .Description }},
- {{ .KafkaClusters }},
- {{ .ReplicationInfoList }},
- {{ .ServiceExecutionRoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ReplicatorName }}',
+ '{{ CurrentVersion }}',
+ '{{ Description }}',
+ '{{ KafkaClusters }}',
+ '{{ ReplicationInfoList }}',
+ '{{ ServiceExecutionRoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: replicator
+    props:
+      - name: ReplicatorName
+        value: '{{ ReplicatorName }}'
+      - name: CurrentVersion
+        value: '{{ CurrentVersion }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: KafkaClusters
+        value:
+          - AmazonMskCluster:
+              MskClusterArn: '{{ MskClusterArn }}'
+            VpcConfig:
+              SecurityGroupIds:
+                - '{{ SecurityGroupIds[0] }}'
+              SubnetIds:
+                - '{{ SubnetIds[0] }}'
+      - name: ReplicationInfoList
+        value:
+          - SourceKafkaClusterArn: '{{ SourceKafkaClusterArn }}'
+            TargetKafkaClusterArn: '{{ TargetKafkaClusterArn }}'
+            TargetCompressionType: '{{ TargetCompressionType }}'
+            TopicReplication:
+              TopicsToReplicate:
+                - '{{ TopicsToReplicate[0] }}'
+              TopicsToExclude:
+                - '{{ TopicsToExclude[0] }}'
+              CopyTopicConfigurations: '{{ CopyTopicConfigurations }}'
+              CopyAccessControlListsForTopics: '{{ CopyAccessControlListsForTopics }}'
+              DetectAndCopyNewTopics: '{{ DetectAndCopyNewTopics }}'
+              StartingPosition:
+                Type: '{{ Type }}'
+            ConsumerGroupReplication:
+              ConsumerGroupsToReplicate:
+                - '{{ ConsumerGroupsToReplicate[0] }}'
+              ConsumerGroupsToExclude:
+                - '{{ ConsumerGroupsToExclude[0] }}'
+              SynchroniseConsumerGroupOffsets: '{{ SynchroniseConsumerGroupOffsets }}'
+              DetectAndCopyNewConsumerGroups: '{{ DetectAndCopyNewConsumerGroups }}'
+      - name: ServiceExecutionRoleArn
+        value: '{{ ServiceExecutionRoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,39 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>signal_catalog</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "NodeCounts": {
-  "TotalNodes": null,
-  "TotalBranches": null,
-  "TotalSensors": null,
-  "TotalAttributes": null,
-  "TotalActuators": null
- },
- "Nodes": [
-  null
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- signal_catalog.iql (required properties only)
 INSERT INTO aws.iotfleetwise.signal_catalogs (
  Description,
  Name,
@@ -116,40 +97,18 @@ INSERT INTO aws.iotfleetwise.signal_catalogs (
  region
 )
 SELECT 
-{{ .Description }},
- {{ .Name }},
- {{ .NodeCounts }},
- {{ .Nodes }},
- {{ .Tags }},
-'us-east-1';
+'{{ Description }}',
+ '{{ Name }}',
+ '{{ NodeCounts }}',
+ '{{ Nodes }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "NodeCounts": {
-  "TotalNodes": null,
-  "TotalBranches": null,
-  "TotalSensors": null,
-  "TotalAttributes": null,
-  "TotalActuators": null
- },
- "Nodes": [
-  null
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- signal_catalog.iql (all properties)
 INSERT INTO aws.iotfleetwise.signal_catalogs (
  Description,
  Name,
@@ -159,12 +118,47 @@ INSERT INTO aws.iotfleetwise.signal_catalogs (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .NodeCounts }},
- {{ .Nodes }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ NodeCounts }}',
+ '{{ Nodes }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: signal_catalog
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: NodeCounts
+        value:
+          TotalNodes: null
+          TotalBranches: null
+          TotalSensors: null
+          TotalAttributes: null
+          TotalActuators: null
+      - name: Nodes
+        value:
+          - null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

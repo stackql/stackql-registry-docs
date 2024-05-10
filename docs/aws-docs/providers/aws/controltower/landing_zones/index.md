@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>landing_zone</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Manifest": null,
- "Version": "{{ Version }}"
-}
->>>
---required properties only
+-- landing_zone.iql (required properties only)
 INSERT INTO aws.controltower.landing_zones (
  Manifest,
  Version,
  region
 )
 SELECT 
-{{ .Manifest }},
- {{ .Version }},
-'us-east-1';
+'{{ Manifest }}',
+ '{{ Version }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Manifest": null,
- "Version": "{{ Version }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- landing_zone.iql (all properties)
 INSERT INTO aws.controltower.landing_zones (
  Manifest,
  Version,
@@ -125,10 +110,35 @@ INSERT INTO aws.controltower.landing_zones (
  region
 )
 SELECT 
- {{ .Manifest }},
- {{ .Version }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Manifest }}',
+ '{{ Version }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: landing_zone
+    props:
+      - name: Manifest
+        value: null
+      - name: Version
+        value: '{{ Version }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,97 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>work_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- work_group.iql (required properties only)
 INSERT INTO aws.athena.work_groups (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "WorkGroupConfiguration": {
-  "BytesScannedCutoffPerQuery": "{{ BytesScannedCutoffPerQuery }}",
-  "EnforceWorkGroupConfiguration": "{{ EnforceWorkGroupConfiguration }}",
-  "PublishCloudWatchMetricsEnabled": "{{ PublishCloudWatchMetricsEnabled }}",
-  "RequesterPaysEnabled": "{{ RequesterPaysEnabled }}",
-  "ResultConfiguration": {
-   "EncryptionConfiguration": {
-    "EncryptionOption": "{{ EncryptionOption }}",
-    "KmsKey": "{{ KmsKey }}"
-   },
-   "OutputLocation": "{{ OutputLocation }}",
-   "ExpectedBucketOwner": "{{ ExpectedBucketOwner }}",
-   "AclConfiguration": {
-    "S3AclOption": "{{ S3AclOption }}"
-   }
-  },
-  "EngineVersion": {
-   "SelectedEngineVersion": "{{ SelectedEngineVersion }}",
-   "EffectiveEngineVersion": "{{ EffectiveEngineVersion }}"
-  },
-  "AdditionalConfiguration": "{{ AdditionalConfiguration }}",
-  "ExecutionRole": "{{ ExecutionRole }}",
-  "CustomerContentEncryptionConfiguration": {
-   "KmsKey": null
-  }
- },
- "WorkGroupConfigurationUpdates": {
-  "BytesScannedCutoffPerQuery": null,
-  "EnforceWorkGroupConfiguration": null,
-  "PublishCloudWatchMetricsEnabled": null,
-  "RequesterPaysEnabled": null,
-  "ResultConfigurationUpdates": {
-   "EncryptionConfiguration": null,
-   "OutputLocation": null,
-   "ExpectedBucketOwner": null,
-   "AclConfiguration": null,
-   "RemoveEncryptionConfiguration": "{{ RemoveEncryptionConfiguration }}",
-   "RemoveOutputLocation": "{{ RemoveOutputLocation }}",
-   "RemoveExpectedBucketOwner": "{{ RemoveExpectedBucketOwner }}",
-   "RemoveAclConfiguration": "{{ RemoveAclConfiguration }}"
-  },
-  "RemoveBytesScannedCutoffPerQuery": "{{ RemoveBytesScannedCutoffPerQuery }}",
-  "EngineVersion": null,
-  "AdditionalConfiguration": null,
-  "ExecutionRole": null,
-  "CustomerContentEncryptionConfiguration": null,
-  "RemoveCustomerContentEncryptionConfiguration": "{{ RemoveCustomerContentEncryptionConfiguration }}"
- },
- "State": "{{ State }}",
- "RecursiveDeleteOption": "{{ RecursiveDeleteOption }}"
-}
->>>
---all properties
+-- work_group.iql (all properties)
 INSERT INTO aws.athena.work_groups (
  Name,
  Description,
@@ -176,14 +112,85 @@ INSERT INTO aws.athena.work_groups (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Tags }},
- {{ .WorkGroupConfiguration }},
- {{ .WorkGroupConfigurationUpdates }},
- {{ .State }},
- {{ .RecursiveDeleteOption }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ WorkGroupConfiguration }}',
+ '{{ WorkGroupConfigurationUpdates }}',
+ '{{ State }}',
+ '{{ RecursiveDeleteOption }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: work_group
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: WorkGroupConfiguration
+        value:
+          BytesScannedCutoffPerQuery: '{{ BytesScannedCutoffPerQuery }}'
+          EnforceWorkGroupConfiguration: '{{ EnforceWorkGroupConfiguration }}'
+          PublishCloudWatchMetricsEnabled: '{{ PublishCloudWatchMetricsEnabled }}'
+          RequesterPaysEnabled: '{{ RequesterPaysEnabled }}'
+          ResultConfiguration:
+            EncryptionConfiguration:
+              EncryptionOption: '{{ EncryptionOption }}'
+              KmsKey: '{{ KmsKey }}'
+            OutputLocation: '{{ OutputLocation }}'
+            ExpectedBucketOwner: '{{ ExpectedBucketOwner }}'
+            AclConfiguration:
+              S3AclOption: '{{ S3AclOption }}'
+          EngineVersion:
+            SelectedEngineVersion: '{{ SelectedEngineVersion }}'
+            EffectiveEngineVersion: '{{ EffectiveEngineVersion }}'
+          AdditionalConfiguration: '{{ AdditionalConfiguration }}'
+          ExecutionRole: '{{ ExecutionRole }}'
+          CustomerContentEncryptionConfiguration:
+            KmsKey: null
+      - name: WorkGroupConfigurationUpdates
+        value:
+          BytesScannedCutoffPerQuery: null
+          EnforceWorkGroupConfiguration: null
+          PublishCloudWatchMetricsEnabled: null
+          RequesterPaysEnabled: null
+          ResultConfigurationUpdates:
+            EncryptionConfiguration: null
+            OutputLocation: null
+            ExpectedBucketOwner: null
+            AclConfiguration: null
+            RemoveEncryptionConfiguration: '{{ RemoveEncryptionConfiguration }}'
+            RemoveOutputLocation: '{{ RemoveOutputLocation }}'
+            RemoveExpectedBucketOwner: '{{ RemoveExpectedBucketOwner }}'
+            RemoveAclConfiguration: '{{ RemoveAclConfiguration }}'
+          RemoveBytesScannedCutoffPerQuery: '{{ RemoveBytesScannedCutoffPerQuery }}'
+          EngineVersion: null
+          AdditionalConfiguration: null
+          ExecutionRole: null
+          CustomerContentEncryptionConfiguration: null
+          RemoveCustomerContentEncryptionConfiguration: '{{ RemoveCustomerContentEncryptionConfiguration }}'
+      - name: State
+        value: '{{ State }}'
+      - name: RecursiveDeleteOption
+        value: '{{ RecursiveDeleteOption }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>db_parameter_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Family": "{{ Family }}"
-}
->>>
---required properties only
+-- db_parameter_group.iql (required properties only)
 INSERT INTO aws.rds.db_parameter_groups (
  Description,
  Family,
  region
 )
 SELECT 
-{{ .Description }},
- {{ .Family }},
-'us-east-1';
+'{{ Description }}',
+ '{{ Family }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DBParameterGroupName": "{{ DBParameterGroupName }}",
- "Description": "{{ Description }}",
- "Family": "{{ Family }}",
- "Parameters": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- db_parameter_group.iql (all properties)
 INSERT INTO aws.rds.db_parameter_groups (
  DBParameterGroupName,
  Description,
@@ -129,12 +112,41 @@ INSERT INTO aws.rds.db_parameter_groups (
  region
 )
 SELECT 
- {{ .DBParameterGroupName }},
- {{ .Description }},
- {{ .Family }},
- {{ .Parameters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DBParameterGroupName }}',
+ '{{ Description }}',
+ '{{ Family }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: db_parameter_group
+    props:
+      - name: DBParameterGroupName
+        value: '{{ DBParameterGroupName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Family
+        value: '{{ Family }}'
+      - name: Parameters
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>registry</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RegistryName": "{{ RegistryName }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---required properties only
+-- registry.iql (required properties only)
 INSERT INTO aws.eventschemas.registries (
  RegistryName,
  Description,
@@ -104,28 +95,16 @@ INSERT INTO aws.eventschemas.registries (
  region
 )
 SELECT 
-{{ .RegistryName }},
- {{ .Description }},
- {{ .Tags }},
-'us-east-1';
+'{{ RegistryName }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RegistryName": "{{ RegistryName }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- registry.iql (all properties)
 INSERT INTO aws.eventschemas.registries (
  RegistryName,
  Description,
@@ -133,10 +112,35 @@ INSERT INTO aws.eventschemas.registries (
  region
 )
 SELECT 
- {{ .RegistryName }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ RegistryName }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: registry
+    props:
+      - name: RegistryName
+        value: '{{ RegistryName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

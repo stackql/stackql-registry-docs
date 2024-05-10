@@ -78,49 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>form</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "Cta": {
-  "Position": "{{ Position }}",
-  "Clear": {
-   "Excluded": "{{ Excluded }}",
-   "Children": "{{ Children }}",
-   "Position": null
-  },
-  "Cancel": null,
-  "Submit": null
- },
- "DataType": {
-  "DataSourceType": "{{ DataSourceType }}",
-  "DataTypeName": "{{ DataTypeName }}"
- },
- "EnvironmentName": "{{ EnvironmentName }}",
- "Fields": {},
- "FormActionType": "{{ FormActionType }}",
- "LabelDecorator": "{{ LabelDecorator }}",
- "Name": "{{ Name }}",
- "SchemaVersion": "{{ SchemaVersion }}",
- "SectionalElements": {},
- "Style": {
-  "HorizontalGap": null,
-  "VerticalGap": null,
-  "OuterPadding": null
- },
- "Tags": {}
-}
->>>
---required properties only
+-- form.iql (required properties only)
 INSERT INTO aws.amplifyuibuilder.forms (
  AppId,
  Cta,
@@ -137,57 +108,25 @@ INSERT INTO aws.amplifyuibuilder.forms (
  region
 )
 SELECT 
-{{ .AppId }},
- {{ .Cta }},
- {{ .DataType }},
- {{ .EnvironmentName }},
- {{ .Fields }},
- {{ .FormActionType }},
- {{ .LabelDecorator }},
- {{ .Name }},
- {{ .SchemaVersion }},
- {{ .SectionalElements }},
- {{ .Style }},
- {{ .Tags }},
-'us-east-1';
+'{{ AppId }}',
+ '{{ Cta }}',
+ '{{ DataType }}',
+ '{{ EnvironmentName }}',
+ '{{ Fields }}',
+ '{{ FormActionType }}',
+ '{{ LabelDecorator }}',
+ '{{ Name }}',
+ '{{ SchemaVersion }}',
+ '{{ SectionalElements }}',
+ '{{ Style }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "Cta": {
-  "Position": "{{ Position }}",
-  "Clear": {
-   "Excluded": "{{ Excluded }}",
-   "Children": "{{ Children }}",
-   "Position": null
-  },
-  "Cancel": null,
-  "Submit": null
- },
- "DataType": {
-  "DataSourceType": "{{ DataSourceType }}",
-  "DataTypeName": "{{ DataTypeName }}"
- },
- "EnvironmentName": "{{ EnvironmentName }}",
- "Fields": {},
- "FormActionType": "{{ FormActionType }}",
- "LabelDecorator": "{{ LabelDecorator }}",
- "Name": "{{ Name }}",
- "SchemaVersion": "{{ SchemaVersion }}",
- "SectionalElements": {},
- "Style": {
-  "HorizontalGap": null,
-  "VerticalGap": null,
-  "OuterPadding": null
- },
- "Tags": {}
-}
->>>
---all properties
+-- form.iql (all properties)
 INSERT INTO aws.amplifyuibuilder.forms (
  AppId,
  Cta,
@@ -204,19 +143,72 @@ INSERT INTO aws.amplifyuibuilder.forms (
  region
 )
 SELECT 
- {{ .AppId }},
- {{ .Cta }},
- {{ .DataType }},
- {{ .EnvironmentName }},
- {{ .Fields }},
- {{ .FormActionType }},
- {{ .LabelDecorator }},
- {{ .Name }},
- {{ .SchemaVersion }},
- {{ .SectionalElements }},
- {{ .Style }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AppId }}',
+ '{{ Cta }}',
+ '{{ DataType }}',
+ '{{ EnvironmentName }}',
+ '{{ Fields }}',
+ '{{ FormActionType }}',
+ '{{ LabelDecorator }}',
+ '{{ Name }}',
+ '{{ SchemaVersion }}',
+ '{{ SectionalElements }}',
+ '{{ Style }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: form
+    props:
+      - name: AppId
+        value: '{{ AppId }}'
+      - name: Cta
+        value:
+          Position: '{{ Position }}'
+          Clear:
+            Excluded: '{{ Excluded }}'
+            Children: '{{ Children }}'
+            Position: null
+          Cancel: null
+          Submit: null
+      - name: DataType
+        value:
+          DataSourceType: '{{ DataSourceType }}'
+          DataTypeName: '{{ DataTypeName }}'
+      - name: EnvironmentName
+        value: '{{ EnvironmentName }}'
+      - name: Fields
+        value: {}
+      - name: FormActionType
+        value: '{{ FormActionType }}'
+      - name: LabelDecorator
+        value: '{{ LabelDecorator }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: SchemaVersion
+        value: '{{ SchemaVersion }}'
+      - name: SectionalElements
+        value: {}
+      - name: Style
+        value:
+          HorizontalGap: null
+          VerticalGap: null
+          OuterPadding: null
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

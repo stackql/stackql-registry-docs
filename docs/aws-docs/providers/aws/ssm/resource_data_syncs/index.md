@@ -74,63 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resource_data_sync</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- resource_data_sync.iql (required properties only)
 INSERT INTO aws.ssm.resource_data_syncs (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "S3Destination": {
-  "KMSKeyArn": "{{ KMSKeyArn }}",
-  "BucketPrefix": "{{ BucketPrefix }}",
-  "BucketName": "{{ BucketName }}",
-  "BucketRegion": "{{ BucketRegion }}",
-  "SyncFormat": "{{ SyncFormat }}"
- },
- "KMSKeyArn": "{{ KMSKeyArn }}",
- "SyncSource": {
-  "IncludeFutureRegions": "{{ IncludeFutureRegions }}",
-  "SourceRegions": [
-   "{{ SourceRegions[0] }}"
-  ],
-  "SourceType": "{{ SourceType }}",
-  "AwsOrganizationsSource": {
-   "OrganizationalUnits": [
-    "{{ OrganizationalUnits[0] }}"
-   ],
-   "OrganizationSourceType": "{{ OrganizationSourceType }}"
-  }
- },
- "BucketName": "{{ BucketName }}",
- "BucketRegion": "{{ BucketRegion }}",
- "SyncFormat": "{{ SyncFormat }}",
- "SyncType": "{{ SyncType }}",
- "BucketPrefix": "{{ BucketPrefix }}"
-}
->>>
---all properties
+-- resource_data_sync.iql (all properties)
 INSERT INTO aws.ssm.resource_data_syncs (
  S3Destination,
  KMSKeyArn,
@@ -143,15 +113,61 @@ INSERT INTO aws.ssm.resource_data_syncs (
  region
 )
 SELECT 
- {{ .S3Destination }},
- {{ .KMSKeyArn }},
- {{ .SyncSource }},
- {{ .BucketName }},
- {{ .BucketRegion }},
- {{ .SyncFormat }},
- {{ .SyncType }},
- {{ .BucketPrefix }},
- 'us-east-1';
+ '{{ S3Destination }}',
+ '{{ KMSKeyArn }}',
+ '{{ SyncSource }}',
+ '{{ BucketName }}',
+ '{{ BucketRegion }}',
+ '{{ SyncFormat }}',
+ '{{ SyncType }}',
+ '{{ BucketPrefix }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resource_data_sync
+    props:
+      - name: S3Destination
+        value:
+          KMSKeyArn: '{{ KMSKeyArn }}'
+          BucketPrefix: '{{ BucketPrefix }}'
+          BucketName: '{{ BucketName }}'
+          BucketRegion: '{{ BucketRegion }}'
+          SyncFormat: '{{ SyncFormat }}'
+      - name: KMSKeyArn
+        value: '{{ KMSKeyArn }}'
+      - name: SyncSource
+        value:
+          IncludeFutureRegions: '{{ IncludeFutureRegions }}'
+          SourceRegions:
+            - '{{ SourceRegions[0] }}'
+          SourceType: '{{ SourceType }}'
+          AwsOrganizationsSource:
+            OrganizationalUnits:
+              - '{{ OrganizationalUnits[0] }}'
+            OrganizationSourceType: '{{ OrganizationSourceType }}'
+      - name: BucketName
+        value: '{{ BucketName }}'
+      - name: BucketRegion
+        value: '{{ BucketRegion }}'
+      - name: SyncFormat
+        value: '{{ SyncFormat }}'
+      - name: SyncType
+        value: '{{ SyncType }}'
+      - name: BucketPrefix
+        value: '{{ BucketPrefix }}'
+
 ```
 </TabItem>
 </Tabs>

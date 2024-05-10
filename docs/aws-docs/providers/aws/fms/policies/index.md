@@ -74,36 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ExcludeResourceTags": "{{ ExcludeResourceTags }}",
- "PolicyName": "{{ PolicyName }}",
- "RemediationEnabled": "{{ RemediationEnabled }}",
- "SecurityServicePolicyData": {
-  "ManagedServiceData": "{{ ManagedServiceData }}",
-  "Type": "{{ Type }}",
-  "PolicyOption": {
-   "NetworkFirewallPolicy": {
-    "FirewallDeploymentModel": "{{ FirewallDeploymentModel }}"
-   },
-   "ThirdPartyFirewallPolicy": {
-    "FirewallDeploymentModel": null
-   }
-  }
- }
-}
->>>
---required properties only
+-- policy.iql (required properties only)
 INSERT INTO aws.fms.policies (
  ExcludeResourceTags,
  PolicyName,
@@ -112,67 +96,17 @@ INSERT INTO aws.fms.policies (
  region
 )
 SELECT 
-{{ .ExcludeResourceTags }},
- {{ .PolicyName }},
- {{ .RemediationEnabled }},
- {{ .SecurityServicePolicyData }},
-'us-east-1';
+'{{ ExcludeResourceTags }}',
+ '{{ PolicyName }}',
+ '{{ RemediationEnabled }}',
+ '{{ SecurityServicePolicyData }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ExcludeMap": {
-  "ACCOUNT": [
-   "{{ ACCOUNT[0] }}"
-  ],
-  "ORGUNIT": [
-   "{{ ORGUNIT[0] }}"
-  ]
- },
- "ExcludeResourceTags": "{{ ExcludeResourceTags }}",
- "IncludeMap": null,
- "PolicyName": "{{ PolicyName }}",
- "PolicyDescription": "{{ PolicyDescription }}",
- "RemediationEnabled": "{{ RemediationEnabled }}",
- "ResourceTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ResourceType": "{{ ResourceType }}",
- "ResourceTypeList": [
-  null
- ],
- "ResourceSetIds": [
-  "{{ ResourceSetIds[0] }}"
- ],
- "SecurityServicePolicyData": {
-  "ManagedServiceData": "{{ ManagedServiceData }}",
-  "Type": "{{ Type }}",
-  "PolicyOption": {
-   "NetworkFirewallPolicy": {
-    "FirewallDeploymentModel": "{{ FirewallDeploymentModel }}"
-   },
-   "ThirdPartyFirewallPolicy": {
-    "FirewallDeploymentModel": null
-   }
-  }
- },
- "DeleteAllPolicyResources": "{{ DeleteAllPolicyResources }}",
- "ResourcesCleanUp": "{{ ResourcesCleanUp }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- policy.iql (all properties)
 INSERT INTO aws.fms.policies (
  ExcludeMap,
  ExcludeResourceTags,
@@ -191,21 +125,83 @@ INSERT INTO aws.fms.policies (
  region
 )
 SELECT 
- {{ .ExcludeMap }},
- {{ .ExcludeResourceTags }},
- {{ .IncludeMap }},
- {{ .PolicyName }},
- {{ .PolicyDescription }},
- {{ .RemediationEnabled }},
- {{ .ResourceTags }},
- {{ .ResourceType }},
- {{ .ResourceTypeList }},
- {{ .ResourceSetIds }},
- {{ .SecurityServicePolicyData }},
- {{ .DeleteAllPolicyResources }},
- {{ .ResourcesCleanUp }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ExcludeMap }}',
+ '{{ ExcludeResourceTags }}',
+ '{{ IncludeMap }}',
+ '{{ PolicyName }}',
+ '{{ PolicyDescription }}',
+ '{{ RemediationEnabled }}',
+ '{{ ResourceTags }}',
+ '{{ ResourceType }}',
+ '{{ ResourceTypeList }}',
+ '{{ ResourceSetIds }}',
+ '{{ SecurityServicePolicyData }}',
+ '{{ DeleteAllPolicyResources }}',
+ '{{ ResourcesCleanUp }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: policy
+    props:
+      - name: ExcludeMap
+        value:
+          ACCOUNT:
+            - '{{ ACCOUNT[0] }}'
+          ORGUNIT:
+            - '{{ ORGUNIT[0] }}'
+      - name: ExcludeResourceTags
+        value: '{{ ExcludeResourceTags }}'
+      - name: IncludeMap
+        value: null
+      - name: PolicyName
+        value: '{{ PolicyName }}'
+      - name: PolicyDescription
+        value: '{{ PolicyDescription }}'
+      - name: RemediationEnabled
+        value: '{{ RemediationEnabled }}'
+      - name: ResourceTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ResourceType
+        value: '{{ ResourceType }}'
+      - name: ResourceTypeList
+        value:
+          - null
+      - name: ResourceSetIds
+        value:
+          - '{{ ResourceSetIds[0] }}'
+      - name: SecurityServicePolicyData
+        value:
+          ManagedServiceData: '{{ ManagedServiceData }}'
+          Type: '{{ Type }}'
+          PolicyOption:
+            NetworkFirewallPolicy:
+              FirewallDeploymentModel: '{{ FirewallDeploymentModel }}'
+            ThirdPartyFirewallPolicy:
+              FirewallDeploymentModel: null
+      - name: DeleteAllPolicyResources
+        value: '{{ DeleteAllPolicyResources }}'
+      - name: ResourcesCleanUp
+        value: '{{ ResourcesCleanUp }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

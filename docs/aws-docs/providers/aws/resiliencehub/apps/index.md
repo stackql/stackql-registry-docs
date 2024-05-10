@@ -74,38 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>app</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "AppTemplateBody": "{{ AppTemplateBody }}",
- "ResourceMappings": [
-  {
-   "LogicalStackName": "{{ LogicalStackName }}",
-   "MappingType": "{{ MappingType }}",
-   "ResourceName": "{{ ResourceName }}",
-   "TerraformSourceName": "{{ TerraformSourceName }}",
-   "EksSourceName": "{{ EksSourceName }}",
-   "PhysicalResourceId": {
-    "AwsAccountId": "{{ AwsAccountId }}",
-    "AwsRegion": "{{ AwsRegion }}",
-    "Identifier": "{{ Identifier }}",
-    "Type": "{{ Type }}"
-   }
-  }
- ]
-}
->>>
---required properties only
+-- app.iql (required properties only)
 INSERT INTO aws.resiliencehub.apps (
  Name,
  AppTemplateBody,
@@ -113,55 +95,16 @@ INSERT INTO aws.resiliencehub.apps (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .AppTemplateBody }},
- {{ .ResourceMappings }},
-'us-east-1';
+'{{ Name }}',
+ '{{ AppTemplateBody }}',
+ '{{ ResourceMappings }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ResiliencyPolicyArn": "{{ ResiliencyPolicyArn }}",
- "Tags": {},
- "AppTemplateBody": "{{ AppTemplateBody }}",
- "ResourceMappings": [
-  {
-   "LogicalStackName": "{{ LogicalStackName }}",
-   "MappingType": "{{ MappingType }}",
-   "ResourceName": "{{ ResourceName }}",
-   "TerraformSourceName": "{{ TerraformSourceName }}",
-   "EksSourceName": "{{ EksSourceName }}",
-   "PhysicalResourceId": {
-    "AwsAccountId": "{{ AwsAccountId }}",
-    "AwsRegion": "{{ AwsRegion }}",
-    "Identifier": "{{ Identifier }}",
-    "Type": "{{ Type }}"
-   }
-  }
- ],
- "AppAssessmentSchedule": "{{ AppAssessmentSchedule }}",
- "PermissionModel": {
-  "Type": "{{ Type }}",
-  "InvokerRoleName": "{{ InvokerRoleName }}",
-  "CrossAccountRoleArns": [
-   "{{ CrossAccountRoleArns[0] }}"
-  ]
- },
- "EventSubscriptions": [
-  {
-   "Name": "{{ Name }}",
-   "EventType": "{{ EventType }}",
-   "SnsTopicArn": "{{ SnsTopicArn }}"
-  }
- ]
-}
->>>
---all properties
+-- app.iql (all properties)
 INSERT INTO aws.resiliencehub.apps (
  Name,
  Description,
@@ -175,16 +118,68 @@ INSERT INTO aws.resiliencehub.apps (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .ResiliencyPolicyArn }},
- {{ .Tags }},
- {{ .AppTemplateBody }},
- {{ .ResourceMappings }},
- {{ .AppAssessmentSchedule }},
- {{ .PermissionModel }},
- {{ .EventSubscriptions }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ ResiliencyPolicyArn }}',
+ '{{ Tags }}',
+ '{{ AppTemplateBody }}',
+ '{{ ResourceMappings }}',
+ '{{ AppAssessmentSchedule }}',
+ '{{ PermissionModel }}',
+ '{{ EventSubscriptions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: app
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ResiliencyPolicyArn
+        value: '{{ ResiliencyPolicyArn }}'
+      - name: Tags
+        value: {}
+      - name: AppTemplateBody
+        value: '{{ AppTemplateBody }}'
+      - name: ResourceMappings
+        value:
+          - LogicalStackName: '{{ LogicalStackName }}'
+            MappingType: '{{ MappingType }}'
+            ResourceName: '{{ ResourceName }}'
+            TerraformSourceName: '{{ TerraformSourceName }}'
+            EksSourceName: '{{ EksSourceName }}'
+            PhysicalResourceId:
+              AwsAccountId: '{{ AwsAccountId }}'
+              AwsRegion: '{{ AwsRegion }}'
+              Identifier: '{{ Identifier }}'
+              Type: '{{ Type }}'
+      - name: AppAssessmentSchedule
+        value: '{{ AppAssessmentSchedule }}'
+      - name: PermissionModel
+        value:
+          Type: '{{ Type }}'
+          InvokerRoleName: '{{ InvokerRoleName }}'
+          CrossAccountRoleArns:
+            - '{{ CrossAccountRoleArns[0] }}'
+      - name: EventSubscriptions
+        value:
+          - Name: '{{ Name }}'
+            EventType: '{{ EventType }}'
+            SnsTopicArn: '{{ SnsTopicArn }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,57 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>prefix_list</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PrefixListName": "{{ PrefixListName }}",
- "AddressFamily": "{{ AddressFamily }}"
-}
->>>
---required properties only
+-- prefix_list.iql (required properties only)
 INSERT INTO aws.ec2.prefix_lists (
  PrefixListName,
  AddressFamily,
  region
 )
 SELECT 
-{{ .PrefixListName }},
- {{ .AddressFamily }},
-'us-east-1';
+'{{ PrefixListName }}',
+ '{{ AddressFamily }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "PrefixListName": "{{ PrefixListName }}",
- "AddressFamily": "{{ AddressFamily }}",
- "MaxEntries": "{{ MaxEntries }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Entries": [
-  {
-   "Cidr": "{{ Cidr }}",
-   "Description": "{{ Description }}"
-  }
- ]
-}
->>>
---all properties
+-- prefix_list.iql (all properties)
 INSERT INTO aws.ec2.prefix_lists (
  PrefixListName,
  AddressFamily,
@@ -134,12 +112,43 @@ INSERT INTO aws.ec2.prefix_lists (
  region
 )
 SELECT 
- {{ .PrefixListName }},
- {{ .AddressFamily }},
- {{ .MaxEntries }},
- {{ .Tags }},
- {{ .Entries }},
- 'us-east-1';
+ '{{ PrefixListName }}',
+ '{{ AddressFamily }}',
+ '{{ MaxEntries }}',
+ '{{ Tags }}',
+ '{{ Entries }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: prefix_list
+    props:
+      - name: PrefixListName
+        value: '{{ PrefixListName }}'
+      - name: AddressFamily
+        value: '{{ AddressFamily }}'
+      - name: MaxEntries
+        value: '{{ MaxEntries }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Entries
+        value:
+          - Cidr: '{{ Cidr }}'
+            Description: '{{ Description }}'
+
 ```
 </TabItem>
 </Tabs>

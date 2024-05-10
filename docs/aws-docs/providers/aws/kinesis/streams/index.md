@@ -74,37 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>stream</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StreamModeDetails": {
-  "StreamMode": "{{ StreamMode }}"
- },
- "StreamEncryption": {
-  "EncryptionType": "{{ EncryptionType }}",
-  "KeyId": "{{ KeyId }}"
- },
- "RetentionPeriodHours": "{{ RetentionPeriodHours }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Name": "{{ Name }}",
- "ShardCount": "{{ ShardCount }}"
-}
->>>
---required properties only
+-- stream.iql (required properties only)
 INSERT INTO aws.kinesis.streams (
  StreamModeDetails,
  StreamEncryption,
@@ -115,39 +98,19 @@ INSERT INTO aws.kinesis.streams (
  region
 )
 SELECT 
-{{ .StreamModeDetails }},
- {{ .StreamEncryption }},
- {{ .RetentionPeriodHours }},
- {{ .Tags }},
- {{ .Name }},
- {{ .ShardCount }},
-'us-east-1';
+'{{ StreamModeDetails }}',
+ '{{ StreamEncryption }}',
+ '{{ RetentionPeriodHours }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ ShardCount }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "StreamModeDetails": {
-  "StreamMode": "{{ StreamMode }}"
- },
- "StreamEncryption": {
-  "EncryptionType": "{{ EncryptionType }}",
-  "KeyId": "{{ KeyId }}"
- },
- "RetentionPeriodHours": "{{ RetentionPeriodHours }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Name": "{{ Name }}",
- "ShardCount": "{{ ShardCount }}"
-}
->>>
---all properties
+-- stream.iql (all properties)
 INSERT INTO aws.kinesis.streams (
  StreamModeDetails,
  StreamEncryption,
@@ -158,13 +121,47 @@ INSERT INTO aws.kinesis.streams (
  region
 )
 SELECT 
- {{ .StreamModeDetails }},
- {{ .StreamEncryption }},
- {{ .RetentionPeriodHours }},
- {{ .Tags }},
- {{ .Name }},
- {{ .ShardCount }},
- 'us-east-1';
+ '{{ StreamModeDetails }}',
+ '{{ StreamEncryption }}',
+ '{{ RetentionPeriodHours }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ ShardCount }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: stream
+    props:
+      - name: StreamModeDetails
+        value:
+          StreamMode: '{{ StreamMode }}'
+      - name: StreamEncryption
+        value:
+          EncryptionType: '{{ EncryptionType }}'
+          KeyId: '{{ KeyId }}'
+      - name: RetentionPeriodHours
+        value: '{{ RetentionPeriodHours }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ShardCount
+        value: '{{ ShardCount }}'
+
 ```
 </TabItem>
 </Tabs>

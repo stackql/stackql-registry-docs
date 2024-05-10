@@ -76,107 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>table</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KeyspaceName": "{{ KeyspaceName }}",
- "PartitionKeyColumns": [
-  {
-   "ColumnName": "{{ ColumnName }}",
-   "ColumnType": "{{ ColumnType }}"
-  }
- ]
-}
->>>
---required properties only
+-- table.iql (required properties only)
 INSERT INTO aws.cassandra.tables (
  KeyspaceName,
  PartitionKeyColumns,
  region
 )
 SELECT 
-{{ .KeyspaceName }},
- {{ .PartitionKeyColumns }},
-'us-east-1';
+'{{ KeyspaceName }}',
+ '{{ PartitionKeyColumns }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "KeyspaceName": "{{ KeyspaceName }}",
- "TableName": "{{ TableName }}",
- "RegularColumns": [
-  {
-   "ColumnName": "{{ ColumnName }}",
-   "ColumnType": "{{ ColumnType }}"
-  }
- ],
- "PartitionKeyColumns": [
-  null
- ],
- "ClusteringKeyColumns": [
-  {
-   "Column": null,
-   "OrderBy": "{{ OrderBy }}"
-  }
- ],
- "BillingMode": {
-  "Mode": "{{ Mode }}",
-  "ProvisionedThroughput": {
-   "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
-   "WriteCapacityUnits": "{{ WriteCapacityUnits }}"
-  }
- },
- "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}",
- "ClientSideTimestampsEnabled": "{{ ClientSideTimestampsEnabled }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "DefaultTimeToLive": "{{ DefaultTimeToLive }}",
- "EncryptionSpecification": {
-  "EncryptionType": "{{ EncryptionType }}",
-  "KmsKeyIdentifier": "{{ KmsKeyIdentifier }}"
- },
- "AutoScalingSpecifications": {
-  "WriteCapacityAutoScaling": {
-   "AutoScalingDisabled": "{{ AutoScalingDisabled }}",
-   "MinimumUnits": "{{ MinimumUnits }}",
-   "MaximumUnits": "{{ MaximumUnits }}",
-   "ScalingPolicy": {
-    "TargetTrackingScalingPolicyConfiguration": {
-     "DisableScaleIn": "{{ DisableScaleIn }}",
-     "ScaleInCooldown": "{{ ScaleInCooldown }}",
-     "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
-     "TargetValue": "{{ TargetValue }}"
-    }
-   }
-  },
-  "ReadCapacityAutoScaling": null
- },
- "ReplicaSpecifications": [
-  {
-   "Region": "{{ Region }}",
-   "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
-   "ReadCapacityAutoScaling": null
-  }
- ]
-}
->>>
---all properties
+-- table.iql (all properties)
 INSERT INTO aws.cassandra.tables (
  KeyspaceName,
  TableName,
@@ -194,20 +122,90 @@ INSERT INTO aws.cassandra.tables (
  region
 )
 SELECT 
- {{ .KeyspaceName }},
- {{ .TableName }},
- {{ .RegularColumns }},
- {{ .PartitionKeyColumns }},
- {{ .ClusteringKeyColumns }},
- {{ .BillingMode }},
- {{ .PointInTimeRecoveryEnabled }},
- {{ .ClientSideTimestampsEnabled }},
- {{ .Tags }},
- {{ .DefaultTimeToLive }},
- {{ .EncryptionSpecification }},
- {{ .AutoScalingSpecifications }},
- {{ .ReplicaSpecifications }},
- 'us-east-1';
+ '{{ KeyspaceName }}',
+ '{{ TableName }}',
+ '{{ RegularColumns }}',
+ '{{ PartitionKeyColumns }}',
+ '{{ ClusteringKeyColumns }}',
+ '{{ BillingMode }}',
+ '{{ PointInTimeRecoveryEnabled }}',
+ '{{ ClientSideTimestampsEnabled }}',
+ '{{ Tags }}',
+ '{{ DefaultTimeToLive }}',
+ '{{ EncryptionSpecification }}',
+ '{{ AutoScalingSpecifications }}',
+ '{{ ReplicaSpecifications }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: table
+    props:
+      - name: KeyspaceName
+        value: '{{ KeyspaceName }}'
+      - name: TableName
+        value: '{{ TableName }}'
+      - name: RegularColumns
+        value:
+          - ColumnName: '{{ ColumnName }}'
+            ColumnType: '{{ ColumnType }}'
+      - name: PartitionKeyColumns
+        value:
+          - null
+      - name: ClusteringKeyColumns
+        value:
+          - Column: null
+            OrderBy: '{{ OrderBy }}'
+      - name: BillingMode
+        value:
+          Mode: '{{ Mode }}'
+          ProvisionedThroughput:
+            ReadCapacityUnits: '{{ ReadCapacityUnits }}'
+            WriteCapacityUnits: '{{ WriteCapacityUnits }}'
+      - name: PointInTimeRecoveryEnabled
+        value: '{{ PointInTimeRecoveryEnabled }}'
+      - name: ClientSideTimestampsEnabled
+        value: '{{ ClientSideTimestampsEnabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: DefaultTimeToLive
+        value: '{{ DefaultTimeToLive }}'
+      - name: EncryptionSpecification
+        value:
+          EncryptionType: '{{ EncryptionType }}'
+          KmsKeyIdentifier: '{{ KmsKeyIdentifier }}'
+      - name: AutoScalingSpecifications
+        value:
+          WriteCapacityAutoScaling:
+            AutoScalingDisabled: '{{ AutoScalingDisabled }}'
+            MinimumUnits: '{{ MinimumUnits }}'
+            MaximumUnits: '{{ MaximumUnits }}'
+            ScalingPolicy:
+              TargetTrackingScalingPolicyConfiguration:
+                DisableScaleIn: '{{ DisableScaleIn }}'
+                ScaleInCooldown: '{{ ScaleInCooldown }}'
+                ScaleOutCooldown: '{{ ScaleOutCooldown }}'
+                TargetValue: '{{ TargetValue }}'
+          ReadCapacityAutoScaling: null
+      - name: ReplicaSpecifications
+        value:
+          - Region: '{{ Region }}'
+            ReadCapacityUnits: '{{ ReadCapacityUnits }}'
+            ReadCapacityAutoScaling: null
+
 ```
 </TabItem>
 </Tabs>

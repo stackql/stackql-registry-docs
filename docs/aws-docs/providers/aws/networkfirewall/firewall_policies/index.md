@@ -74,61 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>firewall_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FirewallPolicyName": "{{ FirewallPolicyName }}",
- "FirewallPolicy": {
-  "FirewallPolicyName": "{{ FirewallPolicyName }}",
-  "FirewallPolicy": null
- }
-}
->>>
---required properties only
+-- firewall_policy.iql (required properties only)
 INSERT INTO aws.networkfirewall.firewall_policies (
  FirewallPolicyName,
  FirewallPolicy,
  region
 )
 SELECT 
-{{ .FirewallPolicyName }},
- {{ .FirewallPolicy }},
-'us-east-1';
+'{{ FirewallPolicyName }}',
+ '{{ FirewallPolicy }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "FirewallPolicyName": "{{ FirewallPolicyName }}",
- "FirewallPolicy": {
-  "FirewallPolicyName": "{{ FirewallPolicyName }}",
-  "FirewallPolicy": null,
-  "Description": "{{ Description }}",
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "Description": "{{ Description }}",
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- firewall_policy.iql (all properties)
 INSERT INTO aws.networkfirewall.firewall_policies (
  FirewallPolicyName,
  FirewallPolicy,
@@ -137,11 +111,43 @@ INSERT INTO aws.networkfirewall.firewall_policies (
  region
 )
 SELECT 
- {{ .FirewallPolicyName }},
- {{ .FirewallPolicy }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ FirewallPolicyName }}',
+ '{{ FirewallPolicy }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: firewall_policy
+    props:
+      - name: FirewallPolicyName
+        value: '{{ FirewallPolicyName }}'
+      - name: FirewallPolicy
+        value:
+          FirewallPolicyName: '{{ FirewallPolicyName }}'
+          FirewallPolicy: null
+          Description: '{{ Description }}'
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

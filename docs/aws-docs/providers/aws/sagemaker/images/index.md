@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>image</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ImageName": "{{ ImageName }}",
- "ImageRoleArn": "{{ ImageRoleArn }}"
-}
->>>
---required properties only
+-- image.iql (required properties only)
 INSERT INTO aws.sagemaker.images (
  ImageName,
  ImageRoleArn,
  region
 )
 SELECT 
-{{ .ImageName }},
- {{ .ImageRoleArn }},
-'us-east-1';
+'{{ ImageName }}',
+ '{{ ImageRoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ImageName": "{{ ImageName }}",
- "ImageRoleArn": "{{ ImageRoleArn }}",
- "ImageDisplayName": "{{ ImageDisplayName }}",
- "ImageDescription": "{{ ImageDescription }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- image.iql (all properties)
 INSERT INTO aws.sagemaker.images (
  ImageName,
  ImageRoleArn,
@@ -129,12 +112,41 @@ INSERT INTO aws.sagemaker.images (
  region
 )
 SELECT 
- {{ .ImageName }},
- {{ .ImageRoleArn }},
- {{ .ImageDisplayName }},
- {{ .ImageDescription }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ImageName }}',
+ '{{ ImageRoleArn }}',
+ '{{ ImageDisplayName }}',
+ '{{ ImageDescription }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: image
+    props:
+      - name: ImageName
+        value: '{{ ImageName }}'
+      - name: ImageRoleArn
+        value: '{{ ImageRoleArn }}'
+      - name: ImageDisplayName
+        value: '{{ ImageDisplayName }}'
+      - name: ImageDescription
+        value: '{{ ImageDescription }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

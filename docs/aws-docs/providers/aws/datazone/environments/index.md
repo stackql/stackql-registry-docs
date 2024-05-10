@@ -76,25 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnvironmentProfileIdentifier": "{{ EnvironmentProfileIdentifier }}",
- "Name": "{{ Name }}",
- "ProjectIdentifier": "{{ ProjectIdentifier }}"
-}
->>>
---required properties only
+-- environment.iql (required properties only)
 INSERT INTO aws.datazone.environments (
  DomainIdentifier,
  EnvironmentProfileIdentifier,
@@ -103,35 +98,17 @@ INSERT INTO aws.datazone.environments (
  region
 )
 SELECT 
-{{ .DomainIdentifier }},
- {{ .EnvironmentProfileIdentifier }},
- {{ .Name }},
- {{ .ProjectIdentifier }},
-'us-east-1';
+'{{ DomainIdentifier }}',
+ '{{ EnvironmentProfileIdentifier }}',
+ '{{ Name }}',
+ '{{ ProjectIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "EnvironmentProfileIdentifier": "{{ EnvironmentProfileIdentifier }}",
- "GlossaryTerms": [
-  "{{ GlossaryTerms[0] }}"
- ],
- "Name": "{{ Name }}",
- "ProjectIdentifier": "{{ ProjectIdentifier }}",
- "UserParameters": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- environment.iql (all properties)
 INSERT INTO aws.datazone.environments (
  Description,
  DomainIdentifier,
@@ -143,14 +120,48 @@ INSERT INTO aws.datazone.environments (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DomainIdentifier }},
- {{ .EnvironmentProfileIdentifier }},
- {{ .GlossaryTerms }},
- {{ .Name }},
- {{ .ProjectIdentifier }},
- {{ .UserParameters }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DomainIdentifier }}',
+ '{{ EnvironmentProfileIdentifier }}',
+ '{{ GlossaryTerms }}',
+ '{{ Name }}',
+ '{{ ProjectIdentifier }}',
+ '{{ UserParameters }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DomainIdentifier
+        value: '{{ DomainIdentifier }}'
+      - name: EnvironmentProfileIdentifier
+        value: '{{ EnvironmentProfileIdentifier }}'
+      - name: GlossaryTerms
+        value:
+          - '{{ GlossaryTerms[0] }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ProjectIdentifier
+        value: '{{ ProjectIdentifier }}'
+      - name: UserParameters
+        value:
+          - Name: '{{ Name }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

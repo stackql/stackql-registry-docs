@@ -76,48 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>project</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- project.iql (required properties only)
 INSERT INTO aws.datazone.projects (
  DomainIdentifier,
  Name,
  region
 )
 SELECT 
-{{ .DomainIdentifier }},
- {{ .Name }},
-'us-east-1';
+'{{ DomainIdentifier }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DomainIdentifier": "{{ DomainIdentifier }}",
- "GlossaryTerms": [
-  "{{ GlossaryTerms[0] }}"
- ],
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- project.iql (all properties)
 INSERT INTO aws.datazone.projects (
  Description,
  DomainIdentifier,
@@ -126,11 +113,37 @@ INSERT INTO aws.datazone.projects (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DomainIdentifier }},
- {{ .GlossaryTerms }},
- {{ .Name }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DomainIdentifier }}',
+ '{{ GlossaryTerms }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: project
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DomainIdentifier
+        value: '{{ DomainIdentifier }}'
+      - name: GlossaryTerms
+        value:
+          - '{{ GlossaryTerms[0] }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

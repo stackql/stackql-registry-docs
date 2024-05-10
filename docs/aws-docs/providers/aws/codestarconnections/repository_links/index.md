@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>repository_link</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConnectionArn": "{{ ConnectionArn }}",
- "OwnerId": "{{ OwnerId }}",
- "RepositoryName": "{{ RepositoryName }}"
-}
->>>
---required properties only
+-- repository_link.iql (required properties only)
 INSERT INTO aws.codestarconnections.repository_links (
  ConnectionArn,
  OwnerId,
@@ -99,30 +95,16 @@ INSERT INTO aws.codestarconnections.repository_links (
  region
 )
 SELECT 
-{{ .ConnectionArn }},
- {{ .OwnerId }},
- {{ .RepositoryName }},
-'us-east-1';
+'{{ ConnectionArn }}',
+ '{{ OwnerId }}',
+ '{{ RepositoryName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConnectionArn": "{{ ConnectionArn }}",
- "OwnerId": "{{ OwnerId }}",
- "RepositoryName": "{{ RepositoryName }}",
- "EncryptionKeyArn": "{{ EncryptionKeyArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- repository_link.iql (all properties)
 INSERT INTO aws.codestarconnections.repository_links (
  ConnectionArn,
  OwnerId,
@@ -132,12 +114,41 @@ INSERT INTO aws.codestarconnections.repository_links (
  region
 )
 SELECT 
- {{ .ConnectionArn }},
- {{ .OwnerId }},
- {{ .RepositoryName }},
- {{ .EncryptionKeyArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ConnectionArn }}',
+ '{{ OwnerId }}',
+ '{{ RepositoryName }}',
+ '{{ EncryptionKeyArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: repository_link
+    props:
+      - name: ConnectionArn
+        value: '{{ ConnectionArn }}'
+      - name: OwnerId
+        value: '{{ OwnerId }}'
+      - name: RepositoryName
+        value: '{{ RepositoryName }}'
+      - name: EncryptionKeyArn
+        value: '{{ EncryptionKeyArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

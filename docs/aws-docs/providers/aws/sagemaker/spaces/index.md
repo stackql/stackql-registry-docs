@@ -76,100 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>space</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainId": "{{ DomainId }}",
- "SpaceName": "{{ SpaceName }}"
-}
->>>
---required properties only
+-- space.iql (required properties only)
 INSERT INTO aws.sagemaker.spaces (
  DomainId,
  SpaceName,
  region
 )
 SELECT 
-{{ .DomainId }},
- {{ .SpaceName }},
-'us-east-1';
+'{{ DomainId }}',
+ '{{ SpaceName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainId": "{{ DomainId }}",
- "SpaceName": "{{ SpaceName }}",
- "SpaceSettings": {
-  "JupyterServerAppSettings": {
-   "DefaultResourceSpec": {
-    "InstanceType": "{{ InstanceType }}",
-    "SageMakerImageArn": "{{ SageMakerImageArn }}",
-    "SageMakerImageVersionArn": "{{ SageMakerImageVersionArn }}"
-   }
-  },
-  "KernelGatewayAppSettings": {
-   "CustomImages": [
-    {
-     "AppImageConfigName": "{{ AppImageConfigName }}",
-     "ImageName": "{{ ImageName }}",
-     "ImageVersionNumber": "{{ ImageVersionNumber }}"
-    }
-   ],
-   "DefaultResourceSpec": null
-  },
-  "JupyterLabAppSettings": {
-   "DefaultResourceSpec": null,
-   "CodeRepositories": [
-    {
-     "RepositoryUrl": "{{ RepositoryUrl }}"
-    }
-   ]
-  },
-  "CodeEditorAppSettings": {
-   "DefaultResourceSpec": null
-  },
-  "SpaceStorageSettings": {
-   "EbsStorageSettings": {
-    "EbsVolumeSizeInGb": "{{ EbsVolumeSizeInGb }}"
-   }
-  },
-  "AppType": "{{ AppType }}",
-  "CustomFileSystems": [
-   {
-    "EFSFileSystem": {
-     "FileSystemId": "{{ FileSystemId }}"
-    }
-   }
-  ]
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "OwnershipSettings": {
-  "OwnerUserProfileName": "{{ OwnerUserProfileName }}"
- },
- "SpaceSharingSettings": {
-  "SharingType": "{{ SharingType }}"
- },
- "SpaceDisplayName": "{{ SpaceDisplayName }}"
-}
->>>
---all properties
+-- space.iql (all properties)
 INSERT INTO aws.sagemaker.spaces (
  DomainId,
  SpaceName,
@@ -181,14 +116,73 @@ INSERT INTO aws.sagemaker.spaces (
  region
 )
 SELECT 
- {{ .DomainId }},
- {{ .SpaceName }},
- {{ .SpaceSettings }},
- {{ .Tags }},
- {{ .OwnershipSettings }},
- {{ .SpaceSharingSettings }},
- {{ .SpaceDisplayName }},
- 'us-east-1';
+ '{{ DomainId }}',
+ '{{ SpaceName }}',
+ '{{ SpaceSettings }}',
+ '{{ Tags }}',
+ '{{ OwnershipSettings }}',
+ '{{ SpaceSharingSettings }}',
+ '{{ SpaceDisplayName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: space
+    props:
+      - name: DomainId
+        value: '{{ DomainId }}'
+      - name: SpaceName
+        value: '{{ SpaceName }}'
+      - name: SpaceSettings
+        value:
+          JupyterServerAppSettings:
+            DefaultResourceSpec:
+              InstanceType: '{{ InstanceType }}'
+              SageMakerImageArn: '{{ SageMakerImageArn }}'
+              SageMakerImageVersionArn: '{{ SageMakerImageVersionArn }}'
+          KernelGatewayAppSettings:
+            CustomImages:
+              - AppImageConfigName: '{{ AppImageConfigName }}'
+                ImageName: '{{ ImageName }}'
+                ImageVersionNumber: '{{ ImageVersionNumber }}'
+            DefaultResourceSpec: null
+          JupyterLabAppSettings:
+            DefaultResourceSpec: null
+            CodeRepositories:
+              - RepositoryUrl: '{{ RepositoryUrl }}'
+          CodeEditorAppSettings:
+            DefaultResourceSpec: null
+          SpaceStorageSettings:
+            EbsStorageSettings:
+              EbsVolumeSizeInGb: '{{ EbsVolumeSizeInGb }}'
+          AppType: '{{ AppType }}'
+          CustomFileSystems:
+            - EFSFileSystem:
+                FileSystemId: '{{ FileSystemId }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: OwnershipSettings
+        value:
+          OwnerUserProfileName: '{{ OwnerUserProfileName }}'
+      - name: SpaceSharingSettings
+        value:
+          SharingType: '{{ SharingType }}'
+      - name: SpaceDisplayName
+        value: '{{ SpaceDisplayName }}'
+
 ```
 </TabItem>
 </Tabs>

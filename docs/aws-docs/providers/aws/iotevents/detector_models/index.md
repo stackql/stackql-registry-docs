@@ -74,290 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>detector_model</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DetectorModelDefinition": {
-  "InitialStateName": "{{ InitialStateName }}",
-  "States": [
-   {
-    "OnEnter": {
-     "Events": [
-      {
-       "Actions": [
-        {
-         "ClearTimer": {
-          "TimerName": "{{ TimerName }}"
-         },
-         "DynamoDB": {
-          "HashKeyField": "{{ HashKeyField }}",
-          "HashKeyType": "{{ HashKeyType }}",
-          "HashKeyValue": "{{ HashKeyValue }}",
-          "Operation": "{{ Operation }}",
-          "Payload": {
-           "ContentExpression": "{{ ContentExpression }}",
-           "Type": "{{ Type }}"
-          },
-          "PayloadField": "{{ PayloadField }}",
-          "RangeKeyField": "{{ RangeKeyField }}",
-          "RangeKeyType": "{{ RangeKeyType }}",
-          "RangeKeyValue": "{{ RangeKeyValue }}",
-          "TableName": "{{ TableName }}"
-         },
-         "DynamoDBv2": {
-          "Payload": null,
-          "TableName": "{{ TableName }}"
-         },
-         "Firehose": {
-          "DeliveryStreamName": "{{ DeliveryStreamName }}",
-          "Payload": null,
-          "Separator": "{{ Separator }}"
-         },
-         "IotEvents": {
-          "InputName": "{{ InputName }}",
-          "Payload": null
-         },
-         "IotSiteWise": {
-          "AssetId": "{{ AssetId }}",
-          "EntryId": "{{ EntryId }}",
-          "PropertyAlias": "{{ PropertyAlias }}",
-          "PropertyId": "{{ PropertyId }}",
-          "PropertyValue": {
-           "Quality": "{{ Quality }}",
-           "Timestamp": {
-            "OffsetInNanos": "{{ OffsetInNanos }}",
-            "TimeInSeconds": "{{ TimeInSeconds }}"
-           },
-           "Value": {
-            "BooleanValue": "{{ BooleanValue }}",
-            "DoubleValue": "{{ DoubleValue }}",
-            "IntegerValue": "{{ IntegerValue }}",
-            "StringValue": "{{ StringValue }}"
-           }
-          }
-         },
-         "IotTopicPublish": {
-          "MqttTopic": "{{ MqttTopic }}",
-          "Payload": null
-         },
-         "Lambda": {
-          "FunctionArn": "{{ FunctionArn }}",
-          "Payload": null
-         },
-         "ResetTimer": {
-          "TimerName": "{{ TimerName }}"
-         },
-         "SetTimer": {
-          "DurationExpression": "{{ DurationExpression }}",
-          "Seconds": "{{ Seconds }}",
-          "TimerName": "{{ TimerName }}"
-         },
-         "SetVariable": {
-          "Value": "{{ Value }}",
-          "VariableName": "{{ VariableName }}"
-         },
-         "Sns": {
-          "Payload": null,
-          "TargetArn": "{{ TargetArn }}"
-         },
-         "Sqs": {
-          "Payload": null,
-          "QueueUrl": "{{ QueueUrl }}",
-          "UseBase64": "{{ UseBase64 }}"
-         }
-        }
-       ],
-       "Condition": "{{ Condition }}",
-       "EventName": "{{ EventName }}"
-      }
-     ]
-    },
-    "OnExit": {
-     "Events": [
-      null
-     ]
-    },
-    "OnInput": {
-     "Events": [
-      null
-     ],
-     "TransitionEvents": [
-      {
-       "Actions": [
-        null
-       ],
-       "Condition": "{{ Condition }}",
-       "EventName": "{{ EventName }}",
-       "NextState": "{{ NextState }}"
-      }
-     ]
-    },
-    "StateName": "{{ StateName }}"
-   }
-  ]
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- detector_model.iql (required properties only)
 INSERT INTO aws.iotevents.detector_models (
  DetectorModelDefinition,
  RoleArn,
  region
 )
 SELECT 
-{{ .DetectorModelDefinition }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ DetectorModelDefinition }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DetectorModelDefinition": {
-  "InitialStateName": "{{ InitialStateName }}",
-  "States": [
-   {
-    "OnEnter": {
-     "Events": [
-      {
-       "Actions": [
-        {
-         "ClearTimer": {
-          "TimerName": "{{ TimerName }}"
-         },
-         "DynamoDB": {
-          "HashKeyField": "{{ HashKeyField }}",
-          "HashKeyType": "{{ HashKeyType }}",
-          "HashKeyValue": "{{ HashKeyValue }}",
-          "Operation": "{{ Operation }}",
-          "Payload": {
-           "ContentExpression": "{{ ContentExpression }}",
-           "Type": "{{ Type }}"
-          },
-          "PayloadField": "{{ PayloadField }}",
-          "RangeKeyField": "{{ RangeKeyField }}",
-          "RangeKeyType": "{{ RangeKeyType }}",
-          "RangeKeyValue": "{{ RangeKeyValue }}",
-          "TableName": "{{ TableName }}"
-         },
-         "DynamoDBv2": {
-          "Payload": null,
-          "TableName": "{{ TableName }}"
-         },
-         "Firehose": {
-          "DeliveryStreamName": "{{ DeliveryStreamName }}",
-          "Payload": null,
-          "Separator": "{{ Separator }}"
-         },
-         "IotEvents": {
-          "InputName": "{{ InputName }}",
-          "Payload": null
-         },
-         "IotSiteWise": {
-          "AssetId": "{{ AssetId }}",
-          "EntryId": "{{ EntryId }}",
-          "PropertyAlias": "{{ PropertyAlias }}",
-          "PropertyId": "{{ PropertyId }}",
-          "PropertyValue": {
-           "Quality": "{{ Quality }}",
-           "Timestamp": {
-            "OffsetInNanos": "{{ OffsetInNanos }}",
-            "TimeInSeconds": "{{ TimeInSeconds }}"
-           },
-           "Value": {
-            "BooleanValue": "{{ BooleanValue }}",
-            "DoubleValue": "{{ DoubleValue }}",
-            "IntegerValue": "{{ IntegerValue }}",
-            "StringValue": "{{ StringValue }}"
-           }
-          }
-         },
-         "IotTopicPublish": {
-          "MqttTopic": "{{ MqttTopic }}",
-          "Payload": null
-         },
-         "Lambda": {
-          "FunctionArn": "{{ FunctionArn }}",
-          "Payload": null
-         },
-         "ResetTimer": {
-          "TimerName": "{{ TimerName }}"
-         },
-         "SetTimer": {
-          "DurationExpression": "{{ DurationExpression }}",
-          "Seconds": "{{ Seconds }}",
-          "TimerName": "{{ TimerName }}"
-         },
-         "SetVariable": {
-          "Value": "{{ Value }}",
-          "VariableName": "{{ VariableName }}"
-         },
-         "Sns": {
-          "Payload": null,
-          "TargetArn": "{{ TargetArn }}"
-         },
-         "Sqs": {
-          "Payload": null,
-          "QueueUrl": "{{ QueueUrl }}",
-          "UseBase64": "{{ UseBase64 }}"
-         }
-        }
-       ],
-       "Condition": "{{ Condition }}",
-       "EventName": "{{ EventName }}"
-      }
-     ]
-    },
-    "OnExit": {
-     "Events": [
-      null
-     ]
-    },
-    "OnInput": {
-     "Events": [
-      null
-     ],
-     "TransitionEvents": [
-      {
-       "Actions": [
-        null
-       ],
-       "Condition": "{{ Condition }}",
-       "EventName": "{{ EventName }}",
-       "NextState": "{{ NextState }}"
-      }
-     ]
-    },
-    "StateName": "{{ StateName }}"
-   }
-  ]
- },
- "DetectorModelDescription": "{{ DetectorModelDescription }}",
- "DetectorModelName": "{{ DetectorModelName }}",
- "EvaluationMethod": "{{ EvaluationMethod }}",
- "Key": "{{ Key }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- detector_model.iql (all properties)
 INSERT INTO aws.iotevents.detector_models (
  DetectorModelDefinition,
  DetectorModelDescription,
@@ -369,14 +114,129 @@ INSERT INTO aws.iotevents.detector_models (
  region
 )
 SELECT 
- {{ .DetectorModelDefinition }},
- {{ .DetectorModelDescription }},
- {{ .DetectorModelName }},
- {{ .EvaluationMethod }},
- {{ .Key }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DetectorModelDefinition }}',
+ '{{ DetectorModelDescription }}',
+ '{{ DetectorModelName }}',
+ '{{ EvaluationMethod }}',
+ '{{ Key }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: detector_model
+    props:
+      - name: DetectorModelDefinition
+        value:
+          InitialStateName: '{{ InitialStateName }}'
+          States:
+            - OnEnter:
+                Events:
+                  - Actions:
+                      - ClearTimer:
+                          TimerName: '{{ TimerName }}'
+                        DynamoDB:
+                          HashKeyField: '{{ HashKeyField }}'
+                          HashKeyType: '{{ HashKeyType }}'
+                          HashKeyValue: '{{ HashKeyValue }}'
+                          Operation: '{{ Operation }}'
+                          Payload:
+                            ContentExpression: '{{ ContentExpression }}'
+                            Type: '{{ Type }}'
+                          PayloadField: '{{ PayloadField }}'
+                          RangeKeyField: '{{ RangeKeyField }}'
+                          RangeKeyType: '{{ RangeKeyType }}'
+                          RangeKeyValue: '{{ RangeKeyValue }}'
+                          TableName: '{{ TableName }}'
+                        DynamoDBv2:
+                          Payload: null
+                          TableName: '{{ TableName }}'
+                        Firehose:
+                          DeliveryStreamName: '{{ DeliveryStreamName }}'
+                          Payload: null
+                          Separator: '{{ Separator }}'
+                        IotEvents:
+                          InputName: '{{ InputName }}'
+                          Payload: null
+                        IotSiteWise:
+                          AssetId: '{{ AssetId }}'
+                          EntryId: '{{ EntryId }}'
+                          PropertyAlias: '{{ PropertyAlias }}'
+                          PropertyId: '{{ PropertyId }}'
+                          PropertyValue:
+                            Quality: '{{ Quality }}'
+                            Timestamp:
+                              OffsetInNanos: '{{ OffsetInNanos }}'
+                              TimeInSeconds: '{{ TimeInSeconds }}'
+                            Value:
+                              BooleanValue: '{{ BooleanValue }}'
+                              DoubleValue: '{{ DoubleValue }}'
+                              IntegerValue: '{{ IntegerValue }}'
+                              StringValue: '{{ StringValue }}'
+                        IotTopicPublish:
+                          MqttTopic: '{{ MqttTopic }}'
+                          Payload: null
+                        Lambda:
+                          FunctionArn: '{{ FunctionArn }}'
+                          Payload: null
+                        ResetTimer:
+                          TimerName: '{{ TimerName }}'
+                        SetTimer:
+                          DurationExpression: '{{ DurationExpression }}'
+                          Seconds: '{{ Seconds }}'
+                          TimerName: '{{ TimerName }}'
+                        SetVariable:
+                          Value: '{{ Value }}'
+                          VariableName: '{{ VariableName }}'
+                        Sns:
+                          Payload: null
+                          TargetArn: '{{ TargetArn }}'
+                        Sqs:
+                          Payload: null
+                          QueueUrl: '{{ QueueUrl }}'
+                          UseBase64: '{{ UseBase64 }}'
+                    Condition: '{{ Condition }}'
+                    EventName: '{{ EventName }}'
+              OnExit:
+                Events:
+                  - null
+              OnInput:
+                Events:
+                  - null
+                TransitionEvents:
+                  - Actions:
+                      - null
+                    Condition: '{{ Condition }}'
+                    EventName: '{{ EventName }}'
+                    NextState: '{{ NextState }}'
+              StateName: '{{ StateName }}'
+      - name: DetectorModelDescription
+        value: '{{ DetectorModelDescription }}'
+      - name: DetectorModelName
+        value: '{{ DetectorModelName }}'
+      - name: EvaluationMethod
+        value: '{{ EvaluationMethod }}'
+      - name: Key
+        value: '{{ Key }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service_action_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ProductId": "{{ ProductId }}",
- "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
- "ServiceActionId": "{{ ServiceActionId }}"
-}
->>>
---required properties only
+-- service_action_association.iql (required properties only)
 INSERT INTO aws.servicecatalog.service_action_associations (
  ProductId,
  ProvisioningArtifactId,
@@ -103,23 +99,16 @@ INSERT INTO aws.servicecatalog.service_action_associations (
  region
 )
 SELECT 
-{{ .ProductId }},
- {{ .ProvisioningArtifactId }},
- {{ .ServiceActionId }},
-'us-east-1';
+'{{ ProductId }}',
+ '{{ ProvisioningArtifactId }}',
+ '{{ ServiceActionId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ProductId": "{{ ProductId }}",
- "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
- "ServiceActionId": "{{ ServiceActionId }}"
-}
->>>
---all properties
+-- service_action_association.iql (all properties)
 INSERT INTO aws.servicecatalog.service_action_associations (
  ProductId,
  ProvisioningArtifactId,
@@ -127,10 +116,33 @@ INSERT INTO aws.servicecatalog.service_action_associations (
  region
 )
 SELECT 
- {{ .ProductId }},
- {{ .ProvisioningArtifactId }},
- {{ .ServiceActionId }},
- 'us-east-1';
+ '{{ ProductId }}',
+ '{{ ProvisioningArtifactId }}',
+ '{{ ServiceActionId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service_action_association
+    props:
+      - name: ProductId
+        value: '{{ ProductId }}'
+      - name: ProvisioningArtifactId
+        value: '{{ ProvisioningArtifactId }}'
+      - name: ServiceActionId
+        value: '{{ ServiceActionId }}'
+
 ```
 </TabItem>
 </Tabs>

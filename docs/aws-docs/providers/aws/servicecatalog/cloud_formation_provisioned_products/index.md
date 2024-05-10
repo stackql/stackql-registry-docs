@@ -74,57 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cloud_formation_provisioned_product</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AcceptLanguage": "{{ AcceptLanguage }}",
- "NotificationArns": [
-  "{{ NotificationArns[0] }}"
- ],
- "PathId": "{{ PathId }}",
- "PathName": "{{ PathName }}",
- "ProductId": "{{ ProductId }}",
- "ProductName": "{{ ProductName }}",
- "ProvisionedProductName": "{{ ProvisionedProductName }}",
- "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
- "ProvisioningArtifactName": "{{ ProvisioningArtifactName }}",
- "ProvisioningParameters": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ProvisioningPreferences": {
-  "StackSetAccounts": [
-   "{{ StackSetAccounts[0] }}"
-  ],
-  "StackSetFailureToleranceCount": "{{ StackSetFailureToleranceCount }}",
-  "StackSetFailureTolerancePercentage": "{{ StackSetFailureTolerancePercentage }}",
-  "StackSetMaxConcurrencyCount": "{{ StackSetMaxConcurrencyCount }}",
-  "StackSetMaxConcurrencyPercentage": "{{ StackSetMaxConcurrencyPercentage }}",
-  "StackSetOperationType": "{{ StackSetOperationType }}",
-  "StackSetRegions": [
-   "{{ StackSetRegions[0] }}"
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- cloud_formation_provisioned_product.iql (required properties only)
 INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  AcceptLanguage,
  NotificationArns,
@@ -141,65 +104,25 @@ INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  region
 )
 SELECT 
-{{ .AcceptLanguage }},
- {{ .NotificationArns }},
- {{ .PathId }},
- {{ .PathName }},
- {{ .ProductId }},
- {{ .ProductName }},
- {{ .ProvisionedProductName }},
- {{ .ProvisioningArtifactId }},
- {{ .ProvisioningArtifactName }},
- {{ .ProvisioningParameters }},
- {{ .ProvisioningPreferences }},
- {{ .Tags }},
-'us-east-1';
+'{{ AcceptLanguage }}',
+ '{{ NotificationArns }}',
+ '{{ PathId }}',
+ '{{ PathName }}',
+ '{{ ProductId }}',
+ '{{ ProductName }}',
+ '{{ ProvisionedProductName }}',
+ '{{ ProvisioningArtifactId }}',
+ '{{ ProvisioningArtifactName }}',
+ '{{ ProvisioningParameters }}',
+ '{{ ProvisioningPreferences }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AcceptLanguage": "{{ AcceptLanguage }}",
- "NotificationArns": [
-  "{{ NotificationArns[0] }}"
- ],
- "PathId": "{{ PathId }}",
- "PathName": "{{ PathName }}",
- "ProductId": "{{ ProductId }}",
- "ProductName": "{{ ProductName }}",
- "ProvisionedProductName": "{{ ProvisionedProductName }}",
- "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
- "ProvisioningArtifactName": "{{ ProvisioningArtifactName }}",
- "ProvisioningParameters": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ProvisioningPreferences": {
-  "StackSetAccounts": [
-   "{{ StackSetAccounts[0] }}"
-  ],
-  "StackSetFailureToleranceCount": "{{ StackSetFailureToleranceCount }}",
-  "StackSetFailureTolerancePercentage": "{{ StackSetFailureTolerancePercentage }}",
-  "StackSetMaxConcurrencyCount": "{{ StackSetMaxConcurrencyCount }}",
-  "StackSetMaxConcurrencyPercentage": "{{ StackSetMaxConcurrencyPercentage }}",
-  "StackSetOperationType": "{{ StackSetOperationType }}",
-  "StackSetRegions": [
-   "{{ StackSetRegions[0] }}"
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- cloud_formation_provisioned_product.iql (all properties)
 INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  AcceptLanguage,
  NotificationArns,
@@ -216,19 +139,74 @@ INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  region
 )
 SELECT 
- {{ .AcceptLanguage }},
- {{ .NotificationArns }},
- {{ .PathId }},
- {{ .PathName }},
- {{ .ProductId }},
- {{ .ProductName }},
- {{ .ProvisionedProductName }},
- {{ .ProvisioningArtifactId }},
- {{ .ProvisioningArtifactName }},
- {{ .ProvisioningParameters }},
- {{ .ProvisioningPreferences }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AcceptLanguage }}',
+ '{{ NotificationArns }}',
+ '{{ PathId }}',
+ '{{ PathName }}',
+ '{{ ProductId }}',
+ '{{ ProductName }}',
+ '{{ ProvisionedProductName }}',
+ '{{ ProvisioningArtifactId }}',
+ '{{ ProvisioningArtifactName }}',
+ '{{ ProvisioningParameters }}',
+ '{{ ProvisioningPreferences }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cloud_formation_provisioned_product
+    props:
+      - name: AcceptLanguage
+        value: '{{ AcceptLanguage }}'
+      - name: NotificationArns
+        value:
+          - '{{ NotificationArns[0] }}'
+      - name: PathId
+        value: '{{ PathId }}'
+      - name: PathName
+        value: '{{ PathName }}'
+      - name: ProductId
+        value: '{{ ProductId }}'
+      - name: ProductName
+        value: '{{ ProductName }}'
+      - name: ProvisionedProductName
+        value: '{{ ProvisionedProductName }}'
+      - name: ProvisioningArtifactId
+        value: '{{ ProvisioningArtifactId }}'
+      - name: ProvisioningArtifactName
+        value: '{{ ProvisioningArtifactName }}'
+      - name: ProvisioningParameters
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ProvisioningPreferences
+        value:
+          StackSetAccounts:
+            - '{{ StackSetAccounts[0] }}'
+          StackSetFailureToleranceCount: '{{ StackSetFailureToleranceCount }}'
+          StackSetFailureTolerancePercentage: '{{ StackSetFailureTolerancePercentage }}'
+          StackSetMaxConcurrencyCount: '{{ StackSetMaxConcurrencyCount }}'
+          StackSetMaxConcurrencyPercentage: '{{ StackSetMaxConcurrencyPercentage }}'
+          StackSetOperationType: '{{ StackSetOperationType }}'
+          StackSetRegions:
+            - '{{ StackSetRegions[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

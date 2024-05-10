@@ -74,64 +74,35 @@ FROM aws.globalaccelerator.endpoint_groups
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>endpoint_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ListenerArn": "{{ ListenerArn }}",
- "EndpointGroupRegion": "{{ EndpointGroupRegion }}"
-}
->>>
---required properties only
+-- endpoint_group.iql (required properties only)
 INSERT INTO aws.globalaccelerator.endpoint_groups (
  ListenerArn,
  EndpointGroupRegion,
  region
 )
 SELECT 
-{{ .ListenerArn }},
- {{ .EndpointGroupRegion }},
-'us-east-1';
+'{{ ListenerArn }}',
+ '{{ EndpointGroupRegion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ListenerArn": "{{ ListenerArn }}",
- "EndpointGroupRegion": "{{ EndpointGroupRegion }}",
- "EndpointConfigurations": [
-  {
-   "EndpointId": "{{ EndpointId }}",
-   "AttachmentArn": "{{ AttachmentArn }}",
-   "Weight": "{{ Weight }}",
-   "ClientIPPreservationEnabled": "{{ ClientIPPreservationEnabled }}"
-  }
- ],
- "TrafficDialPercentage": null,
- "HealthCheckPort": "{{ HealthCheckPort }}",
- "HealthCheckProtocol": "{{ HealthCheckProtocol }}",
- "HealthCheckPath": "{{ HealthCheckPath }}",
- "HealthCheckIntervalSeconds": "{{ HealthCheckIntervalSeconds }}",
- "ThresholdCount": "{{ ThresholdCount }}",
- "PortOverrides": [
-  {
-   "ListenerPort": "{{ ListenerPort }}",
-   "EndpointPort": null
-  }
- ]
-}
->>>
---all properties
+-- endpoint_group.iql (all properties)
 INSERT INTO aws.globalaccelerator.endpoint_groups (
  ListenerArn,
  EndpointGroupRegion,
@@ -146,17 +117,60 @@ INSERT INTO aws.globalaccelerator.endpoint_groups (
  region
 )
 SELECT 
- {{ .ListenerArn }},
- {{ .EndpointGroupRegion }},
- {{ .EndpointConfigurations }},
- {{ .TrafficDialPercentage }},
- {{ .HealthCheckPort }},
- {{ .HealthCheckProtocol }},
- {{ .HealthCheckPath }},
- {{ .HealthCheckIntervalSeconds }},
- {{ .ThresholdCount }},
- {{ .PortOverrides }},
- 'us-east-1';
+ '{{ ListenerArn }}',
+ '{{ EndpointGroupRegion }}',
+ '{{ EndpointConfigurations }}',
+ '{{ TrafficDialPercentage }}',
+ '{{ HealthCheckPort }}',
+ '{{ HealthCheckProtocol }}',
+ '{{ HealthCheckPath }}',
+ '{{ HealthCheckIntervalSeconds }}',
+ '{{ ThresholdCount }}',
+ '{{ PortOverrides }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: endpoint_group
+    props:
+      - name: ListenerArn
+        value: '{{ ListenerArn }}'
+      - name: EndpointGroupRegion
+        value: '{{ EndpointGroupRegion }}'
+      - name: EndpointConfigurations
+        value:
+          - EndpointId: '{{ EndpointId }}'
+            AttachmentArn: '{{ AttachmentArn }}'
+            Weight: '{{ Weight }}'
+            ClientIPPreservationEnabled: '{{ ClientIPPreservationEnabled }}'
+      - name: TrafficDialPercentage
+        value: null
+      - name: HealthCheckPort
+        value: '{{ HealthCheckPort }}'
+      - name: HealthCheckProtocol
+        value: '{{ HealthCheckProtocol }}'
+      - name: HealthCheckPath
+        value: '{{ HealthCheckPath }}'
+      - name: HealthCheckIntervalSeconds
+        value: '{{ HealthCheckIntervalSeconds }}'
+      - name: ThresholdCount
+        value: '{{ ThresholdCount }}'
+      - name: PortOverrides
+        value:
+          - ListenerPort: '{{ ListenerPort }}'
+            EndpointPort: null
+
 ```
 </TabItem>
 </Tabs>

@@ -78,29 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>custom_action_type</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Category": "{{ Category }}",
- "InputArtifactDetails": {
-  "MaximumCount": "{{ MaximumCount }}",
-  "MinimumCount": "{{ MinimumCount }}"
- },
- "OutputArtifactDetails": null,
- "Provider": "{{ Provider }}",
- "Version": "{{ Version }}"
-}
->>>
---required properties only
+-- custom_action_type.iql (required properties only)
 INSERT INTO aws.codepipeline.custom_action_types (
  Category,
  InputArtifactDetails,
@@ -110,53 +101,18 @@ INSERT INTO aws.codepipeline.custom_action_types (
  region
 )
 SELECT 
-{{ .Category }},
- {{ .InputArtifactDetails }},
- {{ .OutputArtifactDetails }},
- {{ .Provider }},
- {{ .Version }},
-'us-east-1';
+'{{ Category }}',
+ '{{ InputArtifactDetails }}',
+ '{{ OutputArtifactDetails }}',
+ '{{ Provider }}',
+ '{{ Version }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Category": "{{ Category }}",
- "ConfigurationProperties": [
-  {
-   "Description": "{{ Description }}",
-   "Key": "{{ Key }}",
-   "Name": "{{ Name }}",
-   "Queryable": "{{ Queryable }}",
-   "Required": "{{ Required }}",
-   "Secret": "{{ Secret }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "InputArtifactDetails": {
-  "MaximumCount": "{{ MaximumCount }}",
-  "MinimumCount": "{{ MinimumCount }}"
- },
- "OutputArtifactDetails": null,
- "Provider": "{{ Provider }}",
- "Settings": {
-  "EntityUrlTemplate": "{{ EntityUrlTemplate }}",
-  "ExecutionUrlTemplate": "{{ ExecutionUrlTemplate }}",
-  "RevisionUrlTemplate": "{{ RevisionUrlTemplate }}",
-  "ThirdPartyConfigurationUrl": "{{ ThirdPartyConfigurationUrl }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Version": "{{ Version }}"
-}
->>>
---all properties
+-- custom_action_type.iql (all properties)
 INSERT INTO aws.codepipeline.custom_action_types (
  Category,
  ConfigurationProperties,
@@ -169,15 +125,63 @@ INSERT INTO aws.codepipeline.custom_action_types (
  region
 )
 SELECT 
- {{ .Category }},
- {{ .ConfigurationProperties }},
- {{ .InputArtifactDetails }},
- {{ .OutputArtifactDetails }},
- {{ .Provider }},
- {{ .Settings }},
- {{ .Tags }},
- {{ .Version }},
- 'us-east-1';
+ '{{ Category }}',
+ '{{ ConfigurationProperties }}',
+ '{{ InputArtifactDetails }}',
+ '{{ OutputArtifactDetails }}',
+ '{{ Provider }}',
+ '{{ Settings }}',
+ '{{ Tags }}',
+ '{{ Version }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: custom_action_type
+    props:
+      - name: Category
+        value: '{{ Category }}'
+      - name: ConfigurationProperties
+        value:
+          - Description: '{{ Description }}'
+            Key: '{{ Key }}'
+            Name: '{{ Name }}'
+            Queryable: '{{ Queryable }}'
+            Required: '{{ Required }}'
+            Secret: '{{ Secret }}'
+            Type: '{{ Type }}'
+      - name: InputArtifactDetails
+        value:
+          MaximumCount: '{{ MaximumCount }}'
+          MinimumCount: '{{ MinimumCount }}'
+      - name: OutputArtifactDetails
+        value: null
+      - name: Provider
+        value: '{{ Provider }}'
+      - name: Settings
+        value:
+          EntityUrlTemplate: '{{ EntityUrlTemplate }}'
+          ExecutionUrlTemplate: '{{ ExecutionUrlTemplate }}'
+          RevisionUrlTemplate: '{{ RevisionUrlTemplate }}'
+          ThirdPartyConfigurationUrl: '{{ ThirdPartyConfigurationUrl }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Version
+        value: '{{ Version }}'
+
 ```
 </TabItem>
 </Tabs>

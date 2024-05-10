@@ -76,55 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>filter</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "FindingCriteria": {
-  "Criterion": {}
- }
-}
->>>
---required properties only
+-- filter.iql (required properties only)
 INSERT INTO aws.guardduty.filters (
  FindingCriteria,
  region
 )
 SELECT 
-{{ .FindingCriteria }},
-'us-east-1';
+'{{ FindingCriteria }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Action": "{{ Action }}",
- "Description": "{{ Description }}",
- "DetectorId": "{{ DetectorId }}",
- "FindingCriteria": {
-  "Criterion": {}
- },
- "Rank": "{{ Rank }}",
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- filter.iql (all properties)
 INSERT INTO aws.guardduty.filters (
  Action,
  Description,
@@ -136,14 +114,48 @@ INSERT INTO aws.guardduty.filters (
  region
 )
 SELECT 
- {{ .Action }},
- {{ .Description }},
- {{ .DetectorId }},
- {{ .FindingCriteria }},
- {{ .Rank }},
- {{ .Name }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Action }}',
+ '{{ Description }}',
+ '{{ DetectorId }}',
+ '{{ FindingCriteria }}',
+ '{{ Rank }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: filter
+    props:
+      - name: Action
+        value: '{{ Action }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DetectorId
+        value: '{{ DetectorId }}'
+      - name: FindingCriteria
+        value:
+          Criterion: {}
+      - name: Rank
+        value: '{{ Rank }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

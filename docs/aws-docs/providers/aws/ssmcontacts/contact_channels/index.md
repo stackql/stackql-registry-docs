@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>contact_channel</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ContactId": "{{ ContactId }}",
- "ChannelName": "{{ ChannelName }}",
- "ChannelType": "{{ ChannelType }}",
- "DeferActivation": "{{ DeferActivation }}",
- "ChannelAddress": "{{ ChannelAddress }}"
-}
->>>
---required properties only
+-- contact_channel.iql (required properties only)
 INSERT INTO aws.ssmcontacts.contact_channels (
  ContactId,
  ChannelName,
@@ -103,27 +97,18 @@ INSERT INTO aws.ssmcontacts.contact_channels (
  region
 )
 SELECT 
-{{ .ContactId }},
- {{ .ChannelName }},
- {{ .ChannelType }},
- {{ .DeferActivation }},
- {{ .ChannelAddress }},
-'us-east-1';
+'{{ ContactId }}',
+ '{{ ChannelName }}',
+ '{{ ChannelType }}',
+ '{{ DeferActivation }}',
+ '{{ ChannelAddress }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ContactId": "{{ ContactId }}",
- "ChannelName": "{{ ChannelName }}",
- "ChannelType": "{{ ChannelType }}",
- "DeferActivation": "{{ DeferActivation }}",
- "ChannelAddress": "{{ ChannelAddress }}"
-}
->>>
---all properties
+-- contact_channel.iql (all properties)
 INSERT INTO aws.ssmcontacts.contact_channels (
  ContactId,
  ChannelName,
@@ -133,12 +118,39 @@ INSERT INTO aws.ssmcontacts.contact_channels (
  region
 )
 SELECT 
- {{ .ContactId }},
- {{ .ChannelName }},
- {{ .ChannelType }},
- {{ .DeferActivation }},
- {{ .ChannelAddress }},
- 'us-east-1';
+ '{{ ContactId }}',
+ '{{ ChannelName }}',
+ '{{ ChannelType }}',
+ '{{ DeferActivation }}',
+ '{{ ChannelAddress }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: contact_channel
+    props:
+      - name: ContactId
+        value: '{{ ContactId }}'
+      - name: ChannelName
+        value: '{{ ChannelName }}'
+      - name: ChannelType
+        value: '{{ ChannelType }}'
+      - name: DeferActivation
+        value: '{{ DeferActivation }}'
+      - name: ChannelAddress
+        value: '{{ ChannelAddress }}'
+
 ```
 </TabItem>
 </Tabs>

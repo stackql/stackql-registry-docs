@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cluster</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "AdminUserName": "{{ AdminUserName }}",
- "ShardCapacity": "{{ ShardCapacity }}",
- "ShardCount": "{{ ShardCount }}",
- "AuthType": "{{ AuthType }}"
-}
->>>
---required properties only
+-- cluster.iql (required properties only)
 INSERT INTO aws.docdbelastic.clusters (
  ClusterName,
  AdminUserName,
@@ -103,45 +97,18 @@ INSERT INTO aws.docdbelastic.clusters (
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .AdminUserName }},
- {{ .ShardCapacity }},
- {{ .ShardCount }},
- {{ .AuthType }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ AdminUserName }}',
+ '{{ ShardCapacity }}',
+ '{{ ShardCount }}',
+ '{{ AuthType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "AdminUserName": "{{ AdminUserName }}",
- "AdminUserPassword": "{{ AdminUserPassword }}",
- "ShardCapacity": "{{ ShardCapacity }}",
- "ShardCount": "{{ ShardCount }}",
- "VpcSecurityGroupIds": [
-  "{{ VpcSecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
- "BackupRetentionPeriod": "{{ BackupRetentionPeriod }}",
- "ShardInstanceCount": "{{ ShardInstanceCount }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AuthType": "{{ AuthType }}"
-}
->>>
---all properties
+-- cluster.iql (all properties)
 INSERT INTO aws.docdbelastic.clusters (
  ClusterName,
  AdminUserName,
@@ -160,21 +127,70 @@ INSERT INTO aws.docdbelastic.clusters (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .AdminUserName }},
- {{ .AdminUserPassword }},
- {{ .ShardCapacity }},
- {{ .ShardCount }},
- {{ .VpcSecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .PreferredMaintenanceWindow }},
- {{ .PreferredBackupWindow }},
- {{ .BackupRetentionPeriod }},
- {{ .ShardInstanceCount }},
- {{ .KmsKeyId }},
- {{ .Tags }},
- {{ .AuthType }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ AdminUserName }}',
+ '{{ AdminUserPassword }}',
+ '{{ ShardCapacity }}',
+ '{{ ShardCount }}',
+ '{{ VpcSecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ PreferredBackupWindow }}',
+ '{{ BackupRetentionPeriod }}',
+ '{{ ShardInstanceCount }}',
+ '{{ KmsKeyId }}',
+ '{{ Tags }}',
+ '{{ AuthType }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cluster
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: AdminUserName
+        value: '{{ AdminUserName }}'
+      - name: AdminUserPassword
+        value: '{{ AdminUserPassword }}'
+      - name: ShardCapacity
+        value: '{{ ShardCapacity }}'
+      - name: ShardCount
+        value: '{{ ShardCount }}'
+      - name: VpcSecurityGroupIds
+        value:
+          - '{{ VpcSecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: PreferredMaintenanceWindow
+        value: '{{ PreferredMaintenanceWindow }}'
+      - name: PreferredBackupWindow
+        value: '{{ PreferredBackupWindow }}'
+      - name: BackupRetentionPeriod
+        value: '{{ BackupRetentionPeriod }}'
+      - name: ShardInstanceCount
+        value: '{{ ShardInstanceCount }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AuthType
+        value: '{{ AuthType }}'
+
 ```
 </TabItem>
 </Tabs>

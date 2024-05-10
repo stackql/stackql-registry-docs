@@ -76,82 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user_pool_risk_configuration_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "UserPoolId": "{{ UserPoolId }}",
- "ClientId": "{{ ClientId }}"
-}
->>>
---required properties only
+-- user_pool_risk_configuration_attachment.iql (required properties only)
 INSERT INTO aws.cognito.user_pool_risk_configuration_attachments (
  UserPoolId,
  ClientId,
  region
 )
 SELECT 
-{{ .UserPoolId }},
- {{ .ClientId }},
-'us-east-1';
+'{{ UserPoolId }}',
+ '{{ ClientId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "UserPoolId": "{{ UserPoolId }}",
- "ClientId": "{{ ClientId }}",
- "RiskExceptionConfiguration": {
-  "BlockedIPRangeList": [
-   "{{ BlockedIPRangeList[0] }}"
-  ],
-  "SkippedIPRangeList": [
-   "{{ SkippedIPRangeList[0] }}"
-  ]
- },
- "CompromisedCredentialsRiskConfiguration": {
-  "Actions": {
-   "EventAction": "{{ EventAction }}"
-  },
-  "EventFilter": [
-   "{{ EventFilter[0] }}"
-  ]
- },
- "AccountTakeoverRiskConfiguration": {
-  "Actions": {
-   "HighAction": {
-    "EventAction": "{{ EventAction }}",
-    "Notify": "{{ Notify }}"
-   },
-   "LowAction": null,
-   "MediumAction": null
-  },
-  "NotifyConfiguration": {
-   "BlockEmail": {
-    "HtmlBody": "{{ HtmlBody }}",
-    "Subject": "{{ Subject }}",
-    "TextBody": "{{ TextBody }}"
-   },
-   "MfaEmail": null,
-   "NoActionEmail": null,
-   "From": "{{ From }}",
-   "ReplyTo": "{{ ReplyTo }}",
-   "SourceArn": "{{ SourceArn }}"
-  }
- }
-}
->>>
---all properties
+-- user_pool_risk_configuration_attachment.iql (all properties)
 INSERT INTO aws.cognito.user_pool_risk_configuration_attachments (
  UserPoolId,
  ClientId,
@@ -161,12 +114,63 @@ INSERT INTO aws.cognito.user_pool_risk_configuration_attachments (
  region
 )
 SELECT 
- {{ .UserPoolId }},
- {{ .ClientId }},
- {{ .RiskExceptionConfiguration }},
- {{ .CompromisedCredentialsRiskConfiguration }},
- {{ .AccountTakeoverRiskConfiguration }},
- 'us-east-1';
+ '{{ UserPoolId }}',
+ '{{ ClientId }}',
+ '{{ RiskExceptionConfiguration }}',
+ '{{ CompromisedCredentialsRiskConfiguration }}',
+ '{{ AccountTakeoverRiskConfiguration }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user_pool_risk_configuration_attachment
+    props:
+      - name: UserPoolId
+        value: '{{ UserPoolId }}'
+      - name: ClientId
+        value: '{{ ClientId }}'
+      - name: RiskExceptionConfiguration
+        value:
+          BlockedIPRangeList:
+            - '{{ BlockedIPRangeList[0] }}'
+          SkippedIPRangeList:
+            - '{{ SkippedIPRangeList[0] }}'
+      - name: CompromisedCredentialsRiskConfiguration
+        value:
+          Actions:
+            EventAction: '{{ EventAction }}'
+          EventFilter:
+            - '{{ EventFilter[0] }}'
+      - name: AccountTakeoverRiskConfiguration
+        value:
+          Actions:
+            HighAction:
+              EventAction: '{{ EventAction }}'
+              Notify: '{{ Notify }}'
+            LowAction: null
+            MediumAction: null
+          NotifyConfiguration:
+            BlockEmail:
+              HtmlBody: '{{ HtmlBody }}'
+              Subject: '{{ Subject }}'
+              TextBody: '{{ TextBody }}'
+            MfaEmail: null
+            NoActionEmail: null
+            From: '{{ From }}'
+            ReplyTo: '{{ ReplyTo }}'
+            SourceArn: '{{ SourceArn }}'
+
 ```
 </TabItem>
 </Tabs>

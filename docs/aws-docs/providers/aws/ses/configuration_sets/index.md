@@ -74,48 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configuration_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "TrackingOptions": {
-  "CustomRedirectDomain": "{{ CustomRedirectDomain }}"
- },
- "DeliveryOptions": {
-  "TlsPolicy": "{{ TlsPolicy }}",
-  "SendingPoolName": "{{ SendingPoolName }}"
- },
- "ReputationOptions": {
-  "ReputationMetricsEnabled": "{{ ReputationMetricsEnabled }}"
- },
- "SendingOptions": {
-  "SendingEnabled": "{{ SendingEnabled }}"
- },
- "SuppressionOptions": {
-  "SuppressedReasons": [
-   "{{ SuppressedReasons[0] }}"
-  ]
- },
- "VdmOptions": {
-  "DashboardOptions": {
-   "EngagementMetrics": "{{ EngagementMetrics }}"
-  },
-  "GuardianOptions": {
-   "OptimizedSharedDelivery": "{{ OptimizedSharedDelivery }}"
-  }
- }
-}
->>>
---required properties only
+-- configuration_set.iql (required properties only)
 INSERT INTO aws.ses.configuration_sets (
  Name,
  TrackingOptions,
@@ -127,51 +99,20 @@ INSERT INTO aws.ses.configuration_sets (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .TrackingOptions }},
- {{ .DeliveryOptions }},
- {{ .ReputationOptions }},
- {{ .SendingOptions }},
- {{ .SuppressionOptions }},
- {{ .VdmOptions }},
-'us-east-1';
+'{{ Name }}',
+ '{{ TrackingOptions }}',
+ '{{ DeliveryOptions }}',
+ '{{ ReputationOptions }}',
+ '{{ SendingOptions }}',
+ '{{ SuppressionOptions }}',
+ '{{ VdmOptions }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "TrackingOptions": {
-  "CustomRedirectDomain": "{{ CustomRedirectDomain }}"
- },
- "DeliveryOptions": {
-  "TlsPolicy": "{{ TlsPolicy }}",
-  "SendingPoolName": "{{ SendingPoolName }}"
- },
- "ReputationOptions": {
-  "ReputationMetricsEnabled": "{{ ReputationMetricsEnabled }}"
- },
- "SendingOptions": {
-  "SendingEnabled": "{{ SendingEnabled }}"
- },
- "SuppressionOptions": {
-  "SuppressedReasons": [
-   "{{ SuppressedReasons[0] }}"
-  ]
- },
- "VdmOptions": {
-  "DashboardOptions": {
-   "EngagementMetrics": "{{ EngagementMetrics }}"
-  },
-  "GuardianOptions": {
-   "OptimizedSharedDelivery": "{{ OptimizedSharedDelivery }}"
-  }
- }
-}
->>>
---all properties
+-- configuration_set.iql (all properties)
 INSERT INTO aws.ses.configuration_sets (
  Name,
  TrackingOptions,
@@ -183,14 +124,56 @@ INSERT INTO aws.ses.configuration_sets (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .TrackingOptions }},
- {{ .DeliveryOptions }},
- {{ .ReputationOptions }},
- {{ .SendingOptions }},
- {{ .SuppressionOptions }},
- {{ .VdmOptions }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ TrackingOptions }}',
+ '{{ DeliveryOptions }}',
+ '{{ ReputationOptions }}',
+ '{{ SendingOptions }}',
+ '{{ SuppressionOptions }}',
+ '{{ VdmOptions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configuration_set
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: TrackingOptions
+        value:
+          CustomRedirectDomain: '{{ CustomRedirectDomain }}'
+      - name: DeliveryOptions
+        value:
+          TlsPolicy: '{{ TlsPolicy }}'
+          SendingPoolName: '{{ SendingPoolName }}'
+      - name: ReputationOptions
+        value:
+          ReputationMetricsEnabled: '{{ ReputationMetricsEnabled }}'
+      - name: SendingOptions
+        value:
+          SendingEnabled: '{{ SendingEnabled }}'
+      - name: SuppressionOptions
+        value:
+          SuppressedReasons:
+            - '{{ SuppressedReasons[0] }}'
+      - name: VdmOptions
+        value:
+          DashboardOptions:
+            EngagementMetrics: '{{ EngagementMetrics }}'
+          GuardianOptions:
+            OptimizedSharedDelivery: '{{ OptimizedSharedDelivery }}'
+
 ```
 </TabItem>
 </Tabs>

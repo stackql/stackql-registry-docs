@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>authorizer</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RestApiId": "{{ RestApiId }}",
- "Name": "{{ Name }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- authorizer.iql (required properties only)
 INSERT INTO aws.apigateway.authorizers (
  RestApiId,
  Name,
@@ -101,32 +97,16 @@ INSERT INTO aws.apigateway.authorizers (
  region
 )
 SELECT 
-{{ .RestApiId }},
- {{ .Name }},
- {{ .Type }},
-'us-east-1';
+'{{ RestApiId }}',
+ '{{ Name }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RestApiId": "{{ RestApiId }}",
- "AuthType": "{{ AuthType }}",
- "AuthorizerCredentials": "{{ AuthorizerCredentials }}",
- "AuthorizerResultTtlInSeconds": "{{ AuthorizerResultTtlInSeconds }}",
- "AuthorizerUri": "{{ AuthorizerUri }}",
- "IdentitySource": "{{ IdentitySource }}",
- "IdentityValidationExpression": "{{ IdentityValidationExpression }}",
- "Name": "{{ Name }}",
- "ProviderARNs": [
-  "{{ ProviderARNs[0] }}"
- ],
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- authorizer.iql (all properties)
 INSERT INTO aws.apigateway.authorizers (
  RestApiId,
  AuthType,
@@ -141,17 +121,55 @@ INSERT INTO aws.apigateway.authorizers (
  region
 )
 SELECT 
- {{ .RestApiId }},
- {{ .AuthType }},
- {{ .AuthorizerCredentials }},
- {{ .AuthorizerResultTtlInSeconds }},
- {{ .AuthorizerUri }},
- {{ .IdentitySource }},
- {{ .IdentityValidationExpression }},
- {{ .Name }},
- {{ .ProviderARNs }},
- {{ .Type }},
- 'us-east-1';
+ '{{ RestApiId }}',
+ '{{ AuthType }}',
+ '{{ AuthorizerCredentials }}',
+ '{{ AuthorizerResultTtlInSeconds }}',
+ '{{ AuthorizerUri }}',
+ '{{ IdentitySource }}',
+ '{{ IdentityValidationExpression }}',
+ '{{ Name }}',
+ '{{ ProviderARNs }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: authorizer
+    props:
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+      - name: AuthType
+        value: '{{ AuthType }}'
+      - name: AuthorizerCredentials
+        value: '{{ AuthorizerCredentials }}'
+      - name: AuthorizerResultTtlInSeconds
+        value: '{{ AuthorizerResultTtlInSeconds }}'
+      - name: AuthorizerUri
+        value: '{{ AuthorizerUri }}'
+      - name: IdentitySource
+        value: '{{ IdentitySource }}'
+      - name: IdentityValidationExpression
+        value: '{{ IdentityValidationExpression }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ProviderARNs
+        value:
+          - '{{ ProviderARNs[0] }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

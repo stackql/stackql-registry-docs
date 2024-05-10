@@ -74,68 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>instance</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IdentityManagementType": "{{ IdentityManagementType }}",
- "Attributes": {
-  "InboundCalls": "{{ InboundCalls }}",
-  "OutboundCalls": "{{ OutboundCalls }}",
-  "ContactflowLogs": "{{ ContactflowLogs }}",
-  "ContactLens": "{{ ContactLens }}",
-  "AutoResolveBestVoices": "{{ AutoResolveBestVoices }}",
-  "UseCustomTTSVoices": "{{ UseCustomTTSVoices }}",
-  "EarlyMedia": "{{ EarlyMedia }}"
- }
-}
->>>
---required properties only
+-- instance.iql (required properties only)
 INSERT INTO aws.connect.instances (
  IdentityManagementType,
  Attributes,
  region
 )
 SELECT 
-{{ .IdentityManagementType }},
- {{ .Attributes }},
-'us-east-1';
+'{{ IdentityManagementType }}',
+ '{{ Attributes }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IdentityManagementType": "{{ IdentityManagementType }}",
- "InstanceAlias": "{{ InstanceAlias }}",
- "DirectoryId": "{{ DirectoryId }}",
- "Attributes": {
-  "InboundCalls": "{{ InboundCalls }}",
-  "OutboundCalls": "{{ OutboundCalls }}",
-  "ContactflowLogs": "{{ ContactflowLogs }}",
-  "ContactLens": "{{ ContactLens }}",
-  "AutoResolveBestVoices": "{{ AutoResolveBestVoices }}",
-  "UseCustomTTSVoices": "{{ UseCustomTTSVoices }}",
-  "EarlyMedia": "{{ EarlyMedia }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- instance.iql (all properties)
 INSERT INTO aws.connect.instances (
  IdentityManagementType,
  InstanceAlias,
@@ -145,12 +112,48 @@ INSERT INTO aws.connect.instances (
  region
 )
 SELECT 
- {{ .IdentityManagementType }},
- {{ .InstanceAlias }},
- {{ .DirectoryId }},
- {{ .Attributes }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ IdentityManagementType }}',
+ '{{ InstanceAlias }}',
+ '{{ DirectoryId }}',
+ '{{ Attributes }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: instance
+    props:
+      - name: IdentityManagementType
+        value: '{{ IdentityManagementType }}'
+      - name: InstanceAlias
+        value: '{{ InstanceAlias }}'
+      - name: DirectoryId
+        value: '{{ DirectoryId }}'
+      - name: Attributes
+        value:
+          InboundCalls: '{{ InboundCalls }}'
+          OutboundCalls: '{{ OutboundCalls }}'
+          ContactflowLogs: '{{ ContactflowLogs }}'
+          ContactLens: '{{ ContactLens }}'
+          AutoResolveBestVoices: '{{ AutoResolveBestVoices }}'
+          UseCustomTTSVoices: '{{ UseCustomTTSVoices }}'
+          EarlyMedia: '{{ EarlyMedia }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

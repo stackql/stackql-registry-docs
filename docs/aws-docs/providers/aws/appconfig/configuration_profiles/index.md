@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>configuration_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LocationUri": "{{ LocationUri }}",
- "ApplicationId": "{{ ApplicationId }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- configuration_profile.iql (required properties only)
 INSERT INTO aws.appconfig.configuration_profiles (
  LocationUri,
  ApplicationId,
@@ -101,39 +97,16 @@ INSERT INTO aws.appconfig.configuration_profiles (
  region
 )
 SELECT 
-{{ .LocationUri }},
- {{ .ApplicationId }},
- {{ .Name }},
-'us-east-1';
+'{{ LocationUri }}',
+ '{{ ApplicationId }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LocationUri": "{{ LocationUri }}",
- "Type": "{{ Type }}",
- "KmsKeyIdentifier": "{{ KmsKeyIdentifier }}",
- "Description": "{{ Description }}",
- "Validators": [
-  {
-   "Type": "{{ Type }}",
-   "Content": "{{ Content }}"
-  }
- ],
- "RetrievalRoleArn": "{{ RetrievalRoleArn }}",
- "ApplicationId": "{{ ApplicationId }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- configuration_profile.iql (all properties)
 INSERT INTO aws.appconfig.configuration_profiles (
  LocationUri,
  Type,
@@ -147,16 +120,55 @@ INSERT INTO aws.appconfig.configuration_profiles (
  region
 )
 SELECT 
- {{ .LocationUri }},
- {{ .Type }},
- {{ .KmsKeyIdentifier }},
- {{ .Description }},
- {{ .Validators }},
- {{ .RetrievalRoleArn }},
- {{ .ApplicationId }},
- {{ .Tags }},
- {{ .Name }},
- 'us-east-1';
+ '{{ LocationUri }}',
+ '{{ Type }}',
+ '{{ KmsKeyIdentifier }}',
+ '{{ Description }}',
+ '{{ Validators }}',
+ '{{ RetrievalRoleArn }}',
+ '{{ ApplicationId }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: configuration_profile
+    props:
+      - name: LocationUri
+        value: '{{ LocationUri }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: KmsKeyIdentifier
+        value: '{{ KmsKeyIdentifier }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Validators
+        value:
+          - Type: '{{ Type }}'
+            Content: '{{ Content }}'
+      - name: RetrievalRoleArn
+        value: '{{ RetrievalRoleArn }}'
+      - name: ApplicationId
+        value: '{{ ApplicationId }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

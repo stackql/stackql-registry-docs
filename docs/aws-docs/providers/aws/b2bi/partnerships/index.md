@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>partnership</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Email": "{{ Email }}",
- "Name": "{{ Name }}",
- "ProfileId": "{{ ProfileId }}"
-}
->>>
---required properties only
+-- partnership.iql (required properties only)
 INSERT INTO aws.b2bi.partnerships (
  Email,
  Name,
@@ -99,33 +95,16 @@ INSERT INTO aws.b2bi.partnerships (
  region
 )
 SELECT 
-{{ .Email }},
- {{ .Name }},
- {{ .ProfileId }},
-'us-east-1';
+'{{ Email }}',
+ '{{ Name }}',
+ '{{ ProfileId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Capabilities": [
-  "{{ Capabilities[0] }}"
- ],
- "Email": "{{ Email }}",
- "Name": "{{ Name }}",
- "Phone": "{{ Phone }}",
- "ProfileId": "{{ ProfileId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- partnership.iql (all properties)
 INSERT INTO aws.b2bi.partnerships (
  Capabilities,
  Email,
@@ -136,13 +115,45 @@ INSERT INTO aws.b2bi.partnerships (
  region
 )
 SELECT 
- {{ .Capabilities }},
- {{ .Email }},
- {{ .Name }},
- {{ .Phone }},
- {{ .ProfileId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Capabilities }}',
+ '{{ Email }}',
+ '{{ Name }}',
+ '{{ Phone }}',
+ '{{ ProfileId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: partnership
+    props:
+      - name: Capabilities
+        value:
+          - '{{ Capabilities[0] }}'
+      - name: Email
+        value: '{{ Email }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Phone
+        value: '{{ Phone }}'
+      - name: ProfileId
+        value: '{{ ProfileId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>environment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EngineType": "{{ EngineType }}",
- "InstanceType": "{{ InstanceType }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- environment.iql (required properties only)
 INSERT INTO aws.m2.environments (
  EngineType,
  InstanceType,
@@ -99,41 +95,16 @@ INSERT INTO aws.m2.environments (
  region
 )
 SELECT 
-{{ .EngineType }},
- {{ .InstanceType }},
- {{ .Name }},
-'us-east-1';
+'{{ EngineType }}',
+ '{{ InstanceType }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "EngineType": "{{ EngineType }}",
- "EngineVersion": "{{ EngineVersion }}",
- "HighAvailabilityConfig": {
-  "DesiredCapacity": "{{ DesiredCapacity }}"
- },
- "InstanceType": "{{ InstanceType }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "Name": "{{ Name }}",
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "StorageConfigurations": [
-  {}
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "Tags": {}
-}
->>>
---all properties
+-- environment.iql (all properties)
 INSERT INTO aws.m2.environments (
  Description,
  EngineType,
@@ -151,20 +122,67 @@ INSERT INTO aws.m2.environments (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .EngineType }},
- {{ .EngineVersion }},
- {{ .HighAvailabilityConfig }},
- {{ .InstanceType }},
- {{ .KmsKeyId }},
- {{ .Name }},
- {{ .PreferredMaintenanceWindow }},
- {{ .PubliclyAccessible }},
- {{ .SecurityGroupIds }},
- {{ .StorageConfigurations }},
- {{ .SubnetIds }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ EngineType }}',
+ '{{ EngineVersion }}',
+ '{{ HighAvailabilityConfig }}',
+ '{{ InstanceType }}',
+ '{{ KmsKeyId }}',
+ '{{ Name }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ PubliclyAccessible }}',
+ '{{ SecurityGroupIds }}',
+ '{{ StorageConfigurations }}',
+ '{{ SubnetIds }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: environment
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: EngineType
+        value: '{{ EngineType }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: HighAvailabilityConfig
+        value:
+          DesiredCapacity: '{{ DesiredCapacity }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: PreferredMaintenanceWindow
+        value: '{{ PreferredMaintenanceWindow }}'
+      - name: PubliclyAccessible
+        value: '{{ PubliclyAccessible }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: StorageConfigurations
+        value:
+          - {}
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

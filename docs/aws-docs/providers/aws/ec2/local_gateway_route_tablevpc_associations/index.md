@@ -74,50 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>local_gateway_route_tablevpc_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LocalGatewayRouteTableId": "{{ LocalGatewayRouteTableId }}",
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- local_gateway_route_tablevpc_association.iql (required properties only)
 INSERT INTO aws.ec2.local_gateway_route_tablevpc_associations (
  LocalGatewayRouteTableId,
  VpcId,
  region
 )
 SELECT 
-{{ .LocalGatewayRouteTableId }},
- {{ .VpcId }},
-'us-east-1';
+'{{ LocalGatewayRouteTableId }}',
+ '{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LocalGatewayRouteTableId": "{{ LocalGatewayRouteTableId }}",
- "VpcId": "{{ VpcId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- local_gateway_route_tablevpc_association.iql (all properties)
 INSERT INTO aws.ec2.local_gateway_route_tablevpc_associations (
  LocalGatewayRouteTableId,
  VpcId,
@@ -125,10 +110,35 @@ INSERT INTO aws.ec2.local_gateway_route_tablevpc_associations (
  region
 )
 SELECT 
- {{ .LocalGatewayRouteTableId }},
- {{ .VpcId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ LocalGatewayRouteTableId }}',
+ '{{ VpcId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: local_gateway_route_tablevpc_association
+    props:
+      - name: LocalGatewayRouteTableId
+        value: '{{ LocalGatewayRouteTableId }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

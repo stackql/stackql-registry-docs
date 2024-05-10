@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>matchmaking_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AcceptanceRequired": "{{ AcceptanceRequired }}",
- "Name": "{{ Name }}",
- "RequestTimeoutSeconds": "{{ RequestTimeoutSeconds }}",
- "RuleSetName": "{{ RuleSetName }}"
-}
->>>
---required properties only
+-- matchmaking_configuration.iql (required properties only)
 INSERT INTO aws.gamelift.matchmaking_configurations (
  AcceptanceRequired,
  Name,
@@ -101,50 +96,17 @@ INSERT INTO aws.gamelift.matchmaking_configurations (
  region
 )
 SELECT 
-{{ .AcceptanceRequired }},
- {{ .Name }},
- {{ .RequestTimeoutSeconds }},
- {{ .RuleSetName }},
-'us-east-1';
+'{{ AcceptanceRequired }}',
+ '{{ Name }}',
+ '{{ RequestTimeoutSeconds }}',
+ '{{ RuleSetName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AcceptanceRequired": "{{ AcceptanceRequired }}",
- "AcceptanceTimeoutSeconds": "{{ AcceptanceTimeoutSeconds }}",
- "AdditionalPlayerCount": "{{ AdditionalPlayerCount }}",
- "BackfillMode": "{{ BackfillMode }}",
- "CreationTime": "{{ CreationTime }}",
- "CustomEventData": "{{ CustomEventData }}",
- "Description": "{{ Description }}",
- "FlexMatchMode": "{{ FlexMatchMode }}",
- "GameProperties": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "GameSessionData": "{{ GameSessionData }}",
- "GameSessionQueueArns": [
-  "{{ GameSessionQueueArns[0] }}"
- ],
- "Name": "{{ Name }}",
- "NotificationTarget": "{{ NotificationTarget }}",
- "RequestTimeoutSeconds": "{{ RequestTimeoutSeconds }}",
- "RuleSetArn": "{{ RuleSetArn }}",
- "RuleSetName": "{{ RuleSetName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- matchmaking_configuration.iql (all properties)
 INSERT INTO aws.gamelift.matchmaking_configurations (
  AcceptanceRequired,
  AcceptanceTimeoutSeconds,
@@ -166,24 +128,80 @@ INSERT INTO aws.gamelift.matchmaking_configurations (
  region
 )
 SELECT 
- {{ .AcceptanceRequired }},
- {{ .AcceptanceTimeoutSeconds }},
- {{ .AdditionalPlayerCount }},
- {{ .BackfillMode }},
- {{ .CreationTime }},
- {{ .CustomEventData }},
- {{ .Description }},
- {{ .FlexMatchMode }},
- {{ .GameProperties }},
- {{ .GameSessionData }},
- {{ .GameSessionQueueArns }},
- {{ .Name }},
- {{ .NotificationTarget }},
- {{ .RequestTimeoutSeconds }},
- {{ .RuleSetArn }},
- {{ .RuleSetName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AcceptanceRequired }}',
+ '{{ AcceptanceTimeoutSeconds }}',
+ '{{ AdditionalPlayerCount }}',
+ '{{ BackfillMode }}',
+ '{{ CreationTime }}',
+ '{{ CustomEventData }}',
+ '{{ Description }}',
+ '{{ FlexMatchMode }}',
+ '{{ GameProperties }}',
+ '{{ GameSessionData }}',
+ '{{ GameSessionQueueArns }}',
+ '{{ Name }}',
+ '{{ NotificationTarget }}',
+ '{{ RequestTimeoutSeconds }}',
+ '{{ RuleSetArn }}',
+ '{{ RuleSetName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: matchmaking_configuration
+    props:
+      - name: AcceptanceRequired
+        value: '{{ AcceptanceRequired }}'
+      - name: AcceptanceTimeoutSeconds
+        value: '{{ AcceptanceTimeoutSeconds }}'
+      - name: AdditionalPlayerCount
+        value: '{{ AdditionalPlayerCount }}'
+      - name: BackfillMode
+        value: '{{ BackfillMode }}'
+      - name: CreationTime
+        value: '{{ CreationTime }}'
+      - name: CustomEventData
+        value: '{{ CustomEventData }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FlexMatchMode
+        value: '{{ FlexMatchMode }}'
+      - name: GameProperties
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: GameSessionData
+        value: '{{ GameSessionData }}'
+      - name: GameSessionQueueArns
+        value:
+          - '{{ GameSessionQueueArns[0] }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: NotificationTarget
+        value: '{{ NotificationTarget }}'
+      - name: RequestTimeoutSeconds
+        value: '{{ RequestTimeoutSeconds }}'
+      - name: RuleSetArn
+        value: '{{ RuleSetArn }}'
+      - name: RuleSetName
+        value: '{{ RuleSetName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

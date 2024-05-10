@@ -74,62 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>fhir_datastore</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DatastoreTypeVersion": "{{ DatastoreTypeVersion }}"
-}
->>>
---required properties only
+-- fhir_datastore.iql (required properties only)
 INSERT INTO aws.healthlake.fhir_datastores (
  DatastoreTypeVersion,
  region
 )
 SELECT 
-{{ .DatastoreTypeVersion }},
-'us-east-1';
+'{{ DatastoreTypeVersion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DatastoreName": "{{ DatastoreName }}",
- "DatastoreTypeVersion": "{{ DatastoreTypeVersion }}",
- "PreloadDataConfig": {
-  "PreloadDataType": "{{ PreloadDataType }}"
- },
- "SseConfiguration": {
-  "KmsEncryptionConfig": {
-   "CmkType": "{{ CmkType }}",
-   "KmsKeyId": "{{ KmsKeyId }}"
-  }
- },
- "IdentityProviderConfiguration": {
-  "AuthorizationStrategy": "{{ AuthorizationStrategy }}",
-  "FineGrainedAuthorizationEnabled": "{{ FineGrainedAuthorizationEnabled }}",
-  "Metadata": "{{ Metadata }}",
-  "IdpLambdaArn": "{{ IdpLambdaArn }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- fhir_datastore.iql (all properties)
 INSERT INTO aws.healthlake.fhir_datastores (
  DatastoreName,
  DatastoreTypeVersion,
@@ -140,13 +111,52 @@ INSERT INTO aws.healthlake.fhir_datastores (
  region
 )
 SELECT 
- {{ .DatastoreName }},
- {{ .DatastoreTypeVersion }},
- {{ .PreloadDataConfig }},
- {{ .SseConfiguration }},
- {{ .IdentityProviderConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DatastoreName }}',
+ '{{ DatastoreTypeVersion }}',
+ '{{ PreloadDataConfig }}',
+ '{{ SseConfiguration }}',
+ '{{ IdentityProviderConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: fhir_datastore
+    props:
+      - name: DatastoreName
+        value: '{{ DatastoreName }}'
+      - name: DatastoreTypeVersion
+        value: '{{ DatastoreTypeVersion }}'
+      - name: PreloadDataConfig
+        value:
+          PreloadDataType: '{{ PreloadDataType }}'
+      - name: SseConfiguration
+        value:
+          KmsEncryptionConfig:
+            CmkType: '{{ CmkType }}'
+            KmsKeyId: '{{ KmsKeyId }}'
+      - name: IdentityProviderConfiguration
+        value:
+          AuthorizationStrategy: '{{ AuthorizationStrategy }}'
+          FineGrainedAuthorizationEnabled: '{{ FineGrainedAuthorizationEnabled }}'
+          Metadata: '{{ Metadata }}'
+          IdpLambdaArn: '{{ IdpLambdaArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

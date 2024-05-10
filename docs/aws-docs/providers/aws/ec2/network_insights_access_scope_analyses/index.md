@@ -74,55 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>network_insights_access_scope_analysis</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "NetworkInsightsAccessScopeId": "{{ NetworkInsightsAccessScopeId }}"
-}
->>>
---required properties only
+-- network_insights_access_scope_analysis.iql (required properties only)
 INSERT INTO aws.ec2.network_insights_access_scope_analyses (
  NetworkInsightsAccessScopeId,
  region
 )
 SELECT 
-{{ .NetworkInsightsAccessScopeId }},
-'us-east-1';
+'{{ NetworkInsightsAccessScopeId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "NetworkInsightsAccessScopeId": "{{ NetworkInsightsAccessScopeId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- network_insights_access_scope_analysis.iql (all properties)
 INSERT INTO aws.ec2.network_insights_access_scope_analyses (
  NetworkInsightsAccessScopeId,
  Tags,
  region
 )
 SELECT 
- {{ .NetworkInsightsAccessScopeId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ NetworkInsightsAccessScopeId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_insights_access_scope_analysis
+    props:
+      - name: NetworkInsightsAccessScopeId
+        value: '{{ NetworkInsightsAccessScopeId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

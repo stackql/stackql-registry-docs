@@ -76,52 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>site</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GlobalNetworkId": "{{ GlobalNetworkId }}"
-}
->>>
---required properties only
+-- site.iql (required properties only)
 INSERT INTO aws.networkmanager.sites (
  GlobalNetworkId,
  region
 )
 SELECT 
-{{ .GlobalNetworkId }},
-'us-east-1';
+'{{ GlobalNetworkId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "GlobalNetworkId": "{{ GlobalNetworkId }}",
- "Location": {
-  "Address": "{{ Address }}",
-  "Latitude": "{{ Latitude }}",
-  "Longitude": "{{ Longitude }}"
- }
-}
->>>
---all properties
+-- site.iql (all properties)
 INSERT INTO aws.networkmanager.sites (
  Description,
  Tags,
@@ -130,11 +111,41 @@ INSERT INTO aws.networkmanager.sites (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Tags }},
- {{ .GlobalNetworkId }},
- {{ .Location }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ GlobalNetworkId }}',
+ '{{ Location }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: site
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: GlobalNetworkId
+        value: '{{ GlobalNetworkId }}'
+      - name: Location
+        value:
+          Address: '{{ Address }}'
+          Latitude: '{{ Latitude }}'
+          Longitude: '{{ Longitude }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,72 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>security_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "SecurityProfileName": "{{ SecurityProfileName }}"
-}
->>>
---required properties only
+-- security_profile.iql (required properties only)
 INSERT INTO aws.connect.security_profiles (
  InstanceArn,
  SecurityProfileName,
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .SecurityProfileName }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ SecurityProfileName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AllowedAccessControlTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Description": "{{ Description }}",
- "InstanceArn": "{{ InstanceArn }}",
- "Permissions": [
-  "{{ Permissions[0] }}"
- ],
- "SecurityProfileName": "{{ SecurityProfileName }}",
- "TagRestrictedResources": [
-  "{{ TagRestrictedResources[0] }}"
- ],
- "HierarchyRestrictedResources": [
-  null
- ],
- "AllowedAccessControlHierarchyGroupId": "{{ AllowedAccessControlHierarchyGroupId }}",
- "Applications": [
-  {
-   "ApplicationPermissions": [
-    "{{ ApplicationPermissions[0] }}"
-   ],
-   "Namespace": "{{ Namespace }}"
-  }
- ],
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- security_profile.iql (all properties)
 INSERT INTO aws.connect.security_profiles (
  AllowedAccessControlTags,
  Description,
@@ -154,17 +117,63 @@ INSERT INTO aws.connect.security_profiles (
  region
 )
 SELECT 
- {{ .AllowedAccessControlTags }},
- {{ .Description }},
- {{ .InstanceArn }},
- {{ .Permissions }},
- {{ .SecurityProfileName }},
- {{ .TagRestrictedResources }},
- {{ .HierarchyRestrictedResources }},
- {{ .AllowedAccessControlHierarchyGroupId }},
- {{ .Applications }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AllowedAccessControlTags }}',
+ '{{ Description }}',
+ '{{ InstanceArn }}',
+ '{{ Permissions }}',
+ '{{ SecurityProfileName }}',
+ '{{ TagRestrictedResources }}',
+ '{{ HierarchyRestrictedResources }}',
+ '{{ AllowedAccessControlHierarchyGroupId }}',
+ '{{ Applications }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: security_profile
+    props:
+      - name: AllowedAccessControlTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Permissions
+        value:
+          - '{{ Permissions[0] }}'
+      - name: SecurityProfileName
+        value: '{{ SecurityProfileName }}'
+      - name: TagRestrictedResources
+        value:
+          - '{{ TagRestrictedResources[0] }}'
+      - name: HierarchyRestrictedResources
+        value:
+          - null
+      - name: AllowedAccessControlHierarchyGroupId
+        value: '{{ AllowedAccessControlHierarchyGroupId }}'
+      - name: Applications
+        value:
+          - ApplicationPermissions:
+              - '{{ ApplicationPermissions[0] }}'
+            Namespace: '{{ Namespace }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

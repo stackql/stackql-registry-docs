@@ -74,38 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>key</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Enabled": "{{ Enabled }}",
- "EnableKeyRotation": "{{ EnableKeyRotation }}",
- "KeyPolicy": {},
- "KeyUsage": "{{ KeyUsage }}",
- "Origin": "{{ Origin }}",
- "KeySpec": "{{ KeySpec }}",
- "MultiRegion": "{{ MultiRegion }}",
- "PendingWindowInDays": "{{ PendingWindowInDays }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
- "RotationPeriodInDays": "{{ RotationPeriodInDays }}"
-}
->>>
---required properties only
+-- key.iql (required properties only)
 INSERT INTO aws.kms.keys (
  Description,
  Enabled,
@@ -122,46 +104,25 @@ INSERT INTO aws.kms.keys (
  region
 )
 SELECT 
-{{ .Description }},
- {{ .Enabled }},
- {{ .EnableKeyRotation }},
- {{ .KeyPolicy }},
- {{ .KeyUsage }},
- {{ .Origin }},
- {{ .KeySpec }},
- {{ .MultiRegion }},
- {{ .PendingWindowInDays }},
- {{ .Tags }},
- {{ .BypassPolicyLockoutSafetyCheck }},
- {{ .RotationPeriodInDays }},
-'us-east-1';
+'{{ Description }}',
+ '{{ Enabled }}',
+ '{{ EnableKeyRotation }}',
+ '{{ KeyPolicy }}',
+ '{{ KeyUsage }}',
+ '{{ Origin }}',
+ '{{ KeySpec }}',
+ '{{ MultiRegion }}',
+ '{{ PendingWindowInDays }}',
+ '{{ Tags }}',
+ '{{ BypassPolicyLockoutSafetyCheck }}',
+ '{{ RotationPeriodInDays }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Enabled": "{{ Enabled }}",
- "EnableKeyRotation": "{{ EnableKeyRotation }}",
- "KeyPolicy": {},
- "KeyUsage": "{{ KeyUsage }}",
- "Origin": "{{ Origin }}",
- "KeySpec": "{{ KeySpec }}",
- "MultiRegion": "{{ MultiRegion }}",
- "PendingWindowInDays": "{{ PendingWindowInDays }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "BypassPolicyLockoutSafetyCheck": "{{ BypassPolicyLockoutSafetyCheck }}",
- "RotationPeriodInDays": "{{ RotationPeriodInDays }}"
-}
->>>
---all properties
+-- key.iql (all properties)
 INSERT INTO aws.kms.keys (
  Description,
  Enabled,
@@ -178,19 +139,62 @@ INSERT INTO aws.kms.keys (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Enabled }},
- {{ .EnableKeyRotation }},
- {{ .KeyPolicy }},
- {{ .KeyUsage }},
- {{ .Origin }},
- {{ .KeySpec }},
- {{ .MultiRegion }},
- {{ .PendingWindowInDays }},
- {{ .Tags }},
- {{ .BypassPolicyLockoutSafetyCheck }},
- {{ .RotationPeriodInDays }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Enabled }}',
+ '{{ EnableKeyRotation }}',
+ '{{ KeyPolicy }}',
+ '{{ KeyUsage }}',
+ '{{ Origin }}',
+ '{{ KeySpec }}',
+ '{{ MultiRegion }}',
+ '{{ PendingWindowInDays }}',
+ '{{ Tags }}',
+ '{{ BypassPolicyLockoutSafetyCheck }}',
+ '{{ RotationPeriodInDays }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: key
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: EnableKeyRotation
+        value: '{{ EnableKeyRotation }}'
+      - name: KeyPolicy
+        value: {}
+      - name: KeyUsage
+        value: '{{ KeyUsage }}'
+      - name: Origin
+        value: '{{ Origin }}'
+      - name: KeySpec
+        value: '{{ KeySpec }}'
+      - name: MultiRegion
+        value: '{{ MultiRegion }}'
+      - name: PendingWindowInDays
+        value: '{{ PendingWindowInDays }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: BypassPolicyLockoutSafetyCheck
+        value: '{{ BypassPolicyLockoutSafetyCheck }}'
+      - name: RotationPeriodInDays
+        value: '{{ RotationPeriodInDays }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,67 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>document</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Content": {}
-}
->>>
---required properties only
+-- document.iql (required properties only)
 INSERT INTO aws.ssm.documents (
  Content,
  region
 )
 SELECT 
-{{ .Content }},
-'us-east-1';
+'{{ Content }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Content": {},
- "Attachments": [
-  {
-   "Key": "{{ Key }}",
-   "Values": [
-    "{{ Values[0] }}"
-   ],
-   "Name": "{{ Name }}"
-  }
- ],
- "Name": "{{ Name }}",
- "VersionName": "{{ VersionName }}",
- "DocumentType": "{{ DocumentType }}",
- "DocumentFormat": "{{ DocumentFormat }}",
- "TargetType": "{{ TargetType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Requires": [
-  {
-   "Name": "{{ Name }}",
-   "Version": "{{ Version }}"
-  }
- ],
- "UpdateMethod": "{{ UpdateMethod }}"
-}
->>>
---all properties
+-- document.iql (all properties)
 INSERT INTO aws.ssm.documents (
  Content,
  Attachments,
@@ -149,17 +115,62 @@ INSERT INTO aws.ssm.documents (
  region
 )
 SELECT 
- {{ .Content }},
- {{ .Attachments }},
- {{ .Name }},
- {{ .VersionName }},
- {{ .DocumentType }},
- {{ .DocumentFormat }},
- {{ .TargetType }},
- {{ .Tags }},
- {{ .Requires }},
- {{ .UpdateMethod }},
- 'us-east-1';
+ '{{ Content }}',
+ '{{ Attachments }}',
+ '{{ Name }}',
+ '{{ VersionName }}',
+ '{{ DocumentType }}',
+ '{{ DocumentFormat }}',
+ '{{ TargetType }}',
+ '{{ Tags }}',
+ '{{ Requires }}',
+ '{{ UpdateMethod }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: document
+    props:
+      - name: Content
+        value: {}
+      - name: Attachments
+        value:
+          - Key: '{{ Key }}'
+            Values:
+              - '{{ Values[0] }}'
+            Name: '{{ Name }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: VersionName
+        value: '{{ VersionName }}'
+      - name: DocumentType
+        value: '{{ DocumentType }}'
+      - name: DocumentFormat
+        value: '{{ DocumentFormat }}'
+      - name: TargetType
+        value: '{{ TargetType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Requires
+        value:
+          - Name: '{{ Name }}'
+            Version: '{{ Version }}'
+      - name: UpdateMethod
+        value: '{{ UpdateMethod }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,53 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>session</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Status": "{{ Status }}",
- "FindingPublishingFrequency": "{{ FindingPublishingFrequency }}"
-}
->>>
---required properties only
+-- session.iql (required properties only)
 INSERT INTO aws.macie.sessions (
  Status,
  FindingPublishingFrequency,
  region
 )
 SELECT 
-{{ .Status }},
- {{ .FindingPublishingFrequency }},
-'us-east-1';
+'{{ Status }}',
+ '{{ FindingPublishingFrequency }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Status": "{{ Status }}",
- "FindingPublishingFrequency": "{{ FindingPublishingFrequency }}"
-}
->>>
---all properties
+-- session.iql (all properties)
 INSERT INTO aws.macie.sessions (
  Status,
  FindingPublishingFrequency,
  region
 )
 SELECT 
- {{ .Status }},
- {{ .FindingPublishingFrequency }},
- 'us-east-1';
+ '{{ Status }}',
+ '{{ FindingPublishingFrequency }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: session
+    props:
+      - name: Status
+        value: '{{ Status }}'
+      - name: FindingPublishingFrequency
+        value: '{{ FindingPublishingFrequency }}'
+
 ```
 </TabItem>
 </Tabs>

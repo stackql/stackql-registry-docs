@@ -76,30 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>entitlement</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "StackName": "{{ StackName }}",
- "AppVisibility": "{{ AppVisibility }}",
- "Attributes": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- entitlement.iql (required properties only)
 INSERT INTO aws.appstream.entitlements (
  Name,
  StackName,
@@ -108,31 +98,17 @@ INSERT INTO aws.appstream.entitlements (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .StackName }},
- {{ .AppVisibility }},
- {{ .Attributes }},
-'us-east-1';
+'{{ Name }}',
+ '{{ StackName }}',
+ '{{ AppVisibility }}',
+ '{{ Attributes }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "StackName": "{{ StackName }}",
- "Description": "{{ Description }}",
- "AppVisibility": "{{ AppVisibility }}",
- "Attributes": [
-  {
-   "Name": "{{ Name }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- entitlement.iql (all properties)
 INSERT INTO aws.appstream.entitlements (
  Name,
  StackName,
@@ -142,12 +118,41 @@ INSERT INTO aws.appstream.entitlements (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .StackName }},
- {{ .Description }},
- {{ .AppVisibility }},
- {{ .Attributes }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ StackName }}',
+ '{{ Description }}',
+ '{{ AppVisibility }}',
+ '{{ Attributes }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: entitlement
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: StackName
+        value: '{{ StackName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: AppVisibility
+        value: '{{ AppVisibility }}'
+      - name: Attributes
+        value:
+          - Name: '{{ Name }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

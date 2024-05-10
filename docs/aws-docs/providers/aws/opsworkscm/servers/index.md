@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>server</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ServiceRoleArn": "{{ ServiceRoleArn }}",
- "InstanceProfileArn": "{{ InstanceProfileArn }}",
- "InstanceType": "{{ InstanceType }}"
-}
->>>
---required properties only
+-- server.iql (required properties only)
 INSERT INTO aws.opsworkscm.servers (
  ServiceRoleArn,
  InstanceProfileArn,
@@ -99,54 +95,16 @@ INSERT INTO aws.opsworkscm.servers (
  region
 )
 SELECT 
-{{ .ServiceRoleArn }},
- {{ .InstanceProfileArn }},
- {{ .InstanceType }},
-'us-east-1';
+'{{ ServiceRoleArn }}',
+ '{{ InstanceProfileArn }}',
+ '{{ InstanceType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "KeyPair": "{{ KeyPair }}",
- "EngineVersion": "{{ EngineVersion }}",
- "ServiceRoleArn": "{{ ServiceRoleArn }}",
- "DisableAutomatedBackup": "{{ DisableAutomatedBackup }}",
- "BackupId": "{{ BackupId }}",
- "EngineModel": "{{ EngineModel }}",
- "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
- "AssociatePublicIpAddress": "{{ AssociatePublicIpAddress }}",
- "InstanceProfileArn": "{{ InstanceProfileArn }}",
- "CustomCertificate": "{{ CustomCertificate }}",
- "PreferredBackupWindow": "{{ PreferredBackupWindow }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "CustomDomain": "{{ CustomDomain }}",
- "CustomPrivateKey": "{{ CustomPrivateKey }}",
- "EngineAttributes": [
-  {
-   "Value": "{{ Value }}",
-   "Name": "{{ Name }}"
-  }
- ],
- "BackupRetentionCount": "{{ BackupRetentionCount }}",
- "InstanceType": "{{ InstanceType }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Engine": "{{ Engine }}"
-}
->>>
---all properties
+-- server.iql (all properties)
 INSERT INTO aws.opsworkscm.servers (
  KeyPair,
  EngineVersion,
@@ -171,27 +129,90 @@ INSERT INTO aws.opsworkscm.servers (
  region
 )
 SELECT 
- {{ .KeyPair }},
- {{ .EngineVersion }},
- {{ .ServiceRoleArn }},
- {{ .DisableAutomatedBackup }},
- {{ .BackupId }},
- {{ .EngineModel }},
- {{ .PreferredMaintenanceWindow }},
- {{ .AssociatePublicIpAddress }},
- {{ .InstanceProfileArn }},
- {{ .CustomCertificate }},
- {{ .PreferredBackupWindow }},
- {{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .CustomDomain }},
- {{ .CustomPrivateKey }},
- {{ .EngineAttributes }},
- {{ .BackupRetentionCount }},
- {{ .InstanceType }},
- {{ .Tags }},
- {{ .Engine }},
- 'us-east-1';
+ '{{ KeyPair }}',
+ '{{ EngineVersion }}',
+ '{{ ServiceRoleArn }}',
+ '{{ DisableAutomatedBackup }}',
+ '{{ BackupId }}',
+ '{{ EngineModel }}',
+ '{{ PreferredMaintenanceWindow }}',
+ '{{ AssociatePublicIpAddress }}',
+ '{{ InstanceProfileArn }}',
+ '{{ CustomCertificate }}',
+ '{{ PreferredBackupWindow }}',
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ CustomDomain }}',
+ '{{ CustomPrivateKey }}',
+ '{{ EngineAttributes }}',
+ '{{ BackupRetentionCount }}',
+ '{{ InstanceType }}',
+ '{{ Tags }}',
+ '{{ Engine }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: server
+    props:
+      - name: KeyPair
+        value: '{{ KeyPair }}'
+      - name: EngineVersion
+        value: '{{ EngineVersion }}'
+      - name: ServiceRoleArn
+        value: '{{ ServiceRoleArn }}'
+      - name: DisableAutomatedBackup
+        value: '{{ DisableAutomatedBackup }}'
+      - name: BackupId
+        value: '{{ BackupId }}'
+      - name: EngineModel
+        value: '{{ EngineModel }}'
+      - name: PreferredMaintenanceWindow
+        value: '{{ PreferredMaintenanceWindow }}'
+      - name: AssociatePublicIpAddress
+        value: '{{ AssociatePublicIpAddress }}'
+      - name: InstanceProfileArn
+        value: '{{ InstanceProfileArn }}'
+      - name: CustomCertificate
+        value: '{{ CustomCertificate }}'
+      - name: PreferredBackupWindow
+        value: '{{ PreferredBackupWindow }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: CustomDomain
+        value: '{{ CustomDomain }}'
+      - name: CustomPrivateKey
+        value: '{{ CustomPrivateKey }}'
+      - name: EngineAttributes
+        value:
+          - Value: '{{ Value }}'
+            Name: '{{ Name }}'
+      - name: BackupRetentionCount
+        value: '{{ BackupRetentionCount }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Engine
+        value: '{{ Engine }}'
+
 ```
 </TabItem>
 </Tabs>

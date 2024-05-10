@@ -74,55 +74,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>location</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LocationName": "{{ LocationName }}"
-}
->>>
---required properties only
+-- location.iql (required properties only)
 INSERT INTO aws.gamelift.locations (
  LocationName,
  region
 )
 SELECT 
-{{ .LocationName }},
-'us-east-1';
+'{{ LocationName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LocationName": "{{ LocationName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- location.iql (all properties)
 INSERT INTO aws.gamelift.locations (
  LocationName,
  Tags,
  region
 )
 SELECT 
- {{ .LocationName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ LocationName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: location
+    props:
+      - name: LocationName
+        value: '{{ LocationName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

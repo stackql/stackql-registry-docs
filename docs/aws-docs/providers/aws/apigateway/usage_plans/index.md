@@ -74,45 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>usage_plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApiStages": [
-  {
-   "ApiId": "{{ ApiId }}",
-   "Stage": "{{ Stage }}",
-   "Throttle": {}
-  }
- ],
- "Description": "{{ Description }}",
- "Quota": {
-  "Limit": "{{ Limit }}",
-  "Offset": "{{ Offset }}",
-  "Period": "{{ Period }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Throttle": {
-  "BurstLimit": "{{ BurstLimit }}",
-  "RateLimit": null
- },
- "UsagePlanName": "{{ UsagePlanName }}"
-}
->>>
---required properties only
+-- usage_plan.iql (required properties only)
 INSERT INTO aws.apigateway.usage_plans (
  ApiStages,
  Description,
@@ -123,47 +98,19 @@ INSERT INTO aws.apigateway.usage_plans (
  region
 )
 SELECT 
-{{ .ApiStages }},
- {{ .Description }},
- {{ .Quota }},
- {{ .Tags }},
- {{ .Throttle }},
- {{ .UsagePlanName }},
-'us-east-1';
+'{{ ApiStages }}',
+ '{{ Description }}',
+ '{{ Quota }}',
+ '{{ Tags }}',
+ '{{ Throttle }}',
+ '{{ UsagePlanName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApiStages": [
-  {
-   "ApiId": "{{ ApiId }}",
-   "Stage": "{{ Stage }}",
-   "Throttle": {}
-  }
- ],
- "Description": "{{ Description }}",
- "Quota": {
-  "Limit": "{{ Limit }}",
-  "Offset": "{{ Offset }}",
-  "Period": "{{ Period }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Throttle": {
-  "BurstLimit": "{{ BurstLimit }}",
-  "RateLimit": null
- },
- "UsagePlanName": "{{ UsagePlanName }}"
-}
->>>
---all properties
+-- usage_plan.iql (all properties)
 INSERT INTO aws.apigateway.usage_plans (
  ApiStages,
  Description,
@@ -174,13 +121,52 @@ INSERT INTO aws.apigateway.usage_plans (
  region
 )
 SELECT 
- {{ .ApiStages }},
- {{ .Description }},
- {{ .Quota }},
- {{ .Tags }},
- {{ .Throttle }},
- {{ .UsagePlanName }},
- 'us-east-1';
+ '{{ ApiStages }}',
+ '{{ Description }}',
+ '{{ Quota }}',
+ '{{ Tags }}',
+ '{{ Throttle }}',
+ '{{ UsagePlanName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: usage_plan
+    props:
+      - name: ApiStages
+        value:
+          - ApiId: '{{ ApiId }}'
+            Stage: '{{ Stage }}'
+            Throttle: {}
+      - name: Description
+        value: '{{ Description }}'
+      - name: Quota
+        value:
+          Limit: '{{ Limit }}'
+          Offset: '{{ Offset }}'
+          Period: '{{ Period }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: Throttle
+        value:
+          BurstLimit: '{{ BurstLimit }}'
+          RateLimit: null
+      - name: UsagePlanName
+        value: '{{ UsagePlanName }}'
+
 ```
 </TabItem>
 </Tabs>

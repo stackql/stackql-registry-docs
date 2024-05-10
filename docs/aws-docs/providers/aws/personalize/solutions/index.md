@@ -74,94 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>solution</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "DatasetGroupArn": "{{ DatasetGroupArn }}"
-}
->>>
---required properties only
+-- solution.iql (required properties only)
 INSERT INTO aws.personalize.solutions (
  Name,
  DatasetGroupArn,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .DatasetGroupArn }},
-'us-east-1';
+'{{ Name }}',
+ '{{ DatasetGroupArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "EventType": "{{ EventType }}",
- "DatasetGroupArn": "{{ DatasetGroupArn }}",
- "PerformAutoML": "{{ PerformAutoML }}",
- "PerformHPO": "{{ PerformHPO }}",
- "RecipeArn": "{{ RecipeArn }}",
- "SolutionConfig": {
-  "AlgorithmHyperParameters": {},
-  "AutoMLConfig": {
-   "MetricName": "{{ MetricName }}",
-   "RecipeList": [
-    "{{ RecipeList[0] }}"
-   ]
-  },
-  "EventValueThreshold": "{{ EventValueThreshold }}",
-  "FeatureTransformationParameters": {},
-  "HpoConfig": {
-   "AlgorithmHyperParameterRanges": {
-    "CategoricalHyperParameterRanges": [
-     {
-      "Name": "{{ Name }}",
-      "Values": [
-       "{{ Values[0] }}"
-      ]
-     }
-    ],
-    "ContinuousHyperParameterRanges": [
-     {
-      "Name": "{{ Name }}",
-      "MinValue": null,
-      "MaxValue": null
-     }
-    ],
-    "IntegerHyperParameterRanges": [
-     {
-      "Name": "{{ Name }}",
-      "MinValue": "{{ MinValue }}",
-      "MaxValue": "{{ MaxValue }}"
-     }
-    ]
-   },
-   "HpoObjective": {
-    "MetricName": "{{ MetricName }}",
-    "Type": "{{ Type }}",
-    "MetricRegex": "{{ MetricRegex }}"
-   },
-   "HpoResourceConfig": {
-    "MaxNumberOfTrainingJobs": "{{ MaxNumberOfTrainingJobs }}",
-    "MaxParallelTrainingJobs": "{{ MaxParallelTrainingJobs }}"
-   }
-  }
- }
-}
->>>
---all properties
+-- solution.iql (all properties)
 INSERT INTO aws.personalize.solutions (
  Name,
  EventType,
@@ -173,14 +114,73 @@ INSERT INTO aws.personalize.solutions (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .EventType }},
- {{ .DatasetGroupArn }},
- {{ .PerformAutoML }},
- {{ .PerformHPO }},
- {{ .RecipeArn }},
- {{ .SolutionConfig }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ EventType }}',
+ '{{ DatasetGroupArn }}',
+ '{{ PerformAutoML }}',
+ '{{ PerformHPO }}',
+ '{{ RecipeArn }}',
+ '{{ SolutionConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: solution
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: EventType
+        value: '{{ EventType }}'
+      - name: DatasetGroupArn
+        value: '{{ DatasetGroupArn }}'
+      - name: PerformAutoML
+        value: '{{ PerformAutoML }}'
+      - name: PerformHPO
+        value: '{{ PerformHPO }}'
+      - name: RecipeArn
+        value: '{{ RecipeArn }}'
+      - name: SolutionConfig
+        value:
+          AlgorithmHyperParameters: {}
+          AutoMLConfig:
+            MetricName: '{{ MetricName }}'
+            RecipeList:
+              - '{{ RecipeList[0] }}'
+          EventValueThreshold: '{{ EventValueThreshold }}'
+          FeatureTransformationParameters: {}
+          HpoConfig:
+            AlgorithmHyperParameterRanges:
+              CategoricalHyperParameterRanges:
+                - Name: '{{ Name }}'
+                  Values:
+                    - '{{ Values[0] }}'
+              ContinuousHyperParameterRanges:
+                - Name: '{{ Name }}'
+                  MinValue: null
+                  MaxValue: null
+              IntegerHyperParameterRanges:
+                - Name: '{{ Name }}'
+                  MinValue: '{{ MinValue }}'
+                  MaxValue: '{{ MaxValue }}'
+            HpoObjective:
+              MetricName: '{{ MetricName }}'
+              Type: '{{ Type }}'
+              MetricRegex: '{{ MetricRegex }}'
+            HpoResourceConfig:
+              MaxNumberOfTrainingJobs: '{{ MaxNumberOfTrainingJobs }}'
+              MaxParallelTrainingJobs: '{{ MaxParallelTrainingJobs }}'
+
 ```
 </TabItem>
 </Tabs>

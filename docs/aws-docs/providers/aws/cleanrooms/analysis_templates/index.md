@@ -76,27 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>analysis_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "MembershipIdentifier": "{{ MembershipIdentifier }}",
- "Name": "{{ Name }}",
- "Source": {
-  "Text": "{{ Text }}"
- },
- "Format": "{{ Format }}"
-}
->>>
---required properties only
+-- analysis_template.iql (required properties only)
 INSERT INTO aws.cleanrooms.analysis_templates (
  MembershipIdentifier,
  Name,
@@ -105,41 +98,17 @@ INSERT INTO aws.cleanrooms.analysis_templates (
  region
 )
 SELECT 
-{{ .MembershipIdentifier }},
- {{ .Name }},
- {{ .Source }},
- {{ .Format }},
-'us-east-1';
+'{{ MembershipIdentifier }}',
+ '{{ Name }}',
+ '{{ Source }}',
+ '{{ Format }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "AnalysisParameters": [
-  {
-   "DefaultValue": "{{ DefaultValue }}",
-   "Name": "{{ Name }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "Description": "{{ Description }}",
- "MembershipIdentifier": "{{ MembershipIdentifier }}",
- "Name": "{{ Name }}",
- "Source": {
-  "Text": "{{ Text }}"
- },
- "Format": "{{ Format }}"
-}
->>>
---all properties
+-- analysis_template.iql (all properties)
 INSERT INTO aws.cleanrooms.analysis_templates (
  Tags,
  AnalysisParameters,
@@ -151,14 +120,51 @@ INSERT INTO aws.cleanrooms.analysis_templates (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .AnalysisParameters }},
- {{ .Description }},
- {{ .MembershipIdentifier }},
- {{ .Name }},
- {{ .Source }},
- {{ .Format }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ AnalysisParameters }}',
+ '{{ Description }}',
+ '{{ MembershipIdentifier }}',
+ '{{ Name }}',
+ '{{ Source }}',
+ '{{ Format }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: analysis_template
+    props:
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: AnalysisParameters
+        value:
+          - DefaultValue: '{{ DefaultValue }}'
+            Name: '{{ Name }}'
+            Type: '{{ Type }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: MembershipIdentifier
+        value: '{{ MembershipIdentifier }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Source
+        value:
+          Text: '{{ Text }}'
+      - name: Format
+        value: '{{ Format }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -76,63 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>multiplexprogram</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ChannelId": "{{ ChannelId }}",
- "MultiplexId": "{{ MultiplexId }}",
- "MultiplexProgramSettings": {
-  "PreferredChannelPipeline": "{{ PreferredChannelPipeline }}",
-  "ProgramNumber": "{{ ProgramNumber }}",
-  "ServiceDescriptor": {
-   "ProviderName": "{{ ProviderName }}",
-   "ServiceName": "{{ ServiceName }}"
-  },
-  "VideoSettings": {}
- },
- "PreferredChannelPipeline": null,
- "PacketIdentifiersMap": {
-  "AudioPids": [
-   "{{ AudioPids[0] }}"
-  ],
-  "DvbSubPids": [
-   "{{ DvbSubPids[0] }}"
-  ],
-  "DvbTeletextPid": "{{ DvbTeletextPid }}",
-  "EtvPlatformPid": "{{ EtvPlatformPid }}",
-  "EtvSignalPid": "{{ EtvSignalPid }}",
-  "KlvDataPids": [
-   "{{ KlvDataPids[0] }}"
-  ],
-  "PcrPid": "{{ PcrPid }}",
-  "PmtPid": "{{ PmtPid }}",
-  "PrivateMetadataPid": "{{ PrivateMetadataPid }}",
-  "Scte27Pids": [
-   "{{ Scte27Pids[0] }}"
-  ],
-  "Scte35Pid": "{{ Scte35Pid }}",
-  "TimedMetadataPid": "{{ TimedMetadataPid }}",
-  "VideoPid": "{{ VideoPid }}"
- },
- "PipelineDetails": [
-  {
-   "ActiveChannelPipeline": "{{ ActiveChannelPipeline }}",
-   "PipelineId": "{{ PipelineId }}"
-  }
- ],
- "ProgramName": "{{ ProgramName }}"
-}
->>>
---required properties only
+-- multiplexprogram.iql (required properties only)
 INSERT INTO aws.medialive.multiplexprograms (
  ChannelId,
  MultiplexId,
@@ -144,66 +101,20 @@ INSERT INTO aws.medialive.multiplexprograms (
  region
 )
 SELECT 
-{{ .ChannelId }},
- {{ .MultiplexId }},
- {{ .MultiplexProgramSettings }},
- {{ .PreferredChannelPipeline }},
- {{ .PacketIdentifiersMap }},
- {{ .PipelineDetails }},
- {{ .ProgramName }},
-'us-east-1';
+'{{ ChannelId }}',
+ '{{ MultiplexId }}',
+ '{{ MultiplexProgramSettings }}',
+ '{{ PreferredChannelPipeline }}',
+ '{{ PacketIdentifiersMap }}',
+ '{{ PipelineDetails }}',
+ '{{ ProgramName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ChannelId": "{{ ChannelId }}",
- "MultiplexId": "{{ MultiplexId }}",
- "MultiplexProgramSettings": {
-  "PreferredChannelPipeline": "{{ PreferredChannelPipeline }}",
-  "ProgramNumber": "{{ ProgramNumber }}",
-  "ServiceDescriptor": {
-   "ProviderName": "{{ ProviderName }}",
-   "ServiceName": "{{ ServiceName }}"
-  },
-  "VideoSettings": {}
- },
- "PreferredChannelPipeline": null,
- "PacketIdentifiersMap": {
-  "AudioPids": [
-   "{{ AudioPids[0] }}"
-  ],
-  "DvbSubPids": [
-   "{{ DvbSubPids[0] }}"
-  ],
-  "DvbTeletextPid": "{{ DvbTeletextPid }}",
-  "EtvPlatformPid": "{{ EtvPlatformPid }}",
-  "EtvSignalPid": "{{ EtvSignalPid }}",
-  "KlvDataPids": [
-   "{{ KlvDataPids[0] }}"
-  ],
-  "PcrPid": "{{ PcrPid }}",
-  "PmtPid": "{{ PmtPid }}",
-  "PrivateMetadataPid": "{{ PrivateMetadataPid }}",
-  "Scte27Pids": [
-   "{{ Scte27Pids[0] }}"
-  ],
-  "Scte35Pid": "{{ Scte35Pid }}",
-  "TimedMetadataPid": "{{ TimedMetadataPid }}",
-  "VideoPid": "{{ VideoPid }}"
- },
- "PipelineDetails": [
-  {
-   "ActiveChannelPipeline": "{{ ActiveChannelPipeline }}",
-   "PipelineId": "{{ PipelineId }}"
-  }
- ],
- "ProgramName": "{{ ProgramName }}"
-}
->>>
---all properties
+-- multiplexprogram.iql (all properties)
 INSERT INTO aws.medialive.multiplexprograms (
  ChannelId,
  MultiplexId,
@@ -215,14 +126,70 @@ INSERT INTO aws.medialive.multiplexprograms (
  region
 )
 SELECT 
- {{ .ChannelId }},
- {{ .MultiplexId }},
- {{ .MultiplexProgramSettings }},
- {{ .PreferredChannelPipeline }},
- {{ .PacketIdentifiersMap }},
- {{ .PipelineDetails }},
- {{ .ProgramName }},
- 'us-east-1';
+ '{{ ChannelId }}',
+ '{{ MultiplexId }}',
+ '{{ MultiplexProgramSettings }}',
+ '{{ PreferredChannelPipeline }}',
+ '{{ PacketIdentifiersMap }}',
+ '{{ PipelineDetails }}',
+ '{{ ProgramName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: multiplexprogram
+    props:
+      - name: ChannelId
+        value: '{{ ChannelId }}'
+      - name: MultiplexId
+        value: '{{ MultiplexId }}'
+      - name: MultiplexProgramSettings
+        value:
+          PreferredChannelPipeline: '{{ PreferredChannelPipeline }}'
+          ProgramNumber: '{{ ProgramNumber }}'
+          ServiceDescriptor:
+            ProviderName: '{{ ProviderName }}'
+            ServiceName: '{{ ServiceName }}'
+          VideoSettings: {}
+      - name: PreferredChannelPipeline
+        value: null
+      - name: PacketIdentifiersMap
+        value:
+          AudioPids:
+            - '{{ AudioPids[0] }}'
+          DvbSubPids:
+            - '{{ DvbSubPids[0] }}'
+          DvbTeletextPid: '{{ DvbTeletextPid }}'
+          EtvPlatformPid: '{{ EtvPlatformPid }}'
+          EtvSignalPid: '{{ EtvSignalPid }}'
+          KlvDataPids:
+            - '{{ KlvDataPids[0] }}'
+          PcrPid: '{{ PcrPid }}'
+          PmtPid: '{{ PmtPid }}'
+          PrivateMetadataPid: '{{ PrivateMetadataPid }}'
+          Scte27Pids:
+            - '{{ Scte27Pids[0] }}'
+          Scte35Pid: '{{ Scte35Pid }}'
+          TimedMetadataPid: '{{ TimedMetadataPid }}'
+          VideoPid: '{{ VideoPid }}'
+      - name: PipelineDetails
+        value:
+          - ActiveChannelPipeline: '{{ ActiveChannelPipeline }}'
+            PipelineId: '{{ PipelineId }}'
+      - name: ProgramName
+        value: '{{ ProgramName }}'
+
 ```
 </TabItem>
 </Tabs>

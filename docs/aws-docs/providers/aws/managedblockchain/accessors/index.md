@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>accessor</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccessorType": "{{ AccessorType }}"
-}
->>>
---required properties only
+-- accessor.iql (required properties only)
 INSERT INTO aws.managedblockchain.accessors (
  AccessorType,
  region
 )
 SELECT 
-{{ .AccessorType }},
-'us-east-1';
+'{{ AccessorType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessorType": "{{ AccessorType }}",
- "NetworkType": "{{ NetworkType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- accessor.iql (all properties)
 INSERT INTO aws.managedblockchain.accessors (
  AccessorType,
  NetworkType,
@@ -122,10 +108,35 @@ INSERT INTO aws.managedblockchain.accessors (
  region
 )
 SELECT 
- {{ .AccessorType }},
- {{ .NetworkType }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AccessorType }}',
+ '{{ NetworkType }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: accessor
+    props:
+      - name: AccessorType
+        value: '{{ AccessorType }}'
+      - name: NetworkType
+        value: '{{ NetworkType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

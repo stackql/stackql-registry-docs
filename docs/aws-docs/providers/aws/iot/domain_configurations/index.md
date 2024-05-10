@@ -74,61 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- domain_configuration.iql (required properties only)
 INSERT INTO aws.iot.domain_configurations (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainConfigurationName": "{{ DomainConfigurationName }}",
- "AuthorizerConfig": {
-  "AllowAuthorizerOverride": "{{ AllowAuthorizerOverride }}",
-  "DefaultAuthorizerName": "{{ DefaultAuthorizerName }}"
- },
- "DomainName": "{{ DomainName }}",
- "ServerCertificateArns": [
-  "{{ ServerCertificateArns[0] }}"
- ],
- "ServiceType": "{{ ServiceType }}",
- "ValidationCertificateArn": "{{ ValidationCertificateArn }}",
- "DomainConfigurationStatus": "{{ DomainConfigurationStatus }}",
- "ServerCertificateConfig": {
-  "EnableOCSPCheck": "{{ EnableOCSPCheck }}"
- },
- "TlsConfig": {
-  "SecurityPolicy": "{{ SecurityPolicy }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- domain_configuration.iql (all properties)
 INSERT INTO aws.iot.domain_configurations (
  DomainConfigurationName,
  AuthorizerConfig,
@@ -143,17 +115,61 @@ INSERT INTO aws.iot.domain_configurations (
  region
 )
 SELECT 
- {{ .DomainConfigurationName }},
- {{ .AuthorizerConfig }},
- {{ .DomainName }},
- {{ .ServerCertificateArns }},
- {{ .ServiceType }},
- {{ .ValidationCertificateArn }},
- {{ .DomainConfigurationStatus }},
- {{ .ServerCertificateConfig }},
- {{ .TlsConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DomainConfigurationName }}',
+ '{{ AuthorizerConfig }}',
+ '{{ DomainName }}',
+ '{{ ServerCertificateArns }}',
+ '{{ ServiceType }}',
+ '{{ ValidationCertificateArn }}',
+ '{{ DomainConfigurationStatus }}',
+ '{{ ServerCertificateConfig }}',
+ '{{ TlsConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain_configuration
+    props:
+      - name: DomainConfigurationName
+        value: '{{ DomainConfigurationName }}'
+      - name: AuthorizerConfig
+        value:
+          AllowAuthorizerOverride: '{{ AllowAuthorizerOverride }}'
+          DefaultAuthorizerName: '{{ DefaultAuthorizerName }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: ServerCertificateArns
+        value:
+          - '{{ ServerCertificateArns[0] }}'
+      - name: ServiceType
+        value: '{{ ServiceType }}'
+      - name: ValidationCertificateArn
+        value: '{{ ValidationCertificateArn }}'
+      - name: DomainConfigurationStatus
+        value: '{{ DomainConfigurationStatus }}'
+      - name: ServerCertificateConfig
+        value:
+          EnableOCSPCheck: '{{ EnableOCSPCheck }}'
+      - name: TlsConfig
+        value:
+          SecurityPolicy: '{{ SecurityPolicy }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

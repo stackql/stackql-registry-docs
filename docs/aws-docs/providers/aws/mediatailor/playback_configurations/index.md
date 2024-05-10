@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>playback_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AdDecisionServerUrl": "{{ AdDecisionServerUrl }}",
- "Name": "{{ Name }}",
- "VideoContentSourceUrl": "{{ VideoContentSourceUrl }}"
-}
->>>
---required properties only
+-- playback_configuration.iql (required properties only)
 INSERT INTO aws.mediatailor.playback_configurations (
  AdDecisionServerUrl,
  Name,
@@ -99,62 +95,16 @@ INSERT INTO aws.mediatailor.playback_configurations (
  region
 )
 SELECT 
-{{ .AdDecisionServerUrl }},
- {{ .Name }},
- {{ .VideoContentSourceUrl }},
-'us-east-1';
+'{{ AdDecisionServerUrl }}',
+ '{{ Name }}',
+ '{{ VideoContentSourceUrl }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AdDecisionServerUrl": "{{ AdDecisionServerUrl }}",
- "AvailSuppression": {
-  "Mode": "{{ Mode }}",
-  "Value": "{{ Value }}"
- },
- "Bumper": {
-  "StartUrl": "{{ StartUrl }}",
-  "EndUrl": "{{ EndUrl }}"
- },
- "CdnConfiguration": {
-  "AdSegmentUrlPrefix": "{{ AdSegmentUrlPrefix }}",
-  "ContentSegmentUrlPrefix": "{{ ContentSegmentUrlPrefix }}"
- },
- "ConfigurationAliases": null,
- "DashConfiguration": {
-  "MpdLocation": "{{ MpdLocation }}",
-  "OriginManifestType": "{{ OriginManifestType }}",
-  "ManifestEndpointPrefix": "{{ ManifestEndpointPrefix }}"
- },
- "LivePreRollConfiguration": {
-  "AdDecisionServerUrl": "{{ AdDecisionServerUrl }}",
-  "MaxDurationSeconds": "{{ MaxDurationSeconds }}"
- },
- "ManifestProcessingRules": {
-  "AdMarkerPassthrough": {
-   "Enabled": "{{ Enabled }}"
-  }
- },
- "Name": "{{ Name }}",
- "PersonalizationThresholdSeconds": "{{ PersonalizationThresholdSeconds }}",
- "HlsConfiguration": {
-  "ManifestEndpointPrefix": "{{ ManifestEndpointPrefix }}"
- },
- "SlateAdUrl": "{{ SlateAdUrl }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TranscodeProfileName": "{{ TranscodeProfileName }}",
- "VideoContentSourceUrl": "{{ VideoContentSourceUrl }}"
-}
->>>
---all properties
+-- playback_configuration.iql (all properties)
 INSERT INTO aws.mediatailor.playback_configurations (
  AdDecisionServerUrl,
  AvailSuppression,
@@ -174,22 +124,85 @@ INSERT INTO aws.mediatailor.playback_configurations (
  region
 )
 SELECT 
- {{ .AdDecisionServerUrl }},
- {{ .AvailSuppression }},
- {{ .Bumper }},
- {{ .CdnConfiguration }},
- {{ .ConfigurationAliases }},
- {{ .DashConfiguration }},
- {{ .LivePreRollConfiguration }},
- {{ .ManifestProcessingRules }},
- {{ .Name }},
- {{ .PersonalizationThresholdSeconds }},
- {{ .HlsConfiguration }},
- {{ .SlateAdUrl }},
- {{ .Tags }},
- {{ .TranscodeProfileName }},
- {{ .VideoContentSourceUrl }},
- 'us-east-1';
+ '{{ AdDecisionServerUrl }}',
+ '{{ AvailSuppression }}',
+ '{{ Bumper }}',
+ '{{ CdnConfiguration }}',
+ '{{ ConfigurationAliases }}',
+ '{{ DashConfiguration }}',
+ '{{ LivePreRollConfiguration }}',
+ '{{ ManifestProcessingRules }}',
+ '{{ Name }}',
+ '{{ PersonalizationThresholdSeconds }}',
+ '{{ HlsConfiguration }}',
+ '{{ SlateAdUrl }}',
+ '{{ Tags }}',
+ '{{ TranscodeProfileName }}',
+ '{{ VideoContentSourceUrl }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: playback_configuration
+    props:
+      - name: AdDecisionServerUrl
+        value: '{{ AdDecisionServerUrl }}'
+      - name: AvailSuppression
+        value:
+          Mode: '{{ Mode }}'
+          Value: '{{ Value }}'
+      - name: Bumper
+        value:
+          StartUrl: '{{ StartUrl }}'
+          EndUrl: '{{ EndUrl }}'
+      - name: CdnConfiguration
+        value:
+          AdSegmentUrlPrefix: '{{ AdSegmentUrlPrefix }}'
+          ContentSegmentUrlPrefix: '{{ ContentSegmentUrlPrefix }}'
+      - name: ConfigurationAliases
+        value: null
+      - name: DashConfiguration
+        value:
+          MpdLocation: '{{ MpdLocation }}'
+          OriginManifestType: '{{ OriginManifestType }}'
+          ManifestEndpointPrefix: '{{ ManifestEndpointPrefix }}'
+      - name: LivePreRollConfiguration
+        value:
+          AdDecisionServerUrl: '{{ AdDecisionServerUrl }}'
+          MaxDurationSeconds: '{{ MaxDurationSeconds }}'
+      - name: ManifestProcessingRules
+        value:
+          AdMarkerPassthrough:
+            Enabled: '{{ Enabled }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: PersonalizationThresholdSeconds
+        value: '{{ PersonalizationThresholdSeconds }}'
+      - name: HlsConfiguration
+        value:
+          ManifestEndpointPrefix: '{{ ManifestEndpointPrefix }}'
+      - name: SlateAdUrl
+        value: '{{ SlateAdUrl }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TranscodeProfileName
+        value: '{{ TranscodeProfileName }}'
+      - name: VideoContentSourceUrl
+        value: '{{ VideoContentSourceUrl }}'
+
 ```
 </TabItem>
 </Tabs>

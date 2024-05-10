@@ -76,62 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>budgets_action</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BudgetName": "{{ BudgetName }}",
- "NotificationType": "{{ NotificationType }}",
- "ActionType": "{{ ActionType }}",
- "ActionThreshold": {
-  "Value": null,
-  "Type": "{{ Type }}"
- },
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "Subscribers": [
-  {
-   "Type": "{{ Type }}",
-   "Address": "{{ Address }}"
-  }
- ],
- "Definition": {
-  "IamActionDefinition": {
-   "PolicyArn": "{{ PolicyArn }}",
-   "Roles": [
-    "{{ Roles[0] }}"
-   ],
-   "Groups": [
-    "{{ Groups[0] }}"
-   ],
-   "Users": [
-    "{{ Users[0] }}"
-   ]
-  },
-  "ScpActionDefinition": {
-   "PolicyId": "{{ PolicyId }}",
-   "TargetIds": [
-    "{{ TargetIds[0] }}"
-   ]
-  },
-  "SsmActionDefinition": {
-   "Subtype": "{{ Subtype }}",
-   "Region": "{{ Region }}",
-   "InstanceIds": [
-    "{{ InstanceIds[0] }}"
-   ]
-  }
- }
-}
->>>
---required properties only
+-- budgets_action.iql (required properties only)
 INSERT INTO aws.budgets.budgets_actions (
  BudgetName,
  NotificationType,
@@ -143,66 +101,20 @@ INSERT INTO aws.budgets.budgets_actions (
  region
 )
 SELECT 
-{{ .BudgetName }},
- {{ .NotificationType }},
- {{ .ActionType }},
- {{ .ActionThreshold }},
- {{ .ExecutionRoleArn }},
- {{ .Subscribers }},
- {{ .Definition }},
-'us-east-1';
+'{{ BudgetName }}',
+ '{{ NotificationType }}',
+ '{{ ActionType }}',
+ '{{ ActionThreshold }}',
+ '{{ ExecutionRoleArn }}',
+ '{{ Subscribers }}',
+ '{{ Definition }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BudgetName": "{{ BudgetName }}",
- "NotificationType": "{{ NotificationType }}",
- "ActionType": "{{ ActionType }}",
- "ActionThreshold": {
-  "Value": null,
-  "Type": "{{ Type }}"
- },
- "ExecutionRoleArn": "{{ ExecutionRoleArn }}",
- "ApprovalModel": "{{ ApprovalModel }}",
- "Subscribers": [
-  {
-   "Type": "{{ Type }}",
-   "Address": "{{ Address }}"
-  }
- ],
- "Definition": {
-  "IamActionDefinition": {
-   "PolicyArn": "{{ PolicyArn }}",
-   "Roles": [
-    "{{ Roles[0] }}"
-   ],
-   "Groups": [
-    "{{ Groups[0] }}"
-   ],
-   "Users": [
-    "{{ Users[0] }}"
-   ]
-  },
-  "ScpActionDefinition": {
-   "PolicyId": "{{ PolicyId }}",
-   "TargetIds": [
-    "{{ TargetIds[0] }}"
-   ]
-  },
-  "SsmActionDefinition": {
-   "Subtype": "{{ Subtype }}",
-   "Region": "{{ Region }}",
-   "InstanceIds": [
-    "{{ InstanceIds[0] }}"
-   ]
-  }
- }
-}
->>>
---all properties
+-- budgets_action.iql (all properties)
 INSERT INTO aws.budgets.budgets_actions (
  BudgetName,
  NotificationType,
@@ -215,15 +127,69 @@ INSERT INTO aws.budgets.budgets_actions (
  region
 )
 SELECT 
- {{ .BudgetName }},
- {{ .NotificationType }},
- {{ .ActionType }},
- {{ .ActionThreshold }},
- {{ .ExecutionRoleArn }},
- {{ .ApprovalModel }},
- {{ .Subscribers }},
- {{ .Definition }},
- 'us-east-1';
+ '{{ BudgetName }}',
+ '{{ NotificationType }}',
+ '{{ ActionType }}',
+ '{{ ActionThreshold }}',
+ '{{ ExecutionRoleArn }}',
+ '{{ ApprovalModel }}',
+ '{{ Subscribers }}',
+ '{{ Definition }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: budgets_action
+    props:
+      - name: BudgetName
+        value: '{{ BudgetName }}'
+      - name: NotificationType
+        value: '{{ NotificationType }}'
+      - name: ActionType
+        value: '{{ ActionType }}'
+      - name: ActionThreshold
+        value:
+          Value: null
+          Type: '{{ Type }}'
+      - name: ExecutionRoleArn
+        value: '{{ ExecutionRoleArn }}'
+      - name: ApprovalModel
+        value: '{{ ApprovalModel }}'
+      - name: Subscribers
+        value:
+          - Type: '{{ Type }}'
+            Address: '{{ Address }}'
+      - name: Definition
+        value:
+          IamActionDefinition:
+            PolicyArn: '{{ PolicyArn }}'
+            Roles:
+              - '{{ Roles[0] }}'
+            Groups:
+              - '{{ Groups[0] }}'
+            Users:
+              - '{{ Users[0] }}'
+          ScpActionDefinition:
+            PolicyId: '{{ PolicyId }}'
+            TargetIds:
+              - '{{ TargetIds[0] }}'
+          SsmActionDefinition:
+            Subtype: '{{ Subtype }}'
+            Region: '{{ Region }}'
+            InstanceIds:
+              - '{{ InstanceIds[0] }}'
+
 ```
 </TabItem>
 </Tabs>

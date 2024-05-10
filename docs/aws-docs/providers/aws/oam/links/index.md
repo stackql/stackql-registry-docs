@@ -74,56 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>link</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceTypes": [
-  "{{ ResourceTypes[0] }}"
- ],
- "SinkIdentifier": "{{ SinkIdentifier }}"
-}
->>>
---required properties only
+-- link.iql (required properties only)
 INSERT INTO aws.oam.links (
  ResourceTypes,
  SinkIdentifier,
  region
 )
 SELECT 
-{{ .ResourceTypes }},
- {{ .SinkIdentifier }},
-'us-east-1';
+'{{ ResourceTypes }}',
+ '{{ SinkIdentifier }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LabelTemplate": "{{ LabelTemplate }}",
- "ResourceTypes": [
-  "{{ ResourceTypes[0] }}"
- ],
- "SinkIdentifier": "{{ SinkIdentifier }}",
- "LinkConfiguration": {
-  "MetricConfiguration": {
-   "Filter": "{{ Filter }}"
-  },
-  "LogGroupConfiguration": null
- },
- "Tags": {}
-}
->>>
---all properties
+-- link.iql (all properties)
 INSERT INTO aws.oam.links (
  LabelTemplate,
  ResourceTypes,
@@ -133,12 +112,43 @@ INSERT INTO aws.oam.links (
  region
 )
 SELECT 
- {{ .LabelTemplate }},
- {{ .ResourceTypes }},
- {{ .SinkIdentifier }},
- {{ .LinkConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ LabelTemplate }}',
+ '{{ ResourceTypes }}',
+ '{{ SinkIdentifier }}',
+ '{{ LinkConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: link
+    props:
+      - name: LabelTemplate
+        value: '{{ LabelTemplate }}'
+      - name: ResourceTypes
+        value:
+          - '{{ ResourceTypes[0] }}'
+      - name: SinkIdentifier
+        value: '{{ SinkIdentifier }}'
+      - name: LinkConfiguration
+        value:
+          MetricConfiguration:
+            Filter: '{{ Filter }}'
+          LogGroupConfiguration: null
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

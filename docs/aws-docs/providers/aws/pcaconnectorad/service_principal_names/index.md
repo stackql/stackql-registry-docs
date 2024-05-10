@@ -76,53 +76,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service_principal_name</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ConnectorArn": "{{ ConnectorArn }}",
- "DirectoryRegistrationArn": "{{ DirectoryRegistrationArn }}"
-}
->>>
---required properties only
+-- service_principal_name.iql (required properties only)
 INSERT INTO aws.pcaconnectorad.service_principal_names (
  ConnectorArn,
  DirectoryRegistrationArn,
  region
 )
 SELECT 
-{{ .ConnectorArn }},
- {{ .DirectoryRegistrationArn }},
-'us-east-1';
+'{{ ConnectorArn }}',
+ '{{ DirectoryRegistrationArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ConnectorArn": "{{ ConnectorArn }}",
- "DirectoryRegistrationArn": "{{ DirectoryRegistrationArn }}"
-}
->>>
---all properties
+-- service_principal_name.iql (all properties)
 INSERT INTO aws.pcaconnectorad.service_principal_names (
  ConnectorArn,
  DirectoryRegistrationArn,
  region
 )
 SELECT 
- {{ .ConnectorArn }},
- {{ .DirectoryRegistrationArn }},
- 'us-east-1';
+ '{{ ConnectorArn }}',
+ '{{ DirectoryRegistrationArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service_principal_name
+    props:
+      - name: ConnectorArn
+        value: '{{ ConnectorArn }}'
+      - name: DirectoryRegistrationArn
+        value: '{{ DirectoryRegistrationArn }}'
+
 ```
 </TabItem>
 </Tabs>

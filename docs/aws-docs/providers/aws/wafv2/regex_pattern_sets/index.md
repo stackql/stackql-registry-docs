@@ -78,56 +78,35 @@ FROM aws.wafv2.regex_pattern_sets
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>regex_pattern_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RegularExpressionList": [
-  "{{ RegularExpressionList[0] }}"
- ],
- "Scope": "{{ Scope }}"
-}
->>>
---required properties only
+-- regex_pattern_set.iql (required properties only)
 INSERT INTO aws.wafv2.regex_pattern_sets (
  RegularExpressionList,
  Scope,
  region
 )
 SELECT 
-{{ .RegularExpressionList }},
- {{ .Scope }},
-'us-east-1';
+'{{ RegularExpressionList }}',
+ '{{ Scope }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "RegularExpressionList": [
-  "{{ RegularExpressionList[0] }}"
- ],
- "Scope": "{{ Scope }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- regex_pattern_set.iql (all properties)
 INSERT INTO aws.wafv2.regex_pattern_sets (
  Description,
  Name,
@@ -137,12 +116,42 @@ INSERT INTO aws.wafv2.regex_pattern_sets (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .RegularExpressionList }},
- {{ .Scope }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ RegularExpressionList }}',
+ '{{ Scope }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: regex_pattern_set
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RegularExpressionList
+        value:
+          - '{{ RegularExpressionList[0] }}'
+      - name: Scope
+        value: '{{ Scope }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

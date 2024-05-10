@@ -74,43 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>subnet_cidr_block</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---required properties only
+-- subnet_cidr_block.iql (required properties only)
 INSERT INTO aws.ec2.subnet_cidr_blocks (
  SubnetId,
  region
 )
 SELECT 
-{{ .SubnetId }},
-'us-east-1';
+'{{ SubnetId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Ipv6CidrBlock": "{{ Ipv6CidrBlock }}",
- "Ipv6IpamPoolId": "{{ Ipv6IpamPoolId }}",
- "Ipv6NetmaskLength": "{{ Ipv6NetmaskLength }}",
- "SubnetId": "{{ SubnetId }}"
-}
->>>
---all properties
+-- subnet_cidr_block.iql (all properties)
 INSERT INTO aws.ec2.subnet_cidr_blocks (
  Ipv6CidrBlock,
  Ipv6IpamPoolId,
@@ -119,11 +109,36 @@ INSERT INTO aws.ec2.subnet_cidr_blocks (
  region
 )
 SELECT 
- {{ .Ipv6CidrBlock }},
- {{ .Ipv6IpamPoolId }},
- {{ .Ipv6NetmaskLength }},
- {{ .SubnetId }},
- 'us-east-1';
+ '{{ Ipv6CidrBlock }}',
+ '{{ Ipv6IpamPoolId }}',
+ '{{ Ipv6NetmaskLength }}',
+ '{{ SubnetId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: subnet_cidr_block
+    props:
+      - name: Ipv6CidrBlock
+        value: '{{ Ipv6CidrBlock }}'
+      - name: Ipv6IpamPoolId
+        value: '{{ Ipv6IpamPoolId }}'
+      - name: Ipv6NetmaskLength
+        value: '{{ Ipv6NetmaskLength }}'
+      - name: SubnetId
+        value: '{{ SubnetId }}'
+
 ```
 </TabItem>
 </Tabs>

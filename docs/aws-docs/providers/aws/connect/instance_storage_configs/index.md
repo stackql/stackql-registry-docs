@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>instance_storage_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "ResourceType": "{{ ResourceType }}",
- "StorageType": "{{ StorageType }}"
-}
->>>
---required properties only
+-- instance_storage_config.iql (required properties only)
 INSERT INTO aws.connect.instance_storage_configs (
  InstanceArn,
  ResourceType,
@@ -103,42 +99,16 @@ INSERT INTO aws.connect.instance_storage_configs (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .ResourceType }},
- {{ .StorageType }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ ResourceType }}',
+ '{{ StorageType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "ResourceType": "{{ ResourceType }}",
- "StorageType": "{{ StorageType }}",
- "S3Config": {
-  "BucketName": "{{ BucketName }}",
-  "BucketPrefix": "{{ BucketPrefix }}",
-  "EncryptionConfig": {
-   "EncryptionType": "{{ EncryptionType }}",
-   "KeyId": "{{ KeyId }}"
-  }
- },
- "KinesisVideoStreamConfig": {
-  "Prefix": null,
-  "RetentionPeriodHours": null,
-  "EncryptionConfig": null
- },
- "KinesisStreamConfig": {
-  "StreamArn": "{{ StreamArn }}"
- },
- "KinesisFirehoseConfig": {
-  "FirehoseArn": "{{ FirehoseArn }}"
- }
-}
->>>
---all properties
+-- instance_storage_config.iql (all properties)
 INSERT INTO aws.connect.instance_storage_configs (
  InstanceArn,
  ResourceType,
@@ -150,14 +120,55 @@ INSERT INTO aws.connect.instance_storage_configs (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .ResourceType }},
- {{ .StorageType }},
- {{ .S3Config }},
- {{ .KinesisVideoStreamConfig }},
- {{ .KinesisStreamConfig }},
- {{ .KinesisFirehoseConfig }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ ResourceType }}',
+ '{{ StorageType }}',
+ '{{ S3Config }}',
+ '{{ KinesisVideoStreamConfig }}',
+ '{{ KinesisStreamConfig }}',
+ '{{ KinesisFirehoseConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: instance_storage_config
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: ResourceType
+        value: '{{ ResourceType }}'
+      - name: StorageType
+        value: '{{ StorageType }}'
+      - name: S3Config
+        value:
+          BucketName: '{{ BucketName }}'
+          BucketPrefix: '{{ BucketPrefix }}'
+          EncryptionConfig:
+            EncryptionType: '{{ EncryptionType }}'
+            KeyId: '{{ KeyId }}'
+      - name: KinesisVideoStreamConfig
+        value:
+          Prefix: null
+          RetentionPeriodHours: null
+          EncryptionConfig: null
+      - name: KinesisStreamConfig
+        value:
+          StreamArn: '{{ StreamArn }}'
+      - name: KinesisFirehoseConfig
+        value:
+          FirehoseArn: '{{ FirehoseArn }}'
+
 ```
 </TabItem>
 </Tabs>

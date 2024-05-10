@@ -74,38 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>instance_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "Description": "{{ Description }}",
- "KmsKeyArn": "{{ KmsKeyArn }}",
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "NetworkType": "{{ NetworkType }}",
- "InstanceProfileName": "{{ InstanceProfileName }}",
- "SubnetGroupIdentifier": "{{ SubnetGroupIdentifier }}",
- "VpcSecurityGroups": [
-  "{{ VpcSecurityGroups[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- instance_profile.iql (required properties only)
 INSERT INTO aws.dms.instance_profiles (
  InstanceProfileIdentifier,
  AvailabilityZone,
@@ -120,44 +102,23 @@ INSERT INTO aws.dms.instance_profiles (
  region
 )
 SELECT 
-{{ .InstanceProfileIdentifier }},
- {{ .AvailabilityZone }},
- {{ .Description }},
- {{ .KmsKeyArn }},
- {{ .PubliclyAccessible }},
- {{ .NetworkType }},
- {{ .InstanceProfileName }},
- {{ .SubnetGroupIdentifier }},
- {{ .VpcSecurityGroups }},
- {{ .Tags }},
-'us-east-1';
+'{{ InstanceProfileIdentifier }}',
+ '{{ AvailabilityZone }}',
+ '{{ Description }}',
+ '{{ KmsKeyArn }}',
+ '{{ PubliclyAccessible }}',
+ '{{ NetworkType }}',
+ '{{ InstanceProfileName }}',
+ '{{ SubnetGroupIdentifier }}',
+ '{{ VpcSecurityGroups }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceProfileIdentifier": "{{ InstanceProfileIdentifier }}",
- "AvailabilityZone": "{{ AvailabilityZone }}",
- "Description": "{{ Description }}",
- "KmsKeyArn": "{{ KmsKeyArn }}",
- "PubliclyAccessible": "{{ PubliclyAccessible }}",
- "NetworkType": "{{ NetworkType }}",
- "InstanceProfileName": "{{ InstanceProfileName }}",
- "SubnetGroupIdentifier": "{{ SubnetGroupIdentifier }}",
- "VpcSecurityGroups": [
-  "{{ VpcSecurityGroups[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- instance_profile.iql (all properties)
 INSERT INTO aws.dms.instance_profiles (
  InstanceProfileIdentifier,
  AvailabilityZone,
@@ -172,17 +133,57 @@ INSERT INTO aws.dms.instance_profiles (
  region
 )
 SELECT 
- {{ .InstanceProfileIdentifier }},
- {{ .AvailabilityZone }},
- {{ .Description }},
- {{ .KmsKeyArn }},
- {{ .PubliclyAccessible }},
- {{ .NetworkType }},
- {{ .InstanceProfileName }},
- {{ .SubnetGroupIdentifier }},
- {{ .VpcSecurityGroups }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceProfileIdentifier }}',
+ '{{ AvailabilityZone }}',
+ '{{ Description }}',
+ '{{ KmsKeyArn }}',
+ '{{ PubliclyAccessible }}',
+ '{{ NetworkType }}',
+ '{{ InstanceProfileName }}',
+ '{{ SubnetGroupIdentifier }}',
+ '{{ VpcSecurityGroups }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: instance_profile
+    props:
+      - name: InstanceProfileIdentifier
+        value: '{{ InstanceProfileIdentifier }}'
+      - name: AvailabilityZone
+        value: '{{ AvailabilityZone }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: KmsKeyArn
+        value: '{{ KmsKeyArn }}'
+      - name: PubliclyAccessible
+        value: '{{ PubliclyAccessible }}'
+      - name: NetworkType
+        value: '{{ NetworkType }}'
+      - name: InstanceProfileName
+        value: '{{ InstanceProfileName }}'
+      - name: SubnetGroupIdentifier
+        value: '{{ SubnetGroupIdentifier }}'
+      - name: VpcSecurityGroups
+        value:
+          - '{{ VpcSecurityGroups[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

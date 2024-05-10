@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>capability</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Configuration": null,
- "Name": "{{ Name }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- capability.iql (required properties only)
 INSERT INTO aws.b2bi.capabilities (
  Configuration,
  Name,
@@ -99,35 +95,16 @@ INSERT INTO aws.b2bi.capabilities (
  region
 )
 SELECT 
-{{ .Configuration }},
- {{ .Name }},
- {{ .Type }},
-'us-east-1';
+'{{ Configuration }}',
+ '{{ Name }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Configuration": null,
- "InstructionsDocuments": [
-  {
-   "BucketName": "{{ BucketName }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "Name": "{{ Name }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- capability.iql (all properties)
 INSERT INTO aws.b2bi.capabilities (
  Configuration,
  InstructionsDocuments,
@@ -137,12 +114,43 @@ INSERT INTO aws.b2bi.capabilities (
  region
 )
 SELECT 
- {{ .Configuration }},
- {{ .InstructionsDocuments }},
- {{ .Name }},
- {{ .Tags }},
- {{ .Type }},
- 'us-east-1';
+ '{{ Configuration }}',
+ '{{ InstructionsDocuments }}',
+ '{{ Name }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: capability
+    props:
+      - name: Configuration
+        value: null
+      - name: InstructionsDocuments
+        value:
+          - BucketName: '{{ BucketName }}'
+            Key: '{{ Key }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

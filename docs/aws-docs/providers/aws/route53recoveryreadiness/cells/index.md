@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>cell</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CellName": "{{ CellName }}",
- "Cells": [
-  "{{ Cells[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- cell.iql (required properties only)
 INSERT INTO aws.route53recoveryreadiness.cells (
  CellName,
  Cells,
@@ -106,30 +95,16 @@ INSERT INTO aws.route53recoveryreadiness.cells (
  region
 )
 SELECT 
-{{ .CellName }},
- {{ .Cells }},
- {{ .Tags }},
-'us-east-1';
+'{{ CellName }}',
+ '{{ Cells }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CellName": "{{ CellName }}",
- "Cells": [
-  "{{ Cells[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- cell.iql (all properties)
 INSERT INTO aws.route53recoveryreadiness.cells (
  CellName,
  Cells,
@@ -137,10 +112,36 @@ INSERT INTO aws.route53recoveryreadiness.cells (
  region
 )
 SELECT 
- {{ .CellName }},
- {{ .Cells }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ CellName }}',
+ '{{ Cells }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: cell
+    props:
+      - name: CellName
+        value: '{{ CellName }}'
+      - name: Cells
+        value:
+          - '{{ Cells[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,37 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>quick_connect</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "QuickConnectConfig": {
-  "QuickConnectType": "{{ QuickConnectType }}",
-  "PhoneConfig": {
-   "PhoneNumber": "{{ PhoneNumber }}"
-  },
-  "QueueConfig": {
-   "ContactFlowArn": "{{ ContactFlowArn }}",
-   "QueueArn": "{{ QueueArn }}"
-  },
-  "UserConfig": {
-   "ContactFlowArn": null,
-   "UserArn": "{{ UserArn }}"
-  }
- }
-}
->>>
---required properties only
+-- quick_connect.iql (required properties only)
 INSERT INTO aws.connect.quick_connects (
  InstanceArn,
  Name,
@@ -112,43 +95,16 @@ INSERT INTO aws.connect.quick_connects (
  region
 )
 SELECT 
-{{ .InstanceArn }},
- {{ .Name }},
- {{ .QuickConnectConfig }},
-'us-east-1';
+'{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ QuickConnectConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "QuickConnectConfig": {
-  "QuickConnectType": "{{ QuickConnectType }}",
-  "PhoneConfig": {
-   "PhoneNumber": "{{ PhoneNumber }}"
-  },
-  "QueueConfig": {
-   "ContactFlowArn": "{{ ContactFlowArn }}",
-   "QueueArn": "{{ QueueArn }}"
-  },
-  "UserConfig": {
-   "ContactFlowArn": null,
-   "UserArn": "{{ UserArn }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- quick_connect.iql (all properties)
 INSERT INTO aws.connect.quick_connects (
  InstanceArn,
  Name,
@@ -158,12 +114,50 @@ INSERT INTO aws.connect.quick_connects (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Name }},
- {{ .Description }},
- {{ .QuickConnectConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ QuickConnectConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: quick_connect
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: QuickConnectConfig
+        value:
+          QuickConnectType: '{{ QuickConnectType }}'
+          PhoneConfig:
+            PhoneNumber: '{{ PhoneNumber }}'
+          QueueConfig:
+            ContactFlowArn: '{{ ContactFlowArn }}'
+            QueueArn: '{{ QueueArn }}'
+          UserConfig:
+            ContactFlowArn: null
+            UserArn: '{{ UserArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,63 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>stack</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "StackName": "{{ StackName }}"
-}
->>>
---required properties only
+-- stack.iql (required properties only)
 INSERT INTO aws.cloudformation.stacks (
  StackName,
  region
 )
 SELECT 
-{{ .StackName }},
-'us-east-1';
+'{{ StackName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Capabilities": [
-  "{{ Capabilities[0] }}"
- ],
- "RoleARN": "{{ RoleARN }}",
- "Description": "{{ Description }}",
- "DisableRollback": "{{ DisableRollback }}",
- "EnableTerminationProtection": "{{ EnableTerminationProtection }}",
- "NotificationARNs": [
-  "{{ NotificationARNs[0] }}"
- ],
- "Parameters": {},
- "StackName": "{{ StackName }}",
- "StackPolicyBody": {},
- "StackPolicyURL": "{{ StackPolicyURL }}",
- "StackStatusReason": "{{ StackStatusReason }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TemplateBody": {},
- "TemplateURL": "{{ TemplateURL }}",
- "TimeoutInMinutes": "{{ TimeoutInMinutes }}"
-}
->>>
---all properties
+-- stack.iql (all properties)
 INSERT INTO aws.cloudformation.stacks (
  Capabilities,
  RoleARN,
@@ -150,22 +120,73 @@ INSERT INTO aws.cloudformation.stacks (
  region
 )
 SELECT 
- {{ .Capabilities }},
- {{ .RoleARN }},
- {{ .Description }},
- {{ .DisableRollback }},
- {{ .EnableTerminationProtection }},
- {{ .NotificationARNs }},
- {{ .Parameters }},
- {{ .StackName }},
- {{ .StackPolicyBody }},
- {{ .StackPolicyURL }},
- {{ .StackStatusReason }},
- {{ .Tags }},
- {{ .TemplateBody }},
- {{ .TemplateURL }},
- {{ .TimeoutInMinutes }},
- 'us-east-1';
+ '{{ Capabilities }}',
+ '{{ RoleARN }}',
+ '{{ Description }}',
+ '{{ DisableRollback }}',
+ '{{ EnableTerminationProtection }}',
+ '{{ NotificationARNs }}',
+ '{{ Parameters }}',
+ '{{ StackName }}',
+ '{{ StackPolicyBody }}',
+ '{{ StackPolicyURL }}',
+ '{{ StackStatusReason }}',
+ '{{ Tags }}',
+ '{{ TemplateBody }}',
+ '{{ TemplateURL }}',
+ '{{ TimeoutInMinutes }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: stack
+    props:
+      - name: Capabilities
+        value:
+          - '{{ Capabilities[0] }}'
+      - name: RoleARN
+        value: '{{ RoleARN }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisableRollback
+        value: '{{ DisableRollback }}'
+      - name: EnableTerminationProtection
+        value: '{{ EnableTerminationProtection }}'
+      - name: NotificationARNs
+        value:
+          - '{{ NotificationARNs[0] }}'
+      - name: Parameters
+        value: {}
+      - name: StackName
+        value: '{{ StackName }}'
+      - name: StackPolicyBody
+        value: {}
+      - name: StackPolicyURL
+        value: '{{ StackPolicyURL }}'
+      - name: StackStatusReason
+        value: '{{ StackStatusReason }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TemplateBody
+        value: {}
+      - name: TemplateURL
+        value: '{{ TemplateURL }}'
+      - name: TimeoutInMinutes
+        value: '{{ TimeoutInMinutes }}'
+
 ```
 </TabItem>
 </Tabs>

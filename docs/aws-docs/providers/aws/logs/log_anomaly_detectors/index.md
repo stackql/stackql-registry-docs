@@ -74,46 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>log_anomaly_detector</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- log_anomaly_detector.iql (required properties only)
 INSERT INTO aws.logs.log_anomaly_detectors (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccountId": "{{ AccountId }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "DetectorName": "{{ DetectorName }}",
- "LogGroupArnList": [
-  "{{ LogGroupArnList[0] }}"
- ],
- "EvaluationFrequency": "{{ EvaluationFrequency }}",
- "FilterPattern": "{{ FilterPattern }}",
- "AnomalyVisibilityTime": null
-}
->>>
---all properties
+-- log_anomaly_detector.iql (all properties)
 INSERT INTO aws.logs.log_anomaly_detectors (
  AccountId,
  KmsKeyId,
@@ -125,14 +112,46 @@ INSERT INTO aws.logs.log_anomaly_detectors (
  region
 )
 SELECT 
- {{ .AccountId }},
- {{ .KmsKeyId }},
- {{ .DetectorName }},
- {{ .LogGroupArnList }},
- {{ .EvaluationFrequency }},
- {{ .FilterPattern }},
- {{ .AnomalyVisibilityTime }},
- 'us-east-1';
+ '{{ AccountId }}',
+ '{{ KmsKeyId }}',
+ '{{ DetectorName }}',
+ '{{ LogGroupArnList }}',
+ '{{ EvaluationFrequency }}',
+ '{{ FilterPattern }}',
+ '{{ AnomalyVisibilityTime }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: log_anomaly_detector
+    props:
+      - name: AccountId
+        value: '{{ AccountId }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: DetectorName
+        value: '{{ DetectorName }}'
+      - name: LogGroupArnList
+        value:
+          - '{{ LogGroupArnList[0] }}'
+      - name: EvaluationFrequency
+        value: '{{ EvaluationFrequency }}'
+      - name: FilterPattern
+        value: '{{ FilterPattern }}'
+      - name: AnomalyVisibilityTime
+        value: null
+
 ```
 </TabItem>
 </Tabs>

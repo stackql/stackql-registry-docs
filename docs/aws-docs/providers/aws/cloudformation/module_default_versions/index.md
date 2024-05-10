@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>module_default_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Arn": "{{ Arn }}",
- "ModuleName": "{{ ModuleName }}",
- "VersionId": "{{ VersionId }}"
-}
->>>
---required properties only
+-- module_default_version.iql (required properties only)
 INSERT INTO aws.cloudformation.module_default_versions (
  Arn,
  ModuleName,
@@ -99,23 +95,16 @@ INSERT INTO aws.cloudformation.module_default_versions (
  region
 )
 SELECT 
-{{ .Arn }},
- {{ .ModuleName }},
- {{ .VersionId }},
-'us-east-1';
+'{{ Arn }}',
+ '{{ ModuleName }}',
+ '{{ VersionId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Arn": "{{ Arn }}",
- "ModuleName": "{{ ModuleName }}",
- "VersionId": "{{ VersionId }}"
-}
->>>
---all properties
+-- module_default_version.iql (all properties)
 INSERT INTO aws.cloudformation.module_default_versions (
  Arn,
  ModuleName,
@@ -123,10 +112,33 @@ INSERT INTO aws.cloudformation.module_default_versions (
  region
 )
 SELECT 
- {{ .Arn }},
- {{ .ModuleName }},
- {{ .VersionId }},
- 'us-east-1';
+ '{{ Arn }}',
+ '{{ ModuleName }}',
+ '{{ VersionId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: module_default_version
+    props:
+      - name: Arn
+        value: '{{ Arn }}'
+      - name: ModuleName
+        value: '{{ ModuleName }}'
+      - name: VersionId
+        value: '{{ VersionId }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -76,52 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>template_group_access_control_entry</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AccessRights": {
-  "Enroll": "{{ Enroll }}",
-  "AutoEnroll": null
- },
- "GroupDisplayName": "{{ GroupDisplayName }}"
-}
->>>
---required properties only
+-- template_group_access_control_entry.iql (required properties only)
 INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
  AccessRights,
  GroupDisplayName,
  region
 )
 SELECT 
-{{ .AccessRights }},
- {{ .GroupDisplayName }},
-'us-east-1';
+'{{ AccessRights }}',
+ '{{ GroupDisplayName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AccessRights": {
-  "Enroll": "{{ Enroll }}",
-  "AutoEnroll": null
- },
- "GroupDisplayName": "{{ GroupDisplayName }}",
- "GroupSecurityIdentifier": "{{ GroupSecurityIdentifier }}",
- "TemplateArn": "{{ TemplateArn }}"
-}
->>>
---all properties
+-- template_group_access_control_entry.iql (all properties)
 INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
  AccessRights,
  GroupDisplayName,
@@ -130,11 +113,38 @@ INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
  region
 )
 SELECT 
- {{ .AccessRights }},
- {{ .GroupDisplayName }},
- {{ .GroupSecurityIdentifier }},
- {{ .TemplateArn }},
- 'us-east-1';
+ '{{ AccessRights }}',
+ '{{ GroupDisplayName }}',
+ '{{ GroupSecurityIdentifier }}',
+ '{{ TemplateArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: template_group_access_control_entry
+    props:
+      - name: AccessRights
+        value:
+          Enroll: '{{ Enroll }}'
+          AutoEnroll: null
+      - name: GroupDisplayName
+        value: '{{ GroupDisplayName }}'
+      - name: GroupSecurityIdentifier
+        value: '{{ GroupSecurityIdentifier }}'
+      - name: TemplateArn
+        value: '{{ TemplateArn }}'
+
 ```
 </TabItem>
 </Tabs>

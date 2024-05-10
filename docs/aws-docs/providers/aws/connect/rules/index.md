@@ -74,86 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "InstanceArn": "{{ InstanceArn }}",
- "TriggerEventSource": {
-  "EventSourceName": "{{ EventSourceName }}",
-  "IntegrationAssociationArn": "{{ IntegrationAssociationArn }}"
- },
- "Function": "{{ Function }}",
- "Actions": {
-  "AssignContactCategoryActions": [
-   {}
-  ],
-  "EventBridgeActions": [
-   {
-    "Name": "{{ Name }}"
-   }
-  ],
-  "TaskActions": [
-   {
-    "Name": "{{ Name }}",
-    "Description": "{{ Description }}",
-    "ContactFlowArn": "{{ ContactFlowArn }}",
-    "References": null
-   }
-  ],
-  "SendNotificationActions": [
-   {
-    "DeliveryMethod": "{{ DeliveryMethod }}",
-    "Subject": "{{ Subject }}",
-    "Content": "{{ Content }}",
-    "ContentType": "{{ ContentType }}",
-    "Recipient": {
-     "UserTags": null,
-     "UserArns": [
-      "{{ UserArns[0] }}"
-     ]
-    }
-   }
-  ],
-  "CreateCaseActions": [
-   {
-    "Fields": [
-     {
-      "Id": {
-       "Name": "{{ Name }}"
-      },
-      "Description": "{{ Description }}",
-      "Type": "{{ Type }}",
-      "SingleSelectOptions": [
-       "{{ SingleSelectOptions[0] }}"
-      ]
-     }
-    ],
-    "TemplateId": "{{ TemplateId }}"
-   }
-  ],
-  "UpdateCaseActions": [
-   {
-    "Fields": null
-   }
-  ],
-  "EndAssociatedTasksActions": [
-   {}
-  ]
- },
- "PublishStatus": "{{ PublishStatus }}"
-}
->>>
---required properties only
+-- rule.iql (required properties only)
 INSERT INTO aws.connect.rules (
  Name,
  InstanceArn,
@@ -164,94 +98,19 @@ INSERT INTO aws.connect.rules (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .InstanceArn }},
- {{ .TriggerEventSource }},
- {{ .Function }},
- {{ .Actions }},
- {{ .PublishStatus }},
-'us-east-1';
+'{{ Name }}',
+ '{{ InstanceArn }}',
+ '{{ TriggerEventSource }}',
+ '{{ Function }}',
+ '{{ Actions }}',
+ '{{ PublishStatus }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "InstanceArn": "{{ InstanceArn }}",
- "TriggerEventSource": {
-  "EventSourceName": "{{ EventSourceName }}",
-  "IntegrationAssociationArn": "{{ IntegrationAssociationArn }}"
- },
- "Function": "{{ Function }}",
- "Actions": {
-  "AssignContactCategoryActions": [
-   {}
-  ],
-  "EventBridgeActions": [
-   {
-    "Name": "{{ Name }}"
-   }
-  ],
-  "TaskActions": [
-   {
-    "Name": "{{ Name }}",
-    "Description": "{{ Description }}",
-    "ContactFlowArn": "{{ ContactFlowArn }}",
-    "References": null
-   }
-  ],
-  "SendNotificationActions": [
-   {
-    "DeliveryMethod": "{{ DeliveryMethod }}",
-    "Subject": "{{ Subject }}",
-    "Content": "{{ Content }}",
-    "ContentType": "{{ ContentType }}",
-    "Recipient": {
-     "UserTags": null,
-     "UserArns": [
-      "{{ UserArns[0] }}"
-     ]
-    }
-   }
-  ],
-  "CreateCaseActions": [
-   {
-    "Fields": [
-     {
-      "Id": {
-       "Name": "{{ Name }}"
-      },
-      "Description": "{{ Description }}",
-      "Type": "{{ Type }}",
-      "SingleSelectOptions": [
-       "{{ SingleSelectOptions[0] }}"
-      ]
-     }
-    ],
-    "TemplateId": "{{ TemplateId }}"
-   }
-  ],
-  "UpdateCaseActions": [
-   {
-    "Fields": null
-   }
-  ],
-  "EndAssociatedTasksActions": [
-   {}
-  ]
- },
- "PublishStatus": "{{ PublishStatus }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- rule.iql (all properties)
 INSERT INTO aws.connect.rules (
  Name,
  InstanceArn,
@@ -263,14 +122,80 @@ INSERT INTO aws.connect.rules (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .InstanceArn }},
- {{ .TriggerEventSource }},
- {{ .Function }},
- {{ .Actions }},
- {{ .PublishStatus }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ InstanceArn }}',
+ '{{ TriggerEventSource }}',
+ '{{ Function }}',
+ '{{ Actions }}',
+ '{{ PublishStatus }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: rule
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: TriggerEventSource
+        value:
+          EventSourceName: '{{ EventSourceName }}'
+          IntegrationAssociationArn: '{{ IntegrationAssociationArn }}'
+      - name: Function
+        value: '{{ Function }}'
+      - name: Actions
+        value:
+          AssignContactCategoryActions:
+            - {}
+          EventBridgeActions:
+            - Name: '{{ Name }}'
+          TaskActions:
+            - Name: '{{ Name }}'
+              Description: '{{ Description }}'
+              ContactFlowArn: '{{ ContactFlowArn }}'
+              References: null
+          SendNotificationActions:
+            - DeliveryMethod: '{{ DeliveryMethod }}'
+              Subject: '{{ Subject }}'
+              Content: '{{ Content }}'
+              ContentType: '{{ ContentType }}'
+              Recipient:
+                UserTags: null
+                UserArns:
+                  - '{{ UserArns[0] }}'
+          CreateCaseActions:
+            - Fields:
+                - Id:
+                    Name: '{{ Name }}'
+                  Description: '{{ Description }}'
+                  Type: '{{ Type }}'
+                  SingleSelectOptions:
+                    - '{{ SingleSelectOptions[0] }}'
+              TemplateId: '{{ TemplateId }}'
+          UpdateCaseActions:
+            - Fields: null
+          EndAssociatedTasksActions:
+            - {}
+      - name: PublishStatus
+        value: '{{ PublishStatus }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

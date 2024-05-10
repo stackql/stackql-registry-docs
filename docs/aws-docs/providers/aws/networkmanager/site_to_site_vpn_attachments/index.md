@@ -74,57 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>site_to_site_vpn_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CoreNetworkId": "{{ CoreNetworkId }}",
- "VpnConnectionArn": "{{ VpnConnectionArn }}"
-}
->>>
---required properties only
+-- site_to_site_vpn_attachment.iql (required properties only)
 INSERT INTO aws.networkmanager.site_to_site_vpn_attachments (
  CoreNetworkId,
  VpnConnectionArn,
  region
 )
 SELECT 
-{{ .CoreNetworkId }},
- {{ .VpnConnectionArn }},
-'us-east-1';
+'{{ CoreNetworkId }}',
+ '{{ VpnConnectionArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CoreNetworkId": "{{ CoreNetworkId }}",
- "ProposedSegmentChange": {
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "AttachmentPolicyRuleNumber": "{{ AttachmentPolicyRuleNumber }}",
-  "SegmentName": "{{ SegmentName }}"
- },
- "Tags": [
-  null
- ],
- "VpnConnectionArn": "{{ VpnConnectionArn }}"
-}
->>>
---all properties
+-- site_to_site_vpn_attachment.iql (all properties)
 INSERT INTO aws.networkmanager.site_to_site_vpn_attachments (
  CoreNetworkId,
  ProposedSegmentChange,
@@ -133,11 +111,42 @@ INSERT INTO aws.networkmanager.site_to_site_vpn_attachments (
  region
 )
 SELECT 
- {{ .CoreNetworkId }},
- {{ .ProposedSegmentChange }},
- {{ .Tags }},
- {{ .VpnConnectionArn }},
- 'us-east-1';
+ '{{ CoreNetworkId }}',
+ '{{ ProposedSegmentChange }}',
+ '{{ Tags }}',
+ '{{ VpnConnectionArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: site_to_site_vpn_attachment
+    props:
+      - name: CoreNetworkId
+        value: '{{ CoreNetworkId }}'
+      - name: ProposedSegmentChange
+        value:
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          AttachmentPolicyRuleNumber: '{{ AttachmentPolicyRuleNumber }}'
+          SegmentName: '{{ SegmentName }}'
+      - name: Tags
+        value:
+          - null
+      - name: VpnConnectionArn
+        value: '{{ VpnConnectionArn }}'
+
 ```
 </TabItem>
 </Tabs>

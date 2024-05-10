@@ -74,44 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain_name</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "EndpointConfiguration": {
-  "Types": [
-   "{{ Types[0] }}"
-  ],
-  "VpcEndpointIds": [
-   "{{ VpcEndpointIds[0] }}"
-  ]
- },
- "MutualTlsAuthentication": {
-  "TruststoreUri": "{{ TruststoreUri }}",
-  "TruststoreVersion": "{{ TruststoreVersion }}"
- },
- "CertificateArn": "{{ CertificateArn }}",
- "RegionalCertificateArn": "{{ RegionalCertificateArn }}",
- "OwnershipVerificationCertificateArn": "{{ OwnershipVerificationCertificateArn }}",
- "SecurityPolicy": "{{ SecurityPolicy }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---required properties only
+-- domain_name.iql (required properties only)
 INSERT INTO aws.apigateway.domain_names (
  DomainName,
  EndpointConfiguration,
@@ -124,48 +100,21 @@ INSERT INTO aws.apigateway.domain_names (
  region
 )
 SELECT 
-{{ .DomainName }},
- {{ .EndpointConfiguration }},
- {{ .MutualTlsAuthentication }},
- {{ .CertificateArn }},
- {{ .RegionalCertificateArn }},
- {{ .OwnershipVerificationCertificateArn }},
- {{ .SecurityPolicy }},
- {{ .Tags }},
-'us-east-1';
+'{{ DomainName }}',
+ '{{ EndpointConfiguration }}',
+ '{{ MutualTlsAuthentication }}',
+ '{{ CertificateArn }}',
+ '{{ RegionalCertificateArn }}',
+ '{{ OwnershipVerificationCertificateArn }}',
+ '{{ SecurityPolicy }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainName": "{{ DomainName }}",
- "EndpointConfiguration": {
-  "Types": [
-   "{{ Types[0] }}"
-  ],
-  "VpcEndpointIds": [
-   "{{ VpcEndpointIds[0] }}"
-  ]
- },
- "MutualTlsAuthentication": {
-  "TruststoreUri": "{{ TruststoreUri }}",
-  "TruststoreVersion": "{{ TruststoreVersion }}"
- },
- "CertificateArn": "{{ CertificateArn }}",
- "RegionalCertificateArn": "{{ RegionalCertificateArn }}",
- "OwnershipVerificationCertificateArn": "{{ OwnershipVerificationCertificateArn }}",
- "SecurityPolicy": "{{ SecurityPolicy }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- domain_name.iql (all properties)
 INSERT INTO aws.apigateway.domain_names (
  DomainName,
  EndpointConfiguration,
@@ -178,15 +127,56 @@ INSERT INTO aws.apigateway.domain_names (
  region
 )
 SELECT 
- {{ .DomainName }},
- {{ .EndpointConfiguration }},
- {{ .MutualTlsAuthentication }},
- {{ .CertificateArn }},
- {{ .RegionalCertificateArn }},
- {{ .OwnershipVerificationCertificateArn }},
- {{ .SecurityPolicy }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DomainName }}',
+ '{{ EndpointConfiguration }}',
+ '{{ MutualTlsAuthentication }}',
+ '{{ CertificateArn }}',
+ '{{ RegionalCertificateArn }}',
+ '{{ OwnershipVerificationCertificateArn }}',
+ '{{ SecurityPolicy }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain_name
+    props:
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: EndpointConfiguration
+        value:
+          Types:
+            - '{{ Types[0] }}'
+          VpcEndpointIds:
+            - '{{ VpcEndpointIds[0] }}'
+      - name: MutualTlsAuthentication
+        value:
+          TruststoreUri: '{{ TruststoreUri }}'
+          TruststoreVersion: '{{ TruststoreVersion }}'
+      - name: CertificateArn
+        value: '{{ CertificateArn }}'
+      - name: RegionalCertificateArn
+        value: '{{ RegionalCertificateArn }}'
+      - name: OwnershipVerificationCertificateArn
+        value: '{{ OwnershipVerificationCertificateArn }}'
+      - name: SecurityPolicy
+        value: '{{ SecurityPolicy }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,67 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>id_namespace</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IdNamespaceName": "{{ IdNamespaceName }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- id_namespace.iql (required properties only)
 INSERT INTO aws.entityresolution.id_namespaces (
  IdNamespaceName,
  Type,
  region
 )
 SELECT 
-{{ .IdNamespaceName }},
- {{ .Type }},
-'us-east-1';
+'{{ IdNamespaceName }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IdNamespaceName": "{{ IdNamespaceName }}",
- "Description": "{{ Description }}",
- "InputSourceConfig": [
-  {
-   "InputSourceARN": "{{ InputSourceARN }}",
-   "SchemaName": null
-  }
- ],
- "IdMappingWorkflowProperties": [
-  {
-   "IdMappingType": "{{ IdMappingType }}",
-   "ProviderProperties": {
-    "ProviderServiceArn": "{{ ProviderServiceArn }}",
-    "ProviderConfiguration": {}
-   }
-  }
- ],
- "Type": "{{ Type }}",
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- id_namespace.iql (all properties)
 INSERT INTO aws.entityresolution.id_namespaces (
  IdNamespaceName,
  Description,
@@ -146,14 +114,53 @@ INSERT INTO aws.entityresolution.id_namespaces (
  region
 )
 SELECT 
- {{ .IdNamespaceName }},
- {{ .Description }},
- {{ .InputSourceConfig }},
- {{ .IdMappingWorkflowProperties }},
- {{ .Type }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ IdNamespaceName }}',
+ '{{ Description }}',
+ '{{ InputSourceConfig }}',
+ '{{ IdMappingWorkflowProperties }}',
+ '{{ Type }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: id_namespace
+    props:
+      - name: IdNamespaceName
+        value: '{{ IdNamespaceName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: InputSourceConfig
+        value:
+          - InputSourceARN: '{{ InputSourceARN }}'
+            SchemaName: null
+      - name: IdMappingWorkflowProperties
+        value:
+          - IdMappingType: '{{ IdMappingType }}'
+            ProviderProperties:
+              ProviderServiceArn: '{{ ProviderServiceArn }}'
+              ProviderConfiguration: {}
+      - name: Type
+        value: '{{ Type }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

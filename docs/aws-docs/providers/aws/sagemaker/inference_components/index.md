@@ -74,51 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>inference_component</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EndpointName": "{{ EndpointName }}",
- "VariantName": "{{ VariantName }}",
- "Specification": {
-  "ModelName": "{{ ModelName }}",
-  "Container": {
-   "DeployedImage": {
-    "SpecifiedImage": "{{ SpecifiedImage }}",
-    "ResolvedImage": null,
-    "ResolutionTime": "{{ ResolutionTime }}"
-   },
-   "Image": null,
-   "ArtifactUrl": "{{ ArtifactUrl }}",
-   "Environment": {}
-  },
-  "StartupParameters": {
-   "ModelDataDownloadTimeoutInSeconds": "{{ ModelDataDownloadTimeoutInSeconds }}",
-   "ContainerStartupHealthCheckTimeoutInSeconds": null
-  },
-  "ComputeResourceRequirements": {
-   "NumberOfCpuCoresRequired": null,
-   "NumberOfAcceleratorDevicesRequired": null,
-   "MinMemoryRequiredInMb": "{{ MinMemoryRequiredInMb }}",
-   "MaxMemoryRequiredInMb": null
-  }
- },
- "RuntimeConfig": {
-  "CopyCount": "{{ CopyCount }}",
-  "DesiredCopyCount": null,
-  "CurrentCopyCount": null
- }
-}
->>>
---required properties only
+-- inference_component.iql (required properties only)
 INSERT INTO aws.sagemaker.inference_components (
  EndpointName,
  VariantName,
@@ -127,59 +96,17 @@ INSERT INTO aws.sagemaker.inference_components (
  region
 )
 SELECT 
-{{ .EndpointName }},
- {{ .VariantName }},
- {{ .Specification }},
- {{ .RuntimeConfig }},
-'us-east-1';
+'{{ EndpointName }}',
+ '{{ VariantName }}',
+ '{{ Specification }}',
+ '{{ RuntimeConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InferenceComponentName": "{{ InferenceComponentName }}",
- "EndpointArn": "{{ EndpointArn }}",
- "EndpointName": "{{ EndpointName }}",
- "VariantName": "{{ VariantName }}",
- "Specification": {
-  "ModelName": "{{ ModelName }}",
-  "Container": {
-   "DeployedImage": {
-    "SpecifiedImage": "{{ SpecifiedImage }}",
-    "ResolvedImage": null,
-    "ResolutionTime": "{{ ResolutionTime }}"
-   },
-   "Image": null,
-   "ArtifactUrl": "{{ ArtifactUrl }}",
-   "Environment": {}
-  },
-  "StartupParameters": {
-   "ModelDataDownloadTimeoutInSeconds": "{{ ModelDataDownloadTimeoutInSeconds }}",
-   "ContainerStartupHealthCheckTimeoutInSeconds": null
-  },
-  "ComputeResourceRequirements": {
-   "NumberOfCpuCoresRequired": null,
-   "NumberOfAcceleratorDevicesRequired": null,
-   "MinMemoryRequiredInMb": "{{ MinMemoryRequiredInMb }}",
-   "MaxMemoryRequiredInMb": null
-  }
- },
- "RuntimeConfig": {
-  "CopyCount": "{{ CopyCount }}",
-  "DesiredCopyCount": null,
-  "CurrentCopyCount": null
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- inference_component.iql (all properties)
 INSERT INTO aws.sagemaker.inference_components (
  InferenceComponentName,
  EndpointArn,
@@ -191,14 +118,67 @@ INSERT INTO aws.sagemaker.inference_components (
  region
 )
 SELECT 
- {{ .InferenceComponentName }},
- {{ .EndpointArn }},
- {{ .EndpointName }},
- {{ .VariantName }},
- {{ .Specification }},
- {{ .RuntimeConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InferenceComponentName }}',
+ '{{ EndpointArn }}',
+ '{{ EndpointName }}',
+ '{{ VariantName }}',
+ '{{ Specification }}',
+ '{{ RuntimeConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: inference_component
+    props:
+      - name: InferenceComponentName
+        value: '{{ InferenceComponentName }}'
+      - name: EndpointArn
+        value: '{{ EndpointArn }}'
+      - name: EndpointName
+        value: '{{ EndpointName }}'
+      - name: VariantName
+        value: '{{ VariantName }}'
+      - name: Specification
+        value:
+          ModelName: '{{ ModelName }}'
+          Container:
+            DeployedImage:
+              SpecifiedImage: '{{ SpecifiedImage }}'
+              ResolvedImage: null
+              ResolutionTime: '{{ ResolutionTime }}'
+            Image: null
+            ArtifactUrl: '{{ ArtifactUrl }}'
+            Environment: {}
+          StartupParameters:
+            ModelDataDownloadTimeoutInSeconds: '{{ ModelDataDownloadTimeoutInSeconds }}'
+            ContainerStartupHealthCheckTimeoutInSeconds: null
+          ComputeResourceRequirements:
+            NumberOfCpuCoresRequired: null
+            NumberOfAcceleratorDevicesRequired: null
+            MinMemoryRequiredInMb: '{{ MinMemoryRequiredInMb }}'
+            MaxMemoryRequiredInMb: null
+      - name: RuntimeConfig
+        value:
+          CopyCount: '{{ CopyCount }}'
+          DesiredCopyCount: null
+          CurrentCopyCount: null
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

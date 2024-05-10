@@ -74,65 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>trust_anchor</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Source": {
-  "SourceType": "{{ SourceType }}",
-  "SourceData": null
- }
-}
->>>
---required properties only
+-- trust_anchor.iql (required properties only)
 INSERT INTO aws.rolesanywhere.trust_anchors (
  Name,
  Source,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Source }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Source }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Enabled": "{{ Enabled }}",
- "Name": "{{ Name }}",
- "NotificationSettings": [
-  {
-   "Enabled": "{{ Enabled }}",
-   "Event": "{{ Event }}",
-   "Threshold": null,
-   "Channel": "{{ Channel }}"
-  }
- ],
- "Source": {
-  "SourceType": "{{ SourceType }}",
-  "SourceData": null
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- trust_anchor.iql (all properties)
 INSERT INTO aws.rolesanywhere.trust_anchors (
  Enabled,
  Name,
@@ -142,12 +112,47 @@ INSERT INTO aws.rolesanywhere.trust_anchors (
  region
 )
 SELECT 
- {{ .Enabled }},
- {{ .Name }},
- {{ .NotificationSettings }},
- {{ .Source }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Enabled }}',
+ '{{ Name }}',
+ '{{ NotificationSettings }}',
+ '{{ Source }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: trust_anchor
+    props:
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: NotificationSettings
+        value:
+          - Enabled: '{{ Enabled }}'
+            Event: '{{ Event }}'
+            Threshold: null
+            Channel: '{{ Channel }}'
+      - name: Source
+        value:
+          SourceType: '{{ SourceType }}'
+          SourceData: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

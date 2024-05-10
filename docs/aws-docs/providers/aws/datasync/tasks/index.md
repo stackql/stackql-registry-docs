@@ -74,119 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>task</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DestinationLocationArn": "{{ DestinationLocationArn }}",
- "SourceLocationArn": "{{ SourceLocationArn }}"
-}
->>>
---required properties only
+-- task.iql (required properties only)
 INSERT INTO aws.datasync.tasks (
  DestinationLocationArn,
  SourceLocationArn,
  region
 )
 SELECT 
-{{ .DestinationLocationArn }},
- {{ .SourceLocationArn }},
-'us-east-1';
+'{{ DestinationLocationArn }}',
+ '{{ SourceLocationArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Excludes": [
-  {
-   "FilterType": "{{ FilterType }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Includes": [
-  null
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}",
- "DestinationLocationArn": "{{ DestinationLocationArn }}",
- "Name": "{{ Name }}",
- "Options": {
-  "Atime": "{{ Atime }}",
-  "BytesPerSecond": "{{ BytesPerSecond }}",
-  "Gid": "{{ Gid }}",
-  "LogLevel": "{{ LogLevel }}",
-  "Mtime": "{{ Mtime }}",
-  "OverwriteMode": "{{ OverwriteMode }}",
-  "PosixPermissions": "{{ PosixPermissions }}",
-  "PreserveDeletedFiles": "{{ PreserveDeletedFiles }}",
-  "PreserveDevices": "{{ PreserveDevices }}",
-  "SecurityDescriptorCopyFlags": "{{ SecurityDescriptorCopyFlags }}",
-  "TaskQueueing": "{{ TaskQueueing }}",
-  "TransferMode": "{{ TransferMode }}",
-  "Uid": "{{ Uid }}",
-  "VerifyMode": "{{ VerifyMode }}",
-  "ObjectTags": "{{ ObjectTags }}"
- },
- "TaskReportConfig": {
-  "Destination": {
-   "S3": {
-    "Subdirectory": "{{ Subdirectory }}",
-    "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}",
-    "S3BucketArn": "{{ S3BucketArn }}"
-   }
-  },
-  "OutputType": "{{ OutputType }}",
-  "ReportLevel": "{{ ReportLevel }}",
-  "ObjectVersionIds": "{{ ObjectVersionIds }}",
-  "Overrides": {
-   "Transferred": {
-    "ReportLevel": "{{ ReportLevel }}"
-   },
-   "Verified": {
-    "ReportLevel": "{{ ReportLevel }}"
-   },
-   "Deleted": {
-    "ReportLevel": "{{ ReportLevel }}"
-   },
-   "Skipped": {
-    "ReportLevel": "{{ ReportLevel }}"
-   }
-  }
- },
- "ManifestConfig": {
-  "Action": "{{ Action }}",
-  "Format": "{{ Format }}",
-  "Source": {
-   "S3": {
-    "ManifestObjectPath": "{{ ManifestObjectPath }}",
-    "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}",
-    "S3BucketArn": "{{ S3BucketArn }}",
-    "ManifestObjectVersionId": "{{ ManifestObjectVersionId }}"
-   }
-  }
- },
- "Schedule": {
-  "ScheduleExpression": "{{ ScheduleExpression }}"
- },
- "SourceLocationArn": "{{ SourceLocationArn }}"
-}
->>>
---all properties
+-- task.iql (all properties)
 INSERT INTO aws.datasync.tasks (
  Excludes,
  Includes,
@@ -202,18 +118,103 @@ INSERT INTO aws.datasync.tasks (
  region
 )
 SELECT 
- {{ .Excludes }},
- {{ .Includes }},
- {{ .Tags }},
- {{ .CloudWatchLogGroupArn }},
- {{ .DestinationLocationArn }},
- {{ .Name }},
- {{ .Options }},
- {{ .TaskReportConfig }},
- {{ .ManifestConfig }},
- {{ .Schedule }},
- {{ .SourceLocationArn }},
- 'us-east-1';
+ '{{ Excludes }}',
+ '{{ Includes }}',
+ '{{ Tags }}',
+ '{{ CloudWatchLogGroupArn }}',
+ '{{ DestinationLocationArn }}',
+ '{{ Name }}',
+ '{{ Options }}',
+ '{{ TaskReportConfig }}',
+ '{{ ManifestConfig }}',
+ '{{ Schedule }}',
+ '{{ SourceLocationArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: task
+    props:
+      - name: Excludes
+        value:
+          - FilterType: '{{ FilterType }}'
+            Value: '{{ Value }}'
+      - name: Includes
+        value:
+          - null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CloudWatchLogGroupArn
+        value: '{{ CloudWatchLogGroupArn }}'
+      - name: DestinationLocationArn
+        value: '{{ DestinationLocationArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Options
+        value:
+          Atime: '{{ Atime }}'
+          BytesPerSecond: '{{ BytesPerSecond }}'
+          Gid: '{{ Gid }}'
+          LogLevel: '{{ LogLevel }}'
+          Mtime: '{{ Mtime }}'
+          OverwriteMode: '{{ OverwriteMode }}'
+          PosixPermissions: '{{ PosixPermissions }}'
+          PreserveDeletedFiles: '{{ PreserveDeletedFiles }}'
+          PreserveDevices: '{{ PreserveDevices }}'
+          SecurityDescriptorCopyFlags: '{{ SecurityDescriptorCopyFlags }}'
+          TaskQueueing: '{{ TaskQueueing }}'
+          TransferMode: '{{ TransferMode }}'
+          Uid: '{{ Uid }}'
+          VerifyMode: '{{ VerifyMode }}'
+          ObjectTags: '{{ ObjectTags }}'
+      - name: TaskReportConfig
+        value:
+          Destination:
+            S3:
+              Subdirectory: '{{ Subdirectory }}'
+              BucketAccessRoleArn: '{{ BucketAccessRoleArn }}'
+              S3BucketArn: '{{ S3BucketArn }}'
+          OutputType: '{{ OutputType }}'
+          ReportLevel: '{{ ReportLevel }}'
+          ObjectVersionIds: '{{ ObjectVersionIds }}'
+          Overrides:
+            Transferred:
+              ReportLevel: '{{ ReportLevel }}'
+            Verified:
+              ReportLevel: '{{ ReportLevel }}'
+            Deleted:
+              ReportLevel: '{{ ReportLevel }}'
+            Skipped:
+              ReportLevel: '{{ ReportLevel }}'
+      - name: ManifestConfig
+        value:
+          Action: '{{ Action }}'
+          Format: '{{ Format }}'
+          Source:
+            S3:
+              ManifestObjectPath: '{{ ManifestObjectPath }}'
+              BucketAccessRoleArn: '{{ BucketAccessRoleArn }}'
+              S3BucketArn: '{{ S3BucketArn }}'
+              ManifestObjectVersionId: '{{ ManifestObjectVersionId }}'
+      - name: Schedule
+        value:
+          ScheduleExpression: '{{ ScheduleExpression }}'
+      - name: SourceLocationArn
+        value: '{{ SourceLocationArn }}'
+
 ```
 </TabItem>
 </Tabs>

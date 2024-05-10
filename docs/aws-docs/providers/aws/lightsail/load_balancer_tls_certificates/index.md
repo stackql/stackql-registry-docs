@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>load_balancer_tls_certificate</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "LoadBalancerName": "{{ LoadBalancerName }}",
- "CertificateName": "{{ CertificateName }}",
- "CertificateDomainName": "{{ CertificateDomainName }}"
-}
->>>
---required properties only
+-- load_balancer_tls_certificate.iql (required properties only)
 INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  LoadBalancerName,
  CertificateName,
@@ -101,28 +97,16 @@ INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  region
 )
 SELECT 
-{{ .LoadBalancerName }},
- {{ .CertificateName }},
- {{ .CertificateDomainName }},
-'us-east-1';
+'{{ LoadBalancerName }}',
+ '{{ CertificateName }}',
+ '{{ CertificateDomainName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "LoadBalancerName": "{{ LoadBalancerName }}",
- "CertificateName": "{{ CertificateName }}",
- "CertificateDomainName": "{{ CertificateDomainName }}",
- "CertificateAlternativeNames": [
-  "{{ CertificateAlternativeNames[0] }}"
- ],
- "IsAttached": "{{ IsAttached }}",
- "HttpsRedirectionEnabled": "{{ HttpsRedirectionEnabled }}"
-}
->>>
---all properties
+-- load_balancer_tls_certificate.iql (all properties)
 INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  LoadBalancerName,
  CertificateName,
@@ -133,13 +117,43 @@ INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  region
 )
 SELECT 
- {{ .LoadBalancerName }},
- {{ .CertificateName }},
- {{ .CertificateDomainName }},
- {{ .CertificateAlternativeNames }},
- {{ .IsAttached }},
- {{ .HttpsRedirectionEnabled }},
- 'us-east-1';
+ '{{ LoadBalancerName }}',
+ '{{ CertificateName }}',
+ '{{ CertificateDomainName }}',
+ '{{ CertificateAlternativeNames }}',
+ '{{ IsAttached }}',
+ '{{ HttpsRedirectionEnabled }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: load_balancer_tls_certificate
+    props:
+      - name: LoadBalancerName
+        value: '{{ LoadBalancerName }}'
+      - name: CertificateName
+        value: '{{ CertificateName }}'
+      - name: CertificateDomainName
+        value: '{{ CertificateDomainName }}'
+      - name: CertificateAlternativeNames
+        value:
+          - '{{ CertificateAlternativeNames[0] }}'
+      - name: IsAttached
+        value: '{{ IsAttached }}'
+      - name: HttpsRedirectionEnabled
+        value: '{{ HttpsRedirectionEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

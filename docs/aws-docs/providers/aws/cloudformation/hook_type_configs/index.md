@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>hook_type_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TypeArn": "{{ TypeArn }}",
- "TypeName": "{{ TypeName }}",
- "Configuration": "{{ Configuration }}",
- "ConfigurationAlias": "{{ ConfigurationAlias }}"
-}
->>>
---required properties only
+-- hook_type_config.iql (required properties only)
 INSERT INTO aws.cloudformation.hook_type_configs (
  TypeArn,
  TypeName,
@@ -101,25 +96,17 @@ INSERT INTO aws.cloudformation.hook_type_configs (
  region
 )
 SELECT 
-{{ .TypeArn }},
- {{ .TypeName }},
- {{ .Configuration }},
- {{ .ConfigurationAlias }},
-'us-east-1';
+'{{ TypeArn }}',
+ '{{ TypeName }}',
+ '{{ Configuration }}',
+ '{{ ConfigurationAlias }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TypeArn": "{{ TypeArn }}",
- "TypeName": "{{ TypeName }}",
- "Configuration": "{{ Configuration }}",
- "ConfigurationAlias": "{{ ConfigurationAlias }}"
-}
->>>
---all properties
+-- hook_type_config.iql (all properties)
 INSERT INTO aws.cloudformation.hook_type_configs (
  TypeArn,
  TypeName,
@@ -128,11 +115,36 @@ INSERT INTO aws.cloudformation.hook_type_configs (
  region
 )
 SELECT 
- {{ .TypeArn }},
- {{ .TypeName }},
- {{ .Configuration }},
- {{ .ConfigurationAlias }},
- 'us-east-1';
+ '{{ TypeArn }}',
+ '{{ TypeName }}',
+ '{{ Configuration }}',
+ '{{ ConfigurationAlias }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: hook_type_config
+    props:
+      - name: TypeArn
+        value: '{{ TypeArn }}'
+      - name: TypeName
+        value: '{{ TypeName }}'
+      - name: Configuration
+        value: '{{ Configuration }}'
+      - name: ConfigurationAlias
+        value: '{{ ConfigurationAlias }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -76,127 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>user_profile</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DomainId": "{{ DomainId }}",
- "UserProfileName": "{{ UserProfileName }}"
-}
->>>
---required properties only
+-- user_profile.iql (required properties only)
 INSERT INTO aws.sagemaker.user_profiles (
  DomainId,
  UserProfileName,
  region
 )
 SELECT 
-{{ .DomainId }},
- {{ .UserProfileName }},
-'us-east-1';
+'{{ DomainId }}',
+ '{{ UserProfileName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DomainId": "{{ DomainId }}",
- "SingleSignOnUserIdentifier": "{{ SingleSignOnUserIdentifier }}",
- "SingleSignOnUserValue": "{{ SingleSignOnUserValue }}",
- "UserProfileName": "{{ UserProfileName }}",
- "UserSettings": {
-  "ExecutionRole": "{{ ExecutionRole }}",
-  "JupyterServerAppSettings": {
-   "DefaultResourceSpec": {
-    "InstanceType": "{{ InstanceType }}",
-    "SageMakerImageArn": "{{ SageMakerImageArn }}",
-    "SageMakerImageVersionArn": "{{ SageMakerImageVersionArn }}"
-   }
-  },
-  "KernelGatewayAppSettings": {
-   "CustomImages": [
-    {
-     "AppImageConfigName": "{{ AppImageConfigName }}",
-     "ImageName": "{{ ImageName }}",
-     "ImageVersionNumber": "{{ ImageVersionNumber }}"
-    }
-   ],
-   "DefaultResourceSpec": null
-  },
-  "RStudioServerProAppSettings": {
-   "AccessStatus": "{{ AccessStatus }}",
-   "UserGroup": "{{ UserGroup }}"
-  },
-  "JupyterLabAppSettings": {
-   "DefaultResourceSpec": null,
-   "LifecycleConfigArns": [
-    "{{ LifecycleConfigArns[0] }}"
-   ],
-   "CodeRepositories": [
-    {
-     "RepositoryUrl": "{{ RepositoryUrl }}"
-    }
-   ],
-   "CustomImages": [
-    null
-   ]
-  },
-  "SpaceStorageSettings": {
-   "DefaultEbsStorageSettings": {
-    "DefaultEbsVolumeSizeInGb": "{{ DefaultEbsVolumeSizeInGb }}",
-    "MaximumEbsVolumeSizeInGb": null
-   }
-  },
-  "CodeEditorAppSettings": {
-   "DefaultResourceSpec": null,
-   "LifecycleConfigArns": [
-    null
-   ],
-   "CustomImages": [
-    null
-   ]
-  },
-  "DefaultLandingUri": "{{ DefaultLandingUri }}",
-  "StudioWebPortal": "{{ StudioWebPortal }}",
-  "CustomPosixUserConfig": {
-   "Uid": "{{ Uid }}",
-   "Gid": "{{ Gid }}"
-  },
-  "CustomFileSystemConfigs": [
-   {
-    "EFSFileSystemConfig": {
-     "FileSystemPath": "{{ FileSystemPath }}",
-     "FileSystemId": "{{ FileSystemId }}"
-    }
-   }
-  ],
-  "SecurityGroups": [
-   "{{ SecurityGroups[0] }}"
-  ],
-  "SharingSettings": {
-   "NotebookOutputOption": "{{ NotebookOutputOption }}",
-   "S3KmsKeyId": "{{ S3KmsKeyId }}",
-   "S3OutputPath": "{{ S3OutputPath }}"
-  }
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- user_profile.iql (all properties)
 INSERT INTO aws.sagemaker.user_profiles (
  DomainId,
  SingleSignOnUserIdentifier,
@@ -207,13 +115,92 @@ INSERT INTO aws.sagemaker.user_profiles (
  region
 )
 SELECT 
- {{ .DomainId }},
- {{ .SingleSignOnUserIdentifier }},
- {{ .SingleSignOnUserValue }},
- {{ .UserProfileName }},
- {{ .UserSettings }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DomainId }}',
+ '{{ SingleSignOnUserIdentifier }}',
+ '{{ SingleSignOnUserValue }}',
+ '{{ UserProfileName }}',
+ '{{ UserSettings }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: user_profile
+    props:
+      - name: DomainId
+        value: '{{ DomainId }}'
+      - name: SingleSignOnUserIdentifier
+        value: '{{ SingleSignOnUserIdentifier }}'
+      - name: SingleSignOnUserValue
+        value: '{{ SingleSignOnUserValue }}'
+      - name: UserProfileName
+        value: '{{ UserProfileName }}'
+      - name: UserSettings
+        value:
+          ExecutionRole: '{{ ExecutionRole }}'
+          JupyterServerAppSettings:
+            DefaultResourceSpec:
+              InstanceType: '{{ InstanceType }}'
+              SageMakerImageArn: '{{ SageMakerImageArn }}'
+              SageMakerImageVersionArn: '{{ SageMakerImageVersionArn }}'
+          KernelGatewayAppSettings:
+            CustomImages:
+              - AppImageConfigName: '{{ AppImageConfigName }}'
+                ImageName: '{{ ImageName }}'
+                ImageVersionNumber: '{{ ImageVersionNumber }}'
+            DefaultResourceSpec: null
+          RStudioServerProAppSettings:
+            AccessStatus: '{{ AccessStatus }}'
+            UserGroup: '{{ UserGroup }}'
+          JupyterLabAppSettings:
+            DefaultResourceSpec: null
+            LifecycleConfigArns:
+              - '{{ LifecycleConfigArns[0] }}'
+            CodeRepositories:
+              - RepositoryUrl: '{{ RepositoryUrl }}'
+            CustomImages:
+              - null
+          SpaceStorageSettings:
+            DefaultEbsStorageSettings:
+              DefaultEbsVolumeSizeInGb: '{{ DefaultEbsVolumeSizeInGb }}'
+              MaximumEbsVolumeSizeInGb: null
+          CodeEditorAppSettings:
+            DefaultResourceSpec: null
+            LifecycleConfigArns:
+              - null
+            CustomImages:
+              - null
+          DefaultLandingUri: '{{ DefaultLandingUri }}'
+          StudioWebPortal: '{{ StudioWebPortal }}'
+          CustomPosixUserConfig:
+            Uid: '{{ Uid }}'
+            Gid: '{{ Gid }}'
+          CustomFileSystemConfigs:
+            - EFSFileSystemConfig:
+                FileSystemPath: '{{ FileSystemPath }}'
+                FileSystemId: '{{ FileSystemId }}'
+          SecurityGroups:
+            - '{{ SecurityGroups[0] }}'
+          SharingSettings:
+            NotebookOutputOption: '{{ NotebookOutputOption }}'
+            S3KmsKeyId: '{{ S3KmsKeyId }}'
+            S3OutputPath: '{{ S3OutputPath }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

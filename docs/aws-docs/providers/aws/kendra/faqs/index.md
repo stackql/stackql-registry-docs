@@ -76,28 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>faq</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IndexId": "{{ IndexId }}",
- "Name": "{{ Name }}",
- "S3Path": {
-  "Bucket": "{{ Bucket }}",
-  "Key": "{{ Key }}"
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- faq.iql (required properties only)
 INSERT INTO aws.kendra.faqs (
  IndexId,
  Name,
@@ -106,37 +98,17 @@ INSERT INTO aws.kendra.faqs (
  region
 )
 SELECT 
-{{ .IndexId }},
- {{ .Name }},
- {{ .S3Path }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ IndexId }}',
+ '{{ Name }}',
+ '{{ S3Path }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "IndexId": "{{ IndexId }}",
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "FileFormat": "{{ FileFormat }}",
- "S3Path": {
-  "Bucket": "{{ Bucket }}",
-  "Key": "{{ Key }}"
- },
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "LanguageCode": "{{ LanguageCode }}"
-}
->>>
---all properties
+-- faq.iql (all properties)
 INSERT INTO aws.kendra.faqs (
  IndexId,
  Name,
@@ -149,15 +121,52 @@ INSERT INTO aws.kendra.faqs (
  region
 )
 SELECT 
- {{ .IndexId }},
- {{ .Name }},
- {{ .Description }},
- {{ .FileFormat }},
- {{ .S3Path }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .LanguageCode }},
- 'us-east-1';
+ '{{ IndexId }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ FileFormat }}',
+ '{{ S3Path }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ LanguageCode }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: faq
+    props:
+      - name: IndexId
+        value: '{{ IndexId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: FileFormat
+        value: '{{ FileFormat }}'
+      - name: S3Path
+        value:
+          Bucket: '{{ Bucket }}'
+          Key: '{{ Key }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: LanguageCode
+        value: '{{ LanguageCode }}'
+
 ```
 </TabItem>
 </Tabs>

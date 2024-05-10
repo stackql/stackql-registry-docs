@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>game_server_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GameServerGroupName": "{{ GameServerGroupName }}",
- "InstanceDefinitions": [
-  {
-   "InstanceType": "{{ InstanceType }}",
-   "WeightedCapacity": "{{ WeightedCapacity }}"
-  }
- ],
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- game_server_group.iql (required properties only)
 INSERT INTO aws.gamelift.game_server_groups (
  GameServerGroupName,
  InstanceDefinitions,
@@ -104,53 +95,16 @@ INSERT INTO aws.gamelift.game_server_groups (
  region
 )
 SELECT 
-{{ .GameServerGroupName }},
- {{ .InstanceDefinitions }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ GameServerGroupName }}',
+ '{{ InstanceDefinitions }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AutoScalingPolicy": {
-  "EstimatedInstanceWarmup": null,
-  "TargetTrackingConfiguration": {
-   "TargetValue": null
-  }
- },
- "BalancingStrategy": "{{ BalancingStrategy }}",
- "DeleteOption": "{{ DeleteOption }}",
- "GameServerGroupName": "{{ GameServerGroupName }}",
- "GameServerProtectionPolicy": "{{ GameServerProtectionPolicy }}",
- "InstanceDefinitions": [
-  {
-   "InstanceType": "{{ InstanceType }}",
-   "WeightedCapacity": "{{ WeightedCapacity }}"
-  }
- ],
- "LaunchTemplate": {
-  "LaunchTemplateId": "{{ LaunchTemplateId }}",
-  "LaunchTemplateName": "{{ LaunchTemplateName }}",
-  "Version": "{{ Version }}"
- },
- "MaxSize": null,
- "MinSize": null,
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VpcSubnets": [
-  "{{ VpcSubnets[0] }}"
- ]
-}
->>>
---all properties
+-- game_server_group.iql (all properties)
 INSERT INTO aws.gamelift.game_server_groups (
  AutoScalingPolicy,
  BalancingStrategy,
@@ -167,19 +121,71 @@ INSERT INTO aws.gamelift.game_server_groups (
  region
 )
 SELECT 
- {{ .AutoScalingPolicy }},
- {{ .BalancingStrategy }},
- {{ .DeleteOption }},
- {{ .GameServerGroupName }},
- {{ .GameServerProtectionPolicy }},
- {{ .InstanceDefinitions }},
- {{ .LaunchTemplate }},
- {{ .MaxSize }},
- {{ .MinSize }},
- {{ .RoleArn }},
- {{ .Tags }},
- {{ .VpcSubnets }},
- 'us-east-1';
+ '{{ AutoScalingPolicy }}',
+ '{{ BalancingStrategy }}',
+ '{{ DeleteOption }}',
+ '{{ GameServerGroupName }}',
+ '{{ GameServerProtectionPolicy }}',
+ '{{ InstanceDefinitions }}',
+ '{{ LaunchTemplate }}',
+ '{{ MaxSize }}',
+ '{{ MinSize }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ VpcSubnets }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: game_server_group
+    props:
+      - name: AutoScalingPolicy
+        value:
+          EstimatedInstanceWarmup: null
+          TargetTrackingConfiguration:
+            TargetValue: null
+      - name: BalancingStrategy
+        value: '{{ BalancingStrategy }}'
+      - name: DeleteOption
+        value: '{{ DeleteOption }}'
+      - name: GameServerGroupName
+        value: '{{ GameServerGroupName }}'
+      - name: GameServerProtectionPolicy
+        value: '{{ GameServerProtectionPolicy }}'
+      - name: InstanceDefinitions
+        value:
+          - InstanceType: '{{ InstanceType }}'
+            WeightedCapacity: '{{ WeightedCapacity }}'
+      - name: LaunchTemplate
+        value:
+          LaunchTemplateId: '{{ LaunchTemplateId }}'
+          LaunchTemplateName: '{{ LaunchTemplateName }}'
+          Version: '{{ Version }}'
+      - name: MaxSize
+        value: null
+      - name: MinSize
+        value: null
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VpcSubnets
+        value:
+          - '{{ VpcSubnets[0] }}'
+
 ```
 </TabItem>
 </Tabs>

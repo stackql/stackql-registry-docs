@@ -76,49 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>software_package_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "PackageName": "{{ PackageName }}"
-}
->>>
---required properties only
+-- software_package_version.iql (required properties only)
 INSERT INTO aws.iot.software_package_versions (
  PackageName,
  region
 )
 SELECT 
-{{ .PackageName }},
-'us-east-1';
+'{{ PackageName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Attributes": {},
- "Description": "{{ Description }}",
- "PackageName": "{{ PackageName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "VersionName": "{{ VersionName }}"
-}
->>>
---all properties
+-- software_package_version.iql (all properties)
 INSERT INTO aws.iot.software_package_versions (
  Attributes,
  Description,
@@ -128,12 +112,41 @@ INSERT INTO aws.iot.software_package_versions (
  region
 )
 SELECT 
- {{ .Attributes }},
- {{ .Description }},
- {{ .PackageName }},
- {{ .Tags }},
- {{ .VersionName }},
- 'us-east-1';
+ '{{ Attributes }}',
+ '{{ Description }}',
+ '{{ PackageName }}',
+ '{{ Tags }}',
+ '{{ VersionName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: software_package_version
+    props:
+      - name: Attributes
+        value: {}
+      - name: Description
+        value: '{{ Description }}'
+      - name: PackageName
+        value: '{{ PackageName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VersionName
+        value: '{{ VersionName }}'
+
 ```
 </TabItem>
 </Tabs>

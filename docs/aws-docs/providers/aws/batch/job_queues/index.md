@@ -74,66 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>job_queue</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ComputeEnvironmentOrder": [
-  {
-   "ComputeEnvironment": "{{ ComputeEnvironment }}",
-   "Order": "{{ Order }}"
-  }
- ],
- "Priority": "{{ Priority }}"
-}
->>>
---required properties only
+-- job_queue.iql (required properties only)
 INSERT INTO aws.batch.job_queues (
  ComputeEnvironmentOrder,
  Priority,
  region
 )
 SELECT 
-{{ .ComputeEnvironmentOrder }},
- {{ .Priority }},
-'us-east-1';
+'{{ ComputeEnvironmentOrder }}',
+ '{{ Priority }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "JobQueueName": "{{ JobQueueName }}",
- "ComputeEnvironmentOrder": [
-  {
-   "ComputeEnvironment": "{{ ComputeEnvironment }}",
-   "Order": "{{ Order }}"
-  }
- ],
- "JobStateTimeLimitActions": [
-  {
-   "Action": "{{ Action }}",
-   "MaxTimeSeconds": "{{ MaxTimeSeconds }}",
-   "Reason": "{{ Reason }}",
-   "State": "{{ State }}"
-  }
- ],
- "Priority": "{{ Priority }}",
- "State": "{{ State }}",
- "SchedulingPolicyArn": "{{ SchedulingPolicyArn }}",
- "Tags": {}
-}
->>>
---all properties
+-- job_queue.iql (all properties)
 INSERT INTO aws.batch.job_queues (
  JobQueueName,
  ComputeEnvironmentOrder,
@@ -145,14 +114,51 @@ INSERT INTO aws.batch.job_queues (
  region
 )
 SELECT 
- {{ .JobQueueName }},
- {{ .ComputeEnvironmentOrder }},
- {{ .JobStateTimeLimitActions }},
- {{ .Priority }},
- {{ .State }},
- {{ .SchedulingPolicyArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ JobQueueName }}',
+ '{{ ComputeEnvironmentOrder }}',
+ '{{ JobStateTimeLimitActions }}',
+ '{{ Priority }}',
+ '{{ State }}',
+ '{{ SchedulingPolicyArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: job_queue
+    props:
+      - name: JobQueueName
+        value: '{{ JobQueueName }}'
+      - name: ComputeEnvironmentOrder
+        value:
+          - ComputeEnvironment: '{{ ComputeEnvironment }}'
+            Order: '{{ Order }}'
+      - name: JobStateTimeLimitActions
+        value:
+          - Action: '{{ Action }}'
+            MaxTimeSeconds: '{{ MaxTimeSeconds }}'
+            Reason: '{{ Reason }}'
+            State: '{{ State }}'
+      - name: Priority
+        value: '{{ Priority }}'
+      - name: State
+        value: '{{ State }}'
+      - name: SchedulingPolicyArn
+        value: '{{ SchedulingPolicyArn }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

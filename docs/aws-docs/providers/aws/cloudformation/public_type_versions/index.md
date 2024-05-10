@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>public_type_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Arn": "{{ Arn }}",
- "PublicVersionNumber": "{{ PublicVersionNumber }}",
- "TypeName": "{{ TypeName }}",
- "LogDeliveryBucket": "{{ LogDeliveryBucket }}",
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- public_type_version.iql (required properties only)
 INSERT INTO aws.cloudformation.public_type_versions (
  Arn,
  PublicVersionNumber,
@@ -103,27 +97,18 @@ INSERT INTO aws.cloudformation.public_type_versions (
  region
 )
 SELECT 
-{{ .Arn }},
- {{ .PublicVersionNumber }},
- {{ .TypeName }},
- {{ .LogDeliveryBucket }},
- {{ .Type }},
-'us-east-1';
+'{{ Arn }}',
+ '{{ PublicVersionNumber }}',
+ '{{ TypeName }}',
+ '{{ LogDeliveryBucket }}',
+ '{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Arn": "{{ Arn }}",
- "PublicVersionNumber": "{{ PublicVersionNumber }}",
- "TypeName": "{{ TypeName }}",
- "LogDeliveryBucket": "{{ LogDeliveryBucket }}",
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- public_type_version.iql (all properties)
 INSERT INTO aws.cloudformation.public_type_versions (
  Arn,
  PublicVersionNumber,
@@ -133,12 +118,39 @@ INSERT INTO aws.cloudformation.public_type_versions (
  region
 )
 SELECT 
- {{ .Arn }},
- {{ .PublicVersionNumber }},
- {{ .TypeName }},
- {{ .LogDeliveryBucket }},
- {{ .Type }},
- 'us-east-1';
+ '{{ Arn }}',
+ '{{ PublicVersionNumber }}',
+ '{{ TypeName }}',
+ '{{ LogDeliveryBucket }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: public_type_version
+    props:
+      - name: Arn
+        value: '{{ Arn }}'
+      - name: PublicVersionNumber
+        value: '{{ PublicVersionNumber }}'
+      - name: TypeName
+        value: '{{ TypeName }}'
+      - name: LogDeliveryBucket
+        value: '{{ LogDeliveryBucket }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

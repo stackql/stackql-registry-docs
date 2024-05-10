@@ -74,46 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>warm_pool</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}"
-}
->>>
---required properties only
+-- warm_pool.iql (required properties only)
 INSERT INTO aws.autoscaling.warm_pools (
  AutoScalingGroupName,
  region
 )
 SELECT 
-{{ .AutoScalingGroupName }},
-'us-east-1';
+'{{ AutoScalingGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AutoScalingGroupName": "{{ AutoScalingGroupName }}",
- "MaxGroupPreparedCapacity": "{{ MaxGroupPreparedCapacity }}",
- "MinSize": "{{ MinSize }}",
- "PoolState": "{{ PoolState }}",
- "InstanceReusePolicy": {
-  "ReuseOnScaleIn": "{{ ReuseOnScaleIn }}"
- }
-}
->>>
---all properties
+-- warm_pool.iql (all properties)
 INSERT INTO aws.autoscaling.warm_pools (
  AutoScalingGroupName,
  MaxGroupPreparedCapacity,
@@ -123,12 +110,40 @@ INSERT INTO aws.autoscaling.warm_pools (
  region
 )
 SELECT 
- {{ .AutoScalingGroupName }},
- {{ .MaxGroupPreparedCapacity }},
- {{ .MinSize }},
- {{ .PoolState }},
- {{ .InstanceReusePolicy }},
- 'us-east-1';
+ '{{ AutoScalingGroupName }}',
+ '{{ MaxGroupPreparedCapacity }}',
+ '{{ MinSize }}',
+ '{{ PoolState }}',
+ '{{ InstanceReusePolicy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: warm_pool
+    props:
+      - name: AutoScalingGroupName
+        value: '{{ AutoScalingGroupName }}'
+      - name: MaxGroupPreparedCapacity
+        value: '{{ MaxGroupPreparedCapacity }}'
+      - name: MinSize
+        value: '{{ MinSize }}'
+      - name: PoolState
+        value: '{{ PoolState }}'
+      - name: InstanceReusePolicy
+        value:
+          ReuseOnScaleIn: '{{ ReuseOnScaleIn }}'
+
 ```
 </TabItem>
 </Tabs>

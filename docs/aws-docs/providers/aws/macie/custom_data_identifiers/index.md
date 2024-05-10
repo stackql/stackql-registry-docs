@@ -74,58 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>custom_data_identifier</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Regex": "{{ Regex }}"
-}
->>>
---required properties only
+-- custom_data_identifier.iql (required properties only)
 INSERT INTO aws.macie.custom_data_identifiers (
  Name,
  Regex,
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Regex }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Regex }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "Regex": "{{ Regex }}",
- "MaximumMatchDistance": "{{ MaximumMatchDistance }}",
- "Keywords": [
-  "{{ Keywords[0] }}"
- ],
- "IgnoreWords": [
-  "{{ IgnoreWords[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- custom_data_identifier.iql (all properties)
 INSERT INTO aws.macie.custom_data_identifiers (
  Name,
  Description,
@@ -137,14 +114,49 @@ INSERT INTO aws.macie.custom_data_identifiers (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Description }},
- {{ .Regex }},
- {{ .MaximumMatchDistance }},
- {{ .Keywords }},
- {{ .IgnoreWords }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ Regex }}',
+ '{{ MaximumMatchDistance }}',
+ '{{ Keywords }}',
+ '{{ IgnoreWords }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: custom_data_identifier
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Regex
+        value: '{{ Regex }}'
+      - name: MaximumMatchDistance
+        value: '{{ MaximumMatchDistance }}'
+      - name: Keywords
+        value:
+          - '{{ Keywords[0] }}'
+      - name: IgnoreWords
+        value:
+          - '{{ IgnoreWords[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

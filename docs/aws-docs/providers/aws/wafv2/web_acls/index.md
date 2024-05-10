@@ -78,48 +78,20 @@ FROM aws.wafv2.web_acls
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>web_acl</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DefaultAction": {
-  "Allow": {
-   "CustomRequestHandling": {
-    "InsertHeaders": [
-     {
-      "Name": "{{ Name }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  },
-  "Block": {
-   "CustomResponse": {
-    "ResponseCode": "{{ ResponseCode }}",
-    "CustomResponseBodyKey": "{{ CustomResponseBodyKey }}",
-    "ResponseHeaders": [
-     null
-    ]
-   }
-  }
- },
- "Scope": "{{ Scope }}",
- "VisibilityConfig": {
-  "SampledRequestsEnabled": "{{ SampledRequestsEnabled }}",
-  "CloudWatchMetricsEnabled": "{{ CloudWatchMetricsEnabled }}",
-  "MetricName": "{{ MetricName }}"
- }
-}
->>>
---required properties only
+-- web_acl.iql (required properties only)
 INSERT INTO aws.wafv2.web_acls (
  DefaultAction,
  Scope,
@@ -127,386 +99,16 @@ INSERT INTO aws.wafv2.web_acls (
  region
 )
 SELECT 
-{{ .DefaultAction }},
- {{ .Scope }},
- {{ .VisibilityConfig }},
-'us-east-1';
+'{{ DefaultAction }}',
+ '{{ Scope }}',
+ '{{ VisibilityConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DefaultAction": {
-  "Allow": {
-   "CustomRequestHandling": {
-    "InsertHeaders": [
-     {
-      "Name": "{{ Name }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   }
-  },
-  "Block": {
-   "CustomResponse": {
-    "ResponseCode": "{{ ResponseCode }}",
-    "CustomResponseBodyKey": "{{ CustomResponseBodyKey }}",
-    "ResponseHeaders": [
-     null
-    ]
-   }
-  }
- },
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "Scope": "{{ Scope }}",
- "Rules": [
-  {
-   "Name": null,
-   "Priority": "{{ Priority }}",
-   "Statement": {
-    "ByteMatchStatement": {
-     "SearchString": "{{ SearchString }}",
-     "SearchStringBase64": "{{ SearchStringBase64 }}",
-     "FieldToMatch": {
-      "SingleHeader": {
-       "Name": "{{ Name }}"
-      },
-      "SingleQueryArgument": {
-       "Name": "{{ Name }}"
-      },
-      "AllQueryArguments": {},
-      "UriPath": {},
-      "QueryString": {},
-      "Body": {
-       "OversizeHandling": "{{ OversizeHandling }}"
-      },
-      "Method": {},
-      "JsonBody": {
-       "MatchPattern": {
-        "All": {},
-        "IncludedPaths": [
-         "{{ IncludedPaths[0] }}"
-        ]
-       },
-       "MatchScope": "{{ MatchScope }}",
-       "InvalidFallbackBehavior": "{{ InvalidFallbackBehavior }}",
-       "OversizeHandling": null
-      },
-      "Headers": {
-       "MatchPattern": {
-        "All": {},
-        "IncludedHeaders": [
-         "{{ IncludedHeaders[0] }}"
-        ],
-        "ExcludedHeaders": [
-         "{{ ExcludedHeaders[0] }}"
-        ]
-       },
-       "MatchScope": "{{ MatchScope }}",
-       "OversizeHandling": null
-      },
-      "Cookies": {
-       "MatchPattern": {
-        "All": {},
-        "IncludedCookies": [
-         "{{ IncludedCookies[0] }}"
-        ],
-        "ExcludedCookies": [
-         "{{ ExcludedCookies[0] }}"
-        ]
-       },
-       "MatchScope": null,
-       "OversizeHandling": null
-      },
-      "JA3Fingerprint": {
-       "FallbackBehavior": "{{ FallbackBehavior }}"
-      }
-     },
-     "TextTransformations": [
-      {
-       "Priority": "{{ Priority }}",
-       "Type": "{{ Type }}"
-      }
-     ],
-     "PositionalConstraint": "{{ PositionalConstraint }}"
-    },
-    "SqliMatchStatement": {
-     "FieldToMatch": null,
-     "TextTransformations": [
-      null
-     ],
-     "SensitivityLevel": "{{ SensitivityLevel }}"
-    },
-    "XssMatchStatement": {
-     "FieldToMatch": null,
-     "TextTransformations": [
-      null
-     ]
-    },
-    "SizeConstraintStatement": {
-     "FieldToMatch": null,
-     "ComparisonOperator": "{{ ComparisonOperator }}",
-     "Size": null,
-     "TextTransformations": [
-      null
-     ]
-    },
-    "GeoMatchStatement": {
-     "CountryCodes": [
-      "{{ CountryCodes[0] }}"
-     ],
-     "ForwardedIPConfig": {
-      "HeaderName": "{{ HeaderName }}",
-      "FallbackBehavior": "{{ FallbackBehavior }}"
-     }
-    },
-    "RuleGroupReferenceStatement": {
-     "Arn": "{{ Arn }}",
-     "ExcludedRules": [
-      {
-       "Name": null
-      }
-     ],
-     "RuleActionOverrides": [
-      {
-       "Name": null,
-       "ActionToUse": {
-        "Allow": null,
-        "Block": null,
-        "Count": {
-         "CustomRequestHandling": null
-        },
-        "Captcha": {
-         "CustomRequestHandling": null
-        },
-        "Challenge": {
-         "CustomRequestHandling": null
-        }
-       }
-      }
-     ]
-    },
-    "IPSetReferenceStatement": {
-     "Arn": null,
-     "IPSetForwardedIPConfig": {
-      "HeaderName": "{{ HeaderName }}",
-      "FallbackBehavior": "{{ FallbackBehavior }}",
-      "Position": "{{ Position }}"
-     }
-    },
-    "RegexPatternSetReferenceStatement": {
-     "Arn": null,
-     "FieldToMatch": null,
-     "TextTransformations": [
-      null
-     ]
-    },
-    "ManagedRuleGroupStatement": {
-     "Name": null,
-     "VendorName": "{{ VendorName }}",
-     "Version": "{{ Version }}",
-     "ExcludedRules": [
-      null
-     ],
-     "ScopeDownStatement": null,
-     "ManagedRuleGroupConfigs": [
-      {
-       "LoginPath": "{{ LoginPath }}",
-       "PayloadType": "{{ PayloadType }}",
-       "UsernameField": {
-        "Identifier": "{{ Identifier }}"
-       },
-       "PasswordField": null,
-       "AWSManagedRulesBotControlRuleSet": {
-        "InspectionLevel": "{{ InspectionLevel }}",
-        "EnableMachineLearning": "{{ EnableMachineLearning }}"
-       },
-       "AWSManagedRulesATPRuleSet": {
-        "LoginPath": "{{ LoginPath }}",
-        "EnableRegexInPath": "{{ EnableRegexInPath }}",
-        "RequestInspection": {
-         "PayloadType": "{{ PayloadType }}",
-         "UsernameField": null,
-         "PasswordField": null
-        },
-        "ResponseInspection": {
-         "StatusCode": {
-          "SuccessCodes": [
-           "{{ SuccessCodes[0] }}"
-          ],
-          "FailureCodes": [
-           "{{ FailureCodes[0] }}"
-          ]
-         },
-         "Header": {
-          "Name": "{{ Name }}",
-          "SuccessValues": [
-           "{{ SuccessValues[0] }}"
-          ],
-          "FailureValues": [
-           "{{ FailureValues[0] }}"
-          ]
-         },
-         "BodyContains": {
-          "SuccessStrings": [
-           "{{ SuccessStrings[0] }}"
-          ],
-          "FailureStrings": [
-           "{{ FailureStrings[0] }}"
-          ]
-         },
-         "Json": {
-          "Identifier": "{{ Identifier }}",
-          "SuccessValues": [
-           "{{ SuccessValues[0] }}"
-          ],
-          "FailureValues": [
-           "{{ FailureValues[0] }}"
-          ]
-         }
-        }
-       },
-       "AWSManagedRulesACFPRuleSet": {
-        "CreationPath": "{{ CreationPath }}",
-        "RegistrationPagePath": "{{ RegistrationPagePath }}",
-        "RequestInspection": {
-         "PayloadType": "{{ PayloadType }}",
-         "UsernameField": null,
-         "PasswordField": null,
-         "EmailField": null,
-         "PhoneNumberFields": [
-          null
-         ],
-         "AddressFields": [
-          null
-         ]
-        },
-        "ResponseInspection": null,
-        "EnableRegexInPath": "{{ EnableRegexInPath }}"
-       }
-      }
-     ],
-     "RuleActionOverrides": [
-      null
-     ]
-    },
-    "RateBasedStatement": {
-     "Limit": "{{ Limit }}",
-     "EvaluationWindowSec": "{{ EvaluationWindowSec }}",
-     "AggregateKeyType": "{{ AggregateKeyType }}",
-     "CustomKeys": [
-      {
-       "Cookie": {
-        "Name": "{{ Name }}",
-        "TextTransformations": [
-         null
-        ]
-       },
-       "ForwardedIP": {},
-       "Header": {
-        "Name": "{{ Name }}",
-        "TextTransformations": [
-         null
-        ]
-       },
-       "HTTPMethod": {},
-       "IP": {},
-       "LabelNamespace": {
-        "Namespace": "{{ Namespace }}"
-       },
-       "QueryArgument": {
-        "Name": "{{ Name }}",
-        "TextTransformations": [
-         null
-        ]
-       },
-       "QueryString": {
-        "TextTransformations": [
-         null
-        ]
-       },
-       "UriPath": {
-        "TextTransformations": [
-         null
-        ]
-       }
-      }
-     ],
-     "ScopeDownStatement": null,
-     "ForwardedIPConfig": null
-    },
-    "AndStatement": {
-     "Statements": [
-      null
-     ]
-    },
-    "OrStatement": {
-     "Statements": [
-      null
-     ]
-    },
-    "NotStatement": {
-     "Statement": null
-    },
-    "LabelMatchStatement": {
-     "Scope": "{{ Scope }}",
-     "Key": "{{ Key }}"
-    },
-    "RegexMatchStatement": {
-     "RegexString": "{{ RegexString }}",
-     "FieldToMatch": null,
-     "TextTransformations": [
-      null
-     ]
-    }
-   },
-   "Action": null,
-   "OverrideAction": {
-    "Count": {},
-    "None": {}
-   },
-   "RuleLabels": [
-    {
-     "Name": "{{ Name }}"
-    }
-   ],
-   "VisibilityConfig": {
-    "SampledRequestsEnabled": "{{ SampledRequestsEnabled }}",
-    "CloudWatchMetricsEnabled": "{{ CloudWatchMetricsEnabled }}",
-    "MetricName": "{{ MetricName }}"
-   },
-   "CaptchaConfig": {
-    "ImmunityTimeProperty": {
-     "ImmunityTime": "{{ ImmunityTime }}"
-    }
-   },
-   "ChallengeConfig": {
-    "ImmunityTimeProperty": null
-   }
-  }
- ],
- "VisibilityConfig": null,
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "CustomResponseBodies": {},
- "CaptchaConfig": null,
- "ChallengeConfig": null,
- "TokenDomains": [
-  "{{ TokenDomains[0] }}"
- ],
- "AssociationConfig": {
-  "RequestBody": {}
- }
-}
->>>
---all properties
+-- web_acl.iql (all properties)
 INSERT INTO aws.wafv2.web_acls (
  DefaultAction,
  Description,
@@ -523,19 +125,294 @@ INSERT INTO aws.wafv2.web_acls (
  region
 )
 SELECT 
- {{ .DefaultAction }},
- {{ .Description }},
- {{ .Name }},
- {{ .Scope }},
- {{ .Rules }},
- {{ .VisibilityConfig }},
- {{ .Tags }},
- {{ .CustomResponseBodies }},
- {{ .CaptchaConfig }},
- {{ .ChallengeConfig }},
- {{ .TokenDomains }},
- {{ .AssociationConfig }},
- 'us-east-1';
+ '{{ DefaultAction }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ Scope }}',
+ '{{ Rules }}',
+ '{{ VisibilityConfig }}',
+ '{{ Tags }}',
+ '{{ CustomResponseBodies }}',
+ '{{ CaptchaConfig }}',
+ '{{ ChallengeConfig }}',
+ '{{ TokenDomains }}',
+ '{{ AssociationConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: web_acl
+    props:
+      - name: DefaultAction
+        value:
+          Allow:
+            CustomRequestHandling:
+              InsertHeaders:
+                - Name: '{{ Name }}'
+                  Value: '{{ Value }}'
+          Block:
+            CustomResponse:
+              ResponseCode: '{{ ResponseCode }}'
+              CustomResponseBodyKey: '{{ CustomResponseBodyKey }}'
+              ResponseHeaders:
+                - null
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Scope
+        value: '{{ Scope }}'
+      - name: Rules
+        value:
+          - Name: null
+            Priority: '{{ Priority }}'
+            Statement:
+              ByteMatchStatement:
+                SearchString: '{{ SearchString }}'
+                SearchStringBase64: '{{ SearchStringBase64 }}'
+                FieldToMatch:
+                  SingleHeader:
+                    Name: '{{ Name }}'
+                  SingleQueryArgument:
+                    Name: '{{ Name }}'
+                  AllQueryArguments: {}
+                  UriPath: {}
+                  QueryString: {}
+                  Body:
+                    OversizeHandling: '{{ OversizeHandling }}'
+                  Method: {}
+                  JsonBody:
+                    MatchPattern:
+                      All: {}
+                      IncludedPaths:
+                        - '{{ IncludedPaths[0] }}'
+                    MatchScope: '{{ MatchScope }}'
+                    InvalidFallbackBehavior: '{{ InvalidFallbackBehavior }}'
+                    OversizeHandling: null
+                  Headers:
+                    MatchPattern:
+                      All: {}
+                      IncludedHeaders:
+                        - '{{ IncludedHeaders[0] }}'
+                      ExcludedHeaders:
+                        - '{{ ExcludedHeaders[0] }}'
+                    MatchScope: '{{ MatchScope }}'
+                    OversizeHandling: null
+                  Cookies:
+                    MatchPattern:
+                      All: {}
+                      IncludedCookies:
+                        - '{{ IncludedCookies[0] }}'
+                      ExcludedCookies:
+                        - '{{ ExcludedCookies[0] }}'
+                    MatchScope: null
+                    OversizeHandling: null
+                  JA3Fingerprint:
+                    FallbackBehavior: '{{ FallbackBehavior }}'
+                TextTransformations:
+                  - Priority: '{{ Priority }}'
+                    Type: '{{ Type }}'
+                PositionalConstraint: '{{ PositionalConstraint }}'
+              SqliMatchStatement:
+                FieldToMatch: null
+                TextTransformations:
+                  - null
+                SensitivityLevel: '{{ SensitivityLevel }}'
+              XssMatchStatement:
+                FieldToMatch: null
+                TextTransformations:
+                  - null
+              SizeConstraintStatement:
+                FieldToMatch: null
+                ComparisonOperator: '{{ ComparisonOperator }}'
+                Size: null
+                TextTransformations:
+                  - null
+              GeoMatchStatement:
+                CountryCodes:
+                  - '{{ CountryCodes[0] }}'
+                ForwardedIPConfig:
+                  HeaderName: '{{ HeaderName }}'
+                  FallbackBehavior: '{{ FallbackBehavior }}'
+              RuleGroupReferenceStatement:
+                Arn: '{{ Arn }}'
+                ExcludedRules:
+                  - Name: null
+                RuleActionOverrides:
+                  - Name: null
+                    ActionToUse:
+                      Allow: null
+                      Block: null
+                      Count:
+                        CustomRequestHandling: null
+                      Captcha:
+                        CustomRequestHandling: null
+                      Challenge:
+                        CustomRequestHandling: null
+              IPSetReferenceStatement:
+                Arn: null
+                IPSetForwardedIPConfig:
+                  HeaderName: '{{ HeaderName }}'
+                  FallbackBehavior: '{{ FallbackBehavior }}'
+                  Position: '{{ Position }}'
+              RegexPatternSetReferenceStatement:
+                Arn: null
+                FieldToMatch: null
+                TextTransformations:
+                  - null
+              ManagedRuleGroupStatement:
+                Name: null
+                VendorName: '{{ VendorName }}'
+                Version: '{{ Version }}'
+                ExcludedRules:
+                  - null
+                ScopeDownStatement: null
+                ManagedRuleGroupConfigs:
+                  - LoginPath: '{{ LoginPath }}'
+                    PayloadType: '{{ PayloadType }}'
+                    UsernameField:
+                      Identifier: '{{ Identifier }}'
+                    PasswordField: null
+                    AWSManagedRulesBotControlRuleSet:
+                      InspectionLevel: '{{ InspectionLevel }}'
+                      EnableMachineLearning: '{{ EnableMachineLearning }}'
+                    AWSManagedRulesATPRuleSet:
+                      LoginPath: '{{ LoginPath }}'
+                      EnableRegexInPath: '{{ EnableRegexInPath }}'
+                      RequestInspection:
+                        PayloadType: '{{ PayloadType }}'
+                        UsernameField: null
+                        PasswordField: null
+                      ResponseInspection:
+                        StatusCode:
+                          SuccessCodes:
+                            - '{{ SuccessCodes[0] }}'
+                          FailureCodes:
+                            - '{{ FailureCodes[0] }}'
+                        Header:
+                          Name: '{{ Name }}'
+                          SuccessValues:
+                            - '{{ SuccessValues[0] }}'
+                          FailureValues:
+                            - '{{ FailureValues[0] }}'
+                        BodyContains:
+                          SuccessStrings:
+                            - '{{ SuccessStrings[0] }}'
+                          FailureStrings:
+                            - '{{ FailureStrings[0] }}'
+                        Json:
+                          Identifier: '{{ Identifier }}'
+                          SuccessValues:
+                            - '{{ SuccessValues[0] }}'
+                          FailureValues:
+                            - '{{ FailureValues[0] }}'
+                    AWSManagedRulesACFPRuleSet:
+                      CreationPath: '{{ CreationPath }}'
+                      RegistrationPagePath: '{{ RegistrationPagePath }}'
+                      RequestInspection:
+                        PayloadType: '{{ PayloadType }}'
+                        UsernameField: null
+                        PasswordField: null
+                        EmailField: null
+                        PhoneNumberFields:
+                          - null
+                        AddressFields:
+                          - null
+                      ResponseInspection: null
+                      EnableRegexInPath: '{{ EnableRegexInPath }}'
+                RuleActionOverrides:
+                  - null
+              RateBasedStatement:
+                Limit: '{{ Limit }}'
+                EvaluationWindowSec: '{{ EvaluationWindowSec }}'
+                AggregateKeyType: '{{ AggregateKeyType }}'
+                CustomKeys:
+                  - Cookie:
+                      Name: '{{ Name }}'
+                      TextTransformations:
+                        - null
+                    ForwardedIP: {}
+                    Header:
+                      Name: '{{ Name }}'
+                      TextTransformations:
+                        - null
+                    HTTPMethod: {}
+                    IP: {}
+                    LabelNamespace:
+                      Namespace: '{{ Namespace }}'
+                    QueryArgument:
+                      Name: '{{ Name }}'
+                      TextTransformations:
+                        - null
+                    QueryString:
+                      TextTransformations:
+                        - null
+                    UriPath:
+                      TextTransformations:
+                        - null
+                ScopeDownStatement: null
+                ForwardedIPConfig: null
+              AndStatement:
+                Statements:
+                  - null
+              OrStatement:
+                Statements:
+                  - null
+              NotStatement:
+                Statement: null
+              LabelMatchStatement:
+                Scope: '{{ Scope }}'
+                Key: '{{ Key }}'
+              RegexMatchStatement:
+                RegexString: '{{ RegexString }}'
+                FieldToMatch: null
+                TextTransformations:
+                  - null
+            Action: null
+            OverrideAction:
+              Count: {}
+              None: {}
+            RuleLabels:
+              - Name: '{{ Name }}'
+            VisibilityConfig:
+              SampledRequestsEnabled: '{{ SampledRequestsEnabled }}'
+              CloudWatchMetricsEnabled: '{{ CloudWatchMetricsEnabled }}'
+              MetricName: '{{ MetricName }}'
+            CaptchaConfig:
+              ImmunityTimeProperty:
+                ImmunityTime: '{{ ImmunityTime }}'
+            ChallengeConfig:
+              ImmunityTimeProperty: null
+      - name: VisibilityConfig
+        value: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: CustomResponseBodies
+        value: {}
+      - name: CaptchaConfig
+        value: null
+      - name: ChallengeConfig
+        value: null
+      - name: TokenDomains
+        value:
+          - '{{ TokenDomains[0] }}'
+      - name: AssociationConfig
+        value:
+          RequestBody: {}
+
 ```
 </TabItem>
 </Tabs>

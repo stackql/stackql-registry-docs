@@ -74,77 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>deployment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TargetArn": "{{ TargetArn }}"
-}
->>>
---required properties only
+-- deployment.iql (required properties only)
 INSERT INTO aws.greengrassv2.deployments (
  TargetArn,
  region
 )
 SELECT 
-{{ .TargetArn }},
-'us-east-1';
+'{{ TargetArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TargetArn": "{{ TargetArn }}",
- "ParentTargetArn": "{{ ParentTargetArn }}",
- "DeploymentName": "{{ DeploymentName }}",
- "Components": {},
- "IotJobConfiguration": {
-  "JobExecutionsRolloutConfig": {
-   "ExponentialRate": {
-    "BaseRatePerMinute": "{{ BaseRatePerMinute }}",
-    "IncrementFactor": null,
-    "RateIncreaseCriteria": {}
-   },
-   "MaximumPerMinute": "{{ MaximumPerMinute }}"
-  },
-  "AbortConfig": {
-   "CriteriaList": [
-    {
-     "FailureType": "{{ FailureType }}",
-     "Action": "{{ Action }}",
-     "ThresholdPercentage": null,
-     "MinNumberOfExecutedThings": "{{ MinNumberOfExecutedThings }}"
-    }
-   ]
-  },
-  "TimeoutConfig": {
-   "InProgressTimeoutInMinutes": "{{ InProgressTimeoutInMinutes }}"
-  }
- },
- "DeploymentPolicies": {
-  "FailureHandlingPolicy": "{{ FailureHandlingPolicy }}",
-  "ComponentUpdatePolicy": {
-   "TimeoutInSeconds": "{{ TimeoutInSeconds }}",
-   "Action": "{{ Action }}"
-  },
-  "ConfigurationValidationPolicy": {
-   "TimeoutInSeconds": "{{ TimeoutInSeconds }}"
-  }
- },
- "Tags": {}
-}
->>>
---all properties
+-- deployment.iql (all properties)
 INSERT INTO aws.greengrassv2.deployments (
  TargetArn,
  ParentTargetArn,
@@ -156,14 +112,65 @@ INSERT INTO aws.greengrassv2.deployments (
  region
 )
 SELECT 
- {{ .TargetArn }},
- {{ .ParentTargetArn }},
- {{ .DeploymentName }},
- {{ .Components }},
- {{ .IotJobConfiguration }},
- {{ .DeploymentPolicies }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ TargetArn }}',
+ '{{ ParentTargetArn }}',
+ '{{ DeploymentName }}',
+ '{{ Components }}',
+ '{{ IotJobConfiguration }}',
+ '{{ DeploymentPolicies }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: deployment
+    props:
+      - name: TargetArn
+        value: '{{ TargetArn }}'
+      - name: ParentTargetArn
+        value: '{{ ParentTargetArn }}'
+      - name: DeploymentName
+        value: '{{ DeploymentName }}'
+      - name: Components
+        value: {}
+      - name: IotJobConfiguration
+        value:
+          JobExecutionsRolloutConfig:
+            ExponentialRate:
+              BaseRatePerMinute: '{{ BaseRatePerMinute }}'
+              IncrementFactor: null
+              RateIncreaseCriteria: {}
+            MaximumPerMinute: '{{ MaximumPerMinute }}'
+          AbortConfig:
+            CriteriaList:
+              - FailureType: '{{ FailureType }}'
+                Action: '{{ Action }}'
+                ThresholdPercentage: null
+                MinNumberOfExecutedThings: '{{ MinNumberOfExecutedThings }}'
+          TimeoutConfig:
+            InProgressTimeoutInMinutes: '{{ InProgressTimeoutInMinutes }}'
+      - name: DeploymentPolicies
+        value:
+          FailureHandlingPolicy: '{{ FailureHandlingPolicy }}'
+          ComponentUpdatePolicy:
+            TimeoutInSeconds: '{{ TimeoutInSeconds }}'
+            Action: '{{ Action }}'
+          ConfigurationValidationPolicy:
+            TimeoutInSeconds: '{{ TimeoutInSeconds }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

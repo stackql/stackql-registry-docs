@@ -76,105 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>bot_alias</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BotId": "{{ BotId }}",
- "BotAliasName": "{{ BotAliasName }}"
-}
->>>
---required properties only
+-- bot_alias.iql (required properties only)
 INSERT INTO aws.lex.bot_aliases (
  BotId,
  BotAliasName,
  region
 )
 SELECT 
-{{ .BotId }},
- {{ .BotAliasName }},
-'us-east-1';
+'{{ BotId }}',
+ '{{ BotAliasName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BotId": "{{ BotId }}",
- "BotAliasLocaleSettings": [
-  {
-   "LocaleId": "{{ LocaleId }}",
-   "BotAliasLocaleSetting": {
-    "CodeHookSpecification": {
-     "LambdaCodeHook": {
-      "CodeHookInterfaceVersion": "{{ CodeHookInterfaceVersion }}",
-      "LambdaArn": "{{ LambdaArn }}"
-     }
-    },
-    "Enabled": "{{ Enabled }}"
-   }
-  }
- ],
- "BotAliasName": "{{ BotAliasName }}",
- "BotVersion": {
-  "BotId": null,
-  "Description": "{{ Description }}",
-  "BotVersionLocaleSpecification": [
-   {
-    "LocaleId": "{{ LocaleId }}",
-    "BotVersionLocaleDetails": {
-     "SourceBotVersion": null
-    }
-   }
-  ]
- },
- "ConversationLogSettings": {
-  "AudioLogSettings": [
-   {
-    "Destination": {
-     "S3Bucket": {
-      "S3BucketArn": "{{ S3BucketArn }}",
-      "LogPrefix": "{{ LogPrefix }}",
-      "KmsKeyArn": "{{ KmsKeyArn }}"
-     }
-    },
-    "Enabled": "{{ Enabled }}"
-   }
-  ],
-  "TextLogSettings": [
-   {
-    "Destination": {
-     "CloudWatch": {
-      "CloudWatchLogGroupArn": "{{ CloudWatchLogGroupArn }}",
-      "LogPrefix": "{{ LogPrefix }}"
-     }
-    },
-    "Enabled": "{{ Enabled }}"
-   }
-  ]
- },
- "Description": null,
- "SentimentAnalysisSettings": {
-  "DetectSentiment": "{{ DetectSentiment }}"
- },
- "BotAliasTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- bot_alias.iql (all properties)
 INSERT INTO aws.lex.bot_aliases (
  BotId,
  BotAliasLocaleSettings,
@@ -187,15 +117,77 @@ INSERT INTO aws.lex.bot_aliases (
  region
 )
 SELECT 
- {{ .BotId }},
- {{ .BotAliasLocaleSettings }},
- {{ .BotAliasName }},
- {{ .BotVersion }},
- {{ .ConversationLogSettings }},
- {{ .Description }},
- {{ .SentimentAnalysisSettings }},
- {{ .BotAliasTags }},
- 'us-east-1';
+ '{{ BotId }}',
+ '{{ BotAliasLocaleSettings }}',
+ '{{ BotAliasName }}',
+ '{{ BotVersion }}',
+ '{{ ConversationLogSettings }}',
+ '{{ Description }}',
+ '{{ SentimentAnalysisSettings }}',
+ '{{ BotAliasTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: bot_alias
+    props:
+      - name: BotId
+        value: '{{ BotId }}'
+      - name: BotAliasLocaleSettings
+        value:
+          - LocaleId: '{{ LocaleId }}'
+            BotAliasLocaleSetting:
+              CodeHookSpecification:
+                LambdaCodeHook:
+                  CodeHookInterfaceVersion: '{{ CodeHookInterfaceVersion }}'
+                  LambdaArn: '{{ LambdaArn }}'
+              Enabled: '{{ Enabled }}'
+      - name: BotAliasName
+        value: '{{ BotAliasName }}'
+      - name: BotVersion
+        value:
+          BotId: null
+          Description: '{{ Description }}'
+          BotVersionLocaleSpecification:
+            - LocaleId: '{{ LocaleId }}'
+              BotVersionLocaleDetails:
+                SourceBotVersion: null
+      - name: ConversationLogSettings
+        value:
+          AudioLogSettings:
+            - Destination:
+                S3Bucket:
+                  S3BucketArn: '{{ S3BucketArn }}'
+                  LogPrefix: '{{ LogPrefix }}'
+                  KmsKeyArn: '{{ KmsKeyArn }}'
+              Enabled: '{{ Enabled }}'
+          TextLogSettings:
+            - Destination:
+                CloudWatch:
+                  CloudWatchLogGroupArn: '{{ CloudWatchLogGroupArn }}'
+                  LogPrefix: '{{ LogPrefix }}'
+              Enabled: '{{ Enabled }}'
+      - name: Description
+        value: null
+      - name: SentimentAnalysisSettings
+        value:
+          DetectSentiment: '{{ DetectSentiment }}'
+      - name: BotAliasTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

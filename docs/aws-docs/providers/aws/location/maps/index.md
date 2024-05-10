@@ -74,64 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>map</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Configuration": {
-  "Style": "{{ Style }}",
-  "PoliticalView": "{{ PoliticalView }}",
-  "CustomLayers": [
-   "{{ CustomLayers[0] }}"
-  ]
- },
- "MapName": "{{ MapName }}"
-}
->>>
---required properties only
+-- map.iql (required properties only)
 INSERT INTO aws.location.maps (
  Configuration,
  MapName,
  region
 )
 SELECT 
-{{ .Configuration }},
- {{ .MapName }},
-'us-east-1';
+'{{ Configuration }}',
+ '{{ MapName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Configuration": {
-  "Style": "{{ Style }}",
-  "PoliticalView": "{{ PoliticalView }}",
-  "CustomLayers": [
-   "{{ CustomLayers[0] }}"
-  ]
- },
- "Description": "{{ Description }}",
- "MapName": "{{ MapName }}",
- "PricingPlan": "{{ PricingPlan }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- map.iql (all properties)
 INSERT INTO aws.location.maps (
  Configuration,
  Description,
@@ -141,12 +112,45 @@ INSERT INTO aws.location.maps (
  region
 )
 SELECT 
- {{ .Configuration }},
- {{ .Description }},
- {{ .MapName }},
- {{ .PricingPlan }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Configuration }}',
+ '{{ Description }}',
+ '{{ MapName }}',
+ '{{ PricingPlan }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: map
+    props:
+      - name: Configuration
+        value:
+          Style: '{{ Style }}'
+          PoliticalView: '{{ PoliticalView }}'
+          CustomLayers:
+            - '{{ CustomLayers[0] }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: MapName
+        value: '{{ MapName }}'
+      - name: PricingPlan
+        value: '{{ PricingPlan }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

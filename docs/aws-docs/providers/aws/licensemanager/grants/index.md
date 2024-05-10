@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>grant</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- grant.iql (required properties only)
 INSERT INTO aws.licensemanager.grants (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GrantName": "{{ GrantName }}",
- "LicenseArn": "{{ LicenseArn }}",
- "HomeRegion": "{{ HomeRegion }}",
- "AllowedOperations": [
-  "{{ AllowedOperations[0] }}"
- ],
- "Principals": [
-  null
- ],
- "Status": "{{ Status }}"
-}
->>>
---all properties
+-- grant.iql (all properties)
 INSERT INTO aws.licensemanager.grants (
  GrantName,
  LicenseArn,
@@ -125,13 +111,44 @@ INSERT INTO aws.licensemanager.grants (
  region
 )
 SELECT 
- {{ .GrantName }},
- {{ .LicenseArn }},
- {{ .HomeRegion }},
- {{ .AllowedOperations }},
- {{ .Principals }},
- {{ .Status }},
- 'us-east-1';
+ '{{ GrantName }}',
+ '{{ LicenseArn }}',
+ '{{ HomeRegion }}',
+ '{{ AllowedOperations }}',
+ '{{ Principals }}',
+ '{{ Status }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: grant
+    props:
+      - name: GrantName
+        value: '{{ GrantName }}'
+      - name: LicenseArn
+        value: '{{ LicenseArn }}'
+      - name: HomeRegion
+        value: '{{ HomeRegion }}'
+      - name: AllowedOperations
+        value:
+          - '{{ AllowedOperations[0] }}'
+      - name: Principals
+        value:
+          - null
+      - name: Status
+        value: '{{ Status }}'
+
 ```
 </TabItem>
 </Tabs>

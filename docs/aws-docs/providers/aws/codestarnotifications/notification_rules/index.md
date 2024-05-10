@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>notification_rule</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EventTypeIds": [
-  "{{ EventTypeIds[0] }}"
- ],
- "DetailType": "{{ DetailType }}",
- "Resource": "{{ Resource }}",
- "Targets": [
-  {
-   "TargetType": "{{ TargetType }}",
-   "TargetAddress": "{{ TargetAddress }}"
-  }
- ],
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- notification_rule.iql (required properties only)
 INSERT INTO aws.codestarnotifications.notification_rules (
  EventTypeIds,
  DetailType,
@@ -110,39 +97,18 @@ INSERT INTO aws.codestarnotifications.notification_rules (
  region
 )
 SELECT 
-{{ .EventTypeIds }},
- {{ .DetailType }},
- {{ .Resource }},
- {{ .Targets }},
- {{ .Name }},
-'us-east-1';
+'{{ EventTypeIds }}',
+ '{{ DetailType }}',
+ '{{ Resource }}',
+ '{{ Targets }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EventTypeId": "{{ EventTypeId }}",
- "CreatedBy": "{{ CreatedBy }}",
- "TargetAddress": "{{ TargetAddress }}",
- "EventTypeIds": [
-  "{{ EventTypeIds[0] }}"
- ],
- "Status": "{{ Status }}",
- "DetailType": "{{ DetailType }}",
- "Resource": "{{ Resource }}",
- "Targets": [
-  {
-   "TargetType": "{{ TargetType }}",
-   "TargetAddress": "{{ TargetAddress }}"
-  }
- ],
- "Tags": {},
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- notification_rule.iql (all properties)
 INSERT INTO aws.codestarnotifications.notification_rules (
  EventTypeId,
  CreatedBy,
@@ -157,17 +123,57 @@ INSERT INTO aws.codestarnotifications.notification_rules (
  region
 )
 SELECT 
- {{ .EventTypeId }},
- {{ .CreatedBy }},
- {{ .TargetAddress }},
- {{ .EventTypeIds }},
- {{ .Status }},
- {{ .DetailType }},
- {{ .Resource }},
- {{ .Targets }},
- {{ .Tags }},
- {{ .Name }},
- 'us-east-1';
+ '{{ EventTypeId }}',
+ '{{ CreatedBy }}',
+ '{{ TargetAddress }}',
+ '{{ EventTypeIds }}',
+ '{{ Status }}',
+ '{{ DetailType }}',
+ '{{ Resource }}',
+ '{{ Targets }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: notification_rule
+    props:
+      - name: EventTypeId
+        value: '{{ EventTypeId }}'
+      - name: CreatedBy
+        value: '{{ CreatedBy }}'
+      - name: TargetAddress
+        value: '{{ TargetAddress }}'
+      - name: EventTypeIds
+        value:
+          - '{{ EventTypeIds[0] }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: DetailType
+        value: '{{ DetailType }}'
+      - name: Resource
+        value: '{{ Resource }}'
+      - name: Targets
+        value:
+          - TargetType: '{{ TargetType }}'
+            TargetAddress: '{{ TargetAddress }}'
+      - name: Tags
+        value: {}
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

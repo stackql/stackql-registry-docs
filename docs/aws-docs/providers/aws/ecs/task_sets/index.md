@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>task_set</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Cluster": "{{ Cluster }}",
- "Service": "{{ Service }}",
- "TaskDefinition": "{{ TaskDefinition }}"
-}
->>>
---required properties only
+-- task_set.iql (required properties only)
 INSERT INTO aws.ecs.task_sets (
  Cluster,
  Service,
@@ -103,62 +99,16 @@ INSERT INTO aws.ecs.task_sets (
  region
 )
 SELECT 
-{{ .Cluster }},
- {{ .Service }},
- {{ .TaskDefinition }},
-'us-east-1';
+'{{ Cluster }}',
+ '{{ Service }}',
+ '{{ TaskDefinition }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Cluster": "{{ Cluster }}",
- "ExternalId": "{{ ExternalId }}",
- "LaunchType": "{{ LaunchType }}",
- "LoadBalancers": [
-  {
-   "ContainerName": "{{ ContainerName }}",
-   "ContainerPort": "{{ ContainerPort }}",
-   "TargetGroupArn": "{{ TargetGroupArn }}"
-  }
- ],
- "NetworkConfiguration": {
-  "AwsVpcConfiguration": {
-   "AssignPublicIp": "{{ AssignPublicIp }}",
-   "SecurityGroups": [
-    "{{ SecurityGroups[0] }}"
-   ],
-   "Subnets": [
-    "{{ Subnets[0] }}"
-   ]
-  }
- },
- "PlatformVersion": "{{ PlatformVersion }}",
- "Scale": {
-  "Unit": "{{ Unit }}",
-  "Value": null
- },
- "Service": "{{ Service }}",
- "ServiceRegistries": [
-  {
-   "ContainerName": "{{ ContainerName }}",
-   "ContainerPort": "{{ ContainerPort }}",
-   "Port": "{{ Port }}",
-   "RegistryArn": "{{ RegistryArn }}"
-  }
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TaskDefinition": "{{ TaskDefinition }}"
-}
->>>
---all properties
+-- task_set.iql (all properties)
 INSERT INTO aws.ecs.task_sets (
  Cluster,
  ExternalId,
@@ -174,18 +124,74 @@ INSERT INTO aws.ecs.task_sets (
  region
 )
 SELECT 
- {{ .Cluster }},
- {{ .ExternalId }},
- {{ .LaunchType }},
- {{ .LoadBalancers }},
- {{ .NetworkConfiguration }},
- {{ .PlatformVersion }},
- {{ .Scale }},
- {{ .Service }},
- {{ .ServiceRegistries }},
- {{ .Tags }},
- {{ .TaskDefinition }},
- 'us-east-1';
+ '{{ Cluster }}',
+ '{{ ExternalId }}',
+ '{{ LaunchType }}',
+ '{{ LoadBalancers }}',
+ '{{ NetworkConfiguration }}',
+ '{{ PlatformVersion }}',
+ '{{ Scale }}',
+ '{{ Service }}',
+ '{{ ServiceRegistries }}',
+ '{{ Tags }}',
+ '{{ TaskDefinition }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: task_set
+    props:
+      - name: Cluster
+        value: '{{ Cluster }}'
+      - name: ExternalId
+        value: '{{ ExternalId }}'
+      - name: LaunchType
+        value: '{{ LaunchType }}'
+      - name: LoadBalancers
+        value:
+          - ContainerName: '{{ ContainerName }}'
+            ContainerPort: '{{ ContainerPort }}'
+            TargetGroupArn: '{{ TargetGroupArn }}'
+      - name: NetworkConfiguration
+        value:
+          AwsVpcConfiguration:
+            AssignPublicIp: '{{ AssignPublicIp }}'
+            SecurityGroups:
+              - '{{ SecurityGroups[0] }}'
+            Subnets:
+              - '{{ Subnets[0] }}'
+      - name: PlatformVersion
+        value: '{{ PlatformVersion }}'
+      - name: Scale
+        value:
+          Unit: '{{ Unit }}'
+          Value: null
+      - name: Service
+        value: '{{ Service }}'
+      - name: ServiceRegistries
+        value:
+          - ContainerName: '{{ ContainerName }}'
+            ContainerPort: '{{ ContainerPort }}'
+            Port: '{{ Port }}'
+            RegistryArn: '{{ RegistryArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TaskDefinition
+        value: '{{ TaskDefinition }}'
+
 ```
 </TabItem>
 </Tabs>

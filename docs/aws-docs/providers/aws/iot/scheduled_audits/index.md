@@ -74,57 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scheduled_audit</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Frequency": "{{ Frequency }}",
- "TargetCheckNames": [
-  "{{ TargetCheckNames[0] }}"
- ]
-}
->>>
---required properties only
+-- scheduled_audit.iql (required properties only)
 INSERT INTO aws.iot.scheduled_audits (
  Frequency,
  TargetCheckNames,
  region
 )
 SELECT 
-{{ .Frequency }},
- {{ .TargetCheckNames }},
-'us-east-1';
+'{{ Frequency }}',
+ '{{ TargetCheckNames }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ScheduledAuditName": "{{ ScheduledAuditName }}",
- "Frequency": "{{ Frequency }}",
- "DayOfMonth": "{{ DayOfMonth }}",
- "DayOfWeek": "{{ DayOfWeek }}",
- "TargetCheckNames": [
-  "{{ TargetCheckNames[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- scheduled_audit.iql (all properties)
 INSERT INTO aws.iot.scheduled_audits (
  ScheduledAuditName,
  Frequency,
@@ -135,13 +113,45 @@ INSERT INTO aws.iot.scheduled_audits (
  region
 )
 SELECT 
- {{ .ScheduledAuditName }},
- {{ .Frequency }},
- {{ .DayOfMonth }},
- {{ .DayOfWeek }},
- {{ .TargetCheckNames }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ScheduledAuditName }}',
+ '{{ Frequency }}',
+ '{{ DayOfMonth }}',
+ '{{ DayOfWeek }}',
+ '{{ TargetCheckNames }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scheduled_audit
+    props:
+      - name: ScheduledAuditName
+        value: '{{ ScheduledAuditName }}'
+      - name: Frequency
+        value: '{{ Frequency }}'
+      - name: DayOfMonth
+        value: '{{ DayOfMonth }}'
+      - name: DayOfWeek
+        value: '{{ DayOfWeek }}'
+      - name: TargetCheckNames
+        value:
+          - '{{ TargetCheckNames[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

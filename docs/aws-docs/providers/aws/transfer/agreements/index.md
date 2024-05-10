@@ -76,26 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>agreement</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ServerId": "{{ ServerId }}",
- "LocalProfileId": "{{ LocalProfileId }}",
- "PartnerProfileId": "{{ PartnerProfileId }}",
- "BaseDirectory": "{{ BaseDirectory }}",
- "AccessRole": "{{ AccessRole }}"
-}
->>>
---required properties only
+-- agreement.iql (required properties only)
 INSERT INTO aws.transfer.agreements (
  ServerId,
  LocalProfileId,
@@ -105,35 +99,18 @@ INSERT INTO aws.transfer.agreements (
  region
 )
 SELECT 
-{{ .ServerId }},
- {{ .LocalProfileId }},
- {{ .PartnerProfileId }},
- {{ .BaseDirectory }},
- {{ .AccessRole }},
-'us-east-1';
+'{{ ServerId }}',
+ '{{ LocalProfileId }}',
+ '{{ PartnerProfileId }}',
+ '{{ BaseDirectory }}',
+ '{{ AccessRole }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "ServerId": "{{ ServerId }}",
- "LocalProfileId": "{{ LocalProfileId }}",
- "PartnerProfileId": "{{ PartnerProfileId }}",
- "BaseDirectory": "{{ BaseDirectory }}",
- "AccessRole": "{{ AccessRole }}",
- "Status": "{{ Status }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- agreement.iql (all properties)
 INSERT INTO aws.transfer.agreements (
  Description,
  ServerId,
@@ -146,15 +123,50 @@ INSERT INTO aws.transfer.agreements (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .ServerId }},
- {{ .LocalProfileId }},
- {{ .PartnerProfileId }},
- {{ .BaseDirectory }},
- {{ .AccessRole }},
- {{ .Status }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ ServerId }}',
+ '{{ LocalProfileId }}',
+ '{{ PartnerProfileId }}',
+ '{{ BaseDirectory }}',
+ '{{ AccessRole }}',
+ '{{ Status }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: agreement
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: ServerId
+        value: '{{ ServerId }}'
+      - name: LocalProfileId
+        value: '{{ LocalProfileId }}'
+      - name: PartnerProfileId
+        value: '{{ PartnerProfileId }}'
+      - name: BaseDirectory
+        value: '{{ BaseDirectory }}'
+      - name: AccessRole
+        value: '{{ AccessRole }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

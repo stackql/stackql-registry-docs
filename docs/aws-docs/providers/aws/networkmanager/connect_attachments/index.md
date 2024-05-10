@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>connect_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "CoreNetworkId": "{{ CoreNetworkId }}",
- "EdgeLocation": "{{ EdgeLocation }}",
- "TransportAttachmentId": "{{ TransportAttachmentId }}",
- "Options": {
-  "Protocol": "{{ Protocol }}"
- }
-}
->>>
---required properties only
+-- connect_attachment.iql (required properties only)
 INSERT INTO aws.networkmanager.connect_attachments (
  CoreNetworkId,
  EdgeLocation,
@@ -103,40 +96,17 @@ INSERT INTO aws.networkmanager.connect_attachments (
  region
 )
 SELECT 
-{{ .CoreNetworkId }},
- {{ .EdgeLocation }},
- {{ .TransportAttachmentId }},
- {{ .Options }},
-'us-east-1';
+'{{ CoreNetworkId }}',
+ '{{ EdgeLocation }}',
+ '{{ TransportAttachmentId }}',
+ '{{ Options }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CoreNetworkId": "{{ CoreNetworkId }}",
- "EdgeLocation": "{{ EdgeLocation }}",
- "ProposedSegmentChange": {
-  "Tags": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ],
-  "AttachmentPolicyRuleNumber": "{{ AttachmentPolicyRuleNumber }}",
-  "SegmentName": "{{ SegmentName }}"
- },
- "Tags": [
-  null
- ],
- "TransportAttachmentId": "{{ TransportAttachmentId }}",
- "Options": {
-  "Protocol": "{{ Protocol }}"
- }
-}
->>>
---all properties
+-- connect_attachment.iql (all properties)
 INSERT INTO aws.networkmanager.connect_attachments (
  CoreNetworkId,
  EdgeLocation,
@@ -147,13 +117,49 @@ INSERT INTO aws.networkmanager.connect_attachments (
  region
 )
 SELECT 
- {{ .CoreNetworkId }},
- {{ .EdgeLocation }},
- {{ .ProposedSegmentChange }},
- {{ .Tags }},
- {{ .TransportAttachmentId }},
- {{ .Options }},
- 'us-east-1';
+ '{{ CoreNetworkId }}',
+ '{{ EdgeLocation }}',
+ '{{ ProposedSegmentChange }}',
+ '{{ Tags }}',
+ '{{ TransportAttachmentId }}',
+ '{{ Options }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: connect_attachment
+    props:
+      - name: CoreNetworkId
+        value: '{{ CoreNetworkId }}'
+      - name: EdgeLocation
+        value: '{{ EdgeLocation }}'
+      - name: ProposedSegmentChange
+        value:
+          Tags:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+          AttachmentPolicyRuleNumber: '{{ AttachmentPolicyRuleNumber }}'
+          SegmentName: '{{ SegmentName }}'
+      - name: Tags
+        value:
+          - null
+      - name: TransportAttachmentId
+        value: '{{ TransportAttachmentId }}'
+      - name: Options
+        value:
+          Protocol: '{{ Protocol }}'
+
 ```
 </TabItem>
 </Tabs>

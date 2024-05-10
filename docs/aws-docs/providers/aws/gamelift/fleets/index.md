@@ -74,126 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>fleet</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- fleet.iql (required properties only)
 INSERT INTO aws.gamelift.fleets (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ScalingPolicies": [
-  {
-   "Status": "{{ Status }}",
-   "MetricName": "{{ MetricName }}",
-   "PolicyType": "{{ PolicyType }}",
-   "ComparisonOperator": "{{ ComparisonOperator }}",
-   "TargetConfiguration": {
-    "TargetValue": null
-   },
-   "UpdateStatus": "{{ UpdateStatus }}",
-   "ScalingAdjustment": "{{ ScalingAdjustment }}",
-   "EvaluationPeriods": "{{ EvaluationPeriods }}",
-   "Location": {
-    "LocationName": "{{ LocationName }}",
-    "Tags": [
-     {
-      "Key": "{{ Key }}",
-      "Value": "{{ Value }}"
-     }
-    ]
-   },
-   "Name": "{{ Name }}",
-   "ScalingAdjustmentType": "{{ ScalingAdjustmentType }}",
-   "Threshold": null
-  }
- ],
- "Description": "{{ Description }}",
- "PeerVpcId": "{{ PeerVpcId }}",
- "ApplyCapacity": "{{ ApplyCapacity }}",
- "EC2InboundPermissions": [
-  {
-   "IpRange": "{{ IpRange }}",
-   "FromPort": "{{ FromPort }}",
-   "ToPort": "{{ ToPort }}",
-   "Protocol": "{{ Protocol }}"
-  }
- ],
- "ComputeType": "{{ ComputeType }}",
- "Name": "{{ Name }}",
- "AnywhereConfiguration": null,
- "InstanceRoleARN": "{{ InstanceRoleARN }}",
- "CertificateConfiguration": {
-  "CertificateType": "{{ CertificateType }}"
- },
- "InstanceRoleCredentialsProvider": "{{ InstanceRoleCredentialsProvider }}",
- "DesiredEC2Instances": "{{ DesiredEC2Instances }}",
- "ServerLaunchParameters": "{{ ServerLaunchParameters }}",
- "FleetType": "{{ FleetType }}",
- "Locations": [
-  {
-   "LocationCapacity": {
-    "MinSize": "{{ MinSize }}",
-    "DesiredEC2Instances": "{{ DesiredEC2Instances }}",
-    "MaxSize": "{{ MaxSize }}"
-   },
-   "Location": null
-  }
- ],
- "NewGameSessionProtectionPolicy": "{{ NewGameSessionProtectionPolicy }}",
- "ScriptId": "{{ ScriptId }}",
- "MaxSize": "{{ MaxSize }}",
- "RuntimeConfiguration": {
-  "ServerProcesses": [
-   {
-    "ConcurrentExecutions": "{{ ConcurrentExecutions }}",
-    "Parameters": "{{ Parameters }}",
-    "LaunchPath": "{{ LaunchPath }}"
-   }
-  ],
-  "MaxConcurrentGameSessionActivations": "{{ MaxConcurrentGameSessionActivations }}",
-  "GameSessionActivationTimeoutSeconds": "{{ GameSessionActivationTimeoutSeconds }}"
- },
- "LogPaths": [
-  "{{ LogPaths[0] }}"
- ],
- "ServerLaunchPath": "{{ ServerLaunchPath }}",
- "MinSize": "{{ MinSize }}",
- "PeerVpcAwsAccountId": "{{ PeerVpcAwsAccountId }}",
- "MetricGroups": [
-  "{{ MetricGroups[0] }}"
- ],
- "BuildId": "{{ BuildId }}",
- "ResourceCreationLimitPolicy": {
-  "PolicyPeriodInMinutes": "{{ PolicyPeriodInMinutes }}",
-  "NewGameSessionsPerCreator": "{{ NewGameSessionsPerCreator }}"
- },
- "EC2InstanceType": "{{ EC2InstanceType }}"
-}
->>>
---all properties
+-- fleet.iql (all properties)
 INSERT INTO aws.gamelift.fleets (
  ScalingPolicies,
  Description,
@@ -225,34 +132,142 @@ INSERT INTO aws.gamelift.fleets (
  region
 )
 SELECT 
- {{ .ScalingPolicies }},
- {{ .Description }},
- {{ .PeerVpcId }},
- {{ .ApplyCapacity }},
- {{ .EC2InboundPermissions }},
- {{ .ComputeType }},
- {{ .Name }},
- {{ .AnywhereConfiguration }},
- {{ .InstanceRoleARN }},
- {{ .CertificateConfiguration }},
- {{ .InstanceRoleCredentialsProvider }},
- {{ .DesiredEC2Instances }},
- {{ .ServerLaunchParameters }},
- {{ .FleetType }},
- {{ .Locations }},
- {{ .NewGameSessionProtectionPolicy }},
- {{ .ScriptId }},
- {{ .MaxSize }},
- {{ .RuntimeConfiguration }},
- {{ .LogPaths }},
- {{ .ServerLaunchPath }},
- {{ .MinSize }},
- {{ .PeerVpcAwsAccountId }},
- {{ .MetricGroups }},
- {{ .BuildId }},
- {{ .ResourceCreationLimitPolicy }},
- {{ .EC2InstanceType }},
- 'us-east-1';
+ '{{ ScalingPolicies }}',
+ '{{ Description }}',
+ '{{ PeerVpcId }}',
+ '{{ ApplyCapacity }}',
+ '{{ EC2InboundPermissions }}',
+ '{{ ComputeType }}',
+ '{{ Name }}',
+ '{{ AnywhereConfiguration }}',
+ '{{ InstanceRoleARN }}',
+ '{{ CertificateConfiguration }}',
+ '{{ InstanceRoleCredentialsProvider }}',
+ '{{ DesiredEC2Instances }}',
+ '{{ ServerLaunchParameters }}',
+ '{{ FleetType }}',
+ '{{ Locations }}',
+ '{{ NewGameSessionProtectionPolicy }}',
+ '{{ ScriptId }}',
+ '{{ MaxSize }}',
+ '{{ RuntimeConfiguration }}',
+ '{{ LogPaths }}',
+ '{{ ServerLaunchPath }}',
+ '{{ MinSize }}',
+ '{{ PeerVpcAwsAccountId }}',
+ '{{ MetricGroups }}',
+ '{{ BuildId }}',
+ '{{ ResourceCreationLimitPolicy }}',
+ '{{ EC2InstanceType }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: fleet
+    props:
+      - name: ScalingPolicies
+        value:
+          - Status: '{{ Status }}'
+            MetricName: '{{ MetricName }}'
+            PolicyType: '{{ PolicyType }}'
+            ComparisonOperator: '{{ ComparisonOperator }}'
+            TargetConfiguration:
+              TargetValue: null
+            UpdateStatus: '{{ UpdateStatus }}'
+            ScalingAdjustment: '{{ ScalingAdjustment }}'
+            EvaluationPeriods: '{{ EvaluationPeriods }}'
+            Location:
+              LocationName: '{{ LocationName }}'
+              Tags:
+                - Key: '{{ Key }}'
+                  Value: '{{ Value }}'
+            Name: '{{ Name }}'
+            ScalingAdjustmentType: '{{ ScalingAdjustmentType }}'
+            Threshold: null
+      - name: Description
+        value: '{{ Description }}'
+      - name: PeerVpcId
+        value: '{{ PeerVpcId }}'
+      - name: ApplyCapacity
+        value: '{{ ApplyCapacity }}'
+      - name: EC2InboundPermissions
+        value:
+          - IpRange: '{{ IpRange }}'
+            FromPort: '{{ FromPort }}'
+            ToPort: '{{ ToPort }}'
+            Protocol: '{{ Protocol }}'
+      - name: ComputeType
+        value: '{{ ComputeType }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: AnywhereConfiguration
+        value: null
+      - name: InstanceRoleARN
+        value: '{{ InstanceRoleARN }}'
+      - name: CertificateConfiguration
+        value:
+          CertificateType: '{{ CertificateType }}'
+      - name: InstanceRoleCredentialsProvider
+        value: '{{ InstanceRoleCredentialsProvider }}'
+      - name: DesiredEC2Instances
+        value: '{{ DesiredEC2Instances }}'
+      - name: ServerLaunchParameters
+        value: '{{ ServerLaunchParameters }}'
+      - name: FleetType
+        value: '{{ FleetType }}'
+      - name: Locations
+        value:
+          - LocationCapacity:
+              MinSize: '{{ MinSize }}'
+              DesiredEC2Instances: '{{ DesiredEC2Instances }}'
+              MaxSize: '{{ MaxSize }}'
+            Location: null
+      - name: NewGameSessionProtectionPolicy
+        value: '{{ NewGameSessionProtectionPolicy }}'
+      - name: ScriptId
+        value: '{{ ScriptId }}'
+      - name: MaxSize
+        value: '{{ MaxSize }}'
+      - name: RuntimeConfiguration
+        value:
+          ServerProcesses:
+            - ConcurrentExecutions: '{{ ConcurrentExecutions }}'
+              Parameters: '{{ Parameters }}'
+              LaunchPath: '{{ LaunchPath }}'
+          MaxConcurrentGameSessionActivations: '{{ MaxConcurrentGameSessionActivations }}'
+          GameSessionActivationTimeoutSeconds: '{{ GameSessionActivationTimeoutSeconds }}'
+      - name: LogPaths
+        value:
+          - '{{ LogPaths[0] }}'
+      - name: ServerLaunchPath
+        value: '{{ ServerLaunchPath }}'
+      - name: MinSize
+        value: '{{ MinSize }}'
+      - name: PeerVpcAwsAccountId
+        value: '{{ PeerVpcAwsAccountId }}'
+      - name: MetricGroups
+        value:
+          - '{{ MetricGroups[0] }}'
+      - name: BuildId
+        value: '{{ BuildId }}'
+      - name: ResourceCreationLimitPolicy
+        value:
+          PolicyPeriodInMinutes: '{{ PolicyPeriodInMinutes }}'
+          NewGameSessionsPerCreator: '{{ NewGameSessionsPerCreator }}'
+      - name: EC2InstanceType
+        value: '{{ EC2InstanceType }}'
+
 ```
 </TabItem>
 </Tabs>

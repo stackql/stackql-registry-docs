@@ -74,55 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>rest_api</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ApiKeySourceType": "{{ ApiKeySourceType }}",
- "BinaryMediaTypes": [
-  "{{ BinaryMediaTypes[0] }}"
- ],
- "Body": {},
- "BodyS3Location": {
-  "Bucket": "{{ Bucket }}",
-  "ETag": "{{ ETag }}",
-  "Version": "{{ Version }}",
-  "Key": "{{ Key }}"
- },
- "CloneFrom": "{{ CloneFrom }}",
- "EndpointConfiguration": {
-  "Types": [
-   "{{ Types[0] }}"
-  ],
-  "VpcEndpointIds": [
-   "{{ VpcEndpointIds[0] }}"
-  ]
- },
- "Description": "{{ Description }}",
- "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
- "FailOnWarnings": "{{ FailOnWarnings }}",
- "Name": "{{ Name }}",
- "MinimumCompressionSize": "{{ MinimumCompressionSize }}",
- "Mode": "{{ Mode }}",
- "Policy": {},
- "Parameters": {},
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---required properties only
+-- rest_api.iql (required properties only)
 INSERT INTO aws.apigateway.rest_apis (
  ApiKeySourceType,
  BinaryMediaTypes,
@@ -142,66 +107,28 @@ INSERT INTO aws.apigateway.rest_apis (
  region
 )
 SELECT 
-{{ .ApiKeySourceType }},
- {{ .BinaryMediaTypes }},
- {{ .Body }},
- {{ .BodyS3Location }},
- {{ .CloneFrom }},
- {{ .EndpointConfiguration }},
- {{ .Description }},
- {{ .DisableExecuteApiEndpoint }},
- {{ .FailOnWarnings }},
- {{ .Name }},
- {{ .MinimumCompressionSize }},
- {{ .Mode }},
- {{ .Policy }},
- {{ .Parameters }},
- {{ .Tags }},
-'us-east-1';
+'{{ ApiKeySourceType }}',
+ '{{ BinaryMediaTypes }}',
+ '{{ Body }}',
+ '{{ BodyS3Location }}',
+ '{{ CloneFrom }}',
+ '{{ EndpointConfiguration }}',
+ '{{ Description }}',
+ '{{ DisableExecuteApiEndpoint }}',
+ '{{ FailOnWarnings }}',
+ '{{ Name }}',
+ '{{ MinimumCompressionSize }}',
+ '{{ Mode }}',
+ '{{ Policy }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ApiKeySourceType": "{{ ApiKeySourceType }}",
- "BinaryMediaTypes": [
-  "{{ BinaryMediaTypes[0] }}"
- ],
- "Body": {},
- "BodyS3Location": {
-  "Bucket": "{{ Bucket }}",
-  "ETag": "{{ ETag }}",
-  "Version": "{{ Version }}",
-  "Key": "{{ Key }}"
- },
- "CloneFrom": "{{ CloneFrom }}",
- "EndpointConfiguration": {
-  "Types": [
-   "{{ Types[0] }}"
-  ],
-  "VpcEndpointIds": [
-   "{{ VpcEndpointIds[0] }}"
-  ]
- },
- "Description": "{{ Description }}",
- "DisableExecuteApiEndpoint": "{{ DisableExecuteApiEndpoint }}",
- "FailOnWarnings": "{{ FailOnWarnings }}",
- "Name": "{{ Name }}",
- "MinimumCompressionSize": "{{ MinimumCompressionSize }}",
- "Mode": "{{ Mode }}",
- "Policy": {},
- "Parameters": {},
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- rest_api.iql (all properties)
 INSERT INTO aws.apigateway.rest_apis (
  ApiKeySourceType,
  BinaryMediaTypes,
@@ -221,22 +148,80 @@ INSERT INTO aws.apigateway.rest_apis (
  region
 )
 SELECT 
- {{ .ApiKeySourceType }},
- {{ .BinaryMediaTypes }},
- {{ .Body }},
- {{ .BodyS3Location }},
- {{ .CloneFrom }},
- {{ .EndpointConfiguration }},
- {{ .Description }},
- {{ .DisableExecuteApiEndpoint }},
- {{ .FailOnWarnings }},
- {{ .Name }},
- {{ .MinimumCompressionSize }},
- {{ .Mode }},
- {{ .Policy }},
- {{ .Parameters }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ApiKeySourceType }}',
+ '{{ BinaryMediaTypes }}',
+ '{{ Body }}',
+ '{{ BodyS3Location }}',
+ '{{ CloneFrom }}',
+ '{{ EndpointConfiguration }}',
+ '{{ Description }}',
+ '{{ DisableExecuteApiEndpoint }}',
+ '{{ FailOnWarnings }}',
+ '{{ Name }}',
+ '{{ MinimumCompressionSize }}',
+ '{{ Mode }}',
+ '{{ Policy }}',
+ '{{ Parameters }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: rest_api
+    props:
+      - name: ApiKeySourceType
+        value: '{{ ApiKeySourceType }}'
+      - name: BinaryMediaTypes
+        value:
+          - '{{ BinaryMediaTypes[0] }}'
+      - name: Body
+        value: {}
+      - name: BodyS3Location
+        value:
+          Bucket: '{{ Bucket }}'
+          ETag: '{{ ETag }}'
+          Version: '{{ Version }}'
+          Key: '{{ Key }}'
+      - name: CloneFrom
+        value: '{{ CloneFrom }}'
+      - name: EndpointConfiguration
+        value:
+          Types:
+            - '{{ Types[0] }}'
+          VpcEndpointIds:
+            - '{{ VpcEndpointIds[0] }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisableExecuteApiEndpoint
+        value: '{{ DisableExecuteApiEndpoint }}'
+      - name: FailOnWarnings
+        value: '{{ FailOnWarnings }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: MinimumCompressionSize
+        value: '{{ MinimumCompressionSize }}'
+      - name: Mode
+        value: '{{ Mode }}'
+      - name: Policy
+        value: {}
+      - name: Parameters
+        value: {}
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

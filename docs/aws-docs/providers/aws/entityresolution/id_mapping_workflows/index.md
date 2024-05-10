@@ -74,40 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>id_mapping_workflow</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "WorkflowName": "{{ WorkflowName }}",
- "InputSourceConfig": [
-  {
-   "InputSourceARN": "{{ InputSourceARN }}",
-   "SchemaArn": "{{ SchemaArn }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "IdMappingTechniques": {
-  "IdMappingType": "{{ IdMappingType }}",
-  "ProviderProperties": {
-   "ProviderServiceArn": "{{ ProviderServiceArn }}",
-   "ProviderConfiguration": {},
-   "IntermediateSourceConfiguration": {
-    "IntermediateS3Path": "{{ IntermediateS3Path }}"
-   }
-  }
- },
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- id_mapping_workflow.iql (required properties only)
 INSERT INTO aws.entityresolution.id_mapping_workflows (
  WorkflowName,
  InputSourceConfig,
@@ -116,53 +96,17 @@ INSERT INTO aws.entityresolution.id_mapping_workflows (
  region
 )
 SELECT 
-{{ .WorkflowName }},
- {{ .InputSourceConfig }},
- {{ .IdMappingTechniques }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ WorkflowName }}',
+ '{{ InputSourceConfig }}',
+ '{{ IdMappingTechniques }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "WorkflowName": "{{ WorkflowName }}",
- "Description": "{{ Description }}",
- "InputSourceConfig": [
-  {
-   "InputSourceARN": "{{ InputSourceARN }}",
-   "SchemaArn": "{{ SchemaArn }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "OutputSourceConfig": [
-  {
-   "OutputS3Path": "{{ OutputS3Path }}",
-   "KMSArn": "{{ KMSArn }}"
-  }
- ],
- "IdMappingTechniques": {
-  "IdMappingType": "{{ IdMappingType }}",
-  "ProviderProperties": {
-   "ProviderServiceArn": "{{ ProviderServiceArn }}",
-   "ProviderConfiguration": {},
-   "IntermediateSourceConfiguration": {
-    "IntermediateS3Path": "{{ IntermediateS3Path }}"
-   }
-  }
- },
- "RoleArn": "{{ RoleArn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- id_mapping_workflow.iql (all properties)
 INSERT INTO aws.entityresolution.id_mapping_workflows (
  WorkflowName,
  Description,
@@ -174,14 +118,58 @@ INSERT INTO aws.entityresolution.id_mapping_workflows (
  region
 )
 SELECT 
- {{ .WorkflowName }},
- {{ .Description }},
- {{ .InputSourceConfig }},
- {{ .OutputSourceConfig }},
- {{ .IdMappingTechniques }},
- {{ .RoleArn }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ WorkflowName }}',
+ '{{ Description }}',
+ '{{ InputSourceConfig }}',
+ '{{ OutputSourceConfig }}',
+ '{{ IdMappingTechniques }}',
+ '{{ RoleArn }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: id_mapping_workflow
+    props:
+      - name: WorkflowName
+        value: '{{ WorkflowName }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: InputSourceConfig
+        value:
+          - InputSourceARN: '{{ InputSourceARN }}'
+            SchemaArn: '{{ SchemaArn }}'
+            Type: '{{ Type }}'
+      - name: OutputSourceConfig
+        value:
+          - OutputS3Path: '{{ OutputS3Path }}'
+            KMSArn: '{{ KMSArn }}'
+      - name: IdMappingTechniques
+        value:
+          IdMappingType: '{{ IdMappingType }}'
+          ProviderProperties:
+            ProviderServiceArn: '{{ ProviderServiceArn }}'
+            ProviderConfiguration: {}
+            IntermediateSourceConfiguration:
+              IntermediateS3Path: '{{ IntermediateS3Path }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

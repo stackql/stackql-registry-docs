@@ -74,26 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpc_endpoint</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "VpcId": "{{ VpcId }}"
-}
->>>
---required properties only
+-- vpc_endpoint.iql (required properties only)
 INSERT INTO aws.opensearchserverless.vpc_endpoints (
  Name,
  SubnetIds,
@@ -101,28 +95,16 @@ INSERT INTO aws.opensearchserverless.vpc_endpoints (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .SubnetIds }},
- {{ .VpcId }},
-'us-east-1';
+'{{ Name }}',
+ '{{ SubnetIds }}',
+ '{{ VpcId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "SecurityGroupIds": [
-  "{{ SecurityGroupIds[0] }}"
- ],
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "VpcId": "{{ VpcId }}"
-}
->>>
---all properties
+-- vpc_endpoint.iql (all properties)
 INSERT INTO aws.opensearchserverless.vpc_endpoints (
  Name,
  SecurityGroupIds,
@@ -131,11 +113,38 @@ INSERT INTO aws.opensearchserverless.vpc_endpoints (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .SecurityGroupIds }},
- {{ .SubnetIds }},
- {{ .VpcId }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ VpcId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_endpoint
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+
 ```
 </TabItem>
 </Tabs>

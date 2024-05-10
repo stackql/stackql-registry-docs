@@ -74,40 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scraper</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ScrapeConfiguration": {
-  "ConfigurationBlob": "{{ ConfigurationBlob }}"
- },
- "Source": {
-  "EksConfiguration": {
-   "ClusterArn": "{{ ClusterArn }}",
-   "SecurityGroupIds": [
-    "{{ SecurityGroupIds[0] }}"
-   ],
-   "SubnetIds": [
-    "{{ SubnetIds[0] }}"
-   ]
-  }
- },
- "Destination": {
-  "AmpConfiguration": {
-   "WorkspaceArn": "{{ WorkspaceArn }}"
-  }
- }
-}
->>>
---required properties only
+-- scraper.iql (required properties only)
 INSERT INTO aws.aps.scrapers (
  ScrapeConfiguration,
  Source,
@@ -115,46 +95,16 @@ INSERT INTO aws.aps.scrapers (
  region
 )
 SELECT 
-{{ .ScrapeConfiguration }},
- {{ .Source }},
- {{ .Destination }},
-'us-east-1';
+'{{ ScrapeConfiguration }}',
+ '{{ Source }}',
+ '{{ Destination }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Alias": "{{ Alias }}",
- "ScrapeConfiguration": {
-  "ConfigurationBlob": "{{ ConfigurationBlob }}"
- },
- "Source": {
-  "EksConfiguration": {
-   "ClusterArn": "{{ ClusterArn }}",
-   "SecurityGroupIds": [
-    "{{ SecurityGroupIds[0] }}"
-   ],
-   "SubnetIds": [
-    "{{ SubnetIds[0] }}"
-   ]
-  }
- },
- "Destination": {
-  "AmpConfiguration": {
-   "WorkspaceArn": "{{ WorkspaceArn }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- scraper.iql (all properties)
 INSERT INTO aws.aps.scrapers (
  Alias,
  ScrapeConfiguration,
@@ -164,12 +114,50 @@ INSERT INTO aws.aps.scrapers (
  region
 )
 SELECT 
- {{ .Alias }},
- {{ .ScrapeConfiguration }},
- {{ .Source }},
- {{ .Destination }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Alias }}',
+ '{{ ScrapeConfiguration }}',
+ '{{ Source }}',
+ '{{ Destination }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scraper
+    props:
+      - name: Alias
+        value: '{{ Alias }}'
+      - name: ScrapeConfiguration
+        value:
+          ConfigurationBlob: '{{ ConfigurationBlob }}'
+      - name: Source
+        value:
+          EksConfiguration:
+            ClusterArn: '{{ ClusterArn }}'
+            SecurityGroupIds:
+              - '{{ SecurityGroupIds[0] }}'
+            SubnetIds:
+              - '{{ SubnetIds[0] }}'
+      - name: Destination
+        value:
+          AmpConfiguration:
+            WorkspaceArn: '{{ WorkspaceArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

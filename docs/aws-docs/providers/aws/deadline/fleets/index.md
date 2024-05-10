@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>fleet</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Configuration": null,
- "DisplayName": "{{ DisplayName }}",
- "MaxWorkerCount": "{{ MaxWorkerCount }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---required properties only
+-- fleet.iql (required properties only)
 INSERT INTO aws.deadline.fleets (
  Configuration,
  DisplayName,
@@ -101,28 +96,17 @@ INSERT INTO aws.deadline.fleets (
  region
 )
 SELECT 
-{{ .Configuration }},
- {{ .DisplayName }},
- {{ .MaxWorkerCount }},
- {{ .RoleArn }},
-'us-east-1';
+'{{ Configuration }}',
+ '{{ DisplayName }}',
+ '{{ MaxWorkerCount }}',
+ '{{ RoleArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Configuration": null,
- "Description": "{{ Description }}",
- "DisplayName": "{{ DisplayName }}",
- "FarmId": "{{ FarmId }}",
- "MaxWorkerCount": "{{ MaxWorkerCount }}",
- "MinWorkerCount": "{{ MinWorkerCount }}",
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---all properties
+-- fleet.iql (all properties)
 INSERT INTO aws.deadline.fleets (
  Configuration,
  Description,
@@ -134,14 +118,45 @@ INSERT INTO aws.deadline.fleets (
  region
 )
 SELECT 
- {{ .Configuration }},
- {{ .Description }},
- {{ .DisplayName }},
- {{ .FarmId }},
- {{ .MaxWorkerCount }},
- {{ .MinWorkerCount }},
- {{ .RoleArn }},
- 'us-east-1';
+ '{{ Configuration }}',
+ '{{ Description }}',
+ '{{ DisplayName }}',
+ '{{ FarmId }}',
+ '{{ MaxWorkerCount }}',
+ '{{ MinWorkerCount }}',
+ '{{ RoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: fleet
+    props:
+      - name: Configuration
+        value: null
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: FarmId
+        value: '{{ FarmId }}'
+      - name: MaxWorkerCount
+        value: '{{ MaxWorkerCount }}'
+      - name: MinWorkerCount
+        value: '{{ MinWorkerCount }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

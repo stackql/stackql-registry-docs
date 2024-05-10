@@ -74,40 +74,20 @@ FROM aws.route53.hosted_zones
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>hosted_zone</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "HostedZoneConfig": {
-  "Comment": "{{ Comment }}"
- },
- "HostedZoneTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Name": "{{ Name }}",
- "QueryLoggingConfig": {
-  "CloudWatchLogsLogGroupArn": "{{ CloudWatchLogsLogGroupArn }}"
- },
- "VPCs": [
-  {
-   "VPCId": "{{ VPCId }}",
-   "VPCRegion": "{{ VPCRegion }}"
-  }
- ]
-}
->>>
---required properties only
+-- hosted_zone.iql (required properties only)
 INSERT INTO aws.route53.hosted_zones (
  HostedZoneConfig,
  HostedZoneTags,
@@ -117,41 +97,18 @@ INSERT INTO aws.route53.hosted_zones (
  region
 )
 SELECT 
-{{ .HostedZoneConfig }},
- {{ .HostedZoneTags }},
- {{ .Name }},
- {{ .QueryLoggingConfig }},
- {{ .VPCs }},
-'us-east-1';
+'{{ HostedZoneConfig }}',
+ '{{ HostedZoneTags }}',
+ '{{ Name }}',
+ '{{ QueryLoggingConfig }}',
+ '{{ VPCs }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "HostedZoneConfig": {
-  "Comment": "{{ Comment }}"
- },
- "HostedZoneTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Name": "{{ Name }}",
- "QueryLoggingConfig": {
-  "CloudWatchLogsLogGroupArn": "{{ CloudWatchLogsLogGroupArn }}"
- },
- "VPCs": [
-  {
-   "VPCId": "{{ VPCId }}",
-   "VPCRegion": "{{ VPCRegion }}"
-  }
- ]
-}
->>>
---all properties
+-- hosted_zone.iql (all properties)
 INSERT INTO aws.route53.hosted_zones (
  HostedZoneConfig,
  HostedZoneTags,
@@ -161,12 +118,45 @@ INSERT INTO aws.route53.hosted_zones (
  region
 )
 SELECT 
- {{ .HostedZoneConfig }},
- {{ .HostedZoneTags }},
- {{ .Name }},
- {{ .QueryLoggingConfig }},
- {{ .VPCs }},
- 'us-east-1';
+ '{{ HostedZoneConfig }}',
+ '{{ HostedZoneTags }}',
+ '{{ Name }}',
+ '{{ QueryLoggingConfig }}',
+ '{{ VPCs }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: hosted_zone
+    props:
+      - name: HostedZoneConfig
+        value:
+          Comment: '{{ Comment }}'
+      - name: HostedZoneTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: QueryLoggingConfig
+        value:
+          CloudWatchLogsLogGroupArn: '{{ CloudWatchLogsLogGroupArn }}'
+      - name: VPCs
+        value:
+          - VPCId: '{{ VPCId }}'
+            VPCRegion: '{{ VPCRegion }}'
+
 ```
 </TabItem>
 </Tabs>

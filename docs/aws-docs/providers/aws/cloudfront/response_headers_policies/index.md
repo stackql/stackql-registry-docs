@@ -74,201 +74,110 @@ FROM aws.cloudfront.response_headers_policies
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>response_headers_policy</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResponseHeadersPolicyConfig": {
-  "Comment": "{{ Comment }}",
-  "CorsConfig": {
-   "AccessControlAllowCredentials": "{{ AccessControlAllowCredentials }}",
-   "AccessControlAllowHeaders": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlAllowMethods": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlAllowOrigins": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlExposeHeaders": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlMaxAgeSec": "{{ AccessControlMaxAgeSec }}",
-   "OriginOverride": "{{ OriginOverride }}"
-  },
-  "CustomHeadersConfig": {
-   "Items": [
-    {
-     "Header": "{{ Header }}",
-     "Override": "{{ Override }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "Name": "{{ Name }}",
-  "RemoveHeadersConfig": {
-   "Items": [
-    {
-     "Header": "{{ Header }}"
-    }
-   ]
-  },
-  "SecurityHeadersConfig": {
-   "ContentSecurityPolicy": {
-    "ContentSecurityPolicy": "{{ ContentSecurityPolicy }}",
-    "Override": "{{ Override }}"
-   },
-   "ContentTypeOptions": {
-    "Override": "{{ Override }}"
-   },
-   "FrameOptions": {
-    "FrameOption": "{{ FrameOption }}",
-    "Override": "{{ Override }}"
-   },
-   "ReferrerPolicy": {
-    "Override": "{{ Override }}",
-    "ReferrerPolicy": "{{ ReferrerPolicy }}"
-   },
-   "StrictTransportSecurity": {
-    "AccessControlMaxAgeSec": "{{ AccessControlMaxAgeSec }}",
-    "IncludeSubdomains": "{{ IncludeSubdomains }}",
-    "Override": "{{ Override }}",
-    "Preload": "{{ Preload }}"
-   },
-   "XSSProtection": {
-    "ModeBlock": "{{ ModeBlock }}",
-    "Override": "{{ Override }}",
-    "Protection": "{{ Protection }}",
-    "ReportUri": "{{ ReportUri }}"
-   }
-  },
-  "ServerTimingHeadersConfig": {
-   "Enabled": "{{ Enabled }}",
-   "SamplingRate": null
-  }
- }
-}
->>>
---required properties only
+-- response_headers_policy.iql (required properties only)
 INSERT INTO aws.cloudfront.response_headers_policies (
  ResponseHeadersPolicyConfig,
  region
 )
 SELECT 
-{{ .ResponseHeadersPolicyConfig }},
-'us-east-1';
+'{{ ResponseHeadersPolicyConfig }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResponseHeadersPolicyConfig": {
-  "Comment": "{{ Comment }}",
-  "CorsConfig": {
-   "AccessControlAllowCredentials": "{{ AccessControlAllowCredentials }}",
-   "AccessControlAllowHeaders": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlAllowMethods": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlAllowOrigins": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlExposeHeaders": {
-    "Items": [
-     "{{ Items[0] }}"
-    ]
-   },
-   "AccessControlMaxAgeSec": "{{ AccessControlMaxAgeSec }}",
-   "OriginOverride": "{{ OriginOverride }}"
-  },
-  "CustomHeadersConfig": {
-   "Items": [
-    {
-     "Header": "{{ Header }}",
-     "Override": "{{ Override }}",
-     "Value": "{{ Value }}"
-    }
-   ]
-  },
-  "Name": "{{ Name }}",
-  "RemoveHeadersConfig": {
-   "Items": [
-    {
-     "Header": "{{ Header }}"
-    }
-   ]
-  },
-  "SecurityHeadersConfig": {
-   "ContentSecurityPolicy": {
-    "ContentSecurityPolicy": "{{ ContentSecurityPolicy }}",
-    "Override": "{{ Override }}"
-   },
-   "ContentTypeOptions": {
-    "Override": "{{ Override }}"
-   },
-   "FrameOptions": {
-    "FrameOption": "{{ FrameOption }}",
-    "Override": "{{ Override }}"
-   },
-   "ReferrerPolicy": {
-    "Override": "{{ Override }}",
-    "ReferrerPolicy": "{{ ReferrerPolicy }}"
-   },
-   "StrictTransportSecurity": {
-    "AccessControlMaxAgeSec": "{{ AccessControlMaxAgeSec }}",
-    "IncludeSubdomains": "{{ IncludeSubdomains }}",
-    "Override": "{{ Override }}",
-    "Preload": "{{ Preload }}"
-   },
-   "XSSProtection": {
-    "ModeBlock": "{{ ModeBlock }}",
-    "Override": "{{ Override }}",
-    "Protection": "{{ Protection }}",
-    "ReportUri": "{{ ReportUri }}"
-   }
-  },
-  "ServerTimingHeadersConfig": {
-   "Enabled": "{{ Enabled }}",
-   "SamplingRate": null
-  }
- }
-}
->>>
---all properties
+-- response_headers_policy.iql (all properties)
 INSERT INTO aws.cloudfront.response_headers_policies (
  ResponseHeadersPolicyConfig,
  region
 )
 SELECT 
- {{ .ResponseHeadersPolicyConfig }},
- 'us-east-1';
+ '{{ ResponseHeadersPolicyConfig }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: response_headers_policy
+    props:
+      - name: ResponseHeadersPolicyConfig
+        value:
+          Comment: '{{ Comment }}'
+          CorsConfig:
+            AccessControlAllowCredentials: '{{ AccessControlAllowCredentials }}'
+            AccessControlAllowHeaders:
+              Items:
+                - '{{ Items[0] }}'
+            AccessControlAllowMethods:
+              Items:
+                - '{{ Items[0] }}'
+            AccessControlAllowOrigins:
+              Items:
+                - '{{ Items[0] }}'
+            AccessControlExposeHeaders:
+              Items:
+                - '{{ Items[0] }}'
+            AccessControlMaxAgeSec: '{{ AccessControlMaxAgeSec }}'
+            OriginOverride: '{{ OriginOverride }}'
+          CustomHeadersConfig:
+            Items:
+              - Header: '{{ Header }}'
+                Override: '{{ Override }}'
+                Value: '{{ Value }}'
+          Name: '{{ Name }}'
+          RemoveHeadersConfig:
+            Items:
+              - Header: '{{ Header }}'
+          SecurityHeadersConfig:
+            ContentSecurityPolicy:
+              ContentSecurityPolicy: '{{ ContentSecurityPolicy }}'
+              Override: '{{ Override }}'
+            ContentTypeOptions:
+              Override: '{{ Override }}'
+            FrameOptions:
+              FrameOption: '{{ FrameOption }}'
+              Override: '{{ Override }}'
+            ReferrerPolicy:
+              Override: '{{ Override }}'
+              ReferrerPolicy: '{{ ReferrerPolicy }}'
+            StrictTransportSecurity:
+              AccessControlMaxAgeSec: '{{ AccessControlMaxAgeSec }}'
+              IncludeSubdomains: '{{ IncludeSubdomains }}'
+              Override: '{{ Override }}'
+              Preload: '{{ Preload }}'
+            XSSProtection:
+              ModeBlock: '{{ ModeBlock }}'
+              Override: '{{ Override }}'
+              Protection: '{{ Protection }}'
+              ReportUri: '{{ ReportUri }}'
+          ServerTimingHeadersConfig:
+            Enabled: '{{ Enabled }}'
+            SamplingRate: null
+
 ```
 </TabItem>
 </Tabs>

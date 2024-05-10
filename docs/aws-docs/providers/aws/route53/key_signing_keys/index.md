@@ -76,25 +76,20 @@ FROM aws.route53.key_signing_keys
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>key_signing_key</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "HostedZoneId": "{{ HostedZoneId }}",
- "Status": "{{ Status }}",
- "Name": "{{ Name }}",
- "KeyManagementServiceArn": "{{ KeyManagementServiceArn }}"
-}
->>>
---required properties only
+-- key_signing_key.iql (required properties only)
 INSERT INTO aws.route53.key_signing_keys (
  HostedZoneId,
  Status,
@@ -103,25 +98,17 @@ INSERT INTO aws.route53.key_signing_keys (
  region
 )
 SELECT 
-{{ .HostedZoneId }},
- {{ .Status }},
- {{ .Name }},
- {{ .KeyManagementServiceArn }},
-'us-east-1';
+'{{ HostedZoneId }}',
+ '{{ Status }}',
+ '{{ Name }}',
+ '{{ KeyManagementServiceArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "HostedZoneId": "{{ HostedZoneId }}",
- "Status": "{{ Status }}",
- "Name": "{{ Name }}",
- "KeyManagementServiceArn": "{{ KeyManagementServiceArn }}"
-}
->>>
---all properties
+-- key_signing_key.iql (all properties)
 INSERT INTO aws.route53.key_signing_keys (
  HostedZoneId,
  Status,
@@ -130,11 +117,36 @@ INSERT INTO aws.route53.key_signing_keys (
  region
 )
 SELECT 
- {{ .HostedZoneId }},
- {{ .Status }},
- {{ .Name }},
- {{ .KeyManagementServiceArn }},
- 'us-east-1';
+ '{{ HostedZoneId }}',
+ '{{ Status }}',
+ '{{ Name }}',
+ '{{ KeyManagementServiceArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: key_signing_key
+    props:
+      - name: HostedZoneId
+        value: '{{ HostedZoneId }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: KeyManagementServiceArn
+        value: '{{ KeyManagementServiceArn }}'
+
 ```
 </TabItem>
 </Tabs>

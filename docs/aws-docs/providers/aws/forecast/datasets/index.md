@@ -74,32 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>dataset</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DatasetName": "{{ DatasetName }}",
- "DatasetType": "{{ DatasetType }}",
- "Domain": "{{ Domain }}",
- "Schema": {
-  "Attributes": [
-   {
-    "AttributeName": "{{ AttributeName }}",
-    "AttributeType": "{{ AttributeType }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- dataset.iql (required properties only)
 INSERT INTO aws.forecast.datasets (
  DatasetName,
  DatasetType,
@@ -108,43 +96,17 @@ INSERT INTO aws.forecast.datasets (
  region
 )
 SELECT 
-{{ .DatasetName }},
- {{ .DatasetType }},
- {{ .Domain }},
- {{ .Schema }},
-'us-east-1';
+'{{ DatasetName }}',
+ '{{ DatasetType }}',
+ '{{ Domain }}',
+ '{{ Schema }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DatasetName": "{{ DatasetName }}",
- "DatasetType": "{{ DatasetType }}",
- "DataFrequency": "{{ DataFrequency }}",
- "Domain": "{{ Domain }}",
- "EncryptionConfig": {
-  "KmsKeyArn": "{{ KmsKeyArn }}",
-  "RoleArn": "{{ RoleArn }}"
- },
- "Schema": {
-  "Attributes": [
-   {
-    "AttributeName": "{{ AttributeName }}",
-    "AttributeType": "{{ AttributeType }}"
-   }
-  ]
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- dataset.iql (all properties)
 INSERT INTO aws.forecast.datasets (
  DatasetName,
  DatasetType,
@@ -156,14 +118,52 @@ INSERT INTO aws.forecast.datasets (
  region
 )
 SELECT 
- {{ .DatasetName }},
- {{ .DatasetType }},
- {{ .DataFrequency }},
- {{ .Domain }},
- {{ .EncryptionConfig }},
- {{ .Schema }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DatasetName }}',
+ '{{ DatasetType }}',
+ '{{ DataFrequency }}',
+ '{{ Domain }}',
+ '{{ EncryptionConfig }}',
+ '{{ Schema }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: dataset
+    props:
+      - name: DatasetName
+        value: '{{ DatasetName }}'
+      - name: DatasetType
+        value: '{{ DatasetType }}'
+      - name: DataFrequency
+        value: '{{ DataFrequency }}'
+      - name: Domain
+        value: '{{ Domain }}'
+      - name: EncryptionConfig
+        value:
+          KmsKeyArn: '{{ KmsKeyArn }}'
+          RoleArn: '{{ RoleArn }}'
+      - name: Schema
+        value:
+          Attributes:
+            - AttributeName: '{{ AttributeName }}'
+              AttributeType: '{{ AttributeType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

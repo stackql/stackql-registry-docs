@@ -74,61 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>bucket</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "BucketName": "{{ BucketName }}",
- "BundleId": "{{ BundleId }}"
-}
->>>
---required properties only
+-- bucket.iql (required properties only)
 INSERT INTO aws.lightsail.buckets (
  BucketName,
  BundleId,
  region
 )
 SELECT 
-{{ .BucketName }},
- {{ .BundleId }},
-'us-east-1';
+'{{ BucketName }}',
+ '{{ BundleId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "BucketName": "{{ BucketName }}",
- "BundleId": "{{ BundleId }}",
- "ObjectVersioning": "{{ ObjectVersioning }}",
- "AccessRules": {
-  "GetObject": "{{ GetObject }}",
-  "AllowPublicOverrides": "{{ AllowPublicOverrides }}"
- },
- "ResourcesReceivingAccess": [
-  "{{ ResourcesReceivingAccess[0] }}"
- ],
- "ReadOnlyAccessAccounts": [
-  "{{ ReadOnlyAccessAccounts[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- bucket.iql (all properties)
 INSERT INTO aws.lightsail.buckets (
  BucketName,
  BundleId,
@@ -140,14 +114,51 @@ INSERT INTO aws.lightsail.buckets (
  region
 )
 SELECT 
- {{ .BucketName }},
- {{ .BundleId }},
- {{ .ObjectVersioning }},
- {{ .AccessRules }},
- {{ .ResourcesReceivingAccess }},
- {{ .ReadOnlyAccessAccounts }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ BucketName }}',
+ '{{ BundleId }}',
+ '{{ ObjectVersioning }}',
+ '{{ AccessRules }}',
+ '{{ ResourcesReceivingAccess }}',
+ '{{ ReadOnlyAccessAccounts }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: bucket
+    props:
+      - name: BucketName
+        value: '{{ BucketName }}'
+      - name: BundleId
+        value: '{{ BundleId }}'
+      - name: ObjectVersioning
+        value: '{{ ObjectVersioning }}'
+      - name: AccessRules
+        value:
+          GetObject: '{{ GetObject }}'
+          AllowPublicOverrides: '{{ AllowPublicOverrides }}'
+      - name: ResourcesReceivingAccess
+        value:
+          - '{{ ResourcesReceivingAccess[0] }}'
+      - name: ReadOnlyAccessAccounts
+        value:
+          - '{{ ReadOnlyAccessAccounts[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

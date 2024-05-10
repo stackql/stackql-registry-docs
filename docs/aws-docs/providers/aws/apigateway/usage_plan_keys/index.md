@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>usage_plan_key</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KeyId": "{{ KeyId }}",
- "KeyType": "{{ KeyType }}",
- "UsagePlanId": "{{ UsagePlanId }}"
-}
->>>
---required properties only
+-- usage_plan_key.iql (required properties only)
 INSERT INTO aws.apigateway.usage_plan_keys (
  KeyId,
  KeyType,
@@ -99,23 +95,16 @@ INSERT INTO aws.apigateway.usage_plan_keys (
  region
 )
 SELECT 
-{{ .KeyId }},
- {{ .KeyType }},
- {{ .UsagePlanId }},
-'us-east-1';
+'{{ KeyId }}',
+ '{{ KeyType }}',
+ '{{ UsagePlanId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "KeyId": "{{ KeyId }}",
- "KeyType": "{{ KeyType }}",
- "UsagePlanId": "{{ UsagePlanId }}"
-}
->>>
---all properties
+-- usage_plan_key.iql (all properties)
 INSERT INTO aws.apigateway.usage_plan_keys (
  KeyId,
  KeyType,
@@ -123,10 +112,33 @@ INSERT INTO aws.apigateway.usage_plan_keys (
  region
 )
 SELECT 
- {{ .KeyId }},
- {{ .KeyType }},
- {{ .UsagePlanId }},
- 'us-east-1';
+ '{{ KeyId }}',
+ '{{ KeyType }}',
+ '{{ UsagePlanId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: usage_plan_key
+    props:
+      - name: KeyId
+        value: '{{ KeyId }}'
+      - name: KeyType
+        value: '{{ KeyType }}'
+      - name: UsagePlanId
+        value: '{{ UsagePlanId }}'
+
 ```
 </TabItem>
 </Tabs>

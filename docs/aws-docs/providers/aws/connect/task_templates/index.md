@@ -74,86 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>task_template</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}"
-}
->>>
---required properties only
+-- task_template.iql (required properties only)
 INSERT INTO aws.connect.task_templates (
  InstanceArn,
  region
 )
 SELECT 
-{{ .InstanceArn }},
-'us-east-1';
+'{{ InstanceArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "InstanceArn": "{{ InstanceArn }}",
- "Name": "{{ Name }}",
- "Description": "{{ Description }}",
- "ContactFlowArn": "{{ ContactFlowArn }}",
- "Constraints": {
-  "InvisibleFields": [
-   {
-    "Id": {
-     "Name": "{{ Name }}"
-    }
-   }
-  ],
-  "RequiredFields": [
-   {
-    "Id": null
-   }
-  ],
-  "ReadOnlyFields": [
-   {
-    "Id": null
-   }
-  ]
- },
- "Defaults": [
-  {
-   "Id": null,
-   "DefaultValue": "{{ DefaultValue }}"
-  }
- ],
- "Fields": [
-  {
-   "Id": null,
-   "Description": "{{ Description }}",
-   "Type": "{{ Type }}",
-   "SingleSelectOptions": [
-    "{{ SingleSelectOptions[0] }}"
-   ]
-  }
- ],
- "Status": "{{ Status }}",
- "ClientToken": "{{ ClientToken }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- task_template.iql (all properties)
 INSERT INTO aws.connect.task_templates (
  InstanceArn,
  Name,
@@ -168,17 +115,70 @@ INSERT INTO aws.connect.task_templates (
  region
 )
 SELECT 
- {{ .InstanceArn }},
- {{ .Name }},
- {{ .Description }},
- {{ .ContactFlowArn }},
- {{ .Constraints }},
- {{ .Defaults }},
- {{ .Fields }},
- {{ .Status }},
- {{ .ClientToken }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ InstanceArn }}',
+ '{{ Name }}',
+ '{{ Description }}',
+ '{{ ContactFlowArn }}',
+ '{{ Constraints }}',
+ '{{ Defaults }}',
+ '{{ Fields }}',
+ '{{ Status }}',
+ '{{ ClientToken }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: task_template
+    props:
+      - name: InstanceArn
+        value: '{{ InstanceArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ContactFlowArn
+        value: '{{ ContactFlowArn }}'
+      - name: Constraints
+        value:
+          InvisibleFields:
+            - Id:
+                Name: '{{ Name }}'
+          RequiredFields:
+            - Id: null
+          ReadOnlyFields:
+            - Id: null
+      - name: Defaults
+        value:
+          - Id: null
+            DefaultValue: '{{ DefaultValue }}'
+      - name: Fields
+        value:
+          - Id: null
+            Description: '{{ Description }}'
+            Type: '{{ Type }}'
+            SingleSelectOptions:
+              - '{{ SingleSelectOptions[0] }}'
+      - name: Status
+        value: '{{ Status }}'
+      - name: ClientToken
+        value: '{{ ClientToken }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

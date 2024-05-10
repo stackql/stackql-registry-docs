@@ -76,55 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>addon</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "AddonName": "{{ AddonName }}"
-}
->>>
---required properties only
+-- addon.iql (required properties only)
 INSERT INTO aws.eks.addons (
  ClusterName,
  AddonName,
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .AddonName }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ AddonName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "AddonName": "{{ AddonName }}",
- "AddonVersion": "{{ AddonVersion }}",
- "PreserveOnDelete": "{{ PreserveOnDelete }}",
- "ResolveConflicts": "{{ ResolveConflicts }}",
- "ServiceAccountRoleArn": "{{ ServiceAccountRoleArn }}",
- "ConfigurationValues": "{{ ConfigurationValues }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- addon.iql (all properties)
 INSERT INTO aws.eks.addons (
  ClusterName,
  AddonName,
@@ -137,15 +117,50 @@ INSERT INTO aws.eks.addons (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .AddonName }},
- {{ .AddonVersion }},
- {{ .PreserveOnDelete }},
- {{ .ResolveConflicts }},
- {{ .ServiceAccountRoleArn }},
- {{ .ConfigurationValues }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ AddonName }}',
+ '{{ AddonVersion }}',
+ '{{ PreserveOnDelete }}',
+ '{{ ResolveConflicts }}',
+ '{{ ServiceAccountRoleArn }}',
+ '{{ ConfigurationValues }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: addon
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: AddonName
+        value: '{{ AddonName }}'
+      - name: AddonVersion
+        value: '{{ AddonVersion }}'
+      - name: PreserveOnDelete
+        value: '{{ PreserveOnDelete }}'
+      - name: ResolveConflicts
+        value: '{{ ResolveConflicts }}'
+      - name: ServiceAccountRoleArn
+        value: '{{ ServiceAccountRoleArn }}'
+      - name: ConfigurationValues
+        value: '{{ ConfigurationValues }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

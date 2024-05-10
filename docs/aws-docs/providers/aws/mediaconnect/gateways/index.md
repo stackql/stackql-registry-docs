@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "EgressCidrBlocks": [
-  "{{ EgressCidrBlocks[0] }}"
- ],
- "Networks": [
-  {
-   "Name": "{{ Name }}",
-   "CidrBlock": "{{ CidrBlock }}"
-  }
- ]
-}
->>>
---required properties only
+-- gateway.iql (required properties only)
 INSERT INTO aws.mediaconnect.gateways (
  Name,
  EgressCidrBlocks,
@@ -106,30 +95,16 @@ INSERT INTO aws.mediaconnect.gateways (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .EgressCidrBlocks }},
- {{ .Networks }},
-'us-east-1';
+'{{ Name }}',
+ '{{ EgressCidrBlocks }}',
+ '{{ Networks }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "EgressCidrBlocks": [
-  "{{ EgressCidrBlocks[0] }}"
- ],
- "Networks": [
-  {
-   "Name": "{{ Name }}",
-   "CidrBlock": "{{ CidrBlock }}"
-  }
- ]
-}
->>>
---all properties
+-- gateway.iql (all properties)
 INSERT INTO aws.mediaconnect.gateways (
  Name,
  EgressCidrBlocks,
@@ -137,10 +112,36 @@ INSERT INTO aws.mediaconnect.gateways (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .EgressCidrBlocks }},
- {{ .Networks }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ EgressCidrBlocks }}',
+ '{{ Networks }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: gateway
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: EgressCidrBlocks
+        value:
+          - '{{ EgressCidrBlocks[0] }}'
+      - name: Networks
+        value:
+          - Name: '{{ Name }}'
+            CidrBlock: '{{ CidrBlock }}'
+
 ```
 </TabItem>
 </Tabs>

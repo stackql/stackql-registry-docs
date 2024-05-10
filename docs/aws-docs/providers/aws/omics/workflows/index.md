@@ -74,30 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>workflow</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DefinitionUri": "{{ DefinitionUri }}",
- "Description": "{{ Description }}",
- "Engine": "{{ Engine }}",
- "Main": "{{ Main }}",
- "Name": "{{ Name }}",
- "ParameterTemplate": {},
- "Accelerators": "{{ Accelerators }}",
- "StorageCapacity": null,
- "Tags": {}
-}
->>>
---required properties only
+-- workflow.iql (required properties only)
 INSERT INTO aws.omics.workflows (
  DefinitionUri,
  Description,
@@ -111,35 +101,22 @@ INSERT INTO aws.omics.workflows (
  region
 )
 SELECT 
-{{ .DefinitionUri }},
- {{ .Description }},
- {{ .Engine }},
- {{ .Main }},
- {{ .Name }},
- {{ .ParameterTemplate }},
- {{ .Accelerators }},
- {{ .StorageCapacity }},
- {{ .Tags }},
-'us-east-1';
+'{{ DefinitionUri }}',
+ '{{ Description }}',
+ '{{ Engine }}',
+ '{{ Main }}',
+ '{{ Name }}',
+ '{{ ParameterTemplate }}',
+ '{{ Accelerators }}',
+ '{{ StorageCapacity }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DefinitionUri": "{{ DefinitionUri }}",
- "Description": "{{ Description }}",
- "Engine": "{{ Engine }}",
- "Main": "{{ Main }}",
- "Name": "{{ Name }}",
- "ParameterTemplate": {},
- "Accelerators": "{{ Accelerators }}",
- "StorageCapacity": null,
- "Tags": {}
-}
->>>
---all properties
+-- workflow.iql (all properties)
 INSERT INTO aws.omics.workflows (
  DefinitionUri,
  Description,
@@ -153,16 +130,51 @@ INSERT INTO aws.omics.workflows (
  region
 )
 SELECT 
- {{ .DefinitionUri }},
- {{ .Description }},
- {{ .Engine }},
- {{ .Main }},
- {{ .Name }},
- {{ .ParameterTemplate }},
- {{ .Accelerators }},
- {{ .StorageCapacity }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DefinitionUri }}',
+ '{{ Description }}',
+ '{{ Engine }}',
+ '{{ Main }}',
+ '{{ Name }}',
+ '{{ ParameterTemplate }}',
+ '{{ Accelerators }}',
+ '{{ StorageCapacity }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: workflow
+    props:
+      - name: DefinitionUri
+        value: '{{ DefinitionUri }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Engine
+        value: '{{ Engine }}'
+      - name: Main
+        value: '{{ Main }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ParameterTemplate
+        value: {}
+      - name: Accelerators
+        value: '{{ Accelerators }}'
+      - name: StorageCapacity
+        value: null
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

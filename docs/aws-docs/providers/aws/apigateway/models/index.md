@@ -76,44 +76,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>model</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---required properties only
+-- model.iql (required properties only)
 INSERT INTO aws.apigateway.models (
  RestApiId,
  region
 )
 SELECT 
-{{ .RestApiId }},
-'us-east-1';
+'{{ RestApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ContentType": "{{ ContentType }}",
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "RestApiId": "{{ RestApiId }}",
- "Schema": {}
-}
->>>
---all properties
+-- model.iql (all properties)
 INSERT INTO aws.apigateway.models (
  ContentType,
  Description,
@@ -123,12 +112,39 @@ INSERT INTO aws.apigateway.models (
  region
 )
 SELECT 
- {{ .ContentType }},
- {{ .Description }},
- {{ .Name }},
- {{ .RestApiId }},
- {{ .Schema }},
- 'us-east-1';
+ '{{ ContentType }}',
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ RestApiId }}',
+ '{{ Schema }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: model
+    props:
+      - name: ContentType
+        value: '{{ ContentType }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+      - name: Schema
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

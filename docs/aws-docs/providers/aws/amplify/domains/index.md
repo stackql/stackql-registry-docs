@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "DomainName": "{{ DomainName }}",
- "SubDomainSettings": [
-  {
-   "Prefix": "{{ Prefix }}",
-   "BranchName": "{{ BranchName }}"
-  }
- ]
-}
->>>
---required properties only
+-- domain.iql (required properties only)
 INSERT INTO aws.amplify.domains (
  AppId,
  DomainName,
@@ -104,37 +95,16 @@ INSERT INTO aws.amplify.domains (
  region
 )
 SELECT 
-{{ .AppId }},
- {{ .DomainName }},
- {{ .SubDomainSettings }},
-'us-east-1';
+'{{ AppId }}',
+ '{{ DomainName }}',
+ '{{ SubDomainSettings }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "AutoSubDomainCreationPatterns": [
-  "{{ AutoSubDomainCreationPatterns[0] }}"
- ],
- "AutoSubDomainIAMRole": "{{ AutoSubDomainIAMRole }}",
- "CertificateSettings": {
-  "CertificateType": "{{ CertificateType }}",
-  "CustomCertificateArn": "{{ CustomCertificateArn }}"
- },
- "DomainName": "{{ DomainName }}",
- "EnableAutoSubDomain": "{{ EnableAutoSubDomain }}",
- "SubDomainSettings": [
-  {
-   "Prefix": "{{ Prefix }}",
-   "BranchName": "{{ BranchName }}"
-  }
- ]
-}
->>>
---all properties
+-- domain.iql (all properties)
 INSERT INTO aws.amplify.domains (
  AppId,
  AutoSubDomainCreationPatterns,
@@ -146,14 +116,50 @@ INSERT INTO aws.amplify.domains (
  region
 )
 SELECT 
- {{ .AppId }},
- {{ .AutoSubDomainCreationPatterns }},
- {{ .AutoSubDomainIAMRole }},
- {{ .CertificateSettings }},
- {{ .DomainName }},
- {{ .EnableAutoSubDomain }},
- {{ .SubDomainSettings }},
- 'us-east-1';
+ '{{ AppId }}',
+ '{{ AutoSubDomainCreationPatterns }}',
+ '{{ AutoSubDomainIAMRole }}',
+ '{{ CertificateSettings }}',
+ '{{ DomainName }}',
+ '{{ EnableAutoSubDomain }}',
+ '{{ SubDomainSettings }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: domain
+    props:
+      - name: AppId
+        value: '{{ AppId }}'
+      - name: AutoSubDomainCreationPatterns
+        value:
+          - '{{ AutoSubDomainCreationPatterns[0] }}'
+      - name: AutoSubDomainIAMRole
+        value: '{{ AutoSubDomainIAMRole }}'
+      - name: CertificateSettings
+        value:
+          CertificateType: '{{ CertificateType }}'
+          CustomCertificateArn: '{{ CustomCertificateArn }}'
+      - name: DomainName
+        value: '{{ DomainName }}'
+      - name: EnableAutoSubDomain
+        value: '{{ EnableAutoSubDomain }}'
+      - name: SubDomainSettings
+        value:
+          - Prefix: '{{ Prefix }}'
+            BranchName: '{{ BranchName }}'
+
 ```
 </TabItem>
 </Tabs>

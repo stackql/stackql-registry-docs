@@ -74,61 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>application_instance</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DefaultRuntimeContextDevice": "{{ DefaultRuntimeContextDevice }}",
- "ManifestPayload": {
-  "PayloadData": "{{ PayloadData }}"
- }
-}
->>>
---required properties only
+-- application_instance.iql (required properties only)
 INSERT INTO aws.panorama.application_instances (
  DefaultRuntimeContextDevice,
  ManifestPayload,
  region
 )
 SELECT 
-{{ .DefaultRuntimeContextDevice }},
- {{ .ManifestPayload }},
-'us-east-1';
+'{{ DefaultRuntimeContextDevice }}',
+ '{{ ManifestPayload }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DefaultRuntimeContextDevice": "{{ DefaultRuntimeContextDevice }}",
- "Description": "{{ Description }}",
- "ApplicationInstanceIdToReplace": "{{ ApplicationInstanceIdToReplace }}",
- "ManifestOverridesPayload": {
-  "PayloadData": "{{ PayloadData }}"
- },
- "RuntimeRoleArn": "{{ RuntimeRoleArn }}",
- "Name": "{{ Name }}",
- "ManifestPayload": {
-  "PayloadData": "{{ PayloadData }}"
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- application_instance.iql (all properties)
 INSERT INTO aws.panorama.application_instances (
  DefaultRuntimeContextDevice,
  Description,
@@ -141,15 +115,52 @@ INSERT INTO aws.panorama.application_instances (
  region
 )
 SELECT 
- {{ .DefaultRuntimeContextDevice }},
- {{ .Description }},
- {{ .ApplicationInstanceIdToReplace }},
- {{ .ManifestOverridesPayload }},
- {{ .RuntimeRoleArn }},
- {{ .Name }},
- {{ .ManifestPayload }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DefaultRuntimeContextDevice }}',
+ '{{ Description }}',
+ '{{ ApplicationInstanceIdToReplace }}',
+ '{{ ManifestOverridesPayload }}',
+ '{{ RuntimeRoleArn }}',
+ '{{ Name }}',
+ '{{ ManifestPayload }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: application_instance
+    props:
+      - name: DefaultRuntimeContextDevice
+        value: '{{ DefaultRuntimeContextDevice }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ApplicationInstanceIdToReplace
+        value: '{{ ApplicationInstanceIdToReplace }}'
+      - name: ManifestOverridesPayload
+        value:
+          PayloadData: '{{ PayloadData }}'
+      - name: RuntimeRoleArn
+        value: '{{ RuntimeRoleArn }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ManifestPayload
+        value:
+          PayloadData: '{{ PayloadData }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

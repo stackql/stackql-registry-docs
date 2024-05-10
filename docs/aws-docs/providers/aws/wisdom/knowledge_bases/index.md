@@ -74,65 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>knowledge_base</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KnowledgeBaseType": "{{ KnowledgeBaseType }}",
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- knowledge_base.iql (required properties only)
 INSERT INTO aws.wisdom.knowledge_bases (
  KnowledgeBaseType,
  Name,
  region
 )
 SELECT 
-{{ .KnowledgeBaseType }},
- {{ .Name }},
-'us-east-1';
+'{{ KnowledgeBaseType }}',
+ '{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "KnowledgeBaseType": "{{ KnowledgeBaseType }}",
- "Name": "{{ Name }}",
- "RenderingConfiguration": {
-  "TemplateUri": "{{ TemplateUri }}"
- },
- "ServerSideEncryptionConfiguration": {
-  "KmsKeyId": "{{ KmsKeyId }}"
- },
- "SourceConfiguration": {
-  "AppIntegrations": {
-   "ObjectFields": [
-    "{{ ObjectFields[0] }}"
-   ],
-   "AppIntegrationArn": "{{ AppIntegrationArn }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- knowledge_base.iql (all properties)
 INSERT INTO aws.wisdom.knowledge_bases (
  Description,
  KnowledgeBaseType,
@@ -144,14 +114,53 @@ INSERT INTO aws.wisdom.knowledge_bases (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .KnowledgeBaseType }},
- {{ .Name }},
- {{ .RenderingConfiguration }},
- {{ .ServerSideEncryptionConfiguration }},
- {{ .SourceConfiguration }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ KnowledgeBaseType }}',
+ '{{ Name }}',
+ '{{ RenderingConfiguration }}',
+ '{{ ServerSideEncryptionConfiguration }}',
+ '{{ SourceConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: knowledge_base
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: KnowledgeBaseType
+        value: '{{ KnowledgeBaseType }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: RenderingConfiguration
+        value:
+          TemplateUri: '{{ TemplateUri }}'
+      - name: ServerSideEncryptionConfiguration
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+      - name: SourceConfiguration
+        value:
+          AppIntegrations:
+            ObjectFields:
+              - '{{ ObjectFields[0] }}'
+            AppIntegrationArn: '{{ AppIntegrationArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

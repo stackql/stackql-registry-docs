@@ -74,29 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>simple_ad</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Size": "{{ Size }}",
- "VpcSettings": {
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ],
-  "VpcId": "{{ VpcId }}"
- }
-}
->>>
---required properties only
+-- simple_ad.iql (required properties only)
 INSERT INTO aws.directoryservice.simple_ads (
  Name,
  Size,
@@ -104,33 +95,16 @@ INSERT INTO aws.directoryservice.simple_ads (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Size }},
- {{ .VpcSettings }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Size }}',
+ '{{ VpcSettings }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CreateAlias": "{{ CreateAlias }}",
- "Description": "{{ Description }}",
- "EnableSso": "{{ EnableSso }}",
- "Name": "{{ Name }}",
- "Password": "{{ Password }}",
- "ShortName": "{{ ShortName }}",
- "Size": "{{ Size }}",
- "VpcSettings": {
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ],
-  "VpcId": "{{ VpcId }}"
- }
-}
->>>
---all properties
+-- simple_ad.iql (all properties)
 INSERT INTO aws.directoryservice.simple_ads (
  CreateAlias,
  Description,
@@ -143,15 +117,51 @@ INSERT INTO aws.directoryservice.simple_ads (
  region
 )
 SELECT 
- {{ .CreateAlias }},
- {{ .Description }},
- {{ .EnableSso }},
- {{ .Name }},
- {{ .Password }},
- {{ .ShortName }},
- {{ .Size }},
- {{ .VpcSettings }},
- 'us-east-1';
+ '{{ CreateAlias }}',
+ '{{ Description }}',
+ '{{ EnableSso }}',
+ '{{ Name }}',
+ '{{ Password }}',
+ '{{ ShortName }}',
+ '{{ Size }}',
+ '{{ VpcSettings }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: simple_ad
+    props:
+      - name: CreateAlias
+        value: '{{ CreateAlias }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EnableSso
+        value: '{{ EnableSso }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: Password
+        value: '{{ Password }}'
+      - name: ShortName
+        value: '{{ ShortName }}'
+      - name: Size
+        value: '{{ Size }}'
+      - name: VpcSettings
+        value:
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+          VpcId: '{{ VpcId }}'
+
 ```
 </TabItem>
 </Tabs>

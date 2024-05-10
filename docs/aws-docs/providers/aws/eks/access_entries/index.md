@@ -76,66 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_entry</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "PrincipalArn": "{{ PrincipalArn }}"
-}
->>>
---required properties only
+-- access_entry.iql (required properties only)
 INSERT INTO aws.eks.access_entries (
  ClusterName,
  PrincipalArn,
  region
 )
 SELECT 
-{{ .ClusterName }},
- {{ .PrincipalArn }},
-'us-east-1';
+'{{ ClusterName }}',
+ '{{ PrincipalArn }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ClusterName": "{{ ClusterName }}",
- "PrincipalArn": "{{ PrincipalArn }}",
- "Username": "{{ Username }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "KubernetesGroups": [
-  "{{ KubernetesGroups[0] }}"
- ],
- "AccessPolicies": [
-  {
-   "PolicyArn": "{{ PolicyArn }}",
-   "AccessScope": {
-    "Type": "{{ Type }}",
-    "Namespaces": [
-     "{{ Namespaces[0] }}"
-    ]
-   }
-  }
- ],
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- access_entry.iql (all properties)
 INSERT INTO aws.eks.access_entries (
  ClusterName,
  PrincipalArn,
@@ -147,14 +116,53 @@ INSERT INTO aws.eks.access_entries (
  region
 )
 SELECT 
- {{ .ClusterName }},
- {{ .PrincipalArn }},
- {{ .Username }},
- {{ .Tags }},
- {{ .KubernetesGroups }},
- {{ .AccessPolicies }},
- {{ .Type }},
- 'us-east-1';
+ '{{ ClusterName }}',
+ '{{ PrincipalArn }}',
+ '{{ Username }}',
+ '{{ Tags }}',
+ '{{ KubernetesGroups }}',
+ '{{ AccessPolicies }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_entry
+    props:
+      - name: ClusterName
+        value: '{{ ClusterName }}'
+      - name: PrincipalArn
+        value: '{{ PrincipalArn }}'
+      - name: Username
+        value: '{{ Username }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: KubernetesGroups
+        value:
+          - '{{ KubernetesGroups[0] }}'
+      - name: AccessPolicies
+        value:
+          - PolicyArn: '{{ PolicyArn }}'
+            AccessScope:
+              Type: '{{ Type }}'
+              Namespaces:
+                - '{{ Namespaces[0] }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

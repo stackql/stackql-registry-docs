@@ -74,128 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>packaging_configuration</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}",
- "PackagingGroupId": "{{ PackagingGroupId }}"
-}
->>>
---required properties only
+-- packaging_configuration.iql (required properties only)
 INSERT INTO aws.mediapackage.packaging_configurations (
  Id,
  PackagingGroupId,
  region
 )
 SELECT 
-{{ .Id }},
- {{ .PackagingGroupId }},
-'us-east-1';
+'{{ Id }}',
+ '{{ PackagingGroupId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Id": "{{ Id }}",
- "PackagingGroupId": "{{ PackagingGroupId }}",
- "CmafPackage": {
-  "Encryption": {
-   "SpekeKeyProvider": {
-    "EncryptionContractConfiguration": {
-     "PresetSpeke20Audio": "{{ PresetSpeke20Audio }}",
-     "PresetSpeke20Video": "{{ PresetSpeke20Video }}"
-    },
-    "RoleArn": "{{ RoleArn }}",
-    "SystemIds": [
-     "{{ SystemIds[0] }}"
-    ],
-    "Url": "{{ Url }}"
-   }
-  },
-  "HlsManifests": [
-   {
-    "AdMarkers": "{{ AdMarkers }}",
-    "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}",
-    "ManifestName": "{{ ManifestName }}",
-    "ProgramDateTimeIntervalSeconds": "{{ ProgramDateTimeIntervalSeconds }}",
-    "RepeatExtXKey": "{{ RepeatExtXKey }}",
-    "StreamSelection": {
-     "MaxVideoBitsPerSecond": "{{ MaxVideoBitsPerSecond }}",
-     "MinVideoBitsPerSecond": "{{ MinVideoBitsPerSecond }}",
-     "StreamOrder": "{{ StreamOrder }}"
-    }
-   }
-  ],
-  "SegmentDurationSeconds": "{{ SegmentDurationSeconds }}",
-  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}"
- },
- "DashPackage": {
-  "DashManifests": [
-   {
-    "ManifestLayout": "{{ ManifestLayout }}",
-    "ManifestName": null,
-    "MinBufferTimeSeconds": "{{ MinBufferTimeSeconds }}",
-    "Profile": "{{ Profile }}",
-    "ScteMarkersSource": "{{ ScteMarkersSource }}",
-    "StreamSelection": null
-   }
-  ],
-  "Encryption": {
-   "SpekeKeyProvider": null
-  },
-  "PeriodTriggers": [
-   "{{ PeriodTriggers[0] }}"
-  ],
-  "SegmentDurationSeconds": null,
-  "SegmentTemplateFormat": "{{ SegmentTemplateFormat }}",
-  "IncludeEncoderConfigurationInSegments": "{{ IncludeEncoderConfigurationInSegments }}",
-  "IncludeIframeOnlyStream": "{{ IncludeIframeOnlyStream }}"
- },
- "HlsPackage": {
-  "Encryption": {
-   "ConstantInitializationVector": "{{ ConstantInitializationVector }}",
-   "EncryptionMethod": "{{ EncryptionMethod }}",
-   "SpekeKeyProvider": null
-  },
-  "HlsManifests": [
-   null
-  ],
-  "IncludeDvbSubtitles": "{{ IncludeDvbSubtitles }}",
-  "SegmentDurationSeconds": null,
-  "UseAudioRenditionGroup": "{{ UseAudioRenditionGroup }}"
- },
- "MssPackage": {
-  "Encryption": {
-   "SpekeKeyProvider": null
-  },
-  "MssManifests": [
-   {
-    "ManifestName": null,
-    "StreamSelection": null
-   }
-  ],
-  "SegmentDurationSeconds": null
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- packaging_configuration.iql (all properties)
 INSERT INTO aws.mediapackage.packaging_configurations (
  Id,
  PackagingGroupId,
@@ -207,14 +114,98 @@ INSERT INTO aws.mediapackage.packaging_configurations (
  region
 )
 SELECT 
- {{ .Id }},
- {{ .PackagingGroupId }},
- {{ .CmafPackage }},
- {{ .DashPackage }},
- {{ .HlsPackage }},
- {{ .MssPackage }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Id }}',
+ '{{ PackagingGroupId }}',
+ '{{ CmafPackage }}',
+ '{{ DashPackage }}',
+ '{{ HlsPackage }}',
+ '{{ MssPackage }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: packaging_configuration
+    props:
+      - name: Id
+        value: '{{ Id }}'
+      - name: PackagingGroupId
+        value: '{{ PackagingGroupId }}'
+      - name: CmafPackage
+        value:
+          Encryption:
+            SpekeKeyProvider:
+              EncryptionContractConfiguration:
+                PresetSpeke20Audio: '{{ PresetSpeke20Audio }}'
+                PresetSpeke20Video: '{{ PresetSpeke20Video }}'
+              RoleArn: '{{ RoleArn }}'
+              SystemIds:
+                - '{{ SystemIds[0] }}'
+              Url: '{{ Url }}'
+          HlsManifests:
+            - AdMarkers: '{{ AdMarkers }}'
+              IncludeIframeOnlyStream: '{{ IncludeIframeOnlyStream }}'
+              ManifestName: '{{ ManifestName }}'
+              ProgramDateTimeIntervalSeconds: '{{ ProgramDateTimeIntervalSeconds }}'
+              RepeatExtXKey: '{{ RepeatExtXKey }}'
+              StreamSelection:
+                MaxVideoBitsPerSecond: '{{ MaxVideoBitsPerSecond }}'
+                MinVideoBitsPerSecond: '{{ MinVideoBitsPerSecond }}'
+                StreamOrder: '{{ StreamOrder }}'
+          SegmentDurationSeconds: '{{ SegmentDurationSeconds }}'
+          IncludeEncoderConfigurationInSegments: '{{ IncludeEncoderConfigurationInSegments }}'
+      - name: DashPackage
+        value:
+          DashManifests:
+            - ManifestLayout: '{{ ManifestLayout }}'
+              ManifestName: null
+              MinBufferTimeSeconds: '{{ MinBufferTimeSeconds }}'
+              Profile: '{{ Profile }}'
+              ScteMarkersSource: '{{ ScteMarkersSource }}'
+              StreamSelection: null
+          Encryption:
+            SpekeKeyProvider: null
+          PeriodTriggers:
+            - '{{ PeriodTriggers[0] }}'
+          SegmentDurationSeconds: null
+          SegmentTemplateFormat: '{{ SegmentTemplateFormat }}'
+          IncludeEncoderConfigurationInSegments: '{{ IncludeEncoderConfigurationInSegments }}'
+          IncludeIframeOnlyStream: '{{ IncludeIframeOnlyStream }}'
+      - name: HlsPackage
+        value:
+          Encryption:
+            ConstantInitializationVector: '{{ ConstantInitializationVector }}'
+            EncryptionMethod: '{{ EncryptionMethod }}'
+            SpekeKeyProvider: null
+          HlsManifests:
+            - null
+          IncludeDvbSubtitles: '{{ IncludeDvbSubtitles }}'
+          SegmentDurationSeconds: null
+          UseAudioRenditionGroup: '{{ UseAudioRenditionGroup }}'
+      - name: MssPackage
+        value:
+          Encryption:
+            SpekeKeyProvider: null
+          MssManifests:
+            - ManifestName: null
+              StreamSelection: null
+          SegmentDurationSeconds: null
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

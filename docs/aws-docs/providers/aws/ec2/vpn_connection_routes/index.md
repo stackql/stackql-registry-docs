@@ -76,53 +76,65 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpn_connection_route</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DestinationCidrBlock": "{{ DestinationCidrBlock }}",
- "VpnConnectionId": "{{ VpnConnectionId }}"
-}
->>>
---required properties only
+-- vpn_connection_route.iql (required properties only)
 INSERT INTO aws.ec2.vpn_connection_routes (
  DestinationCidrBlock,
  VpnConnectionId,
  region
 )
 SELECT 
-{{ .DestinationCidrBlock }},
- {{ .VpnConnectionId }},
-'us-east-1';
+'{{ DestinationCidrBlock }}',
+ '{{ VpnConnectionId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DestinationCidrBlock": "{{ DestinationCidrBlock }}",
- "VpnConnectionId": "{{ VpnConnectionId }}"
-}
->>>
---all properties
+-- vpn_connection_route.iql (all properties)
 INSERT INTO aws.ec2.vpn_connection_routes (
  DestinationCidrBlock,
  VpnConnectionId,
  region
 )
 SELECT 
- {{ .DestinationCidrBlock }},
- {{ .VpnConnectionId }},
- 'us-east-1';
+ '{{ DestinationCidrBlock }}',
+ '{{ VpnConnectionId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpn_connection_route
+    props:
+      - name: DestinationCidrBlock
+        value: '{{ DestinationCidrBlock }}'
+      - name: VpnConnectionId
+        value: '{{ VpnConnectionId }}'
+
 ```
 </TabItem>
 </Tabs>

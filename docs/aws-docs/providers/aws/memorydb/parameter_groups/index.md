@@ -74,52 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>parameter_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ParameterGroupName": "{{ ParameterGroupName }}",
- "Family": "{{ Family }}"
-}
->>>
---required properties only
+-- parameter_group.iql (required properties only)
 INSERT INTO aws.memorydb.parameter_groups (
  ParameterGroupName,
  Family,
  region
 )
 SELECT 
-{{ .ParameterGroupName }},
- {{ .Family }},
-'us-east-1';
+'{{ ParameterGroupName }}',
+ '{{ Family }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ParameterGroupName": "{{ ParameterGroupName }}",
- "Family": "{{ Family }}",
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Parameters": {}
-}
->>>
---all properties
+-- parameter_group.iql (all properties)
 INSERT INTO aws.memorydb.parameter_groups (
  ParameterGroupName,
  Family,
@@ -129,12 +112,41 @@ INSERT INTO aws.memorydb.parameter_groups (
  region
 )
 SELECT 
- {{ .ParameterGroupName }},
- {{ .Family }},
- {{ .Description }},
- {{ .Tags }},
- {{ .Parameters }},
- 'us-east-1';
+ '{{ ParameterGroupName }}',
+ '{{ Family }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ Parameters }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: parameter_group
+    props:
+      - name: ParameterGroupName
+        value: '{{ ParameterGroupName }}'
+      - name: Family
+        value: '{{ Family }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Parameters
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

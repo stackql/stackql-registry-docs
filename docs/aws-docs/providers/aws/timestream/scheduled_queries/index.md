@@ -74,38 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>scheduled_query</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "QueryString": "{{ QueryString }}",
- "ScheduleConfiguration": {
-  "ScheduleExpression": "{{ ScheduleExpression }}"
- },
- "NotificationConfiguration": {
-  "SnsConfiguration": {
-   "TopicArn": "{{ TopicArn }}"
-  }
- },
- "ScheduledQueryExecutionRoleArn": "{{ ScheduledQueryExecutionRoleArn }}",
- "ErrorReportConfiguration": {
-  "S3Configuration": {
-   "BucketName": "{{ BucketName }}",
-   "ObjectKeyPrefix": "{{ ObjectKeyPrefix }}",
-   "EncryptionOption": "{{ EncryptionOption }}"
-  }
- }
-}
->>>
---required properties only
+-- scheduled_query.iql (required properties only)
 INSERT INTO aws.timestream.scheduled_queries (
  QueryString,
  ScheduleConfiguration,
@@ -115,81 +97,18 @@ INSERT INTO aws.timestream.scheduled_queries (
  region
 )
 SELECT 
-{{ .QueryString }},
- {{ .ScheduleConfiguration }},
- {{ .NotificationConfiguration }},
- {{ .ScheduledQueryExecutionRoleArn }},
- {{ .ErrorReportConfiguration }},
-'us-east-1';
+'{{ QueryString }}',
+ '{{ ScheduleConfiguration }}',
+ '{{ NotificationConfiguration }}',
+ '{{ ScheduledQueryExecutionRoleArn }}',
+ '{{ ErrorReportConfiguration }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ScheduledQueryName": "{{ ScheduledQueryName }}",
- "QueryString": "{{ QueryString }}",
- "ScheduleConfiguration": {
-  "ScheduleExpression": "{{ ScheduleExpression }}"
- },
- "NotificationConfiguration": {
-  "SnsConfiguration": {
-   "TopicArn": "{{ TopicArn }}"
-  }
- },
- "ClientToken": "{{ ClientToken }}",
- "ScheduledQueryExecutionRoleArn": "{{ ScheduledQueryExecutionRoleArn }}",
- "TargetConfiguration": {
-  "TimestreamConfiguration": {
-   "DatabaseName": "{{ DatabaseName }}",
-   "TableName": "{{ TableName }}",
-   "TimeColumn": "{{ TimeColumn }}",
-   "DimensionMappings": [
-    {
-     "Name": "{{ Name }}",
-     "DimensionValueType": "{{ DimensionValueType }}"
-    }
-   ],
-   "MultiMeasureMappings": {
-    "TargetMultiMeasureName": "{{ TargetMultiMeasureName }}",
-    "MultiMeasureAttributeMappings": [
-     {
-      "SourceColumn": "{{ SourceColumn }}",
-      "MeasureValueType": "{{ MeasureValueType }}",
-      "TargetMultiMeasureAttributeName": "{{ TargetMultiMeasureAttributeName }}"
-     }
-    ]
-   },
-   "MixedMeasureMappings": [
-    {
-     "MeasureName": "{{ MeasureName }}",
-     "SourceColumn": "{{ SourceColumn }}",
-     "TargetMeasureName": "{{ TargetMeasureName }}",
-     "MeasureValueType": "{{ MeasureValueType }}",
-     "MultiMeasureAttributeMappings": null
-    }
-   ],
-   "MeasureNameColumn": "{{ MeasureNameColumn }}"
-  }
- },
- "ErrorReportConfiguration": {
-  "S3Configuration": {
-   "BucketName": "{{ BucketName }}",
-   "ObjectKeyPrefix": "{{ ObjectKeyPrefix }}",
-   "EncryptionOption": "{{ EncryptionOption }}"
-  }
- },
- "KmsKeyId": "{{ KmsKeyId }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- scheduled_query.iql (all properties)
 INSERT INTO aws.timestream.scheduled_queries (
  ScheduledQueryName,
  QueryString,
@@ -204,17 +123,83 @@ INSERT INTO aws.timestream.scheduled_queries (
  region
 )
 SELECT 
- {{ .ScheduledQueryName }},
- {{ .QueryString }},
- {{ .ScheduleConfiguration }},
- {{ .NotificationConfiguration }},
- {{ .ClientToken }},
- {{ .ScheduledQueryExecutionRoleArn }},
- {{ .TargetConfiguration }},
- {{ .ErrorReportConfiguration }},
- {{ .KmsKeyId }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ScheduledQueryName }}',
+ '{{ QueryString }}',
+ '{{ ScheduleConfiguration }}',
+ '{{ NotificationConfiguration }}',
+ '{{ ClientToken }}',
+ '{{ ScheduledQueryExecutionRoleArn }}',
+ '{{ TargetConfiguration }}',
+ '{{ ErrorReportConfiguration }}',
+ '{{ KmsKeyId }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: scheduled_query
+    props:
+      - name: ScheduledQueryName
+        value: '{{ ScheduledQueryName }}'
+      - name: QueryString
+        value: '{{ QueryString }}'
+      - name: ScheduleConfiguration
+        value:
+          ScheduleExpression: '{{ ScheduleExpression }}'
+      - name: NotificationConfiguration
+        value:
+          SnsConfiguration:
+            TopicArn: '{{ TopicArn }}'
+      - name: ClientToken
+        value: '{{ ClientToken }}'
+      - name: ScheduledQueryExecutionRoleArn
+        value: '{{ ScheduledQueryExecutionRoleArn }}'
+      - name: TargetConfiguration
+        value:
+          TimestreamConfiguration:
+            DatabaseName: '{{ DatabaseName }}'
+            TableName: '{{ TableName }}'
+            TimeColumn: '{{ TimeColumn }}'
+            DimensionMappings:
+              - Name: '{{ Name }}'
+                DimensionValueType: '{{ DimensionValueType }}'
+            MultiMeasureMappings:
+              TargetMultiMeasureName: '{{ TargetMultiMeasureName }}'
+              MultiMeasureAttributeMappings:
+                - SourceColumn: '{{ SourceColumn }}'
+                  MeasureValueType: '{{ MeasureValueType }}'
+                  TargetMultiMeasureAttributeName: '{{ TargetMultiMeasureAttributeName }}'
+            MixedMeasureMappings:
+              - MeasureName: '{{ MeasureName }}'
+                SourceColumn: '{{ SourceColumn }}'
+                TargetMeasureName: '{{ TargetMeasureName }}'
+                MeasureValueType: '{{ MeasureValueType }}'
+                MultiMeasureAttributeMappings: null
+            MeasureNameColumn: '{{ MeasureNameColumn }}'
+      - name: ErrorReportConfiguration
+        value:
+          S3Configuration:
+            BucketName: '{{ BucketName }}'
+            ObjectKeyPrefix: '{{ ObjectKeyPrefix }}'
+            EncryptionOption: '{{ EncryptionOption }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

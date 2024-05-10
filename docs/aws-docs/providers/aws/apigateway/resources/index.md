@@ -76,24 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>resource</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "RestApiId": "{{ RestApiId }}",
- "ParentId": "{{ ParentId }}",
- "PathPart": "{{ PathPart }}"
-}
->>>
---required properties only
+-- resource.iql (required properties only)
 INSERT INTO aws.apigateway.resources (
  RestApiId,
  ParentId,
@@ -101,23 +97,16 @@ INSERT INTO aws.apigateway.resources (
  region
 )
 SELECT 
-{{ .RestApiId }},
- {{ .ParentId }},
- {{ .PathPart }},
-'us-east-1';
+'{{ RestApiId }}',
+ '{{ ParentId }}',
+ '{{ PathPart }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "RestApiId": "{{ RestApiId }}",
- "ParentId": "{{ ParentId }}",
- "PathPart": "{{ PathPart }}"
-}
->>>
---all properties
+-- resource.iql (all properties)
 INSERT INTO aws.apigateway.resources (
  RestApiId,
  ParentId,
@@ -125,10 +114,33 @@ INSERT INTO aws.apigateway.resources (
  region
 )
 SELECT 
- {{ .RestApiId }},
- {{ .ParentId }},
- {{ .PathPart }},
- 'us-east-1';
+ '{{ RestApiId }}',
+ '{{ ParentId }}',
+ '{{ PathPart }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: resource
+    props:
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+      - name: ParentId
+        value: '{{ ParentId }}'
+      - name: PathPart
+        value: '{{ PathPart }}'
+
 ```
 </TabItem>
 </Tabs>

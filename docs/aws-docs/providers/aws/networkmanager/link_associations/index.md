@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>link_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GlobalNetworkId": "{{ GlobalNetworkId }}",
- "DeviceId": "{{ DeviceId }}",
- "LinkId": "{{ LinkId }}"
-}
->>>
---required properties only
+-- link_association.iql (required properties only)
 INSERT INTO aws.networkmanager.link_associations (
  GlobalNetworkId,
  DeviceId,
@@ -103,23 +99,16 @@ INSERT INTO aws.networkmanager.link_associations (
  region
 )
 SELECT 
-{{ .GlobalNetworkId }},
- {{ .DeviceId }},
- {{ .LinkId }},
-'us-east-1';
+'{{ GlobalNetworkId }}',
+ '{{ DeviceId }}',
+ '{{ LinkId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GlobalNetworkId": "{{ GlobalNetworkId }}",
- "DeviceId": "{{ DeviceId }}",
- "LinkId": "{{ LinkId }}"
-}
->>>
---all properties
+-- link_association.iql (all properties)
 INSERT INTO aws.networkmanager.link_associations (
  GlobalNetworkId,
  DeviceId,
@@ -127,10 +116,33 @@ INSERT INTO aws.networkmanager.link_associations (
  region
 )
 SELECT 
- {{ .GlobalNetworkId }},
- {{ .DeviceId }},
- {{ .LinkId }},
- 'us-east-1';
+ '{{ GlobalNetworkId }}',
+ '{{ DeviceId }}',
+ '{{ LinkId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: link_association
+    props:
+      - name: GlobalNetworkId
+        value: '{{ GlobalNetworkId }}'
+      - name: DeviceId
+        value: '{{ DeviceId }}'
+      - name: LinkId
+        value: '{{ LinkId }}'
+
 ```
 </TabItem>
 </Tabs>

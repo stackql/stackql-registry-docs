@@ -74,63 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>flow_log</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ResourceId": "{{ ResourceId }}",
- "ResourceType": "{{ ResourceType }}"
-}
->>>
---required properties only
+-- flow_log.iql (required properties only)
 INSERT INTO aws.ec2.flow_logs (
  ResourceId,
  ResourceType,
  region
 )
 SELECT 
-{{ .ResourceId }},
- {{ .ResourceType }},
-'us-east-1';
+'{{ ResourceId }}',
+ '{{ ResourceType }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DeliverCrossAccountRole": "{{ DeliverCrossAccountRole }}",
- "DeliverLogsPermissionArn": "{{ DeliverLogsPermissionArn }}",
- "LogDestination": "{{ LogDestination }}",
- "LogDestinationType": "{{ LogDestinationType }}",
- "LogFormat": "{{ LogFormat }}",
- "LogGroupName": "{{ LogGroupName }}",
- "MaxAggregationInterval": "{{ MaxAggregationInterval }}",
- "ResourceId": "{{ ResourceId }}",
- "ResourceType": "{{ ResourceType }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "TrafficType": "{{ TrafficType }}",
- "DestinationOptions": {
-  "FileFormat": "{{ FileFormat }}",
-  "HiveCompatiblePartitions": "{{ HiveCompatiblePartitions }}",
-  "PerHourPartition": "{{ PerHourPartition }}"
- }
-}
->>>
---all properties
+-- flow_log.iql (all properties)
 INSERT INTO aws.ec2.flow_logs (
  DeliverCrossAccountRole,
  DeliverLogsPermissionArn,
@@ -147,19 +119,65 @@ INSERT INTO aws.ec2.flow_logs (
  region
 )
 SELECT 
- {{ .DeliverCrossAccountRole }},
- {{ .DeliverLogsPermissionArn }},
- {{ .LogDestination }},
- {{ .LogDestinationType }},
- {{ .LogFormat }},
- {{ .LogGroupName }},
- {{ .MaxAggregationInterval }},
- {{ .ResourceId }},
- {{ .ResourceType }},
- {{ .Tags }},
- {{ .TrafficType }},
- {{ .DestinationOptions }},
- 'us-east-1';
+ '{{ DeliverCrossAccountRole }}',
+ '{{ DeliverLogsPermissionArn }}',
+ '{{ LogDestination }}',
+ '{{ LogDestinationType }}',
+ '{{ LogFormat }}',
+ '{{ LogGroupName }}',
+ '{{ MaxAggregationInterval }}',
+ '{{ ResourceId }}',
+ '{{ ResourceType }}',
+ '{{ Tags }}',
+ '{{ TrafficType }}',
+ '{{ DestinationOptions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: flow_log
+    props:
+      - name: DeliverCrossAccountRole
+        value: '{{ DeliverCrossAccountRole }}'
+      - name: DeliverLogsPermissionArn
+        value: '{{ DeliverLogsPermissionArn }}'
+      - name: LogDestination
+        value: '{{ LogDestination }}'
+      - name: LogDestinationType
+        value: '{{ LogDestinationType }}'
+      - name: LogFormat
+        value: '{{ LogFormat }}'
+      - name: LogGroupName
+        value: '{{ LogGroupName }}'
+      - name: MaxAggregationInterval
+        value: '{{ MaxAggregationInterval }}'
+      - name: ResourceId
+        value: '{{ ResourceId }}'
+      - name: ResourceType
+        value: '{{ ResourceType }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: TrafficType
+        value: '{{ TrafficType }}'
+      - name: DestinationOptions
+        value:
+          FileFormat: '{{ FileFormat }}'
+          HiveCompatiblePartitions: '{{ HiveCompatiblePartitions }}'
+          PerHourPartition: '{{ PerHourPartition }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -76,109 +76,84 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>tag_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Resource": {
-  "Catalog": {},
-  "Database": {
-   "CatalogId": "{{ CatalogId }}",
-   "Name": "{{ Name }}"
-  },
-  "Table": {
-   "CatalogId": null,
-   "DatabaseName": null,
-   "Name": null,
-   "TableWildcard": {}
-  },
-  "TableWithColumns": {
-   "CatalogId": null,
-   "DatabaseName": null,
-   "Name": null,
-   "ColumnNames": [
-    null
-   ]
-  }
- },
- "LFTags": [
-  {
-   "CatalogId": null,
-   "TagKey": "{{ TagKey }}",
-   "TagValues": [
-    "{{ TagValues[0] }}"
-   ]
-  }
- ]
-}
->>>
---required properties only
+-- tag_association.iql (required properties only)
 INSERT INTO aws.lakeformation.tag_associations (
  Resource,
  LFTags,
  region
 )
 SELECT 
-{{ .Resource }},
- {{ .LFTags }},
-'us-east-1';
+'{{ Resource }}',
+ '{{ LFTags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Resource": {
-  "Catalog": {},
-  "Database": {
-   "CatalogId": "{{ CatalogId }}",
-   "Name": "{{ Name }}"
-  },
-  "Table": {
-   "CatalogId": null,
-   "DatabaseName": null,
-   "Name": null,
-   "TableWildcard": {}
-  },
-  "TableWithColumns": {
-   "CatalogId": null,
-   "DatabaseName": null,
-   "Name": null,
-   "ColumnNames": [
-    null
-   ]
-  }
- },
- "LFTags": [
-  {
-   "CatalogId": null,
-   "TagKey": "{{ TagKey }}",
-   "TagValues": [
-    "{{ TagValues[0] }}"
-   ]
-  }
- ]
-}
->>>
---all properties
+-- tag_association.iql (all properties)
 INSERT INTO aws.lakeformation.tag_associations (
  Resource,
  LFTags,
  region
 )
 SELECT 
- {{ .Resource }},
- {{ .LFTags }},
- 'us-east-1';
+ '{{ Resource }}',
+ '{{ LFTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: tag_association
+    props:
+      - name: Resource
+        value:
+          Catalog: {}
+          Database:
+            CatalogId: '{{ CatalogId }}'
+            Name: '{{ Name }}'
+          Table:
+            CatalogId: null
+            DatabaseName: null
+            Name: null
+            TableWildcard: {}
+          TableWithColumns:
+            CatalogId: null
+            DatabaseName: null
+            Name: null
+            ColumnNames:
+              - null
+      - name: LFTags
+        value:
+          - CatalogId: null
+            TagKey: '{{ TagKey }}'
+            TagValues:
+              - '{{ TagValues[0] }}'
+
 ```
 </TabItem>
 </Tabs>

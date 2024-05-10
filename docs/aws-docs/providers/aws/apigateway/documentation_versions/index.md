@@ -76,45 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>documentation_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DocumentationVersion": "{{ DocumentationVersion }}",
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---required properties only
+-- documentation_version.iql (required properties only)
 INSERT INTO aws.apigateway.documentation_versions (
  DocumentationVersion,
  RestApiId,
  region
 )
 SELECT 
-{{ .DocumentationVersion }},
- {{ .RestApiId }},
-'us-east-1';
+'{{ DocumentationVersion }}',
+ '{{ RestApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "DocumentationVersion": "{{ DocumentationVersion }}",
- "RestApiId": "{{ RestApiId }}"
-}
->>>
---all properties
+-- documentation_version.iql (all properties)
 INSERT INTO aws.apigateway.documentation_versions (
  Description,
  DocumentationVersion,
@@ -122,10 +112,33 @@ INSERT INTO aws.apigateway.documentation_versions (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .DocumentationVersion }},
- {{ .RestApiId }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ DocumentationVersion }}',
+ '{{ RestApiId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: documentation_version
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: DocumentationVersion
+        value: '{{ DocumentationVersion }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>service_network_service_association</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DnsEntry": {
-  "DomainName": "{{ DomainName }}",
-  "HostedZoneId": "{{ HostedZoneId }}"
- },
- "ServiceNetworkIdentifier": "{{ ServiceNetworkIdentifier }}",
- "ServiceIdentifier": "{{ ServiceIdentifier }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- service_network_service_association.iql (required properties only)
 INSERT INTO aws.vpclattice.service_network_service_associations (
  DnsEntry,
  ServiceNetworkIdentifier,
@@ -109,33 +96,17 @@ INSERT INTO aws.vpclattice.service_network_service_associations (
  region
 )
 SELECT 
-{{ .DnsEntry }},
- {{ .ServiceNetworkIdentifier }},
- {{ .ServiceIdentifier }},
- {{ .Tags }},
-'us-east-1';
+'{{ DnsEntry }}',
+ '{{ ServiceNetworkIdentifier }}',
+ '{{ ServiceIdentifier }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DnsEntry": {
-  "DomainName": "{{ DomainName }}",
-  "HostedZoneId": "{{ HostedZoneId }}"
- },
- "ServiceNetworkIdentifier": "{{ ServiceNetworkIdentifier }}",
- "ServiceIdentifier": "{{ ServiceIdentifier }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- service_network_service_association.iql (all properties)
 INSERT INTO aws.vpclattice.service_network_service_associations (
  DnsEntry,
  ServiceNetworkIdentifier,
@@ -144,11 +115,40 @@ INSERT INTO aws.vpclattice.service_network_service_associations (
  region
 )
 SELECT 
- {{ .DnsEntry }},
- {{ .ServiceNetworkIdentifier }},
- {{ .ServiceIdentifier }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DnsEntry }}',
+ '{{ ServiceNetworkIdentifier }}',
+ '{{ ServiceIdentifier }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: service_network_service_association
+    props:
+      - name: DnsEntry
+        value:
+          DomainName: '{{ DomainName }}'
+          HostedZoneId: '{{ HostedZoneId }}'
+      - name: ServiceNetworkIdentifier
+        value: '{{ ServiceNetworkIdentifier }}'
+      - name: ServiceIdentifier
+        value: '{{ ServiceIdentifier }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

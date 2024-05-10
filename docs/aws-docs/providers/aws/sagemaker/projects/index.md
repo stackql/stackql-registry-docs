@@ -74,75 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>project</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ProjectName": "{{ ProjectName }}",
- "ServiceCatalogProvisioningDetails": {
-  "ProductId": "{{ ProductId }}",
-  "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
-  "PathId": "{{ PathId }}",
-  "ProvisioningParameters": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- }
-}
->>>
---required properties only
+-- project.iql (required properties only)
 INSERT INTO aws.sagemaker.projects (
  ProjectName,
  ServiceCatalogProvisioningDetails,
  region
 )
 SELECT 
-{{ .ProjectName }},
- {{ .ServiceCatalogProvisioningDetails }},
-'us-east-1';
+'{{ ProjectName }}',
+ '{{ ServiceCatalogProvisioningDetails }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "ProjectName": "{{ ProjectName }}",
- "ProjectDescription": "{{ ProjectDescription }}",
- "ServiceCatalogProvisioningDetails": {
-  "ProductId": "{{ ProductId }}",
-  "ProvisioningArtifactId": "{{ ProvisioningArtifactId }}",
-  "PathId": "{{ PathId }}",
-  "ProvisioningParameters": [
-   {
-    "Key": "{{ Key }}",
-    "Value": "{{ Value }}"
-   }
-  ]
- },
- "ServiceCatalogProvisionedProductDetails": {
-  "ProvisionedProductId": null,
-  "ProvisionedProductStatusMessage": "{{ ProvisionedProductStatusMessage }}"
- }
-}
->>>
---all properties
+-- project.iql (all properties)
 INSERT INTO aws.sagemaker.projects (
  Tags,
  ProjectName,
@@ -152,12 +112,49 @@ INSERT INTO aws.sagemaker.projects (
  region
 )
 SELECT 
- {{ .Tags }},
- {{ .ProjectName }},
- {{ .ProjectDescription }},
- {{ .ServiceCatalogProvisioningDetails }},
- {{ .ServiceCatalogProvisionedProductDetails }},
- 'us-east-1';
+ '{{ Tags }}',
+ '{{ ProjectName }}',
+ '{{ ProjectDescription }}',
+ '{{ ServiceCatalogProvisioningDetails }}',
+ '{{ ServiceCatalogProvisionedProductDetails }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: project
+    props:
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: ProjectName
+        value: '{{ ProjectName }}'
+      - name: ProjectDescription
+        value: '{{ ProjectDescription }}'
+      - name: ServiceCatalogProvisioningDetails
+        value:
+          ProductId: '{{ ProductId }}'
+          ProvisioningArtifactId: '{{ ProvisioningArtifactId }}'
+          PathId: '{{ PathId }}'
+          ProvisioningParameters:
+            - Key: '{{ Key }}'
+              Value: '{{ Value }}'
+      - name: ServiceCatalogProvisionedProductDetails
+        value:
+          ProvisionedProductId: null
+          ProvisionedProductStatusMessage: '{{ ProvisionedProductStatusMessage }}'
+
 ```
 </TabItem>
 </Tabs>

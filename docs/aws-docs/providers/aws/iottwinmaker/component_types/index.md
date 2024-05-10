@@ -76,54 +76,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>component_type</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "WorkspaceId": "{{ WorkspaceId }}",
- "ComponentTypeId": "{{ ComponentTypeId }}"
-}
->>>
---required properties only
+-- component_type.iql (required properties only)
 INSERT INTO aws.iottwinmaker.component_types (
  WorkspaceId,
  ComponentTypeId,
  region
 )
 SELECT 
-{{ .WorkspaceId }},
- {{ .ComponentTypeId }},
-'us-east-1';
+'{{ WorkspaceId }}',
+ '{{ ComponentTypeId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "WorkspaceId": "{{ WorkspaceId }}",
- "ComponentTypeId": "{{ ComponentTypeId }}",
- "Description": "{{ Description }}",
- "ExtendsFrom": [
-  "{{ ExtendsFrom[0] }}"
- ],
- "Functions": {},
- "IsSingleton": "{{ IsSingleton }}",
- "PropertyDefinitions": {},
- "PropertyGroups": {},
- "CompositeComponentTypes": {},
- "Tags": {}
-}
->>>
---all properties
+-- component_type.iql (all properties)
 INSERT INTO aws.iottwinmaker.component_types (
  WorkspaceId,
  ComponentTypeId,
@@ -138,17 +119,55 @@ INSERT INTO aws.iottwinmaker.component_types (
  region
 )
 SELECT 
- {{ .WorkspaceId }},
- {{ .ComponentTypeId }},
- {{ .Description }},
- {{ .ExtendsFrom }},
- {{ .Functions }},
- {{ .IsSingleton }},
- {{ .PropertyDefinitions }},
- {{ .PropertyGroups }},
- {{ .CompositeComponentTypes }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ WorkspaceId }}',
+ '{{ ComponentTypeId }}',
+ '{{ Description }}',
+ '{{ ExtendsFrom }}',
+ '{{ Functions }}',
+ '{{ IsSingleton }}',
+ '{{ PropertyDefinitions }}',
+ '{{ PropertyGroups }}',
+ '{{ CompositeComponentTypes }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: component_type
+    props:
+      - name: WorkspaceId
+        value: '{{ WorkspaceId }}'
+      - name: ComponentTypeId
+        value: '{{ ComponentTypeId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ExtendsFrom
+        value:
+          - '{{ ExtendsFrom[0] }}'
+      - name: Functions
+        value: {}
+      - name: IsSingleton
+        value: '{{ IsSingleton }}'
+      - name: PropertyDefinitions
+        value: {}
+      - name: PropertyGroups
+        value: {}
+      - name: CompositeComponentTypes
+        value: {}
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

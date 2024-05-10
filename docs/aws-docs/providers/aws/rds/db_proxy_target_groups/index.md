@@ -74,59 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>db_proxy_target_group</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DBProxyName": "{{ DBProxyName }}",
- "TargetGroupName": "{{ TargetGroupName }}"
-}
->>>
---required properties only
+-- db_proxy_target_group.iql (required properties only)
 INSERT INTO aws.rds.db_proxy_target_groups (
  DBProxyName,
  TargetGroupName,
  region
 )
 SELECT 
-{{ .DBProxyName }},
- {{ .TargetGroupName }},
-'us-east-1';
+'{{ DBProxyName }}',
+ '{{ TargetGroupName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DBProxyName": "{{ DBProxyName }}",
- "TargetGroupName": "{{ TargetGroupName }}",
- "ConnectionPoolConfigurationInfo": {
-  "MaxConnectionsPercent": "{{ MaxConnectionsPercent }}",
-  "MaxIdleConnectionsPercent": "{{ MaxIdleConnectionsPercent }}",
-  "ConnectionBorrowTimeout": "{{ ConnectionBorrowTimeout }}",
-  "SessionPinningFilters": [
-   "{{ SessionPinningFilters[0] }}"
-  ],
-  "InitQuery": "{{ InitQuery }}"
- },
- "DBInstanceIdentifiers": [
-  "{{ DBInstanceIdentifiers[0] }}"
- ],
- "DBClusterIdentifiers": [
-  "{{ DBClusterIdentifiers[0] }}"
- ]
-}
->>>
---all properties
+-- db_proxy_target_group.iql (all properties)
 INSERT INTO aws.rds.db_proxy_target_groups (
  DBProxyName,
  TargetGroupName,
@@ -136,12 +112,47 @@ INSERT INTO aws.rds.db_proxy_target_groups (
  region
 )
 SELECT 
- {{ .DBProxyName }},
- {{ .TargetGroupName }},
- {{ .ConnectionPoolConfigurationInfo }},
- {{ .DBInstanceIdentifiers }},
- {{ .DBClusterIdentifiers }},
- 'us-east-1';
+ '{{ DBProxyName }}',
+ '{{ TargetGroupName }}',
+ '{{ ConnectionPoolConfigurationInfo }}',
+ '{{ DBInstanceIdentifiers }}',
+ '{{ DBClusterIdentifiers }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: db_proxy_target_group
+    props:
+      - name: DBProxyName
+        value: '{{ DBProxyName }}'
+      - name: TargetGroupName
+        value: '{{ TargetGroupName }}'
+      - name: ConnectionPoolConfigurationInfo
+        value:
+          MaxConnectionsPercent: '{{ MaxConnectionsPercent }}'
+          MaxIdleConnectionsPercent: '{{ MaxIdleConnectionsPercent }}'
+          ConnectionBorrowTimeout: '{{ ConnectionBorrowTimeout }}'
+          SessionPinningFilters:
+            - '{{ SessionPinningFilters[0] }}'
+          InitQuery: '{{ InitQuery }}'
+      - name: DBInstanceIdentifiers
+        value:
+          - '{{ DBInstanceIdentifiers[0] }}'
+      - name: DBClusterIdentifiers
+        value:
+          - '{{ DBClusterIdentifiers[0] }}'
+
 ```
 </TabItem>
 </Tabs>

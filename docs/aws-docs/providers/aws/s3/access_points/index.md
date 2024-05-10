@@ -74,52 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>access_point</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Bucket": "{{ Bucket }}"
-}
->>>
---required properties only
+-- access_point.iql (required properties only)
 INSERT INTO aws.s3.access_points (
  Bucket,
  region
 )
 SELECT 
-{{ .Bucket }},
-'us-east-1';
+'{{ Bucket }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Bucket": "{{ Bucket }}",
- "BucketAccountId": "{{ BucketAccountId }}",
- "VpcConfiguration": {
-  "VpcId": "{{ VpcId }}"
- },
- "PublicAccessBlockConfiguration": {
-  "BlockPublicAcls": "{{ BlockPublicAcls }}",
-  "IgnorePublicAcls": "{{ IgnorePublicAcls }}",
-  "BlockPublicPolicy": "{{ BlockPublicPolicy }}",
-  "RestrictPublicBuckets": "{{ RestrictPublicBuckets }}"
- },
- "Policy": {}
-}
->>>
---all properties
+-- access_point.iql (all properties)
 INSERT INTO aws.s3.access_points (
  Name,
  Bucket,
@@ -130,13 +111,47 @@ INSERT INTO aws.s3.access_points (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Bucket }},
- {{ .BucketAccountId }},
- {{ .VpcConfiguration }},
- {{ .PublicAccessBlockConfiguration }},
- {{ .Policy }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Bucket }}',
+ '{{ BucketAccountId }}',
+ '{{ VpcConfiguration }}',
+ '{{ PublicAccessBlockConfiguration }}',
+ '{{ Policy }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: access_point
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Bucket
+        value: '{{ Bucket }}'
+      - name: BucketAccountId
+        value: '{{ BucketAccountId }}'
+      - name: VpcConfiguration
+        value:
+          VpcId: '{{ VpcId }}'
+      - name: PublicAccessBlockConfiguration
+        value:
+          BlockPublicAcls: '{{ BlockPublicAcls }}'
+          IgnorePublicAcls: '{{ IgnorePublicAcls }}'
+          BlockPublicPolicy: '{{ BlockPublicPolicy }}'
+          RestrictPublicBuckets: '{{ RestrictPublicBuckets }}'
+      - name: Policy
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

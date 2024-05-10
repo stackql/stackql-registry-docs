@@ -74,55 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>dimension</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}",
- "StringValues": [
-  "{{ StringValues[0] }}"
- ]
-}
->>>
---required properties only
+-- dimension.iql (required properties only)
 INSERT INTO aws.iot.dimensions (
  Type,
  StringValues,
  region
 )
 SELECT 
-{{ .Type }},
- {{ .StringValues }},
-'us-east-1';
+'{{ Type }}',
+ '{{ StringValues }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "StringValues": [
-  "{{ StringValues[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- dimension.iql (all properties)
 INSERT INTO aws.iot.dimensions (
  Name,
  Type,
@@ -131,11 +111,39 @@ INSERT INTO aws.iot.dimensions (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Type }},
- {{ .StringValues }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ StringValues }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: dimension
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: StringValues
+        value:
+          - '{{ StringValues[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

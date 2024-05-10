@@ -74,27 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>alarm</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AlarmName": "{{ AlarmName }}",
- "MonitoredResourceName": "{{ MonitoredResourceName }}",
- "MetricName": "{{ MetricName }}",
- "ComparisonOperator": "{{ ComparisonOperator }}",
- "EvaluationPeriods": "{{ EvaluationPeriods }}",
- "Threshold": null
-}
->>>
---required properties only
+-- alarm.iql (required properties only)
 INSERT INTO aws.lightsail.alarms (
  AlarmName,
  MonitoredResourceName,
@@ -105,38 +98,19 @@ INSERT INTO aws.lightsail.alarms (
  region
 )
 SELECT 
-{{ .AlarmName }},
- {{ .MonitoredResourceName }},
- {{ .MetricName }},
- {{ .ComparisonOperator }},
- {{ .EvaluationPeriods }},
- {{ .Threshold }},
-'us-east-1';
+'{{ AlarmName }}',
+ '{{ MonitoredResourceName }}',
+ '{{ MetricName }}',
+ '{{ ComparisonOperator }}',
+ '{{ EvaluationPeriods }}',
+ '{{ Threshold }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AlarmName": "{{ AlarmName }}",
- "MonitoredResourceName": "{{ MonitoredResourceName }}",
- "MetricName": "{{ MetricName }}",
- "ComparisonOperator": "{{ ComparisonOperator }}",
- "ContactProtocols": [
-  "{{ ContactProtocols[0] }}"
- ],
- "DatapointsToAlarm": "{{ DatapointsToAlarm }}",
- "EvaluationPeriods": "{{ EvaluationPeriods }}",
- "NotificationEnabled": "{{ NotificationEnabled }}",
- "NotificationTriggers": [
-  "{{ NotificationTriggers[0] }}"
- ],
- "Threshold": null,
- "TreatMissingData": "{{ TreatMissingData }}"
-}
->>>
---all properties
+-- alarm.iql (all properties)
 INSERT INTO aws.lightsail.alarms (
  AlarmName,
  MonitoredResourceName,
@@ -152,18 +126,59 @@ INSERT INTO aws.lightsail.alarms (
  region
 )
 SELECT 
- {{ .AlarmName }},
- {{ .MonitoredResourceName }},
- {{ .MetricName }},
- {{ .ComparisonOperator }},
- {{ .ContactProtocols }},
- {{ .DatapointsToAlarm }},
- {{ .EvaluationPeriods }},
- {{ .NotificationEnabled }},
- {{ .NotificationTriggers }},
- {{ .Threshold }},
- {{ .TreatMissingData }},
- 'us-east-1';
+ '{{ AlarmName }}',
+ '{{ MonitoredResourceName }}',
+ '{{ MetricName }}',
+ '{{ ComparisonOperator }}',
+ '{{ ContactProtocols }}',
+ '{{ DatapointsToAlarm }}',
+ '{{ EvaluationPeriods }}',
+ '{{ NotificationEnabled }}',
+ '{{ NotificationTriggers }}',
+ '{{ Threshold }}',
+ '{{ TreatMissingData }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: alarm
+    props:
+      - name: AlarmName
+        value: '{{ AlarmName }}'
+      - name: MonitoredResourceName
+        value: '{{ MonitoredResourceName }}'
+      - name: MetricName
+        value: '{{ MetricName }}'
+      - name: ComparisonOperator
+        value: '{{ ComparisonOperator }}'
+      - name: ContactProtocols
+        value:
+          - '{{ ContactProtocols[0] }}'
+      - name: DatapointsToAlarm
+        value: '{{ DatapointsToAlarm }}'
+      - name: EvaluationPeriods
+        value: '{{ EvaluationPeriods }}'
+      - name: NotificationEnabled
+        value: '{{ NotificationEnabled }}'
+      - name: NotificationTriggers
+        value:
+          - '{{ NotificationTriggers[0] }}'
+      - name: Threshold
+        value: null
+      - name: TreatMissingData
+        value: '{{ TreatMissingData }}'
+
 ```
 </TabItem>
 </Tabs>

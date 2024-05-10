@@ -74,38 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>inference_experiment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "RoleArn": "{{ RoleArn }}",
- "EndpointName": "{{ EndpointName }}",
- "ModelVariants": [
-  {
-   "ModelName": "{{ ModelName }}",
-   "VariantName": "{{ VariantName }}",
-   "InfrastructureConfig": {
-    "InfrastructureType": "{{ InfrastructureType }}",
-    "RealTimeInferenceConfig": {
-     "InstanceType": "{{ InstanceType }}",
-     "InstanceCount": "{{ InstanceCount }}"
-    }
-   }
-  }
- ]
-}
->>>
---required properties only
+-- inference_experiment.iql (required properties only)
 INSERT INTO aws.sagemaker.inference_experiments (
  Name,
  Type,
@@ -115,74 +97,18 @@ INSERT INTO aws.sagemaker.inference_experiments (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Type }},
- {{ .RoleArn }},
- {{ .EndpointName }},
- {{ .ModelVariants }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Type }}',
+ '{{ RoleArn }}',
+ '{{ EndpointName }}',
+ '{{ ModelVariants }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Type": "{{ Type }}",
- "Description": "{{ Description }}",
- "RoleArn": "{{ RoleArn }}",
- "EndpointName": "{{ EndpointName }}",
- "Schedule": {
-  "StartTime": "{{ StartTime }}",
-  "EndTime": "{{ EndTime }}"
- },
- "KmsKey": "{{ KmsKey }}",
- "DataStorageConfig": {
-  "Destination": "{{ Destination }}",
-  "KmsKey": "{{ KmsKey }}",
-  "ContentType": {
-   "CsvContentTypes": [
-    "{{ CsvContentTypes[0] }}"
-   ],
-   "JsonContentTypes": [
-    "{{ JsonContentTypes[0] }}"
-   ]
-  }
- },
- "ModelVariants": [
-  {
-   "ModelName": "{{ ModelName }}",
-   "VariantName": "{{ VariantName }}",
-   "InfrastructureConfig": {
-    "InfrastructureType": "{{ InfrastructureType }}",
-    "RealTimeInferenceConfig": {
-     "InstanceType": "{{ InstanceType }}",
-     "InstanceCount": "{{ InstanceCount }}"
-    }
-   }
-  }
- ],
- "ShadowModeConfig": {
-  "SourceModelVariantName": "{{ SourceModelVariantName }}",
-  "ShadowModelVariants": [
-   {
-    "ShadowModelVariantName": "{{ ShadowModelVariantName }}",
-    "SamplingPercentage": "{{ SamplingPercentage }}"
-   }
-  ]
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "StatusReason": "{{ StatusReason }}",
- "DesiredState": "{{ DesiredState }}"
-}
->>>
---all properties
+-- inference_experiment.iql (all properties)
 INSERT INTO aws.sagemaker.inference_experiments (
  Name,
  Type,
@@ -200,20 +126,85 @@ INSERT INTO aws.sagemaker.inference_experiments (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Type }},
- {{ .Description }},
- {{ .RoleArn }},
- {{ .EndpointName }},
- {{ .Schedule }},
- {{ .KmsKey }},
- {{ .DataStorageConfig }},
- {{ .ModelVariants }},
- {{ .ShadowModeConfig }},
- {{ .Tags }},
- {{ .StatusReason }},
- {{ .DesiredState }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Type }}',
+ '{{ Description }}',
+ '{{ RoleArn }}',
+ '{{ EndpointName }}',
+ '{{ Schedule }}',
+ '{{ KmsKey }}',
+ '{{ DataStorageConfig }}',
+ '{{ ModelVariants }}',
+ '{{ ShadowModeConfig }}',
+ '{{ Tags }}',
+ '{{ StatusReason }}',
+ '{{ DesiredState }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: inference_experiment
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: EndpointName
+        value: '{{ EndpointName }}'
+      - name: Schedule
+        value:
+          StartTime: '{{ StartTime }}'
+          EndTime: '{{ EndTime }}'
+      - name: KmsKey
+        value: '{{ KmsKey }}'
+      - name: DataStorageConfig
+        value:
+          Destination: '{{ Destination }}'
+          KmsKey: '{{ KmsKey }}'
+          ContentType:
+            CsvContentTypes:
+              - '{{ CsvContentTypes[0] }}'
+            JsonContentTypes:
+              - '{{ JsonContentTypes[0] }}'
+      - name: ModelVariants
+        value:
+          - ModelName: '{{ ModelName }}'
+            VariantName: '{{ VariantName }}'
+            InfrastructureConfig:
+              InfrastructureType: '{{ InfrastructureType }}'
+              RealTimeInferenceConfig:
+                InstanceType: '{{ InstanceType }}'
+                InstanceCount: '{{ InstanceCount }}'
+      - name: ShadowModeConfig
+        value:
+          SourceModelVariantName: '{{ SourceModelVariantName }}'
+          ShadowModelVariants:
+            - ShadowModelVariantName: '{{ ShadowModelVariantName }}'
+              SamplingPercentage: '{{ SamplingPercentage }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: StatusReason
+        value: '{{ StatusReason }}'
+      - name: DesiredState
+        value: '{{ DesiredState }}'
+
 ```
 </TabItem>
 </Tabs>

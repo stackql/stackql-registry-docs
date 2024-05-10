@@ -74,35 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>topic_rule_destination</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Status": "{{ Status }}",
- "HttpUrlProperties": {
-  "ConfirmationUrl": "{{ ConfirmationUrl }}"
- },
- "VpcProperties": {
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ],
-  "SecurityGroups": [
-   "{{ SecurityGroups[0] }}"
-  ],
-  "VpcId": "{{ VpcId }}",
-  "RoleArn": "{{ RoleArn }}"
- }
-}
->>>
---required properties only
+-- topic_rule_destination.iql (required properties only)
 INSERT INTO aws.iot.topic_rule_destinations (
  Status,
  HttpUrlProperties,
@@ -110,34 +95,16 @@ INSERT INTO aws.iot.topic_rule_destinations (
  region
 )
 SELECT 
-{{ .Status }},
- {{ .HttpUrlProperties }},
- {{ .VpcProperties }},
-'us-east-1';
+'{{ Status }}',
+ '{{ HttpUrlProperties }}',
+ '{{ VpcProperties }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Status": "{{ Status }}",
- "HttpUrlProperties": {
-  "ConfirmationUrl": "{{ ConfirmationUrl }}"
- },
- "VpcProperties": {
-  "SubnetIds": [
-   "{{ SubnetIds[0] }}"
-  ],
-  "SecurityGroups": [
-   "{{ SecurityGroups[0] }}"
-  ],
-  "VpcId": "{{ VpcId }}",
-  "RoleArn": "{{ RoleArn }}"
- }
-}
->>>
---all properties
+-- topic_rule_destination.iql (all properties)
 INSERT INTO aws.iot.topic_rule_destinations (
  Status,
  HttpUrlProperties,
@@ -145,10 +112,40 @@ INSERT INTO aws.iot.topic_rule_destinations (
  region
 )
 SELECT 
- {{ .Status }},
- {{ .HttpUrlProperties }},
- {{ .VpcProperties }},
- 'us-east-1';
+ '{{ Status }}',
+ '{{ HttpUrlProperties }}',
+ '{{ VpcProperties }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: topic_rule_destination
+    props:
+      - name: Status
+        value: '{{ Status }}'
+      - name: HttpUrlProperties
+        value:
+          ConfirmationUrl: '{{ ConfirmationUrl }}'
+      - name: VpcProperties
+        value:
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
+          SecurityGroups:
+            - '{{ SecurityGroups[0] }}'
+          VpcId: '{{ VpcId }}'
+          RoleArn: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

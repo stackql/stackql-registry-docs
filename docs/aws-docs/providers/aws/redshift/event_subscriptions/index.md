@@ -74,56 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>event_subscription</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubscriptionName": "{{ SubscriptionName }}"
-}
->>>
---required properties only
+-- event_subscription.iql (required properties only)
 INSERT INTO aws.redshift.event_subscriptions (
  SubscriptionName,
  region
 )
 SELECT 
-{{ .SubscriptionName }},
-'us-east-1';
+'{{ SubscriptionName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SubscriptionName": "{{ SubscriptionName }}",
- "SnsTopicArn": "{{ SnsTopicArn }}",
- "SourceType": "{{ SourceType }}",
- "SourceIds": [
-  "{{ SourceIds[0] }}"
- ],
- "EventCategories": [
-  "{{ EventCategories[0] }}"
- ],
- "Severity": "{{ Severity }}",
- "Enabled": "{{ Enabled }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- event_subscription.iql (all properties)
 INSERT INTO aws.redshift.event_subscriptions (
  SubscriptionName,
  SnsTopicArn,
@@ -136,15 +113,52 @@ INSERT INTO aws.redshift.event_subscriptions (
  region
 )
 SELECT 
- {{ .SubscriptionName }},
- {{ .SnsTopicArn }},
- {{ .SourceType }},
- {{ .SourceIds }},
- {{ .EventCategories }},
- {{ .Severity }},
- {{ .Enabled }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ SubscriptionName }}',
+ '{{ SnsTopicArn }}',
+ '{{ SourceType }}',
+ '{{ SourceIds }}',
+ '{{ EventCategories }}',
+ '{{ Severity }}',
+ '{{ Enabled }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: event_subscription
+    props:
+      - name: SubscriptionName
+        value: '{{ SubscriptionName }}'
+      - name: SnsTopicArn
+        value: '{{ SnsTopicArn }}'
+      - name: SourceType
+        value: '{{ SourceType }}'
+      - name: SourceIds
+        value:
+          - '{{ SourceIds[0] }}'
+      - name: EventCategories
+        value:
+          - '{{ EventCategories[0] }}'
+      - name: Severity
+        value: '{{ Severity }}'
+      - name: Enabled
+        value: '{{ Enabled }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

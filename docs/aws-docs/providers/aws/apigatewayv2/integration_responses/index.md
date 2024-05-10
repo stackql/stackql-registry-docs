@@ -78,24 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>integration_response</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "IntegrationId": "{{ IntegrationId }}",
- "IntegrationResponseKey": "{{ IntegrationResponseKey }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---required properties only
+-- integration_response.iql (required properties only)
 INSERT INTO aws.apigatewayv2.integration_responses (
  IntegrationId,
  IntegrationResponseKey,
@@ -103,27 +99,16 @@ INSERT INTO aws.apigatewayv2.integration_responses (
  region
 )
 SELECT 
-{{ .IntegrationId }},
- {{ .IntegrationResponseKey }},
- {{ .ApiId }},
-'us-east-1';
+'{{ IntegrationId }}',
+ '{{ IntegrationResponseKey }}',
+ '{{ ApiId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ResponseTemplates": {},
- "TemplateSelectionExpression": "{{ TemplateSelectionExpression }}",
- "ResponseParameters": {},
- "ContentHandlingStrategy": "{{ ContentHandlingStrategy }}",
- "IntegrationId": "{{ IntegrationId }}",
- "IntegrationResponseKey": "{{ IntegrationResponseKey }}",
- "ApiId": "{{ ApiId }}"
-}
->>>
---all properties
+-- integration_response.iql (all properties)
 INSERT INTO aws.apigatewayv2.integration_responses (
  ResponseTemplates,
  TemplateSelectionExpression,
@@ -135,14 +120,45 @@ INSERT INTO aws.apigatewayv2.integration_responses (
  region
 )
 SELECT 
- {{ .ResponseTemplates }},
- {{ .TemplateSelectionExpression }},
- {{ .ResponseParameters }},
- {{ .ContentHandlingStrategy }},
- {{ .IntegrationId }},
- {{ .IntegrationResponseKey }},
- {{ .ApiId }},
- 'us-east-1';
+ '{{ ResponseTemplates }}',
+ '{{ TemplateSelectionExpression }}',
+ '{{ ResponseParameters }}',
+ '{{ ContentHandlingStrategy }}',
+ '{{ IntegrationId }}',
+ '{{ IntegrationResponseKey }}',
+ '{{ ApiId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: integration_response
+    props:
+      - name: ResponseTemplates
+        value: {}
+      - name: TemplateSelectionExpression
+        value: '{{ TemplateSelectionExpression }}'
+      - name: ResponseParameters
+        value: {}
+      - name: ContentHandlingStrategy
+        value: '{{ ContentHandlingStrategy }}'
+      - name: IntegrationId
+        value: '{{ IntegrationId }}'
+      - name: IntegrationResponseKey
+        value: '{{ IntegrationResponseKey }}'
+      - name: ApiId
+        value: '{{ ApiId }}'
+
 ```
 </TabItem>
 </Tabs>

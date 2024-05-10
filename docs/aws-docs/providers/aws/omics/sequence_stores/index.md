@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>sequence_store</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- sequence_store.iql (required properties only)
 INSERT INTO aws.omics.sequence_stores (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Description": "{{ Description }}",
- "Name": "{{ Name }}",
- "FallbackLocation": "{{ FallbackLocation }}",
- "SseConfig": {
-  "Type": "{{ Type }}",
-  "KeyArn": "{{ KeyArn }}"
- },
- "Tags": {}
-}
->>>
---all properties
+-- sequence_store.iql (all properties)
 INSERT INTO aws.omics.sequence_stores (
  Description,
  Name,
@@ -124,12 +110,41 @@ INSERT INTO aws.omics.sequence_stores (
  region
 )
 SELECT 
- {{ .Description }},
- {{ .Name }},
- {{ .FallbackLocation }},
- {{ .SseConfig }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Description }}',
+ '{{ Name }}',
+ '{{ FallbackLocation }}',
+ '{{ SseConfig }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: sequence_store
+    props:
+      - name: Description
+        value: '{{ Description }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: FallbackLocation
+        value: '{{ FallbackLocation }}'
+      - name: SseConfig
+        value:
+          Type: '{{ Type }}'
+          KeyArn: '{{ KeyArn }}'
+      - name: Tags
+        value: {}
+
 ```
 </TabItem>
 </Tabs>

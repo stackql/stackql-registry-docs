@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>studio</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AuthMode": "{{ AuthMode }}",
- "DefaultS3Location": "{{ DefaultS3Location }}",
- "EngineSecurityGroupId": "{{ EngineSecurityGroupId }}",
- "Name": "{{ Name }}",
- "ServiceRole": "{{ ServiceRole }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "VpcId": "{{ VpcId }}",
- "WorkspaceSecurityGroupId": "{{ WorkspaceSecurityGroupId }}"
-}
->>>
---required properties only
+-- studio.iql (required properties only)
 INSERT INTO aws.emr.studios (
  AuthMode,
  DefaultS3Location,
@@ -111,49 +100,21 @@ INSERT INTO aws.emr.studios (
  region
 )
 SELECT 
-{{ .AuthMode }},
- {{ .DefaultS3Location }},
- {{ .EngineSecurityGroupId }},
- {{ .Name }},
- {{ .ServiceRole }},
- {{ .SubnetIds }},
- {{ .VpcId }},
- {{ .WorkspaceSecurityGroupId }},
-'us-east-1';
+'{{ AuthMode }}',
+ '{{ DefaultS3Location }}',
+ '{{ EngineSecurityGroupId }}',
+ '{{ Name }}',
+ '{{ ServiceRole }}',
+ '{{ SubnetIds }}',
+ '{{ VpcId }}',
+ '{{ WorkspaceSecurityGroupId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AuthMode": "{{ AuthMode }}",
- "DefaultS3Location": "{{ DefaultS3Location }}",
- "Description": "{{ Description }}",
- "EngineSecurityGroupId": "{{ EngineSecurityGroupId }}",
- "Name": "{{ Name }}",
- "ServiceRole": "{{ ServiceRole }}",
- "SubnetIds": [
-  "{{ SubnetIds[0] }}"
- ],
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "UserRole": null,
- "VpcId": "{{ VpcId }}",
- "WorkspaceSecurityGroupId": "{{ WorkspaceSecurityGroupId }}",
- "IdpAuthUrl": "{{ IdpAuthUrl }}",
- "IdpRelayStateParameterName": "{{ IdpRelayStateParameterName }}",
- "TrustedIdentityPropagationEnabled": "{{ TrustedIdentityPropagationEnabled }}",
- "IdcUserAssignment": "{{ IdcUserAssignment }}",
- "IdcInstanceArn": "{{ IdcInstanceArn }}",
- "EncryptionKeyArn": null
-}
->>>
---all properties
+-- studio.iql (all properties)
 INSERT INTO aws.emr.studios (
  AuthMode,
  DefaultS3Location,
@@ -175,24 +136,78 @@ INSERT INTO aws.emr.studios (
  region
 )
 SELECT 
- {{ .AuthMode }},
- {{ .DefaultS3Location }},
- {{ .Description }},
- {{ .EngineSecurityGroupId }},
- {{ .Name }},
- {{ .ServiceRole }},
- {{ .SubnetIds }},
- {{ .Tags }},
- {{ .UserRole }},
- {{ .VpcId }},
- {{ .WorkspaceSecurityGroupId }},
- {{ .IdpAuthUrl }},
- {{ .IdpRelayStateParameterName }},
- {{ .TrustedIdentityPropagationEnabled }},
- {{ .IdcUserAssignment }},
- {{ .IdcInstanceArn }},
- {{ .EncryptionKeyArn }},
- 'us-east-1';
+ '{{ AuthMode }}',
+ '{{ DefaultS3Location }}',
+ '{{ Description }}',
+ '{{ EngineSecurityGroupId }}',
+ '{{ Name }}',
+ '{{ ServiceRole }}',
+ '{{ SubnetIds }}',
+ '{{ Tags }}',
+ '{{ UserRole }}',
+ '{{ VpcId }}',
+ '{{ WorkspaceSecurityGroupId }}',
+ '{{ IdpAuthUrl }}',
+ '{{ IdpRelayStateParameterName }}',
+ '{{ TrustedIdentityPropagationEnabled }}',
+ '{{ IdcUserAssignment }}',
+ '{{ IdcInstanceArn }}',
+ '{{ EncryptionKeyArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: studio
+    props:
+      - name: AuthMode
+        value: '{{ AuthMode }}'
+      - name: DefaultS3Location
+        value: '{{ DefaultS3Location }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: EngineSecurityGroupId
+        value: '{{ EngineSecurityGroupId }}'
+      - name: Name
+        value: '{{ Name }}'
+      - name: ServiceRole
+        value: '{{ ServiceRole }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: UserRole
+        value: null
+      - name: VpcId
+        value: '{{ VpcId }}'
+      - name: WorkspaceSecurityGroupId
+        value: '{{ WorkspaceSecurityGroupId }}'
+      - name: IdpAuthUrl
+        value: '{{ IdpAuthUrl }}'
+      - name: IdpRelayStateParameterName
+        value: '{{ IdpRelayStateParameterName }}'
+      - name: TrustedIdentityPropagationEnabled
+        value: '{{ TrustedIdentityPropagationEnabled }}'
+      - name: IdcUserAssignment
+        value: '{{ IdcUserAssignment }}'
+      - name: IdcInstanceArn
+        value: '{{ IdcInstanceArn }}'
+      - name: EncryptionKeyArn
+        value: null
+
 ```
 </TabItem>
 </Tabs>

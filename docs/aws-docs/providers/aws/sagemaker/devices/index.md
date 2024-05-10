@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>device</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DeviceFleetName": "{{ DeviceFleetName }}"
-}
->>>
---required properties only
+-- device.iql (required properties only)
 INSERT INTO aws.sagemaker.devices (
  DeviceFleetName,
  region
 )
 SELECT 
-{{ .DeviceFleetName }},
-'us-east-1';
+'{{ DeviceFleetName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DeviceFleetName": "{{ DeviceFleetName }}",
- "Device": {
-  "DeviceFleetName": "{{ DeviceFleetName }}",
-  "Device": null,
-  "Tags": [
-   {
-    "Value": "{{ Value }}",
-    "Key": "{{ Key }}"
-   }
-  ]
- },
- "Tags": [
-  null
- ]
-}
->>>
---all properties
+-- device.iql (all properties)
 INSERT INTO aws.sagemaker.devices (
  DeviceFleetName,
  Device,
@@ -128,10 +108,39 @@ INSERT INTO aws.sagemaker.devices (
  region
 )
 SELECT 
- {{ .DeviceFleetName }},
- {{ .Device }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DeviceFleetName }}',
+ '{{ Device }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: device
+    props:
+      - name: DeviceFleetName
+        value: '{{ DeviceFleetName }}'
+      - name: Device
+        value:
+          DeviceFleetName: '{{ DeviceFleetName }}'
+          Device: null
+          Tags:
+            - Value: '{{ Value }}'
+              Key: '{{ Key }}'
+      - name: Tags
+        value:
+          - null
+
 ```
 </TabItem>
 </Tabs>

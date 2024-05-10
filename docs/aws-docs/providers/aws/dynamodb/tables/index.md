@@ -74,131 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>table</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "KeySchema": null
-}
->>>
---required properties only
+-- table.iql (required properties only)
 INSERT INTO aws.dynamodb.tables (
  KeySchema,
  region
 )
 SELECT 
-{{ .KeySchema }},
-'us-east-1';
+'{{ KeySchema }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SSESpecification": {
-  "SSEEnabled": "{{ SSEEnabled }}",
-  "SSEType": "{{ SSEType }}",
-  "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
- },
- "KinesisStreamSpecification": {
-  "ApproximateCreationDateTimePrecision": "{{ ApproximateCreationDateTimePrecision }}",
-  "StreamArn": "{{ StreamArn }}"
- },
- "StreamSpecification": {
-  "StreamViewType": "{{ StreamViewType }}",
-  "ResourcePolicy": {
-   "PolicyDocument": {}
-  }
- },
- "ContributorInsightsSpecification": {
-  "Enabled": "{{ Enabled }}"
- },
- "ImportSourceSpecification": {
-  "S3BucketSource": {
-   "S3Bucket": "{{ S3Bucket }}",
-   "S3KeyPrefix": "{{ S3KeyPrefix }}",
-   "S3BucketOwner": "{{ S3BucketOwner }}"
-  },
-  "InputFormat": "{{ InputFormat }}",
-  "InputFormatOptions": {
-   "Csv": {
-    "Delimiter": "{{ Delimiter }}",
-    "HeaderList": [
-     "{{ HeaderList[0] }}"
-    ]
-   }
-  },
-  "InputCompressionType": "{{ InputCompressionType }}"
- },
- "PointInTimeRecoverySpecification": {
-  "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}"
- },
- "ProvisionedThroughput": {
-  "WriteCapacityUnits": "{{ WriteCapacityUnits }}",
-  "ReadCapacityUnits": "{{ ReadCapacityUnits }}"
- },
- "TableName": "{{ TableName }}",
- "AttributeDefinitions": [
-  {
-   "AttributeType": "{{ AttributeType }}",
-   "AttributeName": "{{ AttributeName }}"
-  }
- ],
- "BillingMode": "{{ BillingMode }}",
- "GlobalSecondaryIndexes": [
-  {
-   "IndexName": "{{ IndexName }}",
-   "ContributorInsightsSpecification": null,
-   "Projection": {
-    "NonKeyAttributes": [
-     "{{ NonKeyAttributes[0] }}"
-    ],
-    "ProjectionType": "{{ ProjectionType }}"
-   },
-   "ProvisionedThroughput": null,
-   "KeySchema": [
-    {
-     "KeyType": "{{ KeyType }}",
-     "AttributeName": "{{ AttributeName }}"
-    }
-   ]
-  }
- ],
- "ResourcePolicy": null,
- "KeySchema": null,
- "LocalSecondaryIndexes": [
-  {
-   "IndexName": "{{ IndexName }}",
-   "Projection": null,
-   "KeySchema": [
-    null
-   ]
-  }
- ],
- "DeletionProtectionEnabled": "{{ DeletionProtectionEnabled }}",
- "TableClass": "{{ TableClass }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "TimeToLiveSpecification": {
-  "Enabled": "{{ Enabled }}",
-  "AttributeName": "{{ AttributeName }}"
- }
-}
->>>
---all properties
+-- table.iql (all properties)
 INSERT INTO aws.dynamodb.tables (
  SSESpecification,
  KinesisStreamSpecification,
@@ -221,25 +123,121 @@ INSERT INTO aws.dynamodb.tables (
  region
 )
 SELECT 
- {{ .SSESpecification }},
- {{ .KinesisStreamSpecification }},
- {{ .StreamSpecification }},
- {{ .ContributorInsightsSpecification }},
- {{ .ImportSourceSpecification }},
- {{ .PointInTimeRecoverySpecification }},
- {{ .ProvisionedThroughput }},
- {{ .TableName }},
- {{ .AttributeDefinitions }},
- {{ .BillingMode }},
- {{ .GlobalSecondaryIndexes }},
- {{ .ResourcePolicy }},
- {{ .KeySchema }},
- {{ .LocalSecondaryIndexes }},
- {{ .DeletionProtectionEnabled }},
- {{ .TableClass }},
- {{ .Tags }},
- {{ .TimeToLiveSpecification }},
- 'us-east-1';
+ '{{ SSESpecification }}',
+ '{{ KinesisStreamSpecification }}',
+ '{{ StreamSpecification }}',
+ '{{ ContributorInsightsSpecification }}',
+ '{{ ImportSourceSpecification }}',
+ '{{ PointInTimeRecoverySpecification }}',
+ '{{ ProvisionedThroughput }}',
+ '{{ TableName }}',
+ '{{ AttributeDefinitions }}',
+ '{{ BillingMode }}',
+ '{{ GlobalSecondaryIndexes }}',
+ '{{ ResourcePolicy }}',
+ '{{ KeySchema }}',
+ '{{ LocalSecondaryIndexes }}',
+ '{{ DeletionProtectionEnabled }}',
+ '{{ TableClass }}',
+ '{{ Tags }}',
+ '{{ TimeToLiveSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: table
+    props:
+      - name: SSESpecification
+        value:
+          SSEEnabled: '{{ SSEEnabled }}'
+          SSEType: '{{ SSEType }}'
+          KMSMasterKeyId: '{{ KMSMasterKeyId }}'
+      - name: KinesisStreamSpecification
+        value:
+          ApproximateCreationDateTimePrecision: '{{ ApproximateCreationDateTimePrecision }}'
+          StreamArn: '{{ StreamArn }}'
+      - name: StreamSpecification
+        value:
+          StreamViewType: '{{ StreamViewType }}'
+          ResourcePolicy:
+            PolicyDocument: {}
+      - name: ContributorInsightsSpecification
+        value:
+          Enabled: '{{ Enabled }}'
+      - name: ImportSourceSpecification
+        value:
+          S3BucketSource:
+            S3Bucket: '{{ S3Bucket }}'
+            S3KeyPrefix: '{{ S3KeyPrefix }}'
+            S3BucketOwner: '{{ S3BucketOwner }}'
+          InputFormat: '{{ InputFormat }}'
+          InputFormatOptions:
+            Csv:
+              Delimiter: '{{ Delimiter }}'
+              HeaderList:
+                - '{{ HeaderList[0] }}'
+          InputCompressionType: '{{ InputCompressionType }}'
+      - name: PointInTimeRecoverySpecification
+        value:
+          PointInTimeRecoveryEnabled: '{{ PointInTimeRecoveryEnabled }}'
+      - name: ProvisionedThroughput
+        value:
+          WriteCapacityUnits: '{{ WriteCapacityUnits }}'
+          ReadCapacityUnits: '{{ ReadCapacityUnits }}'
+      - name: TableName
+        value: '{{ TableName }}'
+      - name: AttributeDefinitions
+        value:
+          - AttributeType: '{{ AttributeType }}'
+            AttributeName: '{{ AttributeName }}'
+      - name: BillingMode
+        value: '{{ BillingMode }}'
+      - name: GlobalSecondaryIndexes
+        value:
+          - IndexName: '{{ IndexName }}'
+            ContributorInsightsSpecification: null
+            Projection:
+              NonKeyAttributes:
+                - '{{ NonKeyAttributes[0] }}'
+              ProjectionType: '{{ ProjectionType }}'
+            ProvisionedThroughput: null
+            KeySchema:
+              - KeyType: '{{ KeyType }}'
+                AttributeName: '{{ AttributeName }}'
+      - name: ResourcePolicy
+        value: null
+      - name: KeySchema
+        value: null
+      - name: LocalSecondaryIndexes
+        value:
+          - IndexName: '{{ IndexName }}'
+            Projection: null
+            KeySchema:
+              - null
+      - name: DeletionProtectionEnabled
+        value: '{{ DeletionProtectionEnabled }}'
+      - name: TableClass
+        value: '{{ TableClass }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: TimeToLiveSpecification
+        value:
+          Enabled: '{{ Enabled }}'
+          AttributeName: '{{ AttributeName }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,47 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>robot</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Architecture": "{{ Architecture }}",
- "GreengrassGroupId": "{{ GreengrassGroupId }}"
-}
->>>
---required properties only
+-- robot.iql (required properties only)
 INSERT INTO aws.robomaker.robots (
  Architecture,
  GreengrassGroupId,
  region
 )
 SELECT 
-{{ .Architecture }},
- {{ .GreengrassGroupId }},
-'us-east-1';
+'{{ Architecture }}',
+ '{{ GreengrassGroupId }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Fleet": "{{ Fleet }}",
- "Architecture": "{{ Architecture }}",
- "GreengrassGroupId": "{{ GreengrassGroupId }}",
- "Tags": {},
- "Name": "{{ Name }}"
-}
->>>
---all properties
+-- robot.iql (all properties)
 INSERT INTO aws.robomaker.robots (
  Fleet,
  Architecture,
@@ -124,12 +112,39 @@ INSERT INTO aws.robomaker.robots (
  region
 )
 SELECT 
- {{ .Fleet }},
- {{ .Architecture }},
- {{ .GreengrassGroupId }},
- {{ .Tags }},
- {{ .Name }},
- 'us-east-1';
+ '{{ Fleet }}',
+ '{{ Architecture }}',
+ '{{ GreengrassGroupId }}',
+ '{{ Tags }}',
+ '{{ Name }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: robot
+    props:
+      - name: Fleet
+        value: '{{ Fleet }}'
+      - name: Architecture
+        value: '{{ Architecture }}'
+      - name: GreengrassGroupId
+        value: '{{ GreengrassGroupId }}'
+      - name: Tags
+        value: {}
+      - name: Name
+        value: '{{ Name }}'
+
 ```
 </TabItem>
 </Tabs>

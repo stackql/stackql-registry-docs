@@ -78,51 +78,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>component</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "BindingProperties": {},
- "Children": [
-  {
-   "ComponentType": "{{ ComponentType }}",
-   "Name": "{{ Name }}",
-   "Properties": {},
-   "Children": [
-    null
-   ],
-   "Events": {},
-   "SourceId": "{{ SourceId }}"
-  }
- ],
- "CollectionProperties": {},
- "ComponentType": "{{ ComponentType }}",
- "EnvironmentName": "{{ EnvironmentName }}",
- "Events": null,
- "Name": "{{ Name }}",
- "Overrides": {},
- "Properties": null,
- "SchemaVersion": "{{ SchemaVersion }}",
- "SourceId": "{{ SourceId }}",
- "Tags": {},
- "Variants": [
-  {
-   "VariantValues": {},
-   "Overrides": null
-  }
- ]
-}
->>>
---required properties only
+-- component.iql (required properties only)
 INSERT INTO aws.amplifyuibuilder.components (
  AppId,
  BindingProperties,
@@ -141,61 +110,27 @@ INSERT INTO aws.amplifyuibuilder.components (
  region
 )
 SELECT 
-{{ .AppId }},
- {{ .BindingProperties }},
- {{ .Children }},
- {{ .CollectionProperties }},
- {{ .ComponentType }},
- {{ .EnvironmentName }},
- {{ .Events }},
- {{ .Name }},
- {{ .Overrides }},
- {{ .Properties }},
- {{ .SchemaVersion }},
- {{ .SourceId }},
- {{ .Tags }},
- {{ .Variants }},
-'us-east-1';
+'{{ AppId }}',
+ '{{ BindingProperties }}',
+ '{{ Children }}',
+ '{{ CollectionProperties }}',
+ '{{ ComponentType }}',
+ '{{ EnvironmentName }}',
+ '{{ Events }}',
+ '{{ Name }}',
+ '{{ Overrides }}',
+ '{{ Properties }}',
+ '{{ SchemaVersion }}',
+ '{{ SourceId }}',
+ '{{ Tags }}',
+ '{{ Variants }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AppId": "{{ AppId }}",
- "BindingProperties": {},
- "Children": [
-  {
-   "ComponentType": "{{ ComponentType }}",
-   "Name": "{{ Name }}",
-   "Properties": {},
-   "Children": [
-    null
-   ],
-   "Events": {},
-   "SourceId": "{{ SourceId }}"
-  }
- ],
- "CollectionProperties": {},
- "ComponentType": "{{ ComponentType }}",
- "EnvironmentName": "{{ EnvironmentName }}",
- "Events": null,
- "Name": "{{ Name }}",
- "Overrides": {},
- "Properties": null,
- "SchemaVersion": "{{ SchemaVersion }}",
- "SourceId": "{{ SourceId }}",
- "Tags": {},
- "Variants": [
-  {
-   "VariantValues": {},
-   "Overrides": null
-  }
- ]
-}
->>>
---all properties
+-- component.iql (all properties)
 INSERT INTO aws.amplifyuibuilder.components (
  AppId,
  BindingProperties,
@@ -214,21 +149,75 @@ INSERT INTO aws.amplifyuibuilder.components (
  region
 )
 SELECT 
- {{ .AppId }},
- {{ .BindingProperties }},
- {{ .Children }},
- {{ .CollectionProperties }},
- {{ .ComponentType }},
- {{ .EnvironmentName }},
- {{ .Events }},
- {{ .Name }},
- {{ .Overrides }},
- {{ .Properties }},
- {{ .SchemaVersion }},
- {{ .SourceId }},
- {{ .Tags }},
- {{ .Variants }},
- 'us-east-1';
+ '{{ AppId }}',
+ '{{ BindingProperties }}',
+ '{{ Children }}',
+ '{{ CollectionProperties }}',
+ '{{ ComponentType }}',
+ '{{ EnvironmentName }}',
+ '{{ Events }}',
+ '{{ Name }}',
+ '{{ Overrides }}',
+ '{{ Properties }}',
+ '{{ SchemaVersion }}',
+ '{{ SourceId }}',
+ '{{ Tags }}',
+ '{{ Variants }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: component
+    props:
+      - name: AppId
+        value: '{{ AppId }}'
+      - name: BindingProperties
+        value: {}
+      - name: Children
+        value:
+          - ComponentType: '{{ ComponentType }}'
+            Name: '{{ Name }}'
+            Properties: {}
+            Children:
+              - null
+            Events: {}
+            SourceId: '{{ SourceId }}'
+      - name: CollectionProperties
+        value: {}
+      - name: ComponentType
+        value: '{{ ComponentType }}'
+      - name: EnvironmentName
+        value: '{{ EnvironmentName }}'
+      - name: Events
+        value: null
+      - name: Name
+        value: '{{ Name }}'
+      - name: Overrides
+        value: {}
+      - name: Properties
+        value: null
+      - name: SchemaVersion
+        value: '{{ SchemaVersion }}'
+      - name: SourceId
+        value: '{{ SourceId }}'
+      - name: Tags
+        value: {}
+      - name: Variants
+        value:
+          - VariantValues: {}
+            Overrides: null
+
 ```
 </TabItem>
 </Tabs>

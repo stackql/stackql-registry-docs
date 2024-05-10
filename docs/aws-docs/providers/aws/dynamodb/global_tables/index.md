@@ -74,86 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>global_table</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Replicas": [
-  {
-   "SSESpecification": {
-    "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
-   },
-   "KinesisStreamSpecification": {
-    "ApproximateCreationDateTimePrecision": "{{ ApproximateCreationDateTimePrecision }}",
-    "StreamArn": "{{ StreamArn }}"
-   },
-   "ContributorInsightsSpecification": {
-    "Enabled": "{{ Enabled }}"
-   },
-   "PointInTimeRecoverySpecification": {
-    "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}"
-   },
-   "ReplicaStreamSpecification": {
-    "ResourcePolicy": {
-     "PolicyDocument": {}
-    }
-   },
-   "GlobalSecondaryIndexes": [
-    {
-     "IndexName": "{{ IndexName }}",
-     "ContributorInsightsSpecification": null,
-     "ReadProvisionedThroughputSettings": {
-      "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
-      "ReadCapacityAutoScalingSettings": {
-       "MinCapacity": "{{ MinCapacity }}",
-       "SeedCapacity": "{{ SeedCapacity }}",
-       "TargetTrackingScalingPolicyConfiguration": {
-        "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
-        "TargetValue": null,
-        "DisableScaleIn": "{{ DisableScaleIn }}",
-        "ScaleInCooldown": "{{ ScaleInCooldown }}"
-       },
-       "MaxCapacity": "{{ MaxCapacity }}"
-      }
-     }
-    }
-   ],
-   "Region": "{{ Region }}",
-   "ResourcePolicy": null,
-   "ReadProvisionedThroughputSettings": null,
-   "TableClass": "{{ TableClass }}",
-   "DeletionProtectionEnabled": "{{ DeletionProtectionEnabled }}",
-   "Tags": [
-    {
-     "Value": "{{ Value }}",
-     "Key": "{{ Key }}"
-    }
-   ]
-  }
- ],
- "AttributeDefinitions": [
-  {
-   "AttributeType": "{{ AttributeType }}",
-   "AttributeName": "{{ AttributeName }}"
-  }
- ],
- "KeySchema": [
-  {
-   "KeyType": "{{ KeyType }}",
-   "AttributeName": "{{ AttributeName }}"
-  }
- ]
-}
->>>
---required properties only
+-- global_table.iql (required properties only)
 INSERT INTO aws.dynamodb.global_tables (
  Replicas,
  AttributeDefinitions,
@@ -161,131 +95,16 @@ INSERT INTO aws.dynamodb.global_tables (
  region
 )
 SELECT 
-{{ .Replicas }},
- {{ .AttributeDefinitions }},
- {{ .KeySchema }},
-'us-east-1';
+'{{ Replicas }}',
+ '{{ AttributeDefinitions }}',
+ '{{ KeySchema }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SSESpecification": {
-  "SSEEnabled": "{{ SSEEnabled }}",
-  "SSEType": "{{ SSEType }}",
-  "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
- },
- "StreamSpecification": {
-  "StreamViewType": "{{ StreamViewType }}",
-  "ResourcePolicy": {
-   "PolicyDocument": {}
-  }
- },
- "Replicas": [
-  {
-   "SSESpecification": {
-    "KMSMasterKeyId": "{{ KMSMasterKeyId }}"
-   },
-   "KinesisStreamSpecification": {
-    "ApproximateCreationDateTimePrecision": "{{ ApproximateCreationDateTimePrecision }}",
-    "StreamArn": "{{ StreamArn }}"
-   },
-   "ContributorInsightsSpecification": {
-    "Enabled": "{{ Enabled }}"
-   },
-   "PointInTimeRecoverySpecification": {
-    "PointInTimeRecoveryEnabled": "{{ PointInTimeRecoveryEnabled }}"
-   },
-   "ReplicaStreamSpecification": {
-    "ResourcePolicy": null
-   },
-   "GlobalSecondaryIndexes": [
-    {
-     "IndexName": "{{ IndexName }}",
-     "ContributorInsightsSpecification": null,
-     "ReadProvisionedThroughputSettings": {
-      "ReadCapacityUnits": "{{ ReadCapacityUnits }}",
-      "ReadCapacityAutoScalingSettings": {
-       "MinCapacity": "{{ MinCapacity }}",
-       "SeedCapacity": "{{ SeedCapacity }}",
-       "TargetTrackingScalingPolicyConfiguration": {
-        "ScaleOutCooldown": "{{ ScaleOutCooldown }}",
-        "TargetValue": null,
-        "DisableScaleIn": "{{ DisableScaleIn }}",
-        "ScaleInCooldown": "{{ ScaleInCooldown }}"
-       },
-       "MaxCapacity": "{{ MaxCapacity }}"
-      }
-     }
-    }
-   ],
-   "Region": "{{ Region }}",
-   "ResourcePolicy": null,
-   "ReadProvisionedThroughputSettings": null,
-   "TableClass": "{{ TableClass }}",
-   "DeletionProtectionEnabled": "{{ DeletionProtectionEnabled }}",
-   "Tags": [
-    {
-     "Value": "{{ Value }}",
-     "Key": "{{ Key }}"
-    }
-   ]
-  }
- ],
- "WriteProvisionedThroughputSettings": {
-  "WriteCapacityAutoScalingSettings": null
- },
- "TableName": "{{ TableName }}",
- "AttributeDefinitions": [
-  {
-   "AttributeType": "{{ AttributeType }}",
-   "AttributeName": "{{ AttributeName }}"
-  }
- ],
- "BillingMode": "{{ BillingMode }}",
- "GlobalSecondaryIndexes": [
-  {
-   "IndexName": "{{ IndexName }}",
-   "ContributorInsightsSpecification": null,
-   "Projection": {
-    "NonKeyAttributes": [
-     "{{ NonKeyAttributes[0] }}"
-    ],
-    "ProjectionType": "{{ ProjectionType }}"
-   },
-   "ProvisionedThroughput": {
-    "WriteCapacityUnits": "{{ WriteCapacityUnits }}",
-    "ReadCapacityUnits": "{{ ReadCapacityUnits }}"
-   },
-   "KeySchema": [
-    {
-     "KeyType": "{{ KeyType }}",
-     "AttributeName": "{{ AttributeName }}"
-    }
-   ]
-  }
- ],
- "KeySchema": [
-  null
- ],
- "LocalSecondaryIndexes": [
-  {
-   "IndexName": "{{ IndexName }}",
-   "Projection": null,
-   "KeySchema": [
-    null
-   ]
-  }
- ],
- "TimeToLiveSpecification": {
-  "Enabled": "{{ Enabled }}",
-  "AttributeName": "{{ AttributeName }}"
- }
-}
->>>
---all properties
+-- global_table.iql (all properties)
 INSERT INTO aws.dynamodb.global_tables (
  SSESpecification,
  StreamSpecification,
@@ -301,18 +120,118 @@ INSERT INTO aws.dynamodb.global_tables (
  region
 )
 SELECT 
- {{ .SSESpecification }},
- {{ .StreamSpecification }},
- {{ .Replicas }},
- {{ .WriteProvisionedThroughputSettings }},
- {{ .TableName }},
- {{ .AttributeDefinitions }},
- {{ .BillingMode }},
- {{ .GlobalSecondaryIndexes }},
- {{ .KeySchema }},
- {{ .LocalSecondaryIndexes }},
- {{ .TimeToLiveSpecification }},
- 'us-east-1';
+ '{{ SSESpecification }}',
+ '{{ StreamSpecification }}',
+ '{{ Replicas }}',
+ '{{ WriteProvisionedThroughputSettings }}',
+ '{{ TableName }}',
+ '{{ AttributeDefinitions }}',
+ '{{ BillingMode }}',
+ '{{ GlobalSecondaryIndexes }}',
+ '{{ KeySchema }}',
+ '{{ LocalSecondaryIndexes }}',
+ '{{ TimeToLiveSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: global_table
+    props:
+      - name: SSESpecification
+        value:
+          SSEEnabled: '{{ SSEEnabled }}'
+          SSEType: '{{ SSEType }}'
+          KMSMasterKeyId: '{{ KMSMasterKeyId }}'
+      - name: StreamSpecification
+        value:
+          StreamViewType: '{{ StreamViewType }}'
+          ResourcePolicy:
+            PolicyDocument: {}
+      - name: Replicas
+        value:
+          - SSESpecification:
+              KMSMasterKeyId: '{{ KMSMasterKeyId }}'
+            KinesisStreamSpecification:
+              ApproximateCreationDateTimePrecision: '{{ ApproximateCreationDateTimePrecision }}'
+              StreamArn: '{{ StreamArn }}'
+            ContributorInsightsSpecification:
+              Enabled: '{{ Enabled }}'
+            PointInTimeRecoverySpecification:
+              PointInTimeRecoveryEnabled: '{{ PointInTimeRecoveryEnabled }}'
+            ReplicaStreamSpecification:
+              ResourcePolicy: null
+            GlobalSecondaryIndexes:
+              - IndexName: '{{ IndexName }}'
+                ContributorInsightsSpecification: null
+                ReadProvisionedThroughputSettings:
+                  ReadCapacityUnits: '{{ ReadCapacityUnits }}'
+                  ReadCapacityAutoScalingSettings:
+                    MinCapacity: '{{ MinCapacity }}'
+                    SeedCapacity: '{{ SeedCapacity }}'
+                    TargetTrackingScalingPolicyConfiguration:
+                      ScaleOutCooldown: '{{ ScaleOutCooldown }}'
+                      TargetValue: null
+                      DisableScaleIn: '{{ DisableScaleIn }}'
+                      ScaleInCooldown: '{{ ScaleInCooldown }}'
+                    MaxCapacity: '{{ MaxCapacity }}'
+            Region: '{{ Region }}'
+            ResourcePolicy: null
+            ReadProvisionedThroughputSettings: null
+            TableClass: '{{ TableClass }}'
+            DeletionProtectionEnabled: '{{ DeletionProtectionEnabled }}'
+            Tags:
+              - Value: '{{ Value }}'
+                Key: '{{ Key }}'
+      - name: WriteProvisionedThroughputSettings
+        value:
+          WriteCapacityAutoScalingSettings: null
+      - name: TableName
+        value: '{{ TableName }}'
+      - name: AttributeDefinitions
+        value:
+          - AttributeType: '{{ AttributeType }}'
+            AttributeName: '{{ AttributeName }}'
+      - name: BillingMode
+        value: '{{ BillingMode }}'
+      - name: GlobalSecondaryIndexes
+        value:
+          - IndexName: '{{ IndexName }}'
+            ContributorInsightsSpecification: null
+            Projection:
+              NonKeyAttributes:
+                - '{{ NonKeyAttributes[0] }}'
+              ProjectionType: '{{ ProjectionType }}'
+            ProvisionedThroughput:
+              WriteCapacityUnits: '{{ WriteCapacityUnits }}'
+              ReadCapacityUnits: '{{ ReadCapacityUnits }}'
+            KeySchema:
+              - KeyType: '{{ KeyType }}'
+                AttributeName: '{{ AttributeName }}'
+      - name: KeySchema
+        value:
+          - null
+      - name: LocalSecondaryIndexes
+        value:
+          - IndexName: '{{ IndexName }}'
+            Projection: null
+            KeySchema:
+              - null
+      - name: TimeToLiveSpecification
+        value:
+          Enabled: '{{ Enabled }}'
+          AttributeName: '{{ AttributeName }}'
+
 ```
 </TabItem>
 </Tabs>

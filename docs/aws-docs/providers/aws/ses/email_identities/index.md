@@ -74,58 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>email_identity</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "EmailIdentity": "{{ EmailIdentity }}"
-}
->>>
---required properties only
+-- email_identity.iql (required properties only)
 INSERT INTO aws.ses.email_identities (
  EmailIdentity,
  region
 )
 SELECT 
-{{ .EmailIdentity }},
-'us-east-1';
+'{{ EmailIdentity }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "EmailIdentity": "{{ EmailIdentity }}",
- "ConfigurationSetAttributes": {
-  "ConfigurationSetName": "{{ ConfigurationSetName }}"
- },
- "DkimSigningAttributes": {
-  "DomainSigningSelector": "{{ DomainSigningSelector }}",
-  "DomainSigningPrivateKey": "{{ DomainSigningPrivateKey }}",
-  "NextSigningKeyLength": "{{ NextSigningKeyLength }}"
- },
- "DkimAttributes": {
-  "SigningEnabled": "{{ SigningEnabled }}"
- },
- "MailFromAttributes": {
-  "MailFromDomain": "{{ MailFromDomain }}",
-  "BehaviorOnMxFailure": "{{ BehaviorOnMxFailure }}"
- },
- "FeedbackAttributes": {
-  "EmailForwardingEnabled": "{{ EmailForwardingEnabled }}"
- }
-}
->>>
---all properties
+-- email_identity.iql (all properties)
 INSERT INTO aws.ses.email_identities (
  EmailIdentity,
  ConfigurationSetAttributes,
@@ -136,13 +111,50 @@ INSERT INTO aws.ses.email_identities (
  region
 )
 SELECT 
- {{ .EmailIdentity }},
- {{ .ConfigurationSetAttributes }},
- {{ .DkimSigningAttributes }},
- {{ .DkimAttributes }},
- {{ .MailFromAttributes }},
- {{ .FeedbackAttributes }},
- 'us-east-1';
+ '{{ EmailIdentity }}',
+ '{{ ConfigurationSetAttributes }}',
+ '{{ DkimSigningAttributes }}',
+ '{{ DkimAttributes }}',
+ '{{ MailFromAttributes }}',
+ '{{ FeedbackAttributes }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: email_identity
+    props:
+      - name: EmailIdentity
+        value: '{{ EmailIdentity }}'
+      - name: ConfigurationSetAttributes
+        value:
+          ConfigurationSetName: '{{ ConfigurationSetName }}'
+      - name: DkimSigningAttributes
+        value:
+          DomainSigningSelector: '{{ DomainSigningSelector }}'
+          DomainSigningPrivateKey: '{{ DomainSigningPrivateKey }}'
+          NextSigningKeyLength: '{{ NextSigningKeyLength }}'
+      - name: DkimAttributes
+        value:
+          SigningEnabled: '{{ SigningEnabled }}'
+      - name: MailFromAttributes
+        value:
+          MailFromDomain: '{{ MailFromDomain }}'
+          BehaviorOnMxFailure: '{{ BehaviorOnMxFailure }}'
+      - name: FeedbackAttributes
+        value:
+          EmailForwardingEnabled: '{{ EmailForwardingEnabled }}'
+
 ```
 </TabItem>
 </Tabs>

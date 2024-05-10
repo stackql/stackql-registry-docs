@@ -74,49 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>replication_config</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "ReplicationConfigIdentifier": "{{ ReplicationConfigIdentifier }}",
- "ReplicationConfigArn": "{{ ReplicationConfigArn }}",
- "SourceEndpointArn": "{{ SourceEndpointArn }}",
- "TargetEndpointArn": "{{ TargetEndpointArn }}",
- "ReplicationType": "{{ ReplicationType }}",
- "ComputeConfig": {
-  "AvailabilityZone": "{{ AvailabilityZone }}",
-  "DnsNameServers": "{{ DnsNameServers }}",
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "MaxCapacityUnits": "{{ MaxCapacityUnits }}",
-  "MinCapacityUnits": "{{ MinCapacityUnits }}",
-  "MultiAZ": "{{ MultiAZ }}",
-  "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
-  "ReplicationSubnetGroupId": "{{ ReplicationSubnetGroupId }}",
-  "VpcSecurityGroupIds": [
-   "{{ VpcSecurityGroupIds[0] }}"
-  ]
- },
- "ReplicationSettings": {},
- "SupplementalSettings": {},
- "ResourceIdentifier": "{{ ResourceIdentifier }}",
- "TableMappings": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---required properties only
+-- replication_config.iql (required properties only)
 INSERT INTO aws.dms.replication_configs (
  ReplicationConfigIdentifier,
  ReplicationConfigArn,
@@ -132,56 +103,24 @@ INSERT INTO aws.dms.replication_configs (
  region
 )
 SELECT 
-{{ .ReplicationConfigIdentifier }},
- {{ .ReplicationConfigArn }},
- {{ .SourceEndpointArn }},
- {{ .TargetEndpointArn }},
- {{ .ReplicationType }},
- {{ .ComputeConfig }},
- {{ .ReplicationSettings }},
- {{ .SupplementalSettings }},
- {{ .ResourceIdentifier }},
- {{ .TableMappings }},
- {{ .Tags }},
-'us-east-1';
+'{{ ReplicationConfigIdentifier }}',
+ '{{ ReplicationConfigArn }}',
+ '{{ SourceEndpointArn }}',
+ '{{ TargetEndpointArn }}',
+ '{{ ReplicationType }}',
+ '{{ ComputeConfig }}',
+ '{{ ReplicationSettings }}',
+ '{{ SupplementalSettings }}',
+ '{{ ResourceIdentifier }}',
+ '{{ TableMappings }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "ReplicationConfigIdentifier": "{{ ReplicationConfigIdentifier }}",
- "ReplicationConfigArn": "{{ ReplicationConfigArn }}",
- "SourceEndpointArn": "{{ SourceEndpointArn }}",
- "TargetEndpointArn": "{{ TargetEndpointArn }}",
- "ReplicationType": "{{ ReplicationType }}",
- "ComputeConfig": {
-  "AvailabilityZone": "{{ AvailabilityZone }}",
-  "DnsNameServers": "{{ DnsNameServers }}",
-  "KmsKeyId": "{{ KmsKeyId }}",
-  "MaxCapacityUnits": "{{ MaxCapacityUnits }}",
-  "MinCapacityUnits": "{{ MinCapacityUnits }}",
-  "MultiAZ": "{{ MultiAZ }}",
-  "PreferredMaintenanceWindow": "{{ PreferredMaintenanceWindow }}",
-  "ReplicationSubnetGroupId": "{{ ReplicationSubnetGroupId }}",
-  "VpcSecurityGroupIds": [
-   "{{ VpcSecurityGroupIds[0] }}"
-  ]
- },
- "ReplicationSettings": {},
- "SupplementalSettings": {},
- "ResourceIdentifier": "{{ ResourceIdentifier }}",
- "TableMappings": {},
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- replication_config.iql (all properties)
 INSERT INTO aws.dms.replication_configs (
  ReplicationConfigIdentifier,
  ReplicationConfigArn,
@@ -197,18 +136,69 @@ INSERT INTO aws.dms.replication_configs (
  region
 )
 SELECT 
- {{ .ReplicationConfigIdentifier }},
- {{ .ReplicationConfigArn }},
- {{ .SourceEndpointArn }},
- {{ .TargetEndpointArn }},
- {{ .ReplicationType }},
- {{ .ComputeConfig }},
- {{ .ReplicationSettings }},
- {{ .SupplementalSettings }},
- {{ .ResourceIdentifier }},
- {{ .TableMappings }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ ReplicationConfigIdentifier }}',
+ '{{ ReplicationConfigArn }}',
+ '{{ SourceEndpointArn }}',
+ '{{ TargetEndpointArn }}',
+ '{{ ReplicationType }}',
+ '{{ ComputeConfig }}',
+ '{{ ReplicationSettings }}',
+ '{{ SupplementalSettings }}',
+ '{{ ResourceIdentifier }}',
+ '{{ TableMappings }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: replication_config
+    props:
+      - name: ReplicationConfigIdentifier
+        value: '{{ ReplicationConfigIdentifier }}'
+      - name: ReplicationConfigArn
+        value: '{{ ReplicationConfigArn }}'
+      - name: SourceEndpointArn
+        value: '{{ SourceEndpointArn }}'
+      - name: TargetEndpointArn
+        value: '{{ TargetEndpointArn }}'
+      - name: ReplicationType
+        value: '{{ ReplicationType }}'
+      - name: ComputeConfig
+        value:
+          AvailabilityZone: '{{ AvailabilityZone }}'
+          DnsNameServers: '{{ DnsNameServers }}'
+          KmsKeyId: '{{ KmsKeyId }}'
+          MaxCapacityUnits: '{{ MaxCapacityUnits }}'
+          MinCapacityUnits: '{{ MinCapacityUnits }}'
+          MultiAZ: '{{ MultiAZ }}'
+          PreferredMaintenanceWindow: '{{ PreferredMaintenanceWindow }}'
+          ReplicationSubnetGroupId: '{{ ReplicationSubnetGroupId }}'
+          VpcSecurityGroupIds:
+            - '{{ VpcSecurityGroupIds[0] }}'
+      - name: ReplicationSettings
+        value: {}
+      - name: SupplementalSettings
+        value: {}
+      - name: ResourceIdentifier
+        value: '{{ ResourceIdentifier }}'
+      - name: TableMappings
+        value: {}
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,65 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>queue</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DisplayName": "{{ DisplayName }}"
-}
->>>
---required properties only
+-- queue.iql (required properties only)
 INSERT INTO aws.deadline.queues (
  DisplayName,
  region
 )
 SELECT 
-{{ .DisplayName }},
-'us-east-1';
+'{{ DisplayName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AllowedStorageProfileIds": [
-  "{{ AllowedStorageProfileIds[0] }}"
- ],
- "DefaultBudgetAction": "{{ DefaultBudgetAction }}",
- "Description": "{{ Description }}",
- "DisplayName": "{{ DisplayName }}",
- "FarmId": "{{ FarmId }}",
- "JobAttachmentSettings": {
-  "S3BucketName": "{{ S3BucketName }}",
-  "RootPrefix": "{{ RootPrefix }}"
- },
- "JobRunAsUser": {
-  "Posix": {
-   "User": "{{ User }}",
-   "Group": "{{ Group }}"
-  },
-  "Windows": {
-   "User": "{{ User }}",
-   "PasswordArn": "{{ PasswordArn }}"
-  },
-  "RunAs": "{{ RunAs }}"
- },
- "RequiredFileSystemLocationNames": [
-  "{{ RequiredFileSystemLocationNames[0] }}"
- ],
- "RoleArn": "{{ RoleArn }}"
-}
->>>
---all properties
+-- queue.iql (all properties)
 INSERT INTO aws.deadline.queues (
  AllowedStorageProfileIds,
  DefaultBudgetAction,
@@ -146,16 +114,62 @@ INSERT INTO aws.deadline.queues (
  region
 )
 SELECT 
- {{ .AllowedStorageProfileIds }},
- {{ .DefaultBudgetAction }},
- {{ .Description }},
- {{ .DisplayName }},
- {{ .FarmId }},
- {{ .JobAttachmentSettings }},
- {{ .JobRunAsUser }},
- {{ .RequiredFileSystemLocationNames }},
- {{ .RoleArn }},
- 'us-east-1';
+ '{{ AllowedStorageProfileIds }}',
+ '{{ DefaultBudgetAction }}',
+ '{{ Description }}',
+ '{{ DisplayName }}',
+ '{{ FarmId }}',
+ '{{ JobAttachmentSettings }}',
+ '{{ JobRunAsUser }}',
+ '{{ RequiredFileSystemLocationNames }}',
+ '{{ RoleArn }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: queue
+    props:
+      - name: AllowedStorageProfileIds
+        value:
+          - '{{ AllowedStorageProfileIds[0] }}'
+      - name: DefaultBudgetAction
+        value: '{{ DefaultBudgetAction }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: FarmId
+        value: '{{ FarmId }}'
+      - name: JobAttachmentSettings
+        value:
+          S3BucketName: '{{ S3BucketName }}'
+          RootPrefix: '{{ RootPrefix }}'
+      - name: JobRunAsUser
+        value:
+          Posix:
+            User: '{{ User }}'
+            Group: '{{ Group }}'
+          Windows:
+            User: '{{ User }}'
+            PasswordArn: '{{ PasswordArn }}'
+          RunAs: '{{ RunAs }}'
+      - name: RequiredFileSystemLocationNames
+        value:
+          - '{{ RequiredFileSystemLocationNames[0] }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+
 ```
 </TabItem>
 </Tabs>

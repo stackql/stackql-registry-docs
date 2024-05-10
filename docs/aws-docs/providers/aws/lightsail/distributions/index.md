@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>distribution</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "DistributionName": "{{ DistributionName }}",
- "BundleId": "{{ BundleId }}",
- "DefaultCacheBehavior": {
-  "Behavior": "{{ Behavior }}"
- },
- "Origin": {
-  "Name": "{{ Name }}",
-  "ProtocolPolicy": "{{ ProtocolPolicy }}",
-  "RegionName": "{{ RegionName }}"
- }
-}
->>>
---required properties only
+-- distribution.iql (required properties only)
 INSERT INTO aws.lightsail.distributions (
  DistributionName,
  BundleId,
@@ -107,71 +96,17 @@ INSERT INTO aws.lightsail.distributions (
  region
 )
 SELECT 
-{{ .DistributionName }},
- {{ .BundleId }},
- {{ .DefaultCacheBehavior }},
- {{ .Origin }},
-'us-east-1';
+'{{ DistributionName }}',
+ '{{ BundleId }}',
+ '{{ DefaultCacheBehavior }}',
+ '{{ Origin }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "DistributionName": "{{ DistributionName }}",
- "BundleId": "{{ BundleId }}",
- "IpAddressType": "{{ IpAddressType }}",
- "CacheBehaviors": [
-  {
-   "Behavior": "{{ Behavior }}",
-   "Path": "{{ Path }}"
-  }
- ],
- "CacheBehaviorSettings": {
-  "AllowedHTTPMethods": "{{ AllowedHTTPMethods }}",
-  "CachedHTTPMethods": "{{ CachedHTTPMethods }}",
-  "DefaultTTL": "{{ DefaultTTL }}",
-  "MaximumTTL": "{{ MaximumTTL }}",
-  "MinimumTTL": "{{ MinimumTTL }}",
-  "ForwardedCookies": {
-   "CookiesAllowList": [
-    "{{ CookiesAllowList[0] }}"
-   ],
-   "Option": "{{ Option }}"
-  },
-  "ForwardedHeaders": {
-   "HeadersAllowList": [
-    "{{ HeadersAllowList[0] }}"
-   ],
-   "Option": "{{ Option }}"
-  },
-  "ForwardedQueryStrings": {
-   "QueryStringsAllowList": [
-    "{{ QueryStringsAllowList[0] }}"
-   ],
-   "Option": "{{ Option }}"
-  }
- },
- "DefaultCacheBehavior": {
-  "Behavior": "{{ Behavior }}"
- },
- "Origin": {
-  "Name": "{{ Name }}",
-  "ProtocolPolicy": "{{ ProtocolPolicy }}",
-  "RegionName": "{{ RegionName }}"
- },
- "IsEnabled": "{{ IsEnabled }}",
- "CertificateName": "{{ CertificateName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- distribution.iql (all properties)
 INSERT INTO aws.lightsail.distributions (
  DistributionName,
  BundleId,
@@ -186,17 +121,79 @@ INSERT INTO aws.lightsail.distributions (
  region
 )
 SELECT 
- {{ .DistributionName }},
- {{ .BundleId }},
- {{ .IpAddressType }},
- {{ .CacheBehaviors }},
- {{ .CacheBehaviorSettings }},
- {{ .DefaultCacheBehavior }},
- {{ .Origin }},
- {{ .IsEnabled }},
- {{ .CertificateName }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ DistributionName }}',
+ '{{ BundleId }}',
+ '{{ IpAddressType }}',
+ '{{ CacheBehaviors }}',
+ '{{ CacheBehaviorSettings }}',
+ '{{ DefaultCacheBehavior }}',
+ '{{ Origin }}',
+ '{{ IsEnabled }}',
+ '{{ CertificateName }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: distribution
+    props:
+      - name: DistributionName
+        value: '{{ DistributionName }}'
+      - name: BundleId
+        value: '{{ BundleId }}'
+      - name: IpAddressType
+        value: '{{ IpAddressType }}'
+      - name: CacheBehaviors
+        value:
+          - Behavior: '{{ Behavior }}'
+            Path: '{{ Path }}'
+      - name: CacheBehaviorSettings
+        value:
+          AllowedHTTPMethods: '{{ AllowedHTTPMethods }}'
+          CachedHTTPMethods: '{{ CachedHTTPMethods }}'
+          DefaultTTL: '{{ DefaultTTL }}'
+          MaximumTTL: '{{ MaximumTTL }}'
+          MinimumTTL: '{{ MinimumTTL }}'
+          ForwardedCookies:
+            CookiesAllowList:
+              - '{{ CookiesAllowList[0] }}'
+            Option: '{{ Option }}'
+          ForwardedHeaders:
+            HeadersAllowList:
+              - '{{ HeadersAllowList[0] }}'
+            Option: '{{ Option }}'
+          ForwardedQueryStrings:
+            QueryStringsAllowList:
+              - '{{ QueryStringsAllowList[0] }}'
+            Option: '{{ Option }}'
+      - name: DefaultCacheBehavior
+        value:
+          Behavior: '{{ Behavior }}'
+      - name: Origin
+        value:
+          Name: '{{ Name }}'
+          ProtocolPolicy: '{{ ProtocolPolicy }}'
+          RegionName: '{{ RegionName }}'
+      - name: IsEnabled
+        value: '{{ IsEnabled }}'
+      - name: CertificateName
+        value: '{{ CertificateName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

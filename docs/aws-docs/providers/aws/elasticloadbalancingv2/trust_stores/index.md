@@ -74,31 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>trust_store</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "CaCertificatesBundleS3Bucket": "{{ CaCertificatesBundleS3Bucket }}",
- "CaCertificatesBundleS3Key": "{{ CaCertificatesBundleS3Key }}",
- "CaCertificatesBundleS3ObjectVersion": "{{ CaCertificatesBundleS3ObjectVersion }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---required properties only
+-- trust_store.iql (required properties only)
 INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  Name,
  CaCertificatesBundleS3Bucket,
@@ -108,32 +97,18 @@ INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .CaCertificatesBundleS3Bucket }},
- {{ .CaCertificatesBundleS3Key }},
- {{ .CaCertificatesBundleS3ObjectVersion }},
- {{ .Tags }},
-'us-east-1';
+'{{ Name }}',
+ '{{ CaCertificatesBundleS3Bucket }}',
+ '{{ CaCertificatesBundleS3Key }}',
+ '{{ CaCertificatesBundleS3ObjectVersion }}',
+ '{{ Tags }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "CaCertificatesBundleS3Bucket": "{{ CaCertificatesBundleS3Bucket }}",
- "CaCertificatesBundleS3Key": "{{ CaCertificatesBundleS3Key }}",
- "CaCertificatesBundleS3ObjectVersion": "{{ CaCertificatesBundleS3ObjectVersion }}",
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ]
-}
->>>
---all properties
+-- trust_store.iql (all properties)
 INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  Name,
  CaCertificatesBundleS3Bucket,
@@ -143,12 +118,41 @@ INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .CaCertificatesBundleS3Bucket }},
- {{ .CaCertificatesBundleS3Key }},
- {{ .CaCertificatesBundleS3ObjectVersion }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ CaCertificatesBundleS3Bucket }}',
+ '{{ CaCertificatesBundleS3Key }}',
+ '{{ CaCertificatesBundleS3ObjectVersion }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: trust_store
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: CaCertificatesBundleS3Bucket
+        value: '{{ CaCertificatesBundleS3Bucket }}'
+      - name: CaCertificatesBundleS3Key
+        value: '{{ CaCertificatesBundleS3Key }}'
+      - name: CaCertificatesBundleS3ObjectVersion
+        value: '{{ CaCertificatesBundleS3ObjectVersion }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+
 ```
 </TabItem>
 </Tabs>

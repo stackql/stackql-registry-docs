@@ -74,76 +74,35 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "GatewayName": "{{ GatewayName }}",
- "GatewayPlatform": {
-  "Greengrass": {
-   "GroupArn": "{{ GroupArn }}"
-  },
-  "GreengrassV2": {
-   "CoreDeviceThingName": "{{ CoreDeviceThingName }}"
-  },
-  "SiemensIE": {
-   "IotCoreThingName": "{{ IotCoreThingName }}"
-  }
- }
-}
->>>
---required properties only
+-- gateway.iql (required properties only)
 INSERT INTO aws.iotsitewise.gateways (
  GatewayName,
  GatewayPlatform,
  region
 )
 SELECT 
-{{ .GatewayName }},
- {{ .GatewayPlatform }},
-'us-east-1';
+'{{ GatewayName }}',
+ '{{ GatewayPlatform }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "GatewayName": "{{ GatewayName }}",
- "GatewayPlatform": {
-  "Greengrass": {
-   "GroupArn": "{{ GroupArn }}"
-  },
-  "GreengrassV2": {
-   "CoreDeviceThingName": "{{ CoreDeviceThingName }}"
-  },
-  "SiemensIE": {
-   "IotCoreThingName": "{{ IotCoreThingName }}"
-  }
- },
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "GatewayCapabilitySummaries": [
-  {
-   "CapabilityNamespace": "{{ CapabilityNamespace }}",
-   "CapabilityConfiguration": "{{ CapabilityConfiguration }}"
-  }
- ]
-}
->>>
---all properties
+-- gateway.iql (all properties)
 INSERT INTO aws.iotsitewise.gateways (
  GatewayName,
  GatewayPlatform,
@@ -152,11 +111,46 @@ INSERT INTO aws.iotsitewise.gateways (
  region
 )
 SELECT 
- {{ .GatewayName }},
- {{ .GatewayPlatform }},
- {{ .Tags }},
- {{ .GatewayCapabilitySummaries }},
- 'us-east-1';
+ '{{ GatewayName }}',
+ '{{ GatewayPlatform }}',
+ '{{ Tags }}',
+ '{{ GatewayCapabilitySummaries }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: gateway
+    props:
+      - name: GatewayName
+        value: '{{ GatewayName }}'
+      - name: GatewayPlatform
+        value:
+          Greengrass:
+            GroupArn: '{{ GroupArn }}'
+          GreengrassV2:
+            CoreDeviceThingName: '{{ CoreDeviceThingName }}'
+          SiemensIE:
+            IotCoreThingName: '{{ IotCoreThingName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: GatewayCapabilitySummaries
+        value:
+          - CapabilityNamespace: '{{ CapabilityNamespace }}'
+            CapabilityConfiguration: '{{ CapabilityConfiguration }}'
+
 ```
 </TabItem>
 </Tabs>

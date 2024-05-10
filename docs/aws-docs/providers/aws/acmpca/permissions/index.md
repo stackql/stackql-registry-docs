@@ -76,26 +76,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>permission</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Actions": [
-  "{{ Actions[0] }}"
- ],
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "Principal": "{{ Principal }}"
-}
->>>
---required properties only
+-- permission.iql (required properties only)
 INSERT INTO aws.acmpca.permissions (
  Actions,
  CertificateAuthorityArn,
@@ -103,26 +97,16 @@ INSERT INTO aws.acmpca.permissions (
  region
 )
 SELECT 
-{{ .Actions }},
- {{ .CertificateAuthorityArn }},
- {{ .Principal }},
-'us-east-1';
+'{{ Actions }}',
+ '{{ CertificateAuthorityArn }}',
+ '{{ Principal }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Actions": [
-  "{{ Actions[0] }}"
- ],
- "CertificateAuthorityArn": "{{ CertificateAuthorityArn }}",
- "Principal": "{{ Principal }}",
- "SourceAccount": "{{ SourceAccount }}"
-}
->>>
---all properties
+-- permission.iql (all properties)
 INSERT INTO aws.acmpca.permissions (
  Actions,
  CertificateAuthorityArn,
@@ -131,11 +115,37 @@ INSERT INTO aws.acmpca.permissions (
  region
 )
 SELECT 
- {{ .Actions }},
- {{ .CertificateAuthorityArn }},
- {{ .Principal }},
- {{ .SourceAccount }},
- 'us-east-1';
+ '{{ Actions }}',
+ '{{ CertificateAuthorityArn }}',
+ '{{ Principal }}',
+ '{{ SourceAccount }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: permission
+    props:
+      - name: Actions
+        value:
+          - '{{ Actions[0] }}'
+      - name: CertificateAuthorityArn
+        value: '{{ CertificateAuthorityArn }}'
+      - name: Principal
+        value: '{{ Principal }}'
+      - name: SourceAccount
+        value: '{{ SourceAccount }}'
+
 ```
 </TabItem>
 </Tabs>

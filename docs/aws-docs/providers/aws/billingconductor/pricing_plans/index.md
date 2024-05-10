@@ -74,50 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>pricing_plan</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}"
-}
->>>
---required properties only
+-- pricing_plan.iql (required properties only)
 INSERT INTO aws.billingconductor.pricing_plans (
  Name,
  region
 )
 SELECT 
-{{ .Name }},
-'us-east-1';
+'{{ Name }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "PricingRuleArns": [
-  "{{ PricingRuleArns[0] }}"
- ],
- "Description": "{{ Description }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- pricing_plan.iql (all properties)
 INSERT INTO aws.billingconductor.pricing_plans (
  Name,
  PricingRuleArns,
@@ -126,11 +109,39 @@ INSERT INTO aws.billingconductor.pricing_plans (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .PricingRuleArns }},
- {{ .Description }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ PricingRuleArns }}',
+ '{{ Description }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: pricing_plan
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: PricingRuleArns
+        value:
+          - '{{ PricingRuleArns[0] }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

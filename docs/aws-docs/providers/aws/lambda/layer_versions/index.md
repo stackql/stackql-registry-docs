@@ -74,57 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>layer_version</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Content": {
-  "S3ObjectVersion": "{{ S3ObjectVersion }}",
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- }
-}
->>>
---required properties only
+-- layer_version.iql (required properties only)
 INSERT INTO aws.lambda.layer_versions (
  Content,
  region
 )
 SELECT 
-{{ .Content }},
-'us-east-1';
+'{{ Content }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "CompatibleRuntimes": [
-  "{{ CompatibleRuntimes[0] }}"
- ],
- "LicenseInfo": "{{ LicenseInfo }}",
- "Description": "{{ Description }}",
- "LayerName": "{{ LayerName }}",
- "Content": {
-  "S3ObjectVersion": "{{ S3ObjectVersion }}",
-  "S3Bucket": "{{ S3Bucket }}",
-  "S3Key": "{{ S3Key }}"
- },
- "CompatibleArchitectures": [
-  "{{ CompatibleArchitectures[0] }}"
- ]
-}
->>>
---all properties
+-- layer_version.iql (all properties)
 INSERT INTO aws.lambda.layer_versions (
  CompatibleRuntimes,
  LicenseInfo,
@@ -135,13 +111,47 @@ INSERT INTO aws.lambda.layer_versions (
  region
 )
 SELECT 
- {{ .CompatibleRuntimes }},
- {{ .LicenseInfo }},
- {{ .Description }},
- {{ .LayerName }},
- {{ .Content }},
- {{ .CompatibleArchitectures }},
- 'us-east-1';
+ '{{ CompatibleRuntimes }}',
+ '{{ LicenseInfo }}',
+ '{{ Description }}',
+ '{{ LayerName }}',
+ '{{ Content }}',
+ '{{ CompatibleArchitectures }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: layer_version
+    props:
+      - name: CompatibleRuntimes
+        value:
+          - '{{ CompatibleRuntimes[0] }}'
+      - name: LicenseInfo
+        value: '{{ LicenseInfo }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: LayerName
+        value: '{{ LayerName }}'
+      - name: Content
+        value:
+          S3ObjectVersion: '{{ S3ObjectVersion }}'
+          S3Bucket: '{{ S3Bucket }}'
+          S3Key: '{{ S3Key }}'
+      - name: CompatibleArchitectures
+        value:
+          - '{{ CompatibleArchitectures[0] }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,24 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>component</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Version": "{{ Version }}",
- "Platform": "{{ Platform }}"
-}
->>>
---required properties only
+-- component.iql (required properties only)
 INSERT INTO aws.imagebuilder.components (
  Name,
  Version,
@@ -99,32 +95,16 @@ INSERT INTO aws.imagebuilder.components (
  region
 )
 SELECT 
-{{ .Name }},
- {{ .Version }},
- {{ .Platform }},
-'us-east-1';
+'{{ Name }}',
+ '{{ Version }}',
+ '{{ Platform }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "Name": "{{ Name }}",
- "Version": "{{ Version }}",
- "Description": "{{ Description }}",
- "ChangeDescription": "{{ ChangeDescription }}",
- "Platform": "{{ Platform }}",
- "Data": "{{ Data }}",
- "KmsKeyId": "{{ KmsKeyId }}",
- "Tags": {},
- "Uri": "{{ Uri }}",
- "SupportedOsVersions": [
-  "{{ SupportedOsVersions[0] }}"
- ]
-}
->>>
---all properties
+-- component.iql (all properties)
 INSERT INTO aws.imagebuilder.components (
  Name,
  Version,
@@ -139,17 +119,55 @@ INSERT INTO aws.imagebuilder.components (
  region
 )
 SELECT 
- {{ .Name }},
- {{ .Version }},
- {{ .Description }},
- {{ .ChangeDescription }},
- {{ .Platform }},
- {{ .Data }},
- {{ .KmsKeyId }},
- {{ .Tags }},
- {{ .Uri }},
- {{ .SupportedOsVersions }},
- 'us-east-1';
+ '{{ Name }}',
+ '{{ Version }}',
+ '{{ Description }}',
+ '{{ ChangeDescription }}',
+ '{{ Platform }}',
+ '{{ Data }}',
+ '{{ KmsKeyId }}',
+ '{{ Tags }}',
+ '{{ Uri }}',
+ '{{ SupportedOsVersions }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: component
+    props:
+      - name: Name
+        value: '{{ Name }}'
+      - name: Version
+        value: '{{ Version }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: ChangeDescription
+        value: '{{ ChangeDescription }}'
+      - name: Platform
+        value: '{{ Platform }}'
+      - name: Data
+        value: '{{ Data }}'
+      - name: KmsKeyId
+        value: '{{ KmsKeyId }}'
+      - name: Tags
+        value: {}
+      - name: Uri
+        value: '{{ Uri }}'
+      - name: SupportedOsVersions
+        value:
+          - '{{ SupportedOsVersions[0] }}'
+
 ```
 </TabItem>
 </Tabs>

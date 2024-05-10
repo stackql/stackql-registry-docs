@@ -74,25 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>transit_gateway_peering_attachment</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}",
- "PeerTransitGatewayId": "{{ PeerTransitGatewayId }}",
- "PeerAccountId": "{{ PeerAccountId }}",
- "PeerRegion": "{{ PeerRegion }}"
-}
->>>
---required properties only
+-- transit_gateway_peering_attachment.iql (required properties only)
 INSERT INTO aws.ec2.transit_gateway_peering_attachments (
  TransitGatewayId,
  PeerTransitGatewayId,
@@ -101,31 +96,17 @@ INSERT INTO aws.ec2.transit_gateway_peering_attachments (
  region
 )
 SELECT 
-{{ .TransitGatewayId }},
- {{ .PeerTransitGatewayId }},
- {{ .PeerAccountId }},
- {{ .PeerRegion }},
-'us-east-1';
+'{{ TransitGatewayId }}',
+ '{{ PeerTransitGatewayId }}',
+ '{{ PeerAccountId }}',
+ '{{ PeerRegion }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "TransitGatewayId": "{{ TransitGatewayId }}",
- "PeerTransitGatewayId": "{{ PeerTransitGatewayId }}",
- "PeerAccountId": "{{ PeerAccountId }}",
- "PeerRegion": "{{ PeerRegion }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- transit_gateway_peering_attachment.iql (all properties)
 INSERT INTO aws.ec2.transit_gateway_peering_attachments (
  TransitGatewayId,
  PeerTransitGatewayId,
@@ -135,12 +116,41 @@ INSERT INTO aws.ec2.transit_gateway_peering_attachments (
  region
 )
 SELECT 
- {{ .TransitGatewayId }},
- {{ .PeerTransitGatewayId }},
- {{ .PeerAccountId }},
- {{ .PeerRegion }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ TransitGatewayId }}',
+ '{{ PeerTransitGatewayId }}',
+ '{{ PeerAccountId }}',
+ '{{ PeerRegion }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: transit_gateway_peering_attachment
+    props:
+      - name: TransitGatewayId
+        value: '{{ TransitGatewayId }}'
+      - name: PeerTransitGatewayId
+        value: '{{ PeerTransitGatewayId }}'
+      - name: PeerAccountId
+        value: '{{ PeerAccountId }}'
+      - name: PeerRegion
+        value: '{{ PeerRegion }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

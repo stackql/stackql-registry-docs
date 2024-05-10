@@ -74,33 +74,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>anomaly_subscription</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "SubscriptionName": "{{ SubscriptionName }}",
- "MonitorArnList": [
-  "{{ MonitorArnList[0] }}"
- ],
- "Subscribers": [
-  {
-   "Address": "{{ Address }}",
-   "Status": "{{ Status }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "Frequency": "{{ Frequency }}"
-}
->>>
---required properties only
+-- anomaly_subscription.iql (required properties only)
 INSERT INTO aws.ce.anomaly_subscriptions (
  SubscriptionName,
  MonitorArnList,
@@ -109,41 +96,17 @@ INSERT INTO aws.ce.anomaly_subscriptions (
  region
 )
 SELECT 
-{{ .SubscriptionName }},
- {{ .MonitorArnList }},
- {{ .Subscribers }},
- {{ .Frequency }},
-'us-east-1';
+'{{ SubscriptionName }}',
+ '{{ MonitorArnList }}',
+ '{{ Subscribers }}',
+ '{{ Frequency }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "SubscriptionName": "{{ SubscriptionName }}",
- "MonitorArnList": [
-  "{{ MonitorArnList[0] }}"
- ],
- "Subscribers": [
-  {
-   "Address": "{{ Address }}",
-   "Status": "{{ Status }}",
-   "Type": "{{ Type }}"
-  }
- ],
- "Threshold": null,
- "ThresholdExpression": "{{ ThresholdExpression }}",
- "Frequency": "{{ Frequency }}",
- "ResourceTags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- anomaly_subscription.iql (all properties)
 INSERT INTO aws.ce.anomaly_subscriptions (
  SubscriptionName,
  MonitorArnList,
@@ -155,14 +118,51 @@ INSERT INTO aws.ce.anomaly_subscriptions (
  region
 )
 SELECT 
- {{ .SubscriptionName }},
- {{ .MonitorArnList }},
- {{ .Subscribers }},
- {{ .Threshold }},
- {{ .ThresholdExpression }},
- {{ .Frequency }},
- {{ .ResourceTags }},
- 'us-east-1';
+ '{{ SubscriptionName }}',
+ '{{ MonitorArnList }}',
+ '{{ Subscribers }}',
+ '{{ Threshold }}',
+ '{{ ThresholdExpression }}',
+ '{{ Frequency }}',
+ '{{ ResourceTags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: anomaly_subscription
+    props:
+      - name: SubscriptionName
+        value: '{{ SubscriptionName }}'
+      - name: MonitorArnList
+        value:
+          - '{{ MonitorArnList[0] }}'
+      - name: Subscribers
+        value:
+          - Address: '{{ Address }}'
+            Status: '{{ Status }}'
+            Type: '{{ Type }}'
+      - name: Threshold
+        value: null
+      - name: ThresholdExpression
+        value: '{{ ThresholdExpression }}'
+      - name: Frequency
+        value: '{{ Frequency }}'
+      - name: ResourceTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

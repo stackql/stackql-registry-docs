@@ -74,53 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>location_s3</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "S3Config": {
-  "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}"
- }
-}
->>>
---required properties only
+-- location_s3.iql (required properties only)
 INSERT INTO aws.datasync.location_s3s (
  S3Config,
  region
 )
 SELECT 
-{{ .S3Config }},
-'us-east-1';
+'{{ S3Config }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "S3Config": {
-  "BucketAccessRoleArn": "{{ BucketAccessRoleArn }}"
- },
- "S3BucketArn": "{{ S3BucketArn }}",
- "Subdirectory": "{{ Subdirectory }}",
- "S3StorageClass": "{{ S3StorageClass }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- location_s3.iql (all properties)
 INSERT INTO aws.datasync.location_s3s (
  S3Config,
  S3BucketArn,
@@ -130,12 +110,42 @@ INSERT INTO aws.datasync.location_s3s (
  region
 )
 SELECT 
- {{ .S3Config }},
- {{ .S3BucketArn }},
- {{ .Subdirectory }},
- {{ .S3StorageClass }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ S3Config }}',
+ '{{ S3BucketArn }}',
+ '{{ Subdirectory }}',
+ '{{ S3StorageClass }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: location_s3
+    props:
+      - name: S3Config
+        value:
+          BucketAccessRoleArn: '{{ BucketAccessRoleArn }}'
+      - name: S3BucketArn
+        value: '{{ S3BucketArn }}'
+      - name: Subdirectory
+        value: '{{ Subdirectory }}'
+      - name: S3StorageClass
+        value: '{{ S3StorageClass }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

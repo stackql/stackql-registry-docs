@@ -80,25 +80,20 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>app</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AppName": "{{ AppName }}",
- "AppType": "{{ AppType }}",
- "DomainId": "{{ DomainId }}",
- "UserProfileName": "{{ UserProfileName }}"
-}
->>>
---required properties only
+-- app.iql (required properties only)
 INSERT INTO aws.sagemaker.apps (
  AppName,
  AppType,
@@ -107,36 +102,17 @@ INSERT INTO aws.sagemaker.apps (
  region
 )
 SELECT 
-{{ .AppName }},
- {{ .AppType }},
- {{ .DomainId }},
- {{ .UserProfileName }},
-'us-east-1';
+'{{ AppName }}',
+ '{{ AppType }}',
+ '{{ DomainId }}',
+ '{{ UserProfileName }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AppName": "{{ AppName }}",
- "AppType": "{{ AppType }}",
- "DomainId": "{{ DomainId }}",
- "ResourceSpec": {
-  "InstanceType": "{{ InstanceType }}",
-  "SageMakerImageArn": "{{ SageMakerImageArn }}",
-  "SageMakerImageVersionArn": "{{ SageMakerImageVersionArn }}"
- },
- "Tags": [
-  {
-   "Value": "{{ Value }}",
-   "Key": "{{ Key }}"
-  }
- ],
- "UserProfileName": "{{ UserProfileName }}"
-}
->>>
---all properties
+-- app.iql (all properties)
 INSERT INTO aws.sagemaker.apps (
  AppName,
  AppType,
@@ -147,13 +123,47 @@ INSERT INTO aws.sagemaker.apps (
  region
 )
 SELECT 
- {{ .AppName }},
- {{ .AppType }},
- {{ .DomainId }},
- {{ .ResourceSpec }},
- {{ .Tags }},
- {{ .UserProfileName }},
- 'us-east-1';
+ '{{ AppName }}',
+ '{{ AppType }}',
+ '{{ DomainId }}',
+ '{{ ResourceSpec }}',
+ '{{ Tags }}',
+ '{{ UserProfileName }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: app
+    props:
+      - name: AppName
+        value: '{{ AppName }}'
+      - name: AppType
+        value: '{{ AppType }}'
+      - name: DomainId
+        value: '{{ DomainId }}'
+      - name: ResourceSpec
+        value:
+          InstanceType: '{{ InstanceType }}'
+          SageMakerImageArn: '{{ SageMakerImageArn }}'
+          SageMakerImageVersionArn: '{{ SageMakerImageVersionArn }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
+      - name: UserProfileName
+        value: '{{ UserProfileName }}'
+
 ```
 </TabItem>
 </Tabs>

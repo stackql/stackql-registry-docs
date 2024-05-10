@@ -74,47 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>vpn_gateway</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "Type": "{{ Type }}"
-}
->>>
---required properties only
+-- vpn_gateway.iql (required properties only)
 INSERT INTO aws.ec2.vpn_gateways (
  Type,
  region
 )
 SELECT 
-{{ .Type }},
-'us-east-1';
+'{{ Type }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AmazonSideAsn": "{{ AmazonSideAsn }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "Type": "{{ Type }}"
-}
->>>
---all properties
+-- vpn_gateway.iql (all properties)
 INSERT INTO aws.ec2.vpn_gateways (
  AmazonSideAsn,
  Tags,
@@ -122,10 +108,35 @@ INSERT INTO aws.ec2.vpn_gateways (
  region
 )
 SELECT 
- {{ .AmazonSideAsn }},
- {{ .Tags }},
- {{ .Type }},
- 'us-east-1';
+ '{{ AmazonSideAsn }}',
+ '{{ Tags }}',
+ '{{ Type }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpn_gateway
+    props:
+      - name: AmazonSideAsn
+        value: '{{ AmazonSideAsn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: Type
+        value: '{{ Type }}'
+
 ```
 </TabItem>
 </Tabs>

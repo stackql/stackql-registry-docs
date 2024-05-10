@@ -74,61 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>composite_alarm</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AlarmRule": "{{ AlarmRule }}"
-}
->>>
---required properties only
+-- composite_alarm.iql (required properties only)
 INSERT INTO aws.cloudwatch.composite_alarms (
  AlarmRule,
  region
 )
 SELECT 
-{{ .AlarmRule }},
-'us-east-1';
+'{{ AlarmRule }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AlarmName": "{{ AlarmName }}",
- "AlarmRule": "{{ AlarmRule }}",
- "AlarmDescription": "{{ AlarmDescription }}",
- "ActionsEnabled": "{{ ActionsEnabled }}",
- "OKActions": [
-  "{{ OKActions[0] }}"
- ],
- "AlarmActions": [
-  "{{ AlarmActions[0] }}"
- ],
- "InsufficientDataActions": [
-  "{{ InsufficientDataActions[0] }}"
- ],
- "ActionsSuppressor": "{{ ActionsSuppressor }}",
- "ActionsSuppressorWaitPeriod": "{{ ActionsSuppressorWaitPeriod }}",
- "ActionsSuppressorExtensionPeriod": "{{ ActionsSuppressorExtensionPeriod }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ]
-}
->>>
---all properties
+-- composite_alarm.iql (all properties)
 INSERT INTO aws.cloudwatch.composite_alarms (
  AlarmName,
  AlarmRule,
@@ -144,18 +116,62 @@ INSERT INTO aws.cloudwatch.composite_alarms (
  region
 )
 SELECT 
- {{ .AlarmName }},
- {{ .AlarmRule }},
- {{ .AlarmDescription }},
- {{ .ActionsEnabled }},
- {{ .OKActions }},
- {{ .AlarmActions }},
- {{ .InsufficientDataActions }},
- {{ .ActionsSuppressor }},
- {{ .ActionsSuppressorWaitPeriod }},
- {{ .ActionsSuppressorExtensionPeriod }},
- {{ .Tags }},
- 'us-east-1';
+ '{{ AlarmName }}',
+ '{{ AlarmRule }}',
+ '{{ AlarmDescription }}',
+ '{{ ActionsEnabled }}',
+ '{{ OKActions }}',
+ '{{ AlarmActions }}',
+ '{{ InsufficientDataActions }}',
+ '{{ ActionsSuppressor }}',
+ '{{ ActionsSuppressorWaitPeriod }}',
+ '{{ ActionsSuppressorExtensionPeriod }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: composite_alarm
+    props:
+      - name: AlarmName
+        value: '{{ AlarmName }}'
+      - name: AlarmRule
+        value: '{{ AlarmRule }}'
+      - name: AlarmDescription
+        value: '{{ AlarmDescription }}'
+      - name: ActionsEnabled
+        value: '{{ ActionsEnabled }}'
+      - name: OKActions
+        value:
+          - '{{ OKActions[0] }}'
+      - name: AlarmActions
+        value:
+          - '{{ AlarmActions[0] }}'
+      - name: InsufficientDataActions
+        value:
+          - '{{ InsufficientDataActions[0] }}'
+      - name: ActionsSuppressor
+        value: '{{ ActionsSuppressor }}'
+      - name: ActionsSuppressorWaitPeriod
+        value: '{{ ActionsSuppressorWaitPeriod }}'
+      - name: ActionsSuppressorExtensionPeriod
+        value: '{{ ActionsSuppressorExtensionPeriod }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
 ```
 </TabItem>
 </Tabs>

@@ -74,50 +74,33 @@ WHERE region = 'us-east-1';
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>keyspace</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{}
->>>
---required properties only
+-- keyspace.iql (required properties only)
 INSERT INTO aws.cassandra.keyspaces (
  ,
  region
 )
 SELECT 
-{{ . }},
-'us-east-1';
+'{{  }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "KeyspaceName": "{{ KeyspaceName }}",
- "Tags": [
-  {
-   "Key": "{{ Key }}",
-   "Value": "{{ Value }}"
-  }
- ],
- "ReplicationSpecification": {
-  "ReplicationStrategy": "{{ ReplicationStrategy }}",
-  "RegionList": [
-   "{{ RegionList[0] }}"
-  ]
- }
-}
->>>
---all properties
+-- keyspace.iql (all properties)
 INSERT INTO aws.cassandra.keyspaces (
  KeyspaceName,
  Tags,
@@ -125,10 +108,38 @@ INSERT INTO aws.cassandra.keyspaces (
  region
 )
 SELECT 
- {{ .KeyspaceName }},
- {{ .Tags }},
- {{ .ReplicationSpecification }},
- 'us-east-1';
+ '{{ KeyspaceName }}',
+ '{{ Tags }}',
+ '{{ ReplicationSpecification }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: keyspace
+    props:
+      - name: KeyspaceName
+        value: '{{ KeyspaceName }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: ReplicationSpecification
+        value:
+          ReplicationStrategy: '{{ ReplicationStrategy }}'
+          RegionList:
+            - '{{ RegionList[0] }}'
+
 ```
 </TabItem>
 </Tabs>

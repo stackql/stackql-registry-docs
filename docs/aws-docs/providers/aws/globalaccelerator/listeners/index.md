@@ -74,29 +74,20 @@ FROM aws.globalaccelerator.listeners
 
 ## `INSERT` Example
 
+Use the following StackQL query and manifest file to create a new <code>listener</code> resource, using <a ref="https://pypi.org/project/stack-deploy/" target="_blank"><code><b>stack-deploy</b></code></a>.
+
 <Tabs
     defaultValue="required"
     values={[
       { label: 'Required Properties', value: 'required', },
       { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="required">
 
 ```sql
-<<<json
-{
- "AcceleratorArn": "{{ AcceleratorArn }}",
- "PortRanges": [
-  {
-   "FromPort": "{{ FromPort }}",
-   "ToPort": null
-  }
- ],
- "Protocol": "{{ Protocol }}"
-}
->>>
---required properties only
+-- listener.iql (required properties only)
 INSERT INTO aws.globalaccelerator.listeners (
  AcceleratorArn,
  PortRanges,
@@ -104,29 +95,16 @@ INSERT INTO aws.globalaccelerator.listeners (
  region
 )
 SELECT 
-{{ .AcceleratorArn }},
- {{ .PortRanges }},
- {{ .Protocol }},
-'us-east-1';
+'{{ AcceleratorArn }}',
+ '{{ PortRanges }}',
+ '{{ Protocol }}',
+'{{ region }}';
 ```
 </TabItem>
 <TabItem value="all">
 
 ```sql
-<<<json
-{
- "AcceleratorArn": "{{ AcceleratorArn }}",
- "PortRanges": [
-  {
-   "FromPort": "{{ FromPort }}",
-   "ToPort": null
-  }
- ],
- "Protocol": "{{ Protocol }}",
- "ClientAffinity": "{{ ClientAffinity }}"
-}
->>>
---all properties
+-- listener.iql (all properties)
 INSERT INTO aws.globalaccelerator.listeners (
  AcceleratorArn,
  PortRanges,
@@ -135,11 +113,38 @@ INSERT INTO aws.globalaccelerator.listeners (
  region
 )
 SELECT 
- {{ .AcceleratorArn }},
- {{ .PortRanges }},
- {{ .Protocol }},
- {{ .ClientAffinity }},
- 'us-east-1';
+ '{{ AcceleratorArn }}',
+ '{{ PortRanges }}',
+ '{{ Protocol }}',
+ '{{ ClientAffinity }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: listener
+    props:
+      - name: AcceleratorArn
+        value: '{{ AcceleratorArn }}'
+      - name: PortRanges
+        value:
+          - FromPort: '{{ FromPort }}'
+            ToPort: null
+      - name: Protocol
+        value: '{{ Protocol }}'
+      - name: ClientAffinity
+        value: '{{ ClientAffinity }}'
+
 ```
 </TabItem>
 </Tabs>
