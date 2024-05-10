@@ -85,11 +85,11 @@ WHERE region = 'us-east-1';
 <TabItem value="required">
 
 ```sql
-<<<json
+&lt;&lt;&lt;json
 &#123;
  "Type": "{{ Type }}"
 &#125;
->>>
+&gt;&gt;&gt;
 --required properties only
 INSERT INTO aws.accessanalyzer.analyzers (
  Type,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
-<<<json
+&lt;&lt;&lt;json
 &#123;
  "AnalyzerName": "{{ AnalyzerName }}",
  "ArchiveRules": [
@@ -140,7 +140,7 @@ SELECT
   &#125;
  &#125;
 &#125;
->>>
+&gt;&gt;&gt;
 --all properties
 INSERT INTO aws.accessanalyzer.analyzers (
  AnalyzerName,
