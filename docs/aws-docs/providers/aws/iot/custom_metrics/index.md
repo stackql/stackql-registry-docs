@@ -49,7 +49,7 @@ Used to retrieve a list of <code>custom_metrics</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="MetricType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>custom_m
 <TabItem value="required">
 
 ```sql
--- custom_metric.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.custom_metrics (
  MetricType,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- custom_metric.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.custom_metrics (
  MetricName,
  DisplayName,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.custom_metrics
 WHERE data__Identifier = '<MetricName>'
 AND region = 'us-east-1';

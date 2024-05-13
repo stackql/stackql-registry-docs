@@ -49,7 +49,7 @@ Used to retrieve a list of <code>id_mapping_workflows</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="WorkflowName, InputSourceConfig, IdMappingTechniques, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>id_mappi
 <TabItem value="required">
 
 ```sql
--- id_mapping_workflow.iql (required properties only)
+/*+ create */
 INSERT INTO aws.entityresolution.id_mapping_workflows (
  WorkflowName,
  InputSourceConfig,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- id_mapping_workflow.iql (all properties)
+/*+ create */
 INSERT INTO aws.entityresolution.id_mapping_workflows (
  WorkflowName,
  Description,
@@ -177,6 +177,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.entityresolution.id_mapping_workflows
 WHERE data__Identifier = '<WorkflowName>'
 AND region = 'us-east-1';

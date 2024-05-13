@@ -50,7 +50,7 @@ Used to retrieve a list of <code>channel_policies</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ChannelGroupName, ChannelName, Policy, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>channel_
 <TabItem value="required">
 
 ```sql
--- channel_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediapackagev2.channel_policies (
  ChannelGroupName,
  ChannelName,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- channel_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediapackagev2.channel_policies (
  ChannelGroupName,
  ChannelName,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediapackagev2.channel_policies
 WHERE data__Identifier = '<ChannelGroupName|ChannelName>'
 AND region = 'us-east-1';

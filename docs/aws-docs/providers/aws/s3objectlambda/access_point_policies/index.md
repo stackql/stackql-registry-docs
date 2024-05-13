@@ -49,7 +49,7 @@ Used to retrieve a list of <code>access_point_policies</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ObjectLambdaAccessPoint, PolicyDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>access_p
 <TabItem value="required">
 
 ```sql
--- access_point_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.s3objectlambda.access_point_policies (
  ObjectLambdaAccessPoint,
  PolicyDocument,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- access_point_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.s3objectlambda.access_point_policies (
  ObjectLambdaAccessPoint,
  PolicyDocument,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.s3objectlambda.access_point_policies
 WHERE data__Identifier = '<ObjectLambdaAccessPoint>'
 AND region = 'us-east-1';

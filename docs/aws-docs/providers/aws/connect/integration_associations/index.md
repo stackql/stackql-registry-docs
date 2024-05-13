@@ -51,7 +51,7 @@ Used to retrieve a list of <code>integration_associations</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceId, IntegrationType, IntegrationArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>integrat
 <TabItem value="required">
 
 ```sql
--- integration_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.integration_associations (
  InstanceId,
  IntegrationArn,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- integration_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.integration_associations (
  InstanceId,
  IntegrationArn,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.integration_associations
 WHERE data__Identifier = '<InstanceId|IntegrationType|IntegrationArn>'
 AND region = 'us-east-1';

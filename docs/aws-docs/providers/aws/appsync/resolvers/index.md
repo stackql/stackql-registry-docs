@@ -26,7 +26,7 @@ Used to retrieve a list of <code>resolvers</code> in a region or to create or de
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resolvers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see &#91;Resolver Mapping Template Reference&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;appsync&#x2F;latest&#x2F;devguide&#x2F;resolver-mapping-template-reference.html).&lt;br&#x2F;&gt;  When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.&lt;br&#x2F;&gt; See &#91;Update Behaviors of Stack Resources&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::AppSync::Resolver</code> resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see &#91;Resolver Mapping Template Reference&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;appsync&#x2F;latest&#x2F;devguide&#x2F;resolver-mapping-template-reference.html).&lt;br&#x2F;&gt;  When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.&lt;br&#x2F;&gt; See &#91;Update Behaviors of Stack Resources&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.appsync.resolvers" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resolvers</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TypeName, ApiId, FieldName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resolver
 <TabItem value="required">
 
 ```sql
--- resolver.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appsync.resolvers (
  ApiId,
  FieldName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resolver.iql (all properties)
+/*+ create */
 INSERT INTO aws.appsync.resolvers (
  ApiId,
  CachingConfig,
@@ -213,6 +213,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appsync.resolvers
 WHERE data__Identifier = '<ResolverArn>'
 AND region = 'us-east-1';

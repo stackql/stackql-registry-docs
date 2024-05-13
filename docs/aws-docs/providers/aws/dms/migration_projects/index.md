@@ -49,7 +49,7 @@ Used to retrieve a list of <code>migration_projects</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>migratio
 <TabItem value="required">
 
 ```sql
--- migration_project.iql (required properties only)
+/*+ create */
 INSERT INTO aws.dms.migration_projects (
  MigrationProjectName,
  MigrationProjectIdentifier,
@@ -122,7 +122,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- migration_project.iql (all properties)
+/*+ create */
 INSERT INTO aws.dms.migration_projects (
  MigrationProjectName,
  MigrationProjectIdentifier,
@@ -210,6 +210,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.dms.migration_projects
 WHERE data__Identifier = '<MigrationProjectArn>'
 AND region = 'us-east-1';

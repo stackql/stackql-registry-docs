@@ -50,7 +50,7 @@ Used to retrieve a list of <code>faqs</code> in a region or to create or delete 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IndexId, Name, S3Path, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>faq</cod
 <TabItem value="required">
 
 ```sql
--- faq.iql (required properties only)
+/*+ create */
 INSERT INTO aws.kendra.faqs (
  IndexId,
  Name,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- faq.iql (all properties)
+/*+ create */
 INSERT INTO aws.kendra.faqs (
  IndexId,
  Name,
@@ -174,6 +174,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.kendra.faqs
 WHERE data__Identifier = '<Id|IndexId>'
 AND region = 'us-east-1';

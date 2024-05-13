@@ -49,7 +49,7 @@ Used to retrieve a list of <code>accounts</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AccountName, Email, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>account<
 <TabItem value="required">
 
 ```sql
--- account.iql (required properties only)
+/*+ create */
 INSERT INTO aws.organizations.accounts (
  AccountName,
  Email,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- account.iql (all properties)
+/*+ create */
 INSERT INTO aws.organizations.accounts (
  AccountName,
  Email,
@@ -155,6 +155,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.organizations.accounts
 WHERE data__Identifier = '<AccountId>'
 AND region = 'us-east-1';

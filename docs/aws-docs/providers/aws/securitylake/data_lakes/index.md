@@ -49,7 +49,7 @@ Used to retrieve a list of <code>data_lakes</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>data_lak
 <TabItem value="required">
 
 ```sql
--- data_lake.iql (required properties only)
+/*+ create */
 INSERT INTO aws.securitylake.data_lakes (
  EncryptionConfiguration,
  LifecycleConfiguration,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- data_lake.iql (all properties)
+/*+ create */
 INSERT INTO aws.securitylake.data_lakes (
  EncryptionConfiguration,
  LifecycleConfiguration,
@@ -169,6 +169,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.securitylake.data_lakes
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

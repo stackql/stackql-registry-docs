@@ -49,7 +49,7 @@ Used to retrieve a list of <code>packaging_groups</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Id, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>packagin
 <TabItem value="required">
 
 ```sql
--- packaging_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediapackage.packaging_groups (
  Id,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- packaging_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediapackage.packaging_groups (
  Id,
  Authorization,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediapackage.packaging_groups
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

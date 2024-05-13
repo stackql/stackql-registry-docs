@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cross_account_attachments</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cross_ac
 <TabItem value="required">
 
 ```sql
--- cross_account_attachment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.globalaccelerator.cross_account_attachments (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cross_account_attachment.iql (all properties)
+/*+ create */
 INSERT INTO aws.globalaccelerator.cross_account_attachments (
  Name,
  Principals,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.globalaccelerator.cross_account_attachments
 WHERE data__Identifier = '<AttachmentArn>'
 AND region = 'us-east-1';

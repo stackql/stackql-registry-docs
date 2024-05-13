@@ -49,7 +49,7 @@ Used to retrieve a list of <code>connection_aliases</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConnectionString, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 <TabItem value="required">
 
 ```sql
--- connection_alias.iql (required properties only)
+/*+ create */
 INSERT INTO aws.workspaces.connection_aliases (
  ConnectionString,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- connection_alias.iql (all properties)
+/*+ create */
 INSERT INTO aws.workspaces.connection_aliases (
  ConnectionString,
  Tags,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.workspaces.connection_aliases
 WHERE data__Identifier = '<AliasId>'
 AND region = 'us-east-1';

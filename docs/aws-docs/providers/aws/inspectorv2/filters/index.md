@@ -49,7 +49,7 @@ Used to retrieve a list of <code>filters</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, FilterCriteria, FilterAction, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>filter</
 <TabItem value="required">
 
 ```sql
--- filter.iql (required properties only)
+/*+ create */
 INSERT INTO aws.inspectorv2.filters (
  Name,
  FilterCriteria,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- filter.iql (all properties)
+/*+ create */
 INSERT INTO aws.inspectorv2.filters (
  Name,
  Description,
@@ -198,6 +198,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.inspectorv2.filters
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

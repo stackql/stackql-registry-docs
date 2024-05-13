@@ -50,7 +50,7 @@ Used to retrieve a list of <code>customdb_engine_versions</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Engine, EngineVersion, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>customdb
 <TabItem value="required">
 
 ```sql
--- customdb_engine_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rds.customdb_engine_versions (
  Engine,
  EngineVersion,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- customdb_engine_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.rds.customdb_engine_versions (
  DatabaseInstallationFilesS3BucketName,
  DatabaseInstallationFilesS3Prefix,
@@ -184,6 +184,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rds.customdb_engine_versions
 WHERE data__Identifier = '<Engine|EngineVersion>'
 AND region = 'us-east-1';

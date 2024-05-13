@@ -26,7 +26,7 @@ Gets or updates an individual <code>account</code> resource, use <code>accounts<
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>account</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Account</code> resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one <code>AWS::ApiGateway::Account</code> resource per region per account.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.account" /></td></tr>
 </tbody></table>
 

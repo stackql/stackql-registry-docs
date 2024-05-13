@@ -50,7 +50,7 @@ Used to retrieve a list of <code>identity_pool_principal_tags</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IdentityPoolId, IdentityProviderName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>identity
 <TabItem value="required">
 
 ```sql
--- identity_pool_principal_tag.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cognito.identity_pool_principal_tags (
  IdentityPoolId,
  IdentityProviderName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- identity_pool_principal_tag.iql (all properties)
+/*+ create */
 INSERT INTO aws.cognito.identity_pool_principal_tags (
  IdentityPoolId,
  IdentityProviderName,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cognito.identity_pool_principal_tags
 WHERE data__Identifier = '<IdentityPoolId|IdentityProviderName>'
 AND region = 'us-east-1';

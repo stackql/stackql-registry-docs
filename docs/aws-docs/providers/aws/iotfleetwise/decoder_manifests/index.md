@@ -49,7 +49,7 @@ Used to retrieve a list of <code>decoder_manifests</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, ModelManifestArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>decoder_
 <TabItem value="required">
 
 ```sql
--- decoder_manifest.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotfleetwise.decoder_manifests (
  ModelManifestArn,
  Name,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- decoder_manifest.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotfleetwise.decoder_manifests (
  Description,
  ModelManifestArn,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotfleetwise.decoder_manifests
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

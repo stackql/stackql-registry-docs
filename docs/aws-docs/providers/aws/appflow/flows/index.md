@@ -49,7 +49,7 @@ Used to retrieve a list of <code>flows</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FlowName, Tasks, SourceFlowConfig, DestinationFlowConfigList, TriggerConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>flow</co
 <TabItem value="required">
 
 ```sql
--- flow.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appflow.flows (
  FlowName,
  TriggerConfig,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- flow.iql (all properties)
+/*+ create */
 INSERT INTO aws.appflow.flows (
  FlowName,
  Description,
@@ -352,6 +352,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appflow.flows
 WHERE data__Identifier = '<FlowName>'
 AND region = 'us-east-1';

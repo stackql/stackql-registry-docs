@@ -26,7 +26,7 @@ Used to retrieve a list of <code>deployments</code> in a region or to create or 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Deployment</code> resource deploys an API Gateway <code>RestApi</code> resource to a stage so that clients can call the API over the internet. The stage acts as an environment.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.deployments" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>deployments</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RestApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>deployme
 <TabItem value="required">
 
 ```sql
--- deployment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.deployments (
  RestApiId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- deployment.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.deployments (
  DeploymentCanarySettings,
  Description,
@@ -192,6 +192,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.deployments
 WHERE data__Identifier = '<DeploymentId|RestApiId>'
 AND region = 'us-east-1';

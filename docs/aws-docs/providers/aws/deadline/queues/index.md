@@ -49,7 +49,7 @@ Used to retrieve a list of <code>queues</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DisplayName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>queue</c
 <TabItem value="required">
 
 ```sql
--- queue.iql (required properties only)
+/*+ create */
 INSERT INTO aws.deadline.queues (
  DisplayName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- queue.iql (all properties)
+/*+ create */
 INSERT INTO aws.deadline.queues (
  AllowedStorageProfileIds,
  DefaultBudgetAction,
@@ -177,6 +177,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.deadline.queues
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

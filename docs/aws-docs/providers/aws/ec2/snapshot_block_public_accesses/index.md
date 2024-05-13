@@ -49,7 +49,7 @@ Used to retrieve a list of <code>snapshot_block_public_accesses</code> in a regi
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="State, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>snapshot
 <TabItem value="required">
 
 ```sql
--- snapshot_block_public_access.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.snapshot_block_public_accesses (
  State,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- snapshot_block_public_access.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.snapshot_block_public_accesses (
  State,
  region
@@ -134,6 +134,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.snapshot_block_public_accesses
 WHERE data__Identifier = '<AccountId>'
 AND region = 'us-east-1';

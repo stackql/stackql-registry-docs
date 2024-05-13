@@ -49,7 +49,7 @@ Used to retrieve a list of <code>simulations</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>simulati
 <TabItem value="required">
 
 ```sql
--- simulation.iql (required properties only)
+/*+ create */
 INSERT INTO aws.simspaceweaver.simulations (
  Name,
  RoleArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- simulation.iql (all properties)
+/*+ create */
 INSERT INTO aws.simspaceweaver.simulations (
  Name,
  RoleArn,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.simspaceweaver.simulations
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

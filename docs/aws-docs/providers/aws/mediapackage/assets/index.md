@@ -49,7 +49,7 @@ Used to retrieve a list of <code>assets</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Id, PackagingGroupId, SourceArn, SourceRoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>asset</c
 <TabItem value="required">
 
 ```sql
--- asset.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediapackage.assets (
  Id,
  PackagingGroupId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- asset.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediapackage.assets (
  EgressEndpoints,
  Id,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediapackage.assets
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>account_aliases</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AccountAlias, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>account_
 <TabItem value="required">
 
 ```sql
--- account_alias.iql (required properties only)
+/*+ create */
 INSERT INTO aws.supportapp.account_aliases (
  AccountAlias,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- account_alias.iql (all properties)
+/*+ create */
 INSERT INTO aws.supportapp.account_aliases (
  AccountAlias,
  region
@@ -134,6 +134,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.supportapp.account_aliases
 WHERE data__Identifier = '<AccountAliasResourceId>'
 AND region = 'us-east-1';

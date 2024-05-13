@@ -51,7 +51,7 @@ Used to retrieve a list of <code>forms</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>form</co
 <TabItem value="required">
 
 ```sql
--- form.iql (required properties only)
+/*+ create */
 INSERT INTO aws.amplifyuibuilder.forms (
  AppId,
  Cta,
@@ -126,7 +126,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- form.iql (all properties)
+/*+ create */
 INSERT INTO aws.amplifyuibuilder.forms (
  AppId,
  Cta,
@@ -216,6 +216,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.amplifyuibuilder.forms
 WHERE data__Identifier = '<AppId|EnvironmentName|Id>'
 AND region = 'us-east-1';

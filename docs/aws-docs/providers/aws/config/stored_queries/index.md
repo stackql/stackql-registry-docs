@@ -49,7 +49,7 @@ Used to retrieve a list of <code>stored_queries</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="QueryName, QueryExpression, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>stored_q
 <TabItem value="required">
 
 ```sql
--- stored_query.iql (required properties only)
+/*+ create */
 INSERT INTO aws.config.stored_queries (
  QueryName,
  QueryExpression,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- stored_query.iql (all properties)
+/*+ create */
 INSERT INTO aws.config.stored_queries (
  QueryName,
  QueryDescription,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.config.stored_queries
 WHERE data__Identifier = '<QueryName>'
 AND region = 'us-east-1';

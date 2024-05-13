@@ -26,7 +26,7 @@ Used to retrieve a list of <code>routes</code> in a region or to create or delet
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Specifies a route in a route table. For more information, see &#91;Routes&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;userguide&#x2F;VPC_Route_Tables.html#route-table-routes) in the *Amazon VPC User Guide*.&lt;br&#x2F;&gt; You must specify either a destination CIDR block or prefix list ID. You must also specify exactly one of the resources as the target.&lt;br&#x2F;&gt; If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a &#91;DependsOn Attribute&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-attribute-dependson.html) in the ``AWS::EC2::Route`` resource to explicitly declare a dependency on the ``AWS::EC2::TransitGatewayAttachment`` resource.</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a route in a route table. For more information, see &#91;Routes&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;userguide&#x2F;VPC_Route_Tables.html#route-table-routes) in the *Amazon VPC User Guide*.&lt;br&#x2F;&gt; You must specify either a destination CIDR block or prefix list ID. You must also specify exactly one of the resources as the target.&lt;br&#x2F;&gt; If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a &#91;DependsOn Attribute&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-attribute-dependson.html) in the <code>AWS::EC2::Route</code> resource to explicitly declare a dependency on the <code>AWS::EC2::TransitGatewayAttachment</code> resource.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.routes" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>routes</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RouteTableId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>route</c
 <TabItem value="required">
 
 ```sql
--- route.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.routes (
  RouteTableId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- route.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.routes (
  CarrierGatewayId,
  CoreNetworkArn,
@@ -192,6 +192,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.routes
 WHERE data__Identifier = '<RouteTableId|CidrBlock>'
 AND region = 'us-east-1';

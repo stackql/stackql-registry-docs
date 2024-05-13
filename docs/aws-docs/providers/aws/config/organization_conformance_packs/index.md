@@ -49,7 +49,7 @@ Used to retrieve a list of <code>organization_conformance_packs</code> in a regi
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="OrganizationConformancePackName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>organiza
 <TabItem value="required">
 
 ```sql
--- organization_conformance_pack.iql (required properties only)
+/*+ create */
 INSERT INTO aws.config.organization_conformance_packs (
  OrganizationConformancePackName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- organization_conformance_pack.iql (all properties)
+/*+ create */
 INSERT INTO aws.config.organization_conformance_packs (
  OrganizationConformancePackName,
  TemplateS3Uri,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.config.organization_conformance_packs
 WHERE data__Identifier = '<OrganizationConformancePackName>'
 AND region = 'us-east-1';

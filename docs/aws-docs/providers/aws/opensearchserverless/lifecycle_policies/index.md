@@ -50,7 +50,7 @@ Used to retrieve a list of <code>lifecycle_policies</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Type, Name, Policy, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>lifecycl
 <TabItem value="required">
 
 ```sql
--- lifecycle_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.opensearchserverless.lifecycle_policies (
  Name,
  Type,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- lifecycle_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.opensearchserverless.lifecycle_policies (
  Name,
  Type,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.opensearchserverless.lifecycle_policies
 WHERE data__Identifier = '<Type|Name>'
 AND region = 'us-east-1';

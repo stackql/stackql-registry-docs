@@ -49,7 +49,7 @@ Used to retrieve a list of <code>vpc_connectors</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Subnets, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>vpc_conn
 <TabItem value="required">
 
 ```sql
--- vpc_connector.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apprunner.vpc_connectors (
  Subnets,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpc_connector.iql (all properties)
+/*+ create */
 INSERT INTO aws.apprunner.vpc_connectors (
  VpcConnectorName,
  Subnets,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apprunner.vpc_connectors
 WHERE data__Identifier = '<VpcConnectorArn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>configuration_aggregators</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>configur
 <TabItem value="required">
 
 ```sql
--- configuration_aggregator.iql (required properties only)
+/*+ create */
 INSERT INTO aws.config.configuration_aggregators (
  AccountAggregationSources,
  ConfigurationAggregatorName,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- configuration_aggregator.iql (all properties)
+/*+ create */
 INSERT INTO aws.config.configuration_aggregators (
  AccountAggregationSources,
  ConfigurationAggregatorName,
@@ -163,6 +163,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.config.configuration_aggregators
 WHERE data__Identifier = '<ConfigurationAggregatorName>'
 AND region = 'us-east-1';

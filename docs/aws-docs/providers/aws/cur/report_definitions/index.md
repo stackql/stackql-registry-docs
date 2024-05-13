@@ -49,7 +49,7 @@ Used to retrieve a list of <code>report_definitions</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ReportName, TimeUnit, Format, Compression, S3Bucket, S3Prefix, S3Region, RefreshClosedReports, ReportVersioning, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>report_d
 <TabItem value="required">
 
 ```sql
--- report_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cur.report_definitions (
  ReportName,
  TimeUnit,
@@ -116,7 +116,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- report_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.cur.report_definitions (
  ReportName,
  TimeUnit,
@@ -196,6 +196,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cur.report_definitions
 WHERE data__Identifier = '<ReportName>'
 AND region = 'us-east-1';

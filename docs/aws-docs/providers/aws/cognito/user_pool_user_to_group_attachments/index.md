@@ -51,7 +51,7 @@ Used to retrieve a list of <code>user_pool_user_to_group_attachments</code> in a
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="UserPoolId, Username, GroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>user_poo
 <TabItem value="required">
 
 ```sql
--- user_pool_user_to_group_attachment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  UserPoolId,
  Username,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- user_pool_user_to_group_attachment.iql (all properties)
+/*+ create */
 INSERT INTO aws.cognito.user_pool_user_to_group_attachments (
  UserPoolId,
  Username,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cognito.user_pool_user_to_group_attachments
 WHERE data__Identifier = '<UserPoolId|GroupName|Username>'
 AND region = 'us-east-1';

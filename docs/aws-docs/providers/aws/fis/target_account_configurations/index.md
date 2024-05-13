@@ -50,7 +50,7 @@ Used to retrieve a list of <code>target_account_configurations</code> in a regio
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ExperimentTemplateId, AccountId, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>target_a
 <TabItem value="required">
 
 ```sql
--- target_account_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.fis.target_account_configurations (
  ExperimentTemplateId,
  AccountId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- target_account_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.fis.target_account_configurations (
  ExperimentTemplateId,
  AccountId,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.fis.target_account_configurations
 WHERE data__Identifier = '<ExperimentTemplateId|AccountId>'
 AND region = 'us-east-1';

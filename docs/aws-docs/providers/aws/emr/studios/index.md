@@ -49,7 +49,7 @@ Used to retrieve a list of <code>studios</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AuthMode, EngineSecurityGroupId, Name, ServiceRole, SubnetIds, VpcId, WorkspaceSecurityGroupId, DefaultS3Location, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>studio</
 <TabItem value="required">
 
 ```sql
--- studio.iql (required properties only)
+/*+ create */
 INSERT INTO aws.emr.studios (
  AuthMode,
  DefaultS3Location,
@@ -114,7 +114,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- studio.iql (all properties)
+/*+ create */
 INSERT INTO aws.emr.studios (
  AuthMode,
  DefaultS3Location,
@@ -215,6 +215,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.emr.studios
 WHERE data__Identifier = '<StudioId>'
 AND region = 'us-east-1';

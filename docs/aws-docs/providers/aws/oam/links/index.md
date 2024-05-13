@@ -49,7 +49,7 @@ Used to retrieve a list of <code>links</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceTypes, SinkIdentifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>link</co
 <TabItem value="required">
 
 ```sql
--- link.iql (required properties only)
+/*+ create */
 INSERT INTO aws.oam.links (
  ResourceTypes,
  SinkIdentifier,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- link.iql (all properties)
+/*+ create */
 INSERT INTO aws.oam.links (
  LabelTemplate,
  ResourceTypes,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.oam.links
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

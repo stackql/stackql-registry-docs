@@ -49,7 +49,7 @@ Used to retrieve a list of <code>multi_region_access_point_policies</code> in a 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Policy, MrapName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>multi_re
 <TabItem value="required">
 
 ```sql
--- multi_region_access_point_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.s3.multi_region_access_point_policies (
  MrapName,
  Policy,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- multi_region_access_point_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.s3.multi_region_access_point_policies (
  MrapName,
  Policy,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.s3.multi_region_access_point_policies
 WHERE data__Identifier = '<MrapName>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>verified_access_trust_providers</code> in a reg
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TrustProviderType, PolicyReferenceName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>verified
 <TabItem value="required">
 
 ```sql
--- verified_access_trust_provider.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.verified_access_trust_providers (
  TrustProviderType,
  PolicyReferenceName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- verified_access_trust_provider.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.verified_access_trust_providers (
  TrustProviderType,
  DeviceTrustProviderType,
@@ -181,6 +181,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.verified_access_trust_providers
 WHERE data__Identifier = '<VerifiedAccessTrustProviderId>'
 AND region = 'us-east-1';

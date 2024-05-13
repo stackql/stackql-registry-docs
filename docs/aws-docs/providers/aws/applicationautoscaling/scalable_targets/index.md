@@ -51,7 +51,7 @@ Used to retrieve a list of <code>scalable_targets</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceId, ServiceNamespace, ScalableDimension, MinCapacity, MaxCapacity, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>scalable
 <TabItem value="required">
 
 ```sql
--- scalable_target.iql (required properties only)
+/*+ create */
 INSERT INTO aws.applicationautoscaling.scalable_targets (
  MaxCapacity,
  MinCapacity,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- scalable_target.iql (all properties)
+/*+ create */
 INSERT INTO aws.applicationautoscaling.scalable_targets (
  MaxCapacity,
  MinCapacity,
@@ -185,6 +185,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.applicationautoscaling.scalable_targets
 WHERE data__Identifier = '<ResourceId|ScalableDimension|ServiceNamespace>'
 AND region = 'us-east-1';

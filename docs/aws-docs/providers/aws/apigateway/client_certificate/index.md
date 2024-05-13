@@ -26,7 +26,7 @@ Gets or updates an individual <code>client_certificate</code> resource, use <cod
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>client_certificate</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::ClientCertificate</code> resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.client_certificate" /></td></tr>
 </tbody></table>
 

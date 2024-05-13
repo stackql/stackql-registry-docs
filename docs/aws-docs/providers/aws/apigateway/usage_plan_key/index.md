@@ -26,7 +26,7 @@ Gets or updates an individual <code>usage_plan_key</code> resource, use <code>us
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_plan_key</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::UsagePlanKey</code> resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.usage_plan_key" /></td></tr>
 </tbody></table>
 

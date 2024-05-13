@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cloud_formation_provisioned_products</code> in 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cloud_fo
 <TabItem value="required">
 
 ```sql
--- cloud_formation_provisioned_product.iql (required properties only)
+/*+ create */
 INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  AcceptLanguage,
  NotificationArns,
@@ -122,7 +122,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cloud_formation_provisioned_product.iql (all properties)
+/*+ create */
 INSERT INTO aws.servicecatalog.cloud_formation_provisioned_products (
  AcceptLanguage,
  NotificationArns,
@@ -214,6 +214,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.servicecatalog.cloud_formation_provisioned_products
 WHERE data__Identifier = '<ProvisionedProductId>'
 AND region = 'us-east-1';

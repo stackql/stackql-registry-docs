@@ -49,7 +49,7 @@ Used to retrieve a list of <code>state_machine_versions</code> in a region or to
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StateMachineArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>state_ma
 <TabItem value="required">
 
 ```sql
--- state_machine_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.stepfunctions.state_machine_versions (
  StateMachineArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- state_machine_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.stepfunctions.state_machine_versions (
  StateMachineArn,
  StateMachineRevisionId,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.stepfunctions.state_machine_versions
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

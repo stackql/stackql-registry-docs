@@ -26,7 +26,7 @@ Used to retrieve a list of <code>rest_apis</code> in a region or to create or de
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rest_apis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see &#91;restapi:create&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;api&#x2F;API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.&lt;br&#x2F;&gt; On January 1, 2016, the Swagger Specification was donated to the &#91;OpenAPI initiative&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;https:&#x2F;&#x2F;www.openapis.org&#x2F;), becoming the foundation of the OpenAPI Specification.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::RestApi</code> resource creates a REST API. For more information, see &#91;restapi:create&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;api&#x2F;API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.&lt;br&#x2F;&gt; On January 1, 2016, the Swagger Specification was donated to the &#91;OpenAPI initiative&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;https:&#x2F;&#x2F;www.openapis.org&#x2F;), becoming the foundation of the OpenAPI Specification.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.rest_apis" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>rest_apis</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>rest_api
 <TabItem value="required">
 
 ```sql
--- rest_api.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.rest_apis (
  ApiKeySourceType,
  BinaryMediaTypes,
@@ -128,7 +128,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- rest_api.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.rest_apis (
  ApiKeySourceType,
  BinaryMediaTypes,
@@ -229,6 +229,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.rest_apis
 WHERE data__Identifier = '<RestApiId>'
 AND region = 'us-east-1';

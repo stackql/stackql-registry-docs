@@ -49,7 +49,7 @@ Used to retrieve a list of <code>network_insights_access_scopes</code> in a regi
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>network_
 <TabItem value="required">
 
 ```sql
--- network_insights_access_scope.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.network_insights_access_scopes (
  Tags,
  MatchPaths,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- network_insights_access_scope.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.network_insights_access_scopes (
  Tags,
  MatchPaths,
@@ -173,6 +173,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.network_insights_access_scopes
 WHERE data__Identifier = '<NetworkInsightsAccessScopeId>'
 AND region = 'us-east-1';

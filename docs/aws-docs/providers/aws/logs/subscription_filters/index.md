@@ -26,7 +26,7 @@ Used to retrieve a list of <code>subscription_filters</code> in a region or to c
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subscription_filters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::Logs::SubscriptionFilter`` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:&lt;br&#x2F;&gt;  +  An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.&lt;br&#x2F;&gt;  +  A logical destination that belongs to a different account, for cross-account delivery.&lt;br&#x2F;&gt;  +  An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.&lt;br&#x2F;&gt;  +  An LAMlong function that belongs to the same account as the subscription filter, for same-account delivery.&lt;br&#x2F;&gt;  &lt;br&#x2F;&gt; There can be as many as two subscription filters associated with a log group.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::Logs::SubscriptionFilter</code> resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:&lt;br&#x2F;&gt;  +  An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.&lt;br&#x2F;&gt;  +  A logical destination that belongs to a different account, for cross-account delivery.&lt;br&#x2F;&gt;  +  An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.&lt;br&#x2F;&gt;  +  An LAMlong function that belongs to the same account as the subscription filter, for same-account delivery.&lt;br&#x2F;&gt;  &lt;br&#x2F;&gt; There can be as many as two subscription filters associated with a log group.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.logs.subscription_filters" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>subscription_filters</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DestinationArn, FilterPattern, LogGroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>subscrip
 <TabItem value="required">
 
 ```sql
--- subscription_filter.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.subscription_filters (
  DestinationArn,
  FilterPattern,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- subscription_filter.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.subscription_filters (
  FilterName,
  DestinationArn,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.subscription_filters
 WHERE data__Identifier = '<FilterName|LogGroupName>'
 AND region = 'us-east-1';

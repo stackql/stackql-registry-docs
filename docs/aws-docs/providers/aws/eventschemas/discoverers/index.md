@@ -49,7 +49,7 @@ Used to retrieve a list of <code>discoverers</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SourceArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>discover
 <TabItem value="required">
 
 ```sql
--- discoverer.iql (required properties only)
+/*+ create */
 INSERT INTO aws.eventschemas.discoverers (
  SourceArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- discoverer.iql (all properties)
+/*+ create */
 INSERT INTO aws.eventschemas.discoverers (
  Description,
  SourceArn,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.eventschemas.discoverers
 WHERE data__Identifier = '<DiscovererArn>'
 AND region = 'us-east-1';

@@ -26,7 +26,7 @@ Used to retrieve a list of <code>access_points</code> in a region or to create o
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_points</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::EFS::AccessPoint`` resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see &#91;Mounting a file system using EFS access points&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;efs&#x2F;latest&#x2F;ug&#x2F;efs-access-points.html).&lt;br&#x2F;&gt; This operation requires permissions for the ``elasticfilesystem:CreateAccessPoint`` action.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::EFS::AccessPoint</code> resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see &#91;Mounting a file system using EFS access points&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;efs&#x2F;latest&#x2F;ug&#x2F;efs-access-points.html).&lt;br&#x2F;&gt; This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.efs.access_points" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>access_points</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FileSystemId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>access_p
 <TabItem value="required">
 
 ```sql
--- access_point.iql (required properties only)
+/*+ create */
 INSERT INTO aws.efs.access_points (
  FileSystemId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- access_point.iql (all properties)
+/*+ create */
 INSERT INTO aws.efs.access_points (
  ClientToken,
  AccessPointTags,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.efs.access_points
 WHERE data__Identifier = '<AccessPointId>'
 AND region = 'us-east-1';

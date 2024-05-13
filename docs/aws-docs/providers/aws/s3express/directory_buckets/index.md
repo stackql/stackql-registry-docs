@@ -49,7 +49,7 @@ Used to retrieve a list of <code>directory_buckets</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LocationName, DataRedundancy, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>director
 <TabItem value="required">
 
 ```sql
--- directory_bucket.iql (required properties only)
+/*+ create */
 INSERT INTO aws.s3express.directory_buckets (
  LocationName,
  DataRedundancy,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- directory_bucket.iql (all properties)
+/*+ create */
 INSERT INTO aws.s3express.directory_buckets (
  BucketName,
  LocationName,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.s3express.directory_buckets
 WHERE data__Identifier = '<BucketName>'
 AND region = 'us-east-1';

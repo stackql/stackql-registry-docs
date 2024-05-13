@@ -49,7 +49,7 @@ Used to retrieve a list of <code>destinations</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DestinationName, TargetArn, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>destinat
 <TabItem value="required">
 
 ```sql
--- destination.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.destinations (
  DestinationName,
  RoleArn,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- destination.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.destinations (
  DestinationName,
  DestinationPolicy,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.destinations
 WHERE data__Identifier = '<DestinationName>'
 AND region = 'us-east-1';

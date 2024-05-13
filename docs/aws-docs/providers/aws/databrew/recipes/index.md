@@ -49,7 +49,7 @@ Used to retrieve a list of <code>recipes</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Steps, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>recipe</
 <TabItem value="required">
 
 ```sql
--- recipe.iql (required properties only)
+/*+ create */
 INSERT INTO aws.databrew.recipes (
  Name,
  Steps,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- recipe.iql (all properties)
+/*+ create */
 INSERT INTO aws.databrew.recipes (
  Description,
  Name,
@@ -157,6 +157,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.databrew.recipes
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

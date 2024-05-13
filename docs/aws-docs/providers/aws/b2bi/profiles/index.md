@@ -49,7 +49,7 @@ Used to retrieve a list of <code>profiles</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="BusinessName, Logging, Name, Phone, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>profile<
 <TabItem value="required">
 
 ```sql
--- profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.b2bi.profiles (
  BusinessName,
  Logging,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.b2bi.profiles (
  BusinessName,
  Email,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.b2bi.profiles
 WHERE data__Identifier = '<ProfileId>'
 AND region = 'us-east-1';

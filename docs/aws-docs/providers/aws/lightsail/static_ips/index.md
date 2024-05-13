@@ -49,7 +49,7 @@ Used to retrieve a list of <code>static_ips</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StaticIpName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>static_i
 <TabItem value="required">
 
 ```sql
--- static_ip.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lightsail.static_ips (
  StaticIpName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- static_ip.iql (all properties)
+/*+ create */
 INSERT INTO aws.lightsail.static_ips (
  StaticIpName,
  AttachedTo,
@@ -138,6 +138,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lightsail.static_ips
 WHERE data__Identifier = '<StaticIpName>'
 AND region = 'us-east-1';

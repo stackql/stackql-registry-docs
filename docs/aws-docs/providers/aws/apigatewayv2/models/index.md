@@ -26,7 +26,7 @@ Used to retrieve a list of <code>models</code> in a region or to create or delet
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see &#91;Model Selection Expressions&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::Model</code> resource updates data model for a WebSocket API. For more information, see &#91;Model Selection Expressions&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.models" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>models</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApiId, Schema, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>model</c
 <TabItem value="required">
 
 ```sql
--- model.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigatewayv2.models (
  Schema,
  ApiId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- model.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigatewayv2.models (
  Description,
  ContentType,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigatewayv2.models
 WHERE data__Identifier = '<ApiId|ModelId>'
 AND region = 'us-east-1';

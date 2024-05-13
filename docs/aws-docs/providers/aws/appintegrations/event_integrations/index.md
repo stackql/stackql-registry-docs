@@ -49,7 +49,7 @@ Used to retrieve a list of <code>event_integrations</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, EventBridgeBus, EventFilter, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>event_in
 <TabItem value="required">
 
 ```sql
--- event_integration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appintegrations.event_integrations (
  Name,
  EventBridgeBus,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- event_integration.iql (all properties)
+/*+ create */
 INSERT INTO aws.appintegrations.event_integrations (
  Description,
  Name,
@@ -157,6 +157,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appintegrations.event_integrations
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

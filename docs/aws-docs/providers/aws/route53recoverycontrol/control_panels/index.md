@@ -49,7 +49,7 @@ Used to retrieve a list of <code>control_panels</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>control_
 <TabItem value="required">
 
 ```sql
--- control_panel.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53recoverycontrol.control_panels (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- control_panel.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53recoverycontrol.control_panels (
  ClusterArn,
  Name,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53recoverycontrol.control_panels
 WHERE data__Identifier = '<ControlPanelArn>'
 AND region = 'us-east-1';

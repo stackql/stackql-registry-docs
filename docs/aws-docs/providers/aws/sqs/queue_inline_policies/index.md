@@ -49,7 +49,7 @@ Used to retrieve a list of <code>queue_inline_policies</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PolicyDocument, Queue, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>queue_in
 <TabItem value="required">
 
 ```sql
--- queue_inline_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sqs.queue_inline_policies (
  PolicyDocument,
  Queue,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- queue_inline_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.sqs.queue_inline_policies (
  PolicyDocument,
  Queue,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sqs.queue_inline_policies
 WHERE data__Identifier = '<Queue>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>organization_admins</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AccountId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>organiza
 <TabItem value="required">
 
 ```sql
--- organization_admin.iql (required properties only)
+/*+ create */
 INSERT INTO aws.detective.organization_admins (
  AccountId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- organization_admin.iql (all properties)
+/*+ create */
 INSERT INTO aws.detective.organization_admins (
  AccountId,
  region
@@ -134,6 +134,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.detective.organization_admins
 WHERE data__Identifier = '<AccountId>'
 AND region = 'us-east-1';

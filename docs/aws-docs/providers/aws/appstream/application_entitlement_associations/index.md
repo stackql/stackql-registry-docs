@@ -51,7 +51,7 @@ Used to retrieve a list of <code>application_entitlement_associations</code> in 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StackName, EntitlementName, ApplicationIdentifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>applicat
 <TabItem value="required">
 
 ```sql
--- application_entitlement_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appstream.application_entitlement_associations (
  StackName,
  EntitlementName,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- application_entitlement_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.appstream.application_entitlement_associations (
  StackName,
  EntitlementName,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appstream.application_entitlement_associations
 WHERE data__Identifier = '<StackName|EntitlementName|ApplicationIdentifier>'
 AND region = 'us-east-1';

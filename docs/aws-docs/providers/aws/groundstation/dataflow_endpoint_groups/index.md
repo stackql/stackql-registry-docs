@@ -49,7 +49,7 @@ Used to retrieve a list of <code>dataflow_endpoint_groups</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="EndpointDetails, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>dataflow
 <TabItem value="required">
 
 ```sql
--- dataflow_endpoint_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.groundstation.dataflow_endpoint_groups (
  EndpointDetails,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- dataflow_endpoint_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.groundstation.dataflow_endpoint_groups (
  EndpointDetails,
  ContactPrePassDurationSeconds,
@@ -174,6 +174,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.groundstation.dataflow_endpoint_groups
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

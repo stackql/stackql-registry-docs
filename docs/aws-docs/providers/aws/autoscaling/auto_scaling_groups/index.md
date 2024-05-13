@@ -26,7 +26,7 @@ Used to retrieve a list of <code>auto_scaling_groups</code> in a region or to cr
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>auto_scaling_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::AutoScaling::AutoScalingGroup`` resource defines an Amazon EC2 Auto Scaling group, which is a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management. &lt;br&#x2F;&gt; For more information about Amazon EC2 Auto Scaling, see the &#91;Amazon EC2 Auto Scaling User Guide&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;autoscaling&#x2F;ec2&#x2F;userguide&#x2F;what-is-amazon-ec2-auto-scaling.html). &lt;br&#x2F;&gt;  Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a &#91;launch template&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-resource-ec2-launchtemplate.html) or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For more information, see &#91;Launch configurations&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;autoscaling&#x2F;ec2&#x2F;userguide&#x2F;launch-configurations.html) and &#91;Migrate CloudFormation stacks from launch configurations to launch templates&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;autoscaling&#x2F;ec2&#x2F;userguide&#x2F;migrate-launch-configurations-with-cloudformation.html) in the *Amazon EC2 Auto Scaling User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::AutoScaling::AutoScalingGroup</code> resource defines an Amazon EC2 Auto Scaling group, which is a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management. &lt;br&#x2F;&gt; For more information about Amazon EC2 Auto Scaling, see the &#91;Amazon EC2 Auto Scaling User Guide&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;autoscaling&#x2F;ec2&#x2F;userguide&#x2F;what-is-amazon-ec2-auto-scaling.html). &lt;br&#x2F;&gt;  Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a &#91;launch template&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-resource-ec2-launchtemplate.html) or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For more information, see &#91;Launch configurations&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;autoscaling&#x2F;ec2&#x2F;userguide&#x2F;launch-configurations.html) and &#91;Migrate CloudFormation stacks from launch configurations to launch templates&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;autoscaling&#x2F;ec2&#x2F;userguide&#x2F;migrate-launch-configurations-with-cloudformation.html) in the *Amazon EC2 Auto Scaling User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.autoscaling.auto_scaling_groups" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>auto_scaling_groups</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="MinSize, MaxSize, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>auto_sca
 <TabItem value="required">
 
 ```sql
--- auto_scaling_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.autoscaling.auto_scaling_groups (
  MaxSize,
  MinSize,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- auto_scaling_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.autoscaling.auto_scaling_groups (
  LifecycleHookSpecificationList,
  LoadBalancerNames,
@@ -343,6 +343,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.autoscaling.auto_scaling_groups
 WHERE data__Identifier = '<AutoScalingGroupName>'
 AND region = 'us-east-1';

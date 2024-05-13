@@ -49,7 +49,7 @@ Used to retrieve a list of <code>anomaly_monitors</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="MonitorName, MonitorType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>anomaly_
 <TabItem value="required">
 
 ```sql
--- anomaly_monitor.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ce.anomaly_monitors (
  MonitorType,
  MonitorName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- anomaly_monitor.iql (all properties)
+/*+ create */
 INSERT INTO aws.ce.anomaly_monitors (
  MonitorType,
  MonitorName,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ce.anomaly_monitors
 WHERE data__Identifier = '<MonitorArn>'
 AND region = 'us-east-1';

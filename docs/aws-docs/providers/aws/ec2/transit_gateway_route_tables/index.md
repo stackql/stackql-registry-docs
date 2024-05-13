@@ -49,7 +49,7 @@ Used to retrieve a list of <code>transit_gateway_route_tables</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TransitGatewayId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>transit_
 <TabItem value="required">
 
 ```sql
--- transit_gateway_route_table.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.transit_gateway_route_tables (
  TransitGatewayId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- transit_gateway_route_table.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.transit_gateway_route_tables (
  TransitGatewayId,
  Tags,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.transit_gateway_route_tables
 WHERE data__Identifier = '<TransitGatewayRouteTableId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>flow_logs</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceType, ResourceId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>flow_log
 <TabItem value="required">
 
 ```sql
--- flow_log.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.flow_logs (
  ResourceId,
  ResourceType,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- flow_log.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.flow_logs (
  DeliverCrossAccountRole,
  DeliverLogsPermissionArn,
@@ -185,6 +185,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.flow_logs
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

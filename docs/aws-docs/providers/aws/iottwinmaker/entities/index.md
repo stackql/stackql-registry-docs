@@ -50,7 +50,7 @@ Used to retrieve a list of <code>entities</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="WorkspaceId, EntityName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>entity</
 <TabItem value="required">
 
 ```sql
--- entity.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iottwinmaker.entities (
  EntityName,
  WorkspaceId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- entity.iql (all properties)
+/*+ create */
 INSERT INTO aws.iottwinmaker.entities (
  EntityId,
  EntityName,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iottwinmaker.entities
 WHERE data__Identifier = '<WorkspaceId|EntityId>'
 AND region = 'us-east-1';

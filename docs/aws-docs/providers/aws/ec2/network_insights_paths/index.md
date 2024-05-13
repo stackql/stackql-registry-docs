@@ -49,7 +49,7 @@ Used to retrieve a list of <code>network_insights_paths</code> in a region or to
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Protocol, Source, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>network_
 <TabItem value="required">
 
 ```sql
--- network_insights_path.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.network_insights_paths (
  Source,
  Protocol,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- network_insights_path.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.network_insights_paths (
  SourceIp,
  FilterAtSource,
@@ -176,6 +176,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.network_insights_paths
 WHERE data__Identifier = '<NetworkInsightsPathId>'
 AND region = 'us-east-1';

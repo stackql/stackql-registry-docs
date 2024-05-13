@@ -50,7 +50,7 @@ Used to retrieve a list of <code>application_versions</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApplicationName, SourceBundle, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>applicat
 <TabItem value="required">
 
 ```sql
--- application_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticbeanstalk.application_versions (
  ApplicationName,
  SourceBundle,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- application_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticbeanstalk.application_versions (
  ApplicationName,
  Description,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticbeanstalk.application_versions
 WHERE data__Identifier = '<ApplicationName|Id>'
 AND region = 'us-east-1';

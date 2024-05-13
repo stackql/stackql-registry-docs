@@ -49,7 +49,7 @@ Used to retrieve a list of <code>pull_through_cache_rules</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>pull_thr
 <TabItem value="required">
 
 ```sql
--- pull_through_cache_rule.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecr.pull_through_cache_rules (
  EcrRepositoryPrefix,
  UpstreamRegistryUrl,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- pull_through_cache_rule.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecr.pull_through_cache_rules (
  EcrRepositoryPrefix,
  UpstreamRegistryUrl,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecr.pull_through_cache_rules
 WHERE data__Identifier = '<EcrRepositoryPrefix>'
 AND region = 'us-east-1';

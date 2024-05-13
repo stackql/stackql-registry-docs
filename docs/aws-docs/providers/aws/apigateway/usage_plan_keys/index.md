@@ -26,7 +26,7 @@ Used to retrieve a list of <code>usage_plan_keys</code> in a region or to create
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_plan_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::UsagePlanKey</code> resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.usage_plan_keys" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>usage_plan_keys</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="KeyType, UsagePlanId, KeyId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>usage_pl
 <TabItem value="required">
 
 ```sql
--- usage_plan_key.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.usage_plan_keys (
  KeyId,
  KeyType,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- usage_plan_key.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.usage_plan_keys (
  KeyId,
  KeyType,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.usage_plan_keys
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>component_types</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="WorkspaceId, ComponentTypeId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>componen
 <TabItem value="required">
 
 ```sql
--- component_type.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iottwinmaker.component_types (
  WorkspaceId,
  ComponentTypeId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- component_type.iql (all properties)
+/*+ create */
 INSERT INTO aws.iottwinmaker.component_types (
  WorkspaceId,
  ComponentTypeId,
@@ -175,6 +175,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iottwinmaker.component_types
 WHERE data__Identifier = '<WorkspaceId|ComponentTypeId>'
 AND region = 'us-east-1';

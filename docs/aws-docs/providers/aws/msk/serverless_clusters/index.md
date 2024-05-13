@@ -49,7 +49,7 @@ Used to retrieve a list of <code>serverless_clusters</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ClusterName, VpcConfigs, ClientAuthentication, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>serverle
 <TabItem value="required">
 
 ```sql
--- serverless_cluster.iql (required properties only)
+/*+ create */
 INSERT INTO aws.msk.serverless_clusters (
  ClusterName,
  VpcConfigs,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- serverless_cluster.iql (all properties)
+/*+ create */
 INSERT INTO aws.msk.serverless_clusters (
  ClusterName,
  VpcConfigs,
@@ -157,6 +157,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.msk.serverless_clusters
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

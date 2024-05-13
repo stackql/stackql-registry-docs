@@ -49,7 +49,7 @@ Used to retrieve a list of <code>vpn_connections</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Type, CustomerGatewayId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>vpn_conn
 <TabItem value="required">
 
 ```sql
--- vpn_connection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.vpn_connections (
  CustomerGatewayId,
  Type,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpn_connection.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.vpn_connections (
  CustomerGatewayId,
  StaticRoutesOnly,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.vpn_connections
 WHERE data__Identifier = '<VpnConnectionId>'
 AND region = 'us-east-1';

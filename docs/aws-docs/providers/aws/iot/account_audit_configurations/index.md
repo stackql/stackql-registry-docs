@@ -49,7 +49,7 @@ Used to retrieve a list of <code>account_audit_configurations</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AccountId, AuditCheckConfigurations, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>account_
 <TabItem value="required">
 
 ```sql
--- account_audit_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.account_audit_configurations (
  AccountId,
  AuditCheckConfigurations,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- account_audit_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.account_audit_configurations (
  AccountId,
  AuditCheckConfigurations,
@@ -171,6 +171,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.account_audit_configurations
 WHERE data__Identifier = '<AccountId>'
 AND region = 'us-east-1';

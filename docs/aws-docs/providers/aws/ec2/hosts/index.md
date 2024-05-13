@@ -49,7 +49,7 @@ Used to retrieve a list of <code>hosts</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AvailabilityZone, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>host</co
 <TabItem value="required">
 
 ```sql
--- host.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.hosts (
  AvailabilityZone,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- host.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.hosts (
  AutoPlacement,
  AvailabilityZone,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.hosts
 WHERE data__Identifier = '<HostId>'
 AND region = 'us-east-1';

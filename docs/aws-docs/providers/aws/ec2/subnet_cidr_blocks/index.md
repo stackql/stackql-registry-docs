@@ -49,7 +49,7 @@ Used to retrieve a list of <code>subnet_cidr_blocks</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SubnetId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>subnet_c
 <TabItem value="required">
 
 ```sql
--- subnet_cidr_block.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.subnet_cidr_blocks (
  SubnetId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- subnet_cidr_block.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.subnet_cidr_blocks (
  Ipv6CidrBlock,
  Ipv6IpamPoolId,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.subnet_cidr_blocks
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

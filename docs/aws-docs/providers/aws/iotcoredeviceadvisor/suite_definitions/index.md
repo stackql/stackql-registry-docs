@@ -49,7 +49,7 @@ Used to retrieve a list of <code>suite_definitions</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SuiteDefinitionConfiguration, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>suite_de
 <TabItem value="required">
 
 ```sql
--- suite_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotcoredeviceadvisor.suite_definitions (
  SuiteDefinitionConfiguration,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- suite_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotcoredeviceadvisor.suite_definitions (
  SuiteDefinitionConfiguration,
  Tags,
@@ -147,6 +147,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotcoredeviceadvisor.suite_definitions
 WHERE data__Identifier = '<SuiteDefinitionId>'
 AND region = 'us-east-1';

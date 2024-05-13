@@ -50,7 +50,7 @@ Used to retrieve a list of <code>storage_profiles</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DisplayName, OsFamily, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>storage_
 <TabItem value="required">
 
 ```sql
--- storage_profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.deadline.storage_profiles (
  DisplayName,
  OsFamily,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- storage_profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.deadline.storage_profiles (
  DisplayName,
  FarmId,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.deadline.storage_profiles
 WHERE data__Identifier = '<FarmId|StorageProfileId>'
 AND region = 'us-east-1';

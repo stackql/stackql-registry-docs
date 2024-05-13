@@ -49,7 +49,7 @@ Used to retrieve a list of <code>connections</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConnectionName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 <TabItem value="required">
 
 ```sql
--- connection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.codestarconnections.connections (
  ConnectionName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- connection.iql (all properties)
+/*+ create */
 INSERT INTO aws.codestarconnections.connections (
  ConnectionName,
  ProviderType,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.codestarconnections.connections
 WHERE data__Identifier = '<ConnectionArn>'
 AND region = 'us-east-1';

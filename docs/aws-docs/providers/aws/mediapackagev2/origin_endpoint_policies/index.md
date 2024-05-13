@@ -51,7 +51,7 @@ Used to retrieve a list of <code>origin_endpoint_policies</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ChannelGroupName, ChannelName, OriginEndpointName, Policy, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>origin_e
 <TabItem value="required">
 
 ```sql
--- origin_endpoint_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
  ChannelGroupName,
  ChannelName,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- origin_endpoint_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediapackagev2.origin_endpoint_policies (
  ChannelGroupName,
  ChannelName,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediapackagev2.origin_endpoint_policies
 WHERE data__Identifier = '<ChannelGroupName|ChannelName|OriginEndpointName>'
 AND region = 'us-east-1';

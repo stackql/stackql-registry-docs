@@ -49,7 +49,7 @@ Used to retrieve a list of <code>hours_of_operations</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceArn, Name, TimeZone, Config, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>hours_of
 <TabItem value="required">
 
 ```sql
--- hours_of_operation.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.hours_of_operations (
  InstanceArn,
  Name,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- hours_of_operation.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.hours_of_operations (
  InstanceArn,
  Name,
@@ -167,6 +167,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.hours_of_operations
 WHERE data__Identifier = '<HoursOfOperationArn>'
 AND region = 'us-east-1';

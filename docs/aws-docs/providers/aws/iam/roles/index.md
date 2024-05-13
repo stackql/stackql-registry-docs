@@ -33,7 +33,7 @@ Used to retrieve a list of <code>roles</code> in a region or to create or delete
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="role_name" /></td><td><code>string</code></td><td>A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the &#91;CreateRole&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;APIReference&#x2F;API_CreateRole.html) action in the *User Guide*.&lt;br&#x2F;&gt; This parameter allows (per its &#91;regex pattern&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;http:&#x2F;&#x2F;wikipedia.org&#x2F;wiki&#x2F;regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both "Role1" and "role1".&lt;br&#x2F;&gt; If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name.&lt;br&#x2F;&gt; If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see &#91;Acknowledging Resources in Templates&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;Use</td></tr>
+<tr><td><CopyableCode code="role_name" /></td><td><code>string</code></td><td>A name for the IAM role, up to 64 characters in length. For valid values, see the <code>RoleName</code> parameter for the &#91;CreateRole&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;APIReference&#x2F;API_CreateRole.html) action in the *User Guide*.&lt;br&#x2F;&gt; This parameter allows (per its &#91;regex pattern&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;http:&#x2F;&#x2F;wikipedia.org&#x2F;wiki&#x2F;regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both "Role1" and "role1".&lt;br&#x2F;&gt; If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name.&lt;br&#x2F;&gt; If you specify a name, you must specify the <code>CAPABILITY_NAMED_IAM</code> value to acknowledge your template's capabilities. For more information, see &#91;Acknowledging Resources in Templates&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;Use</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>roles</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AssumeRolePolicyDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>role</co
 <TabItem value="required">
 
 ```sql
--- role.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iam.roles (
  AssumeRolePolicyDocument,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- role.iql (all properties)
+/*+ create */
 INSERT INTO aws.iam.roles (
  AssumeRolePolicyDocument,
  Description,
@@ -171,6 +171,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iam.roles
 WHERE data__Identifier = '<RoleName>'
 AND region = 'us-east-1';

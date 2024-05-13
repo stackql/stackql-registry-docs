@@ -49,7 +49,7 @@ Used to retrieve a list of <code>dashboards</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DashboardDefinition, DashboardDescription, DashboardName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>dashboar
 <TabItem value="required">
 
 ```sql
--- dashboard.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotsitewise.dashboards (
  DashboardName,
  DashboardDescription,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- dashboard.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotsitewise.dashboards (
  ProjectId,
  DashboardName,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotsitewise.dashboards
 WHERE data__Identifier = '<DashboardId>'
 AND region = 'us-east-1';

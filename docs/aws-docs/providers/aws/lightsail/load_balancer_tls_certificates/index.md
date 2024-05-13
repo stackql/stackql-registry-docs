@@ -50,7 +50,7 @@ Used to retrieve a list of <code>load_balancer_tls_certificates</code> in a regi
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LoadBalancerName, CertificateName, CertificateDomainName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>load_bal
 <TabItem value="required">
 
 ```sql
--- load_balancer_tls_certificate.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  LoadBalancerName,
  CertificateName,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- load_balancer_tls_certificate.iql (all properties)
+/*+ create */
 INSERT INTO aws.lightsail.load_balancer_tls_certificates (
  LoadBalancerName,
  CertificateName,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lightsail.load_balancer_tls_certificates
 WHERE data__Identifier = '<CertificateName|LoadBalancerName>'
 AND region = 'us-east-1';

@@ -49,12 +49,7 @@ Used to retrieve a list of <code>publishers</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
-  </tr>
-  <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
+    <td><CopyableCode code="AcceptTermsAndConditions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resource" /></td>
@@ -87,7 +82,7 @@ Use the following StackQL query and manifest file to create a new <code>publishe
 <TabItem value="required">
 
 ```sql
--- publisher.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.publishers (
  AcceptTermsAndConditions,
  region
@@ -100,7 +95,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- publisher.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.publishers (
  AcceptTermsAndConditions,
  ConnectionArn,
@@ -134,14 +129,6 @@ resources:
 ```
 </TabItem>
 </Tabs>
-
-## `DELETE` Example
-
-```sql
-DELETE FROM aws.cloudformation.publishers
-WHERE data__Identifier = '<PublisherId>'
-AND region = 'us-east-1';
-```
 
 ## Permissions
 

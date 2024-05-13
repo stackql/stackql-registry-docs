@@ -49,7 +49,7 @@ Used to retrieve a list of <code>gateway_route_table_associations</code> in a re
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RouteTableId, GatewayId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>gateway_
 <TabItem value="required">
 
 ```sql
--- gateway_route_table_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.gateway_route_table_associations (
  RouteTableId,
  GatewayId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- gateway_route_table_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.gateway_route_table_associations (
  RouteTableId,
  GatewayId,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.gateway_route_table_associations
 WHERE data__Identifier = '<GatewayId>'
 AND region = 'us-east-1';

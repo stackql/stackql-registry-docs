@@ -26,7 +26,7 @@ Used to retrieve a list of <code>base_path_mappings</code> in a region or to cre
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>base_path_mappings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::BasePathMapping</code> resource creates a base path that clients who call your API must use in the invocation URL.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.base_path_mappings" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>base_path_mappings</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DomainName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>base_pat
 <TabItem value="required">
 
 ```sql
--- base_path_mapping.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.base_path_mappings (
  DomainName,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- base_path_mapping.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.base_path_mappings (
  BasePath,
  DomainName,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.base_path_mappings
 WHERE data__Identifier = '<DomainName|BasePath>'
 AND region = 'us-east-1';

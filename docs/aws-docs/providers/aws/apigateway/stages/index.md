@@ -26,7 +26,7 @@ Used to retrieve a list of <code>stages</code> in a region or to create or delet
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Stage</code> resource creates a stage for a deployment.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.stages" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>stages</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RestApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>stage</c
 <TabItem value="required">
 
 ```sql
--- stage.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.stages (
  RestApiId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- stage.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.stages (
  AccessLogSetting,
  CacheClusterEnabled,
@@ -206,6 +206,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.stages
 WHERE data__Identifier = '<RestApiId|StageName>'
 AND region = 'us-east-1';

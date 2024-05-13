@@ -49,7 +49,7 @@ Used to retrieve a list of <code>rooms</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>room</co
 <TabItem value="required">
 
 ```sql
--- room.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ivschat.rooms (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- room.iql (all properties)
+/*+ create */
 INSERT INTO aws.ivschat.rooms (
  Name,
  LoggingConfigurationIdentifiers,
@@ -159,6 +159,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ivschat.rooms
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>data_sets</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>data_set
 <TabItem value="required">
 
 ```sql
--- data_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.quicksight.data_sets (
  AwsAccountId,
  ColumnGroups,
@@ -134,7 +134,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- data_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.quicksight.data_sets (
  AwsAccountId,
  ColumnGroups,
@@ -298,6 +298,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.quicksight.data_sets
 WHERE data__Identifier = '<AwsAccountId|DataSetId>'
 AND region = 'us-east-1';

@@ -51,7 +51,7 @@ Used to retrieve a list of <code>subscription_targets</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApplicableAssetTypes, AuthorizedPrincipals, DomainIdentifier, EnvironmentIdentifier, ManageAccessRole, Name, SubscriptionTargetConfig, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>subscrip
 <TabItem value="required">
 
 ```sql
--- subscription_target.iql (required properties only)
+/*+ create */
 INSERT INTO aws.datazone.subscription_targets (
  ApplicableAssetTypes,
  AuthorizedPrincipals,
@@ -118,7 +118,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- subscription_target.iql (all properties)
+/*+ create */
 INSERT INTO aws.datazone.subscription_targets (
  ApplicableAssetTypes,
  AuthorizedPrincipals,
@@ -188,6 +188,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.datazone.subscription_targets
 WHERE data__Identifier = '<DomainId|EnvironmentId|Id>'
 AND region = 'us-east-1';

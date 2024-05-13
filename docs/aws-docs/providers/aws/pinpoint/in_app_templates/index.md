@@ -49,7 +49,7 @@ Used to retrieve a list of <code>in_app_templates</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TemplateName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>in_app_t
 <TabItem value="required">
 
 ```sql
--- in_app_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.pinpoint.in_app_templates (
  TemplateName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- in_app_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.pinpoint.in_app_templates (
  Content,
  CustomConfig,
@@ -178,6 +178,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.pinpoint.in_app_templates
 WHERE data__Identifier = '<TemplateName>'
 AND region = 'us-east-1';

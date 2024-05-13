@@ -49,7 +49,7 @@ Used to retrieve a list of <code>buckets</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="BucketName, BundleId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>bucket</
 <TabItem value="required">
 
 ```sql
--- bucket.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lightsail.buckets (
  BucketName,
  BundleId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- bucket.iql (all properties)
+/*+ create */
 INSERT INTO aws.lightsail.buckets (
  BucketName,
  BundleId,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lightsail.buckets
 WHERE data__Identifier = '<BucketName>'
 AND region = 'us-east-1';

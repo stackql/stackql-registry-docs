@@ -50,7 +50,7 @@ Used to retrieve a list of <code>threat_intel_sets</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Format, Location, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>threat_i
 <TabItem value="required">
 
 ```sql
--- threat_intel_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.guardduty.threat_intel_sets (
  Format,
  Location,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- threat_intel_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.guardduty.threat_intel_sets (
  Format,
  Activate,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.guardduty.threat_intel_sets
 WHERE data__Identifier = '<Id|DetectorId>'
 AND region = 'us-east-1';

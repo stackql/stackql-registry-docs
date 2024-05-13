@@ -26,7 +26,7 @@ Used to retrieve a list of <code>automation_rules</code> in a region or to creat
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>automation_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see &#91;Automation rules&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;securityhub&#x2F;latest&#x2F;userguide&#x2F;automation-rules.html) in the *User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::SecurityHub::AutomationRule</code> resource specifies an automation rule based on input parameters. For more information, see &#91;Automation rules&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;securityhub&#x2F;latest&#x2F;userguide&#x2F;automation-rules.html) in the *User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.securityhub.automation_rules" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>automation_rules</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>automati
 <TabItem value="required">
 
 ```sql
--- automation_rule.iql (required properties only)
+/*+ create */
 INSERT INTO aws.securityhub.automation_rules (
  RuleStatus,
  RuleOrder,
@@ -114,7 +114,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- automation_rule.iql (all properties)
+/*+ create */
 INSERT INTO aws.securityhub.automation_rules (
  RuleStatus,
  RuleOrder,
@@ -275,6 +275,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.securityhub.automation_rules
 WHERE data__Identifier = '<RuleArn>'
 AND region = 'us-east-1';

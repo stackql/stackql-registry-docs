@@ -49,7 +49,7 @@ Used to retrieve a list of <code>clusters</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cluster<
 <TabItem value="required">
 
 ```sql
--- cluster.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53recoverycontrol.clusters (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cluster.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53recoverycontrol.clusters (
  Name,
  Tags,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53recoverycontrol.clusters
 WHERE data__Identifier = '<ClusterArn>'
 AND region = 'us-east-1';

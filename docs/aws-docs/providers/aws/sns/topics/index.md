@@ -26,7 +26,7 @@ Used to retrieve a list of <code>topics</code> in a region or to create or delet
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>topics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.&lt;br&#x2F;&gt;  One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see &#91;endpoints and quotas&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;general&#x2F;latest&#x2F;gr&#x2F;sns.html) in the *General Reference*.&lt;br&#x2F;&gt;   The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see &#91;Examples of the complete Signature Version 4 signing process&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;general&#x2F;latest&#x2F;gr&#x2F;sigv4-signed-request-examples.html) in the *General Reference*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::SNS::Topic</code> resource creates a topic to which notifications can be published.&lt;br&#x2F;&gt;  One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see &#91;endpoints and quotas&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;general&#x2F;latest&#x2F;gr&#x2F;sns.html) in the *General Reference*.&lt;br&#x2F;&gt;   The structure of <code>AUTHPARAMS</code> depends on the .signature of the API request. For more information, see &#91;Examples of the complete Signature Version 4 signing process&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;general&#x2F;latest&#x2F;gr&#x2F;sigv4-signed-request-examples.html) in the *General Reference*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.sns.topics" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>topics</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>topic</c
 <TabItem value="required">
 
 ```sql
--- topic.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sns.topics (
  DisplayName,
  KmsMasterKeyId,
@@ -122,7 +122,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- topic.iql (all properties)
+/*+ create */
 INSERT INTO aws.sns.topics (
  DisplayName,
  KmsMasterKeyId,
@@ -208,6 +208,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sns.topics
 WHERE data__Identifier = '<TopicArn>'
 AND region = 'us-east-1';

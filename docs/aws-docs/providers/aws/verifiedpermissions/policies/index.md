@@ -50,7 +50,7 @@ Used to retrieve a list of <code>policies</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Definition, PolicyStoreId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>policy</
 <TabItem value="required">
 
 ```sql
--- policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.verifiedpermissions.policies (
  Definition,
  PolicyStoreId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.verifiedpermissions.policies (
  Definition,
  PolicyStoreId,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.verifiedpermissions.policies
 WHERE data__Identifier = '<PolicyId|PolicyStoreId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resource_sets</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceSetType, Resources, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resource
 <TabItem value="required">
 
 ```sql
--- resource_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53recoveryreadiness.resource_sets (
  Resources,
  ResourceSetType,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resource_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53recoveryreadiness.resource_sets (
  ResourceSetName,
  Resources,
@@ -165,6 +165,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53recoveryreadiness.resource_sets
 WHERE data__Identifier = '<ResourceSetName>'
 AND region = 'us-east-1';

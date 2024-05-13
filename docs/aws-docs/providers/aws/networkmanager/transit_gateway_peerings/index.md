@@ -49,7 +49,7 @@ Used to retrieve a list of <code>transit_gateway_peerings</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CoreNetworkId, TransitGatewayArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>transit_
 <TabItem value="required">
 
 ```sql
--- transit_gateway_peering.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkmanager.transit_gateway_peerings (
  CoreNetworkId,
  TransitGatewayArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- transit_gateway_peering.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkmanager.transit_gateway_peerings (
  CoreNetworkId,
  TransitGatewayArn,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkmanager.transit_gateway_peerings
 WHERE data__Identifier = '<PeeringId>'
 AND region = 'us-east-1';

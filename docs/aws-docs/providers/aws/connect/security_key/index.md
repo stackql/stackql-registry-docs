@@ -49,11 +49,6 @@ Gets or updates an individual <code>security_key</code> resource, use <code>secu
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="update_resource" /></td>
-    <td><code>UPDATE</code></td>
-    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>environments</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApplicationName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>environm
 <TabItem value="required">
 
 ```sql
--- environment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticbeanstalk.environments (
  ApplicationName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- environment.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticbeanstalk.environments (
  PlatformArn,
  ApplicationName,
@@ -187,6 +187,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticbeanstalk.environments
 WHERE data__Identifier = '<EnvironmentName>'
 AND region = 'us-east-1';

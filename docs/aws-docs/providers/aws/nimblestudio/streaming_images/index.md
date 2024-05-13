@@ -50,7 +50,7 @@ Used to retrieve a list of <code>streaming_images</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StudioId, Ec2ImageId, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>streamin
 <TabItem value="required">
 
 ```sql
--- streaming_image.iql (required properties only)
+/*+ create */
 INSERT INTO aws.nimblestudio.streaming_images (
  Ec2ImageId,
  Name,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- streaming_image.iql (all properties)
+/*+ create */
 INSERT INTO aws.nimblestudio.streaming_images (
  Description,
  Ec2ImageId,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.nimblestudio.streaming_images
 WHERE data__Identifier = '<StudioId|StreamingImageId>'
 AND region = 'us-east-1';

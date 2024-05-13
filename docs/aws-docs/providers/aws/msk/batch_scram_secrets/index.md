@@ -49,7 +49,7 @@ Used to retrieve a list of <code>batch_scram_secrets</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ClusterArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>batch_sc
 <TabItem value="required">
 
 ```sql
--- batch_scram_secret.iql (required properties only)
+/*+ create */
 INSERT INTO aws.msk.batch_scram_secrets (
  ClusterArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- batch_scram_secret.iql (all properties)
+/*+ create */
 INSERT INTO aws.msk.batch_scram_secrets (
  ClusterArn,
  SecretArnList,
@@ -139,6 +139,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.msk.batch_scram_secrets
 WHERE data__Identifier = '<ClusterArn>'
 AND region = 'us-east-1';

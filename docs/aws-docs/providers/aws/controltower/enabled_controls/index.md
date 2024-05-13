@@ -50,7 +50,7 @@ Used to retrieve a list of <code>enabled_controls</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TargetIdentifier, ControlIdentifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>enabled_
 <TabItem value="required">
 
 ```sql
--- enabled_control.iql (required properties only)
+/*+ create */
 INSERT INTO aws.controltower.enabled_controls (
  ControlIdentifier,
  TargetIdentifier,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- enabled_control.iql (all properties)
+/*+ create */
 INSERT INTO aws.controltower.enabled_controls (
  ControlIdentifier,
  TargetIdentifier,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.controltower.enabled_controls
 WHERE data__Identifier = '<TargetIdentifier|ControlIdentifier>'
 AND region = 'us-east-1';

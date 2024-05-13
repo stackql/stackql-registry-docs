@@ -49,7 +49,7 @@ Used to retrieve a list of <code>authorizers</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AuthorizerFunctionArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>authoriz
 <TabItem value="required">
 
 ```sql
--- authorizer.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.authorizers (
  AuthorizerFunctionArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- authorizer.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.authorizers (
  AuthorizerFunctionArn,
  AuthorizerName,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.authorizers
 WHERE data__Identifier = '<AuthorizerName>'
 AND region = 'us-east-1';

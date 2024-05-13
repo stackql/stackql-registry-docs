@@ -26,7 +26,7 @@ Used to retrieve a list of <code>usage_plans</code> in a region or to create or 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see &#91;Creating and Using API Usage Plans in Amazon API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.&lt;br&#x2F;&gt; In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using &#91;&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;cost-management&#x2F;latest&#x2F;userguide&#x2F;budgets-managing-costs.html) to monitor costs and &#91;&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;waf&#x2F;latest&#x2F;developerguide&#x2F;waf-chapter.html) to manage API requests.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::UsagePlan</code> resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see &#91;Creating and Using API Usage Plans in Amazon API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.&lt;br&#x2F;&gt; In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using &#91;&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;cost-management&#x2F;latest&#x2F;userguide&#x2F;budgets-managing-costs.html) to monitor costs and &#91;&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;waf&#x2F;latest&#x2F;developerguide&#x2F;waf-chapter.html) to manage API requests.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.usage_plans" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>usage_plans</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>usage_pl
 <TabItem value="required">
 
 ```sql
--- usage_plan.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.usage_plans (
  ApiStages,
  Description,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- usage_plan.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.usage_plans (
  ApiStages,
  Description,
@@ -174,6 +174,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.usage_plans
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

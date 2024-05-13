@@ -26,7 +26,7 @@ Gets or updates an individual <code>api_mapping</code> resource, use <code>api_m
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>api_mapping</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see &#91;CreateApiMapping&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigatewayv2&#x2F;latest&#x2F;api-reference&#x2F;domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::ApiMapping</code> resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see &#91;CreateApiMapping&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigatewayv2&#x2F;latest&#x2F;api-reference&#x2F;domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.api_mapping" /></td></tr>
 </tbody></table>
 

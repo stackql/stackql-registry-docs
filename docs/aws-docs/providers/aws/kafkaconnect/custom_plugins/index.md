@@ -49,7 +49,7 @@ Used to retrieve a list of <code>custom_plugins</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, ContentType, Location, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>custom_p
 <TabItem value="required">
 
 ```sql
--- custom_plugin.iql (required properties only)
+/*+ create */
 INSERT INTO aws.kafkaconnect.custom_plugins (
  Name,
  ContentType,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- custom_plugin.iql (all properties)
+/*+ create */
 INSERT INTO aws.kafkaconnect.custom_plugins (
  Name,
  Description,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.kafkaconnect.custom_plugins
 WHERE data__Identifier = '<CustomPluginArn>'
 AND region = 'us-east-1';

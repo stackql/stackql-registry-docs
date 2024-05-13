@@ -26,7 +26,7 @@ Used to retrieve a list of <code>registry_policies</code> in a region or to crea
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>registry_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.&lt;br&#x2F;&gt; A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see &#91;Registry permissions&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECR&#x2F;latest&#x2F;userguide&#x2F;registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ECR::RegistryPolicy</code> resource creates or updates the permissions policy for a private registry.&lt;br&#x2F;&gt; A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see &#91;Registry permissions&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECR&#x2F;latest&#x2F;userguide&#x2F;registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ecr.registry_policies" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>registry_policies</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PolicyText, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>registry
 <TabItem value="required">
 
 ```sql
--- registry_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecr.registry_policies (
  PolicyText,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- registry_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecr.registry_policies (
  PolicyText,
  region
@@ -134,6 +134,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecr.registry_policies
 WHERE data__Identifier = '<RegistryId>'
 AND region = 'us-east-1';

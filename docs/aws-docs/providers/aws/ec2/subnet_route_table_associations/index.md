@@ -49,7 +49,7 @@ Used to retrieve a list of <code>subnet_route_table_associations</code> in a reg
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RouteTableId, SubnetId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>subnet_r
 <TabItem value="required">
 
 ```sql
--- subnet_route_table_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.subnet_route_table_associations (
  RouteTableId,
  SubnetId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- subnet_route_table_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.subnet_route_table_associations (
  RouteTableId,
  SubnetId,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.subnet_route_table_associations
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

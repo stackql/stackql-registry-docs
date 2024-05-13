@@ -49,7 +49,7 @@ Used to retrieve a list of <code>global_tables</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="KeySchema, AttributeDefinitions, Replicas, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>global_t
 <TabItem value="required">
 
 ```sql
--- global_table.iql (required properties only)
+/*+ create */
 INSERT INTO aws.dynamodb.global_tables (
  Replicas,
  AttributeDefinitions,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- global_table.iql (all properties)
+/*+ create */
 INSERT INTO aws.dynamodb.global_tables (
  SSESpecification,
  StreamSpecification,
@@ -239,6 +239,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.dynamodb.global_tables
 WHERE data__Identifier = '<TableName>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>license_endpoints</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SecurityGroupIds, SubnetIds, VpcId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>license_
 <TabItem value="required">
 
 ```sql
--- license_endpoint.iql (required properties only)
+/*+ create */
 INSERT INTO aws.deadline.license_endpoints (
  SecurityGroupIds,
  SubnetIds,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- license_endpoint.iql (all properties)
+/*+ create */
 INSERT INTO aws.deadline.license_endpoints (
  SecurityGroupIds,
  SubnetIds,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.deadline.license_endpoints
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

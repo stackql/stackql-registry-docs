@@ -49,7 +49,7 @@ Used to retrieve a list of <code>api_destinations</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConnectionArn, InvocationEndpoint, HttpMethod, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>api_dest
 <TabItem value="required">
 
 ```sql
--- api_destination.iql (required properties only)
+/*+ create */
 INSERT INTO aws.events.api_destinations (
  ConnectionArn,
  InvocationEndpoint,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- api_destination.iql (all properties)
+/*+ create */
 INSERT INTO aws.events.api_destinations (
  Name,
  Description,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.events.api_destinations
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

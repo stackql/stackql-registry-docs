@@ -49,7 +49,7 @@ Used to retrieve a list of <code>public_keys</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PublicKeyConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>public_k
 <TabItem value="required">
 
 ```sql
--- public_key.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudfront.public_keys (
  PublicKeyConfig,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- public_key.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudfront.public_keys (
  PublicKeyConfig,
  region
@@ -138,6 +138,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudfront.public_keys
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

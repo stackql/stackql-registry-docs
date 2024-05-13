@@ -49,7 +49,7 @@ Used to retrieve a list of <code>event_types</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="EntityTypes, EventVariables, Labels, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>event_ty
 <TabItem value="required">
 
 ```sql
--- event_type.iql (required properties only)
+/*+ create */
 INSERT INTO aws.frauddetector.event_types (
  Name,
  EventVariables,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- event_type.iql (all properties)
+/*+ create */
 INSERT INTO aws.frauddetector.event_types (
  Name,
  Tags,
@@ -186,6 +186,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.frauddetector.event_types
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

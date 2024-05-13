@@ -49,7 +49,7 @@ Used to retrieve a list of <code>directory_configs</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DirectoryName, OrganizationalUnitDistinguishedNames, ServiceAccountCredentials, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>director
 <TabItem value="required">
 
 ```sql
--- directory_config.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appstream.directory_configs (
  OrganizationalUnitDistinguishedNames,
  ServiceAccountCredentials,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- directory_config.iql (all properties)
+/*+ create */
 INSERT INTO aws.appstream.directory_configs (
  OrganizationalUnitDistinguishedNames,
  ServiceAccountCredentials,
@@ -155,6 +155,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appstream.directory_configs
 WHERE data__Identifier = '<DirectoryName>'
 AND region = 'us-east-1';

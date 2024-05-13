@@ -49,7 +49,7 @@ Used to retrieve a list of <code>assistants</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>assistan
 <TabItem value="required">
 
 ```sql
--- assistant.iql (required properties only)
+/*+ create */
 INSERT INTO aws.wisdom.assistants (
  Type,
  Name,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- assistant.iql (all properties)
+/*+ create */
 INSERT INTO aws.wisdom.assistants (
  Type,
  Description,
@@ -155,6 +155,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.wisdom.assistants
 WHERE data__Identifier = '<AssistantId>'
 AND region = 'us-east-1';

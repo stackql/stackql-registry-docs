@@ -49,7 +49,7 @@ Used to retrieve a list of <code>db_cluster_parameter_groups</code> in a region 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Description, Family, Parameters, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>db_clust
 <TabItem value="required">
 
 ```sql
--- db_cluster_parameter_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rds.db_cluster_parameter_groups (
  Description,
  Family,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- db_cluster_parameter_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.rds.db_cluster_parameter_groups (
  Description,
  Family,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rds.db_cluster_parameter_groups
 WHERE data__Identifier = '<DBClusterParameterGroupName>'
 AND region = 'us-east-1';

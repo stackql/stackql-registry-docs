@@ -49,7 +49,7 @@ Used to retrieve a list of <code>geofence_collections</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CollectionName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>geofence
 <TabItem value="required">
 
 ```sql
--- geofence_collection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.location.geofence_collections (
  CollectionName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- geofence_collection.iql (all properties)
+/*+ create */
 INSERT INTO aws.location.geofence_collections (
  CollectionName,
  Description,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.location.geofence_collections
 WHERE data__Identifier = '<CollectionName>'
 AND region = 'us-east-1';

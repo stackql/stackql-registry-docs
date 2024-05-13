@@ -49,7 +49,7 @@ Used to retrieve a list of <code>datastores</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>datastor
 <TabItem value="required">
 
 ```sql
--- datastore.iql (required properties only)
+/*+ create */
 INSERT INTO aws.healthimaging.datastores (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- datastore.iql (all properties)
+/*+ create */
 INSERT INTO aws.healthimaging.datastores (
  DatastoreName,
  KmsKeyArn,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.healthimaging.datastores
 WHERE data__Identifier = '<DatastoreId>'
 AND region = 'us-east-1';

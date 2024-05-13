@@ -49,7 +49,7 @@ Used to retrieve a list of <code>apps</code> in a region or to create or delete 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, AppTemplateBody, ResourceMappings, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>app</cod
 <TabItem value="required">
 
 ```sql
--- app.iql (required properties only)
+/*+ create */
 INSERT INTO aws.resiliencehub.apps (
  Name,
  AppTemplateBody,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- app.iql (all properties)
+/*+ create */
 INSERT INTO aws.resiliencehub.apps (
  Name,
  Description,
@@ -187,6 +187,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.resiliencehub.apps
 WHERE data__Identifier = '<AppArn>'
 AND region = 'us-east-1';

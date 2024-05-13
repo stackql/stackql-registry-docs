@@ -49,7 +49,7 @@ Used to retrieve a list of <code>indices</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, RoleArn, Edition, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>index</c
 <TabItem value="required">
 
 ```sql
--- index.iql (required properties only)
+/*+ create */
 INSERT INTO aws.kendra.indices (
  Name,
  RoleArn,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- index.iql (all properties)
+/*+ create */
 INSERT INTO aws.kendra.indices (
  Description,
  ServerSideEncryptionConfiguration,
@@ -205,6 +205,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.kendra.indices
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

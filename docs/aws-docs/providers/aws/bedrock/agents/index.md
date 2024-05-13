@@ -49,7 +49,7 @@ Used to retrieve a list of <code>agents</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AgentName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>agent</c
 <TabItem value="required">
 
 ```sql
--- agent.iql (required properties only)
+/*+ create */
 INSERT INTO aws.bedrock.agents (
  AgentName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- agent.iql (all properties)
+/*+ create */
 INSERT INTO aws.bedrock.agents (
  ActionGroups,
  AgentName,
@@ -207,6 +207,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.bedrock.agents
 WHERE data__Identifier = '<AgentId>'
 AND region = 'us-east-1';

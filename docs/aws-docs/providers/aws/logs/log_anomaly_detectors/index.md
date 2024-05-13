@@ -49,7 +49,7 @@ Used to retrieve a list of <code>log_anomaly_detectors</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>log_anom
 <TabItem value="required">
 
 ```sql
--- log_anomaly_detector.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.log_anomaly_detectors (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- log_anomaly_detector.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.log_anomaly_detectors (
  AccountId,
  KmsKeyId,
@@ -159,6 +159,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.log_anomaly_detectors
 WHERE data__Identifier = '<AnomalyDetectorArn>'
 AND region = 'us-east-1';

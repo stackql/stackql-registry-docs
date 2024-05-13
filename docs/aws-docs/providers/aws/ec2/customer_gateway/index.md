@@ -38,7 +38,7 @@ Gets or updates an individual <code>customer_gateway</code> resource, use <code>
 <tr><td><CopyableCode code="bgp_asn" /></td><td><code>integer</code></td><td>For devices that support BGP, the customer gateway's BGP ASN.&lt;br&#x2F;&gt; Default: 65000</td></tr>
 <tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>IPv4 address for the customer gateway device's outside interface. The address must be static.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags for the customer gateway.</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of VPN connection that this customer gateway supports (``ipsec.1``).</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</td></tr>
 <tr><td><CopyableCode code="device_name" /></td><td><code>string</code></td><td>The name of customer gateway device.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 

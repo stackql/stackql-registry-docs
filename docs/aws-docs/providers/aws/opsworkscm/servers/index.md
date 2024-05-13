@@ -49,7 +49,7 @@ Used to retrieve a list of <code>servers</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ServiceRoleArn, InstanceProfileArn, InstanceType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>server</
 <TabItem value="required">
 
 ```sql
--- server.iql (required properties only)
+/*+ create */
 INSERT INTO aws.opsworkscm.servers (
  ServiceRoleArn,
  InstanceProfileArn,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- server.iql (all properties)
+/*+ create */
 INSERT INTO aws.opsworkscm.servers (
  KeyPair,
  EngineVersion,
@@ -220,6 +220,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.opsworkscm.servers
 WHERE data__Identifier = '<ServerName>'
 AND region = 'us-east-1';

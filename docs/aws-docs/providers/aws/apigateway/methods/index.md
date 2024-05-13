@@ -26,7 +26,7 @@ Used to retrieve a list of <code>methods</code> in a region or to create or dele
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>methods</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Method</code> resource creates API Gateway methods that define the parameters and body that clients must send in their requests.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.methods" /></td></tr>
 </tbody></table>
 
@@ -51,7 +51,7 @@ Used to retrieve a list of <code>methods</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RestApiId, ResourceId, HttpMethod, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>method</
 <TabItem value="required">
 
 ```sql
--- method.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.methods (
  HttpMethod,
  ResourceId,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- method.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.methods (
  ApiKeyRequired,
  AuthorizationScopes,
@@ -214,6 +214,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.methods
 WHERE data__Identifier = '<RestApiId|ResourceId|HttpMethod>'
 AND region = 'us-east-1';

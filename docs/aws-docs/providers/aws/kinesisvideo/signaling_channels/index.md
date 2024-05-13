@@ -49,7 +49,7 @@ Used to retrieve a list of <code>signaling_channels</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>signalin
 <TabItem value="required">
 
 ```sql
--- signaling_channel.iql (required properties only)
+/*+ create */
 INSERT INTO aws.kinesisvideo.signaling_channels (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- signaling_channel.iql (all properties)
+/*+ create */
 INSERT INTO aws.kinesisvideo.signaling_channels (
  Name,
  Type,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.kinesisvideo.signaling_channels
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

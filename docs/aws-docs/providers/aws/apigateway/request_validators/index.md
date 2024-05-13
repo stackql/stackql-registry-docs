@@ -26,7 +26,7 @@ Used to retrieve a list of <code>request_validators</code> in a region or to cre
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>request_validators</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see &#91;Enable Basic Request Validation for an API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::RequestValidator</code> resource sets up basic validation rules for incoming requests to your API. For more information, see &#91;Enable Basic Request Validation for an API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.request_validators" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>request_validators</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RestApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>request_
 <TabItem value="required">
 
 ```sql
--- request_validator.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.request_validators (
  RestApiId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- request_validator.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.request_validators (
  Name,
  RestApiId,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.request_validators
 WHERE data__Identifier = '<RestApiId|RequestValidatorId>'
 AND region = 'us-east-1';

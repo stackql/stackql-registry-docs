@@ -49,7 +49,7 @@ Used to retrieve a list of <code>jobs</code> in a region or to create or delete 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, RoleArn, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>job</cod
 <TabItem value="required">
 
 ```sql
--- job.iql (required properties only)
+/*+ create */
 INSERT INTO aws.databrew.jobs (
  Name,
  Type,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- job.iql (all properties)
+/*+ create */
 INSERT INTO aws.databrew.jobs (
  DatasetName,
  EncryptionKeyArn,
@@ -278,6 +278,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.databrew.jobs
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

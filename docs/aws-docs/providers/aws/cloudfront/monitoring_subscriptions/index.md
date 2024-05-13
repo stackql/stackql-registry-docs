@@ -49,7 +49,7 @@ Used to retrieve a list of <code>monitoring_subscriptions</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DistributionId, MonitoringSubscription, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>monitori
 <TabItem value="required">
 
 ```sql
--- monitoring_subscription.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudfront.monitoring_subscriptions (
  DistributionId,
  MonitoringSubscription,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- monitoring_subscription.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudfront.monitoring_subscriptions (
  DistributionId,
  MonitoringSubscription,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudfront.monitoring_subscriptions
 WHERE data__Identifier = '<DistributionId>'
 AND region = 'us-east-1';

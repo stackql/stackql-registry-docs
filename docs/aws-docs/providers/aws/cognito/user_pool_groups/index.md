@@ -50,7 +50,7 @@ Used to retrieve a list of <code>user_pool_groups</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="UserPoolId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>user_poo
 <TabItem value="required">
 
 ```sql
--- user_pool_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cognito.user_pool_groups (
  UserPoolId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- user_pool_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.cognito.user_pool_groups (
  Description,
  GroupName,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cognito.user_pool_groups
 WHERE data__Identifier = '<UserPoolId|GroupName>'
 AND region = 'us-east-1';

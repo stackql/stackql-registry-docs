@@ -49,7 +49,7 @@ Used to retrieve a list of <code>domains</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>domain</
 <TabItem value="required">
 
 ```sql
--- domain.iql (required properties only)
+/*+ create */
 INSERT INTO aws.opensearchservice.domains (
  ClusterConfig,
  DomainName,
@@ -134,7 +134,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- domain.iql (all properties)
+/*+ create */
 INSERT INTO aws.opensearchservice.domains (
  ClusterConfig,
  DomainName,
@@ -298,6 +298,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.opensearchservice.domains
 WHERE data__Identifier = '<DomainName>'
 AND region = 'us-east-1';

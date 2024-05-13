@@ -49,7 +49,7 @@ Used to retrieve a list of <code>pricing_rules</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Scope, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>pricing_
 <TabItem value="required">
 
 ```sql
--- pricing_rule.iql (required properties only)
+/*+ create */
 INSERT INTO aws.billingconductor.pricing_rules (
  Name,
  Scope,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- pricing_rule.iql (all properties)
+/*+ create */
 INSERT INTO aws.billingconductor.pricing_rules (
  Name,
  Description,
@@ -182,6 +182,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.billingconductor.pricing_rules
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

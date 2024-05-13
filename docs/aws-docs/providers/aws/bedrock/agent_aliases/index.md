@@ -50,7 +50,7 @@ Used to retrieve a list of <code>agent_aliases</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AgentAliasName, AgentId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>agent_al
 <TabItem value="required">
 
 ```sql
--- agent_alias.iql (required properties only)
+/*+ create */
 INSERT INTO aws.bedrock.agent_aliases (
  AgentAliasName,
  AgentId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- agent_alias.iql (all properties)
+/*+ create */
 INSERT INTO aws.bedrock.agent_aliases (
  AgentAliasName,
  AgentId,
@@ -155,6 +155,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.bedrock.agent_aliases
 WHERE data__Identifier = '<AgentId|AgentAliasId>'
 AND region = 'us-east-1';

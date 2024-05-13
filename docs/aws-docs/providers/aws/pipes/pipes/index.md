@@ -49,7 +49,7 @@ Used to retrieve a list of <code>pipes</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RoleArn, Source, Target, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>pipe</co
 <TabItem value="required">
 
 ```sql
--- pipe.iql (required properties only)
+/*+ create */
 INSERT INTO aws.pipes.pipes (
  RoleArn,
  Source,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- pipe.iql (all properties)
+/*+ create */
 INSERT INTO aws.pipes.pipes (
  Description,
  DesiredState,
@@ -373,6 +373,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.pipes.pipes
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

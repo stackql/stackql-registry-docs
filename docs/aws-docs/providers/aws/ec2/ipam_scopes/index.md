@@ -49,7 +49,7 @@ Used to retrieve a list of <code>ipam_scopes</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IpamId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>ipam_sco
 <TabItem value="required">
 
 ```sql
--- ipam_scope.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.ipam_scopes (
  IpamId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- ipam_scope.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.ipam_scopes (
  IpamId,
  Description,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.ipam_scopes
 WHERE data__Identifier = '<IpamScopeId>'
 AND region = 'us-east-1';

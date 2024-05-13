@@ -49,7 +49,7 @@ Used to retrieve a list of <code>public_repositories</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>public_r
 <TabItem value="required">
 
 ```sql
--- public_repository.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecr.public_repositories (
  RepositoryName,
  RepositoryPolicyText,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- public_repository.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecr.public_repositories (
  RepositoryName,
  RepositoryPolicyText,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecr.public_repositories
 WHERE data__Identifier = '<RepositoryName>'
 AND region = 'us-east-1';

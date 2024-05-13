@@ -49,7 +49,7 @@ Used to retrieve a list of <code>flow_entitlements</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FlowArn, Name, Subscribers, Description, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>flow_ent
 <TabItem value="required">
 
 ```sql
--- flow_entitlement.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediaconnect.flow_entitlements (
  FlowArn,
  Description,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- flow_entitlement.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediaconnect.flow_entitlements (
  FlowArn,
  DataTransferSubscriberFeePercent,
@@ -174,6 +174,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediaconnect.flow_entitlements
 WHERE data__Identifier = '<EntitlementArn>'
 AND region = 'us-east-1';

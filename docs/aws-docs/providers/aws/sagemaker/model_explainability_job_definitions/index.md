@@ -49,7 +49,7 @@ Used to retrieve a list of <code>model_explainability_job_definitions</code> in 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ModelExplainabilityAppSpecification, ModelExplainabilityJobInput, ModelExplainabilityJobOutputConfig, JobResources, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>model_ex
 <TabItem value="required">
 
 ```sql
--- model_explainability_job_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.model_explainability_job_definitions (
  ModelExplainabilityAppSpecification,
  ModelExplainabilityJobInput,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- model_explainability_job_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.model_explainability_job_definitions (
  JobDefinitionName,
  ModelExplainabilityBaselineConfig,
@@ -227,6 +227,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.model_explainability_job_definitions
 WHERE data__Identifier = '<JobDefinitionArn>'
 AND region = 'us-east-1';

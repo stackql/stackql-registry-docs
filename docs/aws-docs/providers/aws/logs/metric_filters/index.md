@@ -26,7 +26,7 @@ Used to retrieve a list of <code>metric_filters</code> in a region or to create 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metric_filters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.&lt;br&#x2F;&gt; The maximum number of metric filters that can be associated with a log group is 100.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::Logs::MetricFilter</code> resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.&lt;br&#x2F;&gt; The maximum number of metric filters that can be associated with a log group is 100.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.logs.metric_filters" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>metric_filters</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FilterPattern, LogGroupName, MetricTransformations, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>metric_f
 <TabItem value="required">
 
 ```sql
--- metric_filter.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.metric_filters (
  MetricTransformations,
  FilterPattern,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- metric_filter.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.metric_filters (
  MetricTransformations,
  FilterPattern,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.metric_filters
 WHERE data__Identifier = '<LogGroupName|FilterName>'
 AND region = 'us-east-1';

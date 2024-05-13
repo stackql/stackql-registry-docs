@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cloud_front_origin_access_identities</code> in 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CloudFrontOriginAccessIdentityConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cloud_fr
 <TabItem value="required">
 
 ```sql
--- cloud_front_origin_access_identity.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
  CloudFrontOriginAccessIdentityConfig,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cloud_front_origin_access_identity.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudfront.cloud_front_origin_access_identities (
  CloudFrontOriginAccessIdentityConfig,
  region
@@ -135,6 +135,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudfront.cloud_front_origin_access_identities
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>readiness_checks</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>readines
 <TabItem value="required">
 
 ```sql
--- readiness_check.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53recoveryreadiness.readiness_checks (
  ResourceSetName,
  ReadinessCheckName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- readiness_check.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53recoveryreadiness.readiness_checks (
  ResourceSetName,
  ReadinessCheckName,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53recoveryreadiness.readiness_checks
 WHERE data__Identifier = '<ReadinessCheckName>'
 AND region = 'us-east-1';

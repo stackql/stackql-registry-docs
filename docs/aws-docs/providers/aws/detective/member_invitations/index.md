@@ -50,7 +50,7 @@ Used to retrieve a list of <code>member_invitations</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="GraphArn, MemberId, MemberEmailAddress, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>member_i
 <TabItem value="required">
 
 ```sql
--- member_invitation.iql (required properties only)
+/*+ create */
 INSERT INTO aws.detective.member_invitations (
  GraphArn,
  MemberId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- member_invitation.iql (all properties)
+/*+ create */
 INSERT INTO aws.detective.member_invitations (
  GraphArn,
  MemberId,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.detective.member_invitations
 WHERE data__Identifier = '<GraphArn|MemberId>'
 AND region = 'us-east-1';

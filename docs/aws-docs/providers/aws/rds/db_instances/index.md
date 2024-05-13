@@ -26,7 +26,7 @@ Used to retrieve a list of <code>db_instances</code> in a region or to create or
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::RDS::DBInstance`` resource creates an Amazon DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.&lt;br&#x2F;&gt; For more information about creating an RDS DB instance, see &#91;Creating an Amazon RDS DB instance&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonRDS&#x2F;latest&#x2F;UserGuide&#x2F;USER_CreateDBInstance.html) in the *Amazon RDS User Guide*.&lt;br&#x2F;&gt; For more information about creating a DB instance in an Aurora DB cluster, see &#91;Creating an Amazon Aurora DB cluster&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonRDS&#x2F;latest&#x2F;AuroraUserGuide&#x2F;Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.&lt;br&#x2F;&gt; If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.&lt;br&#x2F;&gt;  If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::RDS::DBInstance</code> resource creates an Amazon DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.&lt;br&#x2F;&gt; For more information about creating an RDS DB instance, see &#91;Creating an Amazon RDS DB instance&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonRDS&#x2F;latest&#x2F;UserGuide&#x2F;USER_CreateDBInstance.html) in the *Amazon RDS User Guide*.&lt;br&#x2F;&gt; For more information about creating a DB instance in an Aurora DB cluster, see &#91;Creating an Amazon Aurora DB cluster&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonRDS&#x2F;latest&#x2F;AuroraUserGuide&#x2F;Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.&lt;br&#x2F;&gt; If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.&lt;br&#x2F;&gt;  If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.rds.db_instances" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>db_instances</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>db_insta
 <TabItem value="required">
 
 ```sql
--- db_instance.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rds.db_instances (
  AllocatedStorage,
  AllowMajorVersionUpgrade,
@@ -250,7 +250,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- db_instance.iql (all properties)
+/*+ create */
 INSERT INTO aws.rds.db_instances (
  AllocatedStorage,
  AllowMajorVersionUpgrade,
@@ -601,6 +601,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rds.db_instances
 WHERE data__Identifier = '<DBInstanceIdentifier>'
 AND region = 'us-east-1';

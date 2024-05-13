@@ -49,7 +49,7 @@ Used to retrieve a list of <code>stream_processors</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RoleArn, KinesisVideoStream, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>stream_p
 <TabItem value="required">
 
 ```sql
--- stream_processor.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rekognition.stream_processors (
  RoleArn,
  KinesisVideoStream,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- stream_processor.iql (all properties)
+/*+ create */
 INSERT INTO aws.rekognition.stream_processors (
  Name,
  KmsKeyId,
@@ -203,6 +203,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rekognition.stream_processors
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

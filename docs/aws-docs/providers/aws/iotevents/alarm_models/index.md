@@ -49,7 +49,7 @@ Used to retrieve a list of <code>alarm_models</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RoleArn, AlarmRule, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>alarm_mo
 <TabItem value="required">
 
 ```sql
--- alarm_model.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotevents.alarm_models (
  RoleArn,
  AlarmRule,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- alarm_model.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotevents.alarm_models (
  AlarmModelName,
  AlarmModelDescription,
@@ -230,6 +230,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotevents.alarm_models
 WHERE data__Identifier = '<AlarmModelName>'
 AND region = 'us-east-1';

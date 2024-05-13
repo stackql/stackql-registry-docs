@@ -49,7 +49,7 @@ Used to retrieve a list of <code>model_bias_job_definitions</code> in a region o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ModelBiasAppSpecification, ModelBiasJobInput, ModelBiasJobOutputConfig, JobResources, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>model_bi
 <TabItem value="required">
 
 ```sql
--- model_bias_job_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.model_bias_job_definitions (
  ModelBiasAppSpecification,
  ModelBiasJobInput,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- model_bias_job_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.model_bias_job_definitions (
  JobDefinitionName,
  ModelBiasBaselineConfig,
@@ -229,6 +229,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.model_bias_job_definitions
 WHERE data__Identifier = '<JobDefinitionArn>'
 AND region = 'us-east-1';

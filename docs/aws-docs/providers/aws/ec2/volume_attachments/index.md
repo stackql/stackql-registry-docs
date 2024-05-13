@@ -50,7 +50,7 @@ Used to retrieve a list of <code>volume_attachments</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="VolumeId, InstanceId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>volume_a
 <TabItem value="required">
 
 ```sql
--- volume_attachment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.volume_attachments (
  VolumeId,
  InstanceId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- volume_attachment.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.volume_attachments (
  VolumeId,
  InstanceId,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.volume_attachments
 WHERE data__Identifier = '<VolumeId|InstanceId>'
 AND region = 'us-east-1';

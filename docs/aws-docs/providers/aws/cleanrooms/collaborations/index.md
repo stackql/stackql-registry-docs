@@ -49,7 +49,7 @@ Used to retrieve a list of <code>collaborations</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CreatorDisplayName, CreatorMemberAbilities, Members, Name, Description, QueryLogStatus, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>collabor
 <TabItem value="required">
 
 ```sql
--- collaboration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cleanrooms.collaborations (
  CreatorDisplayName,
  CreatorMemberAbilities,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- collaboration.iql (all properties)
+/*+ create */
 INSERT INTO aws.cleanrooms.collaborations (
  Tags,
  CreatorDisplayName,
@@ -189,6 +189,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cleanrooms.collaborations
 WHERE data__Identifier = '<CollaborationIdentifier>'
 AND region = 'us-east-1';

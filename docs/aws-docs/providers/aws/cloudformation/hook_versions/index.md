@@ -49,7 +49,7 @@ Used to retrieve a list of <code>hook_versions</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SchemaHandlerPackage, TypeName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>hook_ver
 <TabItem value="required">
 
 ```sql
--- hook_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.hook_versions (
  SchemaHandlerPackage,
  TypeName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- hook_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.hook_versions (
  ExecutionRoleArn,
  LoggingConfig,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudformation.hook_versions
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

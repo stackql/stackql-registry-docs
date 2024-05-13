@@ -49,7 +49,7 @@ Used to retrieve a list of <code>auth_policies</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceIdentifier, Policy, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>auth_pol
 <TabItem value="required">
 
 ```sql
--- auth_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.vpclattice.auth_policies (
  ResourceIdentifier,
  Policy,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- auth_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.vpclattice.auth_policies (
  ResourceIdentifier,
  Policy,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.vpclattice.auth_policies
 WHERE data__Identifier = '<ResourceIdentifier>'
 AND region = 'us-east-1';

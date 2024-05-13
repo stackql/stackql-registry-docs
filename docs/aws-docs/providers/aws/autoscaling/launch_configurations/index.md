@@ -49,7 +49,7 @@ Used to retrieve a list of <code>launch_configurations</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ImageId, InstanceType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>launch_c
 <TabItem value="required">
 
 ```sql
--- launch_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.autoscaling.launch_configurations (
  ImageId,
  InstanceType,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- launch_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.autoscaling.launch_configurations (
  AssociatePublicIpAddress,
  BlockDeviceMappings,
@@ -224,6 +224,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.autoscaling.launch_configurations
 WHERE data__Identifier = '<LaunchConfigurationName>'
 AND region = 'us-east-1';

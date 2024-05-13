@@ -50,7 +50,7 @@ Used to retrieve a list of <code>studio_components</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StudioId, Name, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>studio_c
 <TabItem value="required">
 
 ```sql
--- studio_component.iql (required properties only)
+/*+ create */
 INSERT INTO aws.nimblestudio.studio_components (
  Name,
  StudioId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- studio_component.iql (all properties)
+/*+ create */
 INSERT INTO aws.nimblestudio.studio_components (
  Configuration,
  Description,
@@ -191,6 +191,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.nimblestudio.studio_components
 WHERE data__Identifier = '<StudioComponentId|StudioId>'
 AND region = 'us-east-1';

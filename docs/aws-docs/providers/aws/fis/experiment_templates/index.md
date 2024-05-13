@@ -49,7 +49,7 @@ Used to retrieve a list of <code>experiment_templates</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Description, StopConditions, Targets, RoleArn, Tags, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>experime
 <TabItem value="required">
 
 ```sql
--- experiment_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.fis.experiment_templates (
  Description,
  Targets,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- experiment_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.fis.experiment_templates (
  Description,
  Targets,
@@ -180,6 +180,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.fis.experiment_templates
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

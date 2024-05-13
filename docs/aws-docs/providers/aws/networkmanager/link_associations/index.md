@@ -51,7 +51,7 @@ Used to retrieve a list of <code>link_associations</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="GlobalNetworkId, DeviceId, LinkId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>link_ass
 <TabItem value="required">
 
 ```sql
--- link_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkmanager.link_associations (
  GlobalNetworkId,
  DeviceId,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- link_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkmanager.link_associations (
  GlobalNetworkId,
  DeviceId,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkmanager.link_associations
 WHERE data__Identifier = '<GlobalNetworkId|DeviceId|LinkId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>vpc_endpoint_connection_notifications</code> in
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConnectionEvents, ConnectionNotificationArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>vpc_endp
 <TabItem value="required">
 
 ```sql
--- vpc_endpoint_connection_notification.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.vpc_endpoint_connection_notifications (
  ConnectionEvents,
  ConnectionNotificationArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpc_endpoint_connection_notification.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.vpc_endpoint_connection_notifications (
  ConnectionEvents,
  ConnectionNotificationArn,
@@ -149,6 +149,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.vpc_endpoint_connection_notifications
 WHERE data__Identifier = '<VPCEndpointConnectionNotificationId>'
 AND region = 'us-east-1';

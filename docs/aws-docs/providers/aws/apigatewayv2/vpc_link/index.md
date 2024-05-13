@@ -26,7 +26,7 @@ Gets or updates an individual <code>vpc_link</code> resource, use <code>vpc_link
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_link</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see &#91;Working with VPC Links for HTTP APIs&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;http-api-vpc-links.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::VpcLink</code> resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from <code>PENDING</code> to <code>AVAILABLE</code> to successfully create a VPC link, which can take up to 10 minutes. To learn more, see &#91;Working with VPC Links for HTTP APIs&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;http-api-vpc-links.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.vpc_link" /></td></tr>
 </tbody></table>
 

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>fleet_metrics</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="MetricName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>fleet_me
 <TabItem value="required">
 
 ```sql
--- fleet_metric.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.fleet_metrics (
  MetricName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- fleet_metric.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.fleet_metrics (
  MetricName,
  Description,
@@ -175,6 +175,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.fleet_metrics
 WHERE data__Identifier = '<MetricName>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>delivery_streams</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>delivery
 <TabItem value="required">
 
 ```sql
--- delivery_stream.iql (required properties only)
+/*+ create */
 INSERT INTO aws.kinesisfirehose.delivery_streams (
  DeliveryStreamEncryptionConfigurationInput,
  DeliveryStreamName,
@@ -128,7 +128,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- delivery_stream.iql (all properties)
+/*+ create */
 INSERT INTO aws.kinesisfirehose.delivery_streams (
  DeliveryStreamEncryptionConfigurationInput,
  DeliveryStreamName,
@@ -426,6 +426,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.kinesisfirehose.delivery_streams
 WHERE data__Identifier = '<DeliveryStreamName>'
 AND region = 'us-east-1';

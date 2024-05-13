@@ -49,7 +49,7 @@ Used to retrieve a list of <code>firewall_rule_group_associations</code> in a re
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FirewallRuleGroupId, VpcId, Priority, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 <TabItem value="required">
 
 ```sql
--- firewall_rule_group_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  FirewallRuleGroupId,
  VpcId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- firewall_rule_group_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53resolver.firewall_rule_group_associations (
  FirewallRuleGroupId,
  VpcId,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53resolver.firewall_rule_group_associations
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

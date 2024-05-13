@@ -50,7 +50,7 @@ Used to retrieve a list of <code>environment_blueprint_configurations</code> in 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DomainIdentifier, EnvironmentBlueprintIdentifier, EnabledRegions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>environm
 <TabItem value="required">
 
 ```sql
--- environment_blueprint_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.datazone.environment_blueprint_configurations (
  EnabledRegions,
  EnvironmentBlueprintIdentifier,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- environment_blueprint_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.datazone.environment_blueprint_configurations (
  RegionalParameters,
  ProvisioningRoleArn,
@@ -163,6 +163,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.datazone.environment_blueprint_configurations
 WHERE data__Identifier = '<DomainId|EnvironmentBlueprintId>'
 AND region = 'us-east-1';

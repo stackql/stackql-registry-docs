@@ -49,7 +49,7 @@ Used to retrieve a list of <code>origin_endpoints</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Id, ChannelId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>origin_e
 <TabItem value="required">
 
 ```sql
--- origin_endpoint.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediapackage.origin_endpoints (
  Id,
  ChannelId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- origin_endpoint.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediapackage.origin_endpoints (
  Id,
  ChannelId,
@@ -244,6 +244,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediapackage.origin_endpoints
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

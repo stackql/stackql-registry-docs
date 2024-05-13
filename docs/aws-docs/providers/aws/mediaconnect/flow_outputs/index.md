@@ -49,7 +49,7 @@ Used to retrieve a list of <code>flow_outputs</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FlowArn, Protocol, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>flow_out
 <TabItem value="required">
 
 ```sql
--- flow_output.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediaconnect.flow_outputs (
  FlowArn,
  Protocol,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- flow_output.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediaconnect.flow_outputs (
  FlowArn,
  CidrAllowList,
@@ -199,6 +199,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediaconnect.flow_outputs
 WHERE data__Identifier = '<OutputArn>'
 AND region = 'us-east-1';

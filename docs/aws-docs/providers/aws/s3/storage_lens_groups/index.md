@@ -49,7 +49,7 @@ Used to retrieve a list of <code>storage_lens_groups</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Filter, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>storage_
 <TabItem value="required">
 
 ```sql
--- storage_lens_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.s3.storage_lens_groups (
  Name,
  Filter,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- storage_lens_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.s3.storage_lens_groups (
  Name,
  Filter,
@@ -170,6 +170,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.s3.storage_lens_groups
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>certificate_authority_activations</code> in a r
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CertificateAuthorityArn, Certificate, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>certific
 <TabItem value="required">
 
 ```sql
--- certificate_authority_activation.iql (required properties only)
+/*+ create */
 INSERT INTO aws.acmpca.certificate_authority_activations (
  CertificateAuthorityArn,
  Certificate,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- certificate_authority_activation.iql (all properties)
+/*+ create */
 INSERT INTO aws.acmpca.certificate_authority_activations (
  CertificateAuthorityArn,
  Certificate,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.acmpca.certificate_authority_activations
 WHERE data__Identifier = '<CertificateAuthorityArn>'
 AND region = 'us-east-1';

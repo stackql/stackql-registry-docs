@@ -26,7 +26,7 @@ Gets or updates an individual <code>documentation_part</code> resource, use <cod
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documentation_part</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see &#91;Representation of API Documentation in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::DocumentationPart</code> resource creates a documentation part for an API. For more information, see &#91;Representation of API Documentation in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.documentation_part" /></td></tr>
 </tbody></table>
 

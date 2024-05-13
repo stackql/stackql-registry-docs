@@ -51,7 +51,7 @@ Used to retrieve a list of <code>queue_fleet_associations</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FarmId, FleetId, QueueId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>queue_fl
 <TabItem value="required">
 
 ```sql
--- queue_fleet_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.deadline.queue_fleet_associations (
  FarmId,
  FleetId,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- queue_fleet_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.deadline.queue_fleet_associations (
  FarmId,
  FleetId,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.deadline.queue_fleet_associations
 WHERE data__Identifier = '<FarmId|FleetId|QueueId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>simulation_application_versions</code> in a reg
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Application, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>simulati
 <TabItem value="required">
 
 ```sql
--- simulation_application_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.robomaker.simulation_application_versions (
  Application,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- simulation_application_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.robomaker.simulation_application_versions (
  Application,
  CurrentRevisionId,
@@ -138,6 +138,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.robomaker.simulation_application_versions
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>security_configurations</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SecurityConfiguration, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>security
 <TabItem value="required">
 
 ```sql
--- security_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.emr.security_configurations (
  SecurityConfiguration,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- security_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.emr.security_configurations (
  Name,
  SecurityConfiguration,
@@ -138,6 +138,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.emr.security_configurations
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

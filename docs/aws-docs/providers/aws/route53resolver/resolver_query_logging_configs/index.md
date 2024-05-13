@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resolver_query_logging_configs</code> in a regi
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resolver
 <TabItem value="required">
 
 ```sql
--- resolver_query_logging_config.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53resolver.resolver_query_logging_configs (
  Name,
  DestinationArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resolver_query_logging_config.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53resolver.resolver_query_logging_configs (
  Name,
  DestinationArn,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53resolver.resolver_query_logging_configs
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

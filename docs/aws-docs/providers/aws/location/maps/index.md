@@ -49,7 +49,7 @@ Used to retrieve a list of <code>maps</code> in a region or to create or delete 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Configuration, MapName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>map</cod
 <TabItem value="required">
 
 ```sql
--- map.iql (required properties only)
+/*+ create */
 INSERT INTO aws.location.maps (
  Configuration,
  MapName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- map.iql (all properties)
+/*+ create */
 INSERT INTO aws.location.maps (
  Configuration,
  Description,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.location.maps
 WHERE data__Identifier = '<MapName>'
 AND region = 'us-east-1';

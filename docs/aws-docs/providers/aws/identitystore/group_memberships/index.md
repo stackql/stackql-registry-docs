@@ -50,7 +50,7 @@ Used to retrieve a list of <code>group_memberships</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IdentityStoreId, GroupId, MemberId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>group_me
 <TabItem value="required">
 
 ```sql
--- group_membership.iql (required properties only)
+/*+ create */
 INSERT INTO aws.identitystore.group_memberships (
  GroupId,
  IdentityStoreId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- group_membership.iql (all properties)
+/*+ create */
 INSERT INTO aws.identitystore.group_memberships (
  GroupId,
  IdentityStoreId,
@@ -149,6 +149,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.identitystore.group_memberships
 WHERE data__Identifier = '<MembershipId|IdentityStoreId>'
 AND region = 'us-east-1';

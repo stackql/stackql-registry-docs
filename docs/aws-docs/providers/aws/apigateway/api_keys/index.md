@@ -26,7 +26,7 @@ Used to retrieve a list of <code>api_keys</code> in a region or to create or del
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>api_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::ApiKey</code> resource creates a unique key that you can distribute to clients who are executing API Gateway <code>Method</code> resources that require an API key. To specify which API key clients must use, map the API key with the <code>RestApi</code> and <code>Stage</code> resources that include the methods that require a key.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.api_keys" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>api_keys</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>api_key<
 <TabItem value="required">
 
 ```sql
--- api_key.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.api_keys (
  CustomerId,
  Description,
@@ -114,7 +114,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- api_key.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.api_keys (
  CustomerId,
  Description,
@@ -180,6 +180,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.api_keys
 WHERE data__Identifier = '<APIKeyId>'
 AND region = 'us-east-1';

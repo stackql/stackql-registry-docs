@@ -49,7 +49,7 @@ Used to retrieve a list of <code>contact_flows</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceArn, Content, Name, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>contact_
 <TabItem value="required">
 
 ```sql
--- contact_flow.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.contact_flows (
  InstanceArn,
  Name,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- contact_flow.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.contact_flows (
  InstanceArn,
  Name,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.contact_flows
 WHERE data__Identifier = '<ContactFlowArn>'
 AND region = 'us-east-1';

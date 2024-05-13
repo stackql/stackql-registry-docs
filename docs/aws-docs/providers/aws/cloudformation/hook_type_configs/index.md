@@ -49,7 +49,7 @@ Used to retrieve a list of <code>hook_type_configs</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>hook_typ
 <TabItem value="required">
 
 ```sql
--- hook_type_config.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.hook_type_configs (
  TypeArn,
  TypeName,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- hook_type_config.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.hook_type_configs (
  TypeArn,
  TypeName,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudformation.hook_type_configs
 WHERE data__Identifier = '<ConfigurationArn>'
 AND region = 'us-east-1';

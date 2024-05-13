@@ -51,7 +51,7 @@ Used to retrieve a list of <code>identity_provider_configs</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Type, ClusterName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>identity
 <TabItem value="required">
 
 ```sql
--- identity_provider_config.iql (required properties only)
+/*+ create */
 INSERT INTO aws.eks.identity_provider_configs (
  ClusterName,
  Type,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- identity_provider_config.iql (all properties)
+/*+ create */
 INSERT INTO aws.eks.identity_provider_configs (
  ClusterName,
  Type,
@@ -167,6 +167,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.eks.identity_provider_configs
 WHERE data__Identifier = '<IdentityProviderConfigName|ClusterName|Type>'
 AND region = 'us-east-1';

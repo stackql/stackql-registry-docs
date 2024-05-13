@@ -49,7 +49,7 @@ Used to retrieve a list of <code>device_fleets</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DeviceFleetName, OutputConfig, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>device_f
 <TabItem value="required">
 
 ```sql
--- device_fleet.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.device_fleets (
  DeviceFleetName,
  OutputConfig,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- device_fleet.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.device_fleets (
  Description,
  DeviceFleetName,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.device_fleets
 WHERE data__Identifier = '<DeviceFleetName>'
 AND region = 'us-east-1';

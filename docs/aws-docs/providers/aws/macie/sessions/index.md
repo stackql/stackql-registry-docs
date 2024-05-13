@@ -49,7 +49,7 @@ Used to retrieve a list of <code>sessions</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>session<
 <TabItem value="required">
 
 ```sql
--- session.iql (required properties only)
+/*+ create */
 INSERT INTO aws.macie.sessions (
  Status,
  FindingPublishingFrequency,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- session.iql (all properties)
+/*+ create */
 INSERT INTO aws.macie.sessions (
  Status,
  FindingPublishingFrequency,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.macie.sessions
 WHERE data__Identifier = '<AwsAccountId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>environment_templates</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>environm
 <TabItem value="required">
 
 ```sql
--- environment_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.proton.environment_templates (
  Description,
  DisplayName,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- environment_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.proton.environment_templates (
  Description,
  DisplayName,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.proton.environment_templates
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

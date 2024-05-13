@@ -49,7 +49,7 @@ Used to retrieve a list of <code>scheduled_audits</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Frequency, TargetCheckNames, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>schedule
 <TabItem value="required">
 
 ```sql
--- scheduled_audit.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.scheduled_audits (
  Frequency,
  TargetCheckNames,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- scheduled_audit.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.scheduled_audits (
  ScheduledAuditName,
  Frequency,
@@ -159,6 +159,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.scheduled_audits
 WHERE data__Identifier = '<ScheduledAuditName>'
 AND region = 'us-east-1';

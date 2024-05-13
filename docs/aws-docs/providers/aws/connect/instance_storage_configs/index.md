@@ -51,7 +51,7 @@ Used to retrieve a list of <code>instance_storage_configs</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceArn, ResourceType, StorageType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>instance
 <TabItem value="required">
 
 ```sql
--- instance_storage_config.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.instance_storage_configs (
  InstanceArn,
  ResourceType,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- instance_storage_config.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.instance_storage_configs (
  InstanceArn,
  ResourceType,
@@ -176,6 +176,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.instance_storage_configs
 WHERE data__Identifier = '<InstanceArn|AssociationId|ResourceType>'
 AND region = 'us-east-1';

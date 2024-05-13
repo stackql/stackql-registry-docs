@@ -49,7 +49,7 @@ Used to retrieve a list of <code>tasks</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DestinationLocationArn, SourceLocationArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>task</co
 <TabItem value="required">
 
 ```sql
--- task.iql (required properties only)
+/*+ create */
 INSERT INTO aws.datasync.tasks (
  DestinationLocationArn,
  SourceLocationArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- task.iql (all properties)
+/*+ create */
 INSERT INTO aws.datasync.tasks (
  Excludes,
  Includes,
@@ -222,6 +222,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.datasync.tasks
 WHERE data__Identifier = '<TaskArn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>replication_sets</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Regions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>replicat
 <TabItem value="required">
 
 ```sql
--- replication_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ssmincidents.replication_sets (
  Regions,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- replication_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.ssmincidents.replication_sets (
  Regions,
  DeletionProtected,
@@ -147,6 +147,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ssmincidents.replication_sets
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>destinations</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Expression, ExpressionType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>destinat
 <TabItem value="required">
 
 ```sql
--- destination.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotwireless.destinations (
  Name,
  Expression,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- destination.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotwireless.destinations (
  Name,
  Expression,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotwireless.destinations
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

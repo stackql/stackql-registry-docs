@@ -49,7 +49,7 @@ Used to retrieve a list of <code>templates</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConnectorArn, Definition, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>template
 <TabItem value="required">
 
 ```sql
--- template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.pcaconnectorad.templates (
  ConnectorArn,
  Definition,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- template.iql (all properties)
+/*+ create */
 INSERT INTO aws.pcaconnectorad.templates (
  ConnectorArn,
  Definition,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.pcaconnectorad.templates
 WHERE data__Identifier = '<TemplateArn>'
 AND region = 'us-east-1';

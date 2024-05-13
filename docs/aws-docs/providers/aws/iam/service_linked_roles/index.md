@@ -49,7 +49,7 @@ Used to retrieve a list of <code>service_linked_roles</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>service_
 <TabItem value="required">
 
 ```sql
--- service_linked_role.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iam.service_linked_roles (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- service_linked_role.iql (all properties)
+/*+ create */
 INSERT INTO aws.iam.service_linked_roles (
  CustomSuffix,
  Description,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iam.service_linked_roles
 WHERE data__Identifier = '<RoleName>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>event_invoke_configs</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FunctionName, Qualifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>event_in
 <TabItem value="required">
 
 ```sql
--- event_invoke_config.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lambda.event_invoke_configs (
  FunctionName,
  Qualifier,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- event_invoke_config.iql (all properties)
+/*+ create */
 INSERT INTO aws.lambda.event_invoke_configs (
  DestinationConfig,
  FunctionName,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lambda.event_invoke_configs
 WHERE data__Identifier = '<FunctionName|Qualifier>'
 AND region = 'us-east-1';

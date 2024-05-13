@@ -26,7 +26,7 @@ Gets or updates an individual <code>domain_name</code> resource, use <code>domai
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>domain_name</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway). &lt;br&#x2F;&gt; You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see &#91;Set up Custom Domain Name for an API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;how-to-custom-domains.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::DomainName</code> resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway). &lt;br&#x2F;&gt; You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see &#91;Set up Custom Domain Name for an API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;how-to-custom-domains.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.domain_name" /></td></tr>
 </tbody></table>
 

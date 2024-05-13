@@ -50,7 +50,7 @@ Used to retrieve a list of <code>lifecycle_hooks</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LifecycleTransition, AutoScalingGroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>lifecycl
 <TabItem value="required">
 
 ```sql
--- lifecycle_hook.iql (required properties only)
+/*+ create */
 INSERT INTO aws.autoscaling.lifecycle_hooks (
  AutoScalingGroupName,
  LifecycleTransition,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- lifecycle_hook.iql (all properties)
+/*+ create */
 INSERT INTO aws.autoscaling.lifecycle_hooks (
  AutoScalingGroupName,
  DefaultResult,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.autoscaling.lifecycle_hooks
 WHERE data__Identifier = '<AutoScalingGroupName|LifecycleHookName>'
 AND region = 'us-east-1';

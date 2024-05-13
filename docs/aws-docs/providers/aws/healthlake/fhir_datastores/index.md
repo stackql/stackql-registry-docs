@@ -49,7 +49,7 @@ Used to retrieve a list of <code>fhir_datastores</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DatastoreTypeVersion, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>fhir_dat
 <TabItem value="required">
 
 ```sql
--- fhir_datastore.iql (required properties only)
+/*+ create */
 INSERT INTO aws.healthlake.fhir_datastores (
  DatastoreTypeVersion,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- fhir_datastore.iql (all properties)
+/*+ create */
 INSERT INTO aws.healthlake.fhir_datastores (
  DatastoreName,
  DatastoreTypeVersion,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.healthlake.fhir_datastores
 WHERE data__Identifier = '<DatastoreId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>listener_rules</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Actions, Priority, Conditions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>listener
 <TabItem value="required">
 
 ```sql
--- listener_rule.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  Actions,
  Priority,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- listener_rule.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.listener_rules (
  ListenerArn,
  Actions,
@@ -216,6 +216,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticloadbalancingv2.listener_rules
 WHERE data__Identifier = '<RuleArn>'
 AND region = 'us-east-1';

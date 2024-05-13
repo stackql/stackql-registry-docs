@@ -49,7 +49,7 @@ Used to retrieve a list of <code>permissions</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, ResourceType, PolicyTemplate, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>permissi
 <TabItem value="required">
 
 ```sql
--- permission.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ram.permissions (
  Name,
  ResourceType,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- permission.iql (all properties)
+/*+ create */
 INSERT INTO aws.ram.permissions (
  Name,
  ResourceType,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ram.permissions
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

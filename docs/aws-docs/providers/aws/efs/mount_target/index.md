@@ -26,7 +26,7 @@ Gets or updates an individual <code>mount_target</code> resource, use <code>moun
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mount_target</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::EFS::MountTarget</code> resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.efs.mount_target" /></td></tr>
 </tbody></table>
 
@@ -36,7 +36,7 @@ Gets or updates an individual <code>mount_target</code> resource, use <code>moun
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>Valid IPv4 address within the address range of the specified subnet.</td></tr>
 <tr><td><CopyableCode code="file_system_id" /></td><td><code>string</code></td><td>The ID of the file system for which to create the mount target.</td></tr>
-<tr><td><CopyableCode code="security_groups" /></td><td><code>array</code></td><td>Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.</td></tr>
+<tr><td><CopyableCode code="security_groups" /></td><td><code>array</code></td><td>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same VPC as subnet specified.</td></tr>
 <tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>attribute_groups</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Attributes, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>attribut
 <TabItem value="required">
 
 ```sql
--- attribute_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.attribute_groups (
  Name,
  Attributes,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- attribute_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.attribute_groups (
  Name,
  Description,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.servicecatalogappregistry.attribute_groups
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

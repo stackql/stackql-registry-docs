@@ -26,7 +26,7 @@ Used to retrieve a list of <code>bucket_policies</code> in a region or to create
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bucket_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS-account that owns the bucket, the calling identity must have the ``PutBucketPolicy`` permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.&lt;br&#x2F;&gt; If you don't have ``PutBucketPolicy`` permissions, Amazon S3 returns a ``403 Access Denied`` error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a ``405 Method Not Allowed`` error.&lt;br&#x2F;&gt;   As a security precaution, the root user of the AWS-account that owns a bucket can always use this operation, even if the policy explicitly denies the root user the ability to perform this action. &lt;br&#x2F;&gt;  For more information, see &#91;Bucket policy examples&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;userguide&#x2F;example-bucket-policies.html).&lt;br&#x2F;&gt; The following operations are related to ``PutBucketPolicy``:&lt;br&#x2F;&gt;  +   &#91;CreateBucket&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;API&#x2F;API_CreateBucket.html) &lt;br&#x2F;&gt;  +   &#91;DeleteBucket&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;API&#x2F;API_DeleteBucket.html)</td></tr>
+<tr><td><b>Description</b></td><td>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS-account that owns the bucket, the calling identity must have the <code>PutBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.&lt;br&#x2F;&gt; If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.&lt;br&#x2F;&gt;   As a security precaution, the root user of the AWS-account that owns a bucket can always use this operation, even if the policy explicitly denies the root user the ability to perform this action. &lt;br&#x2F;&gt;  For more information, see &#91;Bucket policy examples&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;userguide&#x2F;example-bucket-policies.html).&lt;br&#x2F;&gt; The following operations are related to <code>PutBucketPolicy</code>:&lt;br&#x2F;&gt;  +   &#91;CreateBucket&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;API&#x2F;API_CreateBucket.html) &lt;br&#x2F;&gt;  +   &#91;DeleteBucket&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;API&#x2F;API_DeleteBucket.html)</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.s3.bucket_policies" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>bucket_policies</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Bucket, PolicyDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>bucket_p
 <TabItem value="required">
 
 ```sql
--- bucket_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.s3.bucket_policies (
  Bucket,
  PolicyDocument,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- bucket_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.s3.bucket_policies (
  Bucket,
  PolicyDocument,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.s3.bucket_policies
 WHERE data__Identifier = '<Bucket>'
 AND region = 'us-east-1';

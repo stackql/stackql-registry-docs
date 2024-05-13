@@ -49,7 +49,7 @@ Used to retrieve a list of <code>security_profiles</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>security
 <TabItem value="required">
 
 ```sql
--- security_profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.security_profiles (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- security_profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.security_profiles (
  SecurityProfileName,
  SecurityProfileDescription,
@@ -197,6 +197,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.security_profiles
 WHERE data__Identifier = '<SecurityProfileName>'
 AND region = 'us-east-1';

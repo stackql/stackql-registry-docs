@@ -49,7 +49,7 @@ Used to retrieve a list of <code>connector_profiles</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConnectorProfileName, ConnectionMode, ConnectorType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>connecto
 <TabItem value="required">
 
 ```sql
--- connector_profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appflow.connector_profiles (
  ConnectorProfileName,
  ConnectorType,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- connector_profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.appflow.connector_profiles (
  ConnectorLabel,
  ConnectorProfileName,
@@ -311,6 +311,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appflow.connector_profiles
 WHERE data__Identifier = '<ConnectorProfileName>'
 AND region = 'us-east-1';

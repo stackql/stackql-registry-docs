@@ -49,7 +49,7 @@ Used to retrieve a list of <code>channels</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ChannelName, Outputs, PlaybackMode, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>channel<
 <TabItem value="required">
 
 ```sql
--- channel.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediatailor.channels (
  ChannelName,
  Outputs,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- channel.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediatailor.channels (
  Audiences,
  ChannelName,
@@ -189,6 +189,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediatailor.channels
 WHERE data__Identifier = '<ChannelName>'
 AND region = 'us-east-1';

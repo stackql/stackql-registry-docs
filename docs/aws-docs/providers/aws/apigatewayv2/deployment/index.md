@@ -26,7 +26,7 @@ Gets or updates an individual <code>deployment</code> resource, use <code>deploy
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::Deployment</code> resource creates a deployment for an API.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.deployment" /></td></tr>
 </tbody></table>
 

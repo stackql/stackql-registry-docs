@@ -49,7 +49,7 @@ Used to retrieve a list of <code>certificate_providers</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LambdaFunctionArn, AccountDefaultForOperations, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>certific
 <TabItem value="required">
 
 ```sql
--- certificate_provider.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.certificate_providers (
  LambdaFunctionArn,
  AccountDefaultForOperations,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- certificate_provider.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.certificate_providers (
  CertificateProviderName,
  LambdaFunctionArn,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.certificate_providers
 WHERE data__Identifier = '<CertificateProviderName>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>applications</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>applicat
 <TabItem value="required">
 
 ```sql
--- application.iql (required properties only)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.applications (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- application.iql (all properties)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.applications (
  Name,
  Description,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.servicecatalogappregistry.applications
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

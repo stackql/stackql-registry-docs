@@ -49,12 +49,7 @@ Used to retrieve a list of <code>module_default_versions</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
-  </tr>
-  <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resource" /></td>
@@ -87,7 +82,7 @@ Use the following StackQL query and manifest file to create a new <code>module_d
 <TabItem value="required">
 
 ```sql
--- module_default_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.module_default_versions (
  Arn,
  ModuleName,
@@ -104,7 +99,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- module_default_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.module_default_versions (
  Arn,
  ModuleName,
@@ -142,14 +137,6 @@ resources:
 ```
 </TabItem>
 </Tabs>
-
-## `DELETE` Example
-
-```sql
-DELETE FROM aws.cloudformation.module_default_versions
-WHERE data__Identifier = '<Arn>'
-AND region = 'us-east-1';
-```
 
 ## Permissions
 

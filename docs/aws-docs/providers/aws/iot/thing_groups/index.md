@@ -49,7 +49,7 @@ Used to retrieve a list of <code>thing_groups</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>thing_gr
 <TabItem value="required">
 
 ```sql
--- thing_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.thing_groups (
  ThingGroupName,
  ParentGroupName,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- thing_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.thing_groups (
  ThingGroupName,
  ParentGroupName,
@@ -163,6 +163,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.thing_groups
 WHERE data__Identifier = '<ThingGroupName>'
 AND region = 'us-east-1';

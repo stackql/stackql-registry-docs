@@ -49,7 +49,7 @@ Used to retrieve a list of <code>dedicated_ip_pools</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>dedicate
 <TabItem value="required">
 
 ```sql
--- dedicated_ip_pool.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ses.dedicated_ip_pools (
  PoolName,
  ScalingMode,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- dedicated_ip_pool.iql (all properties)
+/*+ create */
 INSERT INTO aws.ses.dedicated_ip_pools (
  PoolName,
  ScalingMode,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ses.dedicated_ip_pools
 WHERE data__Identifier = '<PoolName>'
 AND region = 'us-east-1';

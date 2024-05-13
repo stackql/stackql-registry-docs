@@ -26,7 +26,7 @@ Gets or updates an individual <code>db_subnet_group</code> resource, use <code>d
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_subnet_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region. &lt;br&#x2F;&gt; For more information, see &#91;Working with DB subnet groups&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonRDS&#x2F;latest&#x2F;UserGuide&#x2F;USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::RDS::DBSubnetGroup</code> resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region. &lt;br&#x2F;&gt; For more information, see &#91;Working with DB subnet groups&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonRDS&#x2F;latest&#x2F;UserGuide&#x2F;USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.rds.db_subnet_group" /></td></tr>
 </tbody></table>
 
@@ -34,7 +34,7 @@ Gets or updates an individual <code>db_subnet_group</code> resource, use <code>d
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><CopyableCode code="db_subnet_group_description" /></td><td><code>string</code></td><td>The description for the DB subnet group.</td></tr>
-<tr><td><CopyableCode code="db_subnet_group_name" /></td><td><code>string</code></td><td>The name for the DB subnet group. This value is stored as a lowercase string.&lt;br&#x2F;&gt; Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".&lt;br&#x2F;&gt; Example: ``mysubnetgroup``</td></tr>
+<tr><td><CopyableCode code="db_subnet_group_name" /></td><td><code>string</code></td><td>The name for the DB subnet group. This value is stored as a lowercase string.&lt;br&#x2F;&gt; Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".&lt;br&#x2F;&gt; Example: <code>mysubnetgroup</code></td></tr>
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The EC2 Subnet IDs for the DB subnet group.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An optional array of key-value pairs to apply to this DB subnet group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

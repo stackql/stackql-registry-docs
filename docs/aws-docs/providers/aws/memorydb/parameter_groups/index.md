@@ -49,7 +49,7 @@ Used to retrieve a list of <code>parameter_groups</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ParameterGroupName, Family, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>paramete
 <TabItem value="required">
 
 ```sql
--- parameter_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.memorydb.parameter_groups (
  ParameterGroupName,
  Family,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- parameter_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.memorydb.parameter_groups (
  ParameterGroupName,
  Family,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.memorydb.parameter_groups
 WHERE data__Identifier = '<ParameterGroupName>'
 AND region = 'us-east-1';

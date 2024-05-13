@@ -49,7 +49,7 @@ Used to retrieve a list of <code>hubs</code> in a region or to create or delete 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>hub</cod
 <TabItem value="required">
 
 ```sql
--- hub.iql (required properties only)
+/*+ create */
 INSERT INTO aws.securityhub.hubs (
  EnableDefaultStandards,
  ControlFindingGenerator,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- hub.iql (all properties)
+/*+ create */
 INSERT INTO aws.securityhub.hubs (
  EnableDefaultStandards,
  ControlFindingGenerator,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.securityhub.hubs
 WHERE data__Identifier = '<ARN>'
 AND region = 'us-east-1';

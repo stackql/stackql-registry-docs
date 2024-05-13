@@ -49,7 +49,7 @@ Used to retrieve a list of <code>query_definitions</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, QueryString, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>query_de
 <TabItem value="required">
 
 ```sql
--- query_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.query_definitions (
  Name,
  QueryString,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- query_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.query_definitions (
  Name,
  QueryString,
@@ -145,6 +145,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.query_definitions
 WHERE data__Identifier = '<QueryDefinitionId>'
 AND region = 'us-east-1';

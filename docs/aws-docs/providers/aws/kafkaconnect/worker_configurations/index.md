@@ -49,7 +49,7 @@ Used to retrieve a list of <code>worker_configurations</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, PropertiesFileContent, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>worker_c
 <TabItem value="required">
 
 ```sql
--- worker_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.kafkaconnect.worker_configurations (
  Name,
  PropertiesFileContent,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- worker_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.kafkaconnect.worker_configurations (
  Name,
  Description,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.kafkaconnect.worker_configurations
 WHERE data__Identifier = '<WorkerConfigurationArn>'
 AND region = 'us-east-1';

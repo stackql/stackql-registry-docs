@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cells</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cell</co
 <TabItem value="required">
 
 ```sql
--- cell.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53recoveryreadiness.cells (
  CellName,
  Cells,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cell.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53recoveryreadiness.cells (
  CellName,
  Cells,
@@ -149,6 +149,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53recoveryreadiness.cells
 WHERE data__Identifier = '<CellName>'
 AND region = 'us-east-1';

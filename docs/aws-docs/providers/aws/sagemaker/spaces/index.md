@@ -50,7 +50,7 @@ Used to retrieve a list of <code>spaces</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DomainId, SpaceName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>space</c
 <TabItem value="required">
 
 ```sql
--- space.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.spaces (
  DomainId,
  SpaceName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- space.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.spaces (
  DomainId,
  SpaceName,
@@ -190,6 +190,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.spaces
 WHERE data__Identifier = '<DomainId|SpaceName>'
 AND region = 'us-east-1';

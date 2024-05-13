@@ -49,7 +49,7 @@ Used to retrieve a list of <code>app_block_builders</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Platform, InstanceType, VpcConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>app_bloc
 <TabItem value="required">
 
 ```sql
--- app_block_builder.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appstream.app_block_builders (
  Name,
  Platform,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- app_block_builder.iql (all properties)
+/*+ create */
 INSERT INTO aws.appstream.app_block_builders (
  Name,
  Description,
@@ -189,6 +189,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appstream.app_block_builders
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

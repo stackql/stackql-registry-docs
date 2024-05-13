@@ -49,7 +49,7 @@ Used to retrieve a list of <code>server_certificates</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>server_c
 <TabItem value="required">
 
 ```sql
--- server_certificate.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iam.server_certificates (
  CertificateBody,
  CertificateChain,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- server_certificate.iql (all properties)
+/*+ create */
 INSERT INTO aws.iam.server_certificates (
  CertificateBody,
  CertificateChain,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iam.server_certificates
 WHERE data__Identifier = '<ServerCertificateName>'
 AND region = 'us-east-1';

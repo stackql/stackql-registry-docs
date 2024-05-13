@@ -49,7 +49,7 @@ Used to retrieve a list of <code>domain_configurations</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>domain_c
 <TabItem value="required">
 
 ```sql
--- domain_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.domain_configurations (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- domain_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.domain_configurations (
  DomainConfigurationName,
  AuthorizerConfig,
@@ -177,6 +177,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.domain_configurations
 WHERE data__Identifier = '<DomainConfigurationName>'
 AND region = 'us-east-1';

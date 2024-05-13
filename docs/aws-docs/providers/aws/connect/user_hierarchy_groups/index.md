@@ -49,7 +49,7 @@ Used to retrieve a list of <code>user_hierarchy_groups</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, InstanceArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>user_hie
 <TabItem value="required">
 
 ```sql
--- user_hierarchy_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.user_hierarchy_groups (
  InstanceArn,
  Name,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- user_hierarchy_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.user_hierarchy_groups (
  InstanceArn,
  ParentGroupArn,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.user_hierarchy_groups
 WHERE data__Identifier = '<UserHierarchyGroupArn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>vpc_endpoints</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, VpcId, SubnetIds, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>vpc_endp
 <TabItem value="required">
 
 ```sql
--- vpc_endpoint.iql (required properties only)
+/*+ create */
 INSERT INTO aws.opensearchserverless.vpc_endpoints (
  Name,
  SubnetIds,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpc_endpoint.iql (all properties)
+/*+ create */
 INSERT INTO aws.opensearchserverless.vpc_endpoints (
  Name,
  SecurityGroupIds,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.opensearchserverless.vpc_endpoints
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

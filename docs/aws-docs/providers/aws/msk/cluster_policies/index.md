@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cluster_policies</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Policy, ClusterArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cluster_
 <TabItem value="required">
 
 ```sql
--- cluster_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.msk.cluster_policies (
  Policy,
  ClusterArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cluster_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.msk.cluster_policies (
  Policy,
  ClusterArn,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.msk.cluster_policies
 WHERE data__Identifier = '<ClusterArn>'
 AND region = 'us-east-1';

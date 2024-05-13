@@ -49,7 +49,7 @@ Used to retrieve a list of <code>signing_profiles</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PlatformId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>signing_
 <TabItem value="required">
 
 ```sql
--- signing_profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.signer.signing_profiles (
  PlatformId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- signing_profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.signer.signing_profiles (
  SignatureValidityPeriod,
  PlatformId,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.signer.signing_profiles
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

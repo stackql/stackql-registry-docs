@@ -50,7 +50,7 @@ Used to retrieve a list of <code>analyses</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AwsAccountId, AnalysisId, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>analysis
 <TabItem value="required">
 
 ```sql
--- analysis.iql (required properties only)
+/*+ create */
 INSERT INTO aws.quicksight.analyses (
  AnalysisId,
  AwsAccountId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- analysis.iql (all properties)
+/*+ create */
 INSERT INTO aws.quicksight.analyses (
  AnalysisId,
  AwsAccountId,
@@ -1902,6 +1902,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.quicksight.analyses
 WHERE data__Identifier = '<AnalysisId|AwsAccountId>'
 AND region = 'us-east-1';

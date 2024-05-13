@@ -49,7 +49,7 @@ Used to retrieve a list of <code>campaigns</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Action, CollectionScheme, SignalCatalogArn, TargetArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>campaign
 <TabItem value="required">
 
 ```sql
--- campaign.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotfleetwise.campaigns (
  Action,
  Name,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- campaign.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotfleetwise.campaigns (
  Action,
  Compression,
@@ -213,6 +213,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotfleetwise.campaigns
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

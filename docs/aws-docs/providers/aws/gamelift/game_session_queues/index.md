@@ -49,7 +49,7 @@ Used to retrieve a list of <code>game_session_queues</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>game_ses
 <TabItem value="required">
 
 ```sql
--- game_session_queue.iql (required properties only)
+/*+ create */
 INSERT INTO aws.gamelift.game_session_queues (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- game_session_queue.iql (all properties)
+/*+ create */
 INSERT INTO aws.gamelift.game_session_queues (
  Name,
  TimeoutInSeconds,
@@ -177,6 +177,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.gamelift.game_session_queues
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

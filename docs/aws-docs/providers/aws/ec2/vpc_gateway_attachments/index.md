@@ -50,7 +50,7 @@ Used to retrieve a list of <code>vpc_gateway_attachments</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="VpcId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>vpc_gate
 <TabItem value="required">
 
 ```sql
--- vpc_gateway_attachment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.vpc_gateway_attachments (
  VpcId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpc_gateway_attachment.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.vpc_gateway_attachments (
  InternetGatewayId,
  VpcId,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.vpc_gateway_attachments
 WHERE data__Identifier = '<AttachmentType|VpcId>'
 AND region = 'us-east-1';

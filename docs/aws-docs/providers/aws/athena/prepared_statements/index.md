@@ -50,7 +50,7 @@ Used to retrieve a list of <code>prepared_statements</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StatementName, WorkGroup, QueryStatement, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>prepared
 <TabItem value="required">
 
 ```sql
--- prepared_statement.iql (required properties only)
+/*+ create */
 INSERT INTO aws.athena.prepared_statements (
  StatementName,
  WorkGroup,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- prepared_statement.iql (all properties)
+/*+ create */
 INSERT INTO aws.athena.prepared_statements (
  StatementName,
  WorkGroup,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.athena.prepared_statements
 WHERE data__Identifier = '<StatementName|WorkGroup>'
 AND region = 'us-east-1';

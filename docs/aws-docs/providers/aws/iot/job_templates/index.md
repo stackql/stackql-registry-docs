@@ -49,7 +49,7 @@ Used to retrieve a list of <code>job_templates</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="JobTemplateId, Description, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>job_temp
 <TabItem value="required">
 
 ```sql
--- job_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.job_templates (
  JobTemplateId,
  Description,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- job_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.job_templates (
  JobArn,
  JobTemplateId,
@@ -355,6 +355,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.job_templates
 WHERE data__Identifier = '<JobTemplateId>'
 AND region = 'us-east-1';

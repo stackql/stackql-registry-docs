@@ -49,7 +49,7 @@ Used to retrieve a list of <code>domain_name_api_associations</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DomainName, ApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>domain_n
 <TabItem value="required">
 
 ```sql
--- domain_name_api_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appsync.domain_name_api_associations (
  DomainName,
  ApiId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- domain_name_api_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.appsync.domain_name_api_associations (
  DomainName,
  ApiId,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appsync.domain_name_api_associations
 WHERE data__Identifier = '<ApiAssociationIdentifier>'
 AND region = 'us-east-1';

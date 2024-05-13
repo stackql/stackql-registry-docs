@@ -49,7 +49,7 @@ Used to retrieve a list of <code>distributions</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DistributionName, BundleId, DefaultCacheBehavior, Origin, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>distribu
 <TabItem value="required">
 
 ```sql
--- distribution.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lightsail.distributions (
  DistributionName,
  BundleId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- distribution.iql (all properties)
+/*+ create */
 INSERT INTO aws.lightsail.distributions (
  DistributionName,
  BundleId,
@@ -201,6 +201,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lightsail.distributions
 WHERE data__Identifier = '<DistributionName>'
 AND region = 'us-east-1';

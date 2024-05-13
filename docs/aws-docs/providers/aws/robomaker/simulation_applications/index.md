@@ -49,7 +49,7 @@ Used to retrieve a list of <code>simulation_applications</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RobotSoftwareSuite, SimulationSoftwareSuite, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>simulati
 <TabItem value="required">
 
 ```sql
--- simulation_application.iql (required properties only)
+/*+ create */
 INSERT INTO aws.robomaker.simulation_applications (
  RobotSoftwareSuite,
  SimulationSoftwareSuite,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- simulation_application.iql (all properties)
+/*+ create */
 INSERT INTO aws.robomaker.simulation_applications (
  Name,
  CurrentRevisionId,
@@ -173,6 +173,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.robomaker.simulation_applications
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

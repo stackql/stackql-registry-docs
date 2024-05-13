@@ -26,7 +26,7 @@ Used to retrieve a list of <code>vpc_links</code> in a region or to create or de
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_links</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see &#91;Working with VPC Links for HTTP APIs&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;http-api-vpc-links.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::VpcLink</code> resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from <code>PENDING</code> to <code>AVAILABLE</code> to successfully create a VPC link, which can take up to 10 minutes. To learn more, see &#91;Working with VPC Links for HTTP APIs&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;http-api-vpc-links.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.vpc_links" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>vpc_links</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SubnetIds, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>vpc_link
 <TabItem value="required">
 
 ```sql
--- vpc_link.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigatewayv2.vpc_links (
  SubnetIds,
  Name,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpc_link.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigatewayv2.vpc_links (
  SubnetIds,
  SecurityGroupIds,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigatewayv2.vpc_links
 WHERE data__Identifier = '<VpcLinkId>'
 AND region = 'us-east-1';

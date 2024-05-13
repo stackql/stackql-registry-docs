@@ -49,7 +49,7 @@ Used to retrieve a list of <code>trust_anchors</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Source, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>trust_an
 <TabItem value="required">
 
 ```sql
--- trust_anchor.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rolesanywhere.trust_anchors (
  Name,
  Source,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- trust_anchor.iql (all properties)
+/*+ create */
 INSERT INTO aws.rolesanywhere.trust_anchors (
  Enabled,
  Name,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rolesanywhere.trust_anchors
 WHERE data__Identifier = '<TrustAnchorId>'
 AND region = 'us-east-1';

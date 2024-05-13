@@ -49,7 +49,7 @@ Used to retrieve a list of <code>launches</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Project, Groups, ScheduledSplitsConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>launch</
 <TabItem value="required">
 
 ```sql
--- launch.iql (required properties only)
+/*+ create */
 INSERT INTO aws.evidently.launches (
  Name,
  Project,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- launch.iql (all properties)
+/*+ create */
 INSERT INTO aws.evidently.launches (
  Name,
  Project,
@@ -195,6 +195,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.evidently.launches
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

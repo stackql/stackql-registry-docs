@@ -26,14 +26,14 @@ Used to retrieve a list of <code>repositories</code> in a region or to create or
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repositories</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see &#91;Amazon ECR private repositories&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECR&#x2F;latest&#x2F;userguide&#x2F;Repositories.html) in the *Amazon ECR User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ECR::Repository</code> resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see &#91;Amazon ECR private repositories&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECR&#x2F;latest&#x2F;userguide&#x2F;Repositories.html) in the *Amazon ECR User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ecr.repositories" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="repository_name" /></td><td><code>string</code></td><td>The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a&#x2F;nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see &#91;Name type&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-properties-name.html).&lt;br&#x2F;&gt; The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.&lt;br&#x2F;&gt;  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.</td></tr>
+<tr><td><CopyableCode code="repository_name" /></td><td><code>string</code></td><td>The name to use for the repository. The repository name may be specified on its own (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group the repository into a category (such as <code>project-a&#x2F;nginx-web-app</code>). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see &#91;Name type&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-properties-name.html).&lt;br&#x2F;&gt; The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.&lt;br&#x2F;&gt;  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>repositories</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>reposito
 <TabItem value="required">
 
 ```sql
--- repository.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecr.repositories (
  EmptyOnDelete,
  LifecyclePolicy,
@@ -114,7 +114,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- repository.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecr.repositories (
  EmptyOnDelete,
  LifecyclePolicy,
@@ -183,6 +183,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecr.repositories
 WHERE data__Identifier = '<RepositoryName>'
 AND region = 'us-east-1';

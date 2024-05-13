@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cluster_parameter_groups</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Description, ParameterGroupFamily, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cluster_
 <TabItem value="required">
 
 ```sql
--- cluster_parameter_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.redshift.cluster_parameter_groups (
  Description,
  ParameterGroupFamily,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cluster_parameter_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.redshift.cluster_parameter_groups (
  ParameterGroupName,
  Description,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.redshift.cluster_parameter_groups
 WHERE data__Identifier = '<ParameterGroupName>'
 AND region = 'us-east-1';

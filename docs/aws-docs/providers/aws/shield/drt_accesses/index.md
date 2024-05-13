@@ -49,7 +49,7 @@ Used to retrieve a list of <code>drt_accesses</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>drt_acce
 <TabItem value="required">
 
 ```sql
--- drt_access.iql (required properties only)
+/*+ create */
 INSERT INTO aws.shield.drt_accesses (
  RoleArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- drt_access.iql (all properties)
+/*+ create */
 INSERT INTO aws.shield.drt_accesses (
  LogBucketList,
  RoleArn,
@@ -139,6 +139,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.shield.drt_accesses
 WHERE data__Identifier = '<AccountId>'
 AND region = 'us-east-1';

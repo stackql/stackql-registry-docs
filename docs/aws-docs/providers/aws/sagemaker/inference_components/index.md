@@ -49,7 +49,7 @@ Used to retrieve a list of <code>inference_components</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="EndpointName, VariantName, Specification, RuntimeConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>inferenc
 <TabItem value="required">
 
 ```sql
--- inference_component.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.inference_components (
  EndpointName,
  VariantName,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- inference_component.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.inference_components (
  InferenceComponentName,
  EndpointArn,
@@ -186,6 +186,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.inference_components
 WHERE data__Identifier = '<InferenceComponentArn>'
 AND region = 'us-east-1';

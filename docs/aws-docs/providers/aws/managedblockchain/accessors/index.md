@@ -49,7 +49,7 @@ Used to retrieve a list of <code>accessors</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AccessorType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>accessor
 <TabItem value="required">
 
 ```sql
--- accessor.iql (required properties only)
+/*+ create */
 INSERT INTO aws.managedblockchain.accessors (
  AccessorType,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- accessor.iql (all properties)
+/*+ create */
 INSERT INTO aws.managedblockchain.accessors (
  AccessorType,
  NetworkType,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.managedblockchain.accessors
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

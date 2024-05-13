@@ -49,7 +49,7 @@ Used to retrieve a list of <code>module_versions</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ModuleName, ModulePackage, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>module_v
 <TabItem value="required">
 
 ```sql
--- module_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.module_versions (
  ModuleName,
  ModulePackage,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- module_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.module_versions (
  ModuleName,
  ModulePackage,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudformation.module_versions
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

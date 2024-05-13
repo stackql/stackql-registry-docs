@@ -49,7 +49,7 @@ Used to retrieve a list of <code>event_subscriptions</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SubscriptionName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>event_su
 <TabItem value="required">
 
 ```sql
--- event_subscription.iql (required properties only)
+/*+ create */
 INSERT INTO aws.redshift.event_subscriptions (
  SubscriptionName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- event_subscription.iql (all properties)
+/*+ create */
 INSERT INTO aws.redshift.event_subscriptions (
  SubscriptionName,
  SnsTopicArn,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.redshift.event_subscriptions
 WHERE data__Identifier = '<SubscriptionName>'
 AND region = 'us-east-1';

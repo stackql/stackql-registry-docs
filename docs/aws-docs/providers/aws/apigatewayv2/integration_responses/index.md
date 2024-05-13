@@ -26,7 +26,7 @@ Used to retrieve a list of <code>integration_responses</code> in a region or to 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>integration_responses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see &#91;Set up WebSocket API Integration Responses in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::IntegrationResponse</code> resource updates an integration response for an WebSocket API. For more information, see &#91;Set up WebSocket API Integration Responses in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.integration_responses" /></td></tr>
 </tbody></table>
 
@@ -51,7 +51,7 @@ Used to retrieve a list of <code>integration_responses</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApiId, IntegrationId, IntegrationResponseKey, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>integrat
 <TabItem value="required">
 
 ```sql
--- integration_response.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigatewayv2.integration_responses (
  IntegrationId,
  IntegrationResponseKey,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- integration_response.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigatewayv2.integration_responses (
  ResponseTemplates,
  TemplateSelectionExpression,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigatewayv2.integration_responses
 WHERE data__Identifier = '<ApiId|IntegrationId|IntegrationResponseId>'
 AND region = 'us-east-1';

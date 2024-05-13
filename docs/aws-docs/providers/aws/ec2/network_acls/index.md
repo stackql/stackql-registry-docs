@@ -49,7 +49,7 @@ Used to retrieve a list of <code>network_acls</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="VpcId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>network_
 <TabItem value="required">
 
 ```sql
--- network_acl.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.network_acls (
  VpcId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- network_acl.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.network_acls (
  Tags,
  VpcId,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.network_acls
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';
