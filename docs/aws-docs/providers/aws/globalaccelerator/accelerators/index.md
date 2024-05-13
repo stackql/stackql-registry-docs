@@ -49,7 +49,7 @@ Used to retrieve a list of <code>accelerators</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>accelera
 <TabItem value="required">
 
 ```sql
--- accelerator.iql (required properties only)
+/*+ create */
 INSERT INTO aws.globalaccelerator.accelerators (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- accelerator.iql (all properties)
+/*+ create */
 INSERT INTO aws.globalaccelerator.accelerators (
  Name,
  IpAddressType,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.globalaccelerator.accelerators
 WHERE data__Identifier = '<AcceleratorArn>'
 AND region = 'us-east-1';

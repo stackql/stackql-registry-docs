@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cidr_collections</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cidr_col
 <TabItem value="required">
 
 ```sql
--- cidr_collection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53.cidr_collections (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cidr_collection.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53.cidr_collections (
  Name,
  Locations,
@@ -141,6 +141,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53.cidr_collections
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>job_queues</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ComputeEnvironmentOrder, Priority, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>job_queu
 <TabItem value="required">
 
 ```sql
--- job_queue.iql (required properties only)
+/*+ create */
 INSERT INTO aws.batch.job_queues (
  ComputeEnvironmentOrder,
  Priority,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- job_queue.iql (all properties)
+/*+ create */
 INSERT INTO aws.batch.job_queues (
  JobQueueName,
  ComputeEnvironmentOrder,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.batch.job_queues
 WHERE data__Identifier = '<JobQueueArn>'
 AND region = 'us-east-1';

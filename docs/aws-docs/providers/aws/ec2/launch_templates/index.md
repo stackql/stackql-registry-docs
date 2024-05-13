@@ -26,7 +26,7 @@ Used to retrieve a list of <code>launch_templates</code> in a region or to creat
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>launch_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Specifies the properties for creating a launch template.&lt;br&#x2F;&gt; The minimum required properties for specifying a launch template are as follows:&lt;br&#x2F;&gt;  +  You must specify at least one property for the launch template data.&lt;br&#x2F;&gt;  +  You do not need to specify a name for the launch template. If you do not specify a name, CFN creates the name for you.&lt;br&#x2F;&gt;  &lt;br&#x2F;&gt; A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the ``ImageId`` property, which has no default value. If you do not specify an AMI ID for the launch template ``ImageId`` property, you must specify an AMI ID for the instance ``ImageId`` property.&lt;br&#x2F;&gt; For more information, see &#91;Launch an instance from a launch template&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSEC2&#x2F;latest&#x2F;UserGuide&#x2F;ec2-launch-templates.html) in the *Amazon EC2 User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>Specifies the properties for creating a launch template.&lt;br&#x2F;&gt; The minimum required properties for specifying a launch template are as follows:&lt;br&#x2F;&gt;  +  You must specify at least one property for the launch template data.&lt;br&#x2F;&gt;  +  You do not need to specify a name for the launch template. If you do not specify a name, CFN creates the name for you.&lt;br&#x2F;&gt;  &lt;br&#x2F;&gt; A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the <code>ImageId</code> property, which has no default value. If you do not specify an AMI ID for the launch template <code>ImageId</code> property, you must specify an AMI ID for the instance <code>ImageId</code> property.&lt;br&#x2F;&gt; For more information, see &#91;Launch an instance from a launch template&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSEC2&#x2F;latest&#x2F;UserGuide&#x2F;ec2-launch-templates.html) in the *Amazon EC2 User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.launch_templates" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>launch_templates</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LaunchTemplateData, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>launch_t
 <TabItem value="required">
 
 ```sql
--- launch_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.launch_templates (
  LaunchTemplateData,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- launch_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.launch_templates (
  LaunchTemplateName,
  LaunchTemplateData,
@@ -315,6 +315,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.launch_templates
 WHERE data__Identifier = '<LaunchTemplateId>'
 AND region = 'us-east-1';

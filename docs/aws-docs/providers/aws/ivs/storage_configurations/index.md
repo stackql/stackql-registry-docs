@@ -49,7 +49,7 @@ Used to retrieve a list of <code>storage_configurations</code> in a region or to
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="S3, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>storage_
 <TabItem value="required">
 
 ```sql
--- storage_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ivs.storage_configurations (
  S3,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- storage_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.ivs.storage_configurations (
  Name,
  S3,
@@ -145,6 +145,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ivs.storage_configurations
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>partner_accounts</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>partner_
 <TabItem value="required">
 
 ```sql
--- partner_account.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotwireless.partner_accounts (
  Sidewalk,
  PartnerAccountId,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- partner_account.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotwireless.partner_accounts (
  Sidewalk,
  PartnerAccountId,
@@ -177,6 +177,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotwireless.partner_accounts
 WHERE data__Identifier = '<PartnerAccountId>'
 AND region = 'us-east-1';

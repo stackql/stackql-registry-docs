@@ -49,7 +49,7 @@ Used to retrieve a list of <code>data_quality_job_definitions</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DataQualityAppSpecification, DataQualityJobInput, DataQualityJobOutputConfig, JobResources, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>data_qua
 <TabItem value="required">
 
 ```sql
--- data_quality_job_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.data_quality_job_definitions (
  DataQualityAppSpecification,
  DataQualityJobInput,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- data_quality_job_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.data_quality_job_definitions (
  JobDefinitionName,
  DataQualityBaselineConfig,
@@ -234,6 +234,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.data_quality_job_definitions
 WHERE data__Identifier = '<JobDefinitionArn>'
 AND region = 'us-east-1';

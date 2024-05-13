@@ -49,7 +49,7 @@ Used to retrieve a list of <code>annotation_stores</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, StoreFormat, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>annotati
 <TabItem value="required">
 
 ```sql
--- annotation_store.iql (required properties only)
+/*+ create */
 INSERT INTO aws.omics.annotation_stores (
  Name,
  StoreFormat,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- annotation_store.iql (all properties)
+/*+ create */
 INSERT INTO aws.omics.annotation_stores (
  Description,
  Name,
@@ -163,6 +163,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.omics.annotation_stores
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

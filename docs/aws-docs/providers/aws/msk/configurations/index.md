@@ -49,7 +49,7 @@ Used to retrieve a list of <code>configurations</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ServerProperties, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>configur
 <TabItem value="required">
 
 ```sql
--- configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.msk.configurations (
  Name,
  ServerProperties,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.msk.configurations (
  Name,
  Description,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.msk.configurations
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

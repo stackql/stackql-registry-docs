@@ -49,7 +49,7 @@ Used to retrieve a list of <code>global_replication_groups</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Members, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>global_r
 <TabItem value="required">
 
 ```sql
--- global_replication_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticache.global_replication_groups (
  Members,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- global_replication_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticache.global_replication_groups (
  GlobalReplicationGroupIdSuffix,
  AutomaticFailoverEnabled,
@@ -175,6 +175,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticache.global_replication_groups
 WHERE data__Identifier = '<GlobalReplicationGroupId>'
 AND region = 'us-east-1';

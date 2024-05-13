@@ -49,7 +49,7 @@ Used to retrieve a list of <code>microsoft_teams_channel_configurations</code> i
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TeamId, TeamsChannelId, TeamsTenantId, ConfigurationName, IamRoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>microsof
 <TabItem value="required">
 
 ```sql
--- microsoft_teams_channel_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  TeamId,
  TeamsChannelId,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- microsoft_teams_channel_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  TeamId,
  TeamsChannelId,
@@ -176,6 +176,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.chatbot.microsoft_teams_channel_configurations
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

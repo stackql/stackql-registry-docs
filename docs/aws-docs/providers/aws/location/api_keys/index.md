@@ -49,7 +49,7 @@ Used to retrieve a list of <code>api_keys</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="KeyName, Restrictions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>api_key<
 <TabItem value="required">
 
 ```sql
--- api_key.iql (required properties only)
+/*+ create */
 INSERT INTO aws.location.api_keys (
  KeyName,
  Restrictions,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- api_key.iql (all properties)
+/*+ create */
 INSERT INTO aws.location.api_keys (
  Description,
  ExpireTime,
@@ -172,6 +172,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.location.api_keys
 WHERE data__Identifier = '<KeyName>'
 AND region = 'us-east-1';

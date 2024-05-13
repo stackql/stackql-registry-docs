@@ -49,7 +49,7 @@ Used to retrieve a list of <code>load_balancers</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>load_bal
 <TabItem value="required">
 
 ```sql
--- load_balancer.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.load_balancers (
  IpAddressType,
  SecurityGroups,
@@ -118,7 +118,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- load_balancer.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.load_balancers (
  IpAddressType,
  SecurityGroups,
@@ -198,6 +198,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticloadbalancingv2.load_balancers
 WHERE data__Identifier = '<LoadBalancerArn>'
 AND region = 'us-east-1';

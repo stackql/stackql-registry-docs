@@ -49,7 +49,7 @@ Used to retrieve a list of <code>image_builders</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceType, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>image_bu
 <TabItem value="required">
 
 ```sql
--- image_builder.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appstream.image_builders (
  Name,
  InstanceType,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- image_builder.iql (all properties)
+/*+ create */
 INSERT INTO aws.appstream.image_builders (
  Description,
  VpcConfig,
@@ -194,6 +194,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appstream.image_builders
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

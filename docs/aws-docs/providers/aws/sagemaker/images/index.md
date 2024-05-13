@@ -49,7 +49,7 @@ Used to retrieve a list of <code>images</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ImageName, ImageRoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>image</c
 <TabItem value="required">
 
 ```sql
--- image.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.images (
  ImageName,
  ImageRoleArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- image.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.images (
  ImageName,
  ImageRoleArn,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.images
 WHERE data__Identifier = '<ImageArn>'
 AND region = 'us-east-1';

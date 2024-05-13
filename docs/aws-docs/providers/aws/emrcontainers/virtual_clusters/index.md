@@ -49,7 +49,7 @@ Used to retrieve a list of <code>virtual_clusters</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, ContainerProvider, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>virtual_
 <TabItem value="required">
 
 ```sql
--- virtual_cluster.iql (required properties only)
+/*+ create */
 INSERT INTO aws.emrcontainers.virtual_clusters (
  ContainerProvider,
  Name,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- virtual_cluster.iql (all properties)
+/*+ create */
 INSERT INTO aws.emrcontainers.virtual_clusters (
  ContainerProvider,
  Name,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.emrcontainers.virtual_clusters
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

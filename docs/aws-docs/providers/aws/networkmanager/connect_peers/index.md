@@ -49,7 +49,7 @@ Used to retrieve a list of <code>connect_peers</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConnectAttachmentId, PeerAddress, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>connect_
 <TabItem value="required">
 
 ```sql
--- connect_peer.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkmanager.connect_peers (
  PeerAddress,
  ConnectAttachmentId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- connect_peer.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkmanager.connect_peers (
  PeerAddress,
  CoreNetworkAddress,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkmanager.connect_peers
 WHERE data__Identifier = '<ConnectPeerId>'
 AND region = 'us-east-1';

@@ -26,7 +26,7 @@ Used to retrieve a list of <code>managed_policies</code> in a region or to creat
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Creates a new managed policy for your AWS-account.&lt;br&#x2F;&gt; This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see &#91;Versioning for managed policies&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;UserGuide&#x2F;policies-managed-versions.html) in the *IAM User Guide*.&lt;br&#x2F;&gt; As a best practice, you can validate your IAM policies. To learn more, see &#91;Validating IAM policies&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;UserGuide&#x2F;access_policies_policy-validator.html) in the *IAM User Guide*.&lt;br&#x2F;&gt; For more information about managed policies in general, see &#91;Managed policies and inline policies&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;UserGuide&#x2F;policies-managed-vs-inline.html) in the *IAM User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>Creates a new managed policy for your AWS-account.&lt;br&#x2F;&gt; This operation creates a policy version with a version identifier of <code>v1</code> and sets v1 as the policy's default version. For more information about policy versions, see &#91;Versioning for managed policies&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;UserGuide&#x2F;policies-managed-versions.html) in the *IAM User Guide*.&lt;br&#x2F;&gt; As a best practice, you can validate your IAM policies. To learn more, see &#91;Validating IAM policies&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;UserGuide&#x2F;access_policies_policy-validator.html) in the *IAM User Guide*.&lt;br&#x2F;&gt; For more information about managed policies in general, see &#91;Managed policies and inline policies&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;IAM&#x2F;latest&#x2F;UserGuide&#x2F;policies-managed-vs-inline.html) in the *IAM User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.iam.managed_policies" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>managed_policies</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PolicyDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>managed_
 <TabItem value="required">
 
 ```sql
--- managed_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iam.managed_policies (
  PolicyDocument,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- managed_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.iam.managed_policies (
  Description,
  Groups,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iam.managed_policies
 WHERE data__Identifier = '<PolicyArn>'
 AND region = 'us-east-1';

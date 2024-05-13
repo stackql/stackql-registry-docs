@@ -49,7 +49,7 @@ Used to retrieve a list of <code>workgroups</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="WorkgroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>workgrou
 <TabItem value="required">
 
 ```sql
--- workgroup.iql (required properties only)
+/*+ create */
 INSERT INTO aws.redshiftserverless.workgroups (
  WorkgroupName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- workgroup.iql (all properties)
+/*+ create */
 INSERT INTO aws.redshiftserverless.workgroups (
  WorkgroupName,
  NamespaceName,
@@ -180,6 +180,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.redshiftserverless.workgroups
 WHERE data__Identifier = '<WorkgroupName>'
 AND region = 'us-east-1';

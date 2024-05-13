@@ -49,7 +49,7 @@ Used to retrieve a list of <code>graphs</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ProvisionedMemory, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>graph</c
 <TabItem value="required">
 
 ```sql
--- graph.iql (required properties only)
+/*+ create */
 INSERT INTO aws.neptunegraph.graphs (
  ProvisionedMemory,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- graph.iql (all properties)
+/*+ create */
 INSERT INTO aws.neptunegraph.graphs (
  DeletionProtection,
  GraphName,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.neptunegraph.graphs
 WHERE data__Identifier = '<GraphId>'
 AND region = 'us-east-1';

@@ -26,7 +26,7 @@ Used to retrieve a list of <code>resources</code> in a region or to create or de
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Resource</code> resource creates a resource in an API.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.resources" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>resources</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ParentId, PathPart, RestApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>resource
 <TabItem value="required">
 
 ```sql
--- resource.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.resources (
  RestApiId,
  ParentId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resource.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.resources (
  RestApiId,
  ParentId,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.resources
 WHERE data__Identifier = '<RestApiId|ResourceId>'
 AND region = 'us-east-1';

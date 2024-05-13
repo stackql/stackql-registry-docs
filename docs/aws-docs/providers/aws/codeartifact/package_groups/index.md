@@ -49,7 +49,7 @@ Used to retrieve a list of <code>package_groups</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Pattern, DomainName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>package_
 <TabItem value="required">
 
 ```sql
--- package_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.codeartifact.package_groups (
  DomainName,
  Pattern,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- package_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.codeartifact.package_groups (
  DomainName,
  DomainOwner,
@@ -169,6 +169,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.codeartifact.package_groups
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

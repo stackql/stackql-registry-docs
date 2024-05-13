@@ -49,7 +49,7 @@ Used to retrieve a list of <code>groups</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="GroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>group</c
 <TabItem value="required">
 
 ```sql
--- group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.xray.groups (
  GroupName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- group.iql (all properties)
+/*+ create */
 INSERT INTO aws.xray.groups (
  FilterExpression,
  GroupName,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.xray.groups
 WHERE data__Identifier = '<GroupARN>'
 AND region = 'us-east-1';

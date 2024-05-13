@@ -49,7 +49,7 @@ Used to retrieve a list of <code>matching_workflows</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="WorkflowName, InputSourceConfig, OutputSourceConfig, ResolutionTechniques, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>matching
 <TabItem value="required">
 
 ```sql
--- matching_workflow.iql (required properties only)
+/*+ create */
 INSERT INTO aws.entityresolution.matching_workflows (
  WorkflowName,
  InputSourceConfig,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- matching_workflow.iql (all properties)
+/*+ create */
 INSERT INTO aws.entityresolution.matching_workflows (
  WorkflowName,
  Description,
@@ -189,6 +189,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.entityresolution.matching_workflows
 WHERE data__Identifier = '<WorkflowName>'
 AND region = 'us-east-1';

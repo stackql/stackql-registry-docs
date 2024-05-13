@@ -49,7 +49,7 @@ Used to retrieve a list of <code>pod_identity_associations</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ClusterName, RoleArn, Namespace, ServiceAccount, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>pod_iden
 <TabItem value="required">
 
 ```sql
--- pod_identity_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.eks.pod_identity_associations (
  ClusterName,
  RoleArn,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- pod_identity_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.eks.pod_identity_associations (
  ClusterName,
  RoleArn,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.eks.pod_identity_associations
 WHERE data__Identifier = '<AssociationArn>'
 AND region = 'us-east-1';

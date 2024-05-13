@@ -50,7 +50,7 @@ Used to retrieve a list of <code>launch_profiles</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StudioId, Name, StudioComponentIds, Ec2SubnetIds, StreamConfiguration, LaunchProfileProtocolVersions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>launch_p
 <TabItem value="required">
 
 ```sql
--- launch_profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.nimblestudio.launch_profiles (
  Ec2SubnetIds,
  LaunchProfileProtocolVersions,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- launch_profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.nimblestudio.launch_profiles (
  Description,
  Ec2SubnetIds,
@@ -199,6 +199,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.nimblestudio.launch_profiles
 WHERE data__Identifier = '<LaunchProfileId|StudioId>'
 AND region = 'us-east-1';

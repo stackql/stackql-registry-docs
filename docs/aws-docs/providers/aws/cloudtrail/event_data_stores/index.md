@@ -49,7 +49,7 @@ Used to retrieve a list of <code>event_data_stores</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>event_da
 <TabItem value="required">
 
 ```sql
--- event_data_store.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudtrail.event_data_stores (
  ,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- event_data_store.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudtrail.event_data_stores (
  AdvancedEventSelectors,
  FederationEnabled,
@@ -204,6 +204,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudtrail.event_data_stores
 WHERE data__Identifier = '<EventDataStoreArn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>option_groups</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="EngineName, MajorEngineVersion, OptionGroupDescription, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>option_g
 <TabItem value="required">
 
 ```sql
--- option_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rds.option_groups (
  OptionGroupDescription,
  EngineName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- option_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.rds.option_groups (
  OptionGroupName,
  OptionGroupDescription,
@@ -170,6 +170,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rds.option_groups
 WHERE data__Identifier = '<OptionGroupName>'
 AND region = 'us-east-1';

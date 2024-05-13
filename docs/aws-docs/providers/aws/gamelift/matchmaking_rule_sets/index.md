@@ -49,7 +49,7 @@ Used to retrieve a list of <code>matchmaking_rule_sets</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, RuleSetBody, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>matchmak
 <TabItem value="required">
 
 ```sql
--- matchmaking_rule_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.gamelift.matchmaking_rule_sets (
  Name,
  RuleSetBody,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- matchmaking_rule_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.gamelift.matchmaking_rule_sets (
  Name,
  RuleSetBody,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.gamelift.matchmaking_rule_sets
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

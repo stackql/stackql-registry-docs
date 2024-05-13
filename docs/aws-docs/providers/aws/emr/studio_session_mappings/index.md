@@ -51,7 +51,7 @@ Used to retrieve a list of <code>studio_session_mappings</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StudioId, IdentityName, IdentityType, SessionPolicyArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>studio_s
 <TabItem value="required">
 
 ```sql
--- studio_session_mapping.iql (required properties only)
+/*+ create */
 INSERT INTO aws.emr.studio_session_mappings (
  IdentityName,
  IdentityType,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- studio_session_mapping.iql (all properties)
+/*+ create */
 INSERT INTO aws.emr.studio_session_mappings (
  IdentityName,
  IdentityType,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.emr.studio_session_mappings
 WHERE data__Identifier = '<StudioId|IdentityType|IdentityName>'
 AND region = 'us-east-1';

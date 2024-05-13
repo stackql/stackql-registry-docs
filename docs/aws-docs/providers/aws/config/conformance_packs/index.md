@@ -49,7 +49,7 @@ Used to retrieve a list of <code>conformance_packs</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConformancePackName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>conforma
 <TabItem value="required">
 
 ```sql
--- conformance_pack.iql (required properties only)
+/*+ create */
 INSERT INTO aws.config.conformance_packs (
  ConformancePackName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- conformance_pack.iql (all properties)
+/*+ create */
 INSERT INTO aws.config.conformance_packs (
  ConformancePackName,
  DeliveryS3Bucket,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.config.conformance_packs
 WHERE data__Identifier = '<ConformancePackName>'
 AND region = 'us-east-1';

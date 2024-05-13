@@ -49,7 +49,7 @@ Used to retrieve a list of <code>users</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceArn, PhoneConfig, RoutingProfileArn, SecurityProfileArns, Username, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>user</co
 <TabItem value="required">
 
 ```sql
--- user.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.users (
  InstanceArn,
  Username,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- user.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.users (
  InstanceArn,
  DirectoryUserId,
@@ -197,6 +197,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.users
 WHERE data__Identifier = '<UserArn>'
 AND region = 'us-east-1';

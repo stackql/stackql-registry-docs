@@ -49,7 +49,7 @@ Used to retrieve a list of <code>experiments</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Project, Treatments, MetricGoals, OnlineAbConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>experime
 <TabItem value="required">
 
 ```sql
--- experiment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.evidently.experiments (
  Name,
  Project,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- experiment.iql (all properties)
+/*+ create */
 INSERT INTO aws.evidently.experiments (
  Name,
  Project,
@@ -206,6 +206,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.evidently.experiments
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

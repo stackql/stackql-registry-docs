@@ -49,7 +49,7 @@ Used to retrieve a list of <code>role_aliases</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>role_ali
 <TabItem value="required">
 
 ```sql
--- role_alias.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.role_aliases (
  RoleArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- role_alias.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.role_aliases (
  RoleAlias,
  RoleArn,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.role_aliases
 WHERE data__Identifier = '<RoleAlias>'
 AND region = 'us-east-1';

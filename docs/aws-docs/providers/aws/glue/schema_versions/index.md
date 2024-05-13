@@ -49,7 +49,7 @@ Used to retrieve a list of <code>schema_versions</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Schema, SchemaDefinition, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>schema_v
 <TabItem value="required">
 
 ```sql
--- schema_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.glue.schema_versions (
  Schema,
  SchemaDefinition,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- schema_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.glue.schema_versions (
  Schema,
  SchemaDefinition,
@@ -143,6 +143,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.glue.schema_versions
 WHERE data__Identifier = '<VersionId>'
 AND region = 'us-east-1';

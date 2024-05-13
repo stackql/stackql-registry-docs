@@ -26,7 +26,7 @@ Used to retrieve a list of <code>documentation_parts</code> in a region or to cr
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documentation_parts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see &#91;Representation of API Documentation in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::DocumentationPart</code> resource creates a documentation part for an API. For more information, see &#91;Representation of API Documentation in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.documentation_parts" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>documentation_parts</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Location, Properties, RestApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>document
 <TabItem value="required">
 
 ```sql
--- documentation_part.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.documentation_parts (
  Location,
  Properties,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- documentation_part.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.documentation_parts (
  Location,
  Properties,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.documentation_parts
 WHERE data__Identifier = '<DocumentationPartId|RestApiId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>user_groups</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="UserGroupId, Engine, UserIds, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>user_gro
 <TabItem value="required">
 
 ```sql
--- user_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticache.user_groups (
  UserGroupId,
  Engine,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- user_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticache.user_groups (
  UserGroupId,
  Engine,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticache.user_groups
 WHERE data__Identifier = '<UserGroupId>'
 AND region = 'us-east-1';

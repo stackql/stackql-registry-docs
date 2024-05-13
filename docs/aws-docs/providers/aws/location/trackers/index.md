@@ -49,7 +49,7 @@ Used to retrieve a list of <code>trackers</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TrackerName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>tracker<
 <TabItem value="required">
 
 ```sql
--- tracker.iql (required properties only)
+/*+ create */
 INSERT INTO aws.location.trackers (
  TrackerName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- tracker.iql (all properties)
+/*+ create */
 INSERT INTO aws.location.trackers (
  Description,
  EventBridgeEnabled,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.location.trackers
 WHERE data__Identifier = '<TrackerName>'
 AND region = 'us-east-1';

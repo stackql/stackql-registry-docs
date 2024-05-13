@@ -49,7 +49,7 @@ Used to retrieve a list of <code>source_locations</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="HttpConfiguration, SourceLocationName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>source_l
 <TabItem value="required">
 
 ```sql
--- source_location.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediatailor.source_locations (
  HttpConfiguration,
  SourceLocationName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- source_location.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediatailor.source_locations (
  AccessConfiguration,
  DefaultSegmentDeliveryConfiguration,
@@ -167,6 +167,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediatailor.source_locations
 WHERE data__Identifier = '<SourceLocationName>'
 AND region = 'us-east-1';

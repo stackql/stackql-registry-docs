@@ -49,7 +49,7 @@ Used to retrieve a list of <code>document_classifiers</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DocumentClassifierName, DataAccessRoleArn, InputDataConfig, LanguageCode, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>document
 <TabItem value="required">
 
 ```sql
--- document_classifier.iql (required properties only)
+/*+ create */
 INSERT INTO aws.comprehend.document_classifiers (
  DataAccessRoleArn,
  InputDataConfig,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- document_classifier.iql (all properties)
+/*+ create */
 INSERT INTO aws.comprehend.document_classifiers (
  DataAccessRoleArn,
  InputDataConfig,
@@ -210,6 +210,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.comprehend.document_classifiers
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

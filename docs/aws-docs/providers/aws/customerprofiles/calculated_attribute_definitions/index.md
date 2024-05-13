@@ -50,7 +50,7 @@ Used to retrieve a list of <code>calculated_attribute_definitions</code> in a re
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DomainName, CalculatedAttributeName, AttributeDetails, Statistic, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>calculat
 <TabItem value="required">
 
 ```sql
--- calculated_attribute_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
  DomainName,
  CalculatedAttributeName,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- calculated_attribute_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.customerprofiles.calculated_attribute_definitions (
  DomainName,
  CalculatedAttributeName,
@@ -182,6 +182,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.customerprofiles.calculated_attribute_definitions
 WHERE data__Identifier = '<DomainName|CalculatedAttributeName>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>product_subscriptions</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ProductArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>product_
 <TabItem value="required">
 
 ```sql
--- product_subscription.iql (required properties only)
+/*+ create */
 INSERT INTO aws.securityhub.product_subscriptions (
  ProductArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- product_subscription.iql (all properties)
+/*+ create */
 INSERT INTO aws.securityhub.product_subscriptions (
  ProductArn,
  region
@@ -134,6 +134,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.securityhub.product_subscriptions
 WHERE data__Identifier = '<ProductSubscriptionArn>'
 AND region = 'us-east-1';

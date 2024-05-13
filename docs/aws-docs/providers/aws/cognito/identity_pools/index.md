@@ -49,7 +49,7 @@ Used to retrieve a list of <code>identity_pools</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AllowUnauthenticatedIdentities, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>identity
 <TabItem value="required">
 
 ```sql
--- identity_pool.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cognito.identity_pools (
  AllowUnauthenticatedIdentities,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- identity_pool.iql (all properties)
+/*+ create */
 INSERT INTO aws.cognito.identity_pools (
  PushSync,
  CognitoIdentityProviders,
@@ -185,6 +185,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cognito.identity_pools
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

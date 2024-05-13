@@ -49,7 +49,7 @@ Used to retrieve a list of <code>simple_ads</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="VpcSettings, Size, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>simple_a
 <TabItem value="required">
 
 ```sql
--- simple_ad.iql (required properties only)
+/*+ create */
 INSERT INTO aws.directoryservice.simple_ads (
  Name,
  Size,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- simple_ad.iql (all properties)
+/*+ create */
 INSERT INTO aws.directoryservice.simple_ads (
  CreateAlias,
  Description,
@@ -169,6 +169,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.directoryservice.simple_ads
 WHERE data__Identifier = '<DirectoryId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>layer_version_permissions</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LayerVersionArn, Action, Principal, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>layer_ve
 <TabItem value="required">
 
 ```sql
--- layer_version_permission.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lambda.layer_version_permissions (
  Action,
  LayerVersionArn,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- layer_version_permission.iql (all properties)
+/*+ create */
 INSERT INTO aws.lambda.layer_version_permissions (
  Action,
  LayerVersionArn,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lambda.layer_version_permissions
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

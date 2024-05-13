@@ -49,7 +49,7 @@ Used to retrieve a list of <code>databases</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>database
 <TabItem value="required">
 
 ```sql
--- database.iql (required properties only)
+/*+ create */
 INSERT INTO aws.timestream.databases (
  DatabaseName,
  KmsKeyId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- database.iql (all properties)
+/*+ create */
 INSERT INTO aws.timestream.databases (
  DatabaseName,
  KmsKeyId,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.timestream.databases
 WHERE data__Identifier = '<DatabaseName>'
 AND region = 'us-east-1';

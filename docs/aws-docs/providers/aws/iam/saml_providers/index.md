@@ -49,7 +49,7 @@ Used to retrieve a list of <code>saml_providers</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SamlMetadataDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>saml_pro
 <TabItem value="required">
 
 ```sql
--- saml_provider.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iam.saml_providers (
  SamlMetadataDocument,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- saml_provider.iql (all properties)
+/*+ create */
 INSERT INTO aws.iam.saml_providers (
  Name,
  SamlMetadataDocument,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iam.saml_providers
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

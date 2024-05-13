@@ -49,7 +49,7 @@ Used to retrieve a list of <code>tls_inspection_configurations</code> in a regio
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TLSInspectionConfigurationName, TLSInspectionConfiguration, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>tls_insp
 <TabItem value="required">
 
 ```sql
--- tls_inspection_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkfirewall.tls_inspection_configurations (
  TLSInspectionConfigurationName,
  TLSInspectionConfiguration,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- tls_inspection_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkfirewall.tls_inspection_configurations (
  TLSInspectionConfigurationName,
  TLSInspectionConfiguration,
@@ -155,6 +155,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkfirewall.tls_inspection_configurations
 WHERE data__Identifier = '<TLSInspectionConfigurationArn>'
 AND region = 'us-east-1';

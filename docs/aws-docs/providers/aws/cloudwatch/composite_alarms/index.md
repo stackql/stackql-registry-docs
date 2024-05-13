@@ -49,7 +49,7 @@ Used to retrieve a list of <code>composite_alarms</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AlarmRule, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>composit
 <TabItem value="required">
 
 ```sql
--- composite_alarm.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudwatch.composite_alarms (
  AlarmRule,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- composite_alarm.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudwatch.composite_alarms (
  AlarmName,
  AlarmRule,
@@ -179,6 +179,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudwatch.composite_alarms
 WHERE data__Identifier = '<AlarmName>'
 AND region = 'us-east-1';

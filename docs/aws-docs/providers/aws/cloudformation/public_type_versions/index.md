@@ -49,12 +49,7 @@ Used to retrieve a list of <code>public_type_versions</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
-  </tr>
-  <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resource" /></td>
@@ -87,7 +82,7 @@ Use the following StackQL query and manifest file to create a new <code>public_t
 <TabItem value="required">
 
 ```sql
--- public_type_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.public_type_versions (
  Arn,
  PublicVersionNumber,
@@ -108,7 +103,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- public_type_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.public_type_versions (
  Arn,
  PublicVersionNumber,
@@ -154,14 +149,6 @@ resources:
 ```
 </TabItem>
 </Tabs>
-
-## `DELETE` Example
-
-```sql
-DELETE FROM aws.cloudformation.public_type_versions
-WHERE data__Identifier = '<PublicTypeArn>'
-AND region = 'us-east-1';
-```
 
 ## Permissions
 

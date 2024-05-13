@@ -49,7 +49,7 @@ Used to retrieve a list of <code>associations</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>associat
 <TabItem value="required">
 
 ```sql
--- association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ssm.associations (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- association.iql (all properties)
+/*+ create */
 INSERT INTO aws.ssm.associations (
  AssociationName,
  CalendarNames,
@@ -206,6 +206,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ssm.associations
 WHERE data__Identifier = '<AssociationId>'
 AND region = 'us-east-1';

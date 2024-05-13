@@ -49,7 +49,7 @@ Used to retrieve a list of <code>event_buses</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>event_bu
 <TabItem value="required">
 
 ```sql
--- event_bus.iql (required properties only)
+/*+ create */
 INSERT INTO aws.events.event_buses (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- event_bus.iql (all properties)
+/*+ create */
 INSERT INTO aws.events.event_buses (
  EventSourceName,
  Name,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.events.event_buses
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

@@ -51,7 +51,7 @@ Used to retrieve a list of <code>hosted_configuration_versions</code> in a regio
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApplicationId, ConfigurationProfileId, Content, ContentType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>hosted_c
 <TabItem value="required">
 
 ```sql
--- hosted_configuration_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appconfig.hosted_configuration_versions (
  ConfigurationProfileId,
  ContentType,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- hosted_configuration_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.appconfig.hosted_configuration_versions (
  ConfigurationProfileId,
  Description,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appconfig.hosted_configuration_versions
 WHERE data__Identifier = '<ApplicationId|ConfigurationProfileId|VersionNumber>'
 AND region = 'us-east-1';

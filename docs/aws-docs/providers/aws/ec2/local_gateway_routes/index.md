@@ -50,7 +50,7 @@ Used to retrieve a list of <code>local_gateway_routes</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>local_ga
 <TabItem value="required">
 
 ```sql
--- local_gateway_route.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.local_gateway_routes (
  DestinationCidrBlock,
  LocalGatewayRouteTableId,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- local_gateway_route.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.local_gateway_routes (
  DestinationCidrBlock,
  LocalGatewayRouteTableId,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.local_gateway_routes
 WHERE data__Identifier = '<DestinationCidrBlock|LocalGatewayRouteTableId>'
 AND region = 'us-east-1';

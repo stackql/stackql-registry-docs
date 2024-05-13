@@ -49,7 +49,7 @@ Used to retrieve a list of <code>infrastructure_configurations</code> in a regio
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, InstanceProfileName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>infrastr
 <TabItem value="required">
 
 ```sql
--- infrastructure_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.imagebuilder.infrastructure_configurations (
  Name,
  InstanceProfileName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- infrastructure_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.imagebuilder.infrastructure_configurations (
  Name,
  Description,
@@ -191,6 +191,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.imagebuilder.infrastructure_configurations
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

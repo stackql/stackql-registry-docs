@@ -52,7 +52,7 @@ Used to retrieve a list of <code>network_performance_metric_subscriptions</code>
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Source, Destination, Metric, Statistic, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -93,7 +93,7 @@ Use the following StackQL query and manifest file to create a new <code>network_
 <TabItem value="required">
 
 ```sql
--- network_performance_metric_subscription.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.network_performance_metric_subscriptions (
  Source,
  Destination,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- network_performance_metric_subscription.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.network_performance_metric_subscriptions (
  Source,
  Destination,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.network_performance_metric_subscriptions
 WHERE data__Identifier = '<Source|Destination|Metric|Statistic>'
 AND region = 'us-east-1';

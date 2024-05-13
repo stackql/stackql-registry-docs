@@ -51,7 +51,7 @@ Used to retrieve a list of <code>refresh_schedules</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code=", region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>refresh_
 <TabItem value="required">
 
 ```sql
--- refresh_schedule.iql (required properties only)
+/*+ create */
 INSERT INTO aws.quicksight.refresh_schedules (
  ,
  region
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- refresh_schedule.iql (all properties)
+/*+ create */
 INSERT INTO aws.quicksight.refresh_schedules (
  AwsAccountId,
  DataSetId,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.quicksight.refresh_schedules
 WHERE data__Identifier = '<AwsAccountId|DataSetId|Schedule/ScheduleId>'
 AND region = 'us-east-1';

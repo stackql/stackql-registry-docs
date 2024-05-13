@@ -49,7 +49,7 @@ Used to retrieve a list of <code>licenses</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LicenseName, ProductName, Issuer, HomeRegion, Validity, ConsumptionConfiguration, Entitlements, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>license<
 <TabItem value="required">
 
 ```sql
--- license.iql (required properties only)
+/*+ create */
 INSERT INTO aws.licensemanager.licenses (
  Issuer,
  LicenseName,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- license.iql (all properties)
+/*+ create */
 INSERT INTO aws.licensemanager.licenses (
  ProductSKU,
  Issuer,
@@ -204,6 +204,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.licensemanager.licenses
 WHERE data__Identifier = '<LicenseArn>'
 AND region = 'us-east-1';

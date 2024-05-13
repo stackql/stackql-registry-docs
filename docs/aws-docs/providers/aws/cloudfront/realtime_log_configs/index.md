@@ -49,7 +49,7 @@ Used to retrieve a list of <code>realtime_log_configs</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, EndPoints, Fields, SamplingRate, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>realtime
 <TabItem value="required">
 
 ```sql
--- realtime_log_config.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudfront.realtime_log_configs (
  EndPoints,
  Fields,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- realtime_log_config.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudfront.realtime_log_configs (
  EndPoints,
  Fields,
@@ -157,6 +157,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudfront.realtime_log_configs
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>auto_scaling_configurations</code> in a region 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>auto_sca
 <TabItem value="required">
 
 ```sql
--- auto_scaling_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apprunner.auto_scaling_configurations (
  AutoScalingConfigurationName,
  MaxConcurrency,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- auto_scaling_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.apprunner.auto_scaling_configurations (
  AutoScalingConfigurationName,
  MaxConcurrency,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apprunner.auto_scaling_configurations
 WHERE data__Identifier = '<AutoScalingConfigurationArn>'
 AND region = 'us-east-1';

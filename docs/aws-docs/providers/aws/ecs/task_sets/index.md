@@ -51,7 +51,7 @@ Used to retrieve a list of <code>task_sets</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Cluster, Service, TaskDefinition, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>task_set
 <TabItem value="required">
 
 ```sql
--- task_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecs.task_sets (
  Cluster,
  Service,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- task_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecs.task_sets (
  Cluster,
  ExternalId,
@@ -199,6 +199,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecs.task_sets
 WHERE data__Identifier = '<Cluster|Service|Id>'
 AND region = 'us-east-1';

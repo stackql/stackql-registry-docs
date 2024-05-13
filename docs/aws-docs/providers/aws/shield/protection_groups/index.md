@@ -49,7 +49,7 @@ Used to retrieve a list of <code>protection_groups</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Aggregation, Pattern, ProtectionGroupId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>protecti
 <TabItem value="required">
 
 ```sql
--- protection_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.shield.protection_groups (
  ProtectionGroupId,
  Aggregation,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- protection_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.shield.protection_groups (
  ProtectionGroupId,
  Aggregation,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.shield.protection_groups
 WHERE data__Identifier = '<ProtectionGroupArn>'
 AND region = 'us-east-1';

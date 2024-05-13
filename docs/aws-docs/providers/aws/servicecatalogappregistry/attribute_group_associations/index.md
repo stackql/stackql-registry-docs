@@ -50,7 +50,7 @@ Used to retrieve a list of <code>attribute_group_associations</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Application, AttributeGroup, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>attribut
 <TabItem value="required">
 
 ```sql
--- attribute_group_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.attribute_group_associations (
  Application,
  AttributeGroup,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- attribute_group_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.attribute_group_associations (
  Application,
  AttributeGroup,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.servicecatalogappregistry.attribute_group_associations
 WHERE data__Identifier = '<ApplicationArn|AttributeGroupArn>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>sites</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="GlobalNetworkId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>site</co
 <TabItem value="required">
 
 ```sql
--- site.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkmanager.sites (
  GlobalNetworkId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- site.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkmanager.sites (
  Description,
  Tags,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkmanager.sites
 WHERE data__Identifier = '<GlobalNetworkId|SiteId>'
 AND region = 'us-east-1';

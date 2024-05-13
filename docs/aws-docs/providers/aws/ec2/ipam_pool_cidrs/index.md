@@ -50,7 +50,7 @@ Used to retrieve a list of <code>ipam_pool_cidrs</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IpamPoolId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>ipam_poo
 <TabItem value="required">
 
 ```sql
--- ipam_pool_cidr.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.ipam_pool_cidrs (
  IpamPoolId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- ipam_pool_cidr.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.ipam_pool_cidrs (
  IpamPoolId,
  Cidr,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.ipam_pool_cidrs
 WHERE data__Identifier = '<IpamPoolId|IpamPoolCidrId>'
 AND region = 'us-east-1';

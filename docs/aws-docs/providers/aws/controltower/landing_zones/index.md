@@ -49,7 +49,7 @@ Used to retrieve a list of <code>landing_zones</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Manifest, Version, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>landing_
 <TabItem value="required">
 
 ```sql
--- landing_zone.iql (required properties only)
+/*+ create */
 INSERT INTO aws.controltower.landing_zones (
  Manifest,
  Version,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- landing_zone.iql (all properties)
+/*+ create */
 INSERT INTO aws.controltower.landing_zones (
  Manifest,
  Version,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.controltower.landing_zones
 WHERE data__Identifier = '<LandingZoneIdentifier>'
 AND region = 'us-east-1';

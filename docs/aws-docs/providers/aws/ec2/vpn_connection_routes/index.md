@@ -50,7 +50,7 @@ Used to retrieve a list of <code>vpn_connection_routes</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DestinationCidrBlock, VpnConnectionId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>vpn_conn
 <TabItem value="required">
 
 ```sql
--- vpn_connection_route.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.vpn_connection_routes (
  DestinationCidrBlock,
  VpnConnectionId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpn_connection_route.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.vpn_connection_routes (
  DestinationCidrBlock,
  VpnConnectionId,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.vpn_connection_routes
 WHERE data__Identifier = '<DestinationCidrBlock|VpnConnectionId>'
 AND region = 'us-east-1';

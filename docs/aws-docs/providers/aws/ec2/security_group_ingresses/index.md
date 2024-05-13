@@ -49,7 +49,7 @@ Used to retrieve a list of <code>security_group_ingresses</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IpProtocol, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>security
 <TabItem value="required">
 
 ```sql
--- security_group_ingress.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.security_group_ingresses (
  IpProtocol,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- security_group_ingress.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.security_group_ingresses (
  CidrIp,
  CidrIpv6,
@@ -178,6 +178,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.security_group_ingresses
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

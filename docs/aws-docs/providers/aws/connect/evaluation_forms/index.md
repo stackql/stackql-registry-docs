@@ -49,7 +49,7 @@ Used to retrieve a list of <code>evaluation_forms</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Title, InstanceArn, Items, Status, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>evaluati
 <TabItem value="required">
 
 ```sql
--- evaluation_form.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.evaluation_forms (
  Title,
  InstanceArn,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- evaluation_form.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.evaluation_forms (
  Title,
  Description,
@@ -208,6 +208,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.evaluation_forms
 WHERE data__Identifier = '<EvaluationFormArn>'
 AND region = 'us-east-1';

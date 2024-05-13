@@ -49,7 +49,7 @@ Used to retrieve a list of <code>response_headers_policies</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResponseHeadersPolicyConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>response
 <TabItem value="required">
 
 ```sql
--- response_headers_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudfront.response_headers_policies (
  ResponseHeadersPolicyConfig,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- response_headers_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudfront.response_headers_policies (
  ResponseHeadersPolicyConfig,
  region
@@ -185,6 +185,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudfront.response_headers_policies
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

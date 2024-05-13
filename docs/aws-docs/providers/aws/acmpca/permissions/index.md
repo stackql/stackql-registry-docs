@@ -50,7 +50,7 @@ Used to retrieve a list of <code>permissions</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Actions, CertificateAuthorityArn, Principal, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>permissi
 <TabItem value="required">
 
 ```sql
--- permission.iql (required properties only)
+/*+ create */
 INSERT INTO aws.acmpca.permissions (
  Actions,
  CertificateAuthorityArn,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- permission.iql (all properties)
+/*+ create */
 INSERT INTO aws.acmpca.permissions (
  Actions,
  CertificateAuthorityArn,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.acmpca.permissions
 WHERE data__Identifier = '<CertificateAuthorityArn|Principal>'
 AND region = 'us-east-1';

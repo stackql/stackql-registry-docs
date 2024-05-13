@@ -49,7 +49,7 @@ Used to retrieve a list of <code>profiling_groups</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ProfilingGroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>profilin
 <TabItem value="required">
 
 ```sql
--- profiling_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.codeguruprofiler.profiling_groups (
  ProfilingGroupName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- profiling_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.codeguruprofiler.profiling_groups (
  ProfilingGroupName,
  ComputePlatform,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.codeguruprofiler.profiling_groups
 WHERE data__Identifier = '<ProfilingGroupName>'
 AND region = 'us-east-1';

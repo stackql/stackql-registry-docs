@@ -49,7 +49,7 @@ Used to retrieve a list of <code>replication_configurations</code> in a region o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ReplicationConfiguration, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>replicat
 <TabItem value="required">
 
 ```sql
--- replication_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecr.replication_configurations (
  ReplicationConfiguration,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- replication_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecr.replication_configurations (
  ReplicationConfiguration,
  region
@@ -135,6 +135,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecr.replication_configurations
 WHERE data__Identifier = '<RegistryId>'
 AND region = 'us-east-1';

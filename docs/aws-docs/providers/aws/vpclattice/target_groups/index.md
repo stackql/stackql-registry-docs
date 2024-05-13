@@ -49,7 +49,7 @@ Used to retrieve a list of <code>target_groups</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>target_g
 <TabItem value="required">
 
 ```sql
--- target_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.vpclattice.target_groups (
  Type,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- target_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.vpclattice.target_groups (
  Config,
  Name,
@@ -172,6 +172,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.vpclattice.target_groups
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

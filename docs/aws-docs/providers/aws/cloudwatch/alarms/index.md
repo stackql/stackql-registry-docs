@@ -26,7 +26,7 @@ Used to retrieve a list of <code>alarms</code> in a region or to create or delet
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>alarms</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.&lt;br&#x2F;&gt; When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.&lt;br&#x2F;&gt; When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::CloudWatch::Alarm</code> type specifies an alarm and associates it with the specified metric or metric math expression.&lt;br&#x2F;&gt; When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.&lt;br&#x2F;&gt; When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudwatch.alarms" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>alarms</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ComparisonOperator, EvaluationPeriods, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>alarm</c
 <TabItem value="required">
 
 ```sql
--- alarm.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudwatch.alarms (
  ComparisonOperator,
  EvaluationPeriods,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- alarm.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudwatch.alarms (
  ThresholdMetricId,
  EvaluateLowSampleCountPercentile,
@@ -242,6 +242,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudwatch.alarms
 WHERE data__Identifier = '<AlarmName>'
 AND region = 'us-east-1';

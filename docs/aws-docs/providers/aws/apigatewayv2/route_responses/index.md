@@ -26,7 +26,7 @@ Used to retrieve a list of <code>route_responses</code> in a region or to create
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_responses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see &#91;Set up Route Responses for a WebSocket API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::RouteResponse</code> resource creates a route response for a WebSocket API. For more information, see &#91;Set up Route Responses for a WebSocket API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.route_responses" /></td></tr>
 </tbody></table>
 
@@ -51,7 +51,7 @@ Used to retrieve a list of <code>route_responses</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RouteResponseKey, RouteId, ApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>route_re
 <TabItem value="required">
 
 ```sql
--- route_response.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigatewayv2.route_responses (
  RouteResponseKey,
  RouteId,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- route_response.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigatewayv2.route_responses (
  RouteResponseKey,
  ResponseParameters,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigatewayv2.route_responses
 WHERE data__Identifier = '<ApiId|RouteId|RouteResponseId>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>groups</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IdentityStoreId, DisplayName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>group</c
 <TabItem value="required">
 
 ```sql
--- group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.identitystore.groups (
  DisplayName,
  IdentityStoreId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- group.iql (all properties)
+/*+ create */
 INSERT INTO aws.identitystore.groups (
  Description,
  DisplayName,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.identitystore.groups
 WHERE data__Identifier = '<GroupId|IdentityStoreId>'
 AND region = 'us-east-1';

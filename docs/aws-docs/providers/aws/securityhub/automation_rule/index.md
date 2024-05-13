@@ -26,7 +26,7 @@ Gets or updates an individual <code>automation_rule</code> resource, use <code>a
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>automation_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see &#91;Automation rules&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;securityhub&#x2F;latest&#x2F;userguide&#x2F;automation-rules.html) in the *User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::SecurityHub::AutomationRule</code> resource specifies an automation rule based on input parameters. For more information, see &#91;Automation rules&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;securityhub&#x2F;latest&#x2F;userguide&#x2F;automation-rules.html) in the *User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.securityhub.automation_rule" /></td></tr>
 </tbody></table>
 
@@ -34,7 +34,7 @@ Gets or updates an individual <code>automation_rule</code> resource, use <code>a
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><CopyableCode code="rule_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rule_status" /></td><td><code>string</code></td><td>Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.</td></tr>
+<tr><td><CopyableCode code="rule_status" /></td><td><code>string</code></td><td>Whether the rule is active after it is created. If this parameter is equal to <code>ENABLED</code>, ASH applies the rule to findings and finding updates after the rule is created.</td></tr>
 <tr><td><CopyableCode code="rule_order" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="rule_name" /></td><td><code>string</code></td><td></td></tr>

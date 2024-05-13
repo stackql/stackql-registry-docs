@@ -49,7 +49,7 @@ Used to retrieve a list of <code>wireless_gateways</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LoRaWAN, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>wireless
 <TabItem value="required">
 
 ```sql
--- wireless_gateway.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotwireless.wireless_gateways (
  LoRaWAN,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- wireless_gateway.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotwireless.wireless_gateways (
  Name,
  Description,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotwireless.wireless_gateways
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

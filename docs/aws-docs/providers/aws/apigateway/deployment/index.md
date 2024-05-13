@@ -26,7 +26,7 @@ Gets or updates an individual <code>deployment</code> resource, use <code>deploy
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Deployment</code> resource deploys an API Gateway <code>RestApi</code> resource to a stage so that clients can call the API over the internet. The stage acts as an environment.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.deployment" /></td></tr>
 </tbody></table>
 

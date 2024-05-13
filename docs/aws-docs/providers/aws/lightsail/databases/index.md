@@ -49,7 +49,7 @@ Used to retrieve a list of <code>databases</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RelationalDatabaseName, RelationalDatabaseBlueprintId, RelationalDatabaseBundleId, MasterDatabaseName, MasterUsername, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>database
 <TabItem value="required">
 
 ```sql
--- database.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lightsail.databases (
  RelationalDatabaseName,
  RelationalDatabaseBlueprintId,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- database.iql (all properties)
+/*+ create */
 INSERT INTO aws.lightsail.databases (
  RelationalDatabaseName,
  AvailabilityZone,
@@ -208,6 +208,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lightsail.databases
 WHERE data__Identifier = '<RelationalDatabaseName>'
 AND region = 'us-east-1';

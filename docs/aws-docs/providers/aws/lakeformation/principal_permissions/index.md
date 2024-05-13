@@ -26,7 +26,7 @@ Gets or updates an individual <code>principal_permissions</code> resource, use <
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>principal_permissions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::LakeFormation::PrincipalPermissions</code> resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a <code>PrincipalPermissions</code> resource, the permissions are granted via the LFlong <code>GrantPermissions</code> API operation. When you delete a <code>PrincipalPermissions</code> resource, the permissions on principal-resource pair are revoked via the LFlong <code>RevokePermissions</code> API operation.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.lakeformation.principal_permissions" /></td></tr>
 </tbody></table>
 

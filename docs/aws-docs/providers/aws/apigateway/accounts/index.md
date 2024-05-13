@@ -26,7 +26,7 @@ Used to retrieve a list of <code>accounts</code> in a region or to create or del
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Account</code> resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one <code>AWS::ApiGateway::Account</code> resource per region per account.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.accounts" /></td></tr>
 </tbody></table>
 
@@ -49,12 +49,7 @@ Used to retrieve a list of <code>accounts</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
-  </tr>
-  <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resource" /></td>
@@ -87,7 +82,7 @@ Use the following StackQL query and manifest file to create a new <code>account<
 <TabItem value="required">
 
 ```sql
--- account.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.accounts (
  CloudWatchRoleArn,
  region
@@ -100,7 +95,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- account.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.accounts (
  CloudWatchRoleArn,
  region
@@ -130,14 +125,6 @@ resources:
 ```
 </TabItem>
 </Tabs>
-
-## `DELETE` Example
-
-```sql
-DELETE FROM aws.apigateway.accounts
-WHERE data__Identifier = '<Id>'
-AND region = 'us-east-1';
-```
 
 ## Permissions
 

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>network_analyzer_configurations</code> in a reg
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>network_
 <TabItem value="required">
 
 ```sql
--- network_analyzer_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotwireless.network_analyzer_configurations (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- network_analyzer_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotwireless.network_analyzer_configurations (
  Name,
  Description,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotwireless.network_analyzer_configurations
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

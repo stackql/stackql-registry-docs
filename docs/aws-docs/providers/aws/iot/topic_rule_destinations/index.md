@@ -49,7 +49,7 @@ Used to retrieve a list of <code>topic_rule_destinations</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>topic_ru
 <TabItem value="required">
 
 ```sql
--- topic_rule_destination.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.topic_rule_destinations (
  Status,
  HttpUrlProperties,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- topic_rule_destination.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.topic_rule_destinations (
  Status,
  HttpUrlProperties,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.topic_rule_destinations
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

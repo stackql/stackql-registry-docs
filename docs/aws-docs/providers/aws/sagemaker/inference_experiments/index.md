@@ -49,7 +49,7 @@ Used to retrieve a list of <code>inference_experiments</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Type, RoleArn, EndpointName, ModelVariants, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>inferenc
 <TabItem value="required">
 
 ```sql
--- inference_experiment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.inference_experiments (
  Name,
  Type,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- inference_experiment.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.inference_experiments (
  Name,
  Type,
@@ -212,6 +212,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.inference_experiments
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

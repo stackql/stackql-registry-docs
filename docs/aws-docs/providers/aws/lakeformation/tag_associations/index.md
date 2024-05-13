@@ -50,7 +50,7 @@ Used to retrieve a list of <code>tag_associations</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Resource, LFTags, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>tag_asso
 <TabItem value="required">
 
 ```sql
--- tag_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lakeformation.tag_associations (
  Resource,
  LFTags,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- tag_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.lakeformation.tag_associations (
  Resource,
  LFTags,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lakeformation.tag_associations
 WHERE data__Identifier = '<ResourceIdentifier|TagsIdentifier>'
 AND region = 'us-east-1';

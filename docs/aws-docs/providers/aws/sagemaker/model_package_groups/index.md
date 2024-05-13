@@ -49,7 +49,7 @@ Used to retrieve a list of <code>model_package_groups</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ModelPackageGroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>model_pa
 <TabItem value="required">
 
 ```sql
--- model_package_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.model_package_groups (
  ModelPackageGroupName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- model_package_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.model_package_groups (
  Tags,
  ModelPackageGroupName,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.model_package_groups
 WHERE data__Identifier = '<ModelPackageGroupArn>'
 AND region = 'us-east-1';

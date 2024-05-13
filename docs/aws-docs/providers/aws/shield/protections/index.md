@@ -49,7 +49,7 @@ Used to retrieve a list of <code>protections</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, ResourceArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>protecti
 <TabItem value="required">
 
 ```sql
--- protection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.shield.protections (
  Name,
  ResourceArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- protection.iql (all properties)
+/*+ create */
 INSERT INTO aws.shield.protections (
  Name,
  ResourceArn,
@@ -157,6 +157,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.shield.protections
 WHERE data__Identifier = '<ProtectionArn>'
 AND region = 'us-east-1';

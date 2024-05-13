@@ -49,7 +49,7 @@ Used to retrieve a list of <code>global_clusters</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>global_c
 <TabItem value="required">
 
 ```sql
--- global_cluster.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rds.global_clusters (
  Engine,
  EngineVersion,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- global_cluster.iql (all properties)
+/*+ create */
 INSERT INTO aws.rds.global_clusters (
  Engine,
  EngineVersion,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rds.global_clusters
 WHERE data__Identifier = '<GlobalClusterIdentifier>'
 AND region = 'us-east-1';

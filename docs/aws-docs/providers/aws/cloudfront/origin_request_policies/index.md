@@ -49,7 +49,7 @@ Used to retrieve a list of <code>origin_request_policies</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="OriginRequestPolicyConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>origin_r
 <TabItem value="required">
 
 ```sql
--- origin_request_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudfront.origin_request_policies (
  OriginRequestPolicyConfig,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- origin_request_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudfront.origin_request_policies (
  OriginRequestPolicyConfig,
  region
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudfront.origin_request_policies
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

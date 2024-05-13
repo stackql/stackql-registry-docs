@@ -49,7 +49,7 @@ Used to retrieve a list of <code>feature_groups</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FeatureGroupName, RecordIdentifierFeatureName, EventTimeFeatureName, FeatureDefinitions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>feature_
 <TabItem value="required">
 
 ```sql
--- feature_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.feature_groups (
  FeatureGroupName,
  RecordIdentifierFeatureName,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- feature_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.feature_groups (
  FeatureGroupName,
  RecordIdentifierFeatureName,
@@ -199,6 +199,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.feature_groups
 WHERE data__Identifier = '<FeatureGroupName>'
 AND region = 'us-east-1';

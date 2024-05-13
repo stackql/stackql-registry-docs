@@ -49,7 +49,7 @@ Used to retrieve a list of <code>vpc_endpoint_services</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>vpc_endp
 <TabItem value="required">
 
 ```sql
--- vpc_endpoint_service.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.vpc_endpoint_services (
  NetworkLoadBalancerArns,
  ContributorInsightsEnabled,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpc_endpoint_service.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.vpc_endpoint_services (
  NetworkLoadBalancerArns,
  ContributorInsightsEnabled,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.vpc_endpoint_services
 WHERE data__Identifier = '<ServiceId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resource_specific_loggings</code> in a region o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TargetName, TargetType, LogLevel, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resource
 <TabItem value="required">
 
 ```sql
--- resource_specific_logging.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.resource_specific_loggings (
  TargetType,
  TargetName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resource_specific_logging.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.resource_specific_loggings (
  TargetType,
  TargetName,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.resource_specific_loggings
 WHERE data__Identifier = '<TargetId>'
 AND region = 'us-east-1';

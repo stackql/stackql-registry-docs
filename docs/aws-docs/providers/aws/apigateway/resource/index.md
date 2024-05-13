@@ -26,7 +26,7 @@ Gets or updates an individual <code>resource</code> resource, use <code>resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Resource</code> resource creates a resource in an API.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.resource" /></td></tr>
 </tbody></table>
 

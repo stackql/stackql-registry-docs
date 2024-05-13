@@ -54,7 +54,7 @@ Used to retrieve a list of <code>assignments</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceArn, TargetId, TargetType, PermissionSetArn, PrincipalType, PrincipalId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -97,7 +97,7 @@ Use the following StackQL query and manifest file to create a new <code>assignme
 <TabItem value="required">
 
 ```sql
--- assignment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sso.assignments (
  InstanceArn,
  TargetId,
@@ -120,7 +120,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- assignment.iql (all properties)
+/*+ create */
 INSERT INTO aws.sso.assignments (
  InstanceArn,
  TargetId,
@@ -174,6 +174,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sso.assignments
 WHERE data__Identifier = '<InstanceArn|TargetId|TargetType|PermissionSetArn|PrincipalType|PrincipalId>'
 AND region = 'us-east-1';

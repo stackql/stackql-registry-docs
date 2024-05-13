@@ -49,7 +49,7 @@ Used to retrieve a list of <code>collections</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CollectionId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>collecti
 <TabItem value="required">
 
 ```sql
--- collection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rekognition.collections (
  CollectionId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- collection.iql (all properties)
+/*+ create */
 INSERT INTO aws.rekognition.collections (
  CollectionId,
  Tags,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rekognition.collections
 WHERE data__Identifier = '<CollectionId>'
 AND region = 'us-east-1';

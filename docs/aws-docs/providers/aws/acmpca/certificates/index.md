@@ -26,7 +26,7 @@ Used to retrieve a list of <code>certificates</code> in a region or to create or
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the &#91;IssueCertificate&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;privateca&#x2F;latest&#x2F;APIReference&#x2F;API_IssueCertificate.html) action.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ACMPCA::Certificate</code> resource is used to issue a certificate using your private certificate authority. For more information, see the &#91;IssueCertificate&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;privateca&#x2F;latest&#x2F;APIReference&#x2F;API_IssueCertificate.html) action.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.acmpca.certificates" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>certificates</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CertificateAuthorityArn, CertificateSigningRequest, SigningAlgorithm, Validity, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>certific
 <TabItem value="required">
 
 ```sql
--- certificate.iql (required properties only)
+/*+ create */
 INSERT INTO aws.acmpca.certificates (
  CertificateAuthorityArn,
  CertificateSigningRequest,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- certificate.iql (all properties)
+/*+ create */
 INSERT INTO aws.acmpca.certificates (
  ApiPassthrough,
  CertificateAuthorityArn,
@@ -223,6 +223,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.acmpca.certificates
 WHERE data__Identifier = '<Arn|CertificateAuthorityArn>'
 AND region = 'us-east-1';

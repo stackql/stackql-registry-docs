@@ -49,7 +49,7 @@ Used to retrieve a list of <code>custom_data_identifiers</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Regex, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>custom_d
 <TabItem value="required">
 
 ```sql
--- custom_data_identifier.iql (required properties only)
+/*+ create */
 INSERT INTO aws.macie.custom_data_identifiers (
  Name,
  Regex,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- custom_data_identifier.iql (all properties)
+/*+ create */
 INSERT INTO aws.macie.custom_data_identifiers (
  Name,
  Description,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.macie.custom_data_identifiers
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

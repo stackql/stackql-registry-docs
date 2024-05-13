@@ -49,7 +49,7 @@ Used to retrieve a list of <code>subnet_groups</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Description, SubnetIds, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>subnet_g
 <TabItem value="required">
 
 ```sql
--- subnet_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticache.subnet_groups (
  Description,
  SubnetIds,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- subnet_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticache.subnet_groups (
  Description,
  SubnetIds,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticache.subnet_groups
 WHERE data__Identifier = '<CacheSubnetGroupName>'
 AND region = 'us-east-1';

@@ -26,7 +26,7 @@ Used to retrieve a list of <code>client_certificates</code> in a region or to cr
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>client_certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::ClientCertificate</code> resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.client_certificates" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>client_certificates</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>client_c
 <TabItem value="required">
 
 ```sql
--- client_certificate.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.client_certificates (
  Description,
  Tags,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- client_certificate.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.client_certificates (
  Description,
  Tags,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.client_certificates
 WHERE data__Identifier = '<ClientCertificateId>'
 AND region = 'us-east-1';

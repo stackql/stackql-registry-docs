@@ -49,7 +49,7 @@ Used to retrieve a list of <code>prompts</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceArn, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>prompt</
 <TabItem value="required">
 
 ```sql
--- prompt.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.prompts (
  InstanceArn,
  Name,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- prompt.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.prompts (
  InstanceArn,
  Name,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.prompts
 WHERE data__Identifier = '<PromptArn>'
 AND region = 'us-east-1';

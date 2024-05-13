@@ -51,7 +51,7 @@ Used to retrieve a list of <code>web_acls</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DefaultAction, Scope, VisibilityConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>web_acl<
 <TabItem value="required">
 
 ```sql
--- web_acl.iql (required properties only)
+/*+ create */
 INSERT INTO aws.wafv2.web_acls (
  DefaultAction,
  Scope,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- web_acl.iql (all properties)
+/*+ create */
 INSERT INTO aws.wafv2.web_acls (
  DefaultAction,
  Description,
@@ -420,6 +420,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.wafv2.web_acls
 WHERE data__Identifier = '<Name|Id|Scope>'
 AND region = 'us-east-1';

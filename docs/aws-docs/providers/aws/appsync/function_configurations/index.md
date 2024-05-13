@@ -49,7 +49,7 @@ Used to retrieve a list of <code>function_configurations</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApiId, DataSourceName, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>function
 <TabItem value="required">
 
 ```sql
--- function_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appsync.function_configurations (
  ApiId,
  DataSourceName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- function_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.appsync.function_configurations (
  ApiId,
  Code,
@@ -196,6 +196,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appsync.function_configurations
 WHERE data__Identifier = '<FunctionArn>'
 AND region = 'us-east-1';

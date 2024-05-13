@@ -49,7 +49,7 @@ Used to retrieve a list of <code>dimensions</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Type, StringValues, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>dimensio
 <TabItem value="required">
 
 ```sql
--- dimension.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.dimensions (
  Type,
  StringValues,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- dimension.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.dimensions (
  Name,
  Type,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.dimensions
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

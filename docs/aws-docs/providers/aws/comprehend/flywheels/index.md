@@ -49,7 +49,7 @@ Used to retrieve a list of <code>flywheels</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FlywheelName, DataAccessRoleArn, DataLakeS3Uri, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>flywheel
 <TabItem value="required">
 
 ```sql
--- flywheel.iql (required properties only)
+/*+ create */
 INSERT INTO aws.comprehend.flywheels (
  DataAccessRoleArn,
  DataLakeS3Uri,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- flywheel.iql (all properties)
+/*+ create */
 INSERT INTO aws.comprehend.flywheels (
  ActiveModelArn,
  DataAccessRoleArn,
@@ -184,6 +184,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.comprehend.flywheels
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

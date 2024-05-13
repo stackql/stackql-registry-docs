@@ -49,7 +49,7 @@ Used to retrieve a list of <code>component_versions</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>componen
 <TabItem value="required">
 
 ```sql
--- component_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.greengrassv2.component_versions (
  InlineRecipe,
  LambdaFunction,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- component_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.greengrassv2.component_versions (
  InlineRecipe,
  LambdaFunction,
@@ -181,6 +181,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.greengrassv2.component_versions
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

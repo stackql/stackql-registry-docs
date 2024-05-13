@@ -26,7 +26,7 @@ Used to retrieve a list of <code>buckets</code> in a region or to create or dele
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.&lt;br&#x2F;&gt; To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see &#91;DeletionPolicy Attribute&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-attribute-deletionpolicy.html).&lt;br&#x2F;&gt;  You can only delete empty buckets. Deletion fails for buckets that have contents.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::S3::Bucket</code> resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.&lt;br&#x2F;&gt; To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see &#91;DeletionPolicy Attribute&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-attribute-deletionpolicy.html).&lt;br&#x2F;&gt;  You can only delete empty buckets. Deletion fails for buckets that have contents.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.s3.buckets" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>buckets</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="BucketName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>bucket</
 <TabItem value="required">
 
 ```sql
--- bucket.iql (required properties only)
+/*+ create */
 INSERT INTO aws.s3.buckets (
  BucketName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- bucket.iql (all properties)
+/*+ create */
 INSERT INTO aws.s3.buckets (
  AccelerateConfiguration,
  AccessControl,
@@ -383,6 +383,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.s3.buckets
 WHERE data__Identifier = '<BucketName>'
 AND region = 'us-east-1';

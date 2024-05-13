@@ -50,7 +50,7 @@ Used to retrieve a list of <code>template_group_access_control_entries</code> in
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AccessRights, GroupDisplayName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>template
 <TabItem value="required">
 
 ```sql
--- template_group_access_control_entry.iql (required properties only)
+/*+ create */
 INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
  AccessRights,
  GroupDisplayName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- template_group_access_control_entry.iql (all properties)
+/*+ create */
 INSERT INTO aws.pcaconnectorad.template_group_access_control_entries (
  AccessRights,
  GroupDisplayName,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.pcaconnectorad.template_group_access_control_entries
 WHERE data__Identifier = '<GroupSecurityIdentifier|TemplateArn>'
 AND region = 'us-east-1';

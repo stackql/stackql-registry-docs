@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resolver_rules</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DomainName, RuleType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resolver
 <TabItem value="required">
 
 ```sql
--- resolver_rule.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53resolver.resolver_rules (
  DomainName,
  RuleType,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resolver_rule.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53resolver.resolver_rules (
  ResolverEndpointId,
  DomainName,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53resolver.resolver_rules
 WHERE data__Identifier = '<ResolverRuleId>'
 AND region = 'us-east-1';

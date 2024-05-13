@@ -49,7 +49,7 @@ Used to retrieve a list of <code>functions</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, FunctionConfig, FunctionCode, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>function
 <TabItem value="required">
 
 ```sql
--- function.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudfront.functions (
  FunctionCode,
  FunctionConfig,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- function.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudfront.functions (
  AutoPublish,
  FunctionCode,
@@ -159,6 +159,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudfront.functions
 WHERE data__Identifier = '<FunctionARN>'
 AND region = 'us-east-1';

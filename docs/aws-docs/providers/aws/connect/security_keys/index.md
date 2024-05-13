@@ -50,7 +50,7 @@ Used to retrieve a list of <code>security_keys</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Key, InstanceId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>security
 <TabItem value="required">
 
 ```sql
--- security_key.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.security_keys (
  Key,
  InstanceId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- security_key.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.security_keys (
  Key,
  InstanceId,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.security_keys
 WHERE data__Identifier = '<InstanceId|AssociationId>'
 AND region = 'us-east-1';

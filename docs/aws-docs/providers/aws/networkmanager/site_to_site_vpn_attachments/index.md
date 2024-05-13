@@ -49,7 +49,7 @@ Used to retrieve a list of <code>site_to_site_vpn_attachments</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CoreNetworkId, VpnConnectionArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>site_to_
 <TabItem value="required">
 
 ```sql
--- site_to_site_vpn_attachment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkmanager.site_to_site_vpn_attachments (
  CoreNetworkId,
  VpnConnectionArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- site_to_site_vpn_attachment.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkmanager.site_to_site_vpn_attachments (
  CoreNetworkId,
  ProposedSegmentChange,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkmanager.site_to_site_vpn_attachments
 WHERE data__Identifier = '<AttachmentId>'
 AND region = 'us-east-1';

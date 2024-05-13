@@ -51,7 +51,7 @@ Used to retrieve a list of <code>custom_action_types</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Category, InputArtifactDetails, OutputArtifactDetails, Provider, Version, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>custom_a
 <TabItem value="required">
 
 ```sql
--- custom_action_type.iql (required properties only)
+/*+ create */
 INSERT INTO aws.codepipeline.custom_action_types (
  Category,
  InputArtifactDetails,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- custom_action_type.iql (all properties)
+/*+ create */
 INSERT INTO aws.codepipeline.custom_action_types (
  Category,
  ConfigurationProperties,
@@ -189,6 +189,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.codepipeline.custom_action_types
 WHERE data__Identifier = '<Category|Provider|Version>'
 AND region = 'us-east-1';

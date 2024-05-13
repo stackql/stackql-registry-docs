@@ -50,7 +50,7 @@ Used to retrieve a list of <code>aggregation_authorizations</code> in a region o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AuthorizedAccountId, AuthorizedAwsRegion, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>aggregat
 <TabItem value="required">
 
 ```sql
--- aggregation_authorization.iql (required properties only)
+/*+ create */
 INSERT INTO aws.config.aggregation_authorizations (
  AuthorizedAccountId,
  AuthorizedAwsRegion,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- aggregation_authorization.iql (all properties)
+/*+ create */
 INSERT INTO aws.config.aggregation_authorizations (
  AuthorizedAccountId,
  AuthorizedAwsRegion,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.config.aggregation_authorizations
 WHERE data__Identifier = '<AuthorizedAccountId|AuthorizedAwsRegion>'
 AND region = 'us-east-1';

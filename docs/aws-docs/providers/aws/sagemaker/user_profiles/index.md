@@ -50,7 +50,7 @@ Used to retrieve a list of <code>user_profiles</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DomainId, UserProfileName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>user_pro
 <TabItem value="required">
 
 ```sql
--- user_profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.sagemaker.user_profiles (
  DomainId,
  UserProfileName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- user_profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.sagemaker.user_profiles (
  DomainId,
  SingleSignOnUserIdentifier,
@@ -208,6 +208,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.sagemaker.user_profiles
 WHERE data__Identifier = '<UserProfileName|DomainId>'
 AND region = 'us-east-1';

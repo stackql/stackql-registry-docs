@@ -50,7 +50,7 @@ Used to retrieve a list of <code>log_streams</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LogGroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>log_stre
 <TabItem value="required">
 
 ```sql
--- log_stream.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.log_streams (
  LogGroupName,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- log_stream.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.log_streams (
  LogStreamName,
  LogGroupName,
@@ -140,6 +140,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.log_streams
 WHERE data__Identifier = '<LogGroupName|LogStreamName>'
 AND region = 'us-east-1';

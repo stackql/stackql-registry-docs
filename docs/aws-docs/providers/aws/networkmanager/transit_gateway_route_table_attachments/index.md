@@ -49,7 +49,7 @@ Used to retrieve a list of <code>transit_gateway_route_table_attachments</code> 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PeeringId, TransitGatewayRouteTableArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>transit_
 <TabItem value="required">
 
 ```sql
--- transit_gateway_route_table_attachment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkmanager.transit_gateway_route_table_attachments (
  PeeringId,
  TransitGatewayRouteTableArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- transit_gateway_route_table_attachment.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkmanager.transit_gateway_route_table_attachments (
  PeeringId,
  TransitGatewayRouteTableArn,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkmanager.transit_gateway_route_table_attachments
 WHERE data__Identifier = '<AttachmentId>'
 AND region = 'us-east-1';

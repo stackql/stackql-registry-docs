@@ -26,7 +26,7 @@ Used to retrieve a list of <code>services</code> in a region or to create or del
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.&lt;br&#x2F;&gt;  The stack update fails if you change any properties that require replacement and at least one Amazon ECS Service Connect ``ServiceConnectService`` is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.&lt;br&#x2F;&gt;  Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ECS::Service</code> resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.&lt;br&#x2F;&gt;  The stack update fails if you change any properties that require replacement and at least one Amazon ECS Service Connect <code>ServiceConnectService</code> is configured. This is because AWS CloudFormation creates the replacement service first, but each <code>ServiceConnectService</code> must have a name that is unique in the namespace.&lt;br&#x2F;&gt;  Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ecs.services" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>services</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>service<
 <TabItem value="required">
 
 ```sql
--- service.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecs.services (
  CapacityProviderStrategy,
  Cluster,
@@ -146,7 +146,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- service.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecs.services (
  CapacityProviderStrategy,
  Cluster,
@@ -340,6 +340,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecs.services
 WHERE data__Identifier = '<ServiceArn|Cluster>'
 AND region = 'us-east-1';

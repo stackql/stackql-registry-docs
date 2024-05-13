@@ -49,7 +49,7 @@ Used to retrieve a list of <code>solutions</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, DatasetGroupArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>solution
 <TabItem value="required">
 
 ```sql
--- solution.iql (required properties only)
+/*+ create */
 INSERT INTO aws.personalize.solutions (
  Name,
  DatasetGroupArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- solution.iql (all properties)
+/*+ create */
 INSERT INTO aws.personalize.solutions (
  Name,
  EventType,
@@ -188,6 +188,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.personalize.solutions
 WHERE data__Identifier = '<SolutionArn>'
 AND region = 'us-east-1';

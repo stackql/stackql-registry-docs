@@ -26,7 +26,7 @@ Used to retrieve a list of <code>apis</code> in a region or to create or delete 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see &#91;About WebSocket APIs in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see &#91;HTTP APIs&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;http-api.html) in the *API Gateway Developer Guide.*</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::Api</code> resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see &#91;About WebSocket APIs in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see &#91;HTTP APIs&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;http-api.html) in the *API Gateway Developer Guide.*</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.apis" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>apis</code> in a region or to create or delete 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>api</cod
 <TabItem value="required">
 
 ```sql
--- api.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigatewayv2.apis (
  RouteSelectionExpression,
  BodyS3Location,
@@ -132,7 +132,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- api.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigatewayv2.apis (
  RouteSelectionExpression,
  BodyS3Location,
@@ -244,6 +244,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigatewayv2.apis
 WHERE data__Identifier = '<ApiId>'
 AND region = 'us-east-1';

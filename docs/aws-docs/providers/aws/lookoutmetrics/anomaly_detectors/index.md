@@ -49,7 +49,7 @@ Used to retrieve a list of <code>anomaly_detectors</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AnomalyDetectorConfig, MetricSetList, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>anomaly_
 <TabItem value="required">
 
 ```sql
--- anomaly_detector.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lookoutmetrics.anomaly_detectors (
  AnomalyDetectorConfig,
  MetricSetList,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- anomaly_detector.iql (all properties)
+/*+ create */
 INSERT INTO aws.lookoutmetrics.anomaly_detectors (
  AnomalyDetectorName,
  AnomalyDetectorDescription,
@@ -213,6 +213,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lookoutmetrics.anomaly_detectors
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

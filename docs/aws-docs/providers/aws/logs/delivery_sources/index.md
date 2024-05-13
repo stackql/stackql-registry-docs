@@ -49,7 +49,7 @@ Used to retrieve a list of <code>delivery_sources</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>delivery
 <TabItem value="required">
 
 ```sql
--- delivery_source.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.delivery_sources (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- delivery_source.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.delivery_sources (
  Name,
  ResourceArn,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.delivery_sources
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

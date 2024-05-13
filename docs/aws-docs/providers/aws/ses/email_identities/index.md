@@ -49,7 +49,7 @@ Used to retrieve a list of <code>email_identities</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="EmailIdentity, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>email_id
 <TabItem value="required">
 
 ```sql
--- email_identity.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ses.email_identities (
  EmailIdentity,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- email_identity.iql (all properties)
+/*+ create */
 INSERT INTO aws.ses.email_identities (
  EmailIdentity,
  ConfigurationSetAttributes,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ses.email_identities
 WHERE data__Identifier = '<EmailIdentity>'
 AND region = 'us-east-1';

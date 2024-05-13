@@ -49,7 +49,7 @@ Used to retrieve a list of <code>assessment_templates</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AssessmentTargetArn, DurationInSeconds, RulesPackageArns, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>assessme
 <TabItem value="required">
 
 ```sql
--- assessment_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.inspector.assessment_templates (
  AssessmentTargetArn,
  DurationInSeconds,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- assessment_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.inspector.assessment_templates (
  AssessmentTargetArn,
  DurationInSeconds,
@@ -157,6 +157,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.inspector.assessment_templates
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

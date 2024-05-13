@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resolver_rule_associations</code> in a region o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="VPCId, ResolverRuleId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resolver
 <TabItem value="required">
 
 ```sql
--- resolver_rule_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53resolver.resolver_rule_associations (
  VPCId,
  ResolverRuleId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resolver_rule_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53resolver.resolver_rule_associations (
  VPCId,
  ResolverRuleId,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53resolver.resolver_rule_associations
 WHERE data__Identifier = '<ResolverRuleAssociationId>'
 AND region = 'us-east-1';

@@ -26,7 +26,7 @@ Gets or updates an individual <code>request_validator</code> resource, use <code
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>request_validator</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see &#91;Enable Basic Request Validation for an API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::RequestValidator</code> resource sets up basic validation rules for incoming requests to your API. For more information, see &#91;Enable Basic Request Validation for an API in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.request_validator" /></td></tr>
 </tbody></table>
 
@@ -37,7 +37,7 @@ Gets or updates an individual <code>request_validator</code> resource, use <code
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of this RequestValidator</td></tr>
 <tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
 <tr><td><CopyableCode code="validate_request_body" /></td><td><code>boolean</code></td><td>A Boolean flag to indicate whether to validate a request body according to the configured Model schema.</td></tr>
-<tr><td><CopyableCode code="validate_request_parameters" /></td><td><code>boolean</code></td><td>A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).</td></tr>
+<tr><td><CopyableCode code="validate_request_parameters" /></td><td><code>boolean</code></td><td>A Boolean flag to indicate whether to validate request parameters (<code>true</code>) or not (<code>false</code>).</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>

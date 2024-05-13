@@ -49,7 +49,7 @@ Used to retrieve a list of <code>backup_plans</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="BackupPlan, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>backup_p
 <TabItem value="required">
 
 ```sql
--- backup_plan.iql (required properties only)
+/*+ create */
 INSERT INTO aws.backup.backup_plans (
  BackupPlan,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- backup_plan.iql (all properties)
+/*+ create */
 INSERT INTO aws.backup.backup_plans (
  BackupPlan,
  BackupPlanTags,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.backup.backup_plans
 WHERE data__Identifier = '<BackupPlanId>'
 AND region = 'us-east-1';

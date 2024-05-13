@@ -49,7 +49,7 @@ Used to retrieve a list of <code>scheduling_policies</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>scheduli
 <TabItem value="required">
 
 ```sql
--- scheduling_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.batch.scheduling_policies (
  Name,
  FairsharePolicy,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- scheduling_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.batch.scheduling_policies (
  Name,
  FairsharePolicy,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.batch.scheduling_policies
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>workspaces</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="WorkspaceId, Role, S3Location, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>workspac
 <TabItem value="required">
 
 ```sql
--- workspace.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iottwinmaker.workspaces (
  WorkspaceId,
  Role,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- workspace.iql (all properties)
+/*+ create */
 INSERT INTO aws.iottwinmaker.workspaces (
  WorkspaceId,
  Description,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iottwinmaker.workspaces
 WHERE data__Identifier = '<WorkspaceId>'
 AND region = 'us-east-1';

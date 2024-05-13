@@ -49,7 +49,7 @@ Used to retrieve a list of <code>contact_channels</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>contact_
 <TabItem value="required">
 
 ```sql
--- contact_channel.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ssmcontacts.contact_channels (
  ContactId,
  ChannelName,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- contact_channel.iql (all properties)
+/*+ create */
 INSERT INTO aws.ssmcontacts.contact_channels (
  ContactId,
  ChannelName,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ssmcontacts.contact_channels
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>data_providers</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Engine, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>data_pro
 <TabItem value="required">
 
 ```sql
--- data_provider.iql (required properties only)
+/*+ create */
 INSERT INTO aws.dms.data_providers (
  Engine,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- data_provider.iql (all properties)
+/*+ create */
 INSERT INTO aws.dms.data_providers (
  DataProviderName,
  DataProviderIdentifier,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.dms.data_providers
 WHERE data__Identifier = '<DataProviderArn>'
 AND region = 'us-east-1';

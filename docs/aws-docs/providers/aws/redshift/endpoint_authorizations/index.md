@@ -50,7 +50,7 @@ Used to retrieve a list of <code>endpoint_authorizations</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ClusterIdentifier, Account, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 <TabItem value="required">
 
 ```sql
--- endpoint_authorization.iql (required properties only)
+/*+ create */
 INSERT INTO aws.redshift.endpoint_authorizations (
  ClusterIdentifier,
  Account,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- endpoint_authorization.iql (all properties)
+/*+ create */
 INSERT INTO aws.redshift.endpoint_authorizations (
  ClusterIdentifier,
  Account,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.redshift.endpoint_authorizations
 WHERE data__Identifier = '<ClusterIdentifier|Account>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>trust_stores</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>trust_st
 <TabItem value="required">
 
 ```sql
--- trust_store.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  Name,
  CaCertificatesBundleS3Bucket,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- trust_store.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.trust_stores (
  Name,
  CaCertificatesBundleS3Bucket,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticloadbalancingv2.trust_stores
 WHERE data__Identifier = '<TrustStoreArn>'
 AND region = 'us-east-1';

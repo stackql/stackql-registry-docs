@@ -50,7 +50,7 @@ Used to retrieve a list of <code>vpcdhcp_options_associations</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="VpcId, DhcpOptionsId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>vpcdhcp_
 <TabItem value="required">
 
 ```sql
--- vpcdhcp_options_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.vpcdhcp_options_associations (
  DhcpOptionsId,
  VpcId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpcdhcp_options_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.vpcdhcp_options_associations (
  DhcpOptionsId,
  VpcId,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.vpcdhcp_options_associations
 WHERE data__Identifier = '<DhcpOptionsId|VpcId>'
 AND region = 'us-east-1';

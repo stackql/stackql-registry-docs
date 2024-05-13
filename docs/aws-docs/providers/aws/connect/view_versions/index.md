@@ -49,7 +49,7 @@ Used to retrieve a list of <code>view_versions</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ViewArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>view_ver
 <TabItem value="required">
 
 ```sql
--- view_version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.view_versions (
  ViewArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- view_version.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.view_versions (
  ViewArn,
  VersionDescription,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.view_versions
 WHERE data__Identifier = '<ViewVersionArn>'
 AND region = 'us-east-1';

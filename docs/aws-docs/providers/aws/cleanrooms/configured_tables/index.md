@@ -49,7 +49,7 @@ Used to retrieve a list of <code>configured_tables</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AllowedColumns, AnalysisMethod, Name, TableReference, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>configur
 <TabItem value="required">
 
 ```sql
--- configured_table.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cleanrooms.configured_tables (
  AllowedColumns,
  AnalysisMethod,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- configured_table.iql (all properties)
+/*+ create */
 INSERT INTO aws.cleanrooms.configured_tables (
  Tags,
  AllowedColumns,
@@ -173,6 +173,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cleanrooms.configured_tables
 WHERE data__Identifier = '<ConfiguredTableIdentifier>'
 AND region = 'us-east-1';

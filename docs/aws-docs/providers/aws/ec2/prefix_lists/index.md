@@ -49,7 +49,7 @@ Used to retrieve a list of <code>prefix_lists</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PrefixListName, AddressFamily, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>prefix_l
 <TabItem value="required">
 
 ```sql
--- prefix_list.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.prefix_lists (
  PrefixListName,
  AddressFamily,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- prefix_list.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.prefix_lists (
  PrefixListName,
  AddressFamily,
@@ -156,6 +156,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.prefix_lists
 WHERE data__Identifier = '<PrefixListId>'
 AND region = 'us-east-1';

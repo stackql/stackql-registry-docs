@@ -49,7 +49,7 @@ Used to retrieve a list of <code>storage_systems</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ServerConfiguration, SystemType, AgentArns, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>storage_
 <TabItem value="required">
 
 ```sql
--- storage_system.iql (required properties only)
+/*+ create */
 INSERT INTO aws.datasync.storage_systems (
  ServerConfiguration,
  SystemType,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- storage_system.iql (all properties)
+/*+ create */
 INSERT INTO aws.datasync.storage_systems (
  ServerConfiguration,
  ServerCredentials,
@@ -169,6 +169,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.datasync.storage_systems
 WHERE data__Identifier = '<StorageSystemArn>'
 AND region = 'us-east-1';

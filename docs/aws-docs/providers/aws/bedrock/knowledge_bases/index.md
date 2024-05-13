@@ -49,7 +49,7 @@ Used to retrieve a list of <code>knowledge_bases</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="KnowledgeBaseConfiguration, Name, RoleArn, StorageConfiguration, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>knowledg
 <TabItem value="required">
 
 ```sql
--- knowledge_base.iql (required properties only)
+/*+ create */
 INSERT INTO aws.bedrock.knowledge_bases (
  KnowledgeBaseConfiguration,
  Name,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- knowledge_base.iql (all properties)
+/*+ create */
 INSERT INTO aws.bedrock.knowledge_bases (
  Description,
  KnowledgeBaseConfiguration,
@@ -188,6 +188,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.bedrock.knowledge_bases
 WHERE data__Identifier = '<KnowledgeBaseId>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>bot_aliases</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="BotId, BotAliasName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>bot_alia
 <TabItem value="required">
 
 ```sql
--- bot_alias.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lex.bot_aliases (
  BotId,
  BotAliasName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- bot_alias.iql (all properties)
+/*+ create */
 INSERT INTO aws.lex.bot_aliases (
  BotId,
  BotAliasLocaleSettings,
@@ -195,6 +195,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lex.bot_aliases
 WHERE data__Identifier = '<BotAliasId|BotId>'
 AND region = 'us-east-1';

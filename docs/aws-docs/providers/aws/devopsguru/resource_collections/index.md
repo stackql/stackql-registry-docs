@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resource_collections</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceCollectionFilter, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resource
 <TabItem value="required">
 
 ```sql
--- resource_collection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.devopsguru.resource_collections (
  ResourceCollectionFilter,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resource_collection.iql (all properties)
+/*+ create */
 INSERT INTO aws.devopsguru.resource_collections (
  ResourceCollectionFilter,
  region
@@ -141,6 +141,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.devopsguru.resource_collections
 WHERE data__Identifier = '<ResourceCollectionType>'
 AND region = 'us-east-1';

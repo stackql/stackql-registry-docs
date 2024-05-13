@@ -49,7 +49,7 @@ Used to retrieve a list of <code>lists</code> in a region or to create or delete
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>list</co
 <TabItem value="required">
 
 ```sql
--- list.iql (required properties only)
+/*+ create */
 INSERT INTO aws.frauddetector.lists (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- list.iql (all properties)
+/*+ create */
 INSERT INTO aws.frauddetector.lists (
  Name,
  Description,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.frauddetector.lists
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>analysis_templates</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Source, Format, Name, MembershipIdentifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>analysis
 <TabItem value="required">
 
 ```sql
--- analysis_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cleanrooms.analysis_templates (
  MembershipIdentifier,
  Name,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- analysis_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.cleanrooms.analysis_templates (
  Tags,
  AnalysisParameters,
@@ -172,6 +172,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cleanrooms.analysis_templates
 WHERE data__Identifier = '<AnalysisTemplateIdentifier|MembershipIdentifier>'
 AND region = 'us-east-1';

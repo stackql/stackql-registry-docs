@@ -26,7 +26,7 @@ Used to retrieve a list of <code>functions</code> in a region or to create or de
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>functions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::Lambda::Function`` resource creates a Lambda function. To create a function, you need a &#91;deployment package&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;gettingstarted-package.html) and an &#91;execution role&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.&lt;br&#x2F;&gt; You set the package type to ``Image`` if the deployment package is a &#91;container image&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;lambda-images.html). For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties. &lt;br&#x2F;&gt; You set the package type to ``Zip`` if the deployment package is a &#91;.zip file archive&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;gettingstarted-package.html#gettingstarted-package-zip). For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties. For a Python example, see &#91;Deploy Python Lambda functions with .zip file archives&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;python-package.html).&lt;br&#x2F;&gt; You can use &#91;code signing&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;configuration-codesigning.html) if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with ``UpdateFunctionCode``, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.&lt;br&#x2F;&gt; Note that you configure &#91;provisioned concurrency&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;provisioned-concurrency.html) on a ``AWS::Lambda::Version`` or a ``AWS::Lambda::Alias``.&lt;br&#x2F;&gt; For a complete introduction to Lambda functions, see &#91;What is Lambda?&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;lambda-welcome.html) in the *Lambda developer guide.*</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::Lambda::Function</code> resource creates a Lambda function. To create a function, you need a &#91;deployment package&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;gettingstarted-package.html) and an &#91;execution role&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.&lt;br&#x2F;&gt; You set the package type to <code>Image</code> if the deployment package is a &#91;container image&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;lambda-images.html). For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties. &lt;br&#x2F;&gt; You set the package type to <code>Zip</code> if the deployment package is a &#91;.zip file archive&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;gettingstarted-package.html#gettingstarted-package-zip). For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties. For a Python example, see &#91;Deploy Python Lambda functions with .zip file archives&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;python-package.html).&lt;br&#x2F;&gt; You can use &#91;code signing&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;configuration-codesigning.html) if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <code>UpdateFunctionCode</code>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.&lt;br&#x2F;&gt; Note that you configure &#91;provisioned concurrency&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;provisioned-concurrency.html) on a <code>AWS::Lambda::Version</code> or a <code>AWS::Lambda::Alias</code>.&lt;br&#x2F;&gt; For a complete introduction to Lambda functions, see &#91;What is Lambda?&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;lambda-welcome.html) in the *Lambda developer guide.*</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.lambda.functions" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>functions</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Code, Role, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>function
 <TabItem value="required">
 
 ```sql
--- function.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lambda.functions (
  Code,
  Role,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- function.iql (all properties)
+/*+ create */
 INSERT INTO aws.lambda.functions (
  Description,
  TracingConfig,
@@ -264,6 +264,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lambda.functions
 WHERE data__Identifier = '<FunctionName>'
 AND region = 'us-east-1';

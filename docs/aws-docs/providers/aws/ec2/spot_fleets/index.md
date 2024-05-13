@@ -49,7 +49,7 @@ Used to retrieve a list of <code>spot_fleets</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="SpotFleetRequestConfigData, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>spot_fle
 <TabItem value="required">
 
 ```sql
--- spot_fleet.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.spot_fleets (
  SpotFleetRequestConfigData,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- spot_fleet.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.spot_fleets (
  SpotFleetRequestConfigData,
  region
@@ -282,6 +282,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.spot_fleets
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

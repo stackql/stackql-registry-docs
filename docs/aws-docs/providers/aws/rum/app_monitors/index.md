@@ -49,7 +49,7 @@ Used to retrieve a list of <code>app_monitors</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Domain, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>app_moni
 <TabItem value="required">
 
 ```sql
--- app_monitor.iql (required properties only)
+/*+ create */
 INSERT INTO aws.rum.app_monitors (
  Name,
  Domain,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- app_monitor.iql (all properties)
+/*+ create */
 INSERT INTO aws.rum.app_monitors (
  Name,
  Domain,
@@ -182,6 +182,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.rum.app_monitors
 WHERE data__Identifier = '<Name>'
 AND region = 'us-east-1';

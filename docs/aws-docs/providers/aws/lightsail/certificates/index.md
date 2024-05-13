@@ -49,7 +49,7 @@ Used to retrieve a list of <code>certificates</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CertificateName, DomainName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>certific
 <TabItem value="required">
 
 ```sql
--- certificate.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lightsail.certificates (
  CertificateName,
  DomainName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- certificate.iql (all properties)
+/*+ create */
 INSERT INTO aws.lightsail.certificates (
  CertificateName,
  DomainName,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lightsail.certificates
 WHERE data__Identifier = '<CertificateName>'
 AND region = 'us-east-1';

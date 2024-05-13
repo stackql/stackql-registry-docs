@@ -49,7 +49,7 @@ Used to retrieve a list of <code>place_indices</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DataSource, IndexName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>place_in
 <TabItem value="required">
 
 ```sql
--- place_index.iql (required properties only)
+/*+ create */
 INSERT INTO aws.location.place_indices (
  DataSource,
  IndexName,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- place_index.iql (all properties)
+/*+ create */
 INSERT INTO aws.location.place_indices (
  DataSource,
  DataSourceConfiguration,
@@ -159,6 +159,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.location.place_indices
 WHERE data__Identifier = '<IndexName>'
 AND region = 'us-east-1';

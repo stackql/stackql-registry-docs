@@ -50,7 +50,7 @@ Used to retrieve a list of <code>predefined_attributes</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="InstanceArn, Name, Values, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>predefin
 <TabItem value="required">
 
 ```sql
--- predefined_attribute.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.predefined_attributes (
  InstanceArn,
  Name,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- predefined_attribute.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.predefined_attributes (
  InstanceArn,
  Name,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.predefined_attributes
 WHERE data__Identifier = '<InstanceArn|Name>'
 AND region = 'us-east-1';

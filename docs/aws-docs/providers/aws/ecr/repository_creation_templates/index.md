@@ -49,7 +49,7 @@ Used to retrieve a list of <code>repository_creation_templates</code> in a regio
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Prefix, AppliedFor, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>reposito
 <TabItem value="required">
 
 ```sql
--- repository_creation_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecr.repository_creation_templates (
  Prefix,
  AppliedFor,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- repository_creation_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecr.repository_creation_templates (
  Prefix,
  Description,
@@ -169,6 +169,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ecr.repository_creation_templates
 WHERE data__Identifier = '<Prefix>'
 AND region = 'us-east-1';

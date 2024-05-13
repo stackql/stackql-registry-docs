@@ -49,7 +49,7 @@ Used to retrieve a list of <code>acls</code> in a region or to create or delete 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ACLName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>acl</cod
 <TabItem value="required">
 
 ```sql
--- acl.iql (required properties only)
+/*+ create */
 INSERT INTO aws.memorydb.acls (
  ACLName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- acl.iql (all properties)
+/*+ create */
 INSERT INTO aws.memorydb.acls (
  ACLName,
  UserNames,
@@ -145,6 +145,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.memorydb.acls
 WHERE data__Identifier = '<ACLName>'
 AND region = 'us-east-1';

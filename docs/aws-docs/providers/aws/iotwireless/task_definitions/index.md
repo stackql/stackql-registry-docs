@@ -49,7 +49,7 @@ Used to retrieve a list of <code>task_definitions</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AutoCreateTasks, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>task_def
 <TabItem value="required">
 
 ```sql
--- task_definition.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotwireless.task_definitions (
  AutoCreateTasks,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- task_definition.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotwireless.task_definitions (
  Name,
  AutoCreateTasks,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotwireless.task_definitions
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

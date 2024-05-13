@@ -49,7 +49,7 @@ Used to retrieve a list of <code>alerts</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AnomalyDetectorArn, AlertSensitivityThreshold, Action, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>alert</c
 <TabItem value="required">
 
 ```sql
--- alert.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lookoutmetrics.alerts (
  AnomalyDetectorArn,
  AlertSensitivityThreshold,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- alert.iql (all properties)
+/*+ create */
 INSERT INTO aws.lookoutmetrics.alerts (
  AlertName,
  AlertDescription,
@@ -160,6 +160,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lookoutmetrics.alerts
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

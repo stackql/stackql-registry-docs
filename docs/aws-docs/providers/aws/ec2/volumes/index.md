@@ -26,7 +26,7 @@ Used to retrieve a list of <code>volumes</code> in a region or to create or dele
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>volumes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Specifies an Amazon Elastic Block Store (Amazon EBS) volume.&lt;br&#x2F;&gt; When you use CFNlong to update an Amazon EBS volume that modifies ``Iops``, ``Size``, or ``VolumeType``, there is a cooldown period before another operation can occur. This can cause your stack to report being in ``UPDATE_IN_PROGRESS`` or ``UPDATE_ROLLBACK_IN_PROGRESS`` for long periods of time.&lt;br&#x2F;&gt; Amazon EBS does not support sizing down an Amazon EBS volume. CFNlong does not attempt to modify an Amazon EBS volume to a smaller size on rollback.&lt;br&#x2F;&gt; Some common scenarios when you might encounter a cooldown period for Amazon EBS include:&lt;br&#x2F;&gt;  +  You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.&lt;br&#x2F;&gt;  +  You successfully update an Amazon EBS volume and the update succeeds but another change in your ``update-stack`` call fails. The rollback will be subject to a cooldown period.&lt;br&#x2F;&gt;  &lt;br&#x2F;&gt; For more information on the coo</td></tr>
+<tr><td><b>Description</b></td><td>Specifies an Amazon Elastic Block Store (Amazon EBS) volume.&lt;br&#x2F;&gt; When you use CFNlong to update an Amazon EBS volume that modifies <code>Iops</code>, <code>Size</code>, or <code>VolumeType</code>, there is a cooldown period before another operation can occur. This can cause your stack to report being in <code>UPDATE_IN_PROGRESS</code> or <code>UPDATE_ROLLBACK_IN_PROGRESS</code> for long periods of time.&lt;br&#x2F;&gt; Amazon EBS does not support sizing down an Amazon EBS volume. CFNlong does not attempt to modify an Amazon EBS volume to a smaller size on rollback.&lt;br&#x2F;&gt; Some common scenarios when you might encounter a cooldown period for Amazon EBS include:&lt;br&#x2F;&gt;  +  You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.&lt;br&#x2F;&gt;  +  You successfully update an Amazon EBS volume and the update succeeds but another change in your <code>update-stack</code> call fails. The rollback will be subject to a cooldown period.&lt;br&#x2F;&gt;  &lt;br&#x2F;&gt; For more information on the coo</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.volumes" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>volumes</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AvailabilityZone, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>volume</
 <TabItem value="required">
 
 ```sql
--- volume.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.volumes (
  AvailabilityZone,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- volume.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.volumes (
  MultiAttachEnabled,
  KmsKeyId,
@@ -180,6 +180,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.volumes
 WHERE data__Identifier = '<VolumeId>'
 AND region = 'us-east-1';

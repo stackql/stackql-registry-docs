@@ -49,7 +49,7 @@ Used to retrieve a list of <code>stack_sets</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="StackSetName, PermissionModel, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>stack_se
 <TabItem value="required">
 
 ```sql
--- stack_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.stack_sets (
  StackSetName,
  PermissionModel,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- stack_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.stack_sets (
  StackSetName,
  AdministrationRoleARN,
@@ -218,6 +218,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudformation.stack_sets
 WHERE data__Identifier = '<StackSetId>'
 AND region = 'us-east-1';

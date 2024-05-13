@@ -52,7 +52,7 @@ Used to retrieve a list of <code>data_cells_filters</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TableCatalogId, DatabaseName, TableName, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -93,7 +93,7 @@ Use the following StackQL query and manifest file to create a new <code>data_cel
 <TabItem value="required">
 
 ```sql
--- data_cells_filter.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lakeformation.data_cells_filters (
  TableCatalogId,
  DatabaseName,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- data_cells_filter.iql (all properties)
+/*+ create */
 INSERT INTO aws.lakeformation.data_cells_filters (
  TableCatalogId,
  DatabaseName,
@@ -174,6 +174,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lakeformation.data_cells_filters
 WHERE data__Identifier = '<TableCatalogId|DatabaseName|TableName|Name>'
 AND region = 'us-east-1';

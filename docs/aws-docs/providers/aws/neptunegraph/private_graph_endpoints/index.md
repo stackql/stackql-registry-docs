@@ -49,7 +49,7 @@ Used to retrieve a list of <code>private_graph_endpoints</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="GraphIdentifier, VpcId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>private_
 <TabItem value="required">
 
 ```sql
--- private_graph_endpoint.iql (required properties only)
+/*+ create */
 INSERT INTO aws.neptunegraph.private_graph_endpoints (
  GraphIdentifier,
  VpcId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- private_graph_endpoint.iql (all properties)
+/*+ create */
 INSERT INTO aws.neptunegraph.private_graph_endpoints (
  GraphIdentifier,
  SecurityGroupIds,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.neptunegraph.private_graph_endpoints
 WHERE data__Identifier = '<PrivateGraphEndpointIdentifier>'
 AND region = 'us-east-1';

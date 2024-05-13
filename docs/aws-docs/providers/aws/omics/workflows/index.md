@@ -49,7 +49,7 @@ Used to retrieve a list of <code>workflows</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>workflow
 <TabItem value="required">
 
 ```sql
--- workflow.iql (required properties only)
+/*+ create */
 INSERT INTO aws.omics.workflows (
  DefinitionUri,
  Description,
@@ -116,7 +116,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- workflow.iql (all properties)
+/*+ create */
 INSERT INTO aws.omics.workflows (
  DefinitionUri,
  Description,
@@ -182,6 +182,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.omics.workflows
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

@@ -26,7 +26,7 @@ Used to retrieve a list of <code>mount_targets</code> in a region or to create o
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mount_targets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::EFS::MountTarget</code> resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.efs.mount_targets" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>mount_targets</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FileSystemId, SecurityGroups, SubnetId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>mount_ta
 <TabItem value="required">
 
 ```sql
--- mount_target.iql (required properties only)
+/*+ create */
 INSERT INTO aws.efs.mount_targets (
  FileSystemId,
  SecurityGroups,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- mount_target.iql (all properties)
+/*+ create */
 INSERT INTO aws.efs.mount_targets (
  IpAddress,
  FileSystemId,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.efs.mount_targets
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

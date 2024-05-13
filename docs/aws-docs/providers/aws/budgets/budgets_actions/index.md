@@ -50,7 +50,7 @@ Used to retrieve a list of <code>budgets_actions</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="BudgetName, NotificationType, ActionType, ActionThreshold, ExecutionRoleArn, Definition, Subscribers, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>budgets_
 <TabItem value="required">
 
 ```sql
--- budgets_action.iql (required properties only)
+/*+ create */
 INSERT INTO aws.budgets.budgets_actions (
  BudgetName,
  NotificationType,
@@ -114,7 +114,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- budgets_action.iql (all properties)
+/*+ create */
 INSERT INTO aws.budgets.budgets_actions (
  BudgetName,
  NotificationType,
@@ -197,6 +197,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.budgets.budgets_actions
 WHERE data__Identifier = '<ActionId|BudgetName>'
 AND region = 'us-east-1';

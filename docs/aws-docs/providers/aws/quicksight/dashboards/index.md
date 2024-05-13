@@ -50,7 +50,7 @@ Used to retrieve a list of <code>dashboards</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AwsAccountId, DashboardId, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>dashboar
 <TabItem value="required">
 
 ```sql
--- dashboard.iql (required properties only)
+/*+ create */
 INSERT INTO aws.quicksight.dashboards (
  AwsAccountId,
  DashboardId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- dashboard.iql (all properties)
+/*+ create */
 INSERT INTO aws.quicksight.dashboards (
  AwsAccountId,
  DashboardId,
@@ -1926,6 +1926,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.quicksight.dashboards
 WHERE data__Identifier = '<AwsAccountId|DashboardId>'
 AND region = 'us-east-1';

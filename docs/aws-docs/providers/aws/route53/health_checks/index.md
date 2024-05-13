@@ -49,7 +49,7 @@ Used to retrieve a list of <code>health_checks</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="HealthCheckConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>health_c
 <TabItem value="required">
 
 ```sql
--- health_check.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53.health_checks (
  HealthCheckConfig,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- health_check.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53.health_checks (
  HealthCheckConfig,
  HealthCheckTags,
@@ -161,6 +161,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53.health_checks
 WHERE data__Identifier = '<HealthCheckId>'
 AND region = 'us-east-1';

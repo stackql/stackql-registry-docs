@@ -49,7 +49,7 @@ Used to retrieve a list of <code>custom_line_items</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, BillingGroupArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>custom_l
 <TabItem value="required">
 
 ```sql
--- custom_line_item.iql (required properties only)
+/*+ create */
 INSERT INTO aws.billingconductor.custom_line_items (
  Name,
  BillingGroupArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- custom_line_item.iql (all properties)
+/*+ create */
 INSERT INTO aws.billingconductor.custom_line_items (
  Name,
  Description,
@@ -176,6 +176,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.billingconductor.custom_line_items
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

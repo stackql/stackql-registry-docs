@@ -26,7 +26,7 @@ Used to retrieve a list of <code>secrets</code> in a region or to create or dele
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>secrets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.&lt;br&#x2F;&gt; For RDS master user credentials, see &#91;AWS::RDS::DBCluster MasterUserSecret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-properties-rds-dbcluster-masterusersecret.html).&lt;br&#x2F;&gt; To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see &#91;Retrieve a secret in an resource&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;cfn-example_reference-secret.html).&lt;br&#x2F;&gt; A common scenario is to first create a secret with ``GenerateSecretString``, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.&lt;br&#x2F;&gt; For information about creating a secret in the console, see &#91;Create a secret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see &#91;CreateSecret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;apireference&#x2F;API_CreateSecret.html).&lt;br&#x2F;&gt; For information about retrieving a secret in code, see &#91;Retrieve secrets from Secrets Manager&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;retrieving-secrets.html).</td></tr>
+<tr><td><b>Description</b></td><td>Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.&lt;br&#x2F;&gt; For RDS master user credentials, see &#91;AWS::RDS::DBCluster MasterUserSecret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-properties-rds-dbcluster-masterusersecret.html).&lt;br&#x2F;&gt; To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see &#91;Retrieve a secret in an resource&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;cfn-example_reference-secret.html).&lt;br&#x2F;&gt; A common scenario is to first create a secret with <code>GenerateSecretString</code>, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.&lt;br&#x2F;&gt; For information about creating a secret in the console, see &#91;Create a secret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see &#91;CreateSecret&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;apireference&#x2F;API_CreateSecret.html).&lt;br&#x2F;&gt; For information about retrieving a secret in code, see &#91;Retrieve secrets from Secrets Manager&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;secretsmanager&#x2F;latest&#x2F;userguide&#x2F;retrieving-secrets.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.secretsmanager.secrets" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>secrets</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>secret</
 <TabItem value="required">
 
 ```sql
--- secret.iql (required properties only)
+/*+ create */
 INSERT INTO aws.secretsmanager.secrets (
  Description,
  KmsKeyId,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- secret.iql (all properties)
+/*+ create */
 INSERT INTO aws.secretsmanager.secrets (
  Description,
  KmsKeyId,
@@ -184,6 +184,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.secretsmanager.secrets
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

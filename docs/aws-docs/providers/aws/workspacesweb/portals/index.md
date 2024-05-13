@@ -49,7 +49,7 @@ Used to retrieve a list of <code>portals</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>portal</
 <TabItem value="required">
 
 ```sql
--- portal.iql (required properties only)
+/*+ create */
 INSERT INTO aws.workspacesweb.portals (
  AdditionalEncryptionContext,
  AuthenticationType,
@@ -120,7 +120,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- portal.iql (all properties)
+/*+ create */
 INSERT INTO aws.workspacesweb.portals (
  AdditionalEncryptionContext,
  AuthenticationType,
@@ -196,6 +196,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.workspacesweb.portals
 WHERE data__Identifier = '<PortalArn>'
 AND region = 'us-east-1';

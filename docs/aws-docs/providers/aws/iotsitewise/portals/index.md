@@ -49,7 +49,7 @@ Used to retrieve a list of <code>portals</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PortalContactEmail, PortalName, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>portal</
 <TabItem value="required">
 
 ```sql
--- portal.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotsitewise.portals (
  PortalContactEmail,
  PortalName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- portal.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotsitewise.portals (
  PortalAuthMode,
  PortalContactEmail,
@@ -170,6 +170,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotsitewise.portals
 WHERE data__Identifier = '<PortalId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>detector_models</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DetectorModelDefinition, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>detector
 <TabItem value="required">
 
 ```sql
--- detector_model.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotevents.detector_models (
  DetectorModelDefinition,
  RoleArn,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- detector_model.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotevents.detector_models (
  DetectorModelDefinition,
  DetectorModelDescription,
@@ -244,6 +244,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotevents.detector_models
 WHERE data__Identifier = '<DetectorModelName>'
 AND region = 'us-east-1';

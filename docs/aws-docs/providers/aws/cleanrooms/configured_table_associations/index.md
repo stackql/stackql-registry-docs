@@ -50,7 +50,7 @@ Used to retrieve a list of <code>configured_table_associations</code> in a regio
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ConfiguredTableIdentifier, Name, RoleArn, MembershipIdentifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>configur
 <TabItem value="required">
 
 ```sql
--- configured_table_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cleanrooms.configured_table_associations (
  ConfiguredTableIdentifier,
  MembershipIdentifier,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- configured_table_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.cleanrooms.configured_table_associations (
  Tags,
  ConfiguredTableIdentifier,
@@ -164,6 +164,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cleanrooms.configured_table_associations
 WHERE data__Identifier = '<ConfiguredTableAssociationIdentifier|MembershipIdentifier>'
 AND region = 'us-east-1';

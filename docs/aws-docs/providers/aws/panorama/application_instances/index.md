@@ -49,7 +49,7 @@ Used to retrieve a list of <code>application_instances</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ManifestPayload, DefaultRuntimeContextDevice, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>applicat
 <TabItem value="required">
 
 ```sql
--- application_instance.iql (required properties only)
+/*+ create */
 INSERT INTO aws.panorama.application_instances (
  DefaultRuntimeContextDevice,
  ManifestPayload,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- application_instance.iql (all properties)
+/*+ create */
 INSERT INTO aws.panorama.application_instances (
  DefaultRuntimeContextDevice,
  Description,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.panorama.application_instances
 WHERE data__Identifier = '<ApplicationInstanceId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>firewalls</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FirewallName, FirewallPolicyArn, VpcId, SubnetMappings, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 <TabItem value="required">
 
 ```sql
--- firewall.iql (required properties only)
+/*+ create */
 INSERT INTO aws.networkfirewall.firewalls (
  FirewallName,
  FirewallPolicyArn,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- firewall.iql (all properties)
+/*+ create */
 INSERT INTO aws.networkfirewall.firewalls (
  FirewallName,
  FirewallPolicyArn,
@@ -176,6 +176,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.networkfirewall.firewalls
 WHERE data__Identifier = '<FirewallArn>'
 AND region = 'us-east-1';

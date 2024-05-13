@@ -26,7 +26,7 @@ Used to retrieve a list of <code>routes</code> in a region or to create or delet
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::Route</code> resource creates a route for an API.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.routes" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>routes</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RouteKey, ApiId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>route</c
 <TabItem value="required">
 
 ```sql
--- route.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigatewayv2.routes (
  RouteKey,
  ApiId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- route.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigatewayv2.routes (
  RouteResponseSelectionExpression,
  RequestModels,
@@ -183,6 +183,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigatewayv2.routes
 WHERE data__Identifier = '<ApiId|RouteId>'
 AND region = 'us-east-1';

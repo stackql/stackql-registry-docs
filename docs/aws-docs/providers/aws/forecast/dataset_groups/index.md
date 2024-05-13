@@ -49,7 +49,7 @@ Used to retrieve a list of <code>dataset_groups</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="DatasetGroupName, Domain, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>dataset_
 <TabItem value="required">
 
 ```sql
--- dataset_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.forecast.dataset_groups (
  DatasetGroupName,
  Domain,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- dataset_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.forecast.dataset_groups (
  DatasetArns,
  DatasetGroupName,
@@ -151,6 +151,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.forecast.dataset_groups
 WHERE data__Identifier = '<DatasetGroupArn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>training_datasets</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, RoleArn, TrainingData, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>training
 <TabItem value="required">
 
 ```sql
--- training_dataset.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cleanroomsml.training_datasets (
  Name,
  RoleArn,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- training_dataset.iql (all properties)
+/*+ create */
 INSERT INTO aws.cleanroomsml.training_datasets (
  Description,
  Name,
@@ -167,6 +167,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cleanroomsml.training_datasets
 WHERE data__Identifier = '<TrainingDatasetArn>'
 AND region = 'us-east-1';

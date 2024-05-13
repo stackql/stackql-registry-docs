@@ -49,7 +49,7 @@ Used to retrieve a list of <code>mitigation_actions</code> in a region or to cre
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RoleArn, ActionParams, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>mitigati
 <TabItem value="required">
 
 ```sql
--- mitigation_action.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.mitigation_actions (
  RoleArn,
  ActionParams,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- mitigation_action.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.mitigation_actions (
  ActionName,
  RoleArn,
@@ -165,6 +165,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.mitigation_actions
 WHERE data__Identifier = '<ActionName>'
 AND region = 'us-east-1';

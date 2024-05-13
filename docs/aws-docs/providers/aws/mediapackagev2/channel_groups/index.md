@@ -49,7 +49,7 @@ Used to retrieve a list of <code>channel_groups</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ChannelGroupName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>channel_
 <TabItem value="required">
 
 ```sql
--- channel_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediapackagev2.channel_groups (
  ChannelGroupName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- channel_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediapackagev2.channel_groups (
  ChannelGroupName,
  Description,
@@ -144,6 +144,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediapackagev2.channel_groups
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

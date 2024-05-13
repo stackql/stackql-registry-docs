@@ -49,7 +49,7 @@ Used to retrieve a list of <code>exports</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Export, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>export</
 <TabItem value="required">
 
 ```sql
--- export.iql (required properties only)
+/*+ create */
 INSERT INTO aws.bcmdataexports.exports (
  Export,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- export.iql (all properties)
+/*+ create */
 INSERT INTO aws.bcmdataexports.exports (
  Export,
  Tags,
@@ -143,6 +143,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.bcmdataexports.exports
 WHERE data__Identifier = '<ExportArn>'
 AND region = 'us-east-1';

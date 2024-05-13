@@ -49,7 +49,7 @@ Used to retrieve a list of <code>type_activations</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>type_act
 <TabItem value="required">
 
 ```sql
--- type_activation.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cloudformation.type_activations (
  ExecutionRoleArn,
  PublisherId,
@@ -118,7 +118,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- type_activation.iql (all properties)
+/*+ create */
 INSERT INTO aws.cloudformation.type_activations (
  ExecutionRoleArn,
  PublisherId,
@@ -190,6 +190,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cloudformation.type_activations
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

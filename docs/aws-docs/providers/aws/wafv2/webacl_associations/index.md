@@ -50,7 +50,7 @@ Used to retrieve a list of <code>webacl_associations</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceArn, WebACLArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>webacl_a
 <TabItem value="required">
 
 ```sql
--- webacl_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.wafv2.webacl_associations (
  ResourceArn,
  WebACLArn,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- webacl_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.wafv2.webacl_associations (
  ResourceArn,
  WebACLArn,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.wafv2.webacl_associations
 WHERE data__Identifier = '<ResourceArn|WebACLArn>'
 AND region = 'us-east-1';

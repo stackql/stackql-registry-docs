@@ -49,7 +49,7 @@ Used to retrieve a list of <code>deployments</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="TargetArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>deployme
 <TabItem value="required">
 
 ```sql
--- deployment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.greengrassv2.deployments (
  TargetArn,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- deployment.iql (all properties)
+/*+ create */
 INSERT INTO aws.greengrassv2.deployments (
  TargetArn,
  ParentTargetArn,
@@ -178,6 +178,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.greengrassv2.deployments
 WHERE data__Identifier = '<DeploymentId>'
 AND region = 'us-east-1';

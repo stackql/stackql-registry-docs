@@ -51,7 +51,7 @@ Used to retrieve a list of <code>account_policies</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="PolicyName, PolicyType, PolicyDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>account_
 <TabItem value="required">
 
 ```sql
--- account_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.logs.account_policies (
  PolicyName,
  PolicyDocument,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- account_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.logs.account_policies (
  PolicyName,
  PolicyDocument,
@@ -158,6 +158,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.logs.account_policies
 WHERE data__Identifier = '<AccountId|PolicyType|PolicyName>'
 AND region = 'us-east-1';

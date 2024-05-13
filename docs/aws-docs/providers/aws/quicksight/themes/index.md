@@ -50,7 +50,7 @@ Used to retrieve a list of <code>themes</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AwsAccountId, ThemeId, BaseThemeId, Configuration, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>theme</c
 <TabItem value="required">
 
 ```sql
--- theme.iql (required properties only)
+/*+ create */
 INSERT INTO aws.quicksight.themes (
  AwsAccountId,
  BaseThemeId,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- theme.iql (all properties)
+/*+ create */
 INSERT INTO aws.quicksight.themes (
  AwsAccountId,
  BaseThemeId,
@@ -212,6 +212,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.quicksight.themes
 WHERE data__Identifier = '<ThemeId|AwsAccountId>'
 AND region = 'us-east-1';

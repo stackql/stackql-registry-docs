@@ -49,7 +49,7 @@ Used to retrieve a list of <code>cost_categories</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, RuleVersion, Rules, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>cost_cat
 <TabItem value="required">
 
 ```sql
--- cost_category.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ce.cost_categories (
  Name,
  RuleVersion,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- cost_category.iql (all properties)
+/*+ create */
 INSERT INTO aws.ce.cost_categories (
  Name,
  RuleVersion,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ce.cost_categories
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

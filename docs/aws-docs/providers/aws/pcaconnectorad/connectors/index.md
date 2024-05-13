@@ -49,7 +49,7 @@ Used to retrieve a list of <code>connectors</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CertificateAuthorityArn, DirectoryId, VpcInformation, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>connecto
 <TabItem value="required">
 
 ```sql
--- connector.iql (required properties only)
+/*+ create */
 INSERT INTO aws.pcaconnectorad.connectors (
  CertificateAuthorityArn,
  DirectoryId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- connector.iql (all properties)
+/*+ create */
 INSERT INTO aws.pcaconnectorad.connectors (
  CertificateAuthorityArn,
  DirectoryId,
@@ -152,6 +152,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.pcaconnectorad.connectors
 WHERE data__Identifier = '<ConnectorArn>'
 AND region = 'us-east-1';

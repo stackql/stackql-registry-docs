@@ -49,7 +49,7 @@ Used to retrieve a list of <code>billing_groups</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, AccountGrouping, PrimaryAccountId, ComputationPreference, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>billing_
 <TabItem value="required">
 
 ```sql
--- billing_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.billingconductor.billing_groups (
  Name,
  PrimaryAccountId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- billing_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.billingconductor.billing_groups (
  Name,
  Description,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.billingconductor.billing_groups
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

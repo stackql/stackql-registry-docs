@@ -51,7 +51,7 @@ Used to retrieve a list of <code>ip_sets</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Addresses, IPAddressVersion, Scope, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>ip_set</
 <TabItem value="required">
 
 ```sql
--- ip_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.wafv2.ip_sets (
  Scope,
  IPAddressVersion,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- ip_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.wafv2.ip_sets (
  Description,
  Name,
@@ -165,6 +165,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.wafv2.ip_sets
 WHERE data__Identifier = '<Name|Id|Scope>'
 AND region = 'us-east-1';

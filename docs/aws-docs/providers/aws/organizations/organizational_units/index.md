@@ -49,7 +49,7 @@ Used to retrieve a list of <code>organizational_units</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, ParentId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>organiza
 <TabItem value="required">
 
 ```sql
--- organizational_unit.iql (required properties only)
+/*+ create */
 INSERT INTO aws.organizations.organizational_units (
  Name,
  ParentId,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- organizational_unit.iql (all properties)
+/*+ create */
 INSERT INTO aws.organizations.organizational_units (
  Name,
  ParentId,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.organizations.organizational_units
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

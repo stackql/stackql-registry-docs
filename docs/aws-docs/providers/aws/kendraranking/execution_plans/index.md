@@ -49,7 +49,7 @@ Used to retrieve a list of <code>execution_plans</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>executio
 <TabItem value="required">
 
 ```sql
--- execution_plan.iql (required properties only)
+/*+ create */
 INSERT INTO aws.kendraranking.execution_plans (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- execution_plan.iql (all properties)
+/*+ create */
 INSERT INTO aws.kendraranking.execution_plans (
  Description,
  Tags,
@@ -149,6 +149,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.kendraranking.execution_plans
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

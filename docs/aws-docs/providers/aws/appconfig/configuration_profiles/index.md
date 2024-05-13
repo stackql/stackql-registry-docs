@@ -50,7 +50,7 @@ Used to retrieve a list of <code>configuration_profiles</code> in a region or to
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LocationUri, ApplicationId, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>configur
 <TabItem value="required">
 
 ```sql
--- configuration_profile.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appconfig.configuration_profiles (
  LocationUri,
  ApplicationId,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- configuration_profile.iql (all properties)
+/*+ create */
 INSERT INTO aws.appconfig.configuration_profiles (
  LocationUri,
  Type,
@@ -176,6 +176,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appconfig.configuration_profiles
 WHERE data__Identifier = '<ApplicationId|ConfigurationProfileId>'
 AND region = 'us-east-1';

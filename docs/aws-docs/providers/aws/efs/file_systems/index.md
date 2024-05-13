@@ -26,7 +26,7 @@ Used to retrieve a list of <code>file_systems</code> in a region or to create or
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>file_systems</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target (&#91;AWS::EFS::MountTarget&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::EFS::FileSystem</code> resource creates a new, empty file system in EFSlong (EFS). You must create a mount target (&#91;AWS::EFS::MountTarget&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.efs.file_systems" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>file_systems</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>file_sys
 <TabItem value="required">
 
 ```sql
--- file_system.iql (required properties only)
+/*+ create */
 INSERT INTO aws.efs.file_systems (
  Encrypted,
  FileSystemTags,
@@ -124,7 +124,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- file_system.iql (all properties)
+/*+ create */
 INSERT INTO aws.efs.file_systems (
  Encrypted,
  FileSystemTags,
@@ -218,6 +218,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.efs.file_systems
 WHERE data__Identifier = '<FileSystemId>'
 AND region = 'us-east-1';

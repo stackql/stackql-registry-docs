@@ -49,7 +49,7 @@ Used to retrieve a list of <code>user_pools</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>user_poo
 <TabItem value="required">
 
 ```sql
--- user_pool.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cognito.user_pools (
  UserPoolName,
  Policies,
@@ -146,7 +146,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- user_pool.iql (all properties)
+/*+ create */
 INSERT INTO aws.cognito.user_pools (
  UserPoolName,
  Policies,
@@ -343,6 +343,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cognito.user_pools
 WHERE data__Identifier = '<UserPoolId>'
 AND region = 'us-east-1';

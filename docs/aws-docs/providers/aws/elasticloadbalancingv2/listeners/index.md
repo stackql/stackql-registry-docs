@@ -49,7 +49,7 @@ Used to retrieve a list of <code>listeners</code> in a region or to create or de
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LoadBalancerArn, DefaultActions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>listener
 <TabItem value="required">
 
 ```sql
--- listener.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.listeners (
  LoadBalancerArn,
  DefaultActions,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- listener.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticloadbalancingv2.listeners (
  SslPolicy,
  LoadBalancerArn,
@@ -212,6 +212,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticloadbalancingv2.listeners
 WHERE data__Identifier = '<ListenerArn>'
 AND region = 'us-east-1';

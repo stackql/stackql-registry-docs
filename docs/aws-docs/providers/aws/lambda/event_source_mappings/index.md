@@ -26,7 +26,7 @@ Used to retrieve a list of <code>event_source_mappings</code> in a region or to 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>event_source_mappings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.&lt;br&#x2F;&gt; For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source. &lt;br&#x2F;&gt;  +  &#91;Configuring a Dynamo DB stream as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-ddb.html#services-dynamodb-eventsourcemapping)&lt;br&#x2F;&gt;  +  &#91;Configuring a Kinesis stream as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-kinesis.html#services-kinesis-eventsourcemapping)&lt;br&#x2F;&gt;  +  &#91;Configuring an SQS queue as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-sqs.html#events-sqs-eventsource)&lt;br&#x2F;&gt;  +  &#91;Configuring an MQ broker as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-mq.html#services-mq-eventsourcemapping)&lt;br&#x2F;&gt;  +  &#91;Configuring MSK as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-msk.html)&lt;br&#x2F;&gt;  +  &#91;Configuring Self-Managed Apache Kafka as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;kafka-smaa.html)&lt;br&#x2F;&gt;  +  &#91;Configuring Amazon DocumentDB as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-documentdb.html)</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::Lambda::EventSourceMapping</code> resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.&lt;br&#x2F;&gt; For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source. &lt;br&#x2F;&gt;  +  &#91;Configuring a Dynamo DB stream as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-ddb.html#services-dynamodb-eventsourcemapping)&lt;br&#x2F;&gt;  +  &#91;Configuring a Kinesis stream as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-kinesis.html#services-kinesis-eventsourcemapping)&lt;br&#x2F;&gt;  +  &#91;Configuring an SQS queue as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-sqs.html#events-sqs-eventsource)&lt;br&#x2F;&gt;  +  &#91;Configuring an MQ broker as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-mq.html#services-mq-eventsourcemapping)&lt;br&#x2F;&gt;  +  &#91;Configuring MSK as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-msk.html)&lt;br&#x2F;&gt;  +  &#91;Configuring Self-Managed Apache Kafka as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;kafka-smaa.html)&lt;br&#x2F;&gt;  +  &#91;Configuring Amazon DocumentDB as an event source&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;lambda&#x2F;latest&#x2F;dg&#x2F;with-documentdb.html)</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.lambda.event_source_mappings" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>event_source_mappings</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FunctionName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>event_so
 <TabItem value="required">
 
 ```sql
--- event_source_mapping.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lambda.event_source_mappings (
  FunctionName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- event_source_mapping.iql (all properties)
+/*+ create */
 INSERT INTO aws.lambda.event_source_mappings (
  BatchSize,
  BisectBatchOnFunctionError,
@@ -240,6 +240,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lambda.event_source_mappings
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

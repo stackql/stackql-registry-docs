@@ -49,7 +49,7 @@ Used to retrieve a list of <code>environments</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="EngineType, InstanceType, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>environm
 <TabItem value="required">
 
 ```sql
--- environment.iql (required properties only)
+/*+ create */
 INSERT INTO aws.m2.environments (
  EngineType,
  InstanceType,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- environment.iql (all properties)
+/*+ create */
 INSERT INTO aws.m2.environments (
  Description,
  EngineType,
@@ -190,6 +190,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.m2.environments
 WHERE data__Identifier = '<EnvironmentArn>'
 AND region = 'us-east-1';

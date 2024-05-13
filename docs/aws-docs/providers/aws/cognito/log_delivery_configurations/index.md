@@ -49,7 +49,7 @@ Used to retrieve a list of <code>log_delivery_configurations</code> in a region 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="UserPoolId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>log_deli
 <TabItem value="required">
 
 ```sql
--- log_delivery_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cognito.log_delivery_configurations (
  UserPoolId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- log_delivery_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.cognito.log_delivery_configurations (
  UserPoolId,
  LogConfigurations,
@@ -142,6 +142,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cognito.log_delivery_configurations
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

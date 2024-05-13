@@ -49,7 +49,7 @@ Used to retrieve a list of <code>ca_certificates</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="CACertificatePem, Status, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>ca_certi
 <TabItem value="required">
 
 ```sql
--- ca_certificate.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iot.ca_certificates (
  CACertificatePem,
  Status,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- ca_certificate.iql (all properties)
+/*+ create */
 INSERT INTO aws.iot.ca_certificates (
  CACertificatePem,
  VerificationCertificatePem,
@@ -169,6 +169,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iot.ca_certificates
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>location_s3s</code> in a region or to create or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="S3Config, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>location
 <TabItem value="required">
 
 ```sql
--- location_s3.iql (required properties only)
+/*+ create */
 INSERT INTO aws.datasync.location_s3s (
  S3Config,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- location_s3.iql (all properties)
+/*+ create */
 INSERT INTO aws.datasync.location_s3s (
  S3Config,
  S3BucketArn,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.datasync.location_s3s
 WHERE data__Identifier = '<LocationArn>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>versions</code> in a region or to create or del
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FunctionName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>version<
 <TabItem value="required">
 
 ```sql
--- version.iql (required properties only)
+/*+ create */
 INSERT INTO aws.lambda.versions (
  FunctionName,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- version.iql (all properties)
+/*+ create */
 INSERT INTO aws.lambda.versions (
  CodeSha256,
  Description,
@@ -153,6 +153,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.lambda.versions
 WHERE data__Identifier = '<FunctionArn>'
 AND region = 'us-east-1';

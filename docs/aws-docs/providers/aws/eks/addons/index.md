@@ -50,7 +50,7 @@ Used to retrieve a list of <code>addons</code> in a region or to create or delet
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ClusterName, AddonName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>addon</c
 <TabItem value="required">
 
 ```sql
--- addon.iql (required properties only)
+/*+ create */
 INSERT INTO aws.eks.addons (
  ClusterName,
  AddonName,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- addon.iql (all properties)
+/*+ create */
 INSERT INTO aws.eks.addons (
  ClusterName,
  AddonName,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.eks.addons
 WHERE data__Identifier = '<ClusterName|AddonName>'
 AND region = 'us-east-1';

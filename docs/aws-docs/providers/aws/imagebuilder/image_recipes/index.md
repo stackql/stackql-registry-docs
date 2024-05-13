@@ -49,7 +49,7 @@ Used to retrieve a list of <code>image_recipes</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, Version, Components, ParentImage, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>image_re
 <TabItem value="required">
 
 ```sql
--- image_recipe.iql (required properties only)
+/*+ create */
 INSERT INTO aws.imagebuilder.image_recipes (
  Name,
  Version,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- image_recipe.iql (all properties)
+/*+ create */
 INSERT INTO aws.imagebuilder.image_recipes (
  Name,
  Description,
@@ -192,6 +192,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.imagebuilder.image_recipes
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

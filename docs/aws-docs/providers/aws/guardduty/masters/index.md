@@ -50,7 +50,7 @@ Used to retrieve a list of <code>masters</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="MasterId, DetectorId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>master</
 <TabItem value="required">
 
 ```sql
--- master.iql (required properties only)
+/*+ create */
 INSERT INTO aws.guardduty.masters (
  MasterId,
  DetectorId,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- master.iql (all properties)
+/*+ create */
 INSERT INTO aws.guardduty.masters (
  MasterId,
  InvitationId,
@@ -146,6 +146,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.guardduty.masters
 WHERE data__Identifier = '<DetectorId|MasterId>'
 AND region = 'us-east-1';

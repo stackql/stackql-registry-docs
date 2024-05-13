@@ -26,7 +26,7 @@ Used to retrieve a list of <code>authorizers</code> in a region or to create or 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorizers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::Authorizer</code> resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.authorizers" /></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ Used to retrieve a list of <code>authorizers</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="RestApiId, Type, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>authoriz
 <TabItem value="required">
 
 ```sql
--- authorizer.iql (required properties only)
+/*+ create */
 INSERT INTO aws.apigateway.authorizers (
  RestApiId,
  Name,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- authorizer.iql (all properties)
+/*+ create */
 INSERT INTO aws.apigateway.authorizers (
  RestApiId,
  AuthType,
@@ -177,6 +177,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.apigateway.authorizers
 WHERE data__Identifier = '<RestApiId|AuthorizerId>'
 AND region = 'us-east-1';

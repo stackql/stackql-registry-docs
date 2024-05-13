@@ -50,7 +50,7 @@ Used to retrieve a list of <code>sync_configurations</code> in a region or to cr
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Branch, ConfigFile, RepositoryLinkId, ResourceName, SyncType, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>sync_con
 <TabItem value="required">
 
 ```sql
--- sync_configuration.iql (required properties only)
+/*+ create */
 INSERT INTO aws.codestarconnections.sync_configurations (
  ResourceName,
  Branch,
@@ -112,7 +112,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- sync_configuration.iql (all properties)
+/*+ create */
 INSERT INTO aws.codestarconnections.sync_configurations (
  ResourceName,
  Branch,
@@ -174,6 +174,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.codestarconnections.sync_configurations
 WHERE data__Identifier = '<ResourceName|SyncType>'
 AND region = 'us-east-1';

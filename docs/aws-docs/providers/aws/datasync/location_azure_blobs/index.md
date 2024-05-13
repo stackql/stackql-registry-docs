@@ -49,7 +49,7 @@ Used to retrieve a list of <code>location_azure_blobs</code> in a region or to c
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AzureBlobAuthenticationType, AgentArns, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>location
 <TabItem value="required">
 
 ```sql
--- location_azure_blob.iql (required properties only)
+/*+ create */
 INSERT INTO aws.datasync.location_azure_blobs (
  AgentArns,
  AzureBlobAuthenticationType,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- location_azure_blob.iql (all properties)
+/*+ create */
 INSERT INTO aws.datasync.location_azure_blobs (
  AgentArns,
  AzureBlobAuthenticationType,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.datasync.location_azure_blobs
 WHERE data__Identifier = '<LocationArn>'
 AND region = 'us-east-1';

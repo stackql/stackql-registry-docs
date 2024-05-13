@@ -49,7 +49,7 @@ Used to retrieve a list of <code>app_blocks</code> in a region or to create or d
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, SourceS3Location, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>app_bloc
 <TabItem value="required">
 
 ```sql
--- app_block.iql (required properties only)
+/*+ create */
 INSERT INTO aws.appstream.app_blocks (
  Name,
  SourceS3Location,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- app_block.iql (all properties)
+/*+ create */
 INSERT INTO aws.appstream.app_blocks (
  Name,
  Description,
@@ -172,6 +172,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.appstream.app_blocks
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

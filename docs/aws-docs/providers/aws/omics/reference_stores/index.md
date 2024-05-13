@@ -49,7 +49,7 @@ Used to retrieve a list of <code>reference_stores</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>referenc
 <TabItem value="required">
 
 ```sql
--- reference_store.iql (required properties only)
+/*+ create */
 INSERT INTO aws.omics.reference_stores (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- reference_store.iql (all properties)
+/*+ create */
 INSERT INTO aws.omics.reference_stores (
  Description,
  Name,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.omics.reference_stores
 WHERE data__Identifier = '<ReferenceStoreId>'
 AND region = 'us-east-1';

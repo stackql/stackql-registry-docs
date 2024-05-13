@@ -49,7 +49,7 @@ Used to retrieve a list of <code>quick_connects</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, InstanceArn, QuickConnectConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>quick_co
 <TabItem value="required">
 
 ```sql
--- quick_connect.iql (required properties only)
+/*+ create */
 INSERT INTO aws.connect.quick_connects (
  InstanceArn,
  Name,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- quick_connect.iql (all properties)
+/*+ create */
 INSERT INTO aws.connect.quick_connects (
  InstanceArn,
  Name,
@@ -165,6 +165,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.connect.quick_connects
 WHERE data__Identifier = '<QuickConnectArn>'
 AND region = 'us-east-1';

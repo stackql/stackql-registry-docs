@@ -26,7 +26,7 @@ Gets or updates an individual <code>base_path_mapping</code> resource, use <code
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>base_path_mapping</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::BasePathMapping</code> resource creates a base path that clients who call your API must use in the invocation URL.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.base_path_mapping" /></td></tr>
 </tbody></table>
 

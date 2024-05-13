@@ -26,7 +26,7 @@ Used to retrieve a list of <code>data_repository_associations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_repository_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type. &lt;br&#x2F;&gt; Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see &#91;Linking your file system to an S3 bucket&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;fsx&#x2F;latest&#x2F;LustreGuide&#x2F;create-dra-linked-data-repo.html).</td></tr>
+<tr><td><b>Description</b></td><td>Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding <code>scratch_1</code> deployment type. &lt;br&#x2F;&gt; Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see &#91;Linking your file system to an S3 bucket&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;fsx&#x2F;latest&#x2F;LustreGuide&#x2F;create-dra-linked-data-repo.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.fsx.data_repository_associations" /></td></tr>
 </tbody></table>
 
@@ -49,7 +49,7 @@ Used to retrieve a list of <code>data_repository_associations</code> in a region
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="FileSystemId, FileSystemPath, DataRepositoryPath, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>data_rep
 <TabItem value="required">
 
 ```sql
--- data_repository_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.fsx.data_repository_associations (
  FileSystemId,
  FileSystemPath,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- data_repository_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.fsx.data_repository_associations (
  FileSystemId,
  FileSystemPath,
@@ -169,6 +169,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.fsx.data_repository_associations
 WHERE data__Identifier = '<AssociationId>'
 AND region = 'us-east-1';

@@ -51,7 +51,7 @@ Used to retrieve a list of <code>resource_associations</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Application, Resource, ResourceType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -91,7 +91,7 @@ Use the following StackQL query and manifest file to create a new <code>resource
 <TabItem value="required">
 
 ```sql
--- resource_association.iql (required properties only)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.resource_associations (
  Application,
  Resource,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resource_association.iql (all properties)
+/*+ create */
 INSERT INTO aws.servicecatalogappregistry.resource_associations (
  Application,
  Resource,
@@ -150,6 +150,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.servicecatalogappregistry.resource_associations
 WHERE data__Identifier = '<ApplicationArn|ResourceArn|ResourceType>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>access_policies</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AccessPolicyIdentity, AccessPolicyPermission, AccessPolicyResource, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>access_p
 <TabItem value="required">
 
 ```sql
--- access_policy.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotsitewise.access_policies (
  AccessPolicyIdentity,
  AccessPolicyPermission,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- access_policy.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotsitewise.access_policies (
  AccessPolicyIdentity,
  AccessPolicyPermission,
@@ -173,6 +173,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotsitewise.access_policies
 WHERE data__Identifier = '<AccessPolicyId>'
 AND region = 'us-east-1';

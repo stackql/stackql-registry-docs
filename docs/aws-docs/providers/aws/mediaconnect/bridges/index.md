@@ -49,7 +49,7 @@ Used to retrieve a list of <code>bridges</code> in a region or to create or dele
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, PlacementArn, Sources, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>bridge</
 <TabItem value="required">
 
 ```sql
--- bridge.iql (required properties only)
+/*+ create */
 INSERT INTO aws.mediaconnect.bridges (
  Name,
  PlacementArn,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- bridge.iql (all properties)
+/*+ create */
 INSERT INTO aws.mediaconnect.bridges (
  Name,
  PlacementArn,
@@ -189,6 +189,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.mediaconnect.bridges
 WHERE data__Identifier = '<BridgeArn>'
 AND region = 'us-east-1';

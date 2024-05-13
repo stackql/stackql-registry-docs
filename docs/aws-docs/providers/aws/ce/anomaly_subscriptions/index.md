@@ -49,7 +49,7 @@ Used to retrieve a list of <code>anomaly_subscriptions</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="MonitorArnList, Subscribers, Frequency, SubscriptionName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>anomaly_
 <TabItem value="required">
 
 ```sql
--- anomaly_subscription.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ce.anomaly_subscriptions (
  SubscriptionName,
  MonitorArnList,
@@ -106,7 +106,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- anomaly_subscription.iql (all properties)
+/*+ create */
 INSERT INTO aws.ce.anomaly_subscriptions (
  SubscriptionName,
  MonitorArnList,
@@ -170,6 +170,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ce.anomaly_subscriptions
 WHERE data__Identifier = '<SubscriptionArn>'
 AND region = 'us-east-1';

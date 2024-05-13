@@ -49,7 +49,7 @@ Used to retrieve a list of <code>delegated_admins</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AdminAccountId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>delegate
 <TabItem value="required">
 
 ```sql
--- delegated_admin.iql (required properties only)
+/*+ create */
 INSERT INTO aws.securityhub.delegated_admins (
  AdminAccountId,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- delegated_admin.iql (all properties)
+/*+ create */
 INSERT INTO aws.securityhub.delegated_admins (
  AdminAccountId,
  region
@@ -134,6 +134,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.securityhub.delegated_admins
 WHERE data__Identifier = '<DelegatedAdminIdentifier>'
 AND region = 'us-east-1';

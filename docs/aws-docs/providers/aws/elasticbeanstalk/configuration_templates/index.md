@@ -50,7 +50,7 @@ Used to retrieve a list of <code>configuration_templates</code> in a region or t
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApplicationName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>configur
 <TabItem value="required">
 
 ```sql
--- configuration_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.elasticbeanstalk.configuration_templates (
  ApplicationName,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- configuration_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.elasticbeanstalk.configuration_templates (
  ApplicationName,
  Description,
@@ -166,6 +166,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.elasticbeanstalk.configuration_templates
 WHERE data__Identifier = '<ApplicationName|TemplateName>'
 AND region = 'us-east-1';

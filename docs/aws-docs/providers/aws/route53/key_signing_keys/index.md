@@ -50,7 +50,7 @@ Used to retrieve a list of <code>key_signing_keys</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Status, HostedZoneId, Name, KeyManagementServiceArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>key_sign
 <TabItem value="required">
 
 ```sql
--- key_signing_key.iql (required properties only)
+/*+ create */
 INSERT INTO aws.route53.key_signing_keys (
  HostedZoneId,
  Status,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- key_signing_key.iql (all properties)
+/*+ create */
 INSERT INTO aws.route53.key_signing_keys (
  HostedZoneId,
  Status,
@@ -154,6 +154,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.route53.key_signing_keys
 WHERE data__Identifier = '<HostedZoneId|Name>'
 AND region = 'us-east-1';

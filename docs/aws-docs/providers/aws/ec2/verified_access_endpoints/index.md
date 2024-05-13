@@ -49,7 +49,7 @@ Used to retrieve a list of <code>verified_access_endpoints</code> in a region or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ApplicationDomain, AttachmentType, DomainCertificateArn, EndpointType, VerifiedAccessGroupId, EndpointDomainPrefix, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>verified
 <TabItem value="required">
 
 ```sql
--- verified_access_endpoint.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.verified_access_endpoints (
  VerifiedAccessGroupId,
  EndpointType,
@@ -110,7 +110,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- verified_access_endpoint.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.verified_access_endpoints (
  VerifiedAccessGroupId,
  SecurityGroupIds,
@@ -209,6 +209,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.verified_access_endpoints
 WHERE data__Identifier = '<VerifiedAccessEndpointId>'
 AND region = 'us-east-1';

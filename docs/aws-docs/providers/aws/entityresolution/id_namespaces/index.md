@@ -49,7 +49,7 @@ Used to retrieve a list of <code>id_namespaces</code> in a region or to create o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IdNamespaceName, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>id_names
 <TabItem value="required">
 
 ```sql
--- id_namespace.iql (required properties only)
+/*+ create */
 INSERT INTO aws.entityresolution.id_namespaces (
  IdNamespaceName,
  Type,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- id_namespace.iql (all properties)
+/*+ create */
 INSERT INTO aws.entityresolution.id_namespaces (
  IdNamespaceName,
  Description,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.entityresolution.id_namespaces
 WHERE data__Identifier = '<IdNamespaceName>'
 AND region = 'us-east-1';

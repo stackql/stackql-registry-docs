@@ -49,7 +49,7 @@ Used to retrieve a list of <code>resource_groups</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ResourceGroupTags, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>resource
 <TabItem value="required">
 
 ```sql
--- resource_group.iql (required properties only)
+/*+ create */
 INSERT INTO aws.inspector.resource_groups (
  ResourceGroupTags,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- resource_group.iql (all properties)
+/*+ create */
 INSERT INTO aws.inspector.resource_groups (
  ResourceGroupTags,
  region
@@ -136,6 +136,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.inspector.resource_groups
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

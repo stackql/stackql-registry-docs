@@ -50,12 +50,7 @@ Used to retrieve a list of <code>primary_task_sets</code> in a region or to crea
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
-  </tr>
-  <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
+    <td><CopyableCode code="Cluster, Service, TaskSetId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resource" /></td>
@@ -89,7 +84,7 @@ Use the following StackQL query and manifest file to create a new <code>primary_
 <TabItem value="required">
 
 ```sql
--- primary_task_set.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ecs.primary_task_sets (
  Cluster,
  TaskSetId,
@@ -106,7 +101,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- primary_task_set.iql (all properties)
+/*+ create */
 INSERT INTO aws.ecs.primary_task_sets (
  Cluster,
  TaskSetId,
@@ -144,14 +139,6 @@ resources:
 ```
 </TabItem>
 </Tabs>
-
-## `DELETE` Example
-
-```sql
-DELETE FROM aws.ecs.primary_task_sets
-WHERE data__Identifier = '<Cluster|Service>'
-AND region = 'us-east-1';
-```
 
 ## Permissions
 

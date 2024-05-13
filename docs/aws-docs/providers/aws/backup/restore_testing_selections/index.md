@@ -50,7 +50,7 @@ Used to retrieve a list of <code>restore_testing_selections</code> in a region o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="IamRoleArn, ProtectedResourceType, RestoreTestingPlanName, RestoreTestingSelectionName, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>restore_
 <TabItem value="required">
 
 ```sql
--- restore_testing_selection.iql (required properties only)
+/*+ create */
 INSERT INTO aws.backup.restore_testing_selections (
  IamRoleArn,
  ProtectedResourceType,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- restore_testing_selection.iql (all properties)
+/*+ create */
 INSERT INTO aws.backup.restore_testing_selections (
  IamRoleArn,
  ProtectedResourceArns,
@@ -176,6 +176,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.backup.restore_testing_selections
 WHERE data__Identifier = '<RestoreTestingPlanName|RestoreTestingSelectionName>'
 AND region = 'us-east-1';

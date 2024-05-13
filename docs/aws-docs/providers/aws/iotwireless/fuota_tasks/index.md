@@ -49,7 +49,7 @@ Used to retrieve a list of <code>fuota_tasks</code> in a region or to create or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="LoRaWAN, FirmwareUpdateImage, FirmwareUpdateRole, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>fuota_ta
 <TabItem value="required">
 
 ```sql
--- fuota_task.iql (required properties only)
+/*+ create */
 INSERT INTO aws.iotwireless.fuota_tasks (
  LoRaWAN,
  FirmwareUpdateImage,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- fuota_task.iql (all properties)
+/*+ create */
 INSERT INTO aws.iotwireless.fuota_tasks (
  Name,
  Description,
@@ -180,6 +180,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.iotwireless.fuota_tasks
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

@@ -50,7 +50,7 @@ Used to retrieve a list of <code>privacy_budget_templates</code> in a region or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="AutoRefresh, PrivacyBudgetType, Parameters, MembershipIdentifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>privacy_
 <TabItem value="required">
 
 ```sql
--- privacy_budget_template.iql (required properties only)
+/*+ create */
 INSERT INTO aws.cleanrooms.privacy_budget_templates (
  AutoRefresh,
  PrivacyBudgetType,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- privacy_budget_template.iql (all properties)
+/*+ create */
 INSERT INTO aws.cleanrooms.privacy_budget_templates (
  Tags,
  AutoRefresh,
@@ -162,6 +162,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.cleanrooms.privacy_budget_templates
 WHERE data__Identifier = '<PrivacyBudgetTemplateIdentifier|MembershipIdentifier>'
 AND region = 'us-east-1';

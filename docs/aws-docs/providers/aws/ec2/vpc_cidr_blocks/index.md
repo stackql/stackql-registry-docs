@@ -50,7 +50,7 @@ Used to retrieve a list of <code>vpc_cidr_blocks</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="VpcId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -89,7 +89,7 @@ Use the following StackQL query and manifest file to create a new <code>vpc_cidr
 <TabItem value="required">
 
 ```sql
--- vpc_cidr_block.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ec2.vpc_cidr_blocks (
  VpcId,
  region
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- vpc_cidr_block.iql (all properties)
+/*+ create */
 INSERT INTO aws.ec2.vpc_cidr_blocks (
  CidrBlock,
  Ipv6Pool,
@@ -168,6 +168,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ec2.vpc_cidr_blocks
 WHERE data__Identifier = '<Id|VpcId>'
 AND region = 'us-east-1';

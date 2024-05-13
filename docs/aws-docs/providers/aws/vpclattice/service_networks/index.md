@@ -49,7 +49,7 @@ Used to retrieve a list of <code>service_networks</code> in a region or to creat
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>service_
 <TabItem value="required">
 
 ```sql
--- service_network.iql (required properties only)
+/*+ create */
 INSERT INTO aws.vpclattice.service_networks (
  Name,
  AuthType,
@@ -104,7 +104,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- service_network.iql (all properties)
+/*+ create */
 INSERT INTO aws.vpclattice.service_networks (
  Name,
  AuthType,
@@ -148,6 +148,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.vpclattice.service_networks
 WHERE data__Identifier = '<Arn>'
 AND region = 'us-east-1';

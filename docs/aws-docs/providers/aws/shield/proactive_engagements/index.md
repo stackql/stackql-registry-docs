@@ -49,7 +49,7 @@ Used to retrieve a list of <code>proactive_engagements</code> in a region or to 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="ProactiveEngagementStatus, EmergencyContactList, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>proactiv
 <TabItem value="required">
 
 ```sql
--- proactive_engagement.iql (required properties only)
+/*+ create */
 INSERT INTO aws.shield.proactive_engagements (
  ProactiveEngagementStatus,
  EmergencyContactList,
@@ -102,7 +102,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- proactive_engagement.iql (all properties)
+/*+ create */
 INSERT INTO aws.shield.proactive_engagements (
  ProactiveEngagementStatus,
  EmergencyContactList,
@@ -143,6 +143,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.shield.proactive_engagements
 WHERE data__Identifier = '<AccountId>'
 AND region = 'us-east-1';

@@ -49,7 +49,7 @@ Used to retrieve a list of <code>patch_baselines</code> in a region or to create
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>patch_ba
 <TabItem value="required">
 
 ```sql
--- patch_baseline.iql (required properties only)
+/*+ create */
 INSERT INTO aws.ssm.patch_baselines (
  Name,
  region
@@ -100,7 +100,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- patch_baseline.iql (all properties)
+/*+ create */
 INSERT INTO aws.ssm.patch_baselines (
  DefaultBaseline,
  OperatingSystem,
@@ -205,6 +205,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.ssm.patch_baselines
 WHERE data__Identifier = '<Id>'
 AND region = 'us-east-1';

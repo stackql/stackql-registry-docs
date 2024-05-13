@@ -49,7 +49,7 @@ Used to retrieve a list of <code>sampling_rules</code> in a region or to create 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="data__DesiredState, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,7 +87,7 @@ Use the following StackQL query and manifest file to create a new <code>sampling
 <TabItem value="required">
 
 ```sql
--- sampling_rule.iql (required properties only)
+/*+ create */
 INSERT INTO aws.xray.sampling_rules (
  SamplingRule,
  SamplingRuleRecord,
@@ -108,7 +108,7 @@ SELECT
 <TabItem value="all">
 
 ```sql
--- sampling_rule.iql (all properties)
+/*+ create */
 INSERT INTO aws.xray.sampling_rules (
  SamplingRule,
  SamplingRuleRecord,
@@ -180,6 +180,7 @@ resources:
 ## `DELETE` Example
 
 ```sql
+/*+ delete */
 DELETE FROM aws.xray.sampling_rules
 WHERE data__Identifier = '<RuleARN>'
 AND region = 'us-east-1';
