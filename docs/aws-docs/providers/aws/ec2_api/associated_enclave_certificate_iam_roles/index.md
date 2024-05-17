@@ -14,24 +14,27 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>associated_enclave_certificate_iam_roles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.associated_enclave_certificate_iam_roles</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.associated_enclave_certificate_iam_roles" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `associatedRoleArn` | `string` | The ARN of the associated IAM role. |
-| `certificateS3BucketName` | `string` | The name of the Amazon S3 bucket in which the Amazon S3 object is stored. |
-| `certificateS3ObjectKey` | `string` | The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: &lt;code&gt;role_arn&lt;/code&gt;/&lt;code&gt;certificate_arn&lt;/code&gt;.  |
-| `encryptionKmsKeyId` | `string` | The ID of the KMS customer master key (CMK) used to encrypt the private key. |
+| <CopyableCode code="associatedRoleArn" /> | `string` | The ARN of the associated IAM role. |
+| <CopyableCode code="certificateS3BucketName" /> | `string` | The name of the Amazon S3 bucket in which the Amazon S3 object is stored. |
+| <CopyableCode code="certificateS3ObjectKey" /> | `string` | The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: &lt;code&gt;role_arn&lt;/code&gt;/&lt;code&gt;certificate_arn&lt;/code&gt;.  |
+| <CopyableCode code="encryptionKmsKeyId" /> | `string` | The ID of the KMS customer master key (CMK) used to encrypt the private key. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `associated_enclave_certificate_iam_roles_Get` | `SELECT` | `region` |
+| <CopyableCode code="associated_enclave_certificate_iam_roles_Get" /> | `SELECT` | <CopyableCode code="region" /> |

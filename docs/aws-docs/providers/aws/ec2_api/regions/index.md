@@ -14,23 +14,26 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>regions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.regions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.regions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `optInStatus` | `string` | The Region opt-in status. The possible values are &lt;code&gt;opt-in-not-required&lt;/code&gt;, &lt;code&gt;opted-in&lt;/code&gt;, and &lt;code&gt;not-opted-in&lt;/code&gt;. |
-| `regionEndpoint` | `string` | The Region service endpoint. |
-| `regionName` | `string` | The name of the Region. |
+| <CopyableCode code="optInStatus" /> | `string` | The Region opt-in status. The possible values are &lt;code&gt;opt-in-not-required&lt;/code&gt;, &lt;code&gt;opted-in&lt;/code&gt;, and &lt;code&gt;not-opted-in&lt;/code&gt;. |
+| <CopyableCode code="regionEndpoint" /> | `string` | The Region service endpoint. |
+| <CopyableCode code="regionName" /> | `string` | The name of the Region. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `regions_Describe` | `SELECT` | `region` |
+| <CopyableCode code="regions_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

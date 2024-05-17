@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>restore_image_task</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.restore_image_task</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.restore_image_task" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `restore_image_task_Create` | `INSERT` | `Bucket, ObjectKey, region` |
+| <CopyableCode code="restore_image_task_Create" /> | `INSERT` | <CopyableCode code="Bucket, ObjectKey, region" /> |

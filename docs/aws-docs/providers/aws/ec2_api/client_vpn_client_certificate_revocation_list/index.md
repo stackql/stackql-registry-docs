@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>client_vpn_client_certificate_revocation_list</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.client_vpn_client_certificate_revocation_list</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.client_vpn_client_certificate_revocation_list" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `client_vpn_client_certificate_revocation_list_Export` | `EXEC` | `ClientVpnEndpointId, region` | Downloads the client certificate revocation list for the specified Client VPN endpoint. |
-| `client_vpn_client_certificate_revocation_list_Import` | `EXEC` | `CertificateRevocationList, ClientVpnEndpointId, region` | &lt;p&gt;Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.&lt;/p&gt; &lt;p&gt;Uploading a client certificate revocation list resets existing client connections.&lt;/p&gt; |
+| <CopyableCode code="client_vpn_client_certificate_revocation_list_Export" /> | `EXEC` | <CopyableCode code="ClientVpnEndpointId, region" /> | Downloads the client certificate revocation list for the specified Client VPN endpoint. |
+| <CopyableCode code="client_vpn_client_certificate_revocation_list_Import" /> | `EXEC` | <CopyableCode code="CertificateRevocationList, ClientVpnEndpointId, region" /> | &lt;p&gt;Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.&lt;/p&gt; &lt;p&gt;Uploading a client certificate revocation list resets existing client connections.&lt;/p&gt; |

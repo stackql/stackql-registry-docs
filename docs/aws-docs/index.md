@@ -22,16 +22,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Cloud services from AWS.
 
-:::info Provider Summary (v24.05.00230)
+:::info Provider Summary (v24.05.00232)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>220</b></span><br />
-<span>total methods:&nbsp;<b>7,597</b></span><br />
+<span>total services:&nbsp;<b>221</b></span><br />
+<span>total methods:&nbsp;<b>7,620</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2,269</b></span><br />
-<span>total selectable resources:&nbsp;<b>2,161</b></span><br />
+<span>total resources:&nbsp;<b>2,277</b></span><br />
+<span>total selectable resources:&nbsp;<b>2,170</b></span><br />
 </div>
 </div>
 
@@ -205,9 +205,9 @@ This parameter must be supplied to the `WHERE` clause of each `SELECT` statement
 <a href="/providers/aws/iotanalytics/">iotanalytics</a><br />
 <a href="/providers/aws/iotcoredeviceadvisor/">iotcoredeviceadvisor</a><br />
 <a href="/providers/aws/iotevents/">iotevents</a><br />
+<a href="/providers/aws/iotfleethub/">iotfleethub</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/iotfleethub/">iotfleethub</a><br />
 <a href="/providers/aws/iotfleetwise/">iotfleetwise</a><br />
 <a href="/providers/aws/iotsitewise/">iotsitewise</a><br />
 <a href="/providers/aws/iottwinmaker/">iottwinmaker</a><br />
@@ -275,6 +275,7 @@ This parameter must be supplied to the `WHERE` clause of each `SELECT` statement
 <a href="/providers/aws/robomaker/">robomaker</a><br />
 <a href="/providers/aws/rolesanywhere/">rolesanywhere</a><br />
 <a href="/providers/aws/route53/">route53</a><br />
+<a href="/providers/aws/route53_api/">route53_api</a><br />
 <a href="/providers/aws/route53recoverycontrol/">route53recoverycontrol</a><br />
 <a href="/providers/aws/route53recoveryreadiness/">route53recoveryreadiness</a><br />
 <a href="/providers/aws/route53resolver/">route53resolver</a><br />

@@ -14,23 +14,26 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>spot_fleet_request_history</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.spot_fleet_request_history</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.spot_fleet_request_history" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `eventInformation` | `object` | Describes an EC2 Fleet or Spot Fleet event. |
-| `eventType` | `string` | &lt;p&gt;The event type.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;error&lt;/code&gt; - An error with the Spot Fleet request.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;fleetRequestChange&lt;/code&gt; - A change in the status or configuration of the Spot Fleet request.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;instanceChange&lt;/code&gt; - An instance was launched or terminated.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Information&lt;/code&gt; - An informational event.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `timestamp` | `string` | The date and time of the event, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
+| <CopyableCode code="eventInformation" /> | `object` | Describes an EC2 Fleet or Spot Fleet event. |
+| <CopyableCode code="eventType" /> | `string` | &lt;p&gt;The event type.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;error&lt;/code&gt; - An error with the Spot Fleet request.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;fleetRequestChange&lt;/code&gt; - A change in the status or configuration of the Spot Fleet request.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;instanceChange&lt;/code&gt; - An instance was launched or terminated.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Information&lt;/code&gt; - An informational event.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| <CopyableCode code="timestamp" /> | `string` | The date and time of the event, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `spot_fleet_request_history_Describe` | `SELECT` | `SpotFleetRequestId, StartTime, region` |
+| <CopyableCode code="spot_fleet_request_history_Describe" /> | `SELECT` | <CopyableCode code="SpotFleetRequestId, StartTime, region" /> |

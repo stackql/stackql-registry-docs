@@ -14,29 +14,32 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reserved_instances_modifications</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.reserved_instances_modifications</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.reserved_instances_modifications" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `clientToken` | `string` | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
-| `createDate` | `string` | The time when the modification request was created. |
-| `effectiveDate` | `string` | The time for the modification to become effective. |
-| `modificationResultSet` | `array` | Contains target configurations along with their corresponding new Reserved Instance IDs. |
-| `reservedInstancesModificationId` | `string` | A unique ID for the Reserved Instance modification. |
-| `reservedInstancesSet` | `array` | The IDs of one or more Reserved Instances. |
-| `status` | `string` | The status of the Reserved Instances modification request. |
-| `statusMessage` | `string` | The reason for the status. |
-| `updateDate` | `string` | The time when the modification request was last updated. |
+| <CopyableCode code="clientToken" /> | `string` | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
+| <CopyableCode code="createDate" /> | `string` | The time when the modification request was created. |
+| <CopyableCode code="effectiveDate" /> | `string` | The time for the modification to become effective. |
+| <CopyableCode code="modificationResultSet" /> | `array` | Contains target configurations along with their corresponding new Reserved Instance IDs. |
+| <CopyableCode code="reservedInstancesModificationId" /> | `string` | A unique ID for the Reserved Instance modification. |
+| <CopyableCode code="reservedInstancesSet" /> | `array` | The IDs of one or more Reserved Instances. |
+| <CopyableCode code="status" /> | `string` | The status of the Reserved Instances modification request. |
+| <CopyableCode code="statusMessage" /> | `string` | The reason for the status. |
+| <CopyableCode code="updateDate" /> | `string` | The time when the modification request was last updated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `reserved_instances_modifications_Describe` | `SELECT` | `region` |
+| <CopyableCode code="reserved_instances_modifications_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

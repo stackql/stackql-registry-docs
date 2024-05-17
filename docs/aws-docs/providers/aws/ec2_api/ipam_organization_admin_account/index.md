@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ipam_organization_admin_account</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.ipam_organization_admin_account</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.ipam_organization_admin_account" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ipam_organization_admin_account_Disable` | `EXEC` | `DelegatedAdminAccountId, region` | Disable the IPAM account. For more information, see &lt;a href="/vpc/latest/ipam/enable-integ-ipam.html"&gt;Enable integration with Organizations&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
-| `ipam_organization_admin_account_Enable` | `EXEC` | `DelegatedAdminAccountId, region` | Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see &lt;a href="/vpc/latest/ipam/enable-integ-ipam.html"&gt;Enable integration with Organizations&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
+| <CopyableCode code="ipam_organization_admin_account_Disable" /> | `EXEC` | <CopyableCode code="DelegatedAdminAccountId, region" /> | Disable the IPAM account. For more information, see &lt;a href="/vpc/latest/ipam/enable-integ-ipam.html"&gt;Enable integration with Organizations&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
+| <CopyableCode code="ipam_organization_admin_account_Enable" /> | `EXEC` | <CopyableCode code="DelegatedAdminAccountId, region" /> | Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see &lt;a href="/vpc/latest/ipam/enable-integ-ipam.html"&gt;Enable integration with Organizations&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |

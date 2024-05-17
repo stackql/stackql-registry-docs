@@ -14,27 +14,30 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>volume_status</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.volume_status</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.volume_status" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `actionsSet` | `array` | The details of the operation. |
-| `attachmentStatuses` | `array` | Information about the instances to which the volume is attached. |
-| `availabilityZone` | `string` | The Availability Zone of the volume. |
-| `eventsSet` | `array` | A list of events associated with the volume. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
-| `volumeId` | `string` | The volume ID. |
-| `volumeStatus` | `object` | Describes the status of a volume. |
+| <CopyableCode code="actionsSet" /> | `array` | The details of the operation. |
+| <CopyableCode code="attachmentStatuses" /> | `array` | Information about the instances to which the volume is attached. |
+| <CopyableCode code="availabilityZone" /> | `string` | The Availability Zone of the volume. |
+| <CopyableCode code="eventsSet" /> | `array` | A list of events associated with the volume. |
+| <CopyableCode code="outpostArn" /> | `string` | The Amazon Resource Name (ARN) of the Outpost. |
+| <CopyableCode code="volumeId" /> | `string` | The volume ID. |
+| <CopyableCode code="volumeStatus" /> | `object` | Describes the status of a volume. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `volume_status_Describe` | `SELECT` | `region` |
+| <CopyableCode code="volume_status_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

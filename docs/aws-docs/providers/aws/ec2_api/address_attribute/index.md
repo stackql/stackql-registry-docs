@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>address_attribute</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.address_attribute</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.address_attribute" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `address_attribute_Modify` | `EXEC` | `AllocationId, region` | Modifies an attribute of the specified Elastic IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |
-| `address_attribute_Reset` | `EXEC` | `AllocationId, Attribute, region` | Resets the attribute of the specified IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |
+| <CopyableCode code="address_attribute_Modify" /> | `EXEC` | <CopyableCode code="AllocationId, region" /> | Modifies an attribute of the specified Elastic IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |
+| <CopyableCode code="address_attribute_Reset" /> | `EXEC` | <CopyableCode code="AllocationId, Attribute, region" /> | Resets the attribute of the specified IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |

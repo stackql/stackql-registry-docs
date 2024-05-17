@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vgw_route_propagation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.vgw_route_propagation</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.vgw_route_propagation" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `vgw_route_propagation_Disable` | `EXEC` | `GatewayId, RouteTableId, region` | Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC. |
-| `vgw_route_propagation_Enable` | `EXEC` | `GatewayId, RouteTableId, region` | Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC. |
+| <CopyableCode code="vgw_route_propagation_Disable" /> | `EXEC` | <CopyableCode code="GatewayId, RouteTableId, region" /> | Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC. |
+| <CopyableCode code="vgw_route_propagation_Enable" /> | `EXEC` | <CopyableCode code="GatewayId, RouteTableId, region" /> | Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC. |

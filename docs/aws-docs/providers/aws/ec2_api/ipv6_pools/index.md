@@ -14,24 +14,27 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ipv6_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.ipv6_pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.ipv6_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `description` | `string` | The description for the address pool. |
-| `poolCidrBlockSet` | `array` | The CIDR blocks for the address pool. |
-| `poolId` | `string` | The ID of the address pool. |
-| `tagSet` | `array` | Any tags for the address pool. |
+| <CopyableCode code="description" /> | `string` | The description for the address pool. |
+| <CopyableCode code="poolCidrBlockSet" /> | `array` | The CIDR blocks for the address pool. |
+| <CopyableCode code="poolId" /> | `string` | The ID of the address pool. |
+| <CopyableCode code="tagSet" /> | `array` | Any tags for the address pool. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ipv6_pools_Describe` | `SELECT` | `region` |
+| <CopyableCode code="ipv6_pools_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

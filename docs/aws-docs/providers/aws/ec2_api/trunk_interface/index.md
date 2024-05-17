@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trunk_interface</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.trunk_interface</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.trunk_interface" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `trunk_interface_Associate` | `EXEC` | `BranchInterfaceId, TrunkInterfaceId, region` | &lt;note&gt; &lt;p&gt;This API action is currently in &lt;b&gt;limited preview only&lt;/b&gt;. If you are interested in using this feature, contact your account manager.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;Associates a branch network interface with a trunk network interface.&lt;/p&gt; &lt;p&gt;Before you create the association, run the &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html"&gt;create-network-interface&lt;/a&gt; command and set &lt;code&gt;--interface-type&lt;/code&gt; to &lt;code&gt;trunk&lt;/code&gt;. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.&lt;/p&gt; |
-| `trunk_interface_Disassociate` | `EXEC` | `AssociationId, region` | &lt;note&gt; &lt;p&gt;This API action is currently in &lt;b&gt;limited preview only&lt;/b&gt;. If you are interested in using this feature, contact your account manager.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;Removes an association between a branch network interface with a trunk network interface.&lt;/p&gt; |
+| <CopyableCode code="trunk_interface_Associate" /> | `EXEC` | <CopyableCode code="BranchInterfaceId, TrunkInterfaceId, region" /> | &lt;note&gt; &lt;p&gt;This API action is currently in &lt;b&gt;limited preview only&lt;/b&gt;. If you are interested in using this feature, contact your account manager.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;Associates a branch network interface with a trunk network interface.&lt;/p&gt; &lt;p&gt;Before you create the association, run the &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html"&gt;create-network-interface&lt;/a&gt; command and set &lt;code&gt;--interface-type&lt;/code&gt; to &lt;code&gt;trunk&lt;/code&gt;. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.&lt;/p&gt; |
+| <CopyableCode code="trunk_interface_Disassociate" /> | `EXEC` | <CopyableCode code="AssociationId, region" /> | &lt;note&gt; &lt;p&gt;This API action is currently in &lt;b&gt;limited preview only&lt;/b&gt;. If you are interested in using this feature, contact your account manager.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;Removes an association between a branch network interface with a trunk network interface.&lt;/p&gt; |

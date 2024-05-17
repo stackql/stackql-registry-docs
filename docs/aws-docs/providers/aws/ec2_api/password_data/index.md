@@ -14,23 +14,26 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>password_data</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.password_data</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.password_data" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceId` | `string` | The ID of the Windows instance. |
-| `passwordData` | `string` | The password of the instance. Returns an empty string if the password is not available. |
-| `timestamp` | `string` | The time the data was last updated. |
+| <CopyableCode code="instanceId" /> | `string` | The ID of the Windows instance. |
+| <CopyableCode code="passwordData" /> | `string` | The password of the instance. Returns an empty string if the password is not available. |
+| <CopyableCode code="timestamp" /> | `string` | The time the data was last updated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `password_data_Get` | `SELECT` | `InstanceId, region` |
+| <CopyableCode code="password_data_Get" /> | `SELECT` | <CopyableCode code="InstanceId, region" /> |

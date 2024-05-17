@@ -14,26 +14,29 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ipam_pool_cidrs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.ipam_pool_cidrs</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.ipam_pool_cidrs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `cidr` | `string` | The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is &lt;code&gt;10.24.34.0/23&lt;/code&gt;. An IPv6 CIDR example is &lt;code&gt;2001:DB8::/32&lt;/code&gt;. |
-| `failureReason` | `object` | Details related to why an IPAM pool CIDR failed to be provisioned. |
-| `state` | `string` | The state of the CIDR. |
+| <CopyableCode code="cidr" /> | `string` | The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is &lt;code&gt;10.24.34.0/23&lt;/code&gt;. An IPv6 CIDR example is &lt;code&gt;2001:DB8::/32&lt;/code&gt;. |
+| <CopyableCode code="failureReason" /> | `object` | Details related to why an IPAM pool CIDR failed to be provisioned. |
+| <CopyableCode code="state" /> | `string` | The state of the CIDR. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ipam_pool_cidrs_Get` | `SELECT` | `IpamPoolId, region` | Get the CIDRs provisioned to an IPAM pool. |
-| `ipam_pool_cidr_Allocate` | `EXEC` | `IpamPoolId, region` | Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see &lt;a href="/vpc/latest/ipam/allocate-cidrs-ipam.html"&gt;Allocate CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
-| `ipam_pool_cidr_Deprovision` | `EXEC` | `IpamPoolId, region` | Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see &lt;a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html"&gt;Deprovision pool CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
-| `ipam_pool_cidr_Provision` | `EXEC` | `IpamPoolId, region` | &lt;p&gt;Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="/vpc/latest/ipam/prov-cidr-ipam.html"&gt;Provision CIDRs to pools&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. &lt;/p&gt; |
+| <CopyableCode code="ipam_pool_cidrs_Get" /> | `SELECT` | <CopyableCode code="IpamPoolId, region" /> | Get the CIDRs provisioned to an IPAM pool. |
+| <CopyableCode code="ipam_pool_cidr_Allocate" /> | `EXEC` | <CopyableCode code="IpamPoolId, region" /> | Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see &lt;a href="/vpc/latest/ipam/allocate-cidrs-ipam.html"&gt;Allocate CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
+| <CopyableCode code="ipam_pool_cidr_Deprovision" /> | `EXEC` | <CopyableCode code="IpamPoolId, region" /> | Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see &lt;a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html"&gt;Deprovision pool CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
+| <CopyableCode code="ipam_pool_cidr_Provision" /> | `EXEC` | <CopyableCode code="IpamPoolId, region" /> | &lt;p&gt;Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="/vpc/latest/ipam/prov-cidr-ipam.html"&gt;Provision CIDRs to pools&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. &lt;/p&gt; |

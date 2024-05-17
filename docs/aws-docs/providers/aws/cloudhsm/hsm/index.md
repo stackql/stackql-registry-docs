@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hsm</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.cloudhsm.hsm</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudhsm.hsm" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `create_hsm` | `INSERT` | `X-Amz-Target, data__AvailabilityZone, data__ClusterId, region` | Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster. |
-| `delete_hsm` | `DELETE` | `X-Amz-Target, data__ClusterId, region` | Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify only one of these values. To find these values, use &lt;a&gt;DescribeClusters&lt;/a&gt;. |
+| <CopyableCode code="create_hsm" /> | `INSERT` | <CopyableCode code="X-Amz-Target, data__AvailabilityZone, data__ClusterId, region" /> | Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster. |
+| <CopyableCode code="delete_hsm" /> | `DELETE` | <CopyableCode code="X-Amz-Target, data__ClusterId, region" /> | Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify only one of these values. To find these values, use &lt;a&gt;DescribeClusters&lt;/a&gt;. |

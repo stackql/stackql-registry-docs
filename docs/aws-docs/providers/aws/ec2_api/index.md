@@ -13,6 +13,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
 ec2_api  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ ec2_api
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>ec2_api</td></tr>
 <tr><td><b>Description</b></td><td>ec2_api</td></tr>
-<tr><td><b>Id</b></td><td><code>ec2_api:v00.00.00000</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ec2_api:v24.05.00232</code></td></tr>
 </tbody></table>
 
 ## Resources

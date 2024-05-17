@@ -14,22 +14,25 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>console_screenshot</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.console_screenshot</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.console_screenshot" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `imageData` | `string` | The data that comprises the image. |
-| `instanceId` | `string` | The ID of the instance. |
+| <CopyableCode code="imageData" /> | `string` | The data that comprises the image. |
+| <CopyableCode code="instanceId" /> | `string` | The ID of the instance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `console_screenshot_Get` | `SELECT` | `InstanceId, region` |
+| <CopyableCode code="console_screenshot_Get" /> | `SELECT` | <CopyableCode code="InstanceId, region" /> |

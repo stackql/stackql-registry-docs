@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>snapshot_tier</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.snapshot_tier</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.snapshot_tier" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `snapshot_tier_Modify` | `EXEC` | `SnapshotId, region` | Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full snapshot that includes all of the blocks of data that were written to the volume at the time the snapshot was created, and moved from the standard tier to the archive tier. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html"&gt;Archive Amazon EBS snapshots&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;. |
-| `snapshot_tier_Restore` | `EXEC` | `SnapshotId, region` | &lt;p&gt;Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore period or restore type for a snapshot that was previously temporarily restored.&lt;/p&gt; &lt;p&gt;For more information see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot"&gt; Restore an archived snapshot&lt;/a&gt; and &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period"&gt; modify the restore period or restore type for a temporarily restored snapshot&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
+| <CopyableCode code="snapshot_tier_Modify" /> | `EXEC` | <CopyableCode code="SnapshotId, region" /> | Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full snapshot that includes all of the blocks of data that were written to the volume at the time the snapshot was created, and moved from the standard tier to the archive tier. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html"&gt;Archive Amazon EBS snapshots&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;. |
+| <CopyableCode code="snapshot_tier_Restore" /> | `EXEC` | <CopyableCode code="SnapshotId, region" /> | &lt;p&gt;Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore period or restore type for a snapshot that was previously temporarily restored.&lt;/p&gt; &lt;p&gt;For more information see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot"&gt; Restore an archived snapshot&lt;/a&gt; and &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period"&gt; modify the restore period or restore type for a temporarily restored snapshot&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |

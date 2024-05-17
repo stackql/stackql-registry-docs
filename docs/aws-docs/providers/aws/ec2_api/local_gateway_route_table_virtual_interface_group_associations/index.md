@@ -14,28 +14,31 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>local_gateway_route_table_virtual_interface_group_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.local_gateway_route_table_virtual_interface_group_associations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.local_gateway_route_table_virtual_interface_group_associations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `localGatewayId` | `string` | The ID of the local gateway. |
-| `localGatewayRouteTableArn` | `string` | The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group. |
-| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
-| `localGatewayRouteTableVirtualInterfaceGroupAssociationId` | `string` | The ID of the association. |
-| `localGatewayVirtualInterfaceGroupId` | `string` | The ID of the virtual interface group. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface group association. |
-| `state` | `string` | The state of the association. |
-| `tagSet` | `array` | The tags assigned to the association. |
+| <CopyableCode code="localGatewayId" /> | `string` | The ID of the local gateway. |
+| <CopyableCode code="localGatewayRouteTableArn" /> | `string` | The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group. |
+| <CopyableCode code="localGatewayRouteTableId" /> | `string` | The ID of the local gateway route table. |
+| <CopyableCode code="localGatewayRouteTableVirtualInterfaceGroupAssociationId" /> | `string` | The ID of the association. |
+| <CopyableCode code="localGatewayVirtualInterfaceGroupId" /> | `string` | The ID of the virtual interface group. |
+| <CopyableCode code="ownerId" /> | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface group association. |
+| <CopyableCode code="state" /> | `string` | The state of the association. |
+| <CopyableCode code="tagSet" /> | `array` | The tags assigned to the association. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `local_gateway_route_table_virtual_interface_group_associations_Describe` | `SELECT` | `region` |
+| <CopyableCode code="local_gateway_route_table_virtual_interface_group_associations_Describe" /> | `SELECT` | <CopyableCode code="region" /> |
