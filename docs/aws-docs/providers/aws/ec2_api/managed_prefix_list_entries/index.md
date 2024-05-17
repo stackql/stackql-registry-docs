@@ -14,22 +14,25 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_prefix_list_entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.managed_prefix_list_entries</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.managed_prefix_list_entries" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `description` | `string` | The description. |
-| `cidr` | `string` | The CIDR block. |
+| <CopyableCode code="description" /> | `string` | The description. |
+| <CopyableCode code="cidr" /> | `string` | The CIDR block. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `managed_prefix_list_entries_Get` | `SELECT` | `PrefixListId, region` |
+| <CopyableCode code="managed_prefix_list_entries_Get" /> | `SELECT` | <CopyableCode code="PrefixListId, region" /> |

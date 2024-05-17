@@ -14,22 +14,25 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>principal_id_format</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.principal_id_format</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.principal_id_format" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `arn` | `string` | PrincipalIdFormatARN description |
-| `statusSet` | `array` | PrincipalIdFormatStatuses description |
+| <CopyableCode code="arn" /> | `string` | PrincipalIdFormatARN description |
+| <CopyableCode code="statusSet" /> | `array` | PrincipalIdFormatStatuses description |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `principal_id_format_Describe` | `SELECT` | `region` |
+| <CopyableCode code="principal_id_format_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

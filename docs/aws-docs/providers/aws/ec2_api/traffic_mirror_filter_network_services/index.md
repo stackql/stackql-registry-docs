@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>traffic_mirror_filter_network_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.traffic_mirror_filter_network_services</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.traffic_mirror_filter_network_services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `traffic_mirror_filter_network_services_Modify` | `EXEC` | `TrafficMirrorFilterId, region` |
+| <CopyableCode code="traffic_mirror_filter_network_services_Modify" /> | `EXEC` | <CopyableCode code="TrafficMirrorFilterId, region" /> |

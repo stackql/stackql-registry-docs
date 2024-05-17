@@ -14,23 +14,26 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>log_events</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.cloudwatch_api.log_events</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudwatch_api.log_events" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ingestionTime` | `number` | The time the event was ingested, expressed as the number of milliseconds after &lt;code&gt;Jan 1, 1970 00:00:00 UTC&lt;/code&gt;. |
-| `message` | `string` | The data contained in the log event. |
-| `timestamp` | `number` | The time the event occurred, expressed as the number of milliseconds after &lt;code&gt;Jan 1, 1970 00:00:00 UTC&lt;/code&gt;. |
+| <CopyableCode code="ingestionTime" /> | `number` | The time the event was ingested, expressed as the number of milliseconds after &lt;code&gt;Jan 1, 1970 00:00:00 UTC&lt;/code&gt;. |
+| <CopyableCode code="message" /> | `string` | The data contained in the log event. |
+| <CopyableCode code="timestamp" /> | `number` | The time the event occurred, expressed as the number of milliseconds after &lt;code&gt;Jan 1, 1970 00:00:00 UTC&lt;/code&gt;. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `GetLogEvents` | `SELECT` | `data__logStreamName, region` |
+| <CopyableCode code="GetLogEvents" /> | `SELECT` | <CopyableCode code="data__logStreamName, region" /> |

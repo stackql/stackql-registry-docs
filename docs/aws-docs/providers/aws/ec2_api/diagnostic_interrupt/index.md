@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>diagnostic_interrupt</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.diagnostic_interrupt</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.diagnostic_interrupt" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `diagnostic_interrupt_Send` | `EXEC` | `InstanceId, region` |
+| <CopyableCode code="diagnostic_interrupt_Send" /> | `EXEC` | <CopyableCode code="InstanceId, region" /> |

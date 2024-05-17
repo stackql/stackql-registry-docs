@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpn_tunnel_options</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.vpn_tunnel_options</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.vpn_tunnel_options" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpn_tunnel_options_Modify` | `EXEC` | `TunnelOptions, VpnConnectionId, VpnTunnelOutsideIpAddress, region` |
+| <CopyableCode code="vpn_tunnel_options_Modify" /> | `EXEC` | <CopyableCode code="TunnelOptions, VpnConnectionId, VpnTunnelOutsideIpAddress, region" /> |

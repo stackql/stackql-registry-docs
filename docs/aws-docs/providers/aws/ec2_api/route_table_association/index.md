@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_table_association</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.route_table_association</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.route_table_association" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `route_table_association_Replace` | `EXEC` | `AssociationId, RouteTableId, region` |
+| <CopyableCode code="route_table_association_Replace" /> | `EXEC` | <CopyableCode code="AssociationId, RouteTableId, region" /> |

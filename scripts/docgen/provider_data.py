@@ -176,11 +176,11 @@ provider_data = {
       'description': 'Authentication and authorization services.',
       'image': '/img/providers/okta/stackql-okta-provider-featured-image.png' 
   },
-  # 'aws': {
-  #     'meta_description': 'Query, deploy and manage AWS resources using SQL',
-  #     'description': 'Cloud services by AWS.',
-  #     'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
-  # },
+  'aws': {
+      'meta_description': 'Query, deploy and manage AWS resources using SQL',
+      'description': 'Cloud services by AWS.',
+      'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
+  },
   'azure': {
       'meta_description': 'Query, deploy and manage Azure resources using SQL',
       'description': 'Cloud computing services operated by Microsoft.',
@@ -324,22 +324,22 @@ stackql.exe shell --auth=$Auth
 # 
 # AWS
 # 
-#   'aws': {
-#     'custom': False,
-#     'variables': """
-# - `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-# - `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-# - `AWS_SESSION_TOKEN` - [__OPTIONAL:__ only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
-#   """,
-#     'linux': """
-# AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
-# stackql shell --auth="${AUTH}"
-# """,
-#     'windows': """
-# $Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
-# stackql.exe shell --auth=$Auth
-# """,
-#   },
+  'aws': {
+    'custom': False,
+    'variables': """
+- `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+- `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+- `AWS_SESSION_TOKEN` - [__OPTIONAL:__ only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
+  """,
+    'linux': """
+AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
+stackql shell --auth="${AUTH}"
+""",
+    'windows': """
+$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
+stackql.exe shell --auth=$Auth
+""",
+  },
 # 
 # Okta
 #
@@ -550,13 +550,13 @@ Alternatively, you could add the <CopyableCode code="--tls.allowInsecure=true" /
 }
 
 server_variables_blocks = {
-#     'aws': """
-# The following parameter is required for the `aws` provider:  
+    'aws': """
+The following parameter is required for the `aws` provider:  
 
-# - `region` - AWS region (e.g. `us-east-1`)
+- `region` - AWS region (e.g. `us-east-1`)
 
-# This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
-#     """,
+This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
+    """,
     'okta': """
 The following parameter is required for the `okta` provider:  
 

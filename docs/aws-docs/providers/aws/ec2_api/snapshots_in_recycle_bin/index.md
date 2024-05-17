@@ -14,25 +14,28 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>snapshots_in_recycle_bin</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.snapshots_in_recycle_bin</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.snapshots_in_recycle_bin" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `description` | `string` | The description for the snapshot. |
-| `recycleBinEnterTime` | `string` | The date and time when the snaphsot entered the Recycle Bin. |
-| `recycleBinExitTime` | `string` | The date and time when the snapshot is to be permanently deleted from the Recycle Bin. |
-| `snapshotId` | `string` | The ID of the snapshot. |
-| `volumeId` | `string` | The ID of the volume from which the snapshot was created. |
+| <CopyableCode code="description" /> | `string` | The description for the snapshot. |
+| <CopyableCode code="recycleBinEnterTime" /> | `string` | The date and time when the snaphsot entered the Recycle Bin. |
+| <CopyableCode code="recycleBinExitTime" /> | `string` | The date and time when the snapshot is to be permanently deleted from the Recycle Bin. |
+| <CopyableCode code="snapshotId" /> | `string` | The ID of the snapshot. |
+| <CopyableCode code="volumeId" /> | `string` | The ID of the volume from which the snapshot was created. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `snapshots_in_recycle_bin_List` | `SELECT` | `region` |
+| <CopyableCode code="snapshots_in_recycle_bin_List" /> | `SELECT` | <CopyableCode code="region" /> |

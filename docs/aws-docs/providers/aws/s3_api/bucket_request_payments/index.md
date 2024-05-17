@@ -14,19 +14,22 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bucket_request_payments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.s3_api.bucket_request_payments</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.s3_api.bucket_request_payments" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `bucket_request_payments_Get` | `SELECT` | `bucket, region` | &lt;p&gt;Returns the request payment configuration of a bucket. To use this version of the operation, you must be the bucket owner. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html"&gt;Requester Pays Buckets&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;The following operations are related to &lt;code&gt;GetBucketRequestPayment&lt;/code&gt;:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html"&gt;ListObjects&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `bucket_request_payments_Put` | `EXEC` | `bucket, region` | &lt;p&gt;Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html"&gt;Requester Pays Buckets&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;The following operations are related to &lt;code&gt;PutBucketRequestPayment&lt;/code&gt;:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html"&gt;CreateBucket&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html"&gt;GetBucketRequestPayment&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| <CopyableCode code="bucket_request_payments_Get" /> | `SELECT` | <CopyableCode code="bucket, region" /> | &lt;p&gt;Returns the request payment configuration of a bucket. To use this version of the operation, you must be the bucket owner. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html"&gt;Requester Pays Buckets&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;The following operations are related to &lt;code&gt;GetBucketRequestPayment&lt;/code&gt;:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html"&gt;ListObjects&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| <CopyableCode code="bucket_request_payments_Put" /> | `EXEC` | <CopyableCode code="bucket, region" /> | &lt;p&gt;Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html"&gt;Requester Pays Buckets&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;The following operations are related to &lt;code&gt;PutBucketRequestPayment&lt;/code&gt;:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html"&gt;CreateBucket&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html"&gt;GetBucketRequestPayment&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |

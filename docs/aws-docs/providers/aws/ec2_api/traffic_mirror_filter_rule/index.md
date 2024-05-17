@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>traffic_mirror_filter_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.traffic_mirror_filter_rule</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.traffic_mirror_filter_rule" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,6 +32,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `traffic_mirror_filter_rule_Create` | `INSERT` | `DestinationCidrBlock, RuleAction, RuleNumber, SourceCidrBlock, TrafficDirection, TrafficMirrorFilterId, region` | &lt;p&gt;Creates a Traffic Mirror filter rule.&lt;/p&gt; &lt;p&gt;A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.&lt;/p&gt; &lt;p&gt;You need the Traffic Mirror filter ID when you create the rule.&lt;/p&gt; |
-| `traffic_mirror_filter_rule_Delete` | `DELETE` | `TrafficMirrorFilterRuleId, region` | Deletes the specified Traffic Mirror rule. |
-| `traffic_mirror_filter_rule_Modify` | `EXEC` | `TrafficMirrorFilterRuleId, region` | &lt;p&gt;Modifies the specified Traffic Mirror rule.&lt;/p&gt; &lt;p&gt; &lt;code&gt;DestinationCidrBlock&lt;/code&gt; and &lt;code&gt;SourceCidrBlock&lt;/code&gt; must both be an IPv4 range or an IPv6 range.&lt;/p&gt; |
+| <CopyableCode code="traffic_mirror_filter_rule_Create" /> | `INSERT` | <CopyableCode code="DestinationCidrBlock, RuleAction, RuleNumber, SourceCidrBlock, TrafficDirection, TrafficMirrorFilterId, region" /> | &lt;p&gt;Creates a Traffic Mirror filter rule.&lt;/p&gt; &lt;p&gt;A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.&lt;/p&gt; &lt;p&gt;You need the Traffic Mirror filter ID when you create the rule.&lt;/p&gt; |
+| <CopyableCode code="traffic_mirror_filter_rule_Delete" /> | `DELETE` | <CopyableCode code="TrafficMirrorFilterRuleId, region" /> | Deletes the specified Traffic Mirror rule. |
+| <CopyableCode code="traffic_mirror_filter_rule_Modify" /> | `EXEC` | <CopyableCode code="TrafficMirrorFilterRuleId, region" /> | &lt;p&gt;Modifies the specified Traffic Mirror rule.&lt;/p&gt; &lt;p&gt; &lt;code&gt;DestinationCidrBlock&lt;/code&gt; and &lt;code&gt;SourceCidrBlock&lt;/code&gt; must both be an IPv4 range or an IPv6 range.&lt;/p&gt; |

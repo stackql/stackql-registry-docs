@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_insights_analysis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.network_insights_analysis</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.network_insights_analysis" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `network_insights_analysis_Delete` | `DELETE` | `NetworkInsightsAnalysisId, region` | Deletes the specified network insights analysis. |
-| `network_insights_analysis_Start` | `EXEC` | `ClientToken, NetworkInsightsPathId, region` | Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path. |
+| <CopyableCode code="network_insights_analysis_Delete" /> | `DELETE` | <CopyableCode code="NetworkInsightsAnalysisId, region" /> | Deletes the specified network insights analysis. |
+| <CopyableCode code="network_insights_analysis_Start" /> | `EXEC` | <CopyableCode code="ClientToken, NetworkInsightsPathId, region" /> | Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path. |

@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_tenancy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.vpc_tenancy</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.vpc_tenancy" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpc_tenancy_Modify` | `EXEC` | `InstanceTenancy, VpcId, region` |
+| <CopyableCode code="vpc_tenancy_Modify" /> | `EXEC` | <CopyableCode code="InstanceTenancy, VpcId, region" /> |

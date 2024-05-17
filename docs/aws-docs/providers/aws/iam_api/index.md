@@ -13,6 +13,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
 iam_api  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ iam_api
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>iam_api</td></tr>
 <tr><td><b>Description</b></td><td>iam_api</td></tr>
-<tr><td><b>Id</b></td><td><code>iam_api:v00.00.00000</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iam_api:v24.05.00232</code></td></tr>
 </tbody></table>
 
 ## Resources

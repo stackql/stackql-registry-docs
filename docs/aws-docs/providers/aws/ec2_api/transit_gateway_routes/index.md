@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateway_routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.transit_gateway_routes</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.transit_gateway_routes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,8 +32,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `transit_gateway_route_Create` | `INSERT` | `DestinationCidrBlock, TransitGatewayRouteTableId, region` | Creates a static route for the specified transit gateway route table. |
-| `transit_gateway_route_Delete` | `DELETE` | `DestinationCidrBlock, TransitGatewayRouteTableId, region` | Deletes the specified route from the specified transit gateway route table. |
-| `transit_gateway_route_Replace` | `EXEC` | `DestinationCidrBlock, TransitGatewayRouteTableId, region` | Replaces the specified route in the specified transit gateway route table. |
-| `transit_gateway_routes_Export` | `EXEC` | `S3Bucket, TransitGatewayRouteTableId, region` | &lt;p&gt;Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.&lt;/p&gt; &lt;p&gt;The routes are saved to the specified bucket in a JSON file. For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables"&gt;Export Route Tables to Amazon S3&lt;/a&gt; in &lt;i&gt;Transit Gateways&lt;/i&gt;.&lt;/p&gt; |
-| `transit_gateway_routes_Search` | `EXEC` | `Filter, TransitGatewayRouteTableId, region` | Searches for routes in the specified transit gateway route table. |
+| <CopyableCode code="transit_gateway_route_Create" /> | `INSERT` | <CopyableCode code="DestinationCidrBlock, TransitGatewayRouteTableId, region" /> | Creates a static route for the specified transit gateway route table. |
+| <CopyableCode code="transit_gateway_route_Delete" /> | `DELETE` | <CopyableCode code="DestinationCidrBlock, TransitGatewayRouteTableId, region" /> | Deletes the specified route from the specified transit gateway route table. |
+| <CopyableCode code="transit_gateway_route_Replace" /> | `EXEC` | <CopyableCode code="DestinationCidrBlock, TransitGatewayRouteTableId, region" /> | Replaces the specified route in the specified transit gateway route table. |
+| <CopyableCode code="transit_gateway_routes_Export" /> | `EXEC` | <CopyableCode code="S3Bucket, TransitGatewayRouteTableId, region" /> | &lt;p&gt;Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.&lt;/p&gt; &lt;p&gt;The routes are saved to the specified bucket in a JSON file. For more information, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables"&gt;Export Route Tables to Amazon S3&lt;/a&gt; in &lt;i&gt;Transit Gateways&lt;/i&gt;.&lt;/p&gt; |
+| <CopyableCode code="transit_gateway_routes_Search" /> | `EXEC` | <CopyableCode code="Filter, TransitGatewayRouteTableId, region" /> | Searches for routes in the specified transit gateway route table. |

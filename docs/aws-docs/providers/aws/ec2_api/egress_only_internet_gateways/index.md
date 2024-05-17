@@ -14,25 +14,28 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>egress_only_internet_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.egress_only_internet_gateways</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.egress_only_internet_gateways" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `attachmentSet` | `array` | Information about the attachment of the egress-only internet gateway. |
-| `egressOnlyInternetGatewayId` | `string` | The ID of the egress-only internet gateway. |
-| `tagSet` | `array` | The tags assigned to the egress-only internet gateway. |
+| <CopyableCode code="attachmentSet" /> | `array` | Information about the attachment of the egress-only internet gateway. |
+| <CopyableCode code="egressOnlyInternetGatewayId" /> | `string` | The ID of the egress-only internet gateway. |
+| <CopyableCode code="tagSet" /> | `array` | The tags assigned to the egress-only internet gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `egress_only_internet_gateways_Describe` | `SELECT` | `region` | Describes one or more of your egress-only internet gateways. |
-| `egress_only_internet_gateway_Create` | `INSERT` | `VpcId, region` | [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance. |
-| `egress_only_internet_gateway_Delete` | `DELETE` | `EgressOnlyInternetGatewayId, region` | Deletes an egress-only internet gateway. |
+| <CopyableCode code="egress_only_internet_gateways_Describe" /> | `SELECT` | <CopyableCode code="region" /> | Describes one or more of your egress-only internet gateways. |
+| <CopyableCode code="egress_only_internet_gateway_Create" /> | `INSERT` | <CopyableCode code="VpcId, region" /> | [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance. |
+| <CopyableCode code="egress_only_internet_gateway_Delete" /> | `DELETE` | <CopyableCode code="EgressOnlyInternetGatewayId, region" /> | Deletes an egress-only internet gateway. |

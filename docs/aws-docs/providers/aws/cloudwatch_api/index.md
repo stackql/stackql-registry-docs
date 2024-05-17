@@ -13,6 +13,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
+
 cloudwatch_api  
     
 :::info Service Summary
@@ -33,7 +34,7 @@ cloudwatch_api
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>cloudwatch_api</td></tr>
 <tr><td><b>Description</b></td><td>cloudwatch_api</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudwatch_api:v00.00.00000</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudwatch_api:v24.05.00232</code></td></tr>
 </tbody></table>
 
 ## Resources

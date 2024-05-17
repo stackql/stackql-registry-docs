@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ipv6_addresses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.ipv6_addresses</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.ipv6_addresses" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,5 +32,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ipv6_addresses_Assign` | `EXEC` | `NetworkInterfaceId, region` | &lt;p&gt;Assigns one or more IPv6 addresses to the specified network interface. You can specify one or more specific IPv6 addresses, or you can specify the number of IPv6 addresses to be automatically assigned from within the subnet's IPv6 CIDR block range. You can assign as many IPv6 addresses to a network interface as you can assign private IPv4 addresses, and the limit varies per instance type. For information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI"&gt;IP Addresses Per Network Interface Per Instance Type&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;You must specify either the IPv6 addresses or the IPv6 address count in the request. &lt;/p&gt; &lt;p&gt;You can optionally use Prefix Delegation on the network interface. You must specify either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html"&gt; Assigning prefixes to Amazon EC2 network interfaces&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `ipv6_addresses_Unassign` | `EXEC` | `NetworkInterfaceId, region` | Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network interface. |
+| <CopyableCode code="ipv6_addresses_Assign" /> | `EXEC` | <CopyableCode code="NetworkInterfaceId, region" /> | &lt;p&gt;Assigns one or more IPv6 addresses to the specified network interface. You can specify one or more specific IPv6 addresses, or you can specify the number of IPv6 addresses to be automatically assigned from within the subnet's IPv6 CIDR block range. You can assign as many IPv6 addresses to a network interface as you can assign private IPv4 addresses, and the limit varies per instance type. For information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI"&gt;IP Addresses Per Network Interface Per Instance Type&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; &lt;p&gt;You must specify either the IPv6 addresses or the IPv6 address count in the request. &lt;/p&gt; &lt;p&gt;You can optionally use Prefix Delegation on the network interface. You must specify either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html"&gt; Assigning prefixes to Amazon EC2 network interfaces&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
+| <CopyableCode code="ipv6_addresses_Unassign" /> | `EXEC` | <CopyableCode code="NetworkInterfaceId, region" /> | Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network interface. |

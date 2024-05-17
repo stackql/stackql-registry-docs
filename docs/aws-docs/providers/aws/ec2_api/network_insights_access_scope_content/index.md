@@ -14,18 +14,21 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_insights_access_scope_content</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.network_insights_access_scope_content</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.network_insights_access_scope_content" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `network_insights_access_scope_content_Get` | `SELECT` | `NetworkInsightsAccessScopeId, region` |
+| <CopyableCode code="network_insights_access_scope_content_Get" /> | `SELECT` | <CopyableCode code="NetworkInsightsAccessScopeId, region" /> |

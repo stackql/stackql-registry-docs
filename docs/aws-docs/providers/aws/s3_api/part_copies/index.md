@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>part_copies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.s3_api.part_copies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.s3_api.part_copies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `part_copies_Upload` | `EXEC` | `Key, partNumber, uploadId, x-amz-copy-source, bucket, region` |
+| <CopyableCode code="part_copies_Upload" /> | `EXEC` | <CopyableCode code="Key, partNumber, uploadId, x-amz-copy-source, bucket, region" /> |

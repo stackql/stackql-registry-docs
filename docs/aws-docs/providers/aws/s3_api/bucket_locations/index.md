@@ -14,18 +14,21 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bucket_locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.s3_api.bucket_locations</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.s3_api.bucket_locations" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `bucket_locations_Get` | `SELECT` | `bucket, region` |
+| <CopyableCode code="bucket_locations_Get" /> | `SELECT` | <CopyableCode code="bucket, region" /> |

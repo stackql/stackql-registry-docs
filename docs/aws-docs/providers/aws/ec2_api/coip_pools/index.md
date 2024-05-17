@@ -14,25 +14,28 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>coip_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.coip_pools</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.coip_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
-| `poolArn` | `string` | The ARN of the address pool. |
-| `poolCidrSet` | `array` | The address ranges of the address pool. |
-| `poolId` | `string` | The ID of the address pool. |
-| `tagSet` | `array` | The tags. |
+| <CopyableCode code="localGatewayRouteTableId" /> | `string` | The ID of the local gateway route table. |
+| <CopyableCode code="poolArn" /> | `string` | The ARN of the address pool. |
+| <CopyableCode code="poolCidrSet" /> | `array` | The address ranges of the address pool. |
+| <CopyableCode code="poolId" /> | `string` | The ID of the address pool. |
+| <CopyableCode code="tagSet" /> | `array` | The tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `coip_pools_Describe` | `SELECT` | `region` |
+| <CopyableCode code="coip_pools_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

@@ -14,18 +14,21 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>flow_logs_integration_template</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.flow_logs_integration_template</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.flow_logs_integration_template" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `flow_logs_integration_template_Get` | `SELECT` | `ConfigDeliveryS3DestinationArn, FlowLogId, IntegrateService, region` |
+| <CopyableCode code="flow_logs_integration_template_Get" /> | `SELECT` | <CopyableCode code="ConfigDeliveryS3DestinationArn, FlowLogId, IntegrateService, region" /> |

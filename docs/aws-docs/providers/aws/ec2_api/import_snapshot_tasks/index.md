@@ -14,24 +14,27 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>import_snapshot_tasks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.import_snapshot_tasks</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.import_snapshot_tasks" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `description` | `string` | A description of the import snapshot task. |
-| `importTaskId` | `string` | The ID of the import snapshot task. |
-| `snapshotTaskDetail` | `object` | Details about the import snapshot task. |
-| `tagSet` | `array` | The tags for the import snapshot task. |
+| <CopyableCode code="description" /> | `string` | A description of the import snapshot task. |
+| <CopyableCode code="importTaskId" /> | `string` | The ID of the import snapshot task. |
+| <CopyableCode code="snapshotTaskDetail" /> | `object` | Details about the import snapshot task. |
+| <CopyableCode code="tagSet" /> | `array` | The tags for the import snapshot task. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `import_snapshot_tasks_Describe` | `SELECT` | `region` |
+| <CopyableCode code="import_snapshot_tasks_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

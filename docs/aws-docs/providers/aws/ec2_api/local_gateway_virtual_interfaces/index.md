@@ -14,29 +14,32 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>local_gateway_virtual_interfaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.local_gateway_virtual_interfaces</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.local_gateway_virtual_interfaces" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `localAddress` | `string` | The local address. |
-| `localBgpAsn` | `integer` | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway. |
-| `localGatewayId` | `string` | The ID of the local gateway. |
-| `localGatewayVirtualInterfaceId` | `string` | The ID of the virtual interface. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface. |
-| `peerAddress` | `string` | The peer address. |
-| `peerBgpAsn` | `integer` | The peer BGP ASN. |
-| `tagSet` | `array` | The tags assigned to the virtual interface. |
-| `vlan` | `integer` | The ID of the VLAN. |
+| <CopyableCode code="localAddress" /> | `string` | The local address. |
+| <CopyableCode code="localBgpAsn" /> | `integer` | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway. |
+| <CopyableCode code="localGatewayId" /> | `string` | The ID of the local gateway. |
+| <CopyableCode code="localGatewayVirtualInterfaceId" /> | `string` | The ID of the virtual interface. |
+| <CopyableCode code="ownerId" /> | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface. |
+| <CopyableCode code="peerAddress" /> | `string` | The peer address. |
+| <CopyableCode code="peerBgpAsn" /> | `integer` | The peer BGP ASN. |
+| <CopyableCode code="tagSet" /> | `array` | The tags assigned to the virtual interface. |
+| <CopyableCode code="vlan" /> | `integer` | The ID of the VLAN. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `local_gateway_virtual_interfaces_Describe` | `SELECT` | `region` |
+| <CopyableCode code="local_gateway_virtual_interfaces_Describe" /> | `SELECT` | <CopyableCode code="region" /> |

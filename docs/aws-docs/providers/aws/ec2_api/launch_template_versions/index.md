@@ -14,30 +14,33 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>launch_template_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.launch_template_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.launch_template_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `createTime` | `string` | The time the version was created. |
-| `createdBy` | `string` | The principal that created the version. |
-| `defaultVersion` | `boolean` | Indicates whether the version is the default version. |
-| `launchTemplateData` | `object` | The information for a launch template.  |
-| `launchTemplateId` | `string` | The ID of the launch template. |
-| `launchTemplateName` | `string` | The name of the launch template. |
-| `versionDescription` | `string` | The description for the version. |
-| `versionNumber` | `integer` | The version number. |
+| <CopyableCode code="createTime" /> | `string` | The time the version was created. |
+| <CopyableCode code="createdBy" /> | `string` | The principal that created the version. |
+| <CopyableCode code="defaultVersion" /> | `boolean` | Indicates whether the version is the default version. |
+| <CopyableCode code="launchTemplateData" /> | `object` | The information for a launch template.  |
+| <CopyableCode code="launchTemplateId" /> | `string` | The ID of the launch template. |
+| <CopyableCode code="launchTemplateName" /> | `string` | The name of the launch template. |
+| <CopyableCode code="versionDescription" /> | `string` | The description for the version. |
+| <CopyableCode code="versionNumber" /> | `integer` | The version number. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `launch_template_versions_Describe` | `SELECT` | `region` | Describes one or more versions of a specified launch template. You can describe all versions, individual versions, or a range of versions. You can also describe all the latest versions or all the default versions of all the launch templates in your account. |
-| `launch_template_version_Create` | `INSERT` | `LaunchTemplateData, region` | &lt;p&gt;Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.&lt;/p&gt; &lt;p&gt;Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions"&gt;Managing launch template versions&lt;/a&gt;in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `launch_template_versions_Delete` | `DELETE` | `LaunchTemplateVersion, region` | Deletes one or more versions of a launch template. You cannot delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using &lt;a&gt;DeleteLaunchTemplate&lt;/a&gt;. |
+| <CopyableCode code="launch_template_versions_Describe" /> | `SELECT` | <CopyableCode code="region" /> | Describes one or more versions of a specified launch template. You can describe all versions, individual versions, or a range of versions. You can also describe all the latest versions or all the default versions of all the launch templates in your account. |
+| <CopyableCode code="launch_template_version_Create" /> | `INSERT` | <CopyableCode code="LaunchTemplateData, region" /> | &lt;p&gt;Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.&lt;/p&gt; &lt;p&gt;Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions"&gt;Managing launch template versions&lt;/a&gt;in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt; |
+| <CopyableCode code="launch_template_versions_Delete" /> | `DELETE` | <CopyableCode code="LaunchTemplateVersion, region" /> | Deletes one or more versions of a launch template. You cannot delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using &lt;a&gt;DeleteLaunchTemplate&lt;/a&gt;. |

@@ -14,23 +14,26 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_group_references</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.ec2_api.security_group_references</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2_api.security_group_references" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `groupId` | `string` | The ID of your security group. |
-| `referencingVpcId` | `string` | The ID of the VPC with the referencing security group. |
-| `vpcPeeringConnectionId` | `string` | The ID of the VPC peering connection. |
+| <CopyableCode code="groupId" /> | `string` | The ID of your security group. |
+| <CopyableCode code="referencingVpcId" /> | `string` | The ID of the VPC with the referencing security group. |
+| <CopyableCode code="vpcPeeringConnectionId" /> | `string` | The ID of the VPC peering connection. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `security_group_references_Describe` | `SELECT` | `GroupId, region` |
+| <CopyableCode code="security_group_references_Describe" /> | `SELECT` | <CopyableCode code="GroupId, region" /> |

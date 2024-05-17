@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>objects_v2s</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.s3_api.objects_v2s</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.s3_api.objects_v2s" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `objects_v2s_List` | `EXEC` | `list-type, bucket, region` |
+| <CopyableCode code="objects_v2s_List" /> | `EXEC` | <CopyableCode code="list-type, bucket, region" /> |

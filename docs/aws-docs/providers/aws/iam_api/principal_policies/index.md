@@ -14,14 +14,17 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-  
-    
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>principal_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>aws.iam_api.principal_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.iam_api.principal_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `principal_policies_Simulate` | `EXEC` | `ActionNames, PolicySourceArn, region` |
+| <CopyableCode code="principal_policies_Simulate" /> | `EXEC` | <CopyableCode code="ActionNames, PolicySourceArn, region" /> |
