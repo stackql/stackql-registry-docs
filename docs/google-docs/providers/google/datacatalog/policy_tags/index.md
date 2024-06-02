@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policy_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.policy_tags" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.policy_tags" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Resource name of this policy tag in the URL format. The policy tag manager generates unique taxonomy IDs and policy tag IDs. |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name of this policy tag in the URL format. The policy tag manager generates unique taxonomy IDs and policy tag IDs. |
 | <CopyableCode code="description" /> | `string` | Description of this policy tag. If not set, defaults to empty. The description must contain only Unicode characters, tabs, newlines, carriage returns and page breaks, and be at most 2000 bytes long when encoded in UTF-8. |
 | <CopyableCode code="childPolicyTags" /> | `array` | Output only. Resource names of child policy tags of this policy tag. |
 | <CopyableCode code="displayName" /> | `string` | Required. User-defined name of this policy tag. The name can't start or end with spaces and must be unique within the parent taxonomy, contain only Unicode letters, numbers, underscores, dashes and spaces, and be at most 200 bytes long when encoded in UTF-8. |

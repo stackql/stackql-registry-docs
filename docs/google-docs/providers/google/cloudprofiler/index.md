@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages Continuous Profiling Information.  
+Manages continuous profiling information.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>0</b></span><br />
-<span>total methods:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Manages Continuous Profiling Information.
 <tr><td><b>Name</b></td><td><code>google.cloudprofiler</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Profiler API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Continuous Profiling Information.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudprofiler:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages continuous profiling information.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudprofiler:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

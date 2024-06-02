@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>consent_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.consent_stores" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.consent_stores" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name of the consent store, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;`. Cannot be changed after creation. |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name of the consent store, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;`. Cannot be changed after creation. |
 | <CopyableCode code="defaultConsentTtl" /> | `string` | Optional. Default time to live for Consents created in this store. Must be at least 24 hours. Updating this field will not affect the expiration time of existing consents. |
 | <CopyableCode code="enableConsentCreateOnUpdate" /> | `boolean` | Optional. If `true`, UpdateConsent creates the Consent if it does not already exist. If unspecified, defaults to `false`. |
 | <CopyableCode code="labels" /> | `object` | Optional. User-supplied key-value pairs used to organize consent stores. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: \p&#123;Ll&#125;\p&#123;Lo&#125;&#123;0,62&#125;. Label values must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: [\p&#123;Ll&#125;\p&#123;Lo&#125;\p&#123;N&#125;_-]&#123;0,63&#125;. No more than 64 labels can be associated with a given store. For more information: https://cloud.google.com/healthcare/docs/how-tos/labeling-resources |

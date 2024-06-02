@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>networks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.networks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.networks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,5 +55,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of networks available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a network in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="network, project" /> | Deletes the specified network. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="network, project" /> | Patches the specified network with the data included in the request. Only the following fields can be modified: routingConfig.routingMode. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="network, project" /> | Patches the specified network with the data included in the request. Only routingConfig can be modified. |
 | <CopyableCode code="switch_to_custom_mode" /> | `EXEC` | <CopyableCode code="network, project" /> | Switches the network mode from auto subnet mode to custom subnet mode. |

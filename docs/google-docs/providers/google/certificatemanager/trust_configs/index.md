@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trust_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.certificatemanager.trust_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="certificatemanager.trust_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,6 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | A user-defined name of the trust config. TrustConfig names must be unique globally and match pattern `projects/*/locations/*/trustConfigs/*`. |
 | <CopyableCode code="description" /> | `string` | One or more paragraphs of text description of a TrustConfig. |
+| <CopyableCode code="allowlistedCertificates" /> | `array` | Optional. A certificate matching an allowlisted certificate is always considered valid as long as the certificate is parseable, proof of private key possession is established, and constraints on the certificate's SAN field are met. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of a TrustConfig. |
 | <CopyableCode code="etag" /> | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="labels" /> | `object` | Set of labels associated with a TrustConfig. |

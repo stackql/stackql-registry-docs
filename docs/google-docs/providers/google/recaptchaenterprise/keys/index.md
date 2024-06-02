@@ -24,18 +24,18 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.recaptchaenterprise.keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="recaptchaenterprise.keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name for the Key in the format "projects/&#123;project&#125;/keys/&#123;key&#125;". |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name for the Key in the format `projects/&#123;project&#125;/keys/&#123;key&#125;`. |
 | <CopyableCode code="androidSettings" /> | `object` | Settings specific to keys that can be used by Android apps. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp corresponding to the creation of this key. |
-| <CopyableCode code="displayName" /> | `string` | Human-readable display name of this key. Modifiable by user. |
+| <CopyableCode code="displayName" /> | `string` | Required. Human-readable display name of this key. Modifiable by user. |
 | <CopyableCode code="iosSettings" /> | `object` | Settings specific to keys that can be used by iOS apps. |
-| <CopyableCode code="labels" /> | `object` | See Creating and managing labels. |
+| <CopyableCode code="labels" /> | `object` | Optional. See [Creating and managing labels] (https://cloud.google.com/recaptcha-enterprise/docs/labels). |
 | <CopyableCode code="testingOptions" /> | `object` | Options for user acceptance testing. |
 | <CopyableCode code="wafSettings" /> | `object` | Settings specific to keys that can be used for WAF (Web Application Firewall). |
 | <CopyableCode code="webSettings" /> | `object` | Settings specific to keys that can be used by websites. |

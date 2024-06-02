@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.projects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.projects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. This is *not* the project ID, and is just a unique ID used by Compute Engine to identify resources. |
 | <CopyableCode code="name" /> | `string` | The project ID. For example: my-example-project. Use the project ID to make requests to Compute Engine. |
 | <CopyableCode code="description" /> | `string` | An optional textual description of the resource. |
+| <CopyableCode code="cloudArmorTier" /> | `string` | [Output Only] The Cloud Armor tier for this project. It can be one of the following values: CA_STANDARD, CA_ENTERPRISE_PAYGO. If this field is not specified, it is assumed to be CA_STANDARD. |
 | <CopyableCode code="commonInstanceMetadata" /> | `object` | A metadata key/value entry. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="defaultNetworkTier" /> | `string` | This signifies the default network tier used for configuring resources of the project and can only take the following values: PREMIUM, STANDARD. Initially the default network tier is PREMIUM. |
@@ -54,6 +55,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="enable_xpn_resource" /> | `EXEC` | <CopyableCode code="project" /> | Enable service resource (a.k.a service project) for a host project, so that subnets in the host project can be used by instances in the service project. |
 | <CopyableCode code="move_disk" /> | `EXEC` | <CopyableCode code="project" /> | Moves a persistent disk from one zone to another. |
 | <CopyableCode code="move_instance" /> | `EXEC` | <CopyableCode code="project" /> | Moves an instance and its attached persistent disks from one zone to another. *Note*: Moving VMs or disks by using this method might cause unexpected behavior. For more information, see the [known issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior). [Deprecated] This method is deprecated. See [moving instance across zones](/compute/docs/instances/moving-instance-across-zones) instead. |
+| <CopyableCode code="set_cloud_armor_tier" /> | `EXEC` | <CopyableCode code="project" /> | Sets the Cloud Armor tier of the project. To set ENTERPRISE or above the billing account of the project must be subscribed to Cloud Armor Enterprise. See Subscribing to Cloud Armor Enterprise for more information. |
 | <CopyableCode code="set_common_instance_metadata" /> | `EXEC` | <CopyableCode code="project" /> | Sets metadata common to all instances within the specified project using the data included in the request. |
 | <CopyableCode code="set_default_network_tier" /> | `EXEC` | <CopyableCode code="project" /> | Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying the network tier field. |
 | <CopyableCode code="set_usage_export_bucket" /> | `EXEC` | <CopyableCode code="project" /> | Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled. |

@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-You Can Use OS Login To Manage Access To Your VM Instances Using IAM Roles.  
+You can use OS Login to manage access to your VM instances using IAM roles.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ You Can Use OS Login To Manage Access To Your VM Instances Using IAM Roles.
 <tr><td><b>Name</b></td><td><code>google.oslogin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud OS Login API</td></tr>
-<tr><td><b>Description</b></td><td>You Can Use OS Login To Manage Access To Your VM Instances Using IAM Roles.</td></tr>
-<tr><td><b>Id</b></td><td><code>oslogin:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>You can use OS Login to manage access to your VM instances using IAM roles.</td></tr>
+<tr><td><b>Id</b></td><td><code>oslogin:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

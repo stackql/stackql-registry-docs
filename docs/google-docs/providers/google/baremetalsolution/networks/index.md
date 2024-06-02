@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>networks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.networks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.networks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,13 +39,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Labels as key value pairs. |
 | <CopyableCode code="macAddress" /> | `array` | List of physical interfaces. |
 | <CopyableCode code="mountPoints" /> | `array` | Input only. List of mount points to attach the network to. |
-| <CopyableCode code="pod" /> | `string` | Output only. Pod name. |
+| <CopyableCode code="pod" /> | `string` | Immutable. Pod name. Pod is an independent part of infrastructure. Network can only be connected to the assets (instances, nfsshares) allocated in the same pod. |
 | <CopyableCode code="reservations" /> | `array` | List of IP address reservations in this network. When updating this field, an error will be generated if a reservation conflicts with an IP address already allocated to a physical server. |
 | <CopyableCode code="servicesCidr" /> | `string` | IP range for reserved for services (e.g. NFS). |
 | <CopyableCode code="state" /> | `string` | The Network state. |
 | <CopyableCode code="type" /> | `string` | The type of this network. |
 | <CopyableCode code="vlanId" /> | `string` | The vlan id of the Network. |
 | <CopyableCode code="vrf" /> | `object` | A network VRF. |
+| <CopyableCode code="vrfAttachment" /> | `string` | Optional. The name of a pre-existing Vrf that the network should be attached to. Format is `vrfs/&#123;vrf&#125;`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

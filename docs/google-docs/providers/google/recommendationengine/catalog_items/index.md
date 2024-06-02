@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>catalog_items</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.recommendationengine.catalog_items" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="recommendationengine.catalog_items" /></td></tr>
 </tbody></table>
 
 ## Fields

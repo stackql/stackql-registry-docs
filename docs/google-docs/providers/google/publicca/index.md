@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Public Certificate Authority API May Be Used To Create And Manage ACME External Account Binding Keys Associated With Google Trust Services' Publicly Trusted Certificate Authority.   
+The Public Certificate Authority API may be used to create and manage ACME external account binding keys associated with Google Trust Services' publicly trusted certificate authority.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ The Public Certificate Authority API May Be Used To Create And Manage ACME Exter
 <tr><td><b>Name</b></td><td><code>google.publicca</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Public Certificate Authority API</td></tr>
-<tr><td><b>Description</b></td><td>The Public Certificate Authority API May Be Used To Create And Manage ACME External Account Binding Keys Associated With Google Trust Services' Publicly Trusted Certificate Authority. </td></tr>
-<tr><td><b>Id</b></td><td><code>publicca:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>The Public Certificate Authority API may be used to create and manage ACME external account binding keys associated with Google Trust Services' publicly trusted certificate authority. </td></tr>
+<tr><td><b>Id</b></td><td><code>publicca:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

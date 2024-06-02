@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delivery_pipelines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.clouddeploy.delivery_pipelines" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="clouddeploy.delivery_pipelines" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. Name of the `DeliveryPipeline`. Format is projects/&#123;project&#125;/ locations/&#123;location&#125;/deliveryPipelines/a-z&#123;0,62&#125;. |
+| <CopyableCode code="name" /> | `string` | Optional. Name of the `DeliveryPipeline`. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/deliveryPipelines/&#123;deliveryPipeline&#125;`. The `deliveryPipeline` component must match `[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?` |
 | <CopyableCode code="description" /> | `string` | Description of the `DeliveryPipeline`. Max length is 255 characters. |
 | <CopyableCode code="annotations" /> | `object` | User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. |
 | <CopyableCode code="condition" /> | `object` | PipelineCondition contains all conditions relevant to a Delivery Pipeline. |
@@ -50,3 +50,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Deletes a single DeliveryPipeline. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DeliveryPipelines in a given project and location. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Updates the parameters of a single DeliveryPipeline. |
+| <CopyableCode code="rollback_target" /> | `EXEC` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Creates a `Rollout` to roll back the specified target. |

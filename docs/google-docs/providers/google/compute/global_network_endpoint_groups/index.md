@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_network_endpoint_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.global_network_endpoint_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.global_network_endpoint_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,12 +38,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="cloudFunction" /> | `object` | Configuration for a Cloud Function network endpoint group (NEG). The function must be provided explicitly or in the URL mask. Note: Cloud Function must be in the same project and located in the same region as the Serverless NEG. |
 | <CopyableCode code="cloudRun" /> | `object` | Configuration for a Cloud Run network endpoint group (NEG). The service must be provided explicitly or in the URL mask. The tag is optional, may be provided explicitly or in the URL mask. Note: Cloud Run service must be in the same project and located in the same region as the Serverless NEG. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| <CopyableCode code="defaultPort" /> | `integer` | The default port used if the port number is not specified in the network endpoint. |
+| <CopyableCode code="defaultPort" /> | `integer` | The default port used if the port number is not specified in the network endpoint. If the network endpoint type is either GCE_VM_IP, SERVERLESS or PRIVATE_SERVICE_CONNECT, this field must not be specified. |
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#networkEndpointGroup for network endpoint group. |
-| <CopyableCode code="network" /> | `string` | The URL of the network to which all network endpoints in the NEG belong. Uses "default" project network if unspecified. |
-| <CopyableCode code="networkEndpointType" /> | `string` | Type of network endpoints in this network endpoint group. Can be one of GCE_VM_IP, GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_FQDN_PORT, INTERNET_IP_PORT, SERVERLESS, PRIVATE_SERVICE_CONNECT. |
+| <CopyableCode code="network" /> | `string` | The URL of the network to which all network endpoints in the NEG belong. Uses default project network if unspecified. |
+| <CopyableCode code="networkEndpointType" /> | `string` | Type of network endpoints in this network endpoint group. Can be one of GCE_VM_IP, GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_FQDN_PORT, INTERNET_IP_PORT, SERVERLESS, PRIVATE_SERVICE_CONNECT, GCE_VM_IP_PORTMAP. |
 | <CopyableCode code="pscData" /> | `object` | All data that is specifically relevant to only network endpoint groups of type PRIVATE_SERVICE_CONNECT. |
-| <CopyableCode code="pscTargetService" /> | `string` | The target service url used to set up private service connection to a Google API or a PSC Producer Service Attachment. An example value is: "asia-northeast3-cloudkms.googleapis.com" |
+| <CopyableCode code="pscTargetService" /> | `string` | The target service url used to set up private service connection to a Google API or a PSC Producer Service Attachment. An example value is: asia-northeast3-cloudkms.googleapis.com |
 | <CopyableCode code="region" /> | `string` | [Output Only] The URL of the region where the network endpoint group is located. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="size" /> | `integer` | [Output only] Number of network endpoints in the network endpoint group. |

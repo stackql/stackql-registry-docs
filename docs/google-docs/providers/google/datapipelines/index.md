@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Data Pipelines Provides An Interface For Creating, Updating, And Managing Recurring Data Analytics Jobs.  
+Data Pipelines provides an interface for creating, updating, and managing recurring Data Analytics jobs.  
     
 :::info Service Summary
 
@@ -32,9 +32,9 @@ Data Pipelines Provides An Interface For Creating, Updating, And Managing Recurr
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.datapipelines</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Data Pipelines API</td></tr>
-<tr><td><b>Description</b></td><td>Data Pipelines Provides An Interface For Creating, Updating, And Managing Recurring Data Analytics Jobs.</td></tr>
-<tr><td><b>Id</b></td><td><code>datapipelines:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>Data pipelines API</td></tr>
+<tr><td><b>Description</b></td><td>Data Pipelines provides an interface for creating, updating, and managing recurring Data Analytics jobs.</td></tr>
+<tr><td><b>Id</b></td><td><code>datapipelines:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

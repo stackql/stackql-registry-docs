@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.tags" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.tags" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the tag in URL format where tag ID is a system-generated identifier. Note: The tag itself might not be stored in the location specified in its name. |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the tag in URL format where tag ID is a system-generated identifier. Note: The tag itself might not be stored in the location specified in its name. |
 | <CopyableCode code="column" /> | `string` | Resources like entry can have schemas associated with them. This scope allows you to attach tags to an individual column based on that schema. To attach a tag to a nested column, separate column names with a dot (`.`). Example: `column.nested_column`. |
 | <CopyableCode code="fields" /> | `object` | Required. Maps the ID of a tag field to its value and additional information about that field. Tag template defines valid field IDs. A tag must have at least 1 field and at most 500 fields. |
 | <CopyableCode code="template" /> | `string` | Required. The resource name of the tag template this tag uses. Example: `projects/&#123;PROJECT_ID&#125;/locations/&#123;LOCATION&#125;/tagTemplates/&#123;TAG_TEMPLATE_ID&#125;` This field cannot be modified after creation. |

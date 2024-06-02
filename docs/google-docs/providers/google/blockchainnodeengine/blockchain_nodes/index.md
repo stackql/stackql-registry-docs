@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>blockchain_nodes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.blockchainnodeengine.blockchain_nodes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="blockchainnodeengine.blockchain_nodes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp at which the blockchain node was first created. |
 | <CopyableCode code="ethereumDetails" /> | `object` | Ethereum-specific blockchain node details. |
 | <CopyableCode code="labels" /> | `object` | User-provided key-value pairs. |
+| <CopyableCode code="privateServiceConnectEnabled" /> | `boolean` | Optional. When true, the node is only accessible via Private Service Connect; no public endpoints are exposed. Otherwise, the node is only accessible via public endpoints. Warning: Private Service Connect enabled nodes may require a manual migration effort to remain compatible with future versions of the product. If this feature is enabled, you will be notified of these changes along with any required action to avoid disruption. See https://cloud.google.com/vpc/docs/private-service-connect. |
 | <CopyableCode code="state" /> | `string` | Output only. A status representing the state of the node. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp at which the blockchain node was last updated. |
 ## Methods

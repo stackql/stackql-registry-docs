@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>taxonomies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.taxonomies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.taxonomies" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Resource name of this taxonomy in URL format. Note: Policy tag manager generates unique taxonomy IDs. |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name of this taxonomy in URL format. Note: Policy tag manager generates unique taxonomy IDs. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of this taxonomy. If not set, defaults to empty. The description must contain only Unicode characters, tabs, newlines, carriage returns, and page breaks, and be at most 2000 bytes long when encoded in UTF-8. |
 | <CopyableCode code="activatedPolicyTypes" /> | `array` | Optional. A list of policy types that are activated for this taxonomy. If not set, defaults to an empty list. |
 | <CopyableCode code="displayName" /> | `string` | Required. User-defined name of this taxonomy. The name can't start or end with spaces, must contain only Unicode letters, numbers, underscores, dashes, and spaces, and be at most 200 bytes long when encoded in UTF-8. The taxonomy display name must be unique within an organization. |

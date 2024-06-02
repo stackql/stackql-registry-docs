@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>patch_deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.osconfig.patch_deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="osconfig.patch_deployments" /></td></tr>
 </tbody></table>
 
 ## Fields

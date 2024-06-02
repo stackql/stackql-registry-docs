@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backend_buckets_signed_url_key</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.backend_buckets_signed_url_key" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.backend_buckets_signed_url_key" /></td></tr>
 </tbody></table>
 
 ## Fields

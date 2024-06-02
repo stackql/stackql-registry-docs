@@ -24,22 +24,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trials</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.ml.trials" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="ml.trials" /></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Name of the trial assigned by the service. |
-| <CopyableCode code="clientId" /> | `string` | Output only. The identifier of the client that originally requested this trial. |
-| <CopyableCode code="endTime" /> | `string` | Output only. Time at which the trial's status changed to COMPLETED. |
-| <CopyableCode code="finalMeasurement" /> | `object` | A message representing a measurement. |
-| <CopyableCode code="infeasibleReason" /> | `string` | Output only. A human readable string describing why the trial is infeasible. This should only be set if trial_infeasible is true. |
-| <CopyableCode code="measurements" /> | `array` | A list of measurements that are strictly lexicographically ordered by their induced tuples (steps, elapsed_time). These are used for early stopping computations. |
-| <CopyableCode code="parameters" /> | `array` | The parameters of the trial. |
-| <CopyableCode code="startTime" /> | `string` | Output only. Time at which the trial was started. |
-| <CopyableCode code="state" /> | `string` | The detailed state of a trial. |
-| <CopyableCode code="trialInfeasible" /> | `boolean` | Output only. If true, the parameters in this trial are not attempted again. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

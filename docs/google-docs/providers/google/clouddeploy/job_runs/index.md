@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>job_runs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.clouddeploy.job_runs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="clouddeploy.job_runs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. Name of the `JobRun`. Format is projects/&#123;project&#125;/locations/&#123;location&#125;/ deliveryPipelines/&#123;deliveryPipeline&#125;/releases/&#123;releases&#125;/rollouts/ &#123;rollouts&#125;/jobRuns/&#123;uuid&#125;. |
+| <CopyableCode code="name" /> | `string` | Optional. Name of the `JobRun`. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/deliveryPipelines/&#123;deliveryPipeline&#125;/releases/&#123;releases&#125;/rollouts/&#123;rollouts&#125;/jobRuns/&#123;uuid&#125;`. |
 | <CopyableCode code="advanceChildRolloutJobRun" /> | `object` | AdvanceChildRolloutJobRun contains information specific to a advanceChildRollout `JobRun`. |
 | <CopyableCode code="createChildRolloutJobRun" /> | `object` | CreateChildRolloutJobRun contains information specific to a createChildRollout `JobRun`. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time at which the `JobRun` was created. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>serving_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.serving_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.serving_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,7 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_collections_data_stores_serving_configs_answer" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, servingConfigsId" /> | Answer query method. |
 | <CopyableCode code="projects_locations_collections_data_stores_serving_configs_recommend" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, servingConfigsId" /> | Makes a recommendation, which requires a contextual user event. |
 | <CopyableCode code="projects_locations_collections_data_stores_serving_configs_search" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, servingConfigsId" /> | Performs a search. |
+| <CopyableCode code="projects_locations_collections_engines_serving_configs_answer" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId, servingConfigsId" /> | Answer query method. |
+| <CopyableCode code="projects_locations_collections_engines_serving_configs_recommend" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId, servingConfigsId" /> | Makes a recommendation, which requires a contextual user event. |
+| <CopyableCode code="projects_locations_collections_engines_serving_configs_search" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId, servingConfigsId" /> | Performs a search. |
+| <CopyableCode code="projects_locations_data_stores_serving_configs_answer" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId, servingConfigsId" /> | Answer query method. |
 | <CopyableCode code="projects_locations_data_stores_serving_configs_recommend" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId, servingConfigsId" /> | Makes a recommendation, which requires a contextual user event. |
 | <CopyableCode code="projects_locations_data_stores_serving_configs_search" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId, servingConfigsId" /> | Performs a search. |

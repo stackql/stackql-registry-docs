@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apiproducts_app_group_app_key_api_product</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.apiproducts_app_group_app_key_api_product" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="apigee.apiproducts_app_group_app_key_api_product" /></td></tr>
 </tbody></table>
 
 ## Fields

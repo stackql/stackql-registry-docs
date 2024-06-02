@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>time_series</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.time_series" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.time_series" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,7 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_time_series_list" /> | `SELECT` | <CopyableCode code="foldersId" /> | Lists time series that match a filter. |
 | <CopyableCode code="organizations_time_series_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists time series that match a filter. |
 | <CopyableCode code="projects_time_series_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists time series that match a filter. |
-| <CopyableCode code="projects_time_series_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. |
+| <CopyableCode code="projects_time_series_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. This method does not support resource locations constraint of an organization policy (https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations#setting_the_organization_policy). |
 | <CopyableCode code="_folders_time_series_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists time series that match a filter. |
 | <CopyableCode code="_organizations_time_series_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists time series that match a filter. |
 | <CopyableCode code="_projects_time_series_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists time series that match a filter. |

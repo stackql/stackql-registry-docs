@@ -24,19 +24,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>releases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.clouddeploy.releases" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="clouddeploy.releases" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. Name of the `Release`. Format is projects/&#123;project&#125;/ locations/&#123;location&#125;/deliveryPipelines/&#123;deliveryPipeline&#125;/ releases/a-z&#123;0,62&#125;. |
+| <CopyableCode code="name" /> | `string` | Optional. Name of the `Release`. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/deliveryPipelines/&#123;deliveryPipeline&#125;/releases/&#123;release&#125;`. The `release` component must match `[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?` |
 | <CopyableCode code="description" /> | `string` | Description of the `Release`. Max length is 255 characters. |
 | <CopyableCode code="abandoned" /> | `boolean` | Output only. Indicates whether this is an abandoned release. |
 | <CopyableCode code="annotations" /> | `object` | User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and size limitations. |
 | <CopyableCode code="buildArtifacts" /> | `array` | List of artifacts to pass through to Skaffold command. |
 | <CopyableCode code="condition" /> | `object` | ReleaseCondition contains all conditions relevant to a Release. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time at which the `Release` was created. |
+| <CopyableCode code="customTargetTypeSnapshots" /> | `array` | Output only. Snapshot of the custom target types referenced by the targets taken at release creation time. |
 | <CopyableCode code="deliveryPipelineSnapshot" /> | `object` | A `DeliveryPipeline` resource in the Cloud Deploy API. A `DeliveryPipeline` defines a pipeline through which a Skaffold configuration can progress. |
 | <CopyableCode code="deployParameters" /> | `object` | Optional. The deploy parameters to use for all targets in this release. |
 | <CopyableCode code="etag" /> | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sql_integrations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.managedidentities.sql_integrations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="managedidentities.sql_integrations" /></td></tr>
 </tbody></table>
 
 ## Fields

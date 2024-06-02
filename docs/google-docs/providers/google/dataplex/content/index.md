@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>content</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.content" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.content" /></td></tr>
 </tbody></table>
 
 ## Fields

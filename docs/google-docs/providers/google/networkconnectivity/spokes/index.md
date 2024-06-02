@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>spokes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.spokes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.spokes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,9 +33,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Immutable. The name of the spoke. Spoke names must be unique. They use the following form: `projects/&#123;project_number&#125;/locations/&#123;region&#125;/spokes/&#123;spoke_id&#125;` |
 | <CopyableCode code="description" /> | `string` | An optional description of the spoke. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the spoke was created. |
-| <CopyableCode code="group" /> | `string` | The name of the group that this spoke is associated with. |
+| <CopyableCode code="group" /> | `string` | Optional. The name of the group that this spoke is associated with. |
 | <CopyableCode code="hub" /> | `string` | Immutable. The name of the hub that this spoke is attached to. |
-| <CopyableCode code="labels" /> | `object` | Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
+| <CopyableCode code="labels" /> | `object` | Optional labels in key-value pair format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
 | <CopyableCode code="linkedInterconnectAttachments" /> | `object` | A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes. |
 | <CopyableCode code="linkedRouterApplianceInstances" /> | `object` | A collection of router appliance instances. If you configure multiple router appliance instances to receive data from the same set of sites outside of Google Cloud, we recommend that you associate those instances with the same spoke. |
 | <CopyableCode code="linkedVpcNetwork" /> | `object` | An existing VPC network. |
@@ -55,6 +55,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, spokesId" /> | Deletes a Network Connectivity Center spoke. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the Network Connectivity Center spokes in a specified project and location. |
 | <CopyableCode code="_list_spokes" /> | `EXEC` | <CopyableCode code="hubsId, projectsId" /> | Lists the Network Connectivity Center spokes associated with a specified hub and location. The list includes both spokes that are attached to the hub and spokes that have been proposed but not yet accepted. |
-| <CopyableCode code="accept" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, spokesId" /> | Accepts a proposal to attach a Network Connectivity Center spoke to the hub. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, spokesId" /> | Updates the parameters of a Network Connectivity Center spoke. |
-| <CopyableCode code="reject" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, spokesId" /> | Rejects a Network Connectivity Center spoke from being attached to the hub. If the spoke was previously in the `ACTIVE` state, it transitions to the `INACTIVE` state and is no longer able to connect to other spokes that are attached to the hub. |

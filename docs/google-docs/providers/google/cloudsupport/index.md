@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages Google Cloud Technical Support Cases For Customer Care Support Offerings.   
+Manages Google Cloud technical support cases for Customer Care support offerings.   
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Manages Google Cloud Technical Support Cases For Customer Care Support Offerings
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Manages Google Cloud Technical Support Cases For Customer Care Support Offerings
 <tr><td><b>Name</b></td><td><code>google.cloudsupport</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Support API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Google Cloud Technical Support Cases For Customer Care Support Offerings. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudsupport:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages Google Cloud technical support cases for Customer Care support offerings. </td></tr>
+<tr><td><b>Id</b></td><td><code>cloudsupport:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

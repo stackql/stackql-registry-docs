@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-API For Managing VPC Access Connectors.  
+API for managing VPC access connectors.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ API For Managing VPC Access Connectors.
 <tr><td><b>Name</b></td><td><code>google.vpcaccess</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Serverless VPC Access API</td></tr>
-<tr><td><b>Description</b></td><td>API For Managing VPC Access Connectors.</td></tr>
-<tr><td><b>Id</b></td><td><code>vpcaccess:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>API for managing VPC access connectors.</td></tr>
+<tr><td><b>Id</b></td><td><code>vpcaccess:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

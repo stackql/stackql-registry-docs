@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Groups And Counts Similar Errors From Cloud Services And Applications, Reports New Errors, And Provides Access To Error Groups And Their Associated Errors.   
+Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Groups And Counts Similar Errors From Cloud Services And Applications, Reports N
 <tr><td><b>Name</b></td><td><code>google.clouderrorreporting</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Error Reporting API</td></tr>
-<tr><td><b>Description</b></td><td>Groups And Counts Similar Errors From Cloud Services And Applications, Reports New Errors, And Provides Access To Error Groups And Their Associated Errors. </td></tr>
-<tr><td><b>Id</b></td><td><code>clouderrorreporting:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors. </td></tr>
+<tr><td><b>Id</b></td><td><code>clouderrorreporting:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

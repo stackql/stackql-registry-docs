@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages Identity And Access Control For Google Cloud Platform Resources, Including The Creation Of Service Accounts, Which You Can Use To Authenticate To Google And Make API Calls.   
+Manages identity and access control for Google Cloud resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls. Enabling this API also enables the IAM Service Account Credentials API (iamcredentials.googleapis.com). However, disabling this API doesn't disable the IAM Service Account Credentials API.   
     
 :::info Service Summary
 
@@ -32,9 +32,9 @@ Manages Identity And Access Control For Google Cloud Platform Resources, Includi
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.iam</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Identity And Access Management (IAM) API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Identity And Access Control For Google Cloud Platform Resources, Including The Creation Of Service Accounts, Which You Can Use To Authenticate To Google And Make API Calls. </td></tr>
-<tr><td><b>Id</b></td><td><code>iam:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>Identity and Access Management (IAM) API</td></tr>
+<tr><td><b>Description</b></td><td>Manages identity and access control for Google Cloud resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls. Enabling this API also enables the IAM Service Account Credentials API (iamcredentials.googleapis.com). However, disabling this API doesn't disable the IAM Service Account Credentials API. </td></tr>
+<tr><td><b>Id</b></td><td><code>iam:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

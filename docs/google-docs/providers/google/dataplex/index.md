@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Dataplex API Is Used To Manage The Lifecycle Of Data Lakes.  
+Dataplex API is used to manage the lifecycle of data lakes.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>32</b></span><br />
-<span>total selectable resources:&nbsp;<b>32</b></span><br />
-<span>total methods:&nbsp;<b>158</b></span><br />
+<span>total resources:&nbsp;<b>37</b></span><br />
+<span>total selectable resources:&nbsp;<b>37</b></span><br />
+<span>total methods:&nbsp;<b>190</b></span><br />
 </div>
 </div>
 
@@ -33,14 +33,15 @@ Dataplex API Is Used To Manage The Lifecycle Of Data Lakes.
 <tr><td><b>Name</b></td><td><code>google.dataplex</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataplex API</td></tr>
-<tr><td><b>Description</b></td><td>Dataplex API Is Used To Manage The Lifecycle Of Data Lakes.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataplex:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Dataplex API is used to manage the lifecycle of data lakes.</td></tr>
+<tr><td><b>Id</b></td><td><code>dataplex:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/dataplex/actions/">actions</a><br />
+<a href="/providers/google/dataplex/aspect_types/">aspect_types</a><br />
 <a href="/providers/google/dataplex/aspect_types_iam_policies/">aspect_types_iam_policies</a><br />
 <a href="/providers/google/dataplex/assets/">assets</a><br />
 <a href="/providers/google/dataplex/assets_iam_policies/">assets_iam_policies</a><br />
@@ -56,13 +57,17 @@ Dataplex API Is Used To Manage The Lifecycle Of Data Lakes.
 <a href="/providers/google/dataplex/data_scans_iam_policies/">data_scans_iam_policies</a><br />
 <a href="/providers/google/dataplex/data_taxonomies/">data_taxonomies</a><br />
 <a href="/providers/google/dataplex/data_taxonomies_iam_policies/">data_taxonomies_iam_policies</a><br />
+<a href="/providers/google/dataplex/entities/">entities</a><br />
+<a href="/providers/google/dataplex/entries/">entries</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/dataplex/entities/">entities</a><br />
+<a href="/providers/google/dataplex/entry_groups/">entry_groups</a><br />
 <a href="/providers/google/dataplex/entry_groups_iam_policies/">entry_groups_iam_policies</a><br />
+<a href="/providers/google/dataplex/entry_types/">entry_types</a><br />
 <a href="/providers/google/dataplex/entry_types_iam_policies/">entry_types_iam_policies</a><br />
 <a href="/providers/google/dataplex/environments/">environments</a><br />
 <a href="/providers/google/dataplex/environments_iam_policies/">environments_iam_policies</a><br />
+<a href="/providers/google/dataplex/governance_rules_iam_policies/">governance_rules_iam_policies</a><br />
 <a href="/providers/google/dataplex/jobs/">jobs</a><br />
 <a href="/providers/google/dataplex/lakes/">lakes</a><br />
 <a href="/providers/google/dataplex/lakes_iam_policies/">lakes_iam_policies</a><br />

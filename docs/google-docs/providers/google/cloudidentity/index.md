@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-API For Provisioning And Managing Identity Resources.  
+API for provisioning and managing identity resources.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ API For Provisioning And Managing Identity Resources.
 <tr><td><b>Name</b></td><td><code>google.cloudidentity</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Identity API</td></tr>
-<tr><td><b>Description</b></td><td>API For Provisioning And Managing Identity Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudidentity:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>API for provisioning and managing identity resources.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudidentity:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

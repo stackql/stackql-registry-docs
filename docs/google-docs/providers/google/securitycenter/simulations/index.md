@@ -24,13 +24,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>simulations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.simulations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.simulations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Full resource name of the Simulation: organizations/123/simulations/456 |
+| <CopyableCode code="cloudProvider" /> | `string` | Indicates which cloud provider was used in this simulation. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time simulation was created |
 | <CopyableCode code="resourceValueConfigsMetadata" /> | `array` | Resource value configurations' metadata used in this simulation. Maximum of 100. |
 ## Methods

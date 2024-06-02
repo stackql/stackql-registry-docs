@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>fleets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.fleets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.fleets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,6 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The full, unique resource name of this fleet in the format of `projects/&#123;project&#125;/locations/&#123;location&#125;/fleets/&#123;fleet&#125;`. Each Google Cloud project can have at most one fleet resource, named "default". |
 | <CopyableCode code="createTime" /> | `string` | Output only. When the Fleet was created. |
+| <CopyableCode code="defaultClusterConfig" /> | `object` | DefaultClusterConfig describes the default cluster configurations to be applied to all clusters born-in-fleet. |
 | <CopyableCode code="deleteTime" /> | `string` | Output only. When the Fleet was deleted. |
 | <CopyableCode code="displayName" /> | `string` | Optional. A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point. Example: `Production Fleet` |
 | <CopyableCode code="labels" /> | `object` | Optional. Labels for this Fleet. |

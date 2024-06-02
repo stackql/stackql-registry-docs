@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Management Interface For Binary Authorization, A Service That Provides Policy-Based Deployment Validation And Control For Images Deployed To Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, And Cloud Run.   
+The management interface for Binary Authorization, a service that provides policy-based deployment validation and control for images deployed to Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, and Cloud Run.   
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The Management Interface For Binary Authorization, A Service That Provides Polic
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>24</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The Management Interface For Binary Authorization, A Service That Provides Polic
 <tr><td><b>Name</b></td><td><code>google.binaryauthorization</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Binary Authorization API</td></tr>
-<tr><td><b>Description</b></td><td>The Management Interface For Binary Authorization, A Service That Provides Policy-Based Deployment Validation And Control For Images Deployed To Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, And Cloud Run. </td></tr>
-<tr><td><b>Id</b></td><td><code>binaryauthorization:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>The management interface for Binary Authorization, a service that provides policy-based deployment validation and control for images deployed to Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, and Cloud Run. </td></tr>
+<tr><td><b>Id</b></td><td><code>binaryauthorization:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clone_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.clone_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vmmigration.clone_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,7 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cloneJobsId, locationsId, migratingVmsId, projectsId, sourcesId" /> | Gets details of a single CloneJob. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists CloneJobs of a given migrating VM. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists the CloneJobs of a migrating VM. Only 25 most recent CloneJobs are listed. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Initiates a Clone of a specific migrating VM. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists CloneJobs of a given migrating VM. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists the CloneJobs of a migrating VM. Only 25 most recent CloneJobs are listed. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="cloneJobsId, locationsId, migratingVmsId, projectsId, sourcesId" /> | Initiates the cancellation of a running clone job. |

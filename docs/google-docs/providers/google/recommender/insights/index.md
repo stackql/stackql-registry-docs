@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>insights</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.recommender.insights" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="recommender.insights" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the insight. |
+| <CopyableCode code="name" /> | `string` | Identifier. Name of the insight. |
 | <CopyableCode code="description" /> | `string` | Free-form human readable summary in English. The maximum length is 500 characters. |
 | <CopyableCode code="associatedRecommendations" /> | `array` | Recommendations derived from this insight. |
 | <CopyableCode code="category" /> | `string` | Category being targeted by the insight. |

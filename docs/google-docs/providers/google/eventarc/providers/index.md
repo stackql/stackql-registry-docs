@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>providers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.eventarc.providers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="eventarc.providers" /></td></tr>
 </tbody></table>
 
 ## Fields

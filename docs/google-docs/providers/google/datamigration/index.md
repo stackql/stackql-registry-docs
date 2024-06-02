@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manage Cloud Database Migration Service Resources On Google Cloud Platform.  
+Manage Cloud Database Migration Service resources on Google Cloud Platform.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Manage Cloud Database Migration Service Resources On Google Cloud Platform.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>12</b></span><br />
 <span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>70</b></span><br />
+<span>total methods:&nbsp;<b>71</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Manage Cloud Database Migration Service Resources On Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.datamigration</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Database Migration API</td></tr>
-<tr><td><b>Description</b></td><td>Manage Cloud Database Migration Service Resources On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>datamigration:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manage Cloud Database Migration Service resources on Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>datamigration:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.routes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.routes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,8 +34,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="description" /> | `string` | An optional description of the route. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the route was created. |
 | <CopyableCode code="ipCidrRange" /> | `string` | The destination IP address range. |
-| <CopyableCode code="labels" /> | `object` | Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
-| <CopyableCode code="location" /> | `string` | Output only. The location of the route. Uses the following form: "projects/&#123;project&#125;/locations/&#123;location&#125;" Example: projects/1234/locations/us-central1 |
+| <CopyableCode code="labels" /> | `object` | Optional labels in key-value pair format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
+| <CopyableCode code="location" /> | `string` | Output only. The origin location of the route. Uses the following form: "projects/&#123;project&#125;/locations/&#123;location&#125;" Example: projects/1234/locations/us-central1 |
 | <CopyableCode code="nextHopVpcNetwork" /> | `object` |  |
 | <CopyableCode code="spoke" /> | `string` | Immutable. The spoke that this route leads to. Example: projects/12345/locations/global/spokes/SPOKE |
 | <CopyableCode code="state" /> | `string` | Output only. The current lifecycle state of the route. |
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="hubsId, projectsId, routeTablesId, routesId" /> | Gets details about the specified route. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="hubsId, projectsId, routeTablesId" /> | Lists routes in a given project. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="hubsId, projectsId, routeTablesId" /> | Lists routes in a given project. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="hubsId, projectsId, routeTablesId" /> | Lists routes in a given route table. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="hubsId, projectsId, routeTablesId" /> | Lists routes in a given route table. |

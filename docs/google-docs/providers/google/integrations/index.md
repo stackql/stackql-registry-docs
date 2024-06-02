@@ -20,9 +20,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>15</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>104</b></span><br />
+<span>total resources:&nbsp;<b>19</b></span><br />
+<span>total selectable resources:&nbsp;<b>14</b></span><br />
+<span>total methods:&nbsp;<b>120</b></span><br />
 </div>
 </div>
 
@@ -34,7 +34,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Application Integration API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>integrations:v23.09.00169</code></td></tr>
+<tr><td><b>Id</b></td><td><code>integrations:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,17 +44,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/integrations/auth_configs/">auth_configs</a><br />
 <a href="/providers/google/integrations/callback/">callback</a><br />
 <a href="/providers/google/integrations/certificates/">certificates</a><br />
+<a href="/providers/google/integrations/clientmetadata/">clientmetadata</a><br />
+<a href="/providers/google/integrations/clients/">clients</a><br />
+<a href="/providers/google/integrations/cloud_functions/">cloud_functions</a><br />
 <a href="/providers/google/integrations/connections/">connections</a><br />
 <a href="/providers/google/integrations/connections_connection_schema_metadata/">connections_connection_schema_metadata</a><br />
 <a href="/providers/google/integrations/connector_platform_regions/">connector_platform_regions</a><br />
-<a href="/providers/google/integrations/executions/">executions</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/integrations/executions/">executions</a><br />
 <a href="/providers/google/integrations/integrations/">integrations</a><br />
 <a href="/providers/google/integrations/runtime_action_schemas/">runtime_action_schemas</a><br />
 <a href="/providers/google/integrations/runtime_entity_schemas/">runtime_entity_schemas</a><br />
 <a href="/providers/google/integrations/sfdc_channels/">sfdc_channels</a><br />
 <a href="/providers/google/integrations/sfdc_instances/">sfdc_instances</a><br />
+<a href="/providers/google/integrations/skip_this_resource/">skip_this_resource</a><br />
 <a href="/providers/google/integrations/suspensions/">suspensions</a><br />
 <a href="/providers/google/integrations/versions/">versions</a><br />
 </div>

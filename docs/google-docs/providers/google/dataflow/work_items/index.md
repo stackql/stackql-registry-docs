@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>work_items</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataflow.work_items" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataflow.work_items" /></td></tr>
 </tbody></table>
 
 ## Fields

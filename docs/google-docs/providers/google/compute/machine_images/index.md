@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>machine_images</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.machine_images" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.machine_images" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="instanceProperties" /> | `object` |  |
 | <CopyableCode code="kind" /> | `string` | [Output Only] The resource type, which is always compute#machineImage for machine image. |
 | <CopyableCode code="machineImageEncryptionKey" /> | `object` |  |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | [Output Only] Reserved for future use. |
 | <CopyableCode code="savedDisks" /> | `array` | An array of Machine Image specific properties for disks attached to the source instance |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] The URL for this machine image. The server defines this URL. |

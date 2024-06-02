@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.secretmanager.versions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="secretmanager.versions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,9 +33,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The resource name of the SecretVersion in the format `projects/*/secrets/*/versions/*`. SecretVersion IDs in a Secret start at 1 and are incremented for each subsequent version of the secret. |
 | <CopyableCode code="clientSpecifiedPayloadChecksum" /> | `boolean` | Output only. True if payload checksum specified in SecretPayload object has been received by SecretManagerService on SecretManagerService.AddSecretVersion. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which the SecretVersion was created. |
+| <CopyableCode code="customerManagedEncryption" /> | `object` | Describes the status of customer-managed encryption. |
 | <CopyableCode code="destroyTime" /> | `string` | Output only. The time this SecretVersion was destroyed. Only present if state is DESTROYED. |
 | <CopyableCode code="etag" /> | `string` | Output only. Etag of the currently stored SecretVersion. |
 | <CopyableCode code="replicationStatus" /> | `object` | The replication status of a SecretVersion. |
+| <CopyableCode code="scheduledDestroyTime" /> | `string` | Optional. Output only. Scheduled destroy time for secret version. This is a part of the Delayed secret version destroy feature. For a Secret with a valid version destroy TTL, when a secert version is destroyed, version is moved to disabled state and it is scheduled for destruction Version is destroyed only after the scheduled_destroy_time. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the SecretVersion. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

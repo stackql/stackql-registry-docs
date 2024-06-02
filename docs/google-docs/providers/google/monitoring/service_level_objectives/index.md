@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_level_objectives</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.service_level_objectives" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.service_level_objectives" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name for this ServiceLevelObjective. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]  |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name for this ServiceLevelObjective. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]  |
 | <CopyableCode code="calendarPeriod" /> | `string` | A calendar period, semantically "since the start of the current ". At this time, only DAY, WEEK, FORTNIGHT, and MONTH are supported. |
 | <CopyableCode code="displayName" /> | `string` | Name used for UI elements listing this SLO. |
 | <CopyableCode code="goal" /> | `number` | The fraction of service that must be good in order for this objective to be met. 0 &lt; goal &lt;= 0.999. |
@@ -40,6 +40,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="services_service_level_objectives_get" /> | `SELECT` | <CopyableCode code="name" /> | Get a ServiceLevelObjective by name. |
 | <CopyableCode code="services_service_level_objectives_list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | List the ServiceLevelObjectives for the given Service. |
 | <CopyableCode code="services_service_level_objectives_create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Create a ServiceLevelObjective for the given Service. |
+| <CopyableCode code="services_service_level_objectives_delete" /> | `DELETE` | <CopyableCode code="name" /> | Delete the given ServiceLevelObjective. |
 | <CopyableCode code="_services_service_level_objectives_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | List the ServiceLevelObjectives for the given Service. |
+| <CopyableCode code="services_service_level_objectives_patch" /> | `EXEC` | <CopyableCode code="name" /> | Update the given ServiceLevelObjective. |

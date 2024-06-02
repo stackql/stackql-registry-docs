@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>compilation_results</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.compilation_results" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataform.compilation_results" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,9 +33,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The compilation result's name. |
 | <CopyableCode code="codeCompilationConfig" /> | `object` | Configures various aspects of Dataform code compilation. |
 | <CopyableCode code="compilationErrors" /> | `array` | Output only. Errors encountered during project compilation. |
+| <CopyableCode code="dataEncryptionState" /> | `object` | Describes encryption state of a resource. |
 | <CopyableCode code="dataformCoreVersion" /> | `string` | Output only. The version of `@dataform/core` that was used for compilation. |
 | <CopyableCode code="gitCommitish" /> | `string` | Immutable. Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository. Examples: - a commit SHA: `12ade345` - a tag: `tag1` - a branch name: `branch1` |
-| <CopyableCode code="releaseConfig" /> | `string` | Immutable. The name of the release config to compile. The release config's 'current_compilation_result' field will be updated to this compilation result. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
+| <CopyableCode code="releaseConfig" /> | `string` | Immutable. The name of the release config to compile. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
 | <CopyableCode code="resolvedGitCommitSha" /> | `string` | Output only. The fully resolved Git commit SHA of the code that was compiled. Not set for compilation results whose source is a workspace. |
 | <CopyableCode code="workspace" /> | `string` | Immutable. The name of the workspace to compile. Must be in the format `projects/*/locations/*/repositories/*/workspaces/*`. |
 ## Methods

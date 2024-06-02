@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>occurrences</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.containeranalysis.occurrences" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="containeranalysis.occurrences" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,11 +52,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_notes_occurrences_list" /> | `SELECT` | <CopyableCode code="locationsId, notesId, projectsId" /> | Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. |
+| <CopyableCode code="projects_locations_occurrences_get" /> | `SELECT` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Gets the specified occurrence. |
+| <CopyableCode code="projects_locations_occurrences_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists occurrences for the specified project. |
 | <CopyableCode code="projects_notes_occurrences_list" /> | `SELECT` | <CopyableCode code="notesId, projectsId" /> | Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. |
 | <CopyableCode code="projects_occurrences_get" /> | `SELECT` | <CopyableCode code="occurrencesId, projectsId" /> | Gets the specified occurrence. |
 | <CopyableCode code="projects_occurrences_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists occurrences for the specified project. |
 | <CopyableCode code="projects_occurrences_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new occurrence. |
 | <CopyableCode code="projects_occurrences_delete" /> | `DELETE` | <CopyableCode code="occurrencesId, projectsId" /> | Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. |
+| <CopyableCode code="_projects_locations_notes_occurrences_list" /> | `EXEC` | <CopyableCode code="locationsId, notesId, projectsId" /> | Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. |
+| <CopyableCode code="_projects_locations_occurrences_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists occurrences for the specified project. |
 | <CopyableCode code="_projects_notes_occurrences_list" /> | `EXEC` | <CopyableCode code="notesId, projectsId" /> | Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. |
 | <CopyableCode code="_projects_occurrences_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists occurrences for the specified project. |
 | <CopyableCode code="projects_occurrences_batch_create" /> | `EXEC` | <CopyableCode code="projectsId" /> | Creates new occurrences in batch. |

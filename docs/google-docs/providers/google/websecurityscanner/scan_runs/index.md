@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scan_runs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.websecurityscanner.scan_runs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="websecurityscanner.scan_runs" /></td></tr>
 </tbody></table>
 
 ## Fields

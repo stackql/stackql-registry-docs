@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backup_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkebackup.backup_plans" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkebackup.backup_plans" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. A set of custom labels supplied by user. |
 | <CopyableCode code="protectedPodCount" /> | `integer` | Output only. The number of Kubernetes Pods backed up in the last successful Backup created via this BackupPlan. |
 | <CopyableCode code="retentionPolicy" /> | `object` | RetentionPolicy defines a Backup retention policy for a BackupPlan. |
+| <CopyableCode code="rpoRiskLevel" /> | `integer` | Output only. A number that represents the current risk level of this BackupPlan from RPO perspective with 1 being no risk and 5 being highest risk. |
+| <CopyableCode code="rpoRiskReason" /> | `string` | Output only. Human-readable description of why the BackupPlan is in the current rpo_risk_level and action items if any. |
 | <CopyableCode code="state" /> | `string` | Output only. State of the BackupPlan. This State field reflects the various stages a BackupPlan can be in during the Create operation. It will be set to "DEACTIVATED" if the BackupPlan is deactivated on an Update |
 | <CopyableCode code="stateReason" /> | `string` | Output only. Human-readable description of why BackupPlan is in the current `state` |
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |

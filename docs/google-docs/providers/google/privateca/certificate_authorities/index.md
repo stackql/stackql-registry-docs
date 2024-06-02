@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_authorities</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.privateca.certificate_authorities" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="privateca.certificate_authorities" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. Labels with user-defined metadata. |
 | <CopyableCode code="lifetime" /> | `string` | Required. Immutable. The desired lifetime of the CA certificate. Used to create the "not_before_time" and "not_after_time" fields inside an X.509 certificate. |
 | <CopyableCode code="pemCaCertificates" /> | `array` | Output only. This CertificateAuthority's certificate chain, including the current CertificateAuthority's certificate. Ordered such that the root issuer is the final element (consistent with RFC 5246). For a self-signed CA, this will only list the current CertificateAuthority's certificate. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="state" /> | `string` | Output only. The State for this CertificateAuthority. |
 | <CopyableCode code="subordinateConfig" /> | `object` | Describes a subordinate CA's issuers. This is either a resource name to a known issuing CertificateAuthority, or a PEM issuer certificate chain. |
 | <CopyableCode code="tier" /> | `string` | Output only. The CaPool.Tier of the CaPool that includes this CertificateAuthority. |

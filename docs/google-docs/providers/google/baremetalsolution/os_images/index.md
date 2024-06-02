@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>os_images</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.os_images" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.os_images" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,7 +36,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="code" /> | `string` | OS Image code. |
 | <CopyableCode code="supportedNetworkTemplates" /> | `array` | Network templates that can be used with this OS Image. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, osImagesId, projectsId" /> | Get details of a single OS image. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Retrieves the list of OS images which are currently approved. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Retrieves the list of OS images which are currently approved. |

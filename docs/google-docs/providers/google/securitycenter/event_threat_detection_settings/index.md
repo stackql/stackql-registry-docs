@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>event_threat_detection_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.event_threat_detection_settings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.event_threat_detection_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,4 +32,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
+| <CopyableCode code="folders_event_threat_detection_settings_validate_custom_module" /> | `EXEC` | <CopyableCode code="foldersId" /> |
 | <CopyableCode code="organizations_event_threat_detection_settings_validate_custom_module" /> | `EXEC` | <CopyableCode code="organizationsId" /> |
+| <CopyableCode code="projects_event_threat_detection_settings_validate_custom_module" /> | `EXEC` | <CopyableCode code="projectsId" /> |

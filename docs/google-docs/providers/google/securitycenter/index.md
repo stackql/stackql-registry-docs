@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Security Command Center API Provides Access To Temporal Views Of Assets And Findings Within An Organization.  
+Security Command Center API provides access to temporal views of assets and findings within an organization.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Security Command Center API Provides Access To Temporal Views Of Assets And Find
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>22</b></span><br />
 <span>total selectable resources:&nbsp;<b>18</b></span><br />
-<span>total methods:&nbsp;<b>171</b></span><br />
+<span>total methods:&nbsp;<b>223</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Security Command Center API Provides Access To Temporal Views Of Assets And Find
 <tr><td><b>Name</b></td><td><code>google.securitycenter</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Security Command Center API</td></tr>
-<tr><td><b>Description</b></td><td>Security Command Center API Provides Access To Temporal Views Of Assets And Findings Within An Organization.</td></tr>
-<tr><td><b>Id</b></td><td><code>securitycenter:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Security Command Center API provides access to temporal views of assets and findings within an organization.</td></tr>
+<tr><td><b>Id</b></td><td><code>securitycenter:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

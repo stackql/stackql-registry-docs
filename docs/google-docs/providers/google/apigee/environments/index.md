@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.environments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="apigee.environments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,7 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createdAt" /> | `string` | Output only. Creation time of this environment as milliseconds since epoch. |
 | <CopyableCode code="deploymentType" /> | `string` | Optional. Deployment type supported by the environment. The deployment type can be set when creating the environment and cannot be changed. When you enable archive deployment, you will be **prevented from performing** a [subset of actions](/apigee/docs/api-platform/local-development/overview#prevented-actions) within the environment, including: * Managing the deployment of API proxy or shared flow revisions * Creating, updating, or deleting resource files * Creating, updating, or deleting target servers |
 | <CopyableCode code="displayName" /> | `string` | Optional. Display name for this environment. |
-| <CopyableCode code="forwardProxyUri" /> | `string` | Optional. Url of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of &#123;scheme&#125;://&#123;hostname&#125;:&#123;port&#125;. Note that scheme must be one of "http" or "https", and port must be supplied. |
+| <CopyableCode code="forwardProxyUri" /> | `string` | Optional. URI of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of &#123;scheme&#125;://&#123;hostname&#125;:&#123;port&#125;. Note that the scheme must be one of "http" or "https", and the port must be supplied. To remove a forward proxy setting, update the field to an empty value. Note: At this time, PUT operations to add forwardProxyUri to an existing environment fail if the environment has nodeConfig set up. To successfully add the forwardProxyUri setting in this case, include the NodeConfig details with the request. |
 | <CopyableCode code="hasAttachedFlowHooks" /> | `boolean` |  |
 | <CopyableCode code="lastModifiedAt" /> | `string` | Output only. Last modification time of this environment as milliseconds since epoch. |
 | <CopyableCode code="nodeConfig" /> | `object` | NodeConfig for setting the min/max number of nodes associated with the environment. |

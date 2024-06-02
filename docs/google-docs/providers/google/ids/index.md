@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Cloud IDS (Cloud Intrusion Detection System) Detects Malware, Spyware, Command-And-Control Attacks, And Other Network-Based Threats. Its Security Efficacy Is Industry Leading, Built With Palo Alto Networks Technologies. When You Use This Product, Your Organization Name And Consumption Levels Will Be Shared With Palo Alto Networks.  
+Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Cloud IDS (Cloud Intrusion Detection System) Detects Malware, Spyware, Command-A
 <tr><td><b>Name</b></td><td><code>google.ids</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud IDS API</td></tr>
-<tr><td><b>Description</b></td><td>Cloud IDS (Cloud Intrusion Detection System) Detects Malware, Spyware, Command-And-Control Attacks, And Other Network-Based Threats. Its Security Efficacy Is Industry Leading, Built With Palo Alto Networks Technologies. When You Use This Product, Your Organization Name And Consumption Levels Will Be Shared With Palo Alto Networks.</td></tr>
-<tr><td><b>Id</b></td><td><code>ids:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.</td></tr>
+<tr><td><b>Id</b></td><td><code>ids:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

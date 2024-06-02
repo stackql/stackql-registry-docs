@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apt_artifacts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.apt_artifacts" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="artifactregistry.apt_artifacts" /></td></tr>
 </tbody></table>
 
 ## Fields

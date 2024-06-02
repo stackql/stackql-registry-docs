@@ -24,14 +24,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>memberships</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.recaptchaenterprise.memberships" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="recaptchaenterprise.memberships" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. The resource name for this membership in the format `projects/&#123;project&#125;/relatedaccountgroups/&#123;relatedaccountgroup&#125;/memberships/&#123;membership&#125;`. |
-| <CopyableCode code="hashedAccountId" /> | `string` | The unique stable hashed user identifier of the member. The identifier corresponds to a `hashed_account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. |
+| <CopyableCode code="name" /> | `string` | Required. Identifier. The resource name for this membership in the format `projects/&#123;project&#125;/relatedaccountgroups/&#123;relatedaccountgroup&#125;/memberships/&#123;membership&#125;`. |
+| <CopyableCode code="accountId" /> | `string` | The unique stable account identifier of the member. The identifier corresponds to an `account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. |
+| <CopyableCode code="hashedAccountId" /> | `string` | Deprecated: use `account_id` instead. The unique stable hashed account identifier of the member. The identifier corresponds to a `hashed_account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

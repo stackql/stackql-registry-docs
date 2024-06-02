@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudresourcemanager.projects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudresourcemanager.projects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="parent" /> | `string` | Optional. A reference to a parent Resource. eg., `organizations/123` or `folders/876`. |
 | <CopyableCode code="projectId" /> | `string` | Immutable. The unique, user-assigned id of the project. It must be 6 to 30 lowercase ASCII letters, digits, or hyphens. It must start with a letter. Trailing hyphens are prohibited. Example: `tokyo-rain-123` |
 | <CopyableCode code="state" /> | `string` | Output only. The project lifecycle state. |
+| <CopyableCode code="tags" /> | `object` | Optional. Input only. Immutable. Tag keys/values directly bound to this project. Each item in the map must be expressed as " : ". For example: "123/environment" : "production", "123/costCenter" : "marketing" Note: Currently this field is in Preview. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The most recent time this resource was modified. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -50,5 +51,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="_list" /> | `EXEC` |  | Lists projects that are direct children of the specified folder or organization resource. `list()` provides a strongly consistent view of the projects underneath the specified parent resource. `list()` returns projects sorted based upon the (ascending) lexical ordering of their `display_name`. The caller must have `resourcemanager.projects.list` permission on the identified parent. |
 | <CopyableCode code="move" /> | `EXEC` | <CopyableCode code="projectsId" /> | Move a project to another place in your resource hierarchy, under a new resource parent. Returns an operation which can be used to track the process of the project move workflow. Upon success, the `Operation.response` field will be populated with the moved project. The caller must have `resourcemanager.projects.move` permission on the project, on the project's current and proposed new parent. If project has no current parent, or it currently does not have an associated organization resource, you will also need the `resourcemanager.projects.setIamPolicy` permission in the project.  |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="projectsId" /> | Updates the `display_name` and labels of the project identified by the specified `name` (for example, `projects/415104041262`). Deleting all labels requires an update mask for labels field. The caller must have `resourcemanager.projects.update` permission for this project. |
-| <CopyableCode code="search" /> | `EXEC` |  | Search for projects that the caller has both `resourcemanager.projects.get` permission on, and also satisfy the specified query. This method returns projects in an unspecified order. This method is eventually consistent with project mutations; this means that a newly created project may not appear in the results or recent updates to an existing project may not be reflected in the results. To retrieve the latest state of a project, use the GetProject method. |
+| <CopyableCode code="search" /> | `EXEC` |  | Search for projects that the caller has the `resourcemanager.projects.get` permission on, and also satisfy the specified query. This method returns projects in an unspecified order. This method is eventually consistent with project mutations; this means that a newly created project may not appear in the results or recent updates to an existing project may not be reflected in the results. To retrieve the latest state of a project, use the GetProject method. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="projectsId" /> | Restores the project identified by the specified `name` (for example, `projects/415104041262`). You can only use this method for a project that has a lifecycle state of DELETE_REQUESTED. After deletion starts, the project cannot be restored. The caller must have `resourcemanager.projects.undelete` permission for this project. |

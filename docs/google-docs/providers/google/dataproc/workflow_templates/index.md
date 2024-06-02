@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataproc.workflow_templates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataproc.workflow_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,6 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates, the resource name of the template has the following format: projects/&#123;project_id&#125;/regions/&#123;region&#125;/workflowTemplates/&#123;template_id&#125; For projects.locations.workflowTemplates, the resource name of the template has the following format: projects/&#123;project_id&#125;/locations/&#123;location&#125;/workflowTemplates/&#123;template_id&#125; |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time template was created. |
 | <CopyableCode code="dagTimeout" /> | `string` | Optional. Timeout duration for the DAG of jobs, expressed in seconds (see JSON representation of duration (https://developers.google.com/protocol-buffers/docs/proto3#json)). The timeout duration must be from 10 minutes ("600s") to 24 hours ("86400s"). The timer begins when the first job is submitted. If the workflow is running at the end of the timeout period, any remaining jobs are cancelled, the workflow is ended, and if the workflow was running on a managed cluster, the cluster is deleted. |
+| <CopyableCode code="encryptionConfig" /> | `object` | Encryption settings for encrypting workflow template job arguments. |
 | <CopyableCode code="jobs" /> | `array` | Required. The Directed Acyclic Graph of Jobs to submit. |
 | <CopyableCode code="labels" /> | `object` | Optional. The labels to associate with this template. These labels will be propagated to all jobs and clusters created by the workflow instance.Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).No more than 32 labels can be associated with a template. |
 | <CopyableCode code="parameters" /> | `array` | Optional. Template parameters whose values are substituted into the template. Values for parameters must be provided when the template is instantiated. |

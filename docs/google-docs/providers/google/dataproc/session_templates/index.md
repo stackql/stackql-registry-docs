@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>session_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataproc.session_templates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataproc.session_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,15 +36,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="creator" /> | `string` | Output only. The email address of the user who created the template. |
 | <CopyableCode code="environmentConfig" /> | `object` | Environment configuration for a workload. |
 | <CopyableCode code="jupyterSession" /> | `object` | Jupyter configuration for an interactive session. |
-| <CopyableCode code="labels" /> | `object` | Optional. The labels to associate with sessions created using this template. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a session. |
+| <CopyableCode code="labels" /> | `object` | Optional. Labels to associate with sessions created using this template. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values can be empty, but, if present, must contain 1 to 63 characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a session. |
 | <CopyableCode code="runtimeConfig" /> | `object` | Runtime configuration for a workload. |
-| <CopyableCode code="updateTime" /> | `string` | Output only. The time template was last updated. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The time the template was last updated. |
+| <CopyableCode code="uuid" /> | `string` | Output only. A session template UUID (Unique Universal Identifier). The service generates this value when it creates the session template. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_session_templates_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, sessionTemplatesId" /> | Gets the resource representation for a session template. |
 | <CopyableCode code="projects_locations_session_templates_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists session templates. |
-| <CopyableCode code="projects_locations_session_templates_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create an session template, synchronously. |
+| <CopyableCode code="projects_locations_session_templates_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a session template synchronously. |
 | <CopyableCode code="projects_locations_session_templates_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sessionTemplatesId" /> | Deletes a session template. |
 | <CopyableCode code="_projects_locations_session_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists session templates. |
-| <CopyableCode code="projects_locations_session_templates_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sessionTemplatesId" /> | Updates the session template, synchronously.Disable check for update_mask, because all updates will be full replacements. |
+| <CopyableCode code="projects_locations_session_templates_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sessionTemplatesId" /> | Updates the session template synchronously. |

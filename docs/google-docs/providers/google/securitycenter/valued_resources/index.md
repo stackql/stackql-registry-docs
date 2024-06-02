@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>valued_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.valued_resources" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.valued_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,9 +38,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resourceValue" /> | `string` | How valuable this resource is. |
 | <CopyableCode code="resourceValueConfigsUsed" /> | `array` | List of resource value configurations' metadata used to determine the value of this resource. Maximum of 100. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_simulations_attack_exposure_results_valued_resources_list" /> | `SELECT` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> |
-| <CopyableCode code="organizations_simulations_valued_resources_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId" /> |
-| <CopyableCode code="_organizations_simulations_attack_exposure_results_valued_resources_list" /> | `EXEC` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> |
-| <CopyableCode code="_organizations_simulations_valued_resources_list" /> | `EXEC` | <CopyableCode code="organizationsId, simulationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_simulations_attack_exposure_results_valued_resources_list" /> | `SELECT` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> | Lists the valued resources for a set of simulation results and filter. |
+| <CopyableCode code="organizations_simulations_valued_resources_get" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId, valuedResourcesId" /> | Get the valued resource by name |
+| <CopyableCode code="organizations_simulations_valued_resources_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId" /> | Lists the valued resources for a set of simulation results and filter. |
+| <CopyableCode code="_organizations_simulations_attack_exposure_results_valued_resources_list" /> | `EXEC` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> | Lists the valued resources for a set of simulation results and filter. |
+| <CopyableCode code="_organizations_simulations_valued_resources_list" /> | `EXEC` | <CopyableCode code="organizationsId, simulationsId" /> | Lists the valued resources for a set of simulation results and filter. |

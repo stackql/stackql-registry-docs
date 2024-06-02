@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Use The Migrate To Virtual Machines API To Programmatically Migrate Workloads.   
+Use the Migrate to Virtual Machines API to programmatically migrate workloads.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>13</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>63</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total selectable resources:&nbsp;<b>13</b></span><br />
+<span>total methods:&nbsp;<b>72</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Use The Migrate To Virtual Machines API To Programmatically Migrate Workloads.
 <tr><td><b>Name</b></td><td><code>google.vmmigration</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>VM Migration API</td></tr>
-<tr><td><b>Description</b></td><td>Use The Migrate To Virtual Machines API To Programmatically Migrate Workloads. </td></tr>
-<tr><td><b>Id</b></td><td><code>vmmigration:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Use the Migrate to Virtual Machines API to programmatically migrate workloads. </td></tr>
+<tr><td><b>Id</b></td><td><code>vmmigration:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -45,10 +45,12 @@ Use The Migrate To Virtual Machines API To Programmatically Migrate Workloads.
 <a href="/providers/google/vmmigration/datacenter_connectors/">datacenter_connectors</a><br />
 <a href="/providers/google/vmmigration/groups/">groups</a><br />
 <a href="/providers/google/vmmigration/groups_group_migration/">groups_group_migration</a><br />
+<a href="/providers/google/vmmigration/image_import_jobs/">image_import_jobs</a><br />
+<a href="/providers/google/vmmigration/image_imports/">image_imports</a><br />
 <a href="/providers/google/vmmigration/locations/">locations</a><br />
-<a href="/providers/google/vmmigration/migrating_vms/">migrating_vms</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/vmmigration/migrating_vms/">migrating_vms</a><br />
 <a href="/providers/google/vmmigration/operations/">operations</a><br />
 <a href="/providers/google/vmmigration/replication_cycles/">replication_cycles</a><br />
 <a href="/providers/google/vmmigration/sources/">sources</a><br />

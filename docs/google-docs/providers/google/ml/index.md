@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-An API To Enable Creating And Using Machine Learning Models.  
+An API to enable creating and using machine learning models.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ An API To Enable Creating And Using Machine Learning Models.
 <tr><td><b>Name</b></td><td><code>google.ml</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AI Platform Training & Prediction API</td></tr>
-<tr><td><b>Description</b></td><td>An API To Enable Creating And Using Machine Learning Models.</td></tr>
-<tr><td><b>Id</b></td><td><code>ml:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>An API to enable creating and using machine learning models.</td></tr>
+<tr><td><b>Id</b></td><td><code>ml:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

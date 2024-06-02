@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.policysimulator.operations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="policysimulator.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,12 +38,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="folders_locations_org_policy_violations_previews_operations_get" /> | `SELECT` | <CopyableCode code="foldersId, locationsId, operationsId, orgPolicyViolationsPreviewsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 | <CopyableCode code="folders_locations_replays_operations_get" /> | `SELECT` | <CopyableCode code="foldersId, locationsId, operationsId, replaysId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 | <CopyableCode code="folders_locations_replays_operations_list" /> | `SELECT` | <CopyableCode code="foldersId, locationsId, replaysId" /> | Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. |
 | <CopyableCode code="operations_get" /> | `SELECT` | <CopyableCode code="operationsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 | <CopyableCode code="operations_list" /> | `SELECT` |  | Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. |
+| <CopyableCode code="organizations_locations_org_policy_violations_previews_operations_get" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, orgPolicyViolationsPreviewsId, organizationsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 | <CopyableCode code="organizations_locations_replays_operations_get" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, organizationsId, replaysId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 | <CopyableCode code="organizations_locations_replays_operations_list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId, replaysId" /> | Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. |
+| <CopyableCode code="projects_locations_org_policy_violations_previews_operations_get" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, orgPolicyViolationsPreviewsId, projectsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 | <CopyableCode code="projects_locations_replays_operations_get" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, projectsId, replaysId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 | <CopyableCode code="projects_locations_replays_operations_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, replaysId" /> | Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. |
 | <CopyableCode code="_folders_locations_replays_operations_list" /> | `EXEC` | <CopyableCode code="foldersId, locationsId, replaysId" /> | Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. |

@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Deploy And Manage User Provided Container Images That Scale Automatically Based On Incoming Requests. The Cloud Run Admin API V1 Follows The Knative Serving API Specification, While V2 Is Aligned With Google Cloud AIP-Based API Standards, As Described In Https://Google.Aip.Dev/.  
+Deploy and manage user provided container images that scale automatically based on incoming requests. The Cloud Run Admin API v1 follows the Knative Serving API specification, while v2 is aligned with Google Cloud AIP-based API standards, as described in https://google.aip.dev/.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>38</b></span><br />
+<span>total methods:&nbsp;<b>43</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Deploy And Manage User Provided Container Images That Scale Automatically Based 
 <tr><td><b>Name</b></td><td><code>google.run</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Run Admin API</td></tr>
-<tr><td><b>Description</b></td><td>Deploy And Manage User Provided Container Images That Scale Automatically Based On Incoming Requests. The Cloud Run Admin API V1 Follows The Knative Serving API Specification, While V2 Is Aligned With Google Cloud AIP-Based API Standards, As Described In Https://Google.Aip.Dev/.</td></tr>
-<tr><td><b>Id</b></td><td><code>run:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Deploy and manage user provided container images that scale automatically based on incoming requests. The Cloud Run Admin API v1 follows the Knative Serving API specification, while v2 is aligned with Google Cloud AIP-based API standards, as described in https://google.aip.dev/.</td></tr>
+<tr><td><b>Id</b></td><td><code>run:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,6 +43,7 @@ Deploy And Manage User Provided Container Images That Scale Automatically Based 
 <a href="/providers/google/run/executions/">executions</a><br />
 <a href="/providers/google/run/jobs/">jobs</a><br />
 <a href="/providers/google/run/jobs_iam_policies/">jobs_iam_policies</a><br />
+<a href="/providers/google/run/locations/">locations</a><br />
 <a href="/providers/google/run/operations/">operations</a><br />
 </div>
 <div class="providerDocColumn">

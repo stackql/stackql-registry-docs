@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>attribute_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.attribute_definitions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.attribute_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name of the Attribute definition, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/attributeDefinitions/&#123;attribute_definition_id&#125;`. Cannot be changed after creation. |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name of the Attribute definition, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/attributeDefinitions/&#123;attribute_definition_id&#125;`. Cannot be changed after creation. |
 | <CopyableCode code="description" /> | `string` | Optional. A description of the attribute. |
 | <CopyableCode code="allowedValues" /> | `array` | Required. Possible values for the attribute. The number of allowed values must not exceed 500. An empty list is invalid. The list can only be expanded after creation. |
 | <CopyableCode code="category" /> | `string` | Required. The category of the attribute. The value of this field cannot be changed after creation. |

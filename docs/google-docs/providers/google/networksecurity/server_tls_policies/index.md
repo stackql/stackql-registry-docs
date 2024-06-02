@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>server_tls_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.server_tls_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.server_tls_policies" /></td></tr>
 </tbody></table>
 
 ## Fields

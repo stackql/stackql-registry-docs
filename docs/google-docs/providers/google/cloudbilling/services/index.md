@@ -24,16 +24,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudbilling.services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudbilling.services" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name for the service. Example: "services/DA34-426B-A397" |
+| <CopyableCode code="name" /> | `string` | The resource name for the service. Example: "services/6F81-5844-456A" |
 | <CopyableCode code="businessEntityName" /> | `string` | The business under which the service is offered. Ex. "businessEntities/GCP", "businessEntities/Maps" |
 | <CopyableCode code="displayName" /> | `string` | A human readable display name for this service. |
-| <CopyableCode code="serviceId" /> | `string` | The identifier for the service. Example: "DA34-426B-A397" |
+| <CopyableCode code="serviceId" /> | `string` | The identifier for the service. Example: "6F81-5844-456A" |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

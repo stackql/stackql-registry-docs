@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>restores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkebackup.restores" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkebackup.restores" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,15 +37,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="completeTime" /> | `string` | Output only. Timestamp of when the restore operation completed. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when this Restore resource was created. |
 | <CopyableCode code="etag" /> | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform restore updates in order to avoid race conditions: An `etag` is returned in the response to `GetRestore`, and systems are expected to put that etag in the request to `UpdateRestore` or `DeleteRestore` to ensure that their change will be applied to the same version of the resource. |
+| <CopyableCode code="filter" /> | `object` | Defines the filter for `Restore`. This filter can be used to further refine the resource selection of the `Restore` beyond the coarse-grained scope defined in the `RestorePlan`. `exclusion_filters` take precedence over `inclusion_filters`. If a resource matches both `inclusion_filters` and `exclusion_filters`, it will not be restored. |
 | <CopyableCode code="labels" /> | `object` | A set of custom labels supplied by user. |
 | <CopyableCode code="resourcesExcludedCount" /> | `integer` | Output only. Number of resources excluded during the restore execution. |
 | <CopyableCode code="resourcesFailedCount" /> | `integer` | Output only. Number of resources that failed to be restored during the restore execution. |
 | <CopyableCode code="resourcesRestoredCount" /> | `integer` | Output only. Number of resources restored during the restore execution. |
-| <CopyableCode code="restoreConfig" /> | `object` | Configuration of a restore. Next id: 12 |
+| <CopyableCode code="restoreConfig" /> | `object` | Configuration of a restore. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the Restore. |
 | <CopyableCode code="stateReason" /> | `string` | Output only. Human-readable description of why the Restore is in its current state. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when this Restore resource was last updated. |
+| <CopyableCode code="volumeDataRestorePolicyOverrides" /> | `array` | Optional. Immutable. Overrides the volume data restore policies selected in the Restore Config for override-scoped resources. |
 | <CopyableCode code="volumesRestoredCount" /> | `integer` | Output only. Number of volumes restored during the restore execution. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

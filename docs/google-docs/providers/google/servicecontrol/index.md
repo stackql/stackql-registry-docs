@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Provides Admission Control And Telemetry Reporting For Services Integrated With Service Infrastructure.   
+Provides admission control and telemetry reporting for services integrated with Service Infrastructure.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Provides Admission Control And Telemetry Reporting For Services Integrated With 
 <tr><td><b>Name</b></td><td><code>google.servicecontrol</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Control API</td></tr>
-<tr><td><b>Description</b></td><td>Provides Admission Control And Telemetry Reporting For Services Integrated With Service Infrastructure. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicecontrol:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides admission control and telemetry reporting for services integrated with Service Infrastructure. </td></tr>
+<tr><td><b>Id</b></td><td><code>servicecontrol:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

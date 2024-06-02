@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_edge_security_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.network_edge_security_services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.network_edge_security_services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,9 +43,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkEdgeSecurityService, project, region" /> | Gets a specified NetworkEdgeSecurityService. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a new service in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkEdgeSecurityService, project, region" /> | Deletes the specified service. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="networkEdgeSecurityService, project, region" /> | Patches the specified policy with the data included in the request. |

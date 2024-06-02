@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Google Cloud Deployment Manager V2 API Provides Services For Configuring, Deploying, And Viewing Google Cloud Services And APIs Via Templates Which Specify Deployments Of Cloud Resources.  
+The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ The Google Cloud Deployment Manager V2 API Provides Services For Configuring, De
 <tr><td><b>Name</b></td><td><code>google.deploymentmanager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Deployment Manager V2 API</td></tr>
-<tr><td><b>Description</b></td><td>The Google Cloud Deployment Manager V2 API Provides Services For Configuring, Deploying, And Viewing Google Cloud Services And APIs Via Templates Which Specify Deployments Of Cloud Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>deploymentmanager:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.</td></tr>
+<tr><td><b>Id</b></td><td><code>deploymentmanager:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

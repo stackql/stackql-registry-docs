@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="integrations.connections" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. Resource name of the Connection. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/connections/&#123;connection&#125; |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the resource. |
 | <CopyableCode code="authConfig" /> | `object` | AuthConfig defines details of a authentication type. |
+| <CopyableCode code="billingConfig" /> | `object` | Billing config for the connection. |
 | <CopyableCode code="configVariables" /> | `array` | Optional. Configuration for configuring the connection with an external system. |
 | <CopyableCode code="connectionRevision" /> | `string` | Output only. Connection revision. This field is only updated when the connection is created or updated by User. |
 | <CopyableCode code="connectorVersion" /> | `string` | Required. Connector version on which the connection is created. The format is: projects/*/locations/*/providers/*/connectors/*/versions/* Only global location is supported for ConnectorVersion resource. |
@@ -45,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="eventingEnablementType" /> | `string` | Optional. Eventing enablement type. Will be nil if eventing is not enabled. |
 | <CopyableCode code="eventingRuntimeData" /> | `object` | Eventing runtime data has the details related to eventing managed by the system. |
 | <CopyableCode code="imageLocation" /> | `string` | Output only. GCR location where the runtime image is stored. formatted like: gcr.io/&#123;bucketName&#125;/&#123;imageName&#125; |
+| <CopyableCode code="isTrustedTester" /> | `boolean` | Output only. Is trusted tester program enabled for the project. |
 | <CopyableCode code="labels" /> | `object` | Optional. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources |
 | <CopyableCode code="lockConfig" /> | `object` | Determines whether or no a connection is locked. If locked, a reason must be specified. |
 | <CopyableCode code="logConfig" /> | `object` | Log configuration for the connection. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_group_managers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instance_group_managers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.instance_group_managers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | [Output Only] A unique identifier for this resource type. The server generates this identifier. |
 | <CopyableCode code="name" /> | `string` | The name of the managed instance group. The name must be 1-63 characters long, and comply with RFC1035. |
 | <CopyableCode code="description" /> | `string` | An optional description of this resource. |
+| <CopyableCode code="allInstancesConfig" /> | `object` |  |
 | <CopyableCode code="autoHealingPolicies" /> | `array` | The autohealing policy for this managed instance group. You can specify only one value. |
 | <CopyableCode code="baseInstanceName" /> | `string` | The base instance name to use for instances in this group. The value must be 1-58 characters long. Instances are named by appending a hyphen and a random four-character string to the base instance name. The base instance name must comply with RFC1035. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] The creation timestamp for this managed instance group in RFC3339 text format. |
@@ -46,6 +47,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="listManagedInstancesResults" /> | `string` | Pagination behavior of the listManagedInstances API method for this managed instance group. |
 | <CopyableCode code="namedPorts" /> | `array` | Named ports configured for the Instance Groups complementary to this Instance Group Manager. |
 | <CopyableCode code="region" /> | `string` | [Output Only] The URL of the region where the managed instance group resides (for regional resources). |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | [Output Only] Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | [Output Only] Reserved for future use. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] The URL for this managed instance group. The server defines this URL. |
 | <CopyableCode code="statefulPolicy" /> | `object` |  |
 | <CopyableCode code="status" /> | `object` |  |
@@ -57,12 +60,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of managed instance groups and groups them by zone. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of managed instance groups and groups them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instanceGroupManager, project, zone" /> | Returns all of the details about the specified managed instance group. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of managed instance groups that are contained within the specified project and zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method. A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instanceGroupManager, project, zone" /> | Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read Deleting an instance group for more information. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of managed instance groups and groups them by zone. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of managed instance groups and groups them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="abandon_instances" /> | `EXEC` | <CopyableCode code="instanceGroupManager, project, zone" /> | Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request. |
 | <CopyableCode code="apply_updates_to_instances" /> | `EXEC` | <CopyableCode code="instanceGroupManager, project, zone" /> | Applies changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instanceGroupManager, project, zone" /> | Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listManagedInstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. If you update your group to specify a new template or instance configuration, it's possible that your intended specification for each VM in the group is different from the current state of that VM. To learn how to apply an updated configuration to the VMs in a MIG, see Updating instances in a MIG. |

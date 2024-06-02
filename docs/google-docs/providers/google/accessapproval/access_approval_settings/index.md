@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_approval_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.accessapproval.access_approval_settings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="accessapproval.access_approval_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,8 +37,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="enrolledServices" /> | `array` | A list of Google Cloud Services for which the given resource has Access Approval enrolled. Access requests for the resource given by name against any of these services contained here will be required to have explicit approval. If name refers to an organization, enrollment can be done for individual services. If name refers to a folder or project, enrollment can only be done on an all or nothing basis. If a cloud_product is repeated in this list, the first entry will be honored and all following entries will be discarded. A maximum of 10 enrolled services will be enforced, to be expanded as the set of supported services is expanded. |
 | <CopyableCode code="invalidKeyVersion" /> | `boolean` | Output only. This field is read only (not settable via UpdateAccessApprovalSettings method). If the field is true, that indicates that there is some configuration issue with the active_key_version configured at this level in the resource hierarchy (e.g. it doesn't exist or the Access Approval service account doesn't have the correct permissions on it, etc.) This key version is not necessarily the effective key version at this level, as key versions are inherited top-down. |
 | <CopyableCode code="notificationEmails" /> | `array` | A list of email addresses to which notifications relating to approval requests should be sent. Notifications relating to a resource will be sent to all emails in the settings of ancestor resources of that resource. A maximum of 50 email addresses are allowed. |
+| <CopyableCode code="notificationPubsubTopic" /> | `string` | Optional. A pubsub topic to which notifications relating to approval requests should be sent. |
 | <CopyableCode code="preferNoBroadApprovalRequests" /> | `boolean` | This preference is communicated to Google personnel when sending an approval request but can be overridden if necessary. |
 | <CopyableCode code="preferredRequestExpirationDays" /> | `integer` | This preference is shared with Google personnel, but can be overridden if said personnel deems necessary. The approver ultimately can set the expiration at approval time. |
+| <CopyableCode code="requireCustomerVisibleJustification" /> | `boolean` | Optional. A setting to require approval request justifications to be customer visible. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

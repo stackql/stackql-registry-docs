@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>packet_mirrorings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.packet_mirrorings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.packet_mirrorings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,10 +46,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of packetMirrorings. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of packetMirrorings. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="packetMirroring, project, region" /> | Returns the specified PacketMirroring resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of PacketMirroring resources available to the specified project and region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a PacketMirroring resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="packetMirroring, project, region" /> | Deletes the specified PacketMirroring resource. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of packetMirrorings. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of packetMirrorings. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="packetMirroring, project, region" /> | Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |

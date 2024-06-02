@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_instance_group_managers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_instance_group_managers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_instance_group_managers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | [Output Only] A unique identifier for this resource type. The server generates this identifier. |
 | <CopyableCode code="name" /> | `string` | The name of the managed instance group. The name must be 1-63 characters long, and comply with RFC1035. |
 | <CopyableCode code="description" /> | `string` | An optional description of this resource. |
+| <CopyableCode code="allInstancesConfig" /> | `object` |  |
 | <CopyableCode code="autoHealingPolicies" /> | `array` | The autohealing policy for this managed instance group. You can specify only one value. |
 | <CopyableCode code="baseInstanceName" /> | `string` | The base instance name to use for instances in this group. The value must be 1-58 characters long. Instances are named by appending a hyphen and a random four-character string to the base instance name. The base instance name must comply with RFC1035. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] The creation timestamp for this managed instance group in RFC3339 text format. |
@@ -46,6 +47,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="listManagedInstancesResults" /> | `string` | Pagination behavior of the listManagedInstances API method for this managed instance group. |
 | <CopyableCode code="namedPorts" /> | `array` | Named ports configured for the Instance Groups complementary to this Instance Group Manager. |
 | <CopyableCode code="region" /> | `string` | [Output Only] The URL of the region where the managed instance group resides (for regional resources). |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | [Output Only] Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | [Output Only] Reserved for future use. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] The URL for this managed instance group. The server defines this URL. |
 | <CopyableCode code="statefulPolicy" /> | `object` |  |
 | <CopyableCode code="status" /> | `object` |  |

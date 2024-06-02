@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vmware_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.vmware_clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.vmware_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="antiAffinityGroups" /> | `object` | Specifies anti affinity group config for the VMware user cluster. |
 | <CopyableCode code="authorization" /> | `object` | Authorization defines the On-Prem cluster authorization configuration to bootstrap onto the admin cluster. |
 | <CopyableCode code="autoRepairConfig" /> | `object` | Specifies config to enable/disable auto repair. The cluster-health-controller is deployed only if Enabled is true. |
+| <CopyableCode code="binaryAuthorization" /> | `object` | Configuration for Binary Authorization. |
 | <CopyableCode code="controlPlaneNode" /> | `object` | Specifies control plane node config for the VMware user cluster. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which VMware user cluster was created. |
 | <CopyableCode code="dataplaneV2" /> | `object` | Contains configurations for Dataplane V2, which is optimized dataplane for Kubernetes networking. For more information, see: https://cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2 |

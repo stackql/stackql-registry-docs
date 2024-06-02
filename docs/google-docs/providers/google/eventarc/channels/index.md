@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>channels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.eventarc.channels" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="eventarc.channels" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="cryptoKeyName" /> | `string` | Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`. |
 | <CopyableCode code="provider" /> | `string` | The name of the event provider (e.g. Eventarc SaaS partner) associated with the channel. This provider will be granted permissions to publish events to the channel. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/providers/&#123;provider_id&#125;`. |
 | <CopyableCode code="pubsubTopic" /> | `string` | Output only. The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: `projects/&#123;project&#125;/topics/&#123;topic_id&#125;`. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Whether or not this Channel satisfies the requirements of physical zone separation |
 | <CopyableCode code="state" /> | `string` | Output only. The state of a Channel. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server assigned unique identifier for the channel. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |

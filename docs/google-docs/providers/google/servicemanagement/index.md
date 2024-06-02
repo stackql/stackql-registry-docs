@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Google Service Management Allows Service Producers To Publish Their Services On Google Cloud Platform So That They Can Be Discovered And Used By Service Consumers.  
+Google Service Management allows service producers to publish their services on Google Cloud Platform so that they can be discovered and used by service consumers.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Google Service Management Allows Service Producers To Publish Their Services On 
 <tr><td><b>Name</b></td><td><code>google.servicemanagement</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Management API</td></tr>
-<tr><td><b>Description</b></td><td>Google Service Management Allows Service Producers To Publish Their Services On Google Cloud Platform So That They Can Be Discovered And Used By Service Consumers.</td></tr>
-<tr><td><b>Id</b></td><td><code>servicemanagement:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Google Service Management allows service producers to publish their services on Google Cloud Platform so that they can be discovered and used by service consumers.</td></tr>
+<tr><td><b>Id</b></td><td><code>servicemanagement:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

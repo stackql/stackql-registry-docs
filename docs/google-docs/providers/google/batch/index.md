@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-An API To Manage The Running Of Batch Jobs On Google Cloud Platform.  
+An API to manage the running of Batch resources on Google Cloud Platform.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ An API To Manage The Running Of Batch Jobs On Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.batch</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Batch API</td></tr>
-<tr><td><b>Description</b></td><td>An API To Manage The Running Of Batch Jobs On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>batch:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>An API to manage the running of Batch resources on Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>batch:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And Configuration Management On VM Instances.  
+OS management tools that can be used for patch management, patch compliance, and configuration management on VM instances.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>34</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
+<span>total selectable resources:&nbsp;<b>12</b></span><br />
+<span>total methods:&nbsp;<b>36</b></span><br />
 </div>
 </div>
 
@@ -33,13 +33,14 @@ OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And
 <tr><td><b>Name</b></td><td><code>google.osconfig</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>OS Config API</td></tr>
-<tr><td><b>Description</b></td><td>OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And Configuration Management On VM Instances.</td></tr>
-<tr><td><b>Id</b></td><td><code>osconfig:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>OS management tools that can be used for patch management, patch compliance, and configuration management on VM instances.</td></tr>
+<tr><td><b>Id</b></td><td><code>osconfig:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/osconfig/global_project_feature_settings/">global_project_feature_settings</a><br />
 <a href="/providers/google/osconfig/instance_details/">instance_details</a><br />
 <a href="/providers/google/osconfig/inventories/">inventories</a><br />
 <a href="/providers/google/osconfig/inventory/">inventory</a><br />

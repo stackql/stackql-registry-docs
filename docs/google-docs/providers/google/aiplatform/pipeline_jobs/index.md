@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pipeline_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.pipeline_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.pipeline_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | Output only. Pipeline start time. |
 | <CopyableCode code="state" /> | `string` | Output only. The detailed state of the job. |
 | <CopyableCode code="templateMetadata" /> | `object` | Pipeline template metadata if PipelineJob.template_uri is from supported template registry. Currently, the only supported registry is Artifact Registry. |
-| <CopyableCode code="templateUri" /> | `string` | A template uri from where the PipelineJob.pipeline_spec, if empty, will be downloaded. |
+| <CopyableCode code="templateUri" /> | `string` | A template uri from where the PipelineJob.pipeline_spec, if empty, will be downloaded. Currently, only uri from Vertex Template Registry & Gallery is supported. Reference to https://cloud.google.com/vertex-ai/docs/pipelines/create-pipeline-template. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this PipelineJob was most recently updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -57,4 +57,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a PipelineJob. A PipelineJob will run immediately when created. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, pipelineJobsId, projectsId" /> | Deletes a PipelineJob. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists PipelineJobs in a Location. |
+| <CopyableCode code="batch_cancel" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Batch cancel PipelineJobs. Firstly the server will check if all the jobs are in non-terminal states, and skip the jobs that are already terminated. If the operation failed, none of the pipeline jobs are cancelled. The server will poll the states of all the pipeline jobs periodically to check the cancellation status. This operation will return an LRO. |
+| <CopyableCode code="batch_delete" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Batch deletes PipelineJobs The Operation is atomic. If it fails, none of the PipelineJobs are deleted. If it succeeds, all of the PipelineJobs are deleted. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="locationsId, pipelineJobsId, projectsId" /> | Cancels a PipelineJob. Starts asynchronous cancellation on the PipelineJob. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can use PipelineService.GetPipelineJob or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation, the PipelineJob is not deleted; instead it becomes a pipeline with a PipelineJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and PipelineJob.state is set to `CANCELLED`. |

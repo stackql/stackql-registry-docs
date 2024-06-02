@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>intents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.intents" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.intents" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,4 +46,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_intents_create" /> | `INSERT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Creates an intent in the specified agent. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="projects_locations_agents_intents_delete" /> | `DELETE` | <CopyableCode code="agentsId, intentsId, locationsId, projectsId" /> | Deletes the specified intent. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="_projects_locations_agents_intents_list" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Returns the list of all intents in the specified agent. |
+| <CopyableCode code="projects_locations_agents_intents_export" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Exports the selected intents. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: ExportIntentsMetadata - `response`: ExportIntentsResponse |
+| <CopyableCode code="projects_locations_agents_intents_import" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Imports the specified intents into the agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: ImportIntentsMetadata - `response`: ImportIntentsResponse |
 | <CopyableCode code="projects_locations_agents_intents_patch" /> | `EXEC` | <CopyableCode code="agentsId, intentsId, locationsId, projectsId" /> | Updates the specified intent. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_labeling_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.data_labeling_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.data_labeling_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields

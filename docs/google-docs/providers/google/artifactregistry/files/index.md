@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>files</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.files" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="artifactregistry.files" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The name of the file, for example: "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt". If the file ID part contains slashes, they are escaped. |
+| <CopyableCode code="name" /> | `string` | The name of the file, for example: `projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt`. If the file ID part contains slashes, they are escaped. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time when the File was created. |
 | <CopyableCode code="fetchTime" /> | `string` | Output only. The time when the last attempt to refresh the file's data was made. Only set when the repository is remote. |
 | <CopyableCode code="hashes" /> | `array` | The hashes of the file content. |
@@ -42,4 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="filesId, locationsId, projectsId, repositoriesId" /> | Gets a file. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists files. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="filesId, locationsId, projectsId, repositoriesId" /> | Deletes a file and all of its content. It is only allowed on generic repositories. The returned operation will complete once the file has been deleted. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists files. |
+| <CopyableCode code="download" /> | `EXEC` | <CopyableCode code="filesId, locationsId, projectsId, repositoriesId" /> | Download a file. |

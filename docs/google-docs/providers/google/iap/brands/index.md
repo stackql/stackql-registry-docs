@@ -24,16 +24,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>brands</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.iap.brands" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="iap.brands" /></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Identifier of the brand. NOTE: GCP project number achieves the same brand identification purpose as only one brand per project can be created. |
-| <CopyableCode code="applicationTitle" /> | `string` | Application name displayed on OAuth consent screen. |
-| <CopyableCode code="orgInternalOnly" /> | `boolean` | Output only. Whether the brand is only intended for usage inside the G Suite organization only. |
-| <CopyableCode code="supportEmail" /> | `string` | Support email displayed on the OAuth consent screen. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

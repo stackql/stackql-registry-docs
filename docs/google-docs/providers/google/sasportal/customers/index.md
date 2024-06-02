@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>customers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.customers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sasportal.customers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,7 +39,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="customers_get" /> | `SELECT` | <CopyableCode code="customersId" /> | Returns a requested customer. |
 | <CopyableCode code="customers_list" /> | `SELECT` |  | Returns a list of requested customers. |
 | <CopyableCode code="_customers_list" /> | `EXEC` |  | Returns a list of requested customers. |
-| <CopyableCode code="customers_check_has_provisioned_deployment" /> | `EXEC` |  | Checks whether a SAS deployment for the authentication context exists. |
 | <CopyableCode code="customers_migrate_organization" /> | `EXEC` |  | Migrates a SAS organization to the cloud. This will create GCP projects for each deployment and associate them. The SAS Organization is linked to the gcp project that called the command. go/sas-legacy-customer-migration |
 | <CopyableCode code="customers_patch" /> | `EXEC` | <CopyableCode code="customersId" /> | Updates an existing customer. |
 | <CopyableCode code="customers_provision_deployment" /> | `EXEC` |  | Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found. |

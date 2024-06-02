@@ -24,12 +24,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudbuild.locations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudbuild.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` |
+| <CopyableCode code="displayName" /> | `string` | The friendly name for this location, typically a nearby city name. For example, "Tokyo". |
+| <CopyableCode code="labels" /> | `object` | Cross-service attributes for the location. For example &#123;"cloud.googleapis.com/region": "us-east1"&#125; |
+| <CopyableCode code="locationId" /> | `string` | The canonical id for this location. For example: `"us-east1"`. |
+| <CopyableCode code="metadata" /> | `object` | Service-specific metadata. For example the available capacity at the given location. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="locations_regional_webhook" /> | `EXEC` | <CopyableCode code="locationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets information about a location. |
+| <CopyableCode code="projects_locations_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |
+| <CopyableCode code="_projects_locations_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |

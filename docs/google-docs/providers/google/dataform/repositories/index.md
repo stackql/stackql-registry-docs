@@ -24,15 +24,18 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repositories</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.repositories" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataform.repositories" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The repository's name. |
+| <CopyableCode code="name" /> | `string` | Identifier. The repository's name. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The timestamp of when the repository was created. |
+| <CopyableCode code="dataEncryptionState" /> | `object` | Describes encryption state of a resource. |
 | <CopyableCode code="displayName" /> | `string` | Optional. The repository's user-friendly name. |
 | <CopyableCode code="gitRemoteSettings" /> | `object` | Controls Git remote configuration for a repository. |
+| <CopyableCode code="kmsKeyName" /> | `string` | Optional. The reference to a KMS encryption key. If provided, it will be used to encrypt user data in the repository and all child resources. It is not possible to add or update the encryption key after the repository is created. Example: `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]` |
 | <CopyableCode code="labels" /> | `object` | Optional. Repository user labels. |
 | <CopyableCode code="npmrcEnvironmentVariablesSecretVersion" /> | `string` | Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format `projects/*/secrets/*/versions/*`. The file itself must be in a JSON format. |
 | <CopyableCode code="serviceAccount" /> | `string` | Optional. The service account to run workflow invocations under. |

@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Creates And Runs Virtual Machines On Google Cloud Platform.   
+Creates and runs virtual machines on Google Cloud Platform.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>188</b></span><br />
-<span>total selectable resources:&nbsp;<b>153</b></span><br />
-<span>total methods:&nbsp;<b>775</b></span><br />
+<span>total resources:&nbsp;<b>206</b></span><br />
+<span>total selectable resources:&nbsp;<b>170</b></span><br />
+<span>total methods:&nbsp;<b>849</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.compute</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Compute Engine API</td></tr>
-<tr><td><b>Description</b></td><td>Creates And Runs Virtual Machines On Google Cloud Platform. </td></tr>
-<tr><td><b>Id</b></td><td><code>compute:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Creates and runs virtual machines on Google Cloud Platform. </td></tr>
+<tr><td><b>Id</b></td><td><code>compute:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,12 +44,14 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/addresses/">addresses</a><br />
 <a href="/providers/google/compute/autoscalers/">autoscalers</a><br />
 <a href="/providers/google/compute/backend_buckets/">backend_buckets</a><br />
+<a href="/providers/google/compute/backend_buckets_iam_policies/">backend_buckets_iam_policies</a><br />
 <a href="/providers/google/compute/backend_buckets_signed_url_key/">backend_buckets_signed_url_key</a><br />
 <a href="/providers/google/compute/backend_services/">backend_services</a><br />
 <a href="/providers/google/compute/backend_services_aggregated/">backend_services_aggregated</a><br />
 <a href="/providers/google/compute/backend_services_health/">backend_services_health</a><br />
 <a href="/providers/google/compute/backend_services_iam_policies/">backend_services_iam_policies</a><br />
 <a href="/providers/google/compute/backend_services_signed_url_key/">backend_services_signed_url_key</a><br />
+<a href="/providers/google/compute/backend_services_usable/">backend_services_usable</a><br />
 <a href="/providers/google/compute/disk_types/">disk_types</a><br />
 <a href="/providers/google/compute/disks/">disks</a><br />
 <a href="/providers/google/compute/disks_iam_policies/">disks_iam_policies</a><br />
@@ -80,6 +82,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/images/">images</a><br />
 <a href="/providers/google/compute/images_from_family/">images_from_family</a><br />
 <a href="/providers/google/compute/images_iam_policies/">images_iam_policies</a><br />
+<a href="/providers/google/compute/instance_group_manager_resize_requests/">instance_group_manager_resize_requests</a><br />
 <a href="/providers/google/compute/instance_group_managers/">instance_group_managers</a><br />
 <a href="/providers/google/compute/instance_group_managers_errors/">instance_group_managers_errors</a><br />
 <a href="/providers/google/compute/instance_group_managers_instances/">instance_group_managers_instances</a><br />
@@ -87,6 +90,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/instance_group_managers_per_instance_configs/">instance_group_managers_per_instance_configs</a><br />
 <a href="/providers/google/compute/instance_groups/">instance_groups</a><br />
 <a href="/providers/google/compute/instance_groups_instances/">instance_groups_instances</a><br />
+<a href="/providers/google/compute/instance_settings/">instance_settings</a><br />
 <a href="/providers/google/compute/instance_templates/">instance_templates</a><br />
 <a href="/providers/google/compute/instance_templates_aggregated/">instance_templates_aggregated</a><br />
 <a href="/providers/google/compute/instance_templates_iam_policies/">instance_templates_iam_policies</a><br />
@@ -103,11 +107,14 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/instances_serial_port_output/">instances_serial_port_output</a><br />
 <a href="/providers/google/compute/instances_shielded_instance_config/">instances_shielded_instance_config</a><br />
 <a href="/providers/google/compute/instances_shielded_instance_identity/">instances_shielded_instance_identity</a><br />
+<a href="/providers/google/compute/instant_snapshots/">instant_snapshots</a><br />
+<a href="/providers/google/compute/instant_snapshots_iam_policies/">instant_snapshots_iam_policies</a><br />
 <a href="/providers/google/compute/interconnect_attachments/">interconnect_attachments</a><br />
 <a href="/providers/google/compute/interconnect_locations/">interconnect_locations</a><br />
 <a href="/providers/google/compute/interconnect_remote_locations/">interconnect_remote_locations</a><br />
 <a href="/providers/google/compute/interconnects/">interconnects</a><br />
 <a href="/providers/google/compute/interconnects_diagnostics/">interconnects_diagnostics</a><br />
+<a href="/providers/google/compute/interconnects_macsec_config/">interconnects_macsec_config</a><br />
 <a href="/providers/google/compute/license_codes/">license_codes</a><br />
 <a href="/providers/google/compute/license_codes_iam_policies/">license_codes_iam_policies</a><br />
 <a href="/providers/google/compute/licenses/">licenses</a><br />
@@ -134,10 +141,10 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/node_groups_nodes/">node_groups_nodes</a><br />
 <a href="/providers/google/compute/node_templates/">node_templates</a><br />
 <a href="/providers/google/compute/node_templates_iam_policies/">node_templates_iam_policies</a><br />
-</div>
-<div class="providerDocColumn">
 <a href="/providers/google/compute/node_types/">node_types</a><br />
 <a href="/providers/google/compute/packet_mirrorings/">packet_mirrorings</a><br />
+</div>
+<div class="providerDocColumn">
 <a href="/providers/google/compute/packet_mirrorings_iam_policies/">packet_mirrorings_iam_policies</a><br />
 <a href="/providers/google/compute/projects/">projects</a><br />
 <a href="/providers/google/compute/public_advertised_prefixes/">public_advertised_prefixes</a><br />
@@ -146,6 +153,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/region_backend_services/">region_backend_services</a><br />
 <a href="/providers/google/compute/region_backend_services_health/">region_backend_services_health</a><br />
 <a href="/providers/google/compute/region_backend_services_iam_policies/">region_backend_services_iam_policies</a><br />
+<a href="/providers/google/compute/region_backend_services_usable/">region_backend_services_usable</a><br />
 <a href="/providers/google/compute/region_commitments/">region_commitments</a><br />
 <a href="/providers/google/compute/region_disk_types/">region_disk_types</a><br />
 <a href="/providers/google/compute/region_disks/">region_disks</a><br />
@@ -163,7 +171,10 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/region_instance_groups_instances/">region_instance_groups_instances</a><br />
 <a href="/providers/google/compute/region_instance_templates/">region_instance_templates</a><br />
 <a href="/providers/google/compute/region_instances/">region_instances</a><br />
+<a href="/providers/google/compute/region_instant_snapshots/">region_instant_snapshots</a><br />
+<a href="/providers/google/compute/region_instant_snapshots_iam_policies/">region_instant_snapshots_iam_policies</a><br />
 <a href="/providers/google/compute/region_network_endpoint_groups/">region_network_endpoint_groups</a><br />
+<a href="/providers/google/compute/region_network_endpoint_groups_network_endpoints/">region_network_endpoint_groups_network_endpoints</a><br />
 <a href="/providers/google/compute/region_network_firewall_policies/">region_network_firewall_policies</a><br />
 <a href="/providers/google/compute/region_network_firewall_policies_association/">region_network_firewall_policies_association</a><br />
 <a href="/providers/google/compute/region_network_firewall_policies_effective_firewalls/">region_network_firewall_policies_effective_firewalls</a><br />
@@ -172,6 +183,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/region_notification_endpoints/">region_notification_endpoints</a><br />
 <a href="/providers/google/compute/region_operations/">region_operations</a><br />
 <a href="/providers/google/compute/region_security_policies/">region_security_policies</a><br />
+<a href="/providers/google/compute/region_security_policies_rule/">region_security_policies_rule</a><br />
 <a href="/providers/google/compute/region_ssl_certificates/">region_ssl_certificates</a><br />
 <a href="/providers/google/compute/region_ssl_policies/">region_ssl_policies</a><br />
 <a href="/providers/google/compute/region_ssl_policies_available_features/">region_ssl_policies_available_features</a><br />
@@ -179,6 +191,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/region_target_https_proxies/">region_target_https_proxies</a><br />
 <a href="/providers/google/compute/region_target_tcp_proxies/">region_target_tcp_proxies</a><br />
 <a href="/providers/google/compute/region_url_maps/">region_url_maps</a><br />
+<a href="/providers/google/compute/region_zones/">region_zones</a><br />
 <a href="/providers/google/compute/regions/">regions</a><br />
 <a href="/providers/google/compute/reservations/">reservations</a><br />
 <a href="/providers/google/compute/reservations_iam_policies/">reservations_iam_policies</a><br />
@@ -195,6 +208,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/security_policies_rule/">security_policies_rule</a><br />
 <a href="/providers/google/compute/service_attachments/">service_attachments</a><br />
 <a href="/providers/google/compute/service_attachments_iam_policies/">service_attachments_iam_policies</a><br />
+<a href="/providers/google/compute/snapshot_settings/">snapshot_settings</a><br />
 <a href="/providers/google/compute/snapshots/">snapshots</a><br />
 <a href="/providers/google/compute/snapshots_iam_policies/">snapshots_iam_policies</a><br />
 <a href="/providers/google/compute/ssl_certificates/">ssl_certificates</a><br />
@@ -202,6 +216,10 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/ssl_policies/">ssl_policies</a><br />
 <a href="/providers/google/compute/ssl_policies_aggregated/">ssl_policies_aggregated</a><br />
 <a href="/providers/google/compute/ssl_policies_available_features/">ssl_policies_available_features</a><br />
+<a href="/providers/google/compute/storage_pool_types/">storage_pool_types</a><br />
+<a href="/providers/google/compute/storage_pools/">storage_pools</a><br />
+<a href="/providers/google/compute/storage_pools_disks/">storage_pools_disks</a><br />
+<a href="/providers/google/compute/storage_pools_iam_policies/">storage_pools_iam_policies</a><br />
 <a href="/providers/google/compute/subnetworks/">subnetworks</a><br />
 <a href="/providers/google/compute/subnetworks_iam_policies/">subnetworks_iam_policies</a><br />
 <a href="/providers/google/compute/subnetworks_usable/">subnetworks_usable</a><br />

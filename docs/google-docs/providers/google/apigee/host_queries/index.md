@@ -24,25 +24,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>host_queries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.host_queries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="apigee.host_queries" /></td></tr>
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Asynchronous Query Name. |
-| <CopyableCode code="created" /> | `string` | Creation time of the query. |
-| <CopyableCode code="envgroupHostname" /> | `string` | Hostname is available only when query is executed at host level. |
-| <CopyableCode code="error" /> | `string` | Error is set when query fails. |
-| <CopyableCode code="executionTime" /> | `string` | ExecutionTime is available only after the query is completed. |
-| <CopyableCode code="queryParams" /> | `object` |  |
-| <CopyableCode code="reportDefinitionId" /> | `string` | Asynchronous Report ID. |
-| <CopyableCode code="result" /> | `object` |  |
-| <CopyableCode code="resultFileSize" /> | `string` | ResultFileSize is available only after the query is completed. |
-| <CopyableCode code="resultRows" /> | `string` | ResultRows is available only after the query is completed. |
-| <CopyableCode code="self" /> | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
-| <CopyableCode code="state" /> | `string` | Query state could be "enqueued", "running", "completed", "failed". |
-| <CopyableCode code="updated" /> | `string` | Last updated timestamp for the query. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -24,13 +24,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.migrationcenter.settings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="migrationcenter.settings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The name of the resource. |
+| <CopyableCode code="disableCloudLogging" /> | `boolean` | Disable Cloud Logging for the Migration Center API. Users are billed for the logs. |
 | <CopyableCode code="preferenceSet" /> | `string` | The preference set used by default for a project. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

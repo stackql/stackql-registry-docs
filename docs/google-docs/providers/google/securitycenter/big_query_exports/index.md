@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>big_query_exports</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.big_query_exports" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.big_query_exports" /></td></tr>
 </tbody></table>
 
 ## Fields

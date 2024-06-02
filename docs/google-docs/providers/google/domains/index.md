@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Enables Management And Configuration Of Domain Names.  
+Enables management and configuration of domain names.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Enables Management And Configuration Of Domain Names.
 <tr><td><b>Name</b></td><td><code>google.domains</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Domains API</td></tr>
-<tr><td><b>Description</b></td><td>Enables Management And Configuration Of Domain Names.</td></tr>
-<tr><td><b>Id</b></td><td><code>domains:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Enables management and configuration of domain names.</td></tr>
+<tr><td><b>Id</b></td><td><code>domains:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

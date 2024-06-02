@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>phrase_matchers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.contactcenterinsights.phrase_matchers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="contactcenterinsights.phrase_matchers" /></td></tr>
 </tbody></table>
 
 ## Fields

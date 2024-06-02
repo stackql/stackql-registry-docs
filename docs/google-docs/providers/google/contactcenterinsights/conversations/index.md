@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>conversations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.contactcenterinsights.conversations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="contactcenterinsights.conversations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="latestSummary" /> | `object` | Conversation summarization suggestion data. |
 | <CopyableCode code="medium" /> | `string` | Immutable. The conversation medium, if unspecified will default to PHONE_CALL. |
 | <CopyableCode code="obfuscatedUserId" /> | `string` | Obfuscated user ID which the customer sent to us. |
+| <CopyableCode code="qualityMetadata" /> | `object` | Conversation metadata related to quality management. |
 | <CopyableCode code="runtimeAnnotations" /> | `array` | Output only. The annotations that were generated during the customer and agent interaction. |
 | <CopyableCode code="startTime" /> | `string` | The time at which the conversation started. |
 | <CopyableCode code="transcript" /> | `object` | A message representing the transcript of a conversation. |
@@ -55,10 +56,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="conversationsId, locationsId, projectsId" /> | Gets a conversation. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists conversations. |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a conversation. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a conversation. DEPRECATED: Use UploadConversation instead. CreateConversation does not support audio transcription or DLP redaction. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="conversationsId, locationsId, projectsId" /> | Deletes a conversation. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists conversations. |
 | <CopyableCode code="bulk_analyze" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Analyzes multiple conversations in a single request. |
+| <CopyableCode code="bulk_delete" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Deletes multiple conversations in a single request. |
 | <CopyableCode code="calculate_stats" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Gets conversation statistics. |
 | <CopyableCode code="ingest" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Imports conversations and processes them according to the user's configuration. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="conversationsId, locationsId, projectsId" /> | Updates a conversation. |

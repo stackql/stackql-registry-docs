@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Provides Natural Language Understanding Technologies, Such As Sentiment Analysis, Entity Recognition, Entity Sentiment Analysis, And Other Text Annotations, To Developers.  
+Provides natural language understanding technologies, such as sentiment analysis, entity recognition, entity sentiment analysis, and other text annotations, to developers.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Provides Natural Language Understanding Technologies, Such As Sentiment Analysis
 <tr><td><b>Name</b></td><td><code>google.language</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Natural Language API</td></tr>
-<tr><td><b>Description</b></td><td>Provides Natural Language Understanding Technologies, Such As Sentiment Analysis, Entity Recognition, Entity Sentiment Analysis, And Other Text Annotations, To Developers.</td></tr>
-<tr><td><b>Id</b></td><td><code>language:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides natural language understanding technologies, such as sentiment analysis, entity recognition, entity sentiment analysis, and other text annotations, to developers.</td></tr>
+<tr><td><b>Id</b></td><td><code>language:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

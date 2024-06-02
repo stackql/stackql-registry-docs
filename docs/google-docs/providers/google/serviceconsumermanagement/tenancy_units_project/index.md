@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tenancy_units_project</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.serviceconsumermanagement.tenancy_units_project" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="serviceconsumermanagement.tenancy_units_project" /></td></tr>
 </tbody></table>
 
 ## Fields

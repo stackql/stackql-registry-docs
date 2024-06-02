@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-An Implementation Of The Grafeas API, Which Stores, And Enables Querying And Retrieval Of Critical Metadata About All Of Your Software Artifacts.  
+This API is a prerequisite for leveraging Artifact Analysis scanning capabilities in both Artifact Registry and with Advanced Vulnerability Insights (runtime scanning) in GKE. In addition, the Container Analysis API is an implementation of the Grafeas API, which enables storing, querying, and retrieval of critical metadata about all of your software artifacts.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>24</b></span><br />
+<span>total methods:&nbsp;<b>38</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ An Implementation Of The Grafeas API, Which Stores, And Enables Querying And Ret
 <tr><td><b>Name</b></td><td><code>google.containeranalysis</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Container Analysis API</td></tr>
-<tr><td><b>Description</b></td><td>An Implementation Of The Grafeas API, Which Stores, And Enables Querying And Retrieval Of Critical Metadata About All Of Your Software Artifacts.</td></tr>
-<tr><td><b>Id</b></td><td><code>containeranalysis:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>This API is a prerequisite for leveraging Artifact Analysis scanning capabilities in both Artifact Registry and with Advanced Vulnerability Insights (runtime scanning) in GKE. In addition, the Container Analysis API is an implementation of the Grafeas API, which enables storing, querying, and retrieval of critical metadata about all of your software artifacts.</td></tr>
+<tr><td><b>Id</b></td><td><code>containeranalysis:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,10 +43,11 @@ An Implementation Of The Grafeas API, Which Stores, And Enables Querying And Ret
 <a href="/providers/google/containeranalysis/notes/">notes</a><br />
 <a href="/providers/google/containeranalysis/notes_iam_policies/">notes_iam_policies</a><br />
 <a href="/providers/google/containeranalysis/occurrences/">occurrences</a><br />
+<a href="/providers/google/containeranalysis/occurrences_iam_policies/">occurrences_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/containeranalysis/occurrences_iam_policies/">occurrences_iam_policies</a><br />
 <a href="/providers/google/containeranalysis/occurrences_notes/">occurrences_notes</a><br />
 <a href="/providers/google/containeranalysis/occurrences_vulnerability_summary/">occurrences_vulnerability_summary</a><br />
+<a href="/providers/google/containeranalysis/resources/">resources</a><br />
 </div>
 </div>

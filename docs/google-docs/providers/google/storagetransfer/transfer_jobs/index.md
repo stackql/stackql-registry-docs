@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transfer_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.storagetransfer.transfer_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="storagetransfer.transfer_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,9 +37,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="eventStream" /> | `object` | Specifies the Event-driven transfer options. Event-driven transfers listen to an event stream to transfer updated files. |
 | <CopyableCode code="lastModificationTime" /> | `string` | Output only. The time that the transfer job was last modified. |
 | <CopyableCode code="latestOperationName" /> | `string` | The name of the most recently started TransferOperation of this JobConfig. Present if a TransferOperation has been created for this JobConfig. |
-| <CopyableCode code="loggingConfig" /> | `object` | Specifies the logging behavior for transfer operations. For cloud-to-cloud transfers, logs are sent to Cloud Logging. See [Read transfer logs](https://cloud.google.com/storage-transfer/docs/read-transfer-logs) for details. For transfers to or from a POSIX file system, logs are stored in the Cloud Storage bucket that is the source or sink of the transfer. See [Managing Transfer for on-premises jobs] (https://cloud.google.com/storage-transfer/docs/managing-on-prem-jobs#viewing-logs) for details. |
+| <CopyableCode code="loggingConfig" /> | `object` | Specifies the logging behavior for transfer operations. Logs can be sent to Cloud Logging for all transfer types. See [Read transfer logs](https://cloud.google.com/storage-transfer/docs/read-transfer-logs) for details. |
 | <CopyableCode code="notificationConfig" /> | `object` | Specification to configure notifications published to Pub/Sub. Notifications are published to the customer-provided topic using the following `PubsubMessage.attributes`: * `"eventType"`: one of the EventType values * `"payloadFormat"`: one of the PayloadFormat values * `"projectId"`: the project_id of the `TransferOperation` * `"transferJobName"`: the transfer_job_name of the `TransferOperation` * `"transferOperationName"`: the name of the `TransferOperation` The `PubsubMessage.data` contains a TransferOperation resource formatted according to the specified `PayloadFormat`. |
 | <CopyableCode code="projectId" /> | `string` | The ID of the Google Cloud project that owns the job. |
+| <CopyableCode code="replicationSpec" /> | `object` | Specifies the configuration for running a replication job. |
 | <CopyableCode code="schedule" /> | `object` | Transfers can be scheduled to recur or to run just once. |
 | <CopyableCode code="status" /> | `string` | Status of the job. This value MUST be specified for `CreateTransferJobRequests`. **Note:** The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation. |
 | <CopyableCode code="transferSpec" /> | `object` | Configuration for running a transfer. |

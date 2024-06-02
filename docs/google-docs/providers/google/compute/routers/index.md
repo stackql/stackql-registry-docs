@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.routers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.routers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,7 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="bgpPeers" /> | `array` | BGP information that must be configured into the routing stack to establish BGP peering. This information must specify the peer ASN and either the interface name, IP address, or peer IP address. Please refer to RFC4273. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="encryptedInterconnectRouter" /> | `boolean` | Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). |
-| <CopyableCode code="interfaces" /> | `array` | Router interfaces. Each interface requires either one linked resource, (for example, linkedVpnTunnel), or IP address and IP address range (for example, ipRange), or both. |
+| <CopyableCode code="interfaces" /> | `array` | Router interfaces. To create a BGP peer that uses a router interface, the interface must have one of the following fields specified: - linkedVpnTunnel - linkedInterconnectAttachment - subnetwork You can create a router interface without any of these fields specified. However, you cannot create a BGP peer that uses that interface. |
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of resource. Always compute#router for routers. |
 | <CopyableCode code="md5AuthenticationKeys" /> | `array` | Keys used for MD5 authentication. |
 | <CopyableCode code="nats" /> | `array` | A list of NAT services created in this router. |
@@ -47,12 +47,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of routers. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of routers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project, region, router" /> | Returns the specified Router resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of Router resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a Router resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, router" /> | Deletes the specified Router resource. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of routers. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of routers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, region, router" /> | Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="preview" /> | `EXEC` | <CopyableCode code="project, region, router" /> | Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, region, router" /> | Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload. |

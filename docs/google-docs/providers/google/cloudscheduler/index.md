@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Creates And Manages Jobs Run On A Regular Recurring Schedule.  
+Creates and manages jobs run on a regular recurring schedule.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Creates And Manages Jobs Run On A Regular Recurring Schedule.
 <tr><td><b>Name</b></td><td><code>google.cloudscheduler</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Scheduler API</td></tr>
-<tr><td><b>Description</b></td><td>Creates And Manages Jobs Run On A Regular Recurring Schedule.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudscheduler:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Creates and manages jobs run on a regular recurring schedule.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudscheduler:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

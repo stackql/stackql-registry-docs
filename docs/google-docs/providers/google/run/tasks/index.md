@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tasks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.run.tasks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="run.tasks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -53,13 +53,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Job.reconciling` for additional information on reconciliation process in Cloud Run. |
 | <CopyableCode code="retried" /> | `integer` | Output only. The number of times this Task was retried. Tasks are retried when they fail up to the maxRetries limit. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
+| <CopyableCode code="scheduledTime" /> | `string` | Output only. Represents time when the task was scheduled to run by the system. It is not guaranteed to be set in happens-before order across separate operations. |
 | <CopyableCode code="serviceAccount" /> | `string` | Email address of the IAM service account associated with the Task of a Job. The service account represents the identity of the running task, and determines what permissions the task has. If not provided, the task will use the project's default service account. |
 | <CopyableCode code="startTime" /> | `string` | Output only. Represents time when the task started to run. It is not guaranteed to be set in happens-before order across separate operations. |
 | <CopyableCode code="timeout" /> | `string` | Max allowed time duration the Task may be active before the system will actively try to mark it failed and kill associated containers. This applies per attempt of a task, meaning each retry can run for the full timeout. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server assigned unique identifier for the Task. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |
 | <CopyableCode code="volumes" /> | `array` | A list of Volumes to make available to containers. |
-| <CopyableCode code="vpcAccess" /> | `object` | VPC Access settings. For more information on creating a VPC Connector, visit https://cloud.google.com/vpc/docs/configure-serverless-vpc-access For information on how to configure Cloud Run with an existing VPC Connector, visit https://cloud.google.com/run/docs/configuring/connecting-vpc |
+| <CopyableCode code="vpcAccess" /> | `object` | VPC Access settings. For more information on sending traffic to a VPC network, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

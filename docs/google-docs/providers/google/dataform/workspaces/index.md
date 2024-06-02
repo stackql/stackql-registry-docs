@@ -24,10 +24,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.workspaces" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataform.workspaces" /></td></tr>
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Identifier. The workspace's name. |
+| <CopyableCode code="dataEncryptionState" /> | `object` | Describes encryption state of a resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,4 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="query_directory_contents" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> | Returns the contents of a given Workspace directory. |
 | <CopyableCode code="read_file" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> | Returns the contents of a file (inside a Workspace). |
 | <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> | Performs a Git reset for uncommitted files in a Workspace. |
+| <CopyableCode code="search_files" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> | Finds the contents of a given Workspace directory by filter. |
 | <CopyableCode code="write_file" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> | Writes to a file (inside a Workspace). |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_invocations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.workflow_invocations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataform.workflow_invocations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,8 +32,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The workflow invocation's name. |
 | <CopyableCode code="compilationResult" /> | `string` | Immutable. The name of the compilation result to use for this invocation. Must be in the format `projects/*/locations/*/repositories/*/compilationResults/*`. |
+| <CopyableCode code="dataEncryptionState" /> | `object` | Describes encryption state of a resource. |
 | <CopyableCode code="invocationConfig" /> | `object` | Includes various configuration options for a workflow invocation. If both `included_targets` and `included_tags` are unset, all actions will be included. |
 | <CopyableCode code="invocationTiming" /> | `object` | Represents a time interval, encoded as a Timestamp start (inclusive) and a Timestamp end (exclusive). The start must be less than or equal to the end. When the start equals the end, the interval is empty (matches no time). When both start and end are unspecified, the interval matches any time. |
+| <CopyableCode code="resolvedCompilationResult" /> | `string` | Output only. The resolved compilation result that was used to create this invocation. Will be in the format `projects/*/locations/*/repositories/*/compilationResults/*`. |
 | <CopyableCode code="state" /> | `string` | Output only. This workflow invocation's current state. |
 | <CopyableCode code="workflowConfig" /> | `string` | Immutable. The name of the workflow config to invoke. Must be in the format `projects/*/locations/*/repositories/*/workflowConfigs/*`. |
 ## Methods

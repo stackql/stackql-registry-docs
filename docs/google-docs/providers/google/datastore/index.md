@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalable Storage For Your Application.   
+Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalabl
 <tr><td><b>Name</b></td><td><code>google.datastore</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Datastore API</td></tr>
-<tr><td><b>Description</b></td><td>Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalable Storage For Your Application. </td></tr>
-<tr><td><b>Id</b></td><td><code>datastore:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application. </td></tr>
+<tr><td><b>Id</b></td><td><code>datastore:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

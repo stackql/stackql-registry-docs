@@ -24,23 +24,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transfer_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquerydatatransfer.transfer_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigquerydatatransfer.transfer_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the transfer config. Transfer config names have the form `projects/&#123;project_id&#125;/locations/&#123;region&#125;/transferConfigs/&#123;config_id&#125;`. Where `config_id` is usually a uuid, even though it is not guaranteed or required. The name is ignored when creating a transfer config. |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the transfer config. Transfer config names have the form either `projects/&#123;project_id&#125;/locations/&#123;region&#125;/transferConfigs/&#123;config_id&#125;` or `projects/&#123;project_id&#125;/transferConfigs/&#123;config_id&#125;`, where `config_id` is usually a UUID, even though it is not guaranteed or required. The name is ignored when creating a transfer config. |
 | <CopyableCode code="dataRefreshWindowDays" /> | `integer` | The number of days to look back to automatically refresh the data. For example, if `data_refresh_window_days = 10`, then every day BigQuery reingests data for [today-10, today-1], rather than ingesting data for just [today-1]. Only valid if the data source supports the feature. Set the value to 0 to use the default value. |
 | <CopyableCode code="dataSourceId" /> | `string` | Data source ID. This cannot be changed once data transfer is created. The full list of available data source IDs can be returned through an API call: https://cloud.google.com/bigquery-transfer/docs/reference/datatransfer/rest/v1/projects.locations.dataSources/list |
 | <CopyableCode code="datasetRegion" /> | `string` | Output only. Region in which BigQuery dataset is located. |
 | <CopyableCode code="destinationDatasetId" /> | `string` | The BigQuery target dataset id. |
-| <CopyableCode code="disabled" /> | `boolean` | Is this config disabled. When set to true, no runs are scheduled for a given transfer. |
+| <CopyableCode code="disabled" /> | `boolean` | Is this config disabled. When set to true, no runs will be scheduled for this transfer config. |
 | <CopyableCode code="displayName" /> | `string` | User specified display name for the data transfer. |
 | <CopyableCode code="emailPreferences" /> | `object` | Represents preferences for sending email notifications for transfer run events. |
 | <CopyableCode code="encryptionConfiguration" /> | `object` | Represents the encryption configuration for a transfer. |
 | <CopyableCode code="nextRunTime" /> | `string` | Output only. Next time when data transfer will run. |
-| <CopyableCode code="notificationPubsubTopic" /> | `string` | Pub/Sub topic where notifications will be sent after transfer runs associated with this transfer config finish. The format for specifying a pubsub topic is: `projects/&#123;project&#125;/topics/&#123;topic&#125;` |
+| <CopyableCode code="notificationPubsubTopic" /> | `string` | Pub/Sub topic where notifications will be sent after transfer runs associated with this transfer config finish. The format for specifying a pubsub topic is: `projects/&#123;project_id&#125;/topics/&#123;topic_id&#125;` |
 | <CopyableCode code="ownerInfo" /> | `object` | Information about a user. |
 | <CopyableCode code="params" /> | `object` | Parameters specific to each data source. For more information see the bq tab in the 'Setting up a data transfer' section for each data source. For example the parameters for Cloud Storage transfers are listed here: https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq |
 | <CopyableCode code="schedule" /> | `string` | Data transfer schedule. If the data source does not support a custom schedule, this should be empty. If it is empty, the default value for the data source will be used. The specified times are in UTC. Examples of valid format: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and `first sunday of quarter 00:00`. See more explanation about the format here: https://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format NOTE: The minimum interval time between recurring transfers depends on the data source; refer to the documentation for your data source. |

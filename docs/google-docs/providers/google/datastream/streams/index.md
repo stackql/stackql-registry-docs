@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>streams</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datastream.streams" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datastream.streams" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Required. Display name. |
 | <CopyableCode code="errors" /> | `array` | Output only. Errors on the Stream. |
 | <CopyableCode code="labels" /> | `object` | Labels. |
+| <CopyableCode code="lastRecoveryTime" /> | `string` | Output only. If the stream was recovered, the time of the last recovery. Note: This field is currently experimental. |
 | <CopyableCode code="sourceConfig" /> | `object` | The configuration of the stream source. |
 | <CopyableCode code="state" /> | `string` | The state of the stream. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update time of the stream. |

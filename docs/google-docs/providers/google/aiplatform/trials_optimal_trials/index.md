@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trials_optimal_trials</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.trials_optimal_trials" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.trials_optimal_trials" /></td></tr>
 </tbody></table>
 
 ## Fields

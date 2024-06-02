@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dns_authorizations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.certificatemanager.dns_authorizations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="certificatemanager.dns_authorizations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="dnsResourceRecord" /> | `object` | The structure describing the DNS Resource Record that needs to be added to DNS configuration for the authorization to be usable by certificate. |
 | <CopyableCode code="domain" /> | `string` | Required. Immutable. A domain that is being authorized. A DnsAuthorization resource covers a single domain and its wildcard, e.g. authorization for `example.com` can be used to issue certificates for `example.com` and `*.example.com`. |
 | <CopyableCode code="labels" /> | `object` | Set of labels associated with a DnsAuthorization. |
+| <CopyableCode code="type" /> | `string` | Immutable. Type of DnsAuthorization. If unset during resource creation the following default will be used: - in location global: FIXED_RECORD. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of a DnsAuthorization. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

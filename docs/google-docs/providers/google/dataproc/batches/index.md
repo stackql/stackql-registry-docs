@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>batches</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataproc.batches" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataproc.batches" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,3 +55,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_batches_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a batch workload that executes asynchronously. |
 | <CopyableCode code="projects_locations_batches_delete" /> | `DELETE` | <CopyableCode code="batchesId, locationsId, projectsId" /> | Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION. |
 | <CopyableCode code="_projects_locations_batches_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists batch workloads. |
+| <CopyableCode code="projects_locations_batches_analyze" /> | `EXEC` | <CopyableCode code="batchesId, locationsId, projectsId" /> | Analyze a Batch for possible recommendations and insights. |

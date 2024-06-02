@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>migrating_vms</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.migrating_vms" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vmmigration.migrating_vms" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The identifier of the MigratingVm. |
 | <CopyableCode code="description" /> | `string` | The description attached to the migrating VM by the user. |
 | <CopyableCode code="awsSourceVmDetails" /> | `object` | Represent the source AWS VM details. |
+| <CopyableCode code="azureSourceVmDetails" /> | `object` | Represent the source Azure VM details. |
 | <CopyableCode code="computeEngineDisksTargetDefaults" /> | `object` | ComputeEngineDisksTargetDefaults is a collection of details for creating Persistent Disks in a target Compute Engine project. |
 | <CopyableCode code="computeEngineTargetDefaults" /> | `object` | ComputeEngineTargetDefaults is a collection of details for creating a VM in a target Compute Engine project. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the migrating VM was created (this refers to this resource and not to the time it was installed in the source). |

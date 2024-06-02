@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_ssl_proxies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.target_ssl_proxies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.target_ssl_proxies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,4 +52,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="set_certificate_map" /> | `EXEC` | <CopyableCode code="project, targetSslProxy" /> | Changes the Certificate Map for TargetSslProxy. |
 | <CopyableCode code="set_proxy_header" /> | `EXEC` | <CopyableCode code="project, targetSslProxy" /> | Changes the ProxyHeaderType for TargetSslProxy. |
 | <CopyableCode code="set_ssl_certificates" /> | `EXEC` | <CopyableCode code="project, targetSslProxy" /> | Changes SslCertificates for TargetSslProxy. |
-| <CopyableCode code="set_ssl_policy" /> | `EXEC` | <CopyableCode code="project, targetSslProxy" /> | Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the SSL proxy load balancer. They do not affect the connection between the load balancer and the backends. |
+| <CopyableCode code="set_ssl_policy" /> | `EXEC` | <CopyableCode code="project, targetSslProxy" /> | Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the load balancer. They do not affect the connection between the load balancer and the backends. |

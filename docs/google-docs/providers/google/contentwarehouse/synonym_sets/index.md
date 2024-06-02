@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>synonym_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.contentwarehouse.synonym_sets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="contentwarehouse.synonym_sets" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>devices_signed</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.devices_signed" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sasportal.devices_signed" /></td></tr>
 </tbody></table>
 
 ## Fields

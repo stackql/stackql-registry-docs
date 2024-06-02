@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_url_maps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_url_maps" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_url_maps" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,7 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="description" /> | `string` | An optional description of this resource. Provide this property when you create the resource. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="defaultRouteAction" /> | `object` |  |
-| <CopyableCode code="defaultService" /> | `string` | The full or partial URL of the defaultService resource to which traffic is directed if none of the hostRules match. If defaultRouteAction is also specified, advanced routing actions, such as URL rewrites, take effect before sending the request to the backend. However, if defaultService is specified, defaultRouteAction cannot contain any weightedBackendServices. Conversely, if routeAction specifies any weightedBackendServices, service must not be specified. Only one of defaultService, defaultUrlRedirect , or defaultRouteAction.weightedBackendService must be set. defaultService has no effect when the URL map is bound to a target gRPC proxy that has the validateForProxyless field set to true. |
+| <CopyableCode code="defaultService" /> | `string` | The full or partial URL of the defaultService resource to which traffic is directed if none of the hostRules match. If defaultRouteAction is also specified, advanced routing actions, such as URL rewrites, take effect before sending the request to the backend. However, if defaultService is specified, defaultRouteAction cannot contain any weightedBackendServices. Conversely, if routeAction specifies any weightedBackendServices, service must not be specified. If defaultService is specified, then set either defaultUrlRedirect , or defaultRouteAction.weightedBackendService Don't set both. defaultService has no effect when the URL map is bound to a target gRPC proxy that has the validateForProxyless field set to true. |
 | <CopyableCode code="defaultUrlRedirect" /> | `object` | Specifies settings for an HTTP redirect. |
 | <CopyableCode code="fingerprint" /> | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field is ignored when inserting a UrlMap. An up-to-date fingerprint must be provided in order to update the UrlMap, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a UrlMap. |
 | <CopyableCode code="headerAction" /> | `object` | The request and response header transformations that take effect before the request is passed along to the selected backendService. |

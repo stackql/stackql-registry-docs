@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_metadata</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.instances_metadata" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.instances_metadata" /></td></tr>
 </tbody></table>
 
 ## Fields

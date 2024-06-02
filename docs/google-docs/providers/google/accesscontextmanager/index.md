@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-An API For Setting Attribute Based Access Control To Requests To Google Cloud Services.  
+An API for setting attribute based access control to requests to Google Cloud services. *Warning:* Do not mix *v1alpha* and *v1* API usage in the same access policy. The v1alpha API supports new Access Context Manager features, which may have different attributes or behaviors that are not supported by v1. The practice of mixed API usage within a policy may result in the inability to update that policy, including any access levels or service perimeters belonging to it. It is not recommended to use both v1 and v1alpha for modifying policies with critical service perimeters. Modifications using v1alpha should be limited to policies with non-production/non-critical service perimeters.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>9</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>44</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>47</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ An API For Setting Attribute Based Access Control To Requests To Google Cloud Se
 <tr><td><b>Name</b></td><td><code>google.accesscontextmanager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Access Context Manager API</td></tr>
-<tr><td><b>Description</b></td><td>An API For Setting Attribute Based Access Control To Requests To Google Cloud Services.</td></tr>
-<tr><td><b>Id</b></td><td><code>accesscontextmanager:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>An API for setting attribute based access control to requests to Google Cloud services. *Warning:* Do not mix *v1alpha* and *v1* API usage in the same access policy. The v1alpha API supports new Access Context Manager features, which may have different attributes or behaviors that are not supported by v1. The practice of mixed API usage within a policy may result in the inability to update that policy, including any access levels or service perimeters belonging to it. It is not recommended to use both v1 and v1alpha for modifying policies with critical service perimeters. Modifications using v1alpha should be limited to policies with non-production/non-critical service perimeters.</td></tr>
+<tr><td><b>Id</b></td><td><code>accesscontextmanager:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -51,5 +51,6 @@ An API For Setting Attribute Based Access Control To Requests To Google Cloud Se
 <a href="/providers/google/accesscontextmanager/operations/">operations</a><br />
 <a href="/providers/google/accesscontextmanager/service_perimeters/">service_perimeters</a><br />
 <a href="/providers/google/accesscontextmanager/service_perimeters_iam_policies/">service_perimeters_iam_policies</a><br />
+<a href="/providers/google/accesscontextmanager/services/">services</a><br />
 </div>
 </div>

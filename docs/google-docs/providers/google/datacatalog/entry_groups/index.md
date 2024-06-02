@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entry_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.entry_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.entry_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the entry group in URL format. Note: The entry group itself and its child resources might not be stored in the location specified in its name. |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the entry group in URL format. Note: The entry group itself and its child resources might not be stored in the location specified in its name. |
 | <CopyableCode code="description" /> | `string` | Entry group description. Can consist of several sentences or paragraphs that describe the entry group contents. Default value is an empty string. |
 | <CopyableCode code="dataCatalogTimestamps" /> | `object` | Timestamps associated with this resource in a particular system. |
 | <CopyableCode code="displayName" /> | `string` | A short name to identify the entry group, for example, "analytics data - jan 2011". Default value is an empty string. |

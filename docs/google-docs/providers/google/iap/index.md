@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Controls Access To Cloud Applications Running On Google Cloud Platform.  
+Controls access to cloud applications running on Google Cloud Platform.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Controls Access To Cloud Applications Running On Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.iap</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Identity-Aware Proxy API</td></tr>
-<tr><td><b>Description</b></td><td>Controls Access To Cloud Applications Running On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>iap:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Controls access to cloud applications running on Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>iap:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>node_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.container.node_pools" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="container.node_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="networkConfig" /> | `object` | Parameters for node pool-level network config. |
 | <CopyableCode code="placementPolicy" /> | `object` | PlacementPolicy defines the placement policy used by the node pool. |
 | <CopyableCode code="podIpv4CidrSize" /> | `integer` | [Output only] The pod CIDR block size per node in this node pool. |
+| <CopyableCode code="queuedProvisioning" /> | `object` | QueuedProvisioning defines the queued provisioning used by the node pool. |
 | <CopyableCode code="selfLink" /> | `string` | [Output only] Server-defined URL for the resource. |
 | <CopyableCode code="status" /> | `string` | [Output only] The status of the nodes in this pool instance. |
 | <CopyableCode code="statusMessage" /> | `string` | [Output only] Deprecated. Use conditions instead. Additional information about the current status of this node pool instance, if available. |

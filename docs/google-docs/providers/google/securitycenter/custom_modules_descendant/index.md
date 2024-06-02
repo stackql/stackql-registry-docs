@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>custom_modules_descendant</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.custom_modules_descendant" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.custom_modules_descendant" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,11 +38,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="lastEditor" /> | `string` | Output only. The editor that last updated the custom module. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which the custom module was last updated. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="folders_security_health_analytics_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="foldersId" /> |
-| <CopyableCode code="organizations_security_health_analytics_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="organizationsId" /> |
-| <CopyableCode code="projects_security_health_analytics_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="projectsId" /> |
-| <CopyableCode code="_folders_security_health_analytics_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="foldersId" /> |
-| <CopyableCode code="_organizations_security_health_analytics_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="organizationsId" /> |
-| <CopyableCode code="_projects_security_health_analytics_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="folders_event_threat_detection_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="foldersId" /> | Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. |
+| <CopyableCode code="folders_security_health_analytics_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="foldersId" /> | Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. |
+| <CopyableCode code="organizations_event_threat_detection_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. |
+| <CopyableCode code="organizations_security_health_analytics_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. |
+| <CopyableCode code="projects_event_threat_detection_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. |
+| <CopyableCode code="projects_security_health_analytics_settings_custom_modules_list_descendant" /> | `SELECT` | <CopyableCode code="projectsId" /> | Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. |
+| <CopyableCode code="_folders_event_threat_detection_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. |
+| <CopyableCode code="_folders_security_health_analytics_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="foldersId" /> | Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. |
+| <CopyableCode code="_organizations_event_threat_detection_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. |
+| <CopyableCode code="_organizations_security_health_analytics_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. |
+| <CopyableCode code="_projects_event_threat_detection_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. |
+| <CopyableCode code="_projects_security_health_analytics_settings_custom_modules_list_descendant" /> | `EXEC` | <CopyableCode code="projectsId" /> | Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. |

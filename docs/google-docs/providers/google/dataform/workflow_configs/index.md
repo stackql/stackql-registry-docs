@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.workflow_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataform.workflow_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The workflow config's name. |
+| <CopyableCode code="name" /> | `string` | Identifier. The workflow config's name. |
 | <CopyableCode code="cronSchedule" /> | `string` | Optional. Optional schedule (in cron format) for automatic execution of this workflow config. |
 | <CopyableCode code="invocationConfig" /> | `object` | Includes various configuration options for a workflow invocation. If both `included_targets` and `included_tags` are unset, all actions will be included. |
 | <CopyableCode code="recentScheduledExecutionRecords" /> | `array` | Output only. Records of the 10 most recent scheduled execution attempts, ordered in in descending order of `execution_time`. Updated whenever automatic creation of a workflow invocation is triggered by cron_schedule. |

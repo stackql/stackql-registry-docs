@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.  
+Synthesizes natural-sounding speech by applying powerful neural network models.  
     
 :::info Service Summary
 
@@ -32,9 +32,9 @@ Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.texttospeech</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Text-To-Speech API</td></tr>
-<tr><td><b>Description</b></td><td>Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.</td></tr>
-<tr><td><b>Id</b></td><td><code>texttospeech:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>Cloud Text-to-Speech API</td></tr>
+<tr><td><b>Description</b></td><td>Synthesizes natural-sounding speech by applying powerful neural network models.</td></tr>
+<tr><td><b>Id</b></td><td><code>texttospeech:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

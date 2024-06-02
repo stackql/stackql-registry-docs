@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>relyingparty_oob_confirmation_code</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.identitytoolkit.relyingparty_oob_confirmation_code" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="identitytoolkit.relyingparty_oob_confirmation_code" /></td></tr>
 </tbody></table>
 
 ## Fields

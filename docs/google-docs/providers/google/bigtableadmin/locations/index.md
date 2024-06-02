@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.locations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,8 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="locationId" /> | `string` | The canonical id for this location. For example: `"us-east1"`. |
 | <CopyableCode code="metadata" /> | `object` | Service-specific metadata. For example the available capacity at the given location. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets information about a location. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> |

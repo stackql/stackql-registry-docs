@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Accesses Source Code Repositories Hosted By Google.  
+Accesses source code repositories hosted by Google. Important: Cloud Source Repositories is scheduled for end of sales starting June 17, 2024. Customers who have enabled the API prior to this date will not be affected and can continue to use Cloud Source Repositories. Organizations or projects who have not previously enabled the API cannot use Cloud Source Repositories after this date. View Cloud Source Repositories documentation for more info.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Accesses Source Code Repositories Hosted By Google.
 <tr><td><b>Name</b></td><td><code>google.sourcerepo</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Source Repositories API</td></tr>
-<tr><td><b>Description</b></td><td>Accesses Source Code Repositories Hosted By Google.</td></tr>
-<tr><td><b>Id</b></td><td><code>sourcerepo:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Accesses source code repositories hosted by Google. Important: Cloud Source Repositories is scheduled for end of sales starting June 17, 2024. Customers who have enabled the API prior to this date will not be affected and can continue to use Cloud Source Repositories. Organizations or projects who have not previously enabled the API cannot use Cloud Source Repositories after this date. View Cloud Source Repositories documentation for more info. </td></tr>
+<tr><td><b>Id</b></td><td><code>sourcerepo:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

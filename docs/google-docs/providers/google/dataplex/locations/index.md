@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.locations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,3 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets information about a location. |
 | <CopyableCode code="projects_locations_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |
 | <CopyableCode code="_projects_locations_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |
+| <CopyableCode code="projects_locations_lookup_entry" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Looks up a single entry. |
+| <CopyableCode code="projects_locations_search_entries" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Searches for entries matching given query and scope. |

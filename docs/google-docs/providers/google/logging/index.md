@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Writes Log Entries And Manages Your Cloud Logging Configuration.  
+Writes log entries and manages your Cloud Logging configuration.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>18</b></span><br />
-<span>total selectable resources:&nbsp;<b>16</b></span><br />
-<span>total methods:&nbsp;<b>236</b></span><br />
+<span>total resources:&nbsp;<b>21</b></span><br />
+<span>total selectable resources:&nbsp;<b>19</b></span><br />
+<span>total methods:&nbsp;<b>273</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Writes Log Entries And Manages Your Cloud Logging Configuration.
 <tr><td><b>Name</b></td><td><code>google.logging</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Logging API</td></tr>
-<tr><td><b>Description</b></td><td>Writes Log Entries And Manages Your Cloud Logging Configuration.</td></tr>
-<tr><td><b>Id</b></td><td><code>logging:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Writes log entries and manages your Cloud Logging configuration.</td></tr>
+<tr><td><b>Id</b></td><td><code>logging:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -49,16 +49,19 @@ Writes Log Entries And Manages Your Cloud Logging Configuration.
 <a href="/providers/google/logging/exclusions/">exclusions</a><br />
 <a href="/providers/google/logging/links/">links</a><br />
 <a href="/providers/google/logging/locations/">locations</a><br />
-</div>
-<div class="providerDocColumn">
 <a href="/providers/google/logging/logging_cmek_settings/">logging_cmek_settings</a><br />
 <a href="/providers/google/logging/logging_settings/">logging_settings</a><br />
+</div>
+<div class="providerDocColumn">
 <a href="/providers/google/logging/logs/">logs</a><br />
 <a href="/providers/google/logging/metrics/">metrics</a><br />
 <a href="/providers/google/logging/monitored_resource_descriptors/">monitored_resource_descriptors</a><br />
 <a href="/providers/google/logging/operations/">operations</a><br />
+<a href="/providers/google/logging/recent_queries/">recent_queries</a><br />
+<a href="/providers/google/logging/saved_queries/">saved_queries</a><br />
 <a href="/providers/google/logging/settings/">settings</a><br />
 <a href="/providers/google/logging/sinks/">sinks</a><br />
 <a href="/providers/google/logging/views/">views</a><br />
+<a href="/providers/google/logging/views_iam_policies/">views_iam_policies</a><br />
 </div>
 </div>

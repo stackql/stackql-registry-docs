@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.sources" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vmmigration.sources" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,7 +33,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The Source name. |
 | <CopyableCode code="description" /> | `string` | User-provided description of the source. |
 | <CopyableCode code="aws" /> | `object` | AwsSourceDetails message describes a specific source details for the AWS source type. |
+| <CopyableCode code="azure" /> | `object` | AzureSourceDetails message describes a specific source details for the Azure source type. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The create time timestamp. |
+| <CopyableCode code="encryption" /> | `object` | Encryption message describes the details of the applied encryption. |
 | <CopyableCode code="labels" /> | `object` | The labels of the source. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The update time timestamp. |
 | <CopyableCode code="vmware" /> | `object` | VmwareSourceDetails message describes a specific source details for the vmware source type. |

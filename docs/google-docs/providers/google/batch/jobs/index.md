@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.batch.jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="batch.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,7 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="priority" /> | `string` | Priority of the Job. The valid value range is [0, 100). Default value is 0. Higher value indicates higher priority. A job with higher priority value is more likely to run earlier if all other requirements are satisfied. |
 | <CopyableCode code="status" /> | `object` | Job status. |
 | <CopyableCode code="taskGroups" /> | `array` | Required. TaskGroups in the Job. Only one TaskGroup is supported now. |
-| <CopyableCode code="uid" /> | `string` | Output only. A system generated unique ID (in UUID4 format) for the Job. |
+| <CopyableCode code="uid" /> | `string` | Output only. A system generated unique ID for the Job. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last time the Job was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

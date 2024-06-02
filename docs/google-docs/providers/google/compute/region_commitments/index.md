@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_commitments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_commitments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_commitments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,12 +37,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="category" /> | `string` | The category of the commitment. Category MACHINE specifies commitments composed of machine resources such as VCPU or MEMORY, listed in resources. Category LICENSE specifies commitments composed of software licenses, listed in licenseResources. Note that only MACHINE commitments should have a Type specified. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="endTimestamp" /> | `string` | [Output Only] Commitment end time in RFC3339 text format. |
+| <CopyableCode code="existingReservations" /> | `array` | Specifies the already existing reservations to attach to the Commitment. This field is optional, and it can be a full or partial URL. For example, the following are valid URLs to an reservation: - https://www.googleapis.com/compute/v1/projects/project/zones/zone /reservations/reservation - projects/project/zones/zone/reservations/reservation  |
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#commitment for commitments. |
 | <CopyableCode code="licenseResource" /> | `object` | Commitment for a particular license resource. |
 | <CopyableCode code="mergeSourceCommitments" /> | `array` | List of source commitments to be merged into a new commitment. |
 | <CopyableCode code="plan" /> | `string` | The plan for this commitment, which determines duration and discount rate. The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years). |
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where this commitment may be used. |
-| <CopyableCode code="reservations" /> | `array` | List of reservations in this commitment. |
+| <CopyableCode code="reservations" /> | `array` | List of create-on-create reservations for this commitment. |
 | <CopyableCode code="resources" /> | `array` | A list of commitment amounts for particular resources. Note that VCPU and MEMORY resource commitments must occur together. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="splitSourceCommitment" /> | `string` | Source commitment to be split into a new commitment. |
@@ -53,9 +54,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of commitments by region. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of commitments by region. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="commitment, project, region" /> | Returns the specified commitment resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of commitments contained within the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a commitment in the specified project using the data included in the request. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of commitments by region. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of commitments by region. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="commitment, project, region" /> | Updates the specified commitment with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: auto_renew. |

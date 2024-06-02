@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>organizations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudresourcemanager.organizations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudresourcemanager.organizations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,4 +42,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Fetches an organization resource identified by the specified resource name. |
-| <CopyableCode code="search" /> | `EXEC` |  | Searches organization resources that are visible to the user and satisfy the specified filter. This method returns organizations in an unspecified order. New organizations do not necessarily appear at the end of the results, and may take a small amount of time to appear. Search will only return organizations on which the user has the permission `resourcemanager.organizations.get` |
+| <CopyableCode code="search" /> | `EXEC` |  | Searches organization resources that are visible to the user and satisfy the specified filter. This method returns organizations in an unspecified order. New organizations do not necessarily appear at the end of the results, and may take a small amount of time to appear. Search will only return organizations on which the user has the permission `resourcemanager.organizations.get` or has super admin privileges. |

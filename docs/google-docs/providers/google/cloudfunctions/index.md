@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages Lightweight User-Provided Functions Executed In Response To Events.  
+Manages lightweight user-provided functions executed in response to events.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Manages Lightweight User-Provided Functions Executed In Response To Events.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Manages Lightweight User-Provided Functions Executed In Response To Events.
 <tr><td><b>Name</b></td><td><code>google.cloudfunctions</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Functions API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Lightweight User-Provided Functions Executed In Response To Events.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudfunctions:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages lightweight user-provided functions executed in response to events.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudfunctions:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

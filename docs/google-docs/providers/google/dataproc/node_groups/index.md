@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>node_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataproc.node_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataproc.node_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,4 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_regions_clusters_node_groups_get" /> | `SELECT` | <CopyableCode code="clustersId, nodeGroupsId, projectsId, regionsId" /> | Gets the resource representation for a node group in a cluster. |
 | <CopyableCode code="projects_regions_clusters_node_groups_create" /> | `INSERT` | <CopyableCode code="clustersId, projectsId, regionsId" /> | Creates a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). |
+| <CopyableCode code="projects_regions_clusters_node_groups_repair" /> | `EXEC` | <CopyableCode code="clustersId, nodeGroupsId, projectsId, regionsId" /> | Repair nodes in a node group. |
 | <CopyableCode code="projects_regions_clusters_node_groups_resize" /> | `EXEC` | <CopyableCode code="clustersId, nodeGroupsId, projectsId, regionsId" /> | Resizes a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). |

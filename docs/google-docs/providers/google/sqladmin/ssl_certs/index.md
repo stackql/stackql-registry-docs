@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ssl_certs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.ssl_certs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sqladmin.ssl_certs" /></td></tr>
 </tbody></table>
 
 ## Fields

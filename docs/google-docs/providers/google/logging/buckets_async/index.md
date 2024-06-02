@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets_async</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.buckets_async" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="logging.buckets_async" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>model_deployment_monitoring_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.model_deployment_monitoring_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.model_deployment_monitoring_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,7 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="loggingSamplingStrategy" /> | `object` | Sampling Strategy for logging, can be for both training and prediction dataset. |
 | <CopyableCode code="modelDeploymentMonitoringObjectiveConfigs" /> | `array` | Required. The config for monitoring objectives. This is a per DeployedModel config. Each DeployedModel needs to be configured separately. |
 | <CopyableCode code="modelDeploymentMonitoringScheduleConfig" /> | `object` | The config for scheduling monitoring job. |
-| <CopyableCode code="modelMonitoringAlertConfig" /> | `object` |  |
+| <CopyableCode code="modelMonitoringAlertConfig" /> | `object` | The alert config for model monitoring. |
 | <CopyableCode code="nextScheduleTime" /> | `string` | Output only. Timestamp when this monitoring pipeline will be scheduled to run for the next round. |
 | <CopyableCode code="predictInstanceSchemaUri" /> | `string` | YAML schema file uri describing the format of a single instance, which are given to format this Endpoint's prediction (and explanation). If not set, we will generate predict schema from collected predict requests. |
 | <CopyableCode code="samplePredictInstance" /> | `any` | Sample Predict instance, same format as PredictRequest.instances, this can be set as a replacement of ModelDeploymentMonitoringJob.predict_instance_schema_uri. If not set, we will generate predict schema from collected predict requests. |

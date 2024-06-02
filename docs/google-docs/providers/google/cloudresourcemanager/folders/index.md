@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>folders</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudresourcemanager.folders" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudresourcemanager.folders" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | Output only. A checksum computed by the server based on the current value of the folder resource. This may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="parent" /> | `string` | Required. The folder's parent's resource name. Updates to the folder's parent must be performed using MoveFolder. |
 | <CopyableCode code="state" /> | `string` | Output only. The lifecycle state of the folder. Updates to the state must be performed using DeleteFolder and UndeleteFolder. |
+| <CopyableCode code="tags" /> | `object` | Optional. Input only. Immutable. Tag keys/values directly bound to this folder. Each item in the map must be expressed as " : ". For example: "123/environment" : "production", "123/costCenter" : "marketing" Note: Currently this field is in Preview. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when the folder was last modified. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

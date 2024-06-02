@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.buckets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="storage.buckets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="defaultObjectAcl" /> | `array` | Default access controls to apply to new objects when no ACL is provided. |
 | <CopyableCode code="encryption" /> | `object` | Encryption configuration for a bucket. |
 | <CopyableCode code="etag" /> | `string` | HTTP 1.1 Entity tag for the bucket. |
+| <CopyableCode code="hierarchicalNamespace" /> | `object` | The bucket's hierarchical namespace configuration. |
 | <CopyableCode code="iamConfiguration" /> | `object` | The bucket's IAM configuration. |
 | <CopyableCode code="kind" /> | `string` | The kind of item this is. For buckets, this is always storage#bucket. |
 | <CopyableCode code="labels" /> | `object` | User-provided labels, in key/value pairs. |
@@ -49,12 +50,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="locationType" /> | `string` | The type of the bucket location. |
 | <CopyableCode code="logging" /> | `object` | The bucket's logging configuration, which defines the destination bucket and optional name prefix for the current bucket's logs. |
 | <CopyableCode code="metageneration" /> | `string` | The metadata generation of this bucket. |
+| <CopyableCode code="objectRetention" /> | `object` | The bucket's object retention config. |
 | <CopyableCode code="owner" /> | `object` | The owner of the bucket. This is always the project team's owner group. |
 | <CopyableCode code="projectNumber" /> | `string` | The project number of the project the bucket belongs to. |
 | <CopyableCode code="retentionPolicy" /> | `object` | The bucket's retention policy. The retention policy enforces a minimum retention time for all objects contained in the bucket, based on their creation time. Any attempt to overwrite or delete objects younger than the retention period will result in a PERMISSION_DENIED error. An unlocked retention policy can be modified or removed from the bucket via a storage.buckets.update operation. A locked retention policy cannot be removed or shortened in duration for the lifetime of the bucket. Attempting to remove or decrease period of a locked retention policy will result in a PERMISSION_DENIED error. |
 | <CopyableCode code="rpo" /> | `string` | The Recovery Point Objective (RPO) of this bucket. Set to ASYNC_TURBO to turn on Turbo Replication on a bucket. |
 | <CopyableCode code="satisfiesPZS" /> | `boolean` | Reserved for future use. |
 | <CopyableCode code="selfLink" /> | `string` | The URI of this bucket. |
+| <CopyableCode code="softDeletePolicy" /> | `object` | The bucket's soft delete policy, which defines the period of time that soft-deleted objects will be retained, and cannot be permanently deleted. |
 | <CopyableCode code="storageClass" /> | `string` | The bucket's default storage class, used whenever no storageClass is specified for a newly-created object. This defines how objects in the bucket are stored and determines the SLA and the cost of storage. Values include MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, ARCHIVE, and DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket is created, it will default to STANDARD. For more information, see storage classes. |
 | <CopyableCode code="timeCreated" /> | `string` | The creation time of the bucket in RFC 3339 format. |
 | <CopyableCode code="updated" /> | `string` | The modification time of the bucket in RFC 3339 format. |

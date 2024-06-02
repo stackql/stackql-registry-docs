@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_levels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.accesscontextmanager.access_levels" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="accesscontextmanager.access_levels" /></td></tr>
 </tbody></table>
 
 ## Fields

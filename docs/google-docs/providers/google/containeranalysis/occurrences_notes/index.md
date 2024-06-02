@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>occurrences_notes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.containeranalysis.occurrences_notes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="containeranalysis.occurrences_notes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -54,4 +54,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
+| <CopyableCode code="projects_locations_occurrences_get_notes" /> | `SELECT` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> |
 | <CopyableCode code="projects_occurrences_get_notes" /> | `SELECT` | <CopyableCode code="occurrencesId, projectsId" /> |

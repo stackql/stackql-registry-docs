@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Organization Policy API Allows Users To Configure Governance Rules On Their Google Cloud Resources Across The Resource Hierarchy.  
+The Organization Policy API allows users to configure governance rules on their Google Cloud resources across the resource hierarchy.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ The Organization Policy API Allows Users To Configure Governance Rules On Their 
 <tr><td><b>Name</b></td><td><code>google.orgpolicy</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Organization Policy API</td></tr>
-<tr><td><b>Description</b></td><td>The Organization Policy API Allows Users To Configure Governance Rules On Their Google Cloud Resources Across The Resource Hierarchy.</td></tr>
-<tr><td><b>Id</b></td><td><code>orgpolicy:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>The Organization Policy API allows users to configure governance rules on their Google Cloud resources across the resource hierarchy.</td></tr>
+<tr><td><b>Id</b></td><td><code>orgpolicy:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

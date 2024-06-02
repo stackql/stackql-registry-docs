@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connection_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datastream.connection_profiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datastream.connection_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="oracleProfile" /> | `object` | Oracle database profile. |
 | <CopyableCode code="postgresqlProfile" /> | `object` | PostgreSQL database profile. |
 | <CopyableCode code="privateConnectivity" /> | `object` | Private Connectivity |
+| <CopyableCode code="sqlServerProfile" /> | `object` | SQLServer database profile |
 | <CopyableCode code="staticServiceIpConnectivity" /> | `object` | Static IP address connectivity. Used when the source database is configured to allow incoming connections from the Datastream public IP addresses for the region specified in the connection profile. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The update time of the resource. |
 ## Methods

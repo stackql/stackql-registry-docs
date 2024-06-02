@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>restore_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkebackup.restore_plans" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkebackup.restore_plans" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,7 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when this RestorePlan resource was created. |
 | <CopyableCode code="etag" /> | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform restore updates in order to avoid race conditions: An `etag` is returned in the response to `GetRestorePlan`, and systems are expected to put that etag in the request to `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change will be applied to the same version of the resource. |
 | <CopyableCode code="labels" /> | `object` | Optional. A set of custom labels supplied by user. |
-| <CopyableCode code="restoreConfig" /> | `object` | Configuration of a restore. Next id: 12 |
+| <CopyableCode code="restoreConfig" /> | `object` | Configuration of a restore. |
 | <CopyableCode code="state" /> | `string` | Output only. State of the RestorePlan. This State field reflects the various stages a RestorePlan can be in during the Create operation. |
 | <CopyableCode code="stateReason" /> | `string` | Output only. Human-readable description of why RestorePlan is in the current `state` |
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |

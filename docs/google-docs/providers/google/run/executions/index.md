@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>executions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.run.executions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="run.executions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -61,7 +61,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="executionsId, jobsId, locationsId, projectsId" /> | Gets information about an Execution. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Lists Executions from a Job. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Lists Executions from a Job. Results are sorted by creation time, descending. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="executionsId, jobsId, locationsId, projectsId" /> | Deletes an Execution. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Lists Executions from a Job. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Lists Executions from a Job. Results are sorted by creation time, descending. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="executionsId, jobsId, locationsId, projectsId" /> | Cancels an Execution. |
+| <CopyableCode code="export_status" /> | `EXEC` | <CopyableCode code="executionsId, executionsId1, jobsId, locationsId, projectsId" /> | Read the status of an image export operation. |

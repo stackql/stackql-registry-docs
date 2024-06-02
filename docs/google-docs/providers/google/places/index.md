@@ -21,8 +21,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>0</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -34,15 +34,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Places API (New)</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>places:v23.09.00169</code></td></tr>
+<tr><td><b>Id</b></td><td><code>places:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/google/places/places/">places</a><br />
+<a href="/providers/google/places/photos_media/">photos_media</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/places/text/">text</a><br />
+<a href="/providers/google/places/places/">places</a><br />
 </div>
 </div>

@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable Relational Database Service.  
+Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>17</b></span><br />
-<span>total selectable resources:&nbsp;<b>16</b></span><br />
-<span>total methods:&nbsp;<b>90</b></span><br />
+<span>total resources:&nbsp;<b>19</b></span><br />
+<span>total selectable resources:&nbsp;<b>18</b></span><br />
+<span>total methods:&nbsp;<b>109</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable R
 <tr><td><b>Name</b></td><td><code>google.spanner</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Spanner API</td></tr>
-<tr><td><b>Description</b></td><td>Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable Relational Database Service.</td></tr>
-<tr><td><b>Id</b></td><td><code>spanner:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service.</td></tr>
+<tr><td><b>Id</b></td><td><code>spanner:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -49,11 +49,13 @@ Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable R
 <a href="/providers/google/spanner/databases/">databases</a><br />
 <a href="/providers/google/spanner/databases_ddl/">databases_ddl</a><br />
 <a href="/providers/google/spanner/databases_iam_policies/">databases_iam_policies</a><br />
+<a href="/providers/google/spanner/databases_scans/">databases_scans</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/spanner/databases_scans/">databases_scans</a><br />
 <a href="/providers/google/spanner/instance_config_operations/">instance_config_operations</a><br />
 <a href="/providers/google/spanner/instance_configs/">instance_configs</a><br />
+<a href="/providers/google/spanner/instance_partition_operations/">instance_partition_operations</a><br />
+<a href="/providers/google/spanner/instance_partitions/">instance_partitions</a><br />
 <a href="/providers/google/spanner/instances/">instances</a><br />
 <a href="/providers/google/spanner/instances_iam_policies/">instances_iam_policies</a><br />
 <a href="/providers/google/spanner/operations/">operations</a><br />

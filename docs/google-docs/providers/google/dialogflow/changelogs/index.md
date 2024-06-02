@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>changelogs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.changelogs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.changelogs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,6 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="action" /> | `string` | The action of the change. |
 | <CopyableCode code="createTime" /> | `string` | The timestamp of the change. |
 | <CopyableCode code="displayName" /> | `string` | The affected resource display name of the change. |
+| <CopyableCode code="languageCode" /> | `string` | The affected language code of the change. |
 | <CopyableCode code="resource" /> | `string` | The affected resource name of the change. |
 | <CopyableCode code="type" /> | `string` | The affected resource type. |
 | <CopyableCode code="userEmail" /> | `string` | Email address of the authenticated user. |

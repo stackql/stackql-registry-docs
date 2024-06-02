@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.notebooks.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="notebooks.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. Labels to apply to this instance. These can be later modified by the UpdateInstance method. |
 | <CopyableCode code="proxyUri" /> | `string` | Output only. The proxy endpoint that is used to access the Jupyter notebook. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of this instance. |
+| <CopyableCode code="thirdPartyProxyUrl" /> | `string` | Output only. The workforce pools proxy endpoint that is used to access the Jupyter notebook. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Instance update time. |
 | <CopyableCode code="upgradeHistory" /> | `array` | Output only. The upgrade history of this instance. |
 ## Methods
@@ -57,6 +58,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | UpdateInstance updates an Instance. |
 | <CopyableCode code="report_info_system" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not use this method directly. |
 | <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Resets a notebook instance. |
+| <CopyableCode code="resize_disk" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Resize a notebook instance disk to a higher capacity. |
 | <CopyableCode code="rollback" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Rollbacks a notebook instance to the previous version. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Starts a notebook instance. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Stops a notebook instance. |

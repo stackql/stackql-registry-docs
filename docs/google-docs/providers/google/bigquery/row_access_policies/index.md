@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>row_access_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.row_access_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.row_access_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,7 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | Output only. A hash of this resource. |
 | <CopyableCode code="filterPredicate" /> | `string` | Required. A SQL boolean expression that represents the rows defined by this row access policy, similar to the boolean expression in a WHERE clause of a SELECT query on a table. References to other tables, routines, and temporary functions are not supported. Examples: region="EU" date_field = CAST('2019-9-27' as DATE) nullable_field is not NULL numeric_field BETWEEN 1.0 AND 5.0 |
 | <CopyableCode code="lastModifiedTime" /> | `string` | Output only. The time when this row access policy was last modified, in milliseconds since the epoch. |
-| <CopyableCode code="rowAccessPolicyReference" /> | `object` |  |
+| <CopyableCode code="rowAccessPolicyReference" /> | `object` | Id path of a row access policy. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

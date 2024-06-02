@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metric_descriptors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.metric_descriptors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.metric_descriptors" /></td></tr>
 </tbody></table>
 
 ## Fields

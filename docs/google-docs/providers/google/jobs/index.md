@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Cloud Talent Solution Provides The Capability To Create, Read, Update, And Delete Job Postings, As Well As Search Jobs Based On Keywords And Filters.   
+Cloud Talent Solution provides the capability to create, read, update, and delete job postings, as well as search jobs based on keywords and filters.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Cloud Talent Solution Provides The Capability To Create, Read, Update, And Delet
 <tr><td><b>Name</b></td><td><code>google.jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Talent Solution API</td></tr>
-<tr><td><b>Description</b></td><td>Cloud Talent Solution Provides The Capability To Create, Read, Update, And Delete Job Postings, As Well As Search Jobs Based On Keywords And Filters. </td></tr>
-<tr><td><b>Id</b></td><td><code>jobs:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Cloud Talent Solution provides the capability to create, read, update, and delete job postings, as well as search jobs based on keywords and filters. </td></tr>
+<tr><td><b>Id</b></td><td><code>jobs:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
